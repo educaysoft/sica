@@ -7,6 +7,16 @@ class Documento_model extends CI_model {
 		 return $documento;
 	}
 
+
+	//Retorna todos los registros como un objeto
+	function lista_documentosA(){
+		 $documento= $this->db->get('documento1');
+		 return $documento;
+	}
+
+
+
+
   //Retorna solamente un registro de el id pasado como parame
  	function documento($id){
  		$documento = $this->db->query('select * from documento where iddocumento="'. $id.'" order by iddocumento');
@@ -93,10 +103,10 @@ class Documento_model extends CI_model {
 	// Para moverse presentar  los emisores 
 	function emisores( $iddocu)
 	{
- 		$this->db->select('idpersona,nombres');
+ 		$this->db->select('idpersona,elemisor');
 		$this->db->where('iddocumento="'.$iddocu.'"');
 		$emisores=$this->db->get('emisor1');
-		$emisores=$this->db->query('select idpersona,nombres from emisor1 where iddocumento="'. $iddocu.'"');
+		$emisores=$this->db->query('select idpersona,elemisor from emisor1 where iddocumento="'. $iddocu.'"');
 		return $emisores;
 	}
 

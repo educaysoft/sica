@@ -6,6 +6,24 @@ class Institucion_model extends CI_model {
 		 return $institucion;
 	}
 
+public function get_institucion($id){
+	$condition = "idinstitucion =" .  $id ;
+	$this->db->select('*');
+	$this->db->from('institucion');
+	$this->db->where($condition);
+	$this->db->limit(1);
+	$query = $this->db->get();
+
+	if ($query->num_rows() == 1) {
+		return $query->result();
+	} else {
+		return false;
+	}
+
+}
+
+
+
  	function institucion( $id){
  		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $id.'"');
  		return $institucion;

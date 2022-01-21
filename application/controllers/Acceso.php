@@ -36,7 +36,7 @@ public function index(){
 
 public function add()
 {
-		$data['personas']= $this->persona_model->lista_persona()->result();
+	$data['personas']= $this->persona_model->lista_persona()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
   	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
@@ -96,14 +96,14 @@ public function edit()
  	}
 
 
-public function listar()
-{
+	public function listar()
+	{
 	
-  $data['title']="Accesos";
-	$this->load->view('template/page_header');		
-  $this->load->view('acceso_list',$data);
-	$this->load->view('template/page_footer');
-}
+  		$data['title']="Accesos";
+		$this->load->view('template/page_header');		
+  		$this->load->view('acceso_list',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
 

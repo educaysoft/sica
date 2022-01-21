@@ -69,7 +69,15 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
  </tr>
 
 
-   
+   <tr>
+     <td>Categoría:</td>
+     <td><?php 
+    $options= array("NADA");
+    foreach ($categorias as $row){
+	      $options[$row->idcategoria]= $row->nombre;
+    }
+    echo form_input('idcategoria',$options[$articulo['idcategoria']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+ </tr>
    
 
 </table>

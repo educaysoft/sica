@@ -49,11 +49,11 @@ echo form_input($arrdatos) ?></td>
   </tr>
 
   <tr>
-      <td>Emisor/es:</td>
+      <td> <?php echo anchor('emisor/add', 'Emisor/emisores:') ?></td>
       <td><?php
  	$options = array();
   	foreach ($emisores as $row){
-		$options[$row->idpersona]=$row->nombres;
+		$options[$row->idpersona]=$row->elemisor;
 	}
 
 
@@ -92,6 +92,10 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
      
 echo form_textarea('archivopdf',$documento['archivopdf'],$textarea_options) ?></td>
   </tr> 
+
+
+
+
    <tr>
       <td>Observacion:</td>
       <td><?php echo form_textarea('observacion',$documento['observacion'],array('placeholder'=>'observacion')) ?></td>

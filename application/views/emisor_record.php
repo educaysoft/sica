@@ -70,10 +70,10 @@ echo form_input('iddocumento',$options[$emisor['iddocumento']],array("disabled"=
      <td><?php 
 $options= array("NADA");
 foreach ($personas as $row){
-	$options[$row->idpersona]= $row->nombres;
+	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
 
-echo form_input('nombre',$options[$emisor['idpersona']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idpersona',$options[$emisor['idpersona']],array("disabled"=>"disabled")) ?></td>
   </tr>
 
  

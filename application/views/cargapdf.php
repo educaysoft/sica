@@ -66,6 +66,7 @@ alert(docu);
     async function showPDF(pdf_url) {
         document.querySelector("#pdf-loader").style.display = 'block';
 
+alert(pdf_url);
     // get handle of pdf document
     try {
         _PDF_DOC = await pdfjsLib.getDocument({ url: pdf_url });
@@ -196,5 +197,5 @@ function nex(){
     </div>
 
 //<?php echo base_url().$this->session->userdata['logged_in']['pdf']; ?>
-<?php echo  '<script type="text/javascript">  fdocumento("'.base_url()."pdfs/".$documento['archivopdf'].'");</script>';?>
+<?php echo  '<script type="text/javascript">  fdocumento("'."/Repositorio/".$documento['archivopdf'].'");</script>';?>
 </div>

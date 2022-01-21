@@ -46,32 +46,32 @@ foreach ($estudiantes as $row){
 	$options[$row->idestudiante]= $row->elestudiante;
 }
 
-echo form_input('idestudiante',$options[$portafolioestudiante['idestudiante']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idestudiante',$options[$portafolioestudiante['idestudiante']],array("disabled"=>"disabled", "style"=>"width:500px")) ?></td>
   </tr>
  
  
   
 <tr>
-     <td>Operadora:</td>
+     <td>Descripción del documento:</td>
      <td><?php 
 $options= array("NADA");
 foreach ($portafoliomodelos as $row){
 	$options[$row->idportafoliomodelo]= $row->nombre;
 }
 
-echo form_input('idportafoliomodelo',$options[$portafolioestudiante['idportafoliomodelo']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idportafoliomodelo',$options[$portafolioestudiante['idportafoliomodelo']],array("disabled"=>"disabled", "style"=>"width:500px")) ?></td>
   </tr>
 
 
 <tr>
-     <td>Estado del Telfono:</td>
+     <td>Estado del documento:</td>
      <td><?php 
 $options= array("NADA");
 foreach ($estado_portafolios as $row){
 	$options[$row->idestado_portafolio]= $row->nombre;
 }
 
-echo form_input('idestado_portafolio',$options[$portafolioestudiante['idestado_portafolio']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idestado_portafolio',$options[$portafolioestudiante['idestado_portafolio']],array("disabled"=>"disabled", "style"=>"width:500px")) ?></td>
   </tr>
 
 

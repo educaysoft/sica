@@ -1,0 +1,36 @@
+@startuml
+autonumber
+title Diagrama de secuencia proceso de titulación
+
+actor Estudiante #green
+actor Secretaria #yellow
+actor Director #red
+actor Secretario_Abogado #blue
+actor Docente
+Estudiante->Secretaria : Solicitud de inscripción a unidad de titulación especial(SIUTE)
+Secretaria->Director: Solicitud de inscripción a unidad de titulación especial(SIUTE)
+Director->Secretaria: Aprobación
+Secretaria->Estudiante: Aprobación`
+...2 semanas...
+Secretaria->Secretario_Abogado: Portafolio de estudiante \n Para revisión
+... 2 smanas ...
+Secretario_Abogado->Estudiante:	Certificado de idoneidad
+
+Estudiante->Secretaria: Matrícula en catedra integradora
+...1 semanas...
+Secretaria->Director: Entrega de listado de estudiantes matriculados a complexivos
+Director->Docente ++ : Autorización de inicial la categra
+...2 meses...
+Docente->Director: Elaboración y entrega de reactivos para los exámenes compexivos.
+Secretaria->Estudiante: Convocatoria a examen complexivo primera llamada.
+Estudiante->TIC: Recepción de examen compexivo: primera llamada
+TIC->Secretaria: Publicación de resultados y entrega de examenes compexivos.
+
+Secretaria->Estudiante: Convocatoria a examen complexivo: segunda llamada.
+Estudiante->TIC: Recepción de examen compexivo: segunda llamada
+TIC->Secretaria: Publicación de resultados y entrega de examenes compexivos.
+
+
+
+
+@enduml

@@ -66,7 +66,7 @@ if(isset($persona))
 
 
   <tr>
-      <td>Correos:</td>
+      <td> <?php echo anchor('correo/add', 'Correo:'); ?> </td>
       <td><?php
  	$options = array();
   	foreach ($correos as $row){
@@ -81,7 +81,7 @@ if(isset($persona))
 
 
 <tr>
-      <td>Telefono:</td>
+      <td> <?php echo anchor('telefono/add', 'Teléfono:'); ?> </td>
       <td><?php
  	$options = array();
   	foreach ($telefonos as $row){

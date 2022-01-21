@@ -49,6 +49,7 @@ public function add()
 
 public function edit()
 {
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	 	$data['unidad'] = $this->unidad_model->unidad($this->uri->segment(3))->row_array();
  	 	$data['title'] = "Actualizar Unidad";
  	 	$this->load->view('template/page_header');		
@@ -65,6 +66,7 @@ public function edit()
 		 	
 		 	'idunidad' => $this->input->post('idunidad'),
 		 	'nombre' => $this->input->post('nombre'),
+			'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
 	 	$this->unidad_model->update($id,$array_item);
 	 	redirect('unidad');
@@ -72,8 +74,7 @@ public function edit()
 
 public function listar()
 {
-	
-  $data['unidad'] = $this->unidad_model->lista_unidades()->result();
+  $data['unidad'] = $this->unidad_model->lista_unidadesA()->result();
   $data['title']="Unidad";
 	$this->load->view('template/page_header');		
   $this->load->view('unidad_list',$data);
@@ -87,10 +88,10 @@ function unidad_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->unidad_model->lista_unidades();
+	 	$data0 = $this->unidad_model->lista_unidadesA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idunidad,$r->nombre,
+			$data[]=array($r->idunidad,$r->lainstitucion,$r->nombre,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idunidad="'.$r->idunidad.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,

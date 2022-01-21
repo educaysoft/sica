@@ -6,6 +6,14 @@ class Unidad_model extends CI_model {
 		 return $unidad;
 	}
 
+
+	function lista_unidadesA(){
+		 $unidad= $this->db->get('unidad1');
+		 return $unidad;
+	}
+
+
+
  	function unidad( $id){
  		$unidad = $this->db->query('select * from unidad where idunidad="'. $id.'"');
  		return $unidad;

@@ -1,50 +1,89 @@
-<html>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top:  0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+</style>
 
 
-<body>
+<div class="row justify-content-center">
+      <!-- Page Heading -->
+1iv class="row">
+  <div class="col-12">
+             <div class="col-md-12">
+                 <h3>Institucion - Listar 
+                 <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
+			  
+        	</h3>
+       	     </div>
 
-<h2> <?php echo $title;  ?></h2>
-<hr/>
-<?php echo anchor('unidad/add', 'NUEVA UNIDAD'); ?>
-<br>
-<br>
-
-<table border="1">
-<tr>
-
-<th> ID UNIDAD</th>
-<th> NOMBRE</th>
-</tr>
-<tbody>
-<?php  foreach($unidad_list as $list) { ?>
-<tr>
-
-<td> <?php echo $list->idunidad ?></td>
-<td> <?php echo $list->nombre?></td>
-<td> <?php echo anchor('unidad/edit/'.$list->idunidad,'Editar') ?> || <?php echo anchor('unidad/delete/'.$list->idunidad,'Eliminar') ?></td>
+<table class="table table-striped table-bordered table-hover" id="mydatac">
+ <thead>
+ <tr>
+ <th>ID</th>
+ <th>Institucion</th>
+ <th>Unidad</th>
+ <th style="text-align: right;">Actions</th>
  </tr>
+ </thead>
 
+ <tbody id="show_data">
 
-<?php } ?>
-
-</tbody>
+ </tbody>
 </table>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="Modal_pdf" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: 800px;">
 
 
 
 
 
+ <div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
+
+ </div>
 
 
 
-</body>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('unidad/unidad_data')?>', type: 'GET'},});
+
+});
+
+$('#show_data').on('click','.item_ver',function(){
+
+window.location.href = "http://localhost/facae/index.php/unidad";
+
+});
 
 
+</script>
 
-
-
-
-
-
-
-</html>

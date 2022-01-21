@@ -42,9 +42,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
+<th>Tipo</th>
  <th>Elaboracion</th>
  <th>Recibido</th>
- <th>asunto</th>
+ <th>asunto/titulo</th>
  <th>archivopdf</th>
  <th style="text-align: right;">Actions</th>
  </tr>
@@ -131,7 +132,7 @@ $(document).ready(function(){
 // initialize and load the PDF
     async function showPDF(pdf_url) {
         document.querySelector("#pdf-loader").style.display = 'block';
-
+alert(pdf_url);
     // get handle of pdf document
     try {
         _PDF_DOC = await pdfjsLib.getDocument({ url: pdf_url });

@@ -21,11 +21,24 @@
 <table>
 
 <tr>
+     <td>Institucion:</td>
+     <td><?php 
+$options= array("NADA");
+foreach ($instituciones as $row){
+	$options[$row->idinstitucion]=$row->nombre;
+}
+
+echo form_input('idinstitucion',$options[$usuario['idinstitucion']],array("disabled"=>"disabled")) ?></td>
+  </tr>
+
+
+
+<tr>
      <td>Personas:</td>
      <td><?php 
 $options= array("NADA");
 foreach ($personas as $row){
-	$options[$row->idpersona]= $row->nombres;
+	$options[$row->idpersona]=$row->apellidos."   ".$row->nombres;
 }
 
 echo form_input('idpersona',$options[$usuario['idpersona']],array("disabled"=>"disabled")) ?></td>

@@ -14,6 +14,7 @@ parent::__construct();
 	$this->load->model('acceso_model');
 	$this->load->model('modulo_model');
 	$this->load->model('nivelacceso_model');
+	$this->load->model('institucion_model');
 //$this->load->model('programa_model');
 }
 
@@ -121,6 +122,8 @@ if ($result == TRUE) {
 	// Se busca la información del dueño del usuario.
 		$result2 = $this->login_model->get_persona($result[0]->idpersona);
 		if ($result2 != false) {
+		     
+		$resulti = $this->institucion_model->get_institucion($result[0]->idinstitucion);
 			$session_data = array(
 				'email' => $result[0]->email,
 				'elusuario' => $result2[0]->apellidos." ".$result2[0]->nombres,
@@ -128,6 +131,7 @@ if ($result == TRUE) {
 				'foto' => $result2[0]->foto,
 				'pdf' => $result2[0]->pdf,
 				'inicio'=>$result[0]->inicio,
+				'institucion'=>$resulti[0]->nombre,
 				);
 		}	
 		

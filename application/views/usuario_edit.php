@@ -9,15 +9,27 @@
      <td>Contraseña</td>
      <td><?php echo form_input('password',$usuario['password'],array('placeholder'=>'Password')) ?></td>
   </tr>
+
+
+	<tr>
+     	<td>Institución:</td>
+     	<td><?php 
+ 	$options = array('--Select--');
+  	foreach ($instituciones as $row){
+		$options[$row->idinstitucion]=$row->nombre;
+	}
+	echo form_dropdown('idinstitucion',$options,$usuario['idinstitucion']); ?></td>
+  	</tr>
+
+
   <tr>
      <td>Id Persona:</td>
-      
      <td><?php 
 
- $options = array('--Select--');
-  foreach ($personas as $row){
-	$options[$row->idpersona]=$row->nombres;
-}
+	$options = array('--Select--');
+  	foreach ($personas as $row){
+		$options[$row->idpersona]=is_null($row->apellidos)?" ":$row->apellidos." ".$row->nombres;
+	}
 
 echo form_dropdown('idpersona',$options,$usuario['idpersona']); ?></td>
   </tr>

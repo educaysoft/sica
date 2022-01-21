@@ -27,7 +27,7 @@ foreach ($documentos as $row){
 <td><?php
 $options= array('--Select--');
 foreach ($personas as $row){
-	$options[$row->idpersona]= $row->nombres;
+	$options[$row->idpersona]= $row->lapersona;
 }
 
  echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'));  ?></td>

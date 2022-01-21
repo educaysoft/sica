@@ -105,11 +105,11 @@ function documento_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->documento_model->lista_documentos();
+	 	$data0 = $this->documento_model->lista_documentosA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->iddocumento,$r->fechaelaboracion,$r->fechaentrerecep,$r->asunto,$r->archivopdf,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_pdf"  data-iddocumento="'.$r->iddocumento.'" data-archivopdf="'.base_url()."pdfs/".$r->archivopdf.'">pdf</a>');
+			$data[]=array($r->iddocumento,$r->eltipodocu,$r->fechaelaboracion,$r->fechaentrerecep,$r->asunto,$r->archivopdf,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_pdf"  data-iddocumento="'.$r->iddocumento.'" data-archivopdf="'."/Repositorio/".$r->archivopdf.'">pdf</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -215,7 +215,7 @@ public function anterior(){
 
 public function edit()
 {
-	 	$data['documento'] = $this->documento_model->documento($this->uri->segment(3))->row_array();
+    $data['documento'] = $this->documento_model->documento($this->uri->segment(3))->row_array();
     $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
     $data['emisores'] =$this->documento_model->emisores($this->uri->segment(3))->result();
     $data['destinatarios'] = $this->documento_model->destinatarios($this->uri->segment(3))->result();
@@ -289,7 +289,9 @@ $filename = $_POST('archivopdf');
 
 echo $filename;
 die();
-$target_dir =  $_SERVER["DOCUMENT_ROOT"]."/facae/pdfs/".$filename;
+//La direccion debe ser la completa
+$target_dir =  $_SERVER["DOCUMENT_ROOT"]."/Repositorio/".$filename;
+//$target_dir =  base_url()."pdfs/".$filename;
 //$target_dir =  $_SERVER["DOCUMENT_ROOT"]."/facae/".trim($this->session->userdata['logged_in']['pdf']);  //"uploads/";
 $target_file =$target_dir; // $target_dir . basename($_FILES["fileToUpload"]["name"]);
   echo $target_file.' - ';
@@ -306,7 +308,7 @@ if (file_exists($target_file)) {
   $uploadOk = 0;
 }
 // Check file size
-if ($_FILES["filepdf"]["size"] > 1000000) {
+if ($_FILES["filepdf"]["size"] > 5000000) {
   echo "Sorry, your file is too large.";
   $uploadOk = 0;
 }
@@ -338,15 +340,14 @@ if ($uploadOk == 0) {
 function loadpdf3()
 {
 
-// Count total files
-$countfiles = count($_FILES['files']['name']);
+	// Count total files
+	$countfiles = count($_FILES['files']['name']);
 
+	$upload_location =  $_SERVER["DOCUMENT_ROOT"]."/Repositorio/";
+//	$upload_location =  base_url()."pdfs/";
 
-
-$upload_location =  $_SERVER["DOCUMENT_ROOT"]."/facae/pdfs/";
-
-// Upload directory
-//$upload_location = "uploads/";
+	// Upload directory
+	//$upload_location = "uploads/";
 
 $count = 0;
 for($i=0;$i < $countfiles;$i++){

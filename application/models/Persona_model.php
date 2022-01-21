@@ -7,6 +7,13 @@ class Persona_model extends CI_model {
 	}
 
 
+	function lista_personasA(){
+		 $persona= $this->db->get('persona2');
+		 return $persona;
+	}
+
+
+
 	function persona2(){
 		 $persona= $this->db->get('persona2');
 		 return $persona;

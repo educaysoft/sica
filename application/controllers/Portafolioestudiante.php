@@ -88,7 +88,7 @@ public function add()
 public function edit()
 {
 	 	$data['portafolioestudiante'] = $this->portafolioestudiante_model->portafolioestudiante($this->uri->segment(3))->row_array();
-		$data['estudiantes']= $this->estudiante_model->lista_estudiante()->result();
+		$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
   		$data['portafoliomodelos']= $this->portafoliomodelo_model->lista_portafoliomodelos()->result();
   		$data['estado_portafolios']= $this->estado_portafolio_model->lista_estado_portafolio()->result();
  	 	$data['title'] = "Actualizar Portafolioestudiante";
@@ -207,8 +207,8 @@ public function elultimo()
 public function siguiente(){
  // $data['portafolioestudiante_list']=$this->portafolioestudiante_model->lista_portafolioestudiante()->result();
 	$data['portafolioestudiante'] = $this->portafolioestudiante_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['estudiantes']= $this->estudiante_model->lista_estudiante()->result();
-  	$data['portafoliomodelos']= $this->portafoliomodelo_model->lista_portafoliomodelo()->result();
+  	$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
+  	$data['portafoliomodelos']= $this->portafoliomodelo_model->lista_portafoliomodelos()->result();
   	$data['estado_portafolios']= $this->estado_portafolio_model->lista_estado_portafolio()->result();
   $data['title']="Portafolioestudiante";
 	$this->load->view('template/page_header');		

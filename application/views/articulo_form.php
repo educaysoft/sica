@@ -33,6 +33,20 @@ foreach ($instituciones as $row){
 
 
 <tr>
+<td> Categoría: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($categorias as $row){
+	$options[$row->idcategoria]= $row->nombre;
+}
+
+ echo form_dropdown("idcategoria",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
+
+<tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("articulo","Atras") ?> </td>
 </tr>
 

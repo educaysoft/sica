@@ -58,15 +58,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </div>
 
 <div class="modal fade" id="Modal_pdf" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: 800px;">
-
-
-
-
-
- <div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-</div>
-
+ 	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	</div>
  </div>
 
 

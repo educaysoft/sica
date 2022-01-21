@@ -2,19 +2,20 @@
 
 class Usuario extends CI_Controller{
 
-  public function __construct(){
-      parent::__construct();
-      $this->load->model('usuario_model');
-      $this->load->model('persona_model');
-      $this->load->model('perfil_model');
-}
+  	public function __construct(){
+      		parent::__construct();
+      		$this->load->model('usuario_model');
+      		$this->load->model('persona_model');
+      		$this->load->model('perfil_model');
+      		$this->load->model('institucion_model');
+	}
 
-public function index(){
-//	$data['usuario']=$this->usuario_model->usuario(1)->row_array();
+	public function index(){
 	$data['usuario'] = $this->usuario_model->elprimero();
 	$data['personas']= $this->persona_model->lista_persona()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
- // print_r($data['usuario_list']);
+	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+
   	$data['title']="Lista de Usuarios";
 	$this->load->view('template/page_header');		
   	$this->load->view('usuario_record',$data);
@@ -26,6 +27,7 @@ public function add()
 {
 		$data['personas']= $this->persona_model->lista_persona()->result();
 		$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['title']="Nuevo Usuario";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('usuario_form',$data);
@@ -54,6 +56,7 @@ public function edit()
 	 	$data['usuario'] = $this->usuario_model->usuario($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_persona()->result();
 		$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
  	 	$data['title'] = "Actualizar Usuario";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('usuario_edit',$data);
@@ -68,6 +71,7 @@ public function edit()
 	 	$array_item=array(
 		 	'password' => $this->input->post('password'),
 		 	'idpersona' => $this->input->post('idpersona'),
+		 	'idinstitucion' => $this->input->post('idinstitucion'),
 		 	'idperfil' => $this->input->post('idperfil'),
 		 	'email' => $this->input->post('email'),
 		 	'inicio' => $this->input->post('inicio'),
@@ -93,6 +97,7 @@ public function listar()
 	
   $data['usuario'] = $this->usuario_model->lista_usuarios()->result();
   $data['perfil']= $this->perfil_model->lista_perfiles()->result();
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   $data['title']="Usuarios";
 	$this->load->view('template/page_header');		
   $this->load->view('usuario_list',$data);
@@ -130,6 +135,7 @@ public function elprimero()
 	$data['usuario'] = $this->usuario_model->elprimero();
 	$data['personas']= $this->persona_model->lista_persona()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   if(!empty($data))
   {
     $data['title']="Usuario";
@@ -154,6 +160,7 @@ public function elultimo()
 	$data['usuario'] = $this->usuario_model->elultimo();
 	$data['personas']= $this->persona_model->lista_persona()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   if(!empty($data))
   {
     $data['title']="Usuario";
@@ -184,6 +191,7 @@ public function siguiente(){
 	$data['usuario'] = $this->usuario_model->siguiente($this->uri->segment(3))->row_array();
 	$data['personas']= $this->persona_model->lista_persona()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   $data['title']="Usuario";
 	$this->load->view('template/page_header');		
   $this->load->view('usuario_record',$data);
@@ -196,9 +204,10 @@ public function anterior(){
 	$data['usuario'] = $this->usuario_model->anterior($this->uri->segment(3))->row_array();
 	$data['personas']= $this->persona_model->lista_persona()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
-  $data['title']="Usuario";
+	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['title']="Usuario";
 	$this->load->view('template/page_header');		
-  $this->load->view('usuario_record',$data);
+  	$this->load->view('usuario_record',$data);
 	$this->load->view('template/page_footer');
 }
 

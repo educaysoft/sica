@@ -48,7 +48,7 @@ foreach ($tipodocus as $row){
       <td><?php
  	$options = array();
   	foreach ($emisores as $row){
-		$options[$row->idpersona]=$row->nombres;
+		$options[$row->idpersona]=$row->elemisor;
 	}
 
 
@@ -114,26 +114,19 @@ echo form_button("carga","cargar archivo",$js); ?>
 
 <div style="display: inline-block";>
 <div style="float: left;">
-<?php 
-
-$upload_data = array('type' => 'file','name' => 'files','id' => 'files');
-echo form_upload($upload_data );?>
-</div>
-<div style="float: left;">
-<?php 
-$url= base_url()."index.php/documento/loadpdf3";
-
-$js='onClick="uploadFiles(\''.$url.'\')"';     
-echo form_button("carga","cargar a directorio",$js); ?>
-</div> 
-</div>
- </td>
+	<?php 
+	$upload_data = array('type' => 'file','name' => 'files','id' => 'files');
+	echo form_upload($upload_data );?>
+	</div>
+		<div style="float: left;">
+			<?php 
+			$url= base_url()."index.php/documento/loadpdf3";
+			$js='onClick="uploadFiles(\''.$url.'\')"';     
+			echo form_button("carga","cargar a directorio",$js); ?>
+		</div> 
+	</div>
+</td>
 </tr>
-
-
-
-
-
 
 
    <tr>
@@ -191,7 +184,6 @@ function uploadFiles(url) {
 
   var totalfiles = document.getElementById('files').files.length;
 
-  alert("hola");
   if(totalfiles > 0 ){
 
     var formData = new FormData();
@@ -226,13 +218,6 @@ function uploadFiles(url) {
   }
 
 }
-
-
-
-
-
-
-
 </script>
 
 

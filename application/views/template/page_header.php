@@ -578,7 +578,8 @@ span a {
     	</div>    
 
 		<div class="media-left" style=" display:table-cell; vertical-align:middle; "  >
-			<p style="font-size: 1em;line-height: 20px; " > UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS</p>
+			<p style="font-size: 1em;line-height: 20px; " ><?php echo  $this->session->userdata['logged_in']['institucion']; ?>  </p>
+		<!---	<p style="font-size: 1em;line-height: 20px; " > UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS</p>  --->
 		</div>
 
 </div>

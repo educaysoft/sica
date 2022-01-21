@@ -12,8 +12,9 @@ class Emisor extends CI_Controller{
 public function index(){
   $data['documentos']= $this->documento_model->lista_documentos()->result();
   $data['personas']= $this->persona_model->lista_persona()->result();
-  $data['emisor']=$this->emisor_model->emisor(1)->row_array();
+ // $data['emisor']=$this->emisor_model->emisor(1)->row_array();
 
+	$data['emisor'] = $this->emisor_model->elprimero();
  // print_r($data['usuario_list']);
   $data['title']="Lista de Emisores";
 	$this->load->view('template/page_header');		
@@ -24,7 +25,7 @@ public function index(){
 
 public function add()
 {
-		$data['personas']= $this->persona_model->lista_persona()->result();
+		$data['personas']= $this->persona_model->lista_personasA()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['title']="Nuevo Emisor";
 	 	$this->load->view('template/page_header');		
@@ -94,7 +95,7 @@ public function elprimero()
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_persona()->result();
-    $data['title']="Correo";
+    $data['title']="Emisor del documento";
     $this->load->view('template/page_header');		
     $this->load->view('emisor_record',$data);
     $this->load->view('template/page_footer');
@@ -112,7 +113,7 @@ public function elultimo()
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_persona()->result();
-    $data['title']="Correo";
+    $data['title']="Emisor del documento";
   
     $this->load->view('template/page_header');		
     $this->load->view('emisor_record',$data);
@@ -130,7 +131,8 @@ public function siguiente(){
   $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['emisor'] = $this->emisor_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_persona()->result();
-  $data['title']="Correo";
+    $data['title']="Emisor del documento";
+ // $data['title']="Correo";
 	$this->load->view('template/page_header');		
   $this->load->view('emisor_record',$data);
 	$this->load->view('template/page_footer');
@@ -141,7 +143,8 @@ public function anterior(){
   $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['emisor'] = $this->emisor_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_persona()->result();
-  $data['title']="Correo";
+ // $data['title']="Correo";
+    $data['title']="Emisor del documento";
 	$this->load->view('template/page_header');		
   $this->load->view('emisor_record',$data);
 	$this->load->view('template/page_footer');
