@@ -34,7 +34,7 @@ if(isset($detainventario))
 <table>
   <tr>
      <td>Id detainventario:</td>
-     <td><?php echo form_input('iddetainventario',$detainventario['iddetainventario'],array("disabled"=>"disabled",'placeholder'=>'Iddetainventarios')) ?></td>
+     <td><?php echo form_input('iddetainventario',$detainventario['iddetainventario'],array("disabled"=>"disabled",'placeholder'=>'Iddetainventarios','style'=>'width:500px')) ?></td>
   </tr>
  
  
@@ -46,7 +46,7 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
 
-echo form_input('idpersona',$options[$detainventario['idpersona']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idpersona',$options[$detainventario['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
   </tr>
  
  
@@ -62,7 +62,7 @@ foreach ($articulos as $row){
 	$options[$row->idarticulo]= $row->nombre;
 }
 
-echo form_input('idarticulo',$options[$detainventario['idarticulo']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idarticulo',$options[$detainventario['idarticulo']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
   </tr>
 
 
@@ -74,17 +74,17 @@ foreach ($inventarios as $row){
 	$options[$row->idinventario]= $row->nombre;
 }
 
-echo form_input('idinventario',$options[$detainventario['idinventario']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idinventario',$options[$detainventario['idinventario']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
   </tr>
 
 <tr>
      <td>Ubicación del bien:</td>
-     <td><?php echo form_input('ubicacion',$detainventario['ubicacion'],array("disabled"=>"disabled",'placeholder'=>'Ubicacion')) ?></td>
+     <td><?php echo form_input('ubicacion',$detainventario['ubicacion'],array("disabled"=>"disabled",'placeholder'=>'Ubicacion','style'=>'width:500px')) ?></td>
   </tr>
 
 <tr>
      <td>Detalle del esado del bien:</td>
-     <td><?php echo form_input('descripcion',$detainventario['descripcion'],array("disabled"=>"disabled",'placeholder'=>'Descripcion')) ?></td>
+     <td><?php echo form_input('descripcion',$detainventario['descripcion'],array("disabled"=>"disabled",'placeholder'=>'Descripcion','style'=>'width:500px')) ?></td>
   </tr>
 </table>
 <?php echo form_close(); ?>

@@ -43,22 +43,22 @@ foreach ($instituciones as $row){
 	$options[$row->idinstitucion]= $row->nombre;
 }
 
-echo form_input('idinstitucion',$options[$inventario['idinstitucion']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idinstitucion',$options[$inventario['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
   </tr>
  
  
 
 
   <tr>
-     <td>Id Inventario:</td>
-     <td><?php echo form_input('idinventario',$inventario['idinventario'],array("disabled"=>"disabled",'placeholder'=>'Idinventarios')) ?></td>
+     <td>Id:</td>
+     <td><?php echo form_input('idinventario',$inventario['idinventario'],array("disabled"=>"disabled",'placeholder'=>'Idinventarios','style'=>'width:500px')) ?></td>
   </tr>
  
  
  
   <tr>
      <td>Nombre:</td>
-     <td><?php echo form_input('nombre',$inventario['nombre'],array("disabled"=>"disabled",'placeholder'=>'Nombre')) ?></td>
+     <td><?php echo form_input('nombre',$inventario['nombre'],array("disabled"=>"disabled",'placeholder'=>'Nombre','style'=>'width:500px')) ?></td>
   </tr>
 
 

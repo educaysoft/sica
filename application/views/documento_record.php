@@ -84,14 +84,14 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
   </tr>
 
 
-  <tr>
+   
+
+
+<tr>
      <td><a href="<?php echo base_url(); ?>index.php/documento/show_pdf/<?php echo $documento['iddocumento']; ?>">Archivo_Pdf</a></td>
-     <td><?php 
-     
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500;height:100px;');    
-     
-echo form_textarea('archivopdf',$documento['archivopdf'],$textarea_options) ?></td>
-  </tr> 
+     <td><?php echo form_input('archivopdf',$documento['archivopdf'],array("disabled"=>"disabled",'placeholder'=>'Archivo php','style'=>'width:500px;')) ?></td>
+  </tr>
+
 
 
 

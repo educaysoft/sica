@@ -19,7 +19,7 @@ public function index(){
   		$data['articulos']= $this->articulo_model->lista_articulos()->result();
   		$data['inventarios']= $this->inventario_model->lista_inventario()->result();
 			
-		$data['title']="Lista de detainventarioes";
+		$data['title']="Destalle del invetario";
 		$this->load->view('template/page_header');
 		$this->load->view('detainventario_record',$data);
 		$this->load->view('template/page_footer');
