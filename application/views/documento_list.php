@@ -108,6 +108,21 @@ $(document).ready(function(){
 
 	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET'},});
 
+
+$('#show_data').on('click','.item_ver',function(){
+
+let ubicacion=$(this).data('ubicacion');
+let archivo = $(this).data('archivo');
+var certi= ubicacion.trim()+archivo.trim();
+
+window.location.href = certi;
+
+});
+
+
+
+
+
 	 $('#show_data').on('click','.item_pdf',function(){
 		 var iddocumento = $(this).data('iddocumento');
 		 var archivopdf =  $(this).data('archivopdf');

@@ -85,17 +85,83 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <tr>
 <td> Observacion </td>
 <td><?php
-    
+    	
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"observacion" );    
     
  echo form_textarea("observacion","", $textarea_options)  ?></td>
 </tr>
 
 
+
+<tr>
+    <td>Ordenador destino:</td>
+    <td><?php
+    $options= array('--Select--');
+    foreach ($ordenadores as $row){
+      $options[$row->idordenador]= $row->nombre;
+    }
+     echo form_dropdown($name="idordenador",$options, set_select('--Select--','default_value'),array('onchange'=>'get_directorio()'));  ?></td>
+</tr>
+
+<tr>
+    <td>Directorio:</td>
+    <td>
+<div class="form-group">
+                    <select class="form-control" id="iddirectorio" name="iddirectorio" required>
+                        <option>No Selected</option>
+ 
+                    </select>
+                  </div>
+
+
+
+</td>
+
+</tr>
 </table>
+
+
+
 <?php echo form_close();?>
     
   <script>
+
+
+function get_directorio() {
+	var idordenador = $('select[name=idordenador]').val();
+  alert(idordenador);  
+    $.ajax({
+        url: "<?php echo site_url('documento/get_directorio') ?>",
+        data: {idordenador: idordenador},
+        method: 'POST',
+	async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        for(i=0; i<data.length; i++){
+        html += '<option value='+data[i].iddirectorio+'>'+data[i].nombre+'</option>';
+        }
+        $('#iddirectorio').html(html);
+
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
+
+
+
+
+
+
+
+
   async function nombredearchivo()
 {
  indice=document.getElementById("iddocumento").value;

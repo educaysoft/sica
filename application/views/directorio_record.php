@@ -7,10 +7,10 @@
 
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
     <ul>
-        <li> <?php echo anchor('directorio/primero/', 'primero'); ?></li>
+        <li> <?php echo anchor('directorio/elprimero/', 'primero'); ?></li>
         <li> <?php echo anchor('directorio/anterior/'.$directorio['iddirectorio'], 'anterior'); ?></li>
         <li> <?php echo anchor('directorio/siguiente/'.$directorio['iddirectorio'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('directorio/ultimo/', 'Último'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('directorio/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('directorio/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('directorio/edit/'.$directorio['iddirectorio'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('directorio/delete/'.$directorio['iddirectorio'],'Delete'); ?></li>
@@ -27,7 +27,16 @@
 
   
  
+<tr>
+     <td>Ordenador:</td>
+     <td><?php 
+$options= array("NADA");
+foreach ($ordenadores as $row){
+	$options[$row->idordenador]= $row->nombre;
+}
 
+echo form_input('idordenador',$options[$directorio['idordenador']],array("disabled"=>"disabled")) ?></td>
+  </tr>
 
   <tr>
      <td>Id:</td>

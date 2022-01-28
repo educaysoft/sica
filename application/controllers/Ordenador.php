@@ -79,7 +79,6 @@ public function edit()
 public function listar()
 {
 	
-  $data['ordenador'] = $this->ordenador_model->lista_ordenadores()->result();
   $data['title']="Ordenador";
 	$this->load->view('template/page_header');		
   $this->load->view('ordenador_list',$data);

@@ -93,6 +93,29 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
   </tr>
 
 
+<tr>
+     <td>Ordenador:</td>
+     <td><?php 
+$options= array("NADA");
+foreach ($ordenadores as $row){
+	$options[$row->idordenador]= $row->nombre;
+}
+
+echo form_input('idordenador',$options[$documento['idordenador']],array("disabled"=>"disabled")) ?></td>
+  </tr>
+
+
+
+<tr>
+     <td>Directorio:</td>
+     <td><?php 
+$options= array("NADA");
+foreach ($directorios as $row){
+	$options[$row->iddirectorio]= $row->nombre;
+}
+
+echo form_input('iddirectorio',$options[$documento['iddirectorio']],array("disabled"=>"disabled")) ?></td>
+  </tr>
 
 
 

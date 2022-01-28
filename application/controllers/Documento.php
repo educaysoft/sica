@@ -6,14 +6,19 @@ class Documento extends CI_Controller{
       parent::__construct();
       $this->load->model('documento_model');
       $this->load->model('tipodocu_model');
+      $this->load->model('ordenador_model');
+      $this->load->model('directorio_model');
 }
 
 public function index(){
  if(isset($this->session->userdata['logged_in'])){
-	$data['documento'] = $this->documento_model->documento(1)->row_array();
+	$data['documento'] = $this->documento_model->elprimero();
 	$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 	$data['emisores'] =$this->documento_model->emisores(1)->result();
 	$data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
+	$data['ordenadores'] = $this->ordenador_model->ordenador($data['documento']['iddocumento'])->result();
+	$data['directorios'] = $this->directorio_model->directorio($data['documento']['iddocumento'])->result();
+
 	$data['title']="Uste esta visualizando Documentos por registro";
 	$this->load->view('template/page_header');		
 	$this->load->view('documento_record',$data);
@@ -36,6 +41,7 @@ public function add()
 {
 		$data['title']="Usted esta Creando un nuevo Documento";
 		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['ordenadores']= $this->ordenador_model->lista_ordenadores()->result();
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('documento_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -58,6 +64,8 @@ public function add()
 			'fechaelaboracion' => $this->input->post('fechaelaboracion'),
 			'fechaentrerecep' => $this->input->post('fechaentrerecep'),
 			'observacion' => $this->input->post('observacion'),
+			'idordenador' => $this->input->post('idordenador'),
+			'iddirectorio' => $this->input->post('iddirectorio'),
 	 	);
 	 	$this->documento_model->save($array_item);
 	 	redirect('documento');
@@ -109,7 +117,7 @@ function documento_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->iddocumento,$r->eltipodocu,$r->fechaelaboracion,$r->fechaentrerecep,$r->asunto,$r->archivopdf,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_pdf"  data-iddocumento="'.$r->iddocumento.'" data-archivopdf="'."/Repositorio/".$r->archivopdf.'">pdf</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_pdf"  data-iddocumento="'.$r->iddocumento.'" data-archivopdf="'."/Repositorio/".$r->archivopdf.'">pdf</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-iddocumento="'.$r->iddocumento.'"  data-ubicacion="'.$r->ubicacion.'"  data-archivo="'.$r->archivopdf.'">dowload</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -157,6 +165,8 @@ public function elultimo()
     $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
     $data['emisores'] =$this->documento_model->emisores($data['documento']['iddocumento'])->result();
     $data['destinatarios'] = $this->documento_model->destinatarios($data['documento']['iddocumento'])->result();
+	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
+	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
     $data['title']="Documento";
   
     $this->load->view('template/page_header');		
@@ -380,6 +390,28 @@ echo $count;
 exit;
 
 
+}
+
+
+
+public function get_directorio() {
+    $this->load->database();
+    $this->load->helper('form');
+    $states = array('--Select--');  
+    if($this->input->post('idordenador')) {
+        $this->db->select('*');
+        $this->db->where(array('idordenador' => $this->input->post('idordenador')));
+        $query = $this->db->get('directorio');
+	$data=$query->result();
+	echo json_encode($data);
+	}
+
+//        foreach($query->result() as $item)
+  //          $states[$item->iddirectorio] = $item->nombre;
+   // }
+
+   // $output = form_dropdown('iddirectorio', $states, set_select('--Select--','default_value'));
+   // echo $output;
 }
 
 
