@@ -41,15 +41,15 @@ public function add()
 
 
 
-public function edit()
-{
+	public function edit()
+	{
 	 	$data['tipodocu'] = $this->tipodocu_model->tipodocu($this->uri->segment(3))->row_array();
  	 	$data['title'] = "Actualizar tipodocu";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('tipodocu_edit',$data);
 	 	$this->load->view('template/page_footer');
  
-}
+	}
 
 
 	public function  save_edit()
@@ -78,7 +78,7 @@ public function edit()
 public function listar()
 {
 	
-  $data['tipodocu_list'] = $this->tipodocu_model->lista_tipodocu()->result();
+  $data['tipodocu_list'] = $this->tipodocu_model->lista_tipodocusA()->result();
   $data['title']="Tipo documento";
 	$this->load->view('template/page_header');		
   $this->load->view('tipodocu_list',$data);
@@ -94,10 +94,10 @@ function tipodocu_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->tipodocu_model->lista_tipodocues();
+	 	$data0 = $this->tipodocu_model->lista_tipodocusA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idtipodocu,$r->nombre,
+			$data[]=array($r->idtipodocu,$r->descripcion,r->cantidad,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipodocu="'.$r->idtipodocu.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,

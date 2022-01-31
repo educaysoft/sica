@@ -197,5 +197,5 @@ function nex(){
     </div>
 
 //<?php echo base_url().$this->session->userdata['logged_in']['pdf']; ?>
-<?php echo  '<script type="text/javascript">  fdocumento("'."/Repositorio/".$documento['archivopdf'].'");</script>';?>
+<?php echo  '<script type="text/javascript">  fdocumento("'.$documento['ruta'].$documento['archivopdf'].'");</script>';?>
 </div>

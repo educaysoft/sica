@@ -15,6 +15,12 @@ class Documento_model extends CI_model {
 	}
 
 
+	//Retorna todos los registros como un objeto
+	function lista_documentosB($idtipodocu){
+		$this->db->where('idtipodocu="'.$idtipodocu.'"');
+		 $documento= $this->db->get('documento1');
+		 return $documento;
+	}
 
 
   //Retorna solamente un registro de el id pasado como parame
@@ -23,10 +29,35 @@ class Documento_model extends CI_model {
  		return $documento;
  	}
 
+ 	function documentoA($id){
+ 		$documento = $this->db->query('select * from documento1 where iddocumento="'. $id.'" order by iddocumento');
+ 		return $documento;
+ 	}
+
+
+
+
+
   // Para guardar un registro nuevo
-	function save($array)
+	function save($array,$array_creador)
  	{
+		$this->db->trans_start();
 		$this->db->insert("documento", $array);
+		if( $this->db->affected_rows()>0) {
+			$iddocumento=$this->db->insert_id();
+			$array_creador['iddocumento']=$iddocumento;
+			$this->db->insert('emisor',$array_creador);
+			if($this->db->affected_rows()>0){
+				$this->db->trans_complete();
+				return true;
+			}else{
+
+				$this->db->rans_complete();
+				return false;
+			}
+		}else{
+			return false;
+		}
  	}
 
 	// Para actualiza un registro

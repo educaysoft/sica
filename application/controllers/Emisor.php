@@ -9,31 +9,28 @@ class Emisor extends CI_Controller{
       $this->load->model('documento_model');
 }
 
-public function index(){
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
-  $data['personas']= $this->persona_model->lista_persona()->result();
- // $data['emisor']=$this->emisor_model->emisor(1)->row_array();
+	public function index(){
+  		$data['documentos']= $this->documento_model->lista_documentos()->result();
+  		$data['personas']= $this->persona_model->lista_persona()->result();
+ 		// $data['emisor']=$this->emisor_model->emisor(1)->row_array();
+		$data['emisor'] = $this->emisor_model->elprimero();
+ 		// print_r($data['usuario_list']);
+  		$data['title']="Lista de Emisores";
+		$this->load->view('template/page_header');		
+  		$this->load->view('emisor_record',$data);
+		$this->load->view('template/page_footer');
+	}
 
-	$data['emisor'] = $this->emisor_model->elprimero();
- // print_r($data['usuario_list']);
-  $data['title']="Lista de Emisores";
-	$this->load->view('template/page_header');		
-  $this->load->view('emisor_record',$data);
-	$this->load->view('template/page_footer');
-}
 
-
-public function add()
-{
+	public function add()
+	{
 		$data['personas']= $this->persona_model->lista_personasA()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['title']="Nuevo Emisor";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('emisor_form',$data);
 	 	$this->load->view('template/page_footer');
-
-
-}
+	}
 
 
 	public function  save()

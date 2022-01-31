@@ -6,6 +6,14 @@ class Tipodocu_model extends CI_model {
 		 return $tipodocu;
 	}
 
+	function lista_tipodocusA(){
+		 $tipodocu= $this->db->get('tipodocu1');
+		 return $tipodocu;
+	}
+
+
+
+
  	function tipodocu( $id){
  		$tipodocu = $this->db->query('select * from tipodocu where idtipodocu="'. $id.'"');
  		return $tipodocu;

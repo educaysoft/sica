@@ -8,28 +8,28 @@ class Documento extends CI_Controller{
       $this->load->model('tipodocu_model');
       $this->load->model('ordenador_model');
       $this->load->model('directorio_model');
-}
+      $this->load->model('persona_model');
+	}
 
-public function index(){
- if(isset($this->session->userdata['logged_in'])){
-	$data['documento'] = $this->documento_model->elprimero();
-	$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-	$data['emisores'] =$this->documento_model->emisores(1)->result();
-	$data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
-	$data['ordenadores'] = $this->ordenador_model->ordenador($data['documento']['iddocumento'])->result();
-	$data['directorios'] = $this->directorio_model->directorio($data['documento']['iddocumento'])->result();
+	public function index(){
+ 		if(isset($this->session->userdata['logged_in'])){
+			$data['documento'] = $this->documento_model->elprimero();
+			$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+			$data['emisores'] =$this->documento_model->emisores(1)->result();
+			$data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
+			$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
+			$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 
-	$data['title']="Uste esta visualizando Documentos por registro";
-	$this->load->view('template/page_header');		
-	$this->load->view('documento_record',$data);
-	$this->load->view('template/page_footer');
-
-   }else{
-	$this->load->view('template/page_header.php');
-	$this->load->view('login_form');
-	$this->load->view('template/page_footer.php');
-   }
-}
+			$data['title']="Uste esta visualizando Documentos por registro";
+			$this->load->view('template/page_header');		
+			$this->load->view('documento_record',$data);
+			$this->load->view('template/page_footer');
+   		}else{
+			$this->load->view('template/page_header.php');
+			$this->load->view('login_form');
+			$this->load->view('template/page_footer.php');
+   		}
+	}
 
 
 
@@ -37,17 +37,16 @@ public function index(){
 // Llamar al formulario para un nuevo documento.
 // ==============================================
 
-public function add()
-{
+	public function add()
+	{
 		$data['title']="Usted esta Creando un nuevo Documento";
 		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['ordenadores']= $this->ordenador_model->lista_ordenadores()->result();
+		$data['personas']= $this->persona_model->lista_personasA()->result();
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('documento_form',$data);
 	 	$this->load->view('template/page_footer');
-
-
-}
+	}
 
 
 //==============================================
@@ -67,7 +66,11 @@ public function add()
 			'idordenador' => $this->input->post('idordenador'),
 			'iddirectorio' => $this->input->post('iddirectorio'),
 	 	);
-	 	$this->documento_model->save($array_item);
+		$array_creador=array(
+			'iddocumento'=>0,
+			'idpersona'=>$this->input->post('idpersona')
+		);
+	 	$this->documento_model->save($array_item,$array_creador);
 	 	redirect('documento');
  	}
 
@@ -91,23 +94,24 @@ public function actual(){
 	$this->load->view('template/page_footer');
 }
 
-
-
-public function listar()
-{
+//////////////////////////////////
+// Listar todos los documentos 
+/////////////////////////////////
+	public function listar()
+	{
 	
-  $data['documento'] = $this->documento_model->lista_documentos()->result();
-  $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-  $data['emisores'] =$this->documento_model->emisores(1)->result();
-  $data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
-  $data['title']="Documento";
-	$this->load->view('template/page_header');		
-  $this->load->view('documento_list',$data);
-	$this->load->view('template/page_footer');
-}
+  		$data['documento'] = $this->documento_model->lista_documentos()->result();
+  		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+  		$data['emisores'] =$this->documento_model->emisores(1)->result();
+  		$data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
+  		$data['title']="Documento";
+		$this->load->view('template/page_header');		
+  		$this->load->view('documento_list',$data);
+		$this->load->view('template/page_footer');
+	}
 
-function documento_data()
-{
+	function documento_data()
+	{
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
@@ -126,10 +130,56 @@ function documento_data()
 		);
 		echo json_encode($output);
 		exit();
-	
-			
+	}
 
-}
+
+
+
+//////////////////////////////////
+// Listar por tipo de documento 
+/////////////////////////////////
+	public function listarxtipodocu()
+	{
+	
+  		$data['documento'] = $this->documento_model->lista_documentos()->result();
+  		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+  		$data['emisores'] =$this->documento_model->emisores(1)->result();
+  		$data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
+  		$data['title']="Documento";
+  		$data['filtro']= $this->uri->segment(3);
+		$this->load->view('template/page_header');		
+  		$this->load->view('documento_listxtipodocu',$data);
+		$this->load->view('template/page_footer');
+	}
+
+	function documento_dataxtipodocu()
+	{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+
+		$id=$this->input->get('idtipodocu');
+
+	 	$data0 = $this->documento_model->lista_documentosB($id);
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->iddocumento,$r->eltipodocu,$r->fechaelaboracion,$r->fechaentrerecep,$r->asunto,$r->archivopdf,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_pdf"  data-iddocumento="'.$r->iddocumento.'" data-archivopdf="'."/Repositorio/".$r->archivopdf.'">pdf</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-iddocumento="'.$r->iddocumento.'"  data-ubicacion="'.$r->ubicacion.'"  data-archivo="'.$r->archivopdf.'">dowload</a>');
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+		echo json_encode($output);
+		exit();
+	}
+
+
+
+
+
+
 
 public function elprimero()
 {
@@ -196,6 +246,8 @@ public function siguiente(){
   $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
   $data['emisores'] =$this->documento_model->emisores($data['documento']['iddocumento'])->result();
   $data['destinatarios'] = $this->documento_model->destinatarios($data['documento']['iddocumento'])->result();
+	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
+	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
   $data['title']="Documento";
 	$this->load->view('template/page_header');		
   $this->load->view('documento_record',$data);
@@ -209,6 +261,8 @@ public function anterior(){
   $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
   $data['emisores'] =$this->documento_model->emisores(1)->result();
   $data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
+	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
+	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
   $data['title']="Documento";
 	$this->load->view('template/page_header');		
   $this->load->view('documento_record',$data);
@@ -229,6 +283,8 @@ public function edit()
     $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
     $data['emisores'] =$this->documento_model->emisores($this->uri->segment(3))->result();
     $data['destinatarios'] = $this->documento_model->destinatarios($this->uri->segment(3))->result();
+	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
+	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
     $data['title'] = "Actualizar Documento";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('documento_edit',$data);
@@ -242,13 +298,15 @@ public function edit()
 		$id=$this->input->post('iddocumento');
 	 	$array_item=array(
 		 	
-			'iddocumento' => $this->input->post('iddocumento'),
-		 	'idtipodocu' => $this->input->post('idtipodocu'),
-			'archivopdf' => $this->input->post('archivopdf'),
-			'asunto' => $this->input->post('asunto'),
-		  'fechaelaboracion' => $this->input->post('fechaelaboracion'),
-		  'fechaentrerecep' => $this->input->post('fechaentrerecep'),
-		  'observacion' => $this->input->post('observacion'),
+		'iddocumento' => $this->input->post('iddocumento'),
+	 	'idtipodocu' => $this->input->post('idtipodocu'),
+		'archivopdf' => $this->input->post('archivopdf'),
+		'asunto' => $this->input->post('asunto'),
+	  	'fechaelaboracion' => $this->input->post('fechaelaboracion'),
+		'fechaentrerecep' => $this->input->post('fechaentrerecep'),
+		'observacion' => $this->input->post('observacion'),
+		'idordenador' => $this->input->post('idordenador'),
+		'iddirectorio' => $this->input->post('iddirectorio'),
 	 	);
 	 	$this->documento_model->update($id,$array_item);
 	 	redirect('documento');
@@ -263,7 +321,7 @@ public function canvas(){
 }
 
 function show_pdf() {
-	 	$data['documento'] = $this->documento_model->documento($this->uri->segment(3))->row_array();
+	 	$data['documento'] = $this->documento_model->documentoA($this->uri->segment(3))->row_array();
  $this->load->view('template/page_header');
  $data['blog_text'] = "POSTULACION"; 
  $this->load->view('cargapdf',$data);

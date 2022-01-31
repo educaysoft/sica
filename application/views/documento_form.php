@@ -39,6 +39,18 @@
 </tr>
 
 <tr>
+<td> Quién la elabora?: </td>
+<td><?php
+$options= array('--Select--');
+foreach ($personas as $row){
+	$options[$row->idpersona]= $row->lapersona;
+}
+
+ echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
+<tr>
 <td> asunto/título </td>
 <td><?php 
     
