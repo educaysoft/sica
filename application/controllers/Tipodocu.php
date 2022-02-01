@@ -97,7 +97,7 @@ function tipodocu_data()
 	 	$data0 = $this->tipodocu_model->lista_tipodocusA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idtipodocu,$r->descripcion,r->cantidad,
+			$data[]=array($r->idtipodocu,$r->descripcion,$r->cantidad,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipodocu="'.$r->idtipodocu.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
