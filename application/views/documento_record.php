@@ -21,7 +21,7 @@
 <table>
 
   <tr>
-     <td> <?php echo anchor('tipodocu/elprimero/', 'Tipo de documentos');  Tido de documento:</td>
+     <td> <?php echo anchor('tipodocu/elprimero/', 'Tipo de documentos'); ?> :</td>
      <td><?php 
 $options= array("NADA");
 foreach ($tipodocus as $row){
