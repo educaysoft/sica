@@ -14,7 +14,6 @@ public function registration_insert($datap,$datau,$dataa) {
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() == 0) {
-
 				$condition = "cedula =" . "'" . $datap['cedula'] . "'";
 				$this->db->select('*');
 				$this->db->from('persona');

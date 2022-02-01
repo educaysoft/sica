@@ -22,7 +22,7 @@
 <td> <?php echo $list->idtipodocu ?></td>
 <td> <?php echo $list->descripcion?></td>
 <td> <?php echo $list->cantidad?></td>
-<td> <?php echo anchor('documento/listarxtipodocu/'.$list->idtipodocu,'ver') ?> || <?php echo anchor('tipodocu/delete/'.$list->idtipodocu,'Eliminar') ?></td>
+<td> <?php echo anchor('documento/listarxtipodocu/'.$list->idtipodocu,'ver') ?> || <?php echo anchor('documento/add/'.$list->idtipodocu,'Nuevo') ?></td>
  </tr>
 
 

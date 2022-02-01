@@ -61,47 +61,11 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 
-<!---
-<tr>
-<td> archivo_pdf </td>
-
-<td>
-<div style="display: inline-block";>
-
-<div style="float: left;">
-<?php
-     echo form_input(array("name"=>"archivopdf","id"=>"archivopdf"));
-
-?>
-</div>
-<div style="float: left;">
-<?php 
-	//$upload_data = array('type' => 'file','name' => 'archivopdf','id' => 'archivopdf');
-	$upload_data = array('type' => 'file','name' => 'files','id' => 'files');
-	echo form_upload($upload_data );?>
-	</div>
-		<div style="float: left;">
-			<?php 
-			$url= base_url()."index.php/documento/loadpdf3";
-			$js='onClick="uploadFiles(\''.$url.'\')"';     
-			echo form_button("carga","cargar a directorio",$js); ?>
-		</div> 
-	</div>
-</td>
-</tr>
-
---->
 
 
 
-<tr>
-<td> Observacion </td>
-<td><?php
-    	
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"observacion" );    
-    
- echo form_textarea("observacion","", $textarea_options)  ?></td>
-</tr>
+
+
 
 
 
@@ -118,18 +82,27 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <tr>
     <td>Directorio:</td>
     <td>
-<div class="form-group">
-                    <select class="form-control" id="iddirectorio" name="iddirectorio" required>
-                        <option>No Selected</option>
- 
-                    </select>
-                  </div>
-
-
+    <div class="form-group">
+         <select class="form-control" id="iddirectorio" name="iddirectorio" required>
+                 <option>No Selected</option>
+          </select>
+    </div>
 
 </td>
 
 </tr>
+
+
+<tr>
+<td> Observacion </td>
+<td><?php
+    	
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"observacion" );    
+    
+ echo form_textarea("observacion","", $textarea_options)  ?></td>
+</tr>
+
+
 </table>
 
 
