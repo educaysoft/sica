@@ -151,7 +151,12 @@ echo form_button("carga","cargar archivo",$js); ?>
 <?php
     $options= array('--Select--');
     foreach ($directorios as $row){
-     echo '<option value="'.$row->iddirectorio.'">'.$row->ruta.'</option>'; 
+	    if($documento['iddirectorio']==$row->iddirectorio)
+		{
+	    echo '<option selected="selected"  value="'.$row->iddirectorio.'">'.$row->ruta.'</option>'; 
+	    }else{
+	    echo '<option value="'.$row->iddirectorio.'">'.$row->ruta.'</option>'; 
+	    }
     }
 ?>
 

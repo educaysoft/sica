@@ -284,7 +284,7 @@ public function edit()
     $data['emisores'] =$this->documento_model->emisores($this->uri->segment(3))->result();
     $data['destinatarios'] = $this->documento_model->destinatarios($this->uri->segment(3))->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
-	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
+	$data['directorios'] = $this->directorio_model->lista_directoriosxordenador($data['documento']['idordenador'])->result();
     $data['title'] = "Actualizar Documento";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('documento_edit',$data);

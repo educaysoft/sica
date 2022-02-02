@@ -6,6 +6,15 @@ class Directorio_model extends CI_model {
 		 return $directorio;
 	}
 
+	function lista_directoriosxordenador($idordenador){
+		 $this->db->where(array('idordenador'=>$idordenador));
+		 $directorio= $this->db->get('directorio');
+		 return $directorio;
+	}
+
+
+
+
 	function lista_directoriosA(){
 		 $directorio= $this->db->get('directorio1');
 		 return $directorio;
@@ -20,7 +29,7 @@ public function get_directorio($id){
 	$this->db->from('directorio');
 	$this->db->where($condition);
 	$this->db->limit(1);
-	$query = $this->db->get();
+	$query = $this->db->get
 
 	if ($query->num_rows() == 1) {
 		return $query->result();
