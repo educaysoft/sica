@@ -128,6 +128,9 @@ echo form_button("carga","cargar archivo",$js); ?>
 </td>
 </tr>
 
+
+
+
 <tr>
     <td>Ordenador destino:</td>
     <td><?php
@@ -135,16 +138,23 @@ echo form_button("carga","cargar archivo",$js); ?>
     foreach ($ordenadores as $row){
       $options[$row->idordenador]= $row->nombre;
     }
-     echo form_dropdown($name="idordenador",$options, set_select('--Select--','default_value'),array('onchange'=>'get_directorio()'));  ?></td>
+     echo form_dropdown($name="idordenador",$options, $documento['idordenador'],array('onchange'=>'get_directorio()'));  ?></td>
 </tr>
 
 <tr>
     <td>Directorio:</td>
+
     <td>
 <div class="form-group">
                     <select class="form-control" id="iddirectorio" name="iddirectorio" required>
                         <option>No Selected</option>
- 
+<?php
+    $options= array('--Select--');
+    foreach ($directorios as $row){
+     echo '<option value="'.$row->iddirectorio.'">'.$row->ruta.'</option>'; 
+    }
+?>
+
                     </select>
                   </div>
 
