@@ -82,7 +82,9 @@ $(document).ready(function(){
 
 $('#show_data').on('click','.item_ver',function(){
 var id= $(this).data('idpersona');
-window.location.href = "http://localhost/facae/index.php/persona/actual/"+id;
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+//window.location.href = "http://localhost/facae/index.php/persona/actual/"+id;
 
 });
 

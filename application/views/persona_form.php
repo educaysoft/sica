@@ -3,6 +3,7 @@
 <?php echo form_open("persona/save") ?>
 <?php echo form_hidden("idpersona")  ?>
 <table>
+
 <tr>
 <td> Cedula </td>
 <td><?php echo form_input("cedula","", array("placeholder"=>"Cedula"))  ?></td>
@@ -12,7 +13,6 @@
 <td> Nombres </td>
 <td><?php echo form_input("nombres","", array("placeholder"=>"Nombres"))  ?></td>
 </tr>
-
 
 <tr>
 <td> Apellidos </td>
@@ -24,15 +24,20 @@
 <td><?php echo form_input(array("name"=>"fechanacimiento","id"=>"fechanacimiento","type"=>"date"));  ?></td>
 </tr>
 
-
-
-
-
-
-
 <tr>
 <td> Archivo Foto </td>
 <td><?php echo form_input("foto","", array("placeholder"=>"fechafoto"))  ?></td>
+</tr>
+
+
+<tr>
+<td> Correo principal: </td>
+<td><?php echo form_input("correo","", array("placeholder"=>"Correo principal"))  ?></td>
+</tr>
+
+<tr>
+<td> Telefono principal: </td>
+<td><?php echo form_input("telefono","", array("placeholder"=>"Teléfono principal"))  ?></td>
 </tr>
 
 

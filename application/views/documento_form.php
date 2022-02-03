@@ -39,7 +39,7 @@
 </tr>
 
 <tr>
-<td> Quién la elabora?: </td>
+<td> Quién la elabora?:(<?php echo anchor('persona/add', 'Nuevo'); ?>) </td>
 <td><?php
 $options= array('--Select--');
 foreach ($personas as $row){
