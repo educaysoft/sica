@@ -120,7 +120,7 @@ public function actual(){
 	 	$data0 = $this->documento_model->lista_documentosA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->iddocumento,$r->eltipodocu,$r->fechaelaboracion,$r->fechaentrerecep,$r->asunto,$r->archivopdf,
+			$data[]=array($r->iddocumento,$r->eltipodocu,$r->fechaelaboracion,$r->autor,$r->asunto,$r->archivopdf,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_pdf"  data-iddocumento="'.$r->iddocumento.'" data-archivopdf="'."/Repositorio/".$r->archivopdf.'">pdf</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-iddocumento="'.$r->iddocumento.'"  data-ubicacion="'.$r->ruta.'"  data-archivo="'.$r->archivopdf.'">dowload</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -163,7 +163,7 @@ public function actual(){
 	 	$data0 = $this->documento_model->lista_documentosB($id);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->iddocumento,$r->eltipodocu,$r->fechaelaboracion,$r->fechaentrerecep,$r->asunto,$r->archivopdf,
+			$data[]=array($r->iddocumento,$r->eltipodocu,$r->fechaelaboracion,$r->autor,$r->asunto,$r->archivopdf,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_pdf"  data-iddocumento="'.$r->iddocumento.'" data-archivopdf="'."/Repositorio/".$r->archivopdf.'">pdf</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-iddocumento="'.$r->iddocumento.'"  data-ubicacion="'.$r->ruta.'"  data-archivo="'.$r->archivopdf.'">download</a>');
 		}	
 		$output=array( "draw"=>$draw,

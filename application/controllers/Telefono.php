@@ -57,8 +57,8 @@ public function actual(){
 
 
 
-public function add()
-{
+	public function add()
+	{
 		$data['personas']= $this->persona_model->lista_persona()->result();
   		$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
   		$data['telefono_estados']= $this->telefono_estado_model->lista_telefono_estado()->result();
@@ -66,9 +66,7 @@ public function add()
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('telefono_form',$data);
 	 	$this->load->view('template/page_footer');
-
-
-}
+	}
 
 
 	public function  save()
@@ -81,7 +79,9 @@ public function add()
 			'idtelefono_estado' => $this->input->post('idtelefono_estado'),
 	 	);
 	 	$this->telefono_model->save($array_item);
-	 	redirect('telefono');
+	 //	redirect('telefono');
+	//	redirect($_SERVER['HTTP_REFERER']);
+		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
  	}
 
 
@@ -112,7 +112,8 @@ public function edit()
 			'idtelefono_estado' => $this->input->post('idtelefono_estado'),
 	 	);
 	 	$this->telefono_model->update($id,$array_item);
-	 	redirect('telefono');
+	 	//redirect('telefono');
+		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
  	}
 
 
@@ -172,7 +173,7 @@ public function elprimero()
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_persona()->result();
-  	$data['operadoras']= $this->operadora_model->lista_operadora()->result();
+  	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
   	$data['telefono_estados']= $this->telefono_estado_model->lista_telefono_estado()->result();
     $data['title']="Telefono";
     $this->load->view('template/page_header');		
@@ -191,7 +192,7 @@ public function elultimo()
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_persona()->result();
-  	$data['operadoras']= $this->operadora_model->lista_operadora()->result();
+  	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
   	$data['telefono_estados']= $this->telefono_estado_model->lista_telefono_estado()->result();
     $data['title']="Telefono";
   
@@ -210,7 +211,7 @@ public function siguiente(){
  // $data['telefono_list']=$this->telefono_model->lista_telefono()->result();
 	$data['telefono'] = $this->telefono_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_persona()->result();
-  	$data['operadoras']= $this->operadora_model->lista_operadora()->result();
+  	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
   	$data['telefono_estados']= $this->telefono_estado_model->lista_telefono_estado()->result();
   $data['title']="Telefono";
 	$this->load->view('template/page_header');		
@@ -222,7 +223,7 @@ public function anterior(){
  // $data['telefono_list']=$this->telefono_model->lista_telefono()->result();
 	$data['telefono'] = $this->telefono_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_persona()->result();
-  	$data['operadoras']= $this->operadora_model->lista_operadora()->result();
+  	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
   	$data['telefono_estados']= $this->telefono_estado_model->lista_telefono_estado()->result();
   $data['title']="Telefono";
 	$this->load->view('template/page_header');		

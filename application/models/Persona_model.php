@@ -27,9 +27,27 @@ class Persona_model extends CI_model {
 		return $persona;
 	}
 
-	function save($array)
+	function save($array,$array_correo,$array_telefono)
 	{
+	   $this->db->trans_start();
 	   $this->db->insert("persona", $array);
+	   if( $this->db->affected_rows()>0){
+		$idpersona=$this->db->insert_id();
+		if($array_correo['nombre']!=""){
+			$array_correo['idpersona']=$idpersona;
+			$this->db->insert('correo',$array_correo);
+		}		
+		if($array_telefono['numero']!=""){
+			$array_telefono['idpersona']=$idpersona;
+			$this->db->insert('telefono',$array_telefono);
+		}
+		$this->db->trans_complete();
+		return true;
+	
+	   }else{
+	        return false;
+	   }
+
 	}
 
 	function update($id,$array_item)

@@ -61,14 +61,28 @@ public function add()
 	 	$array_item=array(
 		 	
 		 	'idpersona' => $this->input->post('idpersona'),
-      'cedula' => $this->input->post('cedula'),
+      			'cedula' => $this->input->post('cedula'),
 		 	'nombres' => $this->input->post('nombres'),
 			'apellidos' => $this->input->post('apellidos'),
 			'fechanacimiento' => $this->input->post('fechanacimiento'),
 			'idgenero' => $this->input->post('idgenero'),
 			'foto' => $this->input->post('foto'));
-	 	$this->persona_model->save($array_item);
-	 	redirect('persona');
+	
+		$array_correo=array(
+			'idpersona'=>0,
+			'nombre'=>$this->input->post('correo'),
+			'idcorreo_estado'=>1);
+			
+		$array_telefono=array(
+			'idpersona'=>0,
+			'numero'=>$this->input->post('telefono'),
+			'idoperadora'=>1,
+			'idtelefono_estado'=>1);
+	
+	
+	 	$this->persona_model->save($array_item,$array_correo,$array_telefono);
+	 	//redirect('persona');
+		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
  	}
 
 
@@ -139,7 +153,7 @@ function persona_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idpersona,$r->cedula,$r->apellidos,$r->nombres,$r->fechanacimiento,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idpersona="'.$r->idpersona.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('persona/actual').'"    data-idpersona="'.$r->idpersona.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),

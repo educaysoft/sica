@@ -52,7 +52,7 @@ class Documento_model extends CI_model {
 				return true;
 			}else{
 
-				$this->db->rans_complete();
+				$this->db->trans_complete();
 				return false;
 			}
 		}else{

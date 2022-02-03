@@ -75,7 +75,8 @@ public function add()
 			'idcorreo_estado' => $this->input->post('idcorreo_estado'),
 	 	);
 	 	$this->correo_model->save($array_item);
-	 	redirect('correo');
+	 	//redirect('correo');
+		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
  	}
 
 
@@ -104,7 +105,8 @@ public function edit()
 			'idcorreo_estado' => $this->input->post('idcorreo_estado'),
 	 	);
 	 	$this->correo_model->update($id,$array_item);
-	 	redirect('correo');
+	 	//redirect('correo');
+		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
  	}
 
 
