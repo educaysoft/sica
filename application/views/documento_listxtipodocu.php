@@ -44,7 +44,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <th>ID</th>
 <th>Tipo</th>
  <th>Elaboracion</th>
- <th>Recibido</th>
+ <th>Autor</th>
  <th>asunto/titulo</th>
  <th>archivopdf</th>
  <th style="text-align: right;">Actions</th>

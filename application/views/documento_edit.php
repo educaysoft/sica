@@ -2,12 +2,10 @@
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 
 <?php echo form_open('documento/save_edit',array('id'=>'eys-form')); ?>
-
-
   <ul>
 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
         <li> <?php echo anchor('documento', 'Cancelar'); ?></li>
-    </ul>
+  </ul>
 </div>
 <br>
 
