@@ -1,6 +1,6 @@
 <?php
 
-class Documento_estado extends CI_Controller{
+class Institucion extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
@@ -79,7 +79,7 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Documento_estado";
+  $data['title']="Institucion";
 	$this->load->view('template/page_header');		
   $this->load->view('ordenador_list',$data);
 	$this->load->view('template/page_footer');
@@ -124,7 +124,7 @@ public function elprimero()
 	$data['ordenador'] = $this->ordenador_model->elprimero();
   if(!empty($data))
   {
-    $data['title']="Documento_estado";
+    $data['title']="Institucion";
     $this->load->view('template/page_header');		
     $this->load->view('ordenador_record',$data);
     $this->load->view('template/page_footer');
@@ -140,7 +140,7 @@ public function elultimo()
 	$data['ordenador'] = $this->ordenador_model->elultimo();
   if(!empty($data))
   {
-    $data['title']="Documento_estado";
+    $data['title']="Institucion";
   
     $this->load->view('template/page_header');		
     $this->load->view('ordenador_record',$data);
@@ -156,7 +156,7 @@ public function elultimo()
 public function siguiente(){
  // $data['ordenador_list']=$this->ordenador_model->lista_ordenador()->result();
 	$data['ordenador'] = $this->ordenador_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Documento_estado";
+  $data['title']="Institucion";
 	$this->load->view('template/page_header');		
   $this->load->view('ordenador_record',$data);
 	$this->load->view('template/page_footer');
@@ -165,7 +165,7 @@ public function siguiente(){
 public function anterior(){
  // $data['ordenador_list']=$this->ordenador_model->lista_ordenador()->result();
 	$data['ordenador'] = $this->ordenador_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Documento_estado";
+  $data['title']="Institucion";
 	$this->load->view('template/page_header');		
   $this->load->view('ordenador_record',$data);
 	$this->load->view('template/page_footer');

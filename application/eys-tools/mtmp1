@@ -1,5 +1,5 @@
 <?php
-class Documento_estado_model extends CI_model {
+class Institucion_model extends CI_model {
 
 	function lista_ordenadores(){
 		 $ordenador= $this->db->get('ordenador');
