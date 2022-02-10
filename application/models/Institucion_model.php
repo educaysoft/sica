@@ -36,6 +36,26 @@ class Institucion_model extends CI_model {
  	}
 
 
+public function get_institucion($id){
+	$condition = "idinstitucion =" .  $id ;
+	$this->db->select('*');
+	$this->db->from('institucion');
+	$this->db->where($condition);
+	$this->db->limit(1);
+	$query = $this->db->get();
+
+	if ($query->num_rows() == 1) {
+		return $query->result();
+	} else {
+		return false;
+	}
+
+}
+
+
+
+
+
 	function elprimero()
 	{
 		$query=$this->db->order_by("idinstitucion")->get('institucion');
