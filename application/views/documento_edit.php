@@ -106,6 +106,17 @@ echo form_button("carga","cargar archivo",$js); ?>
 
   </tr> 
 
+
+<tr>
+      <td>Observacion:</td>
+      <td><?php
+ 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"observacion" );    
+ 
+ echo form_textarea('observacion',$documento['observacion'],$textarea_options) ?></td>
+  </tr>
+
+
 <tr>
      <td>carga archivo pdf</td>
 <td>
@@ -167,19 +178,21 @@ echo form_button("carga","cargar archivo",$js); ?>
 
 </tr>
 
+|
+<tr>
+<td> Estado del documento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($documento_estados as $row){
+	$options[$row->iddocumento_estado]= $row->nombre;
+}
+
+ echo form_dropdown("iddocumento_estado",$options, $documento['iddocumento_estado']);  ?></td>
+</tr>
 
 
 
-
-
-   <tr>
-      <td>Observacion:</td>
-      <td><?php
- 
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"observacion" );    
- 
- echo form_textarea('observacion',$documento['observacion'],$textarea_options) ?></td>
-  </tr>
+   
 
 </table>
 <?php echo form_close(); ?>
@@ -190,7 +203,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 function get_directorio() {
 	var idordenador = $('select[name=idordenador]').val();
-  alert(idordenador);  
+ // alert(idordenador);  
     $.ajax({
         url: "<?php echo site_url('documento/get_directorio') ?>",
         data: {idordenador: idordenador},
@@ -286,6 +299,10 @@ function uploadFiles(url) {
        if (this.readyState == 4 && this.status == 200) {
 
           var response = this.responseText;
+
+   
+
+
 
           alert(response + " File uploaded.");
 

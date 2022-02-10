@@ -9,17 +9,19 @@ class Documento extends CI_Controller{
       $this->load->model('ordenador_model');
       $this->load->model('directorio_model');
       $this->load->model('persona_model');
+      $this->load->model('documento_estado_model');
 	}
 
 	public function index(){
  		if(isset($this->session->userdata['logged_in'])){
-			$data['documento'] = $this->documento_model->elprimero();
+			$data['documento'] = $this->documento_model->elultimo();
 			$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-			$data['emisores'] =$this->documento_model->emisores(1)->result();
-			$data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
+			$data['emisores'] =$this->documento_model->emisores($data['documento']['iddocumento'])->result();
+			$data['destinatarios'] = $this->documento_model->destinatarios($data['documento']['iddocumento'])->result();
 			$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
 			$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 
+  	$data['documento_estados']= $this->documento_estado_model->lista_documento_estado()->result();
 			$data['title']="Uste esta visualizando Documentos por registro";
 			$this->load->view('template/page_header');		
 			$this->load->view('documento_record',$data);
@@ -65,6 +67,7 @@ class Documento extends CI_Controller{
 			'observacion' => $this->input->post('observacion'),
 			'idordenador' => $this->input->post('idordenador'),
 			'iddirectorio' => $this->input->post('iddirectorio'),
+			'iddocumento_estado' => 1,  //no cargado
 	 	);
 		$array_creador=array(
 			'iddocumento'=>0,
@@ -285,6 +288,7 @@ public function edit()
     $data['destinatarios'] = $this->documento_model->destinatarios($this->uri->segment(3))->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directoriosxordenador($data['documento']['idordenador'])->result();
+  	$data['documento_estados']= $this->documento_estado_model->lista_documento_estado()->result();
     $data['title'] = "Actualizar Documento";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('documento_edit',$data);
@@ -307,6 +311,7 @@ public function edit()
 		'observacion' => $this->input->post('observacion'),
 		'idordenador' => $this->input->post('idordenador'),
 		'iddirectorio' => $this->input->post('iddirectorio'),
+		'iddocumento_estado' => $this->input->post('iddocumento_estado'),
 	 	);
 	 	$this->documento_model->update($id,$array_item);
 	 	redirect('documento');

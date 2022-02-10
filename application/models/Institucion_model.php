@@ -1,51 +1,50 @@
 <?php
-class Institucion_model extends CI_model {
+class Telefono_model extends CI_model {
 
-	function lista_instituciones(){
-		 $institucion= $this->db->get('institucion');
-		 return $institucion;
+	function lista_telefonos(){
+		 $telefono= $this->db->get('telefono');
+		 return $telefono;
 	}
 
-public function get_institucion($id){
-	$condition = "idinstitucion =" .  $id ;
-	$this->db->select('*');
-	$this->db->from('institucion');
-	$this->db->where($condition);
-	$this->db->limit(1);
-	$query = $this->db->get();
 
-	if ($query->num_rows() == 1) {
-		return $query->result();
-	} else {
-		return false;
+	function lista_telefonosA(){
+		 $telefono= $this->db->get('telefono1');
+		 return $telefono;
 	}
 
-}
 
 
-
- 	function institucion( $id){
- 		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $id.'"');
- 		return $institucion;
+ 	function telefono( $id){
+ 		$telefono = $this->db->query('select * from telefono where idtelefono="'. $id.'"');
+ 		return $telefono;
  	}
+
+
+ 	function telefonospersona( $id){
+ 		$telefono = $this->db->query('select * from telefono where idpersona="'. $id.'"');
+ 		return $telefono;
+ 	}
+
+
 
  	function save($array)
  	{
-		$this->db->insert("institucion", $array);
+		$this->db->insert("telefono", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idinstitucion',$id);
- 		$this->db->update('institucion',$array_item);
+ 		$this->db->where('idtelefono',$id);
+ 		$this->db->update('telefono',$array_item);
 	}
+ 
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idinstitucion',$id);
-		$this->db->delete('institucion');
-    if($this->db->affected_rows()==1)
+ 		$this->db->where('idtelefono',$id);
+		$this->db->delete('telefono');
+    		if($this->db->affected_rows()==1)
 			$result=true;
 		else
 			$result=false;
@@ -55,7 +54,7 @@ public function get_institucion($id){
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idinstitucion")->get('institucion');
+		$query=$this->db->order_by("idtelefono")->get('telefono');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -68,7 +67,7 @@ public function get_institucion($id){
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idinstitucion")->get('institucion');
+		$query=$this->db->order_by("idtelefono")->get('telefono');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -80,44 +79,42 @@ public function get_institucion($id){
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$institucion = $this->db->select("idinstitucion")->order_by("idinstitucion")->get('institucion')->result_array();
-		$arr=array("idinstitucion"=>$id);
-		$clave=array_search($arr,$institucion);
-	   if(array_key_exists($clave+1,$institucion))
+ 		$telefono = $this->db->select("idtelefono")->order_by("idtelefono")->get('telefono')->result_array();
+		$arr=array("idtelefono"=>$id);
+		$clave=array_search($arr,$telefono);
+	   if(array_key_exists($clave+1,$telefono))
 		 {
 
- 		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $institucion[$clave+1]["idinstitucion"].'"');
+ 		$telefono = $this->db->query('select * from telefono where idtelefono="'. $telefono[$clave+1]["idtelefono"].'"');
 		 }else{
 
- 		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $id.'"');
+ 		$telefono = $this->db->query('select * from telefono where idtelefono="'. $id.'"');
 		 }
 		 	
- 		return $institucion;
+ 		return $telefono;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$institucion = $this->db->select("idinstitucion")->order_by("idinstitucion")->get('institucion')->result_array();
-		$arr=array("idinstitucion"=>$id);
-		$clave=array_search($arr,$institucion);
-	   if(array_key_exists($clave-1,$institucion))
+ 		$telefono = $this->db->select("idtelefono")->order_by("idtelefono")->get('telefono')->result_array();
+		$arr=array("idtelefono"=>$id);
+		$clave=array_search($arr,$telefono);
+	   if(array_key_exists($clave-1,$telefono))
 		 {
 
- 		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $institucion[$clave-1]["idinstitucion"].'"');
+ 		$telefono = $this->db->query('select * from telefono where idtelefono="'. $telefono[$clave-1]["idtelefono"].'"');
 		 }else{
 
- 		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $id.'"');
+ 		$telefono = $this->db->query('select * from telefono where idtelefono="'. $id.'"');
 		 }
 		 	
- 		return $institucion;
+ 		return $telefono;
  	}
 
 
 
 
 
-
- 
 
 }

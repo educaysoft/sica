@@ -45,10 +45,31 @@ class Documento_model extends CI_model {
 		$this->db->insert("documento", $array);
 		if( $this->db->affected_rows()>0) {
 			$iddocumento=$this->db->insert_id();
+			//Graba nombre de documento
+
+
 			$array_creador['iddocumento']=$iddocumento;
 			$this->db->insert('emisor',$array_creador);
 			if($this->db->affected_rows()>0){
 				$this->db->trans_complete();
+			
+ 			$this->db->where('idpersona',$array_creador['idpersona']);
+			$arp=$this->db->get("persona")->result_array();
+			
+			$emisor1=$arp[0]['apellidos']." ".$arp[0]['nombres'];
+			$emisor2=explode(" ",$emisor1);
+			$iniciales="";
+			foreach($emisor2 as $palabra)
+			{
+				$iniciales=$iniciales.strtoupper(substr($palabra,0,1));
+
+			}
+			$filename=$array['fechaelaboracion'].'-'.$iniciales.'-'.sprintf("%04d",$iddocumento);
+			$arr=array('archivopdf'=>$filename);
+ 			$this->db->where('iddocumento',$iddocumento);
+			$this->db->update("documento",$arr);
+
+
 				return true;
 			}else{
 

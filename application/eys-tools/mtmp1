@@ -1,49 +1,33 @@
 <?php
-class Detainventario_model extends CI_model {
+class Documento_estado_model extends CI_model {
 
-	function lista_telefonos(){
-		 $telefono= $this->db->get('telefono');
-		 return $telefono;
+	function lista_ordenadores(){
+		 $ordenador= $this->db->get('ordenador');
+		 return $ordenador;
 	}
 
-
-	function lista_telefonosA(){
-		 $telefono= $this->db->get('telefono1');
-		 return $telefono;
-	}
-
-
-
- 	function telefono( $id){
- 		$telefono = $this->db->query('select * from telefono where idtelefono="'. $id.'"');
- 		return $telefono;
+ 	function ordenador( $id){
+ 		$ordenador = $this->db->query('select * from ordenador where idordenador="'. $id.'"');
+ 		return $ordenador;
  	}
-
-
- 	function telefonospersona( $id){
- 		$telefono = $this->db->query('select * from telefono where idpersona="'. $id.'"');
- 		return $telefono;
- 	}
-
-
 
  	function save($array)
  	{
-		$this->db->insert("telefono", $array);
+		$this->db->insert("ordenador", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idtelefono',$id);
- 		$this->db->update('telefono',$array_item);
+ 		$this->db->where('idordenador',$id);
+ 		$this->db->update('ordenador',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idtelefono',$id);
-		$this->db->delete('telefono');
+ 		$this->db->where('idordenador',$id);
+		$this->db->delete('ordenador');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -54,7 +38,7 @@ class Detainventario_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idtelefono")->get('telefono');
+		$query=$this->db->order_by("idordenador")->get('ordenador');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -67,7 +51,7 @@ class Detainventario_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idtelefono")->get('telefono');
+		$query=$this->db->order_by("idordenador")->get('ordenador');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -79,37 +63,37 @@ class Detainventario_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$telefono = $this->db->select("idtelefono")->order_by("idtelefono")->get('telefono')->result_array();
-		$arr=array("idtelefono"=>$id);
-		$clave=array_search($arr,$telefono);
-	   if(array_key_exists($clave+1,$telefono))
+ 		$ordenador = $this->db->select("idordenador")->order_by("idordenador")->get('ordenador')->result_array();
+		$arr=array("idordenador"=>$id);
+		$clave=array_search($arr,$ordenador);
+	   if(array_key_exists($clave+1,$ordenador))
 		 {
 
- 		$telefono = $this->db->query('select * from telefono where idtelefono="'. $telefono[$clave+1]["idtelefono"].'"');
+ 		$ordenador = $this->db->query('select * from ordenador where idordenador="'. $ordenador[$clave+1]["idordenador"].'"');
 		 }else{
 
- 		$telefono = $this->db->query('select * from telefono where idtelefono="'. $id.'"');
+ 		$ordenador = $this->db->query('select * from ordenador where idordenador="'. $id.'"');
 		 }
 		 	
- 		return $telefono;
+ 		return $ordenador;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$telefono = $this->db->select("idtelefono")->order_by("idtelefono")->get('telefono')->result_array();
-		$arr=array("idtelefono"=>$id);
-		$clave=array_search($arr,$telefono);
-	   if(array_key_exists($clave-1,$telefono))
+ 		$ordenador = $this->db->select("idordenador")->order_by("idordenador")->get('ordenador')->result_array();
+		$arr=array("idordenador"=>$id);
+		$clave=array_search($arr,$ordenador);
+	   if(array_key_exists($clave-1,$ordenador))
 		 {
 
- 		$telefono = $this->db->query('select * from telefono where idtelefono="'. $telefono[$clave-1]["idtelefono"].'"');
+ 		$ordenador = $this->db->query('select * from ordenador where idordenador="'. $ordenador[$clave-1]["idordenador"].'"');
 		 }else{
 
- 		$telefono = $this->db->query('select * from telefono where idtelefono="'. $id.'"');
+ 		$ordenador = $this->db->query('select * from ordenador where idordenador="'. $id.'"');
 		 }
 		 	
- 		return $telefono;
+ 		return $ordenador;
  	}
 
 

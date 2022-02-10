@@ -73,13 +73,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('ordenador/ordenador_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento_estado/documento_estado_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-window.location.href = "http://localhost/facae/index.php/ordenador";
+window.location.href = "http://localhost/facae/index.php/documento_estado";
 
 });
 

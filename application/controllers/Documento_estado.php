@@ -4,15 +4,15 @@ class Documento_estado extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('ordenador_model');
+      $this->load->model('documento_estado_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['ordenador']=$this->ordenador_model->ordenador(1)->row_array();
-		$data['title']="Lista de ordenadores";
+		$data['documento_estado']=$this->documento_estado_model->documento_estado(1)->row_array();
+		$data['title']="Lista de documento_estadoes";
 		$this->load->view('template/page_header');
-		$this->load->view('ordenador_record',$data);
+		$this->load->view('documento_estado_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva ordenador";
+		$data['title']="Nueva documento_estado";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('ordenador_form',$data);
+	 	$this->load->view('documento_estado_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,21 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idordenador' => $this->input->post('idordenador'),
+	 	'iddocumento_estado' => $this->input->post('iddocumento_estado'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->ordenador_model->save($array_item);
-	 	redirect('ordenador');
+	 	$this->documento_estado_model->save($array_item);
+	 	redirect('documento_estado');
  	}
 
 
 
 public function edit()
 {
-	 	$data['ordenador'] = $this->ordenador_model->ordenador($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar ordenador";
+	 	$data['documento_estado'] = $this->documento_estado_model->documento_estado($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar documento_estado";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('ordenador_edit',$data);
+ 	 	$this->load->view('documento_estado_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +56,22 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idordenador');
+		$id=$this->input->post('iddocumento_estado');
 	 	$array_item=array(
 		 	
-		 	'idordenador' => $this->input->post('idordenador'),
+		 	'iddocumento_estado' => $this->input->post('iddocumento_estado'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->ordenador_model->update($id,$array_item);
-	 	redirect('ordenador');
+	 	$this->documento_estado_model->update($id,$array_item);
+	 	redirect('documento_estado');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->ordenador_model->delete($this->uri->segment(3));
+ 		$data=$this->documento_estado_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('ordenador/elprimero');
+	 	redirect('documento_estado/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -81,24 +81,24 @@ public function listar()
 	
   $data['title']="Documento_estado";
 	$this->load->view('template/page_header');		
-  $this->load->view('ordenador_list',$data);
+  $this->load->view('documento_estado_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function ordenador_data()
+function documento_estado_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->ordenador_model->lista_ordenadores();
+	 	$data0 = $this->documento_estado_model->lista_documento_estadoes();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idordenador,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idordenador="'.$r->idordenador.'">Ver</a>');
+			$data[]=array($r->iddocumento_estado,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-iddocumento_estado="'.$r->iddocumento_estado.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -121,12 +121,12 @@ function ordenador_data()
 
 public function elprimero()
 {
-	$data['ordenador'] = $this->ordenador_model->elprimero();
+	$data['documento_estado'] = $this->documento_estado_model->elprimero();
   if(!empty($data))
   {
     $data['title']="Documento_estado";
     $this->load->view('template/page_header');		
-    $this->load->view('ordenador_record',$data);
+    $this->load->view('documento_estado_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +137,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['ordenador'] = $this->ordenador_model->elultimo();
+	$data['documento_estado'] = $this->documento_estado_model->elultimo();
   if(!empty($data))
   {
     $data['title']="Documento_estado";
   
     $this->load->view('template/page_header');		
-    $this->load->view('ordenador_record',$data);
+    $this->load->view('documento_estado_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,20 +154,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['ordenador_list']=$this->ordenador_model->lista_ordenador()->result();
-	$data['ordenador'] = $this->ordenador_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['documento_estado_list']=$this->documento_estado_model->lista_documento_estado()->result();
+	$data['documento_estado'] = $this->documento_estado_model->siguiente($this->uri->segment(3))->row_array();
   $data['title']="Documento_estado";
 	$this->load->view('template/page_header');		
-  $this->load->view('ordenador_record',$data);
+  $this->load->view('documento_estado_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['ordenador_list']=$this->ordenador_model->lista_ordenador()->result();
-	$data['ordenador'] = $this->ordenador_model->anterior($this->uri->segment(3))->row_array();
+ // $data['documento_estado_list']=$this->documento_estado_model->lista_documento_estado()->result();
+	$data['documento_estado'] = $this->documento_estado_model->anterior($this->uri->segment(3))->row_array();
   $data['title']="Documento_estado";
 	$this->load->view('template/page_header');		
-  $this->load->view('ordenador_record',$data);
+  $this->load->view('documento_estado_record',$data);
 	$this->load->view('template/page_footer');
 }
 
