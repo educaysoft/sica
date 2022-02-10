@@ -90,7 +90,7 @@ public function actual(){
   $data['documento'] = $this->documento_model->documento( $this->uri->segment(3))->row_array();
   $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
   $data['emisores'] =$this->documento_model->emisores($this->uri->segment(3))->result();
-  $data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
+  $data['destinatarios'] = $this->documento_model->destinatarios($data['documento']['iddocumento'])->result();
   $data['title']="Documento";
 	$this->load->view('template/page_header');		
   $this->load->view('documento_record',$data);
@@ -105,8 +105,6 @@ public function actual(){
 	
   		$data['documento'] = $this->documento_model->lista_documentos()->result();
   		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-  		$data['emisores'] =$this->documento_model->emisores(1)->result();
-  		$data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
   		$data['title']="Documento";
 		$this->load->view('template/page_header');		
   		$this->load->view('documento_list',$data);
@@ -124,7 +122,7 @@ public function actual(){
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->iddocumento,$r->eltipodocu,$r->fechaelaboracion,$r->autor,$r->asunto,$r->archivopdf,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_pdf"  data-iddocumento="'.$r->iddocumento.'" data-archivopdf="'."/Repositorio/".$r->archivopdf.'">pdf</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-iddocumento="'.$r->iddocumento.'"  data-ubicacion="'.$r->ruta.'"  data-archivo="'.$r->archivopdf.'">dowload</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-primary btn-sm item_pdf"  data-iddocumento="'.$r->iddocumento.'" data-archivopdf="'."/Repositorio/".$r->archivopdf.'">Ver</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-iddocumento="'.$r->iddocumento.'"  data-ubicacion="'.$r->ruta.'"  data-archivo="'.$r->archivopdf.'">dowload</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -262,8 +260,8 @@ public function anterior(){
  // $data['documento_list']=$this->documento_model->lista_documento()->result();
 	$data['documento'] = $this->documento_model->anterior($this->uri->segment(3))->row_array();
   $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-  $data['emisores'] =$this->documento_model->emisores(1)->result();
-  $data['destinatarios'] = $this->documento_model->destinatarios(1)->result();
+  $data['emisores'] =$this->documento_model->emisores($data['documento']['iddocumento'])->result();
+  $data['destinatarios'] = $this->documento_model->destinatarios($data['documento']['iddocumento'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
   $data['title']="Documento";
