@@ -121,7 +121,14 @@ window.location.href = certi;
 
 
 
+$('#show_data').on('click','.item_pdf',function(){
+var id= $(this).data('iddocumento');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
 
+});
+
+/*
 
 	 $('#show_data').on('click','.item_pdf',function(){
 		 var iddocumento = $(this).data('iddocumento');
@@ -140,7 +147,7 @@ window.location.href = certi;
 
 		return false;
 	 });
-
+*/
 });
 
 

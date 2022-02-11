@@ -179,22 +179,27 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 </div>
 
 
-<tr>
-     <td>Estado del documento:</td>
-     <td><?php 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Estado del documento:</label>
+     	<?php 
 $options= array("NADA");
 foreach ($documento_estados as $row){
 	$options[$row->iddocumento_estado]= $row->nombre;
 }
 
-echo form_input('iddocumento_estado',$options[$documento['iddocumento_estado']],array("disabled"=>"disabled")) ?></td>
-  </tr>
+	?>
+	<div class="col-md-10">
+		<?php
+
+
+echo form_input('iddocumento_estado',$options[$documento['iddocumento_estado']],array('id'=>'iddocumento_estado', "disabled"=>"disabled", 'style'=>"background-color:yellow;")); 
+		?>
+	</div> 
+</div>
 
 
 
-
-
- 	
 
    
 
@@ -202,11 +207,21 @@ echo form_input('iddocumento_estado',$options[$documento['iddocumento_estado']],
 
 
 
+<script>
+var inputval=document.getElementById("iddocumento_estado").value;
+if (inputval == "NO CARGADO"){
+	document.getElementById("iddocumento_estado").style.backgroundColor="red";
+}else{
+
+	document.getElementById("iddocumento_estado").style.backgroundColor="green";
+}
+
+
+</script>
+
 
 
 </body>
-
-
 
 
 
