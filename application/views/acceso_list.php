@@ -33,11 +33,37 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="col-12">
              <div class="col-md-12">
                  <h3>Lista de accesos 
-                 <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
+                  <div class="float-right">
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Usuario:</label>
+<?php
+$options= array('--Select--');
+foreach ($usuarios as $row){
+	$options[$row->idusuario]= $row->elusuario."-".$row->email;
+}
+?>
+
+	<div class="col-md-10">
+
+<?php
+     echo form_dropdown("idusuario",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_usuario()'));  
+?>
+</div>
+</div>
+
+
+
+</div>
 			  
         	</h3>
        	     </div>
-
+	<div id="eys-nav-i">
+	<ul>
+    		<li> <?php echo anchor('acceso', 'Home'); ?></li>
+	</ul>
+       	</div>
+<br>
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
@@ -67,9 +93,25 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <script type="text/javascript">
 
+
+
+var idusuario=0;
+function filtra_usuario()
+{
+
+idusuario = $('select[name=idusuario]').val();
+
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('acceso/acceso_data')?>', type: 'GET',data:{idusuario:idusuario}},});
+}
+
+
+
+
+
+
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('acceso/acceso_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('acceso/acceso_data')?>', type: 'GET',data:{idusuario:idusuario}},});
 
 });
 

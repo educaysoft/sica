@@ -1,7 +1,7 @@
 <?php
 class Departamento_model extends CI_model {
 
-	function lista_departamento(){
+	function lista_departamentos(){
 		 $departamento= $this->db->get('departamento');
 		 return $departamento;
 	}

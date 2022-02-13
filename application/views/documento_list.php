@@ -31,12 +31,25 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <!-- Page Heading -->
  <div class="row">
   <div class="col-12">
-             <div class="col-md-12">
-                 <h3>Documento - Listar 
-                 <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
-			  
-        	</h3>
-       	     </div>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Tipo de documento:</label>
+<?php
+$options= array('--Select--');
+foreach ($tipodocus as $row){
+	$options[$row->idtipodocu]= $row->descripcion;
+}
+?>
+
+	<div class="col-md-10">
+
+<?php
+     echo form_dropdown("idtipodocu",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_documento()'));  
+?>
+</div>
+</div>
+
+
+
 
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
@@ -102,11 +115,21 @@ body {font-family: Arial, Helvetica, sans-serif;}
         }
 
 
+var idtipodocu=0;
+function filtra_documento()
+{
+
+idtipodocu = $('select[name=idtipodocu]').val();
+
+
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('documento/documento_dataxtipodocu')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
+}
 
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET'},});
+var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_dataxtipodocu')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
+//	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET'},});
 
 
 $('#show_data').on('click','.item_ver',function(){

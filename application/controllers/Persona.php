@@ -130,7 +130,7 @@ public function edit()
 public function listar()
 {
 	
-  $data['persona'] = $this->persona_model->lista_persona()->result();
+  $data['persona'] = $this->persona_model->lista_personas()->result();
   $data['title']="Personas";
 	$this->load->view('template/page_header');		
   $this->load->view('persona_list',$data);
@@ -149,7 +149,7 @@ function persona_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->persona_model->lista_persona();
+	 	$data0 = $this->persona_model->lista_personas();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idpersona,$r->cedula,$r->apellidos,$r->nombres,$r->fechanacimiento,

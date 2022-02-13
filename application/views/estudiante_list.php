@@ -43,8 +43,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <tr>
  <th>ID</th>
  <th>estudiante</th>
- <th>Institucion</th>
- <th>FechaInscripción</th>
+ <th>Carrera</th>
+ <th>Desde</th>
+ <th>Hasta</th>
+ <th>doctos</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>

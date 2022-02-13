@@ -17,8 +17,11 @@ class Documento_model extends CI_model {
 
 	//Retorna todos los registros como un objeto
 	function lista_documentosB($idtipodocu){
+		if($idtipodocu>0)
+		{
 		$this->db->where('idtipodocu="'.$idtipodocu.'"');
-		 $documento= $this->db->get('documento1');
+		}
+		$documento= $this->db->get('documento1');
 		 return $documento;
 	}
 

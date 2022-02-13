@@ -1,7 +1,8 @@
 <?php
 class Persona_model extends CI_model {
 
-	function lista_persona(){
+	function lista_personas(){
+		 $this->db->order_by("apellidos","asc");
 		 $persona= $this->db->get('persona');
 		 return $persona;
 	}

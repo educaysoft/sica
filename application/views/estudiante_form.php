@@ -4,6 +4,19 @@
 <?php echo form_hidden("idestudiante")  ?>
 <table>
 
+<tr>
+<td> Unidad: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($departamentos as $row){
+	$options[$row->iddepartamento]= $row->nombre;
+}
+
+ echo form_dropdown("iddepartamento",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
 
 <tr>
 <td> Persona: </td>
@@ -19,25 +32,18 @@ foreach ($personas as $row){
 
 
 
-<tr>
-<td> Institución: </td>
-<td><?php 
 
-$options= array('--Select--');
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
-}
-
- echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
 
 
 <tr>
-<td> Fecha de inscripción: </td>
-<td><?php echo form_input(array("name"=>"fechainscripcion","id"=>"fechainscripcion","type"=>"date"));  ?></td>
+<td> Fecha de desde: </td>
+<td><?php echo form_input(array("name"=>"fechadesde","id"=>"fechadesde","type"=>"date"));  ?></td>
 </tr>
 
-
+<tr>
+<td> Fecha de hasta: </td>
+<td><?php echo form_input(array("name"=>"fechahasta","id"=>"fechahasta","type"=>"date"));  ?></td>
+</tr>
 
 
 <tr>

@@ -16,7 +16,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   	$data['acceso']=$this->acceso_model->lista_accesos()->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
   	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
@@ -36,7 +36,7 @@ public function index(){
 
 public function add()
 {
-	$data['personas']= $this->persona_model->lista_persona()->result();
+	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
   	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
@@ -99,6 +99,7 @@ public function edit()
 	public function listar()
 	{
 	
+  		$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   		$data['title']="Accesos";
 		$this->load->view('template/page_header');		
   		$this->load->view('acceso_list',$data);
@@ -112,9 +113,9 @@ function acceso_data()
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
+		$id=$this->input->get('idusuario');
 
-
-	 	$data0 = $this->acceso_model->lista_accesosA();
+	 	$data0 = $this->acceso_model->lista_accesosA($id);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idacceso,$r->elusuario,$r->elmodulo,$r->elnivelacceso,
@@ -147,7 +148,7 @@ public function elprimero()
   if(!empty($data))
   {
  	$data['acceso']=$this->acceso_model->lista_accesos()->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
   	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
@@ -171,7 +172,7 @@ public function elultimo()
   if(!empty($data))
   {
  	$data['acceso']=$this->acceso_model->lista_accesos()->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
   	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
@@ -196,7 +197,7 @@ public function siguiente(){
 
 	$data['acceso'] = $this->acceso_model->siguiente($this->uri->segment(3))->row_array();
 
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
   	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
@@ -211,7 +212,7 @@ public function siguiente(){
 
 public function anterior(){
 	$data['acceso'] = $this->acceso_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
   	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();

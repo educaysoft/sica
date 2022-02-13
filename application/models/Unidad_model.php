@@ -1,7 +1,7 @@
 <?php
 class Unidad_model extends CI_model {
 
-	function lista_unidad(){
+	function lista_unidades(){
 		 $unidad= $this->db->get('unidad');
 		 return $unidad;
 	}

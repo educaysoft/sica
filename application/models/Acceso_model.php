@@ -7,7 +7,10 @@ class Acceso_model extends CI_model {
 	}
 
 
-	function lista_accesosA(){
+	function lista_accesosA($id){
+		 if($id>0){
+		 $this->db->where('idusuario',$id);
+		 }
 		 $acceso= $this->db->get('acceso1');
 		 return $acceso;
 	}

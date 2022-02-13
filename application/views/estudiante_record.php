@@ -51,25 +51,28 @@ echo form_input('idpersona',$options[$estudiante['idpersona']],array("disabled"=
  
 
  <tr>
-     <td>Institucion:</td>
+     <td>Departameno/Carrera:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
+foreach ($departamentos as $row){
+	$options[$row->iddepartamento]= $row->nombre;
 }
 
-echo form_input('idinstitucion',$options[$estudiante['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
   </tr>
   
 
 
   
 <tr>
-      <td>Fecha de Inscripcion:</td>
-      <td><?php echo form_input('fechainscripcion',$estudiante['fechainscripcion'],array('type'=>'date','placeholder'=>'fechainscripcion','style'=>'width:500px;')) ?></td>
+      <td>Fecha desde:</td>
+      <td><?php echo form_input('fechadesde',$estudiante['fechadesde'],array('type'=>'date','placeholder'=>'fechadesde','style'=>'width:500px;')) ?></td>
   </tr>
 
-
+<tr>
+      <td>Fecha hasta:</td>
+      <td><?php echo form_input('fechahasta',$estudiante['fechahasta'],array('type'=>'date','placeholder'=>'fechahasta','style'=>'width:500px;')) ?></td>
+  </tr>
 
 
 

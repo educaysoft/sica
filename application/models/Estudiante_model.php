@@ -8,10 +8,16 @@ class Estudiante_model extends CI_model {
 
 
 	function lista_estudiantesA(){
+		 $this->db->order_by("elestudiante","asc");
 		 $estudiante= $this->db->get('estudiante1');
 		 return $estudiante;
 	}
 
+	function lista_estudiantesB(){
+		 $this->db->order_by("elestudiante","asc");
+		 $estudiante= $this->db->get('estudiante2');
+		 return $estudiante;
+	}
 
 
  	function estudiante( $id){
