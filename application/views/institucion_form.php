@@ -1,7 +1,6 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
 <?php echo form_open("institucion/save") ?>
-<?php echo form_hidden("idinstitucion")  ?>
 <table>
 
 

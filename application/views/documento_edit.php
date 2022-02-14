@@ -130,8 +130,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 		<div style="float: left;">
 			<?php 
 			$url= base_url()."index.php/documento/loadpdf3";
-	$url2 =  $_SERVER["DOCUMENT_ROOT"]."/Repositorio/";
-			$js='onClick="uploadFiles(\''.$url.'\',\''.$url2.'\')"';     
+			$js='onClick="uploadFiles(\''.$url.'\')"';     
 			echo form_button("carga","cargar a directorio",$js); ?>
 		</div> 
 	</div>
@@ -276,11 +275,10 @@ formData.append("archivopdf",document.getElementById('archivopdf').value);
 //=====================
 //
 // Upload file
-function uploadFiles(url,url2) {
+function uploadFiles(url) {
 
   var totalfiles = document.getElementById('files').files.length;
-alert(url2);
-  if(totalfiles > 0 ){
+  f(totalfiles > 0 ){
 
     var formData = new FormData();
 

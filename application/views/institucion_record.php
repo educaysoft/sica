@@ -35,7 +35,7 @@ if(isset($institucion))
 
   <tr>
      <td>idinstitucion:</td>
-     <td><?php echo form_input('idinstitucion',$institucion['idinstitucion'],array("disabled"=>"disabled",'placeholder'=>'Idinstitucions')) ?></td>
+     <td><?php echo form_input('idinstitucion',$institucion['idinstitucion'],array("disabled"=>"disabled")) ?></td>
   </tr>
  
  <tr>

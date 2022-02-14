@@ -9,7 +9,7 @@ class Institucion extends CI_Controller{
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['institucion']=$this->institucion_model->institucion(1)->row_array();
+		$data['institucion']=$this->institucion_model->elultimo();
 		$data['title']="Lista de instituciones";
 		$this->load->view('template/page_header');
 		$this->load->view('institucion_record',$data);
@@ -34,7 +34,6 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idinstitucion' => $this->input->post('idinstitucion'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
 	 	$this->institucion_model->save($array_item);
@@ -70,8 +69,8 @@ public function edit()
  	public function delete()
  	{
  		$data=$this->institucion_model->delete($this->uri->segment(3));
- 		echo json_encode($data);
-	 	redirect('institucion/elprimero');
+ //		echo json_encode($data);
+	 	redirect('institucion/elultimo');
 	//	$db['default']['db_debug']=FALSE
  	}
 

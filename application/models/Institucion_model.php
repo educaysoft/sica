@@ -8,6 +8,7 @@ class Institucion_model extends CI_model {
 
  	function institucion( $id){
  		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $id.'"');
+		 
  		return $institucion;
  	}
 

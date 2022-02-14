@@ -4,9 +4,6 @@
 -- ------------------------------------------------------
 -- Server version	8.0.27
 
-use educayso_facae;
-
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -37,7 +34,7 @@ CREATE TABLE `acceso` (
   CONSTRAINT `fk_acceso_modulo1` FOREIGN KEY (`idmodulo`) REFERENCES `modulo` (`idmodulo`),
   CONSTRAINT `fk_acceso_nivelacceso1` FOREIGN KEY (`idnivelacceso`) REFERENCES `nivelacceso` (`idnivelacceso`),
   CONSTRAINT `fk_acceso_usuario1` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,9 +43,27 @@ CREATE TABLE `acceso` (
 
 LOCK TABLES `acceso` WRITE;
 /*!40000 ALTER TABLE `acceso` DISABLE KEYS */;
-INSERT INTO `acceso` VALUES (3,4,1,2),(5,4,4,2),(6,4,5,2),(7,4,6,2),(1,6,1,2),(2,6,2,2),(4,6,3,2),(8,8,1,2),(9,8,6,2),(10,8,5,2),(11,8,7,2),(12,8,8,2),(13,8,9,2),(14,8,10,2),(15,8,11,2),(16,8,12,2),(22,8,15,2),(17,10,13,2),(18,10,5,2),(19,10,11,2),(20,10,12,2),(21,11,14,2);
+INSERT INTO `acceso` VALUES (3,4,1,2),(5,4,4,2),(6,4,5,2),(7,4,6,2),(30,4,3,2),(1,6,1,2),(2,6,2,2),(4,6,3,2),(8,8,1,2),(9,8,6,2),(10,8,5,2),(11,8,7,2),(12,8,8,2),(13,8,9,2),(14,8,10,2),(15,8,11,2),(16,8,12,2),(22,8,15,2),(17,10,13,2),(18,10,5,2),(19,10,11,2),(20,10,12,2),(21,11,14,2),(23,11,16,2),(25,11,8,2),(26,11,17,2),(27,11,18,2),(28,11,19,2),(29,11,5,2),(31,11,21,2),(32,11,1,2),(33,11,22,2),(34,11,23,2),(35,11,24,2),(24,12,16,2);
 /*!40000 ALTER TABLE `acceso` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `acceso1`
+--
+
+DROP TABLE IF EXISTS `acceso1`;
+/*!50001 DROP VIEW IF EXISTS `acceso1`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `acceso1` AS SELECT 
+ 1 AS `idusuario`,
+ 1 AS `idacceso`,
+ 1 AS `elusuario`,
+ 1 AS `idmodulo`,
+ 1 AS `elmodulo`,
+ 1 AS `idnivelacceso`,
+ 1 AS `elnivelacceso`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `articulo`
@@ -62,10 +77,13 @@ CREATE TABLE `articulo` (
   `nombre` varchar(100) DEFAULT NULL,
   `detalle` varchar(200) DEFAULT NULL,
   `idinstitucion` int NOT NULL,
-  PRIMARY KEY (`idarticulo`),
+  `idcategoria` int NOT NULL,
+  PRIMARY KEY (`idarticulo`,`idcategoria`),
   KEY `fk_articulo_institucion1_idx` (`idinstitucion`),
+  KEY `fk_articulo_categoria1_idx` (`idcategoria`),
+  CONSTRAINT `fk_articulo_categoria1` FOREIGN KEY (`idcategoria`) REFERENCES `categoria` (`idcategoria`),
   CONSTRAINT `fk_articulo_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +92,7 @@ CREATE TABLE `articulo` (
 
 LOCK TABLES `articulo` WRITE;
 /*!40000 ALTER TABLE `articulo` DISABLE KEYS */;
-INSERT INTO `articulo` VALUES (1,'CINTURON BLANCO DE CHRISTOPHER','CINTURON BLANCO COGIO 001',3),(2,'CINTURON BLANCO DE STALIN','EL CINTURON BLANDO QUE SE LE DIO A STALIN',3),(3,'CINTURO BLANDO DE CHRISTIAN','EL CINTURON BLANDO QUE SE LE DIO A CHRISTIAN',3);
+INSERT INTO `articulo` VALUES (1,'CINTURON BLANCO DE CHRISTOPHER','CINTURON BLANCO COGIO 001',3,1),(2,'CINTURON BLANCO DE STALIN','EL CINTURON BLANDO QUE SE LE DIO A STALIN',3,0),(3,'CINTURO BLANDO DE CHRISTIAN','EL CINTURON BLANDO QUE SE LE DIO A CHRISTIAN',3,0),(4,'CAJA MAGICA CORAZON','CAJA MAGICA CORAZON DE COLOR ROJO',4,1);
 /*!40000 ALTER TABLE `articulo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,7 +130,7 @@ CREATE TABLE `ascenso` (
   CONSTRAINT `fk_ascenso_cinturon1` FOREIGN KEY (`idcinturon`) REFERENCES `cinturon` (`idcinturon`),
   CONSTRAINT `fk_ascenso_cliente1` FOREIGN KEY (`idcliente`) REFERENCES `cliente` (`idcliente`),
   CONSTRAINT `fk_ascenso_evento1` FOREIGN KEY (`idevento`) REFERENCES `evento` (`idevento`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,7 +155,7 @@ CREATE TABLE `asignatura` (
   `nombre` varchar(45) DEFAULT NULL,
   `creditos` int DEFAULT NULL,
   PRIMARY KEY (`idasignatura`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,6 +165,30 @@ CREATE TABLE `asignatura` (
 LOCK TABLES `asignatura` WRITE;
 /*!40000 ALTER TABLE `asignatura` DISABLE KEYS */;
 /*!40000 ALTER TABLE `asignatura` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `categoria`
+--
+
+DROP TABLE IF EXISTS `categoria`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `categoria` (
+  `idcategoria` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idcategoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `categoria`
+--
+
+LOCK TABLES `categoria` WRITE;
+/*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
+INSERT INTO `categoria` VALUES (1,'NO ASIGNADO');
+/*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -163,7 +205,7 @@ CREATE TABLE `certificado` (
   `ubicacion` varchar(100) DEFAULT NULL,
   `evento` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`idcertificado`)
-) ENGINE=InnoDB AUTO_INCREMENT=1311 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1311 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,7 +232,7 @@ CREATE TABLE `cinturon` (
   PRIMARY KEY (`idcinturon`,`idarticulo`),
   KEY `fk_cinturon_articulo1_idx` (`idarticulo`),
   CONSTRAINT `fk_cinturon_articulo1` FOREIGN KEY (`idarticulo`) REFERENCES `articulo` (`idarticulo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -234,7 +276,7 @@ CREATE TABLE `cliente` (
   KEY `fk_cliente_institucion1_idx` (`idinstitucion`),
   CONSTRAINT `fk_cliente_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`),
   CONSTRAINT `fk_cliente_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -281,7 +323,7 @@ CREATE TABLE `correo` (
   KEY `fk_correo_correo_estado1_idx` (`idcorreo_estado`),
   CONSTRAINT `fk_correo_correo_estado1` FOREIGN KEY (`idcorreo_estado`) REFERENCES `correo_estado` (`idcorreo_estado`),
   CONSTRAINT `fk_correo_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -290,7 +332,7 @@ CREATE TABLE `correo` (
 
 LOCK TABLES `correo` WRITE;
 /*!40000 ALTER TABLE `correo` DISABLE KEYS */;
-INSERT INTO `correo` VALUES (4,'geralva@hotmail.es',11,1),(5,'vdtr.eqm1995@gmail.com',27,1),(6,'wcontreras_1994@hotmail.com',13,1),(7,'bustamantelopezmariansonia@gmail.com',25,1),(8,'jovanotty_85@hotmail.com',21,1),(9,'gerardo.solano@utelvt.edu.ec',20,1),(10,'yamiloelunico@gmail.com',19,1),(11,'cesarmanchay3@gmail.com',17,1),(12,'veronikita_linda@hotmail.es',14,1),(13,'roberto_edwin1979@hotmail.com',15,1),(14,'jacksonmanchay@yahoo.es',28,1),(15,'ilsi.n31@hotmail.com',9,1),(16,'rafael.perez@policia.gob.ec',16,1),(17,'deyanirachila@hotmail.com',26,1),(18,'nela.qocortes91@gmail.com',24,1),(19,'byronramirez1994@gmail.com',18,1),(21,'educaysoft@gmail.com',8,1),(22,'kevinaguilar16sm@gmial.com',29,1),(23,'damaris.miranda@utelvte.edu.ec',31,1),(24,'jimmypaz_22@hotmail.com',12,1),(25,'stefydiaz_1325@hotmail.com',10,1),(26,'congresoutlvte@utelvt.edu.ec',32,1),(27,'admin',33,1),(28,'francis.christopher@egbfcristorey.edu.ec',34,1),(29,'stefaniaz90@gmail.com',10,1),(30,'jimmy.pazmino.torres@utelvt.edu.ec',12,1),(31,'gasolanog@gmail.com',20,1),(32,'andres-martinez_1986@gmail.com',49,1),(35,'paperalta@claro.com.ec',23,1);
+INSERT INTO `correo` VALUES (4,'geralva@hotmail.es',11,1),(5,'vdtr.eqm1995@gmail.com',27,1),(6,'wcontreras_1994@hotmail.com',13,1),(7,'bustamantelopezmariansonia@gmail.com',25,1),(8,'jovanotty_85@hotmail.com',21,1),(9,'gerardo.solano@utelvt.edu.ec',20,1),(10,'yamiloelunico@gmail.com',19,1),(11,'cesarmanchay3@gmail.com',17,1),(12,'veronikita_linda@hotmail.es',14,1),(13,'roberto_edwin1979@hotmail.com',15,1),(14,'jacksonmanchay@yahoo.es',28,1),(15,'ilsi.n31@hotmail.com',9,1),(16,'rafael.perez@policia.gob.ec',16,1),(17,'deyanirachila@hotmail.com',26,1),(18,'nela.qocortes91@gmail.com',24,1),(19,'byronramirez1994@gmail.com',18,1),(21,'educaysoft@gmail.com',8,1),(22,'kevinaguilar16sm@gmial.com',29,1),(23,'damaris.miranda@utelvte.edu.ec',31,1),(24,'jimmypaz_22@hotmail.com',12,1),(25,'stefydiaz_1325@hotmail.com',10,1),(26,'congresoutlvte@utelvt.edu.ec',32,1),(27,'admin',33,1),(28,'francis.christopher@egbfcristorey.edu.ec',34,1),(29,'stefaniaz90@gmail.com',10,1),(30,'jimmy.pazmino.torres@utelvt.edu.ec',12,1),(31,'gasolanog@gmail.com',20,1),(32,'andres-martinez_1986@gmail.com',49,1),(35,'paperalta@claro.com.ec',23,1),(36,'edison.capurro@utelvt.edu.ec',51,1),(37,'mirian.reyes@utelvt.edu.ec',55,1),(38,'cinthya.castillo@utelvt.edu.ec',56,1),(39,'williamfranc25@gmail.com',50,1),(42,'mateo@gmail.com',60,1),(43,'fiorela@gmail.com',61,1),(44,'mirian.reyes@utelvt.edu.ec',7,1);
 /*!40000 ALTER TABLE `correo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -319,7 +361,7 @@ CREATE TABLE `correo_estado` (
   `idcorreo_estado` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idcorreo_estado`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -346,7 +388,7 @@ CREATE TABLE `departamento` (
   PRIMARY KEY (`iddepartamento`),
   KEY `fk_departamento_unidad1_idx` (`idunidad`),
   CONSTRAINT `fk_departamento_unidad1` FOREIGN KEY (`idunidad`) REFERENCES `unidad` (`idunidad`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -375,7 +417,7 @@ CREATE TABLE `destinatario` (
   KEY `fk_documentos_has_persona_documentos1_idx` (`iddocumento`),
   CONSTRAINT `fk_documentos_has_persona_documentos1` FOREIGN KEY (`iddocumento`) REFERENCES `documento` (`iddocumento`),
   CONSTRAINT `fk_documentos_has_persona_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -411,17 +453,20 @@ DROP TABLE IF EXISTS `detainventario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `detainventario` (
-  `iddetainventario` int NOT NULL,
-  `descripcion` varchar(45) DEFAULT NULL,
-  `ubicacion` varchar(45) DEFAULT NULL,
+  `iddetainventario` int NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `ubicacion` varchar(100) DEFAULT NULL,
   `idarticulo` int NOT NULL,
   `idinventario` int NOT NULL,
+  `idpersona` int NOT NULL,
   PRIMARY KEY (`iddetainventario`,`idarticulo`,`idinventario`),
   KEY `fk_detainventario_articulo1_idx` (`idarticulo`),
   KEY `fk_detainventario_inventario1_idx` (`idinventario`),
+  KEY `fk_detainventario_persona1_idx` (`idpersona`),
   CONSTRAINT `fk_detainventario_articulo1` FOREIGN KEY (`idarticulo`) REFERENCES `articulo` (`idarticulo`),
-  CONSTRAINT `fk_detainventario_inventario1` FOREIGN KEY (`idinventario`) REFERENCES `inventario` (`idinventario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  CONSTRAINT `fk_detainventario_inventario1` FOREIGN KEY (`idinventario`) REFERENCES `inventario` (`idinventario`),
+  CONSTRAINT `fk_detainventario_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -430,6 +475,7 @@ CREATE TABLE `detainventario` (
 
 LOCK TABLES `detainventario` WRITE;
 /*!40000 ALTER TABLE `detainventario` DISABLE KEYS */;
+INSERT INTO `detainventario` VALUES (1,'en perfecto estado','laboratorio ',1,1,54),(2,'SE ENCUENRA EN BUEN ESTASO','EN LA CASA DE LA DUEÑA',4,2,50);
 /*!40000 ALTER TABLE `detainventario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -449,7 +495,7 @@ CREATE TABLE `directorio` (
   PRIMARY KEY (`iddirectorio`,`idordenador`),
   KEY `fk_directorio_ordenador1_idx` (`idordenador`),
   CONSTRAINT `fk_directorio_ordenador1` FOREIGN KEY (`idordenador`) REFERENCES `ordenador` (`idordenador`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -458,9 +504,25 @@ CREATE TABLE `directorio` (
 
 LOCK TABLES `directorio` WRITE;
 /*!40000 ALTER TABLE `directorio` DISABLE KEYS */;
-INSERT INTO `directorio` VALUES (1,'pdf',NULL,NULL,1),(2,'pdf','/pdfs',NULL,1);
+INSERT INTO `directorio` VALUES (1,'pdf','pdf','',1),(2,'pdf','/pdfs',NULL,1),(3,'Repositorio','/Repositorio/','',7),(4,'Repositorio','/Repositorio/',NULL,8);
 /*!40000 ALTER TABLE `directorio` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `directorio1`
+--
+
+DROP TABLE IF EXISTS `directorio1`;
+/*!50001 DROP VIEW IF EXISTS `directorio1`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `directorio1` AS SELECT 
+ 1 AS `iddirectorio`,
+ 1 AS `nombre`,
+ 1 AS `ruta`,
+ 1 AS `descripcion`,
+ 1 AS `elordenador`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `docente`
@@ -475,7 +537,7 @@ CREATE TABLE `docente` (
   PRIMARY KEY (`iddocente`,`idpersona`),
   KEY `fk_docente_persona1_idx` (`idpersona`),
   CONSTRAINT `fk_docente_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -502,10 +564,20 @@ CREATE TABLE `documento` (
   `fechaentrerecep` datetime DEFAULT NULL,
   `observacion` text,
   `idtipodocu` int NOT NULL,
+  `ubicacion` varchar(100) DEFAULT NULL,
+  `idordenador` int NOT NULL,
+  `iddirectorio` int NOT NULL,
+  `iddocumento_estado` int NOT NULL,
   PRIMARY KEY (`iddocumento`,`idtipodocu`),
   KEY `fk_documento_tipodocu1_idx` (`idtipodocu`),
+  KEY `fk_documento_ordenador1_idx` (`idordenador`),
+  KEY `fk_documento_directorio1_idx` (`iddirectorio`),
+  KEY `fk_documento_documento_estado1_idx` (`iddocumento_estado`),
+  CONSTRAINT `fk_documento_directorio1` FOREIGN KEY (`iddirectorio`) REFERENCES `directorio` (`iddirectorio`),
+  CONSTRAINT `fk_documento_documento_estado1` FOREIGN KEY (`iddocumento_estado`) REFERENCES `documento_estado` (`iddocumento_estado`),
+  CONSTRAINT `fk_documento_ordenador1` FOREIGN KEY (`idordenador`) REFERENCES `ordenador` (`idordenador`),
   CONSTRAINT `fk_documento_tipodocu1` FOREIGN KEY (`idtipodocu`) REFERENCES `tipodocu` (`idtipodocu`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -514,8 +586,51 @@ CREATE TABLE `documento` (
 
 LOCK TABLES `documento` WRITE;
 /*!40000 ALTER TABLE `documento` DISABLE KEYS */;
-INSERT INTO `documento` VALUES (1,'2021-09-02','Documento de prueba','Planificacion-MTI.pdf','2021-09-22 00:00:00','Este es un documento de prueba que se sube',2),(3,'2021-09-17','prueba de documento recibido','2021-09-17-MBOD-000003.pdf','2021-09-23 00:00:00','Esta es un documeot de prueba',1),(4,'2021-09-24','RECLAMO SOBRE NOTAS','cronograma_y_plana_docente_Maestrías_2021-2021.pdf','2021-09-30 00:00:00','UN RECLAMO SOBRE NOTAS ATRASADAS ',3),(5,'2021-09-18','SOLICITUD DE MATRICULA PARA EL PERIODO 2021-1S','PagoRosangelaMesEnero.pdf','2021-09-20 00:00:00','EL DOCUMENTO ES UN PAGO',2),(6,'2021-09-21','CORRECCION DE NOTAS DEL SEGUNDO PARCIAL 2021-1S','','2021-09-22 00:00:00','ESTE DOCUMENTO LO RECIBO EN LA OFICION ',1),(7,'2022-01-10','PRUEBA EN LA OFIINA HIGHKICK','AgendaFinal .pdf','2022-01-10 00:00:00','',1);
+INSERT INTO `documento` VALUES (1,'2021-09-02','Documento de prueba','Planificacion-MTI.pdf','2021-09-22 00:00:00','Este es un documento de prueba que se sube',2,'http://educaysoft.org/Repositorio/',7,3,0),(3,'2021-09-17','prueba de documento recibido','2021-09-17-MBOD-000003.pdf','2021-09-23 00:00:00','Esta es un documeot de prueba',1,'http://educaysoft.org/Repositorio/',7,3,0),(4,'2021-09-24','RECLAMO SOBRE NOTAS','cronograma_y_plana_docente_Maestrías_2021-2021.pdf','2021-09-30 00:00:00','UN RECLAMO SOBRE NOTAS ATRASADAS ',3,'http://educaysoft.org/Repositorio/',0,0,0),(5,'2021-09-18','SOLICITUD DE MATRICULA PARA EL PERIODO 2021-1S','PagoRosangelaMesEnero.pdf','2021-09-20 00:00:00','EL DOCUMENTO ES UN PAGO',2,'http://educaysoft.org/Repositorio/',0,0,0),(6,'2021-09-21','CORRECCION DE NOTAS DEL SEGUNDO PARCIAL 2021-1S','','2021-09-22 00:00:00','ESTE DOCUMENTO LO RECIBO EN LA OFICION ',1,'http://educaysoft.org/Repositorio/',0,0,0),(7,'2022-01-10','PRUEBA EN LA OFIINA HIGHKICK','AgendaFinal .pdf','2022-01-10 00:00:00','',1,'http://educaysoft.org/Repositorio/',0,0,0),(8,'2022-01-14','SOBRE TESIS DE MAESTRIA','documento.pdf','2022-01-20 00:00:00','XXASDFAD',1,'http://educaysoft.org/Repositorio/',0,0,0),(9,'2022-01-14','UNA IMAGEN EN PDF','secuencia.pdf','2022-01-21 00:00:00','',1,'http://educaysoft.org/Repositorio/',0,0,0),(10,'2022-01-14','zzzzzzzzzzzzzzzzz','secuencia.pdf','2022-01-21 00:00:00','',1,'http://educaysoft.org/Repositorio/',0,0,0),(11,'2022-01-21','PRIMER DOCUENTO EN REPOSITORIO ','secuencia.pdf','2022-01-27 00:00:00','',1,'http://educaysoft.org/Repositorio/',0,0,0),(12,'2022-01-14','UN ARCHOVO ON UN NOMBRE CORRECTO','2022-01-14-SA-000012.pdf','2022-01-21 00:00:00','UN ARCHIVO CON UN NOMBRE CORRECTO A PARTIR DE LA FECHA DE CREAION',1,'http://educaysoft.org/Repositorio/',0,0,0),(13,'2022-01-17','TESIS DE GRADO DE LA CARRRER DE TECNOLOGÍA DE LA INFORMACIÓN','','2022-01-27 00:00:00','',7,'http://educaysoft.org/Repositorio/',0,0,0),(14,'2022-01-10','TESIS DE GRAOD DE JAVIER QUIÑONEZ','2022-01-10-LAYR-000014.pdf','2022-01-17 00:00:00','',7,'http://educaysoft.org/Repositorio/',7,3,0),(15,'2015-03-19','“IDENTIFICACIÓN DE BACTERIAS PATÓGENAS EN CHORIZOS DE\r\nFABRICACIÒN ARTESANAL, QUE SE EXPENDEN EN EL PARQUE\r\nINFANTIL, ROBERTO LUIS CERVANTES AÑO 2014”','2015-03-19-CE-000015.pdf','2022-01-18 00:00:00','',7,'http://educaysoft.org/Repositorio/',0,0,0),(16,'2013-01-01','ESTUDIO DE LA CONTAMINACIÓN ACÚSTICA EN LA LOCACIÓN PETROLERA OSO G- BLOQUE 7, LOS EFECTOS SECUNDARIOS EN LA SALUD DE LOS TRABAJADORES Y PLAN DE MANJO ACÚSTICO','2013-01-01-RLNMM-000016.pdf','2013-01-01 00:00:00','TECNÓLOGO EN OPERACIONES DE PLANTAS INDUSTRIALES',8,'http://educaysoft.org/Repositorio/',0,0,0),(17,'2022-01-19','“DISEÑO DE UNA SOLUCIÓN QUE PERMITA GESTIONAR\r\nLA AUTOMATIZACIÓN DEL REGISTRO DE MATRÍCULA\r\nDE LOS ESTUDIANTES DE LA UNIDAD EDUCATIVA\r\nFISCOMISIONAL “DON BOSCO” DE LA CIUDAD DE\r\nESMERALDAS”','2022-01-19-CMCE-000017.pdf','2022-01-28 00:00:00','',8,'http://educaysoft.org/Repositorio/',0,0,0),(18,'2022-01-28','cc',NULL,'2022-01-28 00:00:00','cccccxxxx',1,NULL,7,3,0),(19,'2022-01-28','AAAAAAAAAAAAAAAA','2022-01-28-QAID-000019.pdf','2022-01-28 00:00:00','BBBBBBBBBBBBB',7,NULL,7,3,0),(20,'2022-01-21','OTRA PRUEBA ','2022-01-21-QMVE-000020.pdf','2022-01-21 00:00:00','OPTRA PRUEABA',8,NULL,7,3,0),(23,'2022-01-20','PRUEBA CON EL EMISOR',NULL,'2022-01-21 00:00:00','',7,NULL,7,3,0),(24,'2022-02-09','PRUEBA DE GRABAR NOMBRE DE ARCHIVO',NULL,'0000-00-00 00:00:00','',8,NULL,7,3,0),(25,'2022-02-20','OTRA PRUEBA PARA GRABAR DIRECTAMENTE EL NOMBRE DEL ARCHIVO','2022-02-20--0025','0000-00-00 00:00:00','',8,NULL,7,3,0),(26,'2022-02-20','PRUEBA 1',NULL,'0000-00-00 00:00:00','',7,NULL,7,3,0),(27,'2022-02-20','PRUEBA 1','2022-02-20--0027','0000-00-00 00:00:00','',7,NULL,7,3,0),(28,'2022-02-27','OTRA PRUEBA','','0000-00-00 00:00:00','',7,NULL,7,3,1),(29,'2022-02-27','OTRA PRUEBA','2022-02-27-MCBV-0029','0000-00-00 00:00:00','',7,NULL,7,3,1),(30,'2022-02-27','PRUEBA DE CARGADO ','2022-02-27-LAYR-0030','0000-00-00 00:00:00','',7,NULL,7,3,2),(31,'2022-03-04','pruba nuevo repos','2022-03-04-MOCA-0031','0000-00-00 00:00:00','',8,NULL,8,4,1);
 /*!40000 ALTER TABLE `documento` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `documento1`
+--
+
+DROP TABLE IF EXISTS `documento1`;
+/*!50001 DROP VIEW IF EXISTS `documento1`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `documento1` AS SELECT 
+ 1 AS `iddocumento`,
+ 1 AS `autor`,
+ 1 AS `asunto`,
+ 1 AS `fechaelaboracion`,
+ 1 AS `archivopdf`,
+ 1 AS `idtipodocu`,
+ 1 AS `eltipodocu`,
+ 1 AS `ruta`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `documento_estado`
+--
+
+DROP TABLE IF EXISTS `documento_estado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `documento_estado` (
+  `iddocumento_estado` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`iddocumento_estado`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `documento_estado`
+--
+
+LOCK TABLES `documento_estado` WRITE;
+/*!40000 ALTER TABLE `documento_estado` DISABLE KEYS */;
+INSERT INTO `documento_estado` VALUES (1,'NO CARGADO'),(2,'CARGADO');
+/*!40000 ALTER TABLE `documento_estado` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -534,7 +649,7 @@ CREATE TABLE `emisor` (
   KEY `fk_emisor_documento1_idx` (`iddocumento`),
   CONSTRAINT `fk_emisor_documento1` FOREIGN KEY (`iddocumento`) REFERENCES `documento` (`iddocumento`),
   CONSTRAINT `fk_persona_has_documentos_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -543,7 +658,7 @@ CREATE TABLE `emisor` (
 
 LOCK TABLES `emisor` WRITE;
 /*!40000 ALTER TABLE `emisor` DISABLE KEYS */;
-INSERT INTO `emisor` VALUES (2,7,1),(3,7,3),(4,12,1);
+INSERT INTO `emisor` VALUES (2,7,1),(3,7,3),(5,8,12),(14,11,23),(15,11,24),(4,12,1),(19,14,28),(20,14,29),(16,15,25),(22,17,31),(7,19,14),(21,19,30),(6,23,13),(17,25,26),(18,25,27),(12,26,19),(13,27,20),(8,51,15),(9,51,15),(10,55,16),(11,56,17);
 /*!40000 ALTER TABLE `emisor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -558,8 +673,8 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50001 CREATE VIEW `emisor1` AS SELECT 
  1 AS `iddocumento`,
  1 AS `idpersona`,
- 1 AS `asunto`,
- 1 AS `nombres`*/;
+ 1 AS `elemisor`,
+ 1 AS `asunto`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -573,7 +688,7 @@ CREATE TABLE `estado_portafolio` (
   `idestado_portafolio` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idestado_portafolio`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -594,16 +709,17 @@ DROP TABLE IF EXISTS `estudiante`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `estudiante` (
-  `idestudiante` int NOT NULL,
+  `idestudiante` int NOT NULL AUTO_INCREMENT,
   `idpersona` int NOT NULL,
-  `idinstitucion` int NOT NULL,
-  `fechainscripcion` date DEFAULT NULL,
-  PRIMARY KEY (`idestudiante`,`idpersona`,`idinstitucion`),
+  `fechadesde` date DEFAULT NULL,
+  `iddepartamento` int NOT NULL,
+  `fechahasta` date DEFAULT NULL,
+  PRIMARY KEY (`idestudiante`,`idpersona`,`iddepartamento`),
   KEY `fk_estudiante_persona1_idx` (`idpersona`),
-  KEY `fk_estudiante_institucion1_idx` (`idinstitucion`),
-  CONSTRAINT `fk_estudiante_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`),
+  KEY `fk_estudiante_departamento1_idx` (`iddepartamento`),
+  CONSTRAINT `fk_estudiante_departamento1` FOREIGN KEY (`iddepartamento`) REFERENCES `departamento` (`iddepartamento`),
   CONSTRAINT `fk_estudiante_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -612,7 +728,7 @@ CREATE TABLE `estudiante` (
 
 LOCK TABLES `estudiante` WRITE;
 /*!40000 ALTER TABLE `estudiante` DISABLE KEYS */;
-INSERT INTO `estudiante` VALUES (0,8,1,'0000-00-00');
+INSERT INTO `estudiante` VALUES (1,47,'2022-02-01',1,'2022-02-25'),(2,28,'2022-02-04',1,'2022-02-24'),(3,17,'2022-02-02',1,'2022-02-25'),(4,14,'2022-02-01',1,'2022-02-25');
 /*!40000 ALTER TABLE `estudiante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -628,9 +744,29 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `idestudiante`,
  1 AS `idpersona`,
  1 AS `elestudiante`,
- 1 AS `idinstitucion`,
- 1 AS `lainstitucion`,
- 1 AS `fechainscripcion`*/;
+ 1 AS `iddepartamento`,
+ 1 AS `lacarrera`,
+ 1 AS `fechadesde`,
+ 1 AS `fechahasta`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `estudiante2`
+--
+
+DROP TABLE IF EXISTS `estudiante2`;
+/*!50001 DROP VIEW IF EXISTS `estudiante2`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `estudiante2` AS SELECT 
+ 1 AS `idestudiante`,
+ 1 AS `idpersona`,
+ 1 AS `elestudiante`,
+ 1 AS `iddepartamento`,
+ 1 AS `lacarrera`,
+ 1 AS `fechadesde`,
+ 1 AS `fechahasta`,
+ 1 AS `cantidad`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -645,7 +781,7 @@ CREATE TABLE `evaluacion` (
   `nombre` varchar(50) NOT NULL,
   `detalle` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idevaluacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -674,7 +810,7 @@ CREATE TABLE `evaluado` (
   KEY `fk_evaluado_evaluacion1_idx` (`idevaluacion`),
   CONSTRAINT `fk_evaluado_evaluacion1` FOREIGN KEY (`idevaluacion`) REFERENCES `evaluacion` (`idevaluacion`),
   CONSTRAINT `fk_evaluado_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -721,7 +857,7 @@ CREATE TABLE `evento` (
   KEY `fk_evento_institucion1_idx` (`idinstitucion`),
   CONSTRAINT `fk_evento_evento_estado1` FOREIGN KEY (`idevento_estado`) REFERENCES `evento_estado` (`idevento_estado`),
   CONSTRAINT `fk_evento_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -764,7 +900,7 @@ CREATE TABLE `evento_estado` (
   `idevento_estado` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idevento_estado`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -790,7 +926,7 @@ CREATE TABLE `foto` (
   `detalle` varchar(200) DEFAULT NULL,
   `archivo` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idfoto`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -816,7 +952,7 @@ CREATE TABLE `funcionario` (
   PRIMARY KEY (`idfuncionario`),
   KEY `fk_funcionario_persona1_idx` (`idpersona`),
   CONSTRAINT `fk_funcionario_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -839,7 +975,7 @@ CREATE TABLE `genero` (
   `idgenero` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idgenero`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -864,7 +1000,7 @@ CREATE TABLE `informe` (
   `nombre` varchar(45) DEFAULT NULL,
   `descripcion` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`idinforme`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -888,7 +1024,7 @@ CREATE TABLE `institucion` (
   `idinstitucion` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idinstitucion`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -897,7 +1033,7 @@ CREATE TABLE `institucion` (
 
 LOCK TABLES `institucion` WRITE;
 /*!40000 ALTER TABLE `institucion` DISABLE KEYS */;
-INSERT INTO `institucion` VALUES (1,'Universidad Tecnica Luis Vargas Torres'),(2,'UTLVTE-LA CONCORDIA'),(3,'highkick');
+INSERT INTO `institucion` VALUES (1,'Universidad Tecnica Luis Vargas Torres'),(2,'UTLVTE-LA CONCORDIA'),(3,'highkick'),(4,'Variedades Victoria');
 /*!40000 ALTER TABLE `institucion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -912,10 +1048,11 @@ CREATE TABLE `inventario` (
   `idinventario` int NOT NULL AUTO_INCREMENT,
   `idinstitucion` int NOT NULL,
   `fechaelaboracion` date DEFAULT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idinventario`,`idinstitucion`),
   KEY `fk_Inventario_institucion1_idx` (`idinstitucion`),
   CONSTRAINT `fk_Inventario_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -924,6 +1061,7 @@ CREATE TABLE `inventario` (
 
 LOCK TABLES `inventario` WRITE;
 /*!40000 ALTER TABLE `inventario` DISABLE KEYS */;
+INSERT INTO `inventario` VALUES (1,1,'2022-01-20','Inventario de Enero/2022'),(2,4,'2022-01-21','INVERTARI DE LEVANTAMIENTO');
 /*!40000 ALTER TABLE `inventario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -946,7 +1084,7 @@ CREATE TABLE `maestrante` (
   CONSTRAINT `fk_maestrante_maestrante_estado1` FOREIGN KEY (`idmaestrante_estado`) REFERENCES `maestrante_estado` (`idmaestrante_estado`),
   CONSTRAINT `fk_maestrante_maestria1` FOREIGN KEY (`idmaestria`) REFERENCES `maestria` (`idmaestria`),
   CONSTRAINT `fk_maestrante_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -991,7 +1129,7 @@ CREATE TABLE `maestrante_estado` (
   `idmaestrante_estado` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idmaestrante_estado`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1015,7 +1153,7 @@ CREATE TABLE `maestria` (
   `idmaestria` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idmaestria`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1046,7 +1184,7 @@ CREATE TABLE `mensaje` (
   PRIMARY KEY (`idmensaje`,`idmensaje_estado`),
   KEY `fk_mensaje_mensaje_estado1_idx` (`idmensaje_estado`),
   CONSTRAINT `fk_mensaje_mensaje_estado1` FOREIGN KEY (`idmensaje_estado`) REFERENCES `mensaje_estado` (`idmensaje_estado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1069,7 +1207,7 @@ CREATE TABLE `mensaje_estado` (
   `idmensaje_estado` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idmensaje_estado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1095,7 +1233,7 @@ CREATE TABLE `modulo` (
   `icono` varchar(45) DEFAULT NULL,
   `modulo` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idmodulo`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1104,7 +1242,7 @@ CREATE TABLE `modulo` (
 
 LOCK TABLES `modulo` WRITE;
 /*!40000 ALTER TABLE `modulo` DISABLE KEYS */;
-INSERT INTO `modulo` VALUES (1,'Institución','INS','institucion','institucion'),(2,'Modulo','MOD','modulo','modulo'),(3,'Usuario','USU','usuario','usuario'),(4,'Acceso a menu','ACC','acceso','acceso'),(5,'Personas','PER','persona','persona'),(6,'Cliente','CLI','cliente','cliente'),(7,'Eventos','EVE','evento','evento'),(8,'Artículo','ART','articulo','articulo'),(9,'Cinturón Taek','CIN','cinturon','cinturon'),(10,'Ascenso','ASC','ascenso','ascenso'),(11,'Correo','COR','correo','correo'),(12,'Teléfono','TEL','telefono','telefono'),(13,'Maestrantes','','maestrante','maestrante'),(14,'Portafolil del estudiante','','portafolioestudiante','portafolioestudiante'),(15,'Uniforme','','uniforme','uniforme');
+INSERT INTO `modulo` VALUES (1,'Institución','INS','institucion','institucion'),(2,'Modulo','MOD','modulo','modulo'),(3,'Usuario','USU','usuario','usuario'),(4,'Acceso a menu','ACC','acceso','acceso'),(5,'Personas','PER','persona','persona'),(6,'Cliente','CLI','cliente','cliente'),(7,'Eventos','EVE','evento','evento'),(8,'Artículo','ART','articulo','articulo'),(9,'Cinturón Taek','CIN','cinturon','cinturon'),(10,'Ascenso','ASC','ascenso','ascenso'),(11,'Correo','COR','correo','correo'),(12,'Teléfono','TEL','telefono','telefono'),(13,'Maestrantes','','maestrante','maestrante'),(14,'Portafolil del estudiante','','portafolioestudiante','portafolioestudiante'),(15,'Uniforme','','uniforme','uniforme'),(16,'Documento','','documento','documento'),(17,'Categoria de articulo','','categoria','categoria'),(18,'Inventario','inventario','inventario','inventario'),(19,'Detalle de inventario','detainventario','detainventario','detainventario'),(20,'Ordenador','','ordenador','ordenador'),(21,'Tipos de documentos','tipodocu','tipodocu','tipodocu'),(22,'Unidad','UNI','unidad','unidad'),(23,'Departamento','departamento','departamento','departamento'),(24,'Estudiante','','estudiante','estudiante');
 /*!40000 ALTER TABLE `modulo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1124,7 +1262,7 @@ CREATE TABLE `nivelacceso` (
   `inicio` varchar(45) DEFAULT NULL,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idnivelacceso`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1154,7 +1292,7 @@ CREATE TABLE `nombramiento` (
   KEY `fk_funcionario_has_departamento_funcionario1_idx` (`idfuncionario`),
   CONSTRAINT `fk_funcionario_has_departamento_departamento1` FOREIGN KEY (`iddepartamento`) REFERENCES `departamento` (`iddepartamento`),
   CONSTRAINT `fk_funcionario_has_departamento_funcionario1` FOREIGN KEY (`idfuncionario`) REFERENCES `funcionario` (`idfuncionario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1177,7 +1315,7 @@ CREATE TABLE `operadora` (
   `idoperadora` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idoperadora`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1201,7 +1339,7 @@ CREATE TABLE `ordenador` (
   `idordenador` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idordenador`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1210,7 +1348,7 @@ CREATE TABLE `ordenador` (
 
 LOCK TABLES `ordenador` WRITE;
 /*!40000 ALTER TABLE `ordenador` DISABLE KEYS */;
-INSERT INTO `ordenador` VALUES (1,'XArchivos.org'),(4,'OFICINASECRETARIA'),(6,'Ingreso a Maestrias');
+INSERT INTO `ordenador` VALUES (1,'XArchivos.org'),(4,'OFICINASECRETARIA'),(6,'Ingreso a Maestrias'),(7,'educaysoft.org'),(8,'142.132.132.157');
 /*!40000 ALTER TABLE `ordenador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1229,7 +1367,7 @@ CREATE TABLE `participante` (
   KEY `fk_evento_has_persona_evento1_idx` (`idevento`),
   CONSTRAINT `fk_evento_has_persona_evento1` FOREIGN KEY (`idevento`) REFERENCES `evento` (`idevento`),
   CONSTRAINT `fk_evento_has_persona_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1267,7 +1405,7 @@ CREATE TABLE `perfil` (
   `idperfil` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idperfil`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1305,7 +1443,7 @@ CREATE TABLE `persona` (
   KEY `fk_persona_foto1_idx` (`idfoto`),
   CONSTRAINT `fk_persona_foto1` FOREIGN KEY (`idfoto`) REFERENCES `foto` (`idfoto`),
   CONSTRAINT `fk_persona_genero1` FOREIGN KEY (`idgenero`) REFERENCES `genero` (`idgenero`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1314,7 +1452,7 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES (7,'Miranda Bolaños Damaris',NULL,'0850489881',NULL,'fotos/0850489881.jpg','pdfs/0850489881.pdf',1,1,1,0,0),(8,'STALIN ADALBERTO','FRANCIS QUINDE','0801560517',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(9,'ILCI MONSERRATE','NAZARENO ARTEAGA','0804363265',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(10,'ROXANA STEFANIA','DIAZ ESTUPIÑAN','0801951781',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(11,'CRUZ DIANA','COROZO CAGUA','0802656686',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(12,'JIMMY ALEXANDER','PAZMIÑO TORRES','0802394338',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(13,'WILSON ENRRIQUE','CONTRERAS PASCUAZA','0803775345',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(14,'BETTY VERONICA','MOSQUERA CASTILLO','0802169581',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(15,'ROBERTO EDWIN','MONTAÑO ROLDAN','0802200154',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(16,'RAFAEL MARCELO','PEREZ AGUIRRE','1500434095',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(17,'CESAR ALBERTO','MANCHAY ORBEA','082324665',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(18,'BYRON  JAVIER','RAMIREZ DUEÑAS','0850036823',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(19,'YAMIL RODRIGO','LOPEZ ALBAN','0802402131',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(20,'GERARDO ALFREDO','SOLORZANO GUTIERREZ','1714184429',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(21,'GEOVANY','RIVERA BAZAN','0803063593',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(23,'PATRICIO EDUARDO','PERALTA VALVERDE','0801943655',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(24,'MARIA NELA','QUIÑONEZ CORTEZ','0804096675',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(25,'SONIA MARÍA','BUSTAMANTE LÓPEZ','0920298460',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(26,'INGRID DEYANIRA','QUINDE ACOSTA','0801416017',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(27,'VICTOR EDUARDO','QUISPE MERA','0804383495',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(28,'JACKSON ARTURO','MANCHAY ORBEA','0802654681',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(29,'KEVIN STEEVEN','AGUILAR MOLINA','0803708940',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(31,'DAMARIS MARGARITA','MIRANDA BOLAÑOS','0850489881',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(32,'congresoutlvte','facped','0000000000',NULL,'fotos/0000000000.jpg',NULL,NULL,NULL,NULL,0,0),(33,'admin','admin','0000000000',NULL,'fotos/0000000000.jpg',NULL,NULL,NULL,NULL,0,0),(34,'CHRISTOPHER YERIEL','FRANCIS ANGULO','0850563412','2022-01-13','fotos/0850563412.jpg','pdfs/0850563412.pdf',1,1,1,2,0),(35,'WILLIAM GONZALO','BAICILLA CHANBA','0804314136','2022-01-15','',NULL,NULL,NULL,NULL,2,0),(36,'JOSEPH ALDAIR','CAMPAS MARQUEZ','0850108812','2022-01-20','',NULL,NULL,NULL,NULL,2,0),(37,'BONE PANEZO','SECRETARIA','0801593933',NULL,'fotos/0801593933.jpg','pdfs/0801593933.pdf',1,1,1,1,0),(38,'YORDAN  MANUEL','TIMARAN','0803154848','2022-01-13','',NULL,NULL,NULL,NULL,2,0),(39,'THIAGO','JIJON','0850694910','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(40,'EDISON ','QUINDE','1050528395','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(41,'HENRY','BONE','0850194481','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(42,'JESSICA','BONE','0850454927','0000-00-00','',NULL,NULL,NULL,NULL,1,0),(43,'MIGUEL','MONTAÑO','085102954','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(44,'STALIN','MERA','0850417304','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(45,'MATEO','MERA','0851048785','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(46,'JADEN','QUEZADA','0850147547','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(47,'PATRICK DIDIER','FRANCIS','0850025479','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(49,'GILBERT JOSE','MARINEZ RODRIGUEZ','00000000','0000-00-00','',NULL,NULL,NULL,NULL,2,NULL),(50,'WILLIAM JOEL','FRANCIS CAICEDO','0850060187','0000-00-00','',NULL,NULL,NULL,NULL,2,NULL);
+INSERT INTO `persona` VALUES (7,'Miranda Bolaños Damaris',NULL,'0850489881',NULL,'fotos/0850489881.jpg','pdfs/0850489881.pdf',1,1,1,0,0),(8,'STALIN ADALBERTO','FRANCIS QUINDE','0801560517',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(9,'ILCI MONSERRATE','NAZARENO ARTEAGA','0804363265',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(10,'ROXANA STEFANIA','DIAZ ESTUPIÑAN','0801951781',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(11,'CRUZ DIANA','COROZO CAGUA','0802656686',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(12,'JIMMY ALEXANDER','PAZMIÑO TORRES','0802394338',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(13,'WILSON ENRRIQUE','CONTRERAS PASCUAZA','0803775345',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(14,'BETTY VERONICA','MOSQUERA CASTILLO','0802169581',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(15,'ROBERTO EDWIN','MONTAÑO ROLDAN','0802200154',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(16,'RAFAEL MARCELO','PEREZ AGUIRRE','1500434095',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(17,'CESAR ALBERTO','MANCHAY ORBEA','082324665',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(18,'BYRON  JAVIER','RAMIREZ DUEÑAS','0850036823',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(19,'YAMIL RODRIGO','LOPEZ ALBAN','0802402131',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(20,'GERARDO ALFREDO','SOLORZANO GUTIERREZ','1714184429',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(21,'GEOVANY','RIVERA BAZAN','0803063593',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(23,'PATRICIO EDUARDO','PERALTA VALVERDE','0801943655',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(24,'MARIA NELA','QUIÑONEZ CORTEZ','0804096675',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(25,'SONIA MARÍA','BUSTAMANTE LÓPEZ','0920298460',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(26,'INGRID DEYANIRA','QUINDE ACOSTA','0801416017',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(27,'VICTOR EDUARDO','QUISPE MERA','0804383495',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(28,'JACKSON ARTURO','MANCHAY ORBEA','0802654681',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(29,'KEVIN STEEVEN','AGUILAR MOLINA','0803708940',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(31,'DAMARIS MARGARITA','MIRANDA BOLAÑOS','0850489881',NULL,NULL,NULL,NULL,NULL,NULL,0,0),(32,'congresoutlvte','facped','0000000000',NULL,'fotos/0000000000.jpg',NULL,NULL,NULL,NULL,0,0),(33,'admin','admin','0000000000',NULL,'fotos/0000000000.jpg',NULL,NULL,NULL,NULL,0,0),(34,'CHRISTOPHER YERIEL','FRANCIS ANGULO','0850563412','2022-01-13','fotos/0850563412.jpg','pdfs/0850563412.pdf',1,1,1,2,0),(35,'WILLIAM GONZALO','BAICILLA CHANBA','0804314136','2022-01-15','',NULL,NULL,NULL,NULL,2,0),(36,'JOSEPH ALDAIR','CAMPAS MARQUEZ','0850108812','2022-01-20','',NULL,NULL,NULL,NULL,2,0),(37,'BONE PANEZO','SECRETARIA','0801593933',NULL,'fotos/0801593933.jpg','pdfs/0801593933.pdf',1,1,1,1,0),(38,'YORDAN  MANUEL','TIMARAN','0803154848','2022-01-13','',NULL,NULL,NULL,NULL,2,0),(39,'THIAGO','JIJON','0850694910','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(40,'EDISON ','QUINDE','1050528395','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(41,'HENRY','BONE','0850194481','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(42,'JESSICA','BONE','0850454927','0000-00-00','',NULL,NULL,NULL,NULL,1,0),(43,'MIGUEL','MONTAÑO','085102954','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(44,'STALIN','MERA','0850417304','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(45,'MATEO','MERA','0851048785','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(46,'JADEN','QUEZADA','0850147547','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(47,'PATRICK DIDIER','FRANCIS','0850025479','0000-00-00','',NULL,NULL,NULL,NULL,2,0),(49,'GILBERT JOSE','MARINEZ RODRIGUEZ','00000000','0000-00-00','',NULL,NULL,NULL,NULL,2,NULL),(50,'WILLIAM JOEL','FRANCIS CAICEDO','0850060187','2002-08-25','',NULL,NULL,NULL,NULL,2,NULL),(51,'EDISON','CAPURRO','0803708940','2022-01-04','',NULL,NULL,NULL,NULL,2,NULL),(52,'JAVIER','QUIÑONZ','0801569493','2022-01-03','',NULL,NULL,NULL,NULL,2,NULL),(53,'JAVIER','QUIÑONEZ','0801569493','2022-01-03','',NULL,NULL,NULL,NULL,2,NULL),(54,'Priscila elizabe','Goyes Valencia','00930202','2022-01-12','',NULL,NULL,NULL,NULL,2,NULL),(55,'MIRIAN MARIA','REYES LEÓN','0802891614','2022-01-19','',NULL,NULL,NULL,NULL,1,NULL),(56,'CINTHYA ELAINE','CASTILLO MONTES','0802504498','2022-01-19','',NULL,NULL,NULL,NULL,1,NULL),(60,'MATEO MATIAS','CAICEDO ANGULO','083948382','0000-00-00','',NULL,NULL,NULL,NULL,2,NULL),(61,'fiorela marcola','francis molina','08888888','0000-00-00','',NULL,NULL,NULL,NULL,1,NULL);
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1398,7 +1536,7 @@ CREATE TABLE `portafolioestudiante` (
   CONSTRAINT `fk_portafolioestudiante_estado_portafolio1` FOREIGN KEY (`idestado_portafolio`) REFERENCES `estado_portafolio` (`idestado_portafolio`),
   CONSTRAINT `fk_portafolioestudiante_estudiante1` FOREIGN KEY (`idestudiante`) REFERENCES `estudiante` (`idestudiante`),
   CONSTRAINT `fk_portafolioestudiante_portafoliomodelo1` FOREIGN KEY (`idportafoliomodelo`) REFERENCES `portafoliomodelo` (`idportafoliomodelo`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1407,7 +1545,6 @@ CREATE TABLE `portafolioestudiante` (
 
 LOCK TABLES `portafolioestudiante` WRITE;
 /*!40000 ALTER TABLE `portafolioestudiante` DISABLE KEYS */;
-INSERT INTO `portafolioestudiante` VALUES (1,1,1,0),(2,2,1,0);
 /*!40000 ALTER TABLE `portafolioestudiante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1438,7 +1575,7 @@ CREATE TABLE `portafoliomodelo` (
   `nombre` varchar(100) DEFAULT NULL,
   `detalle` text,
   PRIMARY KEY (`idportafoliomodelo`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1465,7 +1602,7 @@ CREATE TABLE `pregunta` (
   PRIMARY KEY (`idpregunta`,`idevaluacion`),
   KEY `fk_pregunta_evaluacion1_idx` (`idevaluacion`),
   CONSTRAINT `fk_pregunta_evaluacion1` FOREIGN KEY (`idevaluacion`) REFERENCES `evaluacion` (`idevaluacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1492,7 +1629,7 @@ CREATE TABLE `respuesta` (
   PRIMARY KEY (`idrespuesta`,`idpregunta`),
   KEY `fk_respuesta_pregunta1_idx` (`idpregunta`),
   CONSTRAINT `fk_respuesta_pregunta1` FOREIGN KEY (`idpregunta`) REFERENCES `pregunta` (`idpregunta`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1525,7 +1662,7 @@ CREATE TABLE `resultado` (
   CONSTRAINT `fk_resultado_evaluado1` FOREIGN KEY (`idevaluado`) REFERENCES `evaluado` (`idevaluado`),
   CONSTRAINT `fk_resultado_pregunta1` FOREIGN KEY (`idpregunta`) REFERENCES `pregunta` (`idpregunta`),
   CONSTRAINT `fk_resultado_respuesta1` FOREIGN KEY (`idrespuesta`) REFERENCES `respuesta` (`idrespuesta`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1557,7 +1694,7 @@ CREATE TABLE `telefono` (
   CONSTRAINT `fk_telefono_operadora1` FOREIGN KEY (`idoperadora`) REFERENCES `operadora` (`idoperadora`),
   CONSTRAINT `fk_telefono_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`),
   CONSTRAINT `fk_telefono_telefono_estado1` FOREIGN KEY (`idtelefono_estado`) REFERENCES `telefono_estado` (`idtelefono_estado`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1566,7 +1703,7 @@ CREATE TABLE `telefono` (
 
 LOCK TABLES `telefono` WRITE;
 /*!40000 ALTER TABLE `telefono` DISABLE KEYS */;
-INSERT INTO `telefono` VALUES (2,'0968619870',10,1,1),(3,'0986442331',11,1,1),(4,'0967653764',12,1,1),(5,'0989678140',27,1,1),(6,'0999168280',26,1,1),(7,'0920298460',25,1,1),(9,'0967774874',21,1,1),(10,'0997100105',20,1,1),(11,'0994673447',19,1,1),(12,'0996705278',18,1,1),(13,'0939734500',17,1,1),(14,'0997335572',14,1,1),(15,'0987524609',16,1,1),(16,'0997153938',15,1,1),(19,'0989891748',13,1,1),(20,'0988685744',28,1,1),(21,'0990377244',9,1,1),(22,'0997627379',24,1,1),(23,'0985418026',29,1,1),(24,'08093833454',32,1,1),(25,'0938373',33,1,1),(26,'0997919650',34,1,1),(27,'062017660',12,1,1),(28,'0968672170',24,1,1),(29,'2454472',24,2,1),(30,'062460774',26,2,1),(31,'062737020',13,2,1),(32,'0986259779',25,1,1),(33,'062450727',21,2,1),(34,'062731684',21,2,1),(35,'0996277763',21,1,1),(36,'062453335',19,2,1),(37,'062016049',18,2,1),(38,'0982581469',49,1,1),(39,'062723236',17,2,1),(40,'0802169581',14,1,1),(41,'062453200',14,2,1),(42,'062452853',14,2,1),(43,'23270364',16,2,1),(44,'062453180',15,2,1),(45,'0997022029',23,1,1),(46,'062766262',23,2,1);
+INSERT INTO `telefono` VALUES (3,'0986442331',11,1,1),(4,'0967653764',12,1,1),(5,'0989678140',27,1,1),(6,'0999168280',26,1,1),(7,'0920298460',25,1,1),(9,'0967774874',21,1,1),(10,'0997100105',20,1,1),(11,'0994673447',19,1,1),(12,'0996705278',18,1,1),(13,'0939734500',17,1,1),(14,'0997335572',14,1,1),(15,'0987524609',16,1,1),(16,'0997153938',15,1,1),(19,'0989891748',13,1,1),(20,'0988685744',28,1,1),(21,'0990377244',9,1,1),(22,'0997627379',24,1,1),(23,'0985418026',29,1,1),(24,'08093833454',32,1,1),(25,'0938373',33,1,1),(26,'0997919650',34,1,1),(27,'062017660',12,1,1),(28,'0968672170',24,1,1),(29,'2454472',24,2,1),(30,'062460774',26,2,1),(31,'062737020',13,2,1),(32,'0986259779',25,1,1),(33,'062450727',21,2,1),(34,'062731684',21,2,1),(35,'0996277763',21,1,1),(36,'062453335',19,2,1),(37,'062016049',18,2,1),(38,'0982581469',49,1,1),(39,'062723236',17,2,1),(40,'0802169581',14,1,1),(41,'062453200',14,2,1),(42,'062452853',14,2,1),(43,'23270364',16,2,1),(44,'062453180',15,2,1),(45,'0997022029',23,1,1),(46,'062766262',23,2,1),(47,'099383833',51,1,1),(48,'0981035944',55,1,1),(49,'000900',56,1,1),(50,'0985681597',50,1,1),(51,'0967074494',50,1,1),(52,'0968619870',7,1,1),(53,'0920298460',7,1,1),(56,'0989891748',7,1,1),(57,'0896442331',7,1,1),(58,'0968619870',7,1,1),(59,'097363637',60,1,1),(60,'09999999',61,1,1),(61,'03938393',11,2,1);
 /*!40000 ALTER TABLE `telefono` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1595,7 +1732,7 @@ CREATE TABLE `telefono_estado` (
   `idtelefono_estado` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idtelefono_estado`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1618,8 +1755,9 @@ DROP TABLE IF EXISTS `tipodocu`;
 CREATE TABLE `tipodocu` (
   `idtipodocu` int NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) DEFAULT NULL,
+  `cantidad` int DEFAULT NULL,
   PRIMARY KEY (`idtipodocu`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1628,9 +1766,23 @@ CREATE TABLE `tipodocu` (
 
 LOCK TABLES `tipodocu` WRITE;
 /*!40000 ALTER TABLE `tipodocu` DISABLE KEYS */;
-INSERT INTO `tipodocu` VALUES (1,'OFICIO RECIBIDO'),(2,'OFICIO ENTREGADOS'),(3,'OFICIO DE RECLAMO'),(6,'CERTIFICADO ENTREGADO');
+INSERT INTO `tipodocu` VALUES (1,'OFICIO RECIBIDO',NULL),(2,'OFICIO ENTREGADOS',NULL),(3,'OFICIO DE RECLAMO',NULL),(6,'CERTIFICADO ENTREGADO',NULL),(7,'TESIS DE GRADO',NULL),(8,'TESINA',NULL),(9,'SILABOS',NULL);
 /*!40000 ALTER TABLE `tipodocu` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `tipodocu1`
+--
+
+DROP TABLE IF EXISTS `tipodocu1`;
+/*!50001 DROP VIEW IF EXISTS `tipodocu1`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `tipodocu1` AS SELECT 
+ 1 AS `idtipodocu`,
+ 1 AS `descripcion`,
+ 1 AS `cantidad`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `unidad`
@@ -1646,7 +1798,7 @@ CREATE TABLE `unidad` (
   PRIMARY KEY (`idunidad`),
   KEY `fk_unidad_institucion1_idx` (`idinstitucion`),
   CONSTRAINT `fk_unidad_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1673,12 +1825,15 @@ CREATE TABLE `usuario` (
   `email` varchar(50) DEFAULT NULL,
   `idperfil` int NOT NULL,
   `inicio` varchar(100) DEFAULT NULL,
+  `idinstitucion` int DEFAULT NULL,
   PRIMARY KEY (`idusuario`),
   KEY `idpersona` (`idpersona`),
   KEY `fk_usuario_perfil1_idx` (`idperfil`),
+  KEY `fk_usuarioinsttituicion` (`idinstitucion`),
   CONSTRAINT `fk_usuario_perfil1` FOREIGN KEY (`idperfil`) REFERENCES `perfil` (`idperfil`),
+  CONSTRAINT `fk_usuarioinsttituicion` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1687,7 +1842,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (3,'123456',7,'damaris.miranda@utelvt.edu.ec',1,NULL),(4,'PIWIIB1234',8,'educaysoft@gmail.com',1,'principal'),(5,'congresoutlvte',32,'congresoutlvte@utelvte.edu.ec',3,NULL),(6,'admin',33,'admin',3,'certificado/listar'),(7,'PIWIIB1234',34,'francis.christopher@egbfcristorey.edu.ec',1,'certificado/listar'),(8,'PIWIIB1234',37,'highkickesmeraldas@gmail.com',1,'institucion'),(10,'PIWIIB1234',8,'maestria.ti@utelvt.edu.ec',1,'principal'),(11,'PIWIIB1234',8,'stalin.francis@utelvt.edu.ec',1,'principal');
+INSERT INTO `usuario` VALUES (3,'123456',31,'damaris.miranda@utelvt.edu.ec',1,'',1),(4,'PIWIIB1234',8,'educaysoft@gmail.com',1,'principal',1),(5,'congresoutlvte',32,'congresoutlvte@utelvte.edu.ec',3,'',1),(6,'admin',33,'admin',3,'certificado/listar',1),(7,'PIWIIB1234',34,'francis.christopher@egbfcristorey.edu.ec',1,'certificado/listar',3),(8,'PIWIIB1234',37,'highkickesmeraldas@gmail.com',1,'institucion',3),(10,'PIWIIB1234',8,'maestria.ti@utelvt.edu.ec',1,'principal',1),(11,'PIWIIB1234',8,'stalin.francis@utelvt.edu.ec',1,'principal',1),(12,'PIWIIB1234',40,'edison.capurro@utelvt.edu.ec',1,'principal',1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1719,7 +1874,7 @@ CREATE TABLE `visitas` (
   `enlace` varchar(300) DEFAULT NULL,
   `visitas` int DEFAULT NULL,
   PRIMARY KEY (`idvisitas`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1750,7 +1905,7 @@ CREATE TABLE `vitacora_maestrante_estado` (
   KEY `fk_maestrante_has_maestrante_estado_maestrante1_idx` (`idmaestrante`),
   CONSTRAINT `fk_maestrante_has_maestrante_estado_maestrante1` FOREIGN KEY (`idmaestrante`) REFERENCES `maestrante` (`idmaestrante`),
   CONSTRAINT `fk_maestrante_has_maestrante_estado_maestrante_estado1` FOREIGN KEY (`idmaestrante_estado`) REFERENCES `maestrante_estado` (`idmaestrante_estado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1780,6 +1935,24 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Final view structure for view `acceso1`
+--
+
+/*!50001 DROP VIEW IF EXISTS `acceso1`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `acceso1` AS select `usuario`.`idusuario` AS `idusuario`,`acceso`.`idacceso` AS `idacceso`,concat(coalesce(`persona`.`apellidos`,''),'  ',coalesce(`persona`.`nombres`,''),' : ',coalesce(`usuario`.`email`)) AS `elusuario`,`acceso`.`idmodulo` AS `idmodulo`,`modulo`.`nombre` AS `elmodulo`,`acceso`.`idnivelacceso` AS `idnivelacceso`,`nivelacceso`.`nombre` AS `elnivelacceso` from ((((`acceso` join `usuario`) join `persona`) join `modulo`) join `nivelacceso`) where ((`acceso`.`idusuario` = `usuario`.`idusuario`) and (`usuario`.`idpersona` = `persona`.`idpersona`) and (`acceso`.`idmodulo` = `modulo`.`idmodulo`) and (`acceso`.`idnivelacceso` = `nivelacceso`.`idnivelacceso`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `articulo1`
 --
 
@@ -1789,7 +1962,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `articulo1` AS select `articulo`.`idarticulo` AS `idarticulo`,`articulo`.`idinstitucion` AS `idinstitucion`,`institucion`.`nombre` AS `lainstitucion`,`articulo`.`nombre` AS `nombre` from (`articulo` join `institucion`) where (`articulo`.`idinstitucion` = `institucion`.`idinstitucion`) */;
@@ -1807,7 +1980,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `cinturon1` AS select `cinturon`.`idcinturon` AS `idcinturon`,`cinturon`.`color` AS `color`,`articulo`.`nombre` AS `elarticulo` from (`cinturon` join `articulo`) where (`cinturon`.`idarticulo` = `articulo`.`idarticulo`) */;
@@ -1825,7 +1998,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `cliente1` AS select `cliente`.`idcliente` AS `idcliente`,`persona`.`idpersona` AS `idpersona`,concat(coalesce(`persona`.`apellidos`,''),'  ',coalesce(`persona`.`nombres`,'')) AS `elcliente`,`cliente`.`idinstitucion` AS `idinstitucion`,`institucion`.`nombre` AS `lainstitucion`,`cliente`.`fechainscripcion` AS `fechainscripcion` from ((`cliente` join `persona`) join `institucion`) where ((`cliente`.`idpersona` = `persona`.`idpersona`) and (`cliente`.`idinstitucion` = `institucion`.`idinstitucion`)) */;
@@ -1843,7 +2016,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `correo1` AS select `correo`.`idcorreo` AS `idcorreo`,`correo`.`nombre` AS `elcorreo`,concat(`persona`.`apellidos`,'  ',`persona`.`nombres`) AS `lapersona` from (`correo` join `persona`) where (`correo`.`idpersona` = `persona`.`idpersona`) */;
@@ -1861,10 +2034,46 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `destinatario1` AS select `destinatario`.`iddocumento` AS `iddocumento`,`documento`.`asunto` AS `asunto`,`destinatario`.`idpersona` AS `idpersona`,`persona`.`nombres` AS `nombres` from ((`destinatario` join `documento`) join `persona`) where ((`destinatario`.`iddocumento` = `documento`.`iddocumento`) and (`destinatario`.`idpersona` = `persona`.`idpersona`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `directorio1`
+--
+
+/*!50001 DROP VIEW IF EXISTS `directorio1`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `directorio1` AS select `directorio`.`iddirectorio` AS `iddirectorio`,`directorio`.`nombre` AS `nombre`,`directorio`.`ruta` AS `ruta`,`directorio`.`descripcion` AS `descripcion`,`ordenador`.`nombre` AS `elordenador` from (`directorio` join `ordenador`) where (`directorio`.`idordenador` = `ordenador`.`idordenador`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `documento1`
+--
+
+/*!50001 DROP VIEW IF EXISTS `documento1`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `documento1` AS select `do`.`iddocumento` AS `iddocumento`,(select concat(coalesce(`pe`.`apellidos`,''),'  ',coalesce(`pe`.`nombres`,'')) from (`persona` `pe` join `emisor` `em`) where ((`do`.`iddocumento` = `em`.`iddocumento`) and (`em`.`idpersona` = `pe`.`idpersona`)) limit 1) AS `autor`,`do`.`asunto` AS `asunto`,`do`.`fechaelaboracion` AS `fechaelaboracion`,`do`.`archivopdf` AS `archivopdf`,`ti`.`idtipodocu` AS `idtipodocu`,`ti`.`descripcion` AS `eltipodocu`,`di`.`ruta` AS `ruta` from ((`documento` `do` join `tipodocu` `ti`) join `directorio` `di`) where ((`do`.`idtipodocu` = `ti`.`idtipodocu`) and (`do`.`iddirectorio` = `di`.`iddirectorio`)) union select `do`.`iddocumento` AS `iddocumento`,(select concat(coalesce(`pe`.`apellidos`,''),'  ',coalesce(`pe`.`nombres`,'')) from (`persona` `pe` join `emisor` `em`) where ((`do`.`iddocumento` = `em`.`iddocumento`) and (`em`.`idpersona` = `pe`.`idpersona`)) limit 1) AS `autor`,`do`.`asunto` AS `asunto`,`do`.`fechaelaboracion` AS `fechaelaboracion`,`do`.`archivopdf` AS `archivopdf`,`ti`.`idtipodocu` AS `idtipodocu`,`ti`.`descripcion` AS `eltipodocu`,'' AS `ruta` from ((`documento` `do` join `tipodocu` `ti`) join `directorio` `di`) where ((`do`.`idtipodocu` = `ti`.`idtipodocu`) and (`do`.`iddirectorio` = 0)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -1879,10 +2088,10 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `emisor1` AS select `emisor`.`iddocumento` AS `iddocumento`,`emisor`.`idpersona` AS `idpersona`,`documento`.`asunto` AS `asunto`,`persona`.`nombres` AS `nombres` from ((`emisor` join `documento`) join `persona`) where ((`emisor`.`iddocumento` = `documento`.`iddocumento`) and (`emisor`.`idpersona` = `persona`.`idpersona`)) */;
+/*!50001 VIEW `emisor1` AS select `emisor`.`iddocumento` AS `iddocumento`,`emisor`.`idpersona` AS `idpersona`,concat(coalesce(`persona`.`apellidos`,''),'  ',coalesce(`persona`.`nombres`,'')) AS `elemisor`,`documento`.`asunto` AS `asunto` from ((`emisor` join `persona`) join `documento`) where ((`emisor`.`iddocumento` = `documento`.`iddocumento`) and (`emisor`.`idpersona` = `persona`.`idpersona`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -1897,10 +2106,28 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `estudiante1` AS select `estudiante`.`idestudiante` AS `idestudiante`,`persona`.`idpersona` AS `idpersona`,concat(coalesce(`persona`.`apellidos`,''),'  ',coalesce(`persona`.`nombres`,'')) AS `elestudiante`,`estudiante`.`idinstitucion` AS `idinstitucion`,`institucion`.`nombre` AS `lainstitucion`,`estudiante`.`fechainscripcion` AS `fechainscripcion` from ((`estudiante` join `persona`) join `institucion`) where ((`estudiante`.`idpersona` = `persona`.`idpersona`) and (`estudiante`.`idinstitucion` = `institucion`.`idinstitucion`)) */;
+/*!50001 VIEW `estudiante1` AS select `estudiante`.`idestudiante` AS `idestudiante`,`persona`.`idpersona` AS `idpersona`,concat(coalesce(`persona`.`apellidos`,''),'  ',coalesce(`persona`.`nombres`,'')) AS `elestudiante`,`estudiante`.`iddepartamento` AS `iddepartamento`,`departamento`.`nombre` AS `lacarrera`,`estudiante`.`fechadesde` AS `fechadesde`,`estudiante`.`fechahasta` AS `fechahasta` from ((`estudiante` join `persona`) join `departamento`) where ((`estudiante`.`idpersona` = `persona`.`idpersona`) and (`estudiante`.`iddepartamento` = `departamento`.`iddepartamento`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `estudiante2`
+--
+
+/*!50001 DROP VIEW IF EXISTS `estudiante2`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `estudiante2` AS select `es`.`idestudiante` AS `idestudiante`,`pe`.`idpersona` AS `idpersona`,concat(coalesce(`pe`.`apellidos`,''),'  ',coalesce(`pe`.`nombres`,'')) AS `elestudiante`,`es`.`iddepartamento` AS `iddepartamento`,`de`.`nombre` AS `lacarrera`,`es`.`fechadesde` AS `fechadesde`,`es`.`fechahasta` AS `fechahasta`,(select count(`em`.`iddocumento`) from `emisor` `em` where (`em`.`idpersona` = `pe`.`idpersona`)) AS `cantidad` from ((`estudiante` `es` join `persona` `pe`) join `departamento` `de`) where ((`es`.`idpersona` = `pe`.`idpersona`) and (`es`.`iddepartamento` = `de`.`iddepartamento`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -1915,7 +2142,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `evaluado1` AS select `evaluado`.`idevaluado` AS `idevaluado`,concat(`persona`.`apellidos`,' ',`persona`.`nombres`) AS `persona` from (`evaluado` join `persona`) where (`evaluado`.`idpersona` = `persona`.`idpersona`) */;
@@ -1933,7 +2160,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `evento1` AS select `evento`.`idevento` AS `idevento`,`evento`.`titulo` AS `titulo`,`evento`.`detalle` AS `detalle`,`evento`.`fechacreacion` AS `fechacreacion`,`evento`.`fechainicia` AS `fechainicia`,`evento`.`fechafinaliza` AS `fechafinaliza`,`evento_estado`.`nombre` AS `estado`,`institucion`.`nombre` AS `lainstitucion` from ((`evento` join `evento_estado`) join `institucion`) where ((`evento`.`idevento_estado` = `evento_estado`.`idevento_estado`) and (`evento`.`idinstitucion` = `institucion`.`idinstitucion`)) */;
@@ -1951,7 +2178,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `maestrante1` AS select `maestrante`.`idmaestrante` AS `idmaestrante`,`persona`.`idpersona` AS `idpersona`,`persona`.`cedula` AS `cedula`,concat(`persona`.`apellidos`,'  ',`persona`.`nombres`) AS `maestrante`,`maestrante_estado`.`idmaestrante_estado` AS `idmaestrante_estado`,`maestrante_estado`.`nombre` AS `estado`,`maestria`.`idmaestria` AS `idmaestria`,`maestria`.`nombre` AS `maestria`,`correo`.`nombre` AS `correo`,`telefono`.`numero` AS `telefono` from (((((`maestrante` join `persona`) join `maestrante_estado`) join `maestria`) join `correo`) join `telefono`) where ((`maestrante`.`idpersona` = `persona`.`idpersona`) and (`maestrante`.`idmaestrante_estado` = `maestrante_estado`.`idmaestrante_estado`) and (`maestrante`.`idmaestria` = `maestria`.`idmaestria`) and (`correo`.`idpersona` = `persona`.`idpersona`) and (`correo`.`idcorreo_estado` = 1) and (`telefono`.`idpersona` = `persona`.`idpersona`) and (`telefono`.`idtelefono_estado` = 1)) */;
@@ -1969,7 +2196,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `participante1` AS select `participante`.`idevento` AS `idevento`,`participante`.`idpersona` AS `idpersona`,concat(`persona`.`apellidos`,' ',`persona`.`nombres`) AS `nombres` from (`participante` join `persona`) where (`participante`.`idpersona` = `persona`.`idpersona`) */;
@@ -1987,7 +2214,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `persona2` AS select `persona`.`idpersona` AS `idpersona`,concat(`persona`.`apellidos`,' ',`persona`.`nombres`) AS `lapersona`,`correo`.`nombre` AS `correo`,`telefono`.`numero` AS `telefono` from ((((`persona` join `correo`) join `telefono`) join `correo_estado`) join `telefono_estado`) where ((`persona`.`idpersona` = `correo`.`idpersona`) and (`persona`.`idpersona` = `telefono`.`idpersona`) and (`correo`.`idcorreo_estado` = 1) and (`telefono`.`idtelefono_estado` = 1)) */;
@@ -2005,7 +2232,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `portafolioestudiante1` AS select `portafolioestudiante`.`idportafolioestudiante` AS `idportafolioestudiante`,`portafoliomodelo`.`nombre` AS `eldocumento`,concat(coalesce(`persona`.`apellidos`,''),'  ',coalesce(`persona`.`nombres`,'')) AS `elestudiante`,`estado_portafolio`.`nombre` AS `elestado` from ((((`portafolioestudiante` join `estudiante`) join `persona`) join `estado_portafolio`) join `portafoliomodelo`) where ((`portafolioestudiante`.`idportafoliomodelo` = `portafoliomodelo`.`idportafoliomodelo`) and (`portafolioestudiante`.`idestudiante` = `estudiante`.`idestudiante`) and (`estudiante`.`idpersona` = `persona`.`idpersona`) and (`portafolioestudiante`.`idestado_portafolio` = `estado_portafolio`.`idestado_portafolio`)) */;
@@ -2023,10 +2250,28 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `telefono1` AS select `telefono`.`idtelefono` AS `idtelefono`,`telefono`.`numero` AS `numero`,concat(`persona`.`apellidos`,'  ',`persona`.`nombres`) AS `lapersona` from (`telefono` join `persona`) where (`telefono`.`idpersona` = `persona`.`idpersona`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `tipodocu1`
+--
+
+/*!50001 DROP VIEW IF EXISTS `tipodocu1`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `tipodocu1` AS select `t`.`idtipodocu` AS `idtipodocu`,`t`.`descripcion` AS `descripcion`,(select count(`d`.`iddocumento`) from `documento` `d` where (`d`.`idtipodocu` = `t`.`idtipodocu`)) AS `cantidad` from `tipodocu` `t` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2041,7 +2286,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `usuario1` AS select `usuario`.`idusuario` AS `idusuario`,concat(coalesce(`persona`.`apellidos`,''),'  ',coalesce(`persona`.`nombres`,'')) AS `elusuario`,`perfil`.`nombre` AS `elperfil`,`usuario`.`email` AS `email`,`usuario`.`password` AS `password` from ((`usuario` join `persona`) join `perfil`) where ((`usuario`.`idpersona` = `persona`.`idpersona`) and (`usuario`.`idperfil` = `perfil`.`idperfil`)) */;
@@ -2059,7 +2304,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `vitacora_maestrante_estado1` AS select `maestrante`.`idmaestrante` AS `idmaestrante`,concat(`persona`.`apellidos`,'  ',`persona`.`nombres`) AS `maestrante`,`maestrante_estado`.`nombre` AS `estado`,`vitacora_maestrante_estado`.`fechainicia` AS `fechainicia`,`vitacora_maestrante_estado`.`fechafinaliza` AS `fechafinaliza` from (((`vitacora_maestrante_estado` join `maestrante`) join `persona`) join `maestrante_estado`) where ((`vitacora_maestrante_estado`.`idmaestrante` = `maestrante`.`idmaestrante`) and (`maestrante`.`idpersona` = `persona`.`idpersona`) and (`vitacora_maestrante_estado`.`idmaestrante_estado` = `maestrante_estado`.`idmaestrante_estado`)) */;
@@ -2076,4 +2321,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-12 16:28:50
+-- Dump completed on 2022-02-14 17:41:59

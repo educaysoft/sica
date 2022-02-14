@@ -4,14 +4,7 @@
 <hr />
 <table>
  
-   <tr>
-     <td>Id institucion</td>
-     <td><?php 
-
-
-$eys_arrinput=array('name'=>'idinstitucion','value'=>$institucion['idinstitucion'],'readonly'=>'true', "style"=>"width:500px");
-echo form_input($eys_arrinput); ?></td>
-  </tr> 
+    
   <tr>
       <td>Nombre:</td>
       <td><?php
