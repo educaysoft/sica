@@ -130,7 +130,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 		<div style="float: left;">
 			<?php 
 			$url= base_url()."index.php/documento/loadpdf3";
-			$url2=$_SERVER("DOCUMENT_ROOT")." ";
+			$url2 = $_SERVER("DOCUMENT_ROOT")." ";
 			$js='onClick="uploadFiles(\''.$url.'\',\''.$url2.'\')"';     
 			echo form_button("carga","cargar a directorio",$js); ?>
 		</div> 
