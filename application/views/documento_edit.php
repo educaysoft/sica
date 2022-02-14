@@ -278,7 +278,7 @@ formData.append("archivopdf",document.getElementById('archivopdf').value);
 function uploadFiles(url) {
 
   var totalfiles = document.getElementById('files').files.length;
-
+alert(url);
   if(totalfiles > 0 ){
 
     var formData = new FormData();
