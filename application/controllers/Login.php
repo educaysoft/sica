@@ -54,7 +54,7 @@ $this->load->view('registration_form',$data);
 $datau = array('email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1);
 
 $datap = array('cedula'=>$this->input->post('cedula'),'nombres'=>$this->input->post('nombres'),'apellidos'=>$this->input->post('apellidos'));
-$datap+=['foto'=>"fotos/".$this->input->post('cedula').".jpg"];
+$datap+=['foto'=>"fotos/".$this->input->post('cedula').".png"];
 $datap+=['pdf'=>"pdfs/".$this->input->post('cedula').".pdf"];
 $datap+=["idgenero"=>1];
 $datap+=["idestadocivil"=>1];
@@ -128,7 +128,7 @@ if ($result == TRUE) {
 				'email' => $result[0]->email,
 				'elusuario' => $result2[0]->apellidos." ".$result2[0]->nombres,
 				'cedula' => $result2[0]->cedula,
-				'foto' => $result2[0]->foto,
+				'foto' => $result2[0]->cedula.".png",
 				'pdf' => $result2[0]->pdf,
 				'inicio'=>$result[0]->inicio,
 				'institucion'=>$resulti[0]->nombre,

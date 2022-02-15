@@ -15,7 +15,7 @@ function index()
 }
 
  function loadfoto() {
-$target_dir =  $_SERVER["DOCUMENT_ROOT"]."/sica/".$this->session->userdata['logged_in']['cedula'].".png";  //"uploads/";
+$target_dir =  $_SERVER["DOCUMENT_ROOT"]."/sica/fotos/".$this->session->userdata['logged_in']['cedula'].".png";  //"uploads/";
 echo $target_dir;
 $target_file =$target_dir; // $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
