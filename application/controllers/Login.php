@@ -128,7 +128,7 @@ if ($result == TRUE) {
 				'email' => $result[0]->email,
 				'elusuario' => $result2[0]->apellidos." ".$result2[0]->nombres,
 				'cedula' => $result2[0]->cedula,
-				'foto' => $result2[0]->cedula.".png",
+				'foto' => "fotos/".$result2[0]->cedula.".png",
 				'pdf' => $result2[0]->pdf,
 				'inicio'=>$result[0]->inicio,
 				'institucion'=>$resulti[0]->nombre,
