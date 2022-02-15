@@ -134,10 +134,15 @@ var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('docume
 
 $('#show_data').on('click','.item_ver',function(){
 
-let ubicacion=$(this).data('ubicacion');
-let archivo = $(this).data('archivo');
+var ordenador = "https://"+$(this).data('ordenador');
+var ubicacion=$(this).data('ubicacion');
+if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+        ubicacion = ordenador+"/"+ubicacion;
+}else{
+	ubicacion = ordenador+ubicacion;
+}
+var archivo = $(this).data('archivo');
 var certi= ubicacion.trim()+archivo.trim();
-
 window.location.href = certi;
 
 });

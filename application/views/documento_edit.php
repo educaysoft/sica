@@ -129,7 +129,18 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 	</div>
 		<div style="float: left;">
 			<?php 
-			$url= base_url()."index.php/documento/loadpdf3";
+    			$options= array('--Select--');
+    			foreach ($ordenadores as $row){
+      				$options[$row->idordenador]= $row->nombre;
+   			}
+			//$url= base_url()."index.php/documento/loadpdf3";
+                        $url= "https://".$options[$documento['idordenador']];
+			if(substr($url,-1) == '/'){
+			$url= $url."cargafile.php";
+			}else{
+			$url= $url."/cargafile.php";
+			}
+
 			$js='onClick="uploadFiles(\''.$url.'\')"';     
 			echo form_button("carga","cargar a directorio",$js); ?>
 		</div> 
@@ -278,7 +289,8 @@ formData.append("archivopdf",document.getElementById('archivopdf').value);
 function uploadFiles(url) {
 
   var totalfiles = document.getElementById('files').files.length;
-  f(totalfiles > 0 ){
+  alert(url);	
+  if(totalfiles > 0 ){
 
     var formData = new FormData();
 
