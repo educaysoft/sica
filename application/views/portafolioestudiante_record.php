@@ -2,7 +2,7 @@
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($portafolioestudiante))
+if(isset($portafolioestudiante) and !empty($portafolioestudiante))
 {
 ?>
         <li> <?php echo anchor('portafolioestudiante/elprimero/', 'primero'); ?></li>

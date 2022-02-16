@@ -36,10 +36,7 @@ foreach ($tipodocus as $row){
       <td><?php echo form_input( array("name"=>'fechaelaboracion',"id"=>'fechaelaboracion',"value"=>$documento['fechaelaboracion'],'type'=>'date','placeholder'=>'fechaelaboracion')); ?></td>
   </tr>
 
-  <tr>
-      <td>Fecha Recepcion:</td>
-      <td><?php echo form_input('fechaentrerecep',$documento['fechaentrerecep'],array('type'=>'date', 'placeholder'=>'fechaentrerecep')) ?></td>
-  </tr>
+  
 
   <tr>
       <td>Emisor/es:</td>
@@ -52,23 +49,6 @@ foreach ($tipodocus as $row){
 
  echo form_multiselect('idemisor[]',$options,(array)set_value('idemisor', ''),array('id'=>"idemisor")); ?></td>
   </tr>
-
-
-  <tr>
-      <td>Destinatarios/as:</td>
-      <td><?php
-	$options=array();
-  	foreach ($destinatarios as $row){
-		$options[$row->idpersona]=$row->nombres;
-	}
-
-
- echo form_multiselect('iddestinatario[]',$options,(array)set_value('iddestinatario', '')); ?></td>
-  </tr>
-
-
-
-
 
 
 
@@ -107,14 +87,7 @@ echo form_button("carga","cargar archivo",$js); ?>
   </tr> 
 
 
-<tr>
-      <td>Observacion:</td>
-      <td><?php
- 
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"observacion" );    
- 
- echo form_textarea('observacion',$documento['observacion'],$textarea_options) ?></td>
-  </tr>
+
 
 
 <tr>

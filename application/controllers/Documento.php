@@ -63,8 +63,6 @@ class Documento extends CI_Controller{
 		 	'archivopdf' => $this->input->post('archivopdf'),
 		 	'asunto' => $this->input->post('asunto'),
 			'fechaelaboracion' => $this->input->post('fechaelaboracion'),
-			'fechaentrerecep' => $this->input->post('fechaentrerecep'),
-			'observacion' => $this->input->post('observacion'),
 			'idordenador' => $this->input->post('idordenador'),
 			'iddirectorio' => $this->input->post('iddirectorio'),
 			'iddocumento_estado' => 1,  //no cargado
@@ -287,16 +285,16 @@ public function anterior(){
 
 
 
-public function edit()
-{
-    $data['documento'] = $this->documento_model->documento($this->uri->segment(3))->row_array();
-    $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-    $data['emisores'] =$this->documento_model->emisores($this->uri->segment(3))->result();
-    $data['destinatarios'] = $this->documento_model->destinatarios($this->uri->segment(3))->result();
-	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
-	$data['directorios'] = $this->directorio_model->lista_directoriosxordenador($data['documento']['idordenador'])->result();
-  	$data['documento_estados']= $this->documento_estado_model->lista_documento_estado()->result();
-    $data['title'] = "Actualizar Documento";
+	public function edit()
+	{
+    		$data['documento'] = $this->documento_model->documento($this->uri->segment(3))->row_array();
+    		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+    		$data['emisores'] =$this->documento_model->emisores($this->uri->segment(3))->result();
+    		$data['destinatarios'] = $this->documento_model->destinatarios($this->uri->segment(3))->result();
+		$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
+		$data['directorios'] = $this->directorio_model->lista_directoriosxordenador($data['documento']['idordenador'])->result();
+  		$data['documento_estados']= $this->documento_estado_model->lista_documento_estado()->result();
+    		$data['title'] = "Actualizar Documento";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('documento_edit',$data);
 	 	$this->load->view('template/page_footer');
@@ -314,8 +312,6 @@ public function edit()
 		'archivopdf' => $this->input->post('archivopdf'),
 		'asunto' => $this->input->post('asunto'),
 	  	'fechaelaboracion' => $this->input->post('fechaelaboracion'),
-		'fechaentrerecep' => $this->input->post('fechaentrerecep'),
-		'observacion' => $this->input->post('observacion'),
 		'idordenador' => $this->input->post('idordenador'),
 		'iddirectorio' => $this->input->post('iddirectorio'),
 		'iddocumento_estado' => $this->input->post('iddocumento_estado'),

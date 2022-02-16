@@ -56,19 +56,6 @@
 	</div> 
 </div>
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha de recepción:</label>
-	<div class="col-md-10">
-		<?php
-       			echo form_input('fechaentrerecep',$documento['fechaentrerecep'],array('type'=>'date', 'placeholder'=>'fechaentrerecep','style'=>'width:500px;')) 
-		?>
-	</div> 
-</div>
-
- 
-
-
-
 
 
 <div class="form-group row">
@@ -116,19 +103,6 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 		?>
 	</div> 
 </div>
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Observación:</label>
-	<div class="col-md-10">
-		<?php
-
-      		 echo form_textarea('observacion',$documento['observacion'],array('placeholder'=>'observacion'));
-
-		?>
-	</div> 
-</div>
-
 
 
 
