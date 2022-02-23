@@ -12,7 +12,7 @@ class Persona extends CI_Controller{
 
 public function index(){
  if(isset($this->session->userdata['logged_in'])){
-	$data['persona'] = $this->persona_model->elprimero();
+	$data['persona'] = $this->persona_model->elultimo();
 	$data['correos'] =$this->correo_model->correospersona($data['persona']['idpersona'])->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
 	$data['title']="Modulo de Personas";
