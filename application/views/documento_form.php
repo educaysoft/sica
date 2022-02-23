@@ -47,59 +47,12 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 
-<tr>
-     <td>Archivo_Pdf</td>
-     <td>
-      	<div style="display: inline-block";>
-      		<div style="float: left;">
-      		<?php 
-  			echo form_input(array("name"=>'archivopdf',"id"=>'archivopdf',"disabled"=>'disabled','style'=>"width:300;"));
-		?>
-		</div>
-		<div style="float: left;">
-		<?php 
-			$url= base_url()."index.php/documento/loadpdf";
-			//$js='onClick="cargaarchivo(\''.$url.'\')"';     
-			$js='onClick="nombredearchivo()"';     
-			echo form_button("carga","cargar archivo",$js); ?>
-		</div> 
-	</div>
-	</td>
-</tr>
 
 
 
 
-<tr>
-     <td>carga archivo pdf</td>
-<td>
 
-<div style="display: inline-block";>
-<div style="float: left;">
-	<?php 
-	$upload_data = array('type' => 'file','name' => 'files','id' => 'files');
-	echo form_upload($upload_data );?>
-	</div>
-		<div style="float: left;">
-			<?php 
-    			$options= array('--Select--');
-    			foreach ($ordenadores as $row){
-      				$options[$row->idordenador]= $row->nombre;
-   			}
-			// url de la funcion php que carga el archivo en el 
-			$url1= base_url()."index.php/documento/save";
-                        //$url2= "https://".$options[$documento['idordenador']];
-		//	if(substr($url2,-1) == '/'){
-			//	$url2= $url2."cargafile.php";
-		//	}else{
-			//	$url2= $url2."/cargafile.php";
-		//	}
-			$js='onClick="uploadFiles(\''.$url1.'\')"';     
-			echo form_button("carga","cargar a directorio",$js); ?>
-		</div> 
-	</div>
-</td>
-</tr>
+
 
 
 
@@ -142,6 +95,40 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 </tr>
 
 
+
+<tr>
+     <td>Carga de archivo pdf</td>
+<td>
+
+<div style="display: inline-block";>
+<div style="float: left;">
+	<?php 
+	$upload_data = array('type' => 'file','name' => 'files','id' => 'files');
+	echo form_upload($upload_data );?>
+	</div>
+		<div style="float: left;">
+			<?php 
+    			$options= array('--Select--');
+    			foreach ($ordenadores as $row){
+      				$options[$row->idordenador]= $row->nombre;
+   			}
+			// url de la funcion php que carga el archivo en el 
+			$url1= base_url()."index.php/documento/save";
+                        //$url2= "https://".$options[$documento['idordenador']];
+		//	if(substr($url2,-1) == '/'){
+			//	$url2= $url2."cargafile.php";
+		//	}else{
+			//	$url2= $url2."/cargafile.php";
+		//	}
+			$js='onClick="uploadFiles(\''.$url1.'\')"';     
+			echo form_button("carga","cargar a directorio",$js); ?>
+		</div> 
+	</div>
+</td>
+</tr>
+
+
+
 </table>
 
 
@@ -158,12 +145,12 @@ function uploadFiles(url1) {
 
   var totalfiles = document.getElementById('files').files.length;
   var formData = new FormData();
-  alert(url1);	
+  alert("Este proceso guardará todas los datos ingresados");	
   if(totalfiles > 0 ){
 
     var iddocumento = 0;
     var idtipodocu = document.getElementById('idtipodocu').value;
-    var archivopdf = document.getElementById('archivopdf').value;
+  //  var archivopdf = document.getElementById('archivopdf').value;
     var asunto =  document.getElementById('asunto').value;
     var fechaelaboracion = document.getElementById('fechaelaboracion').value;
     var idordenador =  document.getElementById('idordenador').value;
@@ -174,7 +161,7 @@ function uploadFiles(url1) {
 
     formData.append("iddocumento", 0);
     formData.append("idtipodocu", idtipodocu);
-    formData.append("archivopdf", archivopdf);
+   // formData.append("archivopdf", archivopdf);
     formData.append("asunto", asunto);
     formData.append("fechaelaboracion", fechaelaboracion);
     formData.append("idordenador", idordenador);
@@ -194,20 +181,18 @@ function uploadFiles(url1) {
 
     xhttp1.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-		alert(this.responseText);
 
 		//Recupera el nombre del archivo
 		var result_array = JSON.parse(this.responseText);
-		document.getElementById("archivopdf").value="HOLA";
-    		alert(document.getElementById('archivopdf').value);
+		//document.getElementById("archivopdf").value=result_array.archivopdf;
+		 alert("Guardado exitoso...ahora procedemos a cargar el archivo..con un nuevo nombre"+result_array.archivopdf);
 		//Para cargar el archivo	
 		var formData = new FormData();
    	 	// Read selected files
     		for (var index = 0; index < totalfiles; index++) {
       			formData.append("files[]", document.getElementById('files').files[index]);
     		}
-      		formData.append("archivopdf", document.getElementById('archivopdf').value);
-     		alert(document.getElementById('archivopdf').value);
+      		formData.append("archivopdf",result_array.archivopdf );
     		var xhttp = new XMLHttpRequest();
 		var url2 = "https://"+document.getElementById('idordenador').value;
 		if(url2.slice(-1) == '/'){
@@ -225,13 +210,14 @@ function uploadFiles(url1) {
     		xhttp.onreadystatechange = function() {
        		if (this.readyState == 4 && this.status == 200) {
           		var response = this.responseText;
-          		alert(response + " File uploaded.");
+          		alert(response + "archivo cargado");
+			history.back(); //Go to the previous page
        		}else{
 			alert("No se pudo cargar el archivo");
 		}
               };
 	}else{
-	 alert("No se hizo el grabado 1");
+		 alert("intento de guardar fallado");
 	}
 	};
   }else{
@@ -246,7 +232,6 @@ function uploadFiles(url1) {
 
 function get_directorio() {
 	var idordenador = $('select[name=idordenador]').val();
-  alert(idordenador);  
     $.ajax({
         url: "<?php echo site_url('documento/get_directorio') ?>",
         data: {idordenador: idordenador},
@@ -257,7 +242,7 @@ function get_directorio() {
         var html = '';
         var i;
         for(i=0; i<data.length; i++){
-        html += '<option value='+data[i].iddirectorio+'>'+data[i].nombre+'</option>';
+        html += '<option value='+data[i].iddirectorio+'>'+data[i].ruta+'</option>';
         }
         $('#iddirectorio').html(html);
 

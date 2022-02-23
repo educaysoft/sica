@@ -1,6 +1,6 @@
 <?php
 
-echo "Cargando archivo.....";
+//echo "Cargando archivo.....";
 
 
   if(isset($_FILES['files']['name'])){
@@ -34,7 +34,8 @@ echo "Cargando archivo.....";
       			} 
    		}
 
-}
+	}
+	echo $count;
   }else{
 
  echo "No existe archivo para cargar";
