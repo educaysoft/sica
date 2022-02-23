@@ -26,6 +26,17 @@
 </tr>
 
 <tr>
+    <td> Institucion:</td>
+    <td><?php
+    $options= array('--Select--');
+    foreach ($instituciones as $row){
+      $options[$row->idinstitucion]= $row->nombre;
+    }
+     echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
+<tr>
 <td> Título del evento: </td>
 <td><?php echo form_input("titulo","", array("placeholder"=>"Título del evento"))  ?></td>
 </tr>

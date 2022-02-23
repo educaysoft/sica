@@ -38,6 +38,7 @@ public function add()
 {
 		$data['title']="Usted esta Creando un nuevo Evento";
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estado()->result();
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('evento_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -55,6 +56,7 @@ public function add()
 		 	
 		 	'idevento' => $this->input->post('idevento'),
 		 	'idevento_estado' => $this->input->post('idevento_estado'),
+		 	'idinstitucion' => $this->input->post('idinstitucion'),
 		 	'titulo' => $this->input->post('titulo'),
 			'fechacreacion' => $this->input->post('fechacreacion'),
 			'fechainicia' => $this->input->post('fechainicia'),
