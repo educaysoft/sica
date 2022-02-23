@@ -181,7 +181,7 @@ function uploadFiles(url1) {
 
     xhttp1.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-
+		alert(this.responseText);
 		//Recupera el nombre del archivo
 		var result_array = JSON.parse(this.responseText);
 		//document.getElementById("archivopdf").value=result_array.archivopdf;
