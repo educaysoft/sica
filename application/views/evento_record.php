@@ -11,6 +11,7 @@
         <li> <?php echo anchor('evento/edit/'.$evento['idevento'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('evento/delete/'.$evento['idevento'],'Delete'); ?></li>
         <li> <?php echo anchor('evento/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('evento/listar_participantes/'.$evento['idevento'],'Participantes'); ?></li>
     </ul>
 </div>
 <br>
@@ -77,7 +78,7 @@ echo form_input($arrdatos) ?></td>
 
 
   <tr>
-      <td>Participantes:</td>
+      <td>Participantes ( <?php echo anchor('evento/add', 'Nuevo'); ?>):</td>
       <td><?php
  	$options = array();
   	foreach ($participantes as $row){

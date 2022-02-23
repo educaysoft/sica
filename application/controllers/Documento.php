@@ -71,8 +71,8 @@ class Documento extends CI_Controller{
 			'iddocumento'=>0,
 			'idpersona'=>$this->input->post('idpersona')
 		);
-	 	$this->documento_model->save($array_item,$array_creador);
-	 	redirect('documento');
+	 	echo $this->documento_model->save($array_item,$array_creador);
+	 	//redirect('documento');
  	}
 
 
@@ -319,6 +319,18 @@ public function anterior(){
 	 	$this->documento_model->update($id,$array_item);
 	 	redirect('documento/actual/'.$id);
  	}
+
+
+
+ 	public function delete()
+ 	{
+ 		$data=$this->documento_model->delete($this->uri->segment(3));
+ 		echo json_encode($data);
+	 	redirect('documento/elprimero');
+	//	$db['default']['db_debug']=FALSE
+ 	}
+
+
 
 
 

@@ -14,7 +14,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   	$data['correo']=$this->correo_model->lista_correos()->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
 			
 		$data['title']="Lista de correos";
@@ -34,7 +34,7 @@ public function actual(){
  if(isset($this->session->userdata['logged_in'])){
 
 	$data['correo'] = $this->correo_model->correo($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
 	$data['title']="Modulo de Telefonos";
 	$this->load->view('template/page_header');		
@@ -54,7 +54,7 @@ public function actual(){
 
 public function add()
 {
-		$data['personas']= $this->persona_model->lista_persona()->result();
+		$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
 		$data['title']="Nueva Correo";
 	 	$this->load->view('template/page_header');		
@@ -84,7 +84,7 @@ public function add()
 public function edit()
 {
 	 	$data['correo'] = $this->correo_model->correo($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_persona()->result();
+		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
  	 	$data['title'] = "Actualizar Correo";
  	 	$this->load->view('template/page_header');		
@@ -168,7 +168,7 @@ public function elprimero()
   	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Correo";
     $this->load->view('template/page_header');		
     $this->load->view('correo_record',$data);
@@ -186,7 +186,7 @@ public function elultimo()
   	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Correo";
   
     $this->load->view('template/page_header');		
@@ -203,7 +203,7 @@ public function elultimo()
 public function siguiente(){
  // $data['correo_list']=$this->correo_model->lista_correo()->result();
 	$data['correo'] = $this->correo_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
   $data['title']="Correo";
 	$this->load->view('template/page_header');		
@@ -214,7 +214,7 @@ public function siguiente(){
 public function anterior(){
  // $data['correo_list']=$this->correo_model->lista_correo()->result();
 	$data['correo'] = $this->correo_model->anterior($this->uri->segment(3))->row_array();
- 	$data['personas']= $this->persona_model->lista_persona()->result();
+ 	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
   $data['title']="Correo";
 	$this->load->view('template/page_header');		

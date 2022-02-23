@@ -66,12 +66,13 @@ class Documento_model extends CI_model {
 			{
 				$iniciales=$iniciales.strtoupper(substr($palabra,0,1));
 
-			}
-			$filename=$array['fechaelaboracion'].'-'.$iniciales.'-'.sprintf("%04d",$iddocumento);
+			}			
+			$filename=$array['fechaelaboracion'].'-'.$iniciales.'-'.sprintf("%05d",$iddocumento).".pdf";
 			$arr=array('archivopdf'=>$filename);
  			$this->db->where('iddocumento',$iddocumento);
 			$this->db->update("documento",$arr);
-
+				
+			echo json_encode(json_decode('{"iddocumento":'.$iddocumento.',"archivopdf":"'.$filename.'"}'),JSON_PRETTY_PRINT);	
 
 				return true;
 			}else{

@@ -35,4 +35,21 @@ class Participante_model extends CI_model {
 	}
  
 
+// Para ir al último registro
+	function elultimo()
+	{
+		$query=$this->db->order_by("idparticipante")->get('participante');
+		if($query->num_rows()>0)
+		{
+			return $query->last_row('array');
+		}	
+			return array();
+
+	}
+
+
+
+
+
+
 }

@@ -3,6 +3,11 @@
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 <?php echo form_open('participante/save_edit') ?>
     <ul>
+<?php
+if(isset($participante))
+{
+?>
+ 
         <li> <?php echo anchor('participante/primero/', 'primero'); ?></li>
         <li> <?php echo anchor('participante/anterior/'.$participante['idevento'], 'anterior'); ?></li>
         <li> <?php echo anchor('participante/siguiente/'.$participante['idevento'], 'siguiente'); ?></li>
@@ -13,6 +18,21 @@
         <li> <?php echo anchor('participante/listar/','Listar'); ?></li>
 
     </ul>
+<?php 
+}else{
+?>
+
+        <li> <?php echo anchor('participante/add', 'Nuevo'); ?></li>
+    </ul>
+<?php
+	die();
+}
+?>
+
+
+
+
+
 </div>
 <br>
 
@@ -54,7 +74,20 @@ echo form_input('nombre',$options[$participante['idpersona']],array("disabled"=>
  
   
 
-
+<tr>
+     <td>Certificado:</td>
+     <td><?php 
+$options= array("NADA");
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->asunto;
+}
+if($participante['iddocumento']==NULL){
+echo form_input('nombre',"",array("disabled"=>"disabled")) ;
+}else{
+echo form_input('nombre',$options[$participante['iddocumento']],array("disabled"=>"disabled"));
+}
+ ?></td>
+  </tr>
 
 
 

@@ -128,6 +128,56 @@ function evento_data()
 
 }
 
+
+
+public function listar_participantes()
+{
+	
+ 
+	$data['evento'] = $this->evento_model->evento(1)->row_array();
+	$data['evento_estados']= $this->evento_estado_model->lista_evento_estado()->result();
+	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+	
+
+  	$data['filtro']= $this->uri->segment(3);
+
+	$data['title']="Evento";
+	$this->load->view('template/page_header');		
+  $this->load->view('evento_list_participantes',$data);
+	$this->load->view('template/page_footer');
+}
+
+
+
+function evento_data_participantes()
+{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+
+
+		$id=$this->input->get('idevento');
+	 	$data0 = $this->evento_model->lista_eventoP($id);
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->idevento,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idevento="'.$r->idevento.'">Ver</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_cert"  data-elparticipante="'.$r->elparticipante.'">cert</a>');
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+		echo json_encode($output);
+		exit();
+	
+			
+
+}
+
+
+
 public function elprimero()
 {
 
