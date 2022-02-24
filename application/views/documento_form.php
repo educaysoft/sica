@@ -192,7 +192,7 @@ function uploadFiles(url1) {
     		for (var index = 0; index < totalfiles; index++) {
       			formData.append("files[]", document.getElementById('files').files[index]);
     		}
-      		formData.append("archivopdf",result_array.archivopdf );
+      		formData.append("archivopdf","'"+result_array.archivopdf+"'" );
     		var xhttp = new XMLHttpRequest();
 		var url2 = "https://"+document.getElementById('idordenador').value;
 		if(url2.slice(-1) == '/'){
@@ -200,7 +200,8 @@ function uploadFiles(url1) {
 		}else{
 			url2 = url2+"/cargafile.php";
 		}
-	
+                alert("Se va a ejecutar "+ url2);	
+		alert(formData);
     		// Set POST method and ajax file path
     		xhttp.open("POST", url2, true);
 
