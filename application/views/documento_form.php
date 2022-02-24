@@ -192,9 +192,10 @@ function uploadFiles(url1) {
     		for (var index = 0; index < totalfiles; index++) {
       			formData.append("files[]", document.getElementById('files').files[index]);
     		}
-      		formData.append("archivopdf","'"+result_array.archivopdf+"'" );
+      		formData.append("archivopdf",result_array.archivopdf );
     		var xhttp = new XMLHttpRequest();
-		var url2 = "https://"+document.getElementById('idordenador').options[e.selectedIndex].text;
+		var e =document.getElementById('idordenador');
+		var url2 = "https://"+e.options[e.selectedIndex].text;
 
 		if(url2.slice(-1) == '/'){
 			url2 = url2+"cargafile.php";
