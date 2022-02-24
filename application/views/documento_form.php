@@ -203,22 +203,25 @@ function uploadFiles(url1) {
 			url2 = url2+"/cargafile.php";
 		}
                 alert("Se va a ejecutar "+ url2);	
-		alert(formData);
     		// Set POST method and ajax file path
     		xhttp.open("POST", url2, true);
 
-    		// Send request with data
-    		xhttp.send(formData);
     		// call on request changes state
     		xhttp.onreadystatechange = function() {
-       		if (this.readyState == 4 && this.status == 200) {
-          		var response = this.responseText;
-          		alert(response + "archivo cargado");
-			history.back(); //Go to the previous page
-       		}else{
-			alert("No se pudo cargar el archivo");
-		}
-              };
+ 		if(xhttp.readyState === XMLHttpRequest.DONE) {
+    			var status = xhttp.status;
+    			if (status === 0 || (status >= 200 && status < 400)) {
+      				// The request has been completed successfully
+				var response = xhttp.responseText;
+          			alert(response + "archivo cargado");
+				history.back(); //Go to the previous page
+       			}else{
+				alert("No se pudo cargar el archivo");
+			}
+			}
+              	};
+    		// Send request with data
+    		xhttp.send(formData);
 	}else{
 		 alert("intento de guardar fallado");
 	}
