@@ -74,7 +74,7 @@ class Documento_model extends CI_model {
 				
 			echo json_encode(json_decode('{"iddocumento":'.$iddocumento.',"archivopdf":"'.$filename.'"}'),JSON_PRETTY_PRINT);	
 
-				return true;
+		//		return true;
 			}else{
 
 				$this->db->trans_complete();

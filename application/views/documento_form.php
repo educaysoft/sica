@@ -184,7 +184,7 @@ function uploadFiles(url1) {
 		alert(this.responseText);
 		//Recupera el nombre del archivo
 		var result_array = JSON.parse(this.responseText);
-		//document.getElementById("archivopdf").value=result_array.archivopdf;
+		//document.getElemetById("archivopdf").value=result_array.archivopdf;
 		 alert("Guardado exitoso...ahora procedemos a cargar el archivo..con un nuevo nombre"+result_array.archivopdf);
 		//Para cargar el archivo	
 		var formData = new FormData();
