@@ -194,7 +194,8 @@ function uploadFiles(url1) {
     		}
       		formData.append("archivopdf","'"+result_array.archivopdf+"'" );
     		var xhttp = new XMLHttpRequest();
-		var url2 = "https://"+document.getElementById('idordenador').value;
+		var url2 = "https://"+document.getElementById('idordenador').options[e.selectedIndex].text;
+
 		if(url2.slice(-1) == '/'){
 			url2 = url2+"cargafile.php";
 		}else{
