@@ -13,7 +13,7 @@
 					<p>La aprobación de la <b>Maestría en Tecnología de la Información</b> permite mejora el perfil de nuestros ingenieros para que sean capaces de  liderar procesos de cambio en instituciones locales y nacionales.</p><br>
 					<p>Si estas interesado en ingresar a este prometedor programa de maestría comienza con lo siguiente: </p><br>
 					<ol>
-					<li> Informate más de esta maestría <a href="http://localhost/MTI/doc/_build/html/programa.html">Aqui</a></li>
+					<li> Informate más de esta maestría <a href="<?php echo base_url(); ?>MTI/doc/_build/html/programa.html"><button class="button-33" role="button">Aquí</button></a></li>
 					<li> Registra tus datos de contacto en el formulario </li>
 					</ol>
 				</div>
