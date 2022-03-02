@@ -13,9 +13,13 @@
 import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import stsci_rtd_theme
-
+# import stsci_rtd_theme
+#import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
+import sphinx_theme
+
+
+
 
 project = 'MTI'
 copyright = '2020, Universidad Tecnicas Luis Vargas Torres'
@@ -34,6 +38,7 @@ latex_logo = '_static/logo.pdf'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+        'sphinx_rtd_theme',
 ]
 
 # Custom sidebar templates, maps document names to template names.
@@ -65,7 +70,11 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # a list of builtin themes.
 #
 #html_theme = 'alabaster'
-html_theme = 'stsci_rtd_theme'
+#html_theme = 'stsci_rtd_theme'
+
+#html_theme = "sphinx_rtd_theme"
+
+html_theme = 'stanford_theme'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -81,4 +90,6 @@ html_context = {
 
 html_logo = '_static/logo.png'
 
-html_theme_path = [stsci_rtd_theme.get_html_theme_path()]
+#html_theme_path = [stsci_rtd_theme.get_html_theme_path()]
+#html_theme_path = ["_themes",]
+html_theme_path = [sphinx_theme.get_html_theme_path('stanford-theme')]
