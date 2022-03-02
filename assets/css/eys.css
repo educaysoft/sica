@@ -3,7 +3,8 @@
 
 body{
 margin:0;
-min-height:100%;
+background-color: #fafafa;
+min-height:100vh;
 margin-bottom:0;
 padding-top:0;
 padding-bottom:0;
@@ -20,6 +21,8 @@ background-color: lightgray;
 bottom:0;
 margin-bottom:0 px;
 padding:20px;
+display: flex;
+flex-direction:row;
 }
 
 
@@ -189,7 +192,7 @@ background-color:white;
 
 #eys-registro{
     
-     margin-top:2cm; width:100%; padding:10px; display:inline-block; vertical-align:top; margin-right:1em;
+     margin-top:2cm; width:100%; padding:10px; vertical-align:top; margin-right:1em;
     
 }
 

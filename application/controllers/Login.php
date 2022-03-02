@@ -1,7 +1,5 @@
 <?php
 
-//session_start(); //we need to start session in order to access it through CI
-
 Class Login extends CI_Controller {
 
 public function __construct() {
@@ -15,6 +13,7 @@ parent::__construct();
 	$this->load->model('modulo_model');
 	$this->load->model('nivelacceso_model');
 	$this->load->model('institucion_model');
+      	$this->load->model('evento_model');
 //$this->load->model('programa_model');
 }
 
@@ -30,6 +29,8 @@ public function index() {
 public function user_registration_show() {
  	//$data['programa_list'] = $this->programa_model->list_programa()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
+	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['eventos']= $this->evento_model->lista_eventos()->result();
 	$this->load->view('template/page_header.php');
 	//$this->load->view('registration_form',$data);
 	$this->load->view('registration_form',$data);
@@ -42,28 +43,37 @@ public function new_user_registration() {
 // Check validation for user input in SignUp form
 $this->form_validation->set_rules('apellidos', 'Apellidos', 'trim|required|xss_clean');
 $this->form_validation->set_rules('nombres', 'Nombres', 'trim|required|xss_clean');
-$this->form_validation->set_rules('idperfil', 'Perfil', 'trim|required|xss_clean');
+$this->form_validation->set_rules('idevento', 'Evento', 'trim|required|xss_clean');
 $this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');
 $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 if ($this->form_validation->run() == FALSE) {
- 	$data['programa_list'] = $this->programa_model->list_programa()->result();
+ //	$data['programa_list'] = $this->programa_model->list_programa()->result();
+	$data['eventos']= $this->evento_model->lista_eventos()->result();
+	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	 $this->load->view('template/page_header.php');
 $this->load->view('registration_form',$data);
 	 $this->load->view('template/page_footer.php');
 } else {
-$datau = array('email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1);
+$datausuario = array('email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>"principal");
 
-$datap = array('cedula'=>$this->input->post('cedula'),'nombres'=>$this->input->post('nombres'),'apellidos'=>$this->input->post('apellidos'));
-$datap+=['foto'=>"fotos/".$this->input->post('cedula').".png"];
-$datap+=['pdf'=>"pdfs/".$this->input->post('cedula').".pdf"];
-$datap+=["idgenero"=>1];
-$datap+=["idestadocivil"=>1];
-$datap+=["idtiposangre"=>1];
-$datap+=["idnacionalidad"=>1];
+$datapersona = array('cedula'=>$this->input->post('cedula'),'nombres'=>$this->input->post('nombres'),'apellidos'=>$this->input->post('apellidos'));
+$datapersona+=['foto'=>"fotos/".$this->input->post('cedula').".png"];
+$datapersona+=['pdf'=>"pdfs/".$this->input->post('cedula').".pdf"];
+$datapersona+=["idgenero"=>1];
+$datapersona+=["idestadocivil"=>1];
+$datapersona+=["idtiposangre"=>1];
+$datapersona+=["idnacionalidad"=>1];
 
-$dataa=array('idprograma'=>$this->input->post("idprograma"));
+// se suma un partipacipante
+$dataparticipante=array();
+$dataparticipante+=['idevento'=>$this->input->post("idevento"),'idpersona'=>0];
+//telefono
+$datatelefono=array('idpersona'=>0,'numero'=>$this->input->post('telefono'),'idoperadora'=>1,'idtelefono_estado'=>1);
 
-$result = $this->login_model->registration_insert($datap,$datau,$dataa);
+//correo
+$datacorreo=array('idpersona'=>0,'nombre'=>$this->input->post('correo'),'idcorreo_estado'=>1);
+
+$result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono);
 if ($result == TRUE) {
 		$data['message_display'] = 'Registration Successfully !';
 	 	$this->load->view('template/page_header.php');
@@ -73,6 +83,8 @@ if ($result == TRUE) {
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
 	$data['message_display'] = 'Username already exist!';
  	//$data['programa_list'] = $this->programa_model->list_programa()->result();
+	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['eventos']= $this->evento_model->lista_eventos()->result();
 	 $this->load->view('template/page_header.php');
 //$this->load->view('registration_form', $data);
 $this->load->view('registration_form',$data);

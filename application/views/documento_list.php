@@ -27,26 +27,33 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 
 
+
+
+
 <div class="row justify-content-center">
       <!-- Page Heading -->
+
+
  <div class="row">
   <div class="col-12">
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Tipo de documento:</label>
-<?php
-$options= array('--Select--');
-foreach ($tipodocus as $row){
-	$options[$row->idtipodocu]= $row->descripcion;
-}
-?>
+
+
+
+	<div class="form-group row">
+    	<label class="col-md-2 col-form-label"> Tipo  documento:</label>
+	<?php
+		$options= array('--Select--');
+		foreach ($tipodocus as $row){
+			$options[$row->idtipodocu]= $row->descripcion;
+		}
+	?>
 
 	<div class="col-md-10">
-
-<?php
-     echo form_dropdown("idtipodocu",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_documento()'));  
-?>
-</div>
-</div>
+		<?php
+     			echo form_dropdown("idtipodocu",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_documento()'));  
+		?>
+	</div>
+	</div>
 
 
 

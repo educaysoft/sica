@@ -12,7 +12,7 @@ class Usuario extends CI_Controller{
 
 	public function index(){
 	$data['usuario'] = $this->usuario_model->elprimero();
-	$data['personas']= $this->persona_model->lista_persona()->result();
+	$data['personas']= $this->persona_model->lista_personas()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 
@@ -25,7 +25,7 @@ class Usuario extends CI_Controller{
 
 public function add()
 {
-		$data['personas']= $this->persona_model->lista_persona()->result();
+		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['title']="Nuevo Usuario";
@@ -54,7 +54,7 @@ public function add()
 public function edit()
 {
 	 	$data['usuario'] = $this->usuario_model->usuario($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_persona()->result();
+		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
  	 	$data['title'] = "Actualizar Usuario";
@@ -133,7 +133,7 @@ public function elprimero()
 {
 
 	$data['usuario'] = $this->usuario_model->elprimero();
-	$data['personas']= $this->persona_model->lista_persona()->result();
+	$data['personas']= $this->persona_model->lista_personas()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   if(!empty($data))
@@ -158,7 +158,7 @@ public function elultimo()
 {
 
 	$data['usuario'] = $this->usuario_model->elultimo();
-	$data['personas']= $this->persona_model->lista_persona()->result();
+	$data['personas']= $this->persona_model->lista_personas()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   if(!empty($data))
@@ -189,7 +189,7 @@ public function elultimo()
 public function siguiente(){
  // $data['usuario_list']=$this->usuario_model->lista_usuario()->result();
 	$data['usuario'] = $this->usuario_model->siguiente($this->uri->segment(3))->row_array();
-	$data['personas']= $this->persona_model->lista_persona()->result();
+	$data['personas']= $this->persona_model->lista_personas()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   $data['title']="Usuario";
@@ -202,7 +202,7 @@ public function siguiente(){
 public function anterior(){
  // $data['usuario_list']=$this->usuario_model->lista_usuario()->result();
 	$data['usuario'] = $this->usuario_model->anterior($this->uri->segment(3))->row_array();
-	$data['personas']= $this->persona_model->lista_persona()->result();
+	$data['personas']= $this->persona_model->lista_personas()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['title']="Usuario";

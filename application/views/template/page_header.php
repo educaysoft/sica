@@ -19,9 +19,6 @@ if (isset($this->session->userdata['logged_in'])) {
 <!----Para la linea de tiempl --->
 <style>
 
-* {
-  box-sizing: border-box;
-}
 
 /* Set a background color */
 .mytime {

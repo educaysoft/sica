@@ -12,7 +12,6 @@ function closeForm1() {
 
 function mostrar() {
 
-
  <?php  
                                                   
  if(isset($this->session->userdata['acceso'])){
@@ -91,36 +90,37 @@ document.getElementById("eys-principal").style.width="95%";
 
 <!-- Footer -->
 <!------------
-<div  id="eys-footer" >
+<div id="eys-footer"    >
+  <div style="margin-top:10px; height: 100%; width: 30%; display: flex; flex-direction:column;  ">
+    <div >      
+        <p style="color: black;font-size:20px;font-weight:bold;">Contactanos:</p>
+    </div>
+    <main style="color: black;font-size:20px;">
+      <p style="font-size: 1vw;">Dirección: Ciudadela Nuevos Horizontes:</p>
+      <p style="font-size: 1vw;">Correo: congresoutlvte@utelvt.edu.ec</p>
+<p style="font-size: 0.8vw;"> <span style="font-size:1.5vw;" >&#127279; </span> Educaysoft  y Encubadora de Empresa de Software <p>   
+</main>   
+ </div>
+ <div style="  height:100%; width:30%; display:flex; justify-content: center; flex-direction: column; ">
+     <div style="width: 100%;  height: 100%; ">
+     <center><a href="https://utelvt.edu.ec/sitioweb/"> <img src="<?php echo base_url(); ?>images/logo.png" style="height: 100%;"></a></center>
+    </div>
+<div style="width: 100%;">
+<center>Visitas:<br> <script src="misvisitas.php"></script> </center>
+</div>
+ </div>
 
-<div >
-
-<div>
-    <p><b>Conocenos</b></p>
-      <ul>
-          <li>Mapa del sitio</li>
-          <li>Contactanos</li>
-          <li>Política de privacidad</li>
-          <li><a href="https://www.facebook.com/UniversidadTecnicaLuisVargasTorres"><i class="fa fa-facebook" style="font-size:24px"></i></a> &nbsp; <a href="http://localhost/SICAPG/documentos/PROTOCOLO.pdf"><i class="fa fa-twitter" style="font-size:24px"></i></a> &nbsp;  <a href="https://www.facebook.com/UniversidadTecnicaLuisVargasTorres"><i class="fa fa-youtube" style="font-size:24px"></i></a>    </li>
-      </ul>
+<div style="color: black; height: 100%; width: 30%; display:flex; justify-content: center;  ">
+    <ul style="margin:0; padding:0;" class="icons">
+    <li><a href="congresoutlvte-normas.php">Normativas</a></li>
+    <li><a href="congresoutlvte-agenda.php">Agenda</a></li>
+    <li><a href="congresoutlvte-confe2.php">Conferencias</a></li>
+    <li><a href="congresoutlvte-pdf.php">Ferias de libros virtuales</a></li>
+    <li><a href="congresoutlvte-momoria.php" >Memorias</a></li>
+    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeQiGNyzm0penp8g2X1UDPCyhsgVFpSZ-CZI8YTO6gITv-wfQ/viewform?usp=sf_link">Inscripciones</a></li>
+    </ul>
 </div>
 
-<div style="text-align:center; vertical-align: middle;">
-<a href=" <?php echo base_url(); ?>index.php/Principal"> <img src="<?php echo base_url(); ?>images/logo.png" width=100vw; height=100vh; alt="Formget logo"></a> 
-
-</div>
-
-      <div> 
-        <p><b>Creadores</b></p>
-         <ul style="margin:0; padding:0;" class="copyright"> 
-            <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/educaysoft/index.php">EDUCAYSOFT</a></li> 
-              <li> Universidad Técnica Luis Varga Torres</li>   
-              <li>Agradecimiento</li>
-              <li>Trabaja con nosotros</li>
-          </ul>           
-      </div>       
-</div>
-</div>
 ---->
 
 

@@ -1,8 +1,11 @@
 <div id="eys-nav-i">
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	    <ul>
+<?php
+if(isset($documento))
+{
+?>
 
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-<?php echo form_open('documento/save_edit') ?>
-    <ul>
         <li> <?php echo anchor('documento/elprimero/', 'primero'); ?></li>
         <li> <?php echo anchor('documento/siguiente/'.$documento['iddocumento'], 'siguiente'); ?></li>
         <li> <?php echo anchor('documento/anterior/'.$documento['iddocumento'], 'anterior'); ?></li>
@@ -12,11 +15,23 @@
         <li style="border-right:1px solid green"> <?php echo anchor('documento/delete/'.$documento['iddocumento'],'Delete'); ?></li>
         <li> <?php echo anchor('documento/listar/','Listar'); ?></li>
         <li> <?php echo anchor('documento/canvas/'.$documento['archivopdf'],'Ver PDF'); ?></li>
+
+
+<?php 
+}else{
+?>
+
+        <li> <?php echo anchor('evento_estado/add', 'Nuevo'); ?></li>
+<?php
+}
+?>
+
     </ul>
 </div>
 <br>
 
 
+<?php echo form_open('documento/save_edit') ?>
 <?php echo form_hidden('iddocumento',$documento['iddocumento']) ?>
 
 

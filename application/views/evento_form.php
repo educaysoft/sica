@@ -38,14 +38,14 @@
 
 <tr>
 <td> Título del evento: </td>
-<td><?php echo form_input("titulo","", array("placeholder"=>"Título del evento"))  ?></td>
+<td><?php echo form_input("titulo","", array("placeholder"=>"Título del evento",'style'=>'width:500px;'))  ?></td>
 </tr>
 
 
 
 
 <tr>
-<td> fecha creacion </td>
+<td> Fecha creación: </td>
 <td><?php echo form_input(array("name"=>"fechacreacion","id"=>"fechacreacion","type"=>"date"));  ?></td>
 </tr>
 

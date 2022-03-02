@@ -17,25 +17,35 @@
 <br>
 
 
+
 <?php echo form_hidden('idperfil',$perfil['idperfil']) ?>
+
+
+
 <table>
 
 
  
-
-
-  <tr>
-     <td>Id Perfil:</td>
-     <td><?php echo form_input('idperfil',$perfil['idperfil'],array("disabled"=>"disabled",'placeholder'=>'Idperfils')) ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id:</label>
+	<div class="col-md-10">
+     	<?php
+	 echo form_input('idperfil',$perfil['idperfil'],array("disabled"=>"disabled",'placeholder'=>'Idperfils','style'=>'width:500px;'));
+ 	?>
+	</div> 
+</div> 
  
  
  
-  <tr>
-     <td>Descripción:</td>
-     <td><?php echo form_input('descripcion',$perfil['descripcion'],array("disabled"=>"disabled",'placeholder'=>'descripcion')) ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+     	<?php 
+	echo form_input('nombre',$perfil['nombre'],array("disabled"=>"disabled",'placeholder'=>'descripcion del perfil','style'=>'width:500px;')); 
+	?>
 
+	</div> 
+</div> 
 
   
 

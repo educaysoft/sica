@@ -20,7 +20,7 @@
 <tr>
 
 <td> <?php echo $list->idperfil ?></td>
-<td> <?php echo $list->descripcion?></td>
+<td> <?php echo $list->nombre?></td>
 <td> <?php echo anchor('perfil/edit/'.$list->idperfil,'Edit') ?> || <?php echo anchor('perfil/delete/'.$list->idperfil,'Delete') ?></td>
  </tr>
 

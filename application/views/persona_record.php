@@ -33,76 +33,99 @@ if(isset($persona))
 <?php echo form_hidden('idpersona',$persona['idpersona']) ?>
 
 
-<table>
-
-  <tr>
-     <td>Id Persona:</td>
-     <td><?php echo form_input('idpersona',$persona['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Idpersonas')) ?></td>
-  </tr>
- 
- 
- 
-  <tr>
-     <td>Cedula:</td>
-     <td><?php echo form_input('cedula',$persona['cedula'],array("disabled"=>"disabled",'placeholder'=>'cedula')) ?></td>
-  </tr>
-
- 
-  <tr>
-     <td>Apellidos:</td>
-     <td><?php echo form_input('apellidos',$persona['apellidos'],array("disabled"=>"disabled",'placeholder'=>'apellidos')) ?></td>
-  </tr>
-  
- 
-  <tr>
-     <td>Nombres:</td>
-     <td><?php echo form_input('nombres',$persona['nombres'],array("disabled"=>"disabled",'placeholder'=>'nombres')) ?></td>
-  </tr>
-
-<tr>
-     <td>Fecha nacimiento:</td>
-     <td><?php echo form_input('fechanacimiento',$persona['fechanacimiento'],array("disabled"=>"disabled",'placeholder'=>'Fechanacimiento')) ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id:</label>
+	<div class="col-md-10">
+	<?php
+		echo form_input('idpersona',$persona['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Idpersonas'));
+	?>
+	</div> 
+</div> 
 
 
-  <tr>
-      <td> <?php echo anchor('correo/add', 'Correo:'); ?> </td>
-      <td><?php
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Cédula:</label>
+	<div class="col-md-10">
+	<?php
+      		echo form_input('cedula',$persona['cedula'],array("disabled"=>"disabled",'placeholder'=>'cedula')); 
+	?>
+	</div> 
+</div> 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Apellido:</label>
+	<div class="col-md-10">
+	<?php
+     		 echo form_input('apellidos',$persona['apellidos'],array("disabled"=>"disabled",'placeholder'=>'apellidos')); 
+	?>
+	</div> 
+</div> 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+	<?php
+      echo form_input('nombres',$persona['nombres'],array("disabled"=>"disabled",'placeholder'=>'nombres')); 
+	?>
+	</div> 
+</div> 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha de nacimiento:</label>
+	<div class="col-md-10">
+	<?php
+      echo form_input('fechanacimiento',$persona['fechanacimiento'],array("disabled"=>"disabled",'placeholder'=>'Fechanacimiento')) ;
+
+	?>
+	</div> 
+</div> 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('correo/add', 'Correo:'); ?>:</label>
+	<div class="col-md-10">
+	<?php
  	$options = array();
   	foreach ($correos as $row){
 		$options[$row->idcorreo]=$row->nombre;
 	}
+ echo form_multiselect('correo[]',$options,(array)set_value('idcorreo', ''), array('style'=>'width:500px')); 
+
+	?>
+	</div> 
+</div> 
 
 
- echo form_multiselect('correo[]',$options,(array)set_value('idcorreo', ''), array('style'=>'width:500px')); ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('telefono/add', 'Teléfono:'); ?>:</label>
+	<div class="col-md-10">
+	<?php
 
-
-
-
-<tr>
-      <td> <?php echo anchor('telefono/add', 'Teléfono:'); ?> </td>
-      <td><?php
  	$options = array();
   	foreach ($telefonos as $row){
 		$options[$row->idtelefono]=$row->numero;
 	}
+ echo form_multiselect('telefono[]',$options,(array)set_value('idtelefono', ''), array('style'=>'width:500px')); 
+	?>
+	</div> 
+</div> 
 
 
- echo form_multiselect('telefono[]',$options,(array)set_value('idtelefono', ''), array('style'=>'width:500px')); ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fofo:</label>
+	<div class="col-md-10">
+	<?php
+      echo form_input('foto',$persona['foto'],array("disabled"=>"disabled",'placeholder'=>'foto'));
 
+	?>
+	</div> 
+</div> 
 
-
-  <tr>
-     <td>Foto:</td>
-     <td><?php echo form_input('foto',$persona['foto'],array("disabled"=>"disabled",'placeholder'=>'foto')) ?></td>
-  </tr>
-
-
-
-
-</table>
 <?php echo form_close(); ?>
 
 
