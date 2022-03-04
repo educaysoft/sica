@@ -20,31 +20,45 @@
 <?php echo form_hidden('iddepartamento',$departamento['iddepartamento']) ?>
 <table>
 
-<tr>
-     <td>Unidad:</td>
-     <td><?php 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Unidad/Facultad:</label>
+	<div class="col-md-10">
+		<?php
 $options= array("NADA");
 foreach ($unidades as $row){
 	$options[$row->idunidad]= $row->nombre;
 }
 
-echo form_input('idunidad',$options[$departamento['idunidad']],array("disabled"=>"disabled")) ?></td>
-  </tr>
+echo form_input('idunidad',$options[$departamento['idunidad']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div> 
  
- 
 
 
-  <tr>
-     <td>Id Departamento:</td>
-     <td><?php echo form_input('iddepartamento',$departamento['iddepartamento'],array("disabled"=>"disabled",'placeholder'=>'Iddepartamentos')) ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id departamento:</label>
+	<div class="col-md-10">
+		<?php
+      echo form_input('iddepartamento',$departamento['iddepartamento'],array("disabled"=>"disabled",'placeholder'=>'Iddepartamentos'));
 
- 
-  <tr>
-     <td>Nombre:</td>
-     <td><?php echo form_input('nombre',$departamento['nombre'],array("disabled"=>"disabled",'placeholder'=>'Nombre')) ?></td>
-  </tr>
+		?>
+	</div> 
+</div> 
 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+		<?php
+      echo form_input('nombre',$departamento['nombre'],array("disabled"=>"disabled",'placeholder'=>'Nombre','style'=>'width:500px;'));
+
+		?>
+	</div> 
+</div> 
 
   
 
@@ -55,7 +69,6 @@ echo form_input('idunidad',$options[$departamento['idunidad']],array("disabled"=
 
 
 
-</table>
 <?php echo form_close(); ?>
 
 

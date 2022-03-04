@@ -5,7 +5,7 @@
 <table>
 
 <tr>
-<td> Unidad: </td>
+<td> Departamento/Carrera: </td>
 <td><?php 
 
 $options= array('--Select--');

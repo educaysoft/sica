@@ -33,7 +33,7 @@ if(isset($estudiante))
 <?php echo form_hidden('idestudiante',$estudiante['idestudiante']) ?>
 <table>
   <tr>
-     <td>Id Correo:</td>
+     <td>Id estudiante:</td>
      <td><?php echo form_input('idestudiante',$estudiante['idestudiante'],array("disabled"=>"disabled",'placeholder'=>'Idestudiantes')) ?></td>
   </tr>
  
@@ -51,7 +51,7 @@ echo form_input('idpersona',$options[$estudiante['idpersona']],array("disabled"=
  
 
  <tr>
-     <td>Departameno/Carrera:</td>
+     <td>Departamento/Carrera:</td>
      <td><?php 
 $options= array("NADA");
 foreach ($departamentos as $row){

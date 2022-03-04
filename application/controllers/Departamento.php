@@ -73,10 +73,10 @@ public function edit()
 
 public function listar()
 {
-  $data['unidad'] = $this->unidad_model->lista_unidadesA()->result();
+  $data['departamento_list'] = $this->departamento_model->lista_departamentoB()->result();
   $data['title']="Departamento";
 	$this->load->view('template/page_header');		
-  $this->load->view('unidad_list',$data);
+  $this->load->view('departamento_list',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -87,10 +87,10 @@ function unidad_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->unidad_model->lista_unidadesA();
+	 	$data0 = $this->unidad_model->lista_unidadesB();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idunidad,$r->launidad,$r->nombre,
+			$data[]=array($r->iddepartamento,$r->launidad,$r->nombre,$r->cantidad,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idunidad="'.$r->idunidad.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,

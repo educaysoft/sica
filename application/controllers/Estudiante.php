@@ -20,7 +20,6 @@ public function index(){
 		$data['title']="Lista de estudiantes";
 		$this->load->view('template/page_header');
 		$this->load->view('estudiante_record',$data);
-		$this->load->view('estudiante_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
