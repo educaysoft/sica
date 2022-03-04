@@ -8,18 +8,21 @@ Requisitos.
 .. raw:: html
 
     <style> .red {color:red} </style>
+    <style> .green {color:green} </style>
 
 .. role:: red 
+.. role:: green 
 
 .. csv-table::
    :widths: 1,10
 
+   "0","Carpeta rex-plastic color naranja"
    "1","Solicitud de inscripción para la maestría"
    "2","Record académico de tercer nivel"
    "3","Dos fotografías actualizadas a color tamaño carné"
-   "4","Título de tercer nivel de grado debidamente registrado en la SENESCYT, para extranjero deben presentar el título apostillado o legalizado por víá consular"
-   "5","Hoja de vida actualizada sin soporte"
-   "6","Original y Copia a color de cédula de ciudadania y certificado de votación"
+   "4","Título de tercer nivel de grado debidamente registrado en la SENESCYT, los extranjeros deben presentar el título apostillado o legalizado por vía consular"
+   "5","Hoja de vida actualizada con soportes"
+   "6","Original y copia a color de cédula de ciudadania y certificado de votación"
    "7","Prueba de conocimientos"
    "8","Entrevista personal con el Coordinador/a y/o Director/a de Postgrado"
 
@@ -29,8 +32,8 @@ Ofertas Académica.
 ------------------
 		Los plazos para cada etapa.
 
-Primera oferta académica: Abril/2021 -- Marzo/2022.
-...................................................
+:red:`Primera oferta académica: Abril/2021 -- Marzo/2022.`
+..........................................................
 
 .. tabularcolumns:: |l|p{2cm}|p{2cm}|
 
@@ -49,8 +52,8 @@ Primera oferta académica: Abril/2021 -- Marzo/2022.
 +------------------------------+-----------------+--------------------------+
 
 
-Segunda oferta académica: Octubre/2021 -- Septiembre/2022.
-..........................................................
+:red:`egunda oferta académica: Octubre/2021 -- Septiembre/2022.`
+.................................................................
 
 .. tabularcolumns:: |l|p{2cm}|p{2cm}|
 
@@ -69,8 +72,8 @@ Segunda oferta académica: Octubre/2021 -- Septiembre/2022.
 +------------------------------+-----------------+--------------------------+
 
 
-Tercera oferta académica: Abril/2022 -- Marzo/2023.
-...................................................
+:green:`Tercera oferta académica: Abril/2022 -- Marzo/2023.`
+............................................................
 
 .. tabularcolumns:: |l|p{2cm}|p{2cm}|
 
