@@ -4,13 +4,14 @@ class Departamento extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('departamento_model');
-	  $this->load->model('unidad_model');
+      	$this->load->model('departamento_model');
+  	$this->load->model('unidad_model');
+  	$this->load->model('unidad_model');
 }
 
 public function index(){
   $data['departamento']=$this->departamento_model->departamento(1)->row_array(); 
-  $data['unidades']= $this->unidad_model->lista_unidad()->result();
+  $data['unidades']= $this->unidad_model->lista_unidades()->result();
  // print_r($data['usuario_list']);
   $data['title']="Lista de Departamentos";
 	$this->load->view('template/page_header');		
@@ -21,13 +22,11 @@ public function index(){
 
 public function add()
 {
-		$data['unidades']= $this->unidad_model->lista_unidad()->result();
-		$data['title']="Nuevo Departamento";
-	 	$this->load->view('template/page_header');		
-	 	$this->load->view('departamento_form',$data);
-	 	$this->load->view('template/page_footer');
-
-
+	$data['unidades']= $this->unidad_model->lista_unidades()->result();
+	$data['title']="Nuevo Departamento";
+ 	$this->load->view('template/page_header');		
+ 	$this->load->view('departamento_form',$data);
+ 	$this->load->view('template/page_footer');
 }
 
 
@@ -67,6 +66,103 @@ public function edit()
 	 	$this->departamento_model->update($id,$array_item);
 	 	redirect('departamento');
  	}
+
+
+
+
+
+public function listar()
+{
+  $data['unidad'] = $this->unidad_model->lista_unidadesA()->result();
+  $data['title']="Departamento";
+	$this->load->view('template/page_header');		
+  $this->load->view('unidad_list',$data);
+	$this->load->view('template/page_footer');
+}
+
+function unidad_data()
+{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+
+
+	 	$data0 = $this->unidad_model->lista_unidadesA();
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->idunidad,$r->launidad,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idunidad="'.$r->idunidad.'">Ver</a>');
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+		echo json_encode($output);
+		exit();
+}
+
+
+public function elprimero()
+{
+  $data['departamento']=$this->departamento_model->departamento(1)->row_array(); 
+  	$data['unidades']= $this->unidad_model->lista_unidades()->result();
+  if(!empty($data))
+  {
+    $data['title']="Departamento";
+    $this->load->view('template/page_header');		
+    $this->load->view('departamento_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+public function elultimo()
+{
+  $data['departamento']=$this->departamento_model->departamento(1)->row_array(); 
+  	$data['unidades']= $this->unidad_model->lista_unidades()->result();
+  if(!empty($data))
+  {
+    $data['title']="Departamento";
+  
+    $this->load->view('template/page_header');		
+    $this->load->view('departamento_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+}
+
+public function siguiente(){
+ // $data['unidad_list']=$this->unidad_model->lista_unidad()->result();
+$data['departamento'] = $this->departamento_model->siguiente($this->uri->segment(3))->row_array();
+  	$data['unidades']= $this->unidad_model->lista_unidades()->result();
+  $data['title']="Departamento";
+	$this->load->view('template/page_header');		
+  $this->load->view('departamento_record',$data);
+	$this->load->view('template/page_footer');
+}
+
+public function anterior(){
+ // $data['unidad_list']=$this->unidad_model->lista_unidad()->result();
+	$data['departamento'] = $this->departamento_model->anterior($this->uri->segment(3))->row_array();
+  	$data['unidades']= $this->unidad_model->lista_unidades()->result();
+  $data['title']="Departamento";
+	$this->load->view('template/page_header');		
+  $this->load->view('departamento_record',$data);
+	$this->load->view('template/page_footer');
+}
+
+
+
+
+
 
 
 
