@@ -9,6 +9,7 @@ class Persona_model extends CI_model {
 
 
 	function lista_personasA(){
+		 $this->db->order_by("apellidos","asc");
 		 $persona= $this->db->get('persona2');
 		 return $persona;
 	}
@@ -16,6 +17,7 @@ class Persona_model extends CI_model {
 
 
 	function persona2(){
+		 $this->db->order_by("apellidos","asc");
 		 $persona= $this->db->get('persona2');
 		 return $persona;
 	}

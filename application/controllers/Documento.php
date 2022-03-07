@@ -475,7 +475,6 @@ exit;
 public function get_directorio() {
     $this->load->database();
     $this->load->helper('form');
-    $states = array('--Select--');  
     if($this->input->post('idordenador')) {
         $this->db->select('*');
         $this->db->where(array('idordenador' => $this->input->post('idordenador')));
