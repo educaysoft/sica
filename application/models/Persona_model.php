@@ -28,26 +28,40 @@ class Persona_model extends CI_model {
 		return $persona;
 	}
 
-	function save($array,$array_correo,$array_telefono)
+	function save($array_persona,$array_correo,$array_telefono)
 	{
-	   $this->db->trans_start();
-	   $this->db->insert("persona", $array);
-	   if( $this->db->affected_rows()>0){
-		$idpersona=$this->db->insert_id();
-		if($array_correo['nombre']!=""){
-			$array_correo['idpersona']=$idpersona;
-			$this->db->insert('correo',$array_correo);
-		}		
-		if($array_telefono['numero']!=""){
-			$array_telefono['idpersona']=$idpersona;
-			$this->db->insert('telefono',$array_telefono);
-		}
-		$this->db->trans_complete();
-		return true;
+	   $this->db->trans_begin();
+		$condition = "cedula =" . "'" . $array_persona['cedula'] . "'";
+		$this->db->select('*');
+		$this->db->from('persona');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+		   $this->db->insert("persona", $array_persona);
+		   if( $this->db->affected_rows()>0){
+			$idpersona=$this->db->insert_id();
+			if($array_correo['nombre']!=""){
+				$array_correo['idpersona']=$idpersona;
+				$this->db->insert('correo',$array_correo);
+			}		
+			if($array_telefono['numero']!=""){
+				$array_telefono['idpersona']=$idpersona;
+				$this->db->insert('telefono',$array_telefono);
+			}
+			$this->db->trans_commit();
+			return true;
 	
-	   }else{
-	        return false;
-	   }
+		   }else{
+			$this->db->trans_rollback();
+			return false;
+		   }
+		}else{
+
+			$this->db->trans_rollback();
+			return false;
+
+		}
 
 	}
 
@@ -67,12 +81,54 @@ class Persona_model extends CI_model {
 
  	public function delete($id)
 	{
- 		$this->db->where('idpersona',$id);
-		$this->db->delete('persona');
-    		if($this->db->affected_rows()==1)
-			$result=true;
-		else
-			$result=false;
+		$condition = "idpersona =" . "'" . $id . "'";
+		$this->db->select('*');
+		$this->db->from('correo');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+			if ($query->num_rows() != 0) {
+			$this->db->where('idpersona',$id);
+			$this->db->delete('correo');
+			if($this->db->affected_rows()==1)
+				$result=true;
+			else
+				$result=false;
+		}
+
+
+		$condition = "idpersona =" . "'" . $id . "'";
+		$this->db->select('*');
+		$this->db->from('telefono');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() != 0) {
+			$this->db->where('idpersona',$id);
+			$this->db->delete('telefono');
+			if($this->db->affected_rows()==1)
+				$result=true;
+			else
+				$result=false;
+		}
+
+
+		$condition = "idpersona =" . "'" . $id . "'";
+		$this->db->select('*');
+		$this->db->from('persona');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() != 0) {
+			$this->db->where('idpersona',$id);
+			$this->db->delete('persona');
+			if($this->db->affected_rows()==1)
+				$result=true;
+			else
+				$result=false;
+		}
+
+
 		return $result;
  	}
 

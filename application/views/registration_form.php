@@ -5,9 +5,9 @@
 		<div style="width: 50%;  padding:5px;   display: inline-flex; " >
 			<div   style="width:100%; height:700px; ">
 				<header class="w3-container">
-					<p style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:30px; text-align:center;">Maestría en Tecnología de la Información</p>
+					<p id="titulo" style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:30px; text-align:center;">Maestría en Tecnología de la Información</p>
 				</header>
-				<div class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
+				<div id="detalle" class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
 
 					<p>La Universidad Técnica Luis Vargas Torres desde más de 10 años forma profesionales de grado en disciplinas relacionadas con la tecnología de la información.</p><br>
 					<p>La aprobación de la <b>Maestría en Tecnología de la Información</b> permite mejora el perfil de nuestros ingenieros para que sean capaces de  liderar procesos de cambio en instituciones locales y nacionales.</p><br>
@@ -43,11 +43,31 @@
 								$options[$row->idinstitucion]= $row->nombre;
 							}
 
-						 echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'),array('class'=>'form-control'));  ?>
+						 echo form_dropdown($name="idinstitucion",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idinstitucion','onchange'=>'get_evento()'));  ?>
 
 					</div>
 
 
+
+
+					<div  class="w3-container" style="text-align:left; font-size: 70%;">
+
+					<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: </label>
+	
+    <div class="form-group">
+         <select class="form-control" id="idevento" name="idevento" required onchange='show_detalle()'>
+                 <option>No Selected</option>
+          </select>
+    </div>
+
+
+
+
+					</div>
+
+
+
+<!----
 					<div  class="w3-container" style="text-align:left; font-size: 70%;">
 
 						<?php 
@@ -62,7 +82,7 @@
 
 					</div>
 
-
+-->
 
 					<div  class="w3-container" style="text-align:left; font-size: 70%;">
 						<?php
@@ -160,6 +180,75 @@
 		</div>
 </div>
 </section>
+
+<script>
+function get_evento() {
+	var idinstitucion = $('select[name=idinstitucion]').val();
+    $.ajax({
+        url: "<?php echo site_url('evento/get_evento') ?>",
+        data: {idinstitucion: idinstitucion},
+        method: 'POST',
+	async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
+        var i;
+        for(i=0; i<data.length; i++){
+        html += '<option value='+data[i].idevento+'>'+data[i].titulo+'</option>';
+        }
+        $('#idevento').html(html);
+
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
+
+
+function show_detalle()
+{
+  $('#detalle').html("HOLA MUNDO");
+
+	var idevento = $('select[name=idevento]').val();
+    $.ajax({
+        url: "<?php echo site_url('evento/get_evento2') ?>",
+        data: {idevento: idevento},
+        method: 'POST',
+	async : true,
+        dataType : 'json',
+        success: function(data){
+        var html1 = '';
+        var html2 = '';
+        var i;
+        for(i=0; i<data.length; i++){
+        html1 += data[i].titulo;
+        html2 += data[i].detalle;
+        }
+        $('#titulo').html(html1);
+        $('#detalle').html(html2);
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+
+}
+
+
+
+
+</script>
+
 
 
 

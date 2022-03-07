@@ -78,20 +78,22 @@ public function add()
 			'numero'=>$this->input->post('telefono'),
 			'idoperadora'=>1,
 			'idtelefono_estado'=>1);
-	
-	
-	 	$this->persona_model->save($array_item,$array_correo,$array_telefono);
-	 	//redirect('persona');
-		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
+		$result=$this->persona_model->save($array_item,$array_correo,$array_telefono);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Persona ya existe'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
  	}
-
 
 
 public function edit()
 {
-	$data['persona'] = $this->persona_model->persona($this->uri->segment(3))->row_array();
-  	$data['generos']= $this->genero_model->lista_generos()->result();
-  	$data['title'] = "Actualizar Persona";
+	$data["persona"] = $this->persona_model->persona($this->uri->segment(3))->row_array();
+  	$data["generos"]= $this->genero_model->lista_generos()->result();
+  	$data["title"] = "Actualizar Persona";
   	$this->load->view('template/page_header');		
   	$this->load->view('persona_edit',$data);
  	$this->load->view('template/page_footer');

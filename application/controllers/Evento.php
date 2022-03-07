@@ -435,6 +435,36 @@ exit;
 
 
 
+public function get_evento() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->post('idinstitucion')) {
+        $this->db->select('*');
+        $this->db->where(array('idinstitucion' => $this->input->post('idinstitucion')));
+        $query = $this->db->get('evento');
+	$data=$query->result();
+	echo json_encode($data);
+	}
+
+}
+
+
+
+public function get_evento2() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->post('idevento')) {
+        $this->db->select('*');
+        $this->db->where(array('idevento' => $this->input->post('idevento')));
+        $query = $this->db->get('evento');
+	$data=$query->result();
+	echo json_encode($data);
+	}
+
+}
+
+
+
 
 
 
