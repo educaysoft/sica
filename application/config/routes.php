@@ -53,4 +53,4 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['index.php/login']='login';
-$route['tesis/(:any)']='documento/listarxtipodocu/$1';
+$route['tesiscti']='documento/listarxtipodocu/11';
