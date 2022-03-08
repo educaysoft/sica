@@ -31,12 +31,29 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <!-- Page Heading -->
  <div class="row">
   <div class="col-12">
-             <div class="col-md-12">
-                 <h3>Documento - Listar 
-                 <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
-			  
-        	</h3>
-       	     </div>
+
+<div class="form-group row">
+    	<label class="col-md-2 col-form-label"> Tipo  documento:</label>
+	<?php
+		$options= array('--Select--');
+		foreach ($tipodocus as $row){
+			$options[$row->idtipodocu]= $row->descripcion;
+		}
+	?>
+
+	<div class="col-md-10">
+		<?php
+     			echo form_dropdown("idtipodocu",$options[$filtro], set_select('--Select--','default_value'),array('onchange'=>'filtra_documento()'));  
+		?>
+	</div>
+	</div>
+
+
+
+
+
+
+	     
 <div id="filtro"><?php echo $filtro; ?></div>
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
@@ -112,11 +129,25 @@ $(document).ready(function(){
 
 $('#show_data').on('click','.item_ver',function(){
 
-let ubicacion=$(this).data('ubicacion');
-let archivo = $(this).data('archivo');
+var ordenador = "https://"+$(this).data('ordenador');
+var ubicacion=$(this).data('ubicacion');
+if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+        ubicacion = ordenador+"/"+ubicacion;
+}else{
+	ubicacion = ordenador+ubicacion;
+}
+var archivo = $(this).data('archivo');
 var certi= ubicacion.trim()+archivo.trim();
-
 window.location.href = certi;
+
+
+
+
+//let ubicacion=$(this).data('ubicacion');
+//let archivo = $(this).data('archivo');
+//var certi= ubicacion.trim()+archivo.trim();
+
+//window.location.href = certi;
 
 });
 
