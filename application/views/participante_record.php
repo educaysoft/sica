@@ -81,7 +81,7 @@ $options= array("NADA");
 foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
-if($participante['iddocumento']==NULL){
+if(!isset($participante['iddocumento'])){
 echo form_input('nombre',"",array("disabled"=>"disabled")) ;
 }else{
 echo form_input('nombre',$options[$participante['iddocumento']],array("disabled"=>"disabled"));

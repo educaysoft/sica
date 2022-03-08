@@ -11,7 +11,8 @@ class Usuario extends CI_Controller{
 	}
 
 	public function index(){
-	$data['usuario'] = $this->usuario_model->elprimero();
+ if(isset($this->session->userdata['logged_in'])){
+	$data['usuario'] = $this->usuario_model->elultimo();
 	$data['personas']= $this->persona_model->lista_personas()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
@@ -20,6 +21,11 @@ class Usuario extends CI_Controller{
 	$this->load->view('template/page_header');		
   	$this->load->view('usuario_record',$data);
 	$this->load->view('template/page_footer');
+   }else{
+	$this->load->view('template/page_header.php');
+	$this->load->view('login_form');
+	$this->load->view('template/page_footer.php');
+   }
 }
 
 
