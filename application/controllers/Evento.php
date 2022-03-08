@@ -75,7 +75,7 @@ public function add()
 public function actual(){
 
 	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
-	$data['evento_estados']= $this->evento_estado_model->lista_evento_estado()->result();
+	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 
@@ -93,7 +93,7 @@ public function listar()
 	
  
 	$data['evento'] = $this->evento_model->evento(1)->row_array();
-	$data['evento_estados']= $this->evento_estado_model->lista_evento_estado()->result();
+	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 	
@@ -186,7 +186,7 @@ public function elprimero()
 	$data['evento'] = $this->evento_model->elprimero();
   if(!empty($data))
   {
-	$data['evento_estados']= $this->evento_estado_model->lista_evento_estado()->result();
+	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
     	$data['title']="Evento";
@@ -235,7 +235,7 @@ public function elultimo()
 public function siguiente(){
  // $data['evento_list']=$this->evento_model->lista_evento()->result();
 	$data['evento'] = $this->evento_model->siguiente($this->uri->segment(3))->row_array();
-	$data['evento_estados']= $this->evento_estado_model->lista_evento_estado()->result();
+	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   $data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
   $data['title']="Evento";
@@ -248,7 +248,7 @@ public function siguiente(){
 public function anterior(){
  // $data['evento_list']=$this->evento_model->lista_evento()->result();
 	$data['evento'] = $this->evento_model->anterior($this->uri->segment(3))->row_array();
-	$data['evento_estados']= $this->evento_estado_model->lista_evento_estado()->result();
+	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   $data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
   $data['title']="Evento";
@@ -268,7 +268,7 @@ public function anterior(){
 public function edit()
 {
 	 	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
-		$data['evento_estados']= $this->evento_estado_model->lista_evento_estado()->result();
+		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
     $data['title'] = "Actualizar Evento";
  	 	$this->load->view('template/page_header');		
