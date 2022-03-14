@@ -20,8 +20,41 @@
 </tr>
 
 <tr>
+<td> Evento: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($eventos as $row){
+	$options[$row->idevento]= $row->titulo;
+}
+
+ echo form_dropdown("idevento",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
+<tr>
+<td> Documento: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->asunto;
+}
+
+ echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
+
+<tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("certificado","Atras") ?> </td>
 </tr>
+
+
+
+
+
+
 
 </table>
 <?php echo form_close();?>

@@ -71,8 +71,28 @@ if(isset($certificado))
  echo form_input($eys_arrctl) ?></td>
 </tr>
 
+<tr>
+     <td>Evento:</td>
+     <td><?php 
+$options= array("NADA");
+foreach ($eventos as $row){
+	$options[$row->idevento]= $row->titulo;
+}
+
+echo form_input('idevento',$options[$certificado['idevento']],array("disabled"=>"disabled")) ?></td>
+  </tr>
 
 
+<tr>
+     <td>Documento:</td>
+     <td><?php 
+$options= array("NADA");
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->asunto;
+}
+
+echo form_input('iddocumento',$options[$certificado['iddocumento']],array("disabled"=>"disabled")) ?></td>
+  </tr>
 
 
 </table>

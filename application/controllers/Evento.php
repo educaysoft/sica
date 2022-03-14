@@ -13,6 +13,7 @@ class Evento extends CI_Controller{
 public function index(){
  if(isset($this->session->userdata['logged_in'])){
 	$data['evento'] = $this->evento_model->elultimo();
+	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
@@ -53,7 +54,6 @@ public function add()
 	public function  save()
 	{
 	 	$array_item=array(
-		 	
 		 	'idevento' => $this->input->post('idevento'),
 		 	'idevento_estado' => $this->input->post('idevento_estado'),
 		 	'idinstitucion' => $this->input->post('idinstitucion'),
@@ -163,8 +163,8 @@ function evento_data_participantes()
 	 	$data0 = $this->evento_model->lista_eventoP($id);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idevento,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idevento="'.$r->idevento.'">Ver</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_cert"  data-elparticipante="'.$r->elparticipante.'">cert</a>');
+	$data[]=array($r->idevento,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
+		$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_gene" data-idtipodocu="'.$r->idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'" data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'"  data-elparticipante="'.$r->elparticipante.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'" data-archivopdf="'.$r->archivopdf.'">gene</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_cert"  data-elparticipante="'.$r->elparticipante.'">impr</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -186,6 +186,7 @@ public function elprimero()
 	$data['evento'] = $this->evento_model->elprimero();
   if(!empty($data))
   {
+	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
@@ -209,6 +210,7 @@ public function elultimo()
 	$data['evento'] = $this->evento_model->elultimo();
   if(!empty($data))
   {
+	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
@@ -235,6 +237,7 @@ public function elultimo()
 public function siguiente(){
  // $data['evento_list']=$this->evento_model->lista_evento()->result();
 	$data['evento'] = $this->evento_model->siguiente($this->uri->segment(3))->row_array();
+	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   $data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
@@ -248,12 +251,13 @@ public function siguiente(){
 public function anterior(){
  // $data['evento_list']=$this->evento_model->lista_evento()->result();
 	$data['evento'] = $this->evento_model->anterior($this->uri->segment(3))->row_array();
+	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  $data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
-  $data['title']="Evento";
+  	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+  	$data['title']="Evento";
 	$this->load->view('template/page_header');		
-  $this->load->view('evento_record',$data);
+  	$this->load->view('evento_record',$data);
 	$this->load->view('template/page_footer');
 }
 

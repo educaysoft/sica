@@ -5,11 +5,17 @@ class Certificado extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('certificado_model');
+      		$this->load->model('documento_model');
+      		$this->load->model('evento_model');
+      		$this->load->model('tipodocu_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 	$data['certificado'] = $this->certificado_model->elprimero();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['title']="Lista de Empresas";
 			$this->load->view('template/page_header');		
   		$this->load->view('certificado_record',$data);
@@ -24,7 +30,10 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva Institución";
+			$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$data['title']="Nuevo certificado";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('certificado_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -35,6 +44,8 @@ public function  save()
 	{
 	 	$array_item=array(
 	 	'idcertificado' => $this->input->post('idcertificado'),
+	 	'idevento' => $this->input->post('idevento'),
+	 	'iddocumento' => $this->input->post('iddocumento'),
 	 	'propietario' => $this->input->post('propietario'),
 	 	'archivo' => $this->input->post('archivo'),
 	 	);
@@ -47,6 +58,9 @@ public function  save()
 public function edit()
 {
 	 	$data['certificado'] = $this->certificado_model->certificado($this->uri->segment(3))->row_array();
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Certificado";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('certificado_edit',$data);
@@ -61,6 +75,7 @@ public function edit()
 	 	$array_item=array(
 		 	
 		 	'idcertificado' => $this->input->post('idcertificado'),
+		 	'idtipodocu' => $this->input->post('idtipodocu'),
 		 	'propietario' => $this->input->post('propietario'),
 	 	);
 	 	$this->certificado_model->update($id,$array_item);
@@ -116,6 +131,9 @@ function certificado_data()
 
 public function elprimero()
 {
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['certificado'] = $this->certificado_model->elprimero();
   if(!empty($data))
   {
@@ -132,6 +150,9 @@ public function elprimero()
 
 public function elultimo()
 {
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['certificado'] = $this->certificado_model->elultimo();
   if(!empty($data))
   {
@@ -150,6 +171,9 @@ public function elultimo()
 
 public function siguiente(){
  // $data['certificado_list']=$this->certificado_model->lista_certificado()->result();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['certificado'] = $this->certificado_model->siguiente($this->uri->segment(3))->row_array();
   $data['title']="Certificado";
 	$this->load->view('template/page_header');		
@@ -158,6 +182,9 @@ public function siguiente(){
 }
 
 public function anterior(){
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
  // $data['certificado_list']=$this->certificado_model->lista_certificado()->result();
 	$data['certificado'] = $this->certificado_model->anterior($this->uri->segment(3))->row_array();
   $data['title']="Certificado";

@@ -153,6 +153,26 @@ echo form_input($arrdatos) ?>
 	</div> 
 </div>
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('certificado/add', 'Certificado modelo:') ?> </label>
+     	<?php 
+
+	$options = array();
+  	foreach ($certificados as $row){
+		$options[$row->idcertificado]=$row->asunto;
+	}
+
+	?>
+	<div class="col-md-10">
+		<?php
+			 echo form_multiselect('idcertificado[]',$options,(array)set_value('idcertificado', ''), array('onChange="ver_certicado()"', 'style'=>'width:500px')); 
+		?>
+	</div> 
+</div>
+
+
+
 <?php echo form_close(); ?>
 
 
