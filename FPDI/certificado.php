@@ -24,6 +24,7 @@ $ruta=str_replace("'","",$ruta);
 $modelo=str_replace("'","",$modelo);
 
 $x="..".$ruta.$modelo;
+echo $x;
 $pageCount=$pdf->setSourceFile($x);
 // import page 1
 
@@ -54,7 +55,7 @@ $pdf->Write(0, $participante);
 //$pdf->Output('I', 'generated.pdf');
 $archivo=str_replace("'","",$archivo);
 $y="..".$ruta.$archivo;
+echo $y;
 $pdf->Output('F',$y);
-$pdf->Output('I',$y);
 
 
