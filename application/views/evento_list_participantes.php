@@ -136,8 +136,11 @@ if(iddocumento2==0)
         success: function(data){
 	iddocumento=data.iddocumento;
  	archivopdf2= data.archivopdf;	
+	alert(iddocumento);
 	if(iddocumento>0){
 	//Generando el certificado del participante en un archivo pdf	
+	alert("http://"+maquina+"/FPDI/certificado.php?participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'");
+
 	window.location.href = "http://"+maquina+"/FPDI/certificado.php?participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'";
 	}
 	},
