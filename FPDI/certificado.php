@@ -9,6 +9,7 @@ use setasign\Fpdi\Fpdi;
 // setup the autoload function
 require_once('vendor/autoload.php');
 $participante=$_GET["participante"]; 
+$detalle=$_GET["asunto"]; 
 $modelo=$_GET["modelo"];  //Modelo de certificado 
 $archivo=$_GET["archivo"];  //Nombre del archivo generado 
 $ruta=$_GET["ruta"];
@@ -27,7 +28,7 @@ $x="..".$ruta.$modelo;
 echo $x;
 $pageCount=$pdf->setSourceFile($x);
 // import page 1
-
+echo $pageCount;
 for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 
 $tplId = $pdf->importPage($pageNo);
@@ -44,13 +45,17 @@ $pdf->AddPage('L',[296.67,210.56]);
 //$pdf->useTemplate($tplId,null,null,210.56,296.67,FALSE);
 $pdf->useTemplate($tplId);
 
+$mid_x=148;
 
 
 	// now write some text above the imported page
-$pdf->SetFont('Helvetica',20);
+$pdf->SetFont('Helvetica','B',14);
 $pdf->SetTextColor(255, 0, 0);
-$pdf->SetXY(24, 121);
-$pdf->Write(0, $participante);
+$pdf->SetXY(24, 86);
+$pdf->Text($mid_x-($pdf->GetStringWidth($participante)/2),86,$participante);
+//$pdf->Write(0, $participante);
+$pdf->SetXY(35, 105);
+$pdf->Write(0, $detalle);
 }
 //$pdf->Output('I', 'generated.pdf');
 $archivo=str_replace("'","",$archivo);

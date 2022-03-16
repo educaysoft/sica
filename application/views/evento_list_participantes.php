@@ -139,9 +139,9 @@ if(iddocumento2==0)
 	if(iddocumento>0){
 	//Generando el certificado del participante en un archivo pdf	
 	
-	alert("http://"+maquina+"/FPDI/certificado.php?participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'");
+	alert("http://"+maquina+"/FPDI/certificado.php?asunto='"+asunto+"'&participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'");
 	
-		window.location.href = "http://"+maquina+"/FPDI/certificado.php?participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'";
+		window.location.href = "http://"+maquina+"/FPDI/certificado.php?asunto='"+asunto+"'&participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'";
 	// Asignando el documento generado al participante
 	  $.ajax({
         	url: "<?php echo site_url('participante/edit') ?>",
