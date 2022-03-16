@@ -125,6 +125,8 @@ alert(iddocumento2);
 
 if(iddocumento2==0)
 {
+	let confirmar = confirm("Este certificado no se generado ¿Quiere generar?");
+	if(confirmar){
    $.ajax({
         url: "<?php echo site_url('documento/save') ?>",
         data: {iddocumento:iddocumento,idtipodocu:idtipodocu,archivopdf:archivopdf,asunto:asunto,fechaelaboracion:fechaelaboracion,idordenador:idordenador,iddirectorio:iddirectorio,iddocumento_estado:iddocumento_estado,idpersona:idpersona},
@@ -172,7 +174,7 @@ if(iddocumento2==0)
       }
 
     })
-
+	}
 }else{
 
 	let confirmar = confirm("Este certificado ya esta generado ¿Desea verlo?");
