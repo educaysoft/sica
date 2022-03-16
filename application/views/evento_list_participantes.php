@@ -71,7 +71,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
  </div>
 
 
-
 <script type="text/javascript">
 
 $(document).ready(function(){
@@ -84,9 +83,17 @@ $(document).ready(function(){
 $('#show_data').on('click','.item_ver',function(){
 
 var id= $(this).data('idevento');
-window.location.href = "http://localhost/facae/index.php/evento/actual/"+id;
+alert(id); 
 
 });
+
+
+
+
+
+
+
+
 
 
 $('#show_data').on('click','.item_gene',function(){
@@ -94,29 +101,30 @@ $('#show_data').on('click','.item_gene',function(){
 var iddocumento=0;	
 var idtipodocu= $(this).data('idtipodocu');
 
-
+alert(iddocumento);
 var asunto="CERTIFICADO - "+$(this).data('titulo');
-
-
 
 let fechaelaboracion=$(this).data('fechafinaliza');
 fechaelaboracion=fechaelaboracion.substring(0,10);
-alert(fechaelaboracion);
+var idevento=$(this).data('idevento');
 var idordenador=$(this).data('idordenador');
 var iddirectorio=$(this).data('iddirectorio');
 var iddocumento_estado=1;
 var idpersona=$(this).data('idpersona');
+var idparticipante=$(this).data('idparticipante');
 
+var iddocumento2=$(this).data('iddocumento2');
 var maquina=$(this).data('elordenador');
 var elparticipante=$(this).data('elparticipante');
 var ruta=$(this).data('ruta');
 var archivopdf=$(this).data('archivopdf');
 var archivopdf2="";
 var filename="";
-var yy="";
-yy=maquina+" - "+elparticipante+" - "+maquina+" - "+ruta+" - "+ archivopdf+" - "+archivopdf2;
+alert(iddocumento2);
 
-alert(yy);
+
+if(iddocumento2==0)
+{
    $.ajax({
         url: "<?php echo site_url('documento/save') ?>",
         data: {iddocumento:iddocumento,idtipodocu:idtipodocu,archivopdf:archivopdf,asunto:asunto,fechaelaboracion:fechaelaboracion,idordenador:idordenador,iddirectorio:iddirectorio,iddocumento_estado:iddocumento_estado,idpersona:idpersona},
@@ -124,31 +132,92 @@ alert(yy);
 	async : true,
         dataType : 'json',
         success: function(data){
-	alert("que pasa"+data.archivopdf);
 	iddocumento=data.iddocumento;
  	archivopdf2= data.archivopdf;	
 
- 	yy=maquina+" - "+elparticipante+" - "+maquina+" - "+ruta+" - "+ archivopdf+" - "+archivopdf2;
+	//Generando el certificado del participante en un archivo pdf	
+	window.location.href = "http://"+maquina+"/FPDI/certificado.php?participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'";
+	// Asignando el documento generado al participante
+	  $.ajax({
+        	url: "<?php echo site_url('participante/edit') ?>",
+		data: {idparticipante:idparticipante,idevento:idevento,iddocumento:iddocumento,idpersona:idpersona},
+		method: 'POST',
+		async : true,
+		dataType : 'json',
+		success: function(data){
 
-alert(yy);
-//window.location.href = "http://localhost/facae/index.php/evento/certificado/"+elparticipante;
-window.location.href = "http://"+maquina+"/FPDI/certificado.php?participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'";
+			//Mostrando el certificado
+			var ordenador = "https://"+$(this).data('ordenador');
+			if(ordenador.slice(-1) != "/" && ruta.slice(0,1) != "/"){
+				ruta = maquina+"/"+ruta;
+			}else{
+				ruta = maquina+ruta;
+			}
+			var archivo = archivopdf2;
+			var certi= ruta.trim()+archivo.trim();
+			window.location.href = certi;
 
+		},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
 
-
+	    })
 
 	},
-      error: function (xhr, ajaxOptions, thrownError) {
+      error: function (xhr, ajaxOptions, thrownError){ 
         alert(xhr.status);
         alert(thrownError);
       }
 
     })
 
+}else{
+
+	let confirmar = confirm("Este certificado ya esta generado ¿Desea verlo?");
+	if(confirmar){
+		  iddocumento=iddocumento2;
+		  $.ajax({
+			url: "<?php echo site_url('documento/get_documento') ?>",
+			data: {iddocumento:iddocumento},
+			method: 'POST',
+			async : true,
+			dataType : 'json',
+			success: function(data){
+
+				
+				var maquina1 = "https://"+maquina;
+
+				if(maquina1.slice(-1) != "/" && ruta.slice(0,1) != "/"){
+					ruta = maquina1+"/"+ruta;
+				}else{
+					ruta = maquina1+ruta;
+				}
+				var archivo = data[0].archivopdf;
+				var certi= ruta.trim()+archivo.trim();
+				window.location.href = certi;
+
+			},
+		      error: function (xhr, ajaxOptions, thrownError) {
+			alert(xhr.status);
+			alert(thrownError);
+		      }
+
+		    })
+	}
+
+
+   }
+
+ 
+
+
+
 });
 
 
-
-
 </script>
+
+
 

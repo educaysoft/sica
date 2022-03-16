@@ -8,10 +8,10 @@ if(isset($participante))
 {
 ?>
  
-        <li> <?php echo anchor('participante/primero/', 'primero'); ?></li>
+        <li> <?php echo anchor('participante/elprimero/', 'primero'); ?></li>
         <li> <?php echo anchor('participante/anterior/'.$participante['idevento'], 'anterior'); ?></li>
         <li> <?php echo anchor('participante/siguiente/'.$participante['idevento'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('participante/ultimo/', 'Último'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('participante/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('participante/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('participante/edit/'.$participante['idevento'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('participante/delete/'.$participante['idevento'],'Delete'); ?></li>

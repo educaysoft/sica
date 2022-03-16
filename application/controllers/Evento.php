@@ -163,8 +163,11 @@ function evento_data_participantes()
 	 	$data0 = $this->evento_model->lista_eventoP($id);
 		$data=array();
 		foreach($data0->result() as $r){
-	$data[]=array($r->idevento,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
-		$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_gene" data-idtipodocu="'.$r->idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'" data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'"  data-elparticipante="'.$r->elparticipante.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'" data-archivopdf="'.$r->archivopdf.'">gene</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_cert"  data-elparticipante="'.$r->elparticipante.'">impr</a>');
+		
+		
+		
+			$data[]=array($r->idevento,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
+		$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_gene" data-idtipodocu="'.$r->idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'" data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'"  data-elparticipante="'.$r->elparticipante.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"  data-archivopdf="'.$r->archivopdf.'">gene</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-iddocumento="'.$r->iddocumento.'">download</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),

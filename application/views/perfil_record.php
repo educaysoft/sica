@@ -3,7 +3,7 @@
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 <?php echo form_open('perfil/save_edit') ?>
     <ul>
-        <li> <?php echo anchor('perfil/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('perfil/elprimero/', 'elprimero'); ?></li>
         <li> <?php echo anchor('perfil/anterior/'.$perfil['idperfil'], 'anterior'); ?></li>
         <li> <?php echo anchor('perfil/siguiente/'.$perfil['idperfil'], 'siguiente'); ?></li>
         <li style="border-right:1px solid green"><?php echo anchor('perfil/elultimo/', 'Último'); ?></li>

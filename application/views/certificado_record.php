@@ -84,6 +84,19 @@ echo form_input('idevento',$options[$certificado['idevento']],array("disabled"=>
 
 
 <tr>
+     <td>Tipo documento:</td>
+     <td><?php 
+$options= array("NADA");
+foreach ($tipodocus as $row){
+	$options[$row->idtipodocu]= $row->descripcion;
+}
+
+echo form_input('idtipodocu',$options[$certificado['idtipodocu']],array("disabled"=>"disabled")) ?></td>
+  </tr>
+
+
+
+<tr>
      <td>Documento:</td>
      <td><?php 
 $options= array("NADA");
@@ -103,12 +116,6 @@ echo form_input('iddocumento',$options[$certificado['iddocumento']],array("disab
 
 
 </body>
-
-
-
-
-
-
 
 
 

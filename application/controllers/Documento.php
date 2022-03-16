@@ -494,6 +494,19 @@ public function get_directorio() {
 
 
 
+public function get_documento() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->post('iddocumento')) {
+        $this->db->select('*');
+        $this->db->where(array('iddocumento' => $this->input->post('iddocumento')));
+        $query = $this->db->get('documento');
+	$data=$query->result();
+	echo json_encode($data);
+	}
+}
+
+
 
 
 

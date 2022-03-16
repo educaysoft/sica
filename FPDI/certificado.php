@@ -24,23 +24,14 @@ $ruta=str_replace("'","",$ruta);
 $modelo=str_replace("'","",$modelo);
 
 $x="..".$ruta.$modelo;
-echo $x;
 $pageCount=$pdf->setSourceFile($x);
 // import page 1
-echo $pageCount; 
-echo "\n";
 
 for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 
 $tplId = $pdf->importPage($pageNo);
 //$pdf->useTemplate($tplId, 20, 10, 200);
-$size = $pdf->getTemplateSize($tplId);
 
-echo "<br>";
-echo $size['w'];
-echo "<br>";
-echo $size['h'];
-echo "<br>";
 
 $pdf->AddPage('L',[296.67,210.56]);
 //El tamaño se acopa al tamaño del template
@@ -55,7 +46,7 @@ $pdf->useTemplate($tplId);
 
 
 	// now write some text above the imported page
-$pdf->SetFont('Helvetica');
+$pdf->SetFont('Helvetica',20);
 $pdf->SetTextColor(255, 0, 0);
 $pdf->SetXY(24, 121);
 $pdf->Write(0, $participante);
@@ -63,7 +54,7 @@ $pdf->Write(0, $participante);
 //$pdf->Output('I', 'generated.pdf');
 $archivo=str_replace("'","",$archivo);
 $y="..".$ruta.$archivo;
-echo $y;
 $pdf->Output('F',$y);
+$pdf->Output('I',$y);
 
 
