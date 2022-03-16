@@ -136,37 +136,10 @@ if(iddocumento2==0)
         success: function(data){
 	iddocumento=data.iddocumento;
  	archivopdf2= data.archivopdf;	
-
+	if(iddocumento>0){
 	//Generando el certificado del participante en un archivo pdf	
 	window.location.href = "http://"+maquina+"/FPDI/certificado.php?participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'";
-	// Asignando el documento generado al participante
-	  $.ajax({
-        	url: "<?php echo site_url('participante/edit') ?>",
-		data: {idparticipante:idparticipante,idevento:idevento,iddocumento:iddocumento,idpersona:idpersona},
-		method: 'POST',
-		async : true,
-		dataType : 'json',
-		success: function(data){
-
-			//Mostrando el certificado
-			var ordenador = "https://"+$(this).data('ordenador');
-			if(ordenador.slice(-1) != "/" && ruta.slice(0,1) != "/"){
-				ruta = maquina+"/"+ruta;
-			}else{
-				ruta = maquina+ruta;
-			}
-			var archivo = archivopdf2;
-			var certi= ruta.trim()+archivo.trim();
-			window.location.href = certi;
-
-		},
-	      error: function (xhr, ajaxOptions, thrownError) {
-		alert(xhr.status);
-		alert(thrownError);
-	      }
-
-	    })
-
+	}
 	},
       error: function (xhr, ajaxOptions, thrownError){ 
         alert(xhr.status);
