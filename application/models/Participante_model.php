@@ -12,7 +12,7 @@ class Participante_model extends CI_model {
 	}
 
  	function participante( $id){
- 		$participante = $this->db->query('select * from participante where idevento="'. $id.'"');
+ 		$participante = $this->db->query('select * from participante where idparticipante="'. $id.'"');
  		return $participante;
  	}
 

@@ -52,7 +52,7 @@ class Participante extends CI_Controller{
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
- 	 	$data['title'] = "Actualizar Persona";
+ 	 	$data['title'] = "Actualizar Participante";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('participante_edit',$data);
 	 	$this->load->view('template/page_footer');

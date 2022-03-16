@@ -21,6 +21,8 @@ $pdf = new Fpdi();
 //$pdf->AddPage();
 // set the source file
 //$pdf->setSourceFile("certificado2.pdf");
+
+$participante=str_replace("'","",$participante);
 $ruta=str_replace("'","",$ruta);
 $modelo=str_replace("'","",$modelo);
 
@@ -49,10 +51,10 @@ $mid_x=148;
 
 
 	// now write some text above the imported page
-$pdf->SetFont('Helvetica','B',14);
-$pdf->SetTextColor(255, 0, 0);
+$pdf->SetFont('Helvetica','B',20);
+$pdf->SetTextColor(0, 0,255);
 $pdf->SetXY(24, 86);
-$pdf->Text($mid_x-($pdf->GetStringWidth($participante)/2),86,$participante);
+$pdf->Text($mid_x-($pdf->GetStringWidth($participante)/2),90,$participante);
 //$pdf->Write(0, $participante);
 $pdf->SetXY(35, 105);
 $pdf->Write(0, $detalle);
