@@ -119,6 +119,14 @@ public function get_institucion($id){
 
 
 
+	function lista_instituciones_con_inscripciones(){
+		 $this->db->select('institucion.*');
+		 $this->db->from('institucion,evento');
+		 $this->db->where('evento.idinstitucion=institucion.idinstitucion and evento.idevento_estado=2');
+		 $institucion= $this->db->get();
+		 return $institucion;
+	}
+
 
 
 

@@ -5,16 +5,19 @@
 		<div style="width: 50%;  padding:5px;   display: inline-flex; " >
 			<div   style="width:100%; height:700px; ">
 				<header class="w3-container">
-					<p id="titulo" style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:30px; text-align:center;">Maestría en Tecnología de la Información</p>
+					<p id="titulo" style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:30px; text-align:center;">Sistema de registro para eventos académicos <br>  UTELVT</p>
 				</header>
 				<div id="detalle" class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
 
-					<p>La Universidad Técnica Luis Vargas Torres desde más de 10 años forma profesionales de grado en disciplinas relacionadas con la tecnología de la información.</p><br>
-					<p>La aprobación de la <b>Maestría en Tecnología de la Información</b> permite mejora el perfil de nuestros ingenieros para que sean capaces de  liderar procesos de cambio en instituciones locales y nacionales.</p><br>
-					<p>Si estas interesado en ingresar a este prometedor programa de maestría comienza con lo siguiente: </p><br>
+					<p>Conviertete en parte de nuestra comunidad universitaria, registrate en nuestra plataforma y beneficiate de todos los eventos académicos que se organizan en el Alma Mater.</p><br>
+					<p>Para poder hacerlo sigue las siguientes instrucciones: </p><br>
 					<ol>
-					<li> Informate más de esta maestría <a href="<?php echo base_url(); ?>MTI/doc/_build/html/programa.html"><button class="button-33" role="button">Aquí</button></a></li>
-					<li> Registra tus datos de contacto en el formulario </li>
+					<li> Escoge la institución en la cual quieres participar.</a></li>
+					<li> Escoge el evento académico.  </li>
+					<li> Ingresa tus datos de contacto  que se solicita.  </li>
+					<li> No te olvides de registrar un correo electrónico válido.  </li>
+					<li> No te olvides registrar una contraseña que puedas recordar.  </li>
+					<li> Finalmente guarda los datos y estas listo para ingresar a nuestra plaforma.  </li>
 					</ol>
 				</div>
 			 </div>
