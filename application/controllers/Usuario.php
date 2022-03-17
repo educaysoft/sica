@@ -29,6 +29,30 @@ class Usuario extends CI_Controller{
 }
 
 
+
+public function actual(){
+ if(isset($this->session->userdata['logged_in'])){
+	$data['usuario']=$this->usuario_model->usuario($this->uri->segment(3))->row_array();
+
+	$data['personas']= $this->persona_model->lista_personas()->result();
+	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+
+
+	$data['title']="Modulo de Usuario";
+	$this->load->view('template/page_header');		
+	$this->load->view('usuario_record',$data);
+	$this->load->view('template/page_footer');
+   }else{
+	$this->load->view('template/page_header.php');
+	$this->load->view('login_form');
+	$this->load->view('template/page_footer.php');
+   }
+}
+
+
+
+
 public function add()
 {
 		$data['personas']= $this->persona_model->lista_personas()->result();
@@ -121,7 +145,7 @@ function usuario_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idusuario,$r->elusuario,$r->elperfil,$r->password,$r->email,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idusuario="'.$r->idusuario.'" data-archivopdf="'.base_url()."pdfs/".$r->email.'">pdf</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('usuario/actual').'"  data-idusuario="'.$r->idusuario.'" data-archivopdf="'.base_url()."pdfs/".$r->email.'">ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
