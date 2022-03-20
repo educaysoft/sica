@@ -1,53 +1,114 @@
 <div id="eys-nav-i">
-	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-	<ul>
+
+<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+<?php echo form_open('participante/save_edit') ?>
+    <ul>
 <?php
-if(isset($ordenador))
+if(isset($participante))
 {
 ?>
-        <li> <?php echo anchor('ordenador/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('ordenador/siguiente/'.$ordenador['idordenador'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('ordenador/anterior/'.$ordenador['idordenador'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('ordenador/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('ordenador/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('ordenador/edit/'.$ordenador['idordenador'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('ordenador/delete/'.$ordenador['idordenador'],'Delete'); ?></li>
-        <li> <?php echo anchor('ordenador/listar/','Listar'); ?></li>
+ 
+        <li> <?php echo anchor('participante/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('participante/anterior/'.$participante['idparticipante'], 'anterior'); ?></li>
+        <li> <?php echo anchor('participante/siguiente/'.$participante['idparticipante'], 'siguiente'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('participante/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('participante/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('participante/edit/'.$participante['idparticipante'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('participante/delete/'.$participante['idparticipante'],'Delete'); ?></li>
+        <li> <?php echo anchor('participante/listar/','Listar'); ?></li>
 
+    </ul>
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('ordenador/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('participante/add', 'Nuevo'); ?></li>
+    </ul>
 <?php
+	die();
 }
 ?>
-    </ul>
+
+
+
+
+
 </div>
 <br>
-<br>
 
 
-<?php echo form_open('ordenador/save_edit') ?>
-<?php echo form_hidden('idordenador',$ordenador['idordenador']) ?>
+<?php echo form_hidden('idevento',$participante['idevento']) ?>
 <table>
 
+<tr>
+     <td>Id Evento:</td>
+     <td><?php echo form_input('idevento',$participante['idevento'],array("disabled"=>"disabled",'placeholder'=>'Ideventos')) ?></td>
+  </tr>
+<tr>
+     <td>Evento:</td>
+     <td><?php 
+$options= array("NADA");
+foreach ($eventos as $row){
+	$options[$row->idevento]= $row->titulo;
+}
 
-  <tr>
-     <td>idordenador:</td>
-     <td><?php echo form_input('idordenador',$ordenador['idordenador'],array("disabled"=>"disabled",'placeholder'=>'Idordenadors')) ?></td>
+echo form_input('idevento',$options[$participante['idevento']],array("disabled"=>"disabled")) ?></td>
   </tr>
  
- <tr>
-      <td>Nombres:</td>
-      <td><?php echo form_input('nombre',$ordenador['nombre'],array('placeholder'=>'Nombre del ordenador')) ?></td>
+ 
+  <tr>
+     <td>Id Persona:</td>
+     <td><?php echo form_input('idpersona',$participante['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Idparticipantees')) ?></td>
+  </tr>
+<tr>
+     <td>Persona:</td>
+     <td><?php 
+$options= array("NADA");
+foreach ($personas as $row){
+	$options[$row->idpersona]= $row->nombres;
+}
+
+echo form_input('nombre',$options[$participante['idpersona']],array("disabled"=>"disabled")) ?></td>
   </tr>
 
-   
-   
+ 
+  
+
+<tr>
+     <td>Certificado:</td>
+     <td><?php 
+$options= array("NADA");
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->asunto;
+}
+if(!isset($participante['iddocumento'])){
+echo form_input('nombre',"",array("disabled"=>"disabled")) ;
+}else{
+echo form_input('nombre',$options[$participante['iddocumento']],array("disabled"=>"disabled"));
+}
+ ?></td>
+  </tr>
+
+
+
+
+
 
 </table>
 <?php echo form_close(); ?>
 
 
 
+
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>

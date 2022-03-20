@@ -1,15 +1,15 @@
-<?php echo form_open('participante/save_edit') ?>
-<?php echo form_hidden('idparticipante',$participante['idparticipante']) ?>
+<?php echo form_open('Asistencia/save_edit') ?>
+<?php echo form_hidden('idAsistencia',$Asistencia['idAsistencia']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
 <table>
  
    <tr>
-     <td>Id participante</td>
+     <td>Id Asistencia</td>
      <td><?php 
 
 
-$eys_arrinput=array('name'=>'idparticipante','value'=>$participante['idparticipante'],'readonly'=>'true', "style"=>"width:500px");
+$eys_arrinput=array('name'=>'idAsistencia','value'=>$Asistencia['idAsistencia'],'readonly'=>'true', "style"=>"width:500px");
 echo form_input($eys_arrinput); ?></td>
   </tr> 
 
@@ -25,7 +25,7 @@ foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
 }
 
- echo form_dropdown("idevento",$options, $participante['idevento']);  ?></td>
+ echo form_dropdown("idevento",$options, $Asistencia['idevento']);  ?></td>
 </tr>
 
  
@@ -37,7 +37,7 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
 
- echo form_dropdown("idpersona",$options, $participante['idpersona']);  ?></td>
+ echo form_dropdown("idpersona",$options, $Asistencia['idpersona']);  ?></td>
 </tr>
 
 
@@ -51,14 +51,14 @@ foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
 
- echo form_dropdown("iddocumento",$options, $participante['iddocumento']);  ?></td>
+ echo form_dropdown("iddocumento",$options, $Asistencia['iddocumento']);  ?></td>
 </tr>
 
 
 
 
  <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('participante','Atras') ?></td>
+ <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('Asistencia','Atras') ?></td>
  </tr>
 </table>
 <?php echo form_close(); ?>

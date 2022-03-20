@@ -1,33 +1,46 @@
 <?php
-class Ordenador_model extends CI_model {
+class Participante_model extends CI_model {
 
-	function lista_ordenadores(){
-		 $ordenador= $this->db->get('ordenador');
-		 return $ordenador;
+	function listar_participante(){
+		 $participante= $this->db->get('participante');
+		 return $participante;
 	}
 
- 	function ordenador( $id){
- 		$ordenador = $this->db->query('select * from ordenador where idordenador="'. $id.'"');
- 		return $ordenador;
+	function listar_participante1(){
+		 $participante= $this->db->get('participante1');
+		 return $participante;
+	}
+
+ 	function participante( $id){
+ 		$participante = $this->db->query('select * from participante where idparticipante="'. $id.'"');
+ 		return $participante;
+ 	}
+
+
+
+ 	function participantes( $id){
+ 		$participante = $this->db->query('select * from participante1 where idevento="'. $id.'"');
+ 		return $participante;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("ordenador", $array);
+		$this->db->insert("participante", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idordenador',$id);
- 		$this->db->update('ordenador',$array_item);
+ 		$this->db->where('idparticipante',$id);
+ 		$this->db->update('participante',$array_item);
 	}
  
 
 
- 	public function delete($id)
+
+  public function delete($id)
 	{
- 		$this->db->where('idordenador',$id);
-		$this->db->delete('ordenador');
+ 		$this->db->where('idparticipante',$id);
+		$this->db->delete('participante');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -38,7 +51,7 @@ class Ordenador_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idordenador")->get('ordenador');
+		$query=$this->db->order_by("idparticipante")->get('participante');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -51,7 +64,7 @@ class Ordenador_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idordenador")->get('ordenador');
+		$query=$this->db->order_by("idparticipante")->get('participante');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -63,38 +76,46 @@ class Ordenador_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$ordenador = $this->db->select("idordenador")->order_by("idordenador")->get('ordenador')->result_array();
-		$arr=array("idordenador"=>$id);
-		$clave=array_search($arr,$ordenador);
-	   if(array_key_exists($clave+1,$ordenador))
+ 		$participante = $this->db->select("idparticipante")->order_by("idparticipante")->get('participante')->result_array();
+		$arr=array("idparticipante"=>$id);
+		$clave=array_search($arr,$participante);
+	   if(array_key_exists($clave+1,$participante))
 		 {
 
- 		$ordenador = $this->db->query('select * from ordenador where idordenador="'. $ordenador[$clave+1]["idordenador"].'"');
+ 		$participante = $this->db->query('select * from participante where idparticipante="'. $participante[$clave+1]["idparticipante"].'"');
 		 }else{
 
- 		$ordenador = $this->db->query('select * from ordenador where idordenador="'. $id.'"');
+ 		$participante = $this->db->query('select * from participante where idparticipante="'. $id.'"');
 		 }
 		 	
- 		return $ordenador;
+ 		return $participante;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$ordenador = $this->db->select("idordenador")->order_by("idordenador")->get('ordenador')->result_array();
-		$arr=array("idordenador"=>$id);
-		$clave=array_search($arr,$ordenador);
-	   if(array_key_exists($clave-1,$ordenador))
+ 		$participante = $this->db->select("idparticipante")->order_by("idparticipante")->get('participante')->result_array();
+		$arr=array("idparticipante"=>$id);
+		$clave=array_search($arr,$participante);
+	   if(array_key_exists($clave-1,$participante))
 		 {
 
- 		$ordenador = $this->db->query('select * from ordenador where idordenador="'. $ordenador[$clave-1]["idordenador"].'"');
+ 		$participante = $this->db->query('select * from participante where idparticipante="'. $participante[$clave-1]["idparticipante"].'"');
 		 }else{
 
- 		$ordenador = $this->db->query('select * from ordenador where idordenador="'. $id.'"');
+ 		$participante = $this->db->query('select * from participante where idparticipante="'. $id.'"');
 		 }
 		 	
- 		return $ordenador;
+ 		return $participante;
  	}
+
+
+
+
+
+
+
+
 
 
 

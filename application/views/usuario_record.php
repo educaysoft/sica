@@ -18,73 +18,106 @@
 
 
 <?php echo form_hidden('idusuario',$usuario['idusuario']) ?>
-<table>
 
-<tr>
-     <td>Institucion:</td>
-     <td><?php 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Institución :</label>
+	<div class="col-md-10">
+	<?php
+
 $options= array("NADA");
 foreach ($instituciones as $row){
 	$options[$row->idinstitucion]=$row->nombre;
 }
 
-echo form_input('idinstitucion',$options[$usuario['idinstitucion']],array("disabled"=>"disabled")) ?></td>
-  </tr>
+echo form_input('idinstitucion',$options[$usuario['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px')); 
+
+	?>
+	</div> 
+</div> 
 
 
-
-<tr>
-     <td>Personas:</td>
-     <td><?php 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Perfil :</label>
+	<div class="col-md-10">
+	<?php
 $options= array("NADA");
 foreach ($personas as $row){
 	$options[$row->idpersona]=$row->apellidos."   ".$row->nombres;
 }
 
-echo form_input('idpersona',$options[$usuario['idpersona']],array("disabled"=>"disabled")) ?></td>
-  </tr>
- 
-  <tr>
-     <td>Perfil:</td>
-     <td><?php 
+echo form_input('idpersona',$options[$usuario['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px')); 
+	?>
+	</div> 
+</div> 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Perfil :</label>
+	<div class="col-md-10">
+	<?php
+
 $options= array("NADA");
 foreach ($perfiles as $row){
 	$options[$row->idperfil]= $row->nombre;
 }
 
-echo form_input('idperfil',$options[$usuario['idperfil']],array("disabled"=>"disabled")) ?></td>
-  </tr>
+echo form_input('idperfil',$options[$usuario['idperfil']],array("disabled"=>"disabled",'style'=>'width:500px'));
+	?>
+	</div> 
+</div> 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Usuario :</label>
+	<div class="col-md-10">
+	<?php
+
+      echo form_input('idusuario',$usuario['idusuario'],array("disabled"=>"disabled",'placeholder'=>'Idusuarios','style'=>'width:500px')); 
+	?>
+	</div> 
+</div> 
  
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Contraseña :</label>
+	<div class="col-md-10">
+	<?php
+      echo form_input('password',$usuario['password'],array("disabled"=>"disabled",'placeholder'=>'password','style'=>'width:500px'));
+	?>
+	</div> 
+</div> 
 
 
-  <tr>
-     <td>Id Usuario:</td>
-     <td><?php echo form_input('idusuario',$usuario['idusuario'],array("disabled"=>"disabled",'placeholder'=>'Idusuarios')) ?></td>
-  </tr>
- 
- 
- 
-  <tr>
-     <td>Contraseña:</td>
-     <td><?php echo form_input('password',$usuario['password'],array("disabled"=>"disabled",'placeholder'=>'password')) ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Email :</label>
+	<div class="col-md-10">
+	<?php
 
-  <tr>
-     <td>Email:</td>
-     <td><?php echo form_input('email',$usuario['email'],array("disabled"=>"disabled",'placeholder'=>'email')) ?></td>
-  </tr>
-  
+      echo form_input('email',$usuario['email'],array("disabled"=>"disabled",'placeholder'=>'email','style'=>'width:500px')); 
 
-<tr>
-     <td>Modulo inicia:</td>
-     <td><?php echo form_input('inicio',$usuario['inicio'],array("disabled"=>"disabled",'placeholder'=>'modulo')) ?></td>
-  </tr>
+	?>
+	</div> 
+</div> 
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Modulo de inicio:</label>
+	<div class="col-md-10">
+	<?php
+
+      echo form_input('inicio',$usuario['inicio'],array("disabled"=>"disabled",'placeholder'=>'modulo','style'=>'width:500px')); 
+	?>
+	</div> 
+</div> 
 
 
-</table>
+
+
+
+
 <?php echo form_close(); ?>
 
 
