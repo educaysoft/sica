@@ -46,7 +46,7 @@ class Asistencia extends CI_Controller{
 		 	'comentario' => $this->input->post('comentario'),
 	 	);
 	 	$this->asistencia_model->save($array_item);
-	 	redirect('asistencia');
+	 	//redirect('asistencia');
  	}
 
 
