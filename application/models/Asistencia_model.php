@@ -7,7 +7,7 @@ class Asistencia_model extends CI_model {
 	}
 
 	function listar_asistencia1(){
-		$query=$this->db->order_by("idevento","fecha")->get('asistencia');
+		 $this->db->order_by("idevento","fecha");
 		 $asistencia= $this->db->get('asistencia1');
 		 return $asistencia;
 	}
@@ -26,7 +26,13 @@ class Asistencia_model extends CI_model {
 
  	function save($array)
  	{
-		$this->db->insert("asistencia", $array);
+ 		$this->db->where('idevento',$array['idevento']);
+ 		$this->db->where('idpersona',$array['idpersona']);
+ 		$this->db->where('fecha',$array['fecha']);
+		$query=$this->db->get('asistencia');
+		if($query->num_rows()==0){
+			$this->db->insert("asistencia", $array);
+		}
  	}
 
  	function update($id,$array_item)

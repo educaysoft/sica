@@ -33,7 +33,7 @@ foreach ($eventos as $row){
     <td>Participantes:</td>
     <td>
     <div class="form-group">
-         <select class="form-control" id="idpersona" name="idpersona" multiple required>
+         <select class="form-control" id="idpersona" name="idpersona" multiple required size="30" onChange='get_asistencia()'>
                  <option>No Selected</option>
           </select>
     </div>
@@ -58,7 +58,7 @@ foreach ($tipoasistencias as $row){
 	$options[$row->idtipoasistencia]= $row->nombre;
 }
 
- echo form_dropdown("idtipoasistencia",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idtipoasistencia",$options, set_select('--Select--','default_value'),array("id"=>"idtipoasistencia"));  ?></td>
 </tr
 <tr>
 <td> Comentario: </td>
@@ -83,19 +83,80 @@ function get_participantes() {
 	var idevento = $('select[name=idevento]').val();
     $.ajax({
         url: "<?php echo site_url('asistencia/get_participantes') ?>",
-        data: {idevento: idevento},
+        data: {idevento:idevento},
         method: 'POST',
 	async : true,
         dataType : 'json',
         success: function(data){
         var html = '';
         var i;
+	document.getElementById('idpersona').setAttribute('size',"'"+data.length+"'");
         for(i=0; i<data.length; i++){
         html += '<option value='+data[i].idpersona+'>'+data[i].nombres+'</option>';
         }
         $('#idpersona').html(html);
 
 
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
+
+
+function get_asistencia() {
+	var fecha = document.getElementById("fecha").value;
+	var idevento=document.getElementById("idevento").value;
+	var idpersona= $('select[name=idpersona]').val();
+    $.ajax({
+        url: "<?php echo site_url('asistencia/get_asistencia') ?>",
+        data: {idevento:idevento,fecha:fecha},
+        method: 'POST',
+	async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+	var comentario="";
+        var i;
+        for(i=0; i<data.length; i++){
+        html += '<option value='+data[i].idtipoasistencia+'>'+data[i].tipoasistencia+'</option>';
+	document.getElementById("comentario").value=data[i].comentario;
+        }
+        $('#idtipoasistencia').html(html);
+
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
+
+
+
+
+function get_asistencia2() {
+	var fecha = document.getElementById("fecha").value;
+	var idevento=document.getElementById("idevento").value;
+	var idpersona= $('select[name=idpersona]').val();
+
+
+    $.ajax({
+        url: "<?php echo site_url('asistencia/get_asistencia') ?>",
+        data: {idevento : idevento, fecha : fecha, idpersona : idpersona},
+        method: 'POST',
+	async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);

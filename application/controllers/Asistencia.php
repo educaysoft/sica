@@ -203,24 +203,76 @@ public function get_participantes() {
     $this->load->database();
     $this->load->helper('form');
     if($this->input->post('idevento')) 
+    {
         $this->db->select('*');
         $this->db->where(array('idevento' => $this->input->post('idevento')));
         $query = $this->db->get('participante1');
 	$data=$query->result();
 	echo json_encode($data);
 	}
+}
 
+
+public function get_asistencia() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->post('idevento')) 
+    {
+        $this->db->select('*');
+        $this->db->where(array('idevento' => $this->input->post('idevento'),'fecha' => $this->input->post('fecha')));
+        $query = $this->db->get('asistencia1');
+
+	if ($query->num_rows() > 0) {
+		$data=$query->result();
+		echo json_encode($data);
+	}else{
+
+		$this->db->select('idtipoasistencia,nombre as tipoasistencia, "" as comentario');
+		$query = $this->db->get('tipoasistencia');
+
+		$data=$query->result();
+		echo json_encode($data);
+	}
+
+
+    }
 }
 
 
 
 
+public function get_asistencia2() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->post('idevento')) 
+    {
+        $this->db->select('*');
+        $this->db->where(array('idevento' => $this->input->post('idevento'),'idpersona' => $this->input->post('idpersona'),'fecha' => $this->input->post('fecha') ));
+        $query = $this->db->get('asistencia');
+
+	if ($query->num_rows() > 0) {
+		$this->db->select('*');
+		$query = $this->db->get('tipoasistencia');
+
+		$data=$query->result();
+		echo json_encode($data);
+	}
+	}
+
+}
 
 
 
+public function get_tipoasistencia() {
+    $this->load->database();
+    $this->load->helper('form');
+        $this->db->select('*');
+        $query = $this->db->get('tipoasistencia');
+	$data=$query->result();
+	echo json_encode($data);
+	}
 
 
 
-
-
+}
 
