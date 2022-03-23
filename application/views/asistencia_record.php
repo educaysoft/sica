@@ -16,6 +16,7 @@ if(isset($asistencia))
         <li> <?php echo anchor('asistencia/edit/'.$asistencia['idasistencia'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('asistencia/delete/'.$asistencia['idasistencia'],'Delete'); ?></li>
         <li> <?php echo anchor('asistencia/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('asistencia/evento/','Evento'); ?></li>
 
     </ul>
 <?php 

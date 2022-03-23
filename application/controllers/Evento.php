@@ -7,6 +7,7 @@ class Evento extends CI_Controller{
       $this->load->model('evento_model');
       $this->load->model('evento_estado_model');
       $this->load->model('participante_model');
+      $this->load->model('fechaevento_model');
       $this->load->model('institucion_model');
 }
 
@@ -17,6 +18,7 @@ public function index(){
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+	$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
 	$data['title']="Uste esta visualizando Eventos por registro";
 	$this->load->view('template/page_header');		
 	$this->load->view('evento_record',$data);

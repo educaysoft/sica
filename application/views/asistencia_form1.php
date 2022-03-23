@@ -6,6 +6,12 @@
 <?php echo form_open("asistencia/save") ?>
 <table>
 
+
+
+
+
+
+
 <tr>
 <td> Evento: </td>
 <td><?php 
@@ -21,29 +27,29 @@ foreach ($eventos as $row){
 
 <tr>
 <td> fecha : </td>
-<td><?php echo form_input(array("name"=>"fecha","id"=>"fecha","type"=>"date"));  ?></td>
+<td><?php echo form_input(array("name"=>"fecha","id"=>"fecha","type"=>"date"));  ?><p id="Ver" onclick="get_asistencia()">Ver</p>   </td>
 </tr>
 
+ 
+</table>
+
+    <div class="form-group" id="participantes">
+
+<table id="myTable">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Participante</th>
+            <th>Tipo Asistencia</th>
+            <th>Comentario</th>
+        </tr>    
+     </thead>
+    <tbody></tbody>
+</table>
 
 
-
-
-
-
-
-
-<tr>
-    <td>Participantes:</td>
-    <td>
-    <div class="form-group">
-         <select class="form-control" id="idpersona" name="idpersona" multiple required size="10" onChange='get_asistencia()'>
-                 <option>No Selected</option>
-          </select>
     </div>
 
-</td>
-
-</tr>
 
 
 
@@ -52,38 +58,28 @@ foreach ($eventos as $row){
 
 
 
-<tr>
-<td> Tipo de asistencia: </td>
-<td><?php 
-
-$options= array('--Select--');
-foreach ($tipoasistencias as $row){
-	$options[$row->idtipoasistencia]= $row->nombre;
-}
-
- echo form_dropdown("idtipoasistencia",$options, set_select('--Select--','default_value'),array("id"=>"idtipoasistencia"));  ?></td>
-</tr
-<tr>
-<td> Comentario: </td>
-<td><?php echo form_input(array("name"=>"comentario","id"=>"comentario","type"=>"text"));  ?></td>
-</tr>
-
-<tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("asistencia","Atrás") ?> </td>
-</tr>
 
 
 
 
 
-</table>
+
+
+
+
 <?php echo form_close();?>
 
 
 
   <script>
+
+
+
+
+
 function get_participantes() {
 	var idevento = $('select[name=idevento]').val();
+	var myTable = document.getElementById('myTable').getElementsByTagName('tbody')[0];
     $.ajax({
         url: "<?php echo site_url('asistencia/get_participantes') ?>",
         data: {idevento:idevento},
@@ -93,11 +89,25 @@ function get_participantes() {
         success: function(data){
         var html = '';
         var i;
-	document.getElementById('idpersona').setAttribute('size',"'"+data.length+"'");
+
+
+
         for(i=0; i<data.length; i++){
-        html += '<option value='+data[i].idpersona+'>'+data[i].nombres+'</option>';
+		let row = myTable.insertRow();
+		let cell1 = row.insertCell(0);
+		let cell2 = row.insertCell(1);
+		let cell3 = row.insertCell(2);
+		let cell4 = row.insertCell(3);
+
+
+		cell1.innerHTML = i+1;
+		cell2.innerHTML = data[i].nombres;
+		cell3.innerHTML = "" 
+		cell4.innerHTML = "";
+
+
+
         }
-        $('#idpersona').html(html);
 
 
         },
@@ -114,12 +124,16 @@ function get_participantes() {
 function get_asistencia() {
 	var fecha = document.getElementById("fecha").value;
 	var idevento=document.getElementById("idevento").value;
-//	var idpersona= $('select[name=idpersona]').val();
-	var idpersona=document.getElementById("idpersona").value;
-	alert(idpersona);
+	var idpersona= $('select[name=idpersona]').val();
+	var mydiv = document.getElementById('participantes');
+	mydiv.innerHTML='<table id="myTable"> <thead> <tr> <th>#</th> <th>Participante</th> <th>Tipo Asistencia</th>          <th>Comentario</th> </tr> </thead> <tbody></tbody></table>';
+
+
+	
+		var myTable = document.getElementById('myTable').getElementsByTagName('tbody')[0];
     $.ajax({
-        url: "<?php echo site_url('asistencia/get_asistenciap') ?>",
-        data: {idevento:idevento,fecha:fecha,idpersona:idpersona},
+        url: "<?php echo site_url('asistencia/get_asistencia') ?>",
+        data: {idevento:idevento,fecha:fecha},
         method: 'POST',
 	async : true,
         dataType : 'json',
@@ -128,10 +142,20 @@ function get_asistencia() {
 	var comentario="";
         var i;
         for(i=0; i<data.length; i++){
-        html += '<option value='+data[i].idtipoasistencia+'>'+data[i].tipoasistencia+'</option>';
-	document.getElementById("comentario").value=data[i].comentario;
-        }
-        $('#idtipoasistencia').html(html);
+       
+		let row = myTable.insertRow();
+		let cell1 = row.insertCell(0);
+		let cell2 = row.insertCell(1);
+		let cell3 = row.insertCell(2);
+		let cell4 = row.insertCell(3);
+
+
+		cell1.innerHTML = i+1;
+		cell2.innerHTML = data[i].lapersona;
+		cell3.innerHTML = data[i].tipoasistencia;
+		cell4.innerHTML = data[i].comentario;
+
+	}
 
 
         },

@@ -135,7 +135,7 @@ var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo si
 
 $(document).ready(function(){
 
-var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_dataxtipodocu')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
+var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET',data:{iddocumento:iddocumento}},});
 //	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET'},});
 
 

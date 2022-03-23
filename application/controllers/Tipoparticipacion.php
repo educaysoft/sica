@@ -4,15 +4,15 @@ class Tipoparticipacion extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('tipoasistencia_model');
+      $this->load->model('tipoparticipacion_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['tipoasistencia']=$this->tipoasistencia_model->elultimo();
-		$data['title']="Lista de tipoasistenciaes";
+		$data['tipoparticipacion']=$this->tipoparticipacion_model->elultimo();
+		$data['title']="Lista de tipoparticipaciones";
 		$this->load->view('template/page_header');
-		$this->load->view('tipoasistencia_record',$data);
+		$this->load->view('tipoparticipacion_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva tipoasistencia";
+		$data['title']="Nueva tipoparticipacion";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('tipoasistencia_form',$data);
+	 	$this->load->view('tipoparticipacion_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -36,18 +36,18 @@ public function  save()
 	 	$array_item=array(
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->tipoasistencia_model->save($array_item);
-	 	redirect('tipoasistencia');
+	 	$this->tipoparticipacion_model->save($array_item);
+	 	redirect('tipoparticipacion');
  	}
 
 
 
 public function edit()
 {
-	 	$data['tipoasistencia'] = $this->tipoasistencia_model->tipoasistencia($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar tipoasistencia";
+	 	$data['tipoparticipacion'] = $this->tipoparticipacion_model->tipoparticipacion($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar tipoparticipacion";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('tipoasistencia_edit',$data);
+ 	 	$this->load->view('tipoparticipacion_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -55,22 +55,22 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idtipoasistencia');
+		$id=$this->input->post('idtipoparticipacion');
 	 	$array_item=array(
 		 	
-		 	'idtipoasistencia' => $this->input->post('idtipoasistencia'),
+		 	'idtipoparticipacion' => $this->input->post('idtipoparticipacion'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->tipoasistencia_model->update($id,$array_item);
-	 	redirect('tipoasistencia');
+	 	$this->tipoparticipacion_model->update($id,$array_item);
+	 	redirect('tipoparticipacion');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->tipoasistencia_model->delete($this->uri->segment(3));
+ 		$data=$this->tipoparticipacion_model->delete($this->uri->segment(3));
  //		echo json_encode($data);
-	 	redirect('tipoasistencia/elultimo');
+	 	redirect('tipoparticipacion/elultimo');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -78,26 +78,26 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="tipoasistencia";
+  $data['title']="tipoparticipacion";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipoasistencia_list',$data);
+  $this->load->view('tipoparticipacion_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function tipoasistencia_data()
+function tipoparticipacion_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->tipoasistencia_model->lista_tipoasistenciaes();
+	 	$data0 = $this->tipoparticipacion_model->lista_tipoparticipaciones();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idtipoasistencia,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipoasistencia="'.$r->idtipoasistencia.'">Ver</a>');
+			$data[]=array($r->idtipoparticipacion,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipoparticipacion="'.$r->idtipoparticipacion.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -120,12 +120,12 @@ function tipoasistencia_data()
 
 public function elprimero()
 {
-	$data['tipoasistencia'] = $this->tipoasistencia_model->elprimero();
+	$data['tipoparticipacion'] = $this->tipoparticipacion_model->elprimero();
   if(!empty($data))
   {
-    $data['title']="tipoasistencia";
+    $data['title']="tipoparticipacion";
     $this->load->view('template/page_header');		
-    $this->load->view('tipoasistencia_record',$data);
+    $this->load->view('tipoparticipacion_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -136,13 +136,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['tipoasistencia'] = $this->tipoasistencia_model->elultimo();
+	$data['tipoparticipacion'] = $this->tipoparticipacion_model->elultimo();
   if(!empty($data))
   {
-    $data['title']="tipoasistencia";
+    $data['title']="tipoparticipacion";
   
     $this->load->view('template/page_header');		
-    $this->load->view('tipoasistencia_record',$data);
+    $this->load->view('tipoparticipacion_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -153,20 +153,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['tipoasistencia_list']=$this->tipoasistencia_model->lista_tipoasistencia()->result();
-	$data['tipoasistencia'] = $this->tipoasistencia_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="tipoasistencia";
+ // $data['tipoparticipacion_list']=$this->tipoparticipacion_model->lista_tipoparticipacion()->result();
+	$data['tipoparticipacion'] = $this->tipoparticipacion_model->siguiente($this->uri->segment(3))->row_array();
+  $data['title']="tipoparticipacion";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipoasistencia_record',$data);
+  $this->load->view('tipoparticipacion_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['tipoasistencia_list']=$this->tipoasistencia_model->lista_tipoasistencia()->result();
-	$data['tipoasistencia'] = $this->tipoasistencia_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="tipoasistencia";
+ // $data['tipoparticipacion_list']=$this->tipoparticipacion_model->lista_tipoparticipacion()->result();
+	$data['tipoparticipacion'] = $this->tipoparticipacion_model->anterior($this->uri->segment(3))->row_array();
+  $data['title']="tipoparticipacion";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipoasistencia_record',$data);
+  $this->load->view('tipoparticipacion_record',$data);
 	$this->load->view('template/page_footer');
 }
 

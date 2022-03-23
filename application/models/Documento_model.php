@@ -9,8 +9,14 @@ class Documento_model extends CI_model {
 
 
 	//Retorna todos los registros como un objeto
-	function lista_documentosA(){
+	function lista_documentosA($id){
+		
+		if($id==0)
+		{
 		 $documento= $this->db->get('documento1');
+		}else{
+ 		$documento = $this->db->query('select * from documento1 where iddocumento="'. $id.'" order by fechaelaboracion');
+		}
 		 return $documento;
 	}
 

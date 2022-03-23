@@ -41,11 +41,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>IDasistencia</th>
+ <th>IDparticipacion</th>
  <th>evento</th>
  <th>participante</th>
  <th>fecha</th>
- <th>tipoasistencia</th>
+ <th>tipoparticipacion</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
@@ -76,7 +76,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('asistencia/asistencia_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('participacion/participacion_data')?>', type: 'GET'},});
 
 });
 

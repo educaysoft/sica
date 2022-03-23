@@ -114,6 +114,25 @@ echo form_input($arrdatos) ?>
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fechas ( <?php echo anchor('fechaevento/add', 'New'); ?>):</label>
+      <?php
+ 	$options = array();
+  	foreach ($fechaeventos as $row){
+		$options[$row->idfechaevento]=$row->fecha;
+	}
+
+	?>
+	<div class="col-md-10">
+	<?php
+	echo form_multiselect('idfechaevento[]',$options,(array)set_value('idfechaevento', ''), array('style'=>'width:500px')); 
+	?>
+
+	</div> 
+</div>
+
+
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha de finaliza:</label>

@@ -45,7 +45,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <th>evento</th>
  <th>participante</th>
  <th>fecha</th>
- <th>tipoasistencia</th>
+ <th>tipoparticipacion</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>

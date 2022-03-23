@@ -106,6 +106,7 @@ public function actual(){
 	
   		$data['documento'] = $this->documento_model->lista_documentos()->result();
   		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+  		$data['filtro']= $this->uri->segment(3);
   		$data['title']="Documento";
 		$this->load->view('template/page_header');		
   		$this->load->view('documento_list',$data);
@@ -119,7 +120,8 @@ public function actual(){
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->documento_model->lista_documentosA();
+		$id=$this->input->get('iddocumento');
+	 	$data0 = $this->documento_model->lista_documentosA($id);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->iddocumento,$r->eltipodocu,$r->fechaelaboracion,$r->autor,$r->asunto,$r->archivopdf,

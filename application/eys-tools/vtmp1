@@ -1,114 +1,53 @@
 <div id="eys-nav-i">
-
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-<?php echo form_open('participante/save_edit') ?>
-    <ul>
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	<ul>
 <?php
-if(isset($participante))
+if(isset($tipoasistencia))
 {
 ?>
- 
-        <li> <?php echo anchor('participante/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('participante/anterior/'.$participante['idparticipante'], 'anterior'); ?></li>
-        <li> <?php echo anchor('participante/siguiente/'.$participante['idparticipante'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('participante/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('participante/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('participante/edit/'.$participante['idparticipante'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('participante/delete/'.$participante['idparticipante'],'Delete'); ?></li>
-        <li> <?php echo anchor('participante/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('tipoasistencia/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('tipoasistencia/siguiente/'.$tipoasistencia['idtipoasistencia'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('tipoasistencia/anterior/'.$tipoasistencia['idtipoasistencia'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('tipoasistencia/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('tipoasistencia/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('tipoasistencia/edit/'.$tipoasistencia['idtipoasistencia'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('tipoasistencia/delete/'.$tipoasistencia['idtipoasistencia'],'Delete'); ?></li>
+        <li> <?php echo anchor('tipoasistencia/listar/','Listar'); ?></li>
 
-    </ul>
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('participante/add', 'Nuevo'); ?></li>
-    </ul>
+        <li> <?php echo anchor('tipoasistencia/add', 'Nuevo'); ?></li>
 <?php
-	die();
 }
 ?>
-
-
-
-
-
+    </ul>
 </div>
+<br>
 <br>
 
 
-<?php echo form_hidden('idevento',$participante['idevento']) ?>
+<?php echo form_open('tipoasistencia/save_edit') ?>
+<?php echo form_hidden('idtipoasistencia',$tipoasistencia['idtipoasistencia']) ?>
 <table>
 
-<tr>
-     <td>Id Evento:</td>
-     <td><?php echo form_input('idevento',$participante['idevento'],array("disabled"=>"disabled",'placeholder'=>'Ideventos')) ?></td>
-  </tr>
-<tr>
-     <td>Evento:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($eventos as $row){
-	$options[$row->idevento]= $row->titulo;
-}
 
-echo form_input('idevento',$options[$participante['idevento']],array("disabled"=>"disabled")) ?></td>
-  </tr>
- 
- 
   <tr>
-     <td>Id Persona:</td>
-     <td><?php echo form_input('idpersona',$participante['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Idparticipantees')) ?></td>
+     <td>idtipoasistencia:</td>
+     <td><?php echo form_input('idtipoasistencia',$tipoasistencia['idtipoasistencia'],array("disabled"=>"disabled")) ?></td>
   </tr>
-<tr>
-     <td>Persona:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->nombres;
-}
-
-echo form_input('nombre',$options[$participante['idpersona']],array("disabled"=>"disabled")) ?></td>
-  </tr>
-
  
-  
-
-<tr>
-     <td>Certificado:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
-}
-if(!isset($participante['iddocumento'])){
-echo form_input('nombre',"",array("disabled"=>"disabled")) ;
-}else{
-echo form_input('nombre',$options[$participante['iddocumento']],array("disabled"=>"disabled"));
-}
- ?></td>
+ <tr>
+      <td>Nombres:</td>
+      <td><?php echo form_input('nombre',$tipoasistencia['nombre'],array('placeholder'=>'Nombre del tipoasistencia')) ?></td>
   </tr>
 
-
-
-
-
+   
+   
 
 </table>
 <?php echo form_close(); ?>
 
 
 
-
-
-</body>
-
-
-
-
-
-
-
-
-
-</html>
