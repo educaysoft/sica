@@ -33,39 +33,50 @@ if(isset($evaluacion))
 <?php echo form_hidden('idevaluacion',$evaluacion['idevaluacion']) ?>
 <table>
 
-  <tr>
-     <td>Id Institucion:</td>
-     <td><?php
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> id Evaluación:</label>
+	<div class="col-md-10">
+		<?php
   $eys_arrctl=array("name"=>'idevaluacion','value'=>$evaluacion['idevaluacion'],"disabled"=>"disabled",'placeholder'=>'Idevaluacions','style'=>'width:500px;');
- echo form_input($eys_arrctl) ?></td>
-  </tr>
- 
- <tr>
-      <td>Nombre:</td>
-      <td><?php
+ echo form_input($eys_arrctl) ;
+		?>
+	</div> 
+</div> 
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+		<?php
 
 
   $eys_arrctl=array("name"=>'nombre','value'=>$evaluacion['nombre'],"disabled"=>"disabled",'placeholder'=>'Inombre','style'=>'width:500px;');
- echo form_input($eys_arrctl) ?></td>
-  </tr>
+ echo form_input($eys_arrctl); 
 
-  <tr>
-      <td>Detalle:</td>
-      <td><?php
+		?>
+	</div> 
+</div> 
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Detalle:</label>
+	<div class="col-md-10">
+		<?php
 
   $eys_arrctl=array("name"=>'detalle','value'=>$evaluacion['detalle'],"disabled"=>"disabled",'placeholder'=>'Detalle','style'=>'width:500px;');
- echo form_input($eys_arrctl) ?></td>
-  </tr>
-
+ echo form_textarea($eys_arrctl);
+		?>
+	</div> 
+</div> 
   
 
 
    
    
 
-</table>
 <?php echo form_close(); ?>
 
 

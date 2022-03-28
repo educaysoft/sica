@@ -40,54 +40,69 @@ if(isset($fechaevento))
 <?php echo form_hidden('idevento',$fechaevento['idevento']) ?>
 <table>
 
-<tr>
-     <td>Id Evento:</td>
-     <td><?php echo form_input('idevento',$fechaevento['idevento'],array("disabled"=>"disabled",'placeholder'=>'Ideventos')) ?></td>
-  </tr>
-<tr>
-     <td>Evento:</td>
-     <td><?php 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id evento:</label>
+	<div class="col-md-10">
+		<?php
+
+    echo form_input('idevento',$fechaevento['idevento'],array("disabled"=>"disabled",'placeholder'=>'Ideventos')); 
+
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Evento </label>
+	<div class="col-md-10">
+     <?php 
 $options= array("NADA");
 foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
 }
 
-echo form_input('idevento',$options[$fechaevento['idevento']],array("disabled"=>"disabled")) ?></td>
-  </tr>
- 
- 
-  <tr>
-     <td>Id Persona:</td>
-     <td><?php echo form_input('idpersona',$fechaevento['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Idfechaeventoes')) ?></td>
-  </tr>
-<tr>
-     <td>Persona:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->nombres;
-}
+echo form_input('idevento',$options[$fechaevento['idevento']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
 
-echo form_input('nombre',$options[$fechaevento['idpersona']],array("disabled"=>"disabled")) ?></td>
-  </tr>
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha de evento:</label>
+	<div class="col-md-10">
+		<?php
+      		 echo form_input('fecha',$fechaevento['fecha'],array('type'=>'date','placeholder'=>'fecha','style'=>'width:500px;')) 
+		?>
+	</div> 
+</div>
+
+
+
+
+
 
  
   
 
-<tr>
-     <td>Certificado:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
-}
-if(!isset($fechaevento['iddocumento'])){
-echo form_input('nombre',"",array("disabled"=>"disabled")) ;
-}else{
-echo form_input('nombre',$options[$fechaevento['iddocumento']],array("disabled"=>"disabled"));
-}
- ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Tema a tratar:</label>
+	<div class="col-md-10">
+		<?php
+
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('tema',$fechaevento['tema'],$textarea_options); 
+
+
+		?>
+	</div> 
+</div>
+
 
 
 

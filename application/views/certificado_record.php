@@ -79,7 +79,7 @@ foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
 }
 
-echo form_input('idevento',$options[$certificado['idevento']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idevento',$options[$certificado['idevento']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
   </tr>
 
 
@@ -91,7 +91,7 @@ foreach ($tipodocus as $row){
 	$options[$row->idtipodocu]= $row->descripcion;
 }
 
-echo form_input('idtipodocu',$options[$certificado['idtipodocu']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idtipodocu',$options[$certificado['idtipodocu']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
   </tr>
 
 
@@ -104,7 +104,7 @@ foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
 
-echo form_input('iddocumento',$options[$certificado['iddocumento']],array("disabled"=>"disabled")) ?></td>
+echo form_input('iddocumento',$options[$certificado['iddocumento']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
   </tr>
 
 

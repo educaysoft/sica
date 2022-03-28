@@ -83,7 +83,16 @@ echo form_textarea('detalle',$evento['detalle'],$textarea_options ); ?></td>
  </tr>
 
 
+<tr>
+<td> Pagina:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($paginas as $row){
+	$options[$row->idpagina]= $row->nombre;
+}
 
+ echo form_dropdown("idpagina",$options, $evento['idpagina']);  ?></td>
+</tr>
 
 
 

@@ -24,8 +24,25 @@ class Fechaevento_model extends CI_model {
  	}
 
  	function save($array)
- 	{
-		$this->db->insert("fechaevento", $array);
+	{	
+		$condition ="idevento="."'". $array['idevento']."' and  fecha=". "'".$array['fecha']."'";
+		$this->db->select('*');
+		$this->db->from('fechaevento');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if($query->num_rows()==0)
+		{	
+			$this->db->insert("fechaevento", $array);
+			if($this->db->affected_rows()>0)
+			{
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
  	}
 
  	function update($id,$array_item)

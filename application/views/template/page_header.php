@@ -571,7 +571,7 @@ span a {
         	<a id="abrir" class="abrir-cerrar w3-bar-item"  href="javascript:void(0)" onclick="mostrar()"><img src="<?php echo base_url(); ?>images/menu0.png"  style="height:100%;"  alt="Formget logo"> </a><a id="cerrar" class="abrir-cerrar w3-bar-item" href="#" onclick="ocultar()"><img src="<?php echo base_url(); ?>images/menu1.png"  style="height:100%;"  alt="Formget logo"> </a>
     	</div>    
  	<div style="height: 50px;">
-    		<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo.png" style="height: 100%;" alt="Formget logo"></a>  
+    		<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo.jpg" style="height: 100%;" alt="Formget logo"></a>  
     	</div>    
 
 		<div class="media-left" style=" display:table-cell; vertical-align:middle; "  >
@@ -612,9 +612,6 @@ span a {
 
 
 
-
-
-
   <div   style="margin-top: 5vh; display:flex; flex-direction: row; justify-content:flex-end;  padding:0;">
     <div id="sidebar" class="sidebar">
         <a href="#" class="boton-cerrar" onclick="ocultar()">&times;</a>
@@ -641,46 +638,32 @@ if(isset($this->session->userdata['acceso'])){
   </ul>
 
 
-    </div>
-
-
-
-
-
-  <div id="eys-contenido-g"  style=" margin-top: 5vh; ">
-    <?php }else { ?>
-    
+	    <?php }else { ?>
   
-   	<div class="media-left">
-    		<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo.png" wide="80" height="80" alt="Formget logo"></a>  
-	    </div>    
-
+		<div class="media-left">
+			<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo.jpg" wide="80" height="80" alt="Formget logo"></a>  
+		</div>    
 		<div class="media-left" style=" display:table-cell; vertical-align:middle;"  >
 			<h4 > UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS</h4>
 		</div>
 
-    <div class="pull-right">
- 		  <div  style="display:flex; vertical-align: middle;">
+		<div class="pull-right">
+			<div  style="display:flex; vertical-align: middle;">
 			  <div class= "w3-bar" > 
 				  <a href= "<?php echo base_url(); ?>index.php/login/user_registration_show" class= "abrir-cerrar w3-bar-item  w3-border-green w3-border-right"> Registrate</a>
 				  <a href= "<?php echo base_url(); ?>index.php/login" class= "abrir-cerrar w3-bar-item"> Entrar</a>
 			  </div> 
-   	  </div>
-    </div>
+			 </div>
+		</div>
+
+
+
+
+	<?php } ?>
+
 
  	</div>
-
-
-
   <div id="eys-contenido-g"  style="margin-top: 5vh; ">
-
-
-
-<?php } ?>
-
-
-
-
    
 <div id="eys-principal"  style="height:100%; width:90%;   vertical-align:top; padding-bottom:2.5em; margin:10vh 0 auto; ">
 

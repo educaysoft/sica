@@ -12,7 +12,7 @@ class Certificado extends CI_Controller{
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-	$data['certificado'] = $this->certificado_model->elprimero();
+	$data['certificado'] = $this->certificado_model->elultimo();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
@@ -45,6 +45,7 @@ public function  save()
 	 	$array_item=array(
 	 	'idcertificado' => $this->input->post('idcertificado'),
 	 	'idevento' => $this->input->post('idevento'),
+	 	'tipodocu' => $this->input->post('tipodocu'),
 	 	'iddocumento' => $this->input->post('iddocumento'),
 	 	'propietario' => $this->input->post('propietario'),
 	 	'archivo' => $this->input->post('archivo'),

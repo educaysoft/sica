@@ -14,6 +14,7 @@ parent::__construct();
 	$this->load->model('nivelacceso_model');
 	$this->load->model('institucion_model');
       	$this->load->model('evento_model');
+      	$this->load->model('pagina_model');
 //$this->load->model('programa_model');
 }
 
@@ -54,7 +55,19 @@ if ($this->form_validation->run() == FALSE) {
 $this->load->view('registration_form',$data);
 	 $this->load->view('template/page_footer.php');
 } else {
-$datausuario = array('email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>"principal");
+
+	//hubicando la pagina con que inicia el usuario        
+	$elevento= $this->evento_model->evento($this->input->post('idevento'))->row_array();
+	$lapagina= $this->pagina_model->pagina($elevento['idpagina'])->row_array();
+
+	if(isset($lapagina['ruta']))
+	{
+$datausuario = array('idinstitucion'=>$this->input->post('idinstitucion'),'email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>$lapagina["ruta"]);
+	}else{
+
+$datausuario = array('email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>'principal');
+	}
+
 
 $datapersona = array('cedula'=>$this->input->post('cedula'),'nombres'=>$this->input->post('nombres'),'apellidos'=>$this->input->post('apellidos'));
 $datapersona+=['foto'=>"fotos/".$this->input->post('cedula').".png"];

@@ -8,11 +8,11 @@ use setasign\Fpdi\Fpdi;
 
 // setup the autoload function
 require_once('vendor/autoload.php');
-$participante=$_GET["participante"]; 
-$detalle=$_GET["asunto"]; 
-$modelo=$_GET["modelo"];  //Modelo de certificado 
-$archivo=$_GET["archivo"];  //Nombre del archivo generado 
-$ruta=$_GET["ruta"];
+$participante=$_POST["participante"]; 
+$detalle=$_POST["asunto"]; 
+$modelo=$_POST["modelo"];  //Modelo de certificado 
+$archivo=$_POST["archivo"];  //Nombre del archivo generado 
+$ruta=$_POST["ruta"];
 // initiate FPDI
 $pdf = new Fpdi();
 
@@ -64,5 +64,4 @@ $archivo=str_replace("'","",$archivo);
 $y="..".$ruta.$archivo;
 echo $y;
 $pdf->Output('F',$y);
-
 

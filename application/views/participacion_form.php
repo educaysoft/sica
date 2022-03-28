@@ -26,12 +26,6 @@ foreach ($eventos as $row){
 
 
 
-
-
-
-
-
-
 <tr>
     <td>Participantes:</td>
     <td>
@@ -62,11 +56,22 @@ foreach ($tipoparticipacions as $row){
 }
 
  echo form_dropdown("idtipoparticipacion",$options, set_select('--Select--','default_value'),array("id"=>"idtipoparticipacion"));  ?></td>
-</tr
+</tr>
+<tr>
+<td> % de participacion: </td>
+<td><?php echo form_input(array("name"=>"porcentaje","id"=>"porcentaje","type"=>"text"));  ?></td>
+</tr>
+
 <tr>
 <td> Comentario: </td>
-<td><?php echo form_input(array("name"=>"comentario","id"=>"comentario","type"=>"text"));  ?></td>
+<td><?php 
+	 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"comentario",'id'=>'comentario' );    
+	 
+echo form_textarea("comentario","",$textarea_options);  ?></td>
 </tr>
+
+
 
 <tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("participacion","Atrás") ?> </td>

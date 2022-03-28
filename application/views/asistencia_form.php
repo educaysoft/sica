@@ -117,6 +117,11 @@ function get_asistencia() {
 //	var idpersona= $('select[name=idpersona]').val();
 	var idpersona=document.getElementById("idpersona").value;
 	alert(idpersona);
+	
+//	element.replaceChild(newNode, element.childNodes[xx]);
+
+
+
     $.ajax({
         url: "<?php echo site_url('asistencia/get_asistenciap') ?>",
         data: {idevento:idevento,fecha:fecha,idpersona:idpersona},
@@ -127,6 +132,22 @@ function get_asistencia() {
         var html = '';
 	var comentario="";
         var i;
+	if(data.length>1){
+	var xx=document.getElementById("idpersona").selectedIndex;
+	
+	
+	 element = document.getElementById("idpersona")[xx];
+       	 element.style.color="red";
+
+	}else{
+	var xx=document.getElementById("idpersona").selectedIndex;
+	
+	
+	 element = document.getElementById("idpersona")[xx];
+       	 element.style.color="green";
+
+	}
+
         for(i=0; i<data.length; i++){
         html += '<option value='+data[i].idtipoasistencia+'>'+data[i].tipoasistencia+'</option>';
 	document.getElementById("comentario").value=data[i].comentario;

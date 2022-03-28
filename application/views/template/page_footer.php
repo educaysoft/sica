@@ -87,9 +87,9 @@ function ocultar() {
 document.getElementById("eys-principal").style.width="95%";
 </script>
 
+   	<?php if(!isset($this->session->userdata['logged_in']) ){ ?>
 
 <!-- Footer -->
-<!------------
 <div id="eys-footer"    >
   <div style="margin-top:10px; height: 100%; width: 30%; display: flex; flex-direction:column;  ">
     <div >      
@@ -121,12 +121,13 @@ document.getElementById("eys-principal").style.width="95%";
     </ul>
 </div>
 
----->
+
 
 
 </div>
 <!-- Footer -->
 
+   	<?php } ?>
 </body>
 
 </html>

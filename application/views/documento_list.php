@@ -135,31 +135,33 @@ var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo si
 
 $(document).ready(function(){
 
+	var iddocumento=<?php echo  $filtro ?>;
+
 var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET',data:{iddocumento:iddocumento}},});
 //	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET'},});
 
 
 $('#show_data').on('click','.item_ver',function(){
-
-var ordenador = "https://"+$(this).data('ordenador');
-var ubicacion=$(this).data('ubicacion');
-if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
-        ubicacion = ordenador+"/"+ubicacion;
-}else{
-	ubicacion = ordenador+ubicacion;
-}
-var archivo = $(this).data('archivo');
-var certi= ubicacion.trim()+archivo.trim();
-window.location.href = certi;
+ 
+	var ordenador = "https://"+$(this).data('ordenador');
+	var ubicacion=$(this).data('ubicacion');
+	if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+		ubicacion = ordenador+"/"+ubicacion;
+	}else{
+		ubicacion = ordenador+ubicacion;
+	}
+	var archivo = $(this).data('archivo');
+	var certi= ubicacion.trim()+archivo.trim();
+	window.location.href = certi;
 
 });
 
 
 
 $('#show_data').on('click','.item_pdf',function(){
-var id= $(this).data('iddocumento');
-var retorno= $(this).data('retorno');
-window.location.href = retorno+'/'+id;
+	var id= $(this).data('iddocumento');
+	var retorno= $(this).data('retorno');
+	window.location.href = retorno+'/'+id;
 
 });
 

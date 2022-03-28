@@ -1,6 +1,6 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("tipoasistencia/save") ?>
+<?php echo form_open("institucion/save") ?>
 <table>
 
 
@@ -9,11 +9,11 @@
 
 <tr>
 <td> Nombre </td>
-<td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de tipoasistencia"))  ?></td>
+<td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de institucion"))  ?></td>
 </tr>
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("tipoasistencia","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("institucion","Atras") ?> </td>
 </tr>
 
 </table>

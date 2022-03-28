@@ -41,8 +41,15 @@ class Fechaevento extends CI_Controller{
 		 	'fecha' => $this->input->post('fecha'),
 		 	'idevento' => $this->input->post('idevento'),
 	 	);
-	 	$this->fechaevento_model->save($array_item);
-	 	redirect('fechaevento');
+	 	$result=$this->fechaevento_model->save($array_item);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Fecha para este evento ya fue asignado'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+ 
  	}
 
 
@@ -81,6 +88,46 @@ class Fechaevento extends CI_Controller{
 	 	redirect('fechaevento/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
+
+
+
+public function listar()
+{
+	
+  $data['title']="Fecha de evento";
+	$this->load->view('template/page_header');		
+  $this->load->view('fechaevento_list',$data);
+	$this->load->view('template/page_footer');
+}
+
+
+
+function fechaevento_data()
+{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+
+
+	 	$data0 = $this->fechaevento_model->listar_fechaevento1();
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->idfechaevento,$r->elevento,$r->fecha,$r->tema,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-iddirectorio="'.$r->idfechaevento.'">Ver</a>');
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+		echo json_encode($output);
+		exit();
+
+}
+
+
+
+
 
 
 

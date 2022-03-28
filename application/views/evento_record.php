@@ -12,8 +12,10 @@ if(isset($evento))
         <li> <?php echo anchor('evento/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('evento/edit/'.$evento['idevento'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('evento/delete/'.$evento['idevento'],'Delete'); ?></li>
-        <li> <?php echo anchor('evento/listar/','Listar'); ?></li>
-        <li> <?php echo anchor('evento/listar_participantes/'.$evento['idevento'],'Participantes'); ?></li>
+        <li> <?php echo anchor('evento/listar/','Eventos'); ?></li>
+        <li> <?php echo anchor('evento/listar_participantes/'.$evento['idevento'],'Certificados'); ?></li>
+        <li> <?php echo anchor('evento/listar_participantes/'.$evento['idevento'],'Asistencias'); ?></li>
+        <li> <?php echo anchor('evento/listar_participantes/'.$evento['idevento'],'Participacion'); ?></li>
 
 <?php 
 }else{
@@ -190,7 +192,22 @@ echo form_input($arrdatos) ?>
 	</div> 
 </div>
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Pagina: </label>
+ 
 
+     <?php 
+    $options= array("NADA");
+    foreach ($paginas as $row){
+	      $options[$row->idpagina]= $row->nombre;
+    }
+	?>
+	<div class="col-md-10">
+		<?php
+    $arrdatos=array('name'=>'idpagina','value'=>$options[$evento['idpagina']],"disabled"=>"disabled", "style"=>"width:500px");
+echo form_input($arrdatos) ?>
+	</div> 
+</div>
 
 <?php echo form_close(); ?>
 

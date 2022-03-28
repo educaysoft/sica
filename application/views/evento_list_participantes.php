@@ -82,8 +82,38 @@ $(document).ready(function(){
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('idevento');
-alert(id); 
+        var archivo="";
+	var iddocumento= $(this).data('iddocumento2');
+	alert(iddocumento);
+      $.ajax({
+        url: "<?php echo site_url('documento/get_documento') ?>",
+	  method: 'POST',
+	  data: {iddocumento:iddocumento},
+	  async : false,
+          dataType : 'json',
+	  success: function(data) {
+		   archivo= data[0].archivopdf;  
+	},
+      error: function (xhr, ajaxOptions, thrownError){ 
+        alert(xhr.status);
+        alert(thrownError);
+      }
+	});
+         alert(archivo);
+	if(archivo != ''){
+ 		var ordenador = "https://"+$(this).data('ordenador');
+		var ubicacion=$(this).data('ruta');
+		if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+			ubicacion = ordenador+"/"+ubicacion;
+		}else{
+			ubicacion = ordenador+ubicacion;
+		}
+//		var archivo = $(this).data('archivo');
+		var certi= ubicacion.trim()+archivo.trim();
+		window.location.href = certi;
+	}else{
+		alert("No se encontra el archivo");
+	}
 
 });
 
@@ -120,34 +150,121 @@ var ruta=$(this).data('ruta');
 var archivopdf=$(this).data('archivopdf');
 var archivopdf2="";
 var filename="";
-alert(iddocumento2);
 
+	alert(idevento);
+	alert(idparticipante);
 
 if(iddocumento2==0)
 {
-	let confirmar = confirm("Este certificado no se generado ¿Quiere generar?");
+	let confirmar = confirm("Este certificado no se ha generado ¿Quiere generar?");
 	if(confirmar){
    $.ajax({
         url: "<?php echo site_url('documento/save') ?>",
         data: {iddocumento:iddocumento,idtipodocu:idtipodocu,archivopdf:archivopdf,asunto:asunto,fechaelaboracion:fechaelaboracion,idordenador:idordenador,iddirectorio:iddirectorio,iddocumento_estado:iddocumento_estado,idpersona:idpersona},
         method: 'POST',
-	async : true,
+	async : false,
         dataType : 'json',
         success: function(data){
 	iddocumento=data.iddocumento;
+	iddocumento2=data.iddocumento;
  	archivopdf2= data.archivopdf;	
 	if(iddocumento>0){
-	//Generando el certificado del participante en un archivo pdf	
+
+	alert("Generando el certificado del participante en un archivo pdf");	
 	
-	alert("http://"+maquina+"/FPDI/certificado.php?asunto='"+asunto+"'&participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'");
-	
-		window.location.href = "http://"+maquina+"/FPDI/certificado.php?asunto='"+asunto+"'&participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'";
+  	var formData = new FormData();
+	var participante=elparticipante;
+	var modelo=archivopdf;
+	var archivo=archivopdf2;
+	  alert(archivo);
+	  alert(participante);
+	  alert(modelo);
+	  alert(maquina);
+	  alert(ruta);
+	  alert(asunto);
+  
+/*	  $.ajax({
+	  url: "http://"+maquina+"/FPDI/certificado.php",
+	  data: {asunto:asunto,participante:participante,maquina:maquina,rura:ruta,modelo:modelo,archivo:archivo},
+	  method: 'POST',
+	  async : false,
+	dataType : 'json',
+	  success: function(data) {
+		  	return true;
+	},
+      error: function (xhr, ajaxOptions, thrownError){ 
+        alert(xhr.status);
+        alert(thrownError);
+      }
+	});
+ */
+
+
+//	url= "http://"+maquina+"/FPDI/certificado.php?asunto='"+asunto+"'&participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'";
+
+
+
+    formData.append("asunto", asunto);
+    formData.append("participante", participante);
+    formData.append("modelo", modelo);
+    formData.append("maquina", maquina);
+    formData.append("ruta", ruta);
+    formData.append("archivo", archivo);
+
+
+
+	  url= "http://"+maquina+"/FPDI/certificado.php";
+       alert(url);
+    var xhttp = new XMLHttpRequest();
+	  xhttp.open("POST",url,false);
+    	xhttp.send(formData);
+	xhttp.onreadystatechange = function(){
+
+ 		if(xhttp.readyState === XMLHttpRequest.DONE) {
+    			var status = xhttp.status;
+    			if (status === 0 || (status >= 200 && status < 400)) {
+      				// The request has been completed successfully
+				var response = xhttp.responseText;
+          			alert(response + "archivo cargado");
+			//	history.back(); //Go to the previous page
+       			}else{
+				alert("No se pudo cargar el archivo");
+			}
+			}
+              	};
+    		// Send request with data
+
+
+
+
+
+
+
+
+//		location.href = "http://"+maquina+"/FPDI/certificado.php?asunto='"+asunto+"'&participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'";
 	// Asignando el documento generado al participante
+	}
+	},
+      error: function (xhr, ajaxOptions, thrownError){ 
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+
+	if(iddocumento2>0)
+	{
+		alert("asisnado el documento a participante");
+		alert(idevento);
+		alert(idparticipante);
+		alert(iddocumento);
+		alert(idpersona);
 	  $.ajax({
-        	url: "<?php echo site_url('participante/edit') ?>",
+        	url: "<?php echo site_url('participante/save_edit2') ?>",
 		data: {idparticipante:idparticipante,idevento:idevento,iddocumento:iddocumento,idpersona:idpersona},
 		method: 'POST',
-		async : true,
+		async : false,
 		dataType : 'json',
 		success: function(data){
 
@@ -165,9 +282,6 @@ if(iddocumento2==0)
 				window.location.href = certi;
 
 
-
-
-
 		},
 	      error: function (xhr, ajaxOptions, thrownError) {
 		alert(xhr.status);
@@ -176,13 +290,7 @@ if(iddocumento2==0)
 
 	    })
 	}
-	},
-      error: function (xhr, ajaxOptions, thrownError){ 
-        alert(xhr.status);
-        alert(thrownError);
-      }
 
-    })
 	}
 }else{
 

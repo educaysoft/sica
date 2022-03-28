@@ -9,6 +9,7 @@ class Evento extends CI_Controller{
       $this->load->model('participante_model');
       $this->load->model('fechaevento_model');
       $this->load->model('institucion_model');
+      $this->load->model('pagina_model');
 }
 
 public function index(){
@@ -17,6 +18,7 @@ public function index(){
 	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 	$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
 	$data['title']="Uste esta visualizando Eventos por registro";
@@ -169,7 +171,7 @@ function evento_data_participantes()
 		
 		
 			$data[]=array($r->idevento,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
-		$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_gene" data-idtipodocu="'.$r->idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'" data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'"  data-elparticipante="'.$r->elparticipante.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"  data-archivopdf="'.$r->archivopdf.'">gene</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-iddocumento="'.$r->iddocumento.'">download</a>');
+		$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_gene" data-idtipodocu="'.$r->idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'"    data-idevento="'.$r->idevento.'"     data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'" data-idparticipante="'.$r->idparticipante.'"       data-elparticipante="'.$r->elparticipante.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"  data-archivopdf="'.$r->archivopdf.'">gene</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'" data-archivo="'.$r->archivopdf.'"  data-iddocumento="'.$r->iddocumento.'">download</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -277,6 +279,7 @@ public function anterior(){
 public function edit()
 {
 	 	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
+		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
     $data['title'] = "Actualizar Evento";
@@ -298,7 +301,8 @@ public function edit()
 			'fechacreacion' => $this->input->post('fechacreacion'),
 			'fechainicia' => $this->input->post('fechainicia'),
 			'fechafinaliza' => $this->input->post('fechafinaliza'),
-			'detalle' => $this->input->post('detalle')
+			'detalle' => $this->input->post('detalle'),
+			'idpagina' => $this->input->post('idpagina')
 	 	);
 	 	$this->evento_model->update($id,$array_item);
 	 	redirect('evento');

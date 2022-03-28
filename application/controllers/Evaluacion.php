@@ -172,6 +172,22 @@ public function anterior(){
  	}
 
 
+public function get_evaluacion() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->post('idevaluacion')) {
+        $this->db->select('*');
+        $this->db->where(array('idevaluacion' => $this->input->post('idevaluacion')));
+        $query = $this->db->get('evaluacion');
+	$data=$query->result();
+	echo json_encode($data);
+	}
+
+}
+
+
+
+
 
 
 }

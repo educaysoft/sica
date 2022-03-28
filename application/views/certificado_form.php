@@ -33,6 +33,20 @@ foreach ($eventos as $row){
 
 
 <tr>
+<td> Tipo de documento: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($tipodocus as $row){
+	$options[$row->idtipodocu]= $row->descripcion;
+}
+
+ echo form_dropdown("idtipodocu",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
+
+<tr>
 <td> Documento: </td>
 <td><?php 
 

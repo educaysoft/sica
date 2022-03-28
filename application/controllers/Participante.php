@@ -71,6 +71,17 @@ class Participante extends CI_Controller{
 	 	redirect('participante');
  	}
 
+	public function  save_edit2()
+	{
+		$id=$this->input->post('idparticipante');
+	 	$array_item=array(
+		 	'idevento' => $this->input->post('idevento'),
+		 	'idpersona' => $this->input->post('idpersona'),
+		 	'iddocumento' => $this->input->post('iddocumento'),
+	 	);
+	 	echo $this->participante_model->update($id,$array_item);
+ 	}
+
 
 
  	public function delete()

@@ -33,37 +33,44 @@ if(isset($pregunta))
 
 
 <?php echo form_hidden('idpregunta',$pregunta['idpregunta']) ?>
-<table>
 
-<tr>
-     <td>Institucion:</td>
-     <td><?php 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Evaluación:</label>
+	<div class="col-md-10">
+		<?php
 $options= array("NADA");
 foreach ($evaluaciones as $row){
 	$options[$row->idevaluacion]= $row->nombre;
 }
 
-echo form_input('idevaluacion',$options[$pregunta['idevaluacion']],array("disabled"=>"disabled")) ?></td>
-  </tr>
+echo form_input('idevaluacion',$options[$pregunta['idevaluacion']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div> 
+ 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id de la pregunta:</label>
+	<div class="col-md-10">
+		<?php
+
+     echo form_input('idpregunta',$pregunta['idpregunta'],array("disabled"=>"disabled",'placeholder'=>'Idpreguntas','style'=>'width:500px;')); 
+		?>
+	</div> 
+</div> 
  
  
-
-
-  <tr>
-     <td>Id Pregunta:</td>
-     <td><?php echo form_input('idpregunta',$pregunta['idpregunta'],array("disabled"=>"disabled",'placeholder'=>'Idpreguntas')) ?></td>
-  </tr>
  
- 
- 
-  <tr>
-     <td>Nombre:</td>
-     <td><?php echo form_input('pregunta',$pregunta['pregunta'],array("disabled"=>"disabled",'placeholder'=>'Pregunta')) ?></td>
-  </tr>
-
-
-  
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id de la pregunta:</label>
+	<div class="col-md-10">
+		<?php
+      echo form_input('pregunta',$pregunta['pregunta'],array("disabled"=>"disabled",'placeholder'=>'Pregunta','style'=>'width:500px;')); 
+		?>
+	</div> 
+</div> 
 
 
 
@@ -71,7 +78,6 @@ echo form_input('idevaluacion',$options[$pregunta['idevaluacion']],array("disabl
 
 
 
-</table>
 <?php echo form_close(); ?>
 
 
