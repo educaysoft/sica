@@ -2,9 +2,6 @@
 
 Class Login_model extends CI_Model {
 
-
-
-
 	public function nuevo_participante($data)
 	{
 
@@ -20,8 +17,6 @@ Class Login_model extends CI_Model {
 		}
 
 	}
-
-
 
 	public function nuevo_correo($data)
 	{
@@ -57,12 +52,6 @@ Class Login_model extends CI_Model {
 		}
 
 	}
-
-
-
-
-
-
 
 // Insert registration data in database
 public function registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono) {
@@ -124,21 +113,44 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 						$this->nuevo_telefono($datatelefono);
 						if ($this->db->affected_rows() > 0) {
 							$this->db->trans_complete();
-										return true;
-										//	$this->db->insert('aspirante', $datapa);
-										//	if ($this->db->affected_rows() > 0) {
-										//		$this->db->trans_complete();
-										//		return true;
-										//	}else{
-										//		return false;
-										//	}
-								}else{
-										$this->db->trans_complete();
-										return false;
-								}
+							return true;
+						}else{
+							$this->db->trans_complete();
+							return false;
+						}
 
 				}
+		}else{
+				$condition = "cedula =" . "'" . $datapersona['cedula'] . "'";
+				$this->db->select('*');
+				$this->db->from('persona');
+				$this->db->where($condition);
+				$this->db->limit(1);
+				$query = $this->db->get();
+				if ($query->num_rows() > 0) {
+						$idpersona=$query->result()[0]->idpersona;
+
+						$condition = "idpersona =" . "'" . $idpersona . "'";
+						$condition = $condition. " and idevento =" . "'" . $dataparticipante['idevento'] . "'";
+						$this->db->select('*');
+						$this->db->from('participante');
+						$this->db->where($condition);
+						$this->db->limit(1);
+						$query = $this->db->get();
+						if ($query->num_rows()== 0) {
+							$dataparticipante["idpersona"]=$idpersona;
+							$this->nuevo_participante($dataparticipante);
+							if ($this->db->affected_rows() > 0) {
+								$this->db->trans_complete();
+								return true;
+							}else{
+								$this->db->trans_complete();
+								return false;
+							}
+						}
+				}
 		}
+
 }
 // Read data using username and password
 public function login($data) {

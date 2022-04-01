@@ -13,6 +13,8 @@ if(isset($evaluacion))
         <li> <?php echo anchor('evaluacion/edit/'.$evaluacion['idevaluacion'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('evaluacion/delete/'.$evaluacion['idevaluacion'],'Delete'); ?></li>
         <li> <?php echo anchor('evaluacion/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('pregunta/','Pregunas'); ?></li>
+        <li> <?php echo anchor('respuesta/','Respuestas'); ?></li>
         <li> <?php echo anchor('evaluacion/imprimir/'.$evaluacion['idevaluacion'],'Imprimir'); ?></li>
 
 <?php 
@@ -72,6 +74,33 @@ if(isset($evaluacion))
 	</div> 
 </div> 
   
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id evento:</label>
+	<div class="col-md-10">
+		<?php
+
+    echo form_input('idevento',$evaluacion['idevento'],array("disabled"=>"disabled",'placeholder'=>'Ideventos')); 
+
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Evento </label>
+	<div class="col-md-10">
+     <?php 
+$options= array("NADA");
+foreach ($eventos as $row){
+	$options[$row->idevento]= $row->titulo;
+}
+
+echo form_input('idevento',$options[$evaluacion['idevento']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
 
 
    

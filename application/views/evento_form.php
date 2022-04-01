@@ -14,67 +14,100 @@
 
 
 <?php echo form_hidden("idevento")  ?>
-<table>
-<tr>
-    <td> Estado del evento:</td>
-    <td><?php
-    $options= array('--Select--');
-    foreach ($evento_estados as $row){
-      $options[$row->idevento_estado]= $row->nombre;
-    }
-     echo form_dropdown("idevento_estado",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
 
-<tr>
-    <td> Institucion:</td>
-    <td><?php
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Institución:</label>
+	<div class="col-md-10">
+	<?php
     $options= array('--Select--');
     foreach ($instituciones as $row){
       $options[$row->idinstitucion]= $row->nombre;
     }
-     echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
+     echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'));  
+		?>
+	</div> 
+</div>
 
 
-<tr>
-<td> Título del evento: </td>
-<td><?php echo form_input("titulo","", array("placeholder"=>"Título del evento",'style'=>'width:500px;'))  ?></td>
-</tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Estado del evento:</label>
+	<div class="col-md-10">
+	<?php
+    $options= array('--Select--');
+    foreach ($evento_estados as $row){
+      $options[$row->idevento_estado]= $row->nombre;
+    }
+     echo form_dropdown("idevento_estado",$options, set_select('--Select--','default_value')); 
+		?>
+	</div> 
+</div> 
 
 
 
+ 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Título del evento:</label>
+	<div class="col-md-10">
+	<?php
 
-<tr>
-<td> Fecha creación: </td>
-<td><?php echo form_input(array("name"=>"fechacreacion","id"=>"fechacreacion","type"=>"date"));  ?></td>
-</tr>
-
-<tr>
-<td> Fecha Inicia </td>
-<td><?php echo form_input(array("name"=>"fechainicia","id"=>"fechainicia","type"=>"date"));  ?></td>
-</tr>
-
-<tr>
-<td> Fecha Finaliza </td>
-<td><?php echo form_input(array("name"=>"fechafinaliza","id"=>"fechafinaliza","type"=>"date"));  ?></td>
-</tr>
+ echo form_input("titulo","", array("placeholder"=>"Título del evento",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div> 
 
 
-<tr>
-<td> Detalle </td>
-<td><?php 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha de inicio:</label>
+	<div class="col-md-10">
+	<?php
+ echo form_input(array("name"=>"fechainicia","id"=>"fechainicia","type"=>"date"));  
+		?>
+	</div> 
+</div> 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha finaliza:</label>
+	<div class="col-md-10">
+	<?php
+ echo form_input(array("name"=>"fechafinaliza","id"=>"fechafinaliza","type"=>"date"));  
+		?>
+	</div> 
+</div> 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Detalle del evento:</label>
+	<div class="col-md-10">
+	<?php
     
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"asunto" );    
     
- echo form_textarea("detalle","", $textarea_options)  ?></td>
-</tr>
+ echo form_textarea("detalle","", $textarea_options); 
+		?>
+	</div> 
+</div> 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Página de inicio:</label>
+	<div class="col-md-10">
+	<?php
+    $options= array('--Select--');
+    foreach ($paginas as $row){
+      $options[$row->idpagina]= $row->nombre;
+    }
+     echo form_dropdown("idpagina",$options, set_select('--Select--','default_value'));  
+		?>
+	</div> 
+</div>
 
 
 
 
-
-
-</table>
 <?php echo form_close();?>
     
      <script>

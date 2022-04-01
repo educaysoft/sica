@@ -10,7 +10,7 @@ class Respuesta extends CI_Controller{
 
 public function index(){
 
-  	$data['respuesta']=$this->respuesta_model->respuesta(1)->row_array();
+  	$data['respuesta']=$this->respuesta_model->elultimo();
 		$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
   
  // print_r($data['usuario_list']);
@@ -21,16 +21,14 @@ public function index(){
 }
 
 
-public function add()
-{
-		$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
-		$data['title']="Nueva Respuesta";
-	 	$this->load->view('template/page_header');		
-	 	$this->load->view('respuesta_form',$data);
-	 	$this->load->view('template/page_footer');
-
-
-}
+	public function add()
+	{
+			$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
+			$data['title']="Nueva Respuesta";
+			$this->load->view('template/page_header');		
+			$this->load->view('respuesta_form',$data);
+			$this->load->view('template/page_footer');
+	}
 
 
 	public function  save()
@@ -39,6 +37,7 @@ public function add()
 		 	
 		 	'respuesta' => $this->input->post('respuesta'),
 			'idpregunta' => $this->input->post('idpregunta'),
+			'acierto' => $this->input->post('acierto'),
 	 	);
 	 	$this->respuesta_model->save($array_item);
 	 	redirect('respuesta');
@@ -46,16 +45,16 @@ public function add()
 
 
 
-public function edit()
-{
-	 	$data['respuesta'] = $this->respuesta_model->respuesta($this->uri->segment(3))->row_array();
-  	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
- 	 	$data['title'] = "Actualizar Respuesta";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('respuesta_edit',$data);
-	 	$this->load->view('template/page_footer');
- 
-}
+	public function edit()
+	{
+		$data['respuesta'] = $this->respuesta_model->respuesta($this->uri->segment(3))->row_array();
+		$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
+		$data['title'] = "Actualizar Respuesta";
+		$this->load->view('template/page_header');		
+		$this->load->view('respuesta_edit',$data);
+		$this->load->view('template/page_footer');
+	 
+	}
 
 
 	public function  save_edit()
@@ -65,7 +64,8 @@ public function edit()
 		 	
 		 	'idrespuesta' => $this->input->post('idrespuesta'),
 		 	'respuesta' => $this->input->post('respuesta'),
-			'idevaluacion' => $this->input->post('idevaluacion'),
+			'idpregunta' => $this->input->post('idpregunta'),
+			'acierto' => $this->input->post('acierto'),
 	 	);
 	 	$this->respuesta_model->update($id,$array_item);
 	 	redirect('respuesta');

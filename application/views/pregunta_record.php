@@ -14,6 +14,7 @@ if(isset($pregunta))
         <li> <?php echo anchor('pregunta/edit/'.$pregunta['idpregunta'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('pregunta/delete/'.$pregunta['idpregunta'],'Delete'); ?></li>
         <li> <?php echo anchor('pregunta/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('respuesta/','Respuesta'); ?></li>
 
 <?php 
 }else{

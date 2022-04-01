@@ -151,6 +151,8 @@ if ($result == TRUE) {
 		$resulti = $this->institucion_model->get_institucion($result[0]->idinstitucion);
 			$session_data = array(
 				'email' => $result[0]->email,
+				'idusuario' => $result[0]->idusuario,
+				'idpersona' => $result2[0]->idpersona,
 				'elusuario' => $result2[0]->apellidos." ".$result2[0]->nombres,
 				'cedula' => $result2[0]->cedula,
 				'foto' => "fotos/".$result2[0]->cedula.".png",

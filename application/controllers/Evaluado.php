@@ -6,7 +6,8 @@ class Evaluado extends CI_Controller{
       parent::__construct();
       $this->load->model('evaluado_model');
   	  $this->load->model('persona_model');
-  	  $this->load->model('evaluacion_model');
+  	  $this->load->model('pregunta_model');
+  	  $this->load->model('respuesta_model');
 }
 
 public function index(){
@@ -14,8 +15,9 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   	$data['evaluado']=$this->evaluado_model->lista_evaluados()->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
-  	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
+  	$data['respuestas']= $this->respuesta_model->lista_respuesta()->result();
 			
 		$data['title']="Lista de evaluados";
 		$this->load->view('template/page_header');
@@ -32,8 +34,8 @@ public function index(){
 
 public function add()
 {
-		$data['personas']= $this->persona_model->lista_persona()->result();
-  	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['preguntaes']= $this->pregunta_model->lista_preguntaes()->result();
 		$data['title']="Nueva Evaluado";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('evaluado_form',$data);
@@ -48,10 +50,24 @@ public function add()
 	 	$array_item=array(
 		 	
 			'idpersona' => $this->input->post('idpersona'),
-			'idevaluacion' => $this->input->post('idevaluacion'),
+			'idpregunta' => $this->input->post('idpregunta'),
+			'acierto' => $this->input->post('acierto'),
 	 	);
 	 	$this->evaluado_model->save($array_item);
 	 	redirect('evaluado');
+ 	}
+
+	public function  save2()
+	{
+	 	$array_item=array(
+		 	
+			'idpersona' => $this->input->post('idpersona'),
+			'idpregunta' => $this->input->post('idpregunta'),
+			'idrespuesta' => $this->input->post('idrespuesta'),
+			'acierto' => $this->input->post('acierto'),
+	 	);
+	 	$result =$this->evaluado_model->save($array_item);
+		echo $result;
  	}
 
 
@@ -135,10 +151,11 @@ function evaluado_data()
 public function elprimero()
 {
 	$data['evaluado'] = $this->evaluado_model->elprimero();
-  	$data['evaluacions']= $this->evaluacion_model->lista_evaluacion()->result();
+  	$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['respuestas']= $this->respuesta_model->lista_respuesta()->result();
     $data['title']="Evaluado";
     $this->load->view('template/page_header');		
     $this->load->view('evaluado_record',$data);
@@ -153,10 +170,11 @@ public function elprimero()
 public function elultimo()
 {
 	$data['evaluado'] = $this->evaluado_model->elultimo();
-  	$data['evaluacions']= $this->evaluacion_model->lista_evaluacion()->result();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
+  	$data['respuestas']= $this->respuesta_model->lista_respuesta()->result();
     $data['title']="Evaluado";
   
     $this->load->view('template/page_header');		
@@ -173,8 +191,9 @@ public function elultimo()
 public function siguiente(){
  // $data['evaluado_list']=$this->evaluado_model->lista_evaluado()->result();
 	$data['evaluado'] = $this->evaluado_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
-  	$data['evaluacions']= $this->evaluacion_model->lista_evaluacion()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
+  	$data['respuestas']= $this->respuesta_model->lista_respuesta()->result();
   $data['title']="Evaluado";
 	$this->load->view('template/page_header');		
   $this->load->view('evaluado_record',$data);
@@ -184,12 +203,24 @@ public function siguiente(){
 public function anterior(){
  // $data['evaluado_list']=$this->evaluado_model->lista_evaluado()->result();
 	$data['evaluado'] = $this->evaluado_model->anterior($this->uri->segment(3))->row_array();
- 	$data['personas']= $this->persona_model->lista_persona()->result();
-  	$data['evaluacions']= $this->evaluacion_model->lista_evaluacion()->result();
+ 	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
+  	$data['respuestas']= $this->respuesta_model->lista_respuesta()->result();
   $data['title']="Evaluado";
 	$this->load->view('template/page_header');		
   $this->load->view('evaluado_record',$data);
 	$this->load->view('template/page_footer');
+}
+
+public function get_evaluado() {
+    $this->load->database();
+    $this->load->helper('form');
+        $this->db->select('*');
+        $this->db->where(array('idpregunta' => $this->input->post('idpregunta'),'idpersona' =>$this->input->post('idpersona')));
+        $query = $this->db->get('evaluado');
+	$data=$query->result();
+	echo json_encode($data);
+
 }
 
 

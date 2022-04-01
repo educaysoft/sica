@@ -68,10 +68,8 @@ public function edit()
 
  	public function delete()
  	{
- 		$data=$this->institucion_model->delete($this->uri->segment(3));
- //		echo json_encode($data);
+ 		$this->institucion_model->delete($this->uri->segment(3));
 	 	redirect('institucion/elultimo');
-	//	$db['default']['db_debug']=FALSE
  	}
 
 

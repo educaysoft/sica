@@ -1,7 +1,5 @@
 use educayso_facae;
 
-drop table tipoparticipacion;
-drop table participacion;
 
 create table tipoparticipacion(idtipoparticipacion int(11) not null auto_increment primary key, nombre varchar(100));
 

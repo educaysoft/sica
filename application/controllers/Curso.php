@@ -5,6 +5,7 @@ class Curso extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('curso_model');
+      $this->load->model('cursounidad_model');
 }
 
 public function index(){
@@ -22,19 +23,20 @@ public function index(){
 }
 
 
-public function add()
-{
-		$data['title']="Nueva curso";
-	 	$this->load->view('template/page_header');		
-	 	$this->load->view('curso_form',$data);
-	 	$this->load->view('template/page_footer');
-}
+	public function add()
+	{
+			$data['title']="Nueva curso";
+			$this->load->view('template/page_header');		
+			$this->load->view('curso_form',$data);
+			$this->load->view('template/page_footer');
+	}
 
 
-public function  save()
+	public function  save()
 	{
 	 	$array_item=array(
 	 	'nombre' => $this->input->post('nombre'),
+	 	'duracion' => $this->input->post('duracion'),
 	 	);
 	 	$this->curso_model->save($array_item);
 	 	redirect('curso');
@@ -42,15 +44,15 @@ public function  save()
 
 
 
-public function edit()
-{
-	 	$data['curso'] = $this->curso_model->curso($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar curso";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('curso_edit',$data);
-	 	$this->load->view('template/page_footer');
- 
-}
+	public function edit()
+	{
+			$data['curso'] = $this->curso_model->curso($this->uri->segment(3))->row_array();
+			$data['title'] = "Actualizar curso";
+			$this->load->view('template/page_header');		
+			$this->load->view('curso_edit',$data);
+			$this->load->view('template/page_footer');
+	 
+	}
 
 
 	public function  save_edit()
@@ -60,6 +62,7 @@ public function edit()
 		 	
 		 	'idcurso' => $this->input->post('idcurso'),
 		 	'nombre' => $this->input->post('nombre'),
+	 		'duracion' => $this->input->post('duracion'),
 	 	);
 	 	$this->curso_model->update($id,$array_item);
 	 	redirect('curso');
@@ -116,9 +119,10 @@ function curso_data()
 public function panel()
 {
 	
-  $data['title']="Curso";
+	$data['cursos'] = $this->curso_model->lista_cursos()->result();
+  	$data['title']="Curso";
 	$this->load->view('template/page_header');		
-  $this->load->view('cursos/FundamentosDeProgramacion',$data);
+  	$this->load->view('cursos/cursos',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -126,9 +130,10 @@ public function panel()
 public function iniciar()
 {
 	
-  $data['title']="Curso";
+	$data['cursounidades'] = $this->cursounidad_model->lista_unidades($this->uri->segment(3))->result();
+  	$data['title']="Curso";
 	$this->load->view('template/page_header');		
-  $this->load->view('cursos/FundamentosDeProgramacion_clases',$data);
+ 	$this->load->view('cursos/FundamentosDeProgramacion_clases',$data);
 	$this->load->view('template/page_footer');
 }
 

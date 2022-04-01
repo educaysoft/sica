@@ -29,7 +29,6 @@ foreach ($eventos as $row){
 <td><?php 
     
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Tema a  tratar" );    
-    
  echo form_textarea("tema","", $textarea_options)  ?></td>
 </tr>
 

@@ -7,12 +7,14 @@ class Evaluacion extends CI_Controller{
       $this->load->model('evaluacion_model');
       $this->load->model('pregunta_model');
       $this->load->model('respuesta_model');
+      $this->load->model('evento_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-	  	$data['evaluacion']=$this->evaluacion_model->evaluacion(1)->row_array();
-  		$data['title']="Lista de Empresas";
+  		$data['eventos']= $this->evento_model->lista_eventos()->result();
+	  	$data['evaluacion']=$this->evaluacion_model->elultimo();
+  		$data['title']="Evaluación";
 			$this->load->view('template/page_header');		
   		$this->load->view('evaluacion_record',$data);
 			$this->load->view('template/page_footer');
@@ -26,7 +28,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva Institución";
+
+  		$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['title']="Nueva Evaluación:";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('evaluacion_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -39,6 +43,7 @@ public function  save()
 	 	'idevaluacion' => $this->input->post('idevaluacion'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	'detalle' => $this->input->post('detalle'),
+		'idevento' => $this->input->post('idevento'),
 	 	);
 	 	$this->evaluacion_model->save($array_item);
 	 	redirect('evaluacion');
@@ -49,6 +54,7 @@ public function  save()
 public function edit()
 {
 	 	$data['evaluacion'] = $this->evaluacion_model->evaluacion($this->uri->segment(3))->row_array();
+  		$data['eventos']= $this->evento_model->lista_eventos()->result();
  	 	$data['title'] = "Actualizar Evaluacion";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('evaluacion_edit',$data);
@@ -65,6 +71,7 @@ public function edit()
 		 	'idevaluacion' => $this->input->post('idevaluacion'),
 		 	'nombre' => $this->input->post('nombre'),
 		 	'detalle' => $this->input->post('detalle'),
+			'idevento' => $this->input->post('idevento'),
 	 	);
 	 	$this->evaluacion_model->update($id,$array_item);
 	 	redirect('evaluacion');
@@ -110,6 +117,7 @@ public function elprimero()
 	$data['evaluacion'] = $this->evaluacion_model->elprimero();
   if(!empty($data))
   {
+  		$data['eventos']= $this->evento_model->lista_eventos()->result();
     $data['title']="Evaluacion";
     $this->load->view('template/page_header');		
     $this->load->view('evaluacion_record',$data);
@@ -126,6 +134,7 @@ public function elultimo()
 	$data['evaluacion'] = $this->evaluacion_model->elultimo();
   if(!empty($data))
   {
+  		$data['eventos']= $this->evento_model->lista_eventos()->result();
     $data['title']="Evaluacion";
   
     $this->load->view('template/page_header');		
@@ -142,6 +151,7 @@ public function elultimo()
 public function siguiente(){
  // $data['evaluacion_list']=$this->evaluacion_model->lista_evaluacion()->result();
 	$data['evaluacion'] = $this->evaluacion_model->siguiente($this->uri->segment(3))->row_array();
+  		$data['eventos']= $this->evento_model->lista_eventos()->result();
   $data['title']="Evaluacion";
 	$this->load->view('template/page_header');		
   $this->load->view('evaluacion_record',$data);
@@ -151,6 +161,7 @@ public function siguiente(){
 public function anterior(){
  // $data['evaluacion_list']=$this->evaluacion_model->lista_evaluacion()->result();
 	$data['evaluacion'] = $this->evaluacion_model->anterior($this->uri->segment(3))->row_array();
+  		$data['eventos']= $this->evento_model->lista_eventos()->result();
   $data['title']="Evaluacion";
 	$this->load->view('template/page_header');		
   $this->load->view('evaluacion_record',$data);

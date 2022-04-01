@@ -49,19 +49,35 @@ foreach ($personas as $row){
 echo form_input('idpersona',$options[$evaluado['idpersona']],array("disabled"=>"disabled")) ?></td>
   </tr>
  
- 
 
-  
 <tr>
-     <td>Evaluación:</td>
+     <td>Pregunta:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($evaluaciones as $row){
-	$options[$row->idevaluacion]= $row->nombre;
+foreach ($preguntas as $row){
+	$options[$row->idpregunta]= $row->pregunta;
 }
 
-echo form_input('idevaluacion',$options[$evaluado['idevaluacion']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idpregunta',$options[$evaluado['idpregunta']],array("disabled"=>"disabled")) ?></td>
   </tr>
+
+<tr>
+     <td>Respuesta:</td>
+     <td><?php 
+$options= array("NADA");
+foreach ($respuestas as $row){
+	$options[$row->idrespuesta]= $row->respuesta;
+}
+
+echo form_input('idrespuesta',$options[$evaluado['idrespuesta']],array("disabled"=>"disabled")) ?></td>
+  </tr>
+
+
+  <tr>
+     <td>Acierto:</td>
+     <td><?php echo form_input('acierto',$evaluado['acierto'],array("disabled"=>"disabled",'placeholder'=>'acierto')) ?></td>
+  </tr>
+
 
 
 

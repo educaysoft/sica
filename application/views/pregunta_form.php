@@ -6,7 +6,7 @@
 
 
 <tr>
-<td> Institución </td>
+<td> Evaluación </td>
 <td><?php 
 
 $options= array('--Select--');

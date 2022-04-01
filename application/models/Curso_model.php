@@ -1,7 +1,7 @@
 <?php
 class Curso_model extends CI_model {
 
-	function lista_cursoes(){
+	function lista_cursos(){
 		 $curso= $this->db->get('curso');
 		 return $curso;
 	}

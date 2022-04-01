@@ -13,7 +13,20 @@
       <td><?php echo form_input('detalle',$evaluacion['detalle'],array('placeholder'=>'Detalle de la Evaluacion')) ?></td>
   </tr>
  
- 
+
+<tr>
+<td> Evento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($eventos as $row){
+	$options[$row->idevento]= $row->titulo;
+}
+
+ echo form_dropdown("idevento",$options, $evaluacion['idevento']);  ?></td>
+</tr>
+
+
+
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('evaluacion','Atras') ?></td>
  </tr>

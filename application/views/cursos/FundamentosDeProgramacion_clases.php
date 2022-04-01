@@ -4,6 +4,7 @@
 <title>Page Title</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 /* Style the body */
 body {
@@ -22,65 +23,234 @@ body {
 
 /* Page Content */
 .content {padding:20px;}
+
+
+/*Para lista de check*/
+
+ .dbgOuter{
+            border: solid 1px #888;
+            border-radius: 4px;
+            padding: 3px 8px 0px 14px;
+            width: 340px;
+            margin: 0 auto;
+            font-size: 10.5pt;
+        }
+        .dbgCont{
+            display: inline-block;
+            height: 24px;
+            margin-left: 6px;
+        }
+        /* Base for label styling */
+        .dbgCheck:not(:checked),
+        .dbgCheck:checked {
+            position: absolute;
+            left: -9999px;
+        }
+        .dbgCheck:not(:checked) + label,
+        .dbgCheck:checked + label {
+            display:inline-block;
+            position: relative;
+            padding-left: 25px;
+            cursor: pointer;
+        }
+
+        /* checkbox aspect */
+        .dbgCheck:not(:checked) + label:before,
+        .dbgCheck:checked + label:before {
+            content: '';
+            position: absolute;
+            left:0; top: 1px;
+            width: 17px; height: 17px;
+            border: 1px solid #aaa;
+            background: #f8f8f8;
+            border-radius: 3px;
+            box-shadow: inset 0 1px 3px   rgba(0,0,0,.3)
+        }
+        /* checkmark aspect */
+        .dbgCheck:not(:checked) + label:after,
+        .dbgCheck:checked + label:after {
+            content: '✔';
+            position: absolute;
+            top: 2px; left: 5px;
+            font-size: 14px;
+            color: #09ad7e;
+            transition: all .2s;
+        }
+        /* checked mark aspect changes */
+        .dbgCheck:not(:checked) + label:after {
+            opacity: 0;
+            transform: scale(0);
+        }
+        .dbgCheck:checked + label:after {
+            opacity: 1;
+            transform: scale(1);
+        }
+        /* disabled checkbox */
+        .dbgCheck:disabled:not(:checked) + label:before,
+        .dbgCheck:disabled:checked + label:before {
+            box-shadow: none;
+            border-color: #bbb;
+            background-color: #ddd;
+        }
+        .dbgCheck:disabled:checked + label:after {
+            color: #999;
+        }
+        .dbgCheck:disabled + label {
+            color: #aaa;
+        }
+        /* accessibility */
+        .dbgCheck:checked:focus + label:before,
+        .dbgCheck:not(:checked):focus + label:before {
+            border: 1px dotted blue;
+        }
+
+        .dbgCheck{
+            display:inline-block;
+            width:90px;
+            height:24px;
+            margin:1em;
+        }
+
+
+
+
+
+        /* Useless styles, just for demo design */
+
+        body {
+            font-family: "Open sans", "Segoe UI", "Segoe WP", Helvetica, Arial, sans-serif;
+            color: #666;
+        }
+        h1, h2 {
+            margin-bottom: 5px;
+            font-weight: normal;
+            text-align: center;
+        }
+        h2 {
+            margin: 5px 0 2em;
+            color: #aaa;
+        }
+        form {
+            width: 80px;
+            margin: 0 auto;
+        }
+        .txtcenter {
+            margin-top: 4em;
+            font-size: .9em;
+            text-align: center;
+            color: #aaa;
+        }
+        .copy {
+            margin-top: 2em;
+        }
+        .copy a {
+            text-decoration: none;
+            color: #4778d9;
+        }
+
+
+
+
+
+
+
+
 </style>
 </head>
 <body>
+<?php
+$seccion="Instrucción a los Fundamentos de Programación";
+$idevaluacion=3;
+$idpregunta=array(5,6,7);
+$idrespueta=array(array(7,8,9),array(10,11,12));
+?>
+
+
 
 <div style="margin: auto; width: 60%; border:5px solid red;">
-<div class="header">
-  <h1>Fundamentos de programación</h1>
-  <p>Aprenda a programación en C++</p>
-</div>
-
-<div class="learn1" style="width: 100%; margin:auto">
-	<div style="padding:10px; width:80%; margin:auto;">
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/ABGl0PhDemI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin:auto;"></iframe>  
-	</div>
-</div>
-
-<div class="learn1" style="width: 100%; margin:auto">
-	<div style="padding:10px; width:80%; margin:auto;">
- 		<button onclick="get_evaluacion();">Evaluar</button> 
-	</div>
-</div>
-
-<div class="learn2" style="width: 100%; margin:auto">
-<div id="idevaluacion" style="padding:10px; width:80%; margin:auto;">
-
-</div>
-
-<div id="detalle" style="padding:10px; width:80%; margin:auto;">
-
-</div>
-
-
-<div id="detalle" style="padding:10px; width:80%; margin:auto;">
-	<div class="form-check form-check-inline">
-	  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onclick="get_pregunta()"  >
-	  <p class="form-check-label" for="inlineCheckbox1">1</label>
-	</div>
-	<div class="form-check form-check-inline">
-	  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" checked>
-	  <label class="form-check-label" for="inlineCheckbox2">2</label>
-	</div>
-	<div class="form-check form-check-inline">
-	  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-	  <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+	<div class="header">
+	  <h1>Fundamentos de programación</h1>
+	  <p>Aprenda a programación en C++</p>
 	</div>
 
+
+	<div class="learn1" style="width: 100%; margin:auto; ">
+<div style="padding:5px; border:2px solid yellow;">
+<div class="dbgOuter" style="border: 2px solid blue; width: 80%;">
+
+	<?php
+		foreach ($cursounidades as $row){
+	?>	
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onClick="show_unidad('<?php echo $row->nombre; ?>','<?php echo $row->enlace; ?>','<?php echo $row->idevaluacion; ?>')"/> 
+				<label class="form-check-label" for="inlineCheckbox1">Unidad-<?php echo $row->unidad;?></label>
+			</div>
+
+	<?php } ?>
+   </div>
+	</div>	
+<div class="progress">
+			  <div class="progress-bar progress-bar-striped active" role="progressbar"  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+				    10%
+			  </div>
+		</div>
+	<div id="unidad" style="padding:10px; width:80%; margin:auto; display:none;">
+		 <?php echo $seccion ?>
+	</div>
+
+	<div id="mvideo" style="padding:10px; width:80%; margin:auto; display:none;">
+		<iframe id="video"  width="560" height="315" src="https://www.youtube.com/embed/ABGl0PhDemI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin:auto;"></iframe>  
+		</div>
+	</div>
+
+	<div id="learn1" style="width: 100%; margin:auto; display:flex; display:none; ">
+		<div id="evaluar" style="padding:10px; width:20%; ">
+			<?php echo '<button id="evaluar" onclick="get_evaluacion('.$idevaluacion.');">Evaluar</button>'; ?> 
+		</div>
+		<div style="padding:10px; width:70%; ">
+		  
+		</div> 
+	</div>
+
+<div id="learn2" style="width: 100%; margin:auto; display:none";>
+	<div id="evaluacion" style="padding:10px; width:80%; margin:auto;">
+
+	</div>
+
+	<div id="detalle" style="padding:10px; width:80%; margin:auto;">
+
+	</div>
+
+
+	<div id="preguntas" style="padding:10px; width:80%; margin:auto;">
+		<div class="form-check form-check-inline">
+<?php echo '<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onclick="get_pregunta('.$idpregunta[0].')">'; ?>
+		  <p class="form-check-label" for="inlineCheckbox1">1</label>
+		</div>
+		<div class="form-check form-check-inline">
+<?php echo '<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" onclick="get_pregunta('.$idpregunta[1].')">'; ?>
+		  <label class="form-check-label" for="inlineCheckbox2">2</label>
+		</div>
+		<div class="form-check form-check-inline">
+<?php echo '<input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"   onclick="get_pregunta('.$idpregunta[2].')">'; ?>
+		  <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+		</div>
+
+	</div>
+
+	<div id="pregunta" style="padding:10px; width:80%; margin:auto;">
+
+	</div>
+	<div id="respuesta" style="padding:10px; width:80%; margin:auto;">
+
+	</div>
+
+
+
 </div>
-
-<div id="pregunta" style="padding:10px; width:80%; margin:auto;">
-
-</div>
-<div id="respuesta" style="padding:10px; width:80%; margin:auto;">
-
-</div>
-
-
-
-
-
+	<div id="certificado" style="padding:10px; width:80%; margin:auto; border:1px solid blue; text-align: center;">
+			<?php echo '<button id="evaluar" onclick="get_certificado('.$idevaluacion.');" >En hora bueno! Ya puedes imprimer tu certificado</button>'; ?> 
+	</div>
 </div>
 
 
@@ -88,10 +258,23 @@ body {
 
 <script>
 
+	function show_unidad(tunidad,lvideo,idevaluacion)
+	{
+		document.getElementById('unidad').innerHTML=tunidad;
+		document.getElementById('unidad').style.display='block';
+		document.getElementById('video').src=lvideo;
+		document.getElementById('mvideo').style.display='block';
+		document.getElementById('learn1').style.display='block';
+		document.getElementById('evaluar').innerHTML='<button id="evaluar" onclick="get_evaluacion('+idevaluacion+');">Evaluar-'+idevaluacion+'</button>' 
 
-function get_evaluacion() {
-        var idevaluacion = 1; // $('select[name=idordenador]').val();
-	alert(idevaluacion);
+	}
+
+
+
+function get_evaluacion(idevaluacion) {
+	 btn=document.getElementById('learn2');
+	 btn.style.display="block";
+	//
     $.ajax({
         url: "<?php echo site_url('evaluacion/get_evaluacion') ?>",
         data: {idevaluacion: idevaluacion},
@@ -101,7 +284,7 @@ function get_evaluacion() {
         success: function(data){
         var html1 = data[0].nombre;
         var html2= data[0].detalle;
-        $('#idevaluacion').html(html1);
+        $('#evaluacion').html(html1);
         $('#detalle').html(html2);
 
 
@@ -113,15 +296,49 @@ function get_evaluacion() {
 
     })
 
+    $.ajax({
+        url: "<?php echo site_url('pregunta/get_preguntas') ?>",
+        data: {idevaluacion: idevaluacion},
+        method: 'POST',
+        async : false,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        for(i=0; i<data.length; i++){
+		j=i+1;
+		html += '<div class="form-check form-check-inline">';
+		html += '<input class="form-check-input" type="checkbox" id="inlineCheckbox'+j+'" value="option1" onclick="get_pregunta('+data[i].idpregunta+')">'; 
+		html += '<label class="form-check-label" for="inlineCheckbox'+j+'">'+j+'</label>i';
+		html += '</div>';
+	}
+
+        $('#preguntas').html(html);
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+
+
+
+
+
+
+
+
 }
 
 
-function get_pregunta() {
-        var idevaluacion = 1; // $('select[name=idordenador]').val();
-        var idpregunta = 1; // $('select[name=idordenador]').val();
-    $.ajax({
+function get_pregunta(idpregunta) {
+	
+	$.ajax({
         url: "<?php echo site_url('pregunta/get_pregunta') ?>",
-        data: {idevaluacion: idevaluacion,idpregunta:idpregunta},
+        data: {idpregunta:idpregunta},
         method: 'POST',
         async : false,
         dataType : 'json',
@@ -138,32 +355,28 @@ function get_pregunta() {
 
     })
 
-	    
 
+	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
+	var idrespuesta=0;
+	var acierto=0;
+	alert(idpersona+" "+idpregunta);
     $.ajax({
-        url: "<?php echo site_url('respuesta/get_respuesta') ?>",
-        data: {idpregunta:idpregunta},
+        url: "<?php echo site_url('evaluado/get_evaluado') ?>",
+        data: {idpersona:idpersona,idpregunta:idpregunta},
         method: 'POST',
         async : false,
         dataType : 'json',
         success: function(data){
+	alert(data[0].idrespuesta);	
+	if(typeof data[0].idrespuesta !== 'undefined'){
+		idrespuesta = data[0].idrespuesta;
+		acierto = data[0].acierto;
+	}else{
 
-     var html = '';
-        var i;
-        for(i=0; i<data.length; i++){
-html += '<div>';
-html += '  <input type="radio" id="'+data[i].idrespuesta+'" name="drone" value="h'+data[i].respuesta+'">';
-html += '  <label for="huey">'+data[i].respuesta+'</label>';
-html += '</div>';
-
-
-        }
-        $('#respuesta').html(html);
-
-
-
-
-
+		alert("no encontro evaluado ");
+		idrespuesta = 0;
+		acierto=0;
+	}
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
@@ -175,9 +388,78 @@ html += '</div>';
 
 
 
+
+    $.ajax({
+        url: "<?php echo site_url('respuesta/get_respuesta') ?>",
+        data: {idpregunta:idpregunta},
+        method: 'POST',
+        async : false,
+        dataType : 'json',
+        success: function(data){
+	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
+        var html = '';
+        var i;
+        for(i=0; i<data.length; i++){
+		alert(data[i].idrespuesta+'   '+idrespuesta);
+		j=i+1;
+		if(data[i].idrespuesta==idrespuesta && acierto==0)
+		{
+		html += '<div>';
+		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="h'+data[i].respuesta+'" onclick="evaluado('+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')">';
+		html += '  <label for="huey" style="color:red">'+data[i].respuesta+'</label>';
+		html += '</div>';
+		}
+		else if(data[i].idrespuesta==idrespuesta && acierto==1)
+		{
+		html += '<div>';
+		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="h'+data[i].respuesta+'" onclick="evaluado('+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')">';
+		html += '  <label for="huey" style="color:green">'+data[i].respuesta+'</label>';
+		html += '</div>';
+		}
+		else
+		{
+		html += '<div>';
+		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="h'+data[i].respuesta+'" onclick="evaluado('+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')">';
+		html += '  <label for="huey" >'+data[i].respuesta+'</label>';
+		html += '</div>';
+		}
+
+        }
+        $('#respuesta').html(html);
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+
+
 }
 
+function evaluado(acierto,idpregunta,idpersona,idrespuesta)
+{
+//	alert(acierto+' '+idpregunta+' '+idpersona);
+ $.ajax({
+        url: "<?php echo site_url('evaluado/save2') ?>",
+        data: {acierto:acierto,idpregunta:idpregunta,idpersona:idpersona,idrespuesta:idrespuesta},
+        method: 'POST',
+        async : false,
+        success: function(data){
+	alert("Evaluacion realizada");
 
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+
+}
 
 
 

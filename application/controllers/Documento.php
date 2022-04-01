@@ -80,23 +80,23 @@ class Documento extends CI_Controller{
 
 
 
-public function actual(){
+	public function actual(){
 
 
 
- // $data['documento_list']=$this->documento_model->lista_documento()->result();
-  $data['documento'] = $this->documento_model->documento( $this->uri->segment(3))->row_array();
-  $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-  $data['emisores'] =$this->documento_model->emisores($this->uri->segment(3))->result();
-  $data['destinatarios'] = $this->documento_model->destinatarios($data['documento']['iddocumento'])->result();
-	$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
-	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
-  	$data['documento_estados']= $this->documento_estado_model->lista_documento_estado()->result();
-  $data['title']="Documento";
-	$this->load->view('template/page_header');		
-  $this->load->view('documento_record',$data);
-	$this->load->view('template/page_footer');
-}
+	 // $data['documento_list']=$this->documento_model->lista_documento()->result();
+	  $data['documento'] = $this->documento_model->documento( $this->uri->segment(3))->row_array();
+	  $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+	  $data['emisores'] =$this->documento_model->emisores($this->uri->segment(3))->result();
+	  $data['destinatarios'] = $this->documento_model->destinatarios($data['documento']['iddocumento'])->result();
+		$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
+		$data['directorios'] = $this->directorio_model->lista_directorios()->result();
+		$data['documento_estados']= $this->documento_estado_model->lista_documento_estado()->result();
+	  $data['title']="Documento";
+		$this->load->view('template/page_header');		
+	  $this->load->view('documento_record',$data);
+		$this->load->view('template/page_footer');
+	}
 
 //////////////////////////////////
 // Listar todos los documentos 
@@ -485,12 +485,6 @@ public function get_directorio() {
 	echo json_encode($data);
 	}
 
-//        foreach($query->result() as $item)
-  //          $states[$item->iddirectorio] = $item->nombre;
-   // }
-
-   // $output = form_dropdown('iddirectorio', $states, set_select('--Select--','default_value'));
-   // echo $output;
 }
 
 

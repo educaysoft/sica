@@ -6,7 +6,7 @@
 
 
 <tr>
-<td> Institución </td>
+<td> Pregunta: </td>
 <td><?php 
 
 $options= array('--Select--');
@@ -22,6 +22,18 @@ foreach ($preguntas as $row){
 <td> Nombre </td>
 <td><?php echo form_input("respuesta","", array("placeholder"=>"Nombre de Respuesta"))  ?></td>
 </tr>
+
+<tr>
+<td> Acierto: </td>
+<td><?php 
+
+$options= array('Falso','Verdadero');
+
+ echo form_dropdown("acierto",$options, set_select('Falso','default_value'));  ?></td>
+</tr>
+
+
+
 
 <tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("respuesta","Atras") ?> </td>

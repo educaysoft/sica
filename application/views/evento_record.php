@@ -14,8 +14,8 @@ if(isset($evento))
         <li style="border-right:1px solid green"> <?php echo anchor('evento/delete/'.$evento['idevento'],'Delete'); ?></li>
         <li> <?php echo anchor('evento/listar/','Eventos'); ?></li>
         <li> <?php echo anchor('evento/listar_participantes/'.$evento['idevento'],'Certificados'); ?></li>
-        <li> <?php echo anchor('evento/listar_participantes/'.$evento['idevento'],'Asistencias'); ?></li>
-        <li> <?php echo anchor('evento/listar_participantes/'.$evento['idevento'],'Participacion'); ?></li>
+        <li> <?php echo anchor('asistencia','Asistencias'); ?></li>
+        <li> <?php echo anchor('participacion','Participacion'); ?></li>
 
 <?php 
 }else{
@@ -94,18 +94,6 @@ echo form_input($arrdatos) ?>
 		?>
 	</div> 
 </div>
-
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha de creación:</label>
-	<div class="col-md-10">
-
-      <?php echo form_input('fechacreacion',$evento['fechacreacion'],array('type'=>'date','placeholder'=>'fechacreacion','style'=>'width:500px;')) ?>
-	</div> 
-</div>
-
 
 
 <div class="form-group row">

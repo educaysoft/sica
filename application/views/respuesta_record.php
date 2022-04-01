@@ -62,7 +62,7 @@ echo form_input('idpregunta',$options[$respuesta['idpregunta']],array("disabled"
  
  
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Id respuesta:</label>
+    <label class="col-md-2 col-form-label">La respuesta:</label>
 	<div class="col-md-10">
      <?php 
      echo form_input('respuesta',$respuesta['respuesta'],array("disabled"=>"disabled",'placeholder'=>'Pregunta','style'=>'width:500px;')); 
@@ -71,7 +71,16 @@ echo form_input('idpregunta',$options[$respuesta['idpregunta']],array("disabled"
 	</div> 
 </div> 
  
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Acierto:</label>
+	<div class="col-md-10">
+     <?php 
+     echo form_input('acierto',$respuesta['acierto'],array("disabled"=>"disabled",'placeholder'=>'Acierto','style'=>'width:500px;')); 
 
+		?>
+	</div> 
+</div> 
+ 
   
 
 <?php echo form_close(); ?>

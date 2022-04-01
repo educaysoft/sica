@@ -41,12 +41,13 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Usted esta Creando un nuevo Evento";
-		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
-		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-	 	$this->load->view('template/page_header');		
-	 	$this->load->view('evento_form',$data);
-	 	$this->load->view('template/page_footer');
+	$data['title']="Usted esta Creando un nuevo Evento";
+	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['paginas']= $this->pagina_model->lista_paginas()->result();
+ 	$this->load->view('template/page_header');		
+ 	$this->load->view('evento_form',$data);
+ 	$this->load->view('template/page_footer');
 
 
 }
@@ -62,11 +63,12 @@ public function add()
 		 	'idevento_estado' => $this->input->post('idevento_estado'),
 		 	'idinstitucion' => $this->input->post('idinstitucion'),
 		 	'titulo' => $this->input->post('titulo'),
-			'fechacreacion' => $this->input->post('fechacreacion'),
 			'fechainicia' => $this->input->post('fechainicia'),
 			'fechafinaliza' => $this->input->post('fechafinaliza'),
 			'detalle' => $this->input->post('detalle'),
-	 	);
+			'idusuario' => $this->session->userdata['logged_in']['idusuario'],
+			'fecha' =>  date('Y-m-d H:i:s'),
+	 	);	 
 	 	$this->evento_model->save($array_item);
 	 	redirect('evento');
  	}
@@ -197,6 +199,7 @@ public function elprimero()
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+	$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
     	$data['title']="Evento";
     	$this->load->view('template/page_header');		
     	$this->load->view('evento_record',$data);
@@ -221,6 +224,7 @@ public function elultimo()
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+	$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
     	$data['title']="Evento";
     	$this->load->view('template/page_header');		
     	$this->load->view('evento_record',$data);
@@ -247,6 +251,7 @@ public function siguiente(){
 	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
   $data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
   $data['title']="Evento";
 	$this->load->view('template/page_header');		
@@ -262,6 +267,7 @@ public function anterior(){
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+	$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
   	$data['title']="Evento";
 	$this->load->view('template/page_header');		
   	$this->load->view('evento_record',$data);

@@ -10,7 +10,7 @@ class Pregunta extends CI_Controller{
 
 public function index(){
 
-  	$data['pregunta']=$this->pregunta_model->pregunta(1)->row_array();
+  	$data['pregunta']=$this->pregunta_model->elultimo();
   	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
   
  // print_r($data['usuario_list']);
@@ -46,16 +46,16 @@ public function add()
 
 
 
-public function edit()
-{
-	 	$data['pregunta'] = $this->pregunta_model->pregunta($this->uri->segment(3))->row_array();
-  	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
- 	 	$data['title'] = "Actualizar Pregunta";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('pregunta_edit',$data);
-	 	$this->load->view('template/page_footer');
- 
-}
+	public function edit()
+	{
+		$data['pregunta'] = $this->pregunta_model->pregunta($this->uri->segment(3))->row_array();
+		$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+		$data['title'] = "Actualizar Pregunta";
+		$this->load->view('template/page_header');		
+		$this->load->view('pregunta_edit',$data);
+		$this->load->view('template/page_footer');
+	 
+	}
 
 
 	public function  save_edit()
@@ -68,7 +68,7 @@ public function edit()
 			'idevaluacion' => $this->input->post('idevaluacion'),
 	 	);
 	 	$this->pregunta_model->update($id,$array_item);
-	 	redirect('pregunta');
+	 	redirect('pregunta/actual/'.$id);
  	}
 
 public function listar()
@@ -101,6 +101,26 @@ function pregunta_data()
 		echo json_encode($output);
 		exit();
 }
+
+
+
+	public function actual(){
+
+
+
+	 // $data['documento_list']=$this->documento_model->lista_documento()->result();
+	  	$data['pregunta'] = $this->pregunta_model->pregunta( $this->uri->segment(3))->row_array();
+  		$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+
+
+	  $data['title']="Preguntas:";
+		$this->load->view('template/page_header');		
+	  $this->load->view('pregunta_record',$data);
+		$this->load->view('template/page_footer');
+	}
+
+
+
 
 
 public function elprimero()
@@ -166,7 +186,7 @@ public function get_pregunta() {
     $this->load->helper('form');
     if($this->input->post('idpregunta')) {
         $this->db->select('*');
-        $this->db->where(array('idpregunta' => $this->input->post('idpregunta'), 'idevaluacion' => $this->input->post('idevaluacion')));
+        $this->db->where(array('idpregunta' => $this->input->post('idpregunta') ));
         $query = $this->db->get('pregunta');
 	$data=$query->result();
 	echo json_encode($data);
@@ -174,6 +194,19 @@ public function get_pregunta() {
 
 }
 
+
+public function get_preguntas() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->post('idevaluacion')) {
+        $this->db->select('*');
+        $this->db->where(array('idevaluacion' => $this->input->post('idevaluacion') ));
+        $query = $this->db->get('pregunta');
+	$data=$query->result();
+	echo json_encode($data);
+	}
+
+}
 
 
 
