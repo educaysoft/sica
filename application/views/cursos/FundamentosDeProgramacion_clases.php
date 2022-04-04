@@ -309,7 +309,7 @@ function get_evaluacion(idevaluacion) {
 		j=i+1;
 		html += '<div class="form-check form-check-inline">';
 		html += '<input class="form-check-input" type="checkbox" id="inlineCheckbox'+j+'" value="option1" onclick="get_pregunta('+data[i].idpregunta+')">'; 
-		html += '<label class="form-check-label" for="inlineCheckbox'+j+'">'+j+'</label>i';
+		html += '<label class="form-check-label" for="inlineCheckbox'+j+'">Pregunta-'+j+'</label>';
 		html += '</div>';
 	}
 
@@ -400,7 +400,6 @@ function get_pregunta(idpregunta) {
         var html = '';
         var i;
         for(i=0; i<data.length; i++){
-		alert(data[i].idrespuesta+'   '+idrespuesta);
 		j=i+1;
 		if(data[i].idrespuesta==idrespuesta && acierto==0)
 		{

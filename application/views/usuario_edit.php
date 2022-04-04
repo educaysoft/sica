@@ -48,12 +48,12 @@ echo form_dropdown('idpersona',$options,$usuario['idpersona']); ?></td>
   </tr> 
   <tr>
       <td>Email:</td>
-      <td><?php echo form_input('email',$usuario['email'],array('placeholder'=>'email')) ?></td>
+      <td><?php echo form_input('email',$usuario['email'],array('placeholder'=>'email','style'=>"width:500px;")) ?></td>
   </tr>
 
 <tr>
      <td>Inicio</td>
-     <td><?php echo form_input('inicio',$usuario['inicio'],array('placeholder'=>'Inicio')) ?></td>
+     <td><?php echo form_input(array('name'=>'inicio','id'=>'inicio','value'=>$usuario['inicio'],'placeholder'=>'Inicio','style'=>'width:500px;')) ?></td>
   </tr>
 
  

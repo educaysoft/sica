@@ -36,7 +36,43 @@ class Evento_model extends CI_model {
   // Para guardar un registro nuevo
 	function save($array)
  	{
+		$this->db->trans_begin();
 		$this->db->insert("evento", $array);
+		if($this->db->affected_rows()>0){
+			$idevento=$this->db->insert_id();
+			$namefile1="evento-".sprintf("%05d",$idevento).".php" ;
+			$namefile2="./application/views/eventos/".$namefile1 ;
+			if(!file_exists($namefile2)){
+				$archivo=fopen("$namefile2","w-b" );		
+				if($archivo == false)
+				{
+					$this->db->trans_rollback();
+					die("No se pudo guardar por que no se creo el achivo" );
+					return false;
+				}else{
+					fwrite($archivo,"Estamos probando\r\n" );
+					fclose($archivo);
+
+					$this->db->insert("pagina", array("nombre"=>$namefile1,"ruta"=>$namefile2));
+					if($this->db->affected_rows()>0){
+						$this->db->where('idevento',$idevento);
+						$this->db->update('evento',array('idpagina'=>$this->db->insert_id()));
+					}
+					$this->db->trans_commit();
+					die("Se guardo y se creo el archivo" );
+					return true;
+				}
+			}else{
+				$this->db->trans_commit();
+				die("Se guardo y  Ya existe el archivo" );
+				return true;
+			}
+		}else{
+			$this->db->trans_rollback();
+			die("No de pudo grabar" );
+			return false;
+		}
+
  	}
 
 	// Para actualiza un registro

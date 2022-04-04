@@ -39,8 +39,7 @@ if(isset($evento))
 	<div class="col-md-10">
 		<?php
 
-
-echo form_input('idevento',$evento['idevento'],array("disabled"=>"disabled",'placeholder'=>'ideventos','style'=>'width:500px;'))
+		echo form_input('idevento',$evento['idevento'],array("disabled"=>"disabled",'placeholder'=>'ideventos','style'=>'width:500px;'))
 
 		?>
 	</div> 

@@ -55,7 +55,7 @@ if(isset($curso))
     <label class="col-md-2 col-form-label"> duración:</label>
 	<div class="col-md-10">
 		<?php
-       echo form_input('duracion',$curso['duracion'],array('placeholder'=>'Duracion en horas','style'=>'width:500px;'));
+       		echo form_input('duracion',$curso['duracion'],array('placeholder'=>'Duracion en horas','style'=>'width:500px;'));
 		?>
 	</div> 
 </div>  

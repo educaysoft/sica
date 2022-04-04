@@ -76,6 +76,38 @@ public function add()
 
 
 
+	public function edit()
+	{
+			$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
+			$data['paginas']= $this->pagina_model->lista_paginas()->result();
+			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	    $data['title'] = "Actualizar Evento";
+			$this->load->view('template/page_header');		
+			$this->load->view('evento_edit',$data);
+			$this->load->view('template/page_footer');
+	 
+	}
+
+
+	public function  save_edit()
+	{
+		$id=$this->input->post('idevento');
+	 	$array_item=array(
+
+		 	'idevento_estado' => $this->input->post('idevento_estado'),
+		 	'idinstitucion' => $this->input->post('idinstitucion'),
+		 	'titulo' => $this->input->post('titulo'),
+			'fechacreacion' => $this->input->post('fechacreacion'),
+			'fechainicia' => $this->input->post('fechainicia'),
+			'fechafinaliza' => $this->input->post('fechafinaliza'),
+			'detalle' => $this->input->post('detalle'),
+			'idpagina' => $this->input->post('idpagina')
+	 	);
+	 	$this->evento_model->update($id,$array_item);
+	 	redirect('evento');
+ 	}
+
 
 
 public function actual(){
@@ -199,6 +231,7 @@ public function elprimero()
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+	$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
     	$data['title']="Evento";
     	$this->load->view('template/page_header');		
@@ -224,6 +257,7 @@ public function elultimo()
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+	$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
     	$data['title']="Evento";
     	$this->load->view('template/page_header');		
@@ -251,6 +285,7 @@ public function siguiente(){
 	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
   $data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
   $data['title']="Evento";
@@ -266,6 +301,7 @@ public function anterior(){
 	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['paginas']= $this->pagina_model->lista_paginas()->result();
   	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 	$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
   	$data['title']="Evento";
@@ -281,38 +317,6 @@ public function anterior(){
 
 
 
-
-public function edit()
-{
-	 	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
-		$data['paginas']= $this->pagina_model->lista_paginas()->result();
-		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
-		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-    $data['title'] = "Actualizar Evento";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('evento_edit',$data);
-	 	$this->load->view('template/page_footer');
- 
-}
-
-
-	public function  save_edit()
-	{
-		$id=$this->input->post('idevento');
-	 	$array_item=array(
-
-		 	'idevento_estado' => $this->input->post('idevento_estado'),
-		 	'idinstitucion' => $this->input->post('idinstitucion'),
-		 	'titulo' => $this->input->post('titulo'),
-			'fechacreacion' => $this->input->post('fechacreacion'),
-			'fechainicia' => $this->input->post('fechainicia'),
-			'fechafinaliza' => $this->input->post('fechafinaliza'),
-			'detalle' => $this->input->post('detalle'),
-			'idpagina' => $this->input->post('idpagina')
-	 	);
-	 	$this->evento_model->update($id,$array_item);
-	 	redirect('evento');
- 	}
 
 
 

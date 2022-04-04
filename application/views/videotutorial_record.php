@@ -23,62 +23,85 @@
 
 <?php echo form_open('videotutorial/save_edit') ?>
 <?php echo form_hidden('idvideotutorial',$videotutorial['idvideotutorial']) ?>
-<table>
 
-  
- 
-<tr>
-     <td>Instructor:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($instructores as $row){
-	$options[$row->idinstructor]= $row->elinstructor;
-}
-
-echo form_input('idinstructor',$options[$videotutorial['idinstructor']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
-  </tr>
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Instructor:</label>
+	<div class="col-md-10">
+	<?php
+	$options= array("NADA");
+	foreach ($instructores as $row){
+		$options[$row->idinstructor]= $row->elinstructor;
+	}
+echo form_input('idinstructor',$options[$videotutorial['idinstructor']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div> 
 
 
-
-  <tr>
-     <td>Id:</td>
-     <td><?php echo form_input('idvideotutorial',$videotutorial['idvideotutorial'],array("disabled"=>"disabled",'placeholder'=>'Idvideotutorials','style'=>'width:500px;')) ?></td>
-  </tr>
- 
- <tr>
-      <td>Nombres:</td>
-      <td><?php echo form_input('nombre',$videotutorial['nombre'],array('placeholder'=>'Nombre del videotutorial','style'=>'width:500px;')) ?></td>
-  </tr>
-
-  <tr>
-      <td>Duración:</td>
-      <td><?php echo form_input('duracion',$videotutorial['duracion'],array('placeholder'=>'Duracion del videotutorial','style'=>'width:500px;')) ?></td>
-  </tr>
-  <tr>
-      <td>Enlace:</td>
-      <td><?php echo form_textarea('enlace',$videotutorial['enlace'],array('placeholder'=>'Enlace para compartir')) ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id:</label>
+	<div class="col-md-10">
+	<?php
+     echo form_input('idvideotutorial',$videotutorial['idvideotutorial'],array("disabled"=>"disabled",'placeholder'=>'Idvideotutorials','style'=>'width:500px;')); 
+		?>
+	</div> 
+</div> 
 
 
- 
-<tr>
-     <td>Evaluacion:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($evaluaciones as $row){
-	$options[$row->idevaluacion]= $row->nombre;
-}
 
-echo form_input('idevaluacion',$options[$videotutorial['idevaluacion']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Nombres:</label>
+	<div class="col-md-10">
+	<?php
+
+       echo form_input('nombre',$videotutorial['nombre'],array('placeholder'=>'Nombre del videotutorial','style'=>'width:500px;'));
+		?>
+	</div> 
+</div> 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Duración:</label>
+	<div class="col-md-10">
+	<?php
+       echo form_input('duracion',$videotutorial['duracion'],array('placeholder'=>'Duracion del videotutorial','style'=>'width:500px;'));
+		?>
+	</div> 
+</div> 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Enlace:</label>
+	<div class="col-md-10">
+	<?php
+       echo form_textarea('enlace',$videotutorial['enlace'],array('placeholder'=>'Enlace para compartir'));
+		?>
+	</div> 
+</div> 
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Evaluación:</label>
+	<div class="col-md-10">
+	<?php
+	$options= array("NADA");
+	foreach ($evaluaciones as $row){
+		$options[$row->idevaluacion]= $row->nombre;
+	}
+	echo form_input('idevaluacion',$options[$videotutorial['idevaluacion']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
+	</div> 
+</div> 
 
 
 
    
    
 
-</table>
 <?php echo form_close(); ?>
 
 
