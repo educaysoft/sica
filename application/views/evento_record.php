@@ -133,7 +133,7 @@ echo form_input($arrdatos) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Participantes ( <?php echo anchor('evento/add', 'New'); ?>):</label>
+    <label class="col-md-2 col-form-label"> Participantes ( <?php echo anchor('participante/add', 'New'); ?>):</label>
       <?php
  	$options = array();
   	foreach ($participantes as $row){

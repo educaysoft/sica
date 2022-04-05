@@ -13,6 +13,9 @@ $detalle=$_POST["asunto"];
 $modelo=$_POST["modelo"];  //Modelo de certificado 
 $archivo=$_POST["archivo"];  //Nombre del archivo generado 
 $ruta=$_POST["ruta"];
+$posix=$_POST["posix"];
+$posiy=$_POST["posiy"];
+$posif=216;
 // initiate FPDI
 $pdf = new Fpdi();
 
@@ -53,11 +56,16 @@ $mid_x=148;
 	// now write some text above the imported page
 $pdf->SetFont('Helvetica','B',20);
 $pdf->SetTextColor(0, 0,255);
-$pdf->SetXY(24, 86);
-$pdf->Text($mid_x-($pdf->GetStringWidth($participante)/2),90,$participante);
+//$pdf->SetXY(24, 86);
+$pdf->SetXY($posix,$posiy);
+$espacio_impresion=$posif-$posix;
+$realposix=$posix+($espacio_impresion/2-($pdf->GetStringWidth($participante)/2));
+
+$pdf->Text($realposix,$posiy,$participante);
+//$pdf->Text($mid_x-($pdf->GetStringWidth($participante)/2),$posiy,$participante);
 //$pdf->Write(0, $participante);
-$pdf->SetXY(35, 105);
-$pdf->Write(0, $detalle);
+//$pdf->SetXY(35, 105);
+//$pdf->Write(0, $detalle);
 }
 //$pdf->Output('I', 'generated.pdf');
 $archivo=str_replace("'","",$archivo);

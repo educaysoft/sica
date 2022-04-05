@@ -108,6 +108,21 @@ echo form_input('iddocumento',$options[$certificado['iddocumento']],array("disab
   </tr>
 
 
+<tr>
+      <td>posi nombre X:</td>
+      <td><?php
+  $eys_arrctl=array("name"=>'posi_nomb_x','value'=>$certificado['posi_nomb_x'],"disabled"=>"disabled",'placeholder'=>'Posicion de nombre en x','style'=>'width:600px;');
+ echo form_input($eys_arrctl) ?></td>
+</tr>
+
+<tr>
+      <td>posi nombre Y:</td>
+      <td><?php
+  $eys_arrctl=array("name"=>'posi_nomb_y','value'=>$certificado['posi_nomb_y'],"disabled"=>"disabled",'placeholder'=>'Posicion de nombre en y','style'=>'width:600px;');
+ echo form_input($eys_arrctl) ?></td>
+</tr>
+
+
 </table>
 <?php echo form_close(); ?>
 

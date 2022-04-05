@@ -36,7 +36,7 @@ if(isset($documento))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('tipodocu/elprimero/', 'Tipo de documentos'); ?> :</label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('tipodocu/elprimero/', 'Tipo documento'); ?> :</label>
      	<?php 
 	$options= array("NADA");
 	foreach ($tipodocus as $row){
@@ -52,7 +52,7 @@ if(isset($documento))
 </div> 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id:</label>
+  <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
 		<?php
       		echo form_input('iddocumento',$documento['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'iddocumentos','style'=>'width:500px;')) 

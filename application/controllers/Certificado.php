@@ -45,7 +45,7 @@ public function  save()
 	 	$array_item=array(
 	 	'idcertificado' => $this->input->post('idcertificado'),
 	 	'idevento' => $this->input->post('idevento'),
-	 	'tipodocu' => $this->input->post('tipodocu'),
+	 	'idtipodocu' => $this->input->post('idtipodocu'),
 	 	'iddocumento' => $this->input->post('iddocumento'),
 	 	'propietario' => $this->input->post('propietario'),
 	 	'archivo' => $this->input->post('archivo'),
@@ -78,6 +78,8 @@ public function edit()
 		 	'idcertificado' => $this->input->post('idcertificado'),
 		 	'idtipodocu' => $this->input->post('idtipodocu'),
 		 	'propietario' => $this->input->post('propietario'),
+		 	'posi_nomb_x' => $this->input->post('posi_nomb_x'),
+		 	'posi_nomb_y' => $this->input->post('posi_nomb_y'),
 	 	);
 	 	$this->certificado_model->update($id,$array_item);
 	 	redirect('certificado');

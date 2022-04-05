@@ -173,4 +173,25 @@ public function anterior(){
 
 
 
+public function get_tipodocu() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->post('idtipodocu')) {
+        $this->db->select('*');
+        $this->db->where(array('idtipodocu' => $this->input->post('idtipodocu')));
+        $query = $this->db->get('documento');
+	$data=$query->result();
+	echo json_encode($data);
+	}
+
+}
+
+
+
+
+
+
+
+
+
 }

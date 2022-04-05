@@ -3,41 +3,50 @@
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open("participante/save") ?>
-<table>
+<?php echo form_open("participante/save",array('id'=>'eys-form')) ?>
 
-
-<tr>
-<td> Evento: </td>
-<td><?php 
+<div class="form-group row">
+  <label class="col-md-2 col-form-label"> Evento:</label>
+	<div class="col-md-10">
+		<?php
 
 $options= array('--Select--');
 foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
 }
+ echo form_dropdown("idevento",$options, set_select('--Select--','default_value'));  
+		?>
+	</div> 
+</div> 
 
- echo form_dropdown("idevento",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
-
-
-
-
-<tr>
-<td> Participante: </td>
-<td><?php
+<div class="form-group row">
+  <label class="col-md-2 col-form-label">Participante:</label>
+	<div class="col-md-10">
+		<?php
 $options= array('--Select--');
 foreach ($personas as $row){
-	$options[$row->idpersona]= $row->nombres;
+	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
+ echo form_dropdown("idpersona",$options, set_select('--Select--','default_value')); 
+		?>
+	</div> 
+</div> 
 
- echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
 
 
-<tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("participante","Atrás") ?> </td>
-</tr>
+<div id="eys-nav-i">
 
-</table>
+	<ul>
+   	 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
+    		<li> <?php echo anchor('participante', 'Cancelar'); ?></li>
+	</ul>
+</div> 
+
+
+
+
 <?php echo form_close();?>
+
+
+
 

@@ -32,6 +32,7 @@ class Participante_model extends CI_model {
  	{
  		$this->db->where('idparticipante',$id);
  		$this->db->update('participante',$array_item);
+    return true;
 	}
  
 

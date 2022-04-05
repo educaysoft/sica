@@ -62,8 +62,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 
-
-
  <div class="modal-footer">
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 </div>
@@ -99,7 +97,7 @@ $('#show_data').on('click','.item_ver',function(){
         alert(thrownError);
       }
 	});
-         alert(archivo);
+    //     alert(archivo);
 	if(archivo != ''){
  		var ordenador = "https://"+$(this).data('ordenador');
 		var ubicacion=$(this).data('ruta');
@@ -131,7 +129,7 @@ $('#show_data').on('click','.item_gene',function(){
 var iddocumento=0;	
 var idtipodocu= $(this).data('idtipodocu');
 
-alert(iddocumento);
+//alert(iddocumento);
 var asunto="CERTIFICADO - "+$(this).data('titulo');
 
 let fechaelaboracion=$(this).data('fechafinaliza');
@@ -142,6 +140,11 @@ var iddirectorio=$(this).data('iddirectorio');
 var iddocumento_estado=1;
 var idpersona=$(this).data('idpersona');
 var idparticipante=$(this).data('idparticipante');
+
+var posix=$(this).data('posix');
+var posiy=$(this).data('posiy');
+alert(posix);
+alert(posiy);
 
 var iddocumento2=$(this).data('iddocumento2');
 var maquina=$(this).data('elordenador');
@@ -183,22 +186,6 @@ if(iddocumento2==0)
 	  alert(ruta);
 	  alert(asunto);
   
-/*	  $.ajax({
-	  url: "http://"+maquina+"/FPDI/certificado.php",
-	  data: {asunto:asunto,participante:participante,maquina:maquina,rura:ruta,modelo:modelo,archivo:archivo},
-	  method: 'POST',
-	  async : false,
-	dataType : 'json',
-	  success: function(data) {
-		  	return true;
-	},
-      error: function (xhr, ajaxOptions, thrownError){ 
-        alert(xhr.status);
-        alert(thrownError);
-      }
-	});
- */
-
 
 //	url= "http://"+maquina+"/FPDI/certificado.php?asunto='"+asunto+"'&participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'";
 
@@ -210,13 +197,15 @@ if(iddocumento2==0)
     formData.append("maquina", maquina);
     formData.append("ruta", ruta);
     formData.append("archivo", archivo);
+    formData.append("posix", posix);
+    formData.append("posiy", posiy);
 
 
 
-	  url= "http://"+maquina+"/FPDI/certificado.php";
-       alert(url);
-    var xhttp = new XMLHttpRequest();
-	  xhttp.open("POST",url,false);
+	url= "http://"+maquina+"/FPDI/certificado.php";
+//        alert(url);
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("POST",url,false);
     	xhttp.send(formData);
 	xhttp.onreadystatechange = function(){
 
@@ -267,8 +256,6 @@ if(iddocumento2==0)
 		async : false,
 		dataType : 'json',
 		success: function(data){
-
-
 
 				var maquina1 = "https://"+maquina;
 

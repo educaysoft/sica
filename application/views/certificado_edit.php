@@ -62,6 +62,24 @@ foreach ($documentos as $row){
  echo form_dropdown("iddocumento",$options, $certificado['iddocumento']);  ?></td>
 </tr>
 
+<tr>
+     <td>Posicion X:</td>
+     <td><?php 
+
+
+$eys_arrinput=array('name'=>'posi_nomb_x','value'=>$certificado['posi_nomb_x'], "style"=>"width:500px");
+echo form_input($eys_arrinput); ?></td>
+  </tr>
+
+
+<tr>
+     <td>Posicion Y:</td>
+     <td><?php 
+
+
+$eys_arrinput=array('name'=>'posi_nomb_y','value'=>$certificado['posi_nomb_y'], "style"=>"width:500px");
+echo form_input($eys_arrinput); ?></td>
+  </tr>
 
 
 

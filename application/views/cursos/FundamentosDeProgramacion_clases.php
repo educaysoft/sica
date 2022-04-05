@@ -359,7 +359,6 @@ function get_pregunta(idpregunta) {
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
 	var idrespuesta=0;
 	var acierto=0;
-	alert(idpersona+" "+idpregunta);
     $.ajax({
         url: "<?php echo site_url('evaluado/get_evaluado') ?>",
         data: {idpersona:idpersona,idpregunta:idpregunta},
@@ -367,7 +366,6 @@ function get_pregunta(idpregunta) {
         async : false,
         dataType : 'json',
         success: function(data){
-	alert(data[0].idrespuesta);	
 	if(typeof data[0].idrespuesta !== 'undefined'){
 		idrespuesta = data[0].idrespuesta;
 		acierto = data[0].acierto;
