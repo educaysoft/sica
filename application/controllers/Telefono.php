@@ -15,7 +15,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
 		$data['telefono'] = $this->telefono_model->elprimero();
-  		$data['personas']= $this->persona_model->lista_persona()->result();
+  		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
   		$data['telefono_estados']= $this->telefono_estado_model->lista_telefono_estado()->result();
 			
@@ -38,7 +38,7 @@ public function actual(){
  if(isset($this->session->userdata['logged_in'])){
 
 	$data['telefono'] = $this->telefono_model->telefono($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
   	$data['telefono_estados']= $this->telefono_estado_model->lista_telefono_estado()->result();
 	$data['title']="Modulo de Telefonos";
@@ -59,7 +59,7 @@ public function actual(){
 
 	public function add()
 	{
-		$data['personas']= $this->persona_model->lista_persona()->result();
+		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
   		$data['telefono_estados']= $this->telefono_estado_model->lista_telefono_estado()->result();
 		$data['title']="Nueva Telefono";
@@ -89,7 +89,7 @@ public function actual(){
 public function edit()
 {
 	 	$data['telefono'] = $this->telefono_model->telefono($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_persona()->result();
+		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
   		$data['telefono_estados']= $this->telefono_estado_model->lista_telefono_estado()->result();
  	 	$data['title'] = "Actualizar Telefono";
@@ -172,7 +172,7 @@ public function elprimero()
 	$data['telefono'] = $this->telefono_model->elprimero();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
   	$data['telefono_estados']= $this->telefono_estado_model->lista_telefono_estado()->result();
     $data['title']="Telefono";
@@ -191,7 +191,7 @@ public function elultimo()
 	$data['telefono'] = $this->telefono_model->elultimo();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
   	$data['telefono_estados']= $this->telefono_estado_model->lista_telefono_estado()->result();
     $data['title']="Telefono";
@@ -210,7 +210,7 @@ public function elultimo()
 public function siguiente(){
  // $data['telefono_list']=$this->telefono_model->lista_telefono()->result();
 	$data['telefono'] = $this->telefono_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
   	$data['telefono_estados']= $this->telefono_estado_model->lista_telefono_estado()->result();
   $data['title']="Telefono";
@@ -222,7 +222,7 @@ public function siguiente(){
 public function anterior(){
  // $data['telefono_list']=$this->telefono_model->lista_telefono()->result();
 	$data['telefono'] = $this->telefono_model->anterior($this->uri->segment(3))->row_array();
- 	$data['personas']= $this->persona_model->lista_persona()->result();
+ 	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
   	$data['telefono_estados']= $this->telefono_estado_model->lista_telefono_estado()->result();
   $data['title']="Telefono";
