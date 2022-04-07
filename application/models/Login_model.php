@@ -21,7 +21,7 @@ Class Login_model extends CI_Model {
 	public function nuevo_correo($data)
 	{
 
-		$condition = "nombre =" .  $data['nombre'];
+		$condition = "nombre ='" .  $data['nombre']."'";
 		$this->db->select('*');
 		$this->db->from('correo');
 		$this->db->where($condition);

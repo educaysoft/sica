@@ -62,8 +62,15 @@ class Participacion extends CI_Controller{
 		 	'porcentaje' => $this->input->post('porcentaje'),
 		 	'comentario' => $this->input->post('comentario'),
 	 	);
-	 	$this->participacion_model->save($array_item);
-	 	//redirect('participacion');
+	 	$result=$this->participacion_model->save($array_item);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('No se guardo la parcipación'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-1);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-1);</script>";
+		}
+  	//redirect('participacion');
  	}
 
 
@@ -73,7 +80,7 @@ class Participacion extends CI_Controller{
 	 	$data['participacion'] = $this->participacion_model->participacion($this->uri->segment(3))->row_array();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['tipoparticipaciones']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
  	 	$data['title'] = "Actualizar Participacion";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('participacion_edit',$data);
@@ -83,13 +90,15 @@ class Participacion extends CI_Controller{
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idparticipacion');
 	 	$array_item=array(
-		 	'idevento' => $this->input->post('idevento'),
 		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'idevento' => $this->input->post('idevento'),
+		 	'fecha' => $this->input->post('fecha'),
+		 	'idtipoparticipacion' => $this->input->post('idtipoparticipacion'),
+		 	'porcentaje' => $this->input->post('porcentaje'),
+		 	'comentario' => $this->input->post('comentario'),
 	 	);
-	 	$this->participacion_model->update($id,$array_item);
+	 	$this->participacion_model->update($array_item);
 	 	redirect('participacion');
  	}
 
@@ -137,6 +146,21 @@ function participacion_data()
 		);
 		echo json_encode($output);
 		exit();
+}
+
+
+public function reporte()
+{
+
+	$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+  $data['participacion'] = $this->participacion_model->listar_participacion1()->result();
+  $data['title']="Certificado";
+	$this->load->view('template/page_header');		
+  $this->load->view('participacion_report',$data);
+	$this->load->view('template/page_footer');
+
+
+
 }
 
 
@@ -341,7 +365,7 @@ public function get_participacionp() {
 		echo json_encode($data);
 	}else{
 
-		$this->db->select('idtipoparticipacion,nombre as tipoparticipacion, "" as comentario');
+		$this->db->select('idtipoparticipacion,nombre as eltipoparticipacion, "" as comentario');
 		$query = $this->db->get('tipoparticipacion');
 
 		$data=$query->result();

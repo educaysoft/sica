@@ -32,12 +32,17 @@ class Participacion_model extends CI_model {
 		$query=$this->db->get('participacion');
 		if($query->num_rows()==0){
 			$this->db->insert("participacion", $array);
-		}
+      return TRUE;
+    }else{
+      return FALSE;
+    }
  	}
 
- 	function update($id,$array_item)
+ 	function update($array_item)
  	{
- 		$this->db->where('idparticipacion',$id);
+ 		$this->db->where('idpersona',$array_item['idpersona']);
+ 		$this->db->where('fecha',$array_item['fecha']);
+ 		$this->db->where('idevento',$array_item['idevento']);
  		$this->db->update('participacion',$array_item);
 	}
  

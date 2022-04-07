@@ -38,10 +38,20 @@ if(isset($participacion))
 <br>
 
 
-<?php echo form_hidden('idevento',$participacion['idevento']) ?>
+<?php echo form_hidden('idparticipacion',$participacion['idparticipacion']) ?>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id participacion:</label>
+	<div class="col-md-10">
+		<?php
+      echo form_input('idparticipacion',$participacion['idparticipacion'],array("disabled"=>"disabled",'placeholder'=>'Ideventos','style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
+
+
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha de participacion:</label>
+    <label class="col-md-2 col-form-label"> Fecha participacion:</label>
 	<div class="col-md-10">
 		<?php
       		 echo form_input('fecha',$participacion['fecha'],array('type'=>'date','placeholder'=>'fecha','style'=>'width:500px;')) 

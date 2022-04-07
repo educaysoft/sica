@@ -25,7 +25,24 @@ class Participante_model extends CI_model {
 
  	function save($array)
  	{
-		$this->db->insert("participante", $array);
+
+		$this->db->select('*');
+		$this->db->from('participante');
+		$this->db->where('idevento',$array['idevento']);
+		$this->db->where('idpersona',$array['idpersona']);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+		    $this->db->insert("participante", $array);
+			if($this->db->affected_rows()==1){
+				$result=TRUE;
+      }else{
+				$result=FALSE;
+      }
+    }else{
+				$result=FALSE;
+    }
+
  	}
 
  	function update($id,$array_item)

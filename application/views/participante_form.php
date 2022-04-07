@@ -20,7 +20,7 @@ foreach ($eventos as $row){
 </div> 
 
 <div class="form-group row">
-  <label class="col-md-2 col-form-label">Participante:</label>
+  <label class="col-md-2 col-form-label">Participante (<?php echo anchor('persona/add', 'Nuevo'); ?>):</label>
 	<div class="col-md-10">
 		<?php
 $options= array('--Select--');

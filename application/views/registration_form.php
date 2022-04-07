@@ -33,6 +33,19 @@
 				</header>
 				<div class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
 					<?php
+            $idinstitucion=0;
+            $idevento=0;
+            if(isset($_GET['idinstitucion']))
+            {
+              $idinstitucion=$_GET['idinstitucion'];
+            }
+
+            if(isset($_GET['idevento']))
+            {
+              $idevento=$_GET['idevento'];
+            }
+
+
 						echo form_open('login/new_user_registration');
 					?>
 
@@ -185,13 +198,31 @@
 </section>
 
 <script>
+
+$(document).ready(()=>{
+  var idinstitucion= <?php echo $idinstitucion; ?>;
+  var idevento= <?php echo $idevento; ?>;
+  if(idinstitucion>0){
+  $('#idinstitucion option[value="'+idinstitucion+'"]').attr('selected','selected');
+  get_evento();
+  }
+  if(idevento>0){
+            $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
+  }
+
+ // document.getElementById("idinstitucion").disabled=false;
+ // document.getElementById("idevento").disabled=false;
+
+        });     
+
+
 function get_evento() {
 	var idinstitucion = $('select[name=idinstitucion]').val();
     $.ajax({
         url: "<?php echo site_url('evento/get_evento') ?>",
         data: {idinstitucion: idinstitucion},
         method: 'POST',
-	async : true,
+	      async : false,
         dataType : 'json',
         success: function(data){
         var html = '';

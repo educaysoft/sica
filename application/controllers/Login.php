@@ -84,7 +84,7 @@ $dataparticipante+=['idevento'=>$this->input->post("idevento"),'idpersona'=>0];
 $datatelefono=array('idpersona'=>0,'numero'=>$this->input->post('telefono'),'idoperadora'=>1,'idtelefono_estado'=>1);
 
 //correo
-$datacorreo=array('idpersona'=>0,'nombre'=>$this->input->post('correo'),'idcorreo_estado'=>1);
+$datacorreo=array('idpersona'=>0,'nombre'=>$this->input->post('email'),'idcorreo_estado'=>1);
 
 $result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono);
 if ($result == TRUE) {
