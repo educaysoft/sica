@@ -7,7 +7,7 @@ class Participacion_model extends CI_model {
 	}
 
 	function listar_participacion1($idevento){
-    if$idevento>0)
+    if($idevento>0)
     {
 		 $this->db->order_by("idevento","fecha");
  		$this->db->where('idevento',$idevento);
