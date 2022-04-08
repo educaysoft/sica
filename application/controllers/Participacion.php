@@ -314,6 +314,7 @@ public function get_participantes() {
     if($this->input->post('idevento')) 
     {
         $this->db->select('*');
+		    $this->db->order_by("nombres","asc");
         $this->db->where(array('idevento' => $this->input->post('idevento')));
         $query = $this->db->get('participante1');
 	$data=$query->result();
