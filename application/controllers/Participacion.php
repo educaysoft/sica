@@ -133,7 +133,7 @@ function participacion_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->participacion_model->listar_participacion1();
+	 	$data0 = $this->participacion_model->listar_participacion1(0);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idparticipacion,$r->elevento,$r->lapersona,$r->fecha,$r->tipoparticipacion,
@@ -153,7 +153,7 @@ public function reporte()
 {
 
 	$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
-  $data['participacion'] = $this->participacion_model->listar_participacion1()->result();
+  $data['participacion'] = $this->participacion_model->listar_participacion1($this->uri->segment(3))->result();
   $data['title']="Certificado";
 	$this->load->view('template/page_header');		
   $this->load->view('participacion_report',$data);

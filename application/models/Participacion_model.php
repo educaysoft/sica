@@ -6,11 +6,21 @@ class Participacion_model extends CI_model {
 		 return $participacion;
 	}
 
-	function listar_participacion1(){
+	function listar_participacion1($idevento){
+    if$idevento>0)
+    {
+		 $this->db->order_by("idevento","fecha");
+ 		$this->db->where('idevento',$idevento);
+		 $participacion= $this->db->get('participacion1');
+   }else{
+  
 		 $this->db->order_by("idevento","fecha");
 		 $participacion= $this->db->get('participacion1');
-		 return $participacion;
+  
+   }
+     return $participacion;
 	}
+
 
  	function participacion( $id){
  		$participacion = $this->db->query('select * from participacion where idparticipacion="'. $id.'"');
