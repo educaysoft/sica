@@ -108,7 +108,7 @@ echo form_input($arrdatos) ?>
       <?php
  	$options = array();
   	foreach ($fechaeventos as $row){
-		$options[$row->idfechaevento]=$row->fecha;
+		$options[$row->idfechaevento]=$row->fecha." :: ". $row->tema;
 	}
 
 	?>
@@ -195,6 +195,27 @@ echo form_input($arrdatos) ?>
 echo form_input($arrdatos) ?>
 	</div> 
 </div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Duración:</label>
+	<div class="col-md-10">
+     <?php echo form_input('duracion',$evento['duracion'],array("disabled"=>"disabled",'placeholder'=>'duracion','style'=>'width:500px;')) 
+		?>
+	</div> 
+</div>
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Costo:</label>
+	<div class="col-md-10">
+     <?php echo form_input('costo',$evento['costo'],array("disabled"=>"disabled",'placeholder'=>'costo','style'=>'width:500px;')) 
+		?>
+	</div> 
+</div>
+
+
+
+
 
 <?php echo form_close(); ?>
 

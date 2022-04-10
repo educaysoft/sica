@@ -89,9 +89,15 @@ foreach ($paginas as $row){
 
 
 
+<tr>
+     <td>Duración:</td>
+     <td><?php echo form_input(array("name"=>'duracion','id'=>'duracion','value'=>$evento['duracion'],'placeholder'=>'Duración')) ?></td>
+  </tr>
 
-
-
+<tr>
+     <td>Costo:</td>
+     <td><?php echo form_input(array("name"=>'costo','id'=>'costo','value'=>$evento['costo'],'placeholder'=>'Costo')) ?></td>
+  </tr>
 
 
 

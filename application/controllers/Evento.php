@@ -68,6 +68,8 @@ public function add()
 			'detalle' => $this->input->post('detalle'),
 			'idusuario' => $this->session->userdata['logged_in']['idusuario'],
 			'fecha' =>  date('Y-m-d H:i:s'),
+			'duracion' => $this->input->post('duracion'),
+			'costo' => $this->input->post('costo'),
 	 	);	 
 	 	$this->evento_model->save($array_item);
 	 	redirect('evento');
@@ -102,7 +104,9 @@ public function add()
 			'fechainicia' => $this->input->post('fechainicia'),
 			'fechafinaliza' => $this->input->post('fechafinaliza'),
 			'detalle' => $this->input->post('detalle'),
-			'idpagina' => $this->input->post('idpagina')
+			'idpagina' => $this->input->post('idpagina'),
+			'duracion' => $this->input->post('duracion'),
+			'costo' => $this->input->post('costo'),
 	 	);
 	 	$this->evento_model->update($id,$array_item);
 	 	redirect('evento');
@@ -299,6 +303,7 @@ public function add()
 public function detalle()
 {
 		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
+		$data['fechaeventos'] = $this->fechaevento_model->fechaeventos($this->uri->segment(3))->result();
 
     $this->load->view('eventos/evento',$data);
 

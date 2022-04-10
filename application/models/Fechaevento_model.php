@@ -19,7 +19,7 @@ class Fechaevento_model extends CI_model {
 
 
  	function fechaeventos( $id){
- 		$fechaevento = $this->db->query('select * from fechaevento where idevento="'. $id.'"');
+ 		$fechaevento = $this->db->query('select * from fechaevento where idevento="'. $id.'" order by fecha');
  		return $fechaevento;
  	}
 
