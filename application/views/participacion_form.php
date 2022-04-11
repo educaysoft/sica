@@ -1,7 +1,7 @@
 
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("participacion/save",array('id'=>'eys-form')); ?>
+<?php echo form_open(); ?>
 <br>
 
 
@@ -22,13 +22,20 @@ foreach ($eventos as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Fecha:</label>
+<label class="col-md-2 col-form-label">Evento:</label>
 <div class="col-md-10">
 <?php
- echo form_input(array("name"=>"fecha","id"=>"fecha","type"=>"date"));  
+
+$options= array('--Select--');
+foreach ($fechaeventos as $row){
+	$options[$row->idfechaevento]= $row->fecha;
+}
+ echo form_dropdown("idfechaevento",$options, set_select('--Select--','default_value'),array('id'=>'idfechaevento','onchange'=>'get_participantes2()'));  
+
 ?>
 </div>
 </div>
+
 
 
 
@@ -36,7 +43,7 @@ foreach ($eventos as $row){
 <label class="col-md-2 col-form-label">Participantes:</label>
 <div class="col-md-10">
 
-         <select class="form-control" id="idpersona" name="idpersona" multiple required size="10" onChange='get_participacion()'>
+         <select class="form-control" id="idpersona" name="idpersona" multiple="multiple" required size="20" style="height: 100%;" onChange='get_participacion()'>
                  <option>No Selected</option>
           </select>
   </div>
@@ -66,6 +73,8 @@ foreach ($tipoparticipacions as $row){
 <div class="col-md-10">
 <?php
  echo form_input(array("name"=>"porcentaje","id"=>"porcentaje","type"=>"text"));
+ echo '<span id="demo" onclick="save_nota()">Guardar nota.</span>';
+
 ?>
 </div>
 </div>
@@ -82,12 +91,7 @@ echo form_textarea("comentario","",$textarea_options);
 </div>
 </div>
 
-<div id="eys-nav-i">
-	<ul>
-		<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
-    		<li> <?php echo anchor('documento', 'Cancelar'); ?></li>
-	</ul>
-</div>
+
 
 
 <?php echo form_close();?>
@@ -95,6 +99,24 @@ echo form_textarea("comentario","",$textarea_options);
 
 
   <script>
+
+
+$(document).ready(()=>{
+  var idevento= <?php echo $idevento; ?>;
+  if(idevento>0){
+            $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
+            get_participantes();
+  }
+
+
+   });     
+
+
+
+
+
+
+
 function get_participantes() {
 	var idevento = $('select[name=idevento]').val();
     $.ajax({
@@ -106,7 +128,7 @@ function get_participantes() {
         success: function(data){
         var html = '';
         var i;
-	document.getElementById('idpersona').setAttribute('size',"'"+data.length+"'");
+	document.getElementById('idpersona').setAttribute('size',"'"+data.length*2+"'");
         for(i=0; i<data.length; i++){
         html += '<option value='+data[i].idpersona+'>'+data[i].nombres+'</option>';
         }
@@ -124,12 +146,58 @@ function get_participantes() {
 }
 
 
+
+
+
+
+
+
+function get_participantes2() {
+	var idevento = $('select[name=idevento]').val();
+	var f = document.getElementById("idfechaevento");
+  var fecha=f.options[f.selectedIndex].text;
+alert(idevento);
+alert(fecha);
+    if(fecha=="--Select--"){
+      alert("debe seleccionar una fecha");
+   }else{
+    $.ajax({
+        url: "<?php echo site_url('participacion/get_participantes2') ?>",
+        data: {idevento:idevento,fecha:fecha},
+        method: 'POST',
+	      async : false,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        var l=data.length+1;
+        document.getElementById('idpersona').setAttribute('size',"'"+l+"'");
+        for(i=0; i<data.length; i++){
+        html += '<option value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].porcentaje+'</option>';
+        }
+        $('#idpersona').html(html);
+
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+}
+}
+
+
+
+
+
 function get_participacion() {
-	var fecha = document.getElementById("fecha").value;
+	var f = document.getElementById("idfechaevento");
+  var fecha=f.options[f.selectedIndex].text;
 	var idevento=document.getElementById("idevento").value;
 //	var idpersona= $('select[name=idpersona]').val();
 	var idpersona=document.getElementById("idpersona").value;
-	alert(idpersona);
     $.ajax({
         url: "<?php echo site_url('participacion/get_participacionp') ?>",
         data: {idevento:idevento,fecha:fecha,idpersona:idpersona},
@@ -185,6 +253,7 @@ function get_participacion2() {
         success: function(data){
         var html = '';
         var i;
+        get_participantes2();
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
@@ -194,6 +263,53 @@ function get_participacion2() {
     })
 
 }
+
+
+
+
+function save_nota() {
+	var f = document.getElementById("idfechaevento");
+  var fecha=f.options[f.selectedIndex].text;
+	var idevento=document.getElementById("idevento").value;
+	var idtipoparticipacion=document.getElementById("idtipoparticipacion").value;
+	var porcentaje=document.getElementById("porcentaje").value;
+	var comentario=document.getElementById("comentario").value;
+	var idpersona= $('select[name=idpersona]').val();
+	var p = document.getElementById("idpersona");
+  var idpersona=p.options[p.selectedIndex].value;
+alert(idpersona);
+alert(idevento);
+alert(fecha);
+alert(idtipoparticipacion);
+alert(porcentaje);
+alert(comentario);
+
+
+
+
+    $.ajax({
+        url: "<?php echo site_url('participacion/save_nota') ?>",
+        data: {idevento:idevento, fecha:fecha,idtipoparticipacion:idtipoparticipacion,porcentaje:porcentaje,comentario:comentario,idpersona:idpersona},
+        method: 'POST',
+        async : false,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
+
+
+
+
+
 
 
 

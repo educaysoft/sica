@@ -7,6 +7,7 @@ class Participacion extends CI_Controller{
       		$this->load->model('documento_model');
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
+          $this->load->model('fechaevento_model');
       		$this->load->model('tipoparticipacion_model');
 	}
 
@@ -25,10 +26,21 @@ class Participacion extends CI_Controller{
 
 
 	public function add()
-	{
+  {
+     $idevento=$this->uri->segment(3);
+    if(!isset($idevento)){
+      $idevento=0;
+    }else{
+     $data["idevento"]=$idevento;
+    }
+
+
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+		$data['eventos']= $this->evento_model->evento($idevento)->result();
+	$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+	$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($idevento)->result();
+       
+
 		$data['title']="Nuevo Participacion";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('participacion_form',$data);
@@ -72,6 +84,31 @@ class Participacion extends CI_Controller{
 		}
   	//redirect('participacion');
  	}
+
+
+	public function  save_nota()
+	{
+	 	$array_item=array(
+		 	'idpersona' => $this->input->post('idpersona'),
+		 	'idevento' => $this->input->post('idevento'),
+		 	'fecha' => $this->input->post('fecha'),
+		 	'idtipoparticipacion' => $this->input->post('idtipoparticipacion'),
+		 	'porcentaje' => $this->input->post('porcentaje'),
+		 	'comentario' => $this->input->post('comentario'),
+	 	);
+	 	$result=$this->participacion_model->save($array_item);
+	 	if($result == FALSE)
+		{
+			$data=array('resultado'=>"FALSE");
+		}else{
+			$data=array('resultado'=>"TRUE");
+		}
+  	//redirect('participacion');
+		echo json_encode($data);
+  }	
+
+
+
 
 
 
@@ -321,6 +358,39 @@ public function get_participantes() {
 	echo json_encode($data);
 	}
 }
+
+
+public function get_participantes2() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->post('idevento')) 
+    {
+      $sql="";
+      $sql=$sql.'select p1.*, (select porcentaje from participacion p2 where p2.idpersona=p1.idpersona and p2.fecha="'.$this->input->post('fecha').'") as porcentaje from participante1 p1 where p1.idevento='.$this->input->post('idevento').' and p1.idpersona in (select p2.idpersona from participacion p2 where p2.idevento=p1.idevento and p2.fecha="'.$this->input->post('fecha').'")';
+$sql=$sql." union "; 
+
+    $sql=$sql.'select p1.*, " " as porcentaje from participante1 p1 where idevento='.$this->input->post('idevento').' and p1.idpersona not in (select p2.idpersona from participacion p2 where p2.idevento=p1.idevento and p2.fecha="'.$this->input->post('fecha').'") ;';
+
+
+
+   $query= $this->db->query($sql);
+
+     //   $this->db->select('*');
+		 //   $this->db->order_by("p1.nombres","asc");
+     //   $this->db->where(array('p1.idevento' => $this->input->post('idevento')));
+     //   $this->db->from('participante1 p1');
+     //   $this->db->select('p1.*, (select porcentaje from participacion  p2 where p2.idpersona=p1.idpersona and p2.fecha="'+$this->input->post('fecha')+'") as porcentaje');
+      //  $query = $this->db->get();
+	$data=$query->result();
+	echo json_encode($data);
+	}
+}
+
+
+
+
+
+
 
 
 public function get_participacion() {
