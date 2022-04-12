@@ -80,24 +80,22 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 								$dataparticipante["idpersona"]=$idpersona;
 								$datacorreo["idpersona"]=$idpersona;
 								$datatelefono["idpersona"]=$idpersona;
-								$this->db->insert('usuario', $datausuario);
 								$this->db->insert('participante', $dataparticipante);
 								$this->db->insert('correo', $datacorreo);
 								$this->db->insert('telefono', $datatelefono);
-								if ($this->db->affected_rows() > 0) {
-										$this->db->trans_complete();
-								return true;
-										//	$this->db->insert('aspirante', $datapa);
-										//	if ($this->db->affected_rows() > 0) {
-										//		$this->db->trans_complete();
-										//		return true;
-										//	}else{
-										//		return false;
-										//	}
-								}else{
-										$this->db->trans_complete();
-										return false;
-								}
+								$this->db->insert('usuario', $datausuario);
+						    if ($this->db->affected_rows() > 0) {
+								    $idusuario=$this->db->insert_id();
+								    $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>date(),'fechaoff'=>''));
+                    
+                    if ($this->db->affected_rows() > 0) {
+                      $this->db->trans_complete();
+                      return true;
+                    }else{
+                      $this->db->trans_complete();
+                      return false;
+                    }
+                }
 						}else {
 								return false;
 						}
@@ -107,18 +105,21 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 						$dataparticipante["idpersona"]=$idpersona;
 						$datacorreo["idpersona"]=$idpersona;
 						$datatelefono["idpersona"]=$idpersona;
-						$this->db->insert('usuario', $datausuario);
 						$this->nuevo_participante($dataparticipante);
 						$this->nuevo_correo($datacorreo);
 						$this->nuevo_telefono($datatelefono);
+						$this->db->insert('usuario', $datausuario);
 						if ($this->db->affected_rows() > 0) {
-							$this->db->trans_complete();
-							return true;
-						}else{
-							$this->db->trans_complete();
-							return false;
-						}
-
+								    $idusuario=$this->db->insert_id();
+								    $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>date(),'fechaoff'=>''));
+                    if ($this->db->affected_rows() > 0) {
+                      $this->db->trans_complete();
+                      return true;
+                    }else{
+                      $this->db->trans_complete();
+                      return false;
+                    }
+            }
 				}
 		}else{
 				$condition = "cedula =" . "'" . $datapersona['cedula'] . "'";
@@ -129,7 +130,6 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 				$query = $this->db->get();
 				if ($query->num_rows() > 0) {
 						$idpersona=$query->result()[0]->idpersona;
-
 						$condition = "idpersona =" . "'" . $idpersona . "'";
 						$condition = $condition. " and idevento =" . "'" . $dataparticipante['idevento'] . "'";
 						$this->db->select('*');
@@ -140,6 +140,27 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 						if ($query->num_rows()== 0) {
 							$dataparticipante["idpersona"]=$idpersona;
 							$this->nuevo_participante($dataparticipante);
+
+						$condition = "idusuario =" . "'" . $idusuario . "'";
+						$condition = $condition. " and onoff = 1";
+						$this->db->select('*');
+						$this->db->from('password');
+						$this->db->where($condition);
+						$this->db->limit(1);
+						$query = $this->db->get();
+						if ($query->num_rows()== 0) {
+                  $condition = "idusuario =" . "'" . $idusuario . "'";
+                  $condition = $condition. " and onoff = 1";
+                  $this->db->update();
+                  $this->db->from('password');
+                  $this->db->where($condition);
+                  $this->db->limit(1);
+                  $query = $this->db->get();
+
+							    $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>date(),'fechaoff'=>''));
+              }else{
+							$this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>date(),'fechaoff'=>''));
+              }
 							if ($this->db->affected_rows() > 0) {
 								$this->db->trans_complete();
 								return true;
