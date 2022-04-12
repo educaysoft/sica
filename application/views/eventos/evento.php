@@ -218,7 +218,13 @@ body,html {
 </div>
 
 <div style='position:fixed; left:0; bottom:0; width:100%; text-align:center; background-color:red;' >
-  <?php echo anchor("evento/listar_participantes/".$evento['idevento'],'Imprimir certificado'); ?>
+  <?php
+       
+        //echo anchor("evento/listar_participantes/".$evento['idevento'],'Imprimir certificado');
+        echo anchor("curso/iniciar/".$evento['idcurso'],'Iniciar el curso');
+
+
+?>
 </div>
 </body>
 </html>

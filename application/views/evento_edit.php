@@ -101,6 +101,19 @@ foreach ($paginas as $row){
 
 
 
+<tr>
+<td> Curso:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($cursos as $row){
+	$options[$row->idcurso]= $row->nombre;
+}
+
+ echo form_dropdown("idcurso",$options, $evento['idcurso']);  ?></td>
+</tr>
+
+
+
    
 
 </table>

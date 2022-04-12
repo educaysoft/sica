@@ -41,6 +41,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
+ <th># </th>
  <th>Participante</th>
 <?php
 foreach ($tipoparticipacions as $row){
@@ -55,11 +56,14 @@ foreach ($tipoparticipacions as $row){
 echo "<tr>";
 $id=0;
 $persona="";
+$i=0;
 foreach ($participacion as $row){
   if($id!=$row->idpersona)
   {
    if($id>0){
-    echo "<tr><td>". $arrparticipacion[$id]."</td>";
+    $i=$i+1;
+    echo "<tr><td>". $i."</td>";
+    echo "<td>". $arrparticipacion[$id]."</td>";
     foreach ($tipoparticipacions as $row1){
       if(isset($arrparticipacion[$row1->idtipoparticipacion])){
           echo "<td>". $arrparticipacion[$row1->idtipoparticipacion]."</td>";
@@ -79,7 +83,9 @@ foreach ($participacion as $row){
 
   }
 }
-    echo "<tr><td>". $arrparticipacion[$id]."</td>";
+  $i=$i+1;
+    echo "<tr><td>". $i."</td>";
+    echo "<td>". $arrparticipacion[$id]."</td>";
     foreach ($tipoparticipacions as $row1){
       if(isset($arrparticipacion[$row1->idtipoparticipacion])){
           echo "<td>". $arrparticipacion[$row1->idtipoparticipacion]."</td>";

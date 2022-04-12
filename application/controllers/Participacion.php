@@ -192,9 +192,9 @@ public function reporte()
 	$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
   $data['participacion'] = $this->participacion_model->listar_participacion1($this->uri->segment(3))->result();
   $data['title']="Certificado";
-	$this->load->view('template/page_header');		
+//	$this->load->view('template/page_header');		
   $this->load->view('participacion_report',$data);
-	$this->load->view('template/page_footer');
+//	$this->load->view('template/page_footer');
 
 
 
@@ -369,7 +369,7 @@ public function get_participantes2() {
       $sql=$sql.'select p1.*, (select porcentaje from participacion p2 where p2.idpersona=p1.idpersona and p2.fecha="'.$this->input->post('fecha').'") as porcentaje from participante1 p1 where p1.idevento='.$this->input->post('idevento').' and p1.idpersona in (select p2.idpersona from participacion p2 where p2.idevento=p1.idevento and p2.fecha="'.$this->input->post('fecha').'")';
 $sql=$sql." union "; 
 
-    $sql=$sql.'select p1.*, " " as porcentaje from participante1 p1 where idevento='.$this->input->post('idevento').' and p1.idpersona not in (select p2.idpersona from participacion p2 where p2.idevento=p1.idevento and p2.fecha="'.$this->input->post('fecha').'") ;';
+    $sql=$sql.'select p1.*, " " as porcentaje from participante1 p1 where idevento='.$this->input->post('idevento').' and p1.idpersona not in (select p2.idpersona from participacion p2 where p2.idevento=p1.idevento and p2.fecha="'.$this->input->post('fecha').'") order by nombres ;';
 
 
 

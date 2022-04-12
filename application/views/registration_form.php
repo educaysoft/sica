@@ -204,16 +204,16 @@ $(document).ready(()=>{
   var idevento= <?php echo $idevento; ?>;
   if(idinstitucion>0){
   $('#idinstitucion option[value="'+idinstitucion+'"]').attr('selected','selected');
+    document.getElementById("idinstitucion").disabled=true;
   get_evento();
   }
   if(idevento>0){
             $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
+            document.getElementById("idevento").disabled=true;
   }
 
- // document.getElementById("idinstitucion").disabled=false;
- // document.getElementById("idevento").disabled=false;
 
-        });     
+  });     
 
 
 function get_evento() {

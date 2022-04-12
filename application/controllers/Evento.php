@@ -10,6 +10,7 @@ class Evento extends CI_Controller{
       $this->load->model('fechaevento_model');
       $this->load->model('institucion_model');
       $this->load->model('pagina_model');
+      $this->load->model('curso_model');
 }
 
 public function index(){
@@ -19,6 +20,7 @@ public function index(){
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['paginas']= $this->pagina_model->lista_paginas()->result();
+	$data['cursos']= $this->curso_model->lista_cursos()->result();
 	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 	$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
 	$data['title']="Uste esta visualizando Eventos por registro";
@@ -43,6 +45,7 @@ public function add()
 {
 	$data['title']="Usted esta Creando un nuevo Evento";
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+	$data['cursos']= $this->curso_model->lista_cursos()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['paginas']= $this->pagina_model->lista_paginas()->result();
  	$this->load->view('template/page_header');		
@@ -70,6 +73,7 @@ public function add()
 			'fecha' =>  date('Y-m-d H:i:s'),
 			'duracion' => $this->input->post('duracion'),
 			'costo' => $this->input->post('costo'),
+			'idcurso' => $this->input->post('idcurso'),
 	 	);	 
 	 	$this->evento_model->save($array_item);
 	 	redirect('evento');
@@ -82,6 +86,7 @@ public function add()
 	{
 			$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
+		  $data['cursos']= $this->curso_model->lista_cursos()->result();
 			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	    $data['title'] = "Actualizar Evento";
@@ -107,6 +112,7 @@ public function add()
 			'idpagina' => $this->input->post('idpagina'),
 			'duracion' => $this->input->post('duracion'),
 			'costo' => $this->input->post('costo'),
+			'idcurso' => $this->input->post('idcurso'),
 	 	);
 	 	$this->evento_model->update($id,$array_item);
 	 	redirect('evento');
@@ -119,6 +125,7 @@ public function add()
 		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+	  $data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 		$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
@@ -227,6 +234,7 @@ public function add()
 			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 			$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+	$data['cursos']= $this->curso_model->lista_cursos()->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 			$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
 			$data['title']="Evento";
@@ -250,6 +258,7 @@ public function add()
 			$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['cursos']= $this->curso_model->lista_cursos()->result();
 			$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 			$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
@@ -272,6 +281,7 @@ public function add()
 		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
 	  	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
@@ -289,6 +299,7 @@ public function add()
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
+	$data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 		$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
 		$data['title']="Evento";
