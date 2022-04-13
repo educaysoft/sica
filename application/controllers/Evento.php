@@ -315,7 +315,7 @@ public function detalle()
 {
 		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 		$data['fechaeventos'] = $this->fechaevento_model->fechaeventos($this->uri->segment(3))->result();
-
+    unset($this->session->userdata['logged_in']);
     $this->load->view('eventos/evento',$data);
 
 }

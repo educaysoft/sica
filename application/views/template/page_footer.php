@@ -98,7 +98,6 @@ document.getElementById("eys-principal").style.width="95%";
     <main style="color: black;font-size:20px;">
       <p style="font-size: 1vw;">Dirección: Ciudadela Nuevos Horizontes:</p>
       <p style="font-size: 1vw;">Correo: congresoutlvte@utelvt.edu.ec</p>
-<p style="font-size: 0.8vw;"> <span style="font-size:1.5vw;" >&#127279; </span> Educaysoft  y Encubadora de Empresa de Software <p>   
 </main>   
  </div>
  <div style="  height:100%; width:30%; display:flex; justify-content: center; flex-direction: column; ">
@@ -117,7 +116,6 @@ document.getElementById("eys-principal").style.width="95%";
     <li><a href="congresoutlvte-confe2.php">Conferencias</a></li>
     <li><a href="congresoutlvte-pdf.php">Ferias de libros virtuales</a></li>
     <li><a href="congresoutlvte-momoria.php" >Memorias</a></li>
-    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeQiGNyzm0penp8g2X1UDPCyhsgVFpSZ-CZI8YTO6gITv-wfQ/viewform?usp=sf_link">Inscripciones</a></li>
     </ul>
 </div>
 

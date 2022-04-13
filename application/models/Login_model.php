@@ -122,6 +122,7 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
             }
 				}
 		}else{
+				$idusuario=$query->result()[0]->idusuario;
 				$condition = "cedula =" . "'" . $datapersona['cedula'] . "'";
 				$this->db->select('*');
 				$this->db->from('persona');
@@ -141,26 +142,24 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 							$dataparticipante["idpersona"]=$idpersona;
 							$this->nuevo_participante($dataparticipante);
 
-						$condition = "idusuario =" . "'" . $idusuario . "'";
-						$condition = $condition. " and onoff = 1";
-						$this->db->select('*');
-						$this->db->from('password');
-						$this->db->where($condition);
-						$this->db->limit(1);
-						$query = $this->db->get();
-						if ($query->num_rows()== 0) {
-                  $condition = "idusuario =" . "'" . $idusuario . "'";
-                  $condition = $condition. " and onoff = 1";
-                  $this->db->update();
-                  $this->db->from('password');
-                  $this->db->where($condition);
-                  $this->db->limit(1);
-                  $query = $this->db->get();
-
-							    $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>date(),'fechaoff'=>''));
-              }else{
-							$this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>date(),'fechaoff'=>''));
-              }
+                $condition = "idusuario =" . "'" . $idusuario . "'";
+                $condition = $condition. " and onoff = 1";
+                $this->db->select('*');
+                $this->db->from('password');
+                $this->db->where($condition);
+                $this->db->limit(1);
+                $query = $this->db->get();
+                if ($query->num_rows()> 0) {
+                      $date = date('d-m-y h:i:s');
+                      $condition = "idusuario =" . "'" . $idusuario . "'";
+                      $condition = $condition. " and onoff = 1";
+                      $this->db->where($condition);
+                      $this->db->update('password',array('onoff'=>0,'fechaoff'=>$date));
+                      $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>$date,'fechaoff'=>''));
+                  }else{
+                      $date = date('d-m-y h:i:s');
+                      $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>$date,'fechaoff'=>''));
+                  }
 							if ($this->db->affected_rows() > 0) {
 								$this->db->trans_complete();
 								return true;
@@ -168,42 +167,109 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 								$this->db->trans_complete();
 								return false;
 							}
-						}
+            }else {
+                $condition = "idusuario =" .  $idusuario ;
+                $condition = $condition. " and onoff = 1";
+                $condition = $condition. " and password =" . "'" . $datausuario['password'] . "'";
+                $this->db->select('*');
+                $this->db->from('password');
+                $this->db->where($condition);
+                $this->db->limit(1);
+                $query = $this->db->get();
+                if ($query->num_rows()== 0) {
+                      $date = date('d-m-y h:i:s');
+                      $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>$date,'fechaoff'=>''));
+                      return true;
+                  }
+	
+
+            }
 				}
 		}
 
 }
 // Read data using username and password
 public function login($data) {
+      //$condition = "email =" . "'" . $data['email'] . "' AND " . "password =" . "'" . $data['password'] . "'";
+      $condition = "email =" . "'" . $data['email'] . "'";
+      $this->db->select('*');
+      $this->db->from('usuario');
+      $this->db->where($condition);
+      $this->db->limit(1);
+      $query = $this->db->get();
 
-$condition = "email =" . "'" . $data['email'] . "' AND " . "password =" . "'" . $data['password'] . "'";
-$this->db->select('*');
-$this->db->from('usuario');
-$this->db->where($condition);
-$this->db->limit(1);
-$query = $this->db->get();
-
-if ($query->num_rows() == 1) {
-return true;
-} else {
-return false;
-}
+      if ($query->num_rows() == 1) {
+            $idusuario=$query->result()[0]->idusuario;
+            $condition = "idusuario =" . "'" . $idusuario . "' AND " . "password =" . "'" . $data['password'] . "'";
+            $condition = $condition. " and onoff = 1" ;
+            $this->db->select('*');
+            $this->db->from('password');
+            $this->db->where($condition);
+            $this->db->limit(1);
+            $query = $this->db->get();
+            if ($query->num_rows() == 1) {
+                return true;
+            }else{
+                return false;
+            }
+      } else {
+      return false;
+      }
 }
 
 // Read data from database to show data in admin page
-public function read_user_information($email) {
+public function read_user_information($email,$password) {
 	$condition = "email =" . "'" . $email . "'";
 	$this->db->select('*');
 	$this->db->from('usuario');
 	$this->db->where($condition);
 	$this->db->limit(1);
-	$query = $this->db->get();
+  $query = $this->db->get();
+		$arrusuario=$query->result();
+     if ($query->num_rows() == 1) {
+            $idusuario=$query->result()[0]->idusuario;
+            $condition = "idusuario =" . "'" . $idusuario . "' AND " . "password =" . "'" . $password . "'";
+            $condition = $condition. " and onoff = 1" ;
+            $this->db->select('*');
+            $this->db->from('password');
+            $this->db->where($condition);
+            $this->db->limit(1);
+            $query = $this->db->get();
+            if ($query->num_rows() == 1) {
+                $arrusuario[0]->{'idevento'}=$query->result()[0]->idevento;
+                $condition = "idevento =" .$query->result()[0]->idevento ;
+	              $this->db->select('*');
+                $this->db->from('evento');
+                $this->db->where($condition);
+                $this->db->limit(1);
+                $query = $this->db->get();
+                if ($query->num_rows() == 1) {
 
-	if ($query->num_rows() == 1) {
-		return $query->result();
-	} else {
-		return false;
-	}
+                        $condition = "idpagina =" .$query->result()[0]->idpagina ;
+                        $this->db->select('*');
+                        $this->db->from('pagina');
+                        $this->db->where($condition);
+                        $this->db->limit(1);
+                        $query = $this->db->get();
+                        if ($query->num_rows() == 1) {
+                              $arrusuario[0]->{'inicio'}=$query->result()[0]->ruta;
+                           //    print_r($arrusuario);
+                           //      die();
+                              return $arrusuario;
+                          } else {
+                           return false;
+                          }
+                }else{
+                           return false;
+
+                }         
+            }else{
+
+              return false;
+            }
+        }else{
+      return false;
+    }
 }
 
 

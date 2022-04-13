@@ -96,7 +96,7 @@ body,html {
     <div class="hero-text">
       <h1><?php  echo $evento['titulo'];?></h1>
 
-    <button>Hire me</button>
+    <button><a href="http://educaysoft.org/sica/MTI/doc/_build/html/admision.html"> Mas información</a></button>
     </div>
     </div>
 
