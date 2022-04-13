@@ -54,4 +54,5 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['index.php/login']='login';
 $route['tesiscti']='documento/listarxtipodocu/11';
-$route['maestriati']='login/user_registration_show?idinstitucion=1&idevento=27';
+$route['index.php/login/user_registration_show?idinstitucion=1&idevento=27']='maestriati';
+
