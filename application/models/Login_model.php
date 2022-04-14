@@ -86,7 +86,7 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 								$this->db->insert('usuario', $datausuario);
 						    if ($this->db->affected_rows() > 0) {
 								    $idusuario=$this->db->insert_id();
-                     $date = date('d-m-y h:i:s');
+                    $date = date('d-m-y h:i:s');
 								    $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>$date,'fechaoff'=>''));
                     
                     if ($this->db->affected_rows() > 0) {
@@ -140,9 +140,8 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 						$this->db->limit(1);
 						$query = $this->db->get();
 						if ($query->num_rows()== 0) {
-							$dataparticipante["idpersona"]=$idpersona;
-							$this->nuevo_participante($dataparticipante);
-
+                $dataparticipante["idpersona"]=$idpersona;
+                $this->nuevo_participante($dataparticipante);
                 $condition = "idusuario =" . "'" . $idusuario . "'";
                 $condition = $condition. " and onoff = 1";
                 $this->db->select('*');
