@@ -86,7 +86,8 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 								$this->db->insert('usuario', $datausuario);
 						    if ($this->db->affected_rows() > 0) {
 								    $idusuario=$this->db->insert_id();
-								    $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>date(),'fechaoff'=>''));
+                     $date = date('d-m-y h:i:s');
+								    $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>$date,'fechaoff'=>''));
                     
                     if ($this->db->affected_rows() > 0) {
                       $this->db->trans_complete();
