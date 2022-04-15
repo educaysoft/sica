@@ -189,7 +189,9 @@ function participacion_data()
 public function reporte()
 {
 
-	$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+
+	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_activo($this->uri->segment(3))->result();
+
   $data['participacion'] = $this->participacion_model->listar_participacion1($this->uri->segment(3))->result();
   $data['title']="Certificado";
 //	$this->load->view('template/page_header');		

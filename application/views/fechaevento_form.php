@@ -4,36 +4,51 @@
 </div>
 <hr/>
 <?php echo form_open("fechaevento/save") ?>
-<table>
 
 
-<tr>
-<td> Evento: </td>
-<td><?php 
-
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Evento:</label>
+<div class="col-md-10">
+<?php
 $options= array('--Select--');
 foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
 }
 
- echo form_dropdown("idevento",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
+ echo form_dropdown("idevento",$options, set_select('--Select--','default_value'));  
+?>
+</div>
+</div>
 
-<tr>
-<td> Fecha de evento : </td>
-<td><?php echo form_input(array("name"=>"fecha","id"=>"fecha","type"=>"date"));  ?></td>
-</tr>
 
-<tr>
-<td> Tema a tratar: </td>
-<td><?php 
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Fecha de evento:</label>
+<div class="col-md-10">
+<?php
+
+ echo form_input(array("name"=>"fecha","id"=>"fecha","type"=>"date"));  
+
+?>
+</div>
+</div>
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Tema a tratar:</label>
+<div class="col-md-10">
+<?php
     
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Tema a  tratar" );    
- echo form_textarea("tema","", $textarea_options)  ?></td>
-</tr>
+ echo form_textarea("tema","", $textarea_options);  
+
+?>
+</div>
+</div>
 
 
-
+<table>
 <tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("fechaevento","Atrás") ?> </td>
 </tr>

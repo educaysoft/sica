@@ -221,7 +221,7 @@ body,html {
   <?php
        
         //echo anchor("evento/listar_participantes/".$evento['idevento'],'Imprimir certificado');
-        echo anchor("curso/iniciar/".$evento['idcurso'],'Iniciar el curso');
+        echo anchor("curso/iniciar?idcurso=".$evento['idcurso']."&idevento=".$evento['idevento'],'Iniciar el curso');
 
 
 ?>

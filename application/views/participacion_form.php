@@ -156,8 +156,8 @@ function get_participantes2() {
 	var idevento = $('select[name=idevento]').val();
 	var f = document.getElementById("idfechaevento");
   var fecha=f.options[f.selectedIndex].text;
-alert(idevento);
-alert(fecha);
+//alert(idevento);
+//alert(fecha);
     if(fecha=="--Select--"){
       alert("debe seleccionar una fecha");
    }else{
@@ -277,12 +277,12 @@ function save_nota() {
 	var idpersona= $('select[name=idpersona]').val();
 	var p = document.getElementById("idpersona");
   var idpersona=p.options[p.selectedIndex].value;
-alert(idpersona);
-alert(idevento);
-alert(fecha);
-alert(idtipoparticipacion);
-alert(porcentaje);
-alert(comentario);
+//alert(idpersona);
+//alert(idevento);
+//alert(fecha);
+//alert(idtipoparticipacion);
+//alert(porcentaje);
+//alert(comentario);
 
 
 
@@ -296,6 +296,7 @@ alert(comentario);
         success: function(data){
         var html = '';
         var i;
+        alert("Se guardo con exito");
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);

@@ -129,7 +129,7 @@ public function panel()
 
 public function iniciar()
 {
-	
+  $data['evento']=array('idcurso'=>$_GET['idcurso'],'idevento'=>$_GET['idevento']);	
 	$data['cursounidades'] = $this->cursounidad_model->lista_unidades($this->uri->segment(3))->result();
   	$data['title']="Curso";
 	$this->load->view('template/page_header');		

@@ -203,9 +203,12 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 		</div>
 	</div>
 
+
+
 	<div id="learn1" style="width: 100%; margin:auto; display:flex; display:none; ">
 		<div id="evaluar" style="padding:10px; width:20%; ">
-			<?php echo '<button id="evaluar" onclick="get_evaluacion('.$idevaluacion.');">Evaluar</button>'; ?> 
+			<?php echo '<button id="evaluar" onclick="get_certificado('.$idevaluacion.','.$evento["idevento"].');">Evaluar</button>'; ?> 
+
 		</div>
 		<div style="padding:10px; width:70%; ">
 		  
@@ -249,7 +252,7 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 
 </div>
 	<div id="certificado" style="padding:10px; width:80%; margin:auto; border:1px solid blue; text-align: center;">
-			<?php echo '<button id="evaluar" onclick="get_certificado('.$idevaluacion.');" >En hora bueno! Ya puedes imprimer tu certificado</button>'; ?> 
+			<?php echo '<button id="evaluar" onclick="get_certificado('.$idevaluacion.');" >En hora buena! Ya puedes imprimir tu certificado</button>'; ?> 
 	</div>
 </div>
 
@@ -257,6 +260,20 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 
 
 <script>
+
+
+
+function get_certificado(idevaluacion,idevento)
+{
+alert("hola");
+var myRequest = new Request('evento/listar_participantes/'+idevento);
+var myURL = myRequest.url
+
+
+}
+
+
+
 
 	function show_unidad(tunidad,lvideo,idevaluacion)
 	{

@@ -44,8 +44,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <th># </th>
  <th>Participante</th>
 <?php
-foreach ($tipoparticipacions as $row){
-  echo "<th>". $row->nombre."</th>";
+foreach ($fechaeventos as $row){
+  echo "<th>". $row->fecha."<br>" . $row->tema." </th>";
 }
 ?>
  </tr>
@@ -64,9 +64,9 @@ foreach ($participacion as $row){
     $i=$i+1;
     echo "<tr><td>". $i."</td>";
     echo "<td>". $arrparticipacion[$id]."</td>";
-    foreach ($tipoparticipacions as $row1){
-      if(isset($arrparticipacion[$row1->idtipoparticipacion])){
-          echo "<td>". $arrparticipacion[$row1->idtipoparticipacion]."</td>";
+    foreach ($fechaeventos as $row1){
+      if(isset($arrparticipacion[$row1->fecha])){
+          echo "<td>". $arrparticipacion[$row1->fecha]."</td>";
       }else{
            echo "<td>0</td>";
       }
@@ -76,19 +76,19 @@ foreach ($participacion as $row){
     $arrparticipacion=array();
     $id=$row->idpersona;
     $arrparticipacion[$row->idpersona]=$row->nombres;
-    $arrparticipacion[$row->idtipoparticipacion]=$row->porcentaje;
+    $arrparticipacion[$row->fecha]=$row->porcentaje;
   }else{
 
-    $arrparticipacion[$row->idtipoparticipacion]=$row->porcentaje;
+    $arrparticipacion[$row->fecha]=$row->porcentaje;
 
   }
 }
   $i=$i+1;
     echo "<tr><td>". $i."</td>";
     echo "<td>". $arrparticipacion[$id]."</td>";
-    foreach ($tipoparticipacions as $row1){
-      if(isset($arrparticipacion[$row1->idtipoparticipacion])){
-          echo "<td>". $arrparticipacion[$row1->idtipoparticipacion]."</td>";
+    foreach ($fechaeventos as $row1){
+      if(isset($arrparticipacion[$row1->fecha])){
+          echo "<td>". $arrparticipacion[$row1->fecha]."</td>";
       }else{
            echo "<td>0</td>";
       }
