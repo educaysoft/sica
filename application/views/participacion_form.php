@@ -43,7 +43,7 @@ foreach ($fechaeventos as $row){
 <label class="col-md-2 col-form-label">Participantes:</label>
 <div class="col-md-10">
 
-         <select class="form-control" id="idpersona" name="idpersona" multiple="multiple" required size="20" style="height: 100%;" onChange='get_participacion()'>
+         <select class="form-control" id="idpersona" name="idpersona" multiple="multiple" required size="30" style="height: 100%;" onChange='get_participacion()'>
                  <option>No Selected</option>
           </select>
   </div>
@@ -53,30 +53,25 @@ foreach ($fechaeventos as $row){
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Tipo participación:</label>
-<div class="col-md-10">
-<?php
-$options= array('--Select--');
-foreach ($tipoparticipacions as $row){
-	$options[$row->idtipoparticipacion]= $row->nombre;
-}
- echo form_dropdown("idtipoparticipacion",$options, set_select('--Select--','default_value'),array("id"=>"idtipoparticipacion"));
-?>
-</div>
-</div>
-
 
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label"> % de participación:</label>
 <div class="col-md-10">
 <?php
- echo form_input(array("name"=>"porcentaje","id"=>"porcentaje","type"=>"text"));
- echo '<span id="demo" onclick="save_nota()">Guardar nota.</span>';
+echo '<table><tr><td>';
+echo form_input(array("name"=>"porcentaje","id"=>"porcentaje","type"=>"text"));
+echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_nota()">Guardar nota.</span></td></tr></table>';
 
 ?>
+
 </div>
+
+
+
+
+
+
 </div>
 
 
@@ -128,13 +123,16 @@ function get_participantes() {
         success: function(data){
         var html = '';
         var i;
-	document.getElementById('idpersona').setAttribute('size',"'"+data.length*2+"'");
+	//document.getElementById('idpersona').setAttribute('size',"'"+data.length*2+"'");
+
         for(i=0; i<data.length; i++){
         html += '<option value='+data[i].idpersona+'>'+data[i].nombres+'</option>';
         }
         $('#idpersona').html(html);
 
 
+var select = document.getElementById('idpersona');
+select.size = select.length;  
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
@@ -173,11 +171,17 @@ function get_participantes2() {
         var l=data.length+1;
         document.getElementById('idpersona').setAttribute('size',"'"+l+"'");
         for(i=0; i<data.length; i++){
-        html += '<option value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].porcentaje+'</option>';
+        if(data[i].porcentaje!=" "){
+        html += '<option style="color:green;"  value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].porcentaje+'</option>';
+        }else{
+        html += '<option style="color:red;" value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].porcentaje+'</option>';
+        }
         }
         $('#idpersona').html(html);
 
 
+        var select = document.getElementById('idpersona');
+        select.size = select.length;  
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
@@ -209,22 +213,22 @@ function get_participacion() {
 	var comentario="";
         var i;
 
-        if(data.length>1){
+        if(data.length!=1){
 
-          for(i=0; i<data.length; i++){
-            html += '<option value='+data[i].idtipoparticipacion+'>'+data[i].eltipoparticipacion+'</option>';
-          }
+  //        for(i=0; i<data.length; i++){
+  //          html += '<option value='+data[i].idtipoparticipacion+'>'+data[i].eltipoparticipacion+'</option>';
+  //        }
           document.getElementById("comentario").value="";
           document.getElementById("porcentaje").value="";
         }else{
 
-        for(i=0; i<data.length; i++){
-          html += '<option value='+data[i].idtipoparticipacion+'>'+data[i].eltipoparticipacion+'</option>';
-          document.getElementById("comentario").value=data[i].comentario;
-          document.getElementById("porcentaje").value=data[i].porcentaje;
+ //       for(i=0; i<data.length; i++){
+//          html += '<option value='+data[i].idtipoparticipacion+'>'+data[i].eltipoparticipacion+'</option>';
+          document.getElementById("comentario").value=data[0].comentario;
+          document.getElementById("porcentaje").value=data[0].porcentaje;
+//        }
         }
-        }
-        $('#idtipoparticipacion').html(html);
+//        $('#idtipoparticipacion').html(html);
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
@@ -271,7 +275,7 @@ function save_nota() {
 	var f = document.getElementById("idfechaevento");
   var fecha=f.options[f.selectedIndex].text;
 	var idevento=document.getElementById("idevento").value;
-	var idtipoparticipacion=document.getElementById("idtipoparticipacion").value;
+//	var idtipoparticipacion=document.getElementById("idtipoparticipacion").value;
 	var porcentaje=document.getElementById("porcentaje").value;
 	var comentario=document.getElementById("comentario").value;
 	var idpersona= $('select[name=idpersona]').val();
@@ -289,13 +293,14 @@ function save_nota() {
 
     $.ajax({
         url: "<?php echo site_url('participacion/save_nota') ?>",
-        data: {idevento:idevento, fecha:fecha,idtipoparticipacion:idtipoparticipacion,porcentaje:porcentaje,comentario:comentario,idpersona:idpersona},
+        data: {idevento:idevento, fecha:fecha,porcentaje:porcentaje,comentario:comentario,idpersona:idpersona},
         method: 'POST',
         async : false,
         dataType : 'json',
         success: function(data){
         var html = '';
         var i;
+        get_participantes2();
         alert("Se guardo con exito");
         },
       error: function (xhr, ajaxOptions, thrownError) {

@@ -70,7 +70,6 @@ class Participacion extends CI_Controller{
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'idevento' => $this->input->post('idevento'),
 		 	'fecha' => $this->input->post('fecha'),
-		 	'idtipoparticipacion' => $this->input->post('idtipoparticipacion'),
 		 	'porcentaje' => $this->input->post('porcentaje'),
 		 	'comentario' => $this->input->post('comentario'),
 	 	);
@@ -92,7 +91,6 @@ class Participacion extends CI_Controller{
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'idevento' => $this->input->post('idevento'),
 		 	'fecha' => $this->input->post('fecha'),
-		 	'idtipoparticipacion' => $this->input->post('idtipoparticipacion'),
 		 	'porcentaje' => $this->input->post('porcentaje'),
 		 	'comentario' => $this->input->post('comentario'),
 	 	);
@@ -437,11 +435,7 @@ public function get_participacionp() {
 		$data=$query->result();
 		echo json_encode($data);
 	}else{
-
-		$this->db->select('idtipoparticipacion,nombre as eltipoparticipacion, "" as comentario');
-		$query = $this->db->get('tipoparticipacion');
-
-		$data=$query->result();
+		$data=array();
 		echo json_encode($data);
 	}
 
