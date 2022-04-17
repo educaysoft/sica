@@ -41,11 +41,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>IDevento</th>
- <th>Nombre</th>
- <th>Fecha</th>
- <th>Estado</th>
- <th>Institucion</th>
+ <th>idparticipante</th>
+ <th>evento</th>
+ <th>participante</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
@@ -76,14 +74,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('participante/participante_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
-
-var id= $(this).data('idevento');
-window.location.href = "http://localhost/facae/index.php/evento/actual/"+id;
+var id= $(this).data('idparticipante');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
 
 });
 

@@ -1,4 +1,4 @@
 
 use educayso_facae;
-
-create view participante1 as select participante.idparticipante,participante.idevento,participante.idpersona,concat(persona.apellidos," ",persona.nombres) as nombres,participante.iddocumento from participante,persona where participante.idpersona=persona.idpersona;
+drop view participante1;
+create view participante1 as select participante.idparticipante,participante.idevento,evento.titulo as elevento,participante.idpersona,concat(persona.apellidos," ",persona.nombres) as nombres from participante,persona,evento where participante.idpersona=persona.idpersona and participante.idevento=evento.idevento;
