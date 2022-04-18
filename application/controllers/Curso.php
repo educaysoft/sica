@@ -96,7 +96,7 @@ function curso_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->curso_model->lista_cursoes();
+	 	$data0 = $this->curso_model->lista_cursos();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idcurso,$r->nombre,
