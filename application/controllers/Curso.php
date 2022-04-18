@@ -118,11 +118,11 @@ function curso_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->curso_model->lista_cursoes();
+	 	$data0 = $this->curso_model->lista_cursos();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idcurso,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('curso/actual').'" data-idcurso="'.$r->idcurso.'">Ver</a>');
+		$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('curso/actual').'" data-idcurso="'.$r->idcurso.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
