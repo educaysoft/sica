@@ -252,7 +252,7 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 
 </div>
 	<div id="certificado" style="padding:10px; width:80%; margin:auto; border:1px solid blue; text-align: center;">
-			<?php echo '<button id="evaluar" onclick="get_certificado('.$idevaluacion.',"evento",'.$evento["idevento"].');" >En hora buena! Ya puedes imprimir tu certificado</button>'; ?> 
+			<?php echo '<button id="evaluar" onclick="get_certificado("'.site_url('evento/listar_participantes').'",'.$evento["idevento"].');" >En hora buena! Ya puedes imprimir tu certificado</button>'; ?> 
 	</div>
 </div>
 
@@ -263,10 +263,9 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 
 
 
-function get_certificado(idevaluacion,miurl, idevento)
+function get_certificado(miurl, idevento)
 {
 alert("hola");
-alert(idevaluacion);
 alert(idevento);
 alert(miurl);
 
