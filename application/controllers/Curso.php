@@ -23,6 +23,28 @@ public function index(){
 }
 
 
+
+
+public function actual(){
+ if(isset($this->session->userdata['logged_in'])){
+	$data['curso']=$this->curso_model->curso($this->uri->segment(3))->row_array();
+	$data['title']="Modulo de curso";
+	$this->load->view('template/page_header');		
+	$this->load->view('curso_record',$data);
+	$this->load->view('template/page_footer');
+   }else{
+	$this->load->view('template/page_header.php');
+	$this->load->view('login_form');
+	$this->load->view('template/page_footer.php');
+   }
+}
+
+
+
+
+
+
+
 	public function add()
 	{
 			$data['title']="Nueva curso";
@@ -96,11 +118,11 @@ function curso_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->curso_model->lista_cursos();
+	 	$data0 = $this->curso_model->lista_cursoes();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idcurso,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcurso="'.$r->idcurso.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('curso/actual').'" data-idcurso="'.$r->idcurso.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
