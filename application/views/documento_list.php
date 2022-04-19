@@ -43,7 +43,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 	<div class="col-md-10">
 		<?php
-     			echo form_dropdown("idtipodocu",$options[$filtro], set_select('--Select--','default_value'),array('onchange'=>'filtra_documento()'));  
+     			echo form_dropdown("idtipodocu",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_documento()'));  
 		?>
 	</div>
 	</div>
