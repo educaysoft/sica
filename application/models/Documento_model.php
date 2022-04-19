@@ -15,7 +15,7 @@ class Documento_model extends CI_model {
 		{
 		 $documento= $this->db->get('documento1');
 		}else{
- 		$documento = $this->db->query('select * from documento1 where iddocumento="'. $id.'" order by fechaelaboracion');
+ 		$documento = $this->db->query('select * from documento1 where iddocumento='. $id.' order by fechaelaboracion');
 		}
 		 return $documento;
 	}
