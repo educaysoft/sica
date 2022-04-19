@@ -65,3 +65,16 @@ if (isset($message_display)) {
    <?php echo form_close(); ?>
 </div>
 </div>
+
+<script>
+
+function showpassword(){
+	var x=document.getElementById("password");
+	if(x.type=="password" ){
+		x.type="text";
+	}else{
+		x.type="password";
+	}
+
+}
+</script>
