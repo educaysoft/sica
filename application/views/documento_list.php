@@ -119,7 +119,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
             } else {
                     return true;
             }
-        }
+        };
 
 
 var idtipodocu=0;
