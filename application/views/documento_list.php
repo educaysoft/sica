@@ -126,9 +126,9 @@ var idtipodocu=0;
 function filtra_documento()
 {
 
-var idtipodocu = $('select[name=idtipodocu]').val();
+//idtipodocu = $('select[name=idtipodocu]').val();
 alert(idtipodocu);
-var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('documento/documento_dataxtipodocu')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
+//var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('documento/documento_dataxtipodocu')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
 }
 
 
