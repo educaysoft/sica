@@ -315,7 +315,7 @@ public function add()
 	{
 		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 		$data['fechaeventos'] = $this->fechaevento_model->fechaeventos($this->uri->segment(3))->result();
-		$data['curso']=$this->curso_model->curso($data['evento']['idcurso']);
+		$data['curso']=$this->curso_model->curso($data['evento']['idcurso'])->result();
 		unset($this->session->userdata['logged_in']);
 		$this->load->view('eventos/evento',$data);
 	}
