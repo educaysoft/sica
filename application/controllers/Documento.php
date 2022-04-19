@@ -120,7 +120,7 @@ class Documento extends CI_Controller{
 		$draw= intval($this->input->get("length"));
 
 
-		$id=$this->input->get('idtipodocu');
+		$id=$this->input->get('iddocumento');
 
 	 	$data0 = $this->documento_model->lista_documentosB($id);
 		$data=array();
