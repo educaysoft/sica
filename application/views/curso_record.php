@@ -59,7 +59,14 @@ if(isset($curso))
 		?>
 	</div> 
 </div>  
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Link detalle:</label>
+	<div class="col-md-10">
+		<?php
+       		echo form_input('linkdetalle',$curso['linkdetalle'],array('placeholder'=>'Link detalle','style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
 <?php echo form_close(); ?>
 
 
