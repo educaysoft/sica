@@ -61,7 +61,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>ID</th>
+ <th>iddocu</th>
 <th>Tipo</th>
  <th>Elaboracion</th>
  <th>Autor</th>
