@@ -37,11 +37,11 @@ if (isset($message_display)) {
  <div >
 		  <label for="password">Contraseña:</label>
                   <input type="password" class="form-control"  name="password" id="password" />
-</div>
+</div >
 
-		<input type="checkbox" onclick="showpassword()"> &ensp; Mostrar contraseña 
  <div >
 
+		<input type="checkbox" onclick="showpassword()"> &ensp; Mostrar contraseña 
 
 </div>
 
