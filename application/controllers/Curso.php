@@ -37,6 +37,7 @@ public function index(){
 	 	$array_item=array(
 	 	'nombre' => $this->input->post('nombre'),
 	 	'duracion' => $this->input->post('duracion'),
+	 	'linkdetalle' => $this->input->post('linkdetalle'),
 	 	);
 	 	$this->curso_model->save($array_item);
 	 	redirect('curso');
@@ -63,6 +64,7 @@ public function index(){
 		 	'idcurso' => $this->input->post('idcurso'),
 		 	'nombre' => $this->input->post('nombre'),
 	 		'duracion' => $this->input->post('duracion'),
+	 		'linkdetalle' => $this->input->post('linkdetalle'),
 	 	);
 	 	$this->curso_model->update($id,$array_item);
 	 	redirect('curso');

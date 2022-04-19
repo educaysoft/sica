@@ -23,7 +23,15 @@ $eys_arrinput=array('name'=>'duracion','value'=>$curso['duracion'], "style"=>"wi
 	</div> 
 </div>
 
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Page detalle:</label>
+	<div class="col-md-10">
+		<?php
+$eys_arrinput=array('name'=>'linkdetalle','value'=>$curso['linkdetalle'], "style"=>"width:500px");
+ echo form_input($eys_arrinput);
+		?>
+	</div> 
+</div>
 
 
  <tr>
