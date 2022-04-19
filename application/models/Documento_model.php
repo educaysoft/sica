@@ -25,7 +25,7 @@ class Documento_model extends CI_model {
 	function lista_documentosB($idtipodocu){
 		if($idtipodocu>0)
 		{
-		$this->db->where('idtipodocu="'.$idtipodocu.'"');
+		$this->db->where('idtipodocu='.$idtipodocu);
 		}
 		$documento= $this->db->get('documento1');
 		 return $documento;
