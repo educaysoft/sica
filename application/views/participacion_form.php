@@ -22,13 +22,13 @@ foreach ($eventos as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Evento:</label>
+<label class="col-md-2 col-form-label">Fecha evaluacion:</label>
 <div class="col-md-10">
 <?php
 
 $options= array('--Select--');
 foreach ($fechaeventos as $row){
-	$options[$row->idfechaevento]= $row->fecha;
+	$options[$row->idfechaevento]= $row->fecha." - ".$row->tema;
 }
  echo form_dropdown("idfechaevento",$options, set_select('--Select--','default_value'),array('id'=>'idfechaevento','onchange'=>'get_participantes2()'));  
 
@@ -153,7 +153,8 @@ select.size = select.length;
 function get_participantes2() {
 	var idevento = $('select[name=idevento]').val();
 	var f = document.getElementById("idfechaevento");
-  var fecha=f.options[f.selectedIndex].text;
+  	var arrtmp=f.options[f.selectedIndex].text;
+	var fecha=arrtmp[0];
 //alert(idevento);
 //alert(fecha);
     if(fecha=="--Select--"){
@@ -171,11 +172,11 @@ function get_participantes2() {
         var l=data.length+1;
         document.getElementById('idpersona').setAttribute('size',"'"+l+"'");
         for(i=0; i<data.length; i++){
-        if(data[i].porcentaje!=" "){
-        html += '<option style="color:green;"  value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].porcentaje+'</option>';
-        }else{
-        html += '<option style="color:red;" value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].porcentaje+'</option>';
-        }
+		if(data[i].porcentaje!=" "){
+			html += '<option style="color:green;"  value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].porcentaje+'</option>';
+		}else{
+			html += '<option style="color:red;" value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].porcentaje+'</option>';
+		}
         }
         $('#idpersona').html(html);
 

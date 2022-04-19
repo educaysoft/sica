@@ -173,8 +173,10 @@
 						?>
 					</div>
 					
-					<input type="checkbox" onclick="showpassword()">Mostrar Password 
+					<div class="w3-container"  style="text-align:left; font-size: 70%;" >
+						<input type="checkbox" onclick="showpassword()"> &ensp; Mostrar Password 
 
+					</div>
 					<div class="w3-container" style="padding-top:10px;">
 					<?php 	$data=array('type'=>'submit','value'=>'Guardar datos','name'=>'submit','style'=>'background-color: #4CAF50;
 						border: 0;
