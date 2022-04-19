@@ -135,9 +135,9 @@ var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo si
 $(document).ready(function(){
 
 	var iddocumento=<?php echo  $filtro ?>;
+	alert(iddocumento);
 
 var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET',data:{iddocumento:iddocumento}},});
-//	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET'},});
 });
 
 $('#show_data').on('click','.item_ver',function(){
@@ -164,25 +164,10 @@ $('#show_data').on('click','.item_pdf',function(){
 
 });
 
-/*
-	 $('#show_data').on('click','.item_pdf',function(){
-		 var iddocumento = $(this).data('iddocumento');
-		 var archivopdf =  $(this).data('archivopdf');
-		alert(archivopdf);
-		 $('#Modal_pdf').modal('show');
-
-           document.getElementById("Modal_pdf").setAttribute('style',"height: 800px;");
-            document.getElementById("Modal_pdf").innerHTML ="<div id='pdf-main-container' style='position:relative;'><div id='pdf-loader'>Loading document ...</div><div id='pdf-contents'><div id='pdf-meta'>	<div id='pdf-buttons'><button onClick='previo()' id='pdf-prev'>Previous</button><button onClick='nex()' id='pdf-next'>Next</button></div><div id='page-count-container' >Page <div id='pdf-current-page'></div> of <div id='pdf-total-pages'></div></div></div><canvas id='pdf-canvas' width='400'></canvas><div id='page-loader'>Loading page ...</div></div></div>";
-
- 
-	          mostrar1(archivopdf);
 
 
-		return false;
-	 });
-});
 
-*/
+
 
 // initialize and load the PDF
     async function showPDF(pdf_url) {
