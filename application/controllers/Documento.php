@@ -120,6 +120,24 @@ class Documento extends CI_Controller{
 		$draw= intval($this->input->get("length"));
 
 
+		$id=$this->input->get('idtipodocu');
+
+	 	$data0 = $this->documento_model->lista_documentosB($id);
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->iddocumento,$r->eltipodocu,$r->fechaelaboracion,$r->autor,$r->asunto,$r->archivopdf,
+			$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-iddocumento="'.$r->iddocumento.'" data-ordenador="'.$r->elordenador.'"  data-ubicacion="'.$r->ruta.'"  data-archivo="'.$r->archivopdf.'">download</a>');
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+	
+
+
+
+/*
 		$id=$this->input->get('iddocumento');
 	 	$data0 = $this->documento_model->lista_documentosA($id);
 		$data=array();
@@ -132,6 +150,9 @@ class Documento extends CI_Controller{
 			"recordsFiltered"=> $data0->num_rows(),
 			"data"=>$data
 		);
+
+ */
+
 		echo json_encode($output);
 		exit();
 	}
