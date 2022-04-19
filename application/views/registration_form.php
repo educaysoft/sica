@@ -174,7 +174,7 @@
 					</div>
 					
 					<div class="w3-container"  style="text-align:left; font-size: 70%;" >
-						<input type="checkbox" onclick="showpassword()"> &ensp; Mostrar Password 
+						<input type="checkbox" onclick="showpassword()"> &ensp; Mostrar contraseña 
 
 					</div>
 					<div class="w3-container" style="padding-top:10px;">

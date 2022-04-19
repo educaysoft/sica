@@ -38,6 +38,13 @@ if (isset($message_display)) {
 		  <label for="password">Contraseña:</label>
                   <input type="password" class="form-control"  name="password" id="password" />
 </div>
+
+		<input type="checkbox" onclick="showpassword()"> &ensp; Mostrar contraseña 
+ <div >
+
+
+</div>
+
 <div class="w3-container" style="padding-top:5px;">
 <?php
   		$data=array('type'=>'submit','value'=>'Ingresar','name'=>'submit','style'=>'background-color: #4CAF50; border: 0; border-radius: 10px; cursor: pointer; color: #fff; font-size:16px; font-weight: bold;line-height: 1.4; padding: 10px;   width: 100%;');
