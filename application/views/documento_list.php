@@ -119,7 +119,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
             } else {
                     return true;
             }
-        };
+        }
 
 
 var idtipodocu=0;
@@ -135,25 +135,23 @@ var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo si
 $(document).ready(function(){
 
 	var iddocumento=<?php echo  $filtro ?>;
-	alert(iddocumento);
-          idtipodocu=iddocumento;
-var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('documento/documento_dataxtipodocu')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
-//	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET',data:{iddocumento:iddocumento}},});
+	iddocumento=0;
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET',data:{iddocumento:iddocumento}},});
 
-$('#show_data').on('click','.item_ver',function(){
- 
-	var ordenador = "https://"+$(this).data('ordenador');
-	var ubicacion=$(this).data('ubicacion');
-	if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
-		ubicacion = ordenador+"/"+ubicacion;
-	}else{
-		ubicacion = ordenador+ubicacion;
-	}
-	var archivo = $(this).data('archivo');
-	var certi= ubicacion.trim()+archivo.trim();
-	window.location.href = certi;
+	$('#show_data').on('click','.item_ver',function(){
+	 
+		var ordenador = "https://"+$(this).data('ordenador');
+		var ubicacion=$(this).data('ubicacion');
+		if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+			ubicacion = ordenador+"/"+ubicacion;
+		}else{
+			ubicacion = ordenador+ubicacion;
+		}
+		var archivo = $(this).data('archivo');
+		var certi= ubicacion.trim()+archivo.trim();
+		window.location.href = certi;
 
-});
+	});
 
 
 
