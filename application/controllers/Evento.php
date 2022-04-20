@@ -234,7 +234,7 @@ public function add()
 			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 			$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
-	$data['cursos']= $this->curso_model->lista_cursos()->result();
+			$data['cursos']= $this->curso_model->lista_cursos()->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 			$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
 			$data['title']="Evento";
@@ -317,7 +317,7 @@ public function add()
 		$data['fechaeventos'] = $this->fechaevento_model->fechaeventos($this->uri->segment(3))->result();
 		$data['curso']=$this->curso_model->curso($data['evento']['idcurso'])->row_array();
 	
-		$this->load->view('template/page_header');		
+//		$this->load->view('template/page_header');		
 		unset($this->session->userdata['logged_in']);
 		$this->load->view('eventos/evento',$data);
 	}
