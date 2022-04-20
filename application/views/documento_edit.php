@@ -22,7 +22,7 @@ foreach ($tipodocus as $row){
 	$options[$row->idtipodocu]= $row->descripcion;
 }
 
- echo form_dropdown("idtipodocu",$options, $documento['idtipodocu']);  ?></td>
+ echo form_dropdown("idtipodocu",$options, $documento['idtipodocu'],array('id'=>'idtipodocu'));  ?></td>
 </tr>
 
 
