@@ -108,6 +108,26 @@ echo form_input('iddocumento',$options[$certificado['iddocumento']],array("disab
   </tr>
 
 
+
+<tr>
+      <td>Ancho x(296.67):</td>
+      <td><?php
+  $eys_arrctl=array("name"=>'ancho_x','value'=>$certificado['ancho_x'],"disabled"=>"disabled",'placeholder'=>'Ancho del certificado','style'=>'width:600px;');
+ echo form_input($eys_arrctl) ?></td>
+</tr>
+
+<tr>
+      <td>Alto  Y(210.56):</td>
+      <td><?php
+  $eys_arrctl=array("name"=>'alto_y','value'=>$certificado['alto_y'],"disabled"=>"disabled",'placeholder'=>'Alto del certificado y','style'=>'width:600px;');
+ echo form_input($eys_arrctl) ?></td>
+</tr>
+
+
+
+
+
+
 <tr>
       <td>posi nombre X:</td>
       <td><?php
@@ -116,7 +136,7 @@ echo form_input('iddocumento',$options[$certificado['iddocumento']],array("disab
 </tr>
 
 <tr>
-      <td>posi nombre Y:</td>
+      <td>posi nombre Y(115 mm):</td>
       <td><?php
   $eys_arrctl=array("name"=>'posi_nomb_y','value'=>$certificado['posi_nomb_y'],"disabled"=>"disabled",'placeholder'=>'Posicion de nombre en y','style'=>'width:600px;');
  echo form_input($eys_arrctl) ?></td>
