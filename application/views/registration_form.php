@@ -240,7 +240,7 @@ function showpassword(){
 
 
 
-function get_evento() {	
+ async function get_evento() {	
 	
 	var idinstitucion = $('select[name=idinstitucion]').val();
 	alert(idinstitucion);
