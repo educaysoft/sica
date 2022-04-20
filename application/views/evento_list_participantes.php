@@ -202,7 +202,7 @@ if(iddocumento2==0)
 
 
 
-	url= "http://"+maquina+"/FPDI/certificado.php";
+	url= "https://"+maquina+"/FPDI/certificado.php";
 //        alert(url);
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("POST",url,false);
