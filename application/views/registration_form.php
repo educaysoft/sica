@@ -207,13 +207,11 @@ $(document).ready(()=>{
   var idinstitucion= <?php echo $idinstitucion; ?>;
   var idevento= <?php echo $idevento; ?>;
 
-  alert(idinstitucion);
-  alert(idevento);
   if(idinstitucion>0){
   $('#idinstitucion option[value="'+idinstitucion+'"]').attr('selected','selected');
     document.getElementById("idinstitucion").disabled=true;
     get_evento();
-    document.getElementById("ln-registrar").style.display="none";
+  //  document.getElementById("ln-registrar").style.display="none";
   }
   if(idevento>0){
             $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
@@ -242,11 +240,12 @@ function showpassword(){
 
 
 
-function get_evento() {
+function get_evento() {	
+	
 	var idinstitucion = $('select[name=idinstitucion]').val();
 	alert(idinstitucion);
     $.ajax({
-        url: "<?php echo site_url('evento/get_evento') ?>",
+        url: "<?php echo site_url('evento/get_evento'); ?>",
         data: {idinstitucion: idinstitucion},
         method: 'GET',
 	 async : false,
@@ -256,7 +255,7 @@ function get_evento() {
         html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
         var i;
         for(i=0; i<data.length; i++){
-        html += '<option value='+data[i].idevento+'>'+data[i].titulo+'</option>';
+		html += '<option value='+data[i].idevento+'>'+data[i].titulo+'</option>';
         }
         $('#idevento').html(html);
 
