@@ -418,8 +418,6 @@ function loadpdf3()
 // Count total files
 $countfiles = count($_FILES['files']['name']);
 
-
-
 $upload_location =  $_SERVER["DOCUMENT_ROOT"]."/facae/pdfs/";
 
 // Upload directory
@@ -464,7 +462,7 @@ exit;
 	public function get_evento() {
 	    $this->load->database();
 	    $this->load->helper('form');
-	    if($this->input->post('idinstitucion')) {
+	    if($this->input->get('idinstitucion')) {
 		$this->db->select('*');
 		$this->db->where(array('idinstitucion' => $this->input->post('idinstitucion'),'idevento_estado'=>2));  //SOLO ESTADO INSCRIPCION
 		$query = $this->db->get('evento');
