@@ -106,15 +106,12 @@ echo form_button("carga","cargar archivo",$js); ?>
     			foreach ($ordenadores as $row){
       				$options[$row->idordenador]= $row->nombre;
    			}
-			//$url= base_url()."index.php/documento/loadpdf3";
-                        $url= "https://".$options[$documento['idordenador']];
-			if(substr($url,-1) == '/'){
-			$url= $url."cargafile.php";
-			}else{
-			$url= $url."/cargafile.php";
-			}
+			
 
-			$js='onClick="uploadFiles(\''.$url.'\')"';     
+			// url de la funcion php que carga el archivo en el 
+			$url1= base_url()."index.php/documento/save";
+			$js='onClick="uploadFiles(\''.$url1.'\')"';     
+
 			echo form_button("carga","cargar a directorio",$js); ?>
 		</div> 
 	</div>
@@ -183,11 +180,77 @@ foreach ($documento_estados as $row){
 
    <script>
 
+//=====================
+//
+// Upload file
+function uploadFiles(url1) {
+
+  var totalfiles = document.getElementById('files').files.length;
+  var formData = new FormData();
+  alert("Este proceso guardará todas los datos ingresados");	
+  if(totalfiles > 0 ){
+
+    var iddocumento = 0;
+    var idtipodocu = document.getElementById('idtipodocu').value;
+    var archivopdf = document.getElementById('archivopdf').value;
+    var asunto =  document.getElementById('asunto').value;
+    var fechaelaboracion = document.getElementById('fechaelaboracion').value;
+    var idordenador =  document.getElementById('idordenador').value;
+    var iddirectorio = document.getElementById('iddirectorio').value;
+    var idddocumento_estado = 1;
+    var idpersona = document.getElementById('idpersona').value;
+
+
+		//Recupera el nombre del archivo
+		 alert("Guardado exitoso...ahora procedemos a cargar el archivo..con un nuevo nombre"+archivopdf);
+		//Para cargar el archivo	
+		var formData = new FormData();
+   	 	// Read selected files
+    		for (var index = 0; index < totalfiles; index++) {
+      			formData.append("files[]", document.getElementById('files').files[index]);
+    		}
+      		formData.append("archivopdf",archivopdf );
+    		var xhttp = new XMLHttpRequest();
+		var e =document.getElementById('idordenador');
+		var url2 = "https://"+e.options[e.selectedIndex].text;
+
+		if(url2.slice(-1) == '/'){
+			url2 = url2+"cargafile.php";
+		}else{
+			url2 = url2+"/cargafile.php";
+		}
+                alert("Se va a ejecutar "+ url2);	
+    		// Set POST method and ajax file path
+    		xhttp.open("POST", url2, true);
+
+    		// call on request changes state
+    		xhttp.onreadystatechange = function() {
+ 		if(xhttp.readyState === XMLHttpRequest.DONE) {
+    			var status = xhttp.status;
+    			if (status === 0 || (status >= 200 && status < 400)) {
+      				// The request has been completed successfully
+				var response = xhttp.responseText;
+          			alert(response + "archivo cargado");
+				history.back(); //Go to the previous page
+       			}else{
+				alert("No se pudo cargar el archivo");
+			}
+			}
+              	};
+    		// Send request with data
+    		xhttp.send(formData);
+  }else{
+    alert("Porfavor seleccione un archivo");
+  }
+
+}
+
+
+
 
 
 function get_directorio() {
 	var idordenador = $('select[name=idordenador]').val();
- // alert(idordenador);  
     $.ajax({
         url: "<?php echo site_url('documento/get_directorio') ?>",
         data: {idordenador: idordenador},
@@ -198,7 +261,7 @@ function get_directorio() {
         var html = '';
         var i;
         for(i=0; i<data.length; i++){
-        html += '<option value='+data[i].iddirectorio+'>'+data[i].nombre+'</option>';
+        html += '<option value='+data[i].iddirectorio+'>'+data[i].ruta+'</option>';
         }
         $('#iddirectorio').html(html);
 
@@ -212,7 +275,6 @@ function get_directorio() {
     })
 
 }
-
 
 
 
@@ -256,51 +318,14 @@ formData.append("archivopdf",document.getElementById('archivopdf').value);
 };
 
 
-//=====================
-//
-// Upload file
-function uploadFiles(url) {
-
-  var totalfiles = document.getElementById('files').files.length;
-  alert(url);	
-  if(totalfiles > 0 ){
-
-    var formData = new FormData();
-
-    // Read selected files
-    for (var index = 0; index < totalfiles; index++) {
-      formData.append("files[]", document.getElementById('files').files[index]);
-    }
-      formData.append("archivopdf", document.getElementById('archivopdf').value);
-     alert(document.getElementById('archivopdf').value);
-    var xhttp = new XMLHttpRequest();
-
-    // Set POST method and ajax file path
-    xhttp.open("POST", url, true);
-
-    // call on request changes state
-    xhttp.onreadystatechange = function() {
-       if (this.readyState == 4 && this.status == 200) {
-
-          var response = this.responseText;
-
-   
 
 
 
-          alert(response + " File uploaded.");
 
-       }
-    };
 
-    // Send request with data
-    xhttp.send(formData);
 
-  }else{
-    alert("Please select a file");
-  }
 
-}
+
 </script>
 
 
