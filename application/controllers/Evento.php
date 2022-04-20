@@ -462,9 +462,9 @@ exit;
 	public function get_evento() {
 	    $this->load->database();
 	    $this->load->helper('form');
-	    if($this->input->get('idinstitucion')) {
+	    if($this->input->post('idinstitucion')) {
 		$this->db->select('*');
-		$this->db->where(array('idinstitucion' => $this->input->get('idinstitucion'),'idevento_estado'=>2));  //SOLO ESTADO INSCRIPCION
+		$this->db->where(array('idinstitucion' => $this->input->post('idinstitucion'),'idevento_estado'=>2));  //SOLO ESTADO INSCRIPCION
 		$query = $this->db->get('evento');
 		$data=$query->result();
 		echo json_encode($data);

@@ -247,7 +247,7 @@ function showpassword(){
     $.ajax({
         url: "<?php echo site_url('evento/get_evento'); ?>",
         data: {idinstitucion: idinstitucion},
-        method: 'GET',
+        method: 'POST',
 	 async : false,
         dataType : 'json',
         success: function(data){
