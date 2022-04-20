@@ -248,8 +248,8 @@ function get_evento() {
     $.ajax({
         url: "<?php echo site_url('evento/get_evento') ?>",
         data: {idinstitucion: idinstitucion},
-        method: 'POST',
-	      async : false,
+        method: 'GET',
+	 async : false,
         dataType : 'json',
         success: function(data){
         var html = '';
