@@ -128,7 +128,7 @@ echo form_button("carga","cargar archivo",$js); ?>
     foreach ($ordenadores as $row){
       $options[$row->idordenador]= $row->nombre;
     }
-     echo form_dropdown($name="idordenador",$options, $documento['idordenador'],array('onchange'=>'get_directorio()'),array("id"=>"idordenador");  ?></td>
+     echo form_dropdown($name="idordenador",$options, $documento['idordenador'],array('onchange'=>'get_directorio()'),array("id"=>"idordenador"));  ?></td>
 </tr>
 
 <tr>
