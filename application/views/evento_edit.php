@@ -49,7 +49,10 @@ foreach ($instituciones as $row){
 
   <tr>
      <td>Titulo:</td>
-     <td><?php echo form_input(array("name"=>'titulo','id'=>'titulo','value'=>$evento['titulo'],'placeholder'=>'titulo')) ?></td>
+  <td><?php 
+	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Título" );    
+	echo form_textarea('titulo',$evento['titulo'],$textarea_options ); 
+?></td>
   </tr>
  
 
