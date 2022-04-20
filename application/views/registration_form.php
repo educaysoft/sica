@@ -244,6 +244,7 @@ function showpassword(){
 
 function get_evento() {
 	var idinstitucion = $('select[name=idinstitucion]').val();
+	alert(idinstitucion);
     $.ajax({
         url: "<?php echo site_url('evento/get_evento') ?>",
         data: {idinstitucion: idinstitucion},
