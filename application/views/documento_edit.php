@@ -47,7 +47,7 @@ foreach ($tipodocus as $row){
 	}
 
 
- echo form_multiselect('idemisor[]',$options,(array)set_value('idemisor', ''),array('id'=>"idemisor")); ?></td>
+ echo form_multiselect('idemisor[]',$options,(array)set_value('idpersona', ''),array('id'=>"idpersona")); ?></td>
   </tr>
 
 
@@ -58,7 +58,7 @@ foreach ($tipodocus as $row){
   <td>Asunto:</td>
   <td><?php 
   
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"asunto" );    
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"asunto","id" =>"asunto");    
 echo form_textarea('asunto',$documento['asunto'],$textarea_options ); ?></td>
  </tr>
 
@@ -128,7 +128,7 @@ echo form_button("carga","cargar archivo",$js); ?>
     foreach ($ordenadores as $row){
       $options[$row->idordenador]= $row->nombre;
     }
-     echo form_dropdown($name="idordenador",$options, $documento['idordenador'],array('onchange'=>'get_directorio()'));  ?></td>
+     echo form_dropdown($name="idordenador",$options, $documento['idordenador'],array('onchange'=>'get_directorio()'),array("id"=>"idordenador");  ?></td>
 </tr>
 
 <tr>
