@@ -27,19 +27,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 
 
-
-
-
 <div class="row justify-content-center">
       <!-- Page Heading -->
-
-
  <div class="row">
   <div class="col-12">
 
-
-
-	<div class="form-group row">
+<div class="form-group row">
     	<label class="col-md-2 col-form-label"> Tipo  documento:</label>
 	<?php
 		$options= array('--Select--');
@@ -50,7 +43,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 	<div class="col-md-10">
 		<?php
-     			echo form_dropdown("idtipodocu",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_documento()'));  
+     			echo form_dropdown("idtipodocu",$options[$filtro], set_select('--Select--','default_value'),array('onchange'=>'filtra_documento()'));  
 		?>
 	</div>
 	</div>
@@ -58,6 +51,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 
+
+
+	     
+<div id="filtro"><?php echo $filtro; ?></div>
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
@@ -122,21 +119,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
         }
 
 
-var idtipodocu=0;
-function filtra_documento()
-{
-
-idtipodocu = $('select[name=idtipodocu]').val();
-
-
-var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('documento/documento_dataxtipodocu')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
-}
 
 
 $(document).ready(function(){
 
-var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET',data:{iddocumento:iddocumento}},});
-//	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET'},});
+	var idtipodocu = document.getElementById("filtro").innerHTML;
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_dataxtipodocu')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
 
 
 $('#show_data').on('click','.item_ver',function(){
@@ -152,18 +140,20 @@ var archivo = $(this).data('archivo');
 var certi= ubicacion.trim()+archivo.trim();
 window.location.href = certi;
 
+
+
+
+//let ubicacion=$(this).data('ubicacion');
+//let archivo = $(this).data('archivo');
+//var certi= ubicacion.trim()+archivo.trim();
+
+//window.location.href = certi;
+
 });
 
 
 
-$('#show_data').on('click','.item_pdf',function(){
-var id= $(this).data('iddocumento');
-var retorno= $(this).data('retorno');
-window.location.href = retorno+'/'+id;
 
-});
-
-/*
 
 	 $('#show_data').on('click','.item_pdf',function(){
 		 var iddocumento = $(this).data('iddocumento');
@@ -182,7 +172,7 @@ window.location.href = retorno+'/'+id;
 
 		return false;
 	 });
-*/
+
 });
 
 
