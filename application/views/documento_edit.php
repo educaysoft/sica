@@ -186,19 +186,27 @@ foreach ($documento_estados as $row){
 function uploadFiles(url1) {
 
   var totalfiles = document.getElementById('files').files.length;
-  var formData = new FormData();
   alert("Este proceso guardará todas los datos ingresados");	
   if(totalfiles > 0 ){
 
     var iddocumento = 0;
+    alert(1);
     var idtipodocu = document.getElementById('idtipodocu').value;
+    alert(2);
     var archivopdf = document.getElementById('archivopdf').value;
+    alert(3);
     var asunto =  document.getElementById('asunto').value;
+    alert(4);
     var fechaelaboracion = document.getElementById('fechaelaboracion').value;
+    alert(5);
     var idordenador =  document.getElementById('idordenador').value;
+    alert(6);
     var iddirectorio = document.getElementById('iddirectorio').value;
+    alert(7);
     var idddocumento_estado = 1;
+    alert(8);
     var idpersona = document.getElementById('idpersona').value;
+    alert(9);
 
 
 		//Recupera el nombre del archivo
