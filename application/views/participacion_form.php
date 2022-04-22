@@ -154,7 +154,8 @@ function get_participantes2() {
 	var idevento = $('select[name=idevento]').val();
 	var f = document.getElementById("idfechaevento");
   	var arrtmp=f.options[f.selectedIndex].text;
-	var fecha=arrtmp[0];
+	const x=arrtmp.split(" - ");
+	var fecha=x[0];
 //alert(idevento);
 //alert(fecha);
     if(fecha=="--Select--"){
