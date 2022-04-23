@@ -70,7 +70,7 @@ echo '<table><tr><td>';
 echo form_dropdown("idtipoasistencia",$options, set_select('--Select--','default_value'),array("id"=>"idtipoasistencia"));  
 
 
-echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_nota()">Guardar nota.</span></td></tr></table>';
+echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_asistencia()">Guardar asistencia.</span></td></tr></table>';
 
 ?>
 
@@ -225,7 +225,6 @@ function save_asistencia() {
 
 
 	var idevento=document.getElementById("idevento").value;
-//	var idtipoparticipacion=document.getElementById("idtipoparticipacion").value;
 	var porcentaje=document.getElementById("idtipoasistencia").value;
 	var comentario=document.getElementById("comentario").value;
 	var idpersona= $('select[name=idpersona]').val();
