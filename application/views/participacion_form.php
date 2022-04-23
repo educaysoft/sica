@@ -283,15 +283,6 @@ function save_nota() {
 	var idpersona= $('select[name=idpersona]').val();
 	var p = document.getElementById("idpersona");
   var idpersona=p.options[p.selectedIndex].value;
-//alert(idpersona);
-//alert(idevento);
-//alert(fecha);
-//alert(idtipoparticipacion);
-//alert(porcentaje);
-//alert(comentario);
-
-
-
 
     $.ajax({
         url: "<?php echo site_url('participacion/save_nota') ?>",

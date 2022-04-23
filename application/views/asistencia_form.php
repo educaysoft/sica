@@ -3,80 +3,99 @@
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open("asistencia/save") ?>
-<table>
+<?php echo form_open() ?>
 
-<tr>
-<td> Evento: </td>
-<td><?php 
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Evento:</label>
+<div class="col-md-10">
+<?php
 
 $options= array('--Select--');
 foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
 }
+ echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('id'=>'idevento','onchange'=>'get_participantes()'));  
 
- echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('id'=>'idevento','onchange'=>'get_participantes()'));  ?></td>
-</tr>
-
-
-<tr>
-<td> fecha : </td>
-<td><?php echo form_input(array("name"=>"fecha","id"=>"fecha","type"=>"date"));  ?></td>
-</tr>
+?>
+</div>
+</div>
 
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Fecha evaluacion:</label>
+<div class="col-md-10">
+<?php
+
+$options= array('--Select--');
+foreach ($fechaeventos as $row){
+	$options[$row->idfechaevento]= $row->fecha." - ".$row->tema;
+}
+ echo form_dropdown("idfechaevento",$options, set_select('--Select--','default_value'),array('id'=>'idfechaevento','onchange'=>'get_participantes2()'));  
+
+?>
+</div>
+</div>
 
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Participantes:</label>
+<div class="col-md-10">
 
 
-
-<tr>
-    <td>Participantes:</td>
-    <td>
-    <div class="form-group">
-         <select class="form-control" id="idpersona" name="idpersona" multiple required size="10" onChange='get_asistencia()'>
+         <select class="form-control" id="idpersona" name="idpersona" multiple required size="30" style="height: 100%;"   onChange='get_asistencia()'>
                  <option>No Selected</option>
           </select>
     </div>
 
-</td>
-
-</tr>
+</div>
 
 
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label"> Tipo de asistencia:</label>
+<div class="col-md-10">
+<?php
 
-
-
-
-<tr>
-<td> Tipo de asistencia: </td>
-<td><?php 
 
 $options= array('--Select--');
 foreach ($tipoasistencias as $row){
 	$options[$row->idtipoasistencia]= $row->nombre;
 }
 
- echo form_dropdown("idtipoasistencia",$options, set_select('--Select--','default_value'),array("id"=>"idtipoasistencia"));  ?></td>
-</tr
-<tr>
-<td> Comentario: </td>
-<td><?php echo form_input(array("name"=>"comentario","id"=>"comentario","type"=>"text"));  ?></td>
-</tr>
-
-<tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("asistencia","Atrás") ?> </td>
-</tr>
+echo '<table><tr><td>';
+echo form_dropdown("idtipoasistencia",$options, set_select('--Select--','default_value'),array("id"=>"idtipoasistencia"));  
 
 
+echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_nota()">Guardar nota.</span></td></tr></table>';
+
+?>
+
+</div>
+</div>
 
 
 
-</table>
+<div class="form-group row">
+<label class="col-md-2 col-form-label"> Comentario:</label>
+<div class="col-md-10">
+<?php
+
+
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"comentario",'id'=>'comentario' );
+echo form_textarea("comentario","",$textarea_options);
+
+?>
+</div>
+</div>
+
+
+
+
+
 <?php echo form_close();?>
 
 
@@ -192,6 +211,50 @@ function get_asistencia2() {
     })
 
 }
+
+
+
+
+
+
+function save_asistencia() {
+	var f = document.getElementById("idfechaevento");
+  	var arrtmp=f.options[f.selectedIndex].text;
+	const x=arrtmp.split(" - ");
+	var fecha=x[0];
+
+
+	var idevento=document.getElementById("idevento").value;
+//	var idtipoparticipacion=document.getElementById("idtipoparticipacion").value;
+	var porcentaje=document.getElementById("idtipoasistencia").value;
+	var comentario=document.getElementById("comentario").value;
+	var idpersona= $('select[name=idpersona]').val();
+	var p = document.getElementById("idpersona");
+  var idpersona=p.options[p.selectedIndex].value;
+
+    $.ajax({
+        url: "<?php echo site_url('asistencia/save_asistencia') ?>",
+        data: {idevento:idevento, fecha:fecha,idtipoasistencia:idtipoasistencia,comentario:comentario,idpersona:idpersona},
+        method: 'POST',
+        async : false,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        get_asistencia2();
+        alert("Se guardo con exito");
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
+
+
+
 
 
 
