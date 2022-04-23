@@ -8,6 +8,7 @@ class Asistencia extends CI_Controller{
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
       		$this->load->model('tipoasistencia_model');
+         	$this->load->model('fechaevento_model');
 	}
 
 	public function index(){
@@ -29,6 +30,7 @@ class Asistencia extends CI_Controller{
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['tipoasistencias']= $this->tipoasistencia_model->lista_tipoasistencias()->result();
+		$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($idevento)->result();
 		$data['title']="Nuevo Asistencia";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('asistencia_form',$data);
