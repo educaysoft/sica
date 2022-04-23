@@ -101,6 +101,19 @@ echo form_textarea("comentario","",$textarea_options);
 
 
   <script>
+
+
+  var idevento= <?php echo $idevento; ?>;
+  if(idevento>0){
+            $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
+            get_participantes();
+  }
+
+
+   });     
+
+
+
 function get_participantes() {
 	var idevento = $('select[name=idevento]').val();
     $.ajax({
@@ -112,12 +125,13 @@ function get_participantes() {
         success: function(data){
         var html = '';
         var i;
-	document.getElementById('idpersona').setAttribute('size',"'"+data.length+"'");
         for(i=0; i<data.length; i++){
         html += '<option value='+data[i].idpersona+'>'+data[i].nombres+'</option>';
         }
         $('#idpersona').html(html);
 
+	var select = document.getElementById('idpersona');
+select.size = select.length;  
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
@@ -128,6 +142,58 @@ function get_participantes() {
     })
 
 }
+
+
+
+function get_participantes2() {
+	var idevento = $('select[name=idevento]').val();
+	var f = document.getElementById("idfechaevento");
+  	var arrtmp=f.options[f.selectedIndex].text;
+	const x=arrtmp.split(" - ");
+	var fecha=x[0];
+//alert(idevento);
+//alert(fecha);
+    if(fecha=="--Select--"){
+      alert("debe seleccionar una fecha");
+   }else{
+    $.ajax({
+        url: "<?php echo site_url('asistencia/get_participantes2') ?>",
+        data: {idevento:idevento,fecha:fecha},
+        method: 'POST',
+	      async : false,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        var l=data.length+1;
+        document.getElementById('idpersona').setAttribute('size',"'"+l+"'");
+        for(i=0; i<data.length; i++){
+		if(data[i].tipoasistencia!=" "){
+			html += '<option style="color:green;"  value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].tipoasistencia+'</option>';
+		}else{
+			html += '<option style="color:red;" value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].tipoasistencia+'</option>';
+		}
+        }
+        $('#idpersona').html(html);
+
+
+        var select = document.getElementById('idpersona');
+        select.size = select.length;  
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+}
+}
+
+
+
+
+
+
 
 
 function get_asistencia() {
@@ -225,7 +291,7 @@ function save_asistencia() {
 
 
 	var idevento=document.getElementById("idevento").value;
-	var porcentaje=document.getElementById("idtipoasistencia").value;
+	var tipoasistencia=document.getElementById("idtipoasistencia").value;
 	var comentario=document.getElementById("comentario").value;
 	var idpersona= $('select[name=idpersona]').val();
 	var p = document.getElementById("idpersona");
