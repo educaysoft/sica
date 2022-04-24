@@ -199,7 +199,6 @@ echo form_textarea("comentario","",$textarea_options);
 		var idevento=document.getElementById("idevento").value;
 	//	var idpersona= $('select[name=idpersona]').val();
 		var idpersona=document.getElementById("idpersona").value;
-		alert(idpersona);
 	//	element.replaceChild(newNode, element.childNodes[xx]);
 
 	    $.ajax({
@@ -272,14 +271,12 @@ echo form_textarea("comentario","",$textarea_options);
 		var arrtmp=f.options[f.selectedIndex].text;
 		const x=arrtmp.split(" - ");
 		var fecha=x[0];
-		alert(fecha);
 		var idevento=document.getElementById("idevento").value;
 		var idtipoasistencia=document.getElementById("idtipoasistencia").value;
 		var comentario=document.getElementById("comentario").value;
 		var idpersona= $('select[name=idpersona]').val();
 		var p = document.getElementById("idpersona");
 		var idpersona=p.options[p.selectedIndex].value;
-		alert(idpersona);
 
 	    $.ajax({
 		url: "<?php echo site_url('asistencia/save_asistencia') ?>",

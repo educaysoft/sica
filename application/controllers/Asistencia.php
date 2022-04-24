@@ -172,6 +172,20 @@ function asistencia_data()
 }
 
 
+public function reporte()
+{
+
+
+	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_activo($this->uri->segment(3))->result();
+
+  $data['asistencia'] = $this->asistencia_model->listar_asistencia1($this->uri->segment(3))->result();
+
+  $data['title']="Certificado";
+  $this->load->view('asistencia_report',$data);
+
+
+
+}
 
 
 public function tabla()

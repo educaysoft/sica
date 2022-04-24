@@ -15,7 +15,7 @@ foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
 }
 
- echo form_dropdown("idevento",$options, set_select('--Select--','default_value'));  
+ echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('id'=>'idevento'));  
 ?>
 </div>
 </div>
