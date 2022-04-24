@@ -147,8 +147,6 @@ function get_participantes2() {
   	var arrtmp=f.options[f.selectedIndex].text;
 	const x=arrtmp.split(" - ");
 	var fecha=x[0];
-//alert(idevento);
-//alert(fecha);
     if(fecha=="--Select--"){
       alert("debe seleccionar una fecha");
    }else{
@@ -265,8 +263,13 @@ function get_participacion2() {
 
 
 function save_nota() {
+
 	var f = document.getElementById("idfechaevento");
-  var fecha=f.options[f.selectedIndex].text;
+  	var arrtmp=f.options[f.selectedIndex].text;
+	const x=arrtmp.split(" - ");
+	var fecha=x[0];
+
+
 	var idevento=document.getElementById("idevento").value;
 //	var idtipoparticipacion=document.getElementById("idtipoparticipacion").value;
 	var porcentaje=document.getElementById("porcentaje").value;
