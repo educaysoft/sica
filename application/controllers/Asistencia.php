@@ -139,52 +139,44 @@ class Asistencia extends CI_Controller{
 
 
 
-public function listar()
-{
-	
-  $data['asistencia'] = $this->asistencia_model->listar_asistencia1()->result();
-  $data['title']="Certificado";
-	$this->load->view('template/page_header');		
-  $this->load->view('asistencia_list',$data);
-	$this->load->view('template/page_footer');
-}
+	public function listar()
+	{
+		
+	  $data['asistencia'] = $this->asistencia_model->listar_asistencia1()->result();
+	  $data['title']="Certificado";
+		$this->load->view('template/page_header');		
+	  $this->load->view('asistencia_list',$data);
+		$this->load->view('template/page_footer');
+	}
 
-function asistencia_data()
-{
-		$draw= intval($this->input->get("draw"));
-		$draw= intval($this->input->get("start"));
-		$draw= intval($this->input->get("length"));
+	function asistencia_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
 
-
-	 	$data0 = $this->asistencia_model->listar_asistencia1();
-		$data=array();
-		foreach($data0->result() as $r){
-			$data[]=array($r->idasistencia,$r->elevento,$r->lapersona,$r->fecha,$r->tipoasistencia,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idasistencia="'.$r->idasistencia.'">Ver</a>');
-		}	
-		$output=array( "draw"=>$draw,
-			"recordsTotal"=> $data0->num_rows(),
-			"recordsFiltered"=> $data0->num_rows(),
-			"data"=>$data
-		);
-		echo json_encode($output);
-		exit();
-}
+			$data0 = $this->asistencia_model->listar_asistencia1();
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idasistencia,$r->elevento,$r->lapersona,$r->fecha,$r->tipoasistencia,
+					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idasistencia="'.$r->idasistencia.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
 
 
 public function reporte()
 {
-
-
-	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_activo($this->uri->segment(3))->result();
-
-  $data['asistencia'] = $this->asistencia_model->listar_asistencia1($this->uri->segment(3))->result();
-
-  $data['title']="Certificado";
-  $this->load->view('asistencia_report',$data);
-
-
-
+	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_asistencia($this->uri->segment(3))->result();
+	$data['asistencia'] = $this->asistencia_model->listar_asistencia1($this->uri->segment(3))->result();
+  	$data['title']="Certificado";
+  	$this->load->view('asistencia_report',$data);
 }
 
 
