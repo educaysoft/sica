@@ -66,9 +66,9 @@ foreach ($asistencia as $row){
     echo "<td>". $arrasistencia[$id]."</td>";
     foreach ($fechaeventos as $row1){
       if(isset($arrasistencia[$row1->fecha])){
-          echo "<td>". $arrasistencia[$row1->fecha]."</td>";
+          echo "<td style='color:green'>". $arrasistencia[$row1->fecha]."</td>";
       }else{
-           echo "<td style="color:red" >falta</td>";
+           echo "<td style='color:red'>falta</td>";
       }
     }
       echo "</tr>";
@@ -88,9 +88,9 @@ foreach ($asistencia as $row){
     echo "<td>". $arrasistencia[$id]."</td>";
     foreach ($fechaeventos as $row1){
       if(isset($arrasistencia[$row1->fecha])){
-          echo "<td style="color:red">". $arrasistencia[$row1->fecha]."</td>";
+          echo "<td style='color:green'>". $arrasistencia[$row1->fecha]."</td>";
       }else{
-           echo "<td style="color:red">falta</td>";
+           echo "<td style='color:red'>falta</td>";
       }
     } 
       echo "</tr>";
