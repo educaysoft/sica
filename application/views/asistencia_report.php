@@ -32,7 +32,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Reporte de participación 
+                 <h3>Reporte de asistencia 
                  <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
 			  
         	</h3>
@@ -68,7 +68,7 @@ foreach ($asistencia as $row){
       if(isset($arrasistencia[$row1->fecha])){
           echo "<td>". $arrasistencia[$row1->fecha]."</td>";
       }else{
-           echo "<td>0</td>";
+           echo "<td style="color:red" >falta</td>";
       }
     }
       echo "</tr>";
@@ -76,10 +76,10 @@ foreach ($asistencia as $row){
     $arrasistencia=array();
     $id=$row->idpersona;
     $arrasistencia[$row->idpersona]=$row->lapersona;
-    $arrasistencia[$row->fecha]=$row->idtipoasistencia;
+    $arrasistencia[$row->fecha]=$row->tipoasistencia;
   }else{
 
-    $arrasistencia[$row->fecha]=$row->idtipoasistencia;
+    $arrasistencia[$row->fecha]=$row->tipoasistencia;
 
   }
 }
@@ -88,9 +88,9 @@ foreach ($asistencia as $row){
     echo "<td>". $arrasistencia[$id]."</td>";
     foreach ($fechaeventos as $row1){
       if(isset($arrasistencia[$row1->fecha])){
-          echo "<td>". $arrasistencia[$row1->fecha]."</td>";
+          echo "<td style="color:red">". $arrasistencia[$row1->fecha]."</td>";
       }else{
-           echo "<td>0</td>";
+           echo "<td style="color:red">falta</td>";
       }
     } 
       echo "</tr>";
