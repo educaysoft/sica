@@ -275,7 +275,7 @@ echo form_textarea("comentario","",$textarea_options);
 		var fecha=x[0];
 		alert(fecha);
 		var idevento=document.getElementById("idevento").value;
-		var tipoasistencia=document.getElementById("idtipoasistencia").value;
+		var idtipoasistencia=document.getElementById("idtipoasistencia").value;
 		var comentario=document.getElementById("comentario").value;
 		var idpersona= $('select[name=idpersona]').val();
 		var p = document.getElementById("idpersona");
