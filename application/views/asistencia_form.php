@@ -190,7 +190,12 @@ echo form_textarea("comentario","",$textarea_options);
 
 
 	function get_asistencia() {
-		var fecha = document.getElementById("fecha").value;
+
+		var f = document.getElementById("idfechaevento");
+  		var arrtmp=f.options[f.selectedIndex].text;
+		const x=arrtmp.split(" - ");
+		var fecha=x[0];
+
 		var idevento=document.getElementById("idevento").value;
 	//	var idpersona= $('select[name=idpersona]').val();
 		var idpersona=document.getElementById("idpersona").value;
@@ -207,21 +212,15 @@ echo form_textarea("comentario","",$textarea_options);
 		var html = '';
 		var comentario="";
 		var i;
-		if(data.length>1){
-		var xx=document.getElementById("idpersona").selectedIndex;
-		
-		
-		 element = document.getElementById("idpersona")[xx];
-		 element.style.color="red";
-
-		}else{
-		var xx=document.getElementById("idpersona").selectedIndex;
-		
-		
-		 element = document.getElementById("idpersona")[xx];
-		 element.style.color="green";
-
-		}
+//		if(data.length>1){
+//		var xx=document.getElementById("idpersona").selectedIndex;
+//		 element = document.getElementById("idpersona")[xx];
+//		 element.style.color="red";
+//		}else{
+//		var xx=document.getElementById("idpersona").selectedIndex;
+//		 element = document.getElementById("idpersona")[xx];
+//		 element.style.color="green";
+//		}
 
 		for(i=0; i<data.length; i++){
 		html += '<option value='+data[i].idtipoasistencia+'>'+data[i].tipoasistencia+'</option>';
