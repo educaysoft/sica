@@ -160,7 +160,7 @@ echo form_textarea("comentario","",$textarea_options);
 		var html = '';
 		var i;
 		var l=data.length+1;
-		document.getElementById('idpersona').setAttribute('size',"'"+l+"'");
+//		document.getElementById('idpersona').setAttribute('size',"'"+l+"'");
 		for(i=0; i<data.length; i++){
 			if(isset(data[i].tipoasistencia)){
 				html += '<option style="color:green;"  value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].tipoasistencia+'</option>';

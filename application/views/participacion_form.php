@@ -127,9 +127,8 @@ function get_participantes() {
         }
         $('#idpersona').html(html);
 
-
-var select = document.getElementById('idpersona');
-select.size = select.length;  
+	var select = document.getElementById('idpersona');
+	select.size = select.length;  
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
@@ -139,11 +138,6 @@ select.size = select.length;
     })
 
 }
-
-
-
-
-
 
 
 
