@@ -75,7 +75,7 @@ foreach ($asistencia as $row){
    }
     $arrasistencia=array();
     $id=$row->idpersona;
-    $arrasistencia[$row->idpersona]=$row->nombres;
+    $arrasistencia[$row->idpersona]=$row->lapersona;
     $arrasistencia[$row->fecha]=$row->idtipoasistencia;
   }else{
 
