@@ -14,7 +14,7 @@ if(isset($evento))
         <li style="border-right:1px solid green"> <?php echo anchor('evento/delete/'.$evento['idevento'],'Delete'); ?></li>
         <li> <?php echo anchor('evento/listar/','Eventos'); ?></li>
         <li> <?php echo anchor('evento/listar_participantes/'.$evento['idevento'],'Certificados'); ?></li>
-        <li> <?php echo anchor('asistencia','Asistencias'); ?></li>
+        <li> <?php echo anchor('asistencia/add/'.$evento['idevento'],'Asistencias'); ?></li>
         <li> <?php echo anchor('participacion/add/'.$evento['idevento'],'Participacion'); ?></li>
 
 <?php 

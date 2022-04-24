@@ -116,6 +116,7 @@ echo form_textarea("comentario","",$textarea_options);
 
 function get_participantes() {
 	var idevento = $('select[name=idevento]').val();
+	alert(idevento);
     $.ajax({
         url: "<?php echo site_url('asistencia/get_participantes') ?>",
         data: {idevento:idevento},
@@ -131,7 +132,7 @@ function get_participantes() {
         $('#idpersona').html(html);
 
 	var select = document.getElementById('idpersona');
-select.size = select.length;  
+	select.size = select.length;  
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
@@ -288,14 +289,12 @@ function save_asistencia() {
   	var arrtmp=f.options[f.selectedIndex].text;
 	const x=arrtmp.split(" - ");
 	var fecha=x[0];
-
-
 	var idevento=document.getElementById("idevento").value;
 	var tipoasistencia=document.getElementById("idtipoasistencia").value;
 	var comentario=document.getElementById("comentario").value;
 	var idpersona= $('select[name=idpersona]').val();
 	var p = document.getElementById("idpersona");
-  var idpersona=p.options[p.selectedIndex].value;
+  	var idpersona=p.options[p.selectedIndex].value;
 
     $.ajax({
         url: "<?php echo site_url('asistencia/save_asistencia') ?>",
