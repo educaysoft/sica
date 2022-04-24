@@ -43,8 +43,8 @@ class Participacion_model extends CI_model {
 		if($query->num_rows()==0){
 			$this->db->insert("participacion", $array_item);
 		      return TRUE;
-		    }else{
-			    if($query->result()[0]->porcenaje!=$array['porcentaje'])
+		 }else{
+			    if($query->result()[0]->porcenaje!=$array_item['porcentaje'])
 			    {
 				$this->db->where('idpersona',$array_item['idpersona']);
 				$this->db->where('fecha',$array_item['fecha']);
