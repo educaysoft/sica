@@ -174,7 +174,7 @@ class Asistencia extends CI_Controller{
 public function reporte()
 {
 	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_asistencia($this->uri->segment(3))->result();
-	$data['asistencia'] = $this->asistencia_model->listar_asistencia1($this->uri->segment(3))->result();
+	$data['asistencia'] = $this->asistencia_model->listar_asistencia_reporte($this->uri->segment(3))->result();
   	$data['title']="Certificado";
   	$this->load->view('asistencia_report',$data);
 }

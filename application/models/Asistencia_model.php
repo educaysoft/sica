@@ -12,8 +12,31 @@ class Asistencia_model extends CI_model {
 		 return $asistencia;
 	}
 
+
+
+
+	function listar_asistencia_reporte($idevento){
+    if($idevento>0)
+    {
+		 $this->db->order_by("idevento asc,lapersona asc");
+ 		$this->db->where('idevento',$idevento);
+		 $asistencia= $this->db->get('asistencia1');
+   }else{
+  
+		 $this->db->order_by("idevento asc,lapersona asc");
+		 $asistencia= $this->db->get('asistencia1');
+  
+   }
+     return $asistencia;
+	}
+
+
+
+
+
+
  	function asistencia( $id){
- 		$asistencia = $this->db->query('select * from asistencia where idasistencia="'. $id.'"');
+	$asistencia = $this->db->query('select * from asistencia where idasistencia="'. $id.'"');
  		return $asistencia;
  	}
 
