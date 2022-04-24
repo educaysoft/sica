@@ -27,7 +27,6 @@ public function index(){
 	$this->load->view('template/page_header');		
 	$this->load->view('evento_record',$data);
 	$this->load->view('template/page_footer');
-
    }else{
 	$this->load->view('template/page_header.php');
 	$this->load->view('login_form');
@@ -35,26 +34,21 @@ public function index(){
    }
 }
 
-
-
 //==============================================
 // Llamar al formulario para un nuevo evento.
 // ==============================================
 
-public function add()
-{
-	$data['title']="Usted esta Creando un nuevo Evento";
-	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
-	$data['cursos']= $this->curso_model->lista_cursos()->result();
-	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-	$data['paginas']= $this->pagina_model->lista_paginas()->result();
- 	$this->load->view('template/page_header');		
- 	$this->load->view('evento_form',$data);
- 	$this->load->view('template/page_footer');
-
-
-}
-
+	public function add()
+	{
+		$data['title']="Usted esta Creando un nuevo Evento";
+		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+		$data['cursos']= $this->curso_model->lista_cursos()->result();
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['paginas']= $this->pagina_model->lista_paginas()->result();
+		$this->load->view('template/page_header');		
+		$this->load->view('evento_form',$data);
+		$this->load->view('template/page_footer');
+	}
 
 //==============================================
 // Guardar el nuevo evento.
@@ -78,8 +72,6 @@ public function add()
 	 	$this->evento_model->save($array_item);
 	 	redirect('evento');
  	}
-
-
 
 
 	public function edit()
@@ -137,7 +129,6 @@ public function add()
 		$this->load->view('evento_record',$data);
 		$this->load->view('template/page_footer');
 	}
-
 
 
 	public function listar()

@@ -1,4 +1,3 @@
-
 <div style="margin-top:5cm;">
 <h2> <?php echo $title; ?> </h2>
 </div>
@@ -100,17 +99,16 @@ echo form_textarea("comentario","",$textarea_options);
 
 
 
-  <script>
+<script>
 
 
-  var idevento= <?php echo $idevento; ?>;
-  if(idevento>0){
-            $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
-            get_participantes();
-  }
-
-
-   });     
+	$(document).ready(()=>{
+		var idevento= <?php echo $idevento; ?>;
+		if(idevento>0){
+		    $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
+		    get_participantes();
+		}
+	});     
 
 
 

@@ -27,12 +27,12 @@ class Asistencia extends CI_Controller{
 
 	public function add()
 	{
-    $idevento=$this->uri->segment(3);
-    if(!isset($idevento)){
-      $idevento=0;
-    }else{
-     $data["idevento"]=$idevento;
-    }
+	    $idevento=$this->uri->segment(3);
+	    if(!isset($idevento)){
+	      $idevento=0;
+	    }else{
+	     $data["idevento"]=$idevento;
+	    }
 
 
 		$data['personas']= $this->persona_model->lista_personas()->result();
