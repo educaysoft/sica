@@ -263,13 +263,10 @@ function get_participacion2() {
 
 
 function save_nota() {
-
 	var f = document.getElementById("idfechaevento");
   	var arrtmp=f.options[f.selectedIndex].text;
 	const x=arrtmp.split(" - ");
 	var fecha=x[0];
-
-
 	var idevento=document.getElementById("idevento").value;
 //	var idtipoparticipacion=document.getElementById("idtipoparticipacion").value;
 	var porcentaje=document.getElementById("porcentaje").value;
@@ -277,7 +274,7 @@ function save_nota() {
 	var idpersona= $('select[name=idpersona]').val();
 	var p = document.getElementById("idpersona");
   var idpersona=p.options[p.selectedIndex].value;
-
+      alert(fecha);
     $.ajax({
         url: "<?php echo site_url('participacion/save_nota') ?>",
         data: {idevento:idevento, fecha:fecha,porcentaje:porcentaje,comentario:comentario,idpersona:idpersona},
