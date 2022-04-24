@@ -309,7 +309,7 @@ public function index(){
 		$data['curso']=$this->curso_model->curso($data['evento']['idcurso'])->row_array();
 	
 //		$this->load->view('template/page_header');		
-		unset($this->session->userdata['logged_in']);
+//		unset($this->session->userdata['logged_in']);
 		$this->load->view('eventos/evento',$data);
 	}
 
