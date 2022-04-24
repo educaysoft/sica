@@ -162,10 +162,10 @@ echo form_textarea("comentario","",$textarea_options);
 		var l=data.length+1;
 //		document.getElementById('idpersona').setAttribute('size',"'"+l+"'");
 		for(i=0; i<data.length; i++){
-			if(isset(data[i].tipoasistencia)){
-				html += '<option style="color:green;"  value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].tipoasistencia+'</option>';
-			}else{
+			if(data[i].tipoasistencia===undefined){
 				html += '<option style="color:red;" value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].tipoasistencia+'</option>';
+			}else{
+				html += '<option style="color:green;"  value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].tipoasistencia+'</option>';
 			}
 		}
 		$('#idpersona').html(html);
@@ -299,10 +299,6 @@ echo form_textarea("comentario","",$textarea_options);
 	      }
 	    })
 	}
-
-
-
-
 
 
 </script>
