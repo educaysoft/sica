@@ -114,7 +114,6 @@ echo form_textarea("comentario","",$textarea_options);
 
 function get_participantes() {
 	var idevento = $('select[name=idevento]').val();
-	alert(idevento);
     $.ajax({
         url: "<?php echo site_url('asistencia/get_participantes') ?>",
         data: {idevento:idevento},
@@ -159,7 +158,7 @@ function get_participantes2() {
         url: "<?php echo site_url('asistencia/get_participantes2') ?>",
         data: {idevento:idevento,fecha:fecha},
         method: 'POST',
-	      async : false,
+	async : false,
         dataType : 'json',
         success: function(data){
         var html = '';
@@ -287,6 +286,7 @@ function save_asistencia() {
   	var arrtmp=f.options[f.selectedIndex].text;
 	const x=arrtmp.split(" - ");
 	var fecha=x[0];
+	alert(fecha);
 	var idevento=document.getElementById("idevento").value;
 	var tipoasistencia=document.getElementById("idtipoasistencia").value;
 	var comentario=document.getElementById("comentario").value;
