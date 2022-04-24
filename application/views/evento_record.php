@@ -102,7 +102,7 @@ echo form_input($arrdatos) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fechas ( <?php echo anchor('fechaevento/add', 'New'); ?>):</label>
+    <label class="col-md-2 col-form-label"> Fechas ( <?php echo anchor('fechaevento/add/'.$evento['idevento'], 'New'); ?>):</label>
       <?php
  	$options = array();
   	foreach ($fechaeventos as $row){

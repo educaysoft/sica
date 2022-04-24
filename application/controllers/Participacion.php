@@ -34,7 +34,6 @@ class Participacion extends CI_Controller{
 	     $data["idevento"]=$idevento;
 	    }
 
-
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['eventos']= $this->evento_model->evento($idevento)->result();
 		$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
@@ -101,7 +100,6 @@ class Participacion extends CI_Controller{
 		}else{
 			$data=array('resultado'=>"TRUE");
 		}
-  	//redirect('participacion');
 		echo json_encode($data);
   }	
 

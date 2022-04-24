@@ -56,3 +56,16 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 </table>
 <?php echo form_close();?>
 
+<script>
+
+	$(document).ready(()=>{
+	  var idevento= <?php echo $idevento; ?>;
+	  if(idevento>0){
+		    $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
+		    get_participantes();
+	  }
+	});     
+
+
+
+</script>
