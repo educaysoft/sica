@@ -280,6 +280,7 @@ echo form_textarea("comentario","",$textarea_options);
 		var idpersona= $('select[name=idpersona]').val();
 		var p = document.getElementById("idpersona");
 		var idpersona=p.options[p.selectedIndex].value;
+		alert(idpersona);
 
 	    $.ajax({
 		url: "<?php echo site_url('asistencia/save_asistencia') ?>",
