@@ -34,18 +34,27 @@ class Participacion_model extends CI_model {
  		return $participacion;
  	}
 
- 	function save($array)
+ 	function save($array_item)
  	{
- 		$this->db->where('idevento',$array['idevento']);
- 		$this->db->where('idpersona',$array['idpersona']);
- 		$this->db->where('fecha',$array['fecha']);
+ 		$this->db->where('idevento',$array_item['idevento']);
+ 		$this->db->where('idpersona',$array_item['idpersona']);
+ 		$this->db->where('fecha',$array_item['fecha']);
 		$query=$this->db->get('participacion');
 		if($query->num_rows()==0){
-			$this->db->insert("participacion", $array);
-      return TRUE;
-    }else{
-      return FALSE;
-    }
+			$this->db->insert("participacion", $array_item);
+		      return TRUE;
+		    }else{
+			    if($query->result()[0]->porcenaje!=$array['porcentaje'])
+			    {
+				$this->db->where('idpersona',$array_item['idpersona']);
+				$this->db->where('fecha',$array_item['fecha']);
+				$this->db->where('idevento',$array_item['idevento']);
+				$this->db->update('participacion',$array_item);
+		      		return TRUE;
+			 }else{
+			        return FALSE;
+			 }
+		    }
  	}
 
  	function update($array_item)
