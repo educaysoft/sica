@@ -185,14 +185,12 @@ function participacion_data()
 public function reporte()
 {
 
-
+	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_activo($this->uri->segment(3))->result();
-
-  $data['participacion'] = $this->participacion_model->listar_participacion1($this->uri->segment(3))->result();
-
-  $data['title']="Certificado";
+  	$data['participacion'] = $this->participacion_model->listar_participacion1($this->uri->segment(3))->result();
+  	$data['title']="Certificado";
 //	$this->load->view('template/page_header');		
-  $this->load->view('participacion_report',$data);
+ 	$this->load->view('participacion_report',$data);
 //	$this->load->view('template/page_footer');
 
 
