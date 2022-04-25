@@ -14,9 +14,6 @@ echo form_input($eys_arrinput); ?></td>
   </tr> 
 
 
-
-
-
 <tr>
 <td> Evento:</td>
 <td><?php
@@ -30,29 +27,24 @@ foreach ($eventos as $row){
 
  
  <tr>
-<td> Persona:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
-}
-
- echo form_dropdown("idpersona",$options, $fechaevento['idpersona']);  ?></td>
-</tr>
-
-
-
+      <td>Fecha :</td>
+      <td><?php echo form_input( array("name"=>'fecha,"id"=>'fecha,"value"=>$documento['fecha'],'type'=>'date','placeholder'=>'fecha')); ?></td>
+  </tr>
+ 
 
 <tr>
-<td> Documento:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
-}
+  <td>Tema a tratar:</td>
+  <td><?php 
+  
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"tema","id" =>"tema");    
+echo form_textarea('tema',$documento['tema'],$textarea_options ); ?></td>
+ </tr>
 
- echo form_dropdown("iddocumento",$options, $fechaevento['iddocumento']);  ?></td>
-</tr>
+
+
+
+
+
 
 
 

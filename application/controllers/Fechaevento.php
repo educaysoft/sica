@@ -109,8 +109,8 @@ public function actual(){
 		$id=$this->input->post('idfechaevento');
 	 	$array_item=array(
 		 	'idevento' => $this->input->post('idevento'),
-		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'fecha' => $this->input->post('fecha'),
+		 	'tema' => $this->input->post('tema'),
 	 	);
 	 	$this->fechaevento_model->update($id,$array_item);
 	 	redirect('fechaevento');
