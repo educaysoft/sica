@@ -62,6 +62,34 @@ foreach ($documentos as $row){
  echo form_dropdown("iddocumento",$options, $certificado['iddocumento']);  ?></td>
 </tr>
 
+
+<tr>
+     <td>Ancho x(296.67):</td>
+     <td><?php 
+
+
+$eys_arrinput=array('name'=>'ancho_x','value'=>$certificado['ancho_x'], "style"=>"width:500px");
+echo form_input($eys_arrinput); ?></td>
+  </tr>
+
+
+
+<tr>
+     <td>Alto y(210.56):</td>
+     <td><?php 
+
+
+$eys_arrinput=array('name'=>'alto_y','value'=>$certificado['alto_y'], "style"=>"width:500px");
+echo form_input($eys_arrinput); ?></td>
+  </tr>
+
+
+
+
+
+
+
+
 <tr>
      <td>Posicion X:</td>
      <td><?php 
@@ -73,13 +101,19 @@ echo form_input($eys_arrinput); ?></td>
 
 
 <tr>
-     <td>Posicion Y:</td>
+    <td>Posicion Y(115 mm):</td>
      <td><?php 
 
 
 $eys_arrinput=array('name'=>'posi_nomb_y','value'=>$certificado['posi_nomb_y'], "style"=>"width:500px");
 echo form_input($eys_arrinput); ?></td>
   </tr>
+
+
+
+
+
+
 
 
 

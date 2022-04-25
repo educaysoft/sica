@@ -49,6 +49,10 @@ public function  save()
 	 	'iddocumento' => $this->input->post('iddocumento'),
 	 	'propietario' => $this->input->post('propietario'),
 	 	'archivo' => $this->input->post('archivo'),
+	 	'posi_nomb_x' => $this->input->post('posi_nomb_x'),
+	 	'posi_nomb_y' => $this->input->post('posi_nomb_y'),
+	 	'ancho_x' => $this->input->post('ancho_x'),
+	 	'alto_y' => $this->input->post('alto_y'),
 	 	);
 	 	$this->certificado_model->save($array_item);
 	 	redirect('certificado');
@@ -77,9 +81,13 @@ public function edit()
 		 	
 		 	'idcertificado' => $this->input->post('idcertificado'),
 		 	'idtipodocu' => $this->input->post('idtipodocu'),
-		 	'propietario' => $this->input->post('propietario'),
+	 		'idevento' => $this->input->post('idevento'),
+	 		'idtipodocu' => $this->input->post('idtipodocu'),
+	 		'iddocumento' => $this->input->post('iddocumento'),
 		 	'posi_nomb_x' => $this->input->post('posi_nomb_x'),
 		 	'posi_nomb_y' => $this->input->post('posi_nomb_y'),
+		 	'ancho_x' => $this->input->post('ancho_x'),
+		 	'alto_y' => $this->input->post('alto_y'),
 	 	);
 	 	$this->certificado_model->update($id,$array_item);
 	 	redirect('certificado');
