@@ -23,6 +23,32 @@ class Fechaevento extends CI_Controller{
 	}
 
 
+
+public function actual(){
+ if(isset($this->session->userdata['logged_in'])){
+
+	$data['fechaevento'] = $this->fechaevento_model->fechaevento($this->uri->segment(3))->row_array();
+
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['eventos']= $this->evento_model->lista_eventos()->result();
+
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+	$data['title']="Fechaevento del documento";
+ 
+	$data['title']="Modulo de Personas";
+	$this->load->view('template/page_header');		
+	$this->load->view('fechaevento_record',$data);
+	$this->load->view('template/page_footer');
+   }else{
+	$this->load->view('template/page_header.php');
+	$this->load->view('login_form');
+	$this->load->view('template/page_footer.php');
+   }
+}
+
+
+
+
 	public function add()
 	{
 
@@ -124,7 +150,7 @@ function fechaevento_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idfechaevento,$r->elevento,$r->fecha,$r->tema,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-iddirectorio="'.$r->idfechaevento.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('fechaevento/actual').'"   data-iddirectorio="'.$r->idfechaevento.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
