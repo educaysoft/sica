@@ -32,10 +32,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Reporte de participación 
-                 <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
-			  
-        	</h3>
+	     <p><?php echo $evento['titulo']; ?> </p>
+	     <p><?php echo $evento['detalle']; ?> </p>
+                 <h3>Reporte de participación 	</h3>
        	     </div>
 
 <table class="table table-striped table-bordered table-hover" id="mydatac">
@@ -47,6 +46,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 foreach ($fechaeventos as $row){
   echo "<th>". $row->fecha."<br>" . $row->tema." </th>";
 }
+  echo "<th> % </th>";
+$sum=0;
+$con=0;
 ?>
  </tr>
  </thead>
@@ -67,10 +69,19 @@ foreach ($participacion as $row){
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
           echo "<td>". $arrparticipacion[$row1->fecha]."</td>";
+	  $sum=$sum+ $arrparticipacion[$row1->fecha];
+	  $can=$can+1;
       }else{
            echo "<td>0</td>";
+	  $sum=$sum+ 0;
+	  $can=$can+1;
+
       }
     }
+
+      $resu=round(($sum/($can)),2);
+      echo "<td>".$resu."</td>";
+
       echo "</tr>";
    }
     $arrparticipacion=array();
@@ -89,10 +100,16 @@ foreach ($participacion as $row){
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
           echo "<td>". $arrparticipacion[$row1->fecha]."</td>";
+	  $sum=$sum+ $arrparticipacion[$row1->fecha];
+	  $can=$can+1;
       }else{
            echo "<td>0</td>";
+	  $sum=$sum+ 0;
+	  $can=$can+1;
       }
     } 
+      $resu=round(($sum/($can)),2);
+      echo "<td>".$resu."</td>";
       echo "</tr>";
 
 
