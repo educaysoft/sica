@@ -82,7 +82,6 @@ $('#show_data').on('click','.item_ver',function(){
 
         var archivo="";
 	var iddocumento= $(this).data('iddocumento2');
-	alert(iddocumento);
       $.ajax({
         url: "<?php echo site_url('documento/get_documento') ?>",
 	  method: 'POST',
@@ -143,8 +142,6 @@ var idparticipante=$(this).data('idparticipante');
 
 var posix=$(this).data('posix');
 var posiy=$(this).data('posiy');
-alert(posix);
-alert(posiy);
 
 var iddocumento2=$(this).data('iddocumento2');
 var maquina=$(this).data('elordenador');
@@ -154,8 +151,6 @@ var archivopdf=$(this).data('archivopdf');
 var archivopdf2="";
 var filename="";
 
-	alert(idevento);
-	alert(idparticipante);
 
 if(iddocumento2==0)
 {
@@ -179,12 +174,6 @@ if(iddocumento2==0)
 	var participante=elparticipante;
 	var modelo=archivopdf;
 	var archivo=archivopdf2;
-	  alert(archivo);
-	  alert(participante);
-	  alert(modelo);
-	  alert(maquina);
-	  alert(ruta);
-	  alert(asunto);
   
 
 //	url= "http://"+maquina+"/FPDI/certificado.php?asunto='"+asunto+"'&participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'";
@@ -245,10 +234,6 @@ if(iddocumento2==0)
 	if(iddocumento2>0)
 	{
 		alert("asisnado el documento a participante");
-		alert(idevento);
-		alert(idparticipante);
-		alert(iddocumento);
-		alert(idpersona);
 	  $.ajax({
         	url: "<?php echo site_url('participante/save_edit2') ?>",
 		data: {idparticipante:idparticipante,idevento:idevento,iddocumento:iddocumento,idpersona:idpersona},
