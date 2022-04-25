@@ -45,6 +45,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 foreach ($fechaeventos as $row){
   echo "<th>". $row->fecha."<br>" . $row->tema." </th>";
 }
+  echo "<th> % </th>";
+$asi=0;
+$aus=0;
 ?>
  </tr>
  </thead>
@@ -65,8 +68,10 @@ foreach ($asistencia as $row){
     foreach ($fechaeventos as $row1){
       if(isset($arrasistencia[$row1->fecha])){
           echo "<td style='color:green'>". $arrasistencia[$row1->fecha]."</td>";
+	  $asi=$asi+1;
       }else{
            echo "<td style='color:red'>falta</td>";
+	  $aus=$aus+1;
       }
     }
       echo "</tr>";
@@ -87,12 +92,17 @@ foreach ($asistencia as $row){
     foreach ($fechaeventos as $row1){
       if(isset($arrasistencia[$row1->fecha])){
           echo "<td style='color:green'>". $arrasistencia[$row1->fecha]."</td>";
+	  $asi=$asi+1;
       }else{
            echo "<td style='color:red'>falta</td>";
+	  $aus=$aus+1;
       }
     } 
+      echo "<td> ".(($asi/($asi+$aus))*100."</td>";
       echo "</tr>";
 
+$asi=0;
+$aus=0;
 
 ?>
 
