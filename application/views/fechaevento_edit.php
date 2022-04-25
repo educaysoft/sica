@@ -28,7 +28,7 @@ foreach ($eventos as $row){
  
  <tr>
       <td>Fecha :</td>
-      <td><?php echo form_input( array("name"=>'fecha',"id"=>'fecha',"value"=>$documento['fecha'],'type'=>'date','placeholder'=>'fecha')); ?></td>
+      <td><?php echo form_input( array("name"=>'fecha',"id"=>'fecha',"value"=>$fechaevento['fecha'],'type'=>'date','placeholder'=>'fecha')); ?></td>
   </tr>
  
 
@@ -37,7 +37,7 @@ foreach ($eventos as $row){
   <td><?php 
   
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"tema","id" =>"tema");    
-echo form_textarea('tema',$documento['tema'],$textarea_options ); ?></td>
+echo form_textarea('tema',$fechaevento['tema'],$textarea_options ); ?></td>
  </tr>
 
 
