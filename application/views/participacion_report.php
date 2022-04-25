@@ -81,17 +81,16 @@ foreach ($participacion as $row){
 
       $resu=round(($sum/($can)),2);
       echo "<td>".$resu."</td>";
-
       echo "</tr>";
+	$sum=0;
+	$can=0;
    }
     $arrparticipacion=array();
     $id=$row->idpersona;
     $arrparticipacion[$row->idpersona]=$row->nombres;
     $arrparticipacion[$row->fecha]=$row->porcentaje;
   }else{
-
     $arrparticipacion[$row->fecha]=$row->porcentaje;
-
   }
 }
   $i=$i+1;
@@ -111,6 +110,8 @@ foreach ($participacion as $row){
       $resu=round(($sum/($can)),2);
       echo "<td>".$resu."</td>";
       echo "</tr>";
+	$sum=0;
+	$can=0;
 
 
 ?>
