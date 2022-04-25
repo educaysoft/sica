@@ -32,7 +32,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-	     <p><?php echo $evento['titulo'] </p>
+	     <p><?php echo $evento['titulo']; ?> </p>
                  <h3>Reporte de asistencia </h3>
        	     </div>
 
