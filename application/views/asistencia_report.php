@@ -98,7 +98,8 @@ foreach ($asistencia as $row){
 	  $aus=$aus+1;
       }
     } 
-      echo "<td> ".(($asi/($asi+$aus))*100."</td>";
+      $resu=round(($asi/($asi+$aus))*100,2);
+      echo "<td>".$resu."</td>";
       echo "</tr>";
 
 $asi=0;
