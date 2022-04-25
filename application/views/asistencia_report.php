@@ -74,7 +74,11 @@ foreach ($asistencia as $row){
 	  $aus=$aus+1;
       }
     }
+      $resu=round(($asi/($asi+$aus))*100,2);
+      echo "<td>".$resu."</td>";
       echo "</tr>";
+$asi=0;
+$aus=0;
    }
     $arrasistencia=array();
     $id=$row->idpersona;
