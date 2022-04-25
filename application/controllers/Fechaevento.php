@@ -150,7 +150,7 @@ function fechaevento_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idfechaevento,$r->elevento,$r->fecha,$r->tema,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('fechaevento/actual').'"   data-iddirectorio="'.$r->idfechaevento.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('fechaevento/actual').'"   data-idfechaevento="'.$r->idfechaevento.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
