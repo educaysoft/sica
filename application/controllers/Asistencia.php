@@ -173,6 +173,8 @@ class Asistencia extends CI_Controller{
 
 public function reporte()
 {
+
+	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_asistencia($this->uri->segment(3))->result();
 	$data['asistencia'] = $this->asistencia_model->listar_asistencia_reporte($this->uri->segment(3))->result();
   	$data['title']="Certificado";
