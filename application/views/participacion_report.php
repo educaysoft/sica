@@ -48,7 +48,7 @@ foreach ($fechaeventos as $row){
 }
   echo "<th> % </th>";
 $sum=0;
-$con=0;
+$can=0;
 ?>
  </tr>
  </thead>
