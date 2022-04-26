@@ -278,7 +278,7 @@ function show_detalle()
     $.ajax({
         url: "<?php echo site_url('evento/get_evento2') ?>",
         data: {idevento: idevento},
-        method: 'GET',
+        method: 'POST',
 	async : false,
         dataType : 'json',
         success: function(data){
