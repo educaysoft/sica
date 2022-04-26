@@ -47,14 +47,28 @@ class Asistencia_model extends CI_model {
  		return $asistencia;
  	}
 
- 	function save($array)
+ 	function save($array_item)
  	{
- 		$this->db->where('idevento',$array['idevento']);
- 		$this->db->where('idpersona',$array['idpersona']);
- 		$this->db->where('fecha',$array['fecha']);
+ 		$this->db->where('idevento',$array_item['idevento']);
+ 		$this->db->where('idpersona',$array_item['idpersona']);
+ 		$this->db->where('fecha',$array_item['fecha']);
 		$query=$this->db->get('asistencia');
 		if($query->num_rows()==0){
-			$this->db->insert("asistencia", $array);
+			$this->db->insert("asistencia", $array_item);
+			return TRUE;
+		}else{
+
+			    if($query->result()[0]->idtipoasistencia!=$array_item['idtipoasistencia'])
+			    {
+				$this->db->where('idpersona',$array_item['idpersona']);
+				$this->db->where('fecha',$array_item['fecha']);
+				$this->db->where('idevento',$array_item['idevento']);
+				$this->db->update('asistencia',$array_item);
+		      		return TRUE;
+			 }else{
+			        return FALSE;
+			 }
+			
 		}
  	}
 

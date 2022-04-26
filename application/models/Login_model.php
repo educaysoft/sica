@@ -100,7 +100,7 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 						}else {
 								return false;
 						}
-				}else {
+				}else{
 						$idpersona=$query->result()[0]->idpersona;
 						$datausuario["idpersona"]=$idpersona;
 						$dataparticipante["idpersona"]=$idpersona;
