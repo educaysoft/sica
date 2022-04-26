@@ -398,6 +398,8 @@ public function get_asistenciap() {
         $query = $this->db->get('asistencia1');
 
 	if ($query->num_rows() > 0) {
+		$this->db->select('idtipoasistencia,nombre as tipoasistencia, "" as comentario');
+		$query = $this->db->get('tipoasistencia');
 		$data=$query->result();
 		echo json_encode($data);
 	}else{
