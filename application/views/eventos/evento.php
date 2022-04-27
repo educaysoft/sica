@@ -90,7 +90,7 @@ body,html {
 
 <body>
 
-
+<?php print_r($asistencia); ?>
 
     <div class="hero-image">
     <div class="hero-text">
@@ -204,6 +204,16 @@ body,html {
           <div class="col-sm-4">
             <span><?php   echo $row->fecha; ?></span>
           </div>
+
+          <div class="col-sm-4">
+            <span><?php   echo $asistencia[$row->fecha]; ?></span>
+          </div>
+
+          <div class="col-sm-4">
+            <span><?php   echo $participacion[$row->fecha]; ?></span>
+          </div>
+
+
         </div>
       </div>
       <?php } ?>

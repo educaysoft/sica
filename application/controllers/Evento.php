@@ -304,8 +304,12 @@ public function index(){
 
 	public function detalle()
 	{
+		echo  $this->session->userdata['logged_in']['idpersona'];
+		die();
 		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 		$data['fechaeventos'] = $this->fechaevento_model->fechaeventos($this->uri->segment(3))->result();
+		$data['asistencia'] = $this->asistencia_model->asistencia( $data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
+		$data['participacion'] = $this->participacion_model->participacion($data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
 		$data['curso']=$this->curso_model->curso($data['evento']['idcurso'])->row_array();
 	
 //		$this->load->view('template/page_header');		
