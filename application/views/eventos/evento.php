@@ -90,7 +90,23 @@ body,html {
 
 <body>
 
-<?php print_r($asistencia); ?>
+<?php 
+
+$miasistencia= array();
+
+foreach ($asistencia as $row){
+	$miasistencia[$row->fecha]= $row->idtipoasistencia;
+}
+
+$miparticipacion= array();
+foreach ($participacion as $row){
+	$miparticipacion[$row->fecha]= $row->porcentaje;
+}
+
+
+?>
+
+
 
     <div class="hero-image">
     <div class="hero-text">
@@ -206,11 +222,25 @@ body,html {
           </div>
 
           <div class="col-sm-4">
-            <span><?php   echo $asistencia[$row->fecha]; ?></span>
+<?php
+	      if(isset($miasistencia[$row->fecha]))				
+	 	{
+               echo "<span>".$miasistencia[$row->fecha]."</span>";
+      }else{
+               echo "<span>"." "."</span>";
+      }
+	?>
           </div>
 
           <div class="col-sm-4">
-            <span><?php   echo $participacion[$row->fecha]; ?></span>
+ <?php
+	      if(isset($miparticipacion[$row->fecha]))				
+	 	{
+               echo "<span>".$miparticipacion[$row->fecha]."</span>";
+      }else{
+               echo "<span>"." "."</span>";
+      }
+	?>
           </div>
 
 
