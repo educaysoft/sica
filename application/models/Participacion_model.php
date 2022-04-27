@@ -1,6 +1,15 @@
 <?php
 class Participacion_model extends CI_model {
 
+
+	function participacionx($idevento,$idpersona){
+ 		$this->db->where('idevento',$idevento);
+ 		$this->db->where('idpersona',$idpersona);
+		 $participacion= $this->db->get('participacion');
+		 return $participacion;
+	}
+
+
 	function listar_participacion(){
 		 $participacion= $this->db->get('participacion');
 		 return $participacion;
