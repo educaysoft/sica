@@ -93,7 +93,6 @@ body,html {
 <?php 
 
 $miasistencia= array();
-
 foreach ($asistencia as $row){
 	$miasistencia[$row->fecha]= $row->tipoasistencia;
 }
@@ -199,17 +198,17 @@ foreach ($participacion as $row){
 
 
       <section>
-      <center>  <h2>Detalle de fecha</h2></center>
+      <center>  <h2>Detalle de los eventos</h2></center>
 
 
 
-<div class="container" style="font-size: 20px; width:100%; background: gray; padding:5px;">
+<div class="container" style="border:1px solid black; font-size: 20px; width:100%; background: gray; padding:5px;">
         <div style="display: flex; flex-direction: row;" >
           <div class="col-md-auto">
           <i class='<?php echo $row->icono; ?> red-color'></i>
           </div>
 
-          <div class="col-sm-8">
+          <div class="col-sm-8">	
             <span>EVENTO</span> 
           </div>
           <div class="col-sm-4">
@@ -223,7 +222,7 @@ foreach ($participacion as $row){
 	 </div>
 
           <div class="col-sm-2">
-            <span>NIVEL DE <br>RENDIMIENTO</span>
+            <center><span>NIVEL DE <br>RENDIMIENTO</span></center>
 
           </div>
 
