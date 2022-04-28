@@ -217,7 +217,7 @@ foreach ($participacion as $row){
 	 </div>
 
           <div class="col-sm-3">
-            <center><span>NIVEL DE <br>RENDIMIENTO</span></center>
+            <span>NIVEL DE <br>RENDIMIENTO</span>
           </div>
 
 
