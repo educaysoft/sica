@@ -123,9 +123,6 @@ foreach ($participacion as $row){
 		  <p><?php echo $evento["detalle"];?></p>
 	      </div>
 
-	      <div style="width:100%">
-		  <p><?php echo $this->session->userdata['logged_in']['elusuario'];?></p>
-	      </div>
 
 	      <div class="container" style="font-size: 20px;width:100%; background: yellow;">
 	      <div style="display: flex; flex-direction: row;" >
@@ -193,7 +190,9 @@ foreach ($participacion as $row){
 
 
 
-      <center>  <h2>Detalle de los eventos</h2></center>
+	      <div style="width:100%">
+		  <p style="font-size:15px;">Evolución del Estudiante : <?php echo $this->session->userdata['logged_in']['elusuario'];?></p>
+	      </div>
 
 
 
