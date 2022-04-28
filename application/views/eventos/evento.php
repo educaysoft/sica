@@ -205,7 +205,6 @@ foreach ($participacion as $row){
 
           <div class="col-md-auto">
               <i class='fa fa-bars'></i>
-          <i class='<?php echo $row->icono; ?> red-color'></i>
           </div>
 
           <div class="col-sm-8">	
