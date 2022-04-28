@@ -119,89 +119,86 @@ foreach ($participacion as $row){
 
 <div style="width:100%; margin:auto; padding:10px;" >
       <div style="border:2px solid green; width:60%; margin:auto; padding:10px; " >
-      <div style="width:100%">
-          <p><?php echo $evento["detalle"];?></p>
-      </div>
+	      <div style="width:100%">
+		  <p><?php echo $evento["detalle"];?></p>
+	      </div>
 
-      <div style="width:100%">
+	      <div style="width:100%">
+		  <p><?php echo $this->session->userdata['logged_in']['elusuario'];?></p>
+	      </div>
 
-          <p><?php echo $this->session->userdata['logged_in']['elusuario'];?></p>
+	      <div class="container" style="font-size: 20px;width:100%; background: yellow;">
+	      <div style="display: flex; flex-direction: row;" >
+		  <div class="col-md-auto">
+		      <i class='fa fa-clock-o red-color'></i>
+		  </div>
 
-      </div>
-
-      <div class="container" style="font-size: 20px;width:100%; background: yellow;">
-      <div style="display: flex; flex-direction: row;" >
-          <div class="col-md-auto">
-              <i class='fa fa-clock-o red-color'></i>
-          </div>
-
-          <div class="col-sm-8">
-            <span>Fecha de inicio:</span> 
-          </div>
-          <div class="col-sm-4">
-            <span><?php   echo $evento['fechainicia']; ?></span>
-          </div>
-      </div>
-      </div>
+		  <div class="col-sm-8">
+		    <span>Fecha de inicio:</span> 
+		  </div>
+		  <div class="col-sm-4">
+		    <span><?php   echo $evento['fechainicia']; ?></span>
+		  </div>
+	      </div>
+	      </div>
 
 
 
-      <div class="container" style="font-size: 20px; width:100%; background: yellow;">
-        <div style="display: flex; flex-direction: row;" >
-          <div class="col-md-auto">
-              <i class='fa fa-clock-o red-color'></i>
-          </div>
+	      <div class="container" style="font-size: 20px; width:100%; background: yellow;">
+		<div style="display: flex; flex-direction: row;" >
+		  <div class="col-md-auto">
+		      <i class='fa fa-clock-o red-color'></i>
+		  </div>
 
-          <div class="col-sm-8">
-            <span>Fecha de finalización:</span> 
-          </div>
-          <div class="col-sm-4">
-            <span><?php   echo $evento['fechafinaliza']; ?></span>
-          </div>
-        </div>
-      </div>
+		  <div class="col-sm-8">
+		    <span>Fecha de finalización:</span> 
+		  </div>
+		  <div class="col-sm-4">
+		    <span><?php   echo $evento['fechafinaliza']; ?></span>
+		  </div>
+		</div>
+	      </div>
 
-      <div class="container" style="font-size: 22px; width:100%; background: yellow;">
-        <div style="display: flex; flex-direction: row;" >
-          <div class="col-md-auto">
-              <i class='fa fa-clock-o red-color'></i>
-          </div>
+	      <div class="container" style="font-size: 22px; width:100%; background: yellow;">
+		<div style="display: flex; flex-direction: row;" >
+		  <div class="col-md-auto">
+		      <i class='fa fa-clock-o red-color'></i>
+		  </div>
 
-          <div class="col-sm-8">
-            <span>Duración:</span> 
-          </div>
-          <div class="col-sm-4">
-            <span><?php   echo $evento['duracion']; ?></span>
-          </div>
-        </div>
-      </div>
+		  <div class="col-sm-8">
+		    <span>Duración:</span> 
+		  </div>
+		  <div class="col-sm-4">
+		    <span><?php   echo $evento['duracion']; ?></span>
+		  </div>
+		</div>
+	      </div>
 
-      <div class="container" style="font-size: 20px; width:100%; background: yellow;">
-        <div style="display: flex; flex-direction: row;" >
-          <div class="col-md-auto">
-              <i class='fa fa-money red-color'></i>
-          </div>
+	      <div class="container" style="font-size: 20px; width:100%; background: yellow;">
+		<div style="display: flex; flex-direction: row;" >
+		  <div class="col-md-auto">
+		      <i class='fa fa-money red-color'></i>
+		  </div>
 
-          <div class="col-sm-8">
-            <span>Costo:</span> 
-          </div>
-          <div class="col-sm-4">
-            <span><?php   echo $evento['costo']; ?></span>
-          </div>
-        </div>
-      </div>
+		  <div class="col-sm-8">
+		    <span>Costo:</span> 
+		  </div>
+		  <div class="col-sm-4">
+		    <span><?php   echo $evento['costo']; ?></span>
+		  </div>
+		</div>
+	      </div>
 
 
 
 
 
-      <section>
       <center>  <h2>Detalle de los eventos</h2></center>
 
 
 
 	<div class="container" style="border:2px solid red; font-size: 20px; width:100%; background: gray; padding:5px;">
-        <div style="display: flex; flex-direction: row;" >
+        <div class="row" style="display: flex; flex-direction: row;" >
 
           <div class="col-md-auto">
               <i class='fa fa-bars'></i>
@@ -289,7 +286,6 @@ foreach ($participacion as $row){
       </div>
       <?php } ?>
 
-      </section>
 
 
       </div>
