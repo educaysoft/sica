@@ -95,7 +95,7 @@ body,html {
 $miasistencia= array();
 
 foreach ($asistencia as $row){
-	$miasistencia[$row->fecha]= $row->idtipoasistencia;
+	$miasistencia[$row->fecha]= $row->tipoasistencia;
 }
 
 $miparticipacion= array();
@@ -223,7 +223,7 @@ foreach ($participacion as $row){
 	 </div>
 
           <div class="col-sm-2">
-            <span>PARTICIPACION</span>
+            <span>NIVEL DE <br>RENDIMIENTO</span>
 
           </div>
 
