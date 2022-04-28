@@ -200,7 +200,7 @@ foreach ($participacion as $row){
 
 
 
-	<div class="container" style="border:2px solid black; font-size: 20px; width:100%; background: gray; padding:5px;">
+	<div class="container" style="border:2px solid red; font-size: 20px; width:100%; background: gray; padding:5px;">
         <div style="display: flex; flex-direction: row;" >
 
           <div class="col-md-auto">
