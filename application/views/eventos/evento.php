@@ -190,8 +190,8 @@ foreach ($participacion as $row){
 
 
 
-	      <div style="width:100%; padding:5px;">
-		  <p style="font-size:30px;">Evolución del Estudiante : <?php echo $this->session->userdata['logged_in']['elusuario'];?></p>
+	      <div style="width:100%; padding-top:5px;">
+		  <p style="font-size:25px;"><b>Estudiante :</b> <?php echo $this->session->userdata['logged_in']['elusuario'] ." -- (". $this->session->userdata['logged_in']['email'].")";?></p>
 	      </div>
 
 
