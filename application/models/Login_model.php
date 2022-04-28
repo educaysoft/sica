@@ -229,7 +229,7 @@ public function read_user_information($email,$password) {
 		$arrusuario=$query->result();
      if ($query->num_rows() == 1) {
             $idusuario=$query->result()[0]->idusuario;
-            $condition = "idusuario =" . "'" . $idusuario . "' AND " . "password =" . "'" . $password . "'";
+            $condition = "idusuario =" . "'" . $idusuario . "' AND " . " BINARY password =" . "'" . $password . "'";
             $condition = $condition. " and onoff = 1" ;
             $this->db->select('*');
             $this->db->from('password');
