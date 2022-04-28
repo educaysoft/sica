@@ -117,12 +117,10 @@ foreach ($participacion as $row){
     </div>
     </div>
 
-<div style="width100%; margin:auto; padding:10px;" >
+<div style="width:100%; margin:auto; padding:10px;" >
       <div style="width:60%; margin:auto; padding:10px; " >
       <div style="width:100%">
           <p><?php echo $evento["detalle"];?></p>
-
-
       </div>
 
       <div style="width:100%">
@@ -204,6 +202,7 @@ foreach ($participacion as $row){
 
 <div class="container" style="border:1px solid black; font-size: 20px; width:100%; background: gray; padding:5px;">
         <div style="display: flex; flex-direction: row;" >
+
           <div class="col-md-auto">
           <i class='<?php echo $row->icono; ?> red-color'></i>
           </div>
@@ -211,19 +210,17 @@ foreach ($participacion as $row){
           <div class="col-sm-8">	
             <span>EVENTO</span> 
           </div>
+
           <div class="col-sm-4">
             <span>FECHA </span>
           </div>
 
           <div class="col-sm-2">
-
             <span>ASISTENCIA</span>
-
 	 </div>
 
           <div class="col-sm-2">
             <center><span>NIVEL DE <br>RENDIMIENTO</span></center>
-
           </div>
 
 
@@ -292,7 +289,7 @@ foreach ($participacion as $row){
       </div>
       <?php } ?>
 
-      </section
+      </section>
 
 
       </div>
