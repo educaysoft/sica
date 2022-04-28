@@ -204,7 +204,7 @@ foreach ($participacion as $row){
               <i class='fa fa-bars'></i>
           </div>
 
-          <div class="col-sm-8">	
+          <div class="col-sm-4">	
             <span>EVENTO</span> 
           </div>
 
