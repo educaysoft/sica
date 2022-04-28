@@ -118,7 +118,7 @@ foreach ($participacion as $row){
     </div>
 
 <div style="width:100%; margin:auto; padding:10px;" >
-      <div style="border:2px solid green; width:60%; margin:auto; padding:10px; " >
+      <div style="border:2px solid green; width:80%; margin:auto; padding:10px; " >
 	      <div style="width:100%">
 		  <p><?php echo $evento["detalle"];?></p>
 	      </div>
