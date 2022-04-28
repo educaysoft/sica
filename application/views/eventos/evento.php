@@ -125,13 +125,12 @@ foreach ($participacion as $row){
 
 
       </div>
-          <i class='fa fa-clock-o blue-color'></i>
-            <i class='fa fa-clock-o green-color'></i>
-            <i class='fa fa-clock-o teal-color'></i>
-            <i class='fa fa-clock-o yellow-color'></i>
 
+      <div style="width:100%">
 
+          <p><?php echo $this->session->userdata['logged_in']['elusuario'];?></p>
 
+      </div>
 
       <div class="container" style="font-size: 20px;width:100%; background: yellow;">
       <div style="display: flex; flex-direction: row;" >
@@ -201,6 +200,52 @@ foreach ($participacion as $row){
 
       <section>
       <center>  <h2>Detalle de fecha</h2></center>
+
+
+
+<div class="container" style="font-size: 20px; width:100%; background: gray; padding:5px;">
+        <div style="display: flex; flex-direction: row;" >
+          <div class="col-md-auto">
+          <i class='<?php echo $row->icono; ?> red-color'></i>
+          </div>
+
+          <div class="col-sm-8">
+            <span>EVENTO</span> 
+          </div>
+          <div class="col-sm-4">
+            <span>FECHA </span>
+          </div>
+
+          <div class="col-sm-4">
+
+            <span>ASISTENCIA</span>
+
+	 </div>
+
+          <div class="col-sm-4">
+            <span>PARTICIPACION</span>
+
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <?php
       foreach($fechaeventos as  $row)
