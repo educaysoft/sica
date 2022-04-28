@@ -200,7 +200,7 @@ foreach ($participacion as $row){
 
 
 
-<div class="container" style="border:1px solid black; font-size: 20px; width:100%; background: gray; padding:5px;">
+	<div class="container" style="border:2px solid black; font-size: 20px; width:100%; background: gray; padding:5px;">
         <div style="display: flex; flex-direction: row;" >
 
           <div class="col-md-auto">
@@ -225,7 +225,7 @@ foreach ($participacion as $row){
 
 
         </div>
-      </div>
+	</div>
 
 
 
@@ -252,7 +252,7 @@ foreach ($participacion as $row){
       <div class="container" style="font-size: 20px; width:100%; background: yellow; padding:5px;">
         <div style="display: flex; flex-direction: row;" >
           <div class="col-md-auto">
-          <i class='<?php echo $row->icono; ?> red-color'></i>
+		  <i class='<?php echo $row->icono; ?> red-color'></i>
           </div>
 
           <div class="col-sm-8">
@@ -263,24 +263,24 @@ foreach ($participacion as $row){
           </div>
 
           <div class="col-sm-2">
-<?php
+		<?php
 	      if(isset($miasistencia[$row->fecha]))				
 	 	{
                echo "<span>".$miasistencia[$row->fecha]."</span>";
-      }else{
+	      }else{
                echo "<span>"." "."</span>";
-      }
-	?>
+	      }
+		?>
           </div>
 
           <div class="col-sm-2">
- <?php
+	 <?php
 	      if(isset($miparticipacion[$row->fecha]))				
 	 	{
                echo "<span>".$miparticipacion[$row->fecha]."</span>";
-      }else{
+	      }else{
                echo "<span>"." "."</span>";
-      }
+	      }
 	?>
           </div>
 
