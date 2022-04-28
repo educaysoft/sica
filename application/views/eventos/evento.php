@@ -216,13 +216,13 @@ foreach ($participacion as $row){
             <span>FECHA </span>
           </div>
 
-          <div class="col-sm-4">
+          <div class="col-sm-2">
 
             <span>ASISTENCIA</span>
 
 	 </div>
 
-          <div class="col-sm-4">
+          <div class="col-sm-2">
             <span>PARTICIPACION</span>
 
           </div>
@@ -266,7 +266,7 @@ foreach ($participacion as $row){
             <span><?php   echo $row->fecha; ?></span>
           </div>
 
-          <div class="col-sm-4">
+          <div class="col-sm-2">
 <?php
 	      if(isset($miasistencia[$row->fecha]))				
 	 	{
@@ -277,7 +277,7 @@ foreach ($participacion as $row){
 	?>
           </div>
 
-          <div class="col-sm-4">
+          <div class="col-sm-2">
  <?php
 	      if(isset($miparticipacion[$row->fecha]))				
 	 	{
