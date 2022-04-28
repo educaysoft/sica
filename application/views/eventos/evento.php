@@ -252,7 +252,7 @@ foreach ($participacion as $row){
       <div class="container" style="font-size: 20px; width:100%; background: yellow; padding:5px;">
         <div style="display: flex; flex-direction: row;" >
           <div class="col-md-auto">
-		  <i class='<?php echo $row->icono; ?> red-color'></i>
+		  <i class='fa fa-folder-o'></i>
           </div>
 
           <div class="col-sm-8">
