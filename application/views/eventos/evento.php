@@ -252,14 +252,14 @@ foreach ($participacion as $row){
 		  <i class='fa fa-folder-o'></i>
           </div>
 
-          <div class="col-sm-8">
+          <div class="col-sm-4">
             <span><?php   echo $row->tema; ?></span> 
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <span><?php   echo $row->fecha; ?></span>
           </div>
 
-          <div class="col-sm-2">
+          <div class="col-sm-3">
 		<?php
 	      if(isset($miasistencia[$row->fecha]))				
 	 	{
@@ -270,7 +270,7 @@ foreach ($participacion as $row){
 		?>
           </div>
 
-          <div class="col-sm-2">
+          <div class="col-sm-3">
 	 <?php
 	      if(isset($miparticipacion[$row->fecha]))				
 	 	{
