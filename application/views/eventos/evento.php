@@ -198,7 +198,7 @@ foreach ($participacion as $row){
 
 
 	<div class="container" style="border:2px solid red; font-size: 20px; width:100%; background: gray; padding:5px;">
-        <div class="row" >
+        <div style="display: flex; flex-direction: row;" >
 
           <div class="col-md-auto">
               <i class='fa fa-bars'></i>
@@ -208,15 +208,15 @@ foreach ($participacion as $row){
             <span>EVENTO</span> 
           </div>
 
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <span>FECHA </span>
           </div>
 
-          <div class="col-sm-2">
+          <div class="col-sm-3">
             <span>ASISTENCIA</span>
 	 </div>
 
-          <div class="col-sm-2">
+          <div class="col-sm-3">
             <center><span>NIVEL DE <br>RENDIMIENTO</span></center>
           </div>
 
