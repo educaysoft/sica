@@ -9,7 +9,8 @@ class Nivelacceso extends CI_Controller{
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-	  	$data['nivelacceso']=$this->nivelacceso_model->nivelacceso(1)->row_array();
+	$data['nivelacceso'] = $this->nivelacceso_model->elultimo();
+	//  	$data['nivelacceso']=$this->nivelacceso_model->nivelacceso(1)->row_array();
   		$data['title']="Lista de Empresas";
 			$this->load->view('template/page_header');		
   		$this->load->view('nivelacceso_record',$data);
