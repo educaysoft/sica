@@ -183,6 +183,7 @@ if ($result == TRUE) {
 				$elnivelacceso = $this->nivelacceso_model->nivelacceso($row->idnivelacceso)->row_array();
 				if($elnivelacceso)
 				{
+					print_r($elnivelacceso);
 					$create=$elnivelacceso[0]->create;
 					$read=$elnivelacceso[0]->read;
 					$update=$elnivelacceso[0]->update;
