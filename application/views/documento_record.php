@@ -10,8 +10,11 @@ if(isset($documento))
         <li> <?php echo anchor('documento/siguiente/'.$documento['iddocumento'], 'siguiente'); ?></li>
         <li> <?php echo anchor('documento/anterior/'.$documento['iddocumento'], 'anterior'); ?></li>
         <li style="border-right:1px solid green"><?php echo anchor('documento/elultimo/', 'Último'); ?></li>
+	<?php if($this->session->userdata['logged_in']['acceso']['nivelacceso']['create']){ ?>
         <li> <?php echo anchor('documento/add', 'Nuevo'); ?></li>
+	<?php } ?>
         <li> <?php echo anchor('documento/edit/'.$documento['iddocumento'],'Edit'); ?></li>
+
         <li style="border-right:1px solid green"> <?php echo anchor('documento/delete/'.$documento['iddocumento'],'Delete'); ?></li>
         <li> <?php echo anchor('documento/listar/','Listar'); ?></li>
         <li> <?php echo anchor('documento/canvas/'.$documento['archivopdf'],'Ver PDF'); ?></li>
