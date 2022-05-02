@@ -184,10 +184,10 @@ if ($result == TRUE) {
 				if($elnivelacceso)
 				{
 					print_r($elnivelacceso);
-					$create=$elnivelacceso->create;
-					$read=$elnivelacceso->read;
-					$update=$elnivelacceso->update;
-					$delete=$elnivelacceso->delete;
+					$create=$elnivelacceso['create'];
+					$read=$elnivelacceso['read'];
+					$update=$elnivelacceso['update'];
+					$delete=$elnivelacceso['delete'];
 				}
 
 			
