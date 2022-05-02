@@ -12,7 +12,7 @@
 <td> Nombre </td>
 <td><?php 
     $eys_arrinput=array('name'=>'nombre','value'=>$nivelacceso['nombre'], "style"=>"width:500px");
-    echo form_input($eys_arrinput))  ?></td>
+    echo form_input($eys_arrinput);  ?></td>
 </tr>
 
 
@@ -20,7 +20,7 @@
 <td> Crear: </td>
 <td><?php 
     $eys_arrinput=array('name'=>'create','value'=>$nivelacceso['create'], "style"=>"width:500px");
-    echo form_input($eys_arrinput))  ?></td>
+    echo form_input($eys_arrinput);  ?></td>
 </tr>
 
 
@@ -29,7 +29,7 @@
 <td> Lectura </td>
 <td><?php 
     $eys_arrinput=array('name'=>'read','value'=>$nivelacceso['read'], "style"=>"width:500px");
-    echo form_input($eys_arrinput))  ?></td>
+    echo form_input($eys_arrinput);  ?></td>
 </tr>
 
 
@@ -38,7 +38,7 @@
 <td> Actualizar: </td>
 <td><?php 
     $eys_arrinput=array('name'=>'update','value'=>$nivelacceso['update'], "style"=>"width:500px");
-    echo form_input($eys_arrinput))  ?></td>
+    echo form_input($eys_arrinput);  ?></td>
 </tr>
 
 
@@ -46,14 +46,14 @@
 <td> Borrar: </td>
 <td><?php 
     $eys_arrinput=array('name'=>'delete','value'=>$nivelacceso['delete'], "style"=>"width:500px");
-    echo form_input($eys_arrinput))  ?></td>
+    echo form_input($eys_arrinput);  ?></td>
 </tr>
 
 <tr>
 <td> Modulo de inicio: </td>
 <td><?php 
     $eys_arrinput=array('name'=>'inicio','value'=>$nivelacceso['inicio'], "style"=>"width:500px");
-    echo form_input($eys_arrinput))  ?></td>
+    echo form_input($eys_arrinput);  ?></td>
 </tr>
 
 

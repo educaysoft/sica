@@ -67,6 +67,11 @@ public function edit()
 		 	
 		 	'idnivelacceso' => $this->input->post('idnivelacceso'),
 		 	'nombre' => $this->input->post('nombre'),
+	 	'create' => $this->input->post('create'),
+	 	'read' => $this->input->post('read'),
+	 	'update' => $this->input->post('update'),
+	 	'delete' => $this->input->post('delete'),
+	 	'inicio' => $this->input->post('inicio'),
 	 	);
 	 	$this->nivelacceso_model->update($id,$array_item);
 	 	redirect('nivelacceso');
