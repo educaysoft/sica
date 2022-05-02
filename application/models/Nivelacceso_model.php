@@ -8,7 +8,7 @@ class Nivelacceso_model extends CI_model {
 
  	function nivelacceso($id){
  		$nivelacceso = $this->db->query('select * from nivelacceso where idnivelacceso="'. $id.'"');
- 		return $nivelacceso->result();
+ 		return $nivelacceso;
  	}
 
  	function save($array)
