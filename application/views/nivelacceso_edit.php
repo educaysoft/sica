@@ -16,7 +16,7 @@
 </tr>
 
 
-<tr
+<tr>
 <td> Crear: </td>
 <td><?php 
     $eys_arrinput=array('name'=>'create','value'=>$nivelacceso['create'], "style"=>"width:500px");

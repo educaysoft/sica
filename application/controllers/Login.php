@@ -180,7 +180,7 @@ if ($result == TRUE) {
 					$icono=$elmodulo[0]->icono;
 					$modulo=$elmodulo[0]->modulo;
 				}
-				$elnivelacceso = $this->nivelacceso_model->nivelacceso($row->idnivelacceso);
+				$elnivelacceso = $this->nivelacceso_model->nivelacceso($row->idnivelacceso)->row_array();
 				if($elnivelacceso)
 				{
 					$create=$elnivelacceso[0]->create;
