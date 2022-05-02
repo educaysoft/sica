@@ -164,7 +164,7 @@ echo form_textarea("comentario","",$textarea_options);
 //		document.getElementById('idpersona').setAttribute('size',"'"+l+"'");
 		for(i=0; i<data.length; i++){
 			if(data[i].idtipoasistencia==" "){
-				html += '<option style="color:red;" value='+data[i].idpersona+'><i class="icon-female"></i>'+data[i].idpersona+' - '+data[i].nombres+' - '+data[i].idtipoasistencia+'</option>';
+				html += '<option style="color:red;" value='+data[i].idpersona+'><i class="fa fa-female"></i>'+data[i].idpersona+' - '+data[i].nombres+' - '+data[i].idtipoasistencia+'</option>';
 			}else{
 				html += '<option style="color:green;"  value='+data[i].idpersona+'><i class="icon-female"></i> - '+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].idtipoasistencia+'</option>';
 			}
