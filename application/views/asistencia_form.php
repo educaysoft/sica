@@ -70,7 +70,7 @@ echo form_dropdown("idtipoasistencia",$options, set_select('--Select--','default
 
 
 //echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_asistencia()">Guardar asistencia.</span></td></tr></table>';
-echo '</td><td><a class="btn"  onclick="save_asistencia()"><i class="icon-female"></i>Guardar asistencia.</a></td></tr></table>';
+echo '</td><td><a class="btn"  onclick="save_asistencia()"><i class="fa fa-female"></i>Guardar asistencia.</a></td></tr></table>';
 
 ?>
 
