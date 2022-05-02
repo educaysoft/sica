@@ -628,10 +628,10 @@ if(isset($this->session->userdata['acceso'])){
 
   foreach($this->session->userdata['acceso'] as $row)
 	    {
-			$id=$row["modulo"]["id"];
-			$nombre=$row["modulo"]["nombre"];
-			$icono=$row["modulo"]["icono"];
-      $modulo=$row["modulo"]["modulo"];
+		$id=$row["modulo"]["id"];
+		$nombre=$row["modulo"]["nombre"];
+		$icono=$row["modulo"]["icono"];
+		$modulo=$row["modulo"]["modulo"];
       echo '<li><a id="'.$id.'" style="font-size:80%; color:orange;" href="'.base_url().'index.php/'.$modulo.'"><img src="'.base_url().'assets/iconos/'.$icono.'.png" wide="49" height="50" alt="Formget logo"></a></li>';
 	    } 
 }

@@ -12,8 +12,7 @@ if(isset($documento))
         <li style="border-right:1px solid green"><?php echo anchor('documento/elultimo/', 'Último'); ?></li>
 	<?php
        
-	print_r($this->session->userdata['acceso']);	
-	if($this->session->userdata['acceso']['nivelacceso']['create']){ ?>
+	if($this->session->userdata['acceso'][1]['nivelacceso']['create']){ ?>
         <li> <?php echo anchor('documento/add', 'Nuevo'); ?></li>
 	<?php } ?>
         <li> <?php echo anchor('documento/edit/'.$documento['iddocumento'],'Edit'); ?></li>
