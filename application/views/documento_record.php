@@ -4,6 +4,23 @@
 <?php
 if(isset($documento))
 {
+
+
+$j=0;
+		$numero=$j;
+if(isset($this->session->userdata['acceso'])){
+  foreach($this->session->userdata['acceso'] as $row)
+	    {
+		if("documento"==$row["modulo"]["nombre"]);
+		{
+			$numero=$j;
+		}	
+		$j=$j+1;
+	    } 
+}
+
+
+
 ?>
 
         <li> <?php echo anchor('documento/elprimero/', 'primero'); ?></li>
@@ -12,7 +29,7 @@ if(isset($documento))
         <li style="border-right:1px solid green"><?php echo anchor('documento/elultimo/', 'Último'); ?></li>
 	<?php
        
-	if($this->session->userdata['acceso'][1]['nivelacceso']['create']){ ?>
+	if($this->session->userdata['acceso'][$numero]['nivelacceso']['create']){ ?>
         <li> <?php echo anchor('documento/add', 'Nuevo'); ?></li>
 	<?php } ?>
         <li> <?php echo anchor('documento/edit/'.$documento['iddocumento'],'Edit'); ?></li>
