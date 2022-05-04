@@ -42,7 +42,7 @@ public function actual(){
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
   	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
-	$data['title']="Modulo de Personas";
+	$data['title']="Modulo de acceso";
 	$this->load->view('template/page_header');		
 	$this->load->view('acceso_record',$data);
 	$this->load->view('template/page_footer');

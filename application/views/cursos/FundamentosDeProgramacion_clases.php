@@ -169,8 +169,8 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 
 <div style="margin: auto; width: 60%; border:5px solid red;">
 	<div class="header">
-	  <h1>Fundamentos de programación</h1>
-	  <p>Aprenda a programación en C++</p>
+	  <h1><?php echo $curso["titulo"]; ?></h1>
+	  <p><?php echo $curso["detalle"]; ?></p>
 	</div>
 
 
