@@ -23,12 +23,16 @@ class Acceso_model extends CI_model {
  	}
 
 
+ 	function usuario($id){
+ 		$acceso = $this->db->where('idusuario',$id)->get('acceso');
+ 		return $acceso;
+ 	}
+
+
  	function get_usuario($id){
- 		//$acceso = $this->db->query('select * from acceso where idusuario="'. $id.'"');
  		$acceso = $this->db->where('idusuario',$id)->get('acceso');
  		return $acceso->result();
  	}
-
 
 
  	function save($array)
