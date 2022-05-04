@@ -11,6 +11,7 @@
         <li> <?php echo anchor('usuario/edit/'.$usuario['idusuario'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('usuario/delete/'.$usuario['idusuario'],'Delete'); ?></li>
         <li> <?php echo anchor('usuario/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('acceso/actual/'.$usuario['idusuario'],'Listar'); ?></li>
 
     </ul>
 </div>

@@ -31,56 +31,72 @@ if(isset($acceso))
 
 <?php echo form_open('acceso/save_edit') ?>
 <?php echo form_hidden('idacceso',$acceso['idacceso']) ?>
-<table>
-  <tr>
-     <td>Id Acceso:</td>
-     <td><?php echo form_input('idacceso',$acceso['idacceso'],array("disabled"=>"disabled",'placeholder'=>'Idaccesos')) ?></td>
-  </tr>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Acceso Id:</label>
+	<div class="col-md-10">
+	<?php
+
+      echo form_input('idacceso',$acceso['idacceso'],array("disabled"=>"disabled",'placeholder'=>'Idaccesos','style'=>'width:500px')); 
+	?>
+	</div> 
+</div> 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Usuario:</label>
+	<div class="col-md-10">
+	<?php
  
- 
-<tr>
-     <td>Usuario:</td>
-     <td><?php 
 $options= array("NADA");
 foreach ($usuarios as $row){
 	$options[$row->idusuario]= $row->elusuario;
 }
 
-echo form_input('idusuario',$options[$acceso['idusuario']],array("disabled"=>"disabled")) ?></td>
-  </tr>
- 
+echo form_input('idusuario',$options[$acceso['idusuario']],array("disabled"=>"disabled",'style'=>'width:500px')); 
+	?>
+	</div> 
+</div> 
  
 
-  
-<tr>
-     <td>Modulo:</td>
-     <td><?php 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Modulo:</label>
+	<div class="col-md-10">
+	<?php
 $options= array("NADA");
 foreach ($modulos as $row){
 	$options[$row->idmodulo]= $row->nombre;
 }
 
-echo form_input('idmodulo',$options[$acceso['idmodulo']],array("disabled"=>"disabled")) ?></td>
-  </tr>
+echo form_input('idmodulo',$options[$acceso['idmodulo']],array("disabled"=>"disabled",'style'=>'width:500px')); 
+	?>
+	</div> 
+</div> 
 
 
 
-<tr>
-     <td>Nivel de acceso:</td>
-     <td><?php 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nivel de acceso:</label>
+	<div class="col-md-10">
+	<?php
+
 $options= array("NADA");
 foreach ($nivelaccesos as $row){
 	$options[$row->idnivelacceso]= $row->nombre;
 }
 
-echo form_input('idnivelacceso',$options[$acceso['idnivelacceso']],array("disabled"=>"disabled")) ?></td>
-  </tr>
+echo form_input('idnivelacceso',$options[$acceso['idnivelacceso']],array("disabled"=>"disabled",'style'=>'width:500px'));
+	?>
+	</div> 
+</div> 
 
 
 
 
-
-</table>
 <?php echo form_close(); ?>
 
 
