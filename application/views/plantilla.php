@@ -13,7 +13,9 @@ class PDF extends FPDF
 		$this->Cell(120,5,utf8_decode('UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS'),0,1,'C');
 		$this->Cell(30);
 		$this->Cell(120,5,utf8_decode('FACULTAD DE INGENIERIAS (FACI)'),0,1,'C');
+		$this->Cell(30);
 		$this->Cell(120,5,utf8_decode('CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN'),0,1,'C');
+		$this->Cell(30);
 		$this->Cell(120,5,utf8_decode('INFORME DE CÁTEDRA INTEGRADORA'),0,1,'C');
 		$this->Ln(8);
 		$this->Cell(40,5,utf8_decode('CÁTEDRA:'),0,0,'L');
