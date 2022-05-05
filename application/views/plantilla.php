@@ -11,12 +11,16 @@ class PDF extends FPDF
 		$this->SetFont('Arial','B',11);
 		$this->Cell(30);
 		$this->Cell(120,6,utf8_decode('UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS'),0,1,'C');
-		$this->Cell(120,6,utf8_decode('FACULTAD DE INGENIERIAS (FACI)'),0,0,'C');
+		$this->Cell(120,6,utf8_decode('FACULTAD DE INGENIERIAS (FACI)'),0,1,'C');
 		$this->Cell(120,6,utf8_decode('CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN'),0,0,'C');
 		$this->Cell(120,6,utf8_decode('INFORME DE CÁTEDRA INTEGRADORA'),0,1,'C');
 		$this->Ln(10);
 		$this->Cell(40,6,utf8_decode('CÁTEDRA:'),0,0,'L');
 		$this->Cell(40,6,utf8_decode('Metodología de la Investigación'),0,2,'L');
+		$this->Cell(40,6,utf8_decode('PARALELO:'),0,0,'L');
+		$this->Cell(40,6,utf8_decode('B'),0,2,'L');
+		$this->Cell(40,6,utf8_decode('DOCENTE:'),0,0,'L');
+		$this->Cell(40,6,utf8_decode('Ing. Stalin Francis Q. M.Sc.'),0,2,'L');
 		$this->Ln(10);
 	}
 	function Footer()
