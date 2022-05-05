@@ -27,7 +27,9 @@ $can=0;
 
 
 
-	$pdf->SetFont('Arial','',8.55555
+	$pdf->SetFont('Arial','',8.5);
+
+
 $id=0;
 $persona="";
 $i=0;
