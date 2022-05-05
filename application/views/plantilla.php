@@ -1,9 +1,8 @@
 <?php
-use setasign\Fpdi\Fpdi;
-$v='"'.$_SERVER["DOCUMENT_ROOT"].'/sica/FPDI/vendor/autoload.php'.'"';
-echo $v;
+//$v='"'.$_SERVER["DOCUMENT_ROOT"].'/sica/FPDI/vendor/autoload.php'.'"';
+require 'fpdf/fpdf.php';
 //require_once($v);
-class PDF extends FPDI
+class PDF extends FPDF
 {
 	function Header()
 	{
