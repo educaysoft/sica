@@ -1,6 +1,7 @@
 <?php
 use setasign\Fpdi\Fpdi;
-$v=base_url().'FPDI/vendor/autoload.php';
+$v='"'.base_url().'FPDI/vendor/autoload.php'.'"';
+echo $v;
 require_once($v);
 class PDF extends FPDF
 {
