@@ -27,7 +27,7 @@ $can=0;
 
 
 
-	$pdf->SetFont('Arial','',8.5);
+	$pdf->SetFont('Arial','',8);
 
 
 $id=0;
