@@ -9,8 +9,9 @@ class PDF extends FPDF
 		$i=base_url().'images/logo.jpg';
 		$this->Image($i,5,5,20);
 		$this->SetFont('Arial','B',10);
-		$this->Cell(30,20);
+		$this->Cell(30);
 		$this->Cell(120,5,utf8_decode('UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS'),0,1,'C');
+		$this->Cell(30);
 		$this->Cell(120,5,utf8_decode('FACULTAD DE INGENIERIAS (FACI)'),0,1,'C');
 		$this->Cell(120,5,utf8_decode('CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN'),0,1,'C');
 		$this->Cell(120,5,utf8_decode('INFORME DE CÁTEDRA INTEGRADORA'),0,1,'C');
