@@ -3,7 +3,7 @@
 //	require 'conexion.php';
 	
 //	$query = "SELECT e.estado, m.id_municipio, m.municipio FROM t_municipio AS m INNER JOIN t_estado AS e ON m.id_estado=e.id_estado";
-	$resultado = $mysqli->query($query);
+//	$resultado = $mysqli->query($query);
 	
 	$pdf = new PDF();
 	$pdf->AliasNbPages();
