@@ -53,7 +53,7 @@ foreach ($participacion as $row){
       }
     }
 
-      $resu=round(($sum/($can)),2);
+      $resu=round(($sum/($can)),0);
       $pdf->Cell(20,6,$sum,1,0,'R',1);
       $pdf->Cell(20,6,$resu,1,0,'R',1);
       $pdf->Cell(20,6,8,1,1,'R',1);
@@ -82,7 +82,7 @@ foreach ($participacion as $row){
 	  $can=$can+1;
       }
     } 
-      $resu=round(($sum/($can)),2);
+      $resu=round(($sum/($can)), 0);
       $pdf->Cell(20,6,$sum,1,0,'R',1);
       $pdf->Cell(20,6,$resu,1,0,'R',1);
       $pdf->Cell(20,6,8,1,1,'R',1);
