@@ -1,4 +1,4 @@
-<h2> <?php echo $title; ?>(<?php echo anchor('participacion/reporte/'.$eventos['idevento'], 'Reporte'); ?>)</h2>
+<h2> <?php echo $title; ?>(<?php echo anchor('participacion/reporte/'.$eventos[0]->idevento, 'Reporte'); ?>)</h2>
 <hr/>
 <?php echo form_open(); ?>
 <br>
@@ -8,7 +8,7 @@
 <label class="col-md-2 col-form-label">Evento:</label>
 <div class="col-md-10">
 <?php
-print_r($eventos);
+//print_r($eventos);
 $options= array('--Select--');
 foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
