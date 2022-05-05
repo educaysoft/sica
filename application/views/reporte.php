@@ -18,8 +18,8 @@
 foreach ($fechaeventos as $row){
  $pdf->Cell(20,6,$row->tema,1,0,'C',1);
 }
- $pdf->Cell(20,6,'Total',1,1,'C',1);
- $pdf->Cell(20,6,'Prom',1,1,'C',1);
+ $pdf->Cell(20,6,'Total',1,0,'C',1);
+ $pdf->Cell(20,6,'Prom',1,0,'C',1);
  $pdf->Cell(20,6,'Asis',1,1,'C',1);
 $sum=0;
 $can=0;
