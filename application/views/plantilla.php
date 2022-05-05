@@ -1,7 +1,7 @@
 <?php
 use setasign\Fpdi\Fpdi;
 
-require_once('../../FPDF/vendor/autoload.php');
+require_once('../../FPDI/vendor/autoload.php');
 class PDF extends FPDF
 {
 	function Header()
