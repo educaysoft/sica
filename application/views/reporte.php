@@ -10,15 +10,15 @@
 	$pdf->AddPage();
 	
 	$pdf->SetFillColor(232,232,232);
-	$pdf->SetFont('Arial','B',10);
+	$pdf->SetFont('Arial','B',9);
 
 
- $pdf->Cell(10,6,'#',1,0,'C',1);
+ $pdf->Cell(8,6,'#',1,0,'C',1);
  $pdf->Cell(50,6,'Participante',1,0,'C',1);
 foreach ($fechaeventos as $row){
- $pdf->Cell(30,6,$row->tema,1,0,'C',1);
+ $pdf->Cell(20,6,$row->tema,1,0,'C',1);
 }
- $pdf->Cell(30,6,'Prom',1,1,'C',1);
+ $pdf->Cell(20,6,'Prom',1,1,'C',1);
 $sum=0;
 $can=0;
 
