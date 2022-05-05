@@ -11,9 +11,6 @@
 	
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',10);
-	$pdf->Cell(70,6,'ESTADO',1,0,'C',1);
-	$pdf->Cell(20,6,'ID',1,0,'C',1);
-	$pdf->Cell(70,6,'MUNICIPIO',1,1,'C',1);
 
 
  $pdf->Cell(10,6,'#',1,0,'C',1);
