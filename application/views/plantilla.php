@@ -3,7 +3,7 @@ use setasign\Fpdi\Fpdi;
 $v='"'.$_SERVER["DOCUMENT_ROOT"].'/sica/FPDI/vendor/autoload.php'.'"';
 echo $v;
 //require_once($v);
-class PDF extends FPDF
+class PDF extends FPDI
 {
 	function Header()
 	{
