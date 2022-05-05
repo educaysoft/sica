@@ -36,7 +36,7 @@ $i=0;
 foreach ($participacion as $row){
   if($id!=$row->idpersona)
   {
-   if($id>0
+   if($id>0){
     $i=$i+1;
     $pdf->Cell(8,6,$i,1,0,'R',0); 
     $pdf->Cell(55,6,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
