@@ -1,5 +1,5 @@
 <?php
-use setasign/Fpdi/Fpdi;
+use setasign\Fpdi\Fpdi;
 
 require_once('../../FPDF/vendor/autoload.php');
 class PDF extends FPDF
