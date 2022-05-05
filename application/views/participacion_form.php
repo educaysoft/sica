@@ -8,7 +8,7 @@
 <label class="col-md-2 col-form-label">Evento:</label>
 <div class="col-md-10">
 <?php
-
+print_r($eventos);
 $options= array('--Select--');
 foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
