@@ -35,7 +35,7 @@ class Participacion extends CI_Controller{
 	    }
 
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['eventos']= $this->evento_model->evento($idevento)->result();
+		$data['eventos']= $this->evento_model->evento($idevento)->row_array();
 		$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
 		$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($idevento)->result();
        
