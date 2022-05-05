@@ -84,7 +84,6 @@ foreach ($participacion as $row){
 	$can=0;
 
 
-?>
 
 
 
@@ -109,4 +108,4 @@ foreach ($participacion as $row){
 //		$pdf->Cell(70,6,utf8_decode($row['municipio']),1,1,'C');
 //	}
 	$pdf->Output();
-//?>
+?>
