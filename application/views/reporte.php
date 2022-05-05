@@ -10,11 +10,24 @@
 	$pdf->AddPage();
 	
 	$pdf->SetFillColor(232,232,232);
-	$pdf->SetFont('Arial','B',12);
+	$pdf->SetFont('Arial','B',10);
 	$pdf->Cell(70,6,'ESTADO',1,0,'C',1);
 	$pdf->Cell(20,6,'ID',1,0,'C',1);
 	$pdf->Cell(70,6,'MUNICIPIO',1,1,'C',1);
-	
+
+
+ $pdf->Cell(10,6,'#',1,0,'C',1);
+ $pdf->Cell(50,6,'Participante',1,0,'C',1);
+foreach ($fechaeventos as $row){
+ $pdf->Cell(30,6,$row->tema,1,0,'C',1);
+}
+ $pdf->Cell(30,6,'Prom',1,0,'C',1);
+$sum=0;
+$can=0;
+
+
+
+
 	$pdf->SetFont('Arial','',10);
 	
 //	while($row = $resultado->fetch_assoc())
