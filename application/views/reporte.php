@@ -18,7 +18,7 @@
 foreach ($fechaeventos as $row){
  $pdf->Cell(30,6,$row->tema,1,0,'C',1);
 }
- $pdf->Cell(30,6,'Prom',1,0,'C',1);
+ $pdf->Cell(30,6,'Prom',1,1,'C',1);
 $sum=0;
 $can=0;
 
@@ -26,7 +26,82 @@ $can=0;
 
 
 	$pdf->SetFont('Arial','',10);
-	
+
+
+$id=0;
+$persona="";
+$i=0;
+foreach ($participacion as $row){
+  if($id!=$row->idpersona)
+  {
+   if($id>0){
+    $i=$i+1;
+    $pdf->Cell(10,6,$i,1,0,'C',1); 
+    $pdf->Cell(50,6,$arrparticipacion[$id],1,0,'C',1);
+    foreach ($fechaeventos as $row1){
+      if(isset($arrparticipacion[$row1->fecha])){
+         $pdf->Cell(30,6,$arrparticipacion[$row1->fecha],1,0,'C',1);
+	  $sum=$sum+ $arrparticipacion[$row1->fecha];
+	  $can=$can+1;
+      }else{
+         $pdf->Cell(30,6,'0',1,0,'C',1);
+	  $sum=$sum+ 0;
+	  $can=$can+1;
+
+      }
+    }
+
+      $resu=round(($sum/($can)),2);
+      $pdf->Cell(30,6,$resu,1,1,'C',1);
+	$sum=0;
+	$can=0;
+   }
+    $arrparticipacion=array();
+    $id=$row->idpersona;
+    $arrparticipacion[$row->idpersona]=$row->nombres;
+    $arrparticipacion[$row->fecha]=$row->porcentaje;
+  }else{
+    $arrparticipacion[$row->fecha]=$row->porcentaje;
+  }
+}
+  $i=$i+1;
+    $pdf->Cell(10,6,$i,1,0,'C',1); 
+    $pdf->Cell(50,6,$arrparticipacion[$id],1,0,'C',1);
+    foreach ($fechaeventos as $row1){
+      if(isset($arrparticipacion[$row1->fecha])){
+         $pdf->Cell(30,6,$arrparticipacion[$row1->fecha],1,0,'C',1);
+         $sum=$sum+ $arrparticipacion[$row1->fecha];
+	 $can=$can+1;
+      }else{
+         $pdf->Cell(30,6,'0',1,0,'C',1);
+	  $sum=$sum+ 0;
+	  $can=$can+1;
+      }
+    } 
+      $resu=round(($sum/($can)),2);
+      $pdf->Cell(30,6,$resu,1,1,'C',1);
+	$sum=0;
+	$can=0;
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //	while($row = $resultado->fetch_assoc())
 //	{
 //		$pdf->Cell(70,6,utf8_decode($row['estado']),1,0,'C');

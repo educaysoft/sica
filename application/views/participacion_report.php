@@ -53,6 +53,9 @@ $can=0;
  </tr>
  </thead>
 
+
+<!---FIN DE LA CABACERA--->
+
  <tbody id="show_data">
 <?php
 echo "<tr>";
