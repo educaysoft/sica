@@ -36,15 +36,15 @@ foreach ($participacion as $row){
   {
    if($id>0){
     $i=$i+1;
-    $pdf->Cell(10,6,$i,1,0,'C',1); 
-    $pdf->Cell(50,6,$arrparticipacion[$id],1,0,'C',1);
+    $pdf->Cell(10,6,$i,1,0,'R',1); 
+    $pdf->Cell(50,6,$arrparticipacion[$id],1,0,'L',1);
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
-         $pdf->Cell(30,6,$arrparticipacion[$row1->fecha],1,0,'C',1);
+         $pdf->Cell(30,6,$arrparticipacion[$row1->fecha],1,0,'R',1);
 	  $sum=$sum+ $arrparticipacion[$row1->fecha];
 	  $can=$can+1;
       }else{
-         $pdf->Cell(30,6,'0',1,0,'C',1);
+         $pdf->Cell(30,6,'0',1,0.00,'R',1);
 	  $sum=$sum+ 0;
 	  $can=$can+1;
 
@@ -52,7 +52,7 @@ foreach ($participacion as $row){
     }
 
       $resu=round(($sum/($can)),2);
-      $pdf->Cell(30,6,$resu,1,1,'C',1);
+      $pdf->Cell(30,6,$resu,1,1,'R',1);
 	$sum=0;
 	$can=0;
    }
@@ -65,21 +65,21 @@ foreach ($participacion as $row){
   }
 }
   $i=$i+1;
-    $pdf->Cell(10,6,$i,1,0,'C',1); 
-    $pdf->Cell(50,6,$arrparticipacion[$id],1,0,'C',1);
+    $pdf->Cell(10,6,$i,1,0,'R',1); 
+    $pdf->Cell(50,6,utf8_decode($arrparticipacion[$id]),1,0,'L',1);
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
-         $pdf->Cell(30,6,$arrparticipacion[$row1->fecha],1,0,'C',1);
+         $pdf->Cell(30,6,$arrparticipacion[$row1->fecha],1,0,'R',1);
          $sum=$sum+ $arrparticipacion[$row1->fecha];
 	 $can=$can+1;
       }else{
-         $pdf->Cell(30,6,'0',1,0,'C',1);
+         $pdf->Cell(30,6,'0.00',1,0,'R',1);
 	  $sum=$sum+ 0;
 	  $can=$can+1;
       }
     } 
       $resu=round(($sum/($can)),2);
-      $pdf->Cell(30,6,$resu,1,1,'C',1);
+      $pdf->Cell(30,6,$resu,1,1,'R',1);
 	$sum=0;
 	$can=0;
 
