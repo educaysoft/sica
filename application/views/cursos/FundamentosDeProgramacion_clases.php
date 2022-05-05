@@ -265,10 +265,6 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 
 function get_certificado(miurl, idevento)
 {
-alert("hola");
-alert(idevento);
-alert(miurl);
-
 
 window.location.href = miurl+'/'+idevento;
 

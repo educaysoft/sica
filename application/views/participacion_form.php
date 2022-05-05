@@ -1,4 +1,4 @@
-<h2> <?php echo $title; ?> </h2>
+<h2> <?php echo $title; ?>(<?php echo anchor('participacion/reporte/'.$eventos['idevento'], 'Reporte'); ?>)</h2>
 <hr/>
 <?php echo form_open(); ?>
 <br>
