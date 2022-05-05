@@ -1,12 +1,13 @@
 <?php
 use setasign\Fpdi\Fpdi;
-
-require_once(base_url().'FPDI/vendor/autoload.php');
+$v=base_url().'FPDI/vendor/autoload.php';
+require_once($v);
 class PDF extends FPDF
 {
 	function Header()
 	{
-		$this->Image(base_url().'images/logo.png',5,5,30);
+		$i=base_url().'images/logo.png';
+		$this->Image($i,5,5,30);
 		$this->SetFont('Arial','B',15);
 		$this->Cell(30);
 		$this->Cell(120,10,'Reporte de Participación',0,0,'C');
