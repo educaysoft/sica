@@ -293,7 +293,7 @@ foreach ($participacion as $row){
 
 </div>
 
-<div style='position:fixed; left:0; bottom:0; width:100%; text-align:center; background-color:red;' >
+<div style='position:fixed; left:0; bottom:0; width:100%; text-align:center; background-color:red;font-size:20px;' >
   <?php
        
         //echo anchor("evento/listar_participantes/".$evento['idevento'],'Imprimir certificado');

@@ -188,6 +188,7 @@ if(iddocumento2==0)
     formData.append("archivo", archivo);
     formData.append("posix", posix);
     formData.append("posiy", posiy);
+    formData.append("fecha", fechaelaboracion);
 
 
 

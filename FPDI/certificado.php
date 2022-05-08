@@ -12,9 +12,12 @@ $participante=$_POST["participante"];
 $detalle=$_POST["asunto"]; 
 $modelo=$_POST["modelo"];  //Modelo de certificado 
 $archivo=$_POST["archivo"];  //Nombre del archivo generado 
+$codigo=substr($archivo,0,strlen($archivo)-4));
 $ruta=$_POST["ruta"];
 $posix=$_POST["posix"];
 $posiy=$_POST["posiy"];
+$fecha=date('F d Y',strtotime($_POST["fecha"]));
+
 $posif=296.67;
 // initiate FPDI
 $pdf = new Fpdi();
@@ -39,7 +42,6 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 $tplId = $pdf->importPage($pageNo);
 //$pdf->useTemplate($tplId, 20, 10, 200);
 
-
 $pdf->AddPage('L',[296.67,210.56]);
 //El tamaño se acopa al tamaño del template
 //$pdf->AddPage('L', array($size['w'], $size['h']));
@@ -52,20 +54,31 @@ $pdf->useTemplate($tplId);
 
 $mid_x=148;
 
+//write the code of de certificaod
+$pdf->SetFont('Helvetica','B',15);
+$pdf->SetTextColor(0, 0,0);
+$pdf->SetXY($posix,$posiy-50);
+$espacio_impresion=$posif;  //-$posix;
+$realposix=$posix+($espacio_impresion/2-($pdf->GetStringWidth($codigo)/2));
+$pdf->Text($realposix,$posiy-50,$codigo);
 
-	// now write some text above the imported page
+// now write some text above the imported page
 $pdf->SetFont('Helvetica','B',20);
 $pdf->SetTextColor(0, 0,255);
-//$pdf->SetXY(24, 86);
 $pdf->SetXY($posix,$posiy);
 $espacio_impresion=$posif;  //-$posix;
 $realposix=$posix+($espacio_impresion/2-($pdf->GetStringWidth($participante)/2));
-
 $pdf->Text($realposix,$posiy,$participante);
-//$pdf->Text($mid_x-($pdf->GetStringWidth($participante)/2),$posiy,$participante);
-//$pdf->Write(0, $participante);
-//$pdf->SetXY(35, 105);
-//$pdf->Write(0, $detalle);
+
+//write the date of de certificaod
+$pdf->SetFont('Helvetica','B',15);
+$pdf->SetTextColor(0, 0,0);
+$pdf->SetXY($posix,$posiy+50);
+$espacio_impresion=$posif;  //-$posix;
+$realposix=$posix+($espacio_impresion/2-($pdf->GetStringWidth($fecha)/2));
+$pdf->Text($realposix,$posiy+50,$fecha);
+
+
 }
 //$pdf->Output('I', 'generated.pdf');
 $archivo=str_replace("'","",$archivo);
