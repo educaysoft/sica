@@ -232,8 +232,6 @@ function verpdf(){
 
 var orde=document.getElementById("idordenador").value;
 var dire=document.getElementById("iddirectorio").value;
-alert(orde);
-alert(dire);
 var ordenador = "https://"+orde;
 var ubicacion=dire;
 if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
