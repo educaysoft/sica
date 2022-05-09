@@ -12,7 +12,7 @@ $participante=$_POST["participante"];
 $detalle=$_POST["asunto"]; 
 $modelo=$_POST["modelo"];  //Modelo de certificado 
 $archivo=$_POST["archivo"];  //Nombre del archivo generado 
-$codigo=substr($archivo,0,strlen($archivo)-4));
+$codigo=substr($archivo,0,strlen($archivo)-4);
 $ruta=$_POST["ruta"];
 $posix=$_POST["posix"];
 $posiy=$_POST["posiy"];
@@ -76,7 +76,7 @@ $pdf->SetTextColor(0, 0,0);
 $pdf->SetXY($posix,$posiy+50);
 $espacio_impresion=$posif;  //-$posix;
 $realposix=$posix+($espacio_impresion/2-($pdf->GetStringWidth($fecha)/2));
-$pdf->Text($realposix,$posiy+50,$fecha);
+$pdf->Text($realposix,$posiy+85,$fecha);
 
 
 }

@@ -30,13 +30,13 @@ if(isset($this->session->userdata['acceso'])){
 	<?php
        
 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['create']){ ?>
-        <li> <?php echo anchor('documento/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('o/add', 'Nuevo'); ?></li>
 	<?php } ?>
         <li> <?php echo anchor('documento/edit/'.$documento['iddocumento'],'Edit'); ?></li>
 
         <li style="border-right:1px solid green"> <?php echo anchor('documento/delete/'.$documento['iddocumento'],'Delete'); ?></li>
         <li> <?php echo anchor('documento/listar/','Listar'); ?></li>
-        <li> <?php echo anchor('documento/canvas/'.$documento['archivopdf'],'Ver PDF'); ?></li>
+        <li> <?php echo "<a onclick='verpdf()'>Ver PDF</a>" ?></li>
 
 
 <?php 
@@ -226,6 +226,29 @@ if (inputval == "NO CARGADO"){
 
 	document.getElementById("iddocumento_estado").style.backgroundColor="green";
 }
+
+
+function verpdf(){
+
+var orde=document.getElementById("idordenador").innerHTML;
+var dire=document.getElementById("iddirectorio").innerHTML;
+alert(orde);
+alert(dire);
+var ordenador = "https://"+orde;
+var ubicacion=dire;
+if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+        ubicacion = ordenador+"/"+ubicacion;
+}else{
+	ubicacion = ordenador+ubicacion;
+}
+var archivo = $(this).data('archivo');
+var certi= ubicacion.trim()+archivo.trim();
+window.location.href = certi;
+
+
+}
+
+
 
 
 </script>
