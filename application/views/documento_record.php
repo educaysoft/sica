@@ -167,7 +167,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 	?>
 	<div class="col-md-10">
 		<?php
-			echo form_input('idordenador',$options[$documento['idordenador']],array("disabled"=>"disabled"));
+			echo form_input('idordenador',$options[$documento['idordenador']],array("id"=>"idordenador","disabled"=>"disabled"));
 		?>
 	</div> 
 </div>
@@ -184,7 +184,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 	?>
 	<div class="col-md-10">
 		<?php
-		echo form_input('iddirectorio',$options[$documento['iddirectorio']],array("disabled"=>"disabled")); 
+		echo form_input('iddirectorio',$options[$documento['iddirectorio']],array("id"=>"iddirectorio", "disabled"=>"disabled")); 
 		?>
 	</div> 
 </div>
