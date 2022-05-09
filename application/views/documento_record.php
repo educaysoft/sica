@@ -148,7 +148,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
     <label class="col-md-2 col-form-label"> <a href="<?php echo base_url(); ?>index.php/documento/show_pdf/<?php echo $documento['iddocumento']; ?>">Archivo_Pdf</a>   </label>
 	<div class="col-md-10">
 		<?php
-      echo form_input('archivopdf',$documento['archivopdf'],array("disabled"=>"disabled",'placeholder'=>'Archivo php','style'=>'width:500px;')); 
+      echo form_input('archivopdf',$documento['archivopdf'],array("id"=>"archivopdf","disabled"=>"disabled",'placeholder'=>'Archivo php','style'=>'width:500px;')); 
  
 		?>
 	</div> 
@@ -241,7 +241,8 @@ if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
 }else{
 	ubicacion = ordenador+ubicacion;
 }
-var archivo = $(this).data('archivo');
+var archi=document.getElementById("archivopdf").value;
+var archivo =archi;
 var certi= ubicacion.trim()+archivo.trim();
 window.location.href = certi;
 
