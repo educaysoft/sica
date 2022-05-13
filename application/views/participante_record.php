@@ -95,7 +95,7 @@ echo form_input('nombre',$options[$participante['idpersona']],array("disabled"=>
     <label class="col-md-2 col-form-label">Id documento:</label>
 	<div class="col-md-10">
 		<?php
-     echo form_input('iddocumento',$participante['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumento',"style"=>"width:500px")); 
+     echo form_input('iddocumento',$participante['iddocumento'],array("id"=>"iddocumento","disabled"=>"disabled",'placeholder'=>'Iddocumento',"style"=>"width:500px")); 
 		?>
 	</div> 
 </div> 
