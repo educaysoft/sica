@@ -100,9 +100,9 @@ foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
 if(!isset($participante['iddocumento'])){
-echo form_input($name='iddocumento',"",array("id=>"iddocumento","disabled"=>"disabled","style"=>"width:500px")) ;
+echo form_input($name='iddocumento',"",array("id"=>"iddocumento","disabled"=>"disabled","style"=>"width:500px")) ;
 }else{
-echo form_input($name='iddocumento',$options[$participante['iddocumento']],array("id=>"iddocumento","disabled"=>"disabled","style"=>"width:500px"));
+echo form_input($name='iddocumento',$options[$participante['iddocumento']],array("id"=>"iddocumento","disabled"=>"disabled","style"=>"width:500px"));
 }
 		?>
 	</div> 
