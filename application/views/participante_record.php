@@ -119,7 +119,7 @@ echo form_input($name='iddocumento',$options[$participante['iddocumento']],array
 
 function verpdf(){
 
-var idocumento=document.getElementById("iddocumento").value;
+var iddocumento=document.getElementById("iddocumento").value;
 	alert(iddocumento);
     $.ajax({
         url: "<?php echo site_url('documento/get_documentoA') ?>",
