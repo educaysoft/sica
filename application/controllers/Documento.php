@@ -524,7 +524,7 @@ public function get_documento() {
 }
 
 
-public function get_documento1() {
+public function get_documentoA() {
     $this->load->database();
     $this->load->helper('form');
     if($this->input->post('iddocumento')) {
