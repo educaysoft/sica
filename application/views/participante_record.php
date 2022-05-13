@@ -92,7 +92,7 @@ echo form_input('nombre',$options[$participante['idpersona']],array("disabled"=>
   
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Certificado:</label>
+    <label class="col-md-2 col-form-label">  Certificado (<?php echo "<a onclick='verpdf()'>Ver</a>" ?>) :</label>
 	<div class="col-md-10">
 		<?php
 $options= array("NADA");
@@ -114,7 +114,67 @@ echo form_input('nombre',$options[$participante['iddocumento']],array("disabled"
 
 <?php echo form_close(); ?>
 
+<script>
+var inputval=document.getElementById("iddocumento_estado").value;
+if (inputval == "NO CARGADO"){
+	document.getElementById("iddocumento_estado").style.backgroundColor="red";
+}else{
 
+	document.getElementById("iddocumento_estado").style.backgroundColor="green";
+}
+
+
+function verpdf(){
+
+	var iddocumento = $('select[name=iddocumento]').val();
+    $.ajax({
+        url: "<?php echo site_url('documento/get_documento1') ?>",
+        data: {iddocumento: iddocumento},
+        method: 'POST',
+	async : false,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        for(i=0; i<data.length; i++){
+		var orde=data[i].ruta;
+		var dire=data[i].elordenador; 
+		var archi=data[i].archivopdf;
+        }
+
+	var ordenador = "https://"+orde;
+	var ubicacion=dire;
+	if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+        	ubicacion = ordenador+"/"+ubicacion;
+	}else{
+		ubicacion = ordenador+ubicacion;
+	}
+	var archivo =archi;
+	var certi= ubicacion.trim()+archivo.trim();
+	window.location.href = certi;
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+</script>
 
 
 

@@ -143,11 +143,6 @@ window.location.href = certi;
 
 
 
-//let ubicacion=$(this).data('ubicacion');
-//let archivo = $(this).data('archivo');
-//var certi= ubicacion.trim()+archivo.trim();
-
-//window.location.href = certi;
 
 });
 
