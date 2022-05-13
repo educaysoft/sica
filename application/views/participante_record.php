@@ -115,7 +115,7 @@ foreach ($documentos as $row){
 if(!isset($participante['iddocumento'])){
 echo form_input('nmdocumento',"",array("id"=>"nmdocumento","disabled"=>"disabled","style"=>"width:500px")) ;
 }else{
-echo form_input('nmdocumento',$options[$participante['nmdocumento']],array("id"=>"nmdocumento","disabled"=>"disabled","style"=>"width:500px"));
+echo form_input('nmdocumento',$options[$participante['iddocumento']],array("id"=>"nmdocumento","disabled"=>"disabled","style"=>"width:500px"));
 }
 		?>
 	</div> 
