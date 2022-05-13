@@ -100,9 +100,9 @@ foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
 if(!isset($participante['iddocumento'])){
-echo form_input('iddocumento',"",array("disabled"=>"disabled","style"=>"width:500px")) ;
+echo form_input($name='iddocumento',"",array("disabled"=>"disabled","style"=>"width:500px")) ;
 }else{
-echo form_input('iddocumento',$options[$participante['iddocumento']],array("disabled"=>"disabled","style"=>"width:500px"));
+echo form_input($name='iddocumento',$options[$participante['iddocumento']],array("disabled"=>"disabled","style"=>"width:500px"));
 }
 		?>
 	</div> 
@@ -115,13 +115,6 @@ echo form_input('iddocumento',$options[$participante['iddocumento']],array("disa
 <?php echo form_close(); ?>
 
 <script>
-var inputval=document.getElementById("iddocumento_estado").value;
-if (inputval == "NO CARGADO"){
-	document.getElementById("iddocumento_estado").style.backgroundColor="red";
-}else{
-
-	document.getElementById("iddocumento_estado").style.backgroundColor="green";
-}
 
 
 function verpdf(){
