@@ -244,7 +244,18 @@ public function anterior(){
 
 
 
-
+public function get_participante() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->post('idpersona')) {
+        $this->db->select('*');
+        $this->db->where('idpersona',  $this->input->post('idpersona'));
+        $this->db->where('idevento', $this->input->post('idevento'));
+        $query = $this->db->get('participante');
+	$data=$query->result();
+	echo json_encode($data);
+	}
+}
 
 
 

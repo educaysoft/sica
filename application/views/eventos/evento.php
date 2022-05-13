@@ -293,11 +293,11 @@ foreach ($participacion as $row){
 
 </div>
 
-<div style='position:fixed; left:0; bottom:0; width:100%; text-align:center; background-color:red;font-size:20px;' >
+<div style='position:fixed; left:0; bottom:0; width:100%; text-align:center; background-color:red;font-size:40px;' >
   <?php
        
         //echo anchor("evento/listar_participantes/".$evento['idevento'],'Imprimir certificado');
-        echo anchor("curso/iniciar?idcurso=".$evento['idcurso']."&idevento=".$evento['idevento'],'Iniciar el curso');
+        echo anchor("curso/iniciar?idpersona=".$this->session->userdata['logged_in']['idpersona']."&idcurso=".$evento['idcurso']."&idevento=".$evento['idevento'],'Iniciar el curso');
 
 
 ?>

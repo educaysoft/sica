@@ -252,7 +252,8 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 
 </div>
 	<div id="certificado" style="padding:10px; width:80%; margin:auto; border:1px solid blue; text-align: center;">
-			<?php echo '<button id="evaluar" onclick="get_certificado(\''.site_url('evento/listar_participantes').'\','.$evento["idevento"].');" >En hora buena! Ya puedes imprimir tu certificado</button>'; ?> 
+<!---			<?php echo '<button id="evaluar" onclick="get_certificado(\''.site_url('evento/listar_participantes').'\','.$evento["idevento"].');" >En hora buena! Ya puedes imprimir tu certificado</button>'; ?> 
+-->			<?php echo '<button id="evaluar" onclick="get_certificado('.$_GET["idpersona"].','.$evento["idevento"].');" >En hora buena! Ya puedes imprimir tu certificado</button>'; ?> 
 	</div>
 </div>
 
@@ -263,10 +264,63 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 
 
 
-function get_certificado(miurl, idevento)
+function get_certificado(idpersona, idevento)
 {
 
-window.location.href = miurl+'/'+idevento;
+	$.ajax({
+        url: "<?php echo site_url('participante/get_participante') ?>",
+        data: {idpersona:idpersona,idevento:idevento},
+        method: 'POST',
+        async : false,
+        dataType : 'json',
+        success: function(data){
+        var iddocumento = data[0].iddocumento;
+
+
+
+    $.ajax({
+        url: "<?php echo site_url('documento/get_documentoA') ?>",
+        data: {iddocumento: iddocumento},
+        method: 'POST',
+	async : false,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        for(i=0; i<data.length; i++){
+		var dire=data[i].ruta;
+		var orde=data[i].elordenador; 
+		var archi=data[i].archivopdf;
+        }
+
+	var ordenador = "https://"+orde;
+	var ubicacion=dire;
+	if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+        	ubicacion = ordenador+"/"+ubicacion;
+	}else{
+		ubicacion = ordenador+ubicacion;
+	}
+	var archivo =archi;
+	var certi= ubicacion.trim()+archivo.trim();
+	window.location.href = certi;
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
 
 }
 
