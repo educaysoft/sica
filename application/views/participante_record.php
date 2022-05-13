@@ -127,7 +127,7 @@ if (inputval == "NO CARGADO"){
 function verpdf(){
 
 	var iddocumento = $('select[name=iddocumento]').val();
-	alert(iddocumento
+	alert(iddocumento);
     $.ajax({
         url: "<?php echo site_url('documento/get_documentoA') ?>",
         data: {iddocumento: iddocumento},
