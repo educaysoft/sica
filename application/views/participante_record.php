@@ -89,7 +89,20 @@ echo form_input('nombre',$options[$participante['idpersona']],array("disabled"=>
 	</div> 
 </div> 
  
-  
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Id documento:</label>
+	<div class="col-md-10">
+		<?php
+     echo form_input('iddocumento',$participante['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumento',"style"=>"width:500px")); 
+		?>
+	</div> 
+</div> 
+
+
+
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label">  Certificado (<?php echo "<a onclick='verpdf()'>Ver</a>" ?>) :</label>
@@ -100,9 +113,9 @@ foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
 if(!isset($participante['iddocumento'])){
-echo form_input($name='iddocumento',"",array("id"=>"iddocumento","disabled"=>"disabled","style"=>"width:500px")) ;
+echo form_input('nmdocumento',"",array("id"=>"nmdocumento","disabled"=>"disabled","style"=>"width:500px")) ;
 }else{
-echo form_input($name='iddocumento',$options[$participante['iddocumento']],array("id"=>"iddocumento","disabled"=>"disabled","style"=>"width:500px"));
+echo form_input('nmdocumento',$options[$participante['nmdocumento']],array("id"=>"nmdocumento","disabled"=>"disabled","style"=>"width:500px"));
 }
 		?>
 	</div> 
