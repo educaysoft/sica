@@ -144,8 +144,8 @@ var iddocumento=document.getElementById("iddocumento").value;
         var html = '';
         var i;
         for(i=0; i<data.length; i++){
-		var orde=data[i].ruta;
-		var dire=data[i].elordenador; 
+		var dire=data[i].ruta;
+		var orde=data[i].elordenador; 
 		var archi=data[i].archivopdf;
         }
 
