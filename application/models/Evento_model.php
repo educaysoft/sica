@@ -75,7 +75,7 @@ class Evento_model extends CI_model {
 
 		if ($query->num_rows() > 0) {
 			$this->db->where('idevento',$id);
-			$this->db->delete('ascendo');
+			$this->db->delete('ascenso');
 			if($this->db->affected_rows()==1){
 				$this->db->where('idevento',$id);
 				$this->db->delete('evento');
