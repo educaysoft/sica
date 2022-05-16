@@ -97,7 +97,7 @@ document.getElementById("eys-principal").style.width="95%";
     </div>
     <main style="color: black;font-size:20px;">
       <p style="font-size: 1vw;">Dirección: Ciudadela Nuevos Horizontes:</p>
-      <p style="font-size: 1vw;">Correo: congresoutlvte@utelvt.edu.ec</p>
+      <p style="font-size: 1vw;">Correo: maestria.ti@utelvt.edu.ec</p>
 </main>   
  </div>
  <div style="  height:100%; width:30%; display:flex; justify-content: center; flex-direction: column; ">
@@ -111,11 +111,7 @@ document.getElementById("eys-principal").style.width="95%";
 
 <div style="color: black; height: 100%; width: 30%; display:flex; justify-content: center;  ">
     <ul style="margin:0; padding:0;" class="icons">
-    <li><a href="congresoutlvte-normas.php">Normativas</a></li>
-    <li><a href="congresoutlvte-agenda.php">Agenda</a></li>
-    <li><a href="congresoutlvte-confe2.php">Conferencias</a></li>
-    <li><a href="congresoutlvte-pdf.php">Ferias de libros virtuales</a></li>
-    <li><a href="congresoutlvte-momoria.php" >Memorias</a></li>
+    <li><a href="https://educaysoft.org/sica/MTI/doc/_build/html/">Maestría en Tecnología de la Información</a></li>
     </ul>
 </div>
 
