@@ -16,7 +16,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   	$data['ascenso']=$this->ascenso_model->ascenso(1)->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['clientes']= $this->cliente_model->lista_clientesA()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['cinturones']= $this->cinturon_model->lista_cinturones()->result();
@@ -36,7 +36,7 @@ public function index(){
 
 public function add()
 {
-		$data['personas']= $this->persona_model->lista_persona()->result();
+		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['clientes']= $this->cliente_model->lista_clientesA()->result();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['cinturones']= $this->cinturon_model->lista_cinturones()->result();
@@ -146,7 +146,7 @@ public function elprimero()
   if(!empty($data))
   {
  	$data['ascenso']=$this->ascenso_model->lista_ascensos()->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['clientes']= $this->cliente_model->lista_clientes1()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['cinturones']= $this->cinturon_model->lista_cinturones()->result();
@@ -170,7 +170,7 @@ public function elultimo()
   if(!empty($data))
   {
  	$data['ascenso']=$this->ascenso_model->lista_ascensos()->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['clientes']= $this->cliente_model->lista_clientes1()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['cinturones']= $this->cinturon_model->lista_cinturones()->result();
@@ -195,7 +195,7 @@ public function siguiente(){
 
 	$data['ascenso'] = $this->ascenso_model->siguiente($this->uri->segment(3))->row_array();
 
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['clientes']= $this->cliente_model->lista_clientes1()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['cinturones']= $this->cinturon_model->lista_cinturones()->result();
@@ -210,7 +210,7 @@ public function siguiente(){
 
 public function anterior(){
 	$data['ascenso'] = $this->ascenso_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['clientes']= $this->cliente_model->lista_clientes1()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['cinturones']= $this->cinturon_model->lista_cinturones()->result();
