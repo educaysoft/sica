@@ -1,0 +1,77 @@
+./alteraddcolumn.sql:alter table usuario add column idinstitucion int null;
+./alteraddforeignkey.sql:alter table usuario add constraint fk_usuarioinsttituicion foreign key (idinstitucion) references institucion(idinstitucion);
+./cliente1.sql:create view cliente1 as select cliente.idcliente,persona.idpersona,concat(COALESCE(persona.apellidos,''),"  ",COALESCE(persona.nombres,'')) as elcliente, cliente.idinstitucion as idinstitucion, institucion.nombre as lainstitucion, cliente.fechainscripcion as fechainscripcion from cliente,persona,institucion  where cliente.idpersona=persona.idpersona and cliente.idinstitucion=institucion.idinstitucion ;
+./educayso_facae.sql:  `idinstitucion` int NOT NULL,
+./educayso_facae.sql:  KEY `fk_articulo_institucion1_idx` (`idinstitucion`),
+./educayso_facae.sql:  CONSTRAINT `fk_articulo_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`)
+./educayso_facae.sql: 1 AS `idinstitucion`,
+./educayso_facae.sql:  `idinstitucion` int NOT NULL,
+./educayso_facae.sql:  PRIMARY KEY (`idcliente`,`idpersona`,`idinstitucion`),
+./educayso_facae.sql:  KEY `fk_cliente_institucion1_idx` (`idinstitucion`),
+./educayso_facae.sql:  CONSTRAINT `fk_cliente_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`),
+./educayso_facae.sql: 1 AS `idinstitucion`,
+./educayso_facae.sql:  `idinstitucion` int NOT NULL,
+./educayso_facae.sql:  PRIMARY KEY (`idestudiante`,`idpersona`,`idinstitucion`),
+./educayso_facae.sql:  KEY `fk_estudiante_institucion1_idx` (`idinstitucion`),
+./educayso_facae.sql:  CONSTRAINT `fk_estudiante_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`),
+./educayso_facae.sql: 1 AS `idinstitucion`,
+./educayso_facae.sql:  `idinstitucion` int NOT NULL,
+./educayso_facae.sql:  KEY `fk_evento_institucion1_idx` (`idinstitucion`),
+./educayso_facae.sql:  CONSTRAINT `fk_evento_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`)
+./educayso_facae.sql:  `idinstitucion` int NOT NULL AUTO_INCREMENT,
+./educayso_facae.sql:  PRIMARY KEY (`idinstitucion`)
+./educayso_facae.sql:  `idinstitucion` int NOT NULL,
+./educayso_facae.sql:  PRIMARY KEY (`idinventario`,`idinstitucion`),
+./educayso_facae.sql:  KEY `fk_Inventario_institucion1_idx` (`idinstitucion`),
+./educayso_facae.sql:  CONSTRAINT `fk_Inventario_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`)
+./educayso_facae.sql:  `idinstitucion` int NOT NULL,
+./educayso_facae.sql:  KEY `fk_unidad_institucion1_idx` (`idinstitucion`),
+./educayso_facae.sql:  CONSTRAINT `fk_unidad_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`)
+./educayso_facae.sql:  `idinstitucion` int DEFAULT NULL,
+./educayso_facae.sql:  KEY `fk_usuarioinsttituicion` (`idinstitucion`),
+./educayso_facae.sql:  CONSTRAINT `fk_usuarioinsttituicion` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`),
+./educayso_facae.sql:/*!50001 VIEW `articulo1` AS select `articulo`.`idarticulo` AS `idarticulo`,`articulo`.`idinstitucion` AS `idinstitucion`,`institucion`.`nombre` AS `lainstitucion`,`articulo`.`nombre` AS `nombre` from (`articulo` join `institucion`) where (`articulo`.`idinstitucion` = `institucion`.`idinstitucion`) */;
+./educayso_facae.sql:/*!50001 VIEW `cliente1` AS select `cliente`.`idcliente` AS `idcliente`,`persona`.`idpersona` AS `idpersona`,concat(coalesce(`persona`.`apellidos`,''),'  ',coalesce(`persona`.`nombres`,'')) AS `elcliente`,`cliente`.`idinstitucion` AS `idinstitucion`,`institucion`.`nombre` AS `lainstitucion`,`cliente`.`fechainscripcion` AS `fechainscripcion` from ((`cliente` join `persona`) join `institucion`) where ((`cliente`.`idpersona` = `persona`.`idpersona`) and (`cliente`.`idinstitucion` = `institucion`.`idinstitucion`)) */;
+./educayso_facae.sql:/*!50001 VIEW `estudiante1` AS select `estudiante`.`idestudiante` AS `idestudiante`,`persona`.`idpersona` AS `idpersona`,concat(coalesce(`persona`.`apellidos`,''),'  ',coalesce(`persona`.`nombres`,'')) AS `elestudiante`,`estudiante`.`idinstitucion` AS `idinstitucion`,`institucion`.`nombre` AS `lainstitucion`,`estudiante`.`fechainscripcion` AS `fechainscripcion` from ((`estudiante` join `persona`) join `institucion`) where ((`estudiante`.`idpersona` = `persona`.`idpersona`) and (`estudiante`.`idinstitucion` = `institucion`.`idinstitucion`)) */;
+./educayso_facae.sql:/*!50001 VIEW `evento1` AS select `evento`.`idevento` AS `idevento`,`evento`.`titulo` AS `titulo`,`evento`.`detalle` AS `detalle`,`evento`.`fechacreacion` AS `fechacreacion`,`evento`.`fechainicia` AS `fechainicia`,`evento`.`fechafinaliza` AS `fechafinaliza`,`evento_estado`.`nombre` AS `estado`,`institucion`.`nombre` AS `lainstitucion` from ((`evento` join `evento_estado`) join `institucion`) where ((`evento`.`idevento_estado` = `evento_estado`.`idevento_estado`) and (`evento`.`idinstitucion` = `institucion`.`idinstitucion`)) */;
+./eventoP.sql:create view eventoP as select evento.idevento,evento.titulo,evento.detalle,evento.fechacreacion,evento.fechafinaliza,persona.idpersona,concat(COALESCE(persona.apellidos,''),"  ",COALESCE(persona.nombres,'')) as elparticipante,participante.idparticipante,participante.iddocumento as iddocumento2,evento_estado.nombre as estado,institucion.nombre as lainstitucion,certificado.iddocumento,certificado.idtipodocu,certificado.posi_nomb_x as posix,certificado.posi_nomb_y as posiy,documento.archivopdf,documento.idordenador,ordenador.nombre as elordenador,documento.iddirectorio,directorio.ruta from evento,evento_estado,institucion,participante,persona,certificado,documento,ordenador,directorio where evento.idevento_estado=evento_estado.idevento_estado and evento.idinstitucion=institucion.idinstitucion and participante.idevento=evento.idevento and participante.idpersona=persona.idpersona and evento.idevento=certificado.idevento and certificado.iddocumento=documento.iddocumento and documento.idordenador=ordenador.idordenador and documento.iddirectorio=directorio.iddirectorio;
+./modifycolumn.sql:alter table usuario modify idinstitucion int null;
+./unidad1.sql:create view unidad1 as select unidad.idunidad, unidad.idinstitucion as idinstitucion, institucion.nombre as lainstitucion, unidad.nombre from unidad,institucion  where  unidad.idinstitucion=institucion.idinstitucion ;
+./educayso_facae_2022-05-06.sql:  `idinstitucion` int(11) NOT NULL
+./educayso_facae_2022-05-06.sql:INSERT INTO `articulo` (`idarticulo`, `nombre`, `detalle`, `idinstitucion`) VALUES
+./educayso_facae_2022-05-06.sql:  `idinstitucion` int(11) NOT NULL,
+./educayso_facae_2022-05-06.sql:INSERT INTO `cliente` (`idcliente`, `idpersona`, `idinstitucion`, `fechainscripcion`) VALUES
+./educayso_facae_2022-05-06.sql:,`idinstitucion` int(11)
+./educayso_facae_2022-05-06.sql:  `idinstitucion` int(11) NOT NULL,
+./educayso_facae_2022-05-06.sql:INSERT INTO `estudiante` (`idestudiante`, `idpersona`, `idinstitucion`, `iddepartamento`, `fechadesde`, `fechahasta`) VALUES
+./educayso_facae_2022-05-06.sql:  `idinstitucion` int(11) NOT NULL,
+./educayso_facae_2022-05-06.sql:INSERT INTO `evento` (`idevento`, `titulo`, `fechacreacion`, `fechainicia`, `fechafinaliza`, `detalle`, `idevento_estado`, `idinstitucion`, `idpagina`, `idusuario`, `fecha`, `costo`, `duracion`, `idcurso`) VALUES
+./educayso_facae_2022-05-06.sql:  `idinstitucion` int(11) NOT NULL,
+./educayso_facae_2022-05-06.sql:INSERT INTO `institucion` (`idinstitucion`, `nombre`) VALUES
+./educayso_facae_2022-05-06.sql:  `idinstitucion` int(11) NOT NULL,
+./educayso_facae_2022-05-06.sql:  `idinstitucion` int(11) NOT NULL
+./educayso_facae_2022-05-06.sql:INSERT INTO `unidad` (`idunidad`, `nombre`, `idinstitucion`) VALUES
+./educayso_facae_2022-05-06.sql:  `idinstitucion` int(11) DEFAULT NULL
+./educayso_facae_2022-05-06.sql:INSERT INTO `usuario` (`idusuario`, `password`, `idpersona`, `email`, `idperfil`, `inicio`, `idinstitucion`) VALUES
+./educayso_facae_2022-05-06.sql:CREATE ALGORITHM=UNDEFINED DEFINER=`educayso`@`localhost` SQL SECURITY DEFINER VIEW `cliente1`  AS SELECT `cliente`.`idcliente` AS `idcliente`, `persona`.`idpersona` AS `idpersona`, concat(coalesce(`persona`.`apellidos`,''),'  ',coalesce(`persona`.`nombres`,'')) AS `elcliente`, `cliente`.`idinstitucion` AS `idinstitucion`, `institucion`.`nombre` AS `lainstitucion`, `cliente`.`fechainscripcion` AS `fechainscripcion` FROM ((`cliente` join `persona`) join `institucion`) WHERE `cliente`.`idpersona` = `persona`.`idpersona` AND `cliente`.`idinstitucion` = `institucion`.`idinstitucion` ;
+./educayso_facae_2022-05-06.sql:CREATE ALGORITHM=UNDEFINED DEFINER=`educayso`@`localhost` SQL SECURITY DEFINER VIEW `evento1`  AS SELECT `evento`.`idevento` AS `idevento`, `evento`.`titulo` AS `titulo`, `evento`.`detalle` AS `detalle`, `evento`.`fechacreacion` AS `fechacreacion`, `evento`.`fechainicia` AS `fechainicia`, `evento`.`fechafinaliza` AS `fechafinaliza`, `evento_estado`.`nombre` AS `estado`, `institucion`.`nombre` AS `lainstitucion` FROM ((`evento` join `evento_estado`) join `institucion`) WHERE `evento`.`idevento_estado` = `evento_estado`.`idevento_estado` AND `evento`.`idinstitucion` = `institucion`.`idinstitucion` ;
+./educayso_facae_2022-05-06.sql:CREATE ALGORITHM=UNDEFINED DEFINER=`educayso`@`localhost` SQL SECURITY DEFINER VIEW `eventoP`  AS SELECT `evento`.`idevento` AS `idevento`, `evento`.`titulo` AS `titulo`, `evento`.`detalle` AS `detalle`, `evento`.`fechacreacion` AS `fechacreacion`, `evento`.`fechafinaliza` AS `fechafinaliza`, `persona`.`idpersona` AS `idpersona`, concat(coalesce(`persona`.`apellidos`,''),'  ',coalesce(`persona`.`nombres`,'')) AS `elparticipante`, `participante`.`idparticipante` AS `idparticipante`, `participante`.`iddocumento` AS `iddocumento2`, `evento_estado`.`nombre` AS `estado`, `institucion`.`nombre` AS `lainstitucion`, `certificado`.`iddocumento` AS `iddocumento`, `certificado`.`idtipodocu` AS `idtipodocu`, `certificado`.`posi_nomb_x` AS `posix`, `certificado`.`posi_nomb_y` AS `posiy`, `documento`.`archivopdf` AS `archivopdf`, `documento`.`idordenador` AS `idordenador`, `ordenador`.`nombre` AS `elordenador`, `documento`.`iddirectorio` AS `iddirectorio`, `directorio`.`ruta` AS `ruta` FROM ((((((((`evento` join `evento_estado`) join `institucion`) join `participante`) join `persona`) join `certificado`) join `documento`) join `ordenador`) join `directorio`) WHERE `evento`.`idevento_estado` = `evento_estado`.`idevento_estado` AND `evento`.`idinstitucion` = `institucion`.`idinstitucion` AND `participante`.`idevento` = `evento`.`idevento` AND `participante`.`idpersona` = `persona`.`idpersona` AND `evento`.`idevento` = `certificado`.`idevento` AND `certificado`.`iddocumento` = `documento`.`iddocumento` AND `documento`.`idordenador` = `ordenador`.`idordenador` AND `documento`.`iddirectorio` = `directorio`.`iddirectorio` ;
+./educayso_facae_2022-05-06.sql:  ADD KEY `fk_articulo_institucion1_idx` (`idinstitucion`);
+./educayso_facae_2022-05-06.sql:  ADD PRIMARY KEY (`idcliente`,`idpersona`,`idinstitucion`),
+./educayso_facae_2022-05-06.sql:  ADD KEY `fk_cliente_institucion1_idx` (`idinstitucion`);
+./educayso_facae_2022-05-06.sql:  ADD PRIMARY KEY (`idestudiante`,`idpersona`,`idinstitucion`),
+./educayso_facae_2022-05-06.sql:  ADD KEY `fk_evento_institucion1_idx` (`idinstitucion`);
+./educayso_facae_2022-05-06.sql:  ADD PRIMARY KEY (`idinstitucion`);
+./educayso_facae_2022-05-06.sql:  ADD PRIMARY KEY (`idinventario`,`idinstitucion`),
+./educayso_facae_2022-05-06.sql:  ADD KEY `fk_Inventario_institucion1_idx` (`idinstitucion`);
+./educayso_facae_2022-05-06.sql:  ADD KEY `fk_unidad_institucion1_idx` (`idinstitucion`);
+./educayso_facae_2022-05-06.sql:  ADD KEY `fk_idinstitucion` (`idinstitucion`);
+./educayso_facae_2022-05-06.sql:  MODIFY `idinstitucion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+./educayso_facae_2022-05-06.sql:  ADD CONSTRAINT `fk_articulo_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`);
+./educayso_facae_2022-05-06.sql:  ADD CONSTRAINT `fk_cliente_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`),
+./educayso_facae_2022-05-06.sql:  ADD CONSTRAINT `fk_evento_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`);
+./educayso_facae_2022-05-06.sql:  ADD CONSTRAINT `fk_Inventario_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`);
+./educayso_facae_2022-05-06.sql:  ADD CONSTRAINT `fk_unidad_institucion1` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`);
+./educayso_facae_2022-05-06.sql:  ADD CONSTRAINT `fk_idinstitucion` FOREIGN KEY (`idinstitucion`) REFERENCES `institucion` (`idinstitucion`),
+./estudio.sql:create table estudio(idestudio int(11) not null auto_increment primary key, idpersona int(11),idinstitucion int(11), nivel int(),titulo varchar(50));
+./evento1.sql:create view evento1 as select evento.idevento,evento.titulo,evento.detalle,evento.fechacreacion,evento.fechainicia,evento.fechafinaliza,evento_estado.nombre as estado,evento_estado.idevento_estado,institucion.nombre as lainstitucion from evento,evento_estado,institucion where evento.idevento_estado=evento_estado.idevento_estado and evento.idinstitucion=institucion.idinstitucion;

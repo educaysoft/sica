@@ -14,7 +14,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   	$data['cliente']=$this->cliente_model->lista_clientes()->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 			
 		$data['title']="Lista de clientes";
@@ -32,7 +32,7 @@ public function index(){
 
 public function add()
 {
-		$data['personas']= $this->persona_model->lista_persona()->result();
+		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['title']="Nueva Cliente";
 	 	$this->load->view('template/page_header');		
@@ -61,7 +61,7 @@ public function add()
 public function edit()
 {
 	 	$data['cliente'] = $this->cliente_model->cliente($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_persona()->result();
+		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
  	 	$data['title'] = "Actualizar Cliente";
  	 	$this->load->view('template/page_header');		
@@ -142,14 +142,14 @@ public function elprimero()
 {
 
 
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 
 
 	$data['cliente'] = $this->cliente_model->elprimero();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Cliente";
     $this->load->view('template/page_header');		
     $this->load->view('cliente_record',$data);
@@ -164,11 +164,11 @@ public function elprimero()
 public function elultimo()
 {
 	$data['cliente'] = $this->cliente_model->elultimo();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Cliente";
   
     $this->load->view('template/page_header');		
@@ -185,7 +185,7 @@ public function elultimo()
 public function siguiente(){
  // $data['cliente_list']=$this->cliente_model->lista_cliente()->result();
 	$data['cliente'] = $this->cliente_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   
 
@@ -198,7 +198,7 @@ $data['title']="Cliente";
 public function anterior(){
  // $data['cliente_list']=$this->cliente_model->lista_cliente()->result();
 	$data['cliente'] = $this->cliente_model->anterior($this->uri->segment(3))->row_array();
- 	$data['personas']= $this->persona_model->lista_persona()->result();
+ 	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   $data['title']="Cliente";
 	$this->load->view('template/page_header');		

@@ -75,7 +75,22 @@ echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("
   </tr>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('emisor/add', 'Estudios:') ?> </label>
+     	<?php 
 
+	$options = array();
+  	foreach ($estudios as $row){
+		$options[$row->idpersona]=$row->elinstituto;
+	}
+
+	?>
+	<div class="col-md-10">
+		<?php
+			 echo form_multiselect('idestudio[]',$options,(array)set_value('idestudio', ''), array('style'=>'width:500px')); 
+		?>
+	</div> 
+</div>
 
 
 </table>
