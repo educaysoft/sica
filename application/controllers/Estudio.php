@@ -6,20 +6,20 @@ class Estudio extends CI_Controller{
       parent::__construct();
   	  $this->load->model('persona_model');
   	  $this->load->model('institucion_model');
-  	  $this->load->model('cliente_model');
+  	  $this->load->model('estudio_model');
 }
 
 public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['cliente']=$this->cliente_model->lista_clientes()->row_array();
+  	$data['estudio']=$this->estudio_model->lista_estudios()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 			
-		$data['title']="Lista de clientes";
+		$data['title']="Lista de estudios";
 		$this->load->view('template/page_header');
-		$this->load->view('cliente_record',$data);
+		$this->load->view('estudio_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -36,7 +36,7 @@ public function add()
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['title']="Nueva Estudio";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('cliente_form',$data);
+	 	$this->load->view('estudio_form',$data);
 	 	$this->load->view('template/page_footer');
 
 
@@ -47,25 +47,25 @@ public function add()
 	{
 	 	$array_item=array(
 		 	
-		 	'idcliente' => $this->input->post('idcliente'),
+		 	'idestudio' => $this->input->post('idestudio'),
 			'idpersona' => $this->input->post('idpersona'),
 			'idinstitucion' => $this->input->post('idinstitucion'),
 			'fechainscripcion' => $this->input->post('fechainscripcion'),
 	 	);
-	 	$this->cliente_model->save($array_item);
-	 	redirect('cliente');
+	 	$this->estudio_model->save($array_item);
+	 	redirect('estudio');
  	}
 
 
 
 public function edit()
 {
-	 	$data['cliente'] = $this->cliente_model->cliente($this->uri->segment(3))->row_array();
+	 	$data['estudio'] = $this->estudio_model->estudio($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
  	 	$data['title'] = "Actualizar Estudio";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('cliente_edit',$data);
+ 	 	$this->load->view('estudio_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -73,24 +73,24 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idcliente');
+		$id=$this->input->post('idestudio');
 	 	$array_item=array(
 		 	
-		 	'idcliente' => $this->input->post('idcliente'),
+		 	'idestudio' => $this->input->post('idestudio'),
 			'idpersona' => $this->input->post('idpersona'),
 			'idinstitucion' => $this->input->post('idinstitucion'),
 			'fechainscripcion' => $this->input->post('fechainscripcion'),
 	 	);
-	 	$this->cliente_model->update($id,$array_item);
-	 	redirect('cliente');
+	 	$this->estudio_model->update($id,$array_item);
+	 	redirect('estudio');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->cliente_model->delete($this->uri->segment(3));
+ 		$data=$this->estudio_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('cliente/elprimero');
+	 	redirect('estudio/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -100,24 +100,24 @@ public function listar()
 	
   $data['title']="Estudios";
 	$this->load->view('template/page_header');		
-  $this->load->view('cliente_list',$data);
+  $this->load->view('estudio_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function cliente_data()
+function estudio_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->cliente_model->lista_clientesA();
+	 	$data0 = $this->estudio_model->lista_estudiosA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idcliente,$r->elcliente,$r->lainstitucion,$r->fechainscripcion,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcliente="'.$r->idcliente.'">Ver</a>');
+			$data[]=array($r->idestudio,$r->elestudio,$r->lainstitucion,$r->fechainscripcion,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idestudio="'.$r->idestudio.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -146,13 +146,13 @@ public function elprimero()
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 
 
-	$data['cliente'] = $this->cliente_model->elprimero();
+	$data['estudio'] = $this->estudio_model->elprimero();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Estudio";
     $this->load->view('template/page_header');		
-    $this->load->view('cliente_record',$data);
+    $this->load->view('estudio_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -163,7 +163,7 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['cliente'] = $this->cliente_model->elultimo();
+	$data['estudio'] = $this->estudio_model->elultimo();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   if(!empty($data))
@@ -172,7 +172,7 @@ public function elultimo()
     $data['title']="Estudio";
   
     $this->load->view('template/page_header');		
-    $this->load->view('cliente_record',$data);
+    $this->load->view('estudio_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -183,26 +183,26 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['cliente_list']=$this->cliente_model->lista_cliente()->result();
-	$data['cliente'] = $this->cliente_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['estudio_list']=$this->estudio_model->lista_estudio()->result();
+	$data['estudio'] = $this->estudio_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   
 
 $data['title']="Estudio";
 	$this->load->view('template/page_header');		
-  $this->load->view('cliente_record',$data);
+  $this->load->view('estudio_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['cliente_list']=$this->cliente_model->lista_cliente()->result();
-	$data['cliente'] = $this->cliente_model->anterior($this->uri->segment(3))->row_array();
+ // $data['estudio_list']=$this->estudio_model->lista_estudio()->result();
+	$data['estudio'] = $this->estudio_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   $data['title']="Estudio";
 	$this->load->view('template/page_header');		
-  $this->load->view('cliente_record',$data);
+  $this->load->view('estudio_record',$data);
 	$this->load->view('template/page_footer');
 }
 

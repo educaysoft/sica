@@ -2,23 +2,23 @@
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($estudiante))
+if(isset($cliente))
 {
 ?>
-        <li> <?php echo anchor('estudiante/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('estudiante/anterior/'.$estudiante['idestudiante'], 'anterior'); ?></li>
-        <li> <?php echo anchor('estudiante/siguiente/'.$estudiante['idestudiante'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('estudiante/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('estudiante/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('estudiante/edit/'.$estudiante['idestudiante'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('estudiante/delete/'.$estudiante['idestudiante'],'Delete'); ?></li>
-        <li> <?php echo anchor('estudiante/listar/','Listar'); ?></li>
+   <li> <?php echo anchor('cliente/elprimero/', 'primero'); ?></li>
+   <li> <?php echo anchor('cliente/anterior/'.$cliente['idcliente'], 'anterior'); ?></li>
+   <li> <?php echo anchor('cliente/siguiente/'.$cliente['idcliente'], 'siguiente'); ?></li>
+   <li style="border-right:1px solid green"><?php echo anchor('cliente/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('cliente/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('cliente/edit/'.$cliente['idcliente'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('cliente/delete/'.$cliente['idcliente'],'Delete'); ?></li>
+        <li> <?php echo anchor('cliente/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('estudiante/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('cliente/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -29,12 +29,12 @@ if(isset($estudiante))
 <br>
 
 
-<?php echo form_open('estudiante/save_edit') ?>
-<?php echo form_hidden('idestudiante',$estudiante['idestudiante']) ?>
+<?php echo form_open('cliente/save_edit') ?>
+<?php echo form_hidden('idcliente',$cliente['idcliente']) ?>
 <table>
   <tr>
-     <td>Id estudiante:</td>
-     <td><?php echo form_input('idestudiante',$estudiante['idestudiante'],array("disabled"=>"disabled",'placeholder'=>'Idestudiantes')) ?></td>
+     <td>Id Correo:</td>
+     <td><?php echo form_input('idcliente',$cliente['idcliente'],array("disabled"=>"disabled",'placeholder'=>'Idclientes')) ?></td>
   </tr>
  
  
@@ -46,33 +46,29 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
 
-echo form_input('idpersona',$options[$estudiante['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+echo form_input('idpersona',$options[$cliente['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
   </tr>
  
 
  <tr>
-     <td>Departamento/Carrera:</td>
+     <td>Institucion:</td>
      <td><?php 
-$options= array("NADA");
-foreach ($departamentos as $row){
-	$options[$row->iddepartamento]= $row->nombre;
-}
-
-echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
-  </tr>
+    $options= array("NADA");
+    foreach ($instituciones as $row){
+	      $options[$row->idinstitucion]= $row->nombre;
+    }
+    echo form_input('idinstitucion',$options[$cliente['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+ </tr>
   
 
 
   
 <tr>
-      <td>Fecha desde:</td>
-      <td><?php echo form_input('fechadesde',$estudiante['fechadesde'],array('type'=>'date','placeholder'=>'fechadesde','style'=>'width:500px;')) ?></td>
-  </tr>
+      <td>Fecha de Inscripcion:</td>
+      <td><?php echo form_input('fechainscripcion',$cliente['fechainscripcion'],array('type'=>'date','placeholder'=>'fechainscripcion','style'=>'width:500px;')) ?></td>
+</tr>
 
-<tr>
-      <td>Fecha hasta:</td>
-      <td><?php echo form_input('fechahasta',$estudiante['fechahasta'],array('type'=>'date','placeholder'=>'fechahasta','style'=>'width:500px;')) ?></td>
-  </tr>
+
 
 
 
