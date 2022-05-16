@@ -63,7 +63,25 @@ class Evento_model extends CI_model {
  		$this->db->where('idevento',$id);
  		$this->db->update('evento',$array_item);
 	}
- 
+
+
+
+
+ 	public function delete($id)
+	{
+ 		$this->db->where('idevento',$id);
+		$this->db->delete('evento');
+    		if($this->db->affected_rows()==1)
+			$result=true;
+		else
+			$result=false;
+		return $result;
+ 	}
+
+
+
+
+
   // Para ir al primero
 
 	function elprimero()
