@@ -61,22 +61,42 @@ class Evento_model extends CI_model {
  	function update($id,$array_item)
  	{
  		$this->db->where('idevento',$id);
- 		$this->db->update('evento',$array_item);
-	}
-
+ 		$this->db->update('evento',$array_item);	}
 
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idevento',$id);
-		$this->db->delete('evento');
-    		if($this->db->affected_rows()==1)
-			$result=true;
-		else
-			$result=false;
-		return $result;
- 	}
+		$this->db->select('*');
+		$this->db->from('ascenso');
+		$this->db->where('idevento',$id);
+		$this->db->limit(1);
+		$query = $this->db->get();
+
+		if ($query->num_rows() > 0) {
+			$this->db->where('idevento',$id);
+			$this->db->delete('ascendo');
+			if($this->db->affected_rows()==1){
+				$this->db->where('idevento',$id);
+				$this->db->delete('evento');
+				if($this->db->affected_rows()==1)
+					$result=true;
+				else
+					$result=false;
+			}
+			else{
+				$result=false;
+			}
+		}else
+		{
+				$this->db->where('idevento',$id);
+				$this->db->delete('evento');
+				if($this->db->affected_rows()==1)
+					$result=true;
+				else
+					$result=false;
+		}
+	}
 
 
 
