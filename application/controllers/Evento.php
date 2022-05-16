@@ -115,6 +115,21 @@ public function index(){
 
 
 
+
+ 	public function delete()
+ 	{
+ 		$data=$this->evento_model->delete($this->uri->segment(3));
+ 		echo json_encode($data);
+	 	redirect('evento/elultimo');
+	//	$db['default']['db_debug']=FALSE
+ 	}
+
+
+
+
+
+
+
 	public function actual(){
 
 		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
