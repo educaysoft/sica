@@ -81,7 +81,7 @@ echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("
 
 	$options = array();
   	foreach ($estudios as $row){
-		$options[$row->idpersona]=$row->elinstituto;
+		$options[$row->idpersona]=$row->lainstitucion;
 	}
 
 	?>
