@@ -16,7 +16,7 @@ public function index(){
   	$data['estudio']=$this->estudio_model->lista_estudios()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['estudioes']= $this->estudio_model->lista_estudioes()->result();
+  	$data['estudios']= $this->estudio_model->lista_estudioes()->result();
 			
 		$data['title']="Lista de estudios";
 		$this->load->view('template/page_header');
