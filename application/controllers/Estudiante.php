@@ -7,6 +7,7 @@ class Estudiante extends CI_Controller{
   	  $this->load->model('persona_model');
   	  $this->load->model('departamento_model');
   	  $this->load->model('estudiante_model');
+  	  $this->load->model('estudio_model');
 }
 
 public function index(){
@@ -16,6 +17,7 @@ public function index(){
   	$data['estudiante']=$this->estudiante_model->lista_estudiantes()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  	$data['estudios']= $this->estudio_model->lista_estudios()->result();
 			
 		$data['title']="Lista de estudiantes";
 		$this->load->view('template/page_header');
