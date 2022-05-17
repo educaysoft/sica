@@ -115,7 +115,7 @@ echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("
 
 	$options = array();
   	foreach ($estudios as $row){
-		$options[$row->idpersona]=$row->lainstitucion;
+		$options[$row->idpersona]=$row->nivel." - ".$row->lainstitucion;
 	}
 
 			 echo form_multiselect('idestudio[]',$options,(array)set_value('idestudio', ''), array('style'=>'width:500px')); 
