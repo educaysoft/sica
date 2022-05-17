@@ -33,11 +33,14 @@ foreach ($instituciones as $row){
 
 
 <tr>
-<td> Fecha de inscripción: </td>
-<td><?php echo form_input(array("name"=>"fechainscripcion","id"=>"fechainscripcion","type"=>"date"));  ?></td>
+<td> Nivel del estudio: </td>
+<td><?php echo form_input(array("name"=>"nivel","id"=>"nivel","type"=>"text"));  ?></td>
 </tr>
 
-
+<tr>
+<td> Título obtenido: </td>
+<td><?php echo form_input(array("name"=>"titulo","id"=>"titulo","type"=>"text"));  ?></td>
+</tr>
 
 
 <tr>

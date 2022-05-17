@@ -30,17 +30,15 @@ public function index(){
  }
 
 
-public function add()
-{
-		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['title']="Nueva Estudio";
-	 	$this->load->view('template/page_header');		
-	 	$this->load->view('estudio_form',$data);
-	 	$this->load->view('template/page_footer');
-
-
-}
+	public function add()
+	{
+			$data['personas']= $this->persona_model->lista_personas()->result();
+			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+			$data['title']="Nueva Estudio";
+			$this->load->view('template/page_header');		
+			$this->load->view('estudio_form',$data);
+			$this->load->view('template/page_footer');
+	}
 
 
 	public function  save()
@@ -50,7 +48,8 @@ public function add()
 		 	'idestudio' => $this->input->post('idestudio'),
 			'idpersona' => $this->input->post('idpersona'),
 			'idinstitucion' => $this->input->post('idinstitucion'),
-			'fechainscripcion' => $this->input->post('fechainscripcion'),
+			'nivel' => $this->input->post('nivel'),
+			'titulo' => $this->input->post('titulo'),
 	 	);
 	 	$this->estudio_model->save($array_item);
 	 	redirect('estudio');
@@ -58,17 +57,17 @@ public function add()
 
 
 
-public function edit()
-{
-	 	$data['estudio'] = $this->estudio_model->estudio($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
- 	 	$data['title'] = "Actualizar Estudio";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('estudio_edit',$data);
-	 	$this->load->view('template/page_footer');
- 
-}
+	public function edit()
+	{
+			$data['estudio'] = $this->estudio_model->estudio($this->uri->segment(3))->row_array();
+			$data['personas']= $this->persona_model->lista_personas()->result();
+			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+			$data['title'] = "Actualizar Estudio";
+			$this->load->view('template/page_header');		
+			$this->load->view('estudio_edit',$data);
+			$this->load->view('template/page_footer');
+	 
+	}
 
 
 	public function  save_edit()
@@ -79,7 +78,8 @@ public function edit()
 		 	'idestudio' => $this->input->post('idestudio'),
 			'idpersona' => $this->input->post('idpersona'),
 			'idinstitucion' => $this->input->post('idinstitucion'),
-			'fechainscripcion' => $this->input->post('fechainscripcion'),
+			'nivel' => $this->input->post('nivel'),
+			'titulo' => $this->input->post('titulo'),
 	 	);
 	 	$this->estudio_model->update($id,$array_item);
 	 	redirect('estudio');
@@ -95,14 +95,14 @@ public function edit()
  	}
 
 
-public function listar()
-{
-	
-  $data['title']="Estudios";
-	$this->load->view('template/page_header');		
-  $this->load->view('estudio_list',$data);
-	$this->load->view('template/page_footer');
-}
+	public function listar()
+	{
+		
+		$data['title']="Estudios";
+		$this->load->view('template/page_header');		
+		$this->load->view('estudio_list',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
 

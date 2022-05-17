@@ -64,11 +64,14 @@ echo form_input('idpersona',$options[$estudio['idpersona']],array("disabled"=>"d
 
   
 <tr>
-      <td>Fecha de Inscripcion:</td>
-      <td><?php echo form_input('fechainscripcion',$estudio['fechainscripcion'],array('type'=>'date','placeholder'=>'fechainscripcion','style'=>'width:500px;')) ?></td>
+      <td>Nivel del estudio:</td>
+      <td><?php echo form_input('nivel',$estudio['nivel'],array('type'=>'date','placeholder'=>'Niver de estudio','style'=>'width:500px;')) ?></td>
 </tr>
 
-
+<tr>
+      <td>Titulo:</td>
+      <td><?php echo form_input('titulo',$estudio['titulo'],array('type'=>'date','placeholder'=>'Titulo obtenido','style'=>'width:500px;')) ?></td>
+</tr>
 
 
 
