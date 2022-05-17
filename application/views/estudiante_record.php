@@ -69,7 +69,7 @@ echo form_input('idpersona',$options[$estudiante['idpersona']],array("disabled"=
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Departamento/Carrera: </label>
+<label class="col-md-2 col-form-label"> Depart-Carrera: </label>
      	<?php 
 
 $options= array("NADA");
