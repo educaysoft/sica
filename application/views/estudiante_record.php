@@ -32,47 +32,81 @@ if(isset($estudiante))
 <?php echo form_open('estudiante/save_edit') ?>
 <?php echo form_hidden('idestudiante',$estudiante['idestudiante']) ?>
 <table>
-  <tr>
-     <td>Id estudiante:</td>
-     <td><?php echo form_input('idestudiante',$estudiante['idestudiante'],array("disabled"=>"disabled",'placeholder'=>'Idestudiantes')) ?></td>
-  </tr>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Estudiante: </label>
+     	<?php 
+
+
+      echo form_input('idestudiante',$estudiante['idestudiante'],array("disabled"=>"disabled",'placeholder'=>'Idestudiantes')); 
+		?>
+	</div> 
+</div>
+
+
+
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Persona: </label>
+     	<?php 
+
+
  
- 
-<tr>
-     <td>Persona:</td>
-     <td><?php 
 $options= array("NADA");
 foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
 
-echo form_input('idpersona',$options[$estudiante['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
-  </tr>
- 
+echo form_input('idpersona',$options[$estudiante['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
 
- <tr>
-     <td>Departamento/Carrera:</td>
-     <td><?php 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Departamento/Carrera: </label>
+     	<?php 
+
 $options= array("NADA");
 foreach ($departamentos as $row){
 	$options[$row->iddepartamento]= $row->nombre;
 }
 
-echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
-  </tr>
+echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
+
   
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha desde: </label>
+     	<?php 
 
-  
-<tr>
-      <td>Fecha desde:</td>
-      <td><?php echo form_input('fechadesde',$estudiante['fechadesde'],array('type'=>'date','placeholder'=>'fechadesde','style'=>'width:500px;')) ?></td>
-  </tr>
 
-<tr>
-      <td>Fecha hasta:</td>
-      <td><?php echo form_input('fechahasta',$estudiante['fechahasta'],array('type'=>'date','placeholder'=>'fechahasta','style'=>'width:500px;')) ?></td>
-  </tr>
+      echo form_input('fechadesde',$estudiante['fechadesde'],array('type'=>'date','placeholder'=>'fechadesde','style'=>'width:500px;')); 
+
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha hasta: </label>
+     	<?php 
+
+       echo form_input('fechahasta',$estudiante['fechahasta'],array('type'=>'date','placeholder'=>'fechahasta','style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
+
+
 
 
 <div class="form-group row">
@@ -93,7 +127,6 @@ echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("
 </div>
 
 
-</table>
 <?php echo form_close(); ?>
 
 
