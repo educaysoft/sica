@@ -32,17 +32,15 @@ public function index(){
  }
 
 
-public function add()
-{
-		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['title']="Nueva Estudiante";
-	 	$this->load->view('template/page_header');		
-	 	$this->load->view('estudiante_form',$data);
-	 	$this->load->view('template/page_footer');
-
-
-}
+	public function add()
+	{
+			$data['personas']= $this->persona_model->lista_personas()->result();
+			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+			$data['title']="Nueva Estudiante";
+			$this->load->view('template/page_header');		
+			$this->load->view('estudiante_form',$data);
+			$this->load->view('template/page_footer');
+	}
 
 
 	public function  save()
@@ -61,17 +59,17 @@ public function add()
 
 
 
-public function edit()
-{
-	 	$data['estudiante'] = $this->estudiante_model->estudiante($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
- 	 	$data['title'] = "Actualizar Estudiante";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('estudiante_edit',$data);
-	 	$this->load->view('template/page_footer');
- 
-}
+	public function edit()
+	{
+			$data['estudiante'] = $this->estudiante_model->estudiante($this->uri->segment(3))->row_array();
+			$data['personas']= $this->persona_model->lista_personas()->result();
+			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+			$data['title'] = "Actualizar Estudiante";
+			$this->load->view('template/page_header');		
+			$this->load->view('estudiante_edit',$data);
+			$this->load->view('template/page_footer');
+	 
+	}
 
 
 	public function  save_edit()
@@ -98,117 +96,106 @@ public function edit()
  	}
 
 
-public function listar()
-{
-	
-  $data['title']="Estudiantes";
-	$this->load->view('template/page_header');		
-  $this->load->view('estudiante_list',$data);
-	$this->load->view('template/page_footer');
-}
+	public function listar()
+	{
+		$data['title']="Estudiantes";
+		$this->load->view('template/page_header');		
+		$this->load->view('estudiante_list',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
 
-function estudiante_data()
-{
-		$draw= intval($this->input->get("draw"));
-		$draw= intval($this->input->get("start"));
-		$draw= intval($this->input->get("length"));
+	function estudiante_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->estudiante_model->lista_estudiantesB();
-		$data=array();
-		foreach($data0->result() as $r){
-			$data[]=array($r->idestudiante,$r->elestudiante,$r->lacarrera,$r->fechadesde,$r->fechahasta,
-				$r->href='<a href="javascript:void(0);" class="item_ver" data-doctos="'.$r->idpersona.'">'.$r->cantidad.'</a>',
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idestudiante="'.$r->idestudiante.'">Ver</a>');
-		}	
-		$output=array( "draw"=>$draw,
-			"recordsTotal"=> $data0->num_rows(),
-			"recordsFiltered"=> $data0->num_rows(),
-			"data"=>$data
-		);
-		echo json_encode($output);
-		exit();
-	
-			
-
-}
+			$data0 = $this->estudiante_model->lista_estudiantesB();
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idestudiante,$r->elestudiante,$r->lacarrera,$r->fechadesde,$r->fechahasta,
+					$r->href='<a href="javascript:void(0);" class="item_ver" data-doctos="'.$r->idpersona.'">'.$r->cantidad.'</a>',
+					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idestudiante="'.$r->idestudiante.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
 
 
 
+	public function elprimero()
+	{
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['estudios']= $this->estudio_model->lista_estudiosA()->result();
 
+		$data['estudiante'] = $this->estudiante_model->elprimero();
+		  if(!empty($data))
+		  {
+			$data['personas']= $this->persona_model->lista_personas()->result();
+		    $data['title']="Estudiante";
+		    $this->load->view('template/page_header');		
+		    $this->load->view('estudiante_record',$data);
+		    $this->load->view('template/page_footer');
+		  }else{
+		    $this->load->view('template/page_header');		
+		    $this->load->view('registro_vacio');
+		    $this->load->view('template/page_footer');
+		  }
+	 }
 
+	public function elultimo()
+	{
+		$data['estudiante'] = $this->estudiante_model->elultimo();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['estudios']= $this->estudio_model->lista_estudiosA()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		  if(!empty($data))
+		  {
+			$data['personas']= $this->persona_model->lista_personas()->result();
+		    $data['title']="Estudiante";
+		  
+		    $this->load->view('template/page_header');		
+		    $this->load->view('estudiante_record',$data);
+		    $this->load->view('template/page_footer');
+		  }else{
 
+		    $this->load->view('template/page_header');		
+		    $this->load->view('registro_vacio');
+		    $this->load->view('template/page_footer');
+		  }
+	}
 
+	public function siguiente(){
+		$data['estudiante'] = $this->estudiante_model->siguiente($this->uri->segment(3))->row_array();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['estudios']= $this->estudio_model->lista_estudiosA()->result();
 
-public function elprimero()
-{
+		$data['title']="Estudiante";
+		$this->load->view('template/page_header');		
+		$this->load->view('estudiante_record',$data);
+		$this->load->view('template/page_footer');
+	}
 
-
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-
-
-	$data['estudiante'] = $this->estudiante_model->elprimero();
-  if(!empty($data))
-  {
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Estudiante";
-    $this->load->view('template/page_header');		
-    $this->load->view('estudiante_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
- }
-
-public function elultimo()
-{
-	$data['estudiante'] = $this->estudiante_model->elultimo();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  if(!empty($data))
-  {
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Estudiante";
-  
-    $this->load->view('template/page_header');		
-    $this->load->view('estudiante_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
-
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
-}
-
-public function siguiente(){
- // $data['estudiante_list']=$this->estudiante_model->lista_estudiante()->result();
-	$data['estudiante'] = $this->estudiante_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  
-
-$data['title']="Estudiante";
-	$this->load->view('template/page_header');		
-  $this->load->view('estudiante_record',$data);
-	$this->load->view('template/page_footer');
-}
-
-public function anterior(){
- // $data['estudiante_list']=$this->estudiante_model->lista_estudiante()->result();
-	$data['estudiante'] = $this->estudiante_model->anterior($this->uri->segment(3))->row_array();
- 	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  $data['title']="Estudiante";
-	$this->load->view('template/page_header');		
-  $this->load->view('estudiante_record',$data);
-	$this->load->view('template/page_footer');
-}
+	public function anterior(){
+		$data['estudiante'] = $this->estudiante_model->anterior($this->uri->segment(3))->row_array();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['estudios']= $this->estudio_model->lista_estudiosA()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['title']="Estudiante";
+		$this->load->view('template/page_header');		
+		$this->load->view('estudiante_record',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
 
