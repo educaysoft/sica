@@ -70,6 +70,7 @@ echo form_input('idpersona',$options[$aspirante['idpersona']],array("disabled"=>
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label"> Depart-Carrera: </label>
+	<div class="col-md-10">
      	<?php 
 
 $options= array("NADA");
@@ -86,6 +87,7 @@ echo form_input('iddepartamento',$options[$aspirante['iddepartamento']],array("d
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha desde: </label>
+	<div class="col-md-10">
      	<?php 
 
 
@@ -99,6 +101,7 @@ echo form_input('iddepartamento',$options[$aspirante['iddepartamento']],array("d
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha hasta: </label>
+	<div class="col-md-10">
      	<?php 
 
        echo form_input('fechahasta',$aspirante['fechahasta'],array('type'=>'date','placeholder'=>'fechahasta','style'=>'width:500px;'));
@@ -109,19 +112,7 @@ echo form_input('iddepartamento',$options[$aspirante['iddepartamento']],array("d
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('estudio/add', 'Estudios:') ?> </label>
-     	<?php 
 
-	$options = array();
-  	foreach ($estudios as $row){
-		$options[$row->idpersona]=$row->nivel." - ".$row->lainstitucion;
-	}
-
-			 echo form_multiselect('idestudio[]',$options,(array)set_value('idestudio', ''), array('style'=>'width:500px')); 
-		?>
-	</div> 
-</div>
 
 
 <?php echo form_close(); ?>

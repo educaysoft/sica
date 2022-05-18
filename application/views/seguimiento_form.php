@@ -44,7 +44,7 @@ foreach ($fechaeventos as $row){
 <div class="col-md-10">
 
 
-         <select class="form-control" id="idpersona" name="idpersona" multiple required size="30" style="height: 100%;"   onChange='get_asistencia()'>
+         <select class="form-control" id="idpersona" name="idpersona" multiple required size="30" style="height: 100%;"   onChange='get_seguimiento()'>
                  <option>No Selected</option>
           </select>
     </div>
@@ -55,22 +55,22 @@ foreach ($fechaeventos as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label"> Tipo de asistencia:</label>
+<label class="col-md-2 col-form-label"> Tipo de seguimiento:</label>
 <div class="col-md-10">
 <?php
 
 
 $options= array('--Select--');
-foreach ($tipoasistencias as $row){
-	$options[$row->idtipoasistencia]= $row->nombre;
+foreach ($tiposeguimientos as $row){
+	$options[$row->idtiposeguimiento]= $row->nombre;
 }
 
 echo '<table><tr><td>';
-echo form_dropdown("idtipoasistencia",$options, set_select('--Select--','default_value'),array("id"=>"idtipoasistencia"));  
+echo form_dropdown("idtiposeguimiento",$options, set_select('--Select--','default_value'),array("id"=>"idtiposeguimiento"));  
 
 
-//echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_asistencia()">Guardar asistencia.</span></td></tr></table>';
-echo '</td><td><a class="btn"  onclick="save_asistencia()"><i class="fa fa-female"></i>Guardar asistencia.</a></td></tr></table>';
+//echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_seguimiento()">Guardar seguimiento.</span></td></tr></table>';
+echo '</td><td><a class="btn"  onclick="save_seguimiento()"><i class="fa fa-female"></i>Guardar seguimiento.</a></td></tr></table>';
 
 ?>
 
@@ -116,7 +116,7 @@ echo form_textarea("comentario","",$textarea_options);
 	function get_participantes() {
 		var idevento = $('select[name=idevento]').val();
 	    $.ajax({
-		url: "<?php echo site_url('asistencia/get_participantes') ?>",
+		url: "<?php echo site_url('seguimiento/get_participantes') ?>",
 		data: {idevento:idevento},
 		method: 'POST',
 		async : true,
@@ -152,7 +152,7 @@ echo form_textarea("comentario","",$textarea_options);
 	      alert("debe seleccionar una fecha");
 	   }else{
 	    $.ajax({
-		url: "<?php echo site_url('asistencia/get_participantes2') ?>",
+		url: "<?php echo site_url('seguimiento/get_participantes2') ?>",
 		data: {idevento:idevento,fecha:fecha},
 		method: 'POST',
 		async : false,
@@ -163,10 +163,10 @@ echo form_textarea("comentario","",$textarea_options);
 		var l=data.length+1;
 //		document.getElementById('idpersona').setAttribute('size',"'"+l+"'");
 		for(i=0; i<data.length; i++){
-			if(data[i].idtipoasistencia==" "){
-				html += '<option style="color:red;" value='+data[i].idpersona+'><i class="fa fa-female"></i>'+data[i].idpersona+' - '+data[i].nombres+' - '+data[i].idtipoasistencia+'</option>';
+			if(data[i].idtiposeguimiento==" "){
+				html += '<option style="color:red;" value='+data[i].idpersona+'><i class="fa fa-female"></i>'+data[i].idpersona+' - '+data[i].nombres+' - '+data[i].idtiposeguimiento+'</option>';
 			}else{
-				html += '<option style="color:green;"  value='+data[i].idpersona+'><i class="icon-female"></i> - '+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].idtipoasistencia+'</option>';
+				html += '<option style="color:green;"  value='+data[i].idpersona+'><i class="icon-female"></i> - '+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].idtiposeguimiento+'</option>';
 			}
 		}
 		$('#idpersona').html(html);
@@ -190,7 +190,7 @@ echo form_textarea("comentario","",$textarea_options);
 
 
 
-	function get_asistencia() {
+	function get_seguimiento() {
 
 		var f = document.getElementById("idfechaevento");
   		var arrtmp=f.options[f.selectedIndex].text;
@@ -203,7 +203,7 @@ echo form_textarea("comentario","",$textarea_options);
 	//	element.replaceChild(newNode, element.childNodes[xx]);
 
 	    $.ajax({
-		url: "<?php echo site_url('asistencia/get_asistenciap') ?>",
+		url: "<?php echo site_url('seguimiento/get_seguimientop') ?>",
 		data: {idevento:idevento,fecha:fecha,idpersona:idpersona},
 		method: 'POST',
 		async : true,
@@ -223,10 +223,10 @@ echo form_textarea("comentario","",$textarea_options);
 //		}
 
 		for(i=0; i<data.length; i++){
-		html += '<option value='+data[i].idtipoasistencia+'>'+data[i].tipoasistencia+'</option>';
+		html += '<option value='+data[i].idtiposeguimiento+'>'+data[i].tiposeguimiento+'</option>';
 		document.getElementById("comentario").value=data[i].comentario;
 		}
-		$('#idtipoasistencia').html(html);
+		$('#idtiposeguimiento').html(html);
 
 
 		},
@@ -240,13 +240,13 @@ echo form_textarea("comentario","",$textarea_options);
 
 
 
-	function get_asistencia2() {
+	function get_seguimiento2() {
 		var fecha = document.getElementById("fecha").value;
 		var idevento=document.getElementById("idevento").value;
 		var idpersona= $('select[name=idpersona]').val();
 
 	    $.ajax({
-		url: "<?php echo site_url('asistencia/get_asistencia') ?>",
+		url: "<?php echo site_url('seguimiento/get_seguimiento') ?>",
 		data: {idevento : idevento, fecha : fecha, idpersona : idpersona},
 		method: 'POST',
 		async : true,
@@ -267,21 +267,21 @@ echo form_textarea("comentario","",$textarea_options);
 
 
 
-	function save_asistencia() {
+	function save_seguimiento() {
 		var f = document.getElementById("idfechaevento");
 		var arrtmp=f.options[f.selectedIndex].text;
 		const x=arrtmp.split(" - ");
 		var fecha=x[0];
 		var idevento=document.getElementById("idevento").value;
-		var idtipoasistencia=document.getElementById("idtipoasistencia").value;
+		var idtiposeguimiento=document.getElementById("idtiposeguimiento").value;
 		var comentario=document.getElementById("comentario").value;
 		var idpersona= $('select[name=idpersona]').val();
 		var p = document.getElementById("idpersona");
 		var idpersona=p.options[p.selectedIndex].value;
 
 	    $.ajax({
-		url: "<?php echo site_url('asistencia/save_asistencia') ?>",
-		data: {idevento:idevento, fecha:fecha,idtipoasistencia:idtipoasistencia,comentario:comentario,idpersona:idpersona},
+		url: "<?php echo site_url('seguimiento/save_seguimiento') ?>",
+		data: {idevento:idevento, fecha:fecha,idtiposeguimiento:idtiposeguimiento,comentario:comentario,idpersona:idpersona},
 		method: 'POST',
 		async : false,
 		dataType : 'json',

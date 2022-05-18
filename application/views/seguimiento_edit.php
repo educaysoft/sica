@@ -1,15 +1,15 @@
-<?php echo form_open('asistencia/save_edit') ?>
-<?php echo form_hidden('idasistencia',$asistencia['idasistencia']) ?>
+<?php echo form_open('seguimiento/save_edit') ?>
+<?php echo form_hidden('idseguimiento',$seguimiento['idseguimiento']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
 <table>
  
    <tr>
-     <td>Id asistencia</td>
+     <td>Id seguimiento</td>
      <td><?php 
 
 
-$eys_arrinput=array('name'=>'idasistencia','value'=>$asistencia['idasistencia'],'readonly'=>'true', "style"=>"width:500px");
+$eys_arrinput=array('name'=>'idseguimiento','value'=>$seguimiento['idseguimiento'],'readonly'=>'true', "style"=>"width:500px");
 echo form_input($eys_arrinput); ?></td>
   </tr> 
 
@@ -25,7 +25,7 @@ foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
 }
 
- echo form_dropdown("idevento",$options, $asistencia['idevento']);  ?></td>
+ echo form_dropdown("idevento",$options, $seguimiento['idevento']);  ?></td>
 </tr>
 
  
@@ -37,7 +37,7 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
 
- echo form_dropdown("idpersona",$options, $asistencia['idpersona']);  ?></td>
+ echo form_dropdown("idpersona",$options, $seguimiento['idpersona']);  ?></td>
 </tr>
 
 
@@ -51,14 +51,14 @@ foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
 
- echo form_dropdown("iddocumento",$options, $asistencia['iddocumento']);  ?></td>
+ echo form_dropdown("iddocumento",$options, $seguimiento['iddocumento']);  ?></td>
 </tr>
 
 
 
 
  <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('asistencia','Atras') ?></td>
+ <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('seguimiento','Atras') ?></td>
  </tr>
 </table>
 <?php echo form_close(); ?>
