@@ -17,7 +17,6 @@ public function index(){
 		$data['aspirante']=$this->aspirante_model->elultimo();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['aspirante']['idpersona'])->result();
 			
 		$data['title']="Lista de aspirantes";
 		$this->load->view('template/page_header');
@@ -136,7 +135,6 @@ public function index(){
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['aspirante'] = $this->aspirante_model->elprimero();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['aspirante']['idpersona'])->result();
 
 		  if(!empty($data))
 		  {
@@ -156,7 +154,6 @@ public function index(){
 	{
 		$data['aspirante'] = $this->aspirante_model->elultimo();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['aspirante']['idpersona'])->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		  if(!empty($data))
 		  {
@@ -178,7 +175,6 @@ public function index(){
 		$data['aspirante'] = $this->aspirante_model->siguiente($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['aspirante']['idpersona'])->result();
 
 		$data['title']="Aspirante";
 		$this->load->view('template/page_header');		
@@ -189,7 +185,6 @@ public function index(){
 	public function anterior(){
 		$data['aspirante'] = $this->aspirante_model->anterior($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['aspirante']['idpersona'])->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['title']="Aspirante";
 		$this->load->view('template/page_header');		
