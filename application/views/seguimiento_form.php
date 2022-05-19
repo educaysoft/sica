@@ -299,4 +299,9 @@ echo form_textarea("comentario","",$textarea_options);
 	}
 
 
+	function enviar_mail()
+	{
+
+		<?php shell_exec("sh enviar_mail.sh 'Stalin francis' 'educaysoft@`}
+
 </script>
