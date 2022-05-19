@@ -68,7 +68,7 @@ $pdf->SetTextColor(0, 0,255);
 $pdf->SetXY($posix,$posiy);
 $espacio_impresion=$posif;  //-$posix;
 $realposix=$posix+($espacio_impresion/2-($pdf->GetStringWidth($participante)/2));
-$pdf->Text($realposix,$posiy,$participante);
+$pdf->Text($realposix,$posiy,utf8_decode($participante));
 
 //write the date of de certificaod
 $pdf->SetFont('Helvetica','B',15);
@@ -76,7 +76,7 @@ $pdf->SetTextColor(0, 0,0);
 $pdf->SetXY($posix,$posiy+50);
 $espacio_impresion=$posif;  //-$posix;
 $realposix=$posix+($espacio_impresion/2-($pdf->GetStringWidth($fecha)/2));
-$pdf->Text($realposix,$posiy+85,$fecha);
+$pdf->Text($realposix,$posiy+80,$fecha);
 
 
 }
