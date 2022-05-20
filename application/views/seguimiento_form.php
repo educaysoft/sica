@@ -301,15 +301,15 @@ echo form_textarea("comentario","",$textarea_options);
 
 	function enviar_mail()
 	{
-		var nome="Stalin Francis";
-		var msg="Mensaje de prueba codeignite";
-		var email="maestria.ti@utelvt.edu.ec";
-		var secure="ixxx";
-		var var mailto="stalin.francis@utelvt.edu.ec";
+//		var nome="Stalin Francis";
+//		var msg="Mensaje de prueba codeignite";
+//		var email="maestria.ti@utelvt.edu.ec";
+//		var secure="ixxx";
+//		var var mailto="stalin.francis@utelvt.edu.ec";
 	
 //var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto + '&ci_token=' + $.cookie("ci_csrfprotection_cookie");
-var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto ;
-alert(dataString);
+//var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto ;
+alert("dataString");
 /*
 $.ajax({
         url: '<?php echo site_url();?>/contact/send',
