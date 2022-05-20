@@ -308,7 +308,8 @@ echo form_textarea("comentario","",$textarea_options);
 		mailto="stalin.francis@utelvt.edu.ec";
 	
 //		<?php shell_exec("sh enviar_mail.sh 'Stalin francis' 'educaysoft@`}
-var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto + '&ci_token=' + $.cookie("ci_csrfprotection_cookie");
+//var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto + '&ci_token=' + $.cookie("ci_csrfprotection_cookie");
+var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto ;
 alert(dataString);
 
 $.ajax({
