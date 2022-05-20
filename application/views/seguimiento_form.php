@@ -70,7 +70,7 @@ echo form_dropdown("idtiposeguimiento",$options, set_select('--Select--','defaul
 
 
 //echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_seguimiento()">Guardar seguimiento.</span></td></tr></table>';
-echo '</td><td><a class="btn"  onclick="save_seguimiento()"><i class="fa fa-female"></i>Guardar seguimiento.</a></td></tr></table>';
+echo '</td><td><a class="btn"  onclick="enviar_mail()"><i class="fa fa-female"></i>Guardar seguimiento.</a></td></tr></table>';
 
 ?>
 
@@ -301,7 +301,33 @@ echo form_textarea("comentario","",$textarea_options);
 
 	function enviar_mail()
 	{
+		nome="Stalin Francis";
+		msg="Mensaje de prueba codeignite";
+		email="maestria.ti@utelvt.edu.ec";
+		secure="ixxx";
+		mailto="stalin.francis@utelvt.edu.ec";
+	
+//		<?php shell_exec("sh enviar_mail.sh 'Stalin francis' 'educaysoft@`}
+var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto + '&ci_token=' + $.cookie("ci_csrfprotection_cookie");
+alert(dataString);
 
-		<?php shell_exec("sh enviar_mail.sh 'Stalin francis' 'educaysoft@`}
+$.ajax({
+        url: '<?php echo site_url();?>/contact/send',
+        type: 'POST',
+        data: dataString,
+        timeout: 1000,
+        dataType: "json",
+        success: function(msg){
+                if(msg.sent){
+                    $('#feedback').html("<?php echo lang('email_sucesso'); ?>").delay(6000).hide('slow');
+                        }
+                        else{
+                            $('#feedback').html("<?php echo lang('email_erro'); ?>").delay(6000).hide('slow');
+                        }
+                        botao.attr('disabled', false);
+                    }
+                });
+
+        }
 
 </script>

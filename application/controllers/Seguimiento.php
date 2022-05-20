@@ -430,5 +430,45 @@ public function get_tiposeguimiento() {
 
 
 
+public function send()
+{
+    if ($this->input->post('secure') != 'siteform') {
+        echo lang('erro_no_js');
+    }else{
+        $this->load->library('email');
+
+        $nome = $this->input->post('nome');
+        $email = $this->input->post('email');
+        $msg = $this->input->post('msg');
+        $mailto = $this->input->post('mailto');
+        $secure = $this->input->post('secure');
+
+        $config['protocol'] = "smtp";
+        $config['smtp_host'] = "ssl://smtp.googlemail.com";
+        $config['smtp_port'] = "465";
+        $config['smtp_user'] = $this->settings['smtp_email'];
+        $config['smtp_pass'] = $this->settings['smtp_password'];
+        $config['charset'] = "utf-8";
+        $config['mailtype'] = "html";
+        $config['newline'] = "\r\n";
+
+        $this->email->initialize($config); 
+
+        $this->email->from($email, $nome);
+        $this->email->to($mailto);
+        $this->email->subject('Contacto do site');
+        $this->email->message($msg);
+        if ($this->email->send()){
+            echo json_encode(array("sent"=>TRUE));
+        }else{
+            echo json_encode(array("sent"=>FALSE));
+        }
+    }
+}
+
+
+
+
+
 }
 
