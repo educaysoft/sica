@@ -310,7 +310,7 @@ echo form_textarea("comentario","",$textarea_options);
 //var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto + '&ci_token=' + $.cookie("ci_csrfprotection_cookie");
 var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto ;
 alert(dataString);
-
+/*
 $.ajax({
         url: '<?php echo site_url();?>/contact/send',
         type: 'POST',
@@ -326,8 +326,8 @@ $.ajax({
                         }
                         botao.attr('disabled', false);
                     }
-                });
-
+               });
+ */
         }
 
 </script>
