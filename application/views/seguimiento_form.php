@@ -300,7 +300,7 @@ echo form_textarea("comentario","",$textarea_options);
 
 
 	function enviar_correo(){
-		 var email="maestria.it@utelvt.edu.ec";
+		 var email="maestria.ti@utelvt.edu.ec";
 		 var nome="STAlin francis";
 		 var msg="Hola es una prueba";
 		 var mailto="stalin.francis@utelvt.edu.ec";
