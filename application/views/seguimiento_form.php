@@ -309,7 +309,7 @@ echo form_textarea("comentario","",$textarea_options);
 alert("hola mundo");
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/send') ?>",
-		data: {nome:nome,email:email,msg:msg,mailto:mailto,secure:secure},
+		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure},
 		method: 'POST',
 		async : false,
 		dataType : 'json',
