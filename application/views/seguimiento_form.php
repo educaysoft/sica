@@ -312,19 +312,18 @@ echo form_textarea("comentario","",$textarea_options);
 //var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto ;
 alert("dataString");
 $.ajax({
-        url: '<?php echo site_url('seguimiento/send');?>',
-        type: 'POST',
+        url: "<?php echo site_url('seguimiento/send') ?>",
         data: dataString,
+        method: 'POST',
         timeout: 1000,
         dataType: "json",
         success: function(msg){
-                if(msg.sent){
-                    $('#feedback').html("<?php echo lang('email_sucesso'); ?>").delay(6000).hide('slow');
-                        }
-                        else{
-                            $('#feedback').html("<?php echo lang('email_erro'); ?>").delay(6000).hide('slow');
-                        }
-                        botao.attr('disabled', false);
+           if(msg.sent){
+             $('#feedback').html("<?php echo lang('email_sucesso'); ?>").delay(6000).hide('slow');
+            }else{
+             $('#feedback').html("<?php echo lang('email_erro'); ?>").delay(6000).hide('slow');
+            }
+          //              botao.attr('disabled', false);
                     }
                });
         }
