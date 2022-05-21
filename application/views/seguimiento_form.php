@@ -70,7 +70,7 @@ echo form_dropdown("idtiposeguimiento",$options, set_select('--Select--','defaul
 
 
 //echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_seguimiento()">Guardar seguimiento.</span></td></tr></table>';
-echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Guardar seguimiento.</a></td></tr></table>';
+echo '</td><td><a class="btn"  onclick="save_seguimiento()"><i class="fa fa-female"></i>Guardar seguimiento.</a></td></tr></table>';
 
 ?>
 
@@ -85,9 +85,11 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 <?php
 
 
+echo '<table><tr><td>';
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"comentario",'id'=>'comentario' );
 echo form_textarea("comentario","",$textarea_options);
 
+echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Enviar por correo.</a></td></tr></table>';
 ?>
 </div>
 </div>
@@ -306,7 +308,6 @@ echo form_textarea("comentario","",$textarea_options);
 		 var mailto="stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 
-alert("hola mundo");
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/send') ?>",
 		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure},
