@@ -302,6 +302,26 @@ echo form_textarea("comentario","",$textarea_options);
 	function enviar_correo(){
 
 alert("hola mundo");
+	    $.ajax({
+		url: "<?php echo site_url('seguimiento/send') ?>",
+		data: {idevento:idevento, fecha:fecha,idtiposeguimiento:idtiposeguimiento,comentario:comentario,idpersona:idpersona},
+		method: 'POST',
+		async : false,
+		dataType : 'json',
+		success: function(data){
+		var html = '';
+		var i;
+		get_participantes2();
+		alert("Se guardo con exito");
+		},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+	    })
+
+
+
        }
 
 </script>
