@@ -268,10 +268,7 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 
 
 
-
-
 	function save_seguimiento() {
-		alert("hola");
 		var f = document.getElementById("idfechaevento");
 		var arrtmp=f.options[f.selectedIndex].text;
 		const x=arrtmp.split(" - ");
@@ -306,7 +303,7 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 	function enviar_correo(){
 		 var email="maestria.ti@utelvt.edu.ec";
 		 var nome="STAlin francis";
-		 var msg="Hola es una prueba";
+		 var msg=document.getElementById("comentario").value; 
 		 var mailto="stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 
