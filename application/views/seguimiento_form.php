@@ -302,30 +302,51 @@ echo form_textarea("comentario","",$textarea_options);
 	function enviar_correo(){
 
 
-//		var nome="Stalin Francis";
-//		var msg="Mensaje de prueba codeignite";
-//		var email="maestria.ti@utelvt.edu.ec";
-//		var secure="ixxx";
-//		var var mailto="stalin.francis@utelvt.edu.ec";
+		var nome="Stalin Francis";
+		var msg="Mensaje de prueba codeignite";
+		var email="maestria.ti@utelvt.edu.ec";
+		var secure="ixxx";
+		var mailto="stalin.francis@utelvt.edu.ec";
 	
 //var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto + '&ci_token=' + $.cookie("ci_csrfprotection_cookie");
 //var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto ;
 alert("dataString");
-$.ajax({
-        url: "<?php echo site_url('seguimiento/send') ?>",
-        data: dataString,
-        method: 'POST',
-        timeout: 1000,
-        dataType: "json",
-        success: function(msg){
-           if(msg.sent){
-             $('#feedback').html("<?php echo lang('email_sucesso'); ?>").delay(6000).hide('slow');
-            }else{
-             $('#feedback').html("<?php echo lang('email_erro'); ?>").delay(6000).hide('slow');
-            }
+	    $.ajax({
+		url: "<?php echo site_url('seguimiento/send') ?>",
+		data: {nome:nome, msg:msg,email:email,secure:secure,mailto:mailto},
+		method: 'POST',
+		async : false,
+		dataType : 'json',
+		success: function(data){
+		var html = '';
+		var i;
+		get_participantes2();
+		alert("Se guardo con exito");
+		},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+	    })
+
+
+
+
+//$.ajax({
+//        url: "<?php echo site_url('seguimiento/send') ?>",
+ //       data: dataString,
+//        method: 'POST',
+//        timeout: 1000,
+//        dataType: "json",
+//        success: function(msg){
+//           if(msg.sent){
+//             $('#feedback').html("<?php echo lang('email_sucesso'); ?>").delay(6000).hide('slow');
+ //           }else{
+ //            $('#feedback').html("<?php echo lang('email_erro'); ?>").delay(6000).hide('slow');
+ //           }
           //              botao.attr('disabled', false);
-                    }
-               });
+  //                  }
+   //            });
         }
 
 </script>
