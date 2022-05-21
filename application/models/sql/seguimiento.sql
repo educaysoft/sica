@@ -1,6 +1,7 @@
 use educayso_facae;
 
 drop table tiposeguimiento;
+drop table seguimiento;
 create table tiposeguimiento(idtiposeguimiento int(11) not null auto_increment primary key, nombre varchar(100));
 
 
