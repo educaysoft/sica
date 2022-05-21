@@ -271,6 +271,7 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 
 
 	function save_seguimiento() {
+		alert("hola");
 		var f = document.getElementById("idfechaevento");
 		var arrtmp=f.options[f.selectedIndex].text;
 		const x=arrtmp.split(" - ");
