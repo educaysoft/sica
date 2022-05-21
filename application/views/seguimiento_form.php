@@ -145,7 +145,6 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 
 
 	function get_participantes2() {
-ucho '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Guardar seguimiento.</a></td></tr></table>';
 		var idevento = $('select[name=idevento]').val();
 		var f = document.getElementById("idfechaevento");
 		var arrtmp=f.options[f.selectedIndex].text;
@@ -281,6 +280,7 @@ ucho '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 		var idpersona= $('select[name=idpersona]').val();
 		var p = document.getElementById("idpersona");
 		var idpersona=p.options[p.selectedIndex].value;
+
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/save_seguimiento') ?>",
 		data: {idevento:idevento, fecha:fecha,idtiposeguimiento:idtiposeguimiento,comentario:comentario,idpersona:idpersona},
