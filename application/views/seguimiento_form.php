@@ -304,7 +304,7 @@ echo form_textarea("comentario","",$textarea_options);
 		 var nome="STAlin francis";
 		 var msg="Hola es una prueba";
 		 var mailto="stalin.francis@utelvt.edu.ec";
-		 var secure="xxxx";
+		 var secure="siteform";
 
 alert("hola mundo");
 	    $.ajax({
