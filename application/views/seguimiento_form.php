@@ -316,7 +316,7 @@ alert("hola mundo");
 		success: function(data){
 		var html = '';
 		var i;
-		get_participantes2();
+	//	get_participantes2();
 		alert("Se guardo con exito");
 		},
 	      error: function (xhr, ajaxOptions, thrownError) {
