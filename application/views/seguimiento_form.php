@@ -70,7 +70,7 @@ echo form_dropdown("idtiposeguimiento",$options, set_select('--Select--','defaul
 
 
 //echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_seguimiento()">Guardar seguimiento.</span></td></tr></table>';
-echo '</td><td><a class="btn"  onclick="enviar_mail()"><i class="fa fa-female"></i>Guardar seguimiento.</a></td></tr></table>';
+echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Guardar seguimiento.</a></td></tr></table>';
 
 ?>
 
