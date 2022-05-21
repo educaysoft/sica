@@ -300,11 +300,16 @@ echo form_textarea("comentario","",$textarea_options);
 
 
 	function enviar_correo(){
+		 var email="maestria.it@utelvt.edu.ec";
+		 var nome="STAlin francis";
+		 var msg="Hola es una prueba";
+		 var mailto="stalin.francis@utelvt.edu.ec";
+		 var secure="xxxx";
 
 alert("hola mundo");
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/send') ?>",
-		data: {idevento:idevento, fecha:fecha,idtiposeguimiento:idtiposeguimiento,comentario:comentario,idpersona:idpersona},
+		data: {nome:nome,email:email,msg:msg,mailto:mailto,secure:secure},
 		method: 'POST',
 		async : false,
 		dataType : 'json',

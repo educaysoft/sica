@@ -435,6 +435,11 @@ public function send()
     if ($this->input->post('secure') != 'siteform') {
         echo lang('erro_no_js');
     }else{
+
+	
+
+
+
         $this->load->library('email');
 
         $nome = $this->input->post('nome');
@@ -446,8 +451,8 @@ public function send()
         $config['protocol'] = "smtp";
         $config['smtp_host'] = "ssl://smtp.googlemail.com";
         $config['smtp_port'] = "465";
-        $config['smtp_user'] = $this->settings['smtp_email'];
-        $config['smtp_pass'] = $this->settings['smtp_password'];
+        $config['smtp_user'] ="maestria.ti@utelvt.edu.ec"; // $this->settings['smtp_email'];
+        $config['smtp_pass'] ="PIwiIB2@3#"; //  $this->settings['smtp_password'];
         $config['charset'] = "utf-8";
         $config['mailtype'] = "html";
         $config['newline'] = "\r\n";
