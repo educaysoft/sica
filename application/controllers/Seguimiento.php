@@ -448,12 +448,12 @@ public function send()
         $mailto = $this->input->post('mailto');
         $secure = $this->input->post('secure');
 
-        $config['protocol'] = "smtp";
-        $config['smtp_host'] = "ssl://smtp.googlemail.com";
+        $config['protocol'] = "ssmtp";
+        $config['smtp_host'] = "ssl://ssmtp.googlemail.com";
         $config['smtp_port'] = "465";
         $config['smtp_user'] ="maestria.ti@utelvt.edu.ec"; // $this->settings['smtp_email'];
         $config['smtp_pass'] ="PIwiIB2@3#"; //  $this->settings['smtp_password'];
-        $config['charset'] = "utf-8";
+        $config['charset'] = "iso-8859-1";
         $config['mailtype'] = "html";
         $config['newline'] = "\r\n";
 
