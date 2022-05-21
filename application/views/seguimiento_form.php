@@ -312,7 +312,6 @@ alert("hola mundo");
 		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure},
 		method: 'POST',
 		async : false,
-		dataType : 'json',
 		success: function(data){
 		var html = '';
 		var i;
