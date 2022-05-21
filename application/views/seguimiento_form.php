@@ -298,4 +298,37 @@ echo form_textarea("comentario","",$textarea_options);
 	    })
 	}
 
+
+	function enviar_correo(){
+
+
+//		var nome="Stalin Francis";
+//		var msg="Mensaje de prueba codeignite";
+//		var email="maestria.ti@utelvt.edu.ec";
+//		var secure="ixxx";
+//		var var mailto="stalin.francis@utelvt.edu.ec";
+	
+//var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto + '&ci_token=' + $.cookie("ci_csrfprotection_cookie");
+//var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto ;
+alert("dataString");
+/*
+$.ajax({
+        url: '<?php echo site_url();?>/contact/send',
+        type: 'POST',
+        data: dataString,
+        timeout: 1000,
+        dataType: "json",
+        success: function(msg){
+                if(msg.sent){
+                    $('#feedback').html("<?php echo lang('email_sucesso'); ?>").delay(6000).hide('slow');
+                        }
+                        else{
+                            $('#feedback').html("<?php echo lang('email_erro'); ?>").delay(6000).hide('slow');
+                        }
+                        botao.attr('disabled', false);
+                    }
+               });
+ */
+        }
+
 </script>
