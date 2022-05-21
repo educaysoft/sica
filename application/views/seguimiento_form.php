@@ -311,23 +311,6 @@ echo form_textarea("comentario","",$textarea_options);
 //var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto + '&ci_token=' + $.cookie("ci_csrfprotection_cookie");
 //var dataString = 'nome=' +  nome + '&msg=' + msg + '&email=' + email + '&secure=' + secure + '&mailto=' + mailto ;
 alert("dataString");
-	    $.ajax({
-		url: "<?php echo site_url('seguimiento/send') ?>",
-		data: {nome:nome, msg:msg,email:email,secure:secure,mailto:mailto},
-		method: 'POST',
-		async : false,
-		dataType : 'json',
-		success: function(data){
-		var html = '';
-		var i;
-		get_participantes2();
-		alert("Se guardo con exito");
-		},
-	      error: function (xhr, ajaxOptions, thrownError) {
-		alert(xhr.status);
-		alert(thrownError);
-	      }
-	    })
 
 
 
