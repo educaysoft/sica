@@ -458,7 +458,7 @@ public function send()
         $config['newline'] = "\r\n";
 
         $this->email->initialize($config); 
-
+	$this->email->set_header('Content-type','text/html');
         $this->email->from($email, $nome);
         $this->email->to($mailto);
 	$this->email->subject('UTLVTE - MAESTRÍA EN TECNOLOGÍA DE LA INFORMACIÓN');
