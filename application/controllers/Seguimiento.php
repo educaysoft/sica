@@ -398,8 +398,8 @@ public function get_seguimientop() {
         $query = $this->db->get('seguimiento1');
 
 	if ($query->num_rows() > 0) {
-		$this->db->select('idtiposeguimiento,nombre as tiposeguimiento, "" as comentario');
-		$query = $this->db->get('tiposeguimiento');
+//		$this->db->select('idtiposeguimiento,nombre as tiposeguimiento, "" as comentario');
+//		$query = $this->db->get('tiposeguimiento');
 		$data=$query->result();
 		echo json_encode($data);
 	}else{
