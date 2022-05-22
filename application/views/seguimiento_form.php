@@ -344,7 +344,7 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 	function enviar_correo(){
 		 var email="maestria.ti@utelvt.edu.ec";
 		 var nome= document.getElementById("selpersona").value; 		
-                 var msg=tinyMCE.activeEditor.getContent({format:'html'});
+                 var msg=tinyMCE.activeEditor.getContent({format:'text'});
 		 var mailto=document.getElementById("correo").value; //   "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 
