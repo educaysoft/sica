@@ -206,6 +206,9 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 	//	var idpersona= $('select[name=idpersona]').val();
 		var idpersona=document.getElementById("idpersona").value;
 	//	element.replaceChild(newNode, element.childNodes[xx]);
+		alert(fecha);
+		alert(idevento);
+		alert(idpersona);
 
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/get_seguimientop') ?>",
