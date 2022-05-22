@@ -461,7 +461,7 @@ public function send()
 
         $this->email->from($email, $nome);
         $this->email->to($mailto);
-        $this->email->subject('Contacto do site');
+	$this->email->subject('UTLVTE - MAESTRÍA EN TECNOLOGÍA DE LA INFORMACIÓN');
         $this->email->message($msg);
         if ($this->email->send()){
             echo json_encode(array("sent"=>TRUE));

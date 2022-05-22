@@ -343,8 +343,8 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 
 	function enviar_correo(){
 		 var email="maestria.ti@utelvt.edu.ec";
-		 var nome="STAlin francis";
-		 var msg=document.getElementById("comentario").value; 
+		 var nome="STAlin francis";		
+                 var msg=tinyMCE.activeEditor.getContent();
 		 var mailto=document.getElementById("correo").value; //   "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 
