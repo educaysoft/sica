@@ -555,14 +555,6 @@ span a {
 }
 
 
-	 tinymce.init({
-		 selector:'#comentario',
-		 width:600,
-		 height:300
-
-	});
- 
-
 
 </style>
 

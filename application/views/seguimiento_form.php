@@ -134,11 +134,22 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 
 	$(document).ready(()=>{
 		var idevento= <?php echo $idevento; ?>;
-		alert(idevento);
 		if(idevento>0){
 		    $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
 		    get_participantes();
 		}
+
+	 tinymce.init({
+		 selector:'#comentario',
+		 width:600,
+		 height:300
+
+	});
+ 
+
+
+
+
 	});     
 
 
