@@ -86,8 +86,8 @@ echo '</td><td><a class="btn"  onclick="save_seguimiento()"><i class="fa fa-fema
 
 
 echo '<table><tr><td>';
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"comentario",'id'=>'comentario' );
-echo form_textarea("comentario","",$textarea_options);
+$textarea_options = array('name'=>'comentario','class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"comentario",'id'=>'comentario' );
+echo form_textarea($textarea_options);
 
 echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Enviar por correo.</a></td></tr></table>';
 ?>
@@ -238,9 +238,6 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 	//	var idpersona= $('select[name=idpersona]').val();
 		var idpersona=document.getElementById("idpersona").value;
 	//	element.replaceChild(newNode, element.childNodes[xx]);
-		alert(fecha);
-		alert(idevento);
-		alert(idpersona);
 
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/get_seguimientop') ?>",
