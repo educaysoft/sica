@@ -102,7 +102,7 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 <div class="col-md-10">
 <?php
 
- echo form_input(array("name"=>"selpersona","id"=>"selpersona","type"=>"text"));  
+ echo form_input(array("name"=>"selpersona","id"=>"selpersona","type"=>"text", 'style'=> 'width:50%;'));  
 
 ?>
 </div>
@@ -114,7 +114,7 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 <div class="col-md-10">
 <?php
 
- echo form_input(array("name"=>"correo","id"=>"correo","type"=>"text"));  
+ echo form_input(array("name"=>"correo","id"=>"correo","type"=>"text", 'style'=> 'width:50%;'));  
 
 ?>
 </div>
@@ -142,6 +142,13 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 	});     
 
 
+	 tinymce.init({
+		 selector:'#comentario',
+		 width:600,
+		 height:300
+
+	});
+ 
 
 	function get_participantes() {
 		var idevento = $('select[name=idevento]').val();

@@ -247,6 +247,7 @@ function myFunction(id) {
 
 <script  type="text/javascript" src="<?php echo base_url(); ?>assets/jquery.js"></script>
 <script  type="text/javascript" src="<?php echo base_url(); ?>assets/jquery.min.js"></script>
+<script  type="text/javascript" src="<?php echo base_url(); ?>assets/tinymce/js/tinymce/tinymce.min.js"></script>
 
 
 
