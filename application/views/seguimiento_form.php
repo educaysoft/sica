@@ -97,6 +97,33 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label"> persona:</label>
+<div class="col-md-10">
+<?php
+
+ echo form_input(array("name"=>"selpersona","id"=>"selpersona","type"=>"text"));  
+
+?>
+</div>
+</div>
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label"> Correo:</label>
+<div class="col-md-10">
+<?php
+
+ echo form_input(array("name"=>"correo","id"=>"correo","type"=>"text"));  
+
+?>
+</div>
+</div>
+
+
+
+
+
 
 <?php echo form_close();?>
 
@@ -231,6 +258,7 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 		for(i=0; i<data.length; i++){
 		html += '<option value='+data[i].idtiposeguimiento+'>'+data[i].tiposeguimiento+'</option>';
 		document.getElementById("comentario").value=data[i].comentario;
+		document.getElementById("selpersona").value=data[i].lapersona;
 		}
 		$('#idtiposeguimiento').html(html);
 
@@ -291,7 +319,7 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 		dataType : 'json',
 		success: function(data){
 		var html = '';
-		var i;
+		var ioo
 		get_participantes2();
 		alert("Se guardo con exito");
 		},
@@ -307,7 +335,7 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 		 var email="maestria.ti@utelvt.edu.ec";
 		 var nome="STAlin francis";
 		 var msg=document.getElementById("comentario").value; 
-		 var mailto="stalin.francis@utelvt.edu.ec";
+		 var mailto=document.getElementById("correo").value; //   "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 
 	    $.ajax({
