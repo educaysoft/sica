@@ -142,13 +142,7 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 	});     
 
 
-	 tinymce.init({
-		 selector:'#comentario',
-		 width:600,
-		 height:300
 
-	});
- 
 
 	function get_participantes() {
 		var idevento = $('select[name=idevento]').val();

@@ -247,8 +247,7 @@ function myFunction(id) {
 
 <script  type="text/javascript" src="<?php echo base_url(); ?>assets/jquery.js"></script>
 <script  type="text/javascript" src="<?php echo base_url(); ?>assets/jquery.min.js"></script>
-<!--- <script  type="text/javascript" src="<?php echo base_url(); ?>assets/tinymce/js/tinymce/tinymce.min.js"></script> ---->
- <script src="https://cdn.tiny.cloud/1/i6xays37lo048tcb20k007gplqfvuaslnlrg8ltkosl11k93/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script  type="text/javascript" src="<?php echo base_url(); ?>assets/tinymce/js/tinymce/tinymce.min.js"></script> 
 
 
 
@@ -554,6 +553,15 @@ span a {
   color: #999;
   text-decoration: underline;
 }
+
+
+	 tinymce.init({
+		 selector:'#comentario',
+		 width:600,
+		 height:300
+
+	});
+ 
 
 
 </style>
