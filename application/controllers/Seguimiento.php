@@ -80,12 +80,12 @@ class Seguimiento extends CI_Controller{
 
 	public function  save_seguimiento()
 	{
-	 		$array_item=array(
-		 	'idpersona' => $this->input->post('idpersona'),
-		 	'idevento' => $this->input->post('idevento'),
-		 	'fecha' => $this->input->post('fecha'),
-		 	'idtiposeguimiento' => $this->input->post('idtiposeguimiento'),
-		 	'comentario' => $this->input->post('comentario'),
+	 	$array_item=array(
+	 	'idpersona' => $this->input->post('idpersona'),
+	 	'idevento' => $this->input->post('idevento'),
+	 	'fecha' => $this->input->post('fecha'),
+		'idtiposeguimiento' => $this->input->post('idtiposeguimiento'),
+	 	'comentario' => $this->input->post('comentario'),
 	 	);
 	 	$result=$this->seguimiento_model->save($array_item);
 	 	if($result == FALSE)

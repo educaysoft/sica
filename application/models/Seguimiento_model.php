@@ -69,16 +69,16 @@ class Seguimiento_model extends CI_model {
 			return TRUE;
 		}else{
 
-			    if($query->result()[0]->idtiposeguimiento!=$array_item['idtiposeguimiento'])
-			    {
-				$this->db->where('idpersona',$array_item['idpersona']);
-				$this->db->where('fecha',$array_item['fecha']);
-				$this->db->where('idevento',$array_item['idevento']);
-				$this->db->update('seguimiento',$array_item);
-		      		return TRUE;
-			 }else{
-			        return FALSE;
-			 }
+//			    if($query->result()[0]->idtiposeguimiento!=$array_item['idtiposeguimiento'])
+//			    {
+			$this->db->where('idpersona',$array_item['idpersona']);
+			$this->db->where('fecha',$array_item['fecha']);
+			$this->db->where('idevento',$array_item['idevento']);
+			$this->db->update('seguimiento',$array_item);
+	      		return TRUE;
+//			 }else{
+//			        return FALSE;
+//			 }
 			
 		}
  	}

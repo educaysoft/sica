@@ -316,7 +316,7 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 		var fecha=x[0];
 		var idevento=document.getElementById("idevento").value;
 		var idtiposeguimiento=document.getElementById("idtiposeguimiento").value;
-		var comentario=document.getElementById("comentario").value;
+                var comentario=tinyMCE.activeEditor.setContent();
 		var idpersona= $('select[name=idpersona]').val();
 		var p = document.getElementById("idpersona");
 		var idpersona=p.options[p.selectedIndex].value;
