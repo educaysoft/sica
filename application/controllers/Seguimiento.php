@@ -454,7 +454,7 @@ public function send()
         $config['smtp_user'] ="maestria.ti@utelvt.edu.ec"; // $this->settings['smtp_email'];
         $config['smtp_pass'] ="PIwiIB2@3#"; //  $this->settings['smtp_password'];
         $config['charset'] = "utf-8";
-        $config['mailtype'] = "text/html";
+        $config['mailtype'] = "html";
         $config['newline'] = "\r\n";
 
         $this->email->initialize($config); 
