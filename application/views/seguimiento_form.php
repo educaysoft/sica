@@ -268,6 +268,7 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 		html += '<option value='+data[i].idtiposeguimiento+'>'+data[i].tiposeguimiento+'</option>';
                 tinyMCE.activeEditor.setContent(data[i].comentario);
 		document.getElementById("selpersona").value=data[i].lapersona;
+		document.getElementById("correo").value=data[i].correo;
 		}
 		$('#idtiposeguimiento').html(html);
 
