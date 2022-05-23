@@ -110,7 +110,7 @@ public function index(){
 			'idcurso' => $this->input->post('idcurso'),
 	 	);
 	 	$this->evento_model->update($id,$array_item);
-	 	redirect('evento');
+	 	redirect('evento/actual/'.$id);
  	}
 
 
