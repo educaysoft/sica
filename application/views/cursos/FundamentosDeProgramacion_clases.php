@@ -306,8 +306,13 @@ function get_certificado(idpersona, idevento)
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
+	      if(xhr.status==200)
+	      {
+		alert("El certificado aun no ha sido generado, comuniquese con el administrador");
+		}else{      
         alert(xhr.status);
         alert(thrownError);
+		}
       }
 
     })
