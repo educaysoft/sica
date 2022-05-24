@@ -13,7 +13,7 @@ if (isset($this->session->userdata['logged_in'])) {
 
 
 	<meta name="description" content="División de tecnología en apoyo a los procesos tecológicos de la Universidad Técnica Luis Vargas Torres" />
-	meta property="og:locale" content="es_EC" />
+	<meta property="og:locale" content="es_EC" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Universidad Técnica Luis Vargas Torres, Tecnología de la Información y la Comunicación" />
 	<meta property="og:description" content="División de tecnología en apoyo a los procesos tecológicos de la Universidad Técnica Luis Vargas Torres" />
