@@ -264,6 +264,7 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 
 
 
+
 function get_certificado(idpersona, idevento)
 {
 
@@ -341,7 +342,7 @@ function get_certificado(idpersona, idevento)
 		document.getElementById('mvideo').style.display='block';
 		document.getElementById('learn1').style.display='block';
 		document.getElementById('evaluar').innerHTML='<button id="evaluar" onclick="get_evaluacion('+idevaluacion+');">Evaluar-'+idevaluacion+'</button>' 
-
+               get_evaluacion(idevaluacion);
 	}
 
 
