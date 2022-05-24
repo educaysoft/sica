@@ -225,7 +225,7 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 	</div>
 
 
-	<div id="preguntas" style="padding:10px; width:80%; margin:auto;">
+	<div id="preguntas" style="padding:10px; width:100%; margin:auto;">
 		<div class="form-check form-check-inline">
 <?php echo '<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onclick="get_pregunta('.$idpregunta[0].')">'; ?>
 		  <p class="form-check-label" for="inlineCheckbox1">1</label>
@@ -236,7 +236,7 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 		</div>
 		<div class="form-check form-check-inline">
 <?php echo '<input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"   onclick="get_pregunta('.$idpregunta[2].')">'; ?>
-		  <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+		  <label class="form-check-label" for="inlineCheckbox3">3 </label>
 		</div>
 
 	</div>
