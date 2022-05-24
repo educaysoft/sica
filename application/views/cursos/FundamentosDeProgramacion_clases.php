@@ -336,8 +336,7 @@ function get_certificado(idpersona, idevento)
 	{
 		document.getElementById('unidad').innerHTML=tunidad;
 		document.getElementById('unidad').style.display='block';
-		let xx=document.getElementById('video');
-		xx.setAttribute("src",lvideo);
+		document.getElementById('video').src="'"+lvideo+"'";
 		document.getElementById('mvideo').style.display='block';
 		document.getElementById('learn1').style.display='block';
 		document.getElementById('evaluar').innerHTML='<button id="evaluar" onclick="get_evaluacion('+idevaluacion+');">Evaluar-'+idevaluacion+'</button>' 
