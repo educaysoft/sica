@@ -194,7 +194,7 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 				    10%
 			  </div>
 		</div>
-	<div id="unidad" style="padding:10px; width:80%; margin:auto; display:none;">
+	<div id="unidad" style="padding:10px; width:80%; height:500px;  display:none;">
 		 <?php echo $seccion ?>
 	</div>
 
