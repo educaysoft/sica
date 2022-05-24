@@ -16,7 +16,7 @@ class Cursounidad_model extends CI_model {
  		return $cursounidad;
  	}
  	function lista_unidades( $id){
- 		$cursounidad = $this->db->query('select * from cursounidad1 where idcurso="'. $id.'"');
+		$cursounidad = $this->db->query('select * from cursounidad1 where idcurso="'. $id.'"');
  		return $cursounidad;
  	}
 

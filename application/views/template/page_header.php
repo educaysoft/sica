@@ -8,8 +8,8 @@ if (isset($this->session->userdata['logged_in'])) {
 }
 ?>
 <head>
-<title>Utlvte Tecnología de la Informción</title>
-<link href="<?php echo base_url(); ?>images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<title>Utlvte Tecnología de la Informción</title>
+	<link href="<?php echo base_url(); ?>images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 
 	<meta name="description" content="División de tecnología en apoyo a los procesos tecológicos de la Universidad Técnica Luis Vargas Torres" />
@@ -26,14 +26,10 @@ if (isset($this->session->userdata['logged_in'])) {
 	<!-- / Yoast SEO plugin. -->
 
 
-<meta name="author" content="Stalin Francis" />
-
-<meta name="copyright" content="educaysoft" />
-
-<meta name="description" content="División de Tecnología en apoyo a los procesos tecnológicos de la UTLVTE" />
-<meta name="keywords" content="utlvte  tic   Esmeraldas Ecuador"/>
-
-
+	<meta name="author" content="Stalin Francis" />
+	<meta name="copyright" content="educaysoft" />
+	<meta name="description" content="División de Tecnología en apoyo a los procesos tecnológicos de la UTLVTE" />
+	<meta name="keywords" content="utlvte  tic   Esmeraldas Ecuador"/>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

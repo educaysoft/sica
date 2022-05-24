@@ -67,7 +67,7 @@ public function index(){
 	 		'linkdetalle' => $this->input->post('linkdetalle'),
 	 	);
 	 	$this->curso_model->update($id,$array_item);
-	 	redirect('curso');
+	 	redirect('curso/actual/'.$id);
  	}
 
 
@@ -80,14 +80,22 @@ public function index(){
  	}
 
 
-public function listar()
-{
-	
-  $data['title']="Curso";
-	$this->load->view('template/page_header');		
-  $this->load->view('curso_list',$data);
-	$this->load->view('template/page_footer');
-}
+
+
+
+
+
+
+
+
+	public function listar()
+	{
+		
+	  $data['title']="Curso";
+		$this->load->view('template/page_header');		
+	  $this->load->view('curso_list',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
 
@@ -140,6 +148,26 @@ public function iniciar()
  	$this->load->view('cursos/FundamentosDeProgramacion_clases',$data);
 	$this->load->view('template/page_footer');
 }
+
+
+
+
+public function actual()
+{
+	$data['curso'] = $this->curso_model->curso($this->uri->segment(3))->row_array();
+  if(!empty($data))
+  {
+    $data['title']="Curso";
+    $this->load->view('template/page_header');		
+    $this->load->view('curso_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
 
 
 
