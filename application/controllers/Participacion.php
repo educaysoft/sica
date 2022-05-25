@@ -152,7 +152,7 @@ class Participacion extends CI_Controller{
 public function listar()
 {
 	
-  $data['participacion'] = $this->participacion_model->listar_participacion1()->result();
+  $data['participacion'] = $this->participacion_model->listar_participacion1(0)->result();
   $data['title']="Certificado";
 	$this->load->view('template/page_header');		
   $this->load->view('participacion_list',$data);
