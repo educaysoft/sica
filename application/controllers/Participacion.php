@@ -169,7 +169,7 @@ function participacion_data()
 	 	$data0 = $this->participacion_model->listar_participacion1(0);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idparticipacion,$r->elevento,$r->lapersona,$r->fecha,$r->tipoparticipacion,
+			$data[]=array($r->idparticipacion,$r->idevento,$r->nombres,$r->fecha,$r->porcentaje,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idparticipacion="'.$r->idparticipacion.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
