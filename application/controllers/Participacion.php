@@ -170,7 +170,7 @@ function participacion_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idparticipacion,$r->idevento,$r->nombres,$r->fecha,$r->porcentaje,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idparticipacion="'.$r->idparticipacion.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('participacion/actual').'"  data-idparticipacion="'.$r->idparticipacion.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
