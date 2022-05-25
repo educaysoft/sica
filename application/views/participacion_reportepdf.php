@@ -81,7 +81,8 @@ foreach ($participacion as $row){
 	  $sum=$sum+ 0;
 	  $can=$can+1;
       }
-    } 
+    }
+   $resu=0; 
       //$resu=round(($sum/($can)), 0);
       $pdf->Cell(15,6,$sum,1,0,'R',0);
       $pdf->Cell(15,6,$resu,1,0,'R',0);
