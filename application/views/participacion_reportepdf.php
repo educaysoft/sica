@@ -16,7 +16,7 @@
  $pdf->Cell(8,6,'#',1,0,'C',1);
  $pdf->Cell(62,6,'Participante',1,0,'C',1);
 foreach ($fechaeventos as $row){
- $pdf->Cell(20,6,$row->tema,1,0,'C',1);
+ $pdf->Cell(20,6,$row->temacorto,1,0,'C',1);
 }
  $pdf->Cell(15,6,'Total',1,0,'C',1);
  $pdf->Cell(15,6,'Prom',1,0,'C',1);

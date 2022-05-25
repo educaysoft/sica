@@ -206,7 +206,7 @@ public function reportepdf()
   	$data['title']="Certificado";
 //	$this->load->view('template/page_header');		
 // 	$this->load->view('participacion_report',$data);
-	$this->load->view('reporte',$data);
+	$this->load->view('participacion_reportepdf',$data);
 //	$this->load->view('template/page_footer');
 
 

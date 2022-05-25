@@ -49,13 +49,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 echo form_textarea('temacorto',$fechaevento['temacorto'],$textarea_options ); ?></td>
  </tr>
 
-<tr>
-  <td>Tipo(1.eval 2.parti):</td>
-  <td><?php 
-  
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"tema","id" =>"tipo");    
-echo form_textarea('tipo',$fechaevento['tipo'],$textarea_options ); ?></td>
- </tr>
+
 
 
 

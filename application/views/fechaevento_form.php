@@ -60,17 +60,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 </div>
 </div>
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Tipo(1.eval 2 parti):</label>
-<div class="col-md-10">
-<?php
-    
-$textarea_options = array('class' => 'form-control', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Tema a  tratar" );    
- echo form_textarea("tipo","", $textarea_options);  
 
-?>
-</div>
-</div>
 
 
 

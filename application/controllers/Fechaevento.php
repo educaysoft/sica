@@ -75,6 +75,7 @@ public function actual(){
 	{
 	 	$array_item=array(
 		 	'tema' => $this->input->post('tema'),
+		 	'temacorto' => $this->input->post('temacorto'),
 		 	'fecha' => $this->input->post('fecha'),
 		 	'idevento' => $this->input->post('idevento'),
 	 	);
@@ -111,6 +112,7 @@ public function actual(){
 		 	'idevento' => $this->input->post('idevento'),
 		 	'fecha' => $this->input->post('fecha'),
 		 	'tema' => $this->input->post('tema'),
+		 	'temacorto => $this->input->post('temacorto'),
 	 	);
 	 	$this->fechaevento_model->update($id,$array_item);
 	 	redirect('fechaevento');
