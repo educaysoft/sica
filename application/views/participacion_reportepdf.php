@@ -16,7 +16,7 @@
  $pdf->Cell(8,6,'#',1,0,'C',1);
  $pdf->Cell(62,6,'Participante',1,0,'C',1);
 foreach ($fechaeventos as $row){
- $pdf->Cell(20,6,$row->temacorto,1,0,'C',1);
+ $pdf->Cell(10,6,$row->temacorto,1,0,'C',1);
 }
  $pdf->Cell(15,6,'Total',1,0,'C',1);
  $pdf->Cell(15,6,'Prom',1,0,'C',1);
@@ -42,11 +42,11 @@ foreach ($participacion as $row){
     $pdf->Cell(62,6,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
-         $pdf->Cell(20,6,round($arrparticipacion[$row1->fecha]/10,0),1,0,'R',0);
+         $pdf->Cell(10,6,round($arrparticipacion[$row1->fecha]/10,0),1,0,'R',0);
 	  $sum=$sum+ round($arrparticipacion[$row1->fecha]/10,0);
 	  $can=$can+1;
       }else{
-         $pdf->Cell(20,6,'0',1,0,'R',0);
+         $pdf->Cell(10,6,'0',1,0,'R',0);
 	  $sum=$sum+ 0;
 	  $can=$can+1;
 
