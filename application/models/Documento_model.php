@@ -26,14 +26,12 @@ class Documento_model extends CI_model {
 
 	function delete($id)
 	{
-			if ($query->num_rows() != 0) {
 			$this->db->where('iddocumento',$id);
 			$this->db->delete('documento');
 			if($this->db->affected_rows()==1)
 				$result=true;
 			else
 				$result=false;
-		}
 
 
 	}
