@@ -17,9 +17,9 @@ public function index(){
 		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['title']="Lista de Empresas";
-			$this->load->view('template/page_header');		
+		$this->load->view('template/page_header');		
   		$this->load->view('certificado_record',$data);
-			$this->load->view('template/page_footer');
+		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
 		$this->load->view('login_form');
@@ -30,7 +30,7 @@ public function index(){
 
 public function add()
 {
-			$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['title']="Nuevo certificado";
@@ -51,6 +51,15 @@ public function  save()
 	 	'archivo' => $this->input->post('archivo'),
 	 	'posi_nomb_x' => $this->input->post('posi_nomb_x'),
 	 	'posi_nomb_y' => $this->input->post('posi_nomb_y'),
+
+	 	'posi_codigo_x' => $this->input->post('posi_codigo_x'),
+	 	'posi_codigo_y' => $this->input->post('posi_codigo_y'),
+
+	 	'posi_fecha_x' => $this->input->post('posi_fecha_x'),
+	 	'posi_fecha_y' => $this->input->post('posi_fecha_y'),
+
+
+
 	 	'ancho_x' => $this->input->post('ancho_x'),
 	 	'alto_y' => $this->input->post('alto_y'),
 	 	);
@@ -86,6 +95,12 @@ public function edit()
 	 		'iddocumento' => $this->input->post('iddocumento'),
 		 	'posi_nomb_x' => $this->input->post('posi_nomb_x'),
 		 	'posi_nomb_y' => $this->input->post('posi_nomb_y'),
+
+			'posi_codigo_x' => $this->input->post('posi_codigo_x'),
+			'posi_codigo_y' => $this->input->post('posi_codigo_y'),
+
+			'posi_fecha_x' => $this->input->post('posi_fecha_x'),
+			'posi_fecha_y' => $this->input->post('posi_fecha_y'),
 		 	'ancho_x' => $this->input->post('ancho_x'),
 		 	'alto_y' => $this->input->post('alto_y'),
 	 	);

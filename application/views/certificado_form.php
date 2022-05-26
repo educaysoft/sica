@@ -58,11 +58,56 @@ foreach ($tipodocus as $row){
 
 </td>
 
+</tr>
 
 
 
 
+<tr>
+<td> Ancho certi x(296.67) </td>
+<td><?php echo form_input("ancho_x","", array("placeholder"=>"Ancho del certificado x"))  ?></td>
+</tr>
 
+
+<tr>
+<td> Alto certi x(210.56) </td>
+<td><?php echo form_input("alto_x","", array("placeholder"=>"Alto del certificado y"))  ?></td>
+</tr>
+
+
+<tr>
+<td> Posi nombre  x(0.00) </td>
+<td><?php echo form_input("posi_nomb_x","", array("placeholder"=>"Posicion del nombre en x"))  ?></td>
+</tr>
+
+<tr>
+<td> Posi nombre  y(0.00) </td>
+<td><?php echo form_input("posi_nomb_y","", array("placeholder"=>"Posicion del nombre en y"))  ?></td>
+</tr>
+
+
+
+<tr>
+<td> Posi codigo  x(0.00) </td>
+<td><?php echo form_input("posi_codigo_x","", arrax("placeholder"=>"Posicion del codigore en x"))  ?></td>
+</tr>
+
+
+<tr>
+<td> Posi codigo  y(65.00) </td>
+<td><?php echo form_input("posi_codigo_y","", array("placeholder"=>"Posicion del codigore en y"))  ?></td>
+</tr>
+
+
+<tr>
+<td> Posi fecha  x(0.00) </td>
+<td><?php echo form_input("posi_fecha_x","", arrax("placeholder"=>"Posicion del fechare en x"))  ?></td>
+</tr>
+
+
+<tr>
+<td> Posi fecha  y(165.00) </td>
+<td><?php echo form_input("posi_fecha_y","", array("placeholder"=>"Posicion del fechare en y"))  ?></td>
 </tr>
 
 

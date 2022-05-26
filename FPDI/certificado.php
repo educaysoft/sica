@@ -16,9 +16,24 @@ $codigo=substr($archivo,0,strlen($archivo)-4);
 $ruta=$_POST["ruta"];
 $posix=$_POST["posix"];
 $posiy=$_POST["posiy"];
+
+$ancho_x=$_POST["ancho_x"];
+
+
+$posi_codigo_x=$_POST["posi_codigo_x"];
+$posi_codigo_y=$_POST["posi_codigo_y"];
+
+$posi_fecha_x=$_POST["posi_fecha_x"];
+$posi_fecha_y=$_POST["posi_fecha_y"];
+
+
+
+
+
 $fecha=date('F d Y',strtotime($_POST["fecha"]));
 
-$posif=296.67;
+//$posif=296.67;
+$posif= $_POST["ancho_x"];
 // initiate FPDI
 $pdf = new Fpdi();
 
@@ -56,27 +71,55 @@ $mid_x=148;
 
 //write the code of de certificaod
 $pdf->SetFont('Helvetica','B',15);
+
+if($posi_codigo_x==0)
+{
 $pdf->SetTextColor(0, 0,0);
-$pdf->SetXY($posix,$posiy-50);
-$espacio_impresion=$posif;  //-$posix;
-$realposix=$posix+($espacio_impresion/2-($pdf->GetStringWidth($codigo)/2));
-$pdf->Text($realposix,$posiy-50,$codigo);
+}else{
+
+$pdf->SetTextColor(255,255,255);
+}
+
+
+
+$pdf->SetXY($posi_codigo_x,$posi_codigo_y);
+if($posi_codigo_x==0)
+{
+$espacio_impresion=$posif;  
+}else{
+$espacio_impresion=$pdf->GetStringWidth($codigo);
+}
+$realposix=$posi_codigo_x+($espacio_impresion/2-($pdf->GetStringWidth($codigo)/2));
+$pdf->Text($realposix,$posi_codigo_y,$codigo);
 
 // now write some text above the imported page
 $pdf->SetFont('Helvetica','B',20);
 $pdf->SetTextColor(0, 0,255);
-$pdf->SetXY($posix,$posiy);
+$pdf->SetXY($pos_nomb_x,$posi_nomb_y);
 $espacio_impresion=$posif;  //-$posix;
-$realposix=$posix+($espacio_impresion/2-($pdf->GetStringWidth($participante)/2));
-$pdf->Text($realposix,$posiy,utf8_decode($participante));
+$realposix=$posi_nomb_x+($espacio_impresion/2-($pdf->GetStringWidth($participante)/2));
+$pdf->Text($realposix,$posi_nomb_y,utf8_decode($participante));
 
 //write the date of de certificaod
 $pdf->SetFont('Helvetica','B',15);
+if($posi_codigo_x==0)
+{
 $pdf->SetTextColor(0, 0,0);
-$pdf->SetXY($posix,$posiy+50);
-$espacio_impresion=$posif;  //-$posix;
-$realposix=$posix+($espacio_impresion/2-($pdf->GetStringWidth($fecha)/2));
-$pdf->Text($realposix,$posiy+80,$fecha);
+}else{
+
+$pdf->SetTextColor(255,255,255);
+}
+
+$pdf->SetXY($posi_fecha_x,$posi_fecha_y);
+if($posi_codigo_x==0)
+{
+$espacio_impresion=$posif;  
+}else{
+$espacio_impresion=$pdf->GetStringWidth($fecha);
+}
+
+$realposix=$posi_fecha_x+($espacio_impresion/2-($pdf->GetStringWidth($fecha)/2));
+$pdf->Text($realposix,$posi_fecha_y,$fecha);
 
 
 }

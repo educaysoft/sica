@@ -18,13 +18,6 @@ echo form_input($eys_arrinput); ?></td>
 
 
 
-
- 
- 
-
-
-
-
 <tr>
 <td> Evento:</td>
 <td><?php
@@ -87,28 +80,62 @@ echo form_input($eys_arrinput); ?></td>
 
 
 
+<tr>
+     <td>Posicion X:</td>
+     <td><?php 
+     $eys_arrinput=array('name'=>'posi_codigo_x','value'=>$certificado['posi_codigo_x'], "style"=>"width:500px");
+     echo form_input($eys_arrinput); ?></td>
+</tr>
+
+<tr>
+    <td>Posicion Y(65.00 mm):</td>
+    <td><?php 
+    $eys_arrinput=array('name'=>'posi_codigo_y','value'=>$certificado['posi_codigo_y'], "style"=>"width:500px");
+    echo form_input($eys_arrinput); ?></td>
+</tr>
+
+
+
+
+
+
 
 
 
 <tr>
      <td>Posicion X:</td>
      <td><?php 
-
-
-$eys_arrinput=array('name'=>'posi_nomb_x','value'=>$certificado['posi_nomb_x'], "style"=>"width:500px");
-echo form_input($eys_arrinput); ?></td>
-  </tr>
-
+     $eys_arrinput=array('name'=>'posi_nomb_x','value'=>$certificado['posi_nomb_x'], "style"=>"width:500px");
+     echo form_input($eys_arrinput); ?></td>
+</tr>
 
 <tr>
     <td>Posicion Y(115 mm):</td>
+    <td><?php 
+    $eys_arrinput=array('name'=>'posi_nomb_y','value'=>$certificado['posi_nomb_y'], "style"=>"width:500px");
+    echo form_input($eys_arrinput); ?></td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+     <td>Posicion X:</td>
      <td><?php 
+     $eys_arrinput=array('name'=>'posi_fecha_x','value'=>$certificado['posi_fecha_x'], "style"=>"width:500px");
+     echo form_input($eys_arrinput); ?></td>
+</tr>
 
-
-$eys_arrinput=array('name'=>'posi_nomb_y','value'=>$certificado['posi_nomb_y'], "style"=>"width:500px");
-echo form_input($eys_arrinput); ?></td>
-  </tr>
-
+<tr>
+    <td>Posicion Y(65.00 mm):</td>
+    <td><?php 
+    $eys_arrinput=array('name'=>'posi_fecha_y','value'=>$certificado['posi_fecha_y'], "style"=>"width:500px");
+    echo form_input($eys_arrinput); ?></td>
+</tr>
 
 
 

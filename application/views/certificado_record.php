@@ -143,6 +143,45 @@ echo form_input('iddocumento',$options[$certificado['iddocumento']],array("disab
 </tr>
 
 
+
+
+<tr>
+      <td>posi fecha X:</td>
+      <td><?php
+  $eys_arrctl=array("name"=>'posi_fecha_x','value'=>$certificado['posi_fecha_x'],"disabled"=>"disabled",'placeholder'=>'Posicion de fecha en x','style'=>'width:600px;');
+ echo form_input($eys_arrctl) ?></td>
+</tr>
+
+<tr>
+      <td>posi fecha Y(115 mm):</td>
+      <td><?php
+  $eys_arrctl=array("name"=>'posi_fecha_y','value'=>$certificado['posi_fecha_y'],"disabled"=>"disabled",'placeholder'=>'Posicion de fecha en y','style'=>'width:600px;');
+ echo form_input($eys_arrctl) ?></td>
+</tr>
+
+
+
+
+
+
+<tr>
+      <td>posi codigo X:</td>
+      <td><?php
+  $eys_arrctl=array("name"=>'posi_codigo_x','value'=>$certificado['posi_codigo_x'],"disabled"=>"disabled",'placeholder'=>'Posicion de codigo en x','style'=>'width:600px;');
+ echo form_input($eys_arrctl) ?></td>
+</tr>
+
+<tr>
+      <td>posi codigo Y(115 mm):</td>
+      <td><?php
+  $eys_arrctl=array("name"=>'posi_codigo_y','value'=>$certificado['posi_codigo_y'],"disabled"=>"disabled",'placeholder'=>'Posicion de codigo en y','style'=>'width:600px;');
+ echo form_input($eys_arrctl) ?></td>
+</tr>
+
+
+
+
+
 </table>
 <?php echo form_close(); ?>
 
