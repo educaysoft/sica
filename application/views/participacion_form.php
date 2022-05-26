@@ -301,13 +301,14 @@ function save_nota() {
 //	var idtipoparticipacion=document.getElementById("idtipoparticipacion").value;
 	var porcentaje=document.getElementById("porcentaje").value;
 	var comentario=document.getElementById("comentario").value;
+	var idtipoparticipacion=document.getElementById("idtipoparticipacion").value;
 	var idpersona= $('select[name=idpersona]').val();
 	var p = document.getElementById("idpersona");
   var idpersona=p.options[p.selectedIndex].value;
       alert(fecha);
     $.ajax({
         url: "<?php echo site_url('participacion/save_nota') ?>",
-        data: {idevento:idevento, fecha:fecha,porcentaje:porcentaje,comentario:comentario,idpersona:idpersona},
+        data: {idevento:idevento, fecha:fecha,porcentaje:porcentaje,comentario:comentario,idpersona:idpersona,idtipoparticipacion:idtipoparticipacion},
         method: 'POST',
         async : false,
         dataType : 'json',

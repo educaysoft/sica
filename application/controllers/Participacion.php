@@ -92,6 +92,7 @@ class Participacion extends CI_Controller{
 		 	'fecha' => $this->input->post('fecha'),
 		 	'porcentaje' => $this->input->post('porcentaje'),
 		 	'comentario' => $this->input->post('comentario'),
+		 	'idtipoparticipacion' => $this->input->post('idtipoparticipacion'),
 	 	);
 	 	$result=$this->participacion_model->save($array_item);
 	 	if($result == FALSE)
