@@ -48,7 +48,7 @@ class Emisor extends CI_Controller{
 public function edit()
 {
 	 	$data['usuario'] = $this->usuario_model->usuario($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_persona()->result();
+		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['perfiles']= $this->perfil_model->lista_perfil()->result();
  	 	$data['title'] = "Actualizar Persona";
  	 	$this->load->view('template/page_header');		
@@ -91,7 +91,7 @@ public function elprimero()
 	$data['emisor'] = $this->emisor_model->elprimero();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Emisor del documento";
     $this->load->view('template/page_header');		
     $this->load->view('emisor_record',$data);
@@ -109,7 +109,7 @@ public function elultimo()
 	$data['emisor'] = $this->emisor_model->elultimo();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Emisor del documento";
   
     $this->load->view('template/page_header');		
@@ -127,7 +127,7 @@ public function siguiente(){
  // $data['emisor_list']=$this->emisor_model->lista_emisor()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['emisor'] = $this->emisor_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Emisor del documento";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
@@ -139,7 +139,7 @@ public function anterior(){
  // $data['emisor_list']=$this->emisor_model->lista_emisor()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['emisor'] = $this->emisor_model->anterior($this->uri->segment(3))->row_array();
- 	$data['personas']= $this->persona_model->lista_persona()->result();
+ 	$data['personas']= $this->persona_model->lista_personas()->result();
  // $data['title']="Correo";
     $data['title']="Emisor del documento";
 	$this->load->view('template/page_header');		
