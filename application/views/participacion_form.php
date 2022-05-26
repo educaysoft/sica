@@ -87,6 +87,35 @@ echo form_textarea("comentario","",$textarea_options);
 
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Tipo participacion:</label>
+<div class="col-md-10">
+<?php
+//print_r($tipoparticipacions);
+$options= array('--Select--');
+foreach ($tipoparticipacion as $row){
+	$options[$row->idtipoparticipacion]= $row->titulo;
+}
+ echo form_dropdown("idtipoparticipacion",$options, set_select('--Select--','default_value'),array('id'=>'idtipoparticipacion'));  
+
+?>
+</div>
+</div>
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label"> persona:</label>
+<div class="col-md-10">
+<?php
+
+ echo form_input(array("name"=>"selpersona","id"=>"selpersona","type"=>"text", 'style'=> 'width:50%;'));  
+
+?>
+</div>
+</div>
+
+
+
 
 <?php echo form_close();?>
 
@@ -210,6 +239,7 @@ function get_participacion() {
   //          html += '<option value='+data[i].idtipoparticipacion+'>'+data[i].eltipoparticipacion+'</option>';
   //        }
           document.getElementById("comentario").value="";
+	  document.getElementById("selpersona").value=data[i].lapersona;
           document.getElementById("porcentaje").value="";
         }else{
 
