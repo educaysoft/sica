@@ -140,8 +140,23 @@ var iddocumento_estado=1;
 var idpersona=$(this).data('idpersona');
 var idparticipante=$(this).data('idparticipante');
 
-var posix=$(this).data('posix');
-var posiy=$(this).data('posiy');
+
+var ancho_x=$(this).data('ancho_x');
+var alto_y=$(this).data('alto_y');
+
+
+
+var posi_nomb_x=$(this).data('posi_nomb_x');
+var posi_nomb_y=$(this).data('posi_nomb_y');
+
+var posi_codigo_x=$(this).data('posi_codigo_x');
+var posi_codigo_y=$(this).data('posi_codigo_y');
+
+var posi_fecha_x=$(this).data('posi_fecha_x');
+var posi_fecha_y=$(this).data('posi_fecha_y');
+
+
+
 
 var iddocumento2=$(this).data('iddocumento2');
 var maquina=$(this).data('elordenador');
@@ -186,8 +201,21 @@ if(iddocumento2==0)
     formData.append("maquina", maquina);
     formData.append("ruta", ruta);
     formData.append("archivo", archivo);
-    formData.append("posix", posix);
-    formData.append("posiy", posiy);
+
+
+    formData.append("ancho_x", ancho_x);
+    formData.append("alto_y", alto_y);
+
+
+    formData.append("posi_nomb_x", posi_nomb_x);
+    formData.append("posi_nomb_y", posi_nomb_y);
+
+    formData.append("posi_codigo_x", posi_codigo_x);
+    formData.append("posi_codigo_y", posi_codigo_y);
+
+    formData.append("posi_fecha_x", posi_fecha_x);
+    formData.append("posi_fecha_y", posi_fecha_y);
+
     formData.append("fecha", fechaelaboracion);
 
 

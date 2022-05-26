@@ -14,8 +14,8 @@ $modelo=$_POST["modelo"];  //Modelo de certificado
 $archivo=$_POST["archivo"];  //Nombre del archivo generado 
 $codigo=substr($archivo,0,strlen($archivo)-4);
 $ruta=$_POST["ruta"];
-$posix=$_POST["posix"];
-$posiy=$_POST["posiy"];
+$posi_nomb_x=$_POST["posi_nomb_x"];
+$posi_nomb_y=$_POST["posi_nomb_y"];
 
 $ancho_x=$_POST["ancho_x"];
 
