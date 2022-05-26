@@ -94,7 +94,7 @@ echo form_textarea("comentario","",$textarea_options);
 //print_r($tipoparticipacions);
 $options= array('--Select--');
 foreach ($tipoparticipacion as $row){
-	$options[$row->idtipoparticipacion]= $row->titulo;
+	$options[$row->idtipoparticipacion]= $row->nombre;
 }
  echo form_dropdown("idtipoparticipacion",$options, set_select('--Select--','default_value'),array('id'=>'idtipoparticipacion'));  
 
