@@ -98,7 +98,15 @@ foreach ($participacion as $row){
    $resu=0; 
      // $resu=round(($sum/($can)), 0);
       $resu=round(($sum/2), 0);
-      $pdf->Cell(12,6,$sum,1,0,'R',0);
+    if ($sum<7){
+	    $pdf->setFillColor(247,191,190);
+	    $pdf->Cell(12,6,$sum,1,0,'R',1);
+    }else{
+	    $pdf->setFillColor(144,238,144);
+	    $pdf->Cell(12,6,$sum,1,0,'R',1);
+
+    }
+ 
       $pdf->Cell(12,6,$resu,1,0,'R',0);
       $pdf->Cell(12,6,8,1,1,'R',0);
 	$sum=0;

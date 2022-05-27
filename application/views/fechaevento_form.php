@@ -67,7 +67,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div class="col-md-10">
 <?php
 
- echo form_input("ponderacion","", array"placeholder"=>"Ponderacion"));
+ echo form_input("ponderacion","", array("placeholder"=>"Ponderacion"));
 
 ?>
 </div>
