@@ -42,8 +42,8 @@ foreach ($participacion as $row){
     $pdf->Cell(62,6,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
-         $pdf->Cell(10,6,round($arrparticipacion[$row1->fecha],0),1,0,'R',0);
-	  $sum=$sum+ round($arrparticipacion[$row1->fecha],0);
+         $pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row->fecha])*$row->ponderacion,0)+,1,0,'R',0);
+	  $sum=$sum+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row->fecha])*$row->ponderacion,0);
 	  $can=$can+1;
       }else{
          $pdf->Cell(10,6,'0',1,0,'R',0);
@@ -61,11 +61,14 @@ foreach ($participacion as $row){
 	$can=0;
    }
     $arrparticipacion=array();
+    $arrayuda=array();
     $id=$row->idpersona;
     $arrparticipacion[$row->idpersona]=$row->nombres;
-    $arrparticipacion[$row->fecha]=$row->porcentaje*$row1->ponderacion;
+    $arrparticipacion[$row->fecha]=$row->porcentaje;
+    $arrayuda[$row->fecha]=$row->ponderacion;
   }else{
-    $arrparticipacion[$row->fecha]=$row->porcentaje*$row1->ponderacion;
+    $arrparticipacion[$row->fecha]=$row->porcentaje;
+    $arrayuda[$row->fecha]=$row->ponderacion;
   }
 }
   $i=$i+1;

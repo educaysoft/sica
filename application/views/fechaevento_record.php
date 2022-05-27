@@ -123,7 +123,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 	<div class="col-md-10">
 		<?php
 
-    echo form_input('ponderacion',$fechaevento['pornderacion'],array("disabled"=>"disabled",'placeholder'=>'ponderacion')); 
+    echo form_input('ponderacion',$fechaevento['ponderacion'],array("disabled"=>"disabled",'placeholder'=>'ponderacion')); 
 
 		?>
 	</div> 
