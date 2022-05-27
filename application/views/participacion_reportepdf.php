@@ -53,8 +53,16 @@ foreach ($participacion as $row){
       }
     }
 
-      $resu=round(($sum/($can)),0);
-      $pdf->Cell(12,6,$sum,1,0,'R',0);
+      //$resu=round(($sum/($can)),0);
+      $resu=round(($sum/2), 0);
+    if ($sum<7){
+	    $pdf->setFillColor(255,255,0);
+	    $pdf->Cell(12,6,$sum,1,0,'R',0);
+    }else{
+	    $pdf->setFillColor(0,0,0);
+	    $pdf->Cell(12,6,$sum,1,0,'R',0);
+
+    }
       $pdf->Cell(12,6,$resu,1,0,'R',0);
       $pdf->Cell(12,6,8,1,1,'R',0);
 	$sum=0;
@@ -88,7 +96,8 @@ foreach ($participacion as $row){
       }
     }
    $resu=0; 
-      $resu=round(($sum/($can)), 0);
+     // $resu=round(($sum/($can)), 0);
+      $resu=round(($sum/2), 0);
       $pdf->Cell(12,6,$sum,1,0,'R',0);
       $pdf->Cell(12,6,$resu,1,0,'R',0);
       $pdf->Cell(12,6,8,1,1,'R',0);
