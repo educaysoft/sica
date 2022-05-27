@@ -65,10 +65,10 @@ foreach ($participacion as $row){
     $id=$row->idpersona;
     $arrparticipacion[$row->idpersona]=$row->nombres;
     $arrparticipacion[$row->fecha]=$row->porcentaje;
-    $arrayuda[$row->fecha]=$row->ponderacion;
+    $arrayuda[$row->fecha]=$row->ayuda;
   }else{
     $arrparticipacion[$row->fecha]=$row->porcentaje;
-    $arrayuda[$row->fecha]=$row->ponderacion;
+    $arrayuda[$row->fecha]=$row->ayuda;
   }
 }
   $i=$i+1;
