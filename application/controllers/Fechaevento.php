@@ -78,6 +78,7 @@ public function actual(){
 		 	'temacorto' => $this->input->post('temacorto'),
 		 	'fecha' => $this->input->post('fecha'),
 		 	'idevento' => $this->input->post('idevento'),
+		 	'ponderacion' => $this->input->post('ponderacion'),
 	 	);
 	 	$result=$this->fechaevento_model->save($array_item);
 	 	if($result == FALSE)
@@ -113,6 +114,7 @@ public function actual(){
 		 	'fecha' => $this->input->post('fecha'),
 		 	'tema' => $this->input->post('tema'),
 		 	'temacorto' => $this->input->post('temacorto'),
+		 	'ponderacion' => $this->input->post('ponderacion'),
 	 	);
 	 	$this->fechaevento_model->update($id,$array_item);
 	 	redirect('fechaevento');

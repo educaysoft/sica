@@ -50,7 +50,12 @@ echo form_textarea('temacorto',$fechaevento['temacorto'],$textarea_options ); ?>
  </tr>
 
 
-
+<tr>
+     <td>Ponderacion:</td>
+     <td><?php 
+     $eys_arrinput=array('name'=>'ponderacion','value'=>$fechaevento['ponderacion'], "style"=>"width:500px");
+     echo form_input($eys_arrinput); ?></td>
+</tr>
 
 
 
