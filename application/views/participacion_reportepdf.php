@@ -56,10 +56,10 @@ foreach ($participacion as $row){
       //$resu=round(($sum/($can)),0);
       $resu=round(($sum/2), 0);
     if ($sum<7){
-	    $pdf->setFillColor(255,255,0);
+	    $pdf->setFillColor(247,191,190);
 	    $pdf->Cell(12,6,$sum,1,0,'R',1);
     }else{
-	    $pdf->setFillColor(0,0,0);
+	    $pdf->setFillColor(144,238,144);
 	    $pdf->Cell(12,6,$sum,1,0,'R',1);
 
     }
