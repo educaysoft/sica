@@ -18,9 +18,9 @@
 foreach ($fechaeventos as $row){
  $pdf->Cell(10,6,$row->temacorto,1,0,'C',1);
 }
- $pdf->Cell(15,6,'Total',1,0,'C',1);
- $pdf->Cell(15,6,'Prom',1,0,'C',1);
- $pdf->Cell(15,6,'Asis',1,1,'C',1);
+ $pdf->Cell(12,6,'Total',1,0,'C',1);
+ $pdf->Cell(12,6,'Prom',1,0,'C',1);
+ $pdf->Cell(12,6,'Asis',1,1,'C',1);
 $sum=0;
 $can=0;
 
@@ -54,9 +54,9 @@ foreach ($participacion as $row){
     }
 
       $resu=round(($sum/($can)),0);
-      $pdf->Cell(15,6,$sum,1,0,'R',0);
-      $pdf->Cell(15,6,$resu,1,0,'R',0);
-      $pdf->Cell(15,6,8,1,1,'R',0);
+      $pdf->Cell(12,6,$sum,1,0,'R',0);
+      $pdf->Cell(12,6,$resu,1,0,'R',0);
+      $pdf->Cell(12,6,8,1,1,'R',0);
 	$sum=0;
 	$can=0;
    }
@@ -89,9 +89,9 @@ foreach ($participacion as $row){
     }
    $resu=0; 
       $resu=round(($sum/($can)), 0);
-      $pdf->Cell(15,6,$sum,1,0,'R',0);
-      $pdf->Cell(15,6,$resu,1,0,'R',0);
-      $pdf->Cell(15,6,8,1,1,'R',0);
+      $pdf->Cell(12,6,$sum,1,0,'R',0);
+      $pdf->Cell(12,6,$resu,1,0,'R',0);
+      $pdf->Cell(12,6,8,1,1,'R',0);
 	$sum=0;
 	$can=0;
 
