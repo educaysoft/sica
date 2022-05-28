@@ -42,7 +42,18 @@ foreach ($participacion as $row){
     $pdf->Cell(62,6,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
-         $pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2),1,0,'R',0);
+	      if($arrayuda[$row1->fecha]>0){
+		$pdf->SetTextColor(153,0,153);
+         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2),1,0,'R',0);
+	      }else{
+         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2),1,0,'R',0);
+
+	      }
+		$pdf->SetTextColor(0,0,0);
+
+
+
+
 	  $sum=$sum+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2);
 	  $can=$can+1;
       }else{
