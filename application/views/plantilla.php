@@ -20,7 +20,7 @@ class PDF extends FPDF
 		$this->Cell(120,5,utf8_decode('INFORME DE CÁTEDRA INTEGRADORA'),0,1,'C');
 		$this->Ln(8);
 		$this->Cell(40,5,utf8_decode('CÁTEDRA:'),0,0,'L');
-		$this->Cell(40,5,utf8_decode($evento[titulo]),0,1,'L');
+		$this->Cell(40,5,utf8_decode($evento->titulo),0,1,'L');
 		$this->Cell(40,5,utf8_decode('PARALELO:'),0,0,'L');
 		$this->Cell(40,5,utf8_decode('B'),0,1,'L');
 		$this->Cell(40,5,utf8_decode('DOCENTE:'),0,0,'L');
