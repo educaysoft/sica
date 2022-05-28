@@ -1,4 +1,5 @@
 <?php
+print_r($evento);
 //$v='"'.$_SERVER["DOCUMENT_ROOT"].'/sica/FPDI/vendor/autoload.php'.'"';
 require 'fpdf/fpdf.php';
 //require_once($v);
