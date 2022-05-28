@@ -70,6 +70,7 @@ class Participacion extends CI_Controller{
 		 	'idevento' => $this->input->post('idevento'),
 		 	'fecha' => $this->input->post('fecha'),
 		 	'porcentaje' => $this->input->post('porcentaje'),
+		 	'ayuda' => $this->input->post('ayuda'),
 		 	'comentario' => $this->input->post('comentario'),
 	 	);
 	 	$result=$this->participacion_model->save($array_item);
@@ -91,6 +92,7 @@ class Participacion extends CI_Controller{
 		 	'idevento' => $this->input->post('idevento'),
 		 	'fecha' => $this->input->post('fecha'),
 		 	'porcentaje' => $this->input->post('porcentaje'),
+		 	'ayuda' => $this->input->post('ayuda'),
 		 	'comentario' => $this->input->post('comentario'),
 		 	'idtipoparticipacion' => $this->input->post('idtipoparticipacion'),
 	 	);
@@ -130,6 +132,7 @@ class Participacion extends CI_Controller{
 		 	'fecha' => $this->input->post('fecha'),
 		 	'idtipoparticipacion' => $this->input->post('idtipoparticipacion'),
 		 	'porcentaje' => $this->input->post('porcentaje'),
+		 	'ayuda' => $this->input->post('ayuda'),
 		 	'comentario' => $this->input->post('comentario'),
 	 	);
 	 	$this->participacion_model->update($array_item);

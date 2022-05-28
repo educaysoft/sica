@@ -60,18 +60,28 @@ foreach ($fechaeventos as $row){
 <?php
 echo '<table><tr><td>';
 echo form_input(array("name"=>"porcentaje","id"=>"porcentaje","type"=>"text"));
+
+?>
+
+</div>
+</div>
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label"> % ayuda:</label>
+<div class="col-md-10">
+<?php
+echo '<table><tr><td>';
+echo form_input(array("name"=>"ayuda","id"=>"ayuda","type"=>"text"));
 echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_nota()">Guardar nota.</span></td></tr></table>';
 
 ?>
 
 </div>
-
-
-
-
-
-
 </div>
+
+
 
 
 <div class="form-group row">
@@ -241,12 +251,14 @@ function get_participacion() {
           document.getElementById("comentario").value="";
 	  document.getElementById("selpersona").value=data[i].lapersona;
           document.getElementById("porcentaje").value="";
+          document.getElementById("ayuda").value="";
         }else{
 
  //       for(i=0; i<data.length; i++){
 //          html += '<option value='+data[i].idtipoparticipacion+'>'+data[i].eltipoparticipacion+'</option>';
           document.getElementById("comentario").value=data[0].comentario;
           document.getElementById("porcentaje").value=data[0].porcentaje;
+          document.getElementById("ayuda").value=data[0].ayuda;
 //        }
         }
 //        $('#idtipoparticipacion').html(html);

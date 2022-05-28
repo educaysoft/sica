@@ -61,7 +61,11 @@ foreach ($eventos as $row){
   </tr>
  
 
-
+  <tr>
+     <td>% ayuda:</td>
+     <td><?php echo form_input(array("name"=>'ayuda','id'=>'ayuda','value'=>$participacion['ayuda'],'placeholder'=>'ayuda')) ?></td>
+  </tr>
+ 
 
 
 
