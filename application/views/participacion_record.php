@@ -140,7 +140,7 @@ echo form_input('nombre',$options[$participacion['idtipoparticipacion']],array("
     <label class="col-md-2 col-form-label"> %Participacióm:</label>
 	<div class="col-md-10">
 		<?php
-      		 echo form_input('porcentaje',$participacion['porcentaje'],array('type'=>'date','placeholder'=>'porcentaje','style'=>'width:500px;')) 
+      		 echo form_input('porcentaje',$participacion['porcentaje'],array('type'=>'text','placeholder'=>'porcentaje','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
@@ -150,7 +150,7 @@ echo form_input('nombre',$options[$participacion['idtipoparticipacion']],array("
     <label class="col-md-2 col-form-label"> %Ayuda:</label>
 	<div class="col-md-10">
 		<?php
-      		 echo form_input('ayuda',$participacion['porcentaje'],array('type'=>'date','placeholder'=>'porcentaje','style'=>'width:500px;')) 
+      		 echo form_input('ayuda',$participacion['ayuda'],array('type'=>'text','placeholder'=>'ayuda','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
