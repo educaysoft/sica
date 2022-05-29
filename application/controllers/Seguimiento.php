@@ -436,11 +436,11 @@ public function send()
         echo lang('erro_no_js');
     }else{
 
-       $idpersona=$this->input->post('idpersona');
 	$this->load->database();
        $this->load->helper('form');
         if($this->input->post('idpersona'))
 	{
+       		$idpersona=$this->input->post('idpersona');
 		$this->db-select('*');
 		$this->db->where(array('idpersona'=>$this->input->post('idpersona'),'idcorreo_estado'=>1));
 		$this->db->limit(1);

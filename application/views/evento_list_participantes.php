@@ -151,7 +151,7 @@ $('#show_data').on('click','.item_enviar',function(){
 		 var secure="siteform";
 		 var idpersona=$(this).data('idpersona');
 		 var tema="UTLVTE - FACULTAD DE INGENIERIAS";
-		 alert(certi);
+		 alert(idpersona);
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/send') ?>",
 		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure,idpersona:idpersona,tema:tema},
