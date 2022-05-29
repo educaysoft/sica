@@ -436,14 +436,29 @@ public function send()
         echo lang('erro_no_js');
     }else{
 
-	
+       $idpersona=$this->input->post('idpersona');
+	$this->load->database();
+       $this->load->helper('form');
+        if($this->input->post('idpersona'))
+	{
+		$this->db-select('*');
+		$this->db->where(array('idpersona'=>$this->input->post('idpersona'),'idcorreo_estado'=>1));
+		$query=$this->db->limit(1);
+		$query=$this->db->get('correo');
+		if($query->num_rows() >0) {
+			$email=$query->result()[0]->nombre;
+		}else{
+        		$email = $this->input->post('email');
+		}
+	}else{
+       		$email = $this->input->post('email');
+	}
 
 
 
         $this->load->library('email');
 
         $nome = $this->input->post('nome');
-        $email = $this->input->post('email');
         $msg = $this->input->post('msg');
         $mailto = $this->input->post('mailto');
         $secure = $this->input->post('secure');
@@ -460,8 +475,14 @@ public function send()
         $this->email->initialize($config); 
         $this->email->from($email, $nome);
         $this->email->to($mailto);
-	$this->email->subject('UTLVTE - MAESTRÍA EN TECNOLOGÍA DE LA INFORMACIÓN');
-        $this->email->message($msg);
+	if($this->input->post('tema'))
+	{
+		$this->email->subject($this->input->post('tema'));
+	}else{
+		$this->email->subject('UTLVTE - MAESTRÍA EN TECNOLOGÍA DE LA INFORMACIÓN');
+	]	
+
+	$this->email->message($msg);
         if ($this->email->send()){
             echo json_encode(array("sent"=>TRUE));
         }else{
