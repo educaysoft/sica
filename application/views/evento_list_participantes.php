@@ -1,4 +1,4 @@
-<style>
+<STYtele>
 body {font-family: Arial, Helvetica, sans-serif;}
 
 /* The Modal (background) */
@@ -114,6 +114,36 @@ $('#show_data').on('click','.item_ver',function(){
 
 });
 
+
+
+
+$('#show_data').on('click','.item_enviar',function(){
+
+		 var email="maestria.ti@utelvt.edu.ec";
+		 var nome= document.getElementById("selpersona").value; 		
+                 var msg=tinyMCE.activeEditor.getContent({format:'text'});
+		 var mailto=document.getElementById("correo").value; //   "stalin.francis@utelvt.edu.ec";
+		 var secure="siteform";
+
+	    $.ajax({
+		url: "<?php echo site_url('seguimiento/send') ?>",
+		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure},
+		method: 'POST',
+		async : false,
+		success: function(data){
+		var html = '';
+		var i;
+	//	get_participantes2();
+		alert(data);
+		},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+	    })
+
+
+}
 
 
 
