@@ -118,6 +118,7 @@ $('#show_data').on('click','.item_enviar',function(){
 
         var archivo="";
 	var iddocumento= $(this).data('iddocumento2');
+	alert(iddocumento);
       $.ajax({
         url: "<?php echo site_url('documento/get_documento') ?>",
 	  method: 'POST',
@@ -145,7 +146,7 @@ $('#show_data').on('click','.item_enviar',function(){
 	
 		 var email="maestria.ti@utelvt.edu.ec";
 		 var nome= document.getElementById("selpersona").value; 		
-                 var msg=" Gracias por participar en el evento, su certivicado ya esta diponible en el siguiente link <a href='"+$certi+"'>certificado</a>" ;
+                 var msg=" Gracias por participar en el evento, su certivicado ya esta diponible en el siguiente link <a href='"+certi+"'>certificado</a>" ;
 		 var mailto= "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 
