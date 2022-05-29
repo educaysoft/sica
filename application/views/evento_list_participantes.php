@@ -153,8 +153,8 @@ $('#show_data').on('click','.item_enviar',function(){
 		 var tema="UTLVTE - FACULTAD DE INGENIERIAS";
 		 alert(idpersona);
 	    $.ajax({
-		url: "<?php echo site_url('seguimiento/send1') ?>",
-		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure, idpersona:idpersona, tema:tema},
+		url: "<?php echo site_url('seguimiento/send') ?>",
+		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure},
 		method: 'POST',
 		async : false,
 		success: function(data){
