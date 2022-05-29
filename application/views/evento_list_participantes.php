@@ -95,7 +95,6 @@ $('#show_data').on('click','.item_ver',function(){
         alert(thrownError);
       }
 	});
-    //     alert(archivo);
 	if(archivo != ''){
  		var ordenador = "https://"+$(this).data('ordenador');
 		var ubicacion=$(this).data('ruta');
@@ -104,7 +103,6 @@ $('#show_data').on('click','.item_ver',function(){
 		}else{
 			ubicacion = ordenador+ubicacion;
 		}
-//		var archivo = $(this).data('archivo');
 		var certi= ubicacion.trim()+archivo.trim();
 		window.location.href = certi;
 	}else{
@@ -118,10 +116,37 @@ $('#show_data').on('click','.item_ver',function(){
 
 $('#show_data').on('click','.item_enviar',function(){
 
+        var archivo="";
+	var iddocumento= $(this).data('iddocumento2');
+      $.ajax({
+        url: "<?php echo site_url('documento/get_documento') ?>",
+	  method: 'POST',
+	  data: {iddocumento:iddocumento},
+	  async : false,
+          dataType : 'json',
+	  success: function(data) {
+		   archivo= data[0].archivopdf;  
+	},
+      error: function (xhr, ajaxOptions, thrownError){ 
+        alert(xhr.status);
+        alert(thrownError);
+      }
+	});
+	if(archivo != ''){
+ 		var ordenador = "https://"+$(this).data('ordenador');
+		var ubicacion=$(this).data('ruta');
+		if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+			ubicacion = ordenador+"/"+ubicacion;
+		}else{
+			ubicacion = ordenador+ubicacion;
+		}
+		var certi= ubicacion.trim()+archivo.trim();
+	
+	
 		 var email="maestria.ti@utelvt.edu.ec";
 		 var nome= document.getElementById("selpersona").value; 		
-                 var msg=tinyMCE.activeEditor.getContent({format:'text'});
-		 var mailto=document.getElementById("correo").value; //   "stalin.francis@utelvt.edu.ec";
+                 var msg=" Gracias por participar en el evento, su certivicado ya esta diponible en el siguiente link <a href='"+$certi+"'>certificado</a>" ;
+		 var mailto= "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 
 	    $.ajax({
@@ -132,7 +157,6 @@ $('#show_data').on('click','.item_enviar',function(){
 		success: function(data){
 		var html = '';
 		var i;
-	//	get_participantes2();
 		alert(data);
 		},
 	      error: function (xhr, ajaxOptions, thrownError) {
@@ -140,6 +164,13 @@ $('#show_data').on('click','.item_enviar',function(){
 		alert(thrownError);
 	      }
 	    });
+
+	}else{
+		alert("No se encontra el archivo");
+	}
+
+
+
 
 
 
