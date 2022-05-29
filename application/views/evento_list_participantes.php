@@ -139,11 +139,11 @@ $('#show_data').on('click','.item_enviar',function(){
 		alert(xhr.status);
 		alert(thrownError);
 	      }
-	    })
+	    });
 
 
-}
 
+});
 
 
 
