@@ -432,12 +432,13 @@ public function get_tiposeguimiento() {
 
 public function send()
 {
+	$this->load->database();
+       $this->load->helper('form');
+
     if ($this->input->post('secure') != 'siteform') {
         echo lang('erro_no_js');
     }else{
 
-	$this->load->database();
-       $this->load->helper('form');
        if($this->input->post('idpersona'))
 	{
 		$this->db-select('*');
