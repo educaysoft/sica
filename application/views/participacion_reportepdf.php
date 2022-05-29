@@ -6,6 +6,13 @@
 //	$resultado = $mysqli->query($query);
 	
 	$pdf = new PDF();
+		$this->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
+		$this->unidad='FACULTAD DE INGENIERIAS (FACI)';
+		$this->departamento'CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
+		$this->tutulo=$evento['titulo'];
+	
+
+
 	$pdf->AliasNbPages();
 	$pdf->AddPage();
 	
