@@ -18,7 +18,7 @@ class PDF extends FPDF
 		$this->Image($i,5,5,20);
 		$this->SetFont('Arial','B',10);
 		$this->Cell(30);
-		$this->Cell(120,5,utf8_decode($thiss->institucion),0,1,'C');
+		$this->Cell(120,5,utf8_decode($this->institucion),0,1,'C');
 		$this->Cell(30);
 		$this->Cell(120,5,utf8_decode($this->unidad),0,1,'C');
 		$this->Cell(30);
