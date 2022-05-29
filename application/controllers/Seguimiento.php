@@ -433,7 +433,7 @@ public function get_tiposeguimiento() {
 public function send()
 {
 	$this->load->database();
-       $this->load->helper('form');
+       $this->load->helper('form','language');
 
     if ($this->input->post('secure') != 'siteform') {
         echo lang('erro_no_js');
