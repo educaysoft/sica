@@ -145,11 +145,12 @@ $('#show_data').on('click','.item_enviar',function(){
 	
 	
 		 var email="maestria.ti@utelvt.edu.ec";
-		 var nome= document.getElementById("selpersona").value; 		
+		 var nome=$(this)->data('elparticipante'); 		
                  var msg=" Gracias por participar en el evento, su certivicado ya esta diponible en el siguiente link <a href='"+certi+"'>certificado</a>" ;
 		 var mailto= "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 
+		 alert(certi);
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/send') ?>",
 		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure},
