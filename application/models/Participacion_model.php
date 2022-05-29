@@ -31,6 +31,8 @@ class Participacion_model extends CI_model {
 	}
 
 
+
+
  	function participacion( $id){
  		$participacion = $this->db->query('select * from participacion where idparticipacion="'. $id.'"');
  		return $participacion;
