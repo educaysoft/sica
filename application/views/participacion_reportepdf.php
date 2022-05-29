@@ -11,10 +11,10 @@
 
 	$pdf->AliasNbPages();
 	$pdf->AddPage();
-			$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
-		$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
-		$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
-		$pdf->titulo=$evento['titulo'];
+	//		$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
+	//	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
+	//	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
+	//	$pdf->titulo=$evento['titulo'];
 	
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',9);
