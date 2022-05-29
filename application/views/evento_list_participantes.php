@@ -1,4 +1,4 @@
-<STYtele>
+<style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
 /* The Modal (background) */
