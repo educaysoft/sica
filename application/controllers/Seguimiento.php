@@ -436,8 +436,8 @@ public function send()
         echo lang('erro_no_js');
     }else{
 
-	$this->load->database();
-       $this->load->helper('form');
+//	$this->load->database();
+ //      $this->load->helper('form');
       //  if($this->input->post('idpersona'))
 //	{
 //		$this->db-select('*');
