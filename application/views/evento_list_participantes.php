@@ -167,6 +167,7 @@ $('#show_data').on('click','.item_enviar',function(){
 		alert(thrownError);
 	      }
 	    
+	});
 
 	}else{
 		alert("No se encontra el archivo");
