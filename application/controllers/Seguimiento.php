@@ -442,11 +442,10 @@ public function send()
        if($this->input->post('idpersona'))
 	{
 		$this->db->select('*');
-		$this->db->from('correo');
 		$this->db->where('idpersona',$this->db->post('idpersona'));
 		$this->db->where('idcorreo_estado',1);
 		$this->db->limit(1);
-		$query=$this->db->get();
+		$query=$this->db->get('correo');
 		if($query->num_rows() >0) {
 			$mailto=$query->result()[0]->nombre;
 		}else{
