@@ -441,7 +441,7 @@ public function send()
 
        if($this->input->post('idpersona'))
 	{
-	$condition="idpersona=".$this->db->post('idpersona')." and idcorreo_estado=1";
+	$condition="idpersona=".$this->input->post('idpersona')." and idcorreo_estado=1";
 		$this->db->select('*');
 		$this->db->from('correo');
 		$this->db->where($condition);
