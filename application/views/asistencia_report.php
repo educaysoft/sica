@@ -70,12 +70,14 @@ foreach ($asistencia as $row){
     foreach ($fechaeventos as $row1){
       if(isset($arrasistencia[$row1->fecha])){
 	      $x=$j*10;
-	      echo "<td style='color:green;"." background-color:rgb(".$x.",203, 66); '>". $arrasistencia[$row1->fecha]."</td>";
+	      $k=$j+150;
+	      echo "<td style='color:green;"." background-color:rgb(".$x.",".$k.", 66); '>". $arrasistencia[$row1->fecha]."</td>";
 	      $j=$j+5;
 	  $asi=$asi+1;
       }else{
 	      $x=$j*10;
-           echo "<td style='color:red;"." background-color:rgb(".$x.",203,66); '>falta</td>";
+	      $k=$j+150;
+           echo "<td style='color:red;"." background-color:rgb(".$x.",".$k.",66); '>falta</td>";
 	      $j=$j+5;
 	  $aus=$aus+1;
       }
