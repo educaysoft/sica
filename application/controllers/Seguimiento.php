@@ -443,8 +443,8 @@ public function send()
 	{
 		$this->db->select('*');
 		$this->db->from('correo');
-	$this->db->where('idpersona',$this->db->post('idpersona'));
-	$this->db->where('idcorreo_estado',1);
+		$this->db->where('idpersona',$this->db->post('idpersona'));
+		$this->db->where('idcorreo_estado',1);
 		$this->db->limit(1);
 		$query=$this->db->get();
 		if($query->num_rows() >0) {
