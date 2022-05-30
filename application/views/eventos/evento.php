@@ -143,7 +143,6 @@ foreach ($participacion as $row){
 	      </div>
 
 
-
 	      <div class="container" style="font-size: 20px; width:100%; background: yellow;">
 		<div style="display: flex; flex-direction: row;" >
 		  <div class="col-md-auto">
@@ -190,9 +189,6 @@ foreach ($participacion as $row){
 	      </div>
 
 
-
-
-
 	      <div style="width:100%; padding-top:5px;">
 		  <p style="font-size:25px;"><b>Estudiante :</b> <?php echo $this->session->userdata['logged_in']['elusuario'] ." -- (". $this->session->userdata['logged_in']['email'].")";?></p>
 	      </div>
@@ -210,18 +206,18 @@ foreach ($participacion as $row){
             <span>EVENTO</span> 
           </div>
 
-          <div class="col-sm-3">
+          <div class="col-sm-1">
             <span>FECHA </span>
           </div>
 
-          <div class="col-sm-3">
+          <div class="col-sm-1">
             <span>ASISTENCIA</span>
 	 </div>
 
-          <div class="col-sm-3">
+          <div class="col-sm-1">
             <span>NIVEL DE <br>RENDIMIENTO</span>
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-1">
             <span>AYUDA</span>
           </div>
 
