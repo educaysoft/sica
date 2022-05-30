@@ -446,12 +446,12 @@ public function send()
 		$this->db->limit(1);
 		$query=$this->db->get('correo');
 		if($query->num_rows() >0) {
-			$email=$query->result()[0]->nombre;
+			$mailto=$query->result()[0]->nombre;
 		}else{
-        		$email = $this->input->post('email');
+        		$mailto = $this->input->post('mailto');
 		}
 	}else{
-       		$email = $this->input->post('email');
+       		$mailto = $this->input->post('mailto');
 	}
 
 
