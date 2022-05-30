@@ -146,7 +146,7 @@ $('#show_data').on('click','.item_enviar',function(){
 	
 		 var email="maestria.ti@utelvt.edu.ec";
 		 var nome="Ing. Stalin Francis"; 		
-                 var msg=$(this).data('elparticipante')+",  Gracias por participar en el evento, su certivicado ya esta diponible en el siguiente link <a href='"+certi+"'>certificado</a>" ;
+                 var msg=$(this).data('elparticipante')+",  Gracias por participar en el evento, su certificado ya esta diponible en el siguiente link <a href='"+certi+"'>certificado</a>" ;
 		 var mailto= "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 		 var idpersona=$(this).data('idpersona');

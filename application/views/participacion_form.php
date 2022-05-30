@@ -58,7 +58,6 @@ foreach ($fechaeventos as $row){
 <label class="col-md-2 col-form-label"> % de participación:</label>
 <div class="col-md-10">
 <?php
-echo '<table><tr><td>';
 echo form_input(array("name"=>"porcentaje","id"=>"porcentaje","type"=>"text"));
 
 ?>
@@ -67,19 +66,6 @@ echo form_input(array("name"=>"porcentaje","id"=>"porcentaje","type"=>"text"));
 </div>
 
 
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> % ayuda:</label>
-<div class="col-md-10">
-<?php
-echo '<table><tr><td>';
-echo form_input(array("name"=>"ayuda","id"=>"ayuda","type"=>"text"));
-echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_nota()">Guardar nota.</span></td></tr></table>';
-
-?>
-
-</div>
-</div>
 
 
 
@@ -111,6 +97,21 @@ foreach ($tipoparticipacion as $row){
 ?>
 </div>
 </div>
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label"> % ayuda:</label>
+<div class="col-md-10">
+<?php
+echo '<table><tr><td>';
+echo form_input(array("name"=>"ayuda","id"=>"ayuda","type"=>"text"));
+echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_nota()">Guardar nota.</span></td></tr></table>';
+
+?>
+
+</div>
+</div>
+
+
 
 
 <div class="form-group row">
