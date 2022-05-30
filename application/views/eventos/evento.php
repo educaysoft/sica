@@ -195,7 +195,7 @@ foreach ($participacion as $row){
 
 
 
-	<div class="container" style="border:2px solid red; font-size: 20px; width:100%; background: gray; padding:3px;">
+	<div class="container" style="border:2px solid red; font-size: 15px; width:100%; background: gray; padding:3px;">
         <div style="display: flex; flex-direction: row;" >
 
           <div class="col-md-auto">
@@ -207,15 +207,15 @@ foreach ($participacion as $row){
           </div>
 
           <div class="col-sm-1">
-            <span>FECHA </span>
+            <span>Fechas </span>
           </div>
 
           <div class="col-sm-1">
-            <span>ASISTENCIA</span>
+            <span>Asistencia</span>
 	 </div>
 
           <div class="col-sm-1">
-            <span>NIVEL DE <br>RENDIMIENTO</span>
+            <span>Activ. y<br>Partici.</span>
           </div>
           <div class="col-sm-1">
             <span>AYUDA</span>
@@ -247,7 +247,7 @@ foreach ($participacion as $row){
 
       ?>
 
-      <div class="container" style="font-size: 20px; width:100%; background: yellow; padding:5px;">
+      <div class="container" style="font-size: 15px; width:100%; background: yellow; padding:5px;">
         <div style="display: flex; flex-direction: row;" >
           <div class="col-md-auto">
 		  <i class='fa fa-folder-o'></i>
@@ -256,11 +256,11 @@ foreach ($participacion as $row){
           <div class="col-sm-4">
             <span><?php   echo $row->tema; ?></span> 
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-1">
             <span><?php   echo $row->fecha; ?></span>
           </div>
 
-          <div class="col-sm-3">
+          <div class="col-sm-1">
 		<?php
 	      if(isset($miasistencia[$row->fecha]))				
 	 	{
@@ -271,7 +271,7 @@ foreach ($participacion as $row){
 		?>
           </div>
 
-          <div class="col-sm-3">
+          <div class="col-sm-1">
 	 <?php
 	      if(isset($miparticipacion[$row->fecha]))				
 	 	{
@@ -281,7 +281,7 @@ foreach ($participacion as $row){
 	      }
 	?>
           </div>
-	<div class="col-sm-3">
+	<div class="col-sm-1">
 	 <?php
 	      if(isset($miayuda[$row->fecha]))				
 	 	{
