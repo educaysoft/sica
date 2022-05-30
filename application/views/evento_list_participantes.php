@@ -154,6 +154,7 @@ $('#show_data').on('click','.item_enviar',function(){
 		 alert(idpersona);
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/send') ?>",
+		datatype: "json",
 		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure, idpersona:idpersona, asunto:asunto,},
 		method: 'POST',
 		async : false,
