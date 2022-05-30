@@ -234,13 +234,6 @@ foreach ($participacion as $row){
 
 
 
-
-
-
-
-
-
-
       <?php
       foreach($fechaeventos as  $row)
       {

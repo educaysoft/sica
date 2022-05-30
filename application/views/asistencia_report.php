@@ -59,6 +59,7 @@ echo "<tr>";
 $id=0;
 $persona="";
 $i=0;
+$j=0;
 foreach ($asistencia as $row){
   if($id!=$row->idpersona)
   {
@@ -68,10 +69,12 @@ foreach ($asistencia as $row){
     echo "<td>". $arrasistencia[$id]."</td>";
     foreach ($fechaeventos as $row1){
       if(isset($arrasistencia[$row1->fecha])){
-          echo "<td style='color:green'>". $arrasistencia[$row1->fecha]."</td>";
+	      echo "<td style='color:green;"." background-color:rgb(255,0,".j."); '>". $arrasistencia[$row1->fecha]."</td>";
+	      $j=j+1;
 	  $asi=$asi+1;
       }else{
-           echo "<td style='color:red'>falta</td>";
+           echo "<td style='color:red;"." background-color:rgb(255,0,".j."); '>falta</td>";
+	      $j=j+1;
 	  $aus=$aus+1;
       }
     }
@@ -106,7 +109,7 @@ $aus=0;
       $resu=round(($asi/($asi+$aus))*100,2);
       echo "<td>".$resu."</td>";
       echo "</tr>";
-
+$j=0;
 $asi=0;
 $aus=0;
 
