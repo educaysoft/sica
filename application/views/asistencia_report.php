@@ -69,12 +69,12 @@ foreach ($asistencia as $row){
     echo "<td>". $arrasistencia[$id]."</td>";
     foreach ($fechaeventos as $row1){
       if(isset($arrasistencia[$row1->fecha])){
-	      echo "<td style='color:green;"." background-color:rgb(255,0,".j."); '>". $arrasistencia[$row1->fecha]."</td>";
-	      $j=j+1;
+	      echo "<td style='color:green;"." background-color:rgb(255,0,".$j."); '>". $arrasistencia[$row1->fecha]."</td>";
+	      $j=$j+1;
 	  $asi=$asi+1;
       }else{
-           echo "<td style='color:red;"." background-color:rgb(255,0,".j."); '>falta</td>";
-	      $j=j+1;
+           echo "<td style='color:red;"." background-color:rgb(255,0,".$j."); '>falta</td>";
+	      $j=$j+1;
 	  $aus=$aus+1;
       }
     }
