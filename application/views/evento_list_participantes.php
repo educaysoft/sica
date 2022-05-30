@@ -150,11 +150,11 @@ $('#show_data').on('click','.item_enviar',function(){
 		 var mailto= "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 		 var idpersona=$(this).data('idpersona');
-		 var tema='UTLVTE - FACULTAD DE INGENIERIAS';
+		 var asunto='UTLVTE - FACULTAD DE INGENIERIAS';
 		 alert(idpersona);
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/send') ?>",
-		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure, idpersona:idpersona,tema:tema},
+		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure, idpersona:idpersona, asunto:asunto},
 		method: 'POST',
 		async : false,
 		success: function(data){

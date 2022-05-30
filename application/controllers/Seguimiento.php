@@ -475,9 +475,9 @@ public function send()
         $this->email->initialize($config); 
         $this->email->from($email, $nome);
         $this->email->to($mailto);
-	if($this->input->post('tema'))
+	if($this->input->post('asunto'))
 	{
-		$this->email->subject($this->input->post('tema'));
+		$this->email->subject($this->input->post('asunto'));
 	}else{
 		$this->email->subject('UTLVTE - MAESTRÍA EN TECNOLOGÍA DE LA INFORMACIÓN');
 	}	
