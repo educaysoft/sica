@@ -462,7 +462,6 @@ public function send()
 
         $nome = $this->input->post('nome');
         $msg = $this->input->post('msg');
-        $mailto = $this->input->post('mailto');
         $secure = $this->input->post('secure');
 	$email= $this->input->post('email');
 
