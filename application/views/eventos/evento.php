@@ -256,7 +256,7 @@ foreach ($participacion as $row){
           <div class="col-sm-4">
             <span><?php   echo $row->tema; ?></span> 
           </div>
-          <div class="col-sm-333
+          <div class="col-sm-3">
             <span><?php   echo $row->fecha; ?></span>
           </div>
 
