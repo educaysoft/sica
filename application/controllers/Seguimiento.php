@@ -462,6 +462,7 @@ public function send()
         $msg = $this->input->post('msg');
         $mailto = $this->input->post('mailto');
         $secure = $this->input->post('secure');
+	$email= $this->input->post('email');
 
         $config['protocol'] = "ssmtp";
         $config['smtp_host'] = "ssl://ssmtp.googlemail.com";
