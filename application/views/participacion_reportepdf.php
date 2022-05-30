@@ -50,7 +50,7 @@ foreach ($participacion as $row){
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
 	      if($arrayuda[$row1->fecha]>0){
-		$pdf->SetTextColor(153,0,153);
+		$pdf->SetTextColor(14,249,53);
          	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2),1,0,'R',0);
 	      }else{
          	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2),1,0,'R',0);
@@ -73,15 +73,15 @@ foreach ($participacion as $row){
 
       //$resu=round(($sum/($can)),0);
       $resu=round(($sum/2), 0);
-    if ($sum<7){
-	    $pdf->setFillColor(247,191,190);
 	    $pdf->Cell(12,6,$sum,1,0,'R',1);
+    if ($resu<7){
+	 $pdf->setFillColor(247,191,190);
+      	 $pdf->Cell(12,6,$resu,1,0,'R',0);
     }else{
-	    $pdf->setFillColor(144,238,144);
-	    $pdf->Cell(12,6,$sum,1,0,'R',1);
+	 $pdf->setFillColor(144,238,144);
+     	 $pdf->Cell(12,6,$resu,1,0,'R',0);
 
     }
-      $pdf->Cell(12,6,$resu,1,0,'R',0);
       $pdf->Cell(12,6,8,1,1,'R',0);
 	$sum=0;
 	$can=0;
@@ -116,16 +116,16 @@ foreach ($participacion as $row){
    $resu=0; 
      // $resu=round(($sum/($can)), 0);
       $resu=round(($sum/2), 0);
-    if ($sum<7){
-	    $pdf->setFillColor(247,191,190);
 	    $pdf->Cell(12,6,$sum,1,0,'R',1);
+    if ($resu<7){
+	$pdf->setFillColor(247,191,190);
+      	$pdf->Cell(12,6,$resu,1,0,'R',0);
     }else{
-	    $pdf->setFillColor(144,238,144);
-	    $pdf->Cell(12,6,$sum,1,0,'R',1);
+	$pdf->setFillColor(144,238,144);
+      	$pdf->Cell(12,6,$resu,1,0,'R',0);
 
     }
  
-      $pdf->Cell(12,6,$resu,1,0,'R',0);
       $pdf->Cell(12,6,8,1,1,'R',0);
 	$sum=0;
 	$can=0;

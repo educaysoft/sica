@@ -98,8 +98,11 @@ foreach ($asistencia as $row){
 }
 
 $miparticipacion= array();
+$miayuda= array();
 foreach ($participacion as $row){
 	$miparticipacion[$row->fecha]= $row->porcentaje;
+	$miayuda[$row->fecha]= $row->ayuda;
+	
 }
 
 
@@ -218,6 +221,9 @@ foreach ($participacion as $row){
           <div class="col-sm-3">
             <span>NIVEL DE <br>RENDIMIENTO</span>
           </div>
+          <div class="col-sm-3">
+            <span>AYUDA</span>
+          </div>
 
 
         </div>
@@ -279,7 +285,16 @@ foreach ($participacion as $row){
 	      }
 	?>
           </div>
-
+	<div class="col-sm-3">
+	 <?php
+	      if(isset($miayuda[$row->fecha]))				
+	 	{
+               echo "<span>".$miayuda[$row->fecha]."</span>";
+	      }else{
+               echo "<span>"." "."</span>";
+	      }
+	?>
+          </div>
 
         </div>
       </div>
@@ -297,7 +312,7 @@ foreach ($participacion as $row){
   <?php
        
         //echo anchor("evento/listar_participantes/".$evento['idevento'],'Imprimir certificado');
-        echo anchor("curso/iniciar?idpersona=".$this->session->userdata['logged_in']['idpersona']."&idcurso=".$evento['idcurso']."&idevento=".$evento['idevento'],'Iniciar el curso');
+        echo anchor("curso/iniciar?idpersona=".$this->session->userdata['logged_in']['idpersona']."&idcurso=".$evento['idcurso']."&idevento=".$evento['idevento'],'Iniciar el curso e imprimir certificado');
 
 
 ?>
