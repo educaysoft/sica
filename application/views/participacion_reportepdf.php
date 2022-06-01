@@ -87,7 +87,6 @@ foreach ($participacion as $row){
     }else{
 	 $pdf->setFillColor(144,238,144);
      	 $pdf->Cell(12,6,$resu,1,0,'R',1);
-
     }
       $pdf->Cell(12,6,8,1,1,'R',0);
 	$sum=0;
@@ -100,10 +99,11 @@ foreach ($participacion as $row){
     $arrparticipacion[$row->fecha]=$row->porcentaje;
     if($nivelrpt==2){	
 	    $arrayuda[$row->fecha]=0;
-
-
-  }else{
+	}else{
+	
    	 $arrayuda[$row->fecha]=$row->ayuda;
+	}
+  }else{
     $arrparticipacion[$row->fecha]=$row->porcentaje;
   }
 }
