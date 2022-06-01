@@ -7,6 +7,16 @@ class Evento_model extends CI_model {
 		 return $evento;
 	}
 
+
+	function lista_eventos_open(){
+		$this->db->where(array('idevento_estado'=>2));  //SOLO ESTADO INSCRIPCION
+		 $evento= $this->->get('evento');
+		 return $evento;
+	}
+
+
+
+
 	//Retorna todos los registros como un objeto
 	function lista_eventosA(){
 		 $evento= $this->db->order_by('idevento_estado')->get('evento1');

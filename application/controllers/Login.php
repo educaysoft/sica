@@ -22,7 +22,7 @@ parent::__construct();
 // Show login page
 public function index() {
 	
-	 $data['eventos']= $this->evento_model->lista_eventos()->result();
+	 $data['eventos']= $this->evento_model->lista_eventos_open()->result();
 	 $this->load->view('template/page_header.php');
 	 $this->load->view('login_form',$data);
 	 $this->load->view('template/page_footer.php');

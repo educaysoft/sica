@@ -66,7 +66,7 @@
 
 
 
-					<div  class="w3-container" style="text-align:left; font-size: 70%;">
+	<div  class="w3-container" style="text-align:left; font-size: 70%;">
 
 					<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: </label>
 	

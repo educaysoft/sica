@@ -30,9 +30,9 @@ if (isset($message_display)) {
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Evento:</label>
-<div class="col-md-10">
+<div >
+                 <label class="form-label" for="idevento">Evento:</label>
+    <div class="form-group">
 <?php
 //print_r($eventos);
 $options= array('--Select--');
@@ -43,12 +43,6 @@ foreach ($eventos as $row){
 
 ?>
 </div>
-</div>
-
-
-
-
-
 
 
 
