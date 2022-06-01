@@ -64,10 +64,6 @@ foreach ($participacion as $row){
 
 	      }
 		$pdf->SetTextColor(0,0,0);
-
-
-
-
 	  $sum=$sum+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2);
 	  $can=$can+1;
       }else{
@@ -77,8 +73,6 @@ foreach ($participacion as $row){
 
       }
     }
-
-      //$resu=round(($sum/($can)),0);
       $resu=round(($sum/2), 0);
     $pdf->Cell(12,6,$sum,1,0,'R',0);
     if ($resu<7){
@@ -100,10 +94,15 @@ foreach ($participacion as $row){
     if($nivelrpt==2){	
 	    $arrayuda[$row->fecha]=0;
 	}else{
-	
    	 $arrayuda[$row->fecha]=$row->ayuda;
 	}
   }else{
+    if($nivelrpt==2){	
+	    $arrayuda[$row->fecha]=0;
+	}else{
+   	 $arrayuda[$row->fecha]=$row->ayuda;
+	}
+
     $arrparticipacion[$row->fecha]=$row->porcentaje;
   }
 }
