@@ -112,7 +112,6 @@ foreach ($participacion as $row){
 
   }else{
     $arrparticipacion[$row->fecha]=$row->porcentaje;
-    $arrayuda[$row->fecha]=$row->ayuda;
   }
 }
   $i=$i+1;
