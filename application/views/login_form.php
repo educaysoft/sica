@@ -28,20 +28,28 @@ if (isset($message_display)) {
 </header>
 <main class="w3-container" style=" font-size:50%; padding:30px;">
 
-<div  class="w3-container" style="text-align:left; font-size: 70%;">
-
-					<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: </label>
-	
-    <div class="form-group">
-         <select class="form-control" id="idevento" name="idevento" required >
-                 <option>No Selected</option>
-          </select>
-    </div>
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Evento:</label>
+<div class="col-md-10">
+<?php
+//print_r($eventos);
+$options= array('--Select--');
+foreach ($eventos as $row){
+	$options[$row->idevento]= $row->titulo;
+}
+ echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('id'=>'idevento'));  
+
+?>
+</div>
+</div>
 
 
-					</div>
+
+
+
+
 
 
  <div >
