@@ -108,20 +108,24 @@ public function new_user_registration() {
 }
 
 // Check for user login process
+
 public function user_login_process() {
 
-$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');
-$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
-if ($this->form_validation->run() == FALSE) {
-	if(isset($this->session->userdata['logged_in'])){
-		redirect('principal');
+	$data['eventos']= $this->evento_model->lista_eventos()->result();
+
+	$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');
+	$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+
+	if ($this->form_validation->run() == FALSE) {
+		if(isset($this->session->userdata['logged_in'])){
+			redirect('principal');
 	//	 $this->load->view('template/page_header.php');
 	//	$this->load->view('admin_page');
 	//	 $this->load->view('template/page_footer.php');
 	}else{
 	 	$this->load->view('template/page_header.php');
-		$this->load->view('login_form');
+		$this->load->view('login_form',$data);
 	 	$this->load->view('template/page_footer.php');
 	}
 } else {

@@ -27,6 +27,23 @@ if (isset($message_display)) {
                   ?>
 </header>
 <main class="w3-container" style=" font-size:50%; padding:30px;">
+
+<div  class="w3-container" style="text-align:left; font-size: 70%;">
+
+					<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: </label>
+	
+    <div class="form-group">
+         <select class="form-control" id="idevento" name="idevento" required onchange='show_detalle()'>
+                 <option>No Selected</option>
+          </select>
+    </div>
+
+
+
+
+					</div>
+
+
  <div >
                  <label class="form-label" for="email">Usuario:</label>
               <!---    <input type="email" class="form-control" name="email" id="email"  aria-describedby="sizing-addon1">  --->
