@@ -101,12 +101,8 @@ foreach ($participacion as $row){
     if($nivelrpt==2){	
 	    $arrayuda[$row->fecha]=0;
 	}else{
-    if($nivelrpt==1){	
-	    $arrayuda[$row->fecha]=0;
-	}else{
 	
    	 $arrayuda[$row->fecha]=$row->ayuda;
-	}
 	}
 
 
