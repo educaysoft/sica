@@ -22,6 +22,7 @@ parent::__construct();
 // Show login page
 public function index() {
 	
+	$data['eventos']= $this->evento_model->lista_eventos()->result();
 	 $this->load->view('template/page_header.php');
 	 $this->load->view('login_form');
 	 $this->load->view('template/page_footer.php');
@@ -123,18 +124,19 @@ public function user_login_process() {
 	//	 $this->load->view('template/page_header.php');
 	//	$this->load->view('admin_page');
 	//	 $this->load->view('template/page_footer.php');
-	}else{
-	 	$this->load->view('template/page_header.php');
-		$this->load->view('login_form',$data);
-	 	$this->load->view('template/page_footer.php');
-	}
-} else {
+		}else{
+		 	$this->load->view('template/page_header.php');
+			$this->load->view('login_form',$data);
+	 		$this->load->view('template/page_footer.php');
+		}
+	} else {
 
 	// ======================================================================
 	// Recuperando el correo y el password del formulario login en un arreglo
 	// ======================================================================	
 	
 	$data = array(
+	'idevento' => $this->input->post('idevento'),
 	'email' => $this->input->post('email'),
 	'password' => $this->input->post('password')
 	);

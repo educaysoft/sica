@@ -191,7 +191,6 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 }
 // Read data using username and password
 public function login($data) {
-      //$condition = "email =" . "'" . $data['email'] . "' AND " . "password =" . "'" . $data['password'] . "'";
       $condition = "email =" . "'" . $data['email'] . "'";
       $this->db->select('*');
       $this->db->from('usuario');
@@ -201,8 +200,8 @@ public function login($data) {
 
       if ($query->num_rows() == 1) {
             $idusuario=$query->result()[0]->idusuario;
-            $condition = "idusuario =" . "'" . $idusuario . "' AND " . "password =" . "'" . $data['password'] . "'";
-            $condition = $condition. " and onoff = 1" ;
+            $condition = "idusuario =" . "'" . $idusuario . "' AND " . "password =" . "'" . $data['password'] . "' AND "."idevento =".$data['idevento'];
+         //   $condition = $condition. " and onoff = 1" ;
             $this->db->select('*');
             $this->db->from('password');
             $this->db->where($condition);

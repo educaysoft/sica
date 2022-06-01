@@ -33,7 +33,7 @@ if (isset($message_display)) {
 					<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: </label>
 	
     <div class="form-group">
-         <select class="form-control" id="idevento" name="idevento" required onchange='show_detalle()'>
+         <select class="form-control" id="idevento" name="idevento" required >
                  <option>No Selected</option>
           </select>
     </div>
@@ -94,4 +94,40 @@ function showpassword(){
 	}
 
 }
+
+
+
+
+ async function get_evento() {	
+	
+	var correo = $('select[name=correo]').val();
+	var password = $('select[name=password]').val();
+    $.ajax({
+        url: "<?php echo site_url('password/get_evento'); ?>",
+        data: {correo:correo, password:password},
+        method: 'POST',
+	 async : false,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
+        var i;
+        for(i=0; i<data.length; i++){
+		html += '<option value='+data[i].idevento+'>'+data[i].titulo+'</option>';
+        }
+        $('#idevento').html(html);
+
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
+
+
+
 </script>
