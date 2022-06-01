@@ -49,7 +49,7 @@ foreach ($participacion as $row){
     $pdf->Cell(62,6,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
-	      if($nivelrpt==2)
+	      if($nivelrpt==2 || $nivelrpt==1))
 	      { 
 		      $ponderacion=1;
 		}else{
@@ -120,7 +120,7 @@ foreach ($participacion as $row){
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
 
-	      if($nivelrpt==2)
+	      if($nivelrpt==2 || $nivelrpt==1))
 	      { 
 		      $ponderacion=1;
 		}else{
