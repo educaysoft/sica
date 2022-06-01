@@ -49,6 +49,13 @@ foreach ($participacion as $row){
     $pdf->Cell(62,6,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
+	      if($nivelrpt==2)
+	      { 
+		      $ponderacion=1;
+		}else{
+
+		$ponderacion=$row1->ponderacion,
+	     }
 	      if($arrayuda[$row1->fecha]>0){
 		$pdf->SetTextColor(14,249,53);
          	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2),1,0,'R',0);
@@ -91,7 +98,18 @@ foreach ($participacion as $row){
     $id=$row->idpersona;
     $arrparticipacion[$row->idpersona]=$row->nombres;
     $arrparticipacion[$row->fecha]=$row->porcentaje;
-    $arrayuda[$row->fecha]=$row->ayuda;
+    if($nivelrpt==2){	
+	    $arrayuda[$row->fecha]=0;
+	}else{
+    if($nivelrpt==1){	
+	    $arrayuda[$row->fecha]=0;
+	}else{
+	
+   	 $arrayuda[$row->fecha]=$row->ayuda;
+	}
+	}
+
+
   }else{
     $arrparticipacion[$row->fecha]=$row->porcentaje;
     $arrayuda[$row->fecha]=$row->ayuda;
@@ -102,11 +120,27 @@ foreach ($participacion as $row){
     $pdf->Cell(62,6,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
-         $pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2),1,0,'R',0);
-	  $sum=$sum+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2);
-         //$pdf->Cell(10,6,round($arrparticipacion[$row1->fecha],0),1,0,'R',0);
-        // $sum=$sum+round($arrparticipacion[$row1->fecha],0);
-	 $can=$can+1;
+
+	      if($nivelrpt==2)
+	      { 
+		      $ponderacion=1;
+		}else{
+
+		$ponderacion=$row1->ponderacion,
+	     }
+
+
+	      if($arrayuda[$row1->fecha]>0){
+		$pdf->SetTextColor(14,249,53);
+         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2),1,0,'R',0);
+	      }else{
+         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2),1,0,'R',0);
+
+	      }
+		$pdf->SetTextColor(0,0,0);
+
+	  	$sum=$sum+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2);
+	 	$can=$can+1;
       }else{
          $pdf->Cell(10,6,'0',1,0,'R',0);
 	  $sum=$sum+ 0;

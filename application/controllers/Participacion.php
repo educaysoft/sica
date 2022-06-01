@@ -203,10 +203,13 @@ public function reporte()
 
 public function reportepdf()
 {
-
-	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
-	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_activo($this->uri->segment(3))->result();
-  	$data['participacion'] = $this->participacion_model->listar_participacion1($this->uri->segment(3))->result();
+	$tmp=explode("-",$this->uri->segment(3));
+	$idevento=$tmp[0];
+	$nivelrpt=$tmp[1];
+        $data['nivelrpt']=$nivelrpt;
+	$data['evento'] = $this->evento_model->evento($idevento)->row_array();
+	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_activo($idevento)->result();
+  	$data['participacion'] = $this->participacion_model->listar_participacion1($idevento)->result();
   	$data['title']="Certificado";
 //	$this->load->view('template/page_header');		
 // 	$this->load->view('participacion_report',$data);
