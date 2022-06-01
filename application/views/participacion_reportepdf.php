@@ -54,13 +54,13 @@ foreach ($participacion as $row){
 		      $ponderacion=1;
 		}else{
 
-		$ponderacion=$row1->ponderacion,
+		$ponderacion=$row1->ponderacion;
 	     }
 	      if($arrayuda[$row1->fecha]>0){
 		$pdf->SetTextColor(14,249,53);
-         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2),1,0,'R',0);
+         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 	      }else{
-         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2),1,0,'R',0);
+         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 
 	      }
 		$pdf->SetTextColor(0,0,0);
@@ -68,7 +68,7 @@ foreach ($participacion as $row){
 
 
 
-	  $sum=$sum+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2);
+	  $sum=$sum+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2);
 	  $can=$can+1;
       }else{
          $pdf->Cell(10,6,'0',1,0,'R',0);
@@ -126,20 +126,20 @@ foreach ($participacion as $row){
 		      $ponderacion=1;
 		}else{
 
-		$ponderacion=$row1->ponderacion,
+		$ponderacion=$row1->ponderacion;
 	     }
 
 
 	      if($arrayuda[$row1->fecha]>0){
 		$pdf->SetTextColor(14,249,53);
-         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2),1,0,'R',0);
+         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 	      }else{
-         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2),1,0,'R',0);
+         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 
 	      }
 		$pdf->SetTextColor(0,0,0);
 
-	  	$sum=$sum+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$row1->ponderacion,2);
+	  	$sum=$sum+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2);
 	 	$can=$can+1;
       }else{
          $pdf->Cell(10,6,'0',1,0,'R',0);
