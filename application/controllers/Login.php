@@ -88,6 +88,7 @@ public function new_user_registration() {
           //correo
           $datacorreo=array('idpersona'=>0,'nombre'=>$this->input->post('email'),'idcorreo_estado'=>1);
 
+	 $data['eventos']= $this->evento_model->lista_eventos_open()->result();
           $result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono);
           if ($result == TRUE) {
               $data['message_display'] = 'Registration Successfully !';
@@ -232,6 +233,7 @@ if ($result == TRUE) {
 		}
 	} else {
 
+	 $data['eventos']= $this->evento_model->lista_eventos_open()->result();
 		$data = array('error_message' => '-Invalid Username or Password');
 		$this->load->view('template/page_header.php');
 		$this->load->view('login_form', $data);
