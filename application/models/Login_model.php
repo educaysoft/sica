@@ -218,7 +218,7 @@ public function login($data) {
 }
 
 // Read data from database to show data in admin page
-public function read_user_information($email,$password) {
+public function read_user_information($email,$password,$idevento) {
 	$condition = "email =" . "'" . $email . "'";
 	$this->db->select('*');
 	$this->db->from('usuario');
@@ -229,7 +229,7 @@ public function read_user_information($email,$password) {
      if ($query->num_rows() == 1) {
             $idusuario=$query->result()[0]->idusuario;
             $condition = "idusuario =" . "'" . $idusuario . "'";
-          //  $condition = $condition. " and onoff = 1" ;
+            $condition = $condition. " and = ". $idevento ;
             $this->db->select('*');
             $this->db->from('password');
             $this->db->where($condition);
