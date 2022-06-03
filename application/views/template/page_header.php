@@ -280,7 +280,7 @@ function myFunction(id) {
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/css/bootstrap-theme.css" />
 
 <!------ <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/educaysoft/eys-css/main/eys-style.css"/> --->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/eys-style.css" />   
+<!------<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/eys-style.css" /> --->  
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/eys.css" />   
 <!---- <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/assets/css/eys.css" />  ----> 
