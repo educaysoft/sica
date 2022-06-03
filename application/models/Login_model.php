@@ -229,7 +229,7 @@ public function read_user_information($email,$password,$idevento) {
      if ($query->num_rows() == 1) {
             $idusuario=$query->result()[0]->idusuario;
             $condition = "idusuario =" . "'" . $idusuario . "'";
-            $condition = $condition. " and = ". $idevento ;
+            $condition = $condition. " and idevento= ". $idevento ;
             $this->db->select('*');
             $this->db->from('password');
             $this->db->where($condition);
