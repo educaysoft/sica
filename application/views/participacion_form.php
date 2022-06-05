@@ -12,7 +12,7 @@
 
 <h2> <?php echo $title; ?>(<?php echo anchor('participacion/reporte/'.$eventos[0]->idevento, 'Reporte'); ?>)</h2>
 <hr/>
-<?php echo form_open(); ?>
+<!---<?php echo form_open(); ?>-->
 <br>
 
 
@@ -140,7 +140,7 @@ echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_nota()">Gua
 
 
 
-<?php echo form_close();?>
+<!--- <?php echo form_close();?>  --->
 
 <!--- MODAL ADD ---->
 
@@ -156,12 +156,39 @@ echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_nota()">Gua
 				</div>
 				<div class="modal-body">
 
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">idparticipacion</label>
+						<div class="col-md-10">
+							<input type="text" name="idparticipacion_edit" id="idparticipacion_edit" class="form-control" placeholder="idparticipacion">  
+						</div>
+					</div>					
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">idevento</label>
+						<div class="col-md-10">
+							<input type="text" name="idevento_edit" id="idevento_edit" class="form-control" placeholder="idevento">  
+						</div>
+					</div>					
+
+
+
 					<div class="form-group row">
 						<label class="col-md-2 col-form-label">Fecha</label>
 						<div class="col-md-10">
 							<input type="text" name="fecha_edit" id="fecha_edit" class="form-control" placeholder="fecha">  
 						</div>
 					</div>					
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">idpersona</label>
+						<div class="col-md-10">
+							<input type="text" name="idpersona_edit" id="idpersona_edit" class="form-control" placeholder="idperaon">  
+						</div>
+					</div>					
+
+
+
+
 
 					<div class="form-group row">
 						<label class="col-md-2 col-form-label">Alumno</label>
@@ -389,16 +416,16 @@ $("#btn_update").on("click", function(){
   	var arrtmp=f.options[f.selectedIndex].text;
 	const x=arrtmp.split(" - ");
 	var fecha=x[0];
-	var idevento=document.getElementById("idevento").value;
-//	var idtipoparticipacion=document.getElementById("idtipoparticipacion").value;
+//	var idparticipacion=document.getElementById("idparticipacion_edit").value;
+	var fecha=document.getElementById("fecha_edit").value;
+	var idevento=document.getElementById("idevento_edit").value;
 	var porcentaje=document.getElementById("porcentaje_edit").value;
 	var comentario=document.getElementById("comentario_edit").value;
 	var ayuda=document.getElementById("ayuda_edit").value;
-	var idtipoparticipacion=document.getElementById("idtipoparticipacion").value;
+	//var idtipoparticipacion=document.getElementById("idtipoparticipacion").value;
 	var idpersona= $('select[name=idpersona]').val();
 	var p = document.getElementById("idpersona");
-  var idpersona=p.options[p.selectedIndex].value;
-      alert(fecha);
+        var idpersona=p.options[p.selectedIndex].value;
     $.ajax({
         url: "<?php echo site_url('participacion/save_nota') ?>",
         data: {idevento:idevento, fecha:fecha,porcentaje:porcentaje,comentario:comentario,idpersona:idpersona,idtipoparticipacion:idtipoparticipacion, ayuda:ayuda},
@@ -450,14 +477,20 @@ function get_participacion_xx() {
         var i;
 	$('#Modal_Edit').modal('show');
         if(data.length!=1){
+          $('[name="idparticipacion_edit"]').val(0);
+          $('[name="idevento_edit"]').val(idevento);
           $('[name="fecha_edit"]').val(fecha);
           $('[name="lapersona_edit"]').val(data[0].nombres);
+          $('[name="idpersona_edit"]').val(idpersona);
           $('[name="porcentaje_edit"]').val("");
           $('[name="comentario_edit"]').val("");
           $('[name="ayuda_edit"]').val("");
         }else{
+          $('[name="idparticipacion_edit"]').val(data[0].idparticipacion);
+          $('[name="idevento_edit"]').val(data[0].idevento);
           $('[name="fecha_edit"]').val(data[0].fecha);
           $('[name="lapersona_edit"]').val(data[0].nombres);
+          $('[name="idpersona_edit"]').val(data[0].idpersona);
           $('[name="comentario_edit"]').val(data[0].comentario);
           $('[name="porcentaje_edit"]').val(data[0].porcentaje);
           $('[name="ayuda_edit"]').val(data[0].ayuda);
