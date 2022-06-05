@@ -1,3 +1,15 @@
+<style>
+.modal.face .modal-dialog{
+transform:translate3d(0,100vh,0);
+}
+
+.modal.in .modal-dialog{
+	transform:translate2d(0,0,0);
+}
+
+</style>
+
+
 <h2> <?php echo $title; ?>(<?php echo anchor('participacion/reporte/'.$eventos[0]->idevento, 'Reporte'); ?>)</h2>
 <hr/>
 <?php echo form_open(); ?>
