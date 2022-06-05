@@ -384,7 +384,7 @@ function get_participacion2() {
 
 
 //function save_nota() {
-$("@btn_update").on("click", function(){
+$("#btn_update").on("click", function(){
 	var f = document.getElementById("idfechaevento");
   	var arrtmp=f.options[f.selectedIndex].text;
 	const x=arrtmp.split(" - ");
@@ -409,6 +409,7 @@ $("@btn_update").on("click", function(){
         var html = '';
         var i;
         get_participantes2();
+	$("#Modal_Edit").modal("hide");
         alert("Se guardo con exito");
         },
       error: function (xhr, ajaxOptions, thrownError) {
