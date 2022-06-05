@@ -130,6 +130,72 @@ echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_nota()">Gua
 
 <?php echo form_close();?>
 
+<!--- MODAL ADD ---->
+
+<form>
+	<div class="modal fade" id="Modal_Edit" tabindex="-1"  role="dialog" arias-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Editar notas</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Fecha</label>
+						<div class="col-md-10">
+							<input type="text" name="fecha_edit" id="fecha_edit" class="form-control" placeholder="fecha">  
+						</div>
+					</div>					
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Alumno</label>
+						<div class="col-md-10">
+							<input type="text" name="lapersona_edit" id="lapersona_edit" class="form-control" placeholder="alumno">  
+						</div>
+					</div>					
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Porcentaje</label>
+						<div class="col-md-10">
+							<input type="text" name="porcentaje_edit" id="porcentaje_edit" class="form-control" placeholder="porcentaje">  
+						</div>
+					</div>					
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Ayuda</label>
+						<div class="col-md-10">
+							<input type="text" name="ayuda_edit" id="ayuda_edit" class="form-control" placeholder="Ayuda">  
+						</div>
+					</div>					
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Comentario</label>
+						<div class="col-md-10">
+							<input type="text" name="comentario_edit" id="comentario_edit" class="form-control" placeholder="comentario">  
+						</div>
+					</div>					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="submit" id="btn_update" class="btn btn-primary">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+</form>
+
+
+
+
+
+
 
 
 <script>
@@ -341,6 +407,55 @@ function save_nota() {
 
 }
 
+
+
+
+
+
+
+
+
+
+
+function get_participacion_xx() {
+	var f = document.getElementById("idfechaevento");
+  var fecha=f.options[f.selectedIndex].text;
+	var idevento=document.getElementById("idevento").value;
+//	var idpersona= $('select[name=idpersona]').val();
+	var idpersona=document.getElementById("idpersona").value;
+    $.ajax({
+        url: "<?php echo site_url('participacion/get_participacionp') ?>",
+        data: {idevento:idevento,fecha:fecha,idpersona:idpersona},
+        method: 'POST',
+        async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+	var comentario="";
+        var i;
+	$('#Modal_Edit').modal('show');
+        if(data.length!=1){
+          $('[name="fecha_edit"]').val(fecha);
+          $('[name="lapersona_edit"]').val(data[0].lapersona);
+          $('[name="porcentaje_edit"]').val("");
+          $('[name="comentario_edit"]').val("");
+          $('[name="ayuda_edit"]').val("");
+        }else{
+          $('[name="fecha_edit"]').val(data[0].fecha);
+          $('[name="lapersona_edit"]').val(data[0].lapersona);
+          $('[name="comentario_edit"]').val(data[0].comentario);
+          $('[name="porcentaje_edit"]').val(data[0].porcentaje);
+          $('[name="ayuda_edit"]').val(data[0].ayuda);
+        }
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
 
 
 
