@@ -145,7 +145,7 @@ echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_nota()">Gua
 <!--- MODAL ADD ---->
 
 <form>
-	<div class="modal fade" id="Modal_Edit" tabindex="-1"  role="dialog" arias-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 1024;">
+	<div class="modal fade" id="Modal_Edit" tabindex="-1"  role="dialog" arias-labelledby="exampleModalLabel" aria-hidden="true" >
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -193,7 +193,7 @@ echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_nota()">Gua
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="submit" id="btn_update" class="btn btn-primary">Close</button>
+					<button type="button" class="submit" id="btn_update" class="btn btn-primary">Guardar</button>
 				</div>
 			</div>
 
@@ -383,16 +383,17 @@ function get_participacion2() {
 
 
 
-function save_nota() {
+//function save_nota() {
+$("@btn_update").on("click", function(){
 	var f = document.getElementById("idfechaevento");
   	var arrtmp=f.options[f.selectedIndex].text;
 	const x=arrtmp.split(" - ");
 	var fecha=x[0];
 	var idevento=document.getElementById("idevento").value;
 //	var idtipoparticipacion=document.getElementById("idtipoparticipacion").value;
-	var porcentaje=document.getElementById("porcentaje").value;
-	var comentario=document.getElementById("comentario").value;
-	var ayuda=document.getElementById("ayuda").value;
+	var porcentaje=document.getElementById("porcentaje_edit").value;
+	var comentario=document.getElementById("comentario_edit").value;
+	var ayuda=document.getElementById("ayuda_edit").value;
 	var idtipoparticipacion=document.getElementById("idtipoparticipacion").value;
 	var idpersona= $('select[name=idpersona]').val();
 	var p = document.getElementById("idpersona");
@@ -416,8 +417,9 @@ function save_nota() {
       }
 
     })
+    return false;
 
-}
+});
 
 
 
