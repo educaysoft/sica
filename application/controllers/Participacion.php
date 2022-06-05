@@ -90,10 +90,10 @@ class Participacion extends CI_Controller{
 	 	$array_item=array(
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'idevento' => $this->input->post('idevento'),
-		 	'fecha' => $this->input->post('fecha_edit'),
-		 	'porcentaje' => $this->input->post('porcentaje_edit'),
-		 	'ayuda' => $this->input->post('ayuda_edit'),
-		 	'comentario' => $this->input->post('comentario_edit'),
+		 	'fecha' => $this->input->post('fecha'),
+		 	'porcentaje' => $this->input->post('porcentaje'),
+		 	'ayuda' => $this->input->post('ayuda'),
+		 	'comentario' => $this->input->post('comentario'),
 		 	'idtipoparticipacion' => $this->input->post('idtipoparticipacion'),
 	 	);
 	 	$result=$this->participacion_model->save($array_item);
