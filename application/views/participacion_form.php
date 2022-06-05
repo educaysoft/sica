@@ -42,7 +42,7 @@ foreach ($fechaeventos as $row){
 <label class="col-md-2 col-form-label">Participantes:</label>
 <div class="col-md-10">
 
-         <select class="form-control" id="idpersona" name="idpersona" multiple="multiple" required size="30" style="height: 100%;" onChange='get_participacion()'>
+         <select class="form-control" id="idpersona" name="idpersona" multiple="multiple" required size="30" style="height: 100%;" onChange='get_participacion_xx()'>
                  <option>No Selected</option>
           </select>
   </div>
