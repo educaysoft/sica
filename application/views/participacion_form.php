@@ -145,7 +145,7 @@ echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_nota()">Gua
 <!--- MODAL ADD ---->
 
 <form>
-	<div class="modal fade" id="Modal_Edit" tabindex="-1"  role="dialog" arias-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="Modal_Edit" tabindex="-1"  role="dialog" arias-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 1024;">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -328,7 +328,7 @@ function get_participacion() {
   //          html += '<option value='+data[i].idtipoparticipacion+'>'+data[i].eltipoparticipacion+'</option>';
   //        }
           document.getElementById("comentario").value="";
-	  document.getElementById("selpersona").value=data[i].lapersona;
+	  document.getElementById("selpersona").value=data[i].nombres;
           document.getElementById("porcentaje").value="";
           document.getElementById("ayuda").value="";
         }else{
@@ -448,13 +448,13 @@ function get_participacion_xx() {
 	$('#Modal_Edit').modal('show');
         if(data.length!=1){
           $('[name="fecha_edit"]').val(fecha);
-          $('[name="lapersona_edit"]').val(data[0].lapersona);
+          $('[name="lapersona_edit"]').val(data[0].nombres);
           $('[name="porcentaje_edit"]').val("");
           $('[name="comentario_edit"]').val("");
           $('[name="ayuda_edit"]').val("");
         }else{
           $('[name="fecha_edit"]').val(data[0].fecha);
-          $('[name="lapersona_edit"]').val(data[0].lapersona);
+          $('[name="lapersona_edit"]').val(data[0].nombres);
           $('[name="comentario_edit"]').val(data[0].comentario);
           $('[name="porcentaje_edit"]').val(data[0].porcentaje);
           $('[name="ayuda_edit"]').val(data[0].ayuda);
