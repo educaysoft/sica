@@ -95,20 +95,7 @@ echo form_textarea("comentario","",$textarea_options);
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Tipo participacion:</label>
-<div class="col-md-10">
-<?php
-//print_r($tipoparticipacions);
-$options= array('--Select--');
-foreach ($tipoparticipacion as $row){
-	$options[$row->idtipoparticipacion]= $row->nombre;
-}
- echo form_dropdown("idtipoparticipacion",$options, set_select('--Select--','default_value'),array('id'=>'idtipoparticipacion'));  
 
-?>
-</div>
-</div>
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label"> % ayuda:</label>
@@ -217,6 +204,23 @@ echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_nota()">Gua
 							<input type="text" name="comentario_edit" id="comentario_edit" class="form-control" placeholder="comentario">  
 						</div>
 					</div>					
+
+					<div class="form-group row">
+					<label class="col-md-2 col-form-label">Tipo participacion:</label>
+					<div class="col-md-10">
+					<?php
+					//print_r($tipoparticipacions);
+					$options= array('--Select--');
+					foreach ($tipoparticipacion as $row){
+						$options[$row->idtipoparticipacion]= $row->nombre;
+					}
+					 echo form_dropdown("idtipoparticipacion_edit",$options, set_select('--Select--','default_value'),array('id'=>'idtipoparticipacion_edit'));  
+
+					?>
+					</div>
+					</div>
+
+
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -422,10 +426,10 @@ $("#btn_update").on("click", function(){
 	var porcentaje=document.getElementById("porcentaje_edit").value;
 	var comentario=document.getElementById("comentario_edit").value;
 	var ayuda=document.getElementById("ayuda_edit").value;
-	//var idtipoparticipacion=document.getElementById("idtipoparticipacion").value;
-	var idpersona= $('select[name=idpersona]').val();
-	var p = document.getElementById("idpersona");
-        var idpersona=p.options[p.selectedIndex].value;
+	var idtipoparticipacion=document.getElementById("idtipoparticipacion_edit").value;
+	//var idpersona= $('select[name=idpersona]').val();
+	var idpersona = document.getElementById("idpersona_edit");
+       // var idpersona=p.options[p.selectedIndex].value;
     $.ajax({
         url: "<?php echo site_url('participacion/save_nota') ?>",
         data: {idevento:idevento, fecha:fecha,porcentaje:porcentaje,comentario:comentario,idpersona:idpersona,idtipoparticipacion:idtipoparticipacion, ayuda:ayuda},
