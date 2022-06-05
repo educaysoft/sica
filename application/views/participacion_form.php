@@ -1,10 +1,10 @@
 <style>
 .modal.face .modal-dialog{
-transform:translate3d(0,100vh,0);
+	transform: translate3d(0,100vh,0);
 }
 
 .modal.in .modal-dialog{
-	transform:translate2d(0,0,0);
+	transform: translate3d(0,0,0);
 }
 
 </style>
