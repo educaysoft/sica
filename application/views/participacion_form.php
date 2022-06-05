@@ -66,63 +66,23 @@ foreach ($fechaeventos as $row){
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> % de participación:</label>
-<div class="col-md-10">
-<?php
-echo form_input(array("name"=>"porcentaje","id"=>"porcentaje","type"=>"text"));
-
-?>
-
-</div>
-</div>
 
 
 
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> Comentario:</label>
-<div class="col-md-10">
-<?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"comentario",'id'=>'comentario' );
-echo form_textarea("comentario","",$textarea_options);
-
-?>
-</div>
-</div>
 
 
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> % ayuda:</label>
-<div class="col-md-10">
-<?php
-echo '<table><tr><td>';
-echo form_input(array("name"=>"ayuda","id"=>"ayuda","type"=>"text"));
-echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_nota()">Guardar nota.</span></td></tr></table>';
-
-?>
-
-</div>
-</div>
 
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> persona:</label>
-<div class="col-md-10">
-<?php
 
- echo form_input(array("name"=>"selpersona","id"=>"selpersona","type"=>"text", 'style'=> 'width:50%;'));  
 
-?>
-</div>
-</div>
 
 
 
@@ -198,12 +158,23 @@ echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_nota()">Gua
 						</div>
 					</div>					
 
+										
+
+
 					<div class="form-group row">
-						<label class="col-md-2 col-form-label">Comentario</label>
-						<div class="col-md-10">
-							<input type="text" name="comentario_edit" id="comentario_edit" class="form-control" placeholder="comentario">  
-						</div>
-					</div>					
+					<label class="col-md-2 col-form-label"> Comentario:</label>
+					<div class="col-md-10">
+					<?php
+					$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"comentario",'id'=>'comentario_edit' );
+					echo form_textarea("comentario_edit","",$textarea_options);
+
+					?>
+					</div>
+					</div>
+
+
+
+
 
 					<div class="form-group row">
 					<label class="col-md-2 col-form-label">Tipo participacion:</label>
