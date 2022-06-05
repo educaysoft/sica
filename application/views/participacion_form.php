@@ -428,7 +428,7 @@ $("#btn_update").on("click", function(){
 	var ayuda=document.getElementById("ayuda_edit").value;
 	var idtipoparticipacion=document.getElementById("idtipoparticipacion_edit").value;
 	//var idpersona= $('select[name=idpersona]').val();
-	var idpersona = document.getElementById("idpersona_edit");
+	var idpersona = document.getElementById("idpersona_edit").value;
        // var idpersona=p.options[p.selectedIndex].value;
     $.ajax({
         url: "<?php echo site_url('participacion/save_nota') ?>",
