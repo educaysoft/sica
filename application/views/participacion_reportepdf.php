@@ -76,6 +76,7 @@ foreach ($participacion as $row){
 		{
   			$parcial[$p]=$parcial[$p]+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2);
 			$nparcial=$p;
+			break;
 	      }
 
 	}  
@@ -88,9 +89,9 @@ foreach ($participacion as $row){
 		{
   			$parcial[$p]=$parcial[$p]+ 0;
 			$nparcial=$p;
+			break;
 	      }
 
-	      $j=$j+1;
 	}  
 	
 
