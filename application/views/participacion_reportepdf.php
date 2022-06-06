@@ -237,8 +237,11 @@ $nparcial=0;
 
 
 
+	$date=array('Men'=>1510, "Women"=>1610, "Children"=>1400);
 
-
+	$pdf->SetFont("Arial", "BIU",12);
+	$pdf->Cell(0,5,'1 - Pie chart',0,1);
+	$pdf->Ln(8);
 
 
 
