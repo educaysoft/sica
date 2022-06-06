@@ -100,6 +100,7 @@ foreach ($participacion as $row){
       }
     }
     $k=0;
+    $sum=0;
     foreach($parcial as $sp)
     {
 
@@ -187,6 +188,14 @@ foreach ($participacion as $row){
     }
  
       $pdf->Cell(12,6,8,1,1,'R',0);
+	foreach($fechacorte as $p=>$fc)
+	{
+	$parcial[$p]=0;
+
+	}
+$nparcial=0;
+
+
 	$sum=0;
 	$can=0;
 
