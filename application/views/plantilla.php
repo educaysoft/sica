@@ -2,7 +2,8 @@
 //$v='"'.$_SERVER["DOCUMENT_ROOT"].'/sica/FPDI/vendor/autoload.php'.'"';
 require 'fpdf/fpdf.php';
 //require_once($v);
-require('sector.php');
+require_once('sector.php');
+
 class PDF extends FPDF
 {
 	public $institucion = "";
