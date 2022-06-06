@@ -242,7 +242,16 @@ $nparcial=0;
 	$pdf->SetFont("Arial", "BIU",12);
 	$pdf->Cell(0,5,'1 - Pie chart',0,1);
 	$pdf->Ln(8);
+	$pdf->SetXY(90,$valY);
 
+	$valX->$pdf->GetX();
+	$valY->$pdf->GetY();
+
+	$col1=array(100,100,255);
+	$col2=array(100,100,255);
+	$col3=array(100,100,255);
+	$pdf->PieChar(100.35.$data, '%1 (%p)', array($col1,$col2,$col3));
+	$pdf->SetXY($valX, $valY +40);
 
 
 
