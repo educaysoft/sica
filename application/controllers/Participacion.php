@@ -205,7 +205,12 @@ public function reportepdf()
 {
 	$tmp=explode("-",$this->uri->segment(3));
 	$idevento=$tmp[0];
+	if(isset($tmp[1])
+	{
 	$nivelrpt=$tmp[1];
+	}else{
+	$nivelrpt=0;
+	}
         $data['nivelrpt']=$nivelrpt;
 	$data['evento'] = $this->evento_model->evento($idevento)->row_array();
 	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_activo($idevento)->result();
