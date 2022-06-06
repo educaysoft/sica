@@ -73,7 +73,7 @@ foreach ($participacion as $row){
 
       }
     }
-      $resu=round(($sum/2), 0);
+      $resu=ceil($sum/2);
     $pdf->Cell(12,6,$sum,1,0,'R',0);
     if ($resu<7){
 	 $pdf->setFillColor(247,191,190);
@@ -140,7 +140,7 @@ foreach ($participacion as $row){
     }
    $resu=0; 
      // $resu=round(($sum/($can)), 0);
-      $resu=round(($sum/2), 0);
+      $resu=ceil($sum/2);
 	    $pdf->Cell(12,6,$sum,1,0,'R',0);
     if ($resu<7){
 	$pdf->setFillColor(247,191,190);
