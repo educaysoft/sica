@@ -30,11 +30,10 @@ foreach ($fechaeventos as $row){
  $pdf->Cell(12,6,'Asis',1,1,'C',1);
 $sum=0;
 $can=0;
+$parcial=array();
+$nparcial=0;
 
-
-
-
-	$pdf->SetFont('Arial','',8);
+$pdf->SetFont('Arial','',8);
 
 
 $id=0;
@@ -54,26 +53,56 @@ foreach ($participacion as $row){
 		      $ponderacion=1;
 		}else{
 
-		$ponderacion=$row1->ponderacion;
+		     $ponderacion=$row1->ponderacion;
 	     }
 	      if($arrayuda[$row1->fecha]>0){
 		$pdf->SetTextColor(14,249,53);
-         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,0),1,0,'R',0);
+         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 	      }else{
-         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,0),1,0,'R',0);
+         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 
 	      }
 		$pdf->SetTextColor(0,0,0);
-	  $sum=$sum+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,0);
+	      $j=0;
+	foreach($fechacorte as $p=>$fc)
+	{
+	      if($row1->fecha<$fc)
+		{
+  			$parcial[$p]=$parcial[$p]+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2);
+			$nparcial=$p;
+	      }
+
+	}  
 	  $can=$can+1;
       }else{
          $pdf->Cell(10,6,'0',1,0,'R',0);
-	  $sum=$sum+ 0;
+	foreach($fechacorte as $p=>$fc)
+	{
+	      if($row1->fecha<$fc)
+		{
+  			$parcial[$p]=$parcial[$p]+ 0;
+			$nparcial=$p;
+	      }
+
+	      $j=$j+1;
+	}  
+	
+
+
 	  $can=$can+1;
 
       }
     }
-      $resu=ceil($sum/2);
+    $k=0
+    foreach($parcial as $sp)
+    {
+
+		$sum=$sum+$sp;
+		$k=$k+1;
+    }
+
+
+    $resu=round($sum/$k,0);
     $pdf->Cell(12,6,$sum,1,0,'R',0);
     if ($resu<7){
 	 $pdf->setFillColor(247,191,190);

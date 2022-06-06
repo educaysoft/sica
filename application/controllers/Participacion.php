@@ -211,6 +211,8 @@ public function reportepdf()
 	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_activo($idevento)->result();
   	$data['participacion'] = $this->participacion_model->listar_participacion1($idevento)->result();
   	$data['title']="Certificado";
+	$fechascortes=array(1=>"2022-04-08",2=>"2022-05-30");
+	$data['fechacorte']=$fechascortes;
 //	$this->load->view('template/page_header');		
 // 	$this->load->view('participacion_report',$data);
 	$this->load->view('participacion_reportepdf',$data);
