@@ -243,8 +243,8 @@ $nparcial=0;
 	$pdf->Cell(0,5,'1 - Pie chart',0,1);
 	$pdf->Ln(8);
 
-	$valX->$pdf->GetX();
-	$valY->$pdf->GetY();
+	$valX=$pdf->GetX();
+	$valY=$pdf->GetY();
 
 	$pdf->SetXY(90,$valY);
 	$col1=array(100,100,255);
