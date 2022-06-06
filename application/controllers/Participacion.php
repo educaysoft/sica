@@ -205,7 +205,7 @@ public function reportepdf()
 {
 	$tmp=explode("-",$this->uri->segment(3));
 	$idevento=$tmp[0];
-	if(isset($tmp[1])
+	if(isset($tmp[1])))
 	{
 	$nivelrpt=$tmp[1];
 	}else{
