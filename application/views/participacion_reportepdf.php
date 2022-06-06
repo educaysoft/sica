@@ -30,7 +30,13 @@ foreach ($fechaeventos as $row){
  $pdf->Cell(12,6,'Asis',1,1,'C',1);
 $sum=0;
 $can=0;
+
 $parcial=array();
+	foreach($fechacorte as $p=>$fc)
+	{
+	$parcial[$p]=0;
+
+	}
 $nparcial=0;
 
 $pdf->SetFont('Arial','',8);
@@ -93,7 +99,7 @@ foreach ($participacion as $row){
 
       }
     }
-    $k=0
+    $k=0;
     foreach($parcial as $sp)
     {
 
