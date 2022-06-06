@@ -6,7 +6,6 @@
 //	$resultado = $mysqli->query($query);
 	
 	$pdf = new PDF();
-	$pdf1 = new PDF_Diag();
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
