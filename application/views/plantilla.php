@@ -6,7 +6,6 @@ require_once('sector.php');
 
 class PDF extends PDF_Sector
 {
-	use PDF_Sector;
 	public $institucion = "";
 	public $unidad  = "";
 	public $departamento ="";
