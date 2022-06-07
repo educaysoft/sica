@@ -8,6 +8,7 @@ class PDF_Diag extends PDF_Sector {
 	var $NbVal;
 
 	function PieChart($w, $h, $data, $format, $colors=null)
+	$pdf1 = new PDF_Diag();
 	{
 		$this->SetFont('Courier', '', 10);
 		$this->SetLegends($data,$format);
