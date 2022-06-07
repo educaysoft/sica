@@ -250,7 +250,7 @@ $nparcial=0;
 	$col1=array(100,100,255);
 	$col2=array(100,100,255);
 	$col3=array(100,100,255);
-	$pdf->PieChar(100.35.$data, '%1 (%p)', array($col1,$col2,$col3));
+	$pdf->PieChart(100.35.$data, '%1 (%p)', array($col1,$col2,$col3));
 	$pdf->SetXY($valX, $valY +40);
 
 

@@ -50,7 +50,7 @@ class PDF extends PDF_Sector
 
 
 
-public	function PieChart($w, $h, $data, $format, $colors=null)
+	function PieChart($w, $h, $data, $format, $colors=null)
 	{
 		$this->SetFont('Courier', '', 10);
 		$this->SetLegends($data,$format);
