@@ -4,7 +4,7 @@ require 'fpdf/fpdf.php';
 //require_once($v);
 require_once('sector.php');
 
-class PDF extends FPDF_Sector
+class PDF extends PDF_Sector
 {
 	use PDF_Sector;
 	public $institucion = "";
