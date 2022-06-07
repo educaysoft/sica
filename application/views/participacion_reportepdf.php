@@ -28,7 +28,13 @@ foreach ($fechaeventos as $row){
  $pdf->Cell(12,6,'Total',1,0,'C',1);
  $pdf->Cell(12,6,'Prom',1,0,'C',1);
  $pdf->Cell(12,6,'Asis',1,1,'C',1);
-$sum=0;
+ 
+ $aprobados=0;
+ $reprobados=0;
+ $desertores=0;
+	 
+ 
+ $sum=0;
 $can=0;
 
 $parcial=array();
@@ -90,7 +96,6 @@ foreach ($participacion as $row){
 			$nparcial=$p;
 			break;
 	      }
-
 	}  
 	
       }
@@ -108,11 +113,20 @@ foreach ($participacion as $row){
     $resu=round($sum/$k,0);
     $pdf->Cell(12,6,$sum,1,0,'R',0);
     if ($resu<7){
+    	if ($resu<5){
+
+	 $pdf->setFillColor(255,255,100);
+      	 $pdf->Cell(12,6,$resu,1,0,'R',1);
+	 $desertores=$desertores+1;
+	}else{	
 	 $pdf->setFillColor(247,191,190);
       	 $pdf->Cell(12,6,$resu,1,0,'R',1);
+	 $reprobados=$reprobados+1;
+	}
     }else{
 	 $pdf->setFillColor(144,238,144);
      	 $pdf->Cell(12,6,$resu,1,0,'R',1);
+	 $aprobados=$aprobados+1;
     }
       $pdf->Cell(12,6,8,1,1,'R',0);
 	foreach($fechacorte as $p=>$fc)
@@ -209,15 +223,27 @@ $nparcial=0;
 
     $resu=round($sum/$k,0);
 	    $pdf->Cell(12,6,$sum,1,0,'R',0);
-    if ($resu<7){
-	$pdf->setFillColor(247,191,190);
-      	$pdf->Cell(12,6,$resu,1,0,'R',1);
-    }else{
-	$pdf->setFillColor(144,238,144);
-      	$pdf->Cell(12,6,$resu,1,0,'R',1);
 
+    if ($resu<7){
+    	if ($resu<5){
+
+	 $pdf->setFillColor(255,255,100);
+      	 $pdf->Cell(12,6,$resu,1,0,'R',1);
+	 $desertores=$desertores+1;
+	}else{	
+	 $pdf->setFillColor(247,191,190);
+      	 $pdf->Cell(12,6,$resu,1,0,'R',1);
+	 $reprobados=$reprobados+1;
+	}
+    }else{
+	 $pdf->setFillColor(144,238,144);
+     	 $pdf->Cell(12,6,$resu,1,0,'R',1);
+	 $aprobados=$aprobados+1;
     }
  
+
+
+
       $pdf->Cell(12,6,8,1,1,'R',0);
 	foreach($fechacorte as $p=>$fc)
 	{
@@ -237,7 +263,7 @@ $nparcial=0;
 
 
 
-	$data=array('Aprobados'=>1510, "Reprobados"=>1610, "Desertores"=>1400);
+	$data=array('Aprobados'=>$aprobados, "Reprobados"=>$reprobados, "Desertores"=>$desertores);
 
 	$pdf->SetFont("Arial", "BIU",12);
 	$pdf->Cell(0,5,'1 - Pie chart',0,1);
