@@ -237,19 +237,32 @@ $nparcial=0;
 
 
 
-	$data=array('Men'=>1510, "Women"=>1610, "Children"=>1400);
+	$data=array('Aprobados'=>1510, "Reprobados"=>1610, "Desertores"=>1400);
 
 	$pdf->SetFont("Arial", "BIU",12);
 	$pdf->Cell(0,5,'1 - Pie chart',0,1);
 	$pdf->Ln(8);
 
+	$pdf->SetFont('Arial','', 10);
 	$valX=$pdf->GetX();
 	$valY=$pdf->GetY();
+	$pdf->Cell(30,5,'Números de aprobados: ');
+	$pdf->Cell(15,5,$data['Aprobados'],0,0,'R');
+	$pdf->Ln();
+	$pdf->Cell(30,5,'Números de reprobados: ');
+	$pdf->Cell(15,5,$data['Reprobados'],0,0,'R');
+	$pdf->Ln();
+	$pdf->Cell(30,5,'Números de desertores: ');
+	$pdf->Cell(15,5,$data['Desertores'],0,0,'R');
+	$pdf->Ln();
+	$pdf->Ln(8);
+
+
 
 	$pdf->SetXY(90,$valY);
 	$col1=array(100,100,255);
-	$col2=array(100,100,255);
-	$col3=array(100,100,255);
+	$col2=array(255,100,100);
+	$col3=array(255,255,100);
 	$pdf->PieChart(100,35,$data, '%1 (%p)', array($col1,$col2,$col3));
 	$pdf->SetXY($valX, $valY +40);
 
