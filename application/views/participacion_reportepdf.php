@@ -246,13 +246,13 @@ $nparcial=0;
 	$pdf->SetFont('Arial','', 10);
 	$valX=$pdf->GetX();
 	$valY=$pdf->GetY();
-	$pdf->Cell(30,5,'Números de aprobados: ');
+	$pdf->Cell(30,5,'Aprobados: ');
 	$pdf->Cell(15,5,$data['Aprobados'],0,0,'R');
 	$pdf->Ln();
-	$pdf->Cell(30,5,'Números de reprobados: ');
+	$pdf->Cell(30,5,'Reprobados: ');
 	$pdf->Cell(15,5,$data['Reprobados'],0,0,'R');
 	$pdf->Ln();
-	$pdf->Cell(30,5,'Números de desertores: ');
+	$pdf->Cell(30,5,'Desertores: ');
 	$pdf->Cell(15,5,$data['Desertores'],0,0,'R');
 	$pdf->Ln();
 	$pdf->Ln(8);
@@ -263,7 +263,7 @@ $nparcial=0;
 	$col1=array(100,100,255);
 	$col2=array(255,100,100);
 	$col3=array(255,255,100);
-	$pdf->PieChart(100,35,$data, '%1 (%p)', array($col1,$col2,$col3));
+	$pdf->PieChart(100,35,$data, '%l : %v (%p)', array($col1,$col2,$col3));
 	$pdf->SetXY($valX, $valY +40);
 
 
