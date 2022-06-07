@@ -134,9 +134,8 @@ foreach ($participacion as $row){
 	$parcial[$p]=0;
 
 	}
-$nparcial=0;
+	$nparcial=0;
 	$sum=0;
-	$can=0;
    }
     $arrparticipacion=array();
     $arrayuda=array();
@@ -175,9 +174,9 @@ $nparcial=0;
 
 	      if($arrayuda[$row1->fecha]>0){
 		$pdf->SetTextColor(14,249,53);
-         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,0),1,0,'R',0);
+         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 	      }else{
-         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,0),1,0,'R',0);
+         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 
 	      }
 		$pdf->SetTextColor(0,0,0);
