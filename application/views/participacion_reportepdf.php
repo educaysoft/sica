@@ -69,7 +69,7 @@ foreach ($participacion as $row){
 		     $ponderacion=$row1->ponderacion;
 	     }
 	      if($arrayuda[$row1->fecha]>0){
-		$pdf->SetTextColor(14,249,53);
+		$pdf->SetTextColor(3,18,249);
          	$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 	      }else{
          	$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
@@ -116,16 +116,16 @@ foreach ($participacion as $row){
     if ($resu<7){
     	if ($resu<5){
 
-	 $pdf->setFillColor(255,255,100);
+	 $pdf->setFillColor(253,194,224);
       	 $pdf->Cell(10,5,$resu,1,0,'R',1);
 	 $desertores=$desertores+1;
 	}else{	
-	 $pdf->setFillColor(247,191,190);
+	 $pdf->setFillColor(245,249,3);
       	 $pdf->Cell(10,5,$resu,1,0,'R',1);
 	 $reprobados=$reprobados+1;
 	}
     }else{
-	 $pdf->setFillColor(144,238,144);
+	 $pdf->setFillColor(7,195,250);
      	 $pdf->Cell(10,5,$resu,1,0,'R',1);
 	 $aprobados=$aprobados+1;
     }
@@ -174,7 +174,7 @@ foreach ($participacion as $row){
 
 
 	      if($arrayuda[$row1->fecha]>0){
-		$pdf->SetTextColor(14,249,53);
+		$pdf->SetTextColor(3,18,249);
          	$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 	      }else{
          	$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
@@ -227,16 +227,16 @@ foreach ($participacion as $row){
     if ($resu<7){
     	if ($resu<5){
 
-	 $pdf->setFillColor(255,255,100);
+	 $pdf->setFillColor(255,194,224);
       	 $pdf->Cell(10,5,$resu,1,0,'R',1);
 	 $desertores=$desertores+1;
 	}else{	
-	 $pdf->setFillColor(247,191,190);
+	 $pdf->setFillColor(245,249,3);
       	 $pdf->Cell(10,5,$resu,1,0,'R',1);
 	 $reprobados=$reprobados+1;
 	}
     }else{
-	 $pdf->setFillColor(100,100,255);
+	 $pdf->setFillColor(7,195,250);   //celeste
      	 $pdf->Cell(10,5,$resu,1,0,'R',1);
 	 $aprobados=$aprobados+1;
     }
@@ -286,9 +286,9 @@ foreach ($participacion as $row){
 
 
 	$pdf->SetXY(90,$valY);
-	$col1=array(100,100,255);
-	$col2=array(255,100,100);
-	$col3=array(255,255,100);
+	$col1=array(7,195,250);  //celeste
+	$col2=array(245,249,3);   //amarillo
+	$col3=array(253,194,224);  //rosado
 	$pdf->PieChart(100,35,$data, '%l : %v (%p)', array($col1,$col2,$col3));
 	$pdf->SetXY($valX, $valY +40);
 
