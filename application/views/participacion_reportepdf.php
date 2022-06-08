@@ -236,7 +236,7 @@ foreach ($participacion as $row){
 	 $reprobados=$reprobados+1;
 	}
     }else{
-	 $pdf->setFillColor(144,238,144);
+	 $pdf->setFillColor(100,100,255);
      	 $pdf->Cell(10,5,$resu,1,0,'R',1);
 	 $aprobados=$aprobados+1;
     }
@@ -250,7 +250,7 @@ foreach ($participacion as $row){
 	$parcial[$p]=0;
 
 	}
-$nparcial=0;
+	$nparcial=0;
 
 
 	$sum=0;
@@ -299,11 +299,5 @@ $nparcial=0;
 
 
 
-//	while($row = $resultado->fetch_assoc())
-//	{
-//		$pdf->Cell(70,5,utf8_decode($row['estado']),1,0,'C');
-//		$pdf->Cell(20,5,$row['id_municipio'],1,0,'C');
-//		$pdf->Cell(70,5,utf8_decode($row['municipio']),1,1,'C');
-//	}
 	$pdf->Output();
 ?>
