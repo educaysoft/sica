@@ -17,17 +17,18 @@
 	$pdf->AddPage();
 	
 	$pdf->SetFillColor(232,232,232);
-	$pdf->SetFont('Arial','B',9);
+	$pdf->SetFont('Arial','B',8);
 
 
- $pdf->Cell(8,6,'#',1,0,'C',1);
- $pdf->Cell(62,6,'Participante',1,0,'C',1);
+ $pdf->Cell(8,5,'#',1,0,'C',1);
+ $pdf->Cell(62,5,'Participante',1,0,'C',1);
 foreach ($fechaeventos as $row){
- $pdf->Cell(10,6,$row->temacorto,1,0,'C',1);
+ $pdf->Cell(10,5,$row->temacorto,1,0,'C',1);
 }
- $pdf->Cell(12,6,'Total',1,0,'C',1);
- $pdf->Cell(12,6,'Prom',1,0,'C',1);
- $pdf->Cell(12,6,'Asis',1,1,'C',1);
+ $pdf->Cell(12,5,'P1',1,0,'C',1);
+ $pdf->Cell(12,5,'P2',1,0,'C',1);
+ $pdf->Cell(12,5,'Prom',1,0,'C',1);
+ $pdf->Cell(12,5,'Asis',1,1,'C',1);
  
  $aprobados=0;
  $reprobados=0;
@@ -45,7 +46,7 @@ $parcial=array();
 	}
 $nparcial=0;
 
-$pdf->SetFont('Arial','',8);
+$pdf->SetFont('Arial','',7);
 
 
 $id=0;
@@ -56,8 +57,8 @@ foreach ($participacion as $row){
   {
    if($id>0){
     $i=$i+1;
-    $pdf->Cell(8,6,$i,1,0,'R',0); 
-    $pdf->Cell(62,6,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
+    $pdf->Cell(8,5,$i,1,0,'R',0); 
+    $pdf->Cell(62,5,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
 	      if($nivelrpt==2 || $nivelrpt==1)
@@ -69,9 +70,9 @@ foreach ($participacion as $row){
 	     }
 	      if($arrayuda[$row1->fecha]>0){
 		$pdf->SetTextColor(14,249,53);
-         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
+         	$pdf->Cell(10,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 	      }else{
-         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
+         	$pdf->Cell(10,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 
 	      }
 		$pdf->SetTextColor(0,0,0);
@@ -87,7 +88,7 @@ foreach ($participacion as $row){
 	}  
 	  $can=$can+1;
       }else{
-         $pdf->Cell(10,6,'0',1,0,'R',0);
+         $pdf->Cell(10,5,'0',1,0,'R',0);
 	foreach($fechacorte as $p=>$fc)
 	{
 	      if($row1->fecha<$fc)
@@ -106,29 +107,29 @@ foreach ($participacion as $row){
     {
 
 		$sum=$sum+round($sp,0);
+    		$pdf->Cell(12,5,round($sp,0),1,0,'R',0);
 		$k=$k+1;
     }
 
 
     $resu=round($sum/$k,0);
-    $pdf->Cell(12,6,$sum,1,0,'R',0);
     if ($resu<7){
     	if ($resu<5){
 
 	 $pdf->setFillColor(255,255,100);
-      	 $pdf->Cell(12,6,$resu,1,0,'R',1);
+      	 $pdf->Cell(12,5,$resu,1,0,'R',1);
 	 $desertores=$desertores+1;
 	}else{	
 	 $pdf->setFillColor(247,191,190);
-      	 $pdf->Cell(12,6,$resu,1,0,'R',1);
+      	 $pdf->Cell(12,5,$resu,1,0,'R',1);
 	 $reprobados=$reprobados+1;
 	}
     }else{
 	 $pdf->setFillColor(144,238,144);
-     	 $pdf->Cell(12,6,$resu,1,0,'R',1);
+     	 $pdf->Cell(12,5,$resu,1,0,'R',1);
 	 $aprobados=$aprobados+1;
     }
-      $pdf->Cell(12,6,8,1,1,'R',0);
+      $pdf->Cell(12,5,8,1,1,'R',0);
 	foreach($fechacorte as $p=>$fc)
 	{
 	$parcial[$p]=0;
@@ -158,8 +159,8 @@ foreach ($participacion as $row){
   }
 }
   $i=$i+1;
-    $pdf->Cell(8,6,$i,1,0,'R',0); 
-    $pdf->Cell(62,6,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
+    $pdf->Cell(8,5,$i,1,0,'R',0); 
+    $pdf->Cell(62,5,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
 
@@ -174,9 +175,9 @@ foreach ($participacion as $row){
 
 	      if($arrayuda[$row1->fecha]>0){
 		$pdf->SetTextColor(14,249,53);
-         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
+         	$pdf->Cell(10,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 	      }else{
-         	$pdf->Cell(10,6,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
+         	$pdf->Cell(10,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 
 	      }
 		$pdf->SetTextColor(0,0,0);
@@ -194,7 +195,7 @@ foreach ($participacion as $row){
 	}  
 
       }else{
-         $pdf->Cell(10,6,'0',1,0,'R',0);
+         $pdf->Cell(10,5,'0',1,0,'R',0);
 
 
 	foreach($fechacorte as $p=>$fc)
@@ -216,34 +217,34 @@ foreach ($participacion as $row){
     {
 
 		$sum=$sum+round($sp,0);
+	    	$pdf->Cell(12,5,+round($sp,0),1,0,'R',0);
 		$k=$k+1;
     }
 
 
     $resu=round($sum/$k,0);
-	    $pdf->Cell(12,6,$sum,1,0,'R',0);
 
     if ($resu<7){
     	if ($resu<5){
 
 	 $pdf->setFillColor(255,255,100);
-      	 $pdf->Cell(12,6,$resu,1,0,'R',1);
+      	 $pdf->Cell(12,5,$resu,1,0,'R',1);
 	 $desertores=$desertores+1;
 	}else{	
 	 $pdf->setFillColor(247,191,190);
-      	 $pdf->Cell(12,6,$resu,1,0,'R',1);
+      	 $pdf->Cell(12,5,$resu,1,0,'R',1);
 	 $reprobados=$reprobados+1;
 	}
     }else{
 	 $pdf->setFillColor(144,238,144);
-     	 $pdf->Cell(12,6,$resu,1,0,'R',1);
+     	 $pdf->Cell(12,5,$resu,1,0,'R',1);
 	 $aprobados=$aprobados+1;
     }
  
 
 
 
-      $pdf->Cell(12,6,8,1,1,'R',0);
+      $pdf->Cell(12,5,8,1,1,'R',0);
 	foreach($fechacorte as $p=>$fc)
 	{
 	$parcial[$p]=0;
@@ -300,9 +301,9 @@ $nparcial=0;
 
 //	while($row = $resultado->fetch_assoc())
 //	{
-//		$pdf->Cell(70,6,utf8_decode($row['estado']),1,0,'C');
-//		$pdf->Cell(20,6,$row['id_municipio'],1,0,'C');
-//		$pdf->Cell(70,6,utf8_decode($row['municipio']),1,1,'C');
+//		$pdf->Cell(70,5,utf8_decode($row['estado']),1,0,'C');
+//		$pdf->Cell(20,5,$row['id_municipio'],1,0,'C');
+//		$pdf->Cell(70,5,utf8_decode($row['municipio']),1,1,'C');
 //	}
 	$pdf->Output();
 ?>
