@@ -39,10 +39,12 @@ foreach ($fechaeventos as $row){
 $can=0;
 
 $parcial=array();
+$nnotas=array();
+
 	foreach($fechacorte as $p=>$fc)
 	{
 	$parcial[$p]=0;
-
+	$nnotas[$p]=0;
 	}
 $nparcial=0;
 
@@ -63,52 +65,60 @@ foreach ($participacion as $row){
       if(isset($arrparticipacion[$row1->fecha])){
 	      if($nivelrpt==2 || $nivelrpt==1)
 	      { 
-		      $ponderacion=1;
-		}else{
-
-		     $ponderacion=$row1->ponderacion;
-	     }
+		   $ponderacion=1;
+	      }else{
+		   $ponderacion=$row1->ponderacion;
+	      }
 	      if($arrayuda[$row1->fecha]>0){
 		$pdf->SetTextColor(3,18,249);
          	$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 	      }else{
          	$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
-
 	      }
-		$pdf->SetTextColor(0,0,0);
+	$pdf->SetTextColor(0,0,0);
 	foreach($fechacorte as $p=>$fc)
 	{
 	      if($row1->fecha<$fc)
 		{
   			$parcial[$p]=$parcial[$p]+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2);
+			$nnotas[$p]=$nnotas[$p]+1;
 			$nparcial=$p;
 			break;
 	      }
 
 	}  
-	  $can=$can+1;
       }else{
-         $pdf->Cell(8,5,'0',1,0,'R',0);
+        $pdf->Cell(8,5,'0',1,0,'R',0);
 	foreach($fechacorte as $p=>$fc)
 	{
 	      if($row1->fecha<$fc)
 		{
   			$parcial[$p]=$parcial[$p]+ 0;
+			$nnotas[$p]=$nnotas[$p]+1;
 			$nparcial=$p;
 			break;
 	      }
 	}  
-	
       }
     }
     $k=0;
     $sum=0;
     foreach($parcial as $sp)
     {
+	         
 
+	       if($nnotas[$k]>1){
 		$sum=$sum+round($sp,0);
     		$pdf->Cell(10,5,round($sp,0),1,0,'R',0);
 		$k=$k+1;
+	       }else{
+		 if($sp>0){
+			$sum=$sum+round($sp,0);
+			$k=$k+1;
+
+			 }
+	       }
+
     }
 
 
@@ -133,6 +143,7 @@ foreach ($participacion as $row){
 	foreach($fechacorte as $p=>$fc)
 	{
 	$parcial[$p]=0;
+	$nnotas[$p]=0;
 
 	}
 	$nparcial=0;
