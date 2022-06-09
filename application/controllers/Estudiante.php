@@ -32,6 +32,30 @@ public function index(){
  }
 
 
+
+public function actual(){
+ if(isset($this->session->userdata['logged_in'])){
+
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['estudios']= $this->estudio_model->estudios($data['estudiante']['idpersona'])->result();
+
+
+	$data['estudiante']=$this->estudiante_model->estudiante($this->uri->segment(3))->row_array();
+	$data['title']="Modulo de Personas";
+	$this->load->view('template/page_header');		
+	$this->load->view('estudiante_record',$data);
+	$this->load->view('template/page_footer');
+   }else{
+	$this->load->view('template/page_header.php');
+	$this->load->view('login_form');
+	$this->load->view('template/page_footer.php');
+   }
+}
+
+
+
+
 	public function add()
 	{
 			$data['personas']= $this->persona_model->lista_personas()->result();
@@ -118,7 +142,7 @@ public function index(){
 			foreach($data0->result() as $r){
 				$data[]=array($r->idestudiante,$r->elestudiante,$r->lacarrera,$r->fechadesde,$r->fechahasta,
 					$r->href='<a href="javascript:void(0);" class="item_ver" data-doctos="'.$r->idpersona.'">'.$r->cantidad.'</a>',
-					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idestudiante="'.$r->idestudiante.'">Ver</a>');
+					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('estudiante/actual').'"  data-idestudiante="'.$r->idestudiante.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
