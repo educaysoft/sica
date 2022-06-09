@@ -107,7 +107,7 @@ foreach ($participacion as $row){
     {
 	         
 
-	       if($nnotas[$k]>1){
+	       if($nnotas[$k+1]>1){
 		$sum=$sum+round($sp,0);
     		$pdf->Cell(10,5,round($sp,0),1,0,'R',0);
 		$k=$k+1;
