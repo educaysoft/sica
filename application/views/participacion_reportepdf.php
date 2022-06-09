@@ -199,6 +199,7 @@ foreach ($participacion as $row){
 	      if($row1->fecha<$fc)
 		{
   			$parcial[$p]=$parcial[$p]+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2);
+			$nnotas[$p]=$nnotas[$p]+1;
 			$nparcial=$p;
 			break;
 	      }
@@ -214,6 +215,7 @@ foreach ($participacion as $row){
 	      if($row1->fecha<$fc)
 		{
   			$parcial[$p]=$parcial[$p]+ 0;
+			$nnotas[$p]=$nnotas[$p]+1;
 			$nparcial=$p;
 			break;
 	      }
@@ -227,9 +229,22 @@ foreach ($participacion as $row){
     foreach($parcial as $sp)
     {
 
+
+	       if($nnotas[$k+1]>1){
 		$sum=$sum+round($sp,0);
-	    	$pdf->Cell(10,5,+round($sp,0),1,0,'R',0);
+    		$pdf->Cell(10,5,round($sp,0),1,0,'R',0);
 		$k=$k+1;
+	       }else{
+		 if($sp>0){
+			$sum=$sum+round($sp,0);
+			$k=$k+1;
+
+			 }
+	       }
+
+
+
+
     }
 
 
