@@ -20,8 +20,10 @@
 	$pdf->SetFont('Arial','B',8);
 
 
- $pdf->Cell(8,5,'#',1,0,'C',1);
- $pdf->Cell(62,5,'Participante',1,0,'C',1);
+ $pdf->Cell(5,5,'#',1,0,'C',1);
+ $pdf->Cell(59,5,'Participante',1,0,'C',1);
+ $pdf->Cell(3,5,'GEN',1,0,'C',1);
+ $pdf->Cell(3,5,'COL',1,0,'C',1);
 foreach ($fechaeventos as $row){
  $pdf->Cell(8,5,$row->temacorto,1,0,'C',1);
 }
@@ -59,8 +61,10 @@ foreach ($participacion as $row){
   {
    if($id>0){
     $i=$i+1;
-    $pdf->Cell(8,5,$i,1,0,'R',0); 
-    $pdf->Cell(62,5,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
+    $pdf->Cell(5,5,$i,1,0,'R',0); 
+    $pdf->Cell(59,5,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
+    $pdf->Cell(3,5,utf8_decode($arrgenero1[$id]),1,0,'L',0);
+    $pdf->Cell(3,5,utf8_decode($arrcolegio1[$id]),1,0,'L',0);
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
 	      if($nivelrpt==2 || $nivelrpt==1)
@@ -150,9 +154,17 @@ foreach ($participacion as $row){
 	$sum=0;
    }
     $arrparticipacion=array();
+    $arrgenero1=array(); 
+    $arrgenero2=array(); 
+    $arrcolegio1=array(); 
+    $arrcolegio2=array(); 
     $arrayuda=array();
     $id=$row->idpersona;
     $arrparticipacion[$row->idpersona]=$row->nombres;
+    $arrgenero1[$row->idpersona]=$row->idgenero; 
+    $arrgenero2[$row->idpersona]=$row->genero; 
+    $arrcolegio1[$row->idpersona]=$row->idinstitucion; 
+    $arrcolegio2[$row->idpersona]=$row->colegio; 
     $arrparticipacion[$row->fecha]=$row->porcentaje;
     if($nivelrpt==2){	
 	    $arrayuda[$row->fecha]=0;

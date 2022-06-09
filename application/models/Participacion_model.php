@@ -21,11 +21,11 @@ class Participacion_model extends CI_model {
     {
 		 $this->db->order_by("idevento asc,nombres asc");
  		$this->db->where('idevento',$idevento);
-		 $participacion= $this->db->get('participacion1');
+		 $participacion= $this->db->get('participacion2');
    }else{
   
 		 $this->db->order_by("idevento asc,nombres asc");
-		 $participacion= $this->db->get('participacion1');
+		 $participacion= $this->db->get('participacion2');
   
    }
      return $participacion;
