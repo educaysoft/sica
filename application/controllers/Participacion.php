@@ -448,7 +448,7 @@ public function get_participacion() {
     if($this->input->post('idevento')) 
     {
         $this->db->select('*');
-        $this->db->where(array('idevento' => $this->input->post('idevento'),'fecha' => $this->input->post('fecha'),'idpersona' => $this->input->post('idpersona')));
+        $this->db->where(array('idevento' => $this->input->post('idevento'),'fecha' => $this->input->post('fecha')));
         $query = $this->db->get('participacion1');
 
 	if ($query->num_rows() > 0) {
