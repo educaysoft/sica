@@ -21,9 +21,9 @@
 
 
  $pdf->Cell(5,5,'#',1,0,'C',1);
- $pdf->Cell(59,5,'Participante',1,0,'C',1);
- $pdf->Cell(3,5,'GEN',1,0,'C',1);
- $pdf->Cell(3,5,'COL',1,0,'C',1);
+ $pdf->Cell(55,5,'Participante',1,0,'C',1);
+ $pdf->Cell(5,5,'GE',1,0,'C',1);
+ $pdf->Cell(5,5,'CO',1,0,'C',1);
 foreach ($fechaeventos as $row){
  $pdf->Cell(8,5,$row->temacorto,1,0,'C',1);
 }
@@ -62,9 +62,9 @@ foreach ($participacion as $row){
    if($id>0){
     $i=$i+1;
     $pdf->Cell(5,5,$i,1,0,'R',0); 
-    $pdf->Cell(59,5,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
-    $pdf->Cell(3,5,utf8_decode($arrgenero1[$id]),1,0,'L',0);
-    $pdf->Cell(3,5,utf8_decode($arrcolegio1[$id]),1,0,'L',0);
+    $pdf->Cell(55,5,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
+    $pdf->Cell(5,5,utf8_decode($arrgenero1[$id]),1,0,'L',0);
+    $pdf->Cell(5,5,utf8_decode($arrcolegio1[$id]),1,0,'L',0);
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
 	      if($nivelrpt==2 || $nivelrpt==1)
@@ -166,6 +166,22 @@ foreach ($participacion as $row){
     $arrcolegio1[$row->idpersona]=$row->idinstitucion; 
     $arrcolegio2[$row->idpersona]=$row->colegio; 
     $arrparticipacion[$row->fecha]=$row->porcentaje;
+
+    if(isset($datag[$row->idgenero]){
+	    $datag[$row->idgenero]=$datag[$row->idgenero]+1;
+    }else{
+	    $datag[$row->idgenero]=0;
+    }
+
+     if(isset($datac[$row->idinstitucion]){
+	    $datac[$row->idinstitucion]=$datac[$row->idinstitucion]+1;
+    }else{
+	    $datac[$row->idinstitucion]=0;
+    }
+
+
+    
+    
     if($nivelrpt==2){	
 	    $arrayuda[$row->fecha]=0;
 	}else{
@@ -182,8 +198,10 @@ foreach ($participacion as $row){
   }
 }
   $i=$i+1;
-    $pdf->Cell(8,5,$i,1,0,'R',0); 
-    $pdf->Cell(62,5,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
+    $pdf->Cell(5,5,$i,1,0,'R',0); 
+    $pdf->Cell(55,5,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
+    $pdf->Cell(5,5,utf8_decode($arrgenero1[$id]),1,0,'L',0);
+    $pdf->Cell(5,5,utf8_decode($arrcolegio1[$id]),1,0,'L',0);
     foreach ($fechaeventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
 
@@ -240,8 +258,6 @@ foreach ($participacion as $row){
     $sum=0;
     foreach($parcial as $sp)
     {
-
-
 	       if($nnotas[$k+1]>1){
 		$sum=$sum+round($sp,0);
     		$pdf->Cell(10,5,round($sp,0),1,0,'R',0);
@@ -253,10 +269,6 @@ foreach ($participacion as $row){
 
 			 }
 	       }
-
-
-
-
     }
 
 
@@ -296,38 +308,57 @@ foreach ($participacion as $row){
 
 
 
-
-
-
-
-
 	$data=array('Aprobados'=>$aprobados, "Reprobados"=>$reprobados, "Desertores"=>$desertores);
 
 	$pdf->SetFont("Arial", "BIU",12);
-	$pdf->Cell(0,5,'1 - Pie chart',0,1);
+	$pdf->Cell(0,5,'Estadisticas de promovidos y no promovidos',0,1);
 	$pdf->Ln(8);
 
 	$pdf->SetFont('Arial','', 10);
 	$valX=$pdf->GetX();
 	$valY=$pdf->GetY();
-	$pdf->Cell(30,5,'Aprobados: ');
-	$pdf->Cell(15,5,$data['Aprobados'],0,0,'R');
+	foreach($data as $lg=>$vg){
+	$pdf->Cell(30,5,$l);
+	$pdf->Cell(15,5,$c,0,0,'R');
 	$pdf->Ln();
-	$pdf->Cell(30,5,'Reprobados: ');
-	$pdf->Cell(15,5,$data['Reprobados'],0,0,'R');
-	$pdf->Ln();
-	$pdf->Cell(30,5,'Desertores: ');
-	$pdf->Cell(15,5,$data['Desertores'],0,0,'R');
-	$pdf->Ln();
+	}
 	$pdf->Ln(8);
-
-
 
 	$pdf->SetXY(90,$valY);
 	$col1=array(7,195,250);  //celeste
 	$col2=array(245,249,3);   //amarillo
 	$col3=array(253,194,224);  //rosado
 	$pdf->PieChart(100,35,$data, '%l : %v (%p)', array($col1,$col2,$col3));
+	$pdf->SetXY($valX, $valY +40);
+
+
+
+
+
+
+
+
+	$pdf->SetFont("Arial", "BIU",12);
+	$pdf->Cell(0,5,'Estadisticas de Generos',0,1);
+	$pdf->Ln(8);
+
+	$pdf->SetFont('Arial','', 10);
+	$valX=$pdf->GetX();
+	$valY=$pdf->GetY();
+
+	foreach($datag as $lg=>$vg){
+	$pdf->Cell(30,5,$l);
+	$pdf->Cell(15,5,$c,0,0,'R');
+	$pdf->Ln();
+	}
+
+
+	$pdf->Ln(8);
+
+	$pdf->SetXY(90,$valY);
+	$col1=array(7,195,250);  //celeste
+	$col2=array(245,249,3);   //amarillo
+	$pdf->PieChart(100,35,$datag, '%l : %v (%p)', array($col1,$col2));
 	$pdf->SetXY($valX, $valY +40);
 
 
