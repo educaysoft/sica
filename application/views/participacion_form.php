@@ -463,6 +463,7 @@ function get_participacion_xx() {
           $('[name="porcentaje_edit"]').val("");
           $('[name="comentario_edit"]').val("");
           $('[name="ayuda_edit"]').val("");
+          $('[name="idtipoparticipacion_edit"]').val("");
         }else{
           $('[name="idparticipacion_edit"]').val(data[0].idparticipacion);
           $('[name="idevento_edit"]').val(data[0].idevento);
@@ -472,6 +473,7 @@ function get_participacion_xx() {
           $('[name="comentario_edit"]').val(data[0].comentario);
           $('[name="porcentaje_edit"]').val(data[0].porcentaje);
           $('[name="ayuda_edit"]').val(data[0].ayuda);
+          $('[name="idtipoparticipacion__edit"]').val(data[0].idtipoparticipacion);
         }
         },
       error: function (xhr, ajaxOptions, thrownError) {

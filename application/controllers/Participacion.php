@@ -448,7 +448,7 @@ public function get_participacion() {
     if($this->input->post('idevento')) 
     {
         $this->db->select('*');
-        $this->db->where(array('idevento' => $this->input->post('idevento'),'fecha' => $this->input->post('fecha')));
+        $this->db->where(array('idevento' => $this->input->post('idevento'),'fecha' => $this->input->post('fecha')),'idpersona' => $this->input->post('idpersona')));
         $query = $this->db->get('participacion1');
 
 	if ($query->num_rows() > 0) {
@@ -456,10 +456,10 @@ public function get_participacion() {
 		echo json_encode($data);
 	}else{
 
-		$this->db->select('idtipoparticipacion,nombre as tipoparticipacion, "" as comentario');
-		$query = $this->db->get('tipoparticipacion');
+	//		$this->db->select('idtipoparticipacion,nombre as tipoparticipacion, "" as comentario');
+	//	$query = $this->db->get('tipoparticipacion');
 
-		$data=$query->result();
+		$data=null; 
 		echo json_encode($data);
 	}
 
