@@ -436,10 +436,12 @@ $("#btn_update").on("click", function(){
 
 function get_participacion_xx() {
 	var f = document.getElementById("idfechaevento");
-  var fecha=f.options[f.selectedIndex].text;
+  	var arrtmp=f.options[f.selectedIndex].text;
+	const x=arrtmp.split(" - ");
+	var fecha=x[0];
 	var idevento=document.getElementById("idevento").value;
-//	var idpersona= $('select[name=idpersona]').val();
-	var idpersona=document.getElementById("idpersona").value;
+	var idpersona= $('select[name=idpersona]').val();
+//	var idpersona=document.getElementById("idpersona").value;
     $.ajax({
         url: "<?php echo site_url('participacion/get_participacionp') ?>",
         data: {idevento:idevento,fecha:fecha,idpersona:idpersona},
@@ -455,7 +457,7 @@ function get_participacion_xx() {
           $('[name="idparticipacion_edit"]').val(0);
           $('[name="idevento_edit"]').val(idevento);
           $('[name="fecha_edit"]').val(fecha);
-          $('[name="lapersona_edit"]').val(data[0].nombres);
+          $('[name="lapersona_edit"]').val("");
           $('[name="idpersona_edit"]').val(idpersona);
           $('[name="porcentaje_edit"]').val("");
           $('[name="comentario_edit"]').val("");
