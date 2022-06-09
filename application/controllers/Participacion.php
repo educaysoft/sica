@@ -459,7 +459,7 @@ public function get_participacion() {
 	//		$this->db->select('idtipoparticipacion,nombre as tipoparticipacion, "" as comentario');
 	//	$query = $this->db->get('tipoparticipacion');
 
-		$data=null; 
+		$data=$query->result();
 		echo json_encode($data);
 	}
 
