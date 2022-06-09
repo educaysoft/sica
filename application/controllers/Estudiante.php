@@ -36,12 +36,12 @@ public function index(){
 public function actual(){
  if(isset($this->session->userdata['logged_in'])){
 
-		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['estudiante']['idpersona'])->result();
-
-
+	$data['personas']= $this->persona_model->lista_personas()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['estudiante']=$this->estudiante_model->estudiante($this->uri->segment(3))->row_array();
+	$data['estudios']= $this->estudio_model->estudios($data['estudiante']['idpersona'])->result();
+
+
 	$data['title']="Modulo de Personas";
 	$this->load->view('template/page_header');		
 	$this->load->view('estudiante_record',$data);
