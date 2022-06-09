@@ -443,6 +443,8 @@ function get_participacion_xx() {
 	var idpersona= $('select[name=idpersona]').val();
 //	var idpersona=document.getElementById("idpersona").value;
 	alert(idpersona);
+	alert(fecha);
+	alert(idevento);
     $.ajax({
         url: "<?php echo site_url('participacion/get_participacionp') ?>",
         data: {idevento:idevento,fecha:fecha,idpersona:idpersona},
