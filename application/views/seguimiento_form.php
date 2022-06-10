@@ -329,7 +329,7 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 		dataType : 'json',
 		success: function(data){
 		var html = '';
-		var ioo
+		var ioo;
 		get_participantes2();
 		alert("Se guardo con exito");
 		},

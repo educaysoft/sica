@@ -468,11 +468,13 @@ public function send()
         $config['protocol'] = "ssmtp";
         $config['smtp_host'] = "ssl://ssmtp.googlemail.com";
         $config['smtp_port'] = "465";
+        $config['smtp_timeout'] = "7";
         $config['smtp_user'] ="maestria.ti@utelvt.edu.ec"; // $this->settings['smtp_email'];
         $config['smtp_pass'] ="PIwiIB2@3#"; //  $this->settings['smtp_password'];
         $config['charset'] = "utf-8";
         $config['mailtype'] = "html";
         $config['newline'] = "\r\n";
+        $config['validation'] = TRUE; 
 
         $this->email->initialize($config); 
         $this->email->from($email, $nome);
