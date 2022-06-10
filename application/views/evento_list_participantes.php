@@ -150,8 +150,8 @@ $('#show_data').on('click','.item_enviar',function(){
 		 var mailto= "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 		 var idpersona=$(this).data('idpersona');
-		 var asunto='UTLVTE - FACULTAD DE INGENIERIAS';
-		 alert(idpersona);
+		 var asunto='CERTIFICACIÓN - FACULTAD DE INGENIERÍAS - UTLVTE';
+		 alert(mailto);
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/send') ?>",
 		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure, asunto:asunto, idpersona:idpersona},
@@ -160,7 +160,7 @@ $('#show_data').on('click','.item_enviar',function(){
 		success: function(data){
 		var html = '';
 		var i;
-		alert(data);
+		alert(data+" ENVIADO A "+mailto);
 		},
 	      error: function (xhr, ajaxOptions, thrownError) {
 		alert(xhr.status);
