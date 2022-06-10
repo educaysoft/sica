@@ -170,13 +170,13 @@ foreach ($participacion as $row){
     if(isset($datag[$row->genero])){
 	    $datag[$row->genero]=$datag[$row->genero]+1;
     }else{
-	    $datag[$row->genero]=0;
+	    $datag[$row->genero]=1;
     }
 
      if(isset($datac[$row->colegio])){
 	    $datac[$row->colegio]=$datac[$row->colegio]+1;
     }else{
-	    $datac[$row->colegio]=0;
+	    $datac[$row->colegio]=1;
     }
 
 
