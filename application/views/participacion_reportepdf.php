@@ -173,10 +173,10 @@ foreach ($participacion as $row){
 	    $datag[$row->genero]=0;
     }
 
-     if(isset($datac["'"+$row->institucion+"'"])){
-	    $datac["'"+$row->institucion+"'"]=$datac["'"+$row->institucion+"'"]+1;
+     if(isset($datac[$row->colegio])){
+	    $datac[$row->colegio]=$datac[$row->colegio]+1;
     }else{
-	    $datac["'"+$row->institucion+"'"]=0;
+	    $datac[$row->colegio]=0;
     }
 
 
