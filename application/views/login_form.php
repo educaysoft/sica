@@ -31,17 +31,19 @@ if (isset($message_display)) {
 
 
 <div >
-                 <label class="form-label" for="idevento">Evento:</label>
-    <div class="form-group">
-<?php
-//print_r($eventos);
-$options= array('--Select--');
-foreach ($eventos as $row){
-	$options[$row->idevento]= $row->titulo;
-}
- echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('id'=>'idevento'));  
+    <label class="form-label" for="idevento">Evento:</label>
 
-?>
+    <div class="form-group">
+         <select class="form-control" id="idevento" name="idevento" required >
+                 <option>No Selected</option>
+		<?php
+		foreach ($eventos as $row){
+			echo '<option value='+$row->idevento+'>'+$row->titulo+'</option>';
+		}
+		?>
+          </select>
+    </div>
+
 </div>
 
 
