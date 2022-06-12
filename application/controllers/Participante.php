@@ -51,7 +51,7 @@ public function actual(){
 	public function add()
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['eventos']= $this->evento_model->lista_eventos_open()->result();
 		$data['title']="Nuevo Participante";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('participante_form',$data);
