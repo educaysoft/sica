@@ -38,7 +38,7 @@ if (isset($message_display)) {
                  <option>No Selected</option>
 		<?php
 		foreach ($eventos as $row){
-			echo '<option value='+$row->idevento+'>'+$row->titulo+'</option>';
+			echo '<option value='.$row->idevento.'>'.$row->titulo.'</option>';
 		}
 		?>
           </select>
