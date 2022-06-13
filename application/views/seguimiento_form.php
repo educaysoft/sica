@@ -506,7 +506,7 @@ function get_seguimiento_xx() {
 //	var idpersona=document.getElementById("idpersona").value;
 	idpersona=parseInt(idpersona);
     $.ajax({
-        url: "<?php echo site_url('seguimiento/get_seguimiento') ?>",
+        url: "<?php echo site_url('seguimiento/get_seguimientop') ?>",
         data: {idevento:idevento,fecha:fecha,idpersona:idpersona},
         method: 'POST',
         async : true,
