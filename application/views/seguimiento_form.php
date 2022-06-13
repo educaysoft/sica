@@ -201,7 +201,7 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 					<div class="col-md-10">
 					<?php
 					$options= array('--Select--');
-					foreach ($tiposeguimiento as $row){
+					foreach ($tiposeguimientos as $row){
 						$options[$row->idtiposeguimiento]= $row->nombre;
 					}
 					 echo form_dropdown("idtiposeguimiento_edit",$options, set_select('--Select--','default_value'),array('id'=>'idtiposeguimiento_edit'));  
