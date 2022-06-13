@@ -201,7 +201,11 @@ echo '</td><td><a class="btn"  onclick="save_seguimiento()"><i class="fa fa-fema
 					</div>
 					</div>
 
+					<?php
+echo '<a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Enviar correo.</a>';
 
+
+					?>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -451,7 +455,7 @@ $("#btn_update").on("click", function(){
 		 var email="maestria.ti@utelvt.edu.ec";
 		 var nome= document.getElementById("lapersona_edit").value; 		
                  var msg=tinyMCE.activeEditor.getContent({format:'text'});
-		 var mailto=document.getElementById("correo_edit").value; 
+		 var mailto=document.getElementById("correo_edit").value; //   "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 
 	    $.ajax({
