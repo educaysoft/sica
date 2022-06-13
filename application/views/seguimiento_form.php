@@ -16,7 +16,7 @@
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open() ?>
+<!-----<?php echo form_open() ?>----->
 
 
 <div class="form-group row">
@@ -93,53 +93,22 @@ echo '</td><td><a class="btn"  onclick="save_seguimiento()"><i class="fa fa-fema
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> Comentario:</label>
-<div class="col-md-10">
-<?php
-
-
-echo '<table><tr><td>';
-$textarea_options = array('name'=>'comentario','class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"comentario",'id'=>'comentario' );
-echo form_textarea($textarea_options);
-
-echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Enviar por correo.</a></td></tr></table>';
-?>
-</div>
-</div>
-
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> persona:</label>
-<div class="col-md-10">
-<?php
-
- echo form_input(array("name"=>"selpersona","id"=>"selpersona","type"=>"text", 'style'=> 'width:50%;'));  
-
-?>
-</div>
-</div>
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> Correo:</label>
-<div class="col-md-10">
-<?php
-
- echo form_input(array("name"=>"correo","id"=>"correo","type"=>"text", 'style'=> 'width:50%;'));  
-
-?>
-</div>
-</div>
 
 
 
 
 
 
-<?php echo form_close();?>
+
+
+
+
+
+
+
+
+
+<!----- <?php echo form_close();?>---->
 
 
 
@@ -196,6 +165,14 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 							<input type="text" name="lapersona_edit" id="lapersona_edit" class="form-control" placeholder="alumno">  
 						</div>
 					</div>					
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Correo:</label>
+						<div class="col-md-10">
+							<input type="text" name="correo_edit" id="correo_edit" class="form-control" placeholder="alumno">  
+						</div>
+					</div>
+
 
 										
 					<div class="form-group row">
@@ -531,6 +508,7 @@ function get_seguimiento_xx() {
         }else{
           $('[name="idseguimiento_edit"]').val(data[0].idseguimiento);
           $('[name="idevento_edit"]').val(data[0].idevento);
+          $('[name="idpersona_edit"]').val(idpersona);
           $('[name="fecha_edit"]').val(data[0].fecha);
           $('[name="correo_edit"]').val(data[0].correo);
           $('[name="lapersona_edit"]').val(data[0].lapersona);
