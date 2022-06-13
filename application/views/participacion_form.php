@@ -71,22 +71,6 @@ foreach ($fechaeventos as $row){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!--- <?php echo form_close();?>  --->
 
 <!--- MODAL ADD ---->
@@ -118,7 +102,6 @@ foreach ($fechaeventos as $row){
 					</div>					
 
 
-
 					<div class="form-group row">
 						<label class="col-md-2 col-form-label">Fecha</label>
 						<div class="col-md-10">
@@ -132,9 +115,6 @@ foreach ($fechaeventos as $row){
 							<input type="text" name="idpersona_edit" id="idpersona_edit" class="form-control" placeholder="idperaon">  
 						</div>
 					</div>					
-
-
-
 
 
 					<div class="form-group row">
@@ -159,8 +139,6 @@ foreach ($fechaeventos as $row){
 					</div>					
 
 										
-
-
 					<div class="form-group row">
 					<label class="col-md-2 col-form-label"> Comentario:</label>
 					<div class="col-md-10">
@@ -171,9 +149,6 @@ foreach ($fechaeventos as $row){
 					?>
 					</div>
 					</div>
-
-
-
 
 
 					<div class="form-group row">

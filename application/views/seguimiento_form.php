@@ -1,3 +1,17 @@
+<style>
+.modal.face .modal-dialog{
+	transform: translate3d(0,100vh,0);
+}
+
+.modal.in .modal-dialog{
+	transform: translate3d(0,0,0);
+}
+
+</style>
+
+
+
+
 <div style="margin-top:5cm;">
 <h2> <?php echo $title; ?> </h2>
 </div>
