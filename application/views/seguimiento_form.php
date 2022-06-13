@@ -274,13 +274,6 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 		}
 
 	 tinymce.init({
-		 selector:'#comentario',
-		 width:600,
-		 height:300
-
-	});
- 
-	 tinymce.init({
 		 selector:'#comentario_edit',
 		 width:600,
 		 height:300
@@ -522,23 +515,29 @@ function get_seguimiento_xx() {
         var html = '';
 	var comentario="";
         var i;
+
+
 	$('#Modal_Edit').modal('show');
         if(data.length!=1){
           $('[name="idseguimiento_edit"]').val(0);
           $('[name="idevento_edit"]').val(idevento);
           $('[name="fecha_edit"]').val(fecha);
+          $('[name="correo_edit"]').val("");
           $('[name="lapersona_edit"]').val("");
           $('[name="idpersona_edit"]').val(idpersona);
           $('[name="comentario_edit"]').val("");
+          tinyMCE.activeEditor.setContent(data[0].comentario);
           $('[name="idtiposeguimiento_edit"]').val("");
         }else{
           $('[name="idseguimiento_edit"]').val(data[0].idseguimiento);
           $('[name="idevento_edit"]').val(data[0].idevento);
           $('[name="fecha_edit"]').val(data[0].fecha);
-          $('[name="lapersona_edit"]').val(data[0].nombres);
-          $('[name="idpersona_edit"]').val(data[0].idpersona);
+          $('[name="correo_edit"]').val(data[0].correo);
+          $('[name="lapersona_edit"]').val(data[0].lapersona);
           $('[name="comentario_edit"]').val(data[0].comentario);
+        //  $('[name="comentario_edit"]').val(data[0].comentario);
           $('[name="idtiposeguimiento__edit"]').val(data[0].idtiposeguimiento);
+          tinyMCE.activeEditor.setContent(data[0].comentario);
         }
         },
       error: function (xhr, ajaxOptions, thrownError) {
