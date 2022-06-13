@@ -280,6 +280,13 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 
 	});
  
+	 tinymce.init({
+		 selector:'#comentario_edit',
+		 width:600,
+		 height:300
+
+	});
+ 
 
 
 
@@ -388,16 +395,6 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 		var html = '';
 		var comentario="";
 		var i;
-//		if(data.length>1){
-//		var xx=document.getElementById("idpersona").selectedIndex;
-//		 element = document.getElementById("idpersona")[xx];
-//		 element.style.color="red";
-//		}else{
-//		var xx=document.getElementById("idpersona").selectedIndex;
-//		 element = document.getElementById("idpersona")[xx];
-//		 element.style.color="green";
-//		}
-
 		for(i=0; i<data.length; i++){
 		html += '<option value='+data[i].idtiposeguimiento+'>'+data[i].tiposeguimiento+'</option>';
                 tinyMCE.activeEditor.setContent(data[i].comentario);
