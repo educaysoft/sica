@@ -410,17 +410,20 @@ echo '</td><td><a class="btn"  onclick="save_seguimiento()"><i class="fa fa-fema
 
 
 
-	function save_seguimiento() {
+//	function save_seguimiento() {
+$("#btn_update").on("click", function(){
 		var f = document.getElementById("idfechaevento");
 		var arrtmp=f.options[f.selectedIndex].text;
 		const x=arrtmp.split(" - ");
 		var fecha=x[0];
-		var idevento=document.getElementById("idevento").value;
-		var idtiposeguimiento=document.getElementById("idtiposeguimiento").value;
+		var fecha=document.getElementById("fecha_edit").value;
+		var idevento=document.getElementById("idevento_edit").value;
+		var idtiposeguimiento=document.getElementById("idtiposeguimiento_edit").value;
                 var comentario=tinyMCE.activeEditor.getContent();
 		var idpersona= $('select[name=idpersona]').val();
-		var p = document.getElementById("idpersona");
-		var idpersona=p.options[p.selectedIndex].value;
+	//	var p = document.getElementById("a");
+	//		var idpersona=p.options[p.selectedIndex].value;
+		var idpersona = document.getElementById("idpersona_edit").value;
 
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/save_seguimiento') ?>",
@@ -432,6 +435,7 @@ echo '</td><td><a class="btn"  onclick="save_seguimiento()"><i class="fa fa-fema
 		var html = '';
 		var ioo;
 		get_participantes2();
+		enviar_correo();
 		alert("Se guardo con exito");
 		},
 	      error: function (xhr, ajaxOptions, thrownError) {
@@ -439,14 +443,15 @@ echo '</td><td><a class="btn"  onclick="save_seguimiento()"><i class="fa fa-fema
 		alert(thrownError);
 	      }
 	    })
-	}
+    		return false;
+	});
 
 
 	function enviar_correo(){
 		 var email="maestria.ti@utelvt.edu.ec";
-		 var nome= document.getElementById("selpersona").value; 		
+		 var nome= document.getElementById("lapersona_edit").value; 		
                  var msg=tinyMCE.activeEditor.getContent({format:'text'});
-		 var mailto=document.getElementById("correo").value; //   "stalin.francis@utelvt.edu.ec";
+		 var mailto=document.getElementById("correo_edit").value; 
 		 var secure="siteform";
 
 	    $.ajax({
