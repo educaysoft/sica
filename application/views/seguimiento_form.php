@@ -12,7 +12,7 @@
 
 
 
-<div style="margin-top:5cm;">
+<div style="margin-top:2cm;">
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
@@ -64,37 +64,6 @@ foreach ($fechaeventos as $row){
     </div>
 
 </div>
-
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> Tipo de seguimiento:</label>
-<div class="col-md-10">
-<?php
-
-
-$options= array('--Select--');
-foreach ($tiposeguimientos as $row){
-	$options[$row->idtiposeguimiento]= $row->nombre;
-}
-
-echo '<table><tr><td>';
-echo form_dropdown("idtiposeguimiento",$options, set_select('--Select--','default_value'),array("id"=>"idtiposeguimiento"));  
-
-
-//echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_seguimiento()">Guardar seguimiento.</span></td></tr></table>';
-echo '</td><td><a class="btn"  onclick="save_seguimiento()"><i class="fa fa-female"></i>Guardar seguimiento.</a></td></tr></table>';
-
-?>
-
-</div>
-</div>
-
-
-
-
-
 
 
 
