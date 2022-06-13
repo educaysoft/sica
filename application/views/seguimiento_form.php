@@ -44,7 +44,7 @@ foreach ($fechaeventos as $row){
 <div class="col-md-10">
 
 
-         <select class="form-control" id="idpersona" name="idpersona" multiple required size="30" style="height: 100%;"   onChange='get_seguimiento()'>
+         <select class="form-control" id="idpersona" name="idpersona" multiple required size="30" style="height: 100%;"   onChange='get_seguimiento_xx()'>
                  <option>No Selected</option>
           </select>
     </div>
@@ -126,6 +126,126 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 
 
 <?php echo form_close();?>
+
+
+
+
+
+
+<!--- MODAL ADD ---->
+
+<form>
+	<div class="modal fade" id="Modal_Edit" tabindex="-1"  role="dialog" arias-labelledby="exampleModalLabel" aria-hidden="true" >
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Editar notas</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">idseguimiento</label>
+						<div class="col-md-10">
+							<input type="text" name="idseguimiento_edit" id="idseguimiento_edit" class="form-control" placeholder="idseguimiento">  
+						</div>
+					</div>					
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">idevento</label>
+						<div class="col-md-10">
+							<input type="text" name="idevento_edit" id="idevento_edit" class="form-control" placeholder="idevento">  
+						</div>
+					</div>					
+
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Fecha</label>
+						<div class="col-md-10">
+							<input type="text" name="fecha_edit" id="fecha_edit" class="form-control" placeholder="fecha">  
+						</div>
+					</div>					
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">idpersona</label>
+						<div class="col-md-10">
+							<input type="text" name="idpersona_edit" id="idpersona_edit" class="form-control" placeholder="idperaon">  
+						</div>
+					</div>					
+
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Alumno</label>
+						<div class="col-md-10">
+							<input type="text" name="lapersona_edit" id="lapersona_edit" class="form-control" placeholder="alumno">  
+						</div>
+					</div>					
+
+										
+					<div class="form-group row">
+					<label class="col-md-2 col-form-label"> Comentario:</label>
+					<div class="col-md-10">
+					<?php
+					$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"comentario",'id'=>'comentario_edit' );
+					echo form_textarea("comentario_edit","",$textarea_options);
+
+					?>
+					</div>
+					</div>
+
+
+					<div class="form-group row">
+					<label class="col-md-2 col-form-label">Tipo seguimiento:</label>
+					<div class="col-md-10">
+					<?php
+					$options= array('--Select--');
+					foreach ($tiposeguimiento as $row){
+						$options[$row->idtiposeguimiento]= $row->nombre;
+					}
+					 echo form_dropdown("idtiposeguimiento_edit",$options, set_select('--Select--','default_value'),array('id'=>'idtiposeguimiento_edit'));  
+
+					?>
+					</div>
+					</div>
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="submit" id="btn_update" class="btn btn-primary">Guardar</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -368,5 +488,69 @@ echo '</td><td><a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"
 
 
        }
+
+
+
+
+function get_seguimiento_xx() {
+	var f = document.getElementById("idfechaevento");
+  	var arrtmp=f.options[f.selectedIndex].text;
+	const x=arrtmp.split(" - ");
+	var fecha=x[0];
+	var idevento=document.getElementById("idevento").value;
+	var idpersona= $('select[name=idpersona]').val();
+//	var idpersona=document.getElementById("idpersona").value;
+	idpersona=parseInt(idpersona);
+    $.ajax({
+        url: "<?php echo site_url('seguimiento/get_seguimiento') ?>",
+        data: {idevento:idevento,fecha:fecha,idpersona:idpersona},
+        method: 'POST',
+        async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+	var comentario="";
+        var i;
+	$('#Modal_Edit').modal('show');
+        if(data.length!=1){
+          $('[name="idseguimiento_edit"]').val(0);
+          $('[name="idevento_edit"]').val(idevento);
+          $('[name="fecha_edit"]').val(fecha);
+          $('[name="lapersona_edit"]').val("");
+          $('[name="idpersona_edit"]').val(idpersona);
+          $('[name="comentario_edit"]').val("");
+          $('[name="idtiposeguimiento_edit"]').val("");
+        }else{
+          $('[name="idseguimiento_edit"]').val(data[0].idseguimiento);
+          $('[name="idevento_edit"]').val(data[0].idevento);
+          $('[name="fecha_edit"]').val(data[0].fecha);
+          $('[name="lapersona_edit"]').val(data[0].nombres);
+          $('[name="idpersona_edit"]').val(data[0].idpersona);
+          $('[name="comentario_edit"]').val(data[0].comentario);
+          $('[name="idtiposeguimiento__edit"]').val(data[0].idtiposeguimiento);
+        }
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </script>
