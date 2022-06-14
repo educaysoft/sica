@@ -295,7 +295,7 @@
 	$sum=0;
 	$can=0;
 
-
+       $pdf->newPage("A4");
 
 	$data=array('Aprobados'=>$aprobados, "Reprobados"=>$reprobados, "Desertores"=>$desertores);
 
