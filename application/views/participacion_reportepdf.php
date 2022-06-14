@@ -178,11 +178,11 @@
   }else{   //--Cuando 
     	$arrparticipacion[$row->fecha]=$row->porcentaje;
 
-        if($nivelrpt==2){	
-	    $arrayuda[$row->fecha]=0;
-	}else{
+   //     if($nivelrpt==2){	
+//	    $arrayuda[$row->fecha]=0;
+//	}else{
    	    $arrayuda[$row->fecha]=$row->ayuda;
-	}
+//	}
 
   }
 }
