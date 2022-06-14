@@ -202,7 +202,7 @@
 </section>
 
 <script>
-document.getElementById("In-registrar").style.display="none"
+document.getElementById("In-registrar").style.display="none";
 $(document).ready(()=>{
   var idinstitucion=1; // <?php echo $idinstitucion; ?>;
   var idevento=33;// <?php echo $idevento; ?>;
