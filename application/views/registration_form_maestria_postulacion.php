@@ -206,7 +206,7 @@ $(document).ready(()=>{
   var idinstitucion=1; // <?php echo $idinstitucion; ?>;
   var idevento=33;// <?php echo $idevento; ?>;
    
-	document.getElementById("In-registrar").style.display="none";
+//    document.getElementById("In-registrar").style.display="none";
   if(idinstitucion>0){
   $('#idinstitucion option[value="'+idinstitucion+'"]').attr('selected','selected');
     document.getElementById("idinstitucion").disabled=true;
