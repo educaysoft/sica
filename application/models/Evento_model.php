@@ -9,7 +9,7 @@ class Evento_model extends CI_model {
 
 
 	function lista_eventos_open(){
-		$this->db->where(array('idevento_estado'=>2));  //SOLO ESTADO INSCRIPCION
+		$this->db->where(array('idevento_estado'=>2,'idevento_estado'=>3));  //SOLO ESTADO INSCRIPCION OR EN EJECUCION
 		 $evento= $this->db->get('evento');
 		 return $evento;
 	}
