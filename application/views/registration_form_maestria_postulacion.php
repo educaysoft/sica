@@ -211,7 +211,7 @@ $(document).ready(()=>{
   $('#idinstitucion option[value="'+idinstitucion+'"]').attr('selected','selected');
     document.getElementById("idinstitucion").disabled=true;
     get_evento();
-    show_detalle()
+    show_detalle();
     //  document.getElementById("ln-registrar").style.display="none";
   }
   if(idevento>0){
