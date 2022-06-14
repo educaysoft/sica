@@ -110,11 +110,11 @@ $('#show_data').on('click','.item_ver',function(){
 
 
 
-var idestado_evento=0;
+var idevento_estado=0;
 function filtra_evento()
 {
 
-idestado_evento = $('select[name=idestado_evento]').val();
+idevento_estado = $('select[name=idevento_estado]').val();
 
 
 var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('evento/evento_data')?>', type: 'GET',data:{idevento_estado:idevento_estado}},});
