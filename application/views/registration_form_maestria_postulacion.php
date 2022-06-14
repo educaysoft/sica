@@ -249,6 +249,7 @@ function showpassword(){
         data: {idinstitucion: idinstitucion},
         method: 'POST',
 	 async : false,
+	 dataType : "json",
 	 cache: false,
         success: function(data){
         var html = '';
