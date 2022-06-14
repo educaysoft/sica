@@ -42,7 +42,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     	<label class="col-md-2 col-form-label"> Estado:</label>
 	<?php
 		$options= array('--Select--');
-		foreach ($evento_estado as $row){
+		foreach ($evento_estados as $row){
 			$options[$row->idevento_estado]= $row->nombre;
 		}
 	?>
