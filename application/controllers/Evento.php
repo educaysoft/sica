@@ -170,7 +170,7 @@ public function index(){
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$id=$this->input->get('idestado_evento');
+			$id=$this->input->get('idevento_estado');
 
 			$data0 = $this->evento_model->lista_eventosA($id);
 			$data=array();
