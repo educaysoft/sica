@@ -4,7 +4,14 @@
 	
 //	$query = "SELECT e.estado, m.id_municipio, m.municipio FROM t_municipio AS m INNER JOIN t_estado AS e ON m.id_estado=e.id_estado";
 //	$resultado = $mysqli->query($query);
-	
+
+
+	if(isset($_GET["idpersona"]))
+		$idpersona=$_GET["idpersona"]);
+	}else{
+		$idpersona=0;
+	}
+        
 	$pdf = new PDF();
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
@@ -57,7 +64,8 @@
 	$persona="";
 	$i=0;
 	foreach ($participacion as $row){  //Recorre todas la participaciones realiadas por los participantes
-	  if($id!=$row->idpersona)
+	  if($idpersona==$row->idpersona || $idpersona==0){ // En caso de que solo quiere el de un estudiante    
+		if($id!=$row->idpersona)
 	  {
 	   if($id>0){    //Antes de comenzar a imprimer primero debe llenar registro
 		    $i=$i+1;
@@ -184,6 +192,7 @@
    	    $arrayuda[$row->fecha]= $row->ayuda;
 	}
 
+  }
   }
 }
   $i=$i+1;
