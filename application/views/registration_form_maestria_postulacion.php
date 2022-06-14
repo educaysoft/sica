@@ -202,16 +202,17 @@
 </section>
 
 <script>
-
+document.getElementById("In-registrar").style.display="none"
 $(document).ready(()=>{
   var idinstitucion=1; // <?php echo $idinstitucion; ?>;
   var idevento=33;// <?php echo $idevento; ?>;
-
+   
   if(idinstitucion>0){
   $('#idinstitucion option[value="'+idinstitucion+'"]').attr('selected','selected');
     document.getElementById("idinstitucion").disabled=true;
     get_evento();
-  //  document.getElementById("ln-registrar").style.display="none";
+    show_detalle()
+    //  document.getElementById("ln-registrar").style.display="none";
   }
   if(idevento>0){
             $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
