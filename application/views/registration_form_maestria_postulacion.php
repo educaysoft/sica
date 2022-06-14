@@ -275,7 +275,7 @@ function show_detalle()
 {
 //  $('#detalle').html("HOLA MUNDO");
 
-	var idevento =i 33;// $('select[name=idevento]').val();
+	var idevento =33;// $('select[name=idevento]').val();
     $.ajax({
         url: "<?php echo site_url('evento/get_evento2') ?>",
         data: {idevento: idevento},
