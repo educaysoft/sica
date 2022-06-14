@@ -40,6 +40,22 @@ public function user_registration_show() {
 	$this->load->view('template/page_footer.php');
 }
 
+
+// Show registration page
+public function registro_postulacion_MTI() {
+ 	//$data['programa_list'] = $this->programa_model->list_programa()->result();
+	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
+	$data['instituciones']= $this->institucion_model->lista_instituciones_con_inscripciones()->result();
+	$data['eventos']= $this->evento_model->lista_eventos()->result();
+	$this->load->view('template/page_header.php');
+	//$this->load->view('registration_form',$data);
+	$this->load->view('registration_form_maestria_postulacion',$data);
+	$this->load->view('template/page_footer.php');
+}
+
+
+
+
 // Validate and store registration data in database
 public function new_user_registration() {
 
