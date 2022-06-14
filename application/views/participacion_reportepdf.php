@@ -7,7 +7,7 @@
 
 
 	if(isset($_GET["idpersona"]))
-		$idpersona=$_GET["idpersona"]);
+		$idpersona=$_GET["idpersona"];
 	}else{
 		$idpersona=0;
 	}
