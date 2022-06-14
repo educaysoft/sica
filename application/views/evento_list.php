@@ -31,12 +31,29 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <!-- Page Heading -->
  <div class="row">
   <div class="col-12">
+
              <div class="col-md-12">
                  <h3>Lista de eventos 
-                 <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
-			  
         	</h3>
        	     </div>
+
+
+<div class="form-group row">
+    	<label class="col-md-2 col-form-label"> Estado:</label>
+	<?php
+		$options= array('--Select--');
+		foreach ($evento_estado as $row){
+			$options[$row->idevento_estado]= $row->nombre;
+		}
+	?>
+
+	<div class="col-md-10">
+		<?php
+     			echo form_dropdown("idevento_estado",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_evento()'));  
+		?>
+	</div>
+	</div>
+
 
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
@@ -90,6 +107,21 @@ $('#show_data').on('click','.item_ver',function(){
 	window.location.href = retorno+'/'+id;
 
 });
+
+
+
+var idestado_evento=0;
+function filtra_evento()
+{
+
+idestado_evento = $('select[name=idestado_evento]').val();
+
+
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('evento/evento_data')?>', type: 'GET',data:{idestado_evento:idestado_evento}},});
+}
+
+
+
 
 
 </script>
