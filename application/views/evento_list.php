@@ -117,7 +117,7 @@ function filtra_evento()
 idestado_evento = $('select[name=idestado_evento]').val();
 
 
-var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('evento/evento_data')?>', type: 'GET',data:{idestado_evento:idestado_evento}},});
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('evento/evento_data')?>', type: 'GET',data:{idevento_estado:idevento_estado}},});
 }
 
 
