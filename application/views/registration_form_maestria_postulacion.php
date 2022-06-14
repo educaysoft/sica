@@ -59,7 +59,7 @@
 								$options[$row->idinstitucion]= $row->nombre;
 							}
 
-						 echo form_dropdown($name="idinstitucion",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idinstitucion','onchange'=>'get_evento()'));  ?>
+						 echo form_dropdown($name="idinstitucion",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idinstitucion'));  ?>
 
 					</div>
 
