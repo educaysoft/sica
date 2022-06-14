@@ -30,7 +30,8 @@
 	$pdf->Cell(10,5,'P1',1,0,'C',1);
 	$pdf->Cell(10,5,'P2',1,0,'C',1);
 	$pdf->Cell(10,5,'Prom',1,0,'C',1);
-	$pdf->Cell(10,5,'Asis',1,1,'C',1);
+//	$pdf->Cell(10,5,'Asis',1,1,'C',1);
+	$pdf->Cell(10,5,$nivelrpt,1,1,'C',1);
  
 	$aprobados=0;
 	$reprobados=0;
@@ -172,7 +173,7 @@
 	}else{
    	    $arrayuda[$row->fecha]=$row->ayuda;
 	}
-	  }else{   //--Cuando 
+  }else{   //--Cuando 
 
         if($nivelrpt==2){	
 	    $arrayuda[$row->fecha]=0;
