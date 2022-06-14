@@ -170,7 +170,9 @@ public function index(){
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$data0 = $this->evento_model->lista_eventosA();
+			$id=$this->input->get('idestado_evento');
+
+			$data0 = $this->evento_model->lista_eventosA($id);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
