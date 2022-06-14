@@ -187,12 +187,6 @@ foreach ($participacion as $row){
 	}else{
    	 $arrayuda[$row->fecha]=$row->ayuda;
 	}
-  }else{
-    if($nivelrpt==2){	
-	    $arrayuda[$row->fecha]=0;
-	}else{
-   	 $arrayuda[$row->fecha]=$row->ayuda;
-	}
 
     $arrparticipacion[$row->fecha]=$row->porcentaje;
   }
