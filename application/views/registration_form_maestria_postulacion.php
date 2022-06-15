@@ -211,12 +211,12 @@ $(document).ready(()=>{
   $('#idinstitucion option[value="'+idinstitucion+'"]').attr('selected','selected');
     document.getElementById("idinstitucion").disabled=true;
     get_evento();
-    show_detalle();
     //  document.getElementById("ln-registrar").style.display="none";
   }
   if(idevento>0){
             $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
             document.getElementById("idevento").disabled=true;
+    		show_detalle();
   }
 
 
@@ -267,7 +267,6 @@ function showpassword(){
       }
 
     })
-
 }
 
 
@@ -281,7 +280,7 @@ function show_detalle()
         data:  {idevento: idevento},
         method: 'POST',
 	dataType: "json",
-	 cache: false,
+ 	cache: false,
         success: function(data){
         var html1 = '';
         var html2 = '';
