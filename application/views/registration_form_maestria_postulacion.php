@@ -248,8 +248,8 @@ function showpassword(){
         url: "<?php echo site_url('evento/get_evento'); ?>",
         data: {idinstitucion: idinstitucion},
         method: 'POST',
-	 async : false,
-	 Content-Type: application/json;
+	dataType: "json",
+	contentType: "application/json; charset=utf-8",
 	 cache: false,
         success: function(data){
         var html = '';
