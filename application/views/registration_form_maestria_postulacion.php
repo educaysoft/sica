@@ -216,7 +216,7 @@ $(document).ready(()=>{
   if(idevento>0){
             $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
             document.getElementById("idevento").disabled=true;
-    //		show_detalle();
+   		show_detalle();
   }
 
 
