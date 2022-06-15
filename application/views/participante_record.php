@@ -128,7 +128,7 @@ echo form_input('nmdocumento',$options[$participante['iddocumento']],array("id"=
 		<?php
 $options= array("NADA");
 foreach ($participanteestado as $row){
-	$options[$row->idparticipanteestado]= $row->titulo;
+	$options[$row->idparticipanteestado]= $row->nombre;
 }
 echo form_input('idparticipanteestado',$options[$participante['idparticipanteestado']],array("disabled"=>"disabled","style"=>"width:500px"));
 		?>

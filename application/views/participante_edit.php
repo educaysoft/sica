@@ -60,7 +60,7 @@ foreach ($documentos as $row){
 <td><?php
 $options= array('--Select--');
 foreach ($participanteestado as $row){
-	$options[$row->idparticipanteestado]= $row->titulo;
+	$options[$row->idparticipanteestado]= $row->nombre;
 }
 
  echo form_dropdown("idparticipanteestado",$options, $participante['idparticipanteestado']);  ?></td>
