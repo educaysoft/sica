@@ -249,7 +249,7 @@ function showpassword(){
         method: 'POST',
 	dataType: "json",
 	 cache: false,
-	 async: false,
+	 async: true,
         success: function(data){
         var html = '';
      //   html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
@@ -283,7 +283,7 @@ function show_detalle()
         method: 'POST',
 	dataType: "json",
  	cache: false,
-	 async: false,
+	 async: true,
         success: function(data){
         var html1 = '';
         var html2 = '';
