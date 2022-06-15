@@ -122,7 +122,18 @@ echo form_input('nmdocumento',$options[$participante['iddocumento']],array("id"=
 </div> 
 
 
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Estado de la participacion:</label>
+	<div class="col-md-10">
+		<?php
+$options= array("NADA");
+foreach ($participanteestado as $row){
+	$options[$row->idparticipanteestado]= $row->titulo;
+}
+echo form_input('idparticipanteestado',$options[$participante['idparticipanteestado']],array("disabled"=>"disabled","style"=>"width:500px"));
+		?>
+	</div> 
+</div>
 
 
 <?php echo form_close(); ?>

@@ -7,10 +7,12 @@ class Participante extends CI_Controller{
       		$this->load->model('documento_model');
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
+      		$this->load->model('participanteestado_model');
 	}
 
 	public function index(){
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
+  		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['participante'] = $this->participante_model->elultimo();
@@ -30,6 +32,7 @@ public function actual(){
   $data['eventos']= $this->evento_model->lista_eventos()->result();
 
 
+  		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
  
  
@@ -51,6 +54,7 @@ public function actual(){
 	public function add()
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
+  		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
 		$data['eventos']= $this->evento_model->lista_eventos_open()->result();
 		$data['title']="Nuevo Participante";
 	 	$this->load->view('template/page_header');		
@@ -64,6 +68,8 @@ public function actual(){
 	 	$array_item=array(
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'idevento' => $this->input->post('idevento'),
+		 	'idparticipanteestado' => $this->input->post('idparticipanteestado'),
+		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$result=$this->participante_model->save($array_item);
 	 	if($result == FALSE)
@@ -80,6 +86,7 @@ public function actual(){
 	public function edit()
 	{
 	 	$data['participante'] = $this->participante_model->participante($this->uri->segment(3))->row_array();
+  		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
@@ -96,6 +103,7 @@ public function actual(){
 	 	$array_item=array(
 		 	'idevento' => $this->input->post('idevento'),
 		 	'idpersona' => $this->input->post('idpersona'),
+		 	'idparticipanteestado' => $this->input->post('idparticipanteestado'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$this->participante_model->update($id,$array_item);
@@ -177,6 +185,7 @@ function participante_data()
 public function elprimero()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
+  		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
 	$data['participante'] = $this->participante_model->elprimero();
   if(!empty($data))
   {
@@ -197,6 +206,7 @@ public function elprimero()
 public function elultimo()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
+  		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
 	$data['participante'] = $this->participante_model->elultimo();
   if(!empty($data))
   {
@@ -218,6 +228,7 @@ public function elultimo()
 public function siguiente(){
  // $data['participante_list']=$this->participante_model->lista_participante()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
+  		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
 	$data['participante'] = $this->participante_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
@@ -231,6 +242,7 @@ public function siguiente(){
 public function anterior(){
  // $data['participante_list']=$this->participante_model->lista_participante()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
+  		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
 	$data['participante'] = $this->participante_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();

@@ -55,6 +55,17 @@ foreach ($documentos as $row){
 </tr>
 
 
+<tr>
+<td> Estado de la participancion:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($participanteestado as $row){
+	$options[$row->idparticipanteestado]= $row->titulo;
+}
+
+ echo form_dropdown("idparticipanteestado",$options, $participante['idparticipanteestado']);  ?></td>
+</tr>
+
 
 
  <tr>
