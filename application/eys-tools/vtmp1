@@ -2,23 +2,23 @@
 	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($tipoasistencia))
+if(isset($evento_estado))
 {
 ?>
-        <li> <?php echo anchor('tipoasistencia/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('tipoasistencia/siguiente/'.$tipoasistencia['idtipoasistencia'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('tipoasistencia/anterior/'.$tipoasistencia['idtipoasistencia'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('tipoasistencia/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('tipoasistencia/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('tipoasistencia/edit/'.$tipoasistencia['idtipoasistencia'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('tipoasistencia/delete/'.$tipoasistencia['idtipoasistencia'],'Delete'); ?></li>
-        <li> <?php echo anchor('tipoasistencia/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('evento_estado/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('evento_estado/siguiente/'.$evento_estado['idevento_estado'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('evento_estado/anterior/'.$evento_estado['idevento_estado'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('evento_estado/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('evento_estado/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('evento_estado/edit/'.$evento_estado['idevento_estado'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('evento_estado/delete/'.$evento_estado['idevento_estado'],'Delete'); ?></li>
+        <li> <?php echo anchor('evento_estado/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('tipoasistencia/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('evento_estado/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -28,25 +28,30 @@ if(isset($tipoasistencia))
 <br>
 
 
-<?php echo form_open('tipoasistencia/save_edit') ?>
-<?php echo form_hidden('idtipoasistencia',$tipoasistencia['idtipoasistencia']) ?>
-<table>
+<?php echo form_open('evento_estado/save_edit') ?>
+<?php echo form_hidden('idevento_estado',$evento_estado['idevento_estado']) ?>
 
 
-  <tr>
-     <td>idtipoasistencia:</td>
-     <td><?php echo form_input('idtipoasistencia',$tipoasistencia['idtipoasistencia'],array("disabled"=>"disabled")) ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id:</label>
+	<div class="col-md-10">
+     <?php
+	echo form_input('idevento_estado',$evento_estado['idevento_estado'],array("disabled"=>"disabled",'placeholder'=>'Idevento_estados'));
+	?>
+	</div> 
+</div> 
  
- <tr>
-      <td>Nombres:</td>
-      <td><?php echo form_input('nombre',$tipoasistencia['nombre'],array('placeholder'=>'Nombre del tipoasistencia')) ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+     <?php
+       echo form_input('nombre',$evento_estado['nombre'],array('placeholder'=>'Nombre del evento_estado')); 
 
+	?>
+	</div> 
+</div> 
    
    
-
-</table>
 <?php echo form_close(); ?>
 
 

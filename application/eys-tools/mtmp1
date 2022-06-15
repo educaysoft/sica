@@ -1,34 +1,33 @@
 <?php
-class Tiposeguimiento_model extends CI_model {
+class Participanteestado_model extends CI_model {
 
-	function lista_tipoasistencias(){
-		 $tipoasistencia= $this->db->get('tipoasistencia');
-		 return $tipoasistencia;
+	function lista_evento_estados(){
+		 $evento_estado= $this->db->get('evento_estado');
+		 return $evento_estado;
 	}
 
- 	function tipoasistencia( $id){
- 		$tipoasistencia = $this->db->query('select * from tipoasistencia where idtipoasistencia="'. $id.'"');
-		 
- 		return $tipoasistencia;
+ 	function evento_estado( $id){
+ 		$evento_estado = $this->db->query('select * from evento_estado where idevento_estado="'. $id.'"');
+ 		return $evento_estado;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("tipoasistencia", $array);
+		$this->db->insert("evento_estado", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idtipoasistencia',$id);
- 		$this->db->update('tipoasistencia',$array_item);
+ 		$this->db->where('idevento_estado',$id);
+ 		$this->db->update('evento_estado',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idtipoasistencia',$id);
-		$this->db->delete('tipoasistencia');
+ 		$this->db->where('idevento_estado',$id);
+		$this->db->delete('evento_estado');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -37,29 +36,9 @@ class Tiposeguimiento_model extends CI_model {
  	}
 
 
-public function get_tipoasistencia($id){
-	$condition = "idtipoasistencia =" .  $id ;
-	$this->db->select('*');
-	$this->db->from('tipoasistencia');
-	$this->db->where($condition);
-	$this->db->limit(1);
-	$query = $this->db->get();
-
-	if ($query->num_rows() == 1) {
-		return $query->result();
-	} else {
-		return false;
-	}
-
-}
-
-
-
-
-
 	function elprimero()
 	{
-		$query=$this->db->order_by("idtipoasistencia")->get('tipoasistencia');
+		$query=$this->db->order_by("idevento_estado")->get('evento_estado');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -72,7 +51,7 @@ public function get_tipoasistencia($id){
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idtipoasistencia")->get('tipoasistencia');
+		$query=$this->db->order_by("idevento_estado")->get('evento_estado');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -84,48 +63,40 @@ public function get_tipoasistencia($id){
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$tipoasistencia = $this->db->select("idtipoasistencia")->order_by("idtipoasistencia")->get('tipoasistencia')->result_array();
-		$arr=array("idtipoasistencia"=>$id);
-		$clave=array_search($arr,$tipoasistencia);
-	   if(array_key_exists($clave+1,$tipoasistencia))
+ 		$evento_estado = $this->db->select("idevento_estado")->order_by("idevento_estado")->get('evento_estado')->result_array();
+		$arr=array("idevento_estado"=>$id);
+		$clave=array_search($arr,$evento_estado);
+	   if(array_key_exists($clave+1,$evento_estado))
 		 {
 
- 		$tipoasistencia = $this->db->query('select * from tipoasistencia where idtipoasistencia="'. $tipoasistencia[$clave+1]["idtipoasistencia"].'"');
+ 		$evento_estado = $this->db->query('select * from evento_estado where idevento_estado="'. $evento_estado[$clave+1]["idevento_estado"].'"');
 		 }else{
 
- 		$tipoasistencia = $this->db->query('select * from tipoasistencia where idtipoasistencia="'. $id.'"');
+ 		$evento_estado = $this->db->query('select * from evento_estado where idevento_estado="'. $id.'"');
 		 }
 		 	
- 		return $tipoasistencia;
+ 		return $evento_estado;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$tipoasistencia = $this->db->select("idtipoasistencia")->order_by("idtipoasistencia")->get('tipoasistencia')->result_array();
-		$arr=array("idtipoasistencia"=>$id);
-		$clave=array_search($arr,$tipoasistencia);
-	   if(array_key_exists($clave-1,$tipoasistencia))
+ 		$evento_estado = $this->db->select("idevento_estado")->order_by("idevento_estado")->get('evento_estado')->result_array();
+		$arr=array("idevento_estado"=>$id);
+		$clave=array_search($arr,$evento_estado);
+	   if(array_key_exists($clave-1,$evento_estado))
 		 {
 
- 		$tipoasistencia = $this->db->query('select * from tipoasistencia where idtipoasistencia="'. $tipoasistencia[$clave-1]["idtipoasistencia"].'"');
+ 		$evento_estado = $this->db->query('select * from evento_estado where idevento_estado="'. $evento_estado[$clave-1]["idevento_estado"].'"');
 		 }else{
 
- 		$tipoasistencia = $this->db->query('select * from tipoasistencia where idtipoasistencia="'. $id.'"');
+ 		$evento_estado = $this->db->query('select * from evento_estado where idevento_estado="'. $id.'"');
 		 }
 		 	
- 		return $tipoasistencia;
+ 		return $evento_estado;
  	}
 
 
-
-	function lista_tipoasistenciaes_con_inscripciones(){
-		 $this->db->select('tipoasistencia.*');
-		 $this->db->from('tipoasistencia,evento');
-		 $this->db->where('evento.idtipoasistencia=tipoasistencia.idtipoasistencia and evento.idevento_estado=2');
-		 $tipoasistencia= $this->db->get();
-		 return $tipoasistencia;
-	}
 
 
 

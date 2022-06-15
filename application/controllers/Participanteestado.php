@@ -4,15 +4,15 @@ class Participanteestado extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('evento_estado_model');
+      $this->load->model('participanteestado_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['evento_estado']=$this->evento_estado_model->evento_estado(1)->row_array();
-		$data['title']="Lista de evento_estadoes";
+		$data['participanteestado']=$this->participanteestado_model->participanteestado(1)->row_array();
+		$data['title']="Lista de participanteestadoes";
 		$this->load->view('template/page_header');
-		$this->load->view('evento_estado_record',$data);
+		$this->load->view('participanteestado_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva evento_estado";
+		$data['title']="Nueva participanteestado";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('evento_estado_form',$data);
+	 	$this->load->view('participanteestado_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,21 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idevento_estado' => $this->input->post('idevento_estado'),
+	 	'idparticipanteestado' => $this->input->post('idparticipanteestado'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->evento_estado_model->save($array_item);
-	 	redirect('evento_estado');
+	 	$this->participanteestado_model->save($array_item);
+	 	redirect('participanteestado');
  	}
 
 
 
 public function edit()
 {
-	 	$data['evento_estado'] = $this->evento_estado_model->evento_estado($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar evento_estado";
+	 	$data['participanteestado'] = $this->participanteestado_model->participanteestado($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar participanteestado";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('evento_estado_edit',$data);
+ 	 	$this->load->view('participanteestado_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +56,22 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idevento_estado');
+		$id=$this->input->post('idparticipanteestado');
 	 	$array_item=array(
 		 	
-		 	'idevento_estado' => $this->input->post('idevento_estado'),
+		 	'idparticipanteestado' => $this->input->post('idparticipanteestado'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->evento_estado_model->update($id,$array_item);
-	 	redirect('evento_estado');
+	 	$this->participanteestado_model->update($id,$array_item);
+	 	redirect('participanteestado');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->evento_estado_model->delete($this->uri->segment(3));
+ 		$data=$this->participanteestado_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('evento_estado/elprimero');
+	 	redirect('participanteestado/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -81,24 +81,24 @@ public function listar()
 	
   $data['title']="Participanteestado";
 	$this->load->view('template/page_header');		
-  $this->load->view('evento_estado_list',$data);
+  $this->load->view('participanteestado_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function evento_estado_data()
+function participanteestado_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->evento_estado_model->lista_evento_estados();
+	 	$data0 = $this->participanteestado_model->lista_participanteestados();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idevento_estado,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idevento_estado="'.$r->idevento_estado.'">Ver</a>');
+			$data[]=array($r->idparticipanteestado,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idparticipanteestado="'.$r->idparticipanteestado.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -121,12 +121,12 @@ function evento_estado_data()
 
 public function elprimero()
 {
-	$data['evento_estado'] = $this->evento_estado_model->elprimero();
+	$data['participanteestado'] = $this->participanteestado_model->elprimero();
   if(!empty($data))
   {
     $data['title']="Participanteestado";
     $this->load->view('template/page_header');		
-    $this->load->view('evento_estado_record',$data);
+    $this->load->view('participanteestado_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +137,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['evento_estado'] = $this->evento_estado_model->elultimo();
+	$data['participanteestado'] = $this->participanteestado_model->elultimo();
   if(!empty($data))
   {
     $data['title']="Participanteestado";
   
     $this->load->view('template/page_header');		
-    $this->load->view('evento_estado_record',$data);
+    $this->load->view('participanteestado_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,20 +154,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['evento_estado_list']=$this->evento_estado_model->lista_evento_estado()->result();
-	$data['evento_estado'] = $this->evento_estado_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['participanteestado_list']=$this->participanteestado_model->lista_participanteestado()->result();
+	$data['participanteestado'] = $this->participanteestado_model->siguiente($this->uri->segment(3))->row_array();
   $data['title']="Participanteestado";
 	$this->load->view('template/page_header');		
-  $this->load->view('evento_estado_record',$data);
+  $this->load->view('participanteestado_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['evento_estado_list']=$this->evento_estado_model->lista_evento_estado()->result();
-	$data['evento_estado'] = $this->evento_estado_model->anterior($this->uri->segment(3))->row_array();
+ // $data['participanteestado_list']=$this->participanteestado_model->lista_participanteestado()->result();
+	$data['participanteestado'] = $this->participanteestado_model->anterior($this->uri->segment(3))->row_array();
   $data['title']="Participanteestado";
 	$this->load->view('template/page_header');		
-  $this->load->view('evento_estado_record',$data);
+  $this->load->view('participanteestado_record',$data);
 	$this->load->view('template/page_footer');
 }
 
