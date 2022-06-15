@@ -6,6 +6,16 @@
 //	$resultado = $mysqli->query($query);
 
 
+
+	if(isset($_GET["idparticipanteestado"]))
+	{
+		$idparticipanteestado=$_GET["idparticipanteestado"];
+	}else{
+		$idparticipanteestado=0;
+	}
+        
+
+
 	if(isset($_GET["idpersona"]))
 	{
 		$idpersona=$_GET["idpersona"];
@@ -65,8 +75,10 @@
 	$persona="";
 	$i=0;
 	foreach ($participacion as $row){  //Recorre todas la participaciones realiadas por los participantes
+	       
+	  if($idparticipanteestado==$row->idparticipanteestado || $idparticipanteestado==0){ // En caso de que solo quiere un estado de aprticipancion    
 	  if($idpersona==$row->idpersona || $idpersona==0){ // En caso de que solo quiere el de un estudiante    
-		if($id!=$row->idpersona)
+	  if($id!=$row->idpersona)
 	  {
 	   if($id>0){    //Antes de comenzar a imprimer primero debe llenar registro
 		    $i=$i+1;
@@ -193,6 +205,7 @@
    	    $arrayuda[$row->fecha]= $row->ayuda;
 	}
 
+  }
   }
   }
 }
