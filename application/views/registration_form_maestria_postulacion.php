@@ -208,7 +208,7 @@ $(document).ready(()=>{
    
     document.getElementById("ln-registrar").style.display="none";
   if(idinstitucion>0){
-  $('#idinstitucion option[value="'+idinstitucion+'"]').attr('selected','selected');
+  $('#idinstitucion option[value='+idinstitucion+']').attr('selected','selected');
     document.getElementById("idinstitucion").disabled=true;
     get_evento();
     //  document.getElementById("ln-registrar").style.display="none";
