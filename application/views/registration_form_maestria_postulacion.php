@@ -249,7 +249,6 @@ function showpassword(){
         data: {idinstitucion: idinstitucion},
         method: 'POST',
 	dataType: "json",
-	contentType: "application/json",
 	 cache: false,
         success: function(data){
         var html = '';
@@ -282,7 +281,6 @@ function show_detalle()
         data:  {idevento: idevento},
         method: 'POST',
 	dataType: "json",
-	contentType: "application/json",
 	 cache: false,
         success: function(data){
         var html1 = '';
