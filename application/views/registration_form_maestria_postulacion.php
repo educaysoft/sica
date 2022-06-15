@@ -54,7 +54,7 @@
 						<?php 
 
 						echo "<label  style='text-align:left; font-size: 100%;' for='institucion'> Institución: </label>";
-							$options= array('--Select--');
+							$options= array();
 							foreach ($instituciones as $row){
 								$options[$row->idinstitucion]= $row->nombre;
 							}
