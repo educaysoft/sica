@@ -209,13 +209,13 @@ $(document).ready(()=>{
   if(idinstitucion>0){
   $('#idinstitucion option[value='+idinstitucion+']').attr('selected','selected');
     document.getElementById("idinstitucion").disabled=true;
-    get_evento();
+//    get_evento();
     //  document.getElementById("ln-registrar").style.display="none";
   }
   if(idevento>0){
             $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
             document.getElementById("idevento").disabled=true;
-//   		show_detalle();
+   		show_detalle();
   }
 
 
