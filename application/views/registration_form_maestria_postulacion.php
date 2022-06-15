@@ -281,8 +281,9 @@ function show_detalle()
         url: "<?php echo site_url('evento/get_evento2') ?>",
         data: {idevento: idevento},
         method: 'POST',
-	async : false,
-        dataType : 'json',
+	dataType: "json",
+	contentType: "application/json; charset=utf-8",
+	 cache: false,
         success: function(data){
         var html1 = '';
         var html2 = '';
