@@ -209,7 +209,7 @@ $(document).ready(()=>{
   if(idinstitucion>0){
   $('#idinstitucion option[value='+idinstitucion+']').attr('selected','selected');
     document.getElementById("idinstitucion").disabled=true;
-//    get_evento();
+    get_evento();
     //  document.getElementById("ln-registrar").style.display="none";
   }
   if(idevento>0){
@@ -248,8 +248,7 @@ function showpassword(){
         data: {idinstitucion: idinstitucion},
         method: 'POST',
 	dataType: "json",
-	 cache: false,
-	 async: true,
+	 async: false,
         success: function(data){
         var html = '';
      //   html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
@@ -282,8 +281,7 @@ function show_detalle()
         data:  {idevento: idevento},
         method: 'POST',
 	dataType: "json",
- 	cache: false,
-	 async: true,
+	 async: false,
         success: function(data){
         var html1 = '';
         var html2 = '';
