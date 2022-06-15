@@ -249,7 +249,7 @@ function showpassword(){
         data: JSON.stringify({idinstitucion: idinstitucion}),
         method: 'POST',
 	dataType: "json",
-	contentType: "application/json; charset=utf-8",
+	content-Type: "application/json",
 	 cache: false,
         success: function(data){
         var html = '';
@@ -282,7 +282,7 @@ function show_detalle()
         data:  JSON.stringify({idevento: idevento}),
         method: 'POST',
 	dataType: "json",
-	contentType: "application/json; charset=utf-8",
+	content-Type: "application/json",
 	 cache: false,
         success: function(data){
         var html1 = '';
