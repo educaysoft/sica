@@ -246,7 +246,7 @@ function showpassword(){
 	var idinstitucion = $('select[name=idinstitucion]').val();
     $.ajax({
         url: "<?php echo site_url('evento/get_evento'); ?>",
-        data: JSON.stringify({idinstitucion: idinstitucion}),
+        data: {idinstitucion: idinstitucion},
         method: 'POST',
 	dataType: "json",
 	contentType: "application/json",
@@ -279,7 +279,7 @@ function show_detalle()
 	var idevento =33;// $('select[name=idevento]').val();
     $.ajax({
         url: "<?php echo site_url('evento/get_evento2') ?>",
-        data:  JSON.stringify({idevento: idevento}),
+        data:  {idevento: idevento},
         method: 'POST',
 	dataType: "json",
 	contentType: "application/json",
