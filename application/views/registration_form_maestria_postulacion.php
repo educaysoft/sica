@@ -216,7 +216,7 @@ $(document).ready(()=>{
   if(idevento>0){
             $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
             document.getElementById("idevento").disabled=true;
-    		show_detalle();
+    //		show_detalle();
   }
 
 
@@ -252,7 +252,7 @@ function showpassword(){
 	 cache: false,
         success: function(data){
         var html = '';
-        html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
+     //   html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
         var i;
         for(i=0; i<data.length; i++){
 		html += '<option value='+data[i].idevento+'>'+data[i].titulo+'</option>';
