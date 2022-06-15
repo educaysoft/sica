@@ -255,7 +255,9 @@ function showpassword(){
      //   html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
         var i;
         for(i=0; i<data.length; i++){
+		if(data[i].idevento==33){
 		html += '<option value='+data[i].idevento+'>'+data[i].titulo+'</option>';
+		}
         }
         $('#idevento').html(html);
 
