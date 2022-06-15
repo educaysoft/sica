@@ -107,7 +107,7 @@ public function actual(){
 		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$this->participante_model->update($id,$array_item);
-	 	redirect('participante');
+	 	redirect('participante/actual/'.$id);
  	}
 
 	public function  save_edit2()
