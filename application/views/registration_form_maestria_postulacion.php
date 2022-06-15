@@ -72,7 +72,6 @@
 
     <div class="form-group">
          <select class="form-control" id="idevento" name="idevento" required onchange='show_detalle()'>
-                 <option>No Selected</option>
           </select>
     </div>
 
