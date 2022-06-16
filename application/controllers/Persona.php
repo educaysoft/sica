@@ -113,7 +113,7 @@ public function edit()
 			'idgenero' => $this->input->post('idgenero'),
 	 	);
 	 	$this->persona_model->update($id,$array_item);
-	 	redirect('persona');
+	 	redirect('persona/actual/'.$id);
  	}
 
 
