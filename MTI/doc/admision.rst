@@ -40,21 +40,21 @@ Ofertas Académica.
 +------------------------------+-----------------+--------------------------+
 |                              | Fecha inicio    | Fecha fin                |
 +------------------------------+-----------------+--------------------------+
-|Recepción de carpetas         | 01-abril-2022   | 29-abril-2022            |
+|Recepción de carpetas         | 01-junio-2022   | 30-junio-2022            |
 +------------------------------+-----------------+--------------------------+
-|Evaluación de carpetas        | 02-mayo-2022    |  06-mayo-2022            |
+|Evaluación de carpetas        | 04-julio-2022   | 08-julio-2022            |
 +------------------------------+-----------------+--------------------------+
-|Entrevista a aspirantes       | 09-mayo-2022    | 13-mayo-2022             |
+|Entrevista a aspirantes       | 11-julio-2022   | 15-julio-2022            |
 +------------------------------+-----------------+--------------------------+
-|Prueba de conocimientos       | 16-mayo-2022    |20-mayo-2022              |  
+|Prueba de conocimientos       | 11-julio-2022   | 15-julio-2022            |  
 +------------------------------+-----------------+--------------------------+
-|Notificación de aceptación:   | Hasta el   27-mayo-2022                    |
+|Notificación de aceptación:   | Hasta el   22-julio-2022                   |
 +------------------------------+-----------------+--------------------------+
-|Registro de matrícula :       | 06-junio-2022   | 10-junio-2022            |
+|Registro de matrícula :       | 18-junio-2022   | 26-junio-2022            |
 +------------------------------+-----------------+--------------------------+
-|Revisión de contrato de pago: | 12-junio-2022   | 16-junio-2022            |
+|Revisión de contrato de pago: | 18-junio-2022   | 29-junio-2022            |
 +------------------------------+-----------------+--------------------------+
-|Actividades académicas        | 10-julio-2022   |  marzo-2023              |
+|Actividades académicas        | 22-julio-2022   |  marzo-2023              |
 +------------------------------+-----------------+--------------------------+
 
 

@@ -8,5 +8,5 @@ Preguntas frecuentes
 
 
 3.-Después de haber aprobado todo el proceso de postulación ¿Cuándo iniciaría las clases?
- Si se logra completar el cupo de 35 aspirantes y todos resultan aprobados hasta el 15 de abril las clases iniciarían de forma inmediata; en caso contrario las clases se postergan hasta finales de septiembre, es decir después de haber dejado pasar un semestre.
+ Si se logra completar el cupo de por lo menos 20 aspirantes y todos resultan aprobados, las clases iniciarían de forma inmediata después del proceso de postulación; en caso contrario las clases se postergan  después de haber dejado pasar un semestre.
 
