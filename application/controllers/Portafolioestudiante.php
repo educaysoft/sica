@@ -80,6 +80,7 @@ public function add()
 			'idestudiante' => $this->input->post('idestudiante'),
 			'idportafoliomodelo' => $this->input->post('idportafoliomodelo'),
 			'idestado_portafolio' => $this->input->post('idestado_portafolio'),
+		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$this->portafolioestudiante_model->save($array_item);
 	 	redirect('portafolioestudiante');
@@ -91,6 +92,7 @@ public function edit()
 {
 	 	$data['portafolioestudiante'] = $this->portafolioestudiante_model->portafolioestudiante($this->uri->segment(3))->row_array();
 		$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
+  		$data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['portafoliomodelos']= $this->portafoliomodelo_model->lista_portafoliomodelos()->result();
   		$data['estado_portafolios']= $this->estado_portafolio_model->lista_estado_portafolio()->result();
  	 	$data['title'] = "Actualizar Portafolioestudiante";
@@ -111,6 +113,7 @@ public function edit()
 			'idestudiante' => $this->input->post('idestudiante'),
 			'idportafoliomodelo' => $this->input->post('idportafoliomodelo'),
 			'idestado_portafolio' => $this->input->post('idestado_portafolio'),
+		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$this->portafolioestudiante_model->update($id,$array_item);
 	 	redirect('portafolioestudiante');

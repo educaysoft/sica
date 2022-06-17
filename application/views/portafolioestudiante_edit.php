@@ -44,6 +44,19 @@ foreach ($operadoras as $row){
   </tr>
 
 
+
+<tr>
+<td> Documento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->asunto;
+}
+
+ echo form_dropdown("iddocumento",$options, $portafolioestudiante['iddocumento']);  ?></td>
+</tr>
+
+
 <tr>
 <td> Estado del portafolioestudiante:</td>
 <td><?php
