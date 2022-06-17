@@ -85,7 +85,7 @@ function portafoliomodelo_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->portafoliomodelo_model->lista_portafoliomodeloes();
+	 	$data0 = $this->portafoliomodelo_model->lista_portafoliomodelos();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idportafoliomodelo,$r->nombre,
