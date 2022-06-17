@@ -34,7 +34,7 @@ foreach ($estudiantes as $row){
 <td> Documento de portafolio:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($portafoliomodelo as $row){
+foreach ($portafoliomodelos as $row){
 	$options[$row->idportafoliomodelo]= $row->nombre;
 }
 
