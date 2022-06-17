@@ -32,53 +32,90 @@ if(isset($portafolioestudiante) and !empty($portafolioestudiante))
 
 <?php echo form_open('portafolioestudiante/save_edit') ?>
 <?php echo form_hidden('idportafolioestudiante',$portafolioestudiante['idportafolioestudiante']) ?>
-<table>
-  <tr>
-     <td>Id portafolioestudiante:</td>
-     <td><?php echo form_input('idportafolioestudiante',$portafolioestudiante['idportafolioestudiante'],array("disabled"=>"disabled",'placeholder'=>'Idportafolioestudiantes')) ?></td>
-  </tr>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Id portafolio:</label>
+	<div class="col-md-10">
+
+
+     <?php echo form_input('idportafolioestudiante',$portafolioestudiante['idportafolioestudiante'],array("disabled"=>"disabled",'placeholder'=>'Idportafolioestudiantes')); ?>
  
- 
-<tr>
-     <td>Estudiante:</td>
-     <td><?php 
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Estudiante:</label>
+	<div class="col-md-10">
+     <?php 
 $options= array("NADA");
 foreach ($estudiantes as $row){
 	$options[$row->idestudiante]= $row->elestudiante;
 }
 
-echo form_input('idestudiante',$options[$portafolioestudiante['idestudiante']],array("disabled"=>"disabled", "style"=>"width:500px")) ?></td>
-  </tr>
- 
- 
+echo form_input('idestudiante',$options[$portafolioestudiante['idestudiante']],array("disabled"=>"disabled", "style"=>"width:500px")); ?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Descripción del documeto:</label>
+	<div class="col-md-10">
   
-<tr>
-     <td>Descripción del documento:</td>
-     <td><?php 
+     <?php 
 $options= array("NADA");
 foreach ($portafoliomodelos as $row){
 	$options[$row->idportafoliomodelo]= $row->nombre;
 }
+echo form_input('idportafoliomodelo',$options[$portafolioestudiante['idportafoliomodelo']],array("disabled"=>"disabled", "style"=>"width:500px")); ?>
 
-echo form_input('idportafoliomodelo',$options[$portafolioestudiante['idportafoliomodelo']],array("disabled"=>"disabled", "style"=>"width:500px")) ?></td>
-  </tr>
+	</div> 
+</div>
 
 
-<tr>
-     <td>Estado del documento:</td>
-     <td><?php 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">  Certificado (<?php echo "<a onclick='verpdf()'>Ver</a>" ?>) :</label>
+	<div class="col-md-10">
+		<?php
+$options= array("NADA");
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->asunto;
+}
+if(!isset($participante['iddocumento'])){
+echo form_input('nmdocumento',"",array("id"=>"nmdocumento","disabled"=>"disabled","style"=>"width:500px")) ;
+}else{
+echo form_input('nmdocumento',$options[$participante['iddocumento']],array("id"=>"nmdocumento","disabled"=>"disabled","style"=>"width:500px"));
+}
+		?>
+	</div> 
+</div>
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Estado del documemento:</label>
+	<div class="col-md-10">
+
+     <?php 
 $options= array("NADA");
 foreach ($estado_portafolios as $row){
 	$options[$row->idestado_portafolio]= $row->nombre;
 }
 
-echo form_input('idestado_portafolio',$options[$portafolioestudiante['idestado_portafolio']],array("disabled"=>"disabled", "style"=>"width:500px")) ?></td>
-  </tr>
+echo form_input('idestado_portafolio',$options[$portafolioestudiante['idestado_portafolio']],array("disabled"=>"disabled", "style"=>"width:500px")); 
+?>
+
+	</div> 
+</div> 
 
 
 
-
-</table>
 <?php echo form_close(); ?>
 
 

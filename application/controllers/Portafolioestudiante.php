@@ -7,6 +7,7 @@ class Portafolioestudiante extends CI_Controller{
       $this->load->model('portafolioestudiante_model');
   	  $this->load->model('estudiante_model');
   	  $this->load->model('portafoliomodelo_model');
+      	  $this->load->model('documento_model');
   	  $this->load->model('estado_portafolio_model');
 }
 
@@ -16,6 +17,7 @@ public function index(){
 			
 		$data['portafolioestudiante'] = $this->portafolioestudiante_model->elprimero();
   		$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
+  		$data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['portafoliomodelos']= $this->portafoliomodelo_model->lista_portafoliomodelos()->result();
   		$data['estado_portafolios']= $this->estado_portafolio_model->lista_estado_portafolio()->result();
 			
