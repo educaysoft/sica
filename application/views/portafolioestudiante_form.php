@@ -18,10 +18,7 @@ foreach ($estudiantes as $row){
 </tr>
 
 
-<tr>
-<td> Portafolioestudiante: </td>
-<td><?php echo form_input("numero","", array("placeholder"=>"Numero del portafolioestudiante"))  ?></td>
-</tr>
+
 
 <tr>
 <td> Documento del portafolio: </td>

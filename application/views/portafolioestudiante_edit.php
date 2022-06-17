@@ -31,20 +31,17 @@ foreach ($estudiantes as $row){
 </tr>
 
 <tr>
-<td> Operadora:</td>
+<td> Documento de portafolio:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($operadoras as $row){
-	$options[$row->idoperadora]= $row->nombre;
+foreach ($portafoliomodelo as $row){
+	$options[$row->idportafoliomodelo]= $row->nombre;
 }
 
- echo form_dropdown("idoperadora",$options, $portafolioestudiante['idoperadora']);  ?></td>
+ echo form_dropdown("idportafoliomodelo",$options, $portafolioestudiante['idportafoliomodelo']);  ?></td>
 </tr>
 
-<tr>
-      <td>Número:</td>
-      <td><?php echo form_input( array("name"=>'numero',"id"=>'numero',"value"=>$portafolioestudiante['numero'],'type'=>'text','placeholder'=>'numero')); ?></td>
-  </tr>
+
 
 
 
@@ -64,11 +61,11 @@ foreach ($documentos as $row){
 <td> Estado del portafolioestudiante:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($portafolioestudiante_estados as $row){
-	$options[$row->idportafolioestudiante_estado]= $row->nombre;
+foreach ($estado_portafolios as $row){
+	$options[$row->idestado_portafolio]= $row->nombre;
 }
 
- echo form_dropdown("idportafolioestudiante_estado",$options, $portafolioestudiante['idportafolioestudiante_estado']);  ?></td>
+ echo form_dropdown("idestado_portafolio",$options, $portafolioestudiante['idestado_portafolio']);  ?></td>
 </tr>
 
 
