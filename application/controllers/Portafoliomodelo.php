@@ -71,7 +71,7 @@ public function edit()
 public function listar()
 {
 	
-  $data['portafoliomodelo'] = $this->portafoliomodelo_model->lista_portafoliomodeloes()->result();
+  $data['portafoliomodelo'] = $this->portafoliomodelo_model->lista_portafoliomodelos()->result();
   $data['title']="Portafoliomodelo";
 	$this->load->view('template/page_header');		
   $this->load->view('portafoliomodelo_list',$data);
