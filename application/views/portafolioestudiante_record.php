@@ -13,6 +13,7 @@ if(isset($portafolioestudiante) and !empty($portafolioestudiante))
         <li> <?php echo anchor('portafolioestudiante/edit/'.$portafolioestudiante['idportafolioestudiante'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('portafolioestudiante/delete/'.$portafolioestudiante['idportafolioestudiante'],'Delete'); ?></li>
         <li> <?php echo anchor('portafolioestudiante/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('portafolioestudiante/reportepdf/'.$portafolioestudiante['idportafolioestudiante'],'Reporte'); ?></li>
 
 <?php 
 }else{

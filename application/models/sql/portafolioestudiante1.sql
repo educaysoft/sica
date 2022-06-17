@@ -1,9 +1,9 @@
 
 use educayso_facae;
-
+drop view portafolioestudiante1;
 
 create view portafolioestudiante1 as select portafolioestudiante.idportafolioestudiante,
- portafoliomodelo.nombre as eldocumento,	
+ portafoliomodelo.nombre as eldocumento,persona.idpersona,	
  concat(COALESCE(persona.apellidos,''),"  ",COALESCE(persona.nombres,'')) as elestudiante,
  estado_portafolio.nombre as elestado
   from portafolioestudiante,estudiante,persona,estado_portafolio,portafoliomodelo  where 

@@ -135,6 +135,9 @@ public function listar()
 
 
 
+
+
+
 function portafolioestudiante_data()
 {
 		$draw= intval($this->input->get("draw"));
@@ -145,7 +148,7 @@ function portafolioestudiante_data()
 	 	$data0 = $this->portafolioestudiante_model->lista_portafolioestudiantesA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idportafolioestudiante,$r->elestudiante,$r->eldocumento,$r->elestado,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idportafolioestudiante="'.$r->idportafolioestudiante.'">Ver</a>');
+			$data[]=array($r->idportafolioestudiante,$r->elestudiante,$r->eldocumento,$r->elestado,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('portafolioestudiante/actual').'"  data-idportafolioestudiante="'.$r->idportafolioestudiante.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -158,6 +161,16 @@ function portafolioestudiante_data()
 }
 
 
+
+
+public function reportepdf()
+{
+	
+	 $data['portafolioestudiante'] = $this->portafolioestudiante_model->lista_portafolioestudiantesA();
+	$this->load->view('template/page_header');		
+  $this->load->view('portafolioestudiante_reportepdf',$data);
+	$this->load->view('template/page_footer');
+}
 
 
 
