@@ -166,7 +166,7 @@ function portafolioestudiante_data()
 public function reportepdf()
 {
 	
-	 $data['portafolioestudiante'] = $this->portafolioestudiante_model->lista_portafolioestudiantesA();
+	 $data['portafolioestudiante'] = $this->portafolioestudiante_model->lista_portafolioestudiantesA()->result();
 	$this->load->view('template/page_header');		
   $this->load->view('portafolioestudiante_reportepdf',$data);
 	$this->load->view('template/page_footer');
