@@ -16,7 +16,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   	$data['resultado']=$this->resultado_model->lista_resultados()->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
 			
 		$data['title']="Lista de resultados";
@@ -140,7 +140,7 @@ public function elprimero()
   	$data['evaluacions']= $this->evaluacion_model->lista_evaluacion()->result();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Resultado";
     $this->load->view('template/page_header');		
     $this->load->view('resultado_record',$data);
@@ -158,7 +158,7 @@ public function elultimo()
   	$data['evaluacions']= $this->evaluacion_model->lista_evaluacion()->result();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Resultado";
   
     $this->load->view('template/page_header');		
@@ -175,7 +175,7 @@ public function elultimo()
 public function siguiente(){
  // $data['resultado_list']=$this->resultado_model->lista_resultado()->result();
 	$data['resultado'] = $this->resultado_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['evaluacions']= $this->evaluacion_model->lista_evaluacion()->result();
   $data['title']="Resultado";
 	$this->load->view('template/page_header');		
@@ -186,7 +186,7 @@ public function siguiente(){
 public function anterior(){
  // $data['resultado_list']=$this->resultado_model->lista_resultado()->result();
 	$data['resultado'] = $this->resultado_model->anterior($this->uri->segment(3))->row_array();
- 	$data['personas']= $this->persona_model->lista_persona()->result();
+ 	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['evaluacions']= $this->evaluacion_model->lista_evaluacion()->result();
   $data['title']="Resultado";
 	$this->load->view('template/page_header');		
