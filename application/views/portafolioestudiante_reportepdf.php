@@ -40,16 +40,16 @@
 		    $pdf->Cell(55,5,utf8_decode($row->elestudiante),1,1,'L',0);
 		    $id=$row->idpersona;
 
-		    $pdf->Cell(10,5,"",1,0,'R',0); 
+		    $pdf->Cell(10,5,"",0,0,'R',0); 
 
-		    $pdf->Cell(5,5,utf8_decode($row->eldocumento),1,0,'L',0);
-		    $pdf->Cell(5,5,utf8_decode($row->elestado),1,1,'L',0);
+		    $pdf->Cell(40,5,utf8_decode($row->eldocumento),1,0,'L',0);
+		    $pdf->Cell(20,5,utf8_decode($row->elestado),1,1,'L',0);
 
 	  }else{    
 
-		    $pdf->Cell(10,5,"",1,0,'R',0); 
-		    $pdf->Cell(20,5,utf8_decode($row->eldocumento),1,0,'L',0);
-		    $pdf->Cell(10,5,utf8_decode($row->elestado),1,1,'L',0);
+		    $pdf->Cell(10,5,"",0,0,'R',0); 
+		    $pdf->Cell(40,5,utf8_decode($row->eldocumento),1,0,'L',0);
+		    $pdf->Cell(20,5,utf8_decode($row->elestado),1,1,'L',0);
    	}
 
  
