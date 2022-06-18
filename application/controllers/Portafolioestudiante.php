@@ -5,10 +5,12 @@ class Portafolioestudiante extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('portafolioestudiante_model');
-  	  $this->load->model('estudiante_model');
-  	  $this->load->model('portafoliomodelo_model');
-      	  $this->load->model('documento_model');
-  	  $this->load->model('estado_portafolio_model');
+      $this->load->model('estudiante_model');
+      $this->load->model('portafoliomodelo_model');
+      $this->load->model('ordenador_model');
+      $this->load->model('directorio_model');
+      $this->load->model('documento_model');
+  	 $this->load->model('estado_portafolio_model');
 }
 
 public function index(){
@@ -166,6 +168,8 @@ public function edit()
 	public function listar_estu()
 	{
 		
+		$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
+		$data['directorios'] = $this->directorio_model->lista_directoriosxordenador($data['documento']['idordenador'])->result();
 	  $data['title']="Portafolioestudiantes";
 		$this->load->view('template/page_header');		
 	  $this->load->view('portafolioestudiante_estu',$data);
