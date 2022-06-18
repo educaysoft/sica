@@ -1,4 +1,17 @@
 <style>
+
+.modal.face .modal-dialog{
+	transform: translate3d(0,100vh,0);
+}
+
+.modal.in .modal-dialog{
+	transform: translate3d(0,0,0);
+}
+
+
+
+
+
 body {font-family: Arial, Helvetica, sans-serif;}
 
 /* The Modal (background) */
@@ -92,7 +105,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 <div class="form-group row">
-	<label class="col-md-2 col-form-label">Fecha elaboración:</label>
+	<label class="col-md-2 col-form-label">Fecha:</label>
 		<div class="col-md-10">
 			<?php
  	echo form_input(array("name"=>"fechaelaboracion","id"=>"fechaelaboracion","type"=>"date"));  
