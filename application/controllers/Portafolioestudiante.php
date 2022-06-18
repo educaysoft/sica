@@ -129,41 +129,91 @@ public function edit()
  	}
 
 
-public function listar()
-{
-	
-  $data['title']="Portafolioestudiantes";
-	$this->load->view('template/page_header');		
-  $this->load->view('portafolioestudiante_list',$data);
-	$this->load->view('template/page_footer');
-}
+	public function listar()
+	{
+		
+	  $data['title']="Portafolioestudiantes";
+		$this->load->view('template/page_header');		
+	  $this->load->view('portafolioestudiante_list',$data);
+		$this->load->view('template/page_footer');
+	}
+
+
+	function portafolioestudiante_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+
+			$data0 = $this->portafolioestudiante_model->lista_portafolioestudiantesA();
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idportafolioestudiante,$r->elestudiante,$r->eldocumento,$r->elestado,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('portafolioestudiante/actual').'"  data-idportafolioestudiante="'.$r->idportafolioestudiante.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+
+	}
 
 
 
 
 
 
-function portafolioestudiante_data()
-{
-		$draw= intval($this->input->get("draw"));
-		$draw= intval($this->input->get("start"));
-		$draw= intval($this->input->get("length"));
+
+	public function listar_estu()
+	{
+		
+	  $data['title']="Portafolioestudiantes";
+		$this->load->view('template/page_header');		
+	  $this->load->view('portafolioestudiante_estu',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
-	 	$data0 = $this->portafolioestudiante_model->lista_portafolioestudiantesA();
-		$data=array();
-		foreach($data0->result() as $r){
-			$data[]=array($r->idportafolioestudiante,$r->elestudiante,$r->eldocumento,$r->elestado,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('portafolioestudiante/actual').'"  data-idportafolioestudiante="'.$r->idportafolioestudiante.'">Ver</a>');
-		}	
-		$output=array( "draw"=>$draw,
-			"recordsTotal"=> $data0->num_rows(),
-			"recordsFiltered"=> $data0->num_rows(),
-			"data"=>$data
-		);
-		echo json_encode($output);
-		exit();
+	function portafolioestudiante_data_estu()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
 
-}
+
+			$data0 = $this->portafolioestudiante_model->lista_portafolioestudiantesA();
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idportafolioestudiante,$r->elestudiante,$r->archivopdf,$r->eldocumento,$r->elestado,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('portafolioestudiante/actual').'"  data-idportafolioestudiante="'.$r->idportafolioestudiante.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
