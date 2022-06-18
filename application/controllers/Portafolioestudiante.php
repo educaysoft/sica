@@ -172,8 +172,10 @@ public function edit()
 
 		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
+		$data['personas']= $this->persona_model->lista_personasA()->result();
 	  $data['title']="Portafolioestudiantes";
 		$this->load->view('template/page_header');		
+		$data['personas']= $this->persona_model->lista_personasA()->result();
 	  $this->load->view('portafolioestudiante_estu',$data);
 		$this->load->view('template/page_footer');
 	}
