@@ -265,7 +265,7 @@ $('#show_data').on('click','.item_cargar',function(){
 
 $('#Modal_Edit').modal('show');
 
-$('[name="asunto"]').value=$(this).data('eldocumento')+" de "+$(this).data('elestudiante
+$('[name="asunto"]').value=$(this).data('eldocumento')+" de "+$(this).data('elestudiante');
 
 
 
