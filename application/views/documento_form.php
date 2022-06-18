@@ -9,30 +9,26 @@
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Fecha elaboración:</label>
-<div class="col-md-10">
-<?php
- echo form_input(array("name"=>"fechaelaboracion","id"=>"fechaelaboracion","type"=>"date"));  
-?>
-</div>
-</div>
-
-
+	<label class="col-md-2 col-form-label">Fecha elaboración:</label>
+		<div class="col-md-10">
+			<?php
+ 				echo form_input(array("name"=>"fechaelaboracion","id"=>"fechaelaboracion","type"=>"date"));  
+			?>
+		</div>
+	</div>
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Quién la elabora?:(<?php echo anchor('persona/add', 'Nuevo');?>) :</label>
-<div class="col-md-10">
-<?php
-$options= array('--Select--');
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->lapersona;
-}
-
- echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'),array('id'=>'idpersona')); 
-
-?>
-</div>
+	<label class="col-md-2 col-form-label">Quién la elabora?:(<?php echo anchor('persona/add', 'Nuevo');?>) :</label>
+		<div class="col-md-10">
+		<?php
+			$options= array('--Select--');
+			foreach ($personas as $row){
+			$options[$row->idpersona]= $row->lapersona;
+		}
+ 		echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'),array('id'=>'idpersona')); 
+		?>
+	</div>
 </div>
 
 
@@ -137,6 +133,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 //=====================
 //
 // Upload file
+//====================			
 function uploadFiles(url1) {
 
   var totalfiles = document.getElementById('files').files.length;
@@ -146,7 +143,6 @@ function uploadFiles(url1) {
 
     var iddocumento = 0;
     var idtipodocu = document.getElementById('idtipodocu').value;
-  //  var archivopdf = document.getElementById('archivopdf').value;
     var asunto =  document.getElementById('asunto').value;
     var fechaelaboracion = document.getElementById('fechaelaboracion').value;
     var idordenador =  document.getElementById('idordenador').value;
@@ -157,7 +153,6 @@ function uploadFiles(url1) {
 
     formData.append("iddocumento", 0);
     formData.append("idtipodocu", idtipodocu);
-   // formData.append("archivopdf", archivopdf);
     formData.append("asunto", asunto);
     formData.append("fechaelaboracion", fechaelaboracion);
     formData.append("idordenador", idordenador);
@@ -167,10 +162,6 @@ function uploadFiles(url1) {
 
     var xhttp1 = new XMLHttpRequest();
 
-	// Display the values
-//	for (var pair of formData.entries()) {
-  // 		alert(pair[0]+' -  '+pair[1]);
-//	}
 
     xhttp1.open("POST", url1, true);
     xhttp1.send(formData);
@@ -206,7 +197,8 @@ function uploadFiles(url1) {
     		xhttp.onreadystatechange = function() {
  		if(xhttp.readyState === XMLHttpRequest.DONE) {
     			var status = xhttp.status;
-    			if (status === 0 || (status >= 200 && status < 400)) {
+    			if (status === data-elestudiante="'.$r->elestudiante.'" 0 || (status >= 200 && status < 400)) {
+				rta
       				// The request has been completed successfully
 				var response = xhttp.responseText;
           			alert(response + "archivo cargado");
