@@ -169,7 +169,6 @@ public function edit()
 	{
 		
 		$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
-		$data['directorios'] = $this->directorio_model->lista_directoriosxordenador($data['documento']['idordenador'])->result();
 	  $data['title']="Portafolioestudiantes";
 		$this->load->view('template/page_header');		
 	  $this->load->view('portafolioestudiante_estu',$data);
