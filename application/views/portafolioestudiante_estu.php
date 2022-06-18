@@ -278,7 +278,7 @@ $('#Modal_Edit').modal('show');
 //function uploadFiles(url1) 
 function uploadFiles() 
 {
- var url1=<?php echo base_url(); ?>+"index.php/documento/save";
+   //var url1=<?php echo base_url(); ?>+"index.php/documento/save";
   var totalfiles = document.getElementById('files').files.length;
   var formData = new FormData();
   alert("Este proceso guardará todas los datos ingresados");	
