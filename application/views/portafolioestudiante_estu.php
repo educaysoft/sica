@@ -286,7 +286,7 @@ function uploadFiles()
 
     var iddocumento = 0;
     var idtipodocu = 16;  //PORTAFOLIO document.getElementById('idtipodocu').value;
-    var asunto = $(this).data('eldocumento')." de ". $(this).data('elestudiante'); // document.getElementById('asunto').value;
+    var asunto = $(this).data('eldocumento')+" de "+ $(this).data('elestudiante'); // document.getElementById('asunto').value;
     var fechaelaboracion = date();  // document.getElementById('fechaelaboracion').value;
     var idordenador = 8; // document.getElementById('idordenador').value;
     var iddirectorio =4; // document.getElementById('iddirectorio').value;
