@@ -5,6 +5,7 @@ class Portafolioestudiante extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('portafolioestudiante_model');
+      $this->load->model('tipodocu_model');
       $this->load->model('estudiante_model');
       $this->load->model('portafoliomodelo_model');
       $this->load->model('ordenador_model');
@@ -168,6 +169,8 @@ public function edit()
 	public function listar_estu()
 	{
 		
+
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	  $data['title']="Portafolioestudiantes";
 		$this->load->view('template/page_header');		
