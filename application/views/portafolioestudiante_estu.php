@@ -266,7 +266,8 @@ $('#show_data').on('click','.item_cargar',function(){
 $('#Modal_Edit').modal('show');
 
 $('[name="asunto"]').val($(this).data('eldocumento')+" de "+$(this).data('elestudiante'));
-
+var idpersona=$(this).data('idpersona');
+  $('#idpersona option[value="'+idpersona+'"]').attr('selected','selected');
 
 
 });
