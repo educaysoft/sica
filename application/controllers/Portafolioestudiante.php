@@ -7,6 +7,7 @@ class Portafolioestudiante extends CI_Controller{
       $this->load->model('portafolioestudiante_model');
       $this->load->model('tipodocu_model');
       $this->load->model('estudiante_model');
+      $this->load->model('persona_model');
       $this->load->model('portafoliomodelo_model');
       $this->load->model('ordenador_model');
       $this->load->model('directorio_model');
