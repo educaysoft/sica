@@ -95,14 +95,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	<label class="col-md-2 col-form-label">Fecha elaboración:</label>
 		<div class="col-md-10">
 			<?php
- 				echo form_input(array("name"=>"fechaelaboracion","id"=>"fechaelaboracion","type"=>"date"));  
+ 	echo form_input(array("name"=>"fechaelaboracion","id"=>"fechaelaboracion","type"=>"date"));  
 			?>
 		</div>
 	</div>
 
 
 <div class="form-group row">
-	<label class="col-md-2 col-form-label">Quién la elabora?:(<?php echo anchor('persona/add', 'Nuevo');?>) :</label>
+	<label class="col-md-2 col-form-label">De:</label>
 		<div class="col-md-10">
 		<?php
 			$options= array('--Select--');
@@ -118,7 +118,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Asunto/título:</label>
+<label class="col-md-2 col-form-label">Título:</label>
 <div class="col-md-10">
 <?php
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"asunto",'id'=>'asunto' );    
@@ -129,7 +129,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Ordenador destino:</label>
+<label class="col-md-2 col-form-label">Ordenador:</label>
 <div class="col-md-10">
 <?php
 
@@ -157,7 +157,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Tipo de documento:</label>
+<label class="col-md-2 col-form-label">TipoDocu:</label>
 <div class="col-md-10">
 <?php
     $options= array('--Select--');
@@ -172,7 +172,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Cargar pdf:</label>
+<label class="col-md-2 col-form-label">Archivo:</label>
 <div class="col-md-10">
 
 
