@@ -44,6 +44,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <th>Idportafolioestudiante</th>
  <th>El estudiante</th>
  <th>Documento</th>
+ <th>Archivopdf</th>
  <th>Estado</th>
  <th style="text-align: right;">Actions</th>
  </tr>
