@@ -306,28 +306,26 @@ $('#show_data').on('click','.item_cargar',function(){
 
 
 
+
 //=====================
 //
 // Upload file
-//
 //====================			
-//function uploadFiles(url1) 
-function uploadFiles() 
-{
-   //var url1=<?php echo base_url(); ?>+"index.php/documento/save";
+function uploadFiles(url1) {
+
   var totalfiles = document.getElementById('files').files.length;
   var formData = new FormData();
   alert("Este proceso guardará todas los datos ingresados");	
   if(totalfiles > 0 ){
 
     var iddocumento = 0;
-    var idtipodocu = 16;  //PORTAFOLIO document.getElementById('idtipodocu').value;
-    var asunto = $(this).data('eldocumento')+" de "+ $(this).data('elestudiante'); // document.getElementById('asunto').value;
-    var fechaelaboracion = date();  // document.getElementById('fechaelaboracion').value;
-    var idordenador = 8; // document.getElementById('idordenador').value;
-    var iddirectorio =4; // document.getElementById('iddirectorio').value;
-    var idddocumento_estado = 2;
-    var idpersona = $(this).data('idpersona'); // document.getElementById('idpersona').value;
+    var idtipodocu = document.getElementById('idtipodocu').value;
+    var asunto =  document.getElementById('asunto').value;
+    var fechaelaboracion = document.getElementById('fechaelaboracion').value;
+    var idordenador =  document.getElementById('idordenador').value;
+    var iddirectorio = document.getElementById('iddirectorio').value;
+    var idddocumento_estado = 1;
+    var idpersona = document.getElementById('idpersona').value;
 
 
     formData.append("iddocumento", 0);
@@ -376,7 +374,8 @@ function uploadFiles()
     		xhttp.onreadystatechange = function() {
  		if(xhttp.readyState === XMLHttpRequest.DONE) {
     			var status = xhttp.status;
-    			if (status === 0 || (status >= 200 && status < 400)) {
+    			if (status === data-elestudiante="'.$r->elestudiante.'" 0 || (status >= 200 && status < 400)) {
+				rta
       				// The request has been completed successfully
 				var response = xhttp.responseText;
           			alert(response + "archivo cargado");
@@ -395,7 +394,12 @@ function uploadFiles()
   }else{
     alert("Porfavor seleccione un archivo");
   }
+
 }
+
+
+
+
 
 
 
