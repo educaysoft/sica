@@ -276,16 +276,23 @@ window.location.href = retorno+'/'+id;
 
 $('#show_data').on('click','.item_cargar',function(){
 
-$('#Modal_Edit').modal('show');
 
-$('[name="asunto"]').val($(this).data('eldocumento')+" de "+$(this).data('elestudiante'));
-var idpersona=$(this).data('idpersona');
-  $('#idpersona option[value="'+idpersona+'"]').attr('selected','selected');
-var idordenador=8;
-  $('#idordenador option[value="'+idordenador+'"]').attr('selected','selected');
+	data_default_timezone_set('America/Guayaquil');
+	$dtz = new DateTimeZone('America/Guayaquil');
+	$fecha = new DateTime("now",$dtz);
 
-var idtipodocu=17;
-  $('#idtipodocu option[value="'+idtipodocu+'"]').attr('selected','selected');
+
+	$('#Modal_Edit').modal('show');
+	$('[name="fechaelaboracion"]').val($fecha);
+
+	$('[name="asunto"]').val($(this).data('eldocumento')+" de "+$(this).data('elestudiante'));
+	var idpersona=$(this).data('idpersona');
+	  $('#idpersona option[value="'+idpersona+'"]').attr('selected','selected');
+	var idordenador=8;
+	  $('#idordenador option[value="'+idordenador+'"]').attr('selected','selected');
+
+	var idtipodocu=17;
+	  $('#idtipodocu option[value="'+idtipodocu+'"]').attr('selected','selected');
 
 });
 
