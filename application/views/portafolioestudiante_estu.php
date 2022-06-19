@@ -281,7 +281,12 @@ $('#show_data').on('click','.item_cargar',function(){
 //	$dtz = new DateTimeZone('America/Guayaquil');
 //	$fecha = new DateTime("now",$dtz);
 
-	var fecha = new Date().toLocaleString('es-EC', {timeZone: "America/Guayaquil"}).toString("yyyy-MM-dd");
+	var year = new Date().toLocaleString('es-EC', {timeZone: "America/Guayaquil"});
+	var month = new Date().toLocaleString('es-EC', {timeZone: "America/Guayaquil"});
+	var day = new Date().toLocaleString('es-EC', {timeZone: "America/Guayaquil"});
+	var fecha=year+"-"+month+"-"+day;
+
+
 	alert(fecha);
 	$('#Modal_Edit').modal('show');
 	$('[name="fechaelaboracion"]').val(fecha1);
