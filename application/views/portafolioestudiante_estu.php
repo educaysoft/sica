@@ -281,7 +281,7 @@ $('#show_data').on('click','.item_cargar',function(){
 //	$dtz = new DateTimeZone('America/Guayaquil');
 //	$fecha = new DateTime("now",$dtz);
 
-	var year = new Date().toLocaleString('es-EC', {timeZone: "America/Guayaquil"},{yar:"numeric");
+	var year = new Date().toLocaleString('es-EC', {timeZone: "America/Guayaquil"},{yar:"numeric"});
 	var month = new Date().toLocaleString('es-EC', {timeZone: "America/Guayaquil"},{month: "2-digit"});
 	var day = new Date().toLocaleString('es-EC', {timeZone: "America/Guayaquil"},{day:"2-digit"});
 	var fecha=year+"-"+month+"-"+day;
