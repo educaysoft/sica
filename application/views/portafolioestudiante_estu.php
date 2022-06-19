@@ -281,6 +281,8 @@ $('#Modal_Edit').modal('show');
 $('[name="asunto"]').val($(this).data('eldocumento')+" de "+$(this).data('elestudiante'));
 var idpersona=$(this).data('idpersona');
   $('#idpersona option[value="'+idpersona+'"]').attr('selected','selected');
+var idordenador=8;
+  $('#idordenador option[value="'+idordenador+'"]').attr('selected','selected');
 
 
 });
