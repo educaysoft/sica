@@ -281,10 +281,10 @@ $('#show_data').on('click','.item_cargar',function(){
 //	$dtz = new DateTimeZone('America/Guayaquil');
 //	$fecha = new DateTime("now",$dtz);
 
-	$fecha = new Date().toLocaleString('es-EC', {timeZone: "America/Guayaquil"});
+	var fecha = new Date().toLocaleString('es-EC', {timeZone: "America/Guayaquil"});
 
 	$('#Modal_Edit').modal('show');
-	$('[name="fechaelaboracion"]').val($fecha);
+	$('[name="fechaelaboracion"]').val(fecha);
 
 	$('[name="asunto"]').val($(this).data('eldocumento')+" de "+$(this).data('elestudiante'));
 	var idpersona=$(this).data('idpersona');
