@@ -282,7 +282,7 @@ $('#show_data').on('click','.item_cargar',function(){
 //	$fecha = new DateTime("now",$dtz);
 
 	var fecha = new Date().toLocaleString('es-EC', {timeZone: "America/Guayaquil"});
-
+	alert(fecha);
 	$('#Modal_Edit').modal('show');
 	$('[name="fechaelaboracion"]').val(fecha);
 
