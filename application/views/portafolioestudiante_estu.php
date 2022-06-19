@@ -284,6 +284,8 @@ var idpersona=$(this).data('idpersona');
 var idordenador=8;
   $('#idordenador option[value="'+idordenador+'"]').attr('selected','selected');
 
+var idtipodocu=17;
+  $('#idtipodocu option[value="'+idtipodocu+'"]').attr('selected','selected');
 
 });
 
@@ -294,6 +296,7 @@ var idordenador=8;
 //=====================
 //
 // Upload file
+//
 //====================			
 //function uploadFiles(url1) 
 function uploadFiles() 
@@ -379,9 +382,39 @@ function uploadFiles()
   }else{
     alert("Porfavor seleccione un archivo");
   }
-
 }
 
+
+
+//================================================================
+//
+// Conseguir el directorio donde se guardará el archivo pdf
+//
+//================================================================
+
+
+function get_directorio() {
+	var idordenador = $('select[name=idordenador]').val();
+    $.ajax({
+        url: "<?php echo site_url('documento/get_directorio') ?>",
+        data: {idordenador: idordenador},
+        method: 'POST',
+	async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        for(i=0; i<data.length; i++){
+        html += '<option value='+data[i].iddirectorio+'>'+data[i].ruta+'</option>';
+        }
+        $('#iddirectorio').html(html);
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+    })
+}
 
 
 
