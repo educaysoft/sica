@@ -277,10 +277,11 @@ window.location.href = retorno+'/'+id;
 $('#show_data').on('click','.item_cargar',function(){
 
 
-	data_default_timezone_set('America/Guayaquil');
-	$dtz = new DateTimeZone('America/Guayaquil');
-	$fecha = new DateTime("now",$dtz);
+//	data_default_timezone_set('America/Guayaquil');
+//	$dtz = new DateTimeZone('America/Guayaquil');
+//	$fecha = new DateTime("now",$dtz);
 
+	$fecha = new Date().toLocaleString('es-EC', {timeZone: "America/Guayaquil"}};
 
 	$('#Modal_Edit').modal('show');
 	$('[name="fechaelaboracion"]').val($fecha);
