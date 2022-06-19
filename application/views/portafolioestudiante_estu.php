@@ -374,7 +374,7 @@ function uploadFiles(url1) {
     		xhttp.onreadystatechange = function() {
  		if(xhttp.readyState === XMLHttpRequest.DONE) {
     			var status = xhttp.status;
-    			if (status === data-elestudiante="'.$r->elestudiante.'" 0 || (status >= 200 && status < 400)) {
+    			if (status === 0 || (status >= 200 && status < 400)) {
 				rta
       				// The request has been completed successfully
 				var response = xhttp.responseText;
