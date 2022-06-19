@@ -289,7 +289,7 @@ $('#show_data').on('click','.item_cargar',function(){
 
 	alert(fecha);
 	$('#Modal_Edit').modal('show');
-	$('[name="fechaelaboracion"]').val(fecha);
+//	$('[name="fechaelaboracion"]').val(fecha);
 
 	$('[name="asunto"]').val($(this).data('eldocumento')+" de "+$(this).data('elestudiante'));
 	var idpersona=$(this).data('idpersona');
