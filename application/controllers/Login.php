@@ -330,4 +330,49 @@ public function carga_masiva(){
 
 ?>
 
+<script>
+
+
+ async function get_evento() {	
+	
+	var idinstitucion = $('select[name=idinstitucion]').val();
+    $.ajax({
+        url: "<?php echo site_url('evento/get_evento'); ?>",
+        data: {idinstitucion: idinstitucion},
+        method: 'POST',
+	 async : false,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
+        var i;
+        for(i=0; i<data.length; i++){
+		html += '<option value='+data[i].idevento+'>'+data[i].titulo+'</option>';
+        }
+        $('#idevento').html(html);
+
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
 
