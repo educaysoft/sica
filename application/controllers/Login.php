@@ -308,12 +308,12 @@ public function carga_masiva(){
 	foreach($data2 as $row){
         $cedula0=str_replace("-","",$row['cedula']);
         $cedula1=str_replace("O","0",$cedula0);
-	$cedula2=str_pad($row['cedula'],10,'0',STR_PAD_LEFT);
+	$cedula2=str_pad($cedula1,10,'0',STR_PAD_LEFT);
 
 
         $movil0=str_replace("-","",$row['movil']);
         $movil1=str_replace("O","0",$movil0);
-	$movil2=str_pad($row['movil'],10,'0',STR_PAD_LEFT);
+	$movil2=str_pad($movil1,10,'0',STR_PAD_LEFT);
 
 	echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['appellidos']." - ".$movil2."<br>";	 
 
