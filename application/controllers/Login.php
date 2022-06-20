@@ -277,6 +277,22 @@ public function logout() {
 	$this->load->view('template/page_footer.php');
 }
 
+public function carga_masiva(){
+	$arhivo=base_url()."csv/Armada01.csv";
+
+
+	$csvFile = file($arhivo);
+	$data=[];
+	foreach($csvFile as $line)
+	{
+		$data[] =str_getcsv($line);
+	}	
+ 	print_r($data);
+
+}
+
+
+
 }
 
 ?>
