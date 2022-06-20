@@ -306,6 +306,7 @@ public function carga_masiva(){
 
 	}
 	print_r($data2);
+//llenado 	
 	foreach($data2 as $row){
         $cedula0=str_replace("-","",$row['cedula']);
         $cedula1=str_replace("O","0",$cedula0);
