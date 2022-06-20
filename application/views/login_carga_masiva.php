@@ -1,4 +1,38 @@
 
+<script>
+
+function save_masive(correo,cedula,nombres,apellidos,telefono) {
+	var idevento = 31;
+	var idinstitucion=1;
+	var email=correo;
+	var password=cedula;
+    $.ajax({
+        url: "<?php echo site_url('login/new_user_registration') ?>",
+        data: {password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion},
+        method: 'POST',
+	async : false,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+	alert("grabado");
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+    })
+}
+
+
+
+
+
+
+
+
+</script>
+
 
 
 
@@ -67,43 +101,4 @@
 
 
 
-
-<script>
-
-
-
-
-
-
-function save_masive(correo,cedula,nombres,apellidos,telefono) {
-	var idevento = 31;
-	var idinstitucion=1;
-	var email=correo;
-	var password=cedula;
-    $.ajax({
-        url: "<?php echo site_url('login/new_user_registration') ?>",
-        data: {password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion},
-        method: 'POST',
-	async : false,
-        dataType : 'json',
-        success: function(data){
-        var html = '';
-        var i;
-	alert("grabado");
-        },
-      error: function (xhr, ajaxOptions, thrownError) {
-        alert(xhr.status);
-        alert(thrownError);
-      }
-    })
-}
-
-
-
-
-
-
-
-
-</script>
 
