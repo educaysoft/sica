@@ -306,7 +306,7 @@ public function carga_masiva(){
 
 	}
 	foreach($data2 as $row){
-	echo $row['correo']." - ".$row['cedula']." - ".$row['nombres']." - ".$row['appellidos']." - ".$row['movil']."<br>";	 
+	echo $row['correo']." - ".str_pad($row['cedula'],10,'0',STR_PAD_LEFT)." - ".$row['nombres']." - ".$row['appellidos']." - ".$row['movil']."<br>";	 
 	}
 
 }
