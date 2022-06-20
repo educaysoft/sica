@@ -69,9 +69,9 @@ public function new_user_registration() {
            //	$data['programa_list'] = $this->programa_model->list_programa()->result();
             $data['eventos']= $this->evento_model->lista_eventos()->result();
             $data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-             $this->load->view('template/page_header.php');
-          $this->load->view('registration_form',$data);
-             $this->load->view('template/page_footer.php');
+            $this->load->view('template/page_header.php');
+            $this->load->view('registration_form',$data);
+            $this->load->view('template/page_footer.php');
           } else {
 
             //hubicando la pagina con que inicia el usuario        
@@ -306,8 +306,9 @@ public function carga_masiva(){
 
 	}
 
-
- 	print_r($data2);
+	foreach($data2 as $row){
+	echo $row->correo." - ".$row->cedula." - ".$row->nombres." - ".$row->apellidos." - ".$row->movil."\n";	 
+	}
 
 }
 
