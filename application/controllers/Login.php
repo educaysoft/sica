@@ -306,7 +306,18 @@ public function carga_masiva(){
 
 	}
 	foreach($data2 as $row){
-	echo $row['correo']." - ".str_pad($row['cedula'],10,'0',STR_PAD_LEFT)." - ".$row['nombres']." - ".$row['appellidos']." - ".$row['movil']."<br>";	 
+        $cedula0=str_replace("-","",$row['cedula']);
+        $cedula1=str_replace("O","0",$cedula0);
+	$cedula2=str_pad($row['cedula'],10,'0',STR_PAD_LEFT);
+
+
+        $movil0=str_replace("-","",$row['movil']);
+        $movil1=str_replace("O","0",$movil0);
+	$movil2=str_pad($row['movil'],10,'0',STR_PAD_LEFT);
+
+	echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['appellidos']." - ".$movil."<br>";	 
+
+//	echo "<script> save_masive(".$row['correo'].",".$cedula2.",".$row['nombres'].",".$row['appellidos'].",".$movil.") </script>";
 	}
 
 }
@@ -316,3 +327,37 @@ public function carga_masiva(){
 }
 
 ?>
+
+<script>
+
+function save_masive(correo,cedula,nombres,apellidos,telefono) {
+	var idevento = 31;
+	var idinstitucion=1;
+	var email=correo;
+	var password=cedula;
+    $.ajax({
+        url: "<?php echo site_url('login/new_user_registration') ?>",
+        data: {password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion},
+        method: 'POST',
+	async : false,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+    })
+}
+
+
+
+
+
+
+
+
+</script>
+
