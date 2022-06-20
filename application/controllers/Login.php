@@ -280,9 +280,9 @@ public function logout() {
 public function carga_masiva(){
 
 	$data['message_display'] = 'Successfully Logout';
-//	$this->load->view('template/page_header.php');
+	$this->load->view('template/page_header.php');
 	$this->load->view('login_carga_masiva', $data);
-//	$this->load->view('template/page_footer.php');
+	$this->load->view('template/page_footer.php');
 }
 
 
