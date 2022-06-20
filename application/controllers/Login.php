@@ -287,7 +287,25 @@ public function carga_masiva(){
 	{
 		$data[] =str_getcsv($line);
 	}	
- 	print_r($data);
+	$data1=array();
+	$i=0;
+	$cab=array();
+	foreach($data as $row){
+		if($i==0){
+			$cab=$row;
+		}else{
+		 $data1[$cab[0]]=$row[0];
+		 $data1[$cab[1]]=$row[1];
+		 $data1[$cab[2]]=$row[2];
+		 $data1[$cab[3]]=$row[3];
+		 $data1[$cab[4]]=$row[4];
+		}
+	   $i=$i+1;
+
+	}
+
+
+ 	print_r($data1);
 
 }
 
