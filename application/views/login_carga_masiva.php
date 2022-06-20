@@ -46,7 +46,7 @@
 
 	echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['appellidos']." - ".$movil2."<br>";	 
 
-    	echo "<script> save_masive(".$row['correo'].",".$cedula2.",".$row['nombres'].",".$row['appellidos'].",".$movil2.") </script>";
+    	echo "<script> save_masive('".$row['correo']."','".$cedula2."','".$row['nombres']."','".$row['appellidos']."','".$movil2."') </script>";
 	break;
 	}
 
@@ -89,6 +89,7 @@ function save_masive(correo,cedula,nombres,apellidos,telefono) {
         success: function(data){
         var html = '';
         var i;
+	alert("grabado");
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
