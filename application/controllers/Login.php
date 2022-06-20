@@ -315,9 +315,9 @@ public function carga_masiva(){
         $movil1=str_replace("O","0",$movil0);
 	$movil2=str_pad($row['movil'],10,'0',STR_PAD_LEFT);
 
-	echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['appellidos']." - ".$movil."<br>";	 
+	echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['appellidos']." - ".$movil2."<br>";	 
 
-//	echo "<script> save_masive(".$row['correo'].",".$cedula2.",".$row['nombres'].",".$row['appellidos'].",".$movil.") </script>";
+//	echo "<script> save_masive(".$row['correo'].",".$cedula2.",".$row['nombres'].",".$row['appellidos'].",".$movil2.") </script>";
 	}
 
 }
