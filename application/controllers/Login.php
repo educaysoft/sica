@@ -278,51 +278,15 @@ public function logout() {
 }
 
 public function carga_masiva(){
-	$arhivo=base_url()."csv/Armada01.csv";
 
-
-	$csvFile = file($arhivo);
-	$data=[];
-	foreach($csvFile as $line)
-	{
-		$data[] =str_getcsv($line);
-	}	
-	$data1=array();
-	$data2=array();
-	$i=0;
-	$cab=array();
-	foreach($data as $row){
-		if($i==0){
-			$cab=$row;
-		}else{
-		 $data1[$cab[0]]=$row[0];
-		 $data1[$cab[1]]=$row[1];
-		 $data1[$cab[2]]=$row[2];
-		 $data1[$cab[3]]=$row[3];
-		 $data1[$cab[4]]=$row[4];
-		 array_push($data2,$data1);
-		}
-	   $i=$i+1;
-
-	}
-	print_r($data2);
-//llenado 	
-	foreach($data2 as $row){
-        $cedula0=str_replace("-","",$row['cedula']);
-        $cedula1=str_replace("O","0",$cedula0);
-	$cedula2=str_pad($cedula1,10,'0',STR_PAD_LEFT);
-
-
-        $movil0=str_replace("-","",$row['movil']);
-        $movil1=str_replace("O","0",$movil0);
-	$movil2=str_pad($movil1,10,'0',STR_PAD_LEFT);
-
-	echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['appellidos']." - ".$movil2."<br>";	 
-
-//	echo "<script> save_masive(".$row['correo'].",".$cedula2.",".$row['nombres'].",".$row['appellidos'].",".$movil2.") </script>";
-	}
-
+	$data['message_display'] = 'Successfully Logout';
+	$this->load->view('template/page_header.php');
+	$this->load->view('login_carga_masiva', $data);
+	$this->load->view('template/page_footer.php');
 }
+
+
+
 
 
 
@@ -330,49 +294,4 @@ public function carga_masiva(){
 
 ?>
 
-<script>
-
-
- async function get_evento() {	
-	
-	var idinstitucion = $('select[name=idinstitucion]').val();
-    $.ajax({
-        url: "<?php echo site_url('evento/get_evento'); ?>",
-        data: {idinstitucion: idinstitucion},
-        method: 'POST',
-	 async : false,
-        dataType : 'json',
-        success: function(data){
-        var html = '';
-        html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
-        var i;
-        for(i=0; i<data.length; i++){
-		html += '<option value='+data[i].idevento+'>'+data[i].titulo+'</option>';
-        }
-        $('#idevento').html(html);
-
-
-        },
-      error: function (xhr, ajaxOptions, thrownError) {
-        alert(xhr.status);
-        alert(thrownError);
-      }
-
-    })
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
 
