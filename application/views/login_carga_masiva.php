@@ -6,9 +6,10 @@ function save_masive(correo,cedula,nombres,apellidos,telefono) {
 	var idinstitucion=1;
 	var email=correo;
 	var password=cedula;
+	var fuente=1;
     $.ajax({
         url: "<?php echo site_url('login/new_user_registration') ?>",
-        data: {password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion},
+        data: {fuente:fuente, password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion},
         method: 'POST',
 	async : false,
         dataType : 'json',
@@ -20,7 +21,7 @@ function save_masive(correo,cedula,nombres,apellidos,telefono) {
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
         alert(thrownError);
-      }
+	U
     })
 }
 
@@ -68,6 +69,7 @@ function save_masive(correo,cedula,nombres,apellidos,telefono) {
 
 	}
 //llenado 	
+	$i=0;
 	foreach($data2 as $row){
         $cedula0=str_replace("-","",$row['cedula']);
         $cedula1=str_replace("O","0",$cedula0);
@@ -81,7 +83,11 @@ function save_masive(correo,cedula,nombres,apellidos,telefono) {
 	echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['appellidos']." - ".$movil2."<br>";	 
 
     	echo "<script> save_masive('".$row['correo']."','".$cedula2."','".$row['nombres']."','".$row['appellidos']."','".$movil2."'); </script>";
+	$i=$i+1;
+	if($i==3)
+	{
 	break;
+	}
 	}
 
 

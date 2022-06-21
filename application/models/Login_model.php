@@ -53,8 +53,9 @@ Class Login_model extends CI_Model {
 
 	}
 
-// Insert registration data in database
-public function registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono) {
+	// Insert registration data in database
+	// varible fuente para saber de donde fue llamada 0 =php   1=javascrip
+public function registration_insert($fuente, $datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono) {
 
 		$this->db->trans_start();
 // Query to check whether username already exist or not
@@ -91,14 +92,23 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
                     
 								    if ($this->db->affected_rows() > 0) {
 								      $this->db->trans_complete();
-								      return true;
+									if($fuente==0)
+										return true;
+									else
+										echo true;
 								    }else{
 								      $this->db->trans_complete();
-								      return false;
+									if($fuente==0)
+										return false;
+									else
+										echo false;
 								    }
                 						}	
 						}else {
-								return false;
+									if($fuente==0)
+										return false;
+									else
+										echo false;
 						}
 				}else{
 						$idpersona=$query->result()[0]->idpersona;
@@ -116,10 +126,16 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 							    $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>$date,'fechaoff'=>''));
 							    if ($this->db->affected_rows() > 0) {
 							      $this->db->trans_complete();
-							      return true;
+									if($fuente==0)
+										return true;
+									else
+										echo true;
 							    }else{
 							      $this->db->trans_complete();
-							      return false;
+									if($fuente==0)
+										return false;
+									else
+										echo false;
 							    }
             					}
 				}
@@ -163,10 +179,16 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
                   }
 							if ($this->db->affected_rows() > 0) {
 								$this->db->trans_complete();
-								return true;
+								if($fuente==0)
+									return true;
+								else
+									echo true;
 							}else{
 								$this->db->trans_complete();
-								return false;
+									if($fuente==0)
+										return false;
+									else
+										echo false;
 							}
             }else {
                 $condition = "idusuario =" .  $idusuario ;
@@ -180,7 +202,10 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
                 if ($query->num_rows()== 0) {
                       $date = date('d-m-y h:i:s');
                       $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>$date,'fechaoff'=>''));
-                      return true;
+								if($fuente==0)
+									return true;
+								else
+									echo true;
                   }
 	
 
