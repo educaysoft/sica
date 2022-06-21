@@ -21,6 +21,7 @@ function save_masive(correo,cedula,nombres,apellidos,telefono) {
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
         alert(thrownError);
+      }
     })
 }
 
