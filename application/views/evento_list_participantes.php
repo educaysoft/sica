@@ -150,7 +150,7 @@ $('#show_data').on('click','.item_enviar',function(){
 		 var mailto= "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 		 var idpersona=$(this).data('idpersona');
-		 var asunto='CERTIFICACIÓN - FACULTAD DE INGENIERÍAS - UTLVTE';
+		 var asunto='ARMADA DEL ECUADOR - UTLVTE : CERTIFICACIÓN DIGITAL';
 
 		 var head="<div> <b>Las Jornadas virtuales de fortalecimiento de la EGB y BGU de Esmeraldas en propuestas educativas vinculadas a los intereses marítimos</b>, ha sido organizado por la Armada del Ecuador con el apoyo técnico de la Universidad Técnica Luis Vargas Torres de Esmeraldas, gracias al convenio marco que tienen estas dos instituciones. <br><br>  Este correo le ha sido entregado después de haber terminado de forma satisfactoria la capacitación sobre temas marítimos, lo que lo hace merecedor/a a una certificación que reposará de forma segura en los servidores de la Universidad y que puede descargar accediendo al siguiente link</div>";
 			
@@ -170,13 +170,7 @@ $('#show_data').on('click','.item_enviar',function(){
 		success: function(data){
 		var html = '';
 		var i;
-		if(data[0]==TRUE)
-		{
-		alert(data[0]+" - ENVIADO A "+data[1]);
-		}else{
-
-		alert("ENVIADO:  "+data[0]);
-		}
+		alert(data);
 
 
 		},
