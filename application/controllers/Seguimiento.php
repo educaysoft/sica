@@ -449,6 +449,7 @@ public function send()
 		$query=$this->db->get();
 		if($query->num_rows() >0) {
 			$mailto=$query->result()[0]->nombre;
+
 		}else{
         		$mailto = $this->input->post('mailto');
 		}
@@ -461,7 +462,7 @@ public function send()
         $this->load->library('email');
 
         $nome = $this->input->post('nome');
-        $msg = $this->input->post('msg');
+        $msg = str_replace("stalin.francis@utelvt.edu.ec",$mailto, $this->input->post('msg'));
         $secure = $this->input->post('secure');
 	$email= $this->input->post('email');
 
@@ -488,7 +489,7 @@ public function send()
 
 	$this->email->message($msg);
         if ($this->email->send()){
-            echo json_encode(array("sent"=>TRUE));
+            echo json_encode(array("sent"=>TRUE,"mailto"=>$mailto));
         }else{
             echo json_encode(array("sent"=>FALSE));
         }
