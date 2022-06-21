@@ -59,16 +59,7 @@ public function registro_postulacion_MTI() {
 // Validate and store registration data in database
 public function new_user_registration() {
 
-	//Definiento de donde es llama la funcion
-	//1=javascrip   0=php
-	if(isset($this->input->post("fuente")))
-	{
-		$fuente=$this->input->post("fuente");
-	}
-	else
-	{
-		$fuente=0;
-	} 
+ 
           // Check validation for user input in SignUp form
           $this->form_validation->set_rules('apellidos', 'Apellidos', 'trim|required|xss_clean');
           $this->form_validation->set_rules('nombres', 'Nombres', 'trim|required|xss_clean');
@@ -83,7 +74,16 @@ public function new_user_registration() {
             $this->load->view('registration_form',$data);
             $this->load->view('template/page_footer.php');
           } else {
-
+	//Definiento de donde es llama la funcion
+	//1=javascrip   0=php
+	if(isset($this->input->post("fuente")))
+	{
+		$fuente=$this->input->post("fuente");
+	}
+	else
+	{
+		$fuente=0;
+	}
             //hubicando la pagina con que inicia el usuario        
             $elevento= $this->evento_model->evento($this->input->post('idevento'))->row_array();
             $lapagina= $this->pagina_model->pagina($elevento['idpagina'])->row_array();
