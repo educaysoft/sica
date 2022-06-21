@@ -76,7 +76,7 @@ public function new_user_registration() {
           } else {
 	//Definiento de donde es llama la funcion
 	//1=javascrip   0=php
-	if(isset($this->input->post('fuente')))
+	if(!empty($this->input->post('fuente')))
 	{
 		$fuente=$this->input->post('fuente');
 	}
