@@ -426,12 +426,13 @@ $("#btn_update").on("click", function(){
                  var msg=tinyMCE.activeEditor.getContent({format:'text'});
 		 var mailto=document.getElementById("correo_edit").value; //   "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
-		 var head="<div> La capacitación brindada a los docente por parte de la Armada del Ecuador y convenio con la Universidad Técnica Luis Vargas Torres de Esmeraldas, gracias al convenio marco que tiene este dos instittuciones, este correo le ha sido entregado despues de haber terminado la capacitación,  haciendose merecedor/a a la certificación la cual puede descargadlo del siguinte link</div>";
+		 var head="<div> <b>Las Jornadas virtuales de fortalecimeinto de la EGB y BGU de Esmeraldas en propuestas educativas vinculadas a los intereses marítimos</b> ha sido organizado por la Armada del Ecuador con el apoyo técnico de la Universidad Técnica Luis Vargas Torres de Esmeraldas, gracias al un convenio marco que tienen estas dos instittuciones. <br>  Es correo le ha sido entregado después de haber terminado de forma satisfactoria la capacitación sobre temas marítimos, lo que lo hace merecedor/a a una certificación que reposara de forma segura en los servidore de la Universidad y que puede descargar accediendo al siguiente link</div>";
 			
+		var foot0="<div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres esta ofertando los siguiente programas de postgrado<br> <img src='http://educaysoft.org/maestria/maestriasutlvte.jpg' width='50%' height='50%'>" ;
+		 var foot=" <div style='text-align:center; background-color:lightgrey;'> Este correo ha sido enviado a "+mailto+ ", de acuerdo a la Ley Orgánica de Protección de datos, usted tiene el derecho a solicitar a la Universidad Técnica Luis Vargas Torres, la actualización, inclusión, supresión y/o tratamiento de los datos personales incluidos en sus bases de datos, con este correo electrónico usted acepta recibir información de las actividades académicas que realiza el Alma Mater así como nuestra propuestas académicas <br> Este correo fue genera y enviado automáticamente desde el sistema cloud elborado de la Maestría en Tecnología de la Información</div> ";
 
-		var foot="<div style='text-align:center; background-color:lightgrey;'> Este correo ha sido enviado a "+mailto+ ", de acuerdo a la Ley Orgánica de Protección de datos, usted tiene el derecho a solicitar a la Universidad Técnica Luis Vargas Torres, la actualización, inclusión, supresión y/o tratamiento de los datos personales incluidos en sus bases de datos, con este correo electrónico usted acepta recibir información de las actividades académicas que realiza el Alma Mater así como nuestra propuestas académicas</div> ";
+		msg=head+msg+foot0+foot;
 
-		msg=head+msg+foot;
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/send') ?>",
 		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure},
