@@ -180,6 +180,41 @@ echo form_input('iddocumento',$options[$certificado['iddocumento']],array("disab
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Head para enviar:</label>
+	<div class="col-md-10">
+		<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('correohead',$documento['correohead'],$textarea_options); 
+		?>
+	</div> 
+</div>
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Body para enviar:</label>
+	<div class="col-md-10">
+		<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('correobody',$documento['correobody'],$textarea_options); 
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Foot para enviar:</label>
+	<div class="col-md-10">
+		<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('correofoot',$documento['correofoot'],$textarea_options); 
+		?>
+	</div> 
+</div>
+
+
+
+
+
 
 
 </table>

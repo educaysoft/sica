@@ -57,10 +57,9 @@ foreach ($tipodocus as $row){
 <tr>
   <td>Asunto:</td>
   <td><?php 
-  
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"asunto","id" =>"asunto");    
 echo form_textarea('asunto',$documento['asunto'],$textarea_options ); ?></td>
- </tr>
+</tr>
 
 
   <tr>

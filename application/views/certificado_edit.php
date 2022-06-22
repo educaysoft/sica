@@ -96,12 +96,6 @@ echo form_input($eys_arrinput); ?></td>
 
 
 
-
-
-
-
-
-
 <tr>
      <td>Posicion X:</td>
      <td><?php 
@@ -115,11 +109,6 @@ echo form_input($eys_arrinput); ?></td>
     $eys_arrinput=array('name'=>'posi_nomb_y','value'=>$certificado['posi_nomb_y'], "style"=>"width:500px");
     echo form_input($eys_arrinput); ?></td>
 </tr>
-
-
-
-
-
 
 
 
@@ -138,14 +127,41 @@ echo form_input($eys_arrinput); ?></td>
 </tr>
 
 
-
-
-
-
-
-
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('certificado','Atras') ?></td>
  </tr>
+
+<tr>
+  <td>Head para enviar:</td>
+  <td><?php 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correohead","id" =>"correohead");    
+echo form_textarea('correohead',$documento['correohead'],$textarea_options ); ?></td>
+</tr>
+
+
+<tr>
+  <td>Body para enviar:</td>
+  <td><?php 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correobody","id" =>"correobody");    
+echo form_textarea('correobody',$documento['correobody'],$textarea_options ); ?></td>
+</tr>
+
+
+<tr>
+  <td>Foot para enviar:</td>
+  <td><?php 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correofoot","id" =>"correofoot");    
+echo form_textarea('correofoot',$documento['correofoot'],$textarea_options ); ?></td>
+</tr>
+
+
+
+
+
+
+
+
+
+
 </table>
 <?php echo form_close(); ?>

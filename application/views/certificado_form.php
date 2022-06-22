@@ -89,7 +89,7 @@ foreach ($tipodocus as $row){
 
 <tr>
 <td> Posi codigo  x(0.00) </td>
-<td><?php echo form_input("posi_codigo_x","", arrax("placeholder"=>"Posicion del codigore en x"))  ?></td>
+<td><?php echo form_input("posi_codigo_x","", array("placeholder"=>"Posicion del codigore en x"))  ?></td>
 </tr>
 
 
@@ -116,9 +116,38 @@ foreach ($tipodocus as $row){
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("certificado","Atras") ?> </td>
 </tr>
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Head del correo:</label>
+<div class="col-md-10">
+<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correohead",'id'=>'correohead' );    
+ echo form_textarea("correohead","", $textarea_options); 
+?>
+</div>
+</div>
 
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Body del correo:</label>
+<div class="col-md-10">
+<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correobody",'id'=>'correobody' );    
+ echo form_textarea("correobody","", $textarea_options); 
+?>
+</div>
+</div>
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Foot del correo:</label>
+<div class="col-md-10">
+<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correofoot",'id'=>'correofoot' );    
+ echo form_textarea("correofoot","", $textarea_options); 
+?>
+</div>
+</div>
 
 
 
