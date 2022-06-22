@@ -135,7 +135,7 @@ echo form_input($eys_arrinput); ?></td>
   <td>Head para enviar:</td>
   <td><?php 
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correohead","id" =>"correohead");    
-echo form_textarea('correohead',$documento['correohead'],$textarea_options ); ?></td>
+echo form_textarea('correohead',$certificado['correohead'],$textarea_options ); ?></td>
 </tr>
 
 
@@ -143,7 +143,7 @@ echo form_textarea('correohead',$documento['correohead'],$textarea_options ); ?>
   <td>Body para enviar:</td>
   <td><?php 
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correobody","id" =>"correobody");    
-echo form_textarea('correobody',$documento['correobody'],$textarea_options ); ?></td>
+echo form_textarea('correobody',$certificado['correobody'],$textarea_options ); ?></td>
 </tr>
 
 
@@ -151,7 +151,7 @@ echo form_textarea('correobody',$documento['correobody'],$textarea_options ); ?>
   <td>Foot para enviar:</td>
   <td><?php 
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correofoot","id" =>"correofoot");    
-echo form_textarea('correofoot',$documento['correofoot'],$textarea_options ); ?></td>
+echo form_textarea('correofoot',$certificado['correofoot'],$textarea_options ); ?></td>
 </tr>
 
 

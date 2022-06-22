@@ -185,7 +185,7 @@ echo form_input('iddocumento',$options[$certificado['iddocumento']],array("disab
 	<div class="col-md-10">
 		<?php
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('correohead',$documento['correohead'],$textarea_options); 
+ echo form_textarea('correohead',$certificado['correohead'],$textarea_options); 
 		?>
 	</div> 
 </div>
@@ -195,7 +195,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 	<div class="col-md-10">
 		<?php
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('correobody',$documento['correobody'],$textarea_options); 
+ echo form_textarea('correobody',$certificado['correobody'],$textarea_options); 
 		?>
 	</div> 
 </div>
@@ -206,7 +206,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 	<div class="col-md-10">
 		<?php
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('correofoot',$documento['correofoot'],$textarea_options); 
+ echo form_textarea('correofoot',$certificado['correofoot'],$textarea_options); 
 		?>
 	</div> 
 </div>
