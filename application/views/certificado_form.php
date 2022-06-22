@@ -101,7 +101,7 @@ foreach ($tipodocus as $row){
 
 <tr>
 <td> Posi fecha  x(0.00) </td>
-<td><?php echo form_input("posi_fecha_x","", arrax("placeholder"=>"Posicion del fechare en x"))  ?></td>
+<td><?php echo form_input("posi_fecha_x","", array("placeholder"=>"Posicion del fechare en x"))  ?></td>
 </tr>
 
 
