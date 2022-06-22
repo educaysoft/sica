@@ -62,9 +62,9 @@ public function  save()
 
 	 	'ancho_x' => $this->input->post('ancho_x'),
 	 	'alto_y' => $this->input->post('alto_y'),
-		'correohead' => $this->input->post('correohead');
-		'correobody' => $this->input->post('correobody');
-		'correofoot' => $this->input->post('correofoot');
+		'correohead' => $this->input->post('correohead'),
+		'correobody' => $this->input->post('correobody'),
+		'correofoot' => $this->input->post('correofoot'),
 	 	);
 	 	$this->certificado_model->save($array_item);
 	 	redirect('certificado');
@@ -106,9 +106,9 @@ public function edit()
 			'posi_fecha_y' => $this->input->post('posi_fecha_y'),
 		 	'ancho_x' => $this->input->post('ancho_x'),
 		 	'alto_y' => $this->input->post('alto_y'),
-			'correohead' => $this->input->post('correohead');
-			'correobody' => $this->input->post('correobody');
-			'correofoot' => $this->input->post('correofoot');
+			'correohead' => $this->input->post('correohead'),
+			'correobody' => $this->input->post('correobody'),
+			'correofoot' => $this->input->post('correofoot'),
 	 	);
 	 	$this->certificado_model->update($id,$array_item);
 	 	redirect('certificado');
