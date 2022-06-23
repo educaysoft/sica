@@ -394,7 +394,6 @@ function uploadFiles(url1) {
  		if(xhttp.readyState === XMLHttpRequest.DONE) {
     			var status = xhttp.status;
     			if (status === 0 || (status >= 200 && status < 400)) {
-				rta
       				// The request has been completed successfully
 				var response = xhttp.responseText;
           			alert(response + "archivo cargado");
@@ -431,10 +430,6 @@ function uploadFiles(url1) {
 
 	    })
 	}
-
-
-
-
 
 				history.back(); //Go to the previous page
        			}else{
