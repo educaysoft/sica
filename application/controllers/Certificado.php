@@ -63,7 +63,7 @@ public function  save()
 	 	'ancho_x' => $this->input->post('ancho_x'),
 	 	'alto_y' => $this->input->post('alto_y'),
 		'correohead' => $this->input->post('correohead'),
-		'correobody' => $this->input->post('correobody'),
+		'correosubject' => $this->input->post('correosubject'),
 		'correofoot' => $this->input->post('correofoot'),
 	 	);
 	 	$this->certificado_model->save($array_item);
@@ -107,7 +107,7 @@ public function edit()
 		 	'ancho_x' => $this->input->post('ancho_x'),
 		 	'alto_y' => $this->input->post('alto_y'),
 			'correohead' => $this->input->post('correohead'),
-			'correobody' => $this->input->post('correobody'),
+			'correosubject' => $this->input->post('correosubject'),
 			'correofoot' => $this->input->post('correofoot'),
 	 	);
 	 	$this->certificado_model->update($id,$array_item);
