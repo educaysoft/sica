@@ -381,7 +381,7 @@ function uploadFiles(url1) {
 		if(url2.slice(-1) == '/'){
 			url2 = url2+"cargafile.php";
 		}else{
-			url2 = url2+"/cargafile.php;
+			url2 = url2+"/cargafile.php";
 		}
                 alert("Se va a ejecutar "+ url2);	
     		// Set POST method and ajax file path
