@@ -270,7 +270,7 @@ if(iddocumento2==0)
 //	url= "http://"+maquina+"/FPDI/certificado.php?asunto='"+asunto+"'&participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'";
 
 
-
+//
     formData.append("asunto", asunto);
     formData.append("participante", participante);
     formData.append("modelo", modelo);
@@ -317,13 +317,6 @@ if(iddocumento2==0)
     		// Send request with data
 
 
-
-
-
-
-
-
-//		location.href = "http://"+maquina+"/FPDI/certificado.php?asunto='"+asunto+"'&participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'";
 	// Asignando el documento generado al participante
 	}
 	},

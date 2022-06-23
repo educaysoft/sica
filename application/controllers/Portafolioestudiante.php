@@ -124,6 +124,22 @@ public function edit()
  	}
 
 
+
+
+
+	public function  save_edit2()
+	
+		$id=$this->input->post('idportafolioestudiante');
+	 	$array_item=array(
+		 	'iddocumento' => $this->input->post('iddocumento'),
+	 	);
+	 	echo $this->portafolioestudiante_model->update($id,$array_item);
+ 	}
+
+
+
+
+
  	public function delete()
  	{
  		$data=$this->portafolioestudiante_model->delete($this->uri->segment(3));

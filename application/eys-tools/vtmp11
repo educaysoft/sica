@@ -2,23 +2,23 @@
 	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($evento_estado))
+if(isset($institucion))
 {
 ?>
-        <li> <?php echo anchor('evento_estado/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('evento_estado/siguiente/'.$evento_estado['idevento_estado'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('evento_estado/anterior/'.$evento_estado['idevento_estado'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('evento_estado/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('evento_estado/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('evento_estado/edit/'.$evento_estado['idevento_estado'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('evento_estado/delete/'.$evento_estado['idevento_estado'],'Delete'); ?></li>
-        <li> <?php echo anchor('evento_estado/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('institucion/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('institucion/siguiente/'.$institucion['idinstitucion'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('institucion/anterior/'.$institucion['idinstitucion'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('institucion/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('institucion/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('institucion/edit/'.$institucion['idinstitucion'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('institucion/delete/'.$institucion['idinstitucion'],'Delete'); ?></li>
+        <li> <?php echo anchor('institucion/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('evento_estado/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('institucion/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -28,30 +28,25 @@ if(isset($evento_estado))
 <br>
 
 
-<?php echo form_open('evento_estado/save_edit') ?>
-<?php echo form_hidden('idevento_estado',$evento_estado['idevento_estado']) ?>
+<?php echo form_open('institucion/save_edit') ?>
+<?php echo form_hidden('idinstitucion',$institucion['idinstitucion']) ?>
+<table>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id:</label>
-	<div class="col-md-10">
-     <?php
-	echo form_input('idevento_estado',$evento_estado['idevento_estado'],array("disabled"=>"disabled",'placeholder'=>'Idevento_estados'));
-	?>
-	</div> 
-</div> 
+  <tr>
+     <td>idinstitucion:</td>
+     <td><?php echo form_input('idinstitucion',$institucion['idinstitucion'],array("disabled"=>"disabled")) ?></td>
+  </tr>
  
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre:</label>
-	<div class="col-md-10">
-     <?php
-       echo form_input('nombre',$evento_estado['nombre'],array('placeholder'=>'Nombre del evento_estado')); 
+ <tr>
+      <td>Nombres:</td>
+      <td><?php echo form_input('nombre',$institucion['nombre'],array('placeholder'=>'Nombre del institucion')) ?></td>
+  </tr>
 
-	?>
-	</div> 
-</div> 
    
    
+
+</table>
 <?php echo form_close(); ?>
 
 

@@ -1,33 +1,34 @@
 <?php
-class Evento_estado_model extends CI_model {
+class Institucion_model extends CI_model {
 
-	function lista_evento_estados(){
-		 $evento_estado= $this->db->get('evento_estado');
-		 return $evento_estado;
+	function lista_instituciones(){
+		 $institucion= $this->db->get('institucion');
+		 return $institucion;
 	}
 
- 	function evento_estado( $id){
- 		$evento_estado = $this->db->query('select * from evento_estado where idevento_estado="'. $id.'"');
- 		return $evento_estado;
+ 	function institucion( $id){
+ 		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $id.'"');
+		 
+ 		return $institucion;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("evento_estado", $array);
+		$this->db->insert("institucion", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idevento_estado',$id);
- 		$this->db->update('evento_estado',$array_item);
+ 		$this->db->where('idinstitucion',$id);
+ 		$this->db->update('institucion',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idevento_estado',$id);
-		$this->db->delete('evento_estado');
+ 		$this->db->where('idinstitucion',$id);
+		$this->db->delete('institucion');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -36,9 +37,29 @@ class Evento_estado_model extends CI_model {
  	}
 
 
+public function get_institucion($id){
+	$condition = "idinstitucion =" .  $id ;
+	$this->db->select('*');
+	$this->db->from('institucion');
+	$this->db->where($condition);
+	$this->db->limit(1);
+	$query = $this->db->get();
+
+	if ($query->num_rows() == 1) {
+		return $query->result();
+	} else {
+		return false;
+	}
+
+}
+
+
+
+
+
 	function elprimero()
 	{
-		$query=$this->db->order_by("idevento_estado")->get('evento_estado');
+		$query=$this->db->order_by("idinstitucion")->get('institucion');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -51,7 +72,7 @@ class Evento_estado_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idevento_estado")->get('evento_estado');
+		$query=$this->db->order_by("idinstitucion")->get('institucion');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -63,40 +84,48 @@ class Evento_estado_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$evento_estado = $this->db->select("idevento_estado")->order_by("idevento_estado")->get('evento_estado')->result_array();
-		$arr=array("idevento_estado"=>$id);
-		$clave=array_search($arr,$evento_estado);
-	   if(array_key_exists($clave+1,$evento_estado))
+ 		$institucion = $this->db->select("idinstitucion")->order_by("idinstitucion")->get('institucion')->result_array();
+		$arr=array("idinstitucion"=>$id);
+		$clave=array_search($arr,$institucion);
+	   if(array_key_exists($clave+1,$institucion))
 		 {
 
- 		$evento_estado = $this->db->query('select * from evento_estado where idevento_estado="'. $evento_estado[$clave+1]["idevento_estado"].'"');
+ 		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $institucion[$clave+1]["idinstitucion"].'"');
 		 }else{
 
- 		$evento_estado = $this->db->query('select * from evento_estado where idevento_estado="'. $id.'"');
+ 		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $id.'"');
 		 }
 		 	
- 		return $evento_estado;
+ 		return $institucion;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$evento_estado = $this->db->select("idevento_estado")->order_by("idevento_estado")->get('evento_estado')->result_array();
-		$arr=array("idevento_estado"=>$id);
-		$clave=array_search($arr,$evento_estado);
-	   if(array_key_exists($clave-1,$evento_estado))
+ 		$institucion = $this->db->select("idinstitucion")->order_by("idinstitucion")->get('institucion')->result_array();
+		$arr=array("idinstitucion"=>$id);
+		$clave=array_search($arr,$institucion);
+	   if(array_key_exists($clave-1,$institucion))
 		 {
 
- 		$evento_estado = $this->db->query('select * from evento_estado where idevento_estado="'. $evento_estado[$clave-1]["idevento_estado"].'"');
+ 		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $institucion[$clave-1]["idinstitucion"].'"');
 		 }else{
 
- 		$evento_estado = $this->db->query('select * from evento_estado where idevento_estado="'. $id.'"');
+ 		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $id.'"');
 		 }
 		 	
- 		return $evento_estado;
+ 		return $institucion;
  	}
 
 
+
+	function lista_instituciones_con_inscripciones(){
+		 $this->db->select('institucion.*');
+		 $this->db->from('institucion,evento');
+		 $this->db->where('evento.idinstitucion=institucion.idinstitucion and evento.idevento_estado=2');
+		 $institucion= $this->db->get();
+		 return $institucion;
+	}
 
 
 

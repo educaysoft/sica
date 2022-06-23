@@ -1,18 +1,18 @@
 <?php
 
-class Evento_estado extends CI_Controller{
+class Institucion extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('evento_estado_model');
+      $this->load->model('institucion_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['evento_estado']=$this->evento_estado_model->evento_estado(1)->row_array();
-		$data['title']="Lista de evento_estadoes";
+		$data['institucion']=$this->institucion_model->elultimo();
+		$data['title']="Lista de instituciones";
 		$this->load->view('template/page_header');
-		$this->load->view('evento_estado_record',$data);
+		$this->load->view('institucion_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva evento_estado";
+		$data['title']="Nueva institucion";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('evento_estado_form',$data);
+	 	$this->load->view('institucion_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,21 +34,20 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idevento_estado' => $this->input->post('idevento_estado'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->evento_estado_model->save($array_item);
-	 	redirect('evento_estado');
+	 	$this->institucion_model->save($array_item);
+	 	redirect('institucion');
  	}
 
 
 
 public function edit()
 {
-	 	$data['evento_estado'] = $this->evento_estado_model->evento_estado($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar evento_estado";
+	 	$data['institucion'] = $this->institucion_model->institucion($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar institucion";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('evento_estado_edit',$data);
+ 	 	$this->load->view('institucion_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,49 +55,47 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idevento_estado');
+		$id=$this->input->post('idinstitucion');
 	 	$array_item=array(
 		 	
-		 	'idevento_estado' => $this->input->post('idevento_estado'),
+		 	'idinstitucion' => $this->input->post('idinstitucion'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->evento_estado_model->update($id,$array_item);
-	 	redirect('evento_estado');
+	 	$this->institucion_model->update($id,$array_item);
+	 	redirect('institucion');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->evento_estado_model->delete($this->uri->segment(3));
- 		echo json_encode($data);
-	 	redirect('evento_estado/elprimero');
-	//	$db['default']['db_debug']=FALSE
+ 		$this->institucion_model->delete($this->uri->segment(3));
+	 	redirect('institucion/elultimo');
  	}
 
 
 public function listar()
 {
 	
-  $data['title']="Evento_estado";
+  $data['title']="Institucion";
 	$this->load->view('template/page_header');		
-  $this->load->view('evento_estado_list',$data);
+  $this->load->view('institucion_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function evento_estado_data()
+function institucion_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->evento_estado_model->lista_evento_estados();
+	 	$data0 = $this->institucion_model->lista_instituciones();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idevento_estado,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idevento_estado="'.$r->idevento_estado.'">Ver</a>');
+			$data[]=array($r->idinstitucion,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idinstitucion="'.$r->idinstitucion.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -121,12 +118,12 @@ function evento_estado_data()
 
 public function elprimero()
 {
-	$data['evento_estado'] = $this->evento_estado_model->elprimero();
+	$data['institucion'] = $this->institucion_model->elprimero();
   if(!empty($data))
   {
-    $data['title']="Evento_estado";
+    $data['title']="Institucion";
     $this->load->view('template/page_header');		
-    $this->load->view('evento_estado_record',$data);
+    $this->load->view('institucion_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +134,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['evento_estado'] = $this->evento_estado_model->elultimo();
+	$data['institucion'] = $this->institucion_model->elultimo();
   if(!empty($data))
   {
-    $data['title']="Evento_estado";
+    $data['title']="Institucion";
   
     $this->load->view('template/page_header');		
-    $this->load->view('evento_estado_record',$data);
+    $this->load->view('institucion_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,20 +151,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['evento_estado_list']=$this->evento_estado_model->lista_evento_estado()->result();
-	$data['evento_estado'] = $this->evento_estado_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Evento_estado";
+ // $data['institucion_list']=$this->institucion_model->lista_institucion()->result();
+	$data['institucion'] = $this->institucion_model->siguiente($this->uri->segment(3))->row_array();
+  $data['title']="Institucion";
 	$this->load->view('template/page_header');		
-  $this->load->view('evento_estado_record',$data);
+  $this->load->view('institucion_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['evento_estado_list']=$this->evento_estado_model->lista_evento_estado()->result();
-	$data['evento_estado'] = $this->evento_estado_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Evento_estado";
+ // $data['institucion_list']=$this->institucion_model->lista_institucion()->result();
+	$data['institucion'] = $this->institucion_model->anterior($this->uri->segment(3))->row_array();
+  $data['title']="Institucion";
 	$this->load->view('template/page_header');		
-  $this->load->view('evento_estado_record',$data);
+  $this->load->view('institucion_record',$data);
 	$this->load->view('template/page_footer');
 }
 

@@ -103,6 +103,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
 				<div class="modal-body">
 
 
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">Fecha:</label>
+		<div class="col-md-10">
+			<?php
+ 	echo form_input(array("name"=>"idportafolioestudiante","id"=>"idportafolioestudiante","type"=>"date"));  
+			?>
+		</div>
+	</div>
+
+
+
 
 <div class="form-group row">
 	<label class="col-md-2 col-form-label">Fecha:</label>
@@ -291,6 +302,7 @@ $('#show_data').on('click','.item_cargar',function(){
 	$('#Modal_Edit').modal('show');
 //	$('[name="fechaelaboracion"]').val(fecha);
 
+	$('[name="idportafolioestudiante"]').val($(this).data('idportafolioestudiante'));
 	$('[name="asunto"]').val($(this).data('eldocumento')+" de "+$(this).data('elestudiante'));
 	var idpersona=$(this).data('idpersona');
 	  $('#idpersona option[value="'+idpersona+'"]').attr('selected','selected');
@@ -318,7 +330,9 @@ function uploadFiles(url1) {
   alert("Este proceso guardará todas los datos ingresados");	
   if(totalfiles > 0 ){
 
+    var iddocumento2 = 0;
     var iddocumento = 0;
+    var idportafolioestudiante = document.getElementById('idportafolioestudiante').value;
     var idtipodocu = document.getElementById('idtipodocu').value;
     var asunto =  document.getElementById('asunto').value;
     var fechaelaboracion = document.getElementById('fechaelaboracion').value;
@@ -329,6 +343,7 @@ function uploadFiles(url1) {
 
 
     formData.append("iddocumento", 0);
+    formData.append("idportafolioestudiante", idportafolioestudiante);
     formData.append("idtipodocu", idtipodocu);
     formData.append("asunto", asunto);
     formData.append("fechaelaboracion", fechaelaboracion);
@@ -348,6 +363,8 @@ function uploadFiles(url1) {
 		alert(this.responseText);
 		//Recupera el nombre del archivo
 		var result_array = JSON.parse(this.responseText);
+		iddocumento2=result_array.iddocumento;
+		iddocumento=result_array.iddocumento;
 		//document.getElemetById("archivopdf").value=result_array.archivopdf;
 		 alert("Guardado exitoso...ahora procedemos a cargar el archivo..con un nuevo nombre"+result_array.archivopdf);
 		//Para cargar el archivo	
@@ -364,7 +381,7 @@ function uploadFiles(url1) {
 		if(url2.slice(-1) == '/'){
 			url2 = url2+"cargafile.php";
 		}else{
-			url2 = url2+"/cargafile.php";
+			url2 = url2+"/cargafile.php
 		}
                 alert("Se va a ejecutar "+ url2);	
     		// Set POST method and ajax file path
@@ -379,6 +396,44 @@ function uploadFiles(url1) {
       				// The request has been completed successfully
 				var response = xhttp.responseText;
           			alert(response + "archivo cargado");
+
+
+
+	if(iddocumento2>0)
+	{
+		alert("asisnado el documento a portafolio del estudiante");
+	  $.ajax({
+        	url: "<?php echo site_url('portafolioestudiante/save_edit2') ?>",
+		data: {idportafolioestudiante:idportafolioestudiante,iddocumento:iddocumento},
+		method: 'POST
+		async : false,
+		dataType : 'json',
+		success: function(data){
+
+//				var maquina1 = "https://"+maquina;
+
+//				if(maquina1.slice(-1) != "/" && ruta.slice(0,1) != "/"){
+//					ruta = maquina1+"/"+ruta;
+//				}else{
+//					ruta = maquina1+ruta;
+//				}
+//				var archivo = archivopdf2;
+//				var certi= ruta.trim()+archivo.trim();
+//				window.location.href = certi;
+
+		},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+
+	    })
+	}
+
+
+
+
+
 				history.back(); //Go to the previous page
        			}else{
 				alert("No se pudo cargar el archivo");
