@@ -405,7 +405,7 @@ function uploadFiles(url1) {
 	  $.ajax({
         	url: "<?php echo site_url('portafolioestudiante/save_edit2') ?>",
 		data: {idportafolioestudiante:idportafolioestudiante,iddocumento:iddocumento},
-		method: 'POST
+		method: 'POST',
 		async : false,
 		dataType : 'json',
 		success: function(data){
