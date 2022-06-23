@@ -129,11 +129,11 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Body del correo:</label>
+<label class="col-md-2 col-form-label">Subject:</label>
 <div class="col-md-10">
 <?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correobody",'id'=>'correobody' );    
- echo form_textarea("correobody","", $textarea_options); 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correosubject",'id'=>'correosubject' );    
+ echo form_textarea("correosubject","", $textarea_options); 
 ?>
 </div>
 </div>

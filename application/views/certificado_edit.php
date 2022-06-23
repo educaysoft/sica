@@ -140,10 +140,10 @@ echo form_textarea('correohead',$certificado['correohead'],$textarea_options ); 
 
 
 <tr>
-  <td>Body para enviar:</td>
+  <td>Subject:</td>
   <td><?php 
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correobody","id" =>"correobody");    
-echo form_textarea('correobody',$certificado['correobody'],$textarea_options ); ?></td>
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correosubject","id" =>"correosubject");    
+echo form_textarea('correosubject',$certificado['correosubject'],$textarea_options ); ?></td>
 </tr>
 
 
