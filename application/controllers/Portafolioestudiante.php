@@ -128,7 +128,7 @@ public function edit()
 
 
 	public function  save_edit2()
-	
+	{	
 		$id=$this->input->post('idportafolioestudiante');
 	 	$array_item=array(
 		 	'iddocumento' => $this->input->post('iddocumento'),
