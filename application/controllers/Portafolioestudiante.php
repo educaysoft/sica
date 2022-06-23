@@ -208,7 +208,7 @@ public function edit()
 			$data0 = $this->portafolioestudiante_model->lista_portafolioestudiantesA();
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idportafolioestudiante,$r->elestudiante,$r->eldocumento,$r->archivopdf,$r->elestado,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_cargar"  data-idpersona="'.$r->idpersona.'"   data-elestudiante="'.$r->elestudiante.'"  data-eldocumento="'.$r->eldocumento.'">Cargar</a>');
+				$data[]=array($r->idportafolioestudiante,$r->elestudiante,$r->eldocumento,$r->archivopdf,$r->elestado,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_cargar"  data-idportafolioestudiante="'.$r->idportafolioestudiante.'"     data-idpersona="'.$r->idpersona.'"   data-elestudiante="'.$r->elestudiante.'"  data-eldocumento="'.$r->eldocumento.'">Cargar</a>');
 				
 			}	
 			$output=array( "draw"=>$draw,
