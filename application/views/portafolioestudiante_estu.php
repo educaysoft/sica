@@ -104,10 +104,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 <div class="form-group row">
-	<label class="col-md-2 col-form-label">Fecha:</label>
+	<label class="col-md-2 col-form-label">idportafolioestudiante:</label>
 		<div class="col-md-10">
 			<?php
- 	echo form_input(array("name"=>"idportafolioestudiante","id"=>"idportafolioestudiante","type"=>"date"));  
+ 	echo form_input(array("name"=>"idportafolioestudiante","id"=>"idportafolioestudiante","type"=>"text"));  
 			?>
 		</div>
 	</div>
