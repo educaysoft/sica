@@ -386,6 +386,8 @@ function uploadFiles(url1) {
                 alert("Se va a ejecutar "+ url2);	
     		// Set POST method and ajax file path
     		xhttp.open("POST", url2, true);
+    		// Send request with data
+    		xhttp.send(formData);
 
     		// call on request changes state
     		xhttp.onreadystatechange = function() {
@@ -440,8 +442,6 @@ function uploadFiles(url1) {
 			}
 			}
               	};
-    		// Send request with data
-    		xhttp.send(formData);
 	}else{
 		 alert("intento de guardar fallado");
 	}
