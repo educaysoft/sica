@@ -106,7 +106,7 @@ function curso_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->curso_model->lista_cursoes();
+	 	$data0 = $this->curso_model->lista_cursos();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idcurso,$r->nombre,
@@ -208,18 +208,18 @@ public function elultimo()
 public function siguiente(){
  // $data['curso_list']=$this->curso_model->lista_curso()->result();
 	$data['curso'] = $this->curso_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Curso";
+  	$data['title']="Curso";
 	$this->load->view('template/page_header');		
-  $this->load->view('curso_record',$data);
+  	$this->load->view('curso_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
  // $data['curso_list']=$this->curso_model->lista_curso()->result();
 	$data['curso'] = $this->curso_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Curso";
+  	$data['title']="Curso";
 	$this->load->view('template/page_header');		
-  $this->load->view('curso_record',$data);
+  	$this->load->view('curso_record',$data);
 	$this->load->view('template/page_footer');
 }
 
