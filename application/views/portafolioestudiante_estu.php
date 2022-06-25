@@ -341,12 +341,14 @@ function uploadFiles(url1) {
     var idddocumento_estado = 1;
     var idpersona = document.getElementById('idpersona').value;
 
+	alert(idpersona);
+
 
     formData.append("iddocumento", 0);
     formData.append("idportafolioestudiante", idportafolioestudiante);
     formData.append("idtipodocu", idtipodocu);
     formData.append("asunto", asunto);
-    formData.append("fechaelaboracion", fechaelaboracion);
+    formData.append("fecha", fechaelaboracion);
     formData.append("idordenador", idordenador);
     formData.append("iddirectorio", iddirectorio);
     formData.append("iddocumento_estado", 1);
