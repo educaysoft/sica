@@ -119,7 +119,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	<label class="col-md-2 col-form-label">Fecha:</label>
 		<div class="col-md-10">
 			<?php
- 	echo form_input(array("name"=>"fechaelaboracion","id"=>"fechaelaboracion","type"=>"date"));  
+ 	echo form_input(array("name"=>"fechaelaboracion","id"=>"fechaelaboracion"));  
 			?>
 		</div>
 	</div>
@@ -300,7 +300,7 @@ $('#show_data').on('click','.item_cargar',function(){
 
 	alert(fecha);
 	$('#Modal_Edit').modal('show');
-//	$('[name="fechaelaboracion"]').val(fecha);
+	$('[name="fechaelaboracion"]').val(fecha);
 
 	$('[name="idportafolioestudiante"]').val($(this).data('idportafolioestudiante'));
 	$('[name="asunto"]').val($(this).data('eldocumento')+" de "+$(this).data('elestudiante'));
@@ -308,7 +308,6 @@ $('#show_data').on('click','.item_cargar',function(){
 	  $('#idpersona option[value="'+idpersona+'"]').attr('selected','selected');
 	var idordenador=8;
 	  $('#idordenador option[value="'+idordenador+'"]').attr('selected','selected');
-
 	var idtipodocu=17;
 	  $('#idtipodocu option[value="'+idtipodocu+'"]').attr('selected','selected');
 
