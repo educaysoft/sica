@@ -8,19 +8,23 @@ class Curso extends CI_Controller{
       $this->load->model('cursounidad_model');
 }
 
-public function index(){
-	if(isset($this->session->userdata['logged_in'])){
-		$data['curso']=$this->curso_model->elultimo();
-		$data['title']="Lista de cursoes";
-		$this->load->view('template/page_header');
-		$this->load->view('curso_record',$data);
-		$this->load->view('template/page_footer');
-	}else{
-	 	$this->load->view('template/page_header.php');
-		$this->load->view('login_form');
-	 	$this->load->view('template/page_footer.php');
+//=========================================================
+// Es la primera función que se ejecuta cuando llamamos a
+// http://educaysoft.org/sica/curso
+// ========================================================
+	public function index(){
+		if(isset($this->session->userdata['logged_in'])){
+			$data['curso']=$this->curso_model->elultimo();
+			$data['title']="Lista de cursoes";
+			$this->load->view('template/page_header');
+			$this->load->view('curso_record',$data);
+			$this->load->view('template/page_footer');
+		}else{
+			$this->load->view('template/page_header.php');
+			$this->load->view('login_form');
+			$this->load->view('template/page_footer.php');
+		}
 	}
-}
 
 
 	public function add()
@@ -110,7 +114,7 @@ function curso_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idcurso,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcurso="'.$r->idcurso.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('curso/actual').'"    data-idcurso="'.$r->idcurso.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
