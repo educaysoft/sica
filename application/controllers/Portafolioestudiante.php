@@ -209,7 +209,16 @@ public function edit()
 			$data0 = $this->portafolioestudiante_model->lista_portafolioestudiantesA();
 			$data=array();
 			foreach($data0->result() as $r){
+
+				if($r->iddocumento==null){	
 				$data[]=array($r->idportafolioestudiante,$r->elestudiante,$r->eldocumento,$r->archivopdf,$r->elestado,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_cargar"  data-idportafolioestudiante="'.$r->idportafolioestudiante.'"     data-idpersona="'.$r->idpersona.'"   data-elestudiante="'.$r->elestudiante.'"  data-eldocumento="'.$r->eldocumento.'">Cargar</a>');
+				}else{
+				$data[]=array($r->idportafolioestudiante,$r->elestudiante,$r->eldocumento,$r->archivopdf,$r->elestado,	$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-iddocumento="'.$r->iddocumento.'" data-ordenador="'.$r->elordenador.'"  data-ubicacion="'.$r->ruta.'"  data-archivo="'.$r->archivopdf.'">download</a>');
+	
+
+
+
+				}
 				
 			}	
 			$output=array( "draw"=>$draw,
