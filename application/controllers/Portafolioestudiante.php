@@ -259,7 +259,7 @@ public function elprimero()
 	$data['portafolioestudiante'] = $this->portafolioestudiante_model->elprimero();
   if(!empty($data))
   {
-  	$data['estudiantes']= $this->estudiante_model->lista_estudiante()->result();
+  	$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
   	$data['portafoliomodelos']= $this->portafoliomodelo_model->lista_portafoliomodelo()->result();
   	$data['estado_portafolios']= $this->estado_portafolio_model->lista_estado_portafolio()->result();
     $data['title']="Portafolioestudiante";
@@ -278,7 +278,7 @@ public function elultimo()
 	$data['portafolioestudiante'] = $this->portafolioestudiante_model->elultimo();
   if(!empty($data))
   {
-  	$data['estudiantes']= $this->estudiante_model->lista_estudiante()->result();
+  	$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
   	$data['portafoliomodelos']= $this->portafoliomodelo_model->lista_portafoliomodelo()->result();
   	$data['estado_portafolios']= $this->estado_portafolio_model->lista_estado_portafolio()->result();
     $data['title']="Portafolioestudiante";
@@ -309,7 +309,7 @@ public function siguiente(){
 public function anterior(){
  // $data['portafolioestudiante_list']=$this->portafolioestudiante_model->lista_portafolioestudiante()->result();
 	$data['portafolioestudiante'] = $this->portafolioestudiante_model->anterior($this->uri->segment(3))->row_array();
- 	$data['estudiantes']= $this->estudiante_model->lista_estudiante()->result();
+  	$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
   	$data['portafoliomodelos']= $this->portafoliomodelo_model->lista_portafoliomodelo()->result();
   	$data['estado_portafolios']= $this->estado_portafolio_model->lista_estado_portafolio()->result();
   $data['title']="Portafolioestudiante";
