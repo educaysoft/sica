@@ -40,14 +40,7 @@ if(isset($cursodocumento))
 <?php echo form_hidden('idcurso',$cursodocumento['idcurso']) ?>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> No. de la unidad:</label>
-	<div class="col-md-10">
-	<?php
-      echo form_input('unidad',$cursodocumento['unidad'],array("disabled"=>"disabled",'placeholder'=>'unidad','style'=>'width:500px;'));
-		?>
-	</div> 
-</div> 
+ 
 
 
 
@@ -94,7 +87,7 @@ echo form_input('idcurso',$options[$cursodocumento['idcurso']],array("disabled"=
 	<?php
 $options= array("NADA");
 foreach ($documentoes as $row){
-	$options[$row->iddocumento]= $row->nombre;
+	$options[$row->iddocumento]= $row->asunto;
 }
 echo form_input('nombre',$options[$cursodocumento['iddocumento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
