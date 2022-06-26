@@ -27,10 +27,10 @@
 	<div class="col-md-10">
 	<?php
 	$options= array('--Select--');
-	foreach ($videotutoriales as $row){
-		$options[$row->idvideotutorial]= $row->nombre;
+	foreach ($documentoes as $row){
+		$options[$row->iddocumento]= $row->nombre;
 	}
-	 echo form_dropdown("idvideotutorial",$options, set_select('--Select--','default_value')); 
+	 echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value')); 
 		?>
 	</div> 
 </div> 
