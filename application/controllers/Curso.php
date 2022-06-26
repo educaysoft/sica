@@ -16,7 +16,7 @@ class Curso extends CI_Controller{
 // ========================================================
 	public function index(){
 		if(isset($this->session->userdata['logged_in'])){
-			$data['cursodocumentos']= $this->cursodocumento_model->lista_cursodocumento1()->result();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1()->result();
 			$data['curso']=$this->curso_model->elultimo();
 			$data['title']="Lista de cursoes";
 			$this->load->view('template/page_header');
@@ -163,6 +163,7 @@ public function iniciar()
 public function actual()
 {
 	$data['curso'] = $this->curso_model->curso($this->uri->segment(3))->row_array();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1()->result();
 			$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
@@ -183,6 +184,7 @@ public function actual()
 public function elprimero()
 {
 	$data['curso'] = $this->curso_model->elprimero();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1()->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
@@ -200,6 +202,7 @@ public function elprimero()
 public function elultimo()
 {
 		$data['curso'] = $this->curso_model->elultimo();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1()->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
@@ -219,6 +222,7 @@ public function elultimo()
 public function siguiente(){
  // $data['curso_list']=$this->curso_model->lista_curso()->result();
 	$data['curso'] = $this->curso_model->siguiente($this->uri->segment(3))->row_array();
+	$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1()->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['title']="Curso";
 	$this->load->view('template/page_header');		
@@ -229,6 +233,7 @@ public function siguiente(){
 public function anterior(){
  // $data['curso_list']=$this->curso_model->lista_curso()->result();
 	$data['curso'] = $this->curso_model->anterior($this->uri->segment(3))->row_array();
+	$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1()->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['title']="Curso";
 	$this->load->view('template/page_header');		
