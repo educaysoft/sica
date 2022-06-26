@@ -86,7 +86,7 @@ echo form_input('idcurso',$options[$cursodocumento['idcurso']],array("disabled"=
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
-foreach ($documentoes as $row){
+foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
 echo form_input('nombre',$options[$cursodocumento['iddocumento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
