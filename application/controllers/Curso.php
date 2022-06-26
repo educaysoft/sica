@@ -40,6 +40,7 @@ class Curso extends CI_Controller{
 	{
 	 	$array_item=array(
 	 	'nombre' => $this->input->post('nombre'),
+	 	'descripcion' => $this->input->post('descripcion'),
 	 	'duracion' => $this->input->post('duracion'),
 	 	'linkdetalle' => $this->input->post('linkdetalle'),
 	 	);
@@ -66,6 +67,7 @@ class Curso extends CI_Controller{
 	 	$array_item=array(
 		 	
 		 	'idcurso' => $this->input->post('idcurso'),
+	 		'descripcion' => $this->input->post('descripcion'),
 		 	'nombre' => $this->input->post('nombre'),
 	 		'duracion' => $this->input->post('duracion'),
 	 		'linkdetalle' => $this->input->post('linkdetalle'),
