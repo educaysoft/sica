@@ -30,23 +30,85 @@ if(isset($periodoacademio))
 
 <?php echo form_open('periodoacademio/save_edit') ?>
 <?php echo form_hidden('idperiodoacademio',$periodoacademio['idperiodoacademio']) ?>
-<table>
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label"> Depart-Carrera: </label>
+     	<?php 
+
+$options= array("NADA");
+foreach ($departamentos as $row){
+	$options[$row->iddepartamento]= $row->nombre;
+}
+
+	?>
+	<div class="col-md-10">
+		<?php
+echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
 
 
-  <tr>
-     <td>idperiodoacademio:</td>
-     <td><?php echo form_input('idperiodoacademio',$periodoacademio['idperiodoacademio'],array("disabled"=>"disabled")) ?></td>
-  </tr>
- 
- <tr>
-      <td>Nombres:</td>
-      <td><?php echo form_input('nombre',$periodoacademio['nombre'],array('placeholder'=>'Nombre del periodoacademio')) ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre largo: </label>
+	<div class="col-md-10">
+     	<?php 
+      echo form_input('idperiodoacademio',$periodoacademio['idperiodoacademio'],array("disabled"=>"disabled"));
+	?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre largo: </label>
+	<div class="col-md-10">
+     	<?php 
+      echo form_input('nombrecorto',$periodoacademio['nombrecorto'],array('placeholder'=>'Nombre corto del periodoacademio'));
+
+	?>
+	</div> 
+</div>
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre largo: </label>
+	<div class="col-md-10">
+     	<?php 
+      echo form_input('nombrelargo',$periodoacademio['nombrelargo'],array('placeholder'=>'Nombre largo del periodoacademio'));
+	?>
+	</div> 
+</div>
+
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha de inicio: </label>
+	<div class="col-md-10">
+     	<?php 
+
+       echo form_input('fechainicio',$periodoacademio['fechainicio'],array('placeholder'=>'Fecha en que inicia el periodoacademio')); 
+
+?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha finaliza: </label>
+	<div class="col-md-10">
+     	<?php 
+echo form_input('fechafin',$periodoacademio['fechafin'],array('placeholder'=>'Fecha en que finaliza el periodoacademio')); 
+?>
+	</div> 
+</div>
 
    
-   
 
-</table>
 <?php echo form_close(); ?>
 
 

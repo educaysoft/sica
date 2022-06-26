@@ -48,7 +48,7 @@ if(isset($portafoliodocente) and !empty($portafoliodocente))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Estudiante:</label>
+    <label class="col-md-2 col-form-label">Docente:</label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
@@ -102,18 +102,34 @@ echo form_input('nmdocumento',$options[$participante['iddocumento']],array("id"=
 <div class="form-group row">
     <label class="col-md-2 col-form-label">Estado del documento:</label>
 	<div class="col-md-10">
-
-     <?php 
-$options= array("NADA");
-foreach ($portafolioestados as $row){
-	$options[$row->idportafolioestado]= $row->nombre;
-}
-
-echo form_input('idportafolioestado',$options[$portafoliodocente['idportafolioestado']],array("disabled"=>"disabled", "style"=>"width:500px")); 
-?>
+	<?php 
+	$options= array("NADA");
+	foreach ($portafolioestados as $row){
+		$options[$row->idportafolioestado]= $row->nombre;
+	}
+	echo form_input('idportafolioestado',$options[$portafoliodocente['idportafolioestado']],array("disabled"=>"disabled", "style"=>"width:500px")); 
+	?>
 
 	</div> 
 </div> 
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Periodo académico:</label>
+	<div class="col-md-10">
+	<?php 
+	$options= array("NADA");
+	foreach ($periodoacademicos as $row){
+		$options[$row->idperiodoacademico]= $row->nombre;
+	}
+	echo form_input('idperiodoacademico',$options[$portafoliodocente['idperiodoacademico']],array("disabled"=>"disabled", "style"=>"width:500px")); 
+	?>
+
+	</div> 
+</div>
+
 
 
 

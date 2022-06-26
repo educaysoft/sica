@@ -34,7 +34,11 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'nombre' => $this->input->post('nombre'),
+	 	'iddepartamento' => $this->input->post('iddepartamento'),
+	 	'nombrecorto' => $this->input->post('nombrecorto'),
+	 	'nombrelargo' => $this->input->post('nombrelargo'),
+	 	'fechainicio' => $this->input->post('fechainicio'),
+	 	'fechafin' => $this->input->post('fechafin'),
 	 	);
 	 	$this->periodoacademio_model->save($array_item);
 	 	redirect('periodoacademio');
@@ -58,8 +62,12 @@ public function edit()
 		$id=$this->input->post('idperiodoacademio');
 	 	$array_item=array(
 		 	
-		 	'idperiodoacademio' => $this->input->post('idperiodoacademio'),
-		 	'nombre' => $this->input->post('nombre'),
+			'idperiodoacademio' => $this->input->post('idperiodoacademio'),
+			'iddepartamento' => $this->input->post('iddepartamento'),
+			'nombrecorto' => $this->input->post('nombrecorto'),
+			'nombrelargo' => $this->input->post('nombrelargo'),
+			'fechainicio' => $this->input->post('fechainicio'),
+			'fechafin' => $this->input->post('fechafin'),
 	 	);
 	 	$this->periodoacademio_model->update($id,$array_item);
 	 	redirect('periodoacademio');
@@ -73,23 +81,22 @@ public function edit()
  	}
 
 
-public function listar()
-{
+	public function listar()
+	{
 	
-  $data['title']="Periodoacademio";
-	$this->load->view('template/page_header');		
-  $this->load->view('periodoacademio_list',$data);
-	$this->load->view('template/page_footer');
-}
+		  $data['title']="Periodoacademio";
+		$this->load->view('template/page_header');		
+		  $this->load->view('periodoacademio_list',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
 
-function periodoacademio_data()
-{
+	function periodoacademio_data()
+	{
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
-
 
 	 	$data0 = $this->periodoacademio_model->lista_periodoacademioes();
 		$data=array();
@@ -104,10 +111,7 @@ function periodoacademio_data()
 		);
 		echo json_encode($output);
 		exit();
-	
-			
-
-}
+	}
 
 
 
