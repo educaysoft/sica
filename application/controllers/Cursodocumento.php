@@ -7,12 +7,13 @@ class Cursodocumento extends CI_Controller{
       		$this->load->model('documento_model');
       		$this->load->model('persona_model');
       		$this->load->model('curso_model');
+      		$this->load->model('documento_model');
 	}
 
 	public function index(){
   		$data['cursos']= $this->curso_model->lista_cursos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['documentoes']= $this->documento_model->lista_documentos()->result();
+  		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['cursodocumento'] = $this->cursodocumento_model->elultimo();
 
  		// print_r($data['cursodocumento_list']);

@@ -96,7 +96,20 @@ echo form_input('nombre',$options[$cursodocumento['iddocumento']],array("disable
  
   
 
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('documento/add', 'Destinatarios/as:') ?> </label>
+     	<?php 
+	$options=array();
+  	foreach ($documentos as $row){
+		$options[$row->iddocumento]=$row->asunto;
+	}
+	?>
+	<div class="col-md-10">
+		<?php
+ 			echo form_multiselect('iddocumento[]',$options,(array)set_value('iddocumento',''), array('style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
 
 
 
