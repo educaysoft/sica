@@ -76,9 +76,8 @@ if(isset($curso))
     <label class="col-md-2 col-form-label"> <?php echo anchor('documento/add', 'Documentos:') ?> </label>
      	<?php 
 	$options=array();
-        print_r($cursodocumentos);
   	foreach ($cursodocumentos as $row){
-		$ptions[$row->iddocumento]=$row->asunto;
+		$options[$row->iddocumento]=$row->asunto;
 	}
 	?>
 	<div class="col-md-10">
