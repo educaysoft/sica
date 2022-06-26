@@ -1,34 +1,51 @@
 <?php
-class Periodoacademio_model extends CI_model {
+class Cursodocumento_model extends CI_model {
 
-	function lista_instituciones(){
-		 $institucion= $this->db->get('institucion');
-		 return $institucion;
+	function listar_cursounidad(){
+		 $cursounidad= $this->db->get('cursounidad');
+		 return $cursounidad;
 	}
 
- 	function institucion( $id){
- 		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $id.'"');
-		 
- 		return $institucion;
+	function listar_cursounidad1(){
+		 $cursounidad= $this->db->get('cursounidad1');
+		 return $cursounidad;
+	}
+
+ 	function cursounidad( $id){
+ 		$cursounidad = $this->db->query('select * from cursounidad where idcursounidad="'. $id.'"');
+ 		return $cursounidad;
+ 	}
+ 	function lista_unidades( $id){
+		$cursounidad = $this->db->query('select * from cursounidad1 where idcurso="'. $id.'"');
+ 		return $cursounidad;
+ 	}
+
+
+
+
+ 	function cursounidads( $id){
+ 		$cursounidad = $this->db->query('select * from cursounidad1 where idevento="'. $id.'"');
+ 		return $cursounidad;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("institucion", $array);
+		$this->db->insert("cursounidad", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idinstitucion',$id);
- 		$this->db->update('institucion',$array_item);
+ 		$this->db->where('idcursounidad',$id);
+ 		$this->db->update('cursounidad',$array_item);
 	}
  
 
 
- 	public function delete($id)
+
+  public function delete($id)
 	{
- 		$this->db->where('idinstitucion',$id);
-		$this->db->delete('institucion');
+ 		$this->db->where('idcursounidad',$id);
+		$this->db->delete('cursounidad');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -37,29 +54,9 @@ class Periodoacademio_model extends CI_model {
  	}
 
 
-public function get_institucion($id){
-	$condition = "idinstitucion =" .  $id ;
-	$this->db->select('*');
-	$this->db->from('institucion');
-	$this->db->where($condition);
-	$this->db->limit(1);
-	$query = $this->db->get();
-
-	if ($query->num_rows() == 1) {
-		return $query->result();
-	} else {
-		return false;
-	}
-
-}
-
-
-
-
-
 	function elprimero()
 	{
-		$query=$this->db->order_by("idinstitucion")->get('institucion');
+		$query=$this->db->order_by("idcursounidad")->get('cursounidad');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -72,7 +69,7 @@ public function get_institucion($id){
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idinstitucion")->get('institucion');
+		$query=$this->db->order_by("idcursounidad")->get('cursounidad');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -84,48 +81,48 @@ public function get_institucion($id){
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$institucion = $this->db->select("idinstitucion")->order_by("idinstitucion")->get('institucion')->result_array();
-		$arr=array("idinstitucion"=>$id);
-		$clave=array_search($arr,$institucion);
-	   if(array_key_exists($clave+1,$institucion))
+ 		$cursounidad = $this->db->select("idcursounidad")->order_by("idcursounidad")->get('cursounidad')->result_array();
+		$arr=array("idcursounidad"=>$id);
+		$clave=array_search($arr,$cursounidad);
+	   if(array_key_exists($clave+1,$cursounidad))
 		 {
 
- 		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $institucion[$clave+1]["idinstitucion"].'"');
+ 		$cursounidad = $this->db->query('select * from cursounidad where idcursounidad="'. $cursounidad[$clave+1]["idcursounidad"].'"');
 		 }else{
 
- 		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $id.'"');
+ 		$cursounidad = $this->db->query('select * from cursounidad where idcursounidad="'. $id.'"');
 		 }
 		 	
- 		return $institucion;
+ 		return $cursounidad;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$institucion = $this->db->select("idinstitucion")->order_by("idinstitucion")->get('institucion')->result_array();
-		$arr=array("idinstitucion"=>$id);
-		$clave=array_search($arr,$institucion);
-	   if(array_key_exists($clave-1,$institucion))
+ 		$cursounidad = $this->db->select("idcursounidad")->order_by("idcursounidad")->get('cursounidad')->result_array();
+		$arr=array("idcursounidad"=>$id);
+		$clave=array_search($arr,$cursounidad);
+	   if(array_key_exists($clave-1,$cursounidad))
 		 {
 
- 		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $institucion[$clave-1]["idinstitucion"].'"');
+ 		$cursounidad = $this->db->query('select * from cursounidad where idcursounidad="'. $cursounidad[$clave-1]["idcursounidad"].'"');
 		 }else{
 
- 		$institucion = $this->db->query('select * from institucion where idinstitucion="'. $id.'"');
+ 		$cursounidad = $this->db->query('select * from cursounidad where idcursounidad="'. $id.'"');
 		 }
 		 	
- 		return $institucion;
+ 		return $cursounidad;
  	}
 
 
 
-	function lista_instituciones_con_inscripciones(){
-		 $this->db->select('institucion.*');
-		 $this->db->from('institucion,evento');
-		 $this->db->where('evento.idinstitucion=institucion.idinstitucion and evento.idevento_estado=2');
-		 $institucion= $this->db->get();
-		 return $institucion;
-	}
+
+
+
+
+
+
+
 
 
 
