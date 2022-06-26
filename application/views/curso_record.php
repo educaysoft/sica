@@ -50,7 +50,22 @@ if(isset($curso))
 		?>
 	</div> 
 </div> 
-   
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Descripcion:</label>
+	<div class="col-md-10">
+		<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('descripcion',$curso['descripcion'],$textarea_options); 
+		?>
+	</div> 
+</div>
+
+
+
+
  <div class="form-group row">
     <label class="col-md-2 col-form-label"> duración:</label>
 	<div class="col-md-10">
@@ -59,14 +74,7 @@ if(isset($curso))
 		?>
 	</div> 
 </div>  
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Link detalle:</label>
-	<div class="col-md-10">
-		<?php
-       		echo form_input('linkdetalle',$curso['linkdetalle'],array('placeholder'=>'Link detalle','style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
+
 <?php echo form_close(); ?>
 
 
