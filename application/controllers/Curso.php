@@ -162,6 +162,7 @@ public function iniciar()
 public function actual()
 {
 	$data['curso'] = $this->curso_model->curso($this->uri->segment(3))->row_array();
+			$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
     $data['title']="Curso";
@@ -181,6 +182,7 @@ public function actual()
 public function elprimero()
 {
 	$data['curso'] = $this->curso_model->elprimero();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
     $data['title']="Curso";
@@ -196,7 +198,8 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['curso'] = $this->curso_model->elultimo();
+		$data['curso'] = $this->curso_model->elultimo();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
     $data['title']="Curso";
@@ -215,6 +218,7 @@ public function elultimo()
 public function siguiente(){
  // $data['curso_list']=$this->curso_model->lista_curso()->result();
 	$data['curso'] = $this->curso_model->siguiente($this->uri->segment(3))->row_array();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['title']="Curso";
 	$this->load->view('template/page_header');		
   	$this->load->view('curso_record',$data);
@@ -224,6 +228,7 @@ public function siguiente(){
 public function anterior(){
  // $data['curso_list']=$this->curso_model->lista_curso()->result();
 	$data['curso'] = $this->curso_model->anterior($this->uri->segment(3))->row_array();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['title']="Curso";
 	$this->load->view('template/page_header');		
   	$this->load->view('curso_record',$data);

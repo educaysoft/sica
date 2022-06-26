@@ -50,7 +50,19 @@ if(isset($curso))
 		?>
 	</div> 
 </div> 
-   
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Descripción:</label>
+	<div class="col-md-10">
+		<?php
+       echo form_input('descripcion',$curso['descripcion'],array('placeholder'=>'Descripción del curso','style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
+
+
+
  <div class="form-group row">
     <label class="col-md-2 col-form-label"> duración:</label>
 	<div class="col-md-10">
@@ -61,7 +73,7 @@ if(isset($curso))
 </div>  
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('documento/add', 'Destinatarios/as:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('documento/add', 'Documentos:') ?> </label>
      	<?php 
 	$options=array();
   	foreach ($documentos as $row){
