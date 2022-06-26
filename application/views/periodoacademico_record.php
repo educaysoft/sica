@@ -43,7 +43,7 @@ foreach ($departamentos as $row){
 	?>
 	<div class="col-md-10">
 		<?php
-echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('iddepartamento',$options[$periodoacademico['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
