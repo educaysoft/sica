@@ -6,7 +6,7 @@ class Docente extends CI_Controller{
       parent::__construct();
   	  $this->load->model('persona_model');
   	  $this->load->model('departamento_model');
-  	  $this->load->model('estudiante_model');
+  	  $this->load->model('docente_model');
   	  $this->load->model('estudio_model');
 }
 
@@ -14,14 +14,14 @@ public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-		$data['estudiante']=$this->estudiante_model->elultimo();
+		$data['docente']=$this->docente_model->elultimo();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['estudiante']['idpersona'])->result();
+		$data['estudios']= $this->estudio_model->estudios($data['docente']['idpersona'])->result();
 			
-		$data['title']="Lista de estudiantes";
+		$data['title']="Lista de docentes";
 		$this->load->view('template/page_header');
-		$this->load->view('estudiante_record',$data);
+		$this->load->view('docente_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -38,13 +38,13 @@ public function actual(){
 
 	$data['personas']= $this->persona_model->lista_personas()->result();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-	$data['estudiante']=$this->estudiante_model->estudiante($this->uri->segment(3))->row_array();
-	$data['estudios']= $this->estudio_model->estudios($data['estudiante']['idpersona'])->result();
+	$data['docente']=$this->docente_model->docente($this->uri->segment(3))->row_array();
+	$data['estudios']= $this->estudio_model->estudios($data['docente']['idpersona'])->result();
 
 
 	$data['title']="Modulo de Estudiane";
 	$this->load->view('template/page_header');		
-	$this->load->view('estudiante_record',$data);
+	$this->load->view('docente_record',$data);
 	$this->load->view('template/page_footer');
    }else{
 	$this->load->view('template/page_header.php');
@@ -62,7 +62,7 @@ public function actual(){
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			$data['title']="Nueva Docente";
 			$this->load->view('template/page_header');		
-			$this->load->view('estudiante_form',$data);
+			$this->load->view('docente_form',$data);
 			$this->load->view('template/page_footer');
 	}
 
@@ -71,26 +71,26 @@ public function actual(){
 	{
 	 	$array_item=array(
 		 	
-		 	'idestudiante' => $this->input->post('idestudiante'),
+		 	'iddocente' => $this->input->post('iddocente'),
 			'idpersona' => $this->input->post('idpersona'),
 			'iddepartamento' => $this->input->post('iddepartamento'),
 			'fechadesde' => $this->input->post('fechadesde'),
 			'fechahasta' => $this->input->post('fechahasta'),
 	 	);
-	 	$this->estudiante_model->save($array_item);
-	 	redirect('estudiante');
+	 	$this->docente_model->save($array_item);
+	 	redirect('docente');
  	}
 
 
 
 	public function edit()
 	{
-			$data['estudiante'] = $this->estudiante_model->estudiante($this->uri->segment(3))->row_array();
+			$data['docente'] = $this->docente_model->docente($this->uri->segment(3))->row_array();
 			$data['personas']= $this->persona_model->lista_personas()->result();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			$data['title'] = "Actualizar Docente";
 			$this->load->view('template/page_header');		
-			$this->load->view('estudiante_edit',$data);
+			$this->load->view('docente_edit',$data);
 			$this->load->view('template/page_footer');
 	 
 	}
@@ -98,24 +98,24 @@ public function actual(){
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idestudiante');
+		$id=$this->input->post('iddocente');
 	 	$array_item=array(
 		 	
-		 	'idestudiante' => $this->input->post('idestudiante'),
+		 	'iddocente' => $this->input->post('iddocente'),
 			'idpersona' => $this->input->post('idpersona'),
 			'iddepartamento' => $this->input->post('iddepartamento'),
 			'fechainscripcion' => $this->input->post('fechainscripcion'),
 	 	);
-	 	$this->estudiante_model->update($id,$array_item);
-	 	redirect('estudiante');
+	 	$this->docente_model->update($id,$array_item);
+	 	redirect('docente');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->estudiante_model->delete($this->uri->segment(3));
+ 		$data=$this->docente_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('estudiante/elprimero');
+	 	redirect('docente/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -124,25 +124,25 @@ public function actual(){
 	{
 		$data['title']="Docentes";
 		$this->load->view('template/page_header');		
-		$this->load->view('estudiante_list',$data);
+		$this->load->view('docente_list',$data);
 		$this->load->view('template/page_footer');
 	}
 
 
 
-	function estudiante_data()
+	function docente_data()
 	{
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
 
-			$data0 = $this->estudiante_model->lista_estudiantesB();
+			$data0 = $this->docente_model->lista_docentesB();
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idestudiante,$r->elestudiante,$r->lacarrera,$r->fechadesde,$r->fechahasta,
+				$data[]=array($r->iddocente,$r->eldocente,$r->lacarrera,$r->fechadesde,$r->fechahasta,
 					$r->href='<a href="javascript:void(0);" class="item_ver" data-doctos="'.$r->idpersona.'">'.$r->cantidad.'</a>',
-					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('estudiante/actual').'"  data-idestudiante="'.$r->idestudiante.'">Ver</a>');
+					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('docente/actual').'"  data-iddocente="'.$r->iddocente.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -158,16 +158,16 @@ public function actual(){
 	public function elprimero()
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['estudiante'] = $this->estudiante_model->elprimero();
+		$data['docente'] = $this->docente_model->elprimero();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['estudiante']['idpersona'])->result();
+		$data['estudios']= $this->estudio_model->estudios($data['docente']['idpersona'])->result();
 
 		  if(!empty($data))
 		  {
 			$data['personas']= $this->persona_model->lista_personas()->result();
 		    $data['title']="Docente";
 		    $this->load->view('template/page_header');		
-		    $this->load->view('estudiante_record',$data);
+		    $this->load->view('docente_record',$data);
 		    $this->load->view('template/page_footer');
 		  }else{
 		    $this->load->view('template/page_header');		
@@ -178,9 +178,9 @@ public function actual(){
 
 	public function elultimo()
 	{
-		$data['estudiante'] = $this->estudiante_model->elultimo();
+		$data['docente'] = $this->docente_model->elultimo();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['estudiante']['idpersona'])->result();
+		$data['estudios']= $this->estudio_model->estudios($data['docente']['idpersona'])->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		  if(!empty($data))
 		  {
@@ -188,7 +188,7 @@ public function actual(){
 		    $data['title']="Docente";
 		  
 		    $this->load->view('template/page_header');		
-		    $this->load->view('estudiante_record',$data);
+		    $this->load->view('docente_record',$data);
 		    $this->load->view('template/page_footer');
 		  }else{
 
@@ -199,25 +199,25 @@ public function actual(){
 	}
 
 	public function siguiente(){
-		$data['estudiante'] = $this->estudiante_model->siguiente($this->uri->segment(3))->row_array();
+		$data['docente'] = $this->docente_model->siguiente($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['estudiante']['idpersona'])->result();
+		$data['estudios']= $this->estudio_model->estudios($data['docente']['idpersona'])->result();
 
 		$data['title']="Docente";
 		$this->load->view('template/page_header');		
-		$this->load->view('estudiante_record',$data);
+		$this->load->view('docente_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
 	public function anterior(){
-		$data['estudiante'] = $this->estudiante_model->anterior($this->uri->segment(3))->row_array();
+		$data['docente'] = $this->docente_model->anterior($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['estudiante']['idpersona'])->result();
+		$data['estudios']= $this->estudio_model->estudios($data['docente']['idpersona'])->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['title']="Docente";
 		$this->load->view('template/page_header');		
-		$this->load->view('estudiante_record',$data);
+		$this->load->view('docente_record',$data);
 		$this->load->view('template/page_footer');
 	}
 

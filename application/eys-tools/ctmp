@@ -1,158 +1,225 @@
 <?php
 
-class Estado_portafolio extends CI_Controller{
+class Estudiante extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('estado_portafolio_model');
+  	  $this->load->model('persona_model');
+  	  $this->load->model('departamento_model');
+  	  $this->load->model('estudiante_model');
+  	  $this->load->model('estudio_model');
 }
 
 public function index(){
-	if(isset($this->session->userdata['logged_in'])){
-	  	$data['estado_portafolio']=$this->estado_portafolio_model->estado_portafolio(1)->row_array();
-  		$data['title']="Lista de Empresas";
-			$this->load->view('template/page_header');		
-  		$this->load->view('estado_portafolio_record',$data);
-			$this->load->view('template/page_footer');
+
+  	if(isset($this->session->userdata['logged_in'])){
+			
+		$data['estudiante']=$this->estudiante_model->elultimo();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['estudios']= $this->estudio_model->estudios($data['estudiante']['idpersona'])->result();
+			
+		$data['title']="Lista de estudiantes";
+		$this->load->view('template/page_header');
+		$this->load->view('estudiante_record',$data);
+		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
 		$this->load->view('login_form');
 	 	$this->load->view('template/page_footer.php');
 	}
+
+ }
+
+
+
+public function actual(){
+ if(isset($this->session->userdata['logged_in'])){
+
+	$data['personas']= $this->persona_model->lista_personas()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['estudiante']=$this->estudiante_model->estudiante($this->uri->segment(3))->row_array();
+	$data['estudios']= $this->estudio_model->estudios($data['estudiante']['idpersona'])->result();
+
+
+	$data['title']="Modulo de Estudiane";
+	$this->load->view('template/page_header');		
+	$this->load->view('estudiante_record',$data);
+	$this->load->view('template/page_footer');
+   }else{
+	$this->load->view('template/page_header.php');
+	$this->load->view('login_form');
+	$this->load->view('template/page_footer.php');
+   }
 }
 
 
-public function add()
-{
-		$data['title']="Nueva Institución";
-	 	$this->load->view('template/page_header');		
-	 	$this->load->view('estado_portafolio_form',$data);
-	 	$this->load->view('template/page_footer');
-}
 
 
-public function  save()
+	public function add()
+	{
+			$data['personas']= $this->persona_model->lista_personas()->result();
+			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+			$data['title']="Nueva Estudiante";
+			$this->load->view('template/page_header');		
+			$this->load->view('estudiante_form',$data);
+			$this->load->view('template/page_footer');
+	}
+
+
+	public function  save()
 	{
 	 	$array_item=array(
-	 	'idestado_portafolio' => $this->input->post('idestado_portafolio'),
-	 	'nombre' => $this->input->post('nombre'),
+		 	
+		 	'idestudiante' => $this->input->post('idestudiante'),
+			'idpersona' => $this->input->post('idpersona'),
+			'iddepartamento' => $this->input->post('iddepartamento'),
+			'fechadesde' => $this->input->post('fechadesde'),
+			'fechahasta' => $this->input->post('fechahasta'),
 	 	);
-	 	$this->estado_portafolio_model->save($array_item);
-	 	redirect('estado_portafolio');
+	 	$this->estudiante_model->save($array_item);
+	 	redirect('estudiante');
  	}
 
 
 
-public function edit()
-{
-	 	$data['estado_portafolio'] = $this->estado_portafolio_model->estado_portafolio($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar Estado_portafolio";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('estado_portafolio_edit',$data);
-	 	$this->load->view('template/page_footer');
- 
-}
+	public function edit()
+	{
+			$data['estudiante'] = $this->estudiante_model->estudiante($this->uri->segment(3))->row_array();
+			$data['personas']= $this->persona_model->lista_personas()->result();
+			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+			$data['title'] = "Actualizar Estudiante";
+			$this->load->view('template/page_header');		
+			$this->load->view('estudiante_edit',$data);
+			$this->load->view('template/page_footer');
+	 
+	}
 
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idestado_portafolio');
+		$id=$this->input->post('idestudiante');
 	 	$array_item=array(
 		 	
-		 	'idestado_portafolio' => $this->input->post('idestado_portafolio'),
-		 	'nombre' => $this->input->post('nombre'),
+		 	'idestudiante' => $this->input->post('idestudiante'),
+			'idpersona' => $this->input->post('idpersona'),
+			'iddepartamento' => $this->input->post('iddepartamento'),
+			'fechainscripcion' => $this->input->post('fechainscripcion'),
 	 	);
-	 	$this->estado_portafolio_model->update($id,$array_item);
-	 	redirect('estado_portafolio');
+	 	$this->estudiante_model->update($id,$array_item);
+	 	redirect('estudiante');
  	}
 
 
-
-public function listar()
-{
-	
-  $data['estado_portafolio'] = $this->estado_portafolio_model->lista_estado_portafolioes()->result();
-  $data['title']="Estado_portafolio";
-	$this->load->view('template/page_header');		
-  $this->load->view('estado_portafolio_list',$data);
-	$this->load->view('template/page_footer');
-}
-
-function estado_portafolio_data()
-{
-		$draw= intval($this->input->get("draw"));
-		$draw= intval($this->input->get("start"));
-		$draw= intval($this->input->get("length"));
+ 	public function delete()
+ 	{
+ 		$data=$this->estudiante_model->delete($this->uri->segment(3));
+ 		echo json_encode($data);
+	 	redirect('estudiante/elprimero');
+	//	$db['default']['db_debug']=FALSE
+ 	}
 
 
-	 	$data0 = $this->estado_portafolio_model->lista_estado_portafolioes();
-		$data=array();
-		foreach($data0->result() as $r){
-			$data[]=array($r->idestado_portafolio,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idestado_portafolio="'.$r->idestado_portafolio.'">Ver</a>');
-		}	
-		$output=array( "draw"=>$draw,
-			"recordsTotal"=> $data0->num_rows(),
-			"recordsFiltered"=> $data0->num_rows(),
-			"data"=>$data
-		);
-		echo json_encode($output);
-		exit();
-}
+	public function listar()
+	{
+		$data['title']="Estudiantes";
+		$this->load->view('template/page_header');		
+		$this->load->view('estudiante_list',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
-public function elprimero()
-{
-	$data['estado_portafolio'] = $this->estado_portafolio_model->elprimero();
-  if(!empty($data))
-  {
-    $data['title']="Estado_portafolio";
-    $this->load->view('template/page_header');		
-    $this->load->view('estado_portafolio_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
- }
 
-public function elultimo()
-{
-	$data['estado_portafolio'] = $this->estado_portafolio_model->elultimo();
-  if(!empty($data))
-  {
-    $data['title']="Estado_portafolio";
-  
-    $this->load->view('template/page_header');		
-    $this->load->view('estado_portafolio_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
+	function estudiante_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
 
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
-}
 
-public function siguiente(){
- // $data['estado_portafolio_list']=$this->estado_portafolio_model->lista_estado_portafolio()->result();
-	$data['estado_portafolio'] = $this->estado_portafolio_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Estado_portafolio";
-	$this->load->view('template/page_header');		
-  $this->load->view('estado_portafolio_record',$data);
-	$this->load->view('template/page_footer');
-}
+			$data0 = $this->estudiante_model->lista_estudiantesB();
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idestudiante,$r->elestudiante,$r->lacarrera,$r->fechadesde,$r->fechahasta,
+					$r->href='<a href="javascript:void(0);" class="item_ver" data-doctos="'.$r->idpersona.'">'.$r->cantidad.'</a>',
+					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('estudiante/actual').'"  data-idestudiante="'.$r->idestudiante.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
 
-public function anterior(){
- // $data['estado_portafolio_list']=$this->estado_portafolio_model->lista_estado_portafolio()->result();
-	$data['estado_portafolio'] = $this->estado_portafolio_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Estado_portafolio";
-	$this->load->view('template/page_header');		
-  $this->load->view('estado_portafolio_record',$data);
-	$this->load->view('template/page_footer');
-}
 
+
+	public function elprimero()
+	{
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['estudiante'] = $this->estudiante_model->elprimero();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['estudios']= $this->estudio_model->estudios($data['estudiante']['idpersona'])->result();
+
+		  if(!empty($data))
+		  {
+			$data['personas']= $this->persona_model->lista_personas()->result();
+		    $data['title']="Estudiante";
+		    $this->load->view('template/page_header');		
+		    $this->load->view('estudiante_record',$data);
+		    $this->load->view('template/page_footer');
+		  }else{
+		    $this->load->view('template/page_header');		
+		    $this->load->view('registro_vacio');
+		    $this->load->view('template/page_footer');
+		  }
+	 }
+
+	public function elultimo()
+	{
+		$data['estudiante'] = $this->estudiante_model->elultimo();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['estudios']= $this->estudio_model->estudios($data['estudiante']['idpersona'])->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		  if(!empty($data))
+		  {
+			$data['personas']= $this->persona_model->lista_personas()->result();
+		    $data['title']="Estudiante";
+		  
+		    $this->load->view('template/page_header');		
+		    $this->load->view('estudiante_record',$data);
+		    $this->load->view('template/page_footer');
+		  }else{
+
+		    $this->load->view('template/page_header');		
+		    $this->load->view('registro_vacio');
+		    $this->load->view('template/page_footer');
+		  }
+	}
+
+	public function siguiente(){
+		$data['estudiante'] = $this->estudiante_model->siguiente($this->uri->segment(3))->row_array();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['estudios']= $this->estudio_model->estudios($data['estudiante']['idpersona'])->result();
+
+		$data['title']="Estudiante";
+		$this->load->view('template/page_header');		
+		$this->load->view('estudiante_record',$data);
+		$this->load->view('template/page_footer');
+	}
+
+	public function anterior(){
+		$data['estudiante'] = $this->estudiante_model->anterior($this->uri->segment(3))->row_array();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['estudios']= $this->estudio_model->estudios($data['estudiante']['idpersona'])->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['title']="Estudiante";
+		$this->load->view('template/page_header');		
+		$this->load->view('estudiante_record',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
 
