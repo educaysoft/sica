@@ -15,7 +15,7 @@ class Curso extends CI_Controller{
 // ========================================================
 	public function index(){
 		if(isset($this->session->userdata['logged_in'])){
-			$data['documentos'] = $this->documento_model->elultimo();
+			$data['documentos']= $this->documento_model->lista_documentos()->result();
 			$data['curso']=$this->curso_model->elultimo();
 			$data['title']="Lista de cursoes";
 			$this->load->view('template/page_header');
