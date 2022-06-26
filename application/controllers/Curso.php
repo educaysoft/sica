@@ -6,6 +6,7 @@ class Curso extends CI_Controller{
       parent::__construct();
       $this->load->model('curso_model');
       $this->load->model('cursounidad_model');
+      $this->load->model('documento_model');
 }
 
 //=========================================================
@@ -14,6 +15,7 @@ class Curso extends CI_Controller{
 // ========================================================
 	public function index(){
 		if(isset($this->session->userdata['logged_in'])){
+			$data['documentos'] = $this->documento_model->elultimo();
 			$data['curso']=$this->curso_model->elultimo();
 			$data['title']="Lista de cursoes";
 			$this->load->view('template/page_header');
