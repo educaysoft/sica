@@ -26,6 +26,7 @@ public function index(){
 
 public function add()
 {
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['title']="Nueva periodoacademico";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('periodoacademico_form',$data);
@@ -51,6 +52,7 @@ public function  save()
 public function edit()
 {
 	 	$data['periodoacademico'] = $this->periodoacademico_model->periodoacademico($this->uri->segment(3))->row_array();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
  	 	$data['title'] = "Actualizar periodoacademico";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('periodoacademico_edit',$data);
