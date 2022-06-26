@@ -1,52 +1,33 @@
 <?php
-class Cursounidad_model extends CI_model {
+class Estado_portafolio_model extends CI_model {
 
-	function listar_cursounidad(){
-		 $cursounidad= $this->db->get('cursounidad');
-		 return $cursounidad;
+	function lista_estado_portafolio(){
+		 $estado_portafolio= $this->db->get('estado_portafolio');
+		 return $estado_portafolio;
 	}
 
-	function listar_cursounidad1(){
-		 $cursounidad= $this->db->get('cursounidad1');
-		 return $cursounidad;
-	}
-
- 	function cursounidad( $id){
- 		$cursounidad = $this->db->query('select * from cursounidad where idcursounidad="'. $id.'"');
- 		return $cursounidad;
- 	}
- 	function lista_unidades( $id){
-		$cursounidad = $this->db->query('select * from cursounidad1 where idcurso="'. $id.'"');
- 		return $cursounidad;
- 	}
-
-
-
-
- 	function cursounidads( $id){
- 		$cursounidad = $this->db->query('select * from cursounidad1 where idevento="'. $id.'"');
- 		return $cursounidad;
+ 	function estado_portafolio( $id){
+ 		$estado_portafolio = $this->db->query('select * from estado_portafolio where idestado_portafolio="'. $id.'"');
+ 		return $estado_portafolio;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("cursounidad", $array);
+		$this->db->insert("estado_portafolio", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idcursounidad',$id);
- 		$this->db->update('cursounidad',$array_item);
+ 		$this->db->where('idestado_portafolio',$id);
+ 		$this->db->update('estado_portafolio',$array_item);
 	}
- 
 
 
-
-  public function delete($id)
+ 	public function delete($id)
 	{
- 		$this->db->where('idcursounidad',$id);
-		$this->db->delete('cursounidad');
-    		if($this->db->affected_rows()==1)
+ 		$this->db->where('idestado_portafolio',$id);
+		$this->db->delete('estado_portafolio');
+    if($this->db->affected_rows()==1)
 			$result=true;
 		else
 			$result=false;
@@ -56,7 +37,7 @@ class Cursounidad_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idcursounidad")->get('cursounidad');
+		$query=$this->db->order_by("idestado_portafolio")->get('estado_portafolio');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -69,7 +50,7 @@ class Cursounidad_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idcursounidad")->get('cursounidad');
+		$query=$this->db->order_by("idestado_portafolio")->get('estado_portafolio');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -81,37 +62,37 @@ class Cursounidad_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$cursounidad = $this->db->select("idcursounidad")->order_by("idcursounidad")->get('cursounidad')->result_array();
-		$arr=array("idcursounidad"=>$id);
-		$clave=array_search($arr,$cursounidad);
-	   if(array_key_exists($clave+1,$cursounidad))
+ 		$estado_portafolio = $this->db->select("idestado_portafolio")->order_by("idestado_portafolio")->get('estado_portafolio')->result_array();
+		$arr=array("idestado_portafolio"=>$id);
+		$clave=array_search($arr,$estado_portafolio);
+	   if(array_key_exists($clave+1,$estado_portafolio))
 		 {
 
- 		$cursounidad = $this->db->query('select * from cursounidad where idcursounidad="'. $cursounidad[$clave+1]["idcursounidad"].'"');
+ 		$estado_portafolio = $this->db->query('select * from estado_portafolio where idestado_portafolio="'. $estado_portafolio[$clave+1]["idestado_portafolio"].'"');
 		 }else{
 
- 		$cursounidad = $this->db->query('select * from cursounidad where idcursounidad="'. $id.'"');
+ 		$estado_portafolio = $this->db->query('select * from estado_portafolio where idestado_portafolio="'. $id.'"');
 		 }
 		 	
- 		return $cursounidad;
+ 		return $estado_portafolio;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$cursounidad = $this->db->select("idcursounidad")->order_by("idcursounidad")->get('cursounidad')->result_array();
-		$arr=array("idcursounidad"=>$id);
-		$clave=array_search($arr,$cursounidad);
-	   if(array_key_exists($clave-1,$cursounidad))
+ 		$estado_portafolio = $this->db->select("idestado_portafolio")->order_by("idestado_portafolio")->get('estado_portafolio')->result_array();
+		$arr=array("idestado_portafolio"=>$id);
+		$clave=array_search($arr,$estado_portafolio);
+	   if(array_key_exists($clave-1,$estado_portafolio))
 		 {
 
- 		$cursounidad = $this->db->query('select * from cursounidad where idcursounidad="'. $cursounidad[$clave-1]["idcursounidad"].'"');
+ 		$estado_portafolio = $this->db->query('select * from estado_portafolio where idestado_portafolio="'. $estado_portafolio[$clave-1]["idestado_portafolio"].'"');
 		 }else{
 
- 		$cursounidad = $this->db->query('select * from cursounidad where idcursounidad="'. $id.'"');
+ 		$estado_portafolio = $this->db->query('select * from estado_portafolio where idestado_portafolio="'. $id.'"');
 		 }
 		 	
- 		return $cursounidad;
+ 		return $estado_portafolio;
  	}
 
 
@@ -119,12 +100,6 @@ class Cursounidad_model extends CI_model {
 
 
 
-
-
-
-
-
-
-
+ 
 
 }

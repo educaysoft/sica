@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("estado_portafolio/save") ?>
-<?php echo form_hidden("idestado_portafolio")  ?>
+<?php echo form_open("portafolioestado/save") ?>
+<?php echo form_hidden("idportafolioestado")  ?>
 <table>
 
 
@@ -14,7 +14,7 @@
 </tr>
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("estado_portafolio","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("portafolioestado","Atras") ?> </td>
 </tr>
 
 </table>

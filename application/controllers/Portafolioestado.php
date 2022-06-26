@@ -4,15 +4,15 @@ class Portafolioestado extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('estado_portafolio_model');
+      $this->load->model('portafolioestado_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-	  	$data['estado_portafolio']=$this->estado_portafolio_model->estado_portafolio(1)->row_array();
+	  	$data['portafolioestado']=$this->portafolioestado_model->portafolioestado(1)->row_array();
   		$data['title']="Lista de Empresas";
 			$this->load->view('template/page_header');		
-  		$this->load->view('estado_portafolio_record',$data);
+  		$this->load->view('portafolioestado_record',$data);
 			$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -26,7 +26,7 @@ public function add()
 {
 		$data['title']="Nueva Institución";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('estado_portafolio_form',$data);
+	 	$this->load->view('portafolioestado_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,21 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idestado_portafolio' => $this->input->post('idestado_portafolio'),
+	 	'idportafolioestado' => $this->input->post('idportafolioestado'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->estado_portafolio_model->save($array_item);
-	 	redirect('estado_portafolio');
+	 	$this->portafolioestado_model->save($array_item);
+	 	redirect('portafolioestado');
  	}
 
 
 
 public function edit()
 {
-	 	$data['estado_portafolio'] = $this->estado_portafolio_model->estado_portafolio($this->uri->segment(3))->row_array();
+	 	$data['portafolioestado'] = $this->portafolioestado_model->portafolioestado($this->uri->segment(3))->row_array();
  	 	$data['title'] = "Actualizar Portafolioestado";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('estado_portafolio_edit',$data);
+ 	 	$this->load->view('portafolioestado_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,14 +56,14 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idestado_portafolio');
+		$id=$this->input->post('idportafolioestado');
 	 	$array_item=array(
 		 	
-		 	'idestado_portafolio' => $this->input->post('idestado_portafolio'),
+		 	'idportafolioestado' => $this->input->post('idportafolioestado'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->estado_portafolio_model->update($id,$array_item);
-	 	redirect('estado_portafolio');
+	 	$this->portafolioestado_model->update($id,$array_item);
+	 	redirect('portafolioestado');
  	}
 
 
@@ -71,25 +71,25 @@ public function edit()
 public function listar()
 {
 	
-  $data['estado_portafolio'] = $this->estado_portafolio_model->lista_estado_portafolioes()->result();
+  $data['portafolioestado'] = $this->portafolioestado_model->lista_portafolioestadoes()->result();
   $data['title']="Portafolioestado";
 	$this->load->view('template/page_header');		
-  $this->load->view('estado_portafolio_list',$data);
+  $this->load->view('portafolioestado_list',$data);
 	$this->load->view('template/page_footer');
 }
 
-function estado_portafolio_data()
+function portafolioestado_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->estado_portafolio_model->lista_estado_portafolioes();
+	 	$data0 = $this->portafolioestado_model->lista_portafolioestadoes();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idestado_portafolio,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idestado_portafolio="'.$r->idestado_portafolio.'">Ver</a>');
+			$data[]=array($r->idportafolioestado,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idportafolioestado="'.$r->idportafolioestado.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -103,12 +103,12 @@ function estado_portafolio_data()
 
 public function elprimero()
 {
-	$data['estado_portafolio'] = $this->estado_portafolio_model->elprimero();
+	$data['portafolioestado'] = $this->portafolioestado_model->elprimero();
   if(!empty($data))
   {
     $data['title']="Portafolioestado";
     $this->load->view('template/page_header');		
-    $this->load->view('estado_portafolio_record',$data);
+    $this->load->view('portafolioestado_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -119,13 +119,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['estado_portafolio'] = $this->estado_portafolio_model->elultimo();
+	$data['portafolioestado'] = $this->portafolioestado_model->elultimo();
   if(!empty($data))
   {
     $data['title']="Portafolioestado";
   
     $this->load->view('template/page_header');		
-    $this->load->view('estado_portafolio_record',$data);
+    $this->load->view('portafolioestado_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -136,20 +136,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['estado_portafolio_list']=$this->estado_portafolio_model->lista_estado_portafolio()->result();
-	$data['estado_portafolio'] = $this->estado_portafolio_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['portafolioestado_list']=$this->portafolioestado_model->lista_portafolioestado()->result();
+	$data['portafolioestado'] = $this->portafolioestado_model->siguiente($this->uri->segment(3))->row_array();
   $data['title']="Portafolioestado";
 	$this->load->view('template/page_header');		
-  $this->load->view('estado_portafolio_record',$data);
+  $this->load->view('portafolioestado_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['estado_portafolio_list']=$this->estado_portafolio_model->lista_estado_portafolio()->result();
-	$data['estado_portafolio'] = $this->estado_portafolio_model->anterior($this->uri->segment(3))->row_array();
+ // $data['portafolioestado_list']=$this->portafolioestado_model->lista_portafolioestado()->result();
+	$data['portafolioestado'] = $this->portafolioestado_model->anterior($this->uri->segment(3))->row_array();
   $data['title']="Portafolioestado";
 	$this->load->view('template/page_header');		
-  $this->load->view('estado_portafolio_record',$data);
+  $this->load->view('portafolioestado_record',$data);
 	$this->load->view('template/page_footer');
 }
 

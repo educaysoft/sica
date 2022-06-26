@@ -80,7 +80,7 @@ echo form_input('idportafoliomodelo',$options[$portafolioestudiante['idportafoli
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">  Certificado (<?php echo "<a onclick='verpdf()'>Ver</a>" ?>) :</label>
+    <label class="col-md-2 col-form-label">  Documento (<?php echo "<a onclick='verpdf()'>Ver PDF</a>" ?>) :</label>
 	<div class="col-md-10">
 		<?php
 $options= array("NADA");
@@ -100,7 +100,7 @@ echo form_input('nmdocumento',$options[$participante['iddocumento']],array("id"=
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Estado del documemento:</label>
+    <label class="col-md-2 col-form-label">Estado del documento:</label>
 	<div class="col-md-10">
 
      <?php 
