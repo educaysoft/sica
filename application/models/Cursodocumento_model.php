@@ -6,7 +6,7 @@ class Cursodocumento_model extends CI_model {
 		 return $cursodocumento;
 	}
 
-	function listar_cursodocumento1(idcurso){
+	function listar_cursodocumento1($idcurso){
 		if($idcurso==0)
 		{
 		$cursodocumento=$this->db->order_by("asunto")->get('cursodocumento1');
