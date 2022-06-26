@@ -49,14 +49,7 @@ if(isset($cursodocumento))
 	</div> 
 </div> 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre:</label>
-	<div class="col-md-10">
-	<?php
-      echo form_input('nombre',$cursodocumento['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre','style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
+
 
 
 <div class="form-group row">
@@ -85,10 +78,10 @@ echo form_input('idcurso',$options[$cursodocumento['idcurso']],array("disabled"=
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id videotutorial:</label>
+    <label class="col-md-2 col-form-label"> Id documento:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('idvideotutorial',$cursodocumento['idvideotutorial'],array("disabled"=>"disabled",'placeholder'=>'Idcursodocumentoes','style'=>'width:500px;'));
+      echo form_input('iddocumento',$cursodocumento['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Idcursodocumentoes','style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 
@@ -96,14 +89,14 @@ echo form_input('idcurso',$options[$cursodocumento['idcurso']],array("disabled"=
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Videotutorial:</label>
+    <label class="col-md-2 col-form-label">Documento:</label>
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
-foreach ($videotutoriales as $row){
-	$options[$row->idvideotutorial]= $row->nombre;
+foreach ($documentoes as $row){
+	$options[$row->iddocumento]= $row->nombre;
 }
-echo form_input('nombre',$options[$cursodocumento['idvideotutorial']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('nombre',$options[$cursodocumento['iddocumento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 

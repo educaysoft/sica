@@ -4,7 +4,7 @@ class Cursodocumento extends CI_Controller{
 	public function __construct(){
       		parent::__construct();
       		$this->load->model('cursodocumento_model');
-      		$this->load->model('videotutorial_model');
+      		$this->load->model('documento_model');
       		$this->load->model('persona_model');
       		$this->load->model('curso_model');
 	}
@@ -12,7 +12,7 @@ class Cursodocumento extends CI_Controller{
 	public function index(){
   		$data['cursos']= $this->curso_model->lista_cursos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+  		$data['documentoes']= $this->documento_model->lista_documentos()->result();
 		$data['cursodocumento'] = $this->cursodocumento_model->elultimo();
 
  		// print_r($data['cursodocumento_list']);
@@ -27,9 +27,9 @@ class Cursodocumento extends CI_Controller{
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['cursos']= $this->curso_model->lista_cursos()->result();
-  		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+  		$data['documentoes']= $this->documento_model->lista_documentos()->result();
 		$data['cursodocumento'] = $this->cursodocumento_model->elultimo();
-		$data['title']="Nueva unidades del curso";
+		$data['title']="Nuevo documento para el curso";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('cursodocumento_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -39,10 +39,8 @@ class Cursodocumento extends CI_Controller{
 	public function  save()
 	{
 	 	$array_item=array(
-		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
+		 	'iddocumento' => $this->input->post('iddocumento'),
 		 	'idcurso' => $this->input->post('idcurso'),
-		 	'nombre' => $this->input->post('nombre'),
-		 	'unidad' => $this->input->post('unidad'),
 	 	);
 	 	$this->cursodocumento_model->save($array_item);
 	 	redirect('cursodocumento');
@@ -55,7 +53,7 @@ class Cursodocumento extends CI_Controller{
 	 	$data['cursodocumento'] = $this->cursodocumento_model->cursodocumento($this->uri->segment(3))->row_array();
 		$data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['videotutorials']= $this->videotutorial_model->lista_videotutorials()->result();
+  		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Cursodocumento";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('cursodocumento_edit',$data);
@@ -67,10 +65,8 @@ class Cursodocumento extends CI_Controller{
 	{
 		$id=$this->input->post('idcursodocumento');
 	 	$array_item=array(
-		 	'nombre' => $this->input->post('nombre'),
-		 	'unidad' => $this->input->post('unidad'),
 		 	'idcurso' => $this->input->post('idcurso'),
-		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
+		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$this->cursodocumento_model->update($id,$array_item);
 	 	redirect('cursodocumento');
@@ -82,7 +78,7 @@ class Cursodocumento extends CI_Controller{
 	 	$array_item=array(
 		 	'idcurso' => $this->input->post('idcurso'),
 		 	'idpersona' => $this->input->post('idpersona'),
-		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
+		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	echo $this->cursodocumento_model->update($id,$array_item);
  	}
@@ -130,25 +126,26 @@ class Cursodocumento extends CI_Controller{
 			exit();
 	}
 
-
+	//===========================================================
+	//Devuelve el primer registro de la tabla
+	//===========================================================
 
 	public function elprimero()
 	{
 		$data['cursodocumento'] = $this->cursodocumento_model->elprimero();
 	  if(!empty($data))
 	  {
-			$data['cursos']= $this->curso_model->lista_cursos()->result();
-
-		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
-		$data['personas']= $this->persona_model->lista_personas()->result();
-	    $data['title']="Cursodocumento del videotutorial";
-	    $this->load->view('template/page_header');		
-	    $this->load->view('cursodocumento_record',$data);
-	    $this->load->view('template/page_footer');
+		    $data['cursos']= $this->curso_model->lista_cursos()->result();
+		    $data['documentoes']= $this->documento_model->lista_documentos()->result();
+		    $data['personas']= $this->persona_model->lista_personas()->result();
+		    $data['title']="Cursodocumento del documento";
+		    $this->load->view('template/page_header');		
+		    $this->load->view('cursodocumento_record',$data);
+		    $this->load->view('template/page_footer');
 	  }else{
-	    $this->load->view('template/page_header');		
-	    $this->load->view('registro_vacio');
-	    $this->load->view('template/page_footer');
+		    $this->load->view('template/page_header');		
+		    $this->load->view('registro_vacio');
+		    $this->load->view('template/page_footer');
 	  }
 	}
 
@@ -158,9 +155,9 @@ class Cursodocumento extends CI_Controller{
 	  if(!empty($data))
 	  {
 			$data['cursos']= $this->curso_model->lista_cursos()->result();
-		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+		$data['documentoes']= $this->documento_model->lista_documentos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-	    $data['title']="Cursodocumento del videotutorial";
+	    $data['title']="Cursodocumento del documento";
 	  
 	    $this->load->view('template/page_header');		
 	    $this->load->view('cursodocumento_record',$data);
@@ -175,11 +172,11 @@ class Cursodocumento extends CI_Controller{
 
 	public function siguiente(){
 	 // $data['cursodocumento_list']=$this->cursodocumento_model->lista_cursodocumento()->result();
-		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+		$data['documentoes']= $this->documento_model->lista_documentos()->result();
 		$data['cursodocumento'] = $this->cursodocumento_model->siguiente($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['cursos']= $this->curso_model->lista_cursos()->result();
-	    $data['title']="Cursodocumento del videotutorial";
+	    $data['title']="Cursodocumento del documento";
 	 // $data['title']="Correo";
 		$this->load->view('template/page_header');		
 	  $this->load->view('cursodocumento_record',$data);
@@ -188,12 +185,12 @@ class Cursodocumento extends CI_Controller{
 
 	public function anterior(){
 	 // $data['cursodocumento_list']=$this->cursodocumento_model->lista_cursodocumento()->result();
-		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+		$data['documentoes']= $this->documento_model->lista_documentos()->result();
 		$data['cursodocumento'] = $this->cursodocumento_model->anterior($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 			$data['cursos']= $this->curso_model->lista_cursos()->result();
 	 // $data['title']="Correo";
-	    $data['title']="Cursodocumento del videotutorial";
+	    $data['title']="Cursodocumento del documento";
 		$this->load->view('template/page_header');		
 	  $this->load->view('cursodocumento_record',$data);
 		$this->load->view('template/page_footer');

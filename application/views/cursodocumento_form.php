@@ -23,7 +23,7 @@
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Videotutorial:</label>
+    <label class="col-md-2 col-form-label"> Documento:</label>
 	<div class="col-md-10">
 	<?php
 	$options= array('--Select--');
@@ -36,24 +36,10 @@
 </div> 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">No de la unidad:</label>
-	<div class="col-md-10">
-	<?php
-	 echo form_input(array("name"=>"unidad","id"=>"unidad"));  
-		?>
-	</div> 
-</div> 
+ 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">Nombre de la unidad:</label>
-	<div class="col-md-10">
-	<?php
-	echo form_input(array("name"=>"nombre","id"=>"nombre"));  
-		?>
-	</div> 
-</div> 
+ 
 
 
 <table>
