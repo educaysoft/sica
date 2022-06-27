@@ -277,6 +277,7 @@ public function elprimero()
   	$data['portafoliomodelos']= $this->portafoliomodelo_model->lista_portafoliomodelos()->result();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['portafolioestados']= $this->portafolioestado_model->lista_portafolioestado()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
     $data['title']="Portafoliodocente";
     $this->load->view('template/page_header');		
     $this->load->view('portafoliodocente_record',$data);
@@ -295,8 +296,9 @@ public function elultimo()
   {
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['portafoliomodelos']= $this->portafoliomodelo_model->lista_portafoliomodelos()->result();
-  	$data['portafolioestados']= $this->portafolioestado_model->lista_portafolioestado()->result();
+  		$data['portafolioestados']= $this->portafolioestado_model->lista_portafolioestado()->result();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
     $data['title']="Portafoliodocente";
   
     $this->load->view('template/page_header');		
@@ -317,6 +319,7 @@ public function siguiente(){
   	$data['portafoliomodelos']= $this->portafoliomodelo_model->lista_portafoliomodelos()->result();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['portafolioestados']= $this->portafolioestado_model->lista_portafolioestado()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   $data['title']="Portafoliodocente";
 	$this->load->view('template/page_header');		
   $this->load->view('portafoliodocente_record',$data);
@@ -330,6 +333,7 @@ public function anterior(){
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['portafoliomodelos']= $this->portafoliomodelo_model->lista_portafoliomodelos()->result();
   	$data['portafolioestados']= $this->portafolioestado_model->lista_portafolioestado()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   $data['title']="Portafoliodocente";
 	$this->load->view('template/page_header');		
   $this->load->view('portafoliodocente_record',$data);
