@@ -122,7 +122,7 @@ echo form_input('nmdocumento',$options[$participante['iddocumento']],array("id"=
 	<?php 
 	$options= array("NADA");
 	foreach ($periodoacademicos as $row){
-		$options[$row->idperiodoacademico]= $row->nombre;
+		$options[$row->idperiodoacademico]= $row->nombrelargo;
 	}
 	echo form_input('idperiodoacademico',$options[$portafoliodocente['idperiodoacademico']],array("disabled"=>"disabled", "style"=>"width:500px")); 
 	?>
