@@ -271,7 +271,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('portafoliodocente/portafoliodocente_data_estu')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('portafoliodocente/portafoliodocente_data_doce')?>', type: 'GET'},});
 
 });
 
