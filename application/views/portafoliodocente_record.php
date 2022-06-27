@@ -87,11 +87,7 @@ $options= array("NADA");
 foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
-if(!isset($participante['iddocumento'])){
-echo form_input('nmdocumento',"",array("id"=>"nmdocumento","disabled"=>"disabled","style"=>"width:500px")) ;
-}else{
-echo form_input('nmdocumento',$options[$portafoliodocente['iddocumento']],array("id"=>"nmdocumento","disabled"=>"disabled","style"=>"width:500px"));
-}
+echo form_input('iddocumento',$options[$portafoliodocente['iddocumento']],array("id"=>"iddocumento","disabled"=>"disabled","style"=>"width:500px"));
 		?>
 	</div> 
 </div>
