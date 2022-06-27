@@ -426,9 +426,10 @@ function uploadFiles(url1) {
 	if(iddocumento2>0)
 	{
 		alert("asisnado el documento a portafolio del docente");
+		var idportafolioestado=2; //cargado
 	  $.ajax({
         	url: "<?php echo site_url('portafoliodocente/save_edit2') ?>",
-		data: {idportafoliodocente:idportafoliodocente,iddocumento:iddocumento},
+		data: {idportafoliodocente:idportafoliodocente,iddocumento:iddocumento,idportafolioestado:idportafolioestado},
 		method: 'POST',
 		async : false,
 		dataType : 'json',
