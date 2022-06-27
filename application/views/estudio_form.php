@@ -2,6 +2,13 @@
 <hr/>
 <?php echo form_open("estudio/save") ?>
 <?php echo form_hidden("idestudio")  ?>
+
+<?php
+
+if(isset($_GET("idpersona"))
+{
+	$idpersona=$_GET("idpersona");
+}
 <table>
 
 
@@ -13,8 +20,17 @@ $options= array('--Select--');
 foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
+ if(isset($idpersona))
+ {
+ echo form_dropdown("idpersona",$options,$idpersona );
+ }else{
 
- echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idpersona",$options,set_select('--Select--','default_value'));
+
+ }
+
+?></td>
+
 </tr>
 
 
