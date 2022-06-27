@@ -214,7 +214,7 @@ public function edit()
 			$data=array();
 			foreach($data0->result() as $r){
 
-				if($r->iddocumento==null){	
+				if($r->iddocumento==null || $r->iddocumento==0){	
 				$data[]=array($r->idportafoliodocente,$r->eldocente,$r->eldocumento,$r->archivopdf,$r->elestado,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_cargar"  data-idportafoliodocente="'.$r->idportafoliodocente.'"     data-idpersona="'.$r->idpersona.'"   data-eldocente="'.$r->eldocente.'"  data-eldocumento="'.$r->eldocumento.'">Cargar</a>');
 				}else{
 				$data[]=array($r->idportafoliodocente,$r->eldocente,$r->eldocumento,$r->archivopdf,$r->elestado,	$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-iddocumento="'.$r->iddocumento.'" data-ordenador="'.$r->elordenador.'"  data-ubicacion="'.$r->ruta.'"  data-archivo="'.$r->archivopdf.'">download</a>');
