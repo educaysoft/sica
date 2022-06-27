@@ -69,6 +69,21 @@ foreach ($portafolioestados as $row){
 </tr>
 
 
+
+
+<tr>
+<td> Periodo academico:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($periodoacademicos as $row){
+	$options[$row->idperiodoacademico]= $row->nombrelargo;
+}
+
+ echo form_dropdown("idperiodoacademico",$options, $portafoliodocente['idperiodoacademico']);  ?></td>
+</tr>
+
+
+
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('portafoliodocente','Atras') ?></td>
  </tr>
