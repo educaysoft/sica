@@ -25,7 +25,7 @@ public function index(){
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['portafoliomodelos']= $this->portafoliomodelo_model->lista_portafoliomodelos()->result();
   		$data['portafolioestados']= $this->portafolioestado_model->lista_portafolioestado()->result();
-  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademico()->result();
+  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 			
 		$data['title']="Lista de portafoliodocentes";
 		$this->load->view('template/page_header');

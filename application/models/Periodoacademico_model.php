@@ -1,7 +1,7 @@
 <?php
 class Periodoacademico_model extends CI_model {
 
-	function lista_periodoacademicoes(){
+	function lista_periodoacademicos(){
 		 $periodoacademico= $this->db->get('periodoacademico');
 		 return $periodoacademico;
 	}
