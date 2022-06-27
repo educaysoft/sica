@@ -50,7 +50,7 @@ echo form_input('iddepartamento',$options[$periodoacademico['iddepartamento']],a
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre largo: </label>
+    <label class="col-md-2 col-form-label"> Id Periodo acad.: </label>
 	<div class="col-md-10">
      	<?php 
       echo form_input('idperiodoacademico',$periodoacademico['idperiodoacademico'],array("disabled"=>"disabled"));

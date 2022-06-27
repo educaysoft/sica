@@ -13,6 +13,7 @@ class Portafoliodocente extends CI_Controller{
       $this->load->model('directorio_model');
       $this->load->model('documento_model');
   	 $this->load->model('portafolioestado_model');
+  	 $this->load->model('periodoacademico_model');
 }
 
 public function index(){
@@ -24,8 +25,9 @@ public function index(){
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['portafoliomodelos']= $this->portafoliomodelo_model->lista_portafoliomodelos()->result();
   		$data['portafolioestados']= $this->portafolioestado_model->lista_portafolioestado()->result();
+  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademico()->result();
 			
-		$data['title']="Lista de portafoliodocentees";
+		$data['title']="Lista de portafoliodocentes";
 		$this->load->view('template/page_header');
 		$this->load->view('portafoliodocente_record',$data);
 		$this->load->view('template/page_footer');
