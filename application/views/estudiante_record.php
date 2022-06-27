@@ -37,8 +37,6 @@ if(isset($estudiante))
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Estudiante: </label>
      	<?php 
-
-
       echo form_input('idestudiante',$estudiante['idestudiante'],array("disabled"=>"disabled",'placeholder'=>'Idestudiantes')); 
 		?>
 	</div> 
@@ -70,6 +68,7 @@ echo form_input('idpersona',$options[$estudiante['idpersona']],array("disabled"=
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label"> Depart-Carrera: </label>
+	<div class="col-md-10">
      	<?php 
 
 $options= array("NADA");

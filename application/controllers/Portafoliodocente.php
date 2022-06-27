@@ -137,6 +137,7 @@ public function edit()
 		$id=$this->input->post('idportafoliodocente');
 	 	$array_item=array(
 		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'idportafolioestado' => $this->input->post('idportafolioestado'),
 	 	);
 	 	echo $this->portafoliodocente_model->update($id,$array_item);
  	}
