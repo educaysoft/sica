@@ -33,6 +33,7 @@ public function actual(){
 	$data['persona']=$this->persona_model->persona($this->uri->segment(3))->row_array();
 	$data['correos'] =$this->correo_model->correospersona($data['persona']['idpersona'])->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
+  	$data["generos"]= $this->genero_model->lista_generos()->result();
 	$data['title']="Modulo de Personas";
 	$this->load->view('template/page_header');		
 	$this->load->view('persona_record',$data);
