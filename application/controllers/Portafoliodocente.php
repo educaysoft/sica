@@ -88,6 +88,7 @@ public function add()
 			'idportafoliomodelo' => $this->input->post('idportafoliomodelo'),
 			'idportafolioestado' => $this->input->post('idportafolioestado'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
 	 	$this->portafoliodocente_model->save($array_item);
 	 	redirect('portafoliodocente');
@@ -117,11 +118,11 @@ public function edit()
 	 	$array_item=array(
 		 	
 		 	'idportafoliodocente' => $this->input->post('idportafoliodocente'),
-		 	'numero' => $this->input->post('numero'),
 			'iddocente' => $this->input->post('iddocente'),
 			'idportafoliomodelo' => $this->input->post('idportafoliomodelo'),
 			'idportafolioestado' => $this->input->post('idportafolioestado'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
 	 	$this->portafoliodocente_model->update($id,$array_item);
 	 	redirect('portafoliodocente');
