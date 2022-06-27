@@ -188,7 +188,7 @@ public function edit()
 
 
 
-	public function listar_estu()
+	public function listar_doce()
 	{
 		
 
@@ -198,12 +198,12 @@ public function edit()
 	  $data['title']="Portafoliodocentes";
 		$this->load->view('template/page_header');		
 		$data['personas']= $this->persona_model->lista_personasA()->result();
-	  $this->load->view('portafoliodocente_estu',$data);
+	  $this->load->view('portafoliodocente_doce',$data);
 		$this->load->view('template/page_footer');
 	}
 
 
-	function portafoliodocente_data_estu()
+	function portafoliodocente_data_doce()
 	{
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
