@@ -102,6 +102,7 @@ public function edit()
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['portafoliomodelos']= $this->portafoliomodelo_model->lista_portafoliomodelos()->result();
   		$data['portafolioestados']= $this->portafolioestado_model->lista_portafolioestado()->result();
+  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
  	 	$data['title'] = "Actualizar Portafoliodocente";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('portafoliodocente_edit',$data);
