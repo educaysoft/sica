@@ -5,9 +5,9 @@
 
 <?php
 
-if(isset($_GET("idpersona"))
+if(isset($_GET["idpersona"]))
 {
-	$idpersona=$_GET("idpersona");
+	$idpersona=$_GET["idpersona"];
 }
 <table>
 
