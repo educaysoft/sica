@@ -203,7 +203,7 @@
 <script>
 $(document).ready(()=>{
   var idinstitucion=1; // <?php echo $idinstitucion; ?>;
-  var idevento=355555<?php echo $idevento; ?>;
+  var idevento=35; //5<?php echo $idevento; ?>;
    
     document.getElementById("ln-registrar").style.display="none";
   if(idinstitucion>0){
