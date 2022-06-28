@@ -62,7 +62,7 @@ public function registro() {
 	$data['instituciones']= $this->institucion_model->lista_instituciones_con_inscripciones()->result();
 	$data['eventos']= $this->evento_model->lista_eventos()->result();
 	$this->load->view('template/page_header.php');
-	//$this->load->view('registratro',$data);
+	//$this->load->view('registro',$data);
 	$this->load->view('registration_form_maestria_postulacion',$data);
 	$this->load->view('template/page_footer.php');
 }
