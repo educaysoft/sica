@@ -209,7 +209,36 @@ $(document).ready(()=>{
   if(idinstitucion>0){
   $('#idinstitucion option[value='+idinstitucion+']').attr('selected','selected');
     document.getElementById("idinstitucion").disabled=true;
-    get_evento();
+
+	var idinstitucion = 1; // $('select[name=idinstitucion]').val();
+    $.ajax({
+        url: "<?php echo site_url('evento/get_evento1'); ?>",
+        data: {idinstitucion: idinstitucion},
+        method: 'POST',
+	dataType: "json",
+	 async: false,
+        success: function(data){
+        var html = '';
+     //   html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
+        var i;
+        for(i=0; i<data.length; i++){
+		if(data[i].idevento==35){
+		html += '<option value='+data[i].idevento+'>'+data[i].titulo+'</option>';
+		}
+        }
+        $('#idevento').html(html);
+
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+
+
     //  document.getElementById("ln-registrar").style.display="none";
   }
   if(idevento>0){
@@ -240,35 +269,6 @@ function showpassword(){
 
 
 
- async function get_evento() {	
-	
-	var idinstitucion = 1; // $('select[name=idinstitucion]').val();
-    $.ajax({
-        url: "<?php echo site_url('evento/get_evento1'); ?>",
-        data: {idinstitucion: idinstitucion},
-        method: 'POST',
-	dataType: "json",
-	 async: false,
-        success: function(data){
-        var html = '';
-     //   html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
-        var i;
-        for(i=0; i<data.length; i++){
-		if(data[i].idevento==35){
-		html += '<option value='+data[i].idevento+'>'+data[i].titulo+'</option>';
-		}
-        }
-        $('#idevento').html(html);
-
-
-        },
-      error: function (xhr, ajaxOptions, thrownError) {
-        alert(xhr.status);
-        alert(thrownError);
-      }
-
-    })
-}
 
 
 function show_detalle()
