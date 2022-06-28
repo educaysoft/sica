@@ -1,143 +1,58 @@
 <div id="eys-nav-i">
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($estudiante))
+if(isset($participanteestado))
 {
 ?>
-        <li> <?php echo anchor('estudiante/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('estudiante/anterior/'.$estudiante['idestudiante'], 'anterior'); ?></li>
-        <li> <?php echo anchor('estudiante/siguiente/'.$estudiante['idestudiante'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('estudiante/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('estudiante/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('estudiante/edit/'.$estudiante['idestudiante'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('estudiante/delete/'.$estudiante['idestudiante'],'Delete'); ?></li>
-        <li> <?php echo anchor('estudiante/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('participanteestado/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('participanteestado/siguiente/'.$participanteestado['idparticipanteestado'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('participanteestado/anterior/'.$participanteestado['idparticipanteestado'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('participanteestado/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('participanteestado/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('participanteestado/edit/'.$participanteestado['idparticipanteestado'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('participanteestado/delete/'.$participanteestado['idparticipanteestado'],'Delete'); ?></li>
+        <li> <?php echo anchor('participanteestado/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('estudiante/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('participanteestado/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
-
     </ul>
 </div>
 <br>
 <br>
 
 
-<?php echo form_open('estudiante/save_edit') ?>
-<?php echo form_hidden('idestudiante',$estudiante['idestudiante']) ?>
-<table>
+<?php echo form_open('participanteestado/save_edit') ?>
+<?php echo form_hidden('idparticipanteestado',$participanteestado['idparticipanteestado']) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Docente: </label>
-     	<?php 
-
-
-      echo form_input('idestudiante',$estudiante['idestudiante'],array("disabled"=>"disabled",'placeholder'=>'Idestudiantes')); 
-		?>
+    <label class="col-md-2 col-form-label"> Id:</label>
+	<div class="col-md-10">
+     <?php
+	echo form_input('idparticipanteestado',$participanteestado['idparticipanteestado'],array("disabled"=>"disabled",'placeholder'=>'Idparticipanteestados'));
+	?>
 	</div> 
-</div>
-
-
-
-
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Persona: </label>
-     	<?php 
-
-
+</div> 
  
-$options= array("NADA");
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
-}
-
-echo form_input('idpersona',$options[$estudiante['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
-
-
-
 <div class="form-group row">
-<label class="col-md-2 col-form-label"> Depart-Carrera: </label>
-     	<?php 
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+     <?php
+       echo form_input('nombre',$participanteestado['nombre'],array('placeholder'=>'Nombre del participanteestado')); 
 
-$options= array("NADA");
-foreach ($departamentos as $row){
-	$options[$row->iddepartamento]= $row->nombre;
-}
-
-echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-		?>
+	?>
 	</div> 
-</div>
-
-  
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha desde: </label>
-     	<?php 
-
-
-      echo form_input('fechadesde',$estudiante['fechadesde'],array('type'=>'date','placeholder'=>'fechadesde','style'=>'width:500px;')); 
-
-		?>
-	</div> 
-</div>
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha hasta: </label>
-     	<?php 
-
-       echo form_input('fechahasta',$estudiante['fechahasta'],array('type'=>'date','placeholder'=>'fechahasta','style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
-
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('estudio/add', 'Estudios:') ?> </label>
-     	<?php 
-
-	$options = array();
-  	foreach ($estudios as $row){
-		$options[$row->idpersona]=$row->nivel." - ".$row->lainstitucion;
-	}
-
-			 echo form_multiselect('idestudio[]',$options,(array)set_value('idestudio', ''), array('style'=>'width:500px')); 
-		?>
-	</div> 
-</div>
-
-
+</div> 
+   
+   
 <?php echo form_close(); ?>
 
 
 
-
-
-</body>
-
-
-
-
-
-
-
-
-
-</html>
