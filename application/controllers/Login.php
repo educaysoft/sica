@@ -56,7 +56,7 @@ public function registro_postulacion_MTI() {
 
 
 // Show registration page
-public function registro() {
+public function registrate() {
  	//$data['programa_list'] = $this->programa_model->list_programa()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones_con_inscripciones()->result();
