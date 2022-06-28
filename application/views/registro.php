@@ -254,7 +254,7 @@ function showpassword(){
      //   html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
         var i;
         for(i=0; i<data.length; i++){
-		if(data[i].idevento==33){
+		if(data[i].idevento==35){
 		html += '<option value='+data[i].idevento+'>'+data[i].titulo+'</option>';
 		}
         }
@@ -275,7 +275,7 @@ function show_detalle()
 {
 //  $('#detalle').html("HOLA MUNDO");
 
-	var idevento =33;// $('select[name=idevento]').val();
+	var idevento =35;// $('select[name=idevento]').val();
     $.ajax({
         url: "<?php echo site_url('evento/get_evento2') ?>",
         data:  {idevento: idevento},
