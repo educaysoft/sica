@@ -494,7 +494,6 @@ exit;
 
 
 	public function get_evento1() {
-	    echo "hola mundo"; 
 	    $this->load->database();
 	    $this->load->helper('form');
 	    if($this->input->post('idinstitucion')) {

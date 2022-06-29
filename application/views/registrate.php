@@ -212,7 +212,7 @@ $(document).ready(()=>{
 
 
 
-	var idinstitucion = 1; // $('select[name=idinstitucion]').val();
+	var idinstitucion = "1"; // $('select[name=idinstitucion]').val();
     $.ajax({
         url: "<?php echo site_url('evento/get_evento1'); ?>",
         data: {idinstitucion: idinstitucion},
