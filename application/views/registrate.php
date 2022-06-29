@@ -218,7 +218,8 @@ $(document).ready(()=>{
         data: {idinstitucion: idinstitucion},
         method: 'POST',
 	dataType: "json",
-	 async: false,
+	 async: true,
+	 cache: false,
         success: function(data){
         var html = '';
      //   html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
@@ -246,7 +247,7 @@ $(document).ready(()=>{
   if(idevento>0){
             $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
             document.getElementById("idevento").disabled=true;
-   		show_detalle();
+   //		show_detalle();
   }
 
 
