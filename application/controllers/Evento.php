@@ -241,6 +241,28 @@ public function index(){
 
 
 
+
+
+	public function reportepdf()
+	{
+		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
+		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		
+		$$data['participantes'] = $this->evento_model->lista_eventoP($data['evento']['idevento'])->result();
+
+
+		$data['title']="Evento";
+		$this->load->view('template/page_header');		
+		$this->load->view('evento_list_pdf',$data);
+		$this->load->view('template/page_footer');
+	}
+
+
+
+
+
+
 	public function elprimero()
 	{
 
