@@ -194,15 +194,10 @@ $(document).ready(()=>{
   $('#idinstitucion option[value='+idinstitucion+']').attr('selected','selected');
     document.getElementById("idinstitucion").disabled=true;
 
-
-
-	var idinstitucion = "1"; // $('select[name=idinstitucion]').val();
- 
-
     //  document.getElementById("ln-registrar").style.display="none";
   }
   if(idevento>0){
-            $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
+            $('#idevento option[value='+idevento+']').attr('selected','selected');
             document.getElementById("idevento").disabled=true;
    		show_detalle();
   }
