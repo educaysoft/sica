@@ -496,13 +496,13 @@ exit;
 	public function get_evento1() {
 	    $this->load->database();
 	    $this->load->helper('form');
-//	    if($this->input->post('idinstitucion')) {
+	    if($this->input->post('idinstitucion')) {
 		$this->db->select('*');
-//		$this->db->where(array('idinstitucion' => $this->input->post('idinstitucion')));  //SOLO ESTADO INSCRIPCION
+		$this->db->where(array('idinstitucion' => $this->input->post('idinstitucion')));  //SOLO ESTADO INSCRIPCION
 		$query = $this->db->get('evento');
 		$data=$query->result();
 		echo json_encode($data);
-//		}
+		}
 
 	}
 
