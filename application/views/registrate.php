@@ -197,42 +197,14 @@ $(document).ready(()=>{
 
 
 	var idinstitucion = "1"; // $('select[name=idinstitucion]').val();
-    $.ajax({
-        url: "<?php echo site_url('evento/get_evento1'); ?>",
-        data: {idinstitucion: idinstitucion},
-        method: 'POST',
-	dataType: "json",
-	 async: true,
-	 cache: false,
-	 timeout: 5000,
-        success: function(data){
-        var html = '';
-     //   html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
-        var i;
-        for(i=0; i<data.length; i++){
-		if(data[i].idevento==35){
-		html += '<option value='+data[i].idevento+'>'+data[i].titulo+'</option>';
-		}
-        }
-        $('#idevento').html(html);
-
-
-        },
-      error: function (xhr, ajaxOptions, thrownError) {
-        alert(xhr.status);
-        alert(thrownError);
-      }
-
-    })
-
-
+ 
 
     //  document.getElementById("ln-registrar").style.display="none";
   }
   if(idevento>0){
             $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
             document.getElementById("idevento").disabled=true;
-   //		show_detalle();
+   		show_detalle();
   }
 
 
