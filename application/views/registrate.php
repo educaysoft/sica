@@ -70,19 +70,13 @@
 
 	<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: </label>
 
-    <div class="form-group">
-         <select class="form-control" id="idevento" name="idevento" required onchange='show_detalle()'>
-          </select>
-    </div>
-
-
+   
 
 
 					</div>
 
 
 
-<!----
 					<div  class="w3-container" style="text-align:left; font-size: 70%;">
 
 						<?php 
@@ -97,7 +91,6 @@
 
 					</div>
 
--->
 
 					<div  class="w3-container" style="text-align:left; font-size: 70%;">
 						<?php
