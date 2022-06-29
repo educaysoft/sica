@@ -220,6 +220,7 @@ $(document).ready(()=>{
 	dataType: "json",
 	 async: true,
 	 cache: false,
+	 timeout: 5000,
         success: function(data){
         var html = '';
      //   html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
