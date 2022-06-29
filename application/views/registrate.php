@@ -246,7 +246,7 @@ $(document).ready(()=>{
   }
   if(idevento>0){
             $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
-            document.getElementById("idevento").disabled=true;
+     //       document.getElementById("idevento").disabled=true;
    //		show_detalle();
   }
 
