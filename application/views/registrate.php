@@ -46,7 +46,7 @@
             }
 
 
-				//		echo form_open('login/new_user_registration');
+						echo form_open('login/new_user_registration');
 					?>
 
 					<div  class="w3-container" style="text-align:left; font-size: 70%;">
@@ -171,8 +171,8 @@
 						line-height: 1.4;
 						padding: 10px;
 						width: 100%;');
-				//		echo form_submit($data);
-				//		echo form_close();?>
+						echo form_submit($data);
+						echo form_close();?>
 					</div>
 				</div>
 
@@ -199,7 +199,7 @@ $(document).ready(()=>{
   if(idevento>0){
             $('#idevento option[value='+idevento+']').attr('selected','selected');
             document.getElementById("idevento").disabled=true;
-   		show_detalle();
+   //		show_detalle();
   }
 
 
