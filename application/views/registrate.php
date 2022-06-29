@@ -78,7 +78,7 @@
 								$options[$row->idevento]= $row->titulo;
 							}
 
-						 echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('class'=>'form-control'));  ?>
+						 echo form_dropdown($name="idevento",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idevento'));  ?>
 
 					</div>
 
