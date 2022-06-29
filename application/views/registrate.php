@@ -216,7 +216,7 @@ $(document).ready(()=>{
         data: {idinstitucion: idinstitucion},
         method: 'POST',
 	dataType: "json",
-	 async: false,
+	 async: true,
         success: function(data){
         var html = '';
      //   html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
