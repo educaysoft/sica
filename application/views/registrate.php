@@ -281,7 +281,7 @@ function show_detalle()
         data:  {idevento: idevento},
         method: 'POST',
 	dataType: "json",
-	 async: false,
+	 async: true,
         success: function(data){
         var html1 = '';
         var html2 = '';
