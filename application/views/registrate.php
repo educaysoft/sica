@@ -46,7 +46,7 @@
             }
 
 
-						echo form_open('login/new_user_registration');
+				//		echo form_open('login/new_user_registration');
 					?>
 
 					<div  class="w3-container" style="text-align:left; font-size: 70%;">
@@ -187,8 +187,8 @@
 						line-height: 1.4;
 						padding: 10px;
 						width: 100%;');
-						echo form_submit($data);
-						echo form_close();?>
+				//		echo form_submit($data);
+				//		echo form_close();?>
 					</div>
 				</div>
 
@@ -210,13 +210,15 @@ $(document).ready(()=>{
   $('#idinstitucion option[value='+idinstitucion+']').attr('selected','selected');
     document.getElementById("idinstitucion").disabled=true;
 
+
+
 	var idinstitucion = 1; // $('select[name=idinstitucion]').val();
     $.ajax({
         url: "<?php echo site_url('evento/get_evento1'); ?>",
         data: {idinstitucion: idinstitucion},
         method: 'POST',
 	dataType: "json",
-	 async: true,
+	 async: false,
         success: function(data){
         var html = '';
      //   html += '<option value='+'0'+'>'+'Nada seleccionado'+'</option>';
@@ -281,7 +283,7 @@ function show_detalle()
         data:  {idevento: idevento},
         method: 'POST',
 	dataType: "json",
-	 async: true,
+	 async: false,
         success: function(data){
         var html1 = '';
         var html2 = '';
