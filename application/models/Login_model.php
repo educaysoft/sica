@@ -92,23 +92,29 @@ public function registration_insert($fuente, $datapersona,$datausuario,$datapart
                     
 								    if ($this->db->affected_rows() > 0) {
 								      $this->db->trans_complete();
-									if($fuente==0)
+									if($fuente==0){
 										return true;
-									else
-										echo true;
+									}else{
+										$X=array('resultado'=>'TRUE');	
+										echo json_encode($X);
+									}
 								    }else{
 								      $this->db->trans_complete();
-									if($fuente==0)
+									if($fuente==0){
 										return false;
-									else
-										echo false;
+								    }else{
+										$X=array('resultado'=>'FALSE');	
+										echo json_encode($X);
+								    }
 								    }
                 						}	
 						}else {
-									if($fuente==0)
+									if($fuente==0){
 										return false;
-									else
-										echo false;
+									}else{
+										$X=array('resultado'=>'FALSE');	
+										echo json_encode($X);
+									}
 						}
 				}else{
 						$idpersona=$query->result()[0]->idpersona;
@@ -126,16 +132,20 @@ public function registration_insert($fuente, $datapersona,$datausuario,$datapart
 							    $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>$date,'fechaoff'=>''));
 							    if ($this->db->affected_rows() > 0) {
 							      $this->db->trans_complete();
-									if($fuente==0)
+									if($fuente==0){
 										return true;
-									else
-										echo true;
+									}else{
+										$X=array('resultado'=>'TRUE');	
+										echo json_encode($X);
+									}
 							    }else{
 							      $this->db->trans_complete();
-									if($fuente==0)
+									if($fuente==0){
 										return false;
-									else
-										echo false;
+									}else{
+										$X=array('resultado'=>'FALSE');	
+										echo json_encode($X);
+									}
 							    }
             					}
 				}
@@ -179,16 +189,20 @@ public function registration_insert($fuente, $datapersona,$datausuario,$datapart
                   }
 							if ($this->db->affected_rows() > 0) {
 								$this->db->trans_complete();
-								if($fuente==0)
+								if($fuente==0){
 									return true;
-								else
-									echo true;
+								}else{
+									$X=array('resultado'=>'TRUE');	
+									echo json_encode($X);
+								}
 							}else{
 								$this->db->trans_complete();
-									if($fuente==0)
+									if($fuente==0){
 										return false;
-									else
-										echo false;
+									}else{
+										$X=array('resultado'=>'FALSE');	
+										echo json_encode($X);
+									}
 							}
             }else {
                 $condition = "idusuario =" .  $idusuario ;
@@ -202,10 +216,13 @@ public function registration_insert($fuente, $datapersona,$datausuario,$datapart
                 if ($query->num_rows()== 0) {
                       $date = date('d-m-y h:i:s');
                       $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>$date,'fechaoff'=>''));
-								if($fuente==0)
+		      
+								if($fuente==0){
 									return true;
-								else
-									echo true;
+								}else{
+									$X=array('resultado'=>'TRUE');	
+									echo json_encode($X);
+								}
                   }
 	
 
