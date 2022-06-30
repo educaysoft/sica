@@ -12,7 +12,7 @@ function save_masive(correo,cedula,nombres,apellidos,telefono) {
         data: {fuente:fuente, password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion},
         method: 'POST',
 	async : false,
-        dataType : 'jsonp',
+        dataType : 'json',
         success: function(data){
         var html = '';
         var i;
