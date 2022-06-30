@@ -16,7 +16,7 @@ function save_masive(correo,cedula,nombres,apellidos,telefono) {
         success: function(data){
         var html = '';
         var i;
-	alert("grabado");
+//	alert("grabado");
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
@@ -41,7 +41,7 @@ function save_masive(correo,cedula,nombres,apellidos,telefono) {
 
 <?php
 
-	$arhivo=base_url()."csv/Armada01.csv";
+	$arhivo=base_url()."csv/Armada02.csv";
 
 
 	$csvFile = file($arhivo);
@@ -80,9 +80,9 @@ function save_masive(correo,cedula,nombres,apellidos,telefono) {
         $movil1=str_replace("O","0",$movil0);
 	$movil2=str_pad($movil1,10,'0',STR_PAD_LEFT);
 
-	echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['appellidos']." - ".$movil2."<br>";	 
+	echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['apellidos']." - ".$movil2."<br>";	 
 
-    	echo "<script> save_masive('".$row['correo']."','".$cedula2."','".$row['nombres']."','".$row['appellidos']."','".$movil2."'); </script>";
+    	echo "<script> save_masive('".$row['correo']."','".$cedula2."','".$row['nombres']."','".$row['apellidos']."','".$movil2."'); </script>";
 	$i=$i+1;
 //	if($i==3)
 //	{
