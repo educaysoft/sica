@@ -16,8 +16,7 @@ function save_masive(correo,cedula,nombres,apellidos,telefono) {
         success: function(data){
         var html = '';
         var i;
-<?php  echo data; ?>
-//	alert("grabado");
+	alert("grabado");
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
