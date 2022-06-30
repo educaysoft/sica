@@ -41,7 +41,7 @@ function save_masive(correo,cedula,nombres,apellidos,telefono) {
 
 <?php
 
-	$arhivo=base_url()."csv/Armada02X.csv";
+	$arhivo=base_url()."csv/Armada02.csv";
 
 
 	$csvFile = file($arhivo);
