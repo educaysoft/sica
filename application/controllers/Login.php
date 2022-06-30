@@ -71,7 +71,6 @@ public function registrate() {
 
 // Validate and store registration data in database
 public function new_user_registration() {
-
  
           // Check validation for user input in SignUp form
           $this->form_validation->set_rules('apellidos', 'Apellidos', 'trim|required|xss_clean');
@@ -128,13 +127,21 @@ public function new_user_registration() {
           $datacorreo=array('idpersona'=>0,'nombre'=>$this->input->post('email'),'idcorreo_estado'=>1);
 
 	 $data['eventos']= $this->evento_model->lista_eventos_open()->result();
-          $result = $this->login_model->registration_insert($fuente,$datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono);
+          $result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono);
           if ($result == TRUE) {
-              $data['message_display'] = 'Registration Successfully !';
-              $this->load->view('template/page_header.php');
-              $this->load->view('login_form', $data);
-              $this->load->view('template/page_footer.php');
+		if($fuente==0)  
+		{
+            		  $data['message_display'] = 'Registration Successfully !';
+             		 $this->load->view('template/page_header.php');
+              		$this->load->view('login_form', $data);
+             		 $this->load->view('template/page_footer.php');
+		}else{
+			echo $json_encode({'resultado'=>$resultado});
+		}
           } else {
+		if($fuente==0)  
+		{
+		  
             $data['perfiles']= $this->perfil_model->lista_perfiles()->result();
             $data['message_display'] = 'Username already exist!';
             //$data['programa_list'] = $this->programa_model->list_programa()->result();
@@ -144,6 +151,9 @@ public function new_user_registration() {
           //$this->load->view('registration_form', $data);
           $this->load->view('registration_form',$data);
              $this->load->view('template/page_footer.php');
+		}else{
+			echo $json_encode({'resultado'=>$resultado});
+		}
           }
           }
 }
