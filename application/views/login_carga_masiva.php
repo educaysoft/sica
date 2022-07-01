@@ -12,7 +12,7 @@
         data: {password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion},
         method: 'POST',
 	async : false,
-        dataType : 'jsonp',
+        dataType : 'json',
 	crossDomain:  true,
         success: function(data){
         var html = '';
@@ -23,7 +23,7 @@
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
         alert(thrownError);
-	document.write("----------ERROR-------");
+	document.write(xhr.status+" -  "+thrownError );
       }
     })
 }
