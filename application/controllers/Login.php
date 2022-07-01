@@ -164,8 +164,8 @@ public function new_user_registration() {
 //
 
 // Validate and store registration data in database
-public function carga_masiva() {
- 
+public function carga_masiva_save() {
+
           // Check validation for user input in SignUp form
             //hubicando la pagina con que inicia el usuario        
             $elevento= $this->evento_model->evento($this->input->post('idevento'))->row_array();
