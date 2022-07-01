@@ -16,13 +16,13 @@
         success: function(data){
         var html = '';
         var i;
-	console.log(data);
+	document.write(data);
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
         alert(thrownError);
-	documento.write("----------ERROR-------");
+	document.write("----------ERROR-------");
       }
     })
 }
