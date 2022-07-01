@@ -16,7 +16,7 @@
         success: function(data){
         var html = '';
         var i;
-	document.write(data.resutado+"  --- ");
+	console.log(data);
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
