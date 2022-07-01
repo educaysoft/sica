@@ -43,7 +43,7 @@
 
 <?php
 
-	$arhivo=base_url()."csv/Armada02.csv";
+	$arhivo=base_url()."csv/Armada02X.csv";
 
 
 	$csvFile = file($arhivo);
