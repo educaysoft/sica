@@ -16,12 +16,13 @@ function save_masive(correo,cedula,nombres,apellidos,telefono) {
         success: function(data){
         var html = '';
         var i;
-	document.write(data);
+	document.write(data[0]);
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
         alert(thrownError);
+	documento.write("----------ERROR-------");
       }
     })
 }
