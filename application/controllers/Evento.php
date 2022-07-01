@@ -249,7 +249,7 @@ public function index(){
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		
-		$$data['participantes'] = $this->evento_model->lista_eventoP($data['evento']['idevento'])->result();
+		$data['participantes'] = $this->evento_model->lista_eventoP($data['evento']['idevento'])->result();
 
 
 		$data['title']="Evento";
