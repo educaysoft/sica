@@ -7,7 +7,7 @@ function save_masive(correo,cedula,nombres,apellidos,telefono) {
 	var email=correo;
 	var password=cedula;
 	var fuente=1;
-    $.ajax({
+   await  $.ajax({
         url: "<?php echo site_url('login/new_user_registration'); ?>",
         data: {fuente:fuente, password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion},
         method: 'POST',
