@@ -7,10 +7,9 @@
 	var idinstitucion=1;
 	var email=correo;
 	var password=cedula;
-	var fuente=1;
    await  $.ajax({
-        url: "<?php echo site_url('login/new_user_registration'); ?>",
-        data: {fuente:fuente, password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion},
+        url: "<?php echo site_url('login/carga_masiva'); ?>",
+        data: {password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion},
         method: 'POST',
 	async : false,
         dataType : 'json',

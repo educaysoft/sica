@@ -158,6 +158,77 @@ public function new_user_registration() {
           }
 }
 
+
+//======proceso de cargo en lote
+//
+//
+
+// Validate and store registration data in database
+public function carga_masiva() {
+ 
+          // Check validation for user input in SignUp form
+            //hubicando la pagina con que inicia el usuario        
+            $elevento= $this->evento_model->evento($this->input->post('idevento'))->row_array();
+            $lapagina= $this->pagina_model->pagina($elevento['idpagina'])->row_array();
+
+            if(isset($lapagina['ruta']))
+            {
+          $datausuario = array('idinstitucion'=>$this->input->post('idinstitucion'),'email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>$lapagina["ruta"]);
+            }else{
+
+          $datausuario = array('email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>'principal');
+            }
+
+
+          $datapersona = array('cedula'=>$this->input->post('cedula'),'nombres'=>$this->input->post('nombres'),'apellidos'=>$this->input->post('apellidos'));
+          $datapersona+=['foto'=>"fotos/".$this->input->post('cedula').".png"];
+          $datapersona+=['pdf'=>"pdfs/".$this->input->post('cedula').".pdf"];
+          $datapersona+=["idgenero"=>1];
+          $datapersona+=["idestadocivil"=>1];
+          $datapersona+=["idtiposangre"=>1];
+          $datapersona+=["idnacionalidad"=>1];
+
+          // se suma un partipacipante
+          $dataparticipante=array();
+          $dataparticipante+=['idevento'=>$this->input->post("idevento"),'idpersona'=>0];
+          //telefono
+          $datatelefono=array('idpersona'=>0,'numero'=>$this->input->post('telefono'),'idoperadora'=>1,'idtelefono_estado'=>1);
+
+          //correo
+          $datacorreo=array('idpersona'=>0,'nombre'=>$this->input->post('email'),'idcorreo_estado'=>1);
+
+	 $data['eventos']= $this->evento_model->lista_eventos_open()->result();
+          $result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono);
+          if ($result == TRUE) {
+		echo json_encode(array('resultado'=>'TRUE'));
+          } else {
+		echo json_encode(array('resultado'=>'FALSE'));
+          }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Check for user login process
 
 public function user_login_process() {
