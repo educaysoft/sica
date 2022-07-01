@@ -85,6 +85,7 @@
 	echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['apellidos']." - ".$movil2."<br>";	 
 
     	echo "<script> save_masive('".$row['correo']."','".$cedula2."','".$row['nombres']."','".$row['apellidos']."','".$movil2."'); </script>";
+	sleep(1);
 	$i=$i+1;
 //	if($i==3)
 //	{
