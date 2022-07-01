@@ -16,7 +16,7 @@ function save_masive(correo,cedula,nombres,apellidos,telefono) {
         success: function(data){
         var html = '';
         var i;
-	document.write(data[0]);
+	document.write(data.resutado+"  --- ");
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
