@@ -29,7 +29,7 @@ class Participante_model extends CI_model {
 
 
  	function participantes( $id){
- 		$participante = $this->db->query('select * from participante1 where idevento="'. $id.'"');
+ 		$participante = $this->db->query('select * from participante1 where idevento="'. $id.'"  order by nombres asc');
  		return $participante;
  	}
 
