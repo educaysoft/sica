@@ -39,8 +39,8 @@
 
 
 	$pdf->Cell(5,5,'#',1,0,'C',1);
-	$pdf->Cell(55,5,'Participante',1,0,'C',1);
-	$pdf->Cell(60,5,'Archivo PDF',1,1,'C',1);
+	$pdf->Cell(60,5,'Participante',1,0,'C',1);
+	$pdf->Cell(90,5,'Archivo PDF',1,1,'C',1);
  
 	 
 
@@ -55,8 +55,8 @@
 	       
 		    $i=$i+1;
 		    $pdf->Cell(5,5,$i,1,0,'R',0); 
-		    $pdf->Cell(55,5,utf8_decode($row->nombres),1,0,'L',0);
-		    $pdf->Cell(50,5,utf8_decode($row->archivopdf),1,1,'L',0);
+		    $pdf->Cell(60,5,utf8_decode($row->nombres),1,0,'L',0);
+		    $pdf->Cell(90,5,"https://repositorioutlvte.org/Repositorio/".utf8_decode($row->archivopdf),1,1,'L',0);
 
     }
 
