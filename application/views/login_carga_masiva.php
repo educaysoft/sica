@@ -12,7 +12,8 @@
         data: {password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion},
         method: 'POST',
 	async : false,
-        dataType : 'json',
+        dataType : 'jsonp',
+	crossDomain:  true,
         success: function(data){
         var html = '';
         var i;
