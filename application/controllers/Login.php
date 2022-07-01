@@ -136,7 +136,7 @@ public function new_user_registration() {
               		$this->load->view('login_form', $data);
              		 $this->load->view('template/page_footer.php');
 		}else{
-			echo json_encode(['resultado'=>$result]);
+			echo json_encode(array('resultado'=>$result));
 		}
           } else {
 		if($fuente==0)  
@@ -152,7 +152,7 @@ public function new_user_registration() {
           $this->load->view('registration_form',$data);
              $this->load->view('template/page_footer.php');
 		}else{
-			echo json_encode(['resultado'=>$result]);
+			echo json_encode(array('resultado'=>$result));
 		}
           }
           }
