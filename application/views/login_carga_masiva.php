@@ -44,7 +44,7 @@
 
 <?php
 
-	$arhivo=base_url()."csv/Armada02X.csv";
+	$arhivo=base_url()."csv/Armada03.csv";
 
 
 	$csvFile = file($arhivo);
