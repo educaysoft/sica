@@ -49,6 +49,7 @@
 
 	$csvFile = file($arhivo);
 	$data=[];
+	echo "cargando el archivo Ñ";
 	foreach($csvFile as $line)
 	{
 		$data[] =str_getcsv($line);
