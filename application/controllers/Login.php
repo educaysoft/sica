@@ -388,6 +388,7 @@ public function carga_masiva(){
 //	header("Access-Control-Allow-Headers: Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control");
 	$data['message_display'] = 'Successfully Logout';
 	$this->load->view('template/page_header.php');
+	die();
 	$this->load->view('login_carga_masiva', $data);
 	$this->load->view('template/page_footer.php');
 }

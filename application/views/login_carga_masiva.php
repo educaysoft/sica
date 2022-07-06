@@ -29,23 +29,13 @@
 }
 
 
-
-
-
-
-
-
 </script>
-
-
-
 
 
 
 <?php
 
 	$arhivo=base_url()."csv/Armada03.csv";
-
 
 	$csvFile = file($arhivo);
 	$data=[];
