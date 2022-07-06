@@ -63,6 +63,8 @@
 
 	}
 //llenado 	
+	echo "\n Cargo el archivo";
+	die();
 	$i=0;
 	foreach($data2 as $row){
         $cedula0=str_replace("-","",$row['cedula']);
