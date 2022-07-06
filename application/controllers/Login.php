@@ -166,21 +166,21 @@ public function new_user_registration() {
 // Validate and store registration data in database
 public function carga_masiva_save() {
 
-            $elevento= $this->evento_model->evento($this->input->post('idevento'))->row_array();
+            $elevento= $this->evento_model->evento($this->input->get('idevento'))->row_array();
             $lapagina= $this->pagina_model->pagina($elevento['idpagina'])->row_array();
 
             if(isset($lapagina['ruta']))
             {
-          $datausuario = array('idinstitucion'=>$this->input->post('idinstitucion'),'email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>$lapagina["ruta"]);
+          $datausuario = array('idinstitucion'=>$this->input->get('idinstitucion'),'email' => $this->input->get('email'),'password' => $this->input->get('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>$lapagina["ruta"]);
             }else{
 
-          $datausuario = array('email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>'principal');
+          $datausuario = array('email' => $this->input->get('email'),'password' => $this->input->get('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>'principal');
             }
 
 
-          $datapersona = array('cedula'=>$this->input->post('cedula'),'nombres'=>$this->input->post('nombres'),'apellidos'=>$this->input->post('apellidos'));
-          $datapersona+=['foto'=>"fotos/".$this->input->post('cedula').".png"];
-          $datapersona+=['pdf'=>"pdfs/".$this->input->post('cedula').".pdf"];
+          $datapersona = array('cedula'=>$this->input->get('cedula'),'nombres'=>$this->input->get('nombres'),'apellidos'=>$this->input->get('apellidos'));
+          $datapersona+=['foto'=>"fotos/".$this->input->get('cedula').".png"];
+          $datapersona+=['pdf'=>"pdfs/".$this->input->get('cedula').".pdf"];
           $datapersona+=["idgenero"=>1];
           $datapersona+=["idestadocivil"=>1];
           $datapersona+=["idtiposangre"=>1];
@@ -188,12 +188,12 @@ public function carga_masiva_save() {
 
           // se suma un partipacipante
           $dataparticipante=array();
-          $dataparticipante+=['idevento'=>$this->input->post("idevento"),'idpersona'=>0];
+          $dataparticipante+=['idevento'=>$this->input->get("idevento"),'idpersona'=>0];
           //telefono
-          $datatelefono=array('idpersona'=>0,'numero'=>$this->input->post('telefono'),'idoperadora'=>1,'idtelefono_estado'=>1);
+          $datatelefono=array('idpersona'=>0,'numero'=>$this->input->get('telefono'),'idoperadora'=>1,'idtelefono_estado'=>1);
 
           //correo
-          $datacorreo=array('idpersona'=>0,'nombre'=>$this->input->post('email'),'idcorreo_estado'=>1);
+          $datacorreo=array('idpersona'=>0,'nombre'=>$this->input->get('email'),'idcorreo_estado'=>1);
 
 	 $data['eventos']= $this->evento_model->lista_eventos_open()->result();
           $result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono);

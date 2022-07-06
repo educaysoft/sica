@@ -10,7 +10,7 @@
    await  $.ajax({
         url: "<?php echo site_url('login/carga_masiva_save'); ?>",
         data: {password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion},
-        method: 'POST',
+        method: 'GET',
 	async : false,
         dataType : 'json',
 	crossDomain:  true,
