@@ -25,7 +25,7 @@
         alert(thrownError);
 	document.write(xhr.status+" -  "+thrownError );
       }
-    })
+    });
 }
 
 
@@ -88,7 +88,6 @@
 	}
 
 	echo "\n ".$i;
-	die();
 
 
 
