@@ -88,7 +88,9 @@ if(isset($_GET['inicio'])){
        			if($i>$inicio){
 				echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['apellidos']." - ".$movil2."<br>";	 
     				echo "<script> save_masive(`".$row['correo']."`,`".$cedula2."`,`".$row['nombres']."`,`".$row['apellidos']."`,`".$movil2."`); </script>";
-				sleep(1);
+
+
+				sleep(10);
        			}
 			$i=$i+1;
 		}
