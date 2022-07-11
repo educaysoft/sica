@@ -35,7 +35,7 @@
 
 <?php
 
-	$arhivo=base_url()."csv/Armada03.csv";
+	$arhivo=base_url()."csv/Armada04.csv";
 
 	$csvFile = file($arhivo);
 	$data=[];
@@ -75,13 +75,13 @@
         $movil1=str_replace("O","0",$movil0);
 	$movil2=str_pad($movil1,10,'0',STR_PAD_LEFT);
 
-       if($i>399){
+       if($i>0){
 	echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['apellidos']." - ".$movil2."<br>";	 
     	echo "<script> save_masive(`".$row['correo']."`,`".$cedula2."`,`".$row['nombres']."`,`".$row['apellidos']."`,`".$movil2."`); </script>";
 	sleep(1);
        }
 	$i=$i+1;
-	if($i==600)
+	if($i==615)
 	{
 	break;
 	}
