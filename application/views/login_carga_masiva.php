@@ -35,6 +35,12 @@
 
 <?php
 
+if(isset($_GET['inicio'])){
+
+
+       $inicio=$_GET['inicio'];
+       $fin=$_GET['fin'];
+
 	$arhivo=base_url()."csv/Armada04.csv";
 
 	$csvFile = file($arhivo);
@@ -65,31 +71,57 @@
 //llenado 	
 	echo "\n Cargo el archivo";
 	$i=0;
+	$unicos=array();
 	foreach($data2 as $row){
-        $cedula0=str_replace("-","",$row['cedula']);
-        $cedula1=str_replace("O","0",$cedula0);
-	$cedula2=str_pad($cedula1,10,'0',STR_PAD_LEFT);
+        	$cedula0=str_replace("-","",$row['cedula']);
+        	$cedula1=str_replace("O","0",$cedula0);
+		$cedula2=str_pad($cedula1,10,'0',STR_PAD_LEFT);
 
 
-        $movil0=str_replace("-","",$row['movil']);
-        $movil1=str_replace("O","0",$movil0);
-	$movil2=str_pad($movil1,10,'0',STR_PAD_LEFT);
+        	$movil0=str_replace("-","",$row['movil']);
+        	$movil1=str_replace("O","0",$movil0);
+		$movil2=str_pad($movil1,10,'0',STR_PAD_LEFT);
 
-       if($i>399){
-	echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['apellidos']." - ".$movil2."<br>";	 
-    	echo "<script> save_masive(`".$row['correo']."`,`".$cedula2."`,`".$row['nombres']."`,`".$row['apellidos']."`,`".$movil2."`); </script>";
-	sleep(5);
-       }
-	$i=$i+1;
-	if($i==610)
-	{
-	break;
-	}
+		if(!in_array($cedula2)){
+
+			$unicos[]=$cedula2;
+       			if($i>$inicio){
+				echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['apellidos']." - ".$movil2."<br>";	 
+    				echo "<script> save_masive(`".$row['correo']."`,`".$cedula2."`,`".$row['nombres']."`,`".$row['apellidos']."`,`".$movil2."`); </script>";
+				sleep(1);
+       			}
+			$i=$i+1;
+		}
+		if($i==$fin)
+		{	
+			break;
+		}
 	}
 
 	echo "\n ".$i;
 
 
+
+
+}else{
+?>
+
+	<form  method="GET" action=<?php echo  base_url()."/login/carga_masiva"; ?>>
+
+		<label for="inicio">Registro inicial:</label><br>
+		<input type="text" id="inicio" name="inicio"><br>
+
+		<label for="fin">Registro final:</label><br>
+		<input type="text" id="fin" name="fin"><br>
+
+
+		<input  type="submit"> 
+
+	</form>	
+
+<?php
+	
+}
 
 ?>
 
