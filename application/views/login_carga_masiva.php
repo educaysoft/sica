@@ -82,7 +82,7 @@ if(isset($_GET['inicio'])){
         	$movil1=str_replace("O","0",$movil0);
 		$movil2=str_pad($movil1,10,'0',STR_PAD_LEFT);
 
-		if(!in_array($cedula2)){
+		if(!in_array($cedula2,$unicos)){
 
 			$unicos[]=$cedula2;
        			if($i>$inicio){
@@ -106,7 +106,7 @@ if(isset($_GET['inicio'])){
 }else{
 ?>
 
-	<form  method="GET" action=<?php echo  base_url()."/login/carga_masiva"; ?>>
+	<form  method="get" action=<?php echo  base_url()."/login/carga_masiva"; ?>>
 
 		<label for="inicio">Registro inicial:</label><br>
 		<input type="text" id="inicio" name="inicio"><br>
