@@ -31,38 +31,57 @@ if(isset($certificado))
 <?php echo form_hidden('idcertificado',$certificado['idcertificado']) ?>
 <table>
 
-  <tr>
-     <td>Id certificado:</td>
-     <td><?php
 
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Id certificado:</label>
+<div class="col-md-10">
+<?php
   $eys_arrctl=array("name"=>'idcertificado','value'=>$certificado['idcertificado'],"disabled"=>"disabled",'placeholder'=>'Idcertificados','style'=>'width:500px;');
- echo form_input($eys_arrctl) ?></td>
-  </tr>
- 
- <tr>
-      <td>Propietario:</td>
-      <td><?php
+ echo form_input($eys_arrctl); 
+?>
+</div>
+</div>
 
 
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Propietario:</label>
+<div class="col-md-10">
+<?php
   $eys_arrctl=array("name"=>'propietario','value'=>$certificado['propietario'],"disabled"=>"disabled",'placeholder'=>'Ipropietario','style'=>'width:500px;');
- echo form_input($eys_arrctl) ?></td>
-  </tr>
+ echo form_input($eys_arrctl); 
+?>
+</div>
+</div>
 
 
-<tr>
-      <td>Archivo:</td>
-      <td><?php
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Archivo:</label>
+<div class="col-md-10">
+<?php
   $eys_arrctl=array("name"=>'archivo','value'=>$certificado['archivo'],"disabled"=>"disabled",'placeholder'=>'Direccion y nombre del archivo','style'=>'width:500px;');
- echo form_input($eys_arrctl) ?></td>
-</tr>
+ echo form_input($eys_arrctl); 
+?>
+</div>
+</div>
 
 
-<tr>
-      <td>Ubicación:</td>
-      <td><?php
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Ubicación:</label>
+<div class="col-md-10">
+<?php
+
   $eys_arrctl=array("name"=>'ubicacion','value'=>$certificado['ubicacion'],"disabled"=>"disabled",'placeholder'=>'Ubicación del archivo de certificado','style'=>'width:600px;');
- echo form_input($eys_arrctl) ?></td>
-</tr>
+ echo form_input($eys_arrctl); 
+?>
+</div>
+</div>
+
+
 
 <tr>
       <td>Evento:</td>

@@ -215,7 +215,8 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 		</div> 
 	</div>
 
-<div id="learn2" style="width: 100%; margin:auto; display:none";>
+<!--- <div id="learn2" style="width: 100%; margin:auto; display:none";> --->
+<div id="learn2" style="width: 100%; margin:auto; ";>
 	<div id="evaluacion" style="padding:10px; width:80%; margin:auto;">
 
 	</div>

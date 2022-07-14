@@ -29,6 +29,17 @@ class Documento_model extends CI_model {
 			$this->db->where('iddocumento',$id);
 			$this->db->delete('documento');
 			if($this->db->affected_rows()==1)
+				//Se elimina el id de la  tabla participante
+
+				$this->db->where("iddocumento",$id);
+		    		$query=$this->db->get('documento');
+				if($query->num_rows()>0)
+				{
+					$arr=array('iddocumento'=>null);
+					$this->db->where("iddocumento",$id);
+					$this->db->update("participante",$arr);	
+				}	
+
 				$result=true;
 			else
 				$result=false;
@@ -144,7 +155,7 @@ class Documento_model extends CI_model {
  		$documento = $this->db->select("iddocumento")->order_by("iddocumento")->get('documento')->result_array();
 		$arr=array("iddocumento"=>$id);
 		$clave=array_search($arr,$documento);
-	   if(array_key_exists($clave+1,$documento))
+	  	 if(array_key_exists($clave+1,$documento))
 		 {
 
  		$documento = $this->db->query('select * from documento where iddocumento="'. $documento[$clave+1]["iddocumento"].'"');
