@@ -26,19 +26,33 @@ class Documento_model extends CI_model {
 
 	function delete($id)
 	{
+			$this->db->trans_start();
+			$this->db->where("iddocumento",$id);
+		    	$query=$this->db->get('participante');
+			if($query->num_rows()>0)
+			{
+				$arr=array('iddocumento'=>null);
+				$this->db->where("iddocumento",$id);
+				$this->db->update("participante",$arr);	
+			}	
+
+
+			$this->db->where("iddocumento",$id);
+		    	$query=$this->db->get('emisor');
+			if($query->num_rows()>0)
+			{
+				$this->db->where("iddocumento",$id);
+				$this->db->delete("emisor");	
+			}	
+
+
+
 			$this->db->where('iddocumento',$id);
 			$this->db->delete('documento');
 			if($this->db->affected_rows()==1)
 				//Se elimina el id de la  tabla participante
 
-				$this->db->where("iddocumento",$id);
-		    		$query=$this->db->get('documento');
-				if($query->num_rows()>0)
-				{
-					$arr=array('iddocumento'=>null);
-					$this->db->where("iddocumento",$id);
-					$this->db->update("participante",$arr);	
-				}	
+				$this->db->trans_complete();
 
 				$result=true;
 			else
