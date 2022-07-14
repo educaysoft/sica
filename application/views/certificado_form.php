@@ -2,119 +2,173 @@
 <hr/>
 <?php echo form_open("certificado/save") ?>
 <?php echo form_hidden("idcertificado")  ?>
-<table>
 
 
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Propietario:</label>
+<div class="col-md-10">
+<?php
+echo form_input("propietario","", array("placeholder"=>"Nombre de la Propietario")); 
+?>
+</div>
+</div>
 
-<tr>
-<td> Propietario </td>
-<td><?php echo form_input("propietario","", array("placeholder"=>"Nombre de la Propietario"))  ?></td>
-</tr>
 
 
-<tr>
-<td> Archivo </td>
-<td><?php echo form_input("archivo","", array("placeholder"=>"Direccción y nombre dle archivo"))  ?></td>
-</tr>
 
-<tr>
-<td> Evento: </td>
-<td><?php 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Archivo:</label>
+<div class="col-md-10">
+<?php
+echo form_input("archivo","", array("placeholder"=>"Direccción y nombre dle archivo"));
+?>
+</div>
+</div>
 
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Evento:</label>
+<div class="col-md-10">
+<?php
 $options= array('--Select--');
 foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
 }
+ echo form_dropdown("idevento",$options, set_select('--Select--','default_value'));  
+?>
+</div>
+</div>
 
- echo form_dropdown("idevento",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
 
 
-<tr>
-<td> Tipo de documento: </td>
-<td><?php 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Tipo de documento:</label>
+<div class="col-md-10">
+<?php
 
 $options= array('--Select--');
 foreach ($tipodocus as $row){
 	$options[$row->idtipodocu]= $row->descripcion;
 }
+ echo form_dropdown("idtipodocu",$options, set_select('--Select--','default_value'),array('id'=>'idtipodocu','onchange'=>'get_tipodocu()'));  
+?>
+</div>
+</div>
 
- echo form_dropdown("idtipodocu",$options, set_select('--Select--','default_value'),array('id'=>'idtipodocu','onchange'=>'get_tipodocu()'));  ?></td>
-</tr>
 
 
 
-<tr>
-
-    <td>Documento:</td>
-    <td>
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Tipo de documento:</label>
+<div class="col-md-10">
     <div class="form-group">
          <select class="form-control" id="iddocumento" name="iddocumento" required>
                  <option>No Selected</option>
           </select>
     </div>
-
-</td>
-
-</tr>
+</div>
+</div>
 
 
 
-
-<tr>
-<td> Ancho certi x(296.67) </td>
-<td><?php echo form_input("ancho_x","", array("placeholder"=>"Ancho del certificado x"))  ?></td>
-</tr>
-
-
-<tr>
-<td> Alto certi x(210.56) </td>
-<td><?php echo form_input("alto_x","", array("placeholder"=>"Alto del certificado y"))  ?></td>
-</tr>
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Ancho certi x(296.67):</label>
+<div class="col-md-10">
+<?php
+echo form_input("ancho_x","", array("placeholder"=>"Ancho del certificado x"));  
+?>
+</div>
+</div>
 
 
-<tr>
-<td> Posi nombre  x(0.00) </td>
-<td><?php echo form_input("posi_nomb_x","", array("placeholder"=>"Posicion del nombre en x"))  ?></td>
-</tr>
-
-<tr>
-<td> Posi nombre  y(0.00) </td>
-<td><?php echo form_input("posi_nomb_y","", array("placeholder"=>"Posicion del nombre en y"))  ?></td>
-</tr>
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Alto certi y(210.56) :</label>
+<div class="col-md-10">
+<?php
+echo form_input("alto_x","", array("placeholder"=>"Alto del certificado y"));
+?>
+</div>
+</div>
 
 
 
-<tr>
-<td> Posi codigo  x(0.00) </td>
-<td><?php echo form_input("posi_codigo_x","", array("placeholder"=>"Posicion del codigore en x"))  ?></td>
-</tr>
 
-
-<tr>
-<td> Posi codigo  y(65.00) </td>
-<td><?php echo form_input("posi_codigo_y","", array("placeholder"=>"Posicion del codigore en y"))  ?></td>
-</tr>
-
-
-<tr>
-<td> Posi fecha  x(0.00) </td>
-<td><?php echo form_input("posi_fecha_x","", array("placeholder"=>"Posicion del fechare en x"))  ?></td>
-</tr>
-
-
-<tr>
-<td> Posi fecha  y(165.00) </td>
-<td><?php echo form_input("posi_fecha_y","", array("placeholder"=>"Posicion del fechare en y"))  ?></td>
-</tr>
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Posi nombre  x(0.00)  :</label>
+<div class="col-md-10">
+<?php
+echo form_input("posi_nomb_x","", array("placeholder"=>"Posicion del nombre en x"));
+?>
+</div>
+</div>
 
 
 
-<tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("certificado","Atras") ?> </td>
-</tr>
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Posi nombre  y(0.00)  :</label>
+<div class="col-md-10">
+<?php
+echo form_input("posi_nomb_y","", array("placeholder"=>"Posicion del nombre en y")); 
+?>
+</div>
+</div>
+
+
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Posi codigo  x(0.00):</label>
+<div class="col-md-10">
+<?php
+echo form_input("posi_codigo_x","", array("placeholder"=>"Posicion del codigore en x")); 
+?>
+</div>
+</div>
+
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Posi codigo  y(65.00):</label>
+<div class="col-md-10">
+<?php
+echo form_input("posi_codigo_y","", array("placeholder"=>"Posicion del codigore en y")); 
+?>
+</div>
+</div>
+
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Posi fecha  x(0.00): </label>
+<div class="col-md-10">
+<?php
+echo form_input("posi_fecha_x","", array("placeholder"=>"Posicion del fechare en x"));
+?>
+</div>
+</div>
+
+
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label"> Posi fecha  y(165.00):</label>
+<div class="col-md-10">
+<?php
+echo form_input("posi_fecha_y","", array("placeholder"=>"Posicion del fechare en y")); 
+?>
+</div>
+</div>
+
+
+
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Head del correo:</label>
@@ -150,7 +204,10 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 </div>
 
 
-
+<table>
+<tr>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("certificado","Atras") ?> </td>
+</tr>
 </table>
 <?php echo form_close();?>
 
