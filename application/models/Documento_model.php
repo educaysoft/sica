@@ -50,14 +50,15 @@ class Documento_model extends CI_model {
 			$this->db->where('iddocumento',$id);
 			$this->db->delete('documento');
 			if($this->db->affected_rows()==1)
+			{
 				//Se elimina el id de la  tabla participante
 
 				$this->db->trans_complete();
 
 				$result=true;
-			else
+			}else{
 				$result=false;
-
+			}
 
 	}
 
