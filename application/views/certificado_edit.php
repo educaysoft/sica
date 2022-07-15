@@ -81,14 +81,14 @@ echo form_input($eys_arrinput); ?></td>
 
 
 <tr>
-     <td>Posicion X:</td>
+     <td>Posicion ref X:</td>
      <td><?php 
      $eys_arrinput=array('name'=>'posi_codigo_x','value'=>$certificado['posi_codigo_x'], "style"=>"width:500px");
      echo form_input($eys_arrinput); ?></td>
 </tr>
 
 <tr>
-    <td>Posicion Y(65.00 mm):</td>
+    <td>Posicion ref. Y(65.00 mm):</td>
     <td><?php 
     $eys_arrinput=array('name'=>'posi_codigo_y','value'=>$certificado['posi_codigo_y'], "style"=>"width:500px");
     echo form_input($eys_arrinput); ?></td>
@@ -113,14 +113,14 @@ echo form_input($eys_arrinput); ?></td>
 
 
 <tr>
-     <td>Posicion X:</td>
+     <td>Posicion fecha  X:</td>
      <td><?php 
      $eys_arrinput=array('name'=>'posi_fecha_x','value'=>$certificado['posi_fecha_x'], "style"=>"width:500px");
      echo form_input($eys_arrinput); ?></td>
 </tr>
 
 <tr>
-    <td>Posicion Y(65.00 mm):</td>
+    <td>Posicion fecha  Y(65.00 mm):</td>
     <td><?php 
     $eys_arrinput=array('name'=>'posi_fecha_y','value'=>$certificado['posi_fecha_y'], "style"=>"width:500px");
     echo form_input($eys_arrinput); ?></td>
