@@ -111,7 +111,7 @@ $pdf->SetTextColor(255,255,255);
 }
 
 $pdf->SetXY($posi_fecha_x,$posi_fecha_y);
-if($posi_fecha_x==0)
+if(intval($posi_fecha_x)==0)
 {
 $espacio_impresion=$posif;  
 }else{

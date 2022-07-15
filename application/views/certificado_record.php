@@ -121,7 +121,7 @@ foreach ($tipodocus as $row){
 	$options[$row->idtipodocu]= $row->descripcion;
 }
 
-echo form_input('idtipodocu',$options[$certificado['idtipodocu']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+echo form_input('idtipodocu',$options[$certificado['idtipodocu']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 ?>
 </div>
 </div>
