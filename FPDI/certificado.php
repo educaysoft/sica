@@ -110,17 +110,22 @@ $pdf->SetTextColor(0, 0,0);
 $pdf->SetTextColor(255,255,255);
 }
 
-$pdf->SetXY($posi_fecha_x,$posi_fecha_y);
-if(intval($posi_fecha_x)==0)
+
+
+if(intval($posi_fecha_y)>0)
 {
-$espacio_impresion=$posif;  
-}else{
-$espacio_impresion=$pdf->GetStringWidth($fecha);
+
+	$pdf->SetXY($posi_fecha_x,$posi_fecha_y);
+	if(intval($posi_fecha_x)==0)
+	{
+	$espacio_impresion=$posif;  
+	}else{
+	$espacio_impresion=$pdf->GetStringWidth($fecha);
+	}
+
+	$realposix=$posi_fecha_x+($espacio_impresion/2-($pdf->GetStringWidth($fecha)/2));
+	$pdf->Text($realposix,$posi_fecha_y,$espacio_impresion);
 }
-
-$realposix=$posi_fecha_x+($espacio_impresion/2-($pdf->GetStringWidth($fecha)/2));
-$pdf->Text($realposix,$posi_fecha_y,$espacio_impresion);
-
 
 }
 //$pdf->Output('I', 'generated.pdf');
