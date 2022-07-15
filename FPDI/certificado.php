@@ -119,7 +119,7 @@ $espacio_impresion=$pdf->GetStringWidth($fecha);
 }
 
 $realposix=$posi_fecha_x+($espacio_impresion/2-($pdf->GetStringWidth($fecha)/2));
-$pdf->Text($realposix,$posi_fecha_y,$fecha);
+$pdf->Text($realposix,$posi_fecha_y,$espacio_impresion);
 
 
 }
