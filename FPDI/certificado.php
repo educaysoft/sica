@@ -122,7 +122,6 @@ $pdf->SetTextColor(0, 0,0);
 }else{
 
 $pdf->SetTextColor(255,255,255);
-v
 
 
 if($firma2_x>0 && $firma2_y>0)

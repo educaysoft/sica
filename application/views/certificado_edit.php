@@ -145,9 +145,6 @@ echo form_input($eys_arrinput); ?></td>
 </tr>
 
 
-
-
-
 <tr>
      <td>Segunda firma  X:</td>
      <td><?php 
@@ -161,9 +158,6 @@ echo form_input($eys_arrinput); ?></td>
     $eys_arrinput=array('name'=>'firma2_y','value'=>$certificado['firma2_y'], "style"=>"width:500px");
     echo form_input($eys_arrinput); ?></td>
 </tr>
-
-
-
 
 
 
