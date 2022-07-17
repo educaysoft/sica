@@ -88,10 +88,9 @@ $pdf->SetFont('Helvetica','B',15);
 
 if($posi_codigo_x==0)
 {
-$pdf->SetTextColor(0, 0,0);
+	$pdf->SetTextColor(0, 0,0);
 }else{
-
-$pdf->SetTextColor(255,255,255);
+	$pdf->SetTextColor(255,255,255);
 }
 
 
@@ -99,14 +98,12 @@ $pdf->SetTextColor(255,255,255);
 $pdf->SetXY($posi_codigo_x,$posi_codigo_y);
 if($posi_codigo_x==0)
 {
-$espacio_impresion=$posif;  
+	$espacio_impresion=$posif;  
 }else{
-$espacio_impresion=$pdf->GetStringWidth($codigo);
+	$espacio_impresion=$pdf->GetStringWidth($codigo);
 }
 $realposix=$posi_codigo_x+($espacio_impresion/2-($pdf->GetStringWidth($codigo)/2));
-//$pdf->Text($realposix,$posi_codigo_y,$codigo);
-$pdf->Text($realposix,$posi_codigo_y,$firma2_x);
-$pdf->Text($realposix,$posi_codigo_y+5,$firma2_y);
+$pdf->Text($realposix,$posi_codigo_y,$codigo);
 
 // now write some text above the imported page
 $pdf->SetFont('Helvetica','B',20);
