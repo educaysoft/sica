@@ -104,7 +104,9 @@ $espacio_impresion=$posif;
 $espacio_impresion=$pdf->GetStringWidth($codigo);
 }
 $realposix=$posi_codigo_x+($espacio_impresion/2-($pdf->GetStringWidth($codigo)/2));
-$pdf->Text($realposix,$posi_codigo_y,$codigo);
+//$pdf->Text($realposix,$posi_codigo_y,$codigo);
+$pdf->Text($realposix,$posi_codigo_y,$firma2_x);
+$pdf->Text($realposix,$posi_codigo_y+5,$firma2_y);
 
 // now write some text above the imported page
 $pdf->SetFont('Helvetica','B',20);
