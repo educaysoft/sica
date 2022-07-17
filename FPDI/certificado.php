@@ -29,6 +29,20 @@ $posi_fecha_y=$_POST["posi_fecha_y"];
 
 
 
+$firma1_x=$_POST["firma1_x"];
+$frima1_y=$_POST["firma1_y"];
+
+$firma2_x=$_POST["firma2_x"];
+$frima2_y=$_POST["firma2_y"];
+
+
+$firma3_x=$_POST["firma3_x"];
+$frima3_y=$_POST["firma3_y"];
+
+
+
+
+
 
 $fecha=date('F d Y',strtotime($_POST["fecha"]));
 
@@ -108,7 +122,16 @@ $pdf->SetTextColor(0, 0,0);
 }else{
 
 $pdf->SetTextColor(255,255,255);
+v
+
+
+if($firma2_x>0 && $firma2_y>0)
+{
+
+$pdf->Image('https://educaysoft.org/firmas/francisstalin.png',$firma1_x,$firma1_y);
+
 }
+
 
 
 

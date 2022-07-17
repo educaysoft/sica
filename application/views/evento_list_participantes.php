@@ -232,6 +232,19 @@ var posi_fecha_x=$(this).data('posi_fecha_x');
 var posi_fecha_y=$(this).data('posi_fecha_y');
 
 
+var firma1_x=$(this).data('firma1_x');
+var firma1_y=$(this).data('firma1_y');
+
+
+var firma2_x=$(this).data('firma2_x');
+var firma2_y=$(this).data('firma2_y');
+
+
+var firma3_x=$(this).data('firma3_x');
+var firma3_y=$(this).data('firma3_y');
+
+
+
 
 
 var iddocumento2=$(this).data('iddocumento2');
@@ -291,6 +304,23 @@ if(iddocumento2==0)
 
     formData.append("posi_fecha_x", posi_fecha_x);
     formData.append("posi_fecha_y", posi_fecha_y);
+
+
+
+
+    formData.append("firma1_x", firma1_x);
+    formData.append("firma1_y", firma1_y);
+
+
+    formData.append("firma2_x", firma2_x);
+    formData.append("firma2_y", firma2_y);
+
+
+    formData.append("firma3_x", firma3_x);
+    formData.append("firma3_y", firma3_y);
+
+
+
 
     formData.append("fecha", fechaelaboracion);
 
