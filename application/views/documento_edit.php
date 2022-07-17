@@ -238,6 +238,8 @@ function uploadFiles(url1) {
       				// The request has been completed successfully
 				var response = xhttp.responseText;
           			alert(response + "archivo cargado");
+				archivo_cargado(iddocumento);
+
 				history.back(); //Go to the previous page
        			}else{
 				alert("No se pudo cargar el archivo");
@@ -251,6 +253,37 @@ function uploadFiles(url1) {
   }
 
 }
+
+
+
+function archivo_cargado(iddocumento) {
+	var iddocumento_estado = 2;
+    $.ajax({
+        url: "<?php echo site_url('documento/save_edit') ?>",
+        data: {iddocumento:iddocumento,iddocumento_estado:iddocumento_estado},
+        method: 'POST',
+	async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
+
+
+
+
+
+
+
 
 
 
@@ -323,13 +356,6 @@ formData.append("archivopdf",document.getElementById('archivopdf').value);
   alert('The file has been uploaded successfully.');
 
 };
-
-
-
-
-
-
-
 
 
 
