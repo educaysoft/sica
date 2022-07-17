@@ -333,37 +333,37 @@ public function anterior(){
 		'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 
-		if(isset($this->input->post('idtipodocu')))
+		if(null!==$this->input->post('idtipodocu'))
 		{
 			$array_item['idtipodocu'] = $this->input->post('idtipodocu');
 		}
 
-		if(isset($this->input->post('archivopdf')))
+		if(null!==$this->input->post('archivopdf'))
 		{
 			$array_item['archivopdf'] = $this->input->post('archivopdf');
 		}
 
-		if(isset($this->input->post('asunto')))
+		if(null!==$this->input->post('asunto'))
 		{
 			$array_item['asunto'] = $this->input->post('asunto');
 		}
 
-		if(isset($this->input->post('fechaelaboracion')))
+		if(null!==$this->input->post('fechaelaboracion'))
 		{
 			$array_item['fechaelaboracion'] = $this->input->post('fechaelaboracion');
 		}
 
-		if(isset($this->input->post('idordenador')))
+		if(null!==$this->input->post('idordenador'))
 		{
 			$array_item['idordenador'] = $this->input->post('idordenador');
 		}
 
-		if(isset($this->input->post('iddirectorio')))
+		if(null!==$this->input->post('iddirectorio'))
 		{
 			$array_item['iddirectorio'] = $this->input->post('iddirectorio');
 		}
 
-		if(isset($this->input->post('iddocumento_estado')))
+		if(null!==$this->input->post('iddocumento_estado'))
 		{
 			$array_item['iddocumento_estado'] = $this->input->post('iddocumento_estado');
 		}
