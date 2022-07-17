@@ -59,6 +59,14 @@ public function  save()
 	 	'posi_fecha_y' => $this->input->post('posi_fecha_y'),
 
 
+		'firma1_x' => $this->input->post('firma1_x'),
+		'firma1_y' => $this->input->post('firma1_y'),
+
+		'firma2_x' => $this->input->post('firma2_x'),
+		'firma2_y' => $this->input->post('firma2_y'),
+
+		'firma3_x' => $this->input->post('firma3_x'),
+		'firma3_y' => $this->input->post('firma3_y'),
 
 	 	'ancho_x' => $this->input->post('ancho_x'),
 	 	'alto_y' => $this->input->post('alto_y'),
@@ -106,9 +114,23 @@ public function edit()
 			'posi_fecha_y' => $this->input->post('posi_fecha_y'),
 		 	'ancho_x' => $this->input->post('ancho_x'),
 		 	'alto_y' => $this->input->post('alto_y'),
+
+		 	'firma1_x' => $this->input->post('firma1_x'),
+		 	'firma1_y' => $this->input->post('firma1_y'),
+
+
+		 	'firma2_x' => $this->input->post('firma2_x'),
+		 	'firma2_y' => $this->input->post('firma2_y'),
+
+
+		 	'firma3_x' => $this->input->post('firma3_x'),
+		 	'firma3_y' => $this->input->post('firma3_y'),
+
+
 			'correohead' => $this->input->post('correohead'),
 			'correosubject' => $this->input->post('correosubject'),
 			'correofoot' => $this->input->post('correofoot'),
+
 	 	);
 	 	$this->certificado_model->update($id,$array_item);
 	 	redirect('certificado');

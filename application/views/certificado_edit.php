@@ -127,6 +127,65 @@ echo form_input($eys_arrinput); ?></td>
 </tr>
 
 
+
+
+
+<tr>
+     <td>Primera firma  X:</td>
+     <td><?php 
+     $eys_arrinput=array('name'=>'firma1_x','value'=>$certificado['firma1_x'], "style"=>"width:500px");
+     echo form_input($eys_arrinput); ?></td>
+</tr>
+
+<tr>
+    <td>Primera firma  Y(65.00 mm):</td>
+    <td><?php 
+    $eys_arrinput=array('name'=>'firma1_y','value'=>$certificado['firma1_y'], "style"=>"width:500px");
+    echo form_input($eys_arrinput); ?></td>
+</tr>
+
+
+
+
+
+<tr>
+     <td>Segunda firma  X:</td>
+     <td><?php 
+     $eys_arrinput=array('name'=>'firma2_x','value'=>$certificado['firma2_x'], "style"=>"width:500px");
+     echo form_input($eys_arrinput); ?></td>
+</tr>
+
+<tr>
+    <td>Segunda firma  Y(65.00 mm):</td>
+    <td><?php 
+    $eys_arrinput=array('name'=>'firma2_y','value'=>$certificado['firma2_y'], "style"=>"width:500px");
+    echo form_input($eys_arrinput); ?></td>
+</tr>
+
+
+
+
+
+
+<tr>
+     <td>Tercera firma  X:</td>
+     <td><?php 
+     $eys_arrinput=array('name'=>'firma3_x','value'=>$certificado['firma3_x'], "style"=>"width:500px");
+     echo form_input($eys_arrinput); ?></td>
+</tr>
+
+<tr>
+    <td>Tercera firma  Y(65.00 mm):</td>
+    <td><?php 
+    $eys_arrinput=array('name'=>'firma3_y','value'=>$certificado['firma3_y'], "style"=>"width:500px");
+    echo form_input($eys_arrinput); ?></td>
+</tr>
+
+
+
+
+
+
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('certificado','Atras') ?></td>
  </tr>
