@@ -128,31 +128,29 @@ echo form_input('idtipodocu',$options[$certificado['idtipodocu']],array("disable
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Documento:</label>
-<div class="col-md-10">
-<?php
-$options= array("NADA");
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
-}
+	<label class="col-md-2 col-form-label">Documento:</label>
+	<div class="col-md-10">
+		<?php
+		$options= array("NADA");
+		foreach ($documentos as $row){
+			$options[$row->iddocumento]= $row->asunto;
+		}
 
-echo form_input('iddocumento',$options[$certificado['iddocumento']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
-?>
+		echo form_input('iddocumento',$options[$certificado['iddocumento']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div>
 </div>
-</div>
-
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label"> Ancho x(296.67):</label>
-<div class="col-md-10">
-<?php
-  $eys_arrctl=array("name"=>'ancho_x','value'=>$certificado['ancho_x'],"disabled"=>"disabled",'placeholder'=>'Ancho del certificado','style'=>'width:600px;');
- echo form_input($eys_arrctl); 
-?>
+	<label class="col-md-2 col-form-label"> Ancho x(296.67):</label>
+	<div class="col-md-10">
+		<?php
+		  $eys_arrctl=array("name"=>'ancho_x','value'=>$certificado['ancho_x'],"disabled"=>"disabled",'placeholder'=>'Ancho del certificado','style'=>'width:600px;');
+		 echo form_input($eys_arrctl); 
+		?>
+	</div>
 </div>
-</div>
-
 
 
 <div class="form-group row">
@@ -222,31 +220,137 @@ echo form_input('iddocumento',$options[$certificado['iddocumento']],array("disab
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">posi codigo X: </label>
-<div class="col-md-10">
-<?php
-
-  $eys_arrctl=array("name"=>'posi_codigo_x','value'=>$certificado['posi_codigo_x'],"disabled"=>"disabled",'placeholder'=>'Posicion de codigo en x','style'=>'width:600px;');
- echo form_input($eys_arrctl);
-
-?>
+	<label class="col-md-2 col-form-label">posi codigo X: </label>
+	<div class="col-md-10">
+		<?php
+		  $eys_arrctl=array("name"=>'posi_codigo_x','value'=>$certificado['posi_codigo_x'],"disabled"=>"disabled",'placeholder'=>'Posicion de codigo en x','style'=>'width:600px;');
+		 echo form_input($eys_arrctl);
+		?>
+	</div>
 </div>
+
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">posi codigo Y(115 mm): </label>
+	<div class="col-md-10">
+		<?php
+		 $eys_arrctl=array("name"=>'posi_codigo_y','value'=>$certificado['posi_codigo_y'],"disabled"=>"disabled",'placeholder'=>'Posicion de codigo en y','style'=>'width:600px;');
+		 echo form_input($eys_arrctl);
+		?>
+	</div>
 </div>
+
+
+
+
 
 
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">posi codigo Y(115 mm): </label>
-<div class="col-md-10">
-<?php
-
-  $eys_arrctl=array("name"=>'posi_codigo_y','value'=>$certificado['posi_codigo_y'],"disabled"=>"disabled",'placeholder'=>'Posicion de codigo en y','style'=>'width:600px;');
- echo form_input($eys_arrctl);
-
-?>
+	<label class="col-md-2 col-form-label">firma1 X: </label>
+	<div class="col-md-10">
+		<?php
+		  $eys_arrctl=array("name"=>'firma1_x','value'=>$certificado['firma1_x'],"disabled"=>"disabled",'placeholder'=>'Posicion x de la primera firma ','style'=>'width:600px;');
+		 echo form_input($eys_arrctl);
+		?>
+	</div>
 </div>
+
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">firma1 Y(115 mm): </label>
+	<div class="col-md-10">
+		<?php
+		 $eys_arrctl=array("name"=>'firma1_y','value'=>$certificado['firma1_y'],"disabled"=>"disabled",'placeholder'=>'Posición y de la primera firma','style'=>'width:600px;');
+		 echo form_input($eys_arrctl);
+		?>
+	</div>
 </div>
+
+
+
+
+
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">firma2 X: </label>
+	<div class="col-md-10">
+		<?php
+		  $eys_arrctl=array("name"=>'firma2_x','value'=>$certificado['firma2_x'],"disabled"=>"disabled",'placeholder'=>'Posicion x de la primera firma ','style'=>'width:600px;');
+		 echo form_input($eys_arrctl);
+		?>
+	</div>
+</div>
+
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">firma2 Y(115 mm): </label>
+	<div class="col-md-10">
+		<?php
+		 $eys_arrctl=array("name"=>'firma2_y','value'=>$certificado['firma2_y'],"disabled"=>"disabled",'placeholder'=>'Posición y de la primera firma','style'=>'width:600px;');
+		 echo form_input($eys_arrctl);
+		?>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">firma3 X: </label>
+	<div class="col-md-10">
+		<?php
+		  $eys_arrctl=array("name"=>'firma3_x','value'=>$certificado['firma3_x'],"disabled"=>"disabled",'placeholder'=>'Posicion x de la primera firma ','style'=>'width:600px;');
+		 echo form_input($eys_arrctl);
+		?>
+	</div>
+</div>
+
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">firma3 Y(115 mm): </label>
+	<div class="col-md-10">
+		<?php
+		 $eys_arrctl=array("name"=>'firma3_y','value'=>$certificado['firma3_y'],"disabled"=>"disabled",'placeholder'=>'Posición y de la primera firma','style'=>'width:600px;');
+		 echo form_input($eys_arrctl);
+		?>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
