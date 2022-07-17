@@ -30,14 +30,14 @@ $posi_fecha_y=$_POST["posi_fecha_y"];
 
 
 $firma1_x=$_POST["firma1_x"];
-$frima1_y=$_POST["firma1_y"];
+$firma1_y=$_POST["firma1_y"];
 
 $firma2_x=$_POST["firma2_x"];
-$frima2_y=$_POST["firma2_y"];
+$firma2_y=$_POST["firma2_y"];
 
 
 $firma3_x=$_POST["firma3_x"];
-$frima3_y=$_POST["firma3_y"];
+$firma3_y=$_POST["firma3_y"];
 
 
 

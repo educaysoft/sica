@@ -246,7 +246,6 @@ var firma3_y=$(this).data('firma3_y');
 
 
 
-
 var iddocumento2=$(this).data('iddocumento2');
 var maquina=$(this).data('elordenador');
 var elparticipante=$(this).data('elparticipante');
@@ -319,8 +318,10 @@ if(iddocumento2==0)
     formData.append("firma3_x", firma3_x);
     formData.append("firma3_y", firma3_y);
 
-
-
+    alert(firma2_x);
+    alert(firma2_y);
+ 
+    die();
 
     formData.append("fecha", fechaelaboracion);
 
@@ -360,7 +361,7 @@ if(iddocumento2==0)
 
 	if(iddocumento2>0)
 	{
-		alert("asisnado el documento a participante");
+		alert("asignado el documento a participante");
 	  $.ajax({
         	url: "<?php echo site_url('participante/save_edit2') ?>",
 		data: {idparticipante:idparticipante,idevento:idevento,iddocumento:iddocumento,idpersona:idpersona},
