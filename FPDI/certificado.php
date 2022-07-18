@@ -120,11 +120,34 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	}else{
 		$pdf->SetTextColor(255,255,255);
 	}
+		$pdf->SetTextColor(0, 0,0);
 
-	if($firma2_x>0 && $firma2_y>0)
+
+	if(intval($firma1_x)>0 && intval($firma1_y)>0)
 	{
-		$pdf->Image('https://educaysoft.org/firmas/francisstalin.png',$firma1_x,$firma1_y);
+		$i="https://educaysoft.org/sica/".'firmas/francisstalin.jpg';
+		$pdf->Image("francisstalin.jpg",$firmar1_x,$firmar1_y,20);
 	}
+
+
+
+
+
+	if(intval($firma2_x)>0 && intval($firma2_y)>0)
+	{
+		$i="https://educaysoft.org/sica/".'firmas/francisstalin.jpg';
+		$pdf->Image("francisstalin.jpg",$firma2_x,$firma2_y,20);
+	}
+
+
+
+
+	if(intval($firma3_x)>0 && intval($firma3_y)>0)
+	{
+		$i="https://educaysoft.org/sica/".'firmas/francisstalin.jpg';
+		$pdf->Image("francisstalin.jpg",$firmar3_x,$firmar3_y,20);
+	}
+
 
 
 

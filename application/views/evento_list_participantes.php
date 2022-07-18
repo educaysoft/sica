@@ -307,19 +307,17 @@ if(iddocumento2==0)
 
 
 
-    formData.append("firma1_x", 0);
-    formData.append("firma1_y", 0);
+    formData.append("firma1_x", firma1_x);
+    formData.append("firma1_y", firma1_y);
 
 
     formData.append("firma2_x", firma2_x);
     formData.append("firma2_y", firma2_y);
 
 
-    formData.append("firma3_x", 0);
-    formData.append("firma3_y", 0);
+    formData.append("firma3_x", firma3_x);
+    formData.append("firma3_y", firma3_y);
 
-    alert(firma2_x);
-    alert(firma2_y);
  
 
     formData.append("fecha", fechaelaboracion);
