@@ -19,13 +19,10 @@ class Requerimiento extends CI_Controller{
 public function index(){
  if(isset($this->session->userdata['logged_in'])){
 	$data['requerimiento'] = $this->requerimiento_model->elultimo();
-	$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
-	$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
+	$data['estadorequerimiento']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-	$data['paginas']= $this->pagina_model->lista_paginas()->result();
-	$data['cursos']= $this->curso_model->lista_cursos()->result();
 	$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
-	$data['fecharequerimientos'] =$this->fecharequerimiento_model->fecharequerimientos($data['requerimiento']['idrequerimiento'])->result();
+	$data['gestion'] =$this->gestion_model->gestion($data['requerimiento']['idrequerimiento'])->result();
 	$data['title']="Uste esta visualizando Requerimientos por registro";
 	$this->load->view('template/page_header');		
 	$this->load->view('requerimiento_record',$data);
