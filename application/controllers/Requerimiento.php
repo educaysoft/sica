@@ -48,7 +48,7 @@ public function index(){
 	public function add()
 	{
 		$data['title']="Usted esta Creando un nuevo Requerimiento";
-		$data['estadorequerimiento']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
+		$data['estadorequerimiento']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
 		$data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
