@@ -5,8 +5,8 @@ class Requerimiento extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('requerimiento_model');
-      $this->load->model('requerimiento_estado_model');
-      $this->load->model('participante_model');
+      $this->load->model('estadorequerimiento_model');
+      $this->load->model('persona_model');
       $this->load->model('fecharequerimiento_model');
       $this->load->model('institucion_model');
       $this->load->model('pagina_model');
@@ -24,7 +24,7 @@ public function index(){
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
-	$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
+	$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
 	$data['fecharequerimientos'] =$this->fecharequerimiento_model->fecharequerimientos($data['requerimiento']['idrequerimiento'])->result();
 	$data['title']="Uste esta visualizando Requerimientos por registro";
 	$this->load->view('template/page_header');		
@@ -137,7 +137,7 @@ public function index(){
 		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 	  $data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
+		$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
 		$data['fecharequerimientos'] =$this->fecharequerimiento_model->fecharequerimientos($data['requerimiento']['idrequerimiento'])->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 
@@ -154,7 +154,7 @@ public function index(){
 		$data['requerimiento'] = $this->requerimiento_model->requerimiento(1)->row_array();
 		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
+		$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
 		
 
 
@@ -190,25 +190,25 @@ public function index(){
 
 
 
-	public function listar_participantes()
+	public function listar_personas()
 	{
 		$data['requerimiento'] = $this->requerimiento_model->requerimiento(1)->row_array();
 		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
+		$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
 		
 
 		$data['filtro']= $this->uri->segment(3);
 
 		$data['title']="Requerimiento";
 		$this->load->view('template/page_header');		
-		$this->load->view('requerimiento_list_participantes',$data);
+		$this->load->view('requerimiento_list_personas',$data);
 		$this->load->view('template/page_footer');
 	}
 
 
 
-	function requerimiento_data_participantes()
+	function requerimiento_data_personas()
 	{
 
 		$draw= intval($this->input->get("draw"));
@@ -223,11 +223,11 @@ public function index(){
 		{
 		if($r->iddocumento2==null){	
 			$idtipodocu=14; //Cuando se genera el certificado
-			$data[]=array($r->idrequerimiento,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_gene" data-idtipodocu="'.$idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'"    data-idrequerimiento="'.$r->idrequerimiento.'"     data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'" data-idparticipante="'.$r->idparticipante.'"       data-elparticipante="'.$r->elparticipante.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"   data-posi_nomb_x="'.$r->posi_nomb_x.'"   data-posi_nomb_y="'.$r->posi_nomb_y.'"  data-ancho_x="'.$r->ancho_x.'"   data-alto_y="'.$r->alto_y.'" data-firma1_x="'.$r->firma1_x.'"   data-firma1_y="'.$r->firma1_y.'"  data-firma2_x="'.$r->firma2_x.'"   data-firma2_y="'.$r->firma2_y.'"    data-firma3_x="'.$r->firma3_x.'"   data-firma3_y="'.$r->firma3_y.'"     data-posi_fecha_x="'.$r->posi_fecha_x.'"   data-posi_fecha_y="'.$r->posi_fecha_y.'"   data-posi_codigo_x="'.$r->posi_codigo_x.'"   data-posi_codigo_y="'.$r->posi_codigo_y.'"  data-archivopdf="'.$r->archivopdf.'">gene</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'" data-archivo="'.$r->archivopdf.'"  data-iddocumento="'.$r->iddocumento.'">download</a>');
+			$data[]=array($r->idrequerimiento,$r->titulo,$r->elpersona,$r->estado,$r->lainstitucion,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_gene" data-idtipodocu="'.$idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'"    data-idrequerimiento="'.$r->idrequerimiento.'"     data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'" data-idpersona="'.$r->idpersona.'"       data-elpersona="'.$r->elpersona.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"   data-posi_nomb_x="'.$r->posi_nomb_x.'"   data-posi_nomb_y="'.$r->posi_nomb_y.'"  data-ancho_x="'.$r->ancho_x.'"   data-alto_y="'.$r->alto_y.'" data-firma1_x="'.$r->firma1_x.'"   data-firma1_y="'.$r->firma1_y.'"  data-firma2_x="'.$r->firma2_x.'"   data-firma2_y="'.$r->firma2_y.'"    data-firma3_x="'.$r->firma3_x.'"   data-firma3_y="'.$r->firma3_y.'"     data-posi_fecha_x="'.$r->posi_fecha_x.'"   data-posi_fecha_y="'.$r->posi_fecha_y.'"   data-posi_codigo_x="'.$r->posi_codigo_x.'"   data-posi_codigo_y="'.$r->posi_codigo_y.'"  data-archivopdf="'.$r->archivopdf.'">gene</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'" data-archivo="'.$r->archivopdf.'"  data-iddocumento="'.$r->iddocumento.'">download</a>');
 		}else{
-			$data[]=array($r->idrequerimiento,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'" data-archivo="'.$r->archivopdf.'"  data-iddocumento="'.$r->iddocumento.'">download</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_enviar" data-idtipodocu="'.$r->idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'"    data-idrequerimiento="'.$r->idrequerimiento.'"     data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'" data-idparticipante="'.$r->idparticipante.'"       data-elparticipante="'.$r->elparticipante.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'"   data-archivopdf="'.$r->archivopdf.'"   data-correosubject="'.$r->correosubject.'"    data-correohead="'.$r->correohead.'"    data-correofoot="'.$r->correofoot.'">enviar</a>');		}
+			$data[]=array($r->idrequerimiento,$r->titulo,$r->elpersona,$r->estado,$r->lainstitucion,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'" data-archivo="'.$r->archivopdf.'"  data-iddocumento="'.$r->iddocumento.'">download</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_enviar" data-idtipodocu="'.$r->idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'"    data-idrequerimiento="'.$r->idrequerimiento.'"     data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'" data-idpersona="'.$r->idpersona.'"       data-elpersona="'.$r->elpersona.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'"   data-archivopdf="'.$r->archivopdf.'"   data-correosubject="'.$r->correosubject.'"    data-correohead="'.$r->correohead.'"    data-correofoot="'.$r->correofoot.'">enviar</a>');		}
 
 
 		}	
@@ -250,7 +250,7 @@ public function index(){
 		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		
-		$data['participantes'] = $this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
+		$data['personas'] = $this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
 
 
 		$data['title']="Requerimiento";
@@ -273,7 +273,7 @@ public function index(){
 			$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
 			$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-			$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
+			$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
 			$data['cursos']= $this->curso_model->lista_cursos()->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 			$data['fecharequerimientos'] =$this->fecharequerimiento_model->fecharequerimientos($data['requerimiento']['idrequerimiento'])->result();
@@ -299,7 +299,7 @@ public function index(){
 			$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
-			$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
+			$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 			$data['fecharequerimientos'] =$this->fecharequerimiento_model->fecharequerimientos($data['requerimiento']['idrequerimiento'])->result();
 			$data['title']="Requerimiento";
@@ -324,7 +324,7 @@ public function index(){
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		$data['fecharequerimientos'] =$this->fecharequerimiento_model->fecharequerimientos($data['requerimiento']['idrequerimiento'])->result();
-	  	$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
+	  	$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
 	  	$data['title']="Requerimiento";
 		$this->load->view('template/page_header');		
 	  	$this->load->view('requerimiento_record',$data);
@@ -340,7 +340,7 @@ public function index(){
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
-		$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
+		$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
 		$data['fecharequerimientos'] =$this->fecharequerimiento_model->fecharequerimientos($data['requerimiento']['idrequerimiento'])->result();
 		$data['title']="Requerimiento";
 		$this->load->view('template/page_header');		
