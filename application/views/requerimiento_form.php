@@ -1,11 +1,11 @@
 <div id="eys-nav-i">
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 
-<?php echo form_open("evento/save",array('id'=>'eys-form')); ?>
+<?php echo form_open("requerimiento/save",array('id'=>'eys-form')); ?>
 
 <ul>
     <li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
-    <li> <?php echo anchor('evento', 'Cancelar'); ?></li>
+    <li> <?php echo anchor('requerimiento', 'Cancelar'); ?></li>
 </ul>
 
 </div>
@@ -13,7 +13,7 @@
 
 
 
-<?php echo form_hidden("idevento")  ?>
+<?php echo form_hidden("idrequerimiento")  ?>
 
 
 <div class="form-group row">
@@ -31,14 +31,14 @@
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Estado del evento:</label>
+    <label class="col-md-2 col-form-label"> Estado del requerimiento:</label>
 	<div class="col-md-10">
 	<?php
     $options= array('--Select--');
-    foreach ($evento_estados as $row){
-      $options[$row->idevento_estado]= $row->nombre;
+    foreach ($requerimiento_estados as $row){
+      $options[$row->idrequerimiento_estado]= $row->nombre;
     }
-     echo form_dropdown("idevento_estado",$options, set_select('--Select--','default_value')); 
+     echo form_dropdown("idrequerimiento_estado",$options, set_select('--Select--','default_value')); 
 		?>
 	</div> 
 </div> 
@@ -47,11 +47,11 @@
 
  
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Título del evento:</label>
+    <label class="col-md-2 col-form-label"> Título del requerimiento:</label>
 	<div class="col-md-10">
 	<?php
 
- echo form_input("titulo","", array("placeholder"=>"Título del evento",'style'=>'width:500px;')); 
+ echo form_input("titulo","", array("placeholder"=>"Título del requerimiento",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div> 
@@ -80,7 +80,7 @@
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Detalle del evento:</label>
+    <label class="col-md-2 col-form-label"> Detalle del requerimiento:</label>
 	<div class="col-md-10">
 	<?php
     
@@ -111,7 +111,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 	<div class="col-md-10">
 	<?php
 
- echo form_input("duracion","", array("placeholder"=>"Duración del evento",'style'=>'width:500px;')); 
+ echo form_input("duracion","", array("placeholder"=>"Duración del requerimiento",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
@@ -121,7 +121,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 	<div class="col-md-10">
 	<?php
 
- echo form_input("costo","", array("placeholder"=>"Costo del evento",'style'=>'width:500px;')); 
+ echo form_input("costo","", array("placeholder"=>"Costo del requerimiento",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>

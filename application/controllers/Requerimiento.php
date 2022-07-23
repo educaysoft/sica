@@ -4,10 +4,10 @@ class Requerimiento extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('evento_model');
-      $this->load->model('evento_estado_model');
+      $this->load->model('requerimiento_model');
+      $this->load->model('requerimiento_estado_model');
       $this->load->model('participante_model');
-      $this->load->model('fechaevento_model');
+      $this->load->model('fecharequerimiento_model');
       $this->load->model('institucion_model');
       $this->load->model('pagina_model');
       $this->load->model('curso_model');
@@ -18,17 +18,17 @@ class Requerimiento extends CI_Controller{
 
 public function index(){
  if(isset($this->session->userdata['logged_in'])){
-	$data['evento'] = $this->evento_model->elultimo();
-	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
-	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+	$data['requerimiento'] = $this->requerimiento_model->elultimo();
+	$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
+	$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
-	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
-	$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
+	$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
+	$data['fecharequerimientos'] =$this->fecharequerimiento_model->fecharequerimientos($data['requerimiento']['idrequerimiento'])->result();
 	$data['title']="Uste esta visualizando Requerimientos por registro";
 	$this->load->view('template/page_header');		
-	$this->load->view('evento_record',$data);
+	$this->load->view('requerimiento_record',$data);
 	$this->load->view('template/page_footer');
    }else{
 	$this->load->view('template/page_header.php');
@@ -38,29 +38,29 @@ public function index(){
 }
 
 //==============================================
-// Llamar al formulario para un nuevo evento.
+// Llamar al formulario para un nuevo requerimiento.
 // ==============================================
 
 	public function add()
 	{
 		$data['title']="Usted esta Creando un nuevo Requerimiento";
-		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 		$data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		$this->load->view('template/page_header');		
-		$this->load->view('evento_form',$data);
+		$this->load->view('requerimiento_form',$data);
 		$this->load->view('template/page_footer');
 	}
 
 //==============================================
-// Guardar el nuevo evento.
+// Guardar el nuevo requerimiento.
 // ==============================================
 	public function  save()
 	{
 	 	$array_item=array(
-		 	'idevento' => $this->input->post('idevento'),
-		 	'idevento_estado' => $this->input->post('idevento_estado'),
+		 	'idrequerimiento' => $this->input->post('idrequerimiento'),
+		 	'idrequerimiento_estado' => $this->input->post('idrequerimiento_estado'),
 		 	'idinstitucion' => $this->input->post('idinstitucion'),
 		 	'titulo' => $this->input->post('titulo'),
 			'fechainicia' => $this->input->post('fechainicia'),
@@ -72,21 +72,21 @@ public function index(){
 			'costo' => $this->input->post('costo'),
 			'idcurso' => $this->input->post('idcurso'),
 	 	);	 
-	 	$this->evento_model->save($array_item);
-	 	redirect('evento');
+	 	$this->requerimiento_model->save($array_item);
+	 	redirect('requerimiento');
  	}
 
 
 	public function edit()
 	{
-			$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
+			$data['requerimiento'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		  $data['cursos']= $this->curso_model->lista_cursos()->result();
-			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+			$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	    $data['title'] = "Actualizar Requerimiento";
 			$this->load->view('template/page_header');		
-			$this->load->view('evento_edit',$data);
+			$this->load->view('requerimiento_edit',$data);
 			$this->load->view('template/page_footer');
 	 
 	}
@@ -94,10 +94,10 @@ public function index(){
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idevento');
+		$id=$this->input->post('idrequerimiento');
 	 	$array_item=array(
 
-		 	'idevento_estado' => $this->input->post('idevento_estado'),
+		 	'idrequerimiento_estado' => $this->input->post('idrequerimiento_estado'),
 		 	'idinstitucion' => $this->input->post('idinstitucion'),
 		 	'titulo' => $this->input->post('titulo'),
 			'fechacreacion' => $this->input->post('fechacreacion'),
@@ -109,8 +109,8 @@ public function index(){
 			'costo' => $this->input->post('costo'),
 			'idcurso' => $this->input->post('idcurso'),
 	 	);
-	 	$this->evento_model->update($id,$array_item);
-	 	redirect('evento/actual/'.$id);
+	 	$this->requerimiento_model->update($id,$array_item);
+	 	redirect('requerimiento/actual/'.$id);
  	}
 
 
@@ -118,9 +118,9 @@ public function index(){
 
  	public function delete()
  	{
- 		$data=$this->evento_model->delete($this->uri->segment(3));
+ 		$data=$this->requerimiento_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('evento/elultimo');
+	 	redirect('requerimiento/elultimo');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -132,51 +132,51 @@ public function index(){
 
 	public function actual(){
 
-		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
-		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
-		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+		$data['requerimiento'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
+		$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
+		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 	  $data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
-		$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
+		$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
+		$data['fecharequerimientos'] =$this->fecharequerimiento_model->fecharequerimientos($data['requerimiento']['idrequerimiento'])->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 
 
 		$data['title']="Requerimiento";
 		$this->load->view('template/page_header');		
-		$this->load->view('evento_record',$data);
+		$this->load->view('requerimiento_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
 
 	public function listar()
 	{
-		$data['evento'] = $this->evento_model->evento(1)->row_array();
-		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+		$data['requerimiento'] = $this->requerimiento_model->requerimiento(1)->row_array();
+		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+		$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
 		
 
 
 		$data['title']="Requerimiento";
 		$this->load->view('template/page_header');		
-		$this->load->view('evento_list',$data);
+		$this->load->view('requerimiento_list',$data);
 		$this->load->view('template/page_footer');
 	}
 
-	function evento_data()
+	function requerimiento_data()
 	{
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$id=$this->input->get('idevento_estado');
+			$id=$this->input->get('idrequerimiento_estado');
 
-			$data0 = $this->evento_model->lista_eventosA($id);
+			$data0 = $this->requerimiento_model->lista_requerimientosA($id);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
-					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Ver</a>');
+				$data[]=array($r->idrequerimiento,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
+					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('requerimiento/actual').'"    data-idrequerimiento="'.$r->idrequerimiento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -192,23 +192,23 @@ public function index(){
 
 	public function listar_participantes()
 	{
-		$data['evento'] = $this->evento_model->evento(1)->row_array();
-		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+		$data['requerimiento'] = $this->requerimiento_model->requerimiento(1)->row_array();
+		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+		$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
 		
 
 		$data['filtro']= $this->uri->segment(3);
 
 		$data['title']="Requerimiento";
 		$this->load->view('template/page_header');		
-		$this->load->view('evento_list_participantes',$data);
+		$this->load->view('requerimiento_list_participantes',$data);
 		$this->load->view('template/page_footer');
 	}
 
 
 
-	function evento_data_participantes()
+	function requerimiento_data_participantes()
 	{
 
 		$draw= intval($this->input->get("draw"));
@@ -216,18 +216,18 @@ public function index(){
 		$draw= intval($this->input->get("length"));
 
 
-		$id=$this->input->get('idevento');
-		$data0 = $this->evento_model->lista_eventoP($id);
+		$id=$this->input->get('idrequerimiento');
+		$data0 = $this->requerimiento_model->lista_requerimientoP($id);
 		$data=array();
 		foreach($data0->result() as $r)
 		{
 		if($r->iddocumento2==null){	
 			$idtipodocu=14; //Cuando se genera el certificado
-			$data[]=array($r->idevento,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_gene" data-idtipodocu="'.$idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'"    data-idevento="'.$r->idevento.'"     data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'" data-idparticipante="'.$r->idparticipante.'"       data-elparticipante="'.$r->elparticipante.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"   data-posi_nomb_x="'.$r->posi_nomb_x.'"   data-posi_nomb_y="'.$r->posi_nomb_y.'"  data-ancho_x="'.$r->ancho_x.'"   data-alto_y="'.$r->alto_y.'" data-firma1_x="'.$r->firma1_x.'"   data-firma1_y="'.$r->firma1_y.'"  data-firma2_x="'.$r->firma2_x.'"   data-firma2_y="'.$r->firma2_y.'"    data-firma3_x="'.$r->firma3_x.'"   data-firma3_y="'.$r->firma3_y.'"     data-posi_fecha_x="'.$r->posi_fecha_x.'"   data-posi_fecha_y="'.$r->posi_fecha_y.'"   data-posi_codigo_x="'.$r->posi_codigo_x.'"   data-posi_codigo_y="'.$r->posi_codigo_y.'"  data-archivopdf="'.$r->archivopdf.'">gene</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'" data-archivo="'.$r->archivopdf.'"  data-iddocumento="'.$r->iddocumento.'">download</a>');
+			$data[]=array($r->idrequerimiento,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_gene" data-idtipodocu="'.$idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'"    data-idrequerimiento="'.$r->idrequerimiento.'"     data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'" data-idparticipante="'.$r->idparticipante.'"       data-elparticipante="'.$r->elparticipante.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"   data-posi_nomb_x="'.$r->posi_nomb_x.'"   data-posi_nomb_y="'.$r->posi_nomb_y.'"  data-ancho_x="'.$r->ancho_x.'"   data-alto_y="'.$r->alto_y.'" data-firma1_x="'.$r->firma1_x.'"   data-firma1_y="'.$r->firma1_y.'"  data-firma2_x="'.$r->firma2_x.'"   data-firma2_y="'.$r->firma2_y.'"    data-firma3_x="'.$r->firma3_x.'"   data-firma3_y="'.$r->firma3_y.'"     data-posi_fecha_x="'.$r->posi_fecha_x.'"   data-posi_fecha_y="'.$r->posi_fecha_y.'"   data-posi_codigo_x="'.$r->posi_codigo_x.'"   data-posi_codigo_y="'.$r->posi_codigo_y.'"  data-archivopdf="'.$r->archivopdf.'">gene</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'" data-archivo="'.$r->archivopdf.'"  data-iddocumento="'.$r->iddocumento.'">download</a>');
 		}else{
-			$data[]=array($r->idevento,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'" data-archivo="'.$r->archivopdf.'"  data-iddocumento="'.$r->iddocumento.'">download</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_enviar" data-idtipodocu="'.$r->idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'"    data-idevento="'.$r->idevento.'"     data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'" data-idparticipante="'.$r->idparticipante.'"       data-elparticipante="'.$r->elparticipante.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'"   data-archivopdf="'.$r->archivopdf.'"   data-correosubject="'.$r->correosubject.'"    data-correohead="'.$r->correohead.'"    data-correofoot="'.$r->correofoot.'">enviar</a>');		}
+			$data[]=array($r->idrequerimiento,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'" data-archivo="'.$r->archivopdf.'"  data-iddocumento="'.$r->iddocumento.'">download</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_enviar" data-idtipodocu="'.$r->idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'"    data-idrequerimiento="'.$r->idrequerimiento.'"     data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'" data-idparticipante="'.$r->idparticipante.'"       data-elparticipante="'.$r->elparticipante.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'"   data-archivopdf="'.$r->archivopdf.'"   data-correosubject="'.$r->correosubject.'"    data-correohead="'.$r->correohead.'"    data-correofoot="'.$r->correofoot.'">enviar</a>');		}
 
 
 		}	
@@ -246,16 +246,16 @@ public function index(){
 
 	public function reportepdf()
 	{
-		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
-		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+		$data['requerimiento'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
+		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		
-		$data['participantes'] = $this->participante_model->participantes($data['evento']['idevento'])->result();
+		$data['participantes'] = $this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
 
 
 		$data['title']="Requerimiento";
 		$this->load->view('template/page_header');		
-		$this->load->view('evento_list_pdf',$data);
+		$this->load->view('requerimiento_list_pdf',$data);
 		$this->load->view('template/page_footer');
 	}
 
@@ -267,19 +267,19 @@ public function index(){
 	public function elprimero()
 	{
 
-		$data['evento'] = $this->evento_model->elprimero();
+		$data['requerimiento'] = $this->requerimiento_model->elprimero();
 		  if(!empty($data))
 		  {
-			$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
-			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+			$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
+			$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-			$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+			$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
 			$data['cursos']= $this->curso_model->lista_cursos()->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
-			$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
+			$data['fecharequerimientos'] =$this->fecharequerimiento_model->fecharequerimientos($data['requerimiento']['idrequerimiento'])->result();
 			$data['title']="Requerimiento";
 			$this->load->view('template/page_header');		
-			$this->load->view('evento_record',$data);
+			$this->load->view('requerimiento_record',$data);
 			$this->load->view('template/page_footer');
 		  }else{
 			$this->load->view('template/page_header');		
@@ -292,19 +292,19 @@ public function index(){
 
 	public function elultimo()
 	{
-		$data['evento'] = $this->evento_model->elultimo();
+		$data['requerimiento'] = $this->requerimiento_model->elultimo();
 		  if(!empty($data))
 		  {
-			$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
-			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+			$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
+			$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
-			$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+			$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
-			$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
+			$data['fecharequerimientos'] =$this->fecharequerimiento_model->fecharequerimientos($data['requerimiento']['idrequerimiento'])->result();
 			$data['title']="Requerimiento";
 			$this->load->view('template/page_header');		
-			$this->load->view('evento_record',$data);
+			$this->load->view('requerimiento_record',$data);
 			$this->load->view('template/page_footer');
 		  }else{
 			$this->load->view('template/page_header');		
@@ -316,35 +316,35 @@ public function index(){
 
 
 	public function siguiente(){
-	 // $data['evento_list']=$this->evento_model->lista_evento()->result();
-		$data['evento'] = $this->evento_model->siguiente($this->uri->segment(3))->row_array();
-		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
-		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+	 // $data['requerimiento_list']=$this->requerimiento_model->lista_requerimiento()->result();
+		$data['requerimiento'] = $this->requerimiento_model->siguiente($this->uri->segment(3))->row_array();
+		$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
+		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
-		$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
-	  	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+		$data['fecharequerimientos'] =$this->fecharequerimiento_model->fecharequerimientos($data['requerimiento']['idrequerimiento'])->result();
+	  	$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
 	  	$data['title']="Requerimiento";
 		$this->load->view('template/page_header');		
-	  	$this->load->view('evento_record',$data);
+	  	$this->load->view('requerimiento_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
 
 	public function anterior(){
-	 // $data['evento_list']=$this->evento_model->lista_evento()->result();
-		$data['evento'] = $this->evento_model->anterior($this->uri->segment(3))->row_array();
-		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
-		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+	 // $data['requerimiento_list']=$this->requerimiento_model->lista_requerimiento()->result();
+		$data['requerimiento'] = $this->requerimiento_model->anterior($this->uri->segment(3))->row_array();
+		$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
+		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
-		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
-		$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
+		$data['participantes'] =$this->participante_model->participantes($data['requerimiento']['idrequerimiento'])->result();
+		$data['fecharequerimientos'] =$this->fecharequerimiento_model->fecharequerimientos($data['requerimiento']['idrequerimiento'])->result();
 		$data['title']="Requerimiento";
 		$this->load->view('template/page_header');		
-		$this->load->view('evento_record',$data);
+		$this->load->view('requerimiento_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
@@ -353,15 +353,15 @@ public function index(){
 
 	public function detalle()
 	{
-		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
-		$data['fechaeventos'] = $this->fechaevento_model->fechaeventos($this->uri->segment(3))->result();
-		$data['asistencia'] = $this->asistencia_model->asistenciax( $data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
-		$data['participacion'] = $this->participacion_model->participacionx($data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
-		$data['curso']=$this->curso_model->curso($data['evento']['idcurso'])->row_array();
+		$data['requerimiento'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
+		$data['fecharequerimientos'] = $this->fecharequerimiento_model->fecharequerimientos($this->uri->segment(3))->result();
+		$data['asistencia'] = $this->asistencia_model->asistenciax( $data['requerimiento']['idrequerimiento'] , $this->session->userdata['logged_in']['idpersona'])->result();
+		$data['participacion'] = $this->participacion_model->participacionx($data['requerimiento']['idrequerimiento'] , $this->session->userdata['logged_in']['idpersona'])->result();
+		$data['curso']=$this->curso_model->curso($data['requerimiento']['idcurso'])->row_array();
 	
 //		$this->load->view('template/page_header');		
 //		unset($this->session->userdata['logged_in']);
-		$this->load->view('eventos/evento',$data);
+		$this->load->view('requerimientos/requerimiento',$data);
 	}
 
 
@@ -373,7 +373,7 @@ public function canvas(){
 }
 
 function show_pdf() {
-	 	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
+	 	$data['requerimiento'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
  $this->load->view('template/page_header');
  $data['blog_text'] = "POSTULACION"; 
  $this->load->view('cargapdf',$data);
@@ -502,13 +502,13 @@ exit;
 
 
 
-	public function get_evento() {
+	public function get_requerimiento() {
 	    $this->load->database();
 	    $this->load->helper('form');
 	    if($this->input->post('idinstitucion')) {
 		$this->db->select('*');
-		$this->db->where(array('idinstitucion' => $this->input->post('idinstitucion'),'idevento_estado'=>2));  //SOLO ESTADO INSCRIPCION
-		$query = $this->db->get('evento');
+		$this->db->where(array('idinstitucion' => $this->input->post('idinstitucion'),'idrequerimiento_estado'=>2));  //SOLO ESTADO INSCRIPCION
+		$query = $this->db->get('requerimiento');
 		$data=$query->result();
 		echo json_encode($data);
 		}
@@ -516,13 +516,13 @@ exit;
 	}
 
 
-	public function get_evento1() {
+	public function get_requerimiento1() {
 	    $this->load->database();
 	    $this->load->helper('form');
 	    if($this->input->post('idinstitucion')) {
 		$this->db->select('*');
 		$this->db->where(array('idinstitucion' => $this->input->post('idinstitucion')));  //SOLO ESTADO INSCRIPCION
-		$query = $this->db->get('evento');
+		$query = $this->db->get('requerimiento');
 		$data=$query->result();
 		echo json_encode($data);
 		}
@@ -533,13 +533,13 @@ exit;
 
 
 
-	public function get_evento2() {
+	public function get_requerimiento2() {
 	    $this->load->database();
 	    $this->load->helper('form');
-	    if($this->input->post('idevento')) {
+	    if($this->input->post('idrequerimiento')) {
 		$this->db->select('*');
-		$this->db->where(array('idevento' => $this->input->post('idevento')));
-		$query = $this->db->get('evento');
+		$this->db->where(array('idrequerimiento' => $this->input->post('idrequerimiento')));
+		$query = $this->db->get('requerimiento');
 		$data=$query->result();
 		echo json_encode($data);
 		}

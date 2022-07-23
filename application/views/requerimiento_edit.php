@@ -1,12 +1,12 @@
 <div id="eys-nav-i">
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 
-<?php echo form_open('evento/save_edit',array('id'=>'eys-form')); ?>
+<?php echo form_open('requerimiento/save_edit',array('id'=>'eys-form')); ?>
 
 
   <ul>
 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
-        <li> <?php echo anchor('evento', 'Cancelar'); ?></li>
+        <li> <?php echo anchor('requerimiento', 'Cancelar'); ?></li>
     </ul>
 </div>
 <br>
@@ -17,14 +17,14 @@
 <table>
 
 <tr>
-<td> Estado del evento:</td>
+<td> Estado del requerimiento:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($evento_estados as $row){
-	$options[$row->idevento_estado]= $row->nombre;
+foreach ($requerimiento_estados as $row){
+	$options[$row->idrequerimiento_estado]= $row->nombre;
 }
 
- echo form_dropdown("idevento_estado",$options, $evento['idevento_estado']);  ?></td>
+ echo form_dropdown("idrequerimiento_estado",$options, $requerimiento['idrequerimiento_estado']);  ?></td>
 </tr>
 
 
@@ -36,14 +36,14 @@ foreach ($instituciones as $row){
 	$options[$row->idinstitucion]= $row->nombre;
 }
 
- echo form_dropdown("idinstitucion",$options, $evento['idinstitucion']);  ?></td>
+ echo form_dropdown("idinstitucion",$options, $requerimiento['idinstitucion']);  ?></td>
 </tr>
 
 
 
   <tr>
-     <td>idevento:</td>
-     <td><?php echo form_input(array("name"=>'idevento','id'=>'idevento','value'=>$evento['idevento'],'placeholder'=>'Ideventos')) ?></td>
+     <td>idrequerimiento:</td>
+     <td><?php echo form_input(array("name"=>'idrequerimiento','id'=>'idrequerimiento','value'=>$requerimiento['idrequerimiento'],'placeholder'=>'Idrequerimientos')) ?></td>
   </tr>
 
 
@@ -51,7 +51,7 @@ foreach ($instituciones as $row){
      <td>Titulo:</td>
   <td><?php 
 	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Título" );    
-	echo form_textarea('titulo',$evento['titulo'],$textarea_options ); 
+	echo form_textarea('titulo',$requerimiento['titulo'],$textarea_options ); 
 ?></td>
   </tr>
  
@@ -59,7 +59,7 @@ foreach ($instituciones as $row){
 
  <tr>
       <td>Fecha de Inicia:</td>
-<td><?php echo form_input('fechainicia',  (isset($evento['fechainicia']) ? date('Y-m-d H:i:s', strtotime($evento['fechainicia'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"'); ?></td>
+<td><?php echo form_input('fechainicia',  (isset($requerimiento['fechainicia']) ? date('Y-m-d H:i:s', strtotime($requerimiento['fechainicia'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"'); ?></td>
   </tr>
 
 
@@ -67,7 +67,7 @@ foreach ($instituciones as $row){
 
  <tr>
       <td>Fecha de finaliza:</td>
-<td><?php echo form_input('fechafinaliza',  (isset($evento['fechafinaliza']) ? date('Y-m-d H:i:s', strtotime($evento['fechafinaliza'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"'); ?></td>
+<td><?php echo form_input('fechafinaliza',  (isset($requerimiento['fechafinaliza']) ? date('Y-m-d H:i:s', strtotime($requerimiento['fechafinaliza'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"'); ?></td>
   </tr>
 
 <tr>
@@ -75,7 +75,7 @@ foreach ($instituciones as $row){
   <td><?php 
   
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Detalle" );    
-echo form_textarea('detalle',$evento['detalle'],$textarea_options ); ?></td>
+echo form_textarea('detalle',$requerimiento['detalle'],$textarea_options ); ?></td>
  </tr>
 
 
@@ -87,19 +87,19 @@ foreach ($paginas as $row){
 	$options[$row->idpagina]= $row->nombre;
 }
 
- echo form_dropdown("idpagina",$options, $evento['idpagina']);  ?></td>
+ echo form_dropdown("idpagina",$options, $requerimiento['idpagina']);  ?></td>
 </tr>
 
 
 
 <tr>
      <td>Duración:</td>
-     <td><?php echo form_input(array("name"=>'duracion','id'=>'duracion','value'=>$evento['duracion'],'placeholder'=>'Duración')) ?></td>
+     <td><?php echo form_input(array("name"=>'duracion','id'=>'duracion','value'=>$requerimiento['duracion'],'placeholder'=>'Duración')) ?></td>
   </tr>
 
 <tr>
      <td>Costo:</td>
-     <td><?php echo form_input(array("name"=>'costo','id'=>'costo','value'=>$evento['costo'],'placeholder'=>'Costo')) ?></td>
+     <td><?php echo form_input(array("name"=>'costo','id'=>'costo','value'=>$requerimiento['costo'],'placeholder'=>'Costo')) ?></td>
   </tr>
 
 
@@ -112,7 +112,7 @@ foreach ($cursos as $row){
 	$options[$row->idcurso]= $row->nombre;
 }
 
- echo form_dropdown("idcurso",$options, $evento['idcurso']);  ?></td>
+ echo form_dropdown("idcurso",$options, $requerimiento['idcurso']);  ?></td>
 </tr>
 
 
@@ -125,7 +125,7 @@ foreach ($cursos as $row){
    <script>
   async function nombredearchivo()
 {
- indice=document.getElementById("idevento").value;
+ indice=document.getElementById("idrequerimiento").value;
  fecha=document.getElementById("fechacreacion").value;
  var emisor=document.getElementById("idemisor");
 if(emisor.length>0)
