@@ -35,10 +35,10 @@
 	<div class="col-md-10">
 	<?php
     $options= array('--Select--');
-    foreach ($requerimiento_estados as $row){
-      $options[$row->idrequerimiento_estado]= $row->nombre;
+    foreach ($estadorequerimientos as $row){
+      $options[$row->idestadorequerimiento]= $row->nombre;
     }
-     echo form_dropdown("idrequerimiento_estado",$options, set_select('--Select--','default_value')); 
+     echo form_dropdown("idestadorequerimiento",$options, set_select('--Select--','default_value')); 
 		?>
 	</div> 
 </div> 
