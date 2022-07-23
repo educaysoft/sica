@@ -19,6 +19,8 @@ class Requerimiento extends CI_Controller{
 public function index(){
  if(isset($this->session->userdata['logged_in'])){
 	$data['requerimiento'] = $this->requerimiento_model->elultimo();
+	print_r($data['requerimiento']);
+	die();
 	$data['estadorequerimiento']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['personas'] =$this->persona_model->persona($data['requerimiento']['idpersona'])->result();
