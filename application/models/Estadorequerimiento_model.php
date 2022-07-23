@@ -1,7 +1,7 @@
 <?php
 class Estadorequerimiento_model extends CI_model {
 
-	function lista_estadorequerimientoes(){
+	function lista_estadorequerimiento(){
 		 $estadorequerimiento= $this->db->get('estadorequerimiento');
 		 return $estadorequerimiento;
 	}
