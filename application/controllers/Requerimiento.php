@@ -48,7 +48,7 @@ public function index(){
 	public function add()
 	{
 		$data['title']="Usted esta Creando un nuevo Requerimiento";
-		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
+		$data['estadorequerimiento']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
 		$data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
@@ -64,7 +64,7 @@ public function index(){
 	{
 	 	$array_item=array(
 		 	'idrequerimiento' => $this->input->post('idrequerimiento'),
-		 	'idrequerimiento_estado' => $this->input->post('idrequerimiento_estado'),
+		 	'idestadorequerimiento' => $this->input->post('idestadorequerimiento'),
 		 	'idinstitucion' => $this->input->post('idinstitucion'),
 		 	'titulo' => $this->input->post('titulo'),
 			'fechainicia' => $this->input->post('fechainicia'),
@@ -86,7 +86,7 @@ public function index(){
 			$data['requerimiento'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		  $data['cursos']= $this->curso_model->lista_cursos()->result();
-			$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
+			$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	    $data['title'] = "Actualizar Requerimiento";
 			$this->load->view('template/page_header');		
@@ -101,7 +101,7 @@ public function index(){
 		$id=$this->input->post('idrequerimiento');
 	 	$array_item=array(
 
-		 	'idrequerimiento_estado' => $this->input->post('idrequerimiento_estado'),
+		 	'idestadorequerimiento' => $this->input->post('idestadorequerimiento'),
 		 	'idinstitucion' => $this->input->post('idinstitucion'),
 		 	'titulo' => $this->input->post('titulo'),
 			'fechacreacion' => $this->input->post('fechacreacion'),
@@ -138,7 +138,7 @@ public function index(){
 
 		$data['requerimiento'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
 		$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
-		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
+		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
 	  $data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['personas'] =$this->persona_model->lista_personas($data['requerimiento']['idrequerimiento'])->result();
@@ -156,7 +156,7 @@ public function index(){
 	public function listar()
 	{
 		$data['requerimiento'] = $this->requerimiento_model->requerimiento(1)->row_array();
-		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
+		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['personas'] =$this->persona_model->lista_personas($data['requerimiento']['idrequerimiento'])->result();
 		
@@ -174,7 +174,7 @@ public function index(){
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$id=$this->input->get('idrequerimiento_estado');
+			$id=$this->input->get('idestadorequerimiento');
 
 			$data0 = $this->requerimiento_model->lista_requerimientosA($id);
 			$data=array();
@@ -197,7 +197,7 @@ public function index(){
 	public function listar_personas()
 	{
 		$data['requerimiento'] = $this->requerimiento_model->requerimiento(1)->row_array();
-		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
+		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['personas'] =$this->persona_model->lista_personas($data['requerimiento']['idrequerimiento'])->result();
 		
@@ -251,7 +251,7 @@ public function index(){
 	public function reportepdf()
 	{
 		$data['requerimiento'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
-		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
+		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		
 		$data['personas'] = $this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
@@ -275,7 +275,7 @@ public function index(){
 		  if(!empty($data))
 		  {
 			$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
-			$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
+			$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 			$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
 			$data['cursos']= $this->curso_model->lista_cursos()->result();
@@ -300,7 +300,7 @@ public function index(){
 		  if(!empty($data))
 		  {
 			$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
-			$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
+			$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
 			$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
@@ -323,7 +323,7 @@ public function index(){
 	 // $data['requerimiento_list']=$this->requerimiento_model->lista_requerimiento()->result();
 		$data['requerimiento'] = $this->requerimiento_model->siguiente($this->uri->segment(3))->row_array();
 		$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
-		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
+		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
@@ -340,7 +340,7 @@ public function index(){
 	 // $data['requerimiento_list']=$this->requerimiento_model->lista_requerimiento()->result();
 		$data['requerimiento'] = $this->requerimiento_model->anterior($this->uri->segment(3))->row_array();
 		$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
-		$data['requerimiento_estados']= $this->requerimiento_estado_model->lista_requerimiento_estados()->result();
+		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
@@ -511,7 +511,7 @@ exit;
 	    $this->load->helper('form');
 	    if($this->input->post('idinstitucion')) {
 		$this->db->select('*');
-		$this->db->where(array('idinstitucion' => $this->input->post('idinstitucion'),'idrequerimiento_estado'=>2));  //SOLO ESTADO INSCRIPCION
+		$this->db->where(array('idinstitucion' => $this->input->post('idinstitucion'),'idestadorequerimiento'=>2));  //SOLO ESTADO INSCRIPCION
 		$query = $this->db->get('requerimiento');
 		$data=$query->result();
 		echo json_encode($data);
