@@ -28,8 +28,8 @@ public function index(){
 	}else{
 	$data['personas'] =$this->persona_model->persona(0)->result();
 	$data['gestion'] =$this->gestion_model->gestion(0)->result();
-
-	{
+	}
+	
 	$data['title']="Uste esta visualizando Requerimientos por registro";
 	$this->load->view('template/page_header');		
 	$this->load->view('requerimiento_record',$data);
