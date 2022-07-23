@@ -4,15 +4,15 @@ class Estadorequerimiento extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('institucion_model');
+      $this->load->model('estadorequerimiento_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['institucion']=$this->institucion_model->elultimo();
-		$data['title']="Lista de instituciones";
+		$data['estadorequerimiento']=$this->estadorequerimiento_model->elultimo();
+		$data['title']="Lista de estadorequerimientoes";
 		$this->load->view('template/page_header');
-		$this->load->view('institucion_record',$data);
+		$this->load->view('estadorequerimiento_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva institucion";
+		$data['title']="Nueva estadorequerimiento";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('institucion_form',$data);
+	 	$this->load->view('estadorequerimiento_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -36,18 +36,18 @@ public function  save()
 	 	$array_item=array(
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->institucion_model->save($array_item);
-	 	redirect('institucion');
+	 	$this->estadorequerimiento_model->save($array_item);
+	 	redirect('estadorequerimiento');
  	}
 
 
 
 public function edit()
 {
-	 	$data['institucion'] = $this->institucion_model->institucion($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar institucion";
+	 	$data['estadorequerimiento'] = $this->estadorequerimiento_model->estadorequerimiento($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar estadorequerimiento";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('institucion_edit',$data);
+ 	 	$this->load->view('estadorequerimiento_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -55,21 +55,21 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idinstitucion');
+		$id=$this->input->post('idestadorequerimiento');
 	 	$array_item=array(
 		 	
-		 	'idinstitucion' => $this->input->post('idinstitucion'),
+		 	'idestadorequerimiento' => $this->input->post('idestadorequerimiento'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->institucion_model->update($id,$array_item);
-	 	redirect('institucion');
+	 	$this->estadorequerimiento_model->update($id,$array_item);
+	 	redirect('estadorequerimiento');
  	}
 
 
  	public function delete()
  	{
- 		$this->institucion_model->delete($this->uri->segment(3));
-	 	redirect('institucion/elultimo');
+ 		$this->estadorequerimiento_model->delete($this->uri->segment(3));
+	 	redirect('estadorequerimiento/elultimo');
  	}
 
 
@@ -78,24 +78,24 @@ public function listar()
 	
   $data['title']="Estadorequerimiento";
 	$this->load->view('template/page_header');		
-  $this->load->view('institucion_list',$data);
+  $this->load->view('estadorequerimiento_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function institucion_data()
+function estadorequerimiento_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->institucion_model->lista_instituciones();
+	 	$data0 = $this->estadorequerimiento_model->lista_estadorequerimientoes();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idinstitucion,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idinstitucion="'.$r->idinstitucion.'">Ver</a>');
+			$data[]=array($r->idestadorequerimiento,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idestadorequerimiento="'.$r->idestadorequerimiento.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -118,12 +118,12 @@ function institucion_data()
 
 public function elprimero()
 {
-	$data['institucion'] = $this->institucion_model->elprimero();
+	$data['estadorequerimiento'] = $this->estadorequerimiento_model->elprimero();
   if(!empty($data))
   {
     $data['title']="Estadorequerimiento";
     $this->load->view('template/page_header');		
-    $this->load->view('institucion_record',$data);
+    $this->load->view('estadorequerimiento_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -134,13 +134,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['institucion'] = $this->institucion_model->elultimo();
+	$data['estadorequerimiento'] = $this->estadorequerimiento_model->elultimo();
   if(!empty($data))
   {
     $data['title']="Estadorequerimiento";
   
     $this->load->view('template/page_header');		
-    $this->load->view('institucion_record',$data);
+    $this->load->view('estadorequerimiento_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -151,20 +151,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['institucion_list']=$this->institucion_model->lista_institucion()->result();
-	$data['institucion'] = $this->institucion_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['estadorequerimiento_list']=$this->estadorequerimiento_model->lista_estadorequerimiento()->result();
+	$data['estadorequerimiento'] = $this->estadorequerimiento_model->siguiente($this->uri->segment(3))->row_array();
   $data['title']="Estadorequerimiento";
 	$this->load->view('template/page_header');		
-  $this->load->view('institucion_record',$data);
+  $this->load->view('estadorequerimiento_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['institucion_list']=$this->institucion_model->lista_institucion()->result();
-	$data['institucion'] = $this->institucion_model->anterior($this->uri->segment(3))->row_array();
+ // $data['estadorequerimiento_list']=$this->estadorequerimiento_model->lista_estadorequerimiento()->result();
+	$data['estadorequerimiento'] = $this->estadorequerimiento_model->anterior($this->uri->segment(3))->row_array();
   $data['title']="Estadorequerimiento";
 	$this->load->view('template/page_header');		
-  $this->load->view('institucion_record',$data);
+  $this->load->view('estadorequerimiento_record',$data);
 	$this->load->view('template/page_footer');
 }
 
