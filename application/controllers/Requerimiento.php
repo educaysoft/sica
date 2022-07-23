@@ -21,7 +21,7 @@ public function index(){
 	$data['requerimiento'] = $this->requerimiento_model->elultimo();
 	$data['estadorequerimiento']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-	if(isset($data['requerimiento']['idpersona'])
+	if(isset($data['requerimiento']['idpersona']))
 	{
 	$data['personas'] =$this->persona_model->persona($data['requerimiento']['idpersona'])->result();
 	$data['gestion'] =$this->gestion_model->gestion($data['requerimiento']['idrequerimiento'])->result();
