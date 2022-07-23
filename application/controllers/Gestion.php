@@ -4,15 +4,15 @@ class Gestion extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('institucion_model');
+      $this->load->model('gestion_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['institucion']=$this->institucion_model->elultimo();
-		$data['title']="Lista de instituciones";
+		$data['gestion']=$this->gestion_model->elultimo();
+		$data['title']="Lista de gestiones";
 		$this->load->view('template/page_header');
-		$this->load->view('institucion_record',$data);
+		$this->load->view('gestion_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva institucion";
+		$data['title']="Nueva gestion";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('institucion_form',$data);
+	 	$this->load->view('gestion_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -36,18 +36,18 @@ public function  save()
 	 	$array_item=array(
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->institucion_model->save($array_item);
-	 	redirect('institucion');
+	 	$this->gestion_model->save($array_item);
+	 	redirect('gestion');
  	}
 
 
 
 public function edit()
 {
-	 	$data['institucion'] = $this->institucion_model->institucion($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar institucion";
+	 	$data['gestion'] = $this->gestion_model->gestion($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar gestion";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('institucion_edit',$data);
+ 	 	$this->load->view('gestion_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -55,21 +55,21 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idinstitucion');
+		$id=$this->input->post('idgestion');
 	 	$array_item=array(
 		 	
-		 	'idinstitucion' => $this->input->post('idinstitucion'),
+		 	'idgestion' => $this->input->post('idgestion'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->institucion_model->update($id,$array_item);
-	 	redirect('institucion');
+	 	$this->gestion_model->update($id,$array_item);
+	 	redirect('gestion');
  	}
 
 
  	public function delete()
  	{
- 		$this->institucion_model->delete($this->uri->segment(3));
-	 	redirect('institucion/elultimo');
+ 		$this->gestion_model->delete($this->uri->segment(3));
+	 	redirect('gestion/elultimo');
  	}
 
 
@@ -78,24 +78,24 @@ public function listar()
 	
   $data['title']="Gestion";
 	$this->load->view('template/page_header');		
-  $this->load->view('institucion_list',$data);
+  $this->load->view('gestion_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function institucion_data()
+function gestion_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->institucion_model->lista_instituciones();
+	 	$data0 = $this->gestion_model->lista_gestiones();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idinstitucion,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idinstitucion="'.$r->idinstitucion.'">Ver</a>');
+			$data[]=array($r->idgestion,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idgestion="'.$r->idgestion.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -118,12 +118,12 @@ function institucion_data()
 
 public function elprimero()
 {
-	$data['institucion'] = $this->institucion_model->elprimero();
+	$data['gestion'] = $this->gestion_model->elprimero();
   if(!empty($data))
   {
     $data['title']="Gestion";
     $this->load->view('template/page_header');		
-    $this->load->view('institucion_record',$data);
+    $this->load->view('gestion_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -134,13 +134,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['institucion'] = $this->institucion_model->elultimo();
+	$data['gestion'] = $this->gestion_model->elultimo();
   if(!empty($data))
   {
     $data['title']="Gestion";
   
     $this->load->view('template/page_header');		
-    $this->load->view('institucion_record',$data);
+    $this->load->view('gestion_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -151,20 +151,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['institucion_list']=$this->institucion_model->lista_institucion()->result();
-	$data['institucion'] = $this->institucion_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['gestion_list']=$this->gestion_model->lista_gestion()->result();
+	$data['gestion'] = $this->gestion_model->siguiente($this->uri->segment(3))->row_array();
   $data['title']="Gestion";
 	$this->load->view('template/page_header');		
-  $this->load->view('institucion_record',$data);
+  $this->load->view('gestion_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['institucion_list']=$this->institucion_model->lista_institucion()->result();
-	$data['institucion'] = $this->institucion_model->anterior($this->uri->segment(3))->row_array();
+ // $data['gestion_list']=$this->gestion_model->lista_gestion()->result();
+	$data['gestion'] = $this->gestion_model->anterior($this->uri->segment(3))->row_array();
   $data['title']="Gestion";
 	$this->load->view('template/page_header');		
-  $this->load->view('institucion_record',$data);
+  $this->load->view('gestion_record',$data);
 	$this->load->view('template/page_footer');
 }
 

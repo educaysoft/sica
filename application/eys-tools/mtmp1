@@ -1,5 +1,5 @@
 <?php
-class Estadorequerimiento_model extends CI_model {
+class Gestion_model extends CI_model {
 
 	function lista_instituciones(){
 		 $institucion= $this->db->get('institucion');

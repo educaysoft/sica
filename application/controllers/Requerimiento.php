@@ -7,7 +7,7 @@ class Requerimiento extends CI_Controller{
       $this->load->model('requerimiento_model');
       $this->load->model('estadorequerimiento_model');
       $this->load->model('persona_model');
-      $this->load->model('fecharequerimiento_model');
+      $this->load->model('gestion_model');
       $this->load->model('institucion_model');
       $this->load->model('pagina_model');
       $this->load->model('curso_model');
