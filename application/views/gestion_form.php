@@ -16,7 +16,18 @@
 <?php echo form_hidden("idgestion")  ?>
 
 
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Requerimiento:</label>
+	<div class="col-md-10">
+	<?php
+    $options= array('--Select--');
+    foreach ($requerimientos as $row){
+      $options[$row->idrequerimiento]= $row->nombre;
+    }
+     echo form_dropdown("idrequerimiento",$options, set_select('--Select--','default_value'));  
+		?>
+	</div> 
+</div>
 
 
 <div class="form-group row">

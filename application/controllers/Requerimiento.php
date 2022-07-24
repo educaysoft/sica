@@ -48,6 +48,7 @@ public function index(){
 	public function add()
 	{
 		$data['title']="Usted esta Creando un nuevo Requerimiento";
+		$data['requerimientos'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
 		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
