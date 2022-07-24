@@ -285,12 +285,8 @@ public function index(){
 	public function siguiente(){
 	 // $data['gestion_list']=$this->gestion_model->lista_gestion()->result();
 		$data['gestion'] = $this->gestion_model->siguiente($this->uri->segment(3))->row_array();
-		$data['estadogestion']= $this->estadogestion_model->lista_estadogestion()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-	$data['cursos']= $this->curso_model->lista_cursos()->result();
-		$data['paginas']= $this->pagina_model->lista_paginas()->result();
-		$data['fechagestions'] =$this->fechagestion_model->fechagestions($data['gestion']['idgestion'])->result();
-	  	$data['personas'] =$this->persona_model->personas($data['gestion']['idgestion'])->result();
+		$data['requerimientos'] = $this->requerimiento_model->lista_requerimientos()->result();
 	  	$data['title']="Gestion";
 		$this->load->view('template/page_header');		
 	  	$this->load->view('gestion_record',$data);
