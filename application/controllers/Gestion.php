@@ -238,12 +238,13 @@ public function index(){
 	{
 
 		$data['gestion'] = $this->gestion_model->elprimero();
+
+
 		  if(!empty($data))
 		  {
-
-			$data['estadogestion']= $this->estadogestion_model->lista_estadogestion()->result();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-			$data['personas'] =$this->persona_model->persona($data['gestion']['idpersona'])->result();
+			$data['requerimientos'] = $this->requerimiento_model->lista_requerimientos()->result();
+
 			$data['title']="Gestion";
 			$this->load->view('template/page_header');		
 			$this->load->view('gestion_record',$data);
