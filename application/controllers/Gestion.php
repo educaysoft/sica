@@ -48,9 +48,8 @@ public function index(){
 	 	$array_item=array(
 		 	'idgestion' => $this->input->post('idgestion'),
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
-		 	'detallecorto' => $this->input->post('detallecorto'),
+		 	'detalle' => $this->input->post('detalle'),
 			'fechagestion' => $this->input->post('fechagestion'),
-			'detallelargo' => $this->input->post('detallelargo'),
 			'fechacreacion' =>  date('Y-m-d H:i:s'),
 			'fechaactualizacion' =>  date('Y-m-d H:i:s'),
 	 	);	 
