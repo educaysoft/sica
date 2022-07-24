@@ -5,14 +5,8 @@ class Gestion extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('gestion_model');
-      $this->load->model('estadogestion_model');
-      $this->load->model('persona_model');
-      $this->load->model('gestion_model');
       $this->load->model('institucion_model');
-      $this->load->model('pagina_model');
-      $this->load->model('curso_model');
-      $this->load->model('asistencia_model');
-      $this->load->model('participacion_model');
+      $this->load->model('departamento_model');
 
 }
 
