@@ -13,7 +13,7 @@ class Gestion extends CI_Controller{
 public function index(){
  if(isset($this->session->userdata['logged_in'])){
 	$data['gestion'] = $this->gestion_model->elultimo();
-	$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 //	if(isset($data['gestion']['idpersona']))
 //	{
 	$data['personas'] =$this->persona_model->persona($data['gestion']['idpersona'])->result();
@@ -42,7 +42,6 @@ public function index(){
 	{
 		$data['title']="Usted esta Creando un nuevo Gestion";
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  		$data['personas']= $this->persona_model->lista_personas()->result();
 		$this->load->view('template/page_header');		
 		$this->load->view('gestion_form',$data);
 		$this->load->view('template/page_footer');
@@ -61,7 +60,6 @@ public function index(){
 			'detallelargo' => $this->input->post('detallelargo'),
 			'fechacreacion' =>  date('Y-m-d H:i:s'),
 			'fechaactualizacion' =>  date('Y-m-d H:i:s'),
-			'idpersona' => $this->input->post('idpersona'),
 	 	);	 
 	 	$this->gestion_model->save($array_item);
 	 	redirect('gestion');
@@ -73,7 +71,7 @@ public function index(){
 			$data['gestion'] = $this->gestion_model->gestion($this->uri->segment(3))->row_array();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		  $data['cursos']= $this->curso_model->lista_cursos()->result();
-			$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	    $data['title'] = "Actualizar Gestion";
 			$this->load->view('template/page_header');		
 			$this->load->view('gestion_edit',$data);
@@ -123,7 +121,7 @@ public function index(){
 
 		$data['gestion'] = $this->gestion_model->gestion($this->uri->segment(3))->row_array();
 	  $data['cursos']= $this->curso_model->lista_cursos()->result();
-		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['personas'] =$this->persona_model->lista_personas($data['gestion']['idgestion'])->result();
 		$data['fechagestions'] =$this->fechagestion_model->fechagestions($data['gestion']['idgestion'])->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
@@ -139,7 +137,7 @@ public function index(){
 	public function listar()
 	{
 		$data['gestion'] = $this->gestion_model->gestion(1)->row_array();
-		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['personas'] =$this->persona_model->lista_personas($data['gestion']['idgestion'])->result();
 		
 
@@ -179,7 +177,7 @@ public function index(){
 	public function listar_personas()
 	{
 		$data['gestion'] = $this->gestion_model->gestion(1)->row_array();
-		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['personas'] =$this->persona_model->lista_personas($data['gestion']['idgestion'])->result();
 		
 
@@ -233,7 +231,7 @@ public function index(){
 	{
 		$data['gestion'] = $this->gestion_model->gestion($this->uri->segment(3))->row_array();
 		$data['estadogestions']= $this->estadogestion_model->lista_estadogestion()->result();
-		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		
 		$data['personas'] = $this->persona_model->personas($data['gestion']['idgestion'])->result();
 
@@ -257,7 +255,7 @@ public function index(){
 		  {
 
 			$data['estadogestion']= $this->estadogestion_model->lista_estadogestion()->result();
-			$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			$data['personas'] =$this->persona_model->persona($data['gestion']['idpersona'])->result();
 			$data['title']="Gestion";
 			$this->load->view('template/page_header');		
@@ -278,7 +276,7 @@ public function index(){
 		  if(!empty($data))
 		  {
 			$data['estadogestion']= $this->estadogestion_model->lista_estadogestion()->result();
-			$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
 			$data['personas'] =$this->persona_model->personas($data['gestion']['idgestion'])->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
@@ -300,7 +298,7 @@ public function index(){
 	 // $data['gestion_list']=$this->gestion_model->lista_gestion()->result();
 		$data['gestion'] = $this->gestion_model->siguiente($this->uri->segment(3))->row_array();
 		$data['estadogestion']= $this->estadogestion_model->lista_estadogestion()->result();
-		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		$data['fechagestions'] =$this->fechagestion_model->fechagestions($data['gestion']['idgestion'])->result();
@@ -316,7 +314,7 @@ public function index(){
 	 // $data['gestion_list']=$this->gestion_model->lista_gestion()->result();
 		$data['gestion'] = $this->gestion_model->anterior($this->uri->segment(3))->row_array();
 		$data['estadogestions']= $this->estadogestion_model->lista_estadogestion()->result();
-		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['personas'] =$this->persona_model->personas($data['gestion']['idgestion'])->result();
