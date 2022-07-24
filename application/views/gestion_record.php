@@ -71,13 +71,7 @@ echo form_input($arrdatos) ?>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Detalle de la gestion:</label>
-	<div class="col-md-10">
-     <?php echo form_input('detalle',$gestion['detalle'],array("disabled"=>"disabled",'placeholder'=>'detalle','style'=>'width:500px;')) 
-		?>
-	</div> 
-</div>
+
 
 
 <div class="form-group row">
@@ -97,31 +91,16 @@ echo form_input($arrdatos) ?>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Participantes ( <?php echo anchor('persona/add', 'New'); ?>):</label>
-      <?php
- 	$options = array();
-  	foreach ($personas as $row){
-		$options[$row->idpersona]=$row->nombres;
-	}
 
-	?>
-	<div class="col-md-10">
-	<?php
-	echo form_multiselect('idpersona[]',$options,(array)set_value('idpersona', ''), array('style'=>'width:500px')); 
-	?>
-
-	</div> 
-</div>
 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Detalle largo:</label>
+    <label class="col-md-2 col-form-label"> Detalle de la gestión:</label>
 	<div class="col-md-10">
       <?php
 	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
-	echo form_textarea('detallelargo',$gestion['detallelargo'],$textarea_options);
+	echo form_textarea('detalle',$gestion['detalle'],$textarea_options);
 	?>
 	</div> 
 </div>
