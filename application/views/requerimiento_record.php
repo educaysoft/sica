@@ -173,54 +173,14 @@ echo form_input($arrdatos) ?>
 	</div> 
 </div>
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Pagina: </label>
- 
-
-     <?php 
-    $options= array("NADA");
-    foreach ($paginas as $row){
-	      $options[$row->idpagina]= $row->nombre;
-    }
-	?>
-	<div class="col-md-10">
-		<?php
-    $arrdatos=array('name'=>'idpagina','value'=>$options[$requerimiento['idpagina']],"disabled"=>"disabled", "style"=>"width:500px");
-echo form_input($arrdatos) ?>
-	</div> 
-</div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Duración:</label>
-	<div class="col-md-10">
-     <?php echo form_input('duracion',$requerimiento['duracion'],array("disabled"=>"disabled",'placeholder'=>'duracion','style'=>'width:500px;')) 
-		?>
-	</div> 
-</div>
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Costo:</label>
-	<div class="col-md-10">
-     <?php echo form_input('costo',$requerimiento['costo'],array("disabled"=>"disabled",'placeholder'=>'costo','style'=>'width:500px;')) 
-		?>
-	</div> 
-</div>
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('curso/add', 'Curso:') ?> </label>
-     <?php 
-    $options= array("NADA");
-    foreach ($cursos as $row){
-	      $options[$row->idcurso]= $row->nombre;
-    }
-	?>
-	<div class="col-md-10">
-		<?php
-    $arrdatos=array('name'=>'idcurso','value'=>$options[$requerimiento['idcurso']],"disabled"=>"disabled", "style"=>"width:500px");
-echo form_input($arrdatos) ?>
-	</div> 
-</div>
+
+
+
+
 
 
 
