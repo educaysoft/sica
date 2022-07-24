@@ -292,8 +292,6 @@ public function index(){
 		  if(!empty($data))
 		  {
 			$data['estadorequerimiento']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
-			print_r($data['estadorequerimiento']);
-			die();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
 			$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
