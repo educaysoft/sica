@@ -41,7 +41,7 @@ public function index(){
 	public function add()
 	{
 		$data['title']="Usted esta Creando un nuevo Gestion";
-		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
 		$this->load->view('template/page_header');		
 		$this->load->view('gestion_form',$data);
