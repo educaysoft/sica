@@ -5,7 +5,7 @@ class Gestion extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('gestion_model');
-      $this->load->model('departamento_model');
+      $this->load->model('requerimiento_model');
       $this->load->model('departamento_model');
 
 }
@@ -33,7 +33,7 @@ public function index(){
 	public function add()
 	{
 		$data['title']="Usted esta Creando un nuevo Gestion";
-		$data['requerimiento'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
+		$data['requerimientos'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$this->load->view('template/page_header');		
 		$this->load->view('gestion_form',$data);
