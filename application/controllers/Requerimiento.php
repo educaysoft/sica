@@ -66,15 +66,12 @@ public function index(){
 		 	'idrequerimiento' => $this->input->post('idrequerimiento'),
 		 	'idestadorequerimiento' => $this->input->post('idestadorequerimiento'),
 		 	'idinstitucion' => $this->input->post('idinstitucion'),
-		 	'titulo' => $this->input->post('titulo'),
-			'fechainicia' => $this->input->post('fechainicia'),
-			'fechafinaliza' => $this->input->post('fechafinaliza'),
-			'detalle' => $this->input->post('detalle'),
-			'idusuario' => $this->session->userdata['logged_in']['idusuario'],
-			'fecha' =>  date('Y-m-d H:i:s'),
-			'duracion' => $this->input->post('duracion'),
-			'costo' => $this->input->post('costo'),
-			'idcurso' => $this->input->post('idcurso'),
+		 	'detallecorto' => $this->input->post('detallecorto'),
+			'fecharequerimiento' => $this->input->post('fecharequerimiento'),
+			'detallelargo' => $this->input->post('detallelargo'),
+			'fechacreacion' =>  date('Y-m-d H:i:s'),
+			'fechaactualizacion' =>  date('Y-m-d H:i:s'),
+			'idpersona' => $this->input->post('idpersona'),
 	 	);	 
 	 	$this->requerimiento_model->save($array_item);
 	 	redirect('requerimiento');

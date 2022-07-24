@@ -51,7 +51,7 @@
 	<div class="col-md-10">
 	<?php
 
- echo form_input("titulo","", array("placeholder"=>"Título del requerimiento",'style'=>'width:500px;')); 
+ echo form_input("detallecorto","", array("placeholder"=>"Título del requerimiento",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div> 
@@ -62,20 +62,13 @@
     <label class="col-md-2 col-form-label"> Fecha de inicio:</label>
 	<div class="col-md-10">
 	<?php
- echo form_input(array("name"=>"fechainicia","id"=>"fechainicia","type"=>"date"));  
+ echo form_input(array("name"=>"fecharequerimiento","id"=>"fecharequerimiento","type"=>"date"));  
 		?>
 	</div> 
 </div> 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha finaliza:</label>
-	<div class="col-md-10">
-	<?php
- echo form_input(array("name"=>"fechafinaliza","id"=>"fechafinaliza","type"=>"date"));  
-		?>
-	</div> 
-</div> 
+ 
 
 
 
@@ -86,45 +79,26 @@
     
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"asunto" );    
     
- echo form_textarea("detalle","", $textarea_options); 
+ echo form_textarea("detallelargo","", $textarea_options); 
 		?>
 	</div> 
 </div> 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Página de inicio:</label>
-	<div class="col-md-10">
-	<?php
-    $options= array('--Select--');
-    foreach ($paginas as $row){
-      $options[$row->idpagina]= $row->nombre;
-    }
-     echo form_dropdown("idpagina",$options, set_select('--Select--','default_value'));  
-		?>
-	</div> 
-</div>
-
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Duración:</label>
+    <label class="col-md-2 col-form-label"> Persona:</label>
 	<div class="col-md-10">
 	<?php
-
- echo form_input("duracion","", array("placeholder"=>"Duración del requerimiento",'style'=>'width:500px;')); 
+	$options= array('--Select--');
+	foreach ($personas as $row){
+		$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+	}	
+ 	echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'));  
 		?>
 	</div> 
-</div>
+</div> 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Costo:</label>
-	<div class="col-md-10">
-	<?php
-
- echo form_input("costo","", array("placeholder"=>"Costo del requerimiento",'style'=>'width:500px;')); 
-		?>
-	</div> 
-</div>
 
 
 
