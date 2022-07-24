@@ -109,11 +109,7 @@ public function index(){
 	public function actual(){
 
 		$data['gestion'] = $this->gestion_model->gestion($this->uri->segment(3))->row_array();
-	  $data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['personas'] =$this->persona_model->lista_personas($data['gestion']['idgestion'])->result();
-		$data['fechagestions'] =$this->fechagestion_model->fechagestions($data['gestion']['idgestion'])->result();
-		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 
 
 		$data['title']="Gestion";
