@@ -110,7 +110,7 @@ public function index(){
 
 		$data['gestion'] = $this->gestion_model->gestion($this->uri->segment(3))->row_array();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['requerimientos'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->result();
+		$data['requerimientos'] = $this->requerimiento_model->lista_requerimientos()->result();
 
 
 		$data['title']="Gestion";
