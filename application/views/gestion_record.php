@@ -109,7 +109,20 @@ echo form_input($arrdatos) ?>
 
 
 
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Requerimiento: </label>
+     <?php 
+    $options= array("NADA");
+    foreach ($requerimientos as $row){
+	      $options[$row->idrequerimiento]= $row->detallecorto;
+    }
+	?>
+	<div class="col-md-10">
+		<?php
+    $arrdatos=array('name'=>'idrequerimiento','value'=>$options[$gestion['idrequerimiento']],"disabled"=>"disabled", "style"=>"width:500px");
+echo form_input($arrdatos) ?>
+	</div> 
+</div>
 
 
 
