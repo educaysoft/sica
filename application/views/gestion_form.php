@@ -22,7 +22,7 @@
 	<?php
     $options= array('--Select--');
     foreach ($requerimientos as $row){
-      $options[$row->idrequerimiento]= $row->nombre;
+      $options[$row->idrequerimiento]= $row->detallecorto;
     }
      echo form_dropdown("idrequerimiento",$options, set_select('--Select--','default_value'));  
 		?>
