@@ -72,9 +72,9 @@ echo form_input($arrdatos) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Titulo del gestion:</label>
+    <label class="col-md-2 col-form-label"> Detalle de la gestion:</label>
 	<div class="col-md-10">
-     <?php echo form_input('detallecorto',$gestion['detallecorto'],array("disabled"=>"disabled",'placeholder'=>'detallecorto','style'=>'width:500px;')) 
+     <?php echo form_input('detalle',$gestion['detalle'],array("disabled"=>"disabled",'placeholder'=>'detalle','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
