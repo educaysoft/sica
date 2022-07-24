@@ -269,7 +269,8 @@ public function index(){
 		$data['requerimiento'] = $this->requerimiento_model->elprimero();
 		  if(!empty($data))
 		  {
-			$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
+
+			$data['estadorequerimiento']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 			$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
 			$data['title']="Requerimiento";
