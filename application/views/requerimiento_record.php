@@ -13,7 +13,7 @@ if(isset($requerimiento))
         <li> <?php echo anchor('requerimiento/edit/'.$requerimiento['idrequerimiento'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('requerimiento/delete/'.$requerimiento['idrequerimiento'],'Delete'); ?></li>
         <li> <?php echo anchor('requerimiento/listar/','Requerimientos'); ?></li>
-        <li> <?php echo anchor('requerimiento/listar_participantes/'.$requerimiento['idrequerimiento'],'Certificados'); ?></li>
+        <li> <?php echo anchor('requerimiento/listar_personas/'.$requerimiento['idrequerimiento'],'Certificados'); ?></li>
         <li> <?php echo anchor('asistencia/add/'.$requerimiento['idrequerimiento'],'Asistencias'); ?></li>
         <li> <?php echo anchor('participacion/add/'.$requerimiento['idrequerimiento'],'Participacion'); ?></li>
         <li> <?php echo anchor('seguimiento/add/'.$requerimiento['idrequerimiento'],'Seguimiento'); ?></li>
@@ -22,7 +22,7 @@ if(isset($requerimiento))
 }else{
 ?>
 
-        <li> <?php echo anchor('requerimiento_estado/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('estadorequerimiento/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -49,16 +49,16 @@ if(isset($requerimiento))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('requerimiento_estado/add', 'Requerimiento estado:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('estadorequerimiento/add', 'Requerimiento estado:') ?> </label>
      <?php 
     $options= array("NADA");
-    foreach ($requerimiento_estados as $row){
-	      $options[$row->idrequerimiento_estado]= $row->nombre;
+    foreach ($estadorequerimientos as $row){
+	      $options[$row->idestadorequerimiento]= $row->nombre;
     }
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'idrequerimiento_estado','value'=>$options[$requerimiento['idrequerimiento_estado']],"disabled"=>"disabled", "style"=>"width:500px");
+    $arrdatos=array('name'=>'idestadorequerimiento','value'=>$options[$requerimiento['idestadorequerimiento']],"disabled"=>"disabled", "style"=>"width:500px");
 echo form_input($arrdatos) ?>
 
 	</div> 
@@ -88,7 +88,7 @@ echo form_input($arrdatos) ?>
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Titulo del requerimiento:</label>
 	<div class="col-md-10">
-     <?php echo form_input('titulo',$requerimiento['titulo'],array("disabled"=>"disabled",'placeholder'=>'titulo','style'=>'width:500px;')) 
+     <?php echo form_input('detallecorto',$requerimiento['detallecorto'],array("disabled"=>"disabled",'placeholder'=>'detallecorto','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
@@ -97,7 +97,7 @@ echo form_input($arrdatos) ?>
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha de inicio:</label>
 	<div class="col-md-10">
-      <?php echo form_input('fechainicia',$requerimiento['fechainicia'],array('type'=>'date', 'placeholder'=>'fechainicia','style'=>'width:500px;')) ?>
+      <?php echo form_input('fecharequerimiento',$requerimiento['fecharequerimiento'],array('type'=>'date', 'placeholder'=>'fecharequerimiento','style'=>'width:500px;')) ?>
 	</div> 
 </div>
 
@@ -122,27 +122,22 @@ echo form_input($arrdatos) ?>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha de finaliza:</label>
-	<div class="col-md-10">
-      <?php echo form_input('fechafinaliza',$requerimiento['fechafinaliza'],array('type'=>'date', 'placeholder'=>'fechafinaliza','style'=>'width:500px;')) ?>
-	</div> 
-</div>
+
 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Participantes ( <?php echo anchor('participante/add', 'New'); ?>):</label>
+    <label class="col-md-2 col-form-label"> Participantes ( <?php echo anchor('persona/add', 'New'); ?>):</label>
       <?php
  	$options = array();
-  	foreach ($participantes as $row){
+  	foreach ($personas as $row){
 		$options[$row->idpersona]=$row->nombres;
 	}
 
 	?>
 	<div class="col-md-10">
 	<?php
-	echo form_multiselect('idparticipante[]',$options,(array)set_value('idparticipante', ''), array('style'=>'width:500px')); 
+	echo form_multiselect('idpersona[]',$options,(array)set_value('idpersona', ''), array('style'=>'width:500px')); 
 	?>
 
 	</div> 
