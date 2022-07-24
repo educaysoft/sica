@@ -14,14 +14,6 @@ public function index(){
  if(isset($this->session->userdata['logged_in'])){
 	$data['gestion'] = $this->gestion_model->elultimo();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-//	if(isset($data['gestion']['idpersona']))
-//	{
-	$data['personas'] =$this->persona_model->persona($data['gestion']['idpersona'])->result();
-	$data['gestion'] =$this->gestion_model->gestion($data['gestion']['idgestion'])->result();
-//	}else{
-//	$data['personas'] =$this->persona_model->persona(0)->result();
-//	$data['gestion'] =$this->gestion_model->gestion(0)->result();
-//	}
 	
 	$data['title']="Uste esta visualizando Gestions por registro";
 	$this->load->view('template/page_header');		
