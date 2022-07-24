@@ -33,7 +33,7 @@ public function index(){
 	public function add()
 	{
 		$data['title']="Usted esta Creando un nuevo Gestion";
-		$data['requerimientos'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
+		$data['requerimientos'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$this->load->view('template/page_header');		
 		$this->load->view('gestion_form',$data);
