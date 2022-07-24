@@ -272,7 +272,7 @@ public function index(){
 
 			$data['estadorequerimiento']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-			$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
+			$data['personas'] =$this->persona_model->persona($data['requerimiento']['idpersona'])->result();
 			$data['title']="Requerimiento";
 			$this->load->view('template/page_header');		
 			$this->load->view('requerimiento_record',$data);
