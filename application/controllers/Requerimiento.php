@@ -133,7 +133,6 @@ public function index(){
 	public function actual(){
 
 		$data['requerimiento'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
-		$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
 		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
 	  $data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
@@ -270,13 +269,9 @@ public function index(){
 		$data['requerimiento'] = $this->requerimiento_model->elprimero();
 		  if(!empty($data))
 		  {
-			$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
 			$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 			$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
-			$data['cursos']= $this->curso_model->lista_cursos()->result();
-			$data['paginas']= $this->pagina_model->lista_paginas()->result();
-			$data['fecharequerimientos'] =$this->fecharequerimiento_model->fecharequerimientos($data['requerimiento']['idrequerimiento'])->result();
 			$data['title']="Requerimiento";
 			$this->load->view('template/page_header');		
 			$this->load->view('requerimiento_record',$data);
@@ -295,7 +290,6 @@ public function index(){
 		$data['requerimiento'] = $this->requerimiento_model->elultimo();
 		  if(!empty($data))
 		  {
-			$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
 			$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
@@ -318,7 +312,6 @@ public function index(){
 	public function siguiente(){
 	 // $data['requerimiento_list']=$this->requerimiento_model->lista_requerimiento()->result();
 		$data['requerimiento'] = $this->requerimiento_model->siguiente($this->uri->segment(3))->row_array();
-		$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
 		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
@@ -335,7 +328,6 @@ public function index(){
 	public function anterior(){
 	 // $data['requerimiento_list']=$this->requerimiento_model->lista_requerimiento()->result();
 		$data['requerimiento'] = $this->requerimiento_model->anterior($this->uri->segment(3))->row_array();
-		$data['certificados'] =$this->requerimiento_model->certificados($data['requerimiento']['idrequerimiento'])->result();
 		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();

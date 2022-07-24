@@ -182,16 +182,5 @@ class Requerimiento_model extends CI_model {
 
 
 
-	// Para moverse presentar  los emisores 
-	function certificados($ideven)
-	{
- 		$this->db->select('idcertificado,asunto');
-		$this->db->where('idrequerimiento="'.$ideven.'"');
-		$certificados=$this->db->get('certificado1');
-		return $certificados;
-	}
-
-
-
  
 }
