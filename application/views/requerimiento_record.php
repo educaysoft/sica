@@ -102,22 +102,7 @@ echo form_input($arrdatos) ?>
 </div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fechas ( <?php echo anchor('fecharequerimiento/add/'.$requerimiento['idrequerimiento'], 'New'); ?>):</label>
-      <?php
- 	$options = array();
-  	foreach ($fecharequerimientos as $row){
-		$options[$row->idfecharequerimiento]=$row->fecha." :: ". $row->tema;
-	}
 
-	?>
-	<div class="col-md-10">
-	<?php
-	echo form_multiselect('idfecharequerimiento[]',$options,(array)set_value('idfecharequerimiento', ''), array('style'=>'width:500px')); 
-	?>
-
-	</div> 
-</div>
 
 
 
