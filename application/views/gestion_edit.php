@@ -58,17 +58,14 @@ foreach ($instituciones as $row){
 
 
  <tr>
-      <td>Fecha de Inicia:</td>
-<td><?php echo form_input('fechainicia',  (isset($gestion['fechainicia']) ? date('Y-m-d H:i:s', strtotime($gestion['fechainicia'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"'); ?></td>
+      <td>Fecha de gestion:</td>
+<td><?php echo form_input('fechagestion',  (isset($gestion['fechagestion']) ? date('Y-m-d H:i:s', strtotime($gestion['fechagestion'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"'); ?></td>
   </tr>
 
 
 
 
- <tr>
-      <td>Fecha de finaliza:</td>
-<td><?php echo form_input('fechafinaliza',  (isset($gestion['fechafinaliza']) ? date('Y-m-d H:i:s', strtotime($gestion['fechafinaliza'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"'); ?></td>
-  </tr>
+ 
 
 <tr>
   <td>Detalle:</td>
@@ -79,40 +76,25 @@ echo form_textarea('detalle',$gestion['detalle'],$textarea_options ); ?></td>
  </tr>
 
 
+
+
+
+
+
+
+
+
+
+
 <tr>
-<td> Pagina:</td>
+<td> Requerimiento:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($paginas as $row){
-	$options[$row->idpagina]= $row->nombre;
+foreach ($requerimientos as $row){
+	$options[$row->idrequerimiento]= $row->nombre;
 }
 
- echo form_dropdown("idpagina",$options, $gestion['idpagina']);  ?></td>
-</tr>
-
-
-
-<tr>
-     <td>Duración:</td>
-     <td><?php echo form_input(array("name"=>'duracion','id'=>'duracion','value'=>$gestion['duracion'],'placeholder'=>'Duración')) ?></td>
-  </tr>
-
-<tr>
-     <td>Costo:</td>
-     <td><?php echo form_input(array("name"=>'costo','id'=>'costo','value'=>$gestion['costo'],'placeholder'=>'Costo')) ?></td>
-  </tr>
-
-
-
-<tr>
-<td> Curso:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($cursos as $row){
-	$options[$row->idcurso]= $row->nombre;
-}
-
- echo form_dropdown("idcurso",$options, $gestion['idcurso']);  ?></td>
+ echo form_dropdown("idrequerimiento",$options, $gestion['idrequerimiento']);  ?></td>
 </tr>
 
 

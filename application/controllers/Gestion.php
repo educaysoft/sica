@@ -61,8 +61,6 @@ public function index(){
 	public function edit()
 	{
 			$data['gestion'] = $this->gestion_model->gestion($this->uri->segment(3))->row_array();
-			$data['paginas']= $this->pagina_model->lista_paginas()->result();
-		  $data['cursos']= $this->curso_model->lista_cursos()->result();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	    $data['title'] = "Actualizar Gestion";
 			$this->load->view('template/page_header');		
@@ -77,16 +75,14 @@ public function index(){
 		$id=$this->input->post('idgestion');
 	 	$array_item=array(
 
+
+		 	'idgestion' => $this->input->post('idgestion'),
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
-		 	'titulo' => $this->input->post('titulo'),
-			'fechacreacion' => $this->input->post('fechacreacion'),
-			'fechainicia' => $this->input->post('fechainicia'),
-			'fechafinaliza' => $this->input->post('fechafinaliza'),
-			'detalle' => $this->input->post('detalle'),
-			'idpagina' => $this->input->post('idpagina'),
-			'duracion' => $this->input->post('duracion'),
-			'costo' => $this->input->post('costo'),
-			'idcurso' => $this->input->post('idcurso'),
+		 	'detalle' => $this->input->post('detalle'),
+			'fechagestion' => $this->input->post('fechagestion'),
+			'fechaactualizacion' =>  date('Y-m-d H:i:s'),
+
+
 	 	);
 	 	$this->gestion_model->update($id,$array_item);
 	 	redirect('gestion/actual/'.$id);
