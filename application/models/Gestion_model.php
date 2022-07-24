@@ -1,61 +1,113 @@
 <?php
 class Gestion_model extends CI_model {
 
-	function lista_gestiones(){
+	//Retorna todos los registros como un objeto
+	function lista_gestions(){
 		 $gestion= $this->db->get('gestion');
 		 return $gestion;
 	}
 
- 	function gestion( $id){
- 		$gestion = $this->db->query('select * from gestion where idgestion="'. $id.'"');
-		 
+
+	function lista_gestions_open(){
+		$this->db->where("idgestion_estado=2 or idgestion_estado=3");  //SOLO ESTADO INSCRIPCION OR EN EJECUCION
+		 $gestion= $this->db->get('gestion');
+		 return $gestion;
+	}
+
+
+
+
+	//Retorna todos los registros como un objeto
+	function lista_gestionsA($idgestion_estado){
+		if($idgestion_estado>0)
+		{
+		$this->db->where('idgestion_estado='.$idgestion_estado);
+		}
+	
+		 $gestion= $this->db->order_by('idgestion_estado')->get('gestion1');
+		 return $gestion;	
+	}
+
+
+
+
+  //Retorna solamente un registro de el id pasado como parame
+ 	function gestion($id){
+ 		$gestion = $this->db->query('select * from gestion where idgestion="'. $id.'" order by idgestion');
  		return $gestion;
  	}
 
- 	function save($array)
- 	{
-		$this->db->insert("gestion", $array);
+  //Retorna solamente un registro de el id pasado como parame
+ 	function lista_gestionP($id){
+ 		$gestion = $this->db->query('select * from gestionP where idgestion="'. $id.'" order by elparticipante');
+ 		return $gestion;
  	}
 
+
+
+
+
+
+  // Para guardar un registro nuevo
+	function save($array)
+ 	{
+		$this->db->trans_begin();
+		$this->db->insert("gestion", $array);
+		if($this->db->affected_rows()>0){
+				$this->db->trans_commit();
+				return true;
+		}else{
+			$this->db->trans_rollback();
+			return false;
+		}
+ 	}
+
+	// Para actualiza un registro
  	function update($id,$array_item)
  	{
  		$this->db->where('idgestion',$id);
- 		$this->db->update('gestion',$array_item);
-	}
- 
+ 		$this->db->update('gestion',$array_item);	}
+
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idgestion',$id);
-		$this->db->delete('gestion');
-    		if($this->db->affected_rows()==1)
-			$result=true;
-		else
-			$result=false;
-		return $result;
- 	}
+		$this->db->select('*');
+		$this->db->from('ascenso');
+		$this->db->where('idgestion',$id);
+		$this->db->limit(1);
+		$query = $this->db->get();
 
-
-public function get_gestion($id){
-	$condition = "idgestion =" .  $id ;
-	$this->db->select('*');
-	$this->db->from('gestion');
-	$this->db->where($condition);
-	$this->db->limit(1);
-	$query = $this->db->get();
-
-	if ($query->num_rows() == 1) {
-		return $query->result();
-	} else {
-		return false;
+		if ($query->num_rows() > 0) {
+			$this->db->where('idgestion',$id);
+			$this->db->delete('ascenso');
+			if($this->db->affected_rows()==1){
+				$this->db->where('idgestion',$id);
+				$this->db->delete('gestion');
+				if($this->db->affected_rows()==1)
+					$result=true;
+				else
+					$result=false;
+			}
+			else{
+				$result=false;
+			}
+		}else
+		{
+				$this->db->where('idgestion',$id);
+				$this->db->delete('gestion');
+				if($this->db->affected_rows()==1)
+					$result=true;
+				else
+					$result=false;
+		}
 	}
 
-}
 
 
 
 
+  // Para ir al primero
 
 	function elprimero()
 	{
@@ -65,9 +117,7 @@ public function get_gestion($id){
 			return $query->first_row('array');
 		}	
 			return array();
-
 	}
-
 
 // Para ir al último registro
 	function elultimo()
@@ -78,7 +128,6 @@ public function get_gestion($id){
 			return $query->last_row('array');
 		}	
 			return array();
-
 	}
 
 
@@ -119,15 +168,19 @@ public function get_gestion($id){
 
 
 
-	function lista_gestiones_con_inscripciones(){
-		 $this->db->select('gestion.*');
-		 $this->db->from('gestion,evento');
-		 $this->db->where('evento.idgestion=gestion.idgestion and evento.idevento_estado=2');
-		 $gestion= $this->db->get();
-		 return $gestion;
+
+	// Para moverse presentar  los emisores 
+	function participantes( $ideven)
+	{
+ 		$this->db->select('idpersona,nombres');
+		$this->db->where('idgestion="'.$ideven.'"');
+		$emisores=$this->db->get('participante1');
+		$emisores=$this->db->query('select idpersona,nombres from participante1 where idgestion="'. $ideven.'"');
+		return $emisores;
 	}
 
 
 
 
+ 
 }

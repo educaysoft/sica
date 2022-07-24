@@ -31,18 +31,38 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <!-- Page Heading -->
  <div class="row">
   <div class="col-12">
+
              <div class="col-md-12">
-                 <h3>Gestion - Listar 
-                 <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
-			  
+                 <h3>Lista de gestions 
         	</h3>
        	     </div>
+
+
+<div class="form-group row">
+    	<label class="col-md-2 col-form-label"> Estado:</label>
+	<?php
+		$options= array('--Select--');
+		foreach ($gestion_estados as $row){
+			$options[$row->idgestion_estado]= $row->nombre;
+		}
+	?>
+
+	<div class="col-md-10">
+		<?php
+     			echo form_dropdown("idgestion_estado",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_gestion()'));  
+		?>
+	</div>
+	</div>
+
 
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>ID</th>
- <th>nombre</th>
+ <th>IDgestion</th>
+ <th>Nombre</th>
+ <th>Fecha</th>
+ <th>Estado</th>
+ <th>Institucion</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
@@ -77,11 +97,31 @@ $(document).ready(function(){
 
 });
 
+
+
+
 $('#show_data').on('click','.item_ver',function(){
 
-window.location.href = "http://localhost/facae/index.php/gestion";
+	var id= $(this).data('idgestion');
+	var retorno= $(this).data('retorno');
+	window.location.href = retorno+'/'+id;
 
 });
+
+
+
+var idgestion_estado=0;
+function filtra_gestion()
+{
+
+idgestion_estado = $('select[name=idgestion_estado]').val();
+
+
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('gestion/gestion_data')?>', type: 'GET',data:{idgestion_estado:idgestion_estado}},});
+}
+
+
+
 
 
 </script>
