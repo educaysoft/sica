@@ -79,6 +79,7 @@ public function index(){
 
 		 	'idgestion' => $this->input->post('idgestion'),
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
+		 	'idrequerimiento' => $this->input->post('idrequerimiento'),
 		 	'detalle' => $this->input->post('detalle'),
 			'fechagestion' => $this->input->post('fechagestion'),
 			'fechaactualizacion' =>  date('Y-m-d H:i:s'),
