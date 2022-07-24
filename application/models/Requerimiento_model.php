@@ -54,20 +54,10 @@ class Requerimiento_model extends CI_model {
 		$this->db->trans_begin();
 		$this->db->insert("requerimiento", $array);
 		if($this->db->affected_rows()>0){
-			$idrequerimiento=$this->db->insert_id();
-			$namefile1="requerimiento-".sprintf("%d",$idrequerimiento) ;
-			$namefile2="requerimiento/detalle/".sprintf("%d",$idrequerimiento) ;
-			$this->db->insert("pagina", array("nombre"=>$namefile1,"ruta"=>$namefile2));
-			if($this->db->affected_rows()>0){
-						$this->db->where('idrequerimiento',$idrequerimiento);
-						$this->db->update('requerimiento',array('idpagina'=>$this->db->insert_id()));
-				}
 				$this->db->trans_commit();
-				die("Se guardo el requerimiento y se la pagina de detalle" );
 				return true;
 		}else{
 			$this->db->trans_rollback();
-			die("No de pudo grabar" );
 			return false;
 		}
  	}
