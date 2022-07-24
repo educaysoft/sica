@@ -16,45 +16,6 @@
 <?php echo form_hidden("idgestion")  ?>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Institución:</label>
-	<div class="col-md-10">
-	<?php
-    $options= array('--Select--');
-    foreach ($instituciones as $row){
-      $options[$row->idinstitucion]= $row->nombre;
-    }
-     echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'));  
-		?>
-	</div> 
-</div>
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Estado del gestion:</label>
-	<div class="col-md-10">
-	<?php
-    $options= array('--Select--');
-    foreach ($estadogestions as $row){
-      $options[$row->idestadogestion]= $row->nombre;
-    }
-     echo form_dropdown("idestadogestion",$options, set_select('--Select--','default_value')); 
-		?>
-	</div> 
-</div> 
-
-
-
- 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Título del gestion:</label>
-	<div class="col-md-10">
-	<?php
-
- echo form_input("detallecorto","", array("placeholder"=>"Título del gestion",'style'=>'width:500px;')); 
-		?>
-	</div> 
-</div> 
 
 
 
@@ -79,25 +40,14 @@
     
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"asunto" );    
     
- echo form_textarea("detallelargo","", $textarea_options); 
+ echo form_textarea("detalle","", $textarea_options); 
 		?>
 	</div> 
 </div> 
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Persona:</label>
-	<div class="col-md-10">
-	<?php
-	$options= array('--Select--');
-	foreach ($personas as $row){
-		$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
-	}	
- 	echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'));  
-		?>
-	</div> 
-</div> 
+ 
 
 
 
