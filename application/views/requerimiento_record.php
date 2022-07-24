@@ -51,8 +51,7 @@ if(isset($requerimiento))
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('estadorequerimiento/add', 'Requerimiento estado:') ?> </label>
      <?php 
-	print_r($estadorequerimiento);
-	die();
+	
     $options= array("NADA");
     foreach ($estadorequerimiento as $row){
 	      $options[$row->idestadorequerimiento]= $row->nombre;

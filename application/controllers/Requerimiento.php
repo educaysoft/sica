@@ -82,7 +82,7 @@ public function index(){
 			$data['requerimiento'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		  $data['cursos']= $this->curso_model->lista_cursos()->result();
-			$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
+			$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	    $data['title'] = "Actualizar Requerimiento";
 			$this->load->view('template/page_header');		
@@ -133,7 +133,7 @@ public function index(){
 	public function actual(){
 
 		$data['requerimiento'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
-		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
+		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
 	  $data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['personas'] =$this->persona_model->lista_personas($data['requerimiento']['idrequerimiento'])->result();
@@ -151,7 +151,7 @@ public function index(){
 	public function listar()
 	{
 		$data['requerimiento'] = $this->requerimiento_model->requerimiento(1)->row_array();
-		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
+		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['personas'] =$this->persona_model->lista_personas($data['requerimiento']['idrequerimiento'])->result();
 		
@@ -192,7 +192,7 @@ public function index(){
 	public function listar_personas()
 	{
 		$data['requerimiento'] = $this->requerimiento_model->requerimiento(1)->row_array();
-		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
+		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['personas'] =$this->persona_model->lista_personas($data['requerimiento']['idrequerimiento'])->result();
 		
@@ -246,7 +246,7 @@ public function index(){
 	public function reportepdf()
 	{
 		$data['requerimiento'] = $this->requerimiento_model->requerimiento($this->uri->segment(3))->row_array();
-		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
+		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		
 		$data['personas'] = $this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
@@ -292,6 +292,7 @@ public function index(){
 		  if(!empty($data))
 		  {
 			$data['estadorequerimiento']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
+			print_r($data['estadorequerimiento']);
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
 			$data['personas'] =$this->persona_model->personas($data['requerimiento']['idrequerimiento'])->result();
@@ -313,7 +314,7 @@ public function index(){
 	public function siguiente(){
 	 // $data['requerimiento_list']=$this->requerimiento_model->lista_requerimiento()->result();
 		$data['requerimiento'] = $this->requerimiento_model->siguiente($this->uri->segment(3))->row_array();
-		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
+		$data['estadorequerimiento']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
@@ -329,7 +330,7 @@ public function index(){
 	public function anterior(){
 	 // $data['requerimiento_list']=$this->requerimiento_model->lista_requerimiento()->result();
 		$data['requerimiento'] = $this->requerimiento_model->anterior($this->uri->segment(3))->row_array();
-		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimientos()->result();
+		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
