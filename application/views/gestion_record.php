@@ -75,7 +75,7 @@ echo form_input($arrdatos) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha de inicio:</label>
+    <label class="col-md-2 col-form-label"> Fecha de la gestión:</label>
 	<div class="col-md-10">
       <?php echo form_input('fechagestion',$gestion['fechagestion'],array('type'=>'date', 'placeholder'=>'fechagestion','style'=>'width:500px;')) ?>
 	</div> 

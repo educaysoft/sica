@@ -24,7 +24,7 @@ public function index(){
 //	if(isset($data['requerimiento']['idpersona']))
 //	{
 	$data['personas'] =$this->persona_model->persona($data['requerimiento']['idpersona'])->result();
-	$data['gestion'] =$this->gestion_model->gestion($data['requerimiento']['idrequerimiento'])->result();
+	$data['gestions'] =$this->gestion_model->gestion($data['requerimiento']['idrequerimiento'])->result();
 //	}else{
 //	$data['personas'] =$this->persona_model->persona(0)->result();
 //	$data['gestion'] =$this->gestion_model->gestion(0)->result();

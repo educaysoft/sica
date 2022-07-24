@@ -105,13 +105,6 @@ echo form_input($arrdatos) ?>
 
 
 
-
-
-
-
-
-
-
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Participantes ( <?php echo anchor('persona/add', 'New'); ?>):</label>
       <?php
@@ -145,7 +138,22 @@ echo form_input($arrdatos) ?>
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fechas ( <?php echo anchor('gestion/add/'.$requerimiento['idrequerimiento'], 'New'); ?>):</label>
+      <?php
+ 	$options = array();
+  	foreach ($gestions as $row){
+		$options[$row->idgestion]=$row->fechagestion." :: ". $row->detalle;
+	}
 
+	?>
+	<div class="col-md-10">
+	<?php
+	echo form_multiselect('idgestion[]',$options,(array)set_value('idgestion', ''), array('style'=>'width:500px')); 
+	?>
+
+	</div> 
+</div>
 
 
 
