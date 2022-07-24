@@ -146,32 +146,17 @@ echo form_input($arrdatos) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Detalle:</label>
+    <label class="col-md-2 col-form-label"> Detalle largo:</label>
 	<div class="col-md-10">
       <?php
 	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
-	echo form_textarea('detalle',$requerimiento['detalle'],$textarea_options);
+	echo form_textarea('detallelargo',$requerimiento['detallelargo'],$textarea_options);
 	?>
 	</div> 
 </div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('certificado/add', 'Certificado modelo:') ?> </label>
-     	<?php 
 
-	$options = array();
-  	foreach ($certificados as $row){
-		$options[$row->idcertificado]=$row->asunto;
-	}
-
-	?>
-	<div class="col-md-10">
-		<?php
-			 echo form_multiselect('idcertificado[]',$options,(array)set_value('idcertificado', ''), array('onChange="ver_certicado()"', 'style'=>'width:500px')); 
-		?>
-	</div> 
-</div>
 
 
 
