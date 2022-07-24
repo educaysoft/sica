@@ -5,7 +5,7 @@ class Gestion extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('gestion_model');
-      $this->load->model('institucion_model');
+      $this->load->model('departamento_model');
       $this->load->model('departamento_model');
 
 }
@@ -13,8 +13,7 @@ class Gestion extends CI_Controller{
 public function index(){
  if(isset($this->session->userdata['logged_in'])){
 	$data['gestion'] = $this->gestion_model->elultimo();
-	$data['estadogestion']= $this->estadogestion_model->lista_estadogestion()->result();
-	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
 //	if(isset($data['gestion']['idpersona']))
 //	{
 	$data['personas'] =$this->persona_model->persona($data['gestion']['idpersona'])->result();
@@ -42,8 +41,7 @@ public function index(){
 	public function add()
 	{
 		$data['title']="Usted esta Creando un nuevo Gestion";
-		$data['estadogestions']= $this->estadogestion_model->lista_estadogestion()->result();
-		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
 		$this->load->view('template/page_header');		
 		$this->load->view('gestion_form',$data);
@@ -57,8 +55,7 @@ public function index(){
 	{
 	 	$array_item=array(
 		 	'idgestion' => $this->input->post('idgestion'),
-		 	'idestadogestion' => $this->input->post('idestadogestion'),
-		 	'idinstitucion' => $this->input->post('idinstitucion'),
+		 	'iddepartamento' => $this->input->post('iddepartamento'),
 		 	'detallecorto' => $this->input->post('detallecorto'),
 			'fechagestion' => $this->input->post('fechagestion'),
 			'detallelargo' => $this->input->post('detallelargo'),
@@ -76,8 +73,7 @@ public function index(){
 			$data['gestion'] = $this->gestion_model->gestion($this->uri->segment(3))->row_array();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		  $data['cursos']= $this->curso_model->lista_cursos()->result();
-			$data['estadogestions']= $this->estadogestion_model->lista_estadogestion()->result();
-			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+			$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
 	    $data['title'] = "Actualizar Gestion";
 			$this->load->view('template/page_header');		
 			$this->load->view('gestion_edit',$data);
@@ -91,8 +87,7 @@ public function index(){
 		$id=$this->input->post('idgestion');
 	 	$array_item=array(
 
-		 	'idestadogestion' => $this->input->post('idestadogestion'),
-		 	'idinstitucion' => $this->input->post('idinstitucion'),
+		 	'iddepartamento' => $this->input->post('iddepartamento'),
 		 	'titulo' => $this->input->post('titulo'),
 			'fechacreacion' => $this->input->post('fechacreacion'),
 			'fechainicia' => $this->input->post('fechainicia'),
@@ -127,9 +122,8 @@ public function index(){
 	public function actual(){
 
 		$data['gestion'] = $this->gestion_model->gestion($this->uri->segment(3))->row_array();
-		$data['estadogestions']= $this->estadogestion_model->lista_estadogestion()->result();
 	  $data['cursos']= $this->curso_model->lista_cursos()->result();
-		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
 		$data['personas'] =$this->persona_model->lista_personas($data['gestion']['idgestion'])->result();
 		$data['fechagestions'] =$this->fechagestion_model->fechagestions($data['gestion']['idgestion'])->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
@@ -145,8 +139,7 @@ public function index(){
 	public function listar()
 	{
 		$data['gestion'] = $this->gestion_model->gestion(1)->row_array();
-		$data['estadogestions']= $this->estadogestion_model->lista_estadogestion()->result();
-		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
 		$data['personas'] =$this->persona_model->lista_personas($data['gestion']['idgestion'])->result();
 		
 
@@ -168,7 +161,7 @@ public function index(){
 			$data0 = $this->gestion_model->lista_gestionsA($id);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idgestion,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
+				$data[]=array($r->idgestion,$r->titulo,$r->fechainicia,$r->estado,$r->ladepartamento,
 					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('gestion/actual').'"    data-idgestion="'.$r->idgestion.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
@@ -186,8 +179,7 @@ public function index(){
 	public function listar_personas()
 	{
 		$data['gestion'] = $this->gestion_model->gestion(1)->row_array();
-		$data['estadogestions']= $this->estadogestion_model->lista_estadogestion()->result();
-		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
 		$data['personas'] =$this->persona_model->lista_personas($data['gestion']['idgestion'])->result();
 		
 
@@ -216,10 +208,10 @@ public function index(){
 		{
 		if($r->iddocumento2==null){	
 			$idtipodocu=14; //Cuando se genera el certificado
-			$data[]=array($r->idgestion,$r->titulo,$r->elpersona,$r->estado,$r->lainstitucion,
+			$data[]=array($r->idgestion,$r->titulo,$r->elpersona,$r->estado,$r->ladepartamento,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_gene" data-idtipodocu="'.$idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'"    data-idgestion="'.$r->idgestion.'"     data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'" data-idpersona="'.$r->idpersona.'"       data-elpersona="'.$r->elpersona.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"   data-posi_nomb_x="'.$r->posi_nomb_x.'"   data-posi_nomb_y="'.$r->posi_nomb_y.'"  data-ancho_x="'.$r->ancho_x.'"   data-alto_y="'.$r->alto_y.'" data-firma1_x="'.$r->firma1_x.'"   data-firma1_y="'.$r->firma1_y.'"  data-firma2_x="'.$r->firma2_x.'"   data-firma2_y="'.$r->firma2_y.'"    data-firma3_x="'.$r->firma3_x.'"   data-firma3_y="'.$r->firma3_y.'"     data-posi_fecha_x="'.$r->posi_fecha_x.'"   data-posi_fecha_y="'.$r->posi_fecha_y.'"   data-posi_codigo_x="'.$r->posi_codigo_x.'"   data-posi_codigo_y="'.$r->posi_codigo_y.'"  data-archivopdf="'.$r->archivopdf.'">gene</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'" data-archivo="'.$r->archivopdf.'"  data-iddocumento="'.$r->iddocumento.'">download</a>');
 		}else{
-			$data[]=array($r->idgestion,$r->titulo,$r->elpersona,$r->estado,$r->lainstitucion,
+			$data[]=array($r->idgestion,$r->titulo,$r->elpersona,$r->estado,$r->ladepartamento,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'" data-archivo="'.$r->archivopdf.'"  data-iddocumento="'.$r->iddocumento.'">download</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_enviar" data-idtipodocu="'.$r->idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'"    data-idgestion="'.$r->idgestion.'"     data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'" data-idpersona="'.$r->idpersona.'"       data-elpersona="'.$r->elpersona.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'"   data-archivopdf="'.$r->archivopdf.'"   data-correosubject="'.$r->correosubject.'"    data-correohead="'.$r->correohead.'"    data-correofoot="'.$r->correofoot.'">enviar</a>');		}
 
 
@@ -241,7 +233,7 @@ public function index(){
 	{
 		$data['gestion'] = $this->gestion_model->gestion($this->uri->segment(3))->row_array();
 		$data['estadogestions']= $this->estadogestion_model->lista_estadogestion()->result();
-		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
 		
 		$data['personas'] = $this->persona_model->personas($data['gestion']['idgestion'])->result();
 
@@ -265,7 +257,7 @@ public function index(){
 		  {
 
 			$data['estadogestion']= $this->estadogestion_model->lista_estadogestion()->result();
-			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+			$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
 			$data['personas'] =$this->persona_model->persona($data['gestion']['idpersona'])->result();
 			$data['title']="Gestion";
 			$this->load->view('template/page_header');		
@@ -286,7 +278,7 @@ public function index(){
 		  if(!empty($data))
 		  {
 			$data['estadogestion']= $this->estadogestion_model->lista_estadogestion()->result();
-			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+			$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
 			$data['personas'] =$this->persona_model->personas($data['gestion']['idgestion'])->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
@@ -308,7 +300,7 @@ public function index(){
 	 // $data['gestion_list']=$this->gestion_model->lista_gestion()->result();
 		$data['gestion'] = $this->gestion_model->siguiente($this->uri->segment(3))->row_array();
 		$data['estadogestion']= $this->estadogestion_model->lista_estadogestion()->result();
-		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		$data['fechagestions'] =$this->fechagestion_model->fechagestions($data['gestion']['idgestion'])->result();
@@ -324,7 +316,7 @@ public function index(){
 	 // $data['gestion_list']=$this->gestion_model->lista_gestion()->result();
 		$data['gestion'] = $this->gestion_model->anterior($this->uri->segment(3))->row_array();
 		$data['estadogestions']= $this->estadogestion_model->lista_estadogestion()->result();
-		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['personas'] =$this->persona_model->personas($data['gestion']['idgestion'])->result();
@@ -492,9 +484,9 @@ exit;
 	public function get_gestion() {
 	    $this->load->database();
 	    $this->load->helper('form');
-	    if($this->input->post('idinstitucion')) {
+	    if($this->input->post('iddepartamento')) {
 		$this->db->select('*');
-		$this->db->where(array('idinstitucion' => $this->input->post('idinstitucion'),'idestadogestion'=>2));  //SOLO ESTADO INSCRIPCION
+		$this->db->where(array('iddepartamento' => $this->input->post('iddepartamento'),'idestadogestion'=>2));  //SOLO ESTADO INSCRIPCION
 		$query = $this->db->get('gestion');
 		$data=$query->result();
 		echo json_encode($data);
@@ -506,9 +498,9 @@ exit;
 	public function get_gestion1() {
 	    $this->load->database();
 	    $this->load->helper('form');
-	    if($this->input->post('idinstitucion')) {
+	    if($this->input->post('iddepartamento')) {
 		$this->db->select('*');
-		$this->db->where(array('idinstitucion' => $this->input->post('idinstitucion')));  //SOLO ESTADO INSCRIPCION
+		$this->db->where(array('iddepartamento' => $this->input->post('iddepartamento')));  //SOLO ESTADO INSCRIPCION
 		$query = $this->db->get('gestion');
 		$data=$query->result();
 		echo json_encode($data);
