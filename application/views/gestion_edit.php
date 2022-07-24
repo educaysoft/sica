@@ -38,13 +38,7 @@ foreach ($departamentos as $row){
   </tr>
 
 
-  <tr>
-     <td>Titulo:</td>
-  <td><?php 
-	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Título" );    
-	echo form_textarea('titulo',$gestion['titulo'],$textarea_options ); 
-?></td>
-  </tr>
+  
  
 
 
