@@ -16,16 +16,7 @@
 
 <table>
 
-<tr>
-<td> Estado del gestion:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($gestion_estados as $row){
-	$options[$row->idgestion_estado]= $row->nombre;
-}
 
- echo form_dropdown("idgestion_estado",$options, $gestion['idgestion_estado']);  ?></td>
-</tr>
 
 
 <tr>
