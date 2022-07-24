@@ -20,14 +20,14 @@
 
 
 <tr>
-<td> Institución:</td>
+<td> Departamento:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
+foreach ($departamentoes as $row){
+	$options[$row->iddepartamento]= $row->nombre;
 }
 
- echo form_dropdown("idinstitucion",$options, $gestion['idinstitucion']);  ?></td>
+ echo form_dropdown("iddepartamento",$options, $gestion['iddepartamento']);  ?></td>
 </tr>
 
 
