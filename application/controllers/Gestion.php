@@ -62,7 +62,8 @@ public function index(){
 	{
 			$data['gestion'] = $this->gestion_model->gestion($this->uri->segment(3))->row_array();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-	    $data['title'] = "Actualizar Gestion";
+			$data['requerimientos'] = $this->requerimiento_model->lista_requerimientos()->result();
+	    		$data['title'] = "Actualizar Gestion";
 			$this->load->view('template/page_header');		
 			$this->load->view('gestion_edit',$data);
 			$this->load->view('template/page_footer');
