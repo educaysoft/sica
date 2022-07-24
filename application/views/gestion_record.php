@@ -48,38 +48,23 @@ if(isset($gestion))
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('estadogestion/add', 'Gestion estado:') ?> </label>
-     <?php 
-	
-    $options= array("NADA");
-    foreach ($estadogestion as $row){
-	      $options[$row->idestadogestion]= $row->nombre;
-    }
-	?>
-	<div class="col-md-10">
-		<?php
-    $arrdatos=array('name'=>'idestadogestion','value'=>$options[$gestion['idestadogestion']],"disabled"=>"disabled", "style"=>"width:500px");
-echo form_input($arrdatos) ?>
 
-	</div> 
-</div>
 
 
 
 
 
  <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('institucion/add', 'Institucion:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('departamento/add', 'Departamento:') ?> </label>
      <?php 
     $options= array("NADA");
-    foreach ($instituciones as $row){
-	      $options[$row->idinstitucion]= $row->nombre;
+    foreach ($departamentoes as $row){
+	      $options[$row->iddepartamento]= $row->nombre;
     }
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'idinstitucion','value'=>$options[$gestion['idinstitucion']],"disabled"=>"disabled", "style"=>"width:500px");
+    $arrdatos=array('name'=>'iddepartamento','value'=>$options[$gestion['iddepartamento']],"disabled"=>"disabled", "style"=>"width:500px");
 echo form_input($arrdatos) ?>
 	</div> 
 </div>
