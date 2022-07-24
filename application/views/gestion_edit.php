@@ -76,7 +76,7 @@ echo form_textarea('detalle',$gestion['detalle'],$textarea_options ); ?></td>
 <td><?php
 $options= array('--Select--');
 foreach ($requerimientos as $row){
-	$options[$row->idrequerimiento]= $row->nombre;
+	$options[$row->idrequerimiento]= $row->detallecorto;
 }
 
  echo form_dropdown("idrequerimiento",$options, $gestion['idrequerimiento']);  ?></td>
