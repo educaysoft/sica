@@ -49,9 +49,8 @@ public function index(){
 	{
 		$data['title']="Usted esta Creando un nuevo Requerimiento";
 		$data['estadorequerimientos']= $this->estadorequerimiento_model->lista_estadorequerimiento()->result();
-		$data['cursos']= $this->curso_model->lista_cursos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['paginas']= $this->pagina_model->lista_paginas()->result();
+  		$data['personas']= $this->persona_model->lista_personas()->result();
 		$this->load->view('template/page_header');		
 		$this->load->view('requerimiento_form',$data);
 		$this->load->view('template/page_footer');
