@@ -33,7 +33,7 @@ class Gestion_model extends CI_model {
 
   //Retorna solamente un registro de el id pasado como parame
  	function gestion($id){
- 		$gestion = $this->db->query('select * from gestion where idgestion="'. $id.'" order by idgestion');
+ 		$gestion = $this->db->query('select * from gestion where idrequerimiento="'. $id.'" order by fechagestion');
  		return $gestion;
  	}
 
