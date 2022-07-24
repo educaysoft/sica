@@ -58,7 +58,7 @@ if(isset($gestion))
     <label class="col-md-2 col-form-label"> <?php echo anchor('departamento/add', 'Departamento:') ?> </label>
      <?php 
     $options= array("NADA");
-    foreach ($departamentoes as $row){
+    foreach ($departamentos as $row){
 	      $options[$row->iddepartamento]= $row->nombre;
     }
 	?>
