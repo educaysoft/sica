@@ -48,36 +48,48 @@ foreach ($personas as $row){
 
 echo form_input('idpersona',$options[$ingregre['idpersona']],array("disabled"=>"disabled")) ?></td>
   </tr>
- 
+
+
+<tr>
+     <td>Fecha:</td>
+     <td><?php echo form_input('fechaingregre',$ingregre['fechaingregre'],array("disabled"=>"disabled",'placeholder'=>'Numero')) ?></td>
+  </tr>
+
  
   <tr>
-     <td>Ingregre:</td>
-     <td><?php echo form_input('numero',$ingregre['numero'],array("disabled"=>"disabled",'placeholder'=>'Numero')) ?></td>
+     <td>Valor:</td>
+     <td><?php echo form_input('valor',$ingregre['valor'],array("disabled"=>"disabled",'placeholder'=>'Numero')) ?></td>
   </tr>
 
 
   
 <tr>
-     <td>Operadora:</td>
+     <td>Institucion:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($operadoras as $row){
-	$options[$row->idoperadora]= $row->nombre;
+foreach ($instituciones as $row){
+	$options[$row->idinstitucion]= $row->nombre;
 }
 
-echo form_input('idoperadora',$options[$ingregre['idoperadora']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idinstitucion',$options[$ingregre['idinstitucion']],array("disabled"=>"disabled")) ?></td>
   </tr>
 
 
 <tr>
-     <td>Estado del Telfono:</td>
+     <td>Tipo Ingr-Egres:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($ingregre_estados as $row){
-	$options[$row->idingregre_estado]= $row->nombre;
+foreach ($tipoingregres as $row){
+	$options[$row->idtipoingregre]= $row->nombre;
 }
 
-echo form_input('idingregre_estado',$options[$ingregre['idingregre_estado']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idtipoingregre',$options[$ingregre['idtipoingregre']],array("disabled"=>"disabled")) ?></td>
+  </tr>
+
+
+<tr>
+     <td>Detalle:</td>
+     <td><?php echo form_input('detalle',$ingregre['detalle'],array("disabled"=>"disabled",'placeholder'=>'Numero')) ?></td>
   </tr>
 
 
