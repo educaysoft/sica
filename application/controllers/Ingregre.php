@@ -6,7 +6,7 @@ class Ingregre extends CI_Controller{
       parent::__construct();
       $this->load->model('ingregre_model');
   	  $this->load->model('persona_model');
-  	  $this->load->model('operadora_model');
+  	  $this->load->model('institucion_model');
   	  $this->load->model('tipoingregre_model');
 }
 
@@ -16,7 +16,7 @@ public function index(){
 			
 		$data['ingregre'] = $this->ingregre_model->elprimero();
   		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
+  		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   		$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
 			
 		$data['title']="Lista de ingregrees";
@@ -39,7 +39,7 @@ public function actual(){
 
 	$data['ingregre'] = $this->ingregre_model->ingregre($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
+  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
 	$data['title']="Modulo de Ingregres";
 	$this->load->view('template/page_header');		
@@ -60,7 +60,7 @@ public function actual(){
 	public function add()
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
+  		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   		$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
 		$data['title']="Nueva Ingregre";
 	 	$this->load->view('template/page_header');		
@@ -92,7 +92,7 @@ public function edit()
 {
 	 	$data['ingregre'] = $this->ingregre_model->ingregre($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
+  		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   		$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
  	 	$data['title'] = "Actualizar Ingregre";
  	 	$this->load->view('template/page_header');		
@@ -178,7 +178,7 @@ public function elprimero()
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
+  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
     $data['title']="Ingregre";
     $this->load->view('template/page_header');		
@@ -197,7 +197,7 @@ public function elultimo()
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
+  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
     $data['title']="Ingregre";
   
@@ -216,7 +216,7 @@ public function siguiente(){
  // $data['ingregre_list']=$this->ingregre_model->lista_ingregre()->result();
 	$data['ingregre'] = $this->ingregre_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
+  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
   $data['title']="Ingregre";
 	$this->load->view('template/page_header');		
@@ -228,7 +228,7 @@ public function anterior(){
  // $data['ingregre_list']=$this->ingregre_model->lista_ingregre()->result();
 	$data['ingregre'] = $this->ingregre_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
+  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
   $data['title']="Ingregre";
 	$this->load->view('template/page_header');		

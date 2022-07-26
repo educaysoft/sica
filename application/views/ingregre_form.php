@@ -34,7 +34,7 @@ foreach ($personas as $row){
 <td><?php 
 
 $options= array('--Select--');
-foreach ($institucions as $row){
+foreach ($instituciones as $row){
 	$options[$row->idinstitucion]= $row->nombre;
 }
 
