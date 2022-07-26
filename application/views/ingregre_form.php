@@ -20,7 +20,7 @@ foreach ($personas as $row){
 
 <tr>
 <td> Fecha: </td>
-<td><?php echo form_input("fechaingregre","", array("type"=>"date","placeholder"=>"fecha del ingregre"))  ?></td>
+<td><?php echo form_input(array("name"=>"fechaingregre","id"=>"fechaingregre","type"=>"date","placeholder"=>"fecha del ingregre"));  ?></td>
 </tr>
 
 
