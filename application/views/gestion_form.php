@@ -31,7 +31,7 @@
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha de inicio:</label>
+    <label class="col-md-2 col-form-label"> Fecha de gestion:</label>
 	<div class="col-md-10">
 	<?php
  echo form_input(array("name"=>"fechagestion","id"=>"fechagestion","type"=>"date"));  

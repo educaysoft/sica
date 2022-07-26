@@ -4,15 +4,15 @@ class Tipoingregre extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('estadorequerimiento_model');
+      $this->load->model('tipoingregre_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['estadorequerimiento']=$this->estadorequerimiento_model->elultimo();
-		$data['title']="Lista de estadorequerimientoes";
+		$data['tipoingregre']=$this->tipoingregre_model->elultimo();
+		$data['title']="Lista de tipoingregrees";
 		$this->load->view('template/page_header');
-		$this->load->view('estadorequerimiento_record',$data);
+		$this->load->view('tipoingregre_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva estadorequerimiento";
+		$data['title']="Nueva tipoingregre";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('estadorequerimiento_form',$data);
+	 	$this->load->view('tipoingregre_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -36,18 +36,18 @@ public function  save()
 	 	$array_item=array(
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->estadorequerimiento_model->save($array_item);
-	 	redirect('estadorequerimiento');
+	 	$this->tipoingregre_model->save($array_item);
+	 	redirect('tipoingregre');
  	}
 
 
 
 public function edit()
 {
-	 	$data['estadorequerimiento'] = $this->estadorequerimiento_model->estadorequerimiento($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar estadorequerimiento";
+	 	$data['tipoingregre'] = $this->tipoingregre_model->tipoingregre($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar tipoingregre";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('estadorequerimiento_edit',$data);
+ 	 	$this->load->view('tipoingregre_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -55,21 +55,21 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idestadorequerimiento');
+		$id=$this->input->post('idtipoingregre');
 	 	$array_item=array(
 		 	
-		 	'idestadorequerimiento' => $this->input->post('idestadorequerimiento'),
+		 	'idtipoingregre' => $this->input->post('idtipoingregre'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->estadorequerimiento_model->update($id,$array_item);
-	 	redirect('estadorequerimiento');
+	 	$this->tipoingregre_model->update($id,$array_item);
+	 	redirect('tipoingregre');
  	}
 
 
  	public function delete()
  	{
- 		$this->estadorequerimiento_model->delete($this->uri->segment(3));
-	 	redirect('estadorequerimiento/elultimo');
+ 		$this->tipoingregre_model->delete($this->uri->segment(3));
+	 	redirect('tipoingregre/elultimo');
  	}
 
 
@@ -78,24 +78,24 @@ public function listar()
 	
   $data['title']="Tipoingregre";
 	$this->load->view('template/page_header');		
-  $this->load->view('estadorequerimiento_list',$data);
+  $this->load->view('tipoingregre_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function estadorequerimiento_data()
+function tipoingregre_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->estadorequerimiento_model->lista_estadorequerimientoes();
+	 	$data0 = $this->tipoingregre_model->lista_tipoingregrees();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idestadorequerimiento,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idestadorequerimiento="'.$r->idestadorequerimiento.'">Ver</a>');
+			$data[]=array($r->idtipoingregre,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipoingregre="'.$r->idtipoingregre.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -118,12 +118,12 @@ function estadorequerimiento_data()
 
 public function elprimero()
 {
-	$data['estadorequerimiento'] = $this->estadorequerimiento_model->elprimero();
+	$data['tipoingregre'] = $this->tipoingregre_model->elprimero();
   if(!empty($data))
   {
     $data['title']="Tipoingregre";
     $this->load->view('template/page_header');		
-    $this->load->view('estadorequerimiento_record',$data);
+    $this->load->view('tipoingregre_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -134,13 +134,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['estadorequerimiento'] = $this->estadorequerimiento_model->elultimo();
+	$data['tipoingregre'] = $this->tipoingregre_model->elultimo();
   if(!empty($data))
   {
     $data['title']="Tipoingregre";
   
     $this->load->view('template/page_header');		
-    $this->load->view('estadorequerimiento_record',$data);
+    $this->load->view('tipoingregre_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -151,20 +151,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['estadorequerimiento_list']=$this->estadorequerimiento_model->lista_estadorequerimiento()->result();
-	$data['estadorequerimiento'] = $this->estadorequerimiento_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['tipoingregre_list']=$this->tipoingregre_model->lista_tipoingregre()->result();
+	$data['tipoingregre'] = $this->tipoingregre_model->siguiente($this->uri->segment(3))->row_array();
   $data['title']="Tipoingregre";
 	$this->load->view('template/page_header');		
-  $this->load->view('estadorequerimiento_record',$data);
+  $this->load->view('tipoingregre_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['estadorequerimiento_list']=$this->estadorequerimiento_model->lista_estadorequerimiento()->result();
-	$data['estadorequerimiento'] = $this->estadorequerimiento_model->anterior($this->uri->segment(3))->row_array();
+ // $data['tipoingregre_list']=$this->tipoingregre_model->lista_tipoingregre()->result();
+	$data['tipoingregre'] = $this->tipoingregre_model->anterior($this->uri->segment(3))->row_array();
   $data['title']="Tipoingregre";
 	$this->load->view('template/page_header');		
-  $this->load->view('estadorequerimiento_record',$data);
+  $this->load->view('tipoingregre_record',$data);
 	$this->load->view('template/page_footer');
 }
 
