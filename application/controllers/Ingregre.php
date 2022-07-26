@@ -7,7 +7,7 @@ class Ingregre extends CI_Controller{
       $this->load->model('ingregre_model');
   	  $this->load->model('persona_model');
   	  $this->load->model('operadora_model');
-  	  $this->load->model('ingregre_estado_model');
+  	  $this->load->model('tipoingregre_model');
 }
 
 public function index(){
@@ -17,7 +17,7 @@ public function index(){
 		$data['ingregre'] = $this->ingregre_model->elprimero();
   		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
-  		$data['ingregre_estados']= $this->ingregre_estado_model->lista_ingregre_estado()->result();
+  		$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
 			
 		$data['title']="Lista de ingregrees";
 		$this->load->view('template/page_header');
@@ -40,7 +40,7 @@ public function actual(){
 	$data['ingregre'] = $this->ingregre_model->ingregre($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
-  	$data['ingregre_estados']= $this->ingregre_estado_model->lista_ingregre_estado()->result();
+  	$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
 	$data['title']="Modulo de Ingregres";
 	$this->load->view('template/page_header');		
 	$this->load->view('ingregre_record',$data);
@@ -61,7 +61,7 @@ public function actual(){
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
-  		$data['ingregre_estados']= $this->ingregre_estado_model->lista_ingregre_estado()->result();
+  		$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
 		$data['title']="Nueva Ingregre";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('ingregre_form',$data);
@@ -73,10 +73,12 @@ public function actual(){
 	{
 	 	$array_item=array(
 		 	
-		 	'numero' => $this->input->post('numero'),
+		 	'fechaingregre' => $this->input->post('fechaingregre'),
+		 	'valor' => $this->input->post('valor'),
+		 	'detalle' => $this->input->post('detalle'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idoperadora' => $this->input->post('idoperadora'),
-			'idingregre_estado' => $this->input->post('idingregre_estado'),
+			'idinstitucion' => $this->input->post('idinstitucion'),
+			'idtipoingregre' => $this->input->post('idtipoingregre'),
 	 	);
 	 	$this->ingregre_model->save($array_item);
 	 //	redirect('ingregre');
@@ -91,7 +93,7 @@ public function edit()
 	 	$data['ingregre'] = $this->ingregre_model->ingregre($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
-  		$data['ingregre_estados']= $this->ingregre_estado_model->lista_ingregre_estado()->result();
+  		$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
  	 	$data['title'] = "Actualizar Ingregre";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('ingregre_edit',$data);
@@ -106,10 +108,13 @@ public function edit()
 	 	$array_item=array(
 		 	
 		 	'idingregre' => $this->input->post('idingregre'),
-		 	'numero' => $this->input->post('numero'),
+			
+		 	'fechaingregre' => $this->input->post('fechaingregre'),
+		 	'valor' => $this->input->post('valor'),
+		 	'detalle' => $this->input->post('detalle'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idoperadora' => $this->input->post('idoperadora'),
-			'idingregre_estado' => $this->input->post('idingregre_estado'),
+			'idinstitucion' => $this->input->post('idinstitucion'),
+			'idtipoingregre' => $this->input->post('idtipoingregre'),
 	 	);
 	 	$this->ingregre_model->update($id,$array_item);
 	 	//redirect('ingregre');
@@ -174,7 +179,7 @@ public function elprimero()
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
-  	$data['ingregre_estados']= $this->ingregre_estado_model->lista_ingregre_estado()->result();
+  	$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
     $data['title']="Ingregre";
     $this->load->view('template/page_header');		
     $this->load->view('ingregre_record',$data);
@@ -193,7 +198,7 @@ public function elultimo()
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
-  	$data['ingregre_estados']= $this->ingregre_estado_model->lista_ingregre_estado()->result();
+  	$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
     $data['title']="Ingregre";
   
     $this->load->view('template/page_header');		
@@ -212,7 +217,7 @@ public function siguiente(){
 	$data['ingregre'] = $this->ingregre_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
-  	$data['ingregre_estados']= $this->ingregre_estado_model->lista_ingregre_estado()->result();
+  	$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
   $data['title']="Ingregre";
 	$this->load->view('template/page_header');		
   $this->load->view('ingregre_record',$data);
@@ -224,7 +229,7 @@ public function anterior(){
 	$data['ingregre'] = $this->ingregre_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
-  	$data['ingregre_estados']= $this->ingregre_estado_model->lista_ingregre_estado()->result();
+  	$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
   $data['title']="Ingregre";
 	$this->load->view('template/page_header');		
   $this->load->view('ingregre_record',$data);
