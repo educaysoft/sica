@@ -20,7 +20,7 @@ foreach ($personas as $row){
 
 <tr>
 <td> Fecha: </td>
-<td><?php echo form_input("fechaingregre","", array("placeholder"=>"fecha del ingregre"))  ?></td>
+<td><?php echo form_input("fechaingregre","", array("type"=>"date","placeholder"=>"fecha del ingregre"))  ?></td>
 </tr>
 
 
@@ -56,7 +56,14 @@ foreach ($tipoingregres as $row){
 
 <tr>
 <td> Detalle: </td>
-<td><?php echo form_input("detalle","", array("placeholder"=>"detalle del ingreso o egreso"))  ?></td>
+
+<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle del ingreso o egreso" );    
+?>
+
+ <td><?php echo form_textarea("detalle","", $textarea_options); ?></td>
+
+
 </tr>
 
 
