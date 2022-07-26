@@ -19,32 +19,44 @@ foreach ($personas as $row){
 
 
 <tr>
-<td> Ingregre: </td>
-<td><?php echo form_input("numero","", array("placeholder"=>"Numero del ingregre"))  ?></td>
+<td> Fecha: </td>
+<td><?php echo form_input("fechaingregre","", array("placeholder"=>"fecha del ingregre"))  ?></td>
+</tr>
+
+
+<tr>
+<td> valor: </td>
+<td><?php echo form_input("valor","", array("placeholder"=>"valor del ingregre"))  ?></td>
 </tr>
 
 <tr>
-<td> Operadora: </td>
+<td> Institucion: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($operadoras as $row){
-	$options[$row->idoperadora]= $row->nombre;
+foreach ($institucions as $row){
+	$options[$row->idinstitucion]= $row->nombre;
 }
 
- echo form_dropdown("idoperadora",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 <tr>
-<td> Estado: </td>
+<td> Tipo Ingr-Egre: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($ingregre_estados as $row){
-	$options[$row->idingregre_estado]= $row->nombre;
+foreach ($tipoingregres as $row){
+	$options[$row->idtipoingregre]= $row->nombre;
 }
 
- echo form_dropdown("idingregre_estado",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idtipoingregre",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
+<tr>
+<td> Detalle: </td>
+<td><?php echo form_input("detalle","", array("placeholder"=>"detalle del ingreso o egreso"))  ?></td>
 </tr>
 
 
