@@ -41,7 +41,7 @@ if(isset($_GET['inicio'])){
        $inicio=$_GET['inicio'];
        $fin=$_GET['fin'];
 
-	$arhivo=base_url()."csv/Armada04.csv";
+	$arhivo=base_url()."csv/Armada05.csv";
 
 	$csvFile = file($arhivo);
 	$data=[];
@@ -87,7 +87,7 @@ if(isset($_GET['inicio'])){
 			$unicos[]=$cedula2;
        			if($i>$inicio){
 				echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['apellidos']." - ".$movil2."<br>";	 
-    				echo "<script> save_masive(`".$row['correo']."`,`".$cedula2."`,`".$row['nombres']."`,`".$row['apellidos']."`,`".$movil2."`); </script>";
+    	//			echo "<script> save_masive(`".$row['correo']."`,`".$cedula2."`,`".$row['nombres']."`,`".$row['apellidos']."`,`".$movil2."`); </script>";
 
 
 				sleep(10);
