@@ -8,6 +8,7 @@ parent::__construct();
 
 // Load database
 	$this->load->model('login_model');
+	$this->load->model('persona_model');
 	$this->load->model('perfil_model');
 	$this->load->model('acceso_model');
 	$this->load->model('modulo_model');
