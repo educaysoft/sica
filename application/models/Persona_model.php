@@ -32,8 +32,6 @@ class Persona_model extends CI_model {
 
 	function existe( $cedula){
 		$condition = "cedula =" . "'" . $cedula . "'";
-		echo $condition;
-		die();
 		$this->db->select('*');
 		$this->db->from('persona');
 		$this->db->where($condition);
