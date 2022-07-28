@@ -12,8 +12,6 @@
         data: {password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion},
         method: 'GET',
 	async : false,
-        dataType : 'json',
-	crossDomain:  true,
         success: function(data){
         var html =JSON.parse(data);
         var i;
