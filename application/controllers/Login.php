@@ -166,6 +166,9 @@ public function new_user_registration() {
 // Validate and store registration data in database
 public function carga_masiva_save() {
 
+	if($this->persona_model->existe($this->input->get('cedula')))
+	{
+	 
             $elevento= $this->evento_model->evento($this->input->get('idevento'))->row_array();
             $lapagina= $this->pagina_model->pagina($elevento['idpagina'])->row_array();
 
@@ -201,7 +204,13 @@ public function carga_masiva_save() {
 		echo json_encode(array('resultado'=>'TRUE'));
           } else {
 		echo json_encode(array('resultado'=>'FALSE'));
-          }
+	  }
+	}else{
+
+		echo json_encode(array('resultado'=>'FALSE'));
+
+	}
+
 }
 
 

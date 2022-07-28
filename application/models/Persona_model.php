@@ -30,6 +30,24 @@ class Persona_model extends CI_model {
 		return $persona;
 	}
 
+	function existe( $cedula){
+		$condition = "cedula =" . "'" . $array_persona['cedula'] . "'";
+		$this->db->select('*');
+		$this->db->from('persona');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+				return false;
+		}else{
+				return true;
+		}
+	}
+
+
+
+
+
 	function save($array_persona,$array_correo,$array_telefono)
 	{
 	   $this->db->trans_begin();

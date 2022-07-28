@@ -15,9 +15,11 @@
         dataType : 'json',
 	crossDomain:  true,
         success: function(data){
-        var html = '';
+        var html =JSON.parse(data);
         var i;
-	document.write(data);
+	
+	document.write(html.resultado);
+
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
@@ -87,7 +89,7 @@ if(isset($_GET['inicio'])){
 			$unicos[]=$cedula2;
        			if($i>$inicio){
 				echo $row['correo']." - ".$cedula2." - ".$row['nombres']." - ".$row['apellidos']." - ".$movil2."<br>";	 
-    	//			echo "<script> save_masive(`".$row['correo']."`,`".$cedula2."`,`".$row['nombres']."`,`".$row['apellidos']."`,`".$movil2."`); </script>";
+    				echo "<script> save_masive(`".$row['correo']."`,`".$cedula2."`,`".$row['nombres']."`,`".$row['apellidos']."`,`".$movil2."`); </script>";
 
 
 		//		sleep(10);
