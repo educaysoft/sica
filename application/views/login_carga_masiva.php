@@ -90,7 +90,7 @@ if(isset($_GET['inicio'])){
     	//			echo "<script> save_masive(`".$row['correo']."`,`".$cedula2."`,`".$row['nombres']."`,`".$row['apellidos']."`,`".$movil2."`); </script>";
 
 
-				sleep(10);
+		//		sleep(10);
        			}
 			$i=$i+1;
 		}
