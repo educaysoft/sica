@@ -118,7 +118,8 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	$pdf->Text($realposix,$posi_nomb_y,utf8_decode($participante));
 
 	//write the date of de certificaod
-	$pdf->SetFont('Helvetica','B',15);
+//	$pdf->SetFont('Helvetica','B',15);
+	$pdf->SetFont('Arial','B',15);
 	if($posi_codigo_x==0)
 	{
 		$pdf->SetTextColor(0, 0,0);
