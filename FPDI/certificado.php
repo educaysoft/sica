@@ -105,8 +105,13 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	$pdf->Text($realposix,$posi_codigo_y,$codigo);
 
 	// now write some text above the imported page
-	$pdf->SetFont('Helvetica','B',20);
-	$pdf->SetTextColor(0, 0,255);
+//	$pdf->SetFont('Helvetica','B',20);
+//	$pdf->SetTextColor(0, 0,255);
+
+
+	$pdf->SetFont('Arial','B',20);
+	$pdf->SetTextColor(0, 0,0);
+
 	$pdf->SetXY($pos_nomb_x,$posi_nomb_y);
 	$espacio_impresion=$posif;  //-$posix;
 	$realposix=$posi_nomb_x+($espacio_impresion/2-($pdf->GetStringWidth($participante)/2));
