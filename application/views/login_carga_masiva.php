@@ -3,7 +3,7 @@
 
  async function save_masive(correo,cedula,nombres,apellidos,telefono) {
 	document.write("---- entro --- ");
-	var idevento = 31;
+	var idevento = 36;
 	var idinstitucion=1;
 	var email=correo;
 	var password=cedula;
@@ -41,7 +41,7 @@ if(isset($_GET['inicio'])){
        $inicio=$_GET['inicio'];
        $fin=$_GET['fin'];
 
-	$arhivo=base_url()."csv/Armada05.csv";
+	$arhivo=base_url()."csv/Alencastro01.csv";
 
 	$csvFile = file($arhivo);
 	$data=[];
