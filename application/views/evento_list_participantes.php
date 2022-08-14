@@ -118,7 +118,7 @@ $('#show_data').on('click','.item_enviar',function(){
 
         var archivo="";
 	var iddocumento= $(this).data('iddocumento2');
-	alert(iddocumento);
+//	alert(iddocumento);
       $.ajax({
         url: "<?php echo site_url('documento/get_documento') ?>",
 	  method: 'POST',
@@ -257,8 +257,8 @@ var filename="";
 
 if(iddocumento2==0)
 {
-	let confirmar = confirm("Este certificado no se ha generado ¿Quiere generar?");
-	if(confirmar){
+//	let confirmar = confirm("Este certificado no se ha generado ¿Quiere generar?");
+//	if(confirmar){
    $.ajax({
         url: "<?php echo site_url('documento/save') ?>",
         data: {iddocumento:iddocumento,idtipodocu:idtipodocu,archivopdf:archivopdf,asunto:asunto,fechaelaboracion:fechaelaboracion,idordenador:idordenador,iddirectorio:iddirectorio,iddocumento_estado:iddocumento_estado,idpersona:idpersona},
@@ -271,58 +271,42 @@ if(iddocumento2==0)
  	archivopdf2= data.archivopdf;	
 	if(iddocumento>0){
 
-	alert("Generando el certificado del participante en un archivo pdf");	
+//	alert("Generando el certificado del participante en un archivo pdf");	
 	
   	var formData = new FormData();
 	var participante=elparticipante;
 	var modelo=archivopdf;
 	var archivo=archivopdf2;
-  
+	
+	formData.append("asunto", asunto);
+	formData.append("participante", participante);
+    	formData.append("modelo", modelo);
+    	formData.append("maquina", maquina);
+    	formData.append("ruta", ruta);
+    	formData.append("archivo", archivo);
 
-//	url= "http://"+maquina+"/FPDI/certificado.php?asunto='"+asunto+"'&participante='"+elparticipante+"'&maquina='"+maquina+"'&ruta='"+ruta+"'&modelo='"+archivopdf+"'&archivo='"+archivopdf2+"'";
+    	formData.append("ancho_x", ancho_x);
+    	formData.append("alto_y", alto_y);
 
+    	formData.append("posi_nomb_x", posi_nomb_x);
+    	formData.append("posi_nomb_y", posi_nomb_y);
 
-//
-    formData.append("asunto", asunto);
-    formData.append("participante", participante);
-    formData.append("modelo", modelo);
-    formData.append("maquina", maquina);
-    formData.append("ruta", ruta);
-    formData.append("archivo", archivo);
+    	formData.append("posi_codigo_x", posi_codigo_x);
+    	formData.append("posi_codigo_y", posi_codigo_y);
 
+    	formData.append("posi_fecha_x", posi_fecha_x);
+    	formData.append("posi_fecha_y", posi_fecha_y);
 
-    formData.append("ancho_x", ancho_x);
-    formData.append("alto_y", alto_y);
+    	formData.append("firma1_x", firma1_x);
+    	formData.append("firma1_y", firma1_y);
 
+    	formData.append("firma2_x", firma2_x);
+    	formData.append("firma2_y", firma2_y);
 
-    formData.append("posi_nomb_x", posi_nomb_x);
-    formData.append("posi_nomb_y", posi_nomb_y);
+    	formData.append("firma3_x", firma3_x);
+    	formData.append("firma3_y", firma3_y);
 
-    formData.append("posi_codigo_x", posi_codigo_x);
-    formData.append("posi_codigo_y", posi_codigo_y);
-
-    formData.append("posi_fecha_x", posi_fecha_x);
-    formData.append("posi_fecha_y", posi_fecha_y);
-
-
-
-
-    formData.append("firma1_x", firma1_x);
-    formData.append("firma1_y", firma1_y);
-
-
-    formData.append("firma2_x", firma2_x);
-    formData.append("firma2_y", firma2_y);
-
-
-    formData.append("firma3_x", firma3_x);
-    formData.append("firma3_y", firma3_y);
-
- 
-
-    formData.append("fecha", fechaelaboracion);
-
-
+    	formData.append("fecha", fechaelaboracion);
 
 	url= "https://"+maquina+"/FPDI/certificado.php";
 	var xhttp = new XMLHttpRequest();
@@ -358,7 +342,7 @@ if(iddocumento2==0)
 
 	if(iddocumento2>0)
 	{
-		alert("asignado el documento a participante");
+//		alert("asignado el documento a participante");
 	  $.ajax({
         	url: "<?php echo site_url('participante/save_edit2') ?>",
 		data: {idparticipante:idparticipante,idevento:idevento,iddocumento:iddocumento,idpersona:idpersona},
@@ -388,7 +372,7 @@ if(iddocumento2==0)
 	    })
 	}
 
-	}
+	//}
 }else{
 
 	let confirmar = confirm("Este certificado ya esta generado ¿Desea verlo?");

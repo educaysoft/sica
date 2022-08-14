@@ -115,7 +115,7 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	$pdf->SetXY($pos_nomb_x,$posi_nomb_y);
 	$espacio_impresion=$posif;  //-$posix;
 	$realposix=$posi_nomb_x+($espacio_impresion/2-($pdf->GetStringWidth($participante)/2));
-	$pdf->Text($realposix,$posi_nomb_y,utf8_decode(strtoupper($participante)));
+	$pdf->Text($realposix,$posi_nomb_y,utf8_decode(mb_strtoupper($participante,'utf-8')));
 
 	//write the date of de certificaod
 //	$pdf->SetFont('Helvetica','B',15);
