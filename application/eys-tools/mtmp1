@@ -1,34 +1,33 @@
 <?php
-class Tipoingregre_model extends CI_model {
+class Tipoevento_model extends CI_model {
 
-	function lista_estadorequerimiento(){
-		 $estadorequerimiento= $this->db->get('estadorequerimiento');
-		 return $estadorequerimiento;
+	function lista_evento_estados(){
+		 $evento_estado= $this->db->get('evento_estado');
+		 return $evento_estado;
 	}
 
- 	function estadorequerimiento( $id){
- 		$estadorequerimiento = $this->db->query('select * from estadorequerimiento where idestadorequerimiento="'. $id.'"');
-		 
- 		return $estadorequerimiento;
+ 	function evento_estado( $id){
+ 		$evento_estado = $this->db->query('select * from evento_estado where idevento_estado="'. $id.'"');
+ 		return $evento_estado;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("estadorequerimiento", $array);
+		$this->db->insert("evento_estado", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idestadorequerimiento',$id);
- 		$this->db->update('estadorequerimiento',$array_item);
+ 		$this->db->where('idevento_estado',$id);
+ 		$this->db->update('evento_estado',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idestadorequerimiento',$id);
-		$this->db->delete('estadorequerimiento');
+ 		$this->db->where('idevento_estado',$id);
+		$this->db->delete('evento_estado');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -37,29 +36,9 @@ class Tipoingregre_model extends CI_model {
  	}
 
 
-public function get_estadorequerimiento($id){
-	$condition = "idestadorequerimiento =" .  $id ;
-	$this->db->select('*');
-	$this->db->from('estadorequerimiento');
-	$this->db->where($condition);
-	$this->db->limit(1);
-	$query = $this->db->get();
-
-	if ($query->num_rows() == 1) {
-		return $query->result();
-	} else {
-		return false;
-	}
-
-}
-
-
-
-
-
 	function elprimero()
 	{
-		$query=$this->db->order_by("idestadorequerimiento")->get('estadorequerimiento');
+		$query=$this->db->order_by("idevento_estado")->get('evento_estado');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -72,7 +51,7 @@ public function get_estadorequerimiento($id){
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idestadorequerimiento")->get('estadorequerimiento');
+		$query=$this->db->order_by("idevento_estado")->get('evento_estado');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -84,48 +63,40 @@ public function get_estadorequerimiento($id){
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$estadorequerimiento = $this->db->select("idestadorequerimiento")->order_by("idestadorequerimiento")->get('estadorequerimiento')->result_array();
-		$arr=array("idestadorequerimiento"=>$id);
-		$clave=array_search($arr,$estadorequerimiento);
-	   if(array_key_exists($clave+1,$estadorequerimiento))
+ 		$evento_estado = $this->db->select("idevento_estado")->order_by("idevento_estado")->get('evento_estado')->result_array();
+		$arr=array("idevento_estado"=>$id);
+		$clave=array_search($arr,$evento_estado);
+	   if(array_key_exists($clave+1,$evento_estado))
 		 {
 
- 		$estadorequerimiento = $this->db->query('select * from estadorequerimiento where idestadorequerimiento="'. $estadorequerimiento[$clave+1]["idestadorequerimiento"].'"');
+ 		$evento_estado = $this->db->query('select * from evento_estado where idevento_estado="'. $evento_estado[$clave+1]["idevento_estado"].'"');
 		 }else{
 
- 		$estadorequerimiento = $this->db->query('select * from estadorequerimiento where idestadorequerimiento="'. $id.'"');
+ 		$evento_estado = $this->db->query('select * from evento_estado where idevento_estado="'. $id.'"');
 		 }
 		 	
- 		return $estadorequerimiento;
+ 		return $evento_estado;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$estadorequerimiento = $this->db->select("idestadorequerimiento")->order_by("idestadorequerimiento")->get('estadorequerimiento')->result_array();
-		$arr=array("idestadorequerimiento"=>$id);
-		$clave=array_search($arr,$estadorequerimiento);
-	   if(array_key_exists($clave-1,$estadorequerimiento))
+ 		$evento_estado = $this->db->select("idevento_estado")->order_by("idevento_estado")->get('evento_estado')->result_array();
+		$arr=array("idevento_estado"=>$id);
+		$clave=array_search($arr,$evento_estado);
+	   if(array_key_exists($clave-1,$evento_estado))
 		 {
 
- 		$estadorequerimiento = $this->db->query('select * from estadorequerimiento where idestadorequerimiento="'. $estadorequerimiento[$clave-1]["idestadorequerimiento"].'"');
+ 		$evento_estado = $this->db->query('select * from evento_estado where idevento_estado="'. $evento_estado[$clave-1]["idevento_estado"].'"');
 		 }else{
 
- 		$estadorequerimiento = $this->db->query('select * from estadorequerimiento where idestadorequerimiento="'. $id.'"');
+ 		$evento_estado = $this->db->query('select * from evento_estado where idevento_estado="'. $id.'"');
 		 }
 		 	
- 		return $estadorequerimiento;
+ 		return $evento_estado;
  	}
 
 
-
-	function lista_estadorequerimientoes_con_inscripciones(){
-		 $this->db->select('estadorequerimiento.*');
-		 $this->db->from('estadorequerimiento,evento');
-		 $this->db->where('evento.idestadorequerimiento=estadorequerimiento.idestadorequerimiento and evento.idevento_estado=2');
-		 $estadorequerimiento= $this->db->get();
-		 return $estadorequerimiento;
-	}
 
 
 

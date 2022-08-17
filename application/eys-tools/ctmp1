@@ -1,18 +1,18 @@
 <?php
 
-class Tipoingregre extends CI_Controller{
+class Tipoevento extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('estadorequerimiento_model');
+      $this->load->model('evento_estado_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['estadorequerimiento']=$this->estadorequerimiento_model->elultimo();
-		$data['title']="Lista de estadorequerimientoes";
+		$data['evento_estado']=$this->evento_estado_model->evento_estado(1)->row_array();
+		$data['title']="Lista de evento_estadoes";
 		$this->load->view('template/page_header');
-		$this->load->view('estadorequerimiento_record',$data);
+		$this->load->view('evento_estado_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva estadorequerimiento";
+		$data['title']="Nueva evento_estado";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('estadorequerimiento_form',$data);
+	 	$this->load->view('evento_estado_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,20 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
+	 	'idevento_estado' => $this->input->post('idevento_estado'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->estadorequerimiento_model->save($array_item);
-	 	redirect('estadorequerimiento');
+	 	$this->evento_estado_model->save($array_item);
+	 	redirect('evento_estado');
  	}
 
 
 
 public function edit()
 {
-	 	$data['estadorequerimiento'] = $this->estadorequerimiento_model->estadorequerimiento($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar estadorequerimiento";
+	 	$data['evento_estado'] = $this->evento_estado_model->evento_estado($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar evento_estado";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('estadorequerimiento_edit',$data);
+ 	 	$this->load->view('evento_estado_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -55,47 +56,49 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idestadorequerimiento');
+		$id=$this->input->post('idevento_estado');
 	 	$array_item=array(
 		 	
-		 	'idestadorequerimiento' => $this->input->post('idestadorequerimiento'),
+		 	'idevento_estado' => $this->input->post('idevento_estado'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->estadorequerimiento_model->update($id,$array_item);
-	 	redirect('estadorequerimiento');
+	 	$this->evento_estado_model->update($id,$array_item);
+	 	redirect('evento_estado');
  	}
 
 
  	public function delete()
  	{
- 		$this->estadorequerimiento_model->delete($this->uri->segment(3));
-	 	redirect('estadorequerimiento/elultimo');
+ 		$data=$this->evento_estado_model->delete($this->uri->segment(3));
+ 		echo json_encode($data);
+	 	redirect('evento_estado/elprimero');
+	//	$db['default']['db_debug']=FALSE
  	}
 
 
 public function listar()
 {
 	
-  $data['title']="Tipoingregre";
+  $data['title']="Tipoevento";
 	$this->load->view('template/page_header');		
-  $this->load->view('estadorequerimiento_list',$data);
+  $this->load->view('evento_estado_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function estadorequerimiento_data()
+function evento_estado_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->estadorequerimiento_model->lista_estadorequerimientoes();
+	 	$data0 = $this->evento_estado_model->lista_evento_estados();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idestadorequerimiento,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idestadorequerimiento="'.$r->idestadorequerimiento.'">Ver</a>');
+			$data[]=array($r->idevento_estado,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idevento_estado="'.$r->idevento_estado.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -118,12 +121,12 @@ function estadorequerimiento_data()
 
 public function elprimero()
 {
-	$data['estadorequerimiento'] = $this->estadorequerimiento_model->elprimero();
+	$data['evento_estado'] = $this->evento_estado_model->elprimero();
   if(!empty($data))
   {
-    $data['title']="Tipoingregre";
+    $data['title']="Tipoevento";
     $this->load->view('template/page_header');		
-    $this->load->view('estadorequerimiento_record',$data);
+    $this->load->view('evento_estado_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -134,13 +137,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['estadorequerimiento'] = $this->estadorequerimiento_model->elultimo();
+	$data['evento_estado'] = $this->evento_estado_model->elultimo();
   if(!empty($data))
   {
-    $data['title']="Tipoingregre";
+    $data['title']="Tipoevento";
   
     $this->load->view('template/page_header');		
-    $this->load->view('estadorequerimiento_record',$data);
+    $this->load->view('evento_estado_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -151,20 +154,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['estadorequerimiento_list']=$this->estadorequerimiento_model->lista_estadorequerimiento()->result();
-	$data['estadorequerimiento'] = $this->estadorequerimiento_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Tipoingregre";
+ // $data['evento_estado_list']=$this->evento_estado_model->lista_evento_estado()->result();
+	$data['evento_estado'] = $this->evento_estado_model->siguiente($this->uri->segment(3))->row_array();
+  $data['title']="Tipoevento";
 	$this->load->view('template/page_header');		
-  $this->load->view('estadorequerimiento_record',$data);
+  $this->load->view('evento_estado_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['estadorequerimiento_list']=$this->estadorequerimiento_model->lista_estadorequerimiento()->result();
-	$data['estadorequerimiento'] = $this->estadorequerimiento_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Tipoingregre";
+ // $data['evento_estado_list']=$this->evento_estado_model->lista_evento_estado()->result();
+	$data['evento_estado'] = $this->evento_estado_model->anterior($this->uri->segment(3))->row_array();
+  $data['title']="Tipoevento";
 	$this->load->view('template/page_header');		
-  $this->load->view('estadorequerimiento_record',$data);
+  $this->load->view('evento_estado_record',$data);
 	$this->load->view('template/page_footer');
 }
 
