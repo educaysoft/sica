@@ -5,7 +5,7 @@ class Tema extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('tema_model');
-      $this->load->model('unidadtema_model');
+      $this->load->model('unidadsilabo_model');
       $this->load->model('cursodocumento_model');
       $this->load->model('documento_model');
 }
@@ -150,7 +150,7 @@ public function iniciar()
 {
   	$data['evento']=array('idtema'=>$_GET['idtema'],'idevento'=>$_GET['idevento']);	
 	$data['tema'] = $this->tema_model->tema($_GET['idtema'])->row_array();
-	$data['unidadtemas'] = $this->unidadtema_model->lista_unidades($_GET['idtema'])->result();
+	$data['unidadsilabos'] = $this->unidadsilabo_model->lista_unidades($_GET['idtema'])->result();
   	$data['title']="Tema";
 	$this->load->view('template/page_header');		
  	$this->load->view('temas/FundamentosDeProgramacion_clases',$data);
