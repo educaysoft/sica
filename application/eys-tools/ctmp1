@@ -1,104 +1,125 @@
 <?php
 
-class Tipoevento extends CI_Controller{
+class Silabo extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('evento_estado_model');
+      $this->load->model('curso_model');
+      $this->load->model('cursounidad_model');
+      $this->load->model('cursodocumento_model');
+      $this->load->model('documento_model');
 }
 
-public function index(){
-	if(isset($this->session->userdata['logged_in'])){
-		$data['evento_estado']=$this->evento_estado_model->evento_estado(1)->row_array();
-		$data['title']="Lista de evento_estadoes";
-		$this->load->view('template/page_header');
-		$this->load->view('evento_estado_record',$data);
-		$this->load->view('template/page_footer');
-	}else{
-	 	$this->load->view('template/page_header.php');
-		$this->load->view('login_form');
-	 	$this->load->view('template/page_footer.php');
+//=========================================================
+// Es la primera función que se ejecuta cuando llamamos a
+// http://educaysoft.org/sica/curso
+// ========================================================
+	public function index(){
+		if(isset($this->session->userdata['logged_in'])){
+			$data['curso']=$this->curso_model->elultimo();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['curso']['idcurso'])->result();
+			$data['title']="Lista de cursoes";
+			$this->load->view('template/page_header');
+			$this->load->view('curso_record',$data);
+			$this->load->view('template/page_footer');
+		}else{
+			$this->load->view('template/page_header.php');
+			$this->load->view('login_form');
+			$this->load->view('template/page_footer.php');
+		}
 	}
-}
 
 
-public function add()
-{
-		$data['title']="Nueva evento_estado";
-	 	$this->load->view('template/page_header');		
-	 	$this->load->view('evento_estado_form',$data);
-	 	$this->load->view('template/page_footer');
-}
+	public function add()
+	{
+			$data['title']="Nueva curso";
+			$this->load->view('template/page_header');		
+			$this->load->view('curso_form',$data);
+			$this->load->view('template/page_footer');
+	}
 
 
-public function  save()
+	public function  save()
 	{
 	 	$array_item=array(
-	 	'idevento_estado' => $this->input->post('idevento_estado'),
 	 	'nombre' => $this->input->post('nombre'),
+	 	'descripcion' => $this->input->post('descripcion'),
+	 	'duracion' => $this->input->post('duracion'),
+	 	'linkdetalle' => $this->input->post('linkdetalle'),
 	 	);
-	 	$this->evento_estado_model->save($array_item);
-	 	redirect('evento_estado');
+	 	$this->curso_model->save($array_item);
+	 	redirect('curso');
  	}
 
 
 
-public function edit()
-{
-	 	$data['evento_estado'] = $this->evento_estado_model->evento_estado($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar evento_estado";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('evento_estado_edit',$data);
-	 	$this->load->view('template/page_footer');
- 
-}
+	public function edit()
+	{
+			$data['curso'] = $this->curso_model->curso($this->uri->segment(3))->row_array();
+			$data['title'] = "Actualizar curso";
+			$this->load->view('template/page_header');		
+			$this->load->view('curso_edit',$data);
+			$this->load->view('template/page_footer');
+	 
+	}
 
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idevento_estado');
+		$id=$this->input->post('idcurso');
 	 	$array_item=array(
 		 	
-		 	'idevento_estado' => $this->input->post('idevento_estado'),
+		 	'idcurso' => $this->input->post('idcurso'),
+	 		'descripcion' => $this->input->post('descripcion'),
 		 	'nombre' => $this->input->post('nombre'),
+	 		'duracion' => $this->input->post('duracion'),
+	 		'linkdetalle' => $this->input->post('linkdetalle'),
 	 	);
-	 	$this->evento_estado_model->update($id,$array_item);
-	 	redirect('evento_estado');
+	 	$this->curso_model->update($id,$array_item);
+	 	redirect('curso/actual/'.$id);
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->evento_estado_model->delete($this->uri->segment(3));
- 		echo json_encode($data);
-	 	redirect('evento_estado/elprimero');
+ 		$this->curso_model->delete($this->uri->segment(3));
+ //		echo json_encode($data);
+	 	redirect('curso/elultimo');
 	//	$db['default']['db_debug']=FALSE
  	}
 
 
-public function listar()
-{
-	
-  $data['title']="Tipoevento";
-	$this->load->view('template/page_header');		
-  $this->load->view('evento_estado_list',$data);
-	$this->load->view('template/page_footer');
-}
 
 
 
-function evento_estado_data()
+
+
+
+
+
+	public function listar()
+	{
+		
+	  $data['title']="Silabo";
+		$this->load->view('template/page_header');		
+	  $this->load->view('curso_list',$data);
+		$this->load->view('template/page_footer');
+	}
+
+
+
+function curso_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->evento_estado_model->lista_evento_estados();
+	 	$data0 = $this->curso_model->lista_cursos();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idevento_estado,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idevento_estado="'.$r->idevento_estado.'">Ver</a>');
+			$data[]=array($r->idcurso,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('curso/actual').'"    data-idcurso="'.$r->idcurso.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -114,19 +135,62 @@ function evento_estado_data()
 
 
 
+public function panel()
+{
+	
+	$data['cursos'] = $this->curso_model->lista_cursos()->result();
+  	$data['title']="Silabo";
+	$this->load->view('template/page_header');		
+  	$this->load->view('cursos/cursos',$data);
+	$this->load->view('template/page_footer');
+}
 
+
+public function iniciar()
+{
+  	$data['evento']=array('idcurso'=>$_GET['idcurso'],'idevento'=>$_GET['idevento']);	
+	$data['curso'] = $this->curso_model->curso($_GET['idcurso'])->row_array();
+	$data['cursounidades'] = $this->cursounidad_model->lista_unidades($_GET['idcurso'])->result();
+  	$data['title']="Silabo";
+	$this->load->view('template/page_header');		
+ 	$this->load->view('cursos/FundamentosDeProgramacion_clases',$data);
+	$this->load->view('template/page_footer');
+}
+
+
+
+
+public function actual()
+{
+	$data['curso'] = $this->curso_model->curso($this->uri->segment(3))->row_array();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['curso']['idcurso'])->result();
+			$data['documentos']= $this->documento_model->lista_documentos()->result();
+  if(!empty($data))
+  {
+    $data['title']="Silabo";
+    $this->load->view('template/page_header');		
+    $this->load->view('curso_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
 
 
 
 
 public function elprimero()
 {
-	$data['evento_estado'] = $this->evento_estado_model->elprimero();
+	$data['curso'] = $this->curso_model->elprimero();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['curso']['idcurso'])->result();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
-    $data['title']="Tipoevento";
+    $data['title']="Silabo";
     $this->load->view('template/page_header');		
-    $this->load->view('evento_estado_record',$data);
+    $this->load->view('curso_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +201,15 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['evento_estado'] = $this->evento_estado_model->elultimo();
+		$data['curso'] = $this->curso_model->elultimo();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['curso']['idcurso'])->result();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
-    $data['title']="Tipoevento";
+    $data['title']="Silabo";
   
     $this->load->view('template/page_header');		
-    $this->load->view('evento_estado_record',$data);
+    $this->load->view('curso_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,20 +220,24 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['evento_estado_list']=$this->evento_estado_model->lista_evento_estado()->result();
-	$data['evento_estado'] = $this->evento_estado_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Tipoevento";
+ // $data['curso_list']=$this->curso_model->lista_curso()->result();
+	$data['curso'] = $this->curso_model->siguiente($this->uri->segment(3))->row_array();
+	$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['curso']['idcurso'])->result();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['title']="Silabo";
 	$this->load->view('template/page_header');		
-  $this->load->view('evento_estado_record',$data);
+  	$this->load->view('curso_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['evento_estado_list']=$this->evento_estado_model->lista_evento_estado()->result();
-	$data['evento_estado'] = $this->evento_estado_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Tipoevento";
+ // $data['curso_list']=$this->curso_model->lista_curso()->result();
+	$data['curso'] = $this->curso_model->anterior($this->uri->segment(3))->row_array();
+	$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['curso']['idcurso'])->result();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['title']="Silabo";
 	$this->load->view('template/page_header');		
-  $this->load->view('evento_estado_record',$data);
+  	$this->load->view('curso_record',$data);
 	$this->load->view('template/page_footer');
 }
 

@@ -1,14 +1,14 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("curso/save") ?>
+<?php echo form_open("silabo/save") ?>
 <table>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre del curso:</label>
+    <label class="col-md-2 col-form-label"> Nombre del silabo:</label>
 	<div class="col-md-10">
 		<?php
- echo form_input("nombre","", array("placeholder"=>"Nombre de curso",'style'=>'width:500px;'));
+ echo form_input("nombre","", array("placeholder"=>"Nombre de silabo",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 
@@ -25,10 +25,10 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Duración del curso:</label>
+    <label class="col-md-2 col-form-label"> Duración del silabo:</label>
 	<div class="col-md-10">
 		<?php
- echo form_input("duracion","", array("placeholder"=>"Duracion del  curso"));
+ echo form_input("duracion","", array("placeholder"=>"Duracion del  silabo"));
 		?>
 	</div> 
 </div>
@@ -47,7 +47,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 </table>
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("curso","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("silabo","Atras") ?> </td>
 </tr>
 
 </table>
