@@ -41,7 +41,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>Idcursounidad</th>
+ <th>Idunidadsilabo</th>
  <th>idcurso</th>
  <th>unidad</th>
  <th>launidad</th>
@@ -76,14 +76,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('cursounidad/cursounidad_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('unidadsilabo/unidadsilabo_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('idcursounidad');
-window.location.href = "http://localhost/facae/index.php/cursounidad/actual/"+id;
+var id= $(this).data('idunidadsilabo');
+window.location.href = "http://localhost/facae/index.php/unidadsilabo/actual/"+id;
 
 });
 

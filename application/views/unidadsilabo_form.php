@@ -3,7 +3,7 @@
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open("cursounidad/save") ?>
+<?php echo form_open("unidadsilabo/save") ?>
 
 
 <div class="form-group row">
@@ -59,7 +59,7 @@
 <table>
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("cursounidad","Atrás") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("unidadsilabo","Atrás") ?> </td>
 </tr>
 
 </table>

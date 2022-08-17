@@ -5,7 +5,7 @@ class Silabo extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('silabo_model');
-      $this->load->model('silabounidad_model');
+      $this->load->model('unidadsilabo_model');
       $this->load->model('silabodocumento_model');
       $this->load->model('documento_model');
 }
@@ -150,7 +150,7 @@ public function iniciar()
 {
   	$data['evento']=array('idsilabo'=>$_GET['idsilabo'],'idevento'=>$_GET['idevento']);	
 	$data['silabo'] = $this->silabo_model->silabo($_GET['idsilabo'])->row_array();
-	$data['silabounidades'] = $this->silabounidad_model->lista_unidades($_GET['idsilabo'])->result();
+	$data['unidadsilabos'] = $this->unidadsilabo_model->lista_unidades($_GET['idsilabo'])->result();
   	$data['title']="Silabo";
 	$this->load->view('template/page_header');		
  	$this->load->view('silabos/FundamentosDeProgramacion_clases',$data);
