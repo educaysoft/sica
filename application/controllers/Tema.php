@@ -1,26 +1,26 @@
 <?php
 
-class Silabo extends CI_Controller{
+class Tema extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('silabo_model');
-      $this->load->model('unidadsilabo_model');
+      $this->load->model('tema_model');
+      $this->load->model('unidadtema_model');
       $this->load->model('cursodocumento_model');
       $this->load->model('documento_model');
 }
 
 //=========================================================
 // Es la primera función que se ejecuta cuando llamamos a
-// http://educaysoft.org/sica/silabo
+// http://educaysoft.org/sica/tema
 // ========================================================
 	public function index(){
 		if(isset($this->session->userdata['logged_in'])){
-			$data['silabo']=$this->silabo_model->elultimo();
-			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['silabo']['idsilabo'])->result();
-			$data['title']="Lista de silaboes";
+			$data['tema']=$this->tema_model->elultimo();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['tema']['idtema'])->result();
+			$data['title']="Lista de temaes";
 			$this->load->view('template/page_header');
-			$this->load->view('silabo_record',$data);
+			$this->load->view('tema_record',$data);
 			$this->load->view('template/page_footer');
 		}else{
 			$this->load->view('template/page_header.php');
@@ -32,9 +32,9 @@ class Silabo extends CI_Controller{
 
 	public function add()
 	{
-			$data['title']="Nueva silabo";
+			$data['title']="Nueva tema";
 			$this->load->view('template/page_header');		
-			$this->load->view('silabo_form',$data);
+			$this->load->view('tema_form',$data);
 			$this->load->view('template/page_footer');
 	}
 
@@ -47,18 +47,18 @@ class Silabo extends CI_Controller{
 	 	'duracion' => $this->input->post('duracion'),
 	 	'linkdetalle' => $this->input->post('linkdetalle'),
 	 	);
-	 	$this->silabo_model->save($array_item);
-	 	redirect('silabo');
+	 	$this->tema_model->save($array_item);
+	 	redirect('tema');
  	}
 
 
 
 	public function edit()
 	{
-			$data['silabo'] = $this->silabo_model->silabo($this->uri->segment(3))->row_array();
-			$data['title'] = "Actualizar silabo";
+			$data['tema'] = $this->tema_model->tema($this->uri->segment(3))->row_array();
+			$data['title'] = "Actualizar tema";
 			$this->load->view('template/page_header');		
-			$this->load->view('silabo_edit',$data);
+			$this->load->view('tema_edit',$data);
 			$this->load->view('template/page_footer');
 	 
 	}
@@ -66,25 +66,25 @@ class Silabo extends CI_Controller{
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idsilabo');
+		$id=$this->input->post('idtema');
 	 	$array_item=array(
 		 	
-		 	'idsilabo' => $this->input->post('idsilabo'),
+		 	'idtema' => $this->input->post('idtema'),
 	 		'descripcion' => $this->input->post('descripcion'),
 		 	'nombre' => $this->input->post('nombre'),
 	 		'duracion' => $this->input->post('duracion'),
 	 		'linkdetalle' => $this->input->post('linkdetalle'),
 	 	);
-	 	$this->silabo_model->update($id,$array_item);
-	 	redirect('silabo/actual/'.$id);
+	 	$this->tema_model->update($id,$array_item);
+	 	redirect('tema/actual/'.$id);
  	}
 
 
  	public function delete()
  	{
- 		$this->silabo_model->delete($this->uri->segment(3));
+ 		$this->tema_model->delete($this->uri->segment(3));
  //		echo json_encode($data);
-	 	redirect('silabo/elultimo');
+	 	redirect('tema/elultimo');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -100,26 +100,26 @@ class Silabo extends CI_Controller{
 	public function listar()
 	{
 		
-	  $data['title']="Silabo";
+	  $data['title']="Tema";
 		$this->load->view('template/page_header');		
-	  $this->load->view('silabo_list',$data);
+	  $this->load->view('tema_list',$data);
 		$this->load->view('template/page_footer');
 	}
 
 
 
-function silabo_data()
+function tema_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->silabo_model->lista_silabos();
+	 	$data0 = $this->tema_model->lista_temas();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idsilabo,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('silabo/actual').'"    data-idsilabo="'.$r->idsilabo.'">Ver</a>');
+			$data[]=array($r->idtema,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('tema/actual').'"    data-idtema="'.$r->idtema.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -138,22 +138,22 @@ function silabo_data()
 public function panel()
 {
 	
-	$data['silabos'] = $this->silabo_model->lista_silabos()->result();
-  	$data['title']="Silabo";
+	$data['temas'] = $this->tema_model->lista_temas()->result();
+  	$data['title']="Tema";
 	$this->load->view('template/page_header');		
-  	$this->load->view('silabos/silabos',$data);
+  	$this->load->view('temas/temas',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 public function iniciar()
 {
-  	$data['evento']=array('idsilabo'=>$_GET['idsilabo'],'idevento'=>$_GET['idevento']);	
-	$data['silabo'] = $this->silabo_model->silabo($_GET['idsilabo'])->row_array();
-	$data['unidadsilabos'] = $this->unidadsilabo_model->lista_unidades($_GET['idsilabo'])->result();
-  	$data['title']="Silabo";
+  	$data['evento']=array('idtema'=>$_GET['idtema'],'idevento'=>$_GET['idevento']);	
+	$data['tema'] = $this->tema_model->tema($_GET['idtema'])->row_array();
+	$data['unidadtemas'] = $this->unidadtema_model->lista_unidades($_GET['idtema'])->result();
+  	$data['title']="Tema";
 	$this->load->view('template/page_header');		
- 	$this->load->view('silabos/FundamentosDeProgramacion_clases',$data);
+ 	$this->load->view('temas/FundamentosDeProgramacion_clases',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -162,14 +162,14 @@ public function iniciar()
 
 public function actual()
 {
-	$data['silabo'] = $this->silabo_model->silabo($this->uri->segment(3))->row_array();
-			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['silabo']['idsilabo'])->result();
+	$data['tema'] = $this->tema_model->tema($this->uri->segment(3))->row_array();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['tema']['idtema'])->result();
 			$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
-    $data['title']="Silabo";
+    $data['title']="Tema";
     $this->load->view('template/page_header');		
-    $this->load->view('silabo_record',$data);
+    $this->load->view('tema_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -183,14 +183,14 @@ public function actual()
 
 public function elprimero()
 {
-	$data['silabo'] = $this->silabo_model->elprimero();
-			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['silabo']['idsilabo'])->result();
+	$data['tema'] = $this->tema_model->elprimero();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['tema']['idtema'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
-    $data['title']="Silabo";
+    $data['title']="Tema";
     $this->load->view('template/page_header');		
-    $this->load->view('silabo_record',$data);
+    $this->load->view('tema_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -201,15 +201,15 @@ public function elprimero()
 
 public function elultimo()
 {
-		$data['silabo'] = $this->silabo_model->elultimo();
-			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['silabo']['idsilabo'])->result();
+		$data['tema'] = $this->tema_model->elultimo();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['tema']['idtema'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
-    $data['title']="Silabo";
+    $data['title']="Tema";
   
     $this->load->view('template/page_header');		
-    $this->load->view('silabo_record',$data);
+    $this->load->view('tema_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -220,24 +220,24 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['silabo_list']=$this->silabo_model->lista_silabo()->result();
-	$data['silabo'] = $this->silabo_model->siguiente($this->uri->segment(3))->row_array();
-	$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['silabo']['idsilabo'])->result();
+ // $data['tema_list']=$this->tema_model->lista_tema()->result();
+	$data['tema'] = $this->tema_model->siguiente($this->uri->segment(3))->row_array();
+	$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['tema']['idtema'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-  	$data['title']="Silabo";
+  	$data['title']="Tema";
 	$this->load->view('template/page_header');		
-  	$this->load->view('silabo_record',$data);
+  	$this->load->view('tema_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['silabo_list']=$this->silabo_model->lista_silabo()->result();
-	$data['silabo'] = $this->silabo_model->anterior($this->uri->segment(3))->row_array();
-	$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['silabo']['idsilabo'])->result();
+ // $data['tema_list']=$this->tema_model->lista_tema()->result();
+	$data['tema'] = $this->tema_model->anterior($this->uri->segment(3))->row_array();
+	$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['tema']['idtema'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-  	$data['title']="Silabo";
+  	$data['title']="Tema";
 	$this->load->view('template/page_header');		
-  	$this->load->view('silabo_record',$data);
+  	$this->load->view('tema_record',$data);
 	$this->load->view('template/page_footer');
 }
 

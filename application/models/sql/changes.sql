@@ -13,8 +13,12 @@ alter table unidadsilabo modify column idcursounidad int(11);
 alter table unidadsilabo drop primary key; 
 alter table unidadsilabo change idcursounidad idunidadsilabo int(11) not null auto_increment primary key; */
 
-
+/*
 alter table cursodocumento modify column idcurso int(11);
 alter table cursodocumento drop foreign key idcurso;
 alter table cursodocumento change idcurso idsilabo int(11);
 alter table cursodocumento add foreign key (idsilabo) references silabo(idsilabo);
+*/
+
+
+alter table evento change idcurso idsilabo int(11);

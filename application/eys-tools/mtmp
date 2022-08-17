@@ -1,51 +1,34 @@
 <?php
-class Cursounidad_model extends CI_model {
+class Silabo_model extends CI_model {
 
-	function listar_cursounidad(){
-		 $cursounidad= $this->db->get('cursounidad');
-		 return $cursounidad;
+	function lista_silabos(){
+		 $silabo= $this->db->get('silabo');
+		 return $silabo;
 	}
 
-	function listar_cursounidad1(){
-		 $cursounidad= $this->db->get('cursounidad1');
-		 return $cursounidad;
-	}
-
- 	function cursounidad( $id){
- 		$cursounidad = $this->db->query('select * from cursounidad where idcursounidad="'. $id.'"');
- 		return $cursounidad;
- 	}
- 	function lista_unidades( $id){
-		$cursounidad = $this->db->query('select * from cursounidad1 where idcurso="'. $id.'"');
- 		return $cursounidad;
- 	}
-
-
-
-
- 	function cursounidads( $id){
- 		$cursounidad = $this->db->query('select * from cursounidad1 where idevento="'. $id.'"');
- 		return $cursounidad;
+ 	function silabo( $id){
+ 		$silabo = $this->db->query('select * from silabo where idsilabo="'. $id.'"');
+		 
+ 		return $silabo;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("cursounidad", $array);
+		$this->db->insert("silabo", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idcursounidad',$id);
- 		$this->db->update('cursounidad',$array_item);
+ 		$this->db->where('idsilabo',$id);
+ 		$this->db->update('silabo',$array_item);
 	}
  
 
 
-
-  public function delete($id)
+ 	public function delete($id)
 	{
- 		$this->db->where('idcursounidad',$id);
-		$this->db->delete('cursounidad');
+ 		$this->db->where('idsilabo',$id);
+		$this->db->delete('silabo');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -54,9 +37,29 @@ class Cursounidad_model extends CI_model {
  	}
 
 
+public function get_silabo($id){
+	$condition = "idsilabo =" .  $id ;
+	$this->db->select('*');
+	$this->db->from('silabo');
+	$this->db->where($condition);
+	$this->db->limit(1);
+	$query = $this->db->get();
+
+	if ($query->num_rows() == 1) {
+		return $query->result();
+	} else {
+		return false;
+	}
+
+}
+
+
+
+
+
 	function elprimero()
 	{
-		$query=$this->db->order_by("idcursounidad")->get('cursounidad');
+		$query=$this->db->order_by("idsilabo")->get('silabo');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -69,7 +72,7 @@ class Cursounidad_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idcursounidad")->get('cursounidad');
+		$query=$this->db->order_by("idsilabo")->get('silabo');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -81,48 +84,48 @@ class Cursounidad_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$cursounidad = $this->db->select("idcursounidad")->order_by("idcursounidad")->get('cursounidad')->result_array();
-		$arr=array("idcursounidad"=>$id);
-		$clave=array_search($arr,$cursounidad);
-	   if(array_key_exists($clave+1,$cursounidad))
+ 		$silabo = $this->db->select("idsilabo")->order_by("idsilabo")->get('silabo')->result_array();
+		$arr=array("idsilabo"=>$id);
+		$clave=array_search($arr,$silabo);
+	   if(array_key_exists($clave+1,$silabo))
 		 {
 
- 		$cursounidad = $this->db->query('select * from cursounidad where idcursounidad="'. $cursounidad[$clave+1]["idcursounidad"].'"');
+ 		$silabo = $this->db->query('select * from silabo where idsilabo="'. $silabo[$clave+1]["idsilabo"].'"');
 		 }else{
 
- 		$cursounidad = $this->db->query('select * from cursounidad where idcursounidad="'. $id.'"');
+ 		$silabo = $this->db->query('select * from silabo where idsilabo="'. $id.'"');
 		 }
 		 	
- 		return $cursounidad;
+ 		return $silabo;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$cursounidad = $this->db->select("idcursounidad")->order_by("idcursounidad")->get('cursounidad')->result_array();
-		$arr=array("idcursounidad"=>$id);
-		$clave=array_search($arr,$cursounidad);
-	   if(array_key_exists($clave-1,$cursounidad))
+ 		$silabo = $this->db->select("idsilabo")->order_by("idsilabo")->get('silabo')->result_array();
+		$arr=array("idsilabo"=>$id);
+		$clave=array_search($arr,$silabo);
+	   if(array_key_exists($clave-1,$silabo))
 		 {
 
- 		$cursounidad = $this->db->query('select * from cursounidad where idcursounidad="'. $cursounidad[$clave-1]["idcursounidad"].'"');
+ 		$silabo = $this->db->query('select * from silabo where idsilabo="'. $silabo[$clave-1]["idsilabo"].'"');
 		 }else{
 
- 		$cursounidad = $this->db->query('select * from cursounidad where idcursounidad="'. $id.'"');
+ 		$silabo = $this->db->query('select * from silabo where idsilabo="'. $id.'"');
 		 }
 		 	
- 		return $cursounidad;
+ 		return $silabo;
  	}
 
 
 
-
-
-
-
-
-
-
+	function lista_silaboes_con_inscripciones(){
+		 $this->db->select('silabo.*');
+		 $this->db->from('silabo,evento');
+		 $this->db->where('evento.idsilabo=silabo.idsilabo and evento.idevento_estado=2');
+		 $silabo= $this->db->get();
+		 return $silabo;
+	}
 
 
 
