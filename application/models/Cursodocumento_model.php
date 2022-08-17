@@ -6,13 +6,13 @@ class Cursodocumento_model extends CI_model {
 		 return $cursodocumento;
 	}
 
-	function listar_cursodocumento1($idcurso){
-		if($idcurso==0)
+	function listar_cursodocumento1($idsilabo){
+		if($idsilabo==0)
 		{
 		$cursodocumento=$this->db->order_by("asunto")->get('cursodocumento1');
 		}else{
 
-		$this->db->where('idcurso='.$idcurso);
+		$this->db->where('idsilabo='.$idsilabo);
 		$cursodocumento=$this->db->order_by("asunto")->get('cursodocumento1');
 		}
 
@@ -24,7 +24,7 @@ class Cursodocumento_model extends CI_model {
  		return $cursodocumento;
  	}
  	function lista_unidades( $id){
-		$cursodocumento = $this->db->query('select * from cursodocumento1 where idcurso="'. $id.'"');
+		$cursodocumento = $this->db->query('select * from cursodocumento1 where idsilabo="'. $id.'"');
  		return $cursodocumento;
  	}
 
