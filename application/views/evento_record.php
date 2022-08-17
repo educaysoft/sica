@@ -54,8 +54,8 @@ if(isset($evento))
     <label class="col-md-2 col-form-label"> <?php echo anchor('tipoevento/add', 'Tipo evento:') ?> </label>
      <?php 
     $options= array("NADA");
-    foreach ($evento_estados as $row){
-	      $options[$row->tipoevento]= $row->nombre;
+    foreach ($tipoeventos as $row){
+	      $options[$row->idtipoevento]= $row->nombre;
     }
 	?>
 	<div class="col-md-10">
