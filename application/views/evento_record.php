@@ -60,7 +60,7 @@ if(isset($evento))
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'tipoevento','value'=>$options[$evento['tipoevento']],"disabled"=>"disabled", "style"=>"width:500px");
+    $arrdatos=array('name'=>'idtipoevento','value'=>$options[$evento['idtipoevento']],"disabled"=>"disabled", "style"=>"width:500px");
 echo form_input($arrdatos) ?>
 
 	</div> 
