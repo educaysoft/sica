@@ -6,7 +6,7 @@ class Silabo extends CI_Controller{
       parent::__construct();
       $this->load->model('silabo_model');
       $this->load->model('unidadsilabo_model');
-      $this->load->model('silabodocumento_model');
+      $this->load->model('cursodocumento_model');
       $this->load->model('documento_model');
 }
 
@@ -17,7 +17,7 @@ class Silabo extends CI_Controller{
 	public function index(){
 		if(isset($this->session->userdata['logged_in'])){
 			$data['silabo']=$this->silabo_model->elultimo();
-			$data['silabodocumentos']= $this->silabodocumento_model->listar_silabodocumento1($data['silabo']['idsilabo'])->result();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['silabo']['idsilabo'])->result();
 			$data['title']="Lista de silaboes";
 			$this->load->view('template/page_header');
 			$this->load->view('silabo_record',$data);
@@ -163,7 +163,7 @@ public function iniciar()
 public function actual()
 {
 	$data['silabo'] = $this->silabo_model->silabo($this->uri->segment(3))->row_array();
-			$data['silabodocumentos']= $this->silabodocumento_model->listar_silabodocumento1($data['silabo']['idsilabo'])->result();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['silabo']['idsilabo'])->result();
 			$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
@@ -184,7 +184,7 @@ public function actual()
 public function elprimero()
 {
 	$data['silabo'] = $this->silabo_model->elprimero();
-			$data['silabodocumentos']= $this->silabodocumento_model->listar_silabodocumento1($data['silabo']['idsilabo'])->result();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
@@ -202,7 +202,7 @@ public function elprimero()
 public function elultimo()
 {
 		$data['silabo'] = $this->silabo_model->elultimo();
-			$data['silabodocumentos']= $this->silabodocumento_model->listar_silabodocumento1($data['silabo']['idsilabo'])->result();
+			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
@@ -222,7 +222,7 @@ public function elultimo()
 public function siguiente(){
  // $data['silabo_list']=$this->silabo_model->lista_silabo()->result();
 	$data['silabo'] = $this->silabo_model->siguiente($this->uri->segment(3))->row_array();
-	$data['silabodocumentos']= $this->silabodocumento_model->listar_silabodocumento1($data['silabo']['idsilabo'])->result();
+	$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['title']="Silabo";
 	$this->load->view('template/page_header');		
@@ -233,7 +233,7 @@ public function siguiente(){
 public function anterior(){
  // $data['silabo_list']=$this->silabo_model->lista_silabo()->result();
 	$data['silabo'] = $this->silabo_model->anterior($this->uri->segment(3))->row_array();
-	$data['silabodocumentos']= $this->silabodocumento_model->listar_silabodocumento1($data['silabo']['idsilabo'])->result();
+	$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['title']="Silabo";
 	$this->load->view('template/page_header');		
