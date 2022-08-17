@@ -6,6 +6,7 @@ class Evento extends CI_Controller{
       parent::__construct();
       $this->load->model('evento_model');
       $this->load->model('evento_estado_model');
+      $this->load->model('tipoevento_model');
       $this->load->model('participante_model');
       $this->load->model('fechaevento_model');
       $this->load->model('institucion_model');
@@ -21,6 +22,7 @@ public function index(){
 	$data['evento'] = $this->evento_model->elultimo();
 	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+	$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['cursos']= $this->curso_model->lista_cursos()->result();
