@@ -76,11 +76,11 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Fecha inicio:</label>
+<label class="col-md-2 col-form-label">Hora inicio:</label>
 <div class="col-md-10">
 <?php
 
- echo form_input("fechainicio","", array("type"=>"time","placeholder"=>"Fecha inicio"));
+ echo form_input(array("name"=>"horainicio","id"=>"horainicio","type"=>"time"));  
 
 ?>
 </div>
@@ -88,11 +88,11 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Fecha fin:</label>
+<label class="col-md-2 col-form-label">Hora fin:</label>
 <div class="col-md-10">
 <?php
 
- echo form_input("fechafin","", array("type"=>"time","placeholder"=>"Fecha fin"));
+ echo form_input(array("name"=>"horafin","id"=>"horafin","type"=>"time"));  
 
 ?>
 </div>
