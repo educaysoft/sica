@@ -5,16 +5,14 @@ class Asignatura extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('asignatura_model');
-  	  $this->load->model('institucion_model');
   	  $this->load->model('malla_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 	  	$data['asignatura']=$this->asignatura_model->asignatura(1)->row_array();
-  		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   		$data['mallas']= $this->malla_model->lista_mallas()->result();
-  		$data['title']="Lista de Artiulos";
+  		$data['title']="Lista de asignatura";
 			$this->load->view('template/page_header');		
   		$this->load->view('asignatura_record',$data);
 			$this->load->view('template/page_footer');
@@ -28,9 +26,8 @@ public function index(){
 
 public function add()
 {
-  		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   		$data['mallas']= $this->malla_model->lista_mallas()->result();
-		$data['title']="Nuevo Artículo";
+		$data['title']="Nuevo asignatura";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('asignatura_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -43,7 +40,6 @@ public function  save()
 	 	'idasignatura' => $this->input->post('idasignatura'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	'detalle' => $this->input->post('detalle'),
-	 	'idinstitucion' => $this->input->post('idinstitucion'),
 	 	'idmalla' => $this->input->post('idmalla'),
 	 	);
 	 	$this->asignatura_model->save($array_item);
@@ -55,7 +51,6 @@ public function  save()
 public function edit()
 {
 	 	$data['asignatura'] = $this->asignatura_model->asignatura($this->uri->segment(3))->row_array();
-  		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   		$data['mallas']= $this->malla_model->lista_mallas()->result();
  	 	$data['title'] = "Actualizar Asignatura";
  	 	$this->load->view('template/page_header');		
@@ -73,7 +68,6 @@ public function edit()
 		 	'idasignatura' => $this->input->post('idasignatura'),
 		 	'nombre' => $this->input->post('nombre'),
 		 	'detalle' => $this->input->post('detalle'),
-	 		'idinstitucion' => $this->input->post('idinstitucion'),
 	 		'idmalla' => $this->input->post('idmalla'),
 	 	);
 	 	$this->asignatura_model->update($id,$array_item);
@@ -101,7 +95,7 @@ function asignatura_data()
 	 	$data0 = $this->asignatura_model->lista_asignaturasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idasignatura,$r->nombre,$r->lamalla,$r->lainstitucion,
+			$data[]=array($r->idasignatura,$r->nombre,$r->lamalla,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idasignatura="'.$r->idasignatura.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -117,7 +111,6 @@ function asignatura_data()
 public function elprimero()
 {
 	$data['asignatura'] = $this->asignatura_model->elprimero();
- 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
   if(!empty($data))
   {
@@ -135,7 +128,6 @@ public function elprimero()
 public function elultimo()
 {
 	  $data['asignatura'] = $this->asignatura_model->elultimo();
- 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
   if(!empty($data))
   {
@@ -155,7 +147,6 @@ public function elultimo()
 public function siguiente(){
  // $data['asignatura_list']=$this->asignatura_model->lista_asignatura()->result();
 	$data['asignatura'] = $this->asignatura_model->siguiente($this->uri->segment(3))->row_array();
- 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
   $data['title']="Asignatura";
 	$this->load->view('template/page_header');		
@@ -166,7 +157,6 @@ public function siguiente(){
 public function anterior(){
  // $data['asignatura_list']=$this->asignatura_model->lista_asignatura()->result();
 	$data['asignatura'] = $this->asignatura_model->anterior($this->uri->segment(3))->row_array();
- 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
   $data['title']="Asignatura";
 	$this->load->view('template/page_header');		
