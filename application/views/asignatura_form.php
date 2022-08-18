@@ -28,7 +28,7 @@
 
 $options= array('--Select--');
 foreach ($mallas as $row){
-	$options[$row->idmalla]= $row->nombre;
+	$options[$row->idmalla]= $row->nombrecorto;
 }
 
  echo form_dropdown("idmalla",$options, set_select('--Select--','default_value'));  ?></td>
