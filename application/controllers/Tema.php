@@ -33,6 +33,7 @@ class Tema extends CI_Controller{
 	public function add()
 	{
 			$data['title']="Nueva tema";
+			$data['unidadsilabos'] = $this->unidadsilabo_model->lista_unidades($_GET['idtema'])->result();
 			$this->load->view('template/page_header');		
 			$this->load->view('tema_form',$data);
 			$this->load->view('template/page_footer');
