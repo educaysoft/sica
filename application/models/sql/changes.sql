@@ -24,4 +24,7 @@ alter table cursodocumento add foreign key (idsilabo) references silabo(idsilabo
 /*alter table evento change idcurso idsilabo int(11);*/
 
 /*alter table asignatura add column idmalla int;*/
-alter table asignatura add column codigo varchar(10);
+/*alter table asignatura add column codigo varchar(10);*/
+
+
+alter table asignatura modify column idasignatura int(11) not null auto_increment;

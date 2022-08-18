@@ -2,23 +2,23 @@
 	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($periodoacademico))
+if(isset($tipoevento))
 {
 ?>
-        <li> <?php echo anchor('periodoacademico/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('periodoacademico/siguiente/'.$periodoacademico['idperiodoacademico'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('periodoacademico/anterior/'.$periodoacademico['idperiodoacademico'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('periodoacademico/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('periodoacademico/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('periodoacademico/edit/'.$periodoacademico['idperiodoacademico'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('periodoacademico/delete/'.$periodoacademico['idperiodoacademico'],'Delete'); ?></li>
-        <li> <?php echo anchor('periodoacademico/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('tipoevento/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('tipoevento/siguiente/'.$tipoevento['idtipoevento'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('tipoevento/anterior/'.$tipoevento['idtipoevento'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('tipoevento/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('tipoevento/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('tipoevento/edit/'.$tipoevento['idtipoevento'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('tipoevento/delete/'.$tipoevento['idtipoevento'],'Delete'); ?></li>
+        <li> <?php echo anchor('tipoevento/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('periodoacademico/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('tipoevento/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -28,87 +28,30 @@ if(isset($periodoacademico))
 <br>
 
 
-<?php echo form_open('periodoacademico/save_edit') ?>
-<?php echo form_hidden('idperiodoacademico',$periodoacademico['idperiodoacademico']) ?>
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> Depart-Carrera: </label>
-     	<?php 
-
-$options= array("NADA");
-foreach ($departamentos as $row){
-	$options[$row->iddepartamento]= $row->nombre;
-}
-
-	?>
-	<div class="col-md-10">
-		<?php
-echo form_input('iddepartamento',$options[$periodoacademico['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
+<?php echo form_open('tipoevento/save_edit') ?>
+<?php echo form_hidden('idtipoevento',$tipoevento['idtipoevento']) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id Periodo acad.: </label>
+    <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
-     	<?php 
-      echo form_input('idperiodoacademico',$periodoacademico['idperiodoacademico'],array("disabled"=>"disabled"));
+     <?php
+	echo form_input('idtipoevento',$tipoevento['idtipoevento'],array("disabled"=>"disabled",'placeholder'=>'Idtipoeventos'));
 	?>
 	</div> 
-</div>
-
-
+</div> 
+ 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre largo: </label>
+    <label class="col-md-2 col-form-label"> Nombre:</label>
 	<div class="col-md-10">
-     	<?php 
-      echo form_input('nombrecorto',$periodoacademico['nombrecorto'],array('placeholder'=>'Nombre corto del periodoacademico'));
+     <?php
+       echo form_input('nombre',$tipoevento['nombre'],array('placeholder'=>'Nombre del tipoevento')); 
 
 	?>
 	</div> 
-</div>
-
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre largo: </label>
-	<div class="col-md-10">
-     	<?php 
-      echo form_input('nombrelargo',$periodoacademico['nombrelargo'],array('placeholder'=>'Nombre largo del periodoacademico'));
-	?>
-	</div> 
-</div>
-
-
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha de inicio: </label>
-	<div class="col-md-10">
-     	<?php 
-
-       echo form_input('fechainicio',$periodoacademico['fechainicio'],array('placeholder'=>'Fecha en que inicia el periodoacademico')); 
-
-?>
-	</div> 
-</div>
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha finaliza: </label>
-	<div class="col-md-10">
-     	<?php 
-echo form_input('fechafin',$periodoacademico['fechafin'],array('placeholder'=>'Fecha en que finaliza el periodoacademico')); 
-?>
-	</div> 
-</div>
-
+</div> 
    
-
+   
 <?php echo form_close(); ?>
 
 

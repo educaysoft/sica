@@ -1,34 +1,33 @@
 <?php
-class Periodoacademico_model extends CI_model {
+class Tipoevento_model extends CI_model {
 
-	function lista_periodoacademicos(){
-		 $periodoacademico= $this->db->get('periodoacademico');
-		 return $periodoacademico;
+	function lista_tipoeventos(){
+		 $tipoevento= $this->db->get('tipoevento');
+		 return $tipoevento;
 	}
 
- 	function periodoacademico( $id){
- 		$periodoacademico = $this->db->query('select * from periodoacademico where idperiodoacademico="'. $id.'"');
-		 
- 		return $periodoacademico;
+ 	function tipoevento( $id){
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
+ 		return $tipoevento;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("periodoacademico", $array);
+		$this->db->insert("tipoevento", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idperiodoacademico',$id);
- 		$this->db->update('periodoacademico',$array_item);
+ 		$this->db->where('idtipoevento',$id);
+ 		$this->db->update('tipoevento',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idperiodoacademico',$id);
-		$this->db->delete('periodoacademico');
+ 		$this->db->where('idtipoevento',$id);
+		$this->db->delete('tipoevento');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -37,29 +36,9 @@ class Periodoacademico_model extends CI_model {
  	}
 
 
-public function get_periodoacademico($id){
-	$condition = "idperiodoacademico =" .  $id ;
-	$this->db->select('*');
-	$this->db->from('periodoacademico');
-	$this->db->where($condition);
-	$this->db->limit(1);
-	$query = $this->db->get();
-
-	if ($query->num_rows() == 1) {
-		return $query->result();
-	} else {
-		return false;
-	}
-
-}
-
-
-
-
-
 	function elprimero()
 	{
-		$query=$this->db->order_by("idperiodoacademico")->get('periodoacademico');
+		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -72,7 +51,7 @@ public function get_periodoacademico($id){
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idperiodoacademico")->get('periodoacademico');
+		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -84,48 +63,40 @@ public function get_periodoacademico($id){
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$periodoacademico = $this->db->select("idperiodoacademico")->order_by("idperiodoacademico")->get('periodoacademico')->result_array();
-		$arr=array("idperiodoacademico"=>$id);
-		$clave=array_search($arr,$periodoacademico);
-	   if(array_key_exists($clave+1,$periodoacademico))
+ 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
+		$arr=array("idtipoevento"=>$id);
+		$clave=array_search($arr,$tipoevento);
+	   if(array_key_exists($clave+1,$tipoevento))
 		 {
 
- 		$periodoacademico = $this->db->query('select * from periodoacademico where idperiodoacademico="'. $periodoacademico[$clave+1]["idperiodoacademico"].'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave+1]["idtipoevento"].'"');
 		 }else{
 
- 		$periodoacademico = $this->db->query('select * from periodoacademico where idperiodoacademico="'. $id.'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
 		 }
 		 	
- 		return $periodoacademico;
+ 		return $tipoevento;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$periodoacademico = $this->db->select("idperiodoacademico")->order_by("idperiodoacademico")->get('periodoacademico')->result_array();
-		$arr=array("idperiodoacademico"=>$id);
-		$clave=array_search($arr,$periodoacademico);
-	   if(array_key_exists($clave-1,$periodoacademico))
+ 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
+		$arr=array("idtipoevento"=>$id);
+		$clave=array_search($arr,$tipoevento);
+	   if(array_key_exists($clave-1,$tipoevento))
 		 {
 
- 		$periodoacademico = $this->db->query('select * from periodoacademico where idperiodoacademico="'. $periodoacademico[$clave-1]["idperiodoacademico"].'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave-1]["idtipoevento"].'"');
 		 }else{
 
- 		$periodoacademico = $this->db->query('select * from periodoacademico where idperiodoacademico="'. $id.'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
 		 }
 		 	
- 		return $periodoacademico;
+ 		return $tipoevento;
  	}
 
 
-
-	function lista_periodoacademicoes_con_inscripciones(){
-		 $this->db->select('periodoacademico.*');
-		 $this->db->from('periodoacademico,evento');
-		 $this->db->where('evento.idperiodoacademico=periodoacademico.idperiodoacademico and evento.idevento_estado=2');
-		 $periodoacademico= $this->db->get();
-		 return $periodoacademico;
-	}
 
 
 

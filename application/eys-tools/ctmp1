@@ -1,20 +1,18 @@
 <?php
 
-class Malla extends CI_Controller{
+class Ciclo extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('periodoacademico_model');
-  	  $this->load->model('departamento_model');
+      $this->load->model('tipoevento_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['periodoacademico']=$this->periodoacademico_model->elultimo();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['title']="Lista de periodoacademicoes";
+		$data['tipoevento']=$this->tipoevento_model->tipoevento(1)->row_array();
+		$data['title']="Lista de tipoeventoes";
 		$this->load->view('template/page_header');
-		$this->load->view('periodoacademico_record',$data);
+		$this->load->view('tipoevento_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -26,10 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['title']="Nueva periodoacademico";
+		$data['title']="Nueva tipoevento";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('periodoacademico_form',$data);
+	 	$this->load->view('tipoevento_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -37,25 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'iddepartamento' => $this->input->post('iddepartamento'),
-	 	'nombrecorto' => $this->input->post('nombrecorto'),
-	 	'nombrelargo' => $this->input->post('nombrelargo'),
-	 	'fechainicio' => $this->input->post('fechainicio'),
-	 	'fechafin' => $this->input->post('fechafin'),
+	 	'idtipoevento' => $this->input->post('idtipoevento'),
+	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->periodoacademico_model->save($array_item);
-	 	redirect('periodoacademico');
+	 	$this->tipoevento_model->save($array_item);
+	 	redirect('tipoevento');
  	}
 
 
 
 public function edit()
 {
-	 	$data['periodoacademico'] = $this->periodoacademico_model->periodoacademico($this->uri->segment(3))->row_array();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
- 	 	$data['title'] = "Actualizar periodoacademico";
+	 	$data['tipoevento'] = $this->tipoevento_model->tipoevento($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar tipoevento";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('periodoacademico_edit',$data);
+ 	 	$this->load->view('tipoevento_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -63,50 +56,49 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idperiodoacademico');
+		$id=$this->input->post('idtipoevento');
 	 	$array_item=array(
 		 	
-			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
-			'iddepartamento' => $this->input->post('iddepartamento'),
-			'nombrecorto' => $this->input->post('nombrecorto'),
-			'nombrelargo' => $this->input->post('nombrelargo'),
-			'fechainicio' => $this->input->post('fechainicio'),
-			'fechafin' => $this->input->post('fechafin'),
+		 	'idtipoevento' => $this->input->post('idtipoevento'),
+		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->periodoacademico_model->update($id,$array_item);
-	 	redirect('periodoacademico');
+	 	$this->tipoevento_model->update($id,$array_item);
+	 	redirect('tipoevento');
  	}
 
 
  	public function delete()
  	{
- 		$this->periodoacademico_model->delete($this->uri->segment(3));
-	 	redirect('periodoacademico/elultimo');
+ 		$data=$this->tipoevento_model->delete($this->uri->segment(3));
+ 		echo json_encode($data);
+	 	redirect('tipoevento/elprimero');
+	//	$db['default']['db_debug']=FALSE
  	}
 
 
-	public function listar()
-	{
+public function listar()
+{
 	
-		  $data['title']="Malla";
-		$this->load->view('template/page_header');		
-		  $this->load->view('periodoacademico_list',$data);
-		$this->load->view('template/page_footer');
-	}
+  $data['title']="Ciclo";
+	$this->load->view('template/page_header');		
+  $this->load->view('tipoevento_list',$data);
+	$this->load->view('template/page_footer');
+}
 
 
 
-	function periodoacademico_data()
-	{
+function tipoevento_data()
+{
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
-	 	$data0 = $this->periodoacademico_model->lista_periodoacademicoes();
+
+	 	$data0 = $this->tipoevento_model->lista_tipoeventos();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idperiodoacademico,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idperiodoacademico="'.$r->idperiodoacademico.'">Ver</a>');
+			$data[]=array($r->idtipoevento,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipoevento="'.$r->idtipoevento.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -115,7 +107,10 @@ public function edit()
 		);
 		echo json_encode($output);
 		exit();
-	}
+	
+			
+
+}
 
 
 
@@ -126,13 +121,12 @@ public function edit()
 
 public function elprimero()
 {
-	$data['periodoacademico'] = $this->periodoacademico_model->elprimero();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['tipoevento'] = $this->tipoevento_model->elprimero();
   if(!empty($data))
   {
-    $data['title']="Malla";
+    $data['title']="Ciclo";
     $this->load->view('template/page_header');		
-    $this->load->view('periodoacademico_record',$data);
+    $this->load->view('tipoevento_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -143,14 +137,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['periodoacademico'] = $this->periodoacademico_model->elultimo();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['tipoevento'] = $this->tipoevento_model->elultimo();
   if(!empty($data))
   {
-    $data['title']="Malla";
+    $data['title']="Ciclo";
   
     $this->load->view('template/page_header');		
-    $this->load->view('periodoacademico_record',$data);
+    $this->load->view('tipoevento_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -161,22 +154,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['periodoacademico_list']=$this->periodoacademico_model->lista_periodoacademico()->result();
-	$data['periodoacademico'] = $this->periodoacademico_model->siguiente($this->uri->segment(3))->row_array();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  $data['title']="Malla";
+ // $data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
+	$data['tipoevento'] = $this->tipoevento_model->siguiente($this->uri->segment(3))->row_array();
+  $data['title']="Ciclo";
 	$this->load->view('template/page_header');		
-  $this->load->view('periodoacademico_record',$data);
+  $this->load->view('tipoevento_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['periodoacademico_list']=$this->periodoacademico_model->lista_periodoacademico()->result();
-	$data['periodoacademico'] = $this->periodoacademico_model->anterior($this->uri->segment(3))->row_array();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  $data['title']="Malla";
+ // $data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
+	$data['tipoevento'] = $this->tipoevento_model->anterior($this->uri->segment(3))->row_array();
+  $data['title']="Ciclo";
 	$this->load->view('template/page_header');		
-  $this->load->view('periodoacademico_record',$data);
+  $this->load->view('tipoevento_record',$data);
 	$this->load->view('template/page_footer');
 }
 

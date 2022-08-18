@@ -69,7 +69,19 @@ if(isset($asignatura))
     }
     echo form_input('idmalla',$options[$asignatura['idmalla']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
-   
+
+
+
+<tr>
+     <td>Ciclo:</td>
+     <td><?php 
+    $options= array("NADA");
+    foreach ($ciclos as $row){
+	      $options[$row->idciclo]= $row->nombre;
+    }
+    echo form_input('idciclo',$options[$asignatura['idciclo']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+ </tr>
+
 
 </table>
 <?php echo form_close(); ?>
