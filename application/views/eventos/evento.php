@@ -116,7 +116,7 @@ foreach ($participacion as $row){
       <h1><?php  echo $evento['titulo'];?></h1>
 
   <!---  <button><a href="http://educaysoft.org/sica/MTI/doc/_build/html/admision.html"> Mas información</a></button> -->
-  <button><a href="<?php echo $curso['linkdetalle']; ?>"> Mas información</a></button>
+  <button><a href="<?php echo $silabo['linkdetalle']; ?>"> Mas información</a></button>
     </div>
     </div>
 
@@ -301,7 +301,7 @@ foreach ($participacion as $row){
   <?php
        
         //echo anchor("evento/listar_participantes/".$evento['idevento'],'Imprimir certificado');
-        echo anchor("curso/iniciar?idpersona=".$this->session->userdata['logged_in']['idpersona']."&idcurso=".$evento['idcurso']."&idevento=".$evento['idevento'],'Iniciar el curso e imprimir certificado');
+        echo anchor("curso/iniciar?idpersona=".$this->session->userdata['logged_in']['idpersona']."&idsilabo=".$evento['idsilabo']."&idevento=".$evento['idevento'],'Iniciar el curso e imprimir certificado');
 
 
 ?>
