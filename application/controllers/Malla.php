@@ -4,17 +4,17 @@ class Malla extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('periodoacademico_model');
+      $this->load->model('malla_model');
   	  $this->load->model('departamento_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['periodoacademico']=$this->periodoacademico_model->elultimo();
+		$data['malla']=$this->malla_model->elultimo();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['title']="Lista de periodoacademicoes";
+		$data['title']="Lista de mallaes";
 		$this->load->view('template/page_header');
-		$this->load->view('periodoacademico_record',$data);
+		$this->load->view('malla_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -27,9 +27,9 @@ public function index(){
 public function add()
 {
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['title']="Nueva periodoacademico";
+		$data['title']="Nueva malla";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('periodoacademico_form',$data);
+	 	$this->load->view('malla_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -43,19 +43,19 @@ public function  save()
 	 	'fechainicio' => $this->input->post('fechainicio'),
 	 	'fechafin' => $this->input->post('fechafin'),
 	 	);
-	 	$this->periodoacademico_model->save($array_item);
-	 	redirect('periodoacademico');
+	 	$this->malla_model->save($array_item);
+	 	redirect('malla');
  	}
 
 
 
 public function edit()
 {
-	 	$data['periodoacademico'] = $this->periodoacademico_model->periodoacademico($this->uri->segment(3))->row_array();
+	 	$data['malla'] = $this->malla_model->malla($this->uri->segment(3))->row_array();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
- 	 	$data['title'] = "Actualizar periodoacademico";
+ 	 	$data['title'] = "Actualizar malla";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('periodoacademico_edit',$data);
+ 	 	$this->load->view('malla_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -63,25 +63,25 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idperiodoacademico');
+		$id=$this->input->post('idmalla');
 	 	$array_item=array(
 		 	
-			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+			'idmalla' => $this->input->post('idmalla'),
 			'iddepartamento' => $this->input->post('iddepartamento'),
 			'nombrecorto' => $this->input->post('nombrecorto'),
 			'nombrelargo' => $this->input->post('nombrelargo'),
 			'fechainicio' => $this->input->post('fechainicio'),
 			'fechafin' => $this->input->post('fechafin'),
 	 	);
-	 	$this->periodoacademico_model->update($id,$array_item);
-	 	redirect('periodoacademico');
+	 	$this->malla_model->update($id,$array_item);
+	 	redirect('malla');
  	}
 
 
  	public function delete()
  	{
- 		$this->periodoacademico_model->delete($this->uri->segment(3));
-	 	redirect('periodoacademico/elultimo');
+ 		$this->malla_model->delete($this->uri->segment(3));
+	 	redirect('malla/elultimo');
  	}
 
 
@@ -90,23 +90,23 @@ public function edit()
 	
 		  $data['title']="Malla";
 		$this->load->view('template/page_header');		
-		  $this->load->view('periodoacademico_list',$data);
+		  $this->load->view('malla_list',$data);
 		$this->load->view('template/page_footer');
 	}
 
 
 
-	function periodoacademico_data()
+	function malla_data()
 	{
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
-	 	$data0 = $this->periodoacademico_model->lista_periodoacademicoes();
+	 	$data0 = $this->malla_model->lista_mallaes();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idperiodoacademico,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idperiodoacademico="'.$r->idperiodoacademico.'">Ver</a>');
+			$data[]=array($r->idmalla,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idmalla="'.$r->idmalla.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -126,13 +126,13 @@ public function edit()
 
 public function elprimero()
 {
-	$data['periodoacademico'] = $this->periodoacademico_model->elprimero();
+	$data['malla'] = $this->malla_model->elprimero();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   if(!empty($data))
   {
     $data['title']="Malla";
     $this->load->view('template/page_header');		
-    $this->load->view('periodoacademico_record',$data);
+    $this->load->view('malla_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -143,14 +143,14 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['periodoacademico'] = $this->periodoacademico_model->elultimo();
+	$data['malla'] = $this->malla_model->elultimo();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   if(!empty($data))
   {
     $data['title']="Malla";
   
     $this->load->view('template/page_header');		
-    $this->load->view('periodoacademico_record',$data);
+    $this->load->view('malla_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -161,22 +161,22 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['periodoacademico_list']=$this->periodoacademico_model->lista_periodoacademico()->result();
-	$data['periodoacademico'] = $this->periodoacademico_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['malla_list']=$this->malla_model->lista_malla()->result();
+	$data['malla'] = $this->malla_model->siguiente($this->uri->segment(3))->row_array();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   $data['title']="Malla";
 	$this->load->view('template/page_header');		
-  $this->load->view('periodoacademico_record',$data);
+  $this->load->view('malla_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['periodoacademico_list']=$this->periodoacademico_model->lista_periodoacademico()->result();
-	$data['periodoacademico'] = $this->periodoacademico_model->anterior($this->uri->segment(3))->row_array();
+ // $data['malla_list']=$this->malla_model->lista_malla()->result();
+	$data['malla'] = $this->malla_model->anterior($this->uri->segment(3))->row_array();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   $data['title']="Malla";
 	$this->load->view('template/page_header');		
-  $this->load->view('periodoacademico_record',$data);
+  $this->load->view('malla_record',$data);
 	$this->load->view('template/page_footer');
 }
 

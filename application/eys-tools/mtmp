@@ -1,34 +1,34 @@
 <?php
-class Silabo_model extends CI_model {
+class Periodoacademico_model extends CI_model {
 
-	function lista_silabos(){
-		 $silabo= $this->db->get('silabo');
-		 return $silabo;
+	function lista_periodoacademicos(){
+		 $periodoacademico= $this->db->get('periodoacademico');
+		 return $periodoacademico;
 	}
 
- 	function silabo( $id){
- 		$silabo = $this->db->query('select * from silabo where idsilabo="'. $id.'"');
+ 	function periodoacademico( $id){
+ 		$periodoacademico = $this->db->query('select * from periodoacademico where idperiodoacademico="'. $id.'"');
 		 
- 		return $silabo;
+ 		return $periodoacademico;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("silabo", $array);
+		$this->db->insert("periodoacademico", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idsilabo',$id);
- 		$this->db->update('silabo',$array_item);
+ 		$this->db->where('idperiodoacademico',$id);
+ 		$this->db->update('periodoacademico',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idsilabo',$id);
-		$this->db->delete('silabo');
+ 		$this->db->where('idperiodoacademico',$id);
+		$this->db->delete('periodoacademico');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -37,10 +37,10 @@ class Silabo_model extends CI_model {
  	}
 
 
-public function get_silabo($id){
-	$condition = "idsilabo =" .  $id ;
+public function get_periodoacademico($id){
+	$condition = "idperiodoacademico =" .  $id ;
 	$this->db->select('*');
-	$this->db->from('silabo');
+	$this->db->from('periodoacademico');
 	$this->db->where($condition);
 	$this->db->limit(1);
 	$query = $this->db->get();
@@ -59,7 +59,7 @@ public function get_silabo($id){
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idsilabo")->get('silabo');
+		$query=$this->db->order_by("idperiodoacademico")->get('periodoacademico');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -72,7 +72,7 @@ public function get_silabo($id){
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idsilabo")->get('silabo');
+		$query=$this->db->order_by("idperiodoacademico")->get('periodoacademico');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -84,47 +84,47 @@ public function get_silabo($id){
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$silabo = $this->db->select("idsilabo")->order_by("idsilabo")->get('silabo')->result_array();
-		$arr=array("idsilabo"=>$id);
-		$clave=array_search($arr,$silabo);
-	   if(array_key_exists($clave+1,$silabo))
+ 		$periodoacademico = $this->db->select("idperiodoacademico")->order_by("idperiodoacademico")->get('periodoacademico')->result_array();
+		$arr=array("idperiodoacademico"=>$id);
+		$clave=array_search($arr,$periodoacademico);
+	   if(array_key_exists($clave+1,$periodoacademico))
 		 {
 
- 		$silabo = $this->db->query('select * from silabo where idsilabo="'. $silabo[$clave+1]["idsilabo"].'"');
+ 		$periodoacademico = $this->db->query('select * from periodoacademico where idperiodoacademico="'. $periodoacademico[$clave+1]["idperiodoacademico"].'"');
 		 }else{
 
- 		$silabo = $this->db->query('select * from silabo where idsilabo="'. $id.'"');
+ 		$periodoacademico = $this->db->query('select * from periodoacademico where idperiodoacademico="'. $id.'"');
 		 }
 		 	
- 		return $silabo;
+ 		return $periodoacademico;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$silabo = $this->db->select("idsilabo")->order_by("idsilabo")->get('silabo')->result_array();
-		$arr=array("idsilabo"=>$id);
-		$clave=array_search($arr,$silabo);
-	   if(array_key_exists($clave-1,$silabo))
+ 		$periodoacademico = $this->db->select("idperiodoacademico")->order_by("idperiodoacademico")->get('periodoacademico')->result_array();
+		$arr=array("idperiodoacademico"=>$id);
+		$clave=array_search($arr,$periodoacademico);
+	   if(array_key_exists($clave-1,$periodoacademico))
 		 {
 
- 		$silabo = $this->db->query('select * from silabo where idsilabo="'. $silabo[$clave-1]["idsilabo"].'"');
+ 		$periodoacademico = $this->db->query('select * from periodoacademico where idperiodoacademico="'. $periodoacademico[$clave-1]["idperiodoacademico"].'"');
 		 }else{
 
- 		$silabo = $this->db->query('select * from silabo where idsilabo="'. $id.'"');
+ 		$periodoacademico = $this->db->query('select * from periodoacademico where idperiodoacademico="'. $id.'"');
 		 }
 		 	
- 		return $silabo;
+ 		return $periodoacademico;
  	}
 
 
 
-	function lista_silaboes_con_inscripciones(){
-		 $this->db->select('silabo.*');
-		 $this->db->from('silabo,evento');
-		 $this->db->where('evento.idsilabo=silabo.idsilabo and evento.idevento_estado=2');
-		 $silabo= $this->db->get();
-		 return $silabo;
+	function lista_periodoacademicoes_con_inscripciones(){
+		 $this->db->select('periodoacademico.*');
+		 $this->db->from('periodoacademico,evento');
+		 $this->db->where('evento.idperiodoacademico=periodoacademico.idperiodoacademico and evento.idevento_estado=2');
+		 $periodoacademico= $this->db->get();
+		 return $periodoacademico;
 	}
 
 

@@ -29,10 +29,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <div class="row justify-content-center">
       <!-- Page Heading -->
- <div class="row">
+1iv class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Periodoacademio - Listar 
+                 <h3>Institucion - Listar 
                  <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
 			  
         	</h3>
@@ -43,6 +43,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <tr>
  <th>ID</th>
  <th>nombre</th>
+ <th>detalle</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
@@ -73,13 +74,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('periodoacademio/periodoacademio_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('asignatura/asignatura_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-window.location.href = "http://localhost/facae/index.php/periodoacademio";
+window.location.href = "http://localhost/facae/index.php/asignatura";
 
 });
 
