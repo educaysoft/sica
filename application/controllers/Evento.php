@@ -274,6 +274,7 @@ public function index(){
 		  {
 			$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+			$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 			$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 			$data['silabos']= $this->silabo_model->lista_silabos()->result();
@@ -299,6 +300,7 @@ public function index(){
 		  {
 			$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+			$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 			$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
@@ -321,6 +323,7 @@ public function index(){
 	 // $data['evento_list']=$this->evento_model->lista_evento()->result();
 		$data['evento'] = $this->evento_model->siguiente($this->uri->segment(3))->row_array();
 		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
+		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();
@@ -337,6 +340,7 @@ public function index(){
 	public function anterior(){
 	 // $data['evento_list']=$this->evento_model->lista_evento()->result();
 		$data['evento'] = $this->evento_model->anterior($this->uri->segment(3))->row_array();
+		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
