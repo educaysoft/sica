@@ -27,4 +27,12 @@ alter table cursodocumento add foreign key (idsilabo) references silabo(idsilabo
 /*alter table asignatura add column codigo varchar(10);*/
 
 
-alter table asignatura modify column idasignatura int(11) not null auto_increment;
+/*alter table asignatura modify column idasignatura int(11) not null auto_increment;*/
+
+/*alter table tema drop column idunidad;
+alter table tema add column idunidadsilabo int(11);*/
+
+alter table unidadsilabo change idcurso idsilabo int(11);
+
+
+

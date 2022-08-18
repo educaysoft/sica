@@ -236,16 +236,16 @@ echo form_input($arrdatos) ?>
 </div>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('curso/add', 'Curso:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('silabo/add', 'Curso:') ?> </label>
      <?php 
     $options= array("NADA");
-    foreach ($cursos as $row){
-	      $options[$row->idcurso]= $row->nombre;
+    foreach ($silabos as $row){
+	      $options[$row->idsilabo]= $row->nombre;
     }
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'idcurso','value'=>$options[$evento['idcurso']],"disabled"=>"disabled", "style"=>"width:500px");
+    $arrdatos=array('name'=>'idsilabo','value'=>$options[$evento['idsilabo']],"disabled"=>"disabled", "style"=>"width:500px");
 echo form_input($arrdatos) ?>
 	</div> 
 </div>

@@ -5,43 +5,42 @@
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre del tema:</label>
+    <label class="col-md-2 col-form-label"> Nombre corto:</label>
 	<div class="col-md-10">
 		<?php
- echo form_input("nombre","", array("placeholder"=>"Nombre de tema",'style'=>'width:500px;'));
+ echo form_input("nombrecorto","", array("placeholder"=>"Nombre de tema",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Descripción :</label>
-<div class="col-md-10">
-<?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"descripcion",'id'=>'descripcion' );    
- echo form_textarea("descripcion","", $textarea_options); 
-?>
-</div>
-</div>
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Duración del tema:</label>
+    <label class="col-md-2 col-form-label"> Nombre largo:</label>
 	<div class="col-md-10">
 		<?php
- echo form_input("duracion","", array("placeholder"=>"Duracion del  tema"));
+ echo form_input("nombrelargo","", array("placeholder"=>"Nombre de tema",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Link detalle:</label>
-	<div class="col-md-10">
-		<?php
- echo form_input("linkdetalle","", array("placeholder"=>"Link de detalle"));
-		?>
-	</div> 
-</div>
+
+
+
+<tr>
+<td> Unidad del silabo: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($unidadsilabos as $row){
+	$options[$row->idunidadsilabo]= $row->nombre;
+}
+
+ echo form_dropdown("idunidadsilabo",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
+
+
 
 
 
