@@ -5,7 +5,10 @@
 <table>
 
 
-
+<tr>
+<td> Código </td>
+<td><?php echo form_input("codigo","", array("placeholder"=>"Código"))  ?></td>
+</tr>
 
 
 <tr>
@@ -14,26 +17,13 @@
 </tr>
 
 
-<tr>
-<td> Detalle: </td>
-<td><?php echo form_input("detalle","", array("placeholder"=>"Detalle de artiulo"))  ?></td>
-</tr>
 
-<tr>
-<td> Institución: </td>
-<td><?php 
 
-$options= array('--Select--');
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
-}
 
- echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
 
 
 <tr>
-<td> Categoría: </td>
+<td> Malla: </td>
 <td><?php 
 
 $options= array('--Select--');

@@ -38,43 +38,34 @@ if(isset($asignatura))
   $eys_arrctl=array("name"=>'idasignatura','value'=>$asignatura['idasignatura'],"disabled"=>"disabled",'placeholder'=>'Idasignaturas','style'=>'width:500px;');
  echo form_input($eys_arrctl) ?></td>
   </tr>
- 
- <tr>
-      <td>Nombre:</td>
+
+<tr>
+      <td>Código:</td>
       <td><?php
 
-  $eys_arrctl=array("name"=>'nombre','value'=>$asignatura['nombre'],"disabled"=>"disabled",'placeholder'=>'Inombre','style'=>'width:500px;');
+  $eys_arrctl=array("name"=>'codigo','value'=>$asignatura['codigo'],"disabled"=>"disabled",'placeholder'=>'Código','style'=>'width:500px;');
  echo form_input($eys_arrctl) ?></td>
   </tr>
 
 
 
-<tr>
-      <td>Detalle:</td>
+ <tr>
+      <td>Nombre:</td>
       <td><?php
-    
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('detalle',$asignatura['detalle'],$textarea_options); ?></td>
+
+  $eys_arrctl=array("name"=>'nombre','value'=>$asignatura['nombre'],"disabled"=>"disabled",'placeholder'=>'Nombre','style'=>'width:500px;');
+ echo form_input($eys_arrctl) ?></td>
   </tr>
 
 
-  <tr>
-     <td>Institucion:</td>
-     <td><?php 
-    $options= array("NADA");
-    foreach ($instituciones as $row){
-	      $options[$row->idinstitucion]= $row->nombre;
-    }
-    echo form_input('idinstitucion',$options[$asignatura['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
- </tr>
 
 
    <tr>
-     <td>Categoría:</td>
+     <td>Malla:</td>
      <td><?php 
     $options= array("NADA");
     foreach ($mallas as $row){
-	      $options[$row->idmalla]= $row->nombre;
+	      $options[$row->idmalla]= $row->nombrecorto;
     }
     echo form_input('idmalla',$options[$asignatura['idmalla']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>

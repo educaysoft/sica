@@ -39,7 +39,7 @@ public function  save()
 	 	$array_item=array(
 	 	'idasignatura' => $this->input->post('idasignatura'),
 	 	'nombre' => $this->input->post('nombre'),
-	 	'detalle' => $this->input->post('detalle'),
+	 	'codigo' => $this->input->post('codigo'),
 	 	'idmalla' => $this->input->post('idmalla'),
 	 	);
 	 	$this->asignatura_model->save($array_item);
@@ -67,7 +67,7 @@ public function edit()
 		 	
 		 	'idasignatura' => $this->input->post('idasignatura'),
 		 	'nombre' => $this->input->post('nombre'),
-		 	'detalle' => $this->input->post('detalle'),
+		 	'codigo' => $this->input->post('codigo'),
 	 		'idmalla' => $this->input->post('idmalla'),
 	 	);
 	 	$this->asignatura_model->update($id,$array_item);
