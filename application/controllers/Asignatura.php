@@ -6,14 +6,14 @@ class Asignatura extends CI_Controller{
       parent::__construct();
       $this->load->model('asignatura_model');
   	  $this->load->model('institucion_model');
-  	  $this->load->model('categoria_model');
+  	  $this->load->model('malla_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 	  	$data['asignatura']=$this->asignatura_model->asignatura(1)->row_array();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  		$data['categorias']= $this->categoria_model->lista_categorias()->result();
+  		$data['mallas']= $this->malla_model->lista_mallas()->result();
   		$data['title']="Lista de Artiulos";
 			$this->load->view('template/page_header');		
   		$this->load->view('asignatura_record',$data);
@@ -29,7 +29,7 @@ public function index(){
 public function add()
 {
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  		$data['categorias']= $this->categoria_model->lista_categorias()->result();
+  		$data['mallas']= $this->malla_model->lista_mallas()->result();
 		$data['title']="Nuevo Artículo";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('asignatura_form',$data);
@@ -44,7 +44,7 @@ public function  save()
 	 	'nombre' => $this->input->post('nombre'),
 	 	'detalle' => $this->input->post('detalle'),
 	 	'idinstitucion' => $this->input->post('idinstitucion'),
-	 	'idcategoria' => $this->input->post('idcategoria'),
+	 	'idmalla' => $this->input->post('idmalla'),
 	 	);
 	 	$this->asignatura_model->save($array_item);
 	 	redirect('asignatura');
@@ -56,7 +56,7 @@ public function edit()
 {
 	 	$data['asignatura'] = $this->asignatura_model->asignatura($this->uri->segment(3))->row_array();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  		$data['categorias']= $this->categoria_model->lista_categorias()->result();
+  		$data['mallas']= $this->malla_model->lista_mallas()->result();
  	 	$data['title'] = "Actualizar Asignatura";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('asignatura_edit',$data);
@@ -74,7 +74,7 @@ public function edit()
 		 	'nombre' => $this->input->post('nombre'),
 		 	'detalle' => $this->input->post('detalle'),
 	 		'idinstitucion' => $this->input->post('idinstitucion'),
-	 		'idcategoria' => $this->input->post('idcategoria'),
+	 		'idmalla' => $this->input->post('idmalla'),
 	 	);
 	 	$this->asignatura_model->update($id,$array_item);
 	 	redirect('asignatura');
@@ -101,7 +101,7 @@ function asignatura_data()
 	 	$data0 = $this->asignatura_model->lista_asignaturasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idasignatura,$r->nombre,$r->lacategoria,$r->lainstitucion,
+			$data[]=array($r->idasignatura,$r->nombre,$r->lamalla,$r->lainstitucion,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idasignatura="'.$r->idasignatura.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -118,7 +118,7 @@ public function elprimero()
 {
 	$data['asignatura'] = $this->asignatura_model->elprimero();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['categorias']= $this->categoria_model->lista_categorias()->result();
+  	$data['mallas']= $this->malla_model->lista_mallas()->result();
   if(!empty($data))
   {
     $data['title']="Asignatura";
@@ -136,7 +136,7 @@ public function elultimo()
 {
 	  $data['asignatura'] = $this->asignatura_model->elultimo();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['categorias']= $this->categoria_model->lista_categorias()->result();
+  	$data['mallas']= $this->malla_model->lista_mallas()->result();
   if(!empty($data))
   {
     $data['title']="Asignatura";
@@ -156,7 +156,7 @@ public function siguiente(){
  // $data['asignatura_list']=$this->asignatura_model->lista_asignatura()->result();
 	$data['asignatura'] = $this->asignatura_model->siguiente($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['categorias']= $this->categoria_model->lista_categorias()->result();
+  	$data['mallas']= $this->malla_model->lista_mallas()->result();
   $data['title']="Asignatura";
 	$this->load->view('template/page_header');		
   $this->load->view('asignatura_record',$data);
@@ -167,7 +167,7 @@ public function anterior(){
  // $data['asignatura_list']=$this->asignatura_model->lista_asignatura()->result();
 	$data['asignatura'] = $this->asignatura_model->anterior($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['categorias']= $this->categoria_model->lista_categorias()->result();
+  	$data['mallas']= $this->malla_model->lista_mallas()->result();
   $data['title']="Asignatura";
 	$this->load->view('template/page_header');		
   $this->load->view('asignatura_record',$data);

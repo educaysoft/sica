@@ -37,11 +37,11 @@ foreach ($instituciones as $row){
 <td><?php 
 
 $options= array('--Select--');
-foreach ($categorias as $row){
-	$options[$row->idcategoria]= $row->nombre;
+foreach ($mallas as $row){
+	$options[$row->idmalla]= $row->nombre;
 }
 
- echo form_dropdown("idcategoria",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idmalla",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
