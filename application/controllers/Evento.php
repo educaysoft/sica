@@ -136,6 +136,7 @@ public function index(){
 
 		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
+		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	  $data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
