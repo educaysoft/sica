@@ -105,14 +105,14 @@ foreach ($paginas as $row){
 
 
 <tr>
-<td> Curso:</td>
+<td> Silabo:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($cursos as $row){
-	$options[$row->idcurso]= $row->nombre;
+foreach ($silabos as $row){
+	$options[$row->idsilabo]= $row->nombre;
 }
 
- echo form_dropdown("idcurso",$options, $evento['idcurso']);  ?></td>
+ echo form_dropdown("idsilabo",$options, $evento['idsilabo']);  ?></td>
 </tr>
 
 
