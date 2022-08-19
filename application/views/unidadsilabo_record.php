@@ -60,21 +60,21 @@ if(isset($unidadsilabo))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id curso:</label>
+    <label class="col-md-2 col-form-label"> Id silabo:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('idsilabo',$unidadsilabo['idsilabo'],array("disabled"=>"disabled",'placeholder'=>'Idcursos','style'=>'width:500px;'));
+      echo form_input('idsilabo',$unidadsilabo['idsilabo'],array("disabled"=>"disabled",'placeholder'=>'Idsilabos','style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre del curso:</label>
+    <label class="col-md-2 col-form-label"> Nombre del silabo:</label>
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
-foreach ($cursos as $row){
+foreach ($silabos as $row){
 	$options[$row->idsilabo]= $row->nombre;
 }
 echo form_input('idsilabo',$options[$unidadsilabo['idsilabo']],array("disabled"=>"disabled",'style'=>'width:500px;'));
