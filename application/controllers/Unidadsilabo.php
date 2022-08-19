@@ -188,10 +188,10 @@ class Unidadsilabo extends CI_Controller{
 
 	public function anterior(){
 	 // $data['unidadsilabo_list']=$this->unidadsilabo_model->lista_unidadsilabo()->result();
-		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
-		$data['unidadsilabo'] = $this->unidadsilabo_model->anterior($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['silabos']= $this->silabo_model->lista_silabos()->result();
+	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+	$data['unidadsilabo'] = $this->unidadsilabo_model->anterior($this->uri->segment(3))->row_array();
+	$data['personas']= $this->persona_model->lista_personas()->result();
+	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 	 // $data['title']="Correo";
 	    $data['title']="Unidadsilabo del videotutorial";
 		$this->load->view('template/page_header');		

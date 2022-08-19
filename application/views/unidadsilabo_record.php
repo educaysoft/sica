@@ -37,7 +37,7 @@ if(isset($unidadsilabo))
 <br>
 
 
-<?php echo form_hidden('idcurso',$unidadsilabo['idcurso']) ?>
+<?php echo form_hidden('idsilabo',$unidadsilabo['idsilabo']) ?>
 
 
 <div class="form-group row">
@@ -63,7 +63,7 @@ if(isset($unidadsilabo))
     <label class="col-md-2 col-form-label"> Id curso:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('idcurso',$unidadsilabo['idcurso'],array("disabled"=>"disabled",'placeholder'=>'Idcursos','style'=>'width:500px;'));
+      echo form_input('idsilabo',$unidadsilabo['idsilabo'],array("disabled"=>"disabled",'placeholder'=>'Idcursos','style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 
@@ -75,9 +75,9 @@ if(isset($unidadsilabo))
 	<?php
 $options= array("NADA");
 foreach ($cursos as $row){
-	$options[$row->idcurso]= $row->nombre;
+	$options[$row->idsilabo]= $row->nombre;
 }
-echo form_input('idcurso',$options[$unidadsilabo['idcurso']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('idsilabo',$options[$unidadsilabo['idsilabo']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 
