@@ -16,6 +16,7 @@ class Tema extends CI_Controller{
 	public function index(){
 		if(isset($this->session->userdata['logged_in'])){
 			$data['tema']=$this->tema_model->elultimo();
+			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo()->result();
 			$data['title']="Lista de temaes";
 			$this->load->view('template/page_header');
 			$this->load->view('tema_record',$data);
