@@ -6,11 +6,11 @@ class Unidadsilabo extends CI_Controller{
       		$this->load->model('unidadsilabo_model');
       		$this->load->model('videotutorial_model');
       		$this->load->model('persona_model');
-      		$this->load->model('curso_model');
+      		$this->load->model('silabo_model');
 	}
 
 	public function index(){
-  		$data['cursos']= $this->curso_model->lista_cursos()->result();
+  		$data['silabos']= $this->silabo_model->lista_silabos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 		$data['unidadsilabo'] = $this->unidadsilabo_model->elultimo();
@@ -26,10 +26,10 @@ class Unidadsilabo extends CI_Controller{
 	public function add()
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['cursos']= $this->curso_model->lista_cursos()->result();
+		$data['silabos']= $this->silabo_model->lista_silabos()->result();
   		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 		$data['unidadsilabo'] = $this->unidadsilabo_model->elultimo();
-		$data['title']="Nueva unidades del curso";
+		$data['title']="Nueva unidades del silabo";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('unidadsilabo_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -40,7 +40,7 @@ class Unidadsilabo extends CI_Controller{
 	{
 	 	$array_item=array(
 		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
-		 	'idcurso' => $this->input->post('idcurso'),
+		 	'idsilabo' => $this->input->post('idsilabo'),
 		 	'nombre' => $this->input->post('nombre'),
 		 	'unidad' => $this->input->post('unidad'),
 	 	);
@@ -53,7 +53,7 @@ class Unidadsilabo extends CI_Controller{
 	public function edit()
 	{
 	 	$data['unidadsilabo'] = $this->unidadsilabo_model->unidadsilabo($this->uri->segment(3))->row_array();
-		$data['cursos']= $this->curso_model->lista_cursos()->result();
+		$data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['videotutorials']= $this->videotutorial_model->lista_videotutorials()->result();
  	 	$data['title'] = "Actualizar Unidadsilabo";
@@ -69,7 +69,7 @@ class Unidadsilabo extends CI_Controller{
 	 	$array_item=array(
 		 	'nombre' => $this->input->post('nombre'),
 		 	'unidad' => $this->input->post('unidad'),
-		 	'idcurso' => $this->input->post('idcurso'),
+		 	'idsilabo' => $this->input->post('idsilabo'),
 		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
 	 	);
 	 	$this->unidadsilabo_model->update($id,$array_item);
@@ -80,7 +80,7 @@ class Unidadsilabo extends CI_Controller{
 	{
 		$id=$this->input->post('idunidadsilabo');
 	 	$array_item=array(
-		 	'idcurso' => $this->input->post('idcurso'),
+		 	'idsilabo' => $this->input->post('idsilabo'),
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
 	 	);
@@ -101,7 +101,7 @@ class Unidadsilabo extends CI_Controller{
 	public function listar()
 	{
 		
-		$data['title']="Unidades del curso";
+		$data['title']="Unidades del silabo";
 		$this->load->view('template/page_header');		
 		$this->load->view('unidadsilabo_list',$data);
 		$this->load->view('template/page_footer');
@@ -119,7 +119,7 @@ class Unidadsilabo extends CI_Controller{
 			$data0 = $this->unidadsilabo_model->listar_unidadsilabo1();
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idunidadsilabo,$r->idcurso,$r->unidad,$r->launidad,$r->elvideo,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcurso="'.$r->idunidadsilabo.'">Ver</a>');
+				$data[]=array($r->idunidadsilabo,$r->idsilabo,$r->unidad,$r->launidad,$r->elvideo,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idsilabo="'.$r->idunidadsilabo.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -137,7 +137,7 @@ class Unidadsilabo extends CI_Controller{
 		$data['unidadsilabo'] = $this->unidadsilabo_model->elprimero();
 	  if(!empty($data))
 	  {
-			$data['cursos']= $this->curso_model->lista_cursos()->result();
+			$data['silabos']= $this->silabo_model->lista_silabos()->result();
 
 		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
@@ -157,7 +157,7 @@ class Unidadsilabo extends CI_Controller{
 		$data['unidadsilabo'] = $this->unidadsilabo_model->elultimo();
 	  if(!empty($data))
 	  {
-			$data['cursos']= $this->curso_model->lista_cursos()->result();
+			$data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 	    $data['title']="Unidadsilabo del videotutorial";
@@ -178,7 +178,7 @@ class Unidadsilabo extends CI_Controller{
 		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 		$data['unidadsilabo'] = $this->unidadsilabo_model->siguiente($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['cursos']= $this->curso_model->lista_cursos()->result();
+		$data['silabos']= $this->silabo_model->lista_silabos()->result();
 	    $data['title']="Unidadsilabo del videotutorial";
 	 // $data['title']="Correo";
 		$this->load->view('template/page_header');		
@@ -191,7 +191,7 @@ class Unidadsilabo extends CI_Controller{
 		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 		$data['unidadsilabo'] = $this->unidadsilabo_model->anterior($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['cursos']= $this->curso_model->lista_cursos()->result();
+			$data['silabos']= $this->silabo_model->lista_silabos()->result();
 	 // $data['title']="Correo";
 	    $data['title']="Unidadsilabo del videotutorial";
 		$this->load->view('template/page_header');		
