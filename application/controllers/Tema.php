@@ -41,10 +41,9 @@ class Tema extends CI_Controller{
 	public function  save()
 	{
 	 	$array_item=array(
-	 	'nombre' => $this->input->post('nombre'),
-	 	'descripcion' => $this->input->post('descripcion'),
-	 	'duracion' => $this->input->post('duracion'),
-	 	'linkdetalle' => $this->input->post('linkdetalle'),
+	 	'nombrecorto' => $this->input->post('nombrecorto'),
+	 	'nombrelargo' => $this->input->post('nombrelargo'),
+	 	'idunidadsilabo' => $this->input->post('idunidadsilabo'),
 	 	);
 	 	$this->tema_model->save($array_item);
 	 	redirect('tema');
