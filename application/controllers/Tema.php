@@ -6,7 +6,6 @@ class Tema extends CI_Controller{
       parent::__construct();
       $this->load->model('tema_model');
       $this->load->model('unidadsilabo_model');
-      $this->load->model('cursodocumento_model');
       $this->load->model('documento_model');
 }
 
@@ -17,7 +16,6 @@ class Tema extends CI_Controller{
 	public function index(){
 		if(isset($this->session->userdata['logged_in'])){
 			$data['tema']=$this->tema_model->elultimo();
-			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['tema']['idtema'])->result();
 			$data['title']="Lista de temaes";
 			$this->load->view('template/page_header');
 			$this->load->view('tema_record',$data);
@@ -164,7 +162,6 @@ public function iniciar()
 public function actual()
 {
 	$data['tema'] = $this->tema_model->tema($this->uri->segment(3))->row_array();
-			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['tema']['idtema'])->result();
 			$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
@@ -185,7 +182,6 @@ public function actual()
 public function elprimero()
 {
 	$data['tema'] = $this->tema_model->elprimero();
-			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['tema']['idtema'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
@@ -203,7 +199,6 @@ public function elprimero()
 public function elultimo()
 {
 		$data['tema'] = $this->tema_model->elultimo();
-			$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['tema']['idtema'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
@@ -223,7 +218,6 @@ public function elultimo()
 public function siguiente(){
  // $data['tema_list']=$this->tema_model->lista_tema()->result();
 	$data['tema'] = $this->tema_model->siguiente($this->uri->segment(3))->row_array();
-	$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['tema']['idtema'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['title']="Tema";
 	$this->load->view('template/page_header');		
@@ -234,7 +228,6 @@ public function siguiente(){
 public function anterior(){
  // $data['tema_list']=$this->tema_model->lista_tema()->result();
 	$data['tema'] = $this->tema_model->anterior($this->uri->segment(3))->row_array();
-	$data['cursodocumentos']= $this->cursodocumento_model->listar_cursodocumento1($data['tema']['idtema'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['title']="Tema";
 	$this->load->view('template/page_header');		
