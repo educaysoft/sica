@@ -71,6 +71,30 @@ echo form_input('idevento',$options[$fechaevento['idevento']],array("disabled"=>
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Tema progr. </label>
+	<div class="col-md-10">
+     <?php 
+$options= array("NADA");
+foreach ($temas as $row){
+	$options[$row->idtema]= $row->nombrecorto;
+}
+
+echo form_input('idtema',$options[$fechaevento['idtema']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="form-group row">

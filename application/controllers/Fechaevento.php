@@ -7,10 +7,12 @@ class Fechaevento extends CI_Controller{
       		$this->load->model('documento_model');
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
+      		$this->load->model('tema_model');
 	}
 
 	public function index(){
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
+  		$data['temas']= $this->tema_model->lista_tema()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['fechaevento'] = $this->fechaevento_model->elultimo();
