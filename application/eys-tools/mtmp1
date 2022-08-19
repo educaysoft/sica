@@ -1,33 +1,59 @@
 <?php
-class Ciclo_model extends CI_model {
+class Documentosilabo_model extends CI_model {
 
-	function lista_tipoeventos(){
-		 $tipoevento= $this->db->get('tipoevento');
-		 return $tipoevento;
+	function listar_cursodocumento(){
+		 $cursodocumento= $this->db->get('cursodocumento');
+		 return $cursodocumento;
 	}
 
- 	function tipoevento( $id){
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
- 		return $tipoevento;
+	function listar_cursodocumento1($idsilabo){
+		if($idsilabo==0)
+		{
+		$cursodocumento=$this->db->order_by("asunto")->get('cursodocumento1');
+		}else{
+
+		$this->db->where('idsilabo='.$idsilabo);
+		$cursodocumento=$this->db->order_by("asunto")->get('cursodocumento1');
+		}
+
+		 return $cursodocumento;
+	}
+
+ 	function cursodocumento( $id){
+ 		$cursodocumento = $this->db->query('select * from cursodocumento where idcursodocumento="'. $id.'"');
+ 		return $cursodocumento;
+ 	}
+ 	function lista_unidades( $id){
+		$cursodocumento = $this->db->query('select * from cursodocumento1 where idsilabo="'. $id.'"');
+ 		return $cursodocumento;
+ 	}
+
+
+
+
+ 	function cursodocumentos( $id){
+ 		$cursodocumento = $this->db->query('select * from cursodocumento1 where idevento="'. $id.'"');
+ 		return $cursodocumento;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("tipoevento", $array);
+		$this->db->insert("cursodocumento", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idtipoevento',$id);
- 		$this->db->update('tipoevento',$array_item);
+ 		$this->db->where('idcursodocumento',$id);
+ 		$this->db->update('cursodocumento',$array_item);
 	}
  
 
 
- 	public function delete($id)
+
+  public function delete($id)
 	{
- 		$this->db->where('idtipoevento',$id);
-		$this->db->delete('tipoevento');
+ 		$this->db->where('idcursodocumento',$id);
+		$this->db->delete('cursodocumento');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -38,7 +64,7 @@ class Ciclo_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
+		$query=$this->db->order_by("idcursodocumento")->get('cursodocumento');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -51,7 +77,7 @@ class Ciclo_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
+		$query=$this->db->order_by("idcursodocumento")->get('cursodocumento');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -63,38 +89,46 @@ class Ciclo_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
-		$arr=array("idtipoevento"=>$id);
-		$clave=array_search($arr,$tipoevento);
-	   if(array_key_exists($clave+1,$tipoevento))
+ 		$cursodocumento = $this->db->select("idcursodocumento")->order_by("idcursodocumento")->get('cursodocumento')->result_array();
+		$arr=array("idcursodocumento"=>$id);
+		$clave=array_search($arr,$cursodocumento);
+	   if(array_key_exists($clave+1,$cursodocumento))
 		 {
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave+1]["idtipoevento"].'"');
+ 		$cursodocumento = $this->db->query('select * from cursodocumento where idcursodocumento="'. $cursodocumento[$clave+1]["idcursodocumento"].'"');
 		 }else{
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
+ 		$cursodocumento = $this->db->query('select * from cursodocumento where idcursodocumento="'. $id.'"');
 		 }
 		 	
- 		return $tipoevento;
+ 		return $cursodocumento;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
-		$arr=array("idtipoevento"=>$id);
-		$clave=array_search($arr,$tipoevento);
-	   if(array_key_exists($clave-1,$tipoevento))
+ 		$cursodocumento = $this->db->select("idcursodocumento")->order_by("idcursodocumento")->get('cursodocumento')->result_array();
+		$arr=array("idcursodocumento"=>$id);
+		$clave=array_search($arr,$cursodocumento);
+	   if(array_key_exists($clave-1,$cursodocumento))
 		 {
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave-1]["idtipoevento"].'"');
+ 		$cursodocumento = $this->db->query('select * from cursodocumento where idcursodocumento="'. $cursodocumento[$clave-1]["idcursodocumento"].'"');
 		 }else{
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
+ 		$cursodocumento = $this->db->query('select * from cursodocumento where idcursodocumento="'. $id.'"');
 		 }
 		 	
- 		return $tipoevento;
+ 		return $cursodocumento;
  	}
+
+
+
+
+
+
+
+
 
 
 
