@@ -46,43 +46,36 @@ if(isset($tema))
     <label class="col-md-2 col-form-label"> Nombre:</label>
 	<div class="col-md-10">
 		<?php
-       echo form_input('nombre',$tema['nombre'],array('placeholder'=>'Nombre del tema','style'=>'width:500px;'));
+       echo form_input('nombrecorto',$tema['nombrecorto'],array('placeholder'=>'Nombre del tema','style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Descripción:</label>
+    <label class="col-md-2 col-form-label"> Nombre largo:</label>
 	<div class="col-md-10">
 		<?php
-       echo form_input('descripcion',$tema['descripcion'],array('placeholder'=>'Descripción del tema','style'=>'width:500px;'));
+       echo form_input('nombrelargo',$tema['nombrelargo'],array('placeholder'=>'Descripción del tema','style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
 
 
 
- <div class="form-group row">
-    <label class="col-md-2 col-form-label"> duración:</label>
-	<div class="col-md-10">
-		<?php
-       		echo form_input('duracion',$tema['duracion'],array('placeholder'=>'Duracion en horas','style'=>'width:500px;'));
-		?>
-	</div> 
-</div>  
+   
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('documento/add', 'Documentos:') ?> </label>
      	<?php 
 	$options=array();
-  	foreach ($temadocumentos as $row){
-		$options[$row->iddocumento]=$row->asunto;
+  	foreach ($unidadsilabos as $row){
+		$options[$row->idunidadsilabo]=$row->nombre;
 	}
 	?>
 	<div class="col-md-10">
 		<?php
- 			echo form_multiselect('iddocumento[]',$options,(array)set_value('iddocumento',''), array('style'=>'width:500px;')); 
+ 			echo form_multiselect('idunidadsilabo[]',$options,(array)set_value('idunidadsilabo',''), array('style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
