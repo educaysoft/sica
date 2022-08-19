@@ -76,7 +76,7 @@ if(isset($silabo))
     <label class="col-md-2 col-form-label"> <?php echo anchor('documento/add', 'Documentos:') ?> </label>
      	<?php 
 	$options=array();
-  	foreach ($silabodocumentos as $row){
+  	foreach ($documentosilabos as $row){
 		$options[$row->iddocumento]=$row->asunto;
 	}
 	?>
