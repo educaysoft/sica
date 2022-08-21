@@ -1,58 +1,122 @@
 <div id="eys-nav-i">
-	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-	<ul>
+
+<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+<?php echo form_open('cursodocumento/save_edit') ?>
+    <ul>
 <?php
-if(isset($cicloacademico))
+if(isset($cursodocumento))
 {
 ?>
-        <li> <?php echo anchor('cicloacademico/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('cicloacademico/siguiente/'.$cicloacademico['idcicloacademico'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('cicloacademico/anterior/'.$cicloacademico['idcicloacademico'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('cicloacademico/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('cicloacademico/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('cicloacademico/edit/'.$cicloacademico['idcicloacademico'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('cicloacademico/delete/'.$cicloacademico['idcicloacademico'],'Delete'); ?></li>
-        <li> <?php echo anchor('cicloacademico/listar/','Listar'); ?></li>
+ 
+        <li> <?php echo anchor('cursodocumento/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('cursodocumento/anterior/'.$cursodocumento['idcursodocumento'], 'anterior'); ?></li>
+        <li> <?php echo anchor('cursodocumento/siguiente/'.$cursodocumento['idcursodocumento'], 'siguiente'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('cursodocumento/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('cursodocumento/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('cursodocumento/edit/'.$cursodocumento['idcursodocumento'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('cursodocumento/delete/'.$cursodocumento['idcursodocumento'],'Delete'); ?></li>
+        <li> <?php echo anchor('cursodocumento/listar/','Listar'); ?></li>
 
+    </ul>
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('cicloacademico/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('cursodocumento/add', 'Nuevo'); ?></li>
+    </ul>
 <?php
+	die();
 }
 ?>
-    </ul>
+
+
+
+
+
 </div>
 <br>
-<br>
 
 
-<?php echo form_open('cicloacademico/save_edit') ?>
-<?php echo form_hidden('idcicloacademico',$cicloacademico['idcicloacademico']) ?>
+<?php echo form_hidden('idcurso',$cursodocumento['idcurso']) ?>
+
+
+ 
+
+
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id:</label>
+    <label class="col-md-2 col-form-label"> Id curso:</label>
 	<div class="col-md-10">
-     <?php
-	echo form_input('idcicloacademico',$cicloacademico['idcicloacademico'],array("disabled"=>"disabled",'placeholder'=>'Idcicloacademicos'));
-	?>
+	<?php
+      echo form_input('idcurso',$cursodocumento['idcurso'],array("disabled"=>"disabled",'placeholder'=>'Idcursos','style'=>'width:500px;'));
+		?>
+	</div> 
+</div> 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre del curso:</label>
+	<div class="col-md-10">
+	<?php
+$options= array("NADA");
+foreach ($cursos as $row){
+	$options[$row->idcurso]= $row->nombre;
+}
+echo form_input('idcurso',$options[$cursodocumento['idcurso']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
+	</div> 
+</div> 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id documento:</label>
+	<div class="col-md-10">
+	<?php
+      echo form_input('iddocumento',$cursodocumento['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Idcursodocumentoes','style'=>'width:500px;'));
+		?>
+	</div> 
+</div> 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Documento:</label>
+	<div class="col-md-10">
+	<?php
+$options= array("NADA");
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->asunto;
+}
+echo form_input('nombre',$options[$cursodocumento['iddocumento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
 	</div> 
 </div> 
  
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre:</label>
-	<div class="col-md-10">
-     <?php
-       echo form_input('nombre',$cicloacademico['nombre'],array('placeholder'=>'Nombre del cicloacademico')); 
+  
 
-	?>
-	</div> 
-</div> 
-   
-   
+
+
+
+
+
+
+
 <?php echo form_close(); ?>
 
 
 
+
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>
