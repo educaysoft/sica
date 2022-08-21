@@ -4,7 +4,6 @@ class Unidadsilabo extends CI_Controller{
 	public function __construct(){
       		parent::__construct();
       		$this->load->model('unidadsilabo_model');
-      		$this->load->model('videotutorial_model');
       		$this->load->model('persona_model');
       		$this->load->model('silabo_model');
 	}
@@ -12,7 +11,6 @@ class Unidadsilabo extends CI_Controller{
 	public function index(){
   		$data['silabos']= $this->silabo_model->lista_silabos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 		$data['unidadsilabo'] = $this->unidadsilabo_model->elultimo();
 
  		// print_r($data['unidadsilabo_list']);
@@ -27,7 +25,6 @@ class Unidadsilabo extends CI_Controller{
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['silabos']= $this->silabo_model->lista_silabos()->result();
-  		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 		$data['unidadsilabo'] = $this->unidadsilabo_model->elultimo();
 		$data['title']="Nueva unidades del silabo";
 	 	$this->load->view('template/page_header');		
@@ -39,7 +36,6 @@ class Unidadsilabo extends CI_Controller{
 	public function  save()
 	{
 	 	$array_item=array(
-		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
 		 	'idsilabo' => $this->input->post('idsilabo'),
 		 	'nombre' => $this->input->post('nombre'),
 		 	'unidad' => $this->input->post('unidad'),
@@ -55,7 +51,6 @@ class Unidadsilabo extends CI_Controller{
 	 	$data['unidadsilabo'] = $this->unidadsilabo_model->unidadsilabo($this->uri->segment(3))->row_array();
 		$data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['videotutorials']= $this->videotutorial_model->lista_videotutorials()->result();
  	 	$data['title'] = "Actualizar Unidadsilabo";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('unidadsilabo_edit',$data);
@@ -70,7 +65,6 @@ class Unidadsilabo extends CI_Controller{
 		 	'nombre' => $this->input->post('nombre'),
 		 	'unidad' => $this->input->post('unidad'),
 		 	'idsilabo' => $this->input->post('idsilabo'),
-		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
 	 	);
 	 	$this->unidadsilabo_model->update($id,$array_item);
 	 	redirect('unidadsilabo');
@@ -82,7 +76,6 @@ class Unidadsilabo extends CI_Controller{
 	 	$array_item=array(
 		 	'idsilabo' => $this->input->post('idsilabo'),
 		 	'idpersona' => $this->input->post('idpersona'),
-		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
 	 	);
 	 	echo $this->unidadsilabo_model->update($id,$array_item);
  	}
@@ -139,7 +132,6 @@ class Unidadsilabo extends CI_Controller{
 	  {
 			$data['silabos']= $this->silabo_model->lista_silabos()->result();
 
-		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 	    $data['title']="Unidadsilabo del videotutorial";
 	    $this->load->view('template/page_header');		
@@ -158,7 +150,6 @@ class Unidadsilabo extends CI_Controller{
 	  if(!empty($data))
 	  {
 			$data['silabos']= $this->silabo_model->lista_silabos()->result();
-		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 	    $data['title']="Unidadsilabo del videotutorial";
 	  
@@ -175,7 +166,6 @@ class Unidadsilabo extends CI_Controller{
 
 	public function siguiente(){
 	 // $data['unidadsilabo_list']=$this->unidadsilabo_model->lista_unidadsilabo()->result();
-		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 		$data['unidadsilabo'] = $this->unidadsilabo_model->siguiente($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['silabos']= $this->silabo_model->lista_silabos()->result();
@@ -188,7 +178,6 @@ class Unidadsilabo extends CI_Controller{
 
 	public function anterior(){
 	 // $data['unidadsilabo_list']=$this->unidadsilabo_model->lista_unidadsilabo()->result();
-	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 	$data['unidadsilabo'] = $this->unidadsilabo_model->anterior($this->uri->segment(3))->row_array();
 	$data['personas']= $this->persona_model->lista_personas()->result();
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();

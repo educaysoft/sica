@@ -40,6 +40,8 @@ alter table documentosilabo modify column idcursodocumento int(11);
 alter table documentosilabo drop primary key; */
 /*alter table documentosilabo change idcursodocumento iddocumentosilabo int(11) not null auto_increment primary key;*/
 
-alter table silabo add column idasignatura int(11); 
+/* alter table silabo add column idasignatura int(11); */
+ alter table tema add column idvideotutorial int(11); 
+
 
 

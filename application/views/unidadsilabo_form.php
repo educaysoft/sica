@@ -7,7 +7,7 @@
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Curso:</label>
+    <label class="col-md-2 col-form-label"> Silabo:</label>
 	<div class="col-md-10">
 		<?php
 	$options= array('--Select--');
@@ -22,18 +22,7 @@
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Videotutorial:</label>
-	<div class="col-md-10">
-	<?php
-	$options= array('--Select--');
-	foreach ($videotutoriales as $row){
-		$options[$row->idvideotutorial]= $row->nombre;
-	}
-	 echo form_dropdown("idvideotutorial",$options, set_select('--Select--','default_value')); 
-		?>
-	</div> 
-</div> 
+ 
 
 
 <div class="form-group row">
