@@ -82,12 +82,12 @@ echo form_input('idasignatura',$options[$docenteasignatura['idasignatura']],arra
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Documento:</label>
+    <label class="col-md-2 col-form-label">Docente:</label>
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
 foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->asunto;
+	$options[$row->iddocente]= $row->eldocente;
 }
 echo form_input('nombre',$options[$docenteasignatura['iddocente']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
@@ -102,7 +102,7 @@ echo form_input('nombre',$options[$docenteasignatura['iddocente']],array("disabl
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
-foreach ($docentes as $row){
+foreach ($periodoacademicos as $row){
 	$options[$row->idperiodoacademico]= $row->nombrecorto;
 }
 echo form_input('idperiodoacademico',$options[$docenteasignatura['iperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;'));
