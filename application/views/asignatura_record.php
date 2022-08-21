@@ -83,6 +83,31 @@ if(isset($asignatura))
  </tr>
 
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Docentes:</label>
+      <?php
+ 	$options = array();
+  	foreach ($docentes as $row){
+		$options[$row->iddocente]=$row->eldocente;
+	}
+
+	?>
+	<div class="col-md-10">
+	<?php
+	echo form_multiselect('iddocente[]',$options,(array)set_value('iddocente', ''), array('style'=>'width:500px')); 
+	?>
+
+	</div> 
+</div>
+
+
+
+
+
+
+
+
 </table>
 <?php echo form_close(); ?>
 
