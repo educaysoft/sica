@@ -42,7 +42,9 @@ public function  save()
 	 	'idasignatura' => $this->input->post('idasignatura'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	'codigo' => $this->input->post('codigo'),
+	 	'creditos' => $this->input->post('creditos'),
 	 	'idmalla' => $this->input->post('idmalla'),
+	 	'idnivelacademico' => $this->input->post('idnivelacademico'),
 	 	);
 	 	$this->asignatura_model->save($array_item);
 	 	redirect('asignatura');
@@ -70,7 +72,9 @@ public function edit()
 		 	'idasignatura' => $this->input->post('idasignatura'),
 		 	'nombre' => $this->input->post('nombre'),
 		 	'codigo' => $this->input->post('codigo'),
+	 		'creditos' => $this->input->post('creditos'),
 	 		'idmalla' => $this->input->post('idmalla'),
+	 		'idnivelacademico' => $this->input->post('idnivelacademico'),
 	 	);
 	 	$this->asignatura_model->update($id,$array_item);
 	 	redirect('asignatura');

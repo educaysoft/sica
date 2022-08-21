@@ -10,32 +10,32 @@
   </tr>
 
 <tr>
-      <td>Detalle:</td>
-      <td><?php echo form_input('detalle',$asignatura['detalle'],array('placeholder'=>'Nombre Institucion')) ?></td>
+      <td>Creditos:</td>
+      <td><?php echo form_input('creditos',$asignatura['creditos'],array('placeholder'=>'creditos de la asignatura')) ?></td>
   </tr>
 
 <tr>
-<td> Institucion:</td>
+<td> Malla:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
+foreach ($mallaes as $row){
+	$options[$row->idmalla]= $row->nombre;
 }
 
- echo form_dropdown("idinstitucion",$options, $asignatura['idinstitucion']);  ?></td>
+ echo form_dropdown("idmalla",$options, $asignatura['idmalla']);  ?></td>
 </tr>
 
 
 
 <tr>
-<td> Categoria:</td>
+<td> Nivel:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($mallas as $row){
-	$options[$row->idmalla]= $row->nombre;
+foreach ($nivelacademicos as $row){
+	$options[$row->idnivelacademico]= $row->nombre;
 }
 
- echo form_dropdown("idmalla",$options, $asignatura['idmalla']);  ?></td>
+ echo form_dropdown("idnivelacademico",$options, $asignatura['idnivelacademico']);  ?></td>
 </tr>
 
 
