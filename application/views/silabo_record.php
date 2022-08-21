@@ -72,6 +72,20 @@ if(isset($silabo))
 	</div> 
 </div>  
 
+<tr>
+     <td>Asignatura:</td>
+     <td><?php 
+    $options= array("NADA");
+    foreach ($asignaturas as $row){
+	      $options[$row->idasignatura]= $row->nombre;
+    }
+    echo form_input('idasignatura',$options[$asignatura['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+ </tr>
+
+
+
+
+
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('documento/add', 'Documentos:') ?> </label>
      	<?php 
