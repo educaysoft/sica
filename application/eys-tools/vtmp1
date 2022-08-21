@@ -2,23 +2,23 @@
 	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($ciclo))
+if(isset($cicloacademico))
 {
 ?>
-        <li> <?php echo anchor('ciclo/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('ciclo/siguiente/'.$ciclo['idciclo'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('ciclo/anterior/'.$ciclo['idciclo'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('ciclo/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('ciclo/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('ciclo/edit/'.$ciclo['idciclo'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('ciclo/delete/'.$ciclo['idciclo'],'Delete'); ?></li>
-        <li> <?php echo anchor('ciclo/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('cicloacademico/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('cicloacademico/siguiente/'.$cicloacademico['idcicloacademico'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('cicloacademico/anterior/'.$cicloacademico['idcicloacademico'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('cicloacademico/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('cicloacademico/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('cicloacademico/edit/'.$cicloacademico['idcicloacademico'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('cicloacademico/delete/'.$cicloacademico['idcicloacademico'],'Delete'); ?></li>
+        <li> <?php echo anchor('cicloacademico/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('ciclo/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('cicloacademico/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -28,15 +28,15 @@ if(isset($ciclo))
 <br>
 
 
-<?php echo form_open('ciclo/save_edit') ?>
-<?php echo form_hidden('idciclo',$ciclo['idciclo']) ?>
+<?php echo form_open('cicloacademico/save_edit') ?>
+<?php echo form_hidden('idcicloacademico',$cicloacademico['idcicloacademico']) ?>
 
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
      <?php
-	echo form_input('idciclo',$ciclo['idciclo'],array("disabled"=>"disabled",'placeholder'=>'Idciclos'));
+	echo form_input('idcicloacademico',$cicloacademico['idcicloacademico'],array("disabled"=>"disabled",'placeholder'=>'Idcicloacademicos'));
 	?>
 	</div> 
 </div> 
@@ -45,7 +45,7 @@ if(isset($ciclo))
     <label class="col-md-2 col-form-label"> Nombre:</label>
 	<div class="col-md-10">
      <?php
-       echo form_input('nombre',$ciclo['nombre'],array('placeholder'=>'Nombre del ciclo')); 
+       echo form_input('nombre',$cicloacademico['nombre'],array('placeholder'=>'Nombre del cicloacademico')); 
 
 	?>
 	</div> 

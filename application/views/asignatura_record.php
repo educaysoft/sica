@@ -73,13 +73,13 @@ if(isset($asignatura))
 
 
 <tr>
-     <td>Ciclo:</td>
+     <td>Nivel:</td>
      <td><?php 
     $options= array("NADA");
-    foreach ($ciclos as $row){
-	      $options[$row->idciclo]= $row->nombre;
+    foreach ($nivelacademicos as $row){
+	      $options[$row->idnivelacademico]= $row->nombre;
     }
-    echo form_input('idciclo',$options[$asignatura['idciclo']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+    echo form_input('idnivelacademico',$options[$asignatura['idnivelacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
 
 

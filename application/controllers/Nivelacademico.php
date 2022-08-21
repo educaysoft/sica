@@ -1,18 +1,18 @@
 <?php
 
-class Cicloacademico extends CI_Controller{
+class Nivelacademico extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('cicloacademico_model');
+      $this->load->model('nivelacademico_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['cicloacademico']=$this->cicloacademico_model->cicloacademico(1)->row_array();
-		$data['title']="Lista de cicloacademicoes";
+		$data['nivelacademico']=$this->nivelacademico_model->nivelacademico(1)->row_array();
+		$data['title']="Lista de nivelacademicoes";
 		$this->load->view('template/page_header');
-		$this->load->view('cicloacademico_record',$data);
+		$this->load->view('nivelacademico_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva cicloacademico";
+		$data['title']="Nueva nivelacademico";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('cicloacademico_form',$data);
+	 	$this->load->view('nivelacademico_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,21 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idcicloacademico' => $this->input->post('idcicloacademico'),
+	 	'idnivelacademico' => $this->input->post('idnivelacademico'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->cicloacademico_model->save($array_item);
-	 	redirect('cicloacademico');
+	 	$this->nivelacademico_model->save($array_item);
+	 	redirect('nivelacademico');
  	}
 
 
 
 public function edit()
 {
-	 	$data['cicloacademico'] = $this->cicloacademico_model->cicloacademico($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar cicloacademico";
+	 	$data['nivelacademico'] = $this->nivelacademico_model->nivelacademico($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar nivelacademico";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('cicloacademico_edit',$data);
+ 	 	$this->load->view('nivelacademico_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +56,22 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idcicloacademico');
+		$id=$this->input->post('idnivelacademico');
 	 	$array_item=array(
 		 	
-		 	'idcicloacademico' => $this->input->post('idcicloacademico'),
+		 	'idnivelacademico' => $this->input->post('idnivelacademico'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->cicloacademico_model->update($id,$array_item);
-	 	redirect('cicloacademico');
+	 	$this->nivelacademico_model->update($id,$array_item);
+	 	redirect('nivelacademico');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->cicloacademico_model->delete($this->uri->segment(3));
+ 		$data=$this->nivelacademico_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('cicloacademico/elprimero');
+	 	redirect('nivelacademico/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -79,26 +79,26 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Cicloacademico";
+  $data['title']="Nivelacademico";
 	$this->load->view('template/page_header');		
-  $this->load->view('cicloacademico_list',$data);
+  $this->load->view('nivelacademico_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function cicloacademico_data()
+function nivelacademico_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->cicloacademico_model->lista_cicloacademicos();
+	 	$data0 = $this->nivelacademico_model->lista_nivelacademicos();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idcicloacademico,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcicloacademico="'.$r->idcicloacademico.'">Ver</a>');
+			$data[]=array($r->idnivelacademico,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idnivelacademico="'.$r->idnivelacademico.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -121,12 +121,12 @@ function cicloacademico_data()
 
 public function elprimero()
 {
-	$data['cicloacademico'] = $this->cicloacademico_model->elprimero();
+	$data['nivelacademico'] = $this->nivelacademico_model->elprimero();
   if(!empty($data))
   {
-    $data['title']="Cicloacademico";
+    $data['title']="Nivelacademico";
     $this->load->view('template/page_header');		
-    $this->load->view('cicloacademico_record',$data);
+    $this->load->view('nivelacademico_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +137,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['cicloacademico'] = $this->cicloacademico_model->elultimo();
+	$data['nivelacademico'] = $this->nivelacademico_model->elultimo();
   if(!empty($data))
   {
-    $data['title']="Cicloacademico";
+    $data['title']="Nivelacademico";
   
     $this->load->view('template/page_header');		
-    $this->load->view('cicloacademico_record',$data);
+    $this->load->view('nivelacademico_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,20 +154,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['cicloacademico_list']=$this->cicloacademico_model->lista_cicloacademico()->result();
-	$data['cicloacademico'] = $this->cicloacademico_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Cicloacademico";
+ // $data['nivelacademico_list']=$this->nivelacademico_model->lista_nivelacademico()->result();
+	$data['nivelacademico'] = $this->nivelacademico_model->siguiente($this->uri->segment(3))->row_array();
+  $data['title']="Nivelacademico";
 	$this->load->view('template/page_header');		
-  $this->load->view('cicloacademico_record',$data);
+  $this->load->view('nivelacademico_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['cicloacademico_list']=$this->cicloacademico_model->lista_cicloacademico()->result();
-	$data['cicloacademico'] = $this->cicloacademico_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Cicloacademico";
+ // $data['nivelacademico_list']=$this->nivelacademico_model->lista_nivelacademico()->result();
+	$data['nivelacademico'] = $this->nivelacademico_model->anterior($this->uri->segment(3))->row_array();
+  $data['title']="Nivelacademico";
 	$this->load->view('template/page_header');		
-  $this->load->view('cicloacademico_record',$data);
+  $this->load->view('nivelacademico_record',$data);
 	$this->load->view('template/page_footer');
 }
 

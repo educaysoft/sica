@@ -1,33 +1,33 @@
 <?php
-class Cicloacademico_model extends CI_model {
+class Nivelacademico_model extends CI_model {
 
-	function lista_ciclos(){
-		 $ciclo= $this->db->get('ciclo');
-		 return $ciclo;
+	function lista_cicloacademicos(){
+		 $cicloacademico= $this->db->get('cicloacademico');
+		 return $cicloacademico;
 	}
 
- 	function ciclo( $id){
- 		$ciclo = $this->db->query('select * from ciclo where idciclo="'. $id.'"');
- 		return $ciclo;
+ 	function cicloacademico( $id){
+ 		$cicloacademico = $this->db->query('select * from cicloacademico where idcicloacademico="'. $id.'"');
+ 		return $cicloacademico;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("ciclo", $array);
+		$this->db->insert("cicloacademico", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idciclo',$id);
- 		$this->db->update('ciclo',$array_item);
+ 		$this->db->where('idcicloacademico',$id);
+ 		$this->db->update('cicloacademico',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idciclo',$id);
-		$this->db->delete('ciclo');
+ 		$this->db->where('idcicloacademico',$id);
+		$this->db->delete('cicloacademico');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -38,7 +38,7 @@ class Cicloacademico_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idciclo")->get('ciclo');
+		$query=$this->db->order_by("idcicloacademico")->get('cicloacademico');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -51,7 +51,7 @@ class Cicloacademico_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idciclo")->get('ciclo');
+		$query=$this->db->order_by("idcicloacademico")->get('cicloacademico');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -63,37 +63,37 @@ class Cicloacademico_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$ciclo = $this->db->select("idciclo")->order_by("idciclo")->get('ciclo')->result_array();
-		$arr=array("idciclo"=>$id);
-		$clave=array_search($arr,$ciclo);
-	   if(array_key_exists($clave+1,$ciclo))
+ 		$cicloacademico = $this->db->select("idcicloacademico")->order_by("idcicloacademico")->get('cicloacademico')->result_array();
+		$arr=array("idcicloacademico"=>$id);
+		$clave=array_search($arr,$cicloacademico);
+	   if(array_key_exists($clave+1,$cicloacademico))
 		 {
 
- 		$ciclo = $this->db->query('select * from ciclo where idciclo="'. $ciclo[$clave+1]["idciclo"].'"');
+ 		$cicloacademico = $this->db->query('select * from cicloacademico where idcicloacademico="'. $cicloacademico[$clave+1]["idcicloacademico"].'"');
 		 }else{
 
- 		$ciclo = $this->db->query('select * from ciclo where idciclo="'. $id.'"');
+ 		$cicloacademico = $this->db->query('select * from cicloacademico where idcicloacademico="'. $id.'"');
 		 }
 		 	
- 		return $ciclo;
+ 		return $cicloacademico;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$ciclo = $this->db->select("idciclo")->order_by("idciclo")->get('ciclo')->result_array();
-		$arr=array("idciclo"=>$id);
-		$clave=array_search($arr,$ciclo);
-	   if(array_key_exists($clave-1,$ciclo))
+ 		$cicloacademico = $this->db->select("idcicloacademico")->order_by("idcicloacademico")->get('cicloacademico')->result_array();
+		$arr=array("idcicloacademico"=>$id);
+		$clave=array_search($arr,$cicloacademico);
+	   if(array_key_exists($clave-1,$cicloacademico))
 		 {
 
- 		$ciclo = $this->db->query('select * from ciclo where idciclo="'. $ciclo[$clave-1]["idciclo"].'"');
+ 		$cicloacademico = $this->db->query('select * from cicloacademico where idcicloacademico="'. $cicloacademico[$clave-1]["idcicloacademico"].'"');
 		 }else{
 
- 		$ciclo = $this->db->query('select * from ciclo where idciclo="'. $id.'"');
+ 		$cicloacademico = $this->db->query('select * from cicloacademico where idcicloacademico="'. $id.'"');
 		 }
 		 	
- 		return $ciclo;
+ 		return $cicloacademico;
  	}
 
 
