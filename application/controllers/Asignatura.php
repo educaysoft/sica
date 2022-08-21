@@ -5,13 +5,15 @@ class Asignatura extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('asignatura_model');
-  	  $this->load->model('malla_model');
+  	$this->load->model('malla_model');
+  	$this->load->model('nivelacademico_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 	  	$data['asignatura']=$this->asignatura_model->asignatura(1)->row_array();
   		$data['mallas']= $this->malla_model->lista_mallas()->result();
+  		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   		$data['title']="Lista de asignatura";
 			$this->load->view('template/page_header');		
   		$this->load->view('asignatura_record',$data);
