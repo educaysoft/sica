@@ -9,7 +9,7 @@ class Silabo extends CI_Controller{
       $this->load->model('documentosilabo_model');
       $this->load->model('documento_model');
   	$this->load->model('asignatura_model');
-
+  }
 
 //=========================================================
 // Es la primera función que se ejecuta cuando llamamos a
