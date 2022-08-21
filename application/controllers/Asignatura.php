@@ -29,6 +29,7 @@ public function index(){
 public function add()
 {
   		$data['mallas']= $this->malla_model->lista_mallas()->result();
+  		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
 		$data['title']="Nuevo asignatura";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('asignatura_form',$data);
@@ -56,6 +57,7 @@ public function edit()
 {
 	 	$data['asignatura'] = $this->asignatura_model->asignatura($this->uri->segment(3))->row_array();
   		$data['mallas']= $this->malla_model->lista_mallas()->result();
+  		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
  	 	$data['title'] = "Actualizar Asignatura";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('asignatura_edit',$data);

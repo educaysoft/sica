@@ -18,7 +18,7 @@
 <td> Malla:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($mallaes as $row){
+foreach ($mallas as $row){
 	$options[$row->idmalla]= $row->nombre;
 }
 
