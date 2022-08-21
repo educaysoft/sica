@@ -7,15 +7,15 @@
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Curso:</label>
+    <label class="col-md-2 col-form-label"> Asignatura:</label>
 	<div class="col-md-10">
 		<?php
 	$options= array('--Select--');
-	foreach ($cursos as $row){
-		$options[$row->idcurso]= $row->nombre;
+	foreach ($asignaturas as $row){
+		$options[$row->idasignatura]= $row->nombre;
 	}
 
-	 echo form_dropdown("idcurso",$options, set_select('--Select--','default_value'));  
+	 echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));  
 		?>
 	</div> 
 </div> 
@@ -23,20 +23,31 @@
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Documento:</label>
+    <label class="col-md-2 col-form-label"> Docente:</label>
 	<div class="col-md-10">
 	<?php
 	$options= array('--Select--');
-	foreach ($documentoes as $row){
-		$options[$row->iddocumento]= $row->asunto;
+	foreach ($docentes as $row){
+		$options[$row->iddocente]= $row->asunto;
 	}
-	 echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value')); 
+	 echo form_dropdown("iddocente",$options, set_select('--Select--','default_value')); 
 		?>
 	</div> 
 </div> 
 
 
- 
+ <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Perido académico:</label>
+	<div class="col-md-10">
+	<?php
+	$options= array('--Select--');
+	foreach ($periodoacademicos as $row){
+		$options[$row->idperiodoacademico]= $row->nombrecorto;
+	}
+	 echo form_dropdown("idperiodoacademico",$options, set_select('--Select--','default_value')); 
+		?>
+	</div> 
+</div>
 
 
  
