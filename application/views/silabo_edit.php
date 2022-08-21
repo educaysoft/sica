@@ -48,6 +48,20 @@ $eys_arrinput=array('name'=>'linkdetalle','value'=>$silabo['linkdetalle'], "styl
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Asignatura:</label>
+	<div class="col-md-10">
+		<?php
+$options= array('--Select--');
+foreach ($asignaturas as $row){
+	$options[$row->idasignatura]= $row->nombre;
+}
+ echo form_dropdown("idasignatura",$options, $silabo['idasignatura']);  ?></td>
+		?>
+	</div> 
+</div>
+
+
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('silabo','Atras') ?></td>
  </tr>

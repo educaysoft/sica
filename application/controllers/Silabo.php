@@ -58,6 +58,7 @@ class Silabo extends CI_Controller{
 	public function edit()
 	{
 			$data['silabo'] = $this->silabo_model->silabo($this->uri->segment(3))->row_array();
+  			$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 			$data['title'] = "Actualizar silabo";
 			$this->load->view('template/page_header');		
 			$this->load->view('silabo_edit',$data);
@@ -76,6 +77,7 @@ class Silabo extends CI_Controller{
 		 	'nombre' => $this->input->post('nombre'),
 	 		'duracion' => $this->input->post('duracion'),
 	 		'linkdetalle' => $this->input->post('linkdetalle'),
+	 		'idasignatura' => $this->input->post('idasignatura'),
 	 	);
 	 	$this->silabo_model->update($id,$array_item);
 	 	redirect('silabo/actual/'.$id);
