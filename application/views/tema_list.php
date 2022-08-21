@@ -41,8 +41,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
+ <th>UnidadSilabo</th>
  <th>ID</th>
- <th>nombre</th>
+ <th>Descripción del tema</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>

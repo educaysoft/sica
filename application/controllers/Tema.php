@@ -117,7 +117,7 @@ function tema_data()
 	 	$data0 = $this->tema_model->lista_temas();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idtema,$r->nombre,
+			$data[]=array($r->idunidadsilabo,$r->idtema,$r->nombrecorto,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('tema/actual').'"    data-idtema="'.$r->idtema.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
