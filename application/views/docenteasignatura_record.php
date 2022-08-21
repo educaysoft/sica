@@ -105,7 +105,7 @@ $options= array("NADA");
 foreach ($periodoacademicos as $row){
 	$options[$row->idperiodoacademico]= $row->nombrecorto;
 }
-echo form_input('idperiodoacademico',$options[$docenteasignatura['iperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('idperiodoacademico',$options[$docenteasignatura['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
