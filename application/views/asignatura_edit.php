@@ -10,6 +10,13 @@
   </tr>
 
 <tr>
+      <td>Codigo:</td>
+      <td><?php echo form_input('codigo',$asignatura['codigo'],array('placeholder'=>'Nombre Institucion')) ?></td>
+  </tr>
+
+
+
+<tr>
       <td>Creditos:</td>
       <td><?php echo form_input('creditos',$asignatura['creditos'],array('placeholder'=>'creditos de la asignatura')) ?></td>
   </tr>
