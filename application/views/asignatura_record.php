@@ -36,7 +36,7 @@ if(isset($asignatura))
       <?php
 
   $eys_arrctl=array("name"=>'idasignatura','value'=>$asignatura['idasignatura'],"disabled"=>"disabled",'placeholder'=>'Idasignaturas','style'=>'width:500px;');
- echo form_input($eys_arrctl) ?></td>
+ echo form_input($eys_arrctl); 
 	?>
 	</div> 
 </div>
@@ -48,7 +48,7 @@ if(isset($asignatura))
       <?php
 
   $eys_arrctl=array("name"=>'codigo','value'=>$asignatura['codigo'],"disabled"=>"disabled",'placeholder'=>'Código','style'=>'width:500px;');
- echo form_input($eys_arrctl) ?></td>
+ echo form_input($eys_arrctl);
 	?>
 	</div> 
 </div>
@@ -58,7 +58,7 @@ if(isset($asignatura))
     <label class="col-md-2 col-form-label"> Nombre:</label>
       <?php
   $eys_arrctl=array("name"=>'nombre','value'=>$asignatura['nombre'],"disabled"=>"disabled",'placeholder'=>'Nombre','style'=>'width:500px;');
- echo form_input($eys_arrctl) ?></td>
+ echo form_input($eys_arrctl);
 	?>
 	</div> 
 </div>
