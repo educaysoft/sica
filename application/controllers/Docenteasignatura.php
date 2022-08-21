@@ -28,8 +28,9 @@ class Docenteasignatura extends CI_Controller{
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
-  		$data['docentes']= $this->docente_model->lista_docentes()->result();
+		$data['docentes']= $this->docente_model->lista_docentesA()->result();
 		$data['docenteasignatura'] = $this->docenteasignatura_model->elultimo();
+		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 		$data['title']="Nuevo docente para el asignatura";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('docenteasignatura_form',$data);
@@ -42,6 +43,7 @@ class Docenteasignatura extends CI_Controller{
 	 	$array_item=array(
 		 	'iddocente' => $this->input->post('iddocente'),
 		 	'idasignatura' => $this->input->post('idasignatura'),
+		 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
 	 	$this->docenteasignatura_model->save($array_item);
 	 	redirect('docenteasignatura');
@@ -68,6 +70,7 @@ class Docenteasignatura extends CI_Controller{
 	 	$array_item=array(
 		 	'idasignatura' => $this->input->post('idasignatura'),
 		 	'iddocente' => $this->input->post('iddocente'),
+		 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
 	 	$this->docenteasignatura_model->update($id,$array_item);
 	 	redirect('docenteasignatura');
