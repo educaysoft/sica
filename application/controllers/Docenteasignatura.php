@@ -13,8 +13,9 @@ class Docenteasignatura extends CI_Controller{
 	public function index(){
   		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['docentes']= $this->docente_model->lista_docentes()->result();
+  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
 		$data['docenteasignatura'] = $this->docenteasignatura_model->elultimo();
+		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 
  		// print_r($data['docenteasignatura_list']);
   		$data['title']="Lista de Docenteasignaturaes";
