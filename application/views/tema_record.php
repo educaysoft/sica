@@ -43,7 +43,7 @@ if(isset($tema))
 </div> 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre:</label>
+    <label class="col-md-2 col-form-label"> Nombre corto:</label>
 	<div class="col-md-10">
 		<?php
        echo form_input('nombrecorto',$tema['nombrecorto'],array('placeholder'=>'Nombre del tema','style'=>'width:500px;'));
@@ -66,16 +66,17 @@ if(isset($tema))
    
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('documento/add', 'Documentos:') ?> </label>
+    <label class="col-md-2 col-form-label"> Unidad del silabo: </label>
+	<div class="col-md-10">
      	<?php 
 	$options=array();
   	foreach ($unidadsilabos as $row){
 		$options[$row->idunidadsilabo]=$row->nombre;
 	}
 	?>
-	<div class="col-md-10">
 		<?php
- 			echo form_multiselect('idunidadsilabo[]',$options,(array)set_value('idunidadsilabo',''), array('style'=>'width:500px;')); 
+
+    echo form_input('idunidadsilabo',$options[$tema['idunidadsilabo']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
