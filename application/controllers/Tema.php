@@ -6,6 +6,7 @@ class Tema extends CI_Controller{
       parent::__construct();
       $this->load->model('tema_model');
       $this->load->model('unidadsilabo_model');
+      $this->load->model('videotutorial_model');
       $this->load->model('documento_model');
 }
 
@@ -17,6 +18,7 @@ class Tema extends CI_Controller{
 		if(isset($this->session->userdata['logged_in'])){
 			$data['tema']=$this->tema_model->elultimo();
 			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo()->result();
+  			$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 			$data['title']="Lista de temaes";
 			$this->load->view('template/page_header');
 			$this->load->view('tema_record',$data);
@@ -33,6 +35,7 @@ class Tema extends CI_Controller{
 	{
 			$data['title']="Nueva tema";
 			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo()->result();
+  		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 			$this->load->view('template/page_header');		
 			$this->load->view('tema_form',$data);
 			$this->load->view('template/page_footer');
@@ -43,6 +46,7 @@ class Tema extends CI_Controller{
 	{
 	 	$array_item=array(
 	 	'nombrecorto' => $this->input->post('nombrecorto'),
+		'idvideotutorial' => $this->input->post('idvideotutorial'),
 	 	'nombrelargo' => $this->input->post('nombrelargo'),
 	 	'idunidadsilabo' => $this->input->post('idunidadsilabo'),
 	 	);
@@ -55,6 +59,7 @@ class Tema extends CI_Controller{
 	public function edit()
 	{
 			$data['tema'] = $this->tema_model->tema($this->uri->segment(3))->row_array();
+  		$data['videotutorials']= $this->videotutorial_model->lista_videotutorials()->result();
 			$data['title'] = "Actualizar tema";
 			$this->load->view('template/page_header');		
 			$this->load->view('tema_edit',$data);
@@ -69,10 +74,10 @@ class Tema extends CI_Controller{
 	 	$array_item=array(
 		 	
 		 	'idtema' => $this->input->post('idtema'),
-	 		'descripcion' => $this->input->post('descripcion'),
-		 	'nombre' => $this->input->post('nombre'),
+		 	'nombrecorto' => $this->input->post('nombrecorto'),
+		 	'nombrelargo' => $this->input->post('nombrelargo'),
 	 		'duracion' => $this->input->post('duracion'),
-	 		'linkdetalle' => $this->input->post('linkdetalle'),
+		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
 	 	);
 	 	$this->tema_model->update($id,$array_item);
 	 	redirect('tema/actual/'.$id);
@@ -163,6 +168,7 @@ public function actual()
 {
 	$data['tema'] = $this->tema_model->tema($this->uri->segment(3))->row_array();
 			$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   if(!empty($data))
   {
     $data['title']="Tema";
@@ -183,6 +189,7 @@ public function elprimero()
 {
 	$data['tema'] = $this->tema_model->elprimero();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   if(!empty($data))
   {
     $data['title']="Tema";
@@ -200,6 +207,7 @@ public function elultimo()
 {
 		$data['tema'] = $this->tema_model->elultimo();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   if(!empty($data))
   {
     $data['title']="Tema";
@@ -219,6 +227,7 @@ public function siguiente(){
  // $data['tema_list']=$this->tema_model->lista_tema()->result();
 	$data['tema'] = $this->tema_model->siguiente($this->uri->segment(3))->row_array();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   	$data['title']="Tema";
 	$this->load->view('template/page_header');		
   	$this->load->view('tema_record',$data);
@@ -228,6 +237,7 @@ public function siguiente(){
 public function anterior(){
  // $data['tema_list']=$this->tema_model->lista_tema()->result();
 	$data['tema'] = $this->tema_model->anterior($this->uri->segment(3))->row_array();
+		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['title']="Tema";
 	$this->load->view('template/page_header');		
