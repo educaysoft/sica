@@ -169,6 +169,7 @@ public function actual()
 	$data['silabo'] = $this->silabo_model->silabo($this->uri->segment(3))->row_array();
 			$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 			$data['documentos']= $this->documento_model->lista_documentos()->result();
+  			$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   if(!empty($data))
   {
     $data['title']="Silabo";
