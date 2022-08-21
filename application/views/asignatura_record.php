@@ -33,6 +33,7 @@ if(isset($asignatura))
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id asignatura:</label>
+	<div class="col-md-10">
       <?php
 
   $eys_arrctl=array("name"=>'idasignatura','value'=>$asignatura['idasignatura'],"disabled"=>"disabled",'placeholder'=>'Idasignaturas','style'=>'width:500px;');
@@ -45,6 +46,7 @@ if(isset($asignatura))
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Código:</label>
+	<div class="col-md-10">
       <?php
 
   $eys_arrctl=array("name"=>'codigo','value'=>$asignatura['codigo'],"disabled"=>"disabled",'placeholder'=>'Código','style'=>'width:500px;');
@@ -56,6 +58,7 @@ if(isset($asignatura))
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
       <?php
   $eys_arrctl=array("name"=>'nombre','value'=>$asignatura['nombre'],"disabled"=>"disabled",'placeholder'=>'Nombre','style'=>'width:500px;');
  echo form_input($eys_arrctl);
@@ -68,6 +71,7 @@ if(isset($asignatura))
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Malla:</label>
+	<div class="col-md-10">
       <?php
     $options= array("NADA");
     foreach ($mallas as $row){
@@ -83,6 +87,7 @@ if(isset($asignatura))
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Nivel:</label>
+	<div class="col-md-10">
       <?php
 
     $options= array("NADA");
@@ -98,6 +103,7 @@ if(isset($asignatura))
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Docentes:</label>
+	<div class="col-md-10">
       <?php
  	$options = array();
   	foreach ($docentes as $row){
