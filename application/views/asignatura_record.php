@@ -29,59 +29,71 @@ if(isset($asignatura))
 
 
 <?php echo form_hidden('idasignatura',$asignatura['idasignatura']) ?>
-<table>
 
-  <tr>
-     <td>Id artículo:</td>
-     <td><?php
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id asignatura:</label>
+      <?php
 
   $eys_arrctl=array("name"=>'idasignatura','value'=>$asignatura['idasignatura'],"disabled"=>"disabled",'placeholder'=>'Idasignaturas','style'=>'width:500px;');
  echo form_input($eys_arrctl) ?></td>
-  </tr>
+	?>
+	</div> 
+</div>
 
-<tr>
-      <td>Código:</td>
-      <td><?php
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Código:</label>
+      <?php
 
   $eys_arrctl=array("name"=>'codigo','value'=>$asignatura['codigo'],"disabled"=>"disabled",'placeholder'=>'Código','style'=>'width:500px;');
  echo form_input($eys_arrctl) ?></td>
-  </tr>
+	?>
+	</div> 
+</div>
 
 
-
- <tr>
-      <td>Nombre:</td>
-      <td><?php
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+      <?php
   $eys_arrctl=array("name"=>'nombre','value'=>$asignatura['nombre'],"disabled"=>"disabled",'placeholder'=>'Nombre','style'=>'width:500px;');
  echo form_input($eys_arrctl) ?></td>
-  </tr>
+	?>
+	</div> 
+</div>
 
 
 
 
-   <tr>
-     <td>Malla:</td>
-     <td><?php 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Malla:</label>
+      <?php
     $options= array("NADA");
     foreach ($mallas as $row){
 	      $options[$row->idmalla]= $row->nombrecorto;
     }
-    echo form_input('idmalla',$options[$asignatura['idmalla']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
- </tr>
+    echo form_input('idmalla',$options[$asignatura['idmalla']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+	?>
+	</div> 
+</div>
 
 
 
-<tr>
-     <td>Nivel:</td>
-     <td><?php 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nivel:</label>
+      <?php
+
     $options= array("NADA");
     foreach ($nivelacademicos as $row){
 	      $options[$row->idnivelacademico]= $row->nombre;
     }
-    echo form_input('idnivelacademico',$options[$asignatura['idnivelacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
- </tr>
+    echo form_input('idnivelacademico',$options[$asignatura['idnivelacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 
+	?>
+	</div> 
+</div>
 
 
 <div class="form-group row">
@@ -97,7 +109,6 @@ if(isset($asignatura))
 	<?php
 	echo form_multiselect('iddocente[]',$options,(array)set_value('iddocente', ''), array('style'=>'width:500px')); 
 	?>
-
 	</div> 
 </div>
 
@@ -108,7 +119,6 @@ if(isset($asignatura))
 
 
 
-</table>
 <?php echo form_close(); ?>
 
 
