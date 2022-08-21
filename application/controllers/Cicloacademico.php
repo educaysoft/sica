@@ -1,18 +1,18 @@
 <?php
 
-class Ciclo extends CI_Controller{
+class Cicloacademico extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('ciclo_model');
+      $this->load->model('cicloacademico_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['ciclo']=$this->ciclo_model->ciclo(1)->row_array();
-		$data['title']="Lista de cicloes";
+		$data['cicloacademico']=$this->cicloacademico_model->cicloacademico(1)->row_array();
+		$data['title']="Lista de cicloacademicoes";
 		$this->load->view('template/page_header');
-		$this->load->view('ciclo_record',$data);
+		$this->load->view('cicloacademico_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva ciclo";
+		$data['title']="Nueva cicloacademico";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('ciclo_form',$data);
+	 	$this->load->view('cicloacademico_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,21 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idciclo' => $this->input->post('idciclo'),
+	 	'idcicloacademico' => $this->input->post('idcicloacademico'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->ciclo_model->save($array_item);
-	 	redirect('ciclo');
+	 	$this->cicloacademico_model->save($array_item);
+	 	redirect('cicloacademico');
  	}
 
 
 
 public function edit()
 {
-	 	$data['ciclo'] = $this->ciclo_model->ciclo($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar ciclo";
+	 	$data['cicloacademico'] = $this->cicloacademico_model->cicloacademico($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar cicloacademico";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('ciclo_edit',$data);
+ 	 	$this->load->view('cicloacademico_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +56,22 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idciclo');
+		$id=$this->input->post('idcicloacademico');
 	 	$array_item=array(
 		 	
-		 	'idciclo' => $this->input->post('idciclo'),
+		 	'idcicloacademico' => $this->input->post('idcicloacademico'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->ciclo_model->update($id,$array_item);
-	 	redirect('ciclo');
+	 	$this->cicloacademico_model->update($id,$array_item);
+	 	redirect('cicloacademico');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->ciclo_model->delete($this->uri->segment(3));
+ 		$data=$this->cicloacademico_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('ciclo/elprimero');
+	 	redirect('cicloacademico/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -79,26 +79,26 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Ciclo";
+  $data['title']="Cicloacademico";
 	$this->load->view('template/page_header');		
-  $this->load->view('ciclo_list',$data);
+  $this->load->view('cicloacademico_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function ciclo_data()
+function cicloacademico_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->ciclo_model->lista_ciclos();
+	 	$data0 = $this->cicloacademico_model->lista_cicloacademicos();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idciclo,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idciclo="'.$r->idciclo.'">Ver</a>');
+			$data[]=array($r->idcicloacademico,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcicloacademico="'.$r->idcicloacademico.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -121,12 +121,12 @@ function ciclo_data()
 
 public function elprimero()
 {
-	$data['ciclo'] = $this->ciclo_model->elprimero();
+	$data['cicloacademico'] = $this->cicloacademico_model->elprimero();
   if(!empty($data))
   {
-    $data['title']="Ciclo";
+    $data['title']="Cicloacademico";
     $this->load->view('template/page_header');		
-    $this->load->view('ciclo_record',$data);
+    $this->load->view('cicloacademico_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +137,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['ciclo'] = $this->ciclo_model->elultimo();
+	$data['cicloacademico'] = $this->cicloacademico_model->elultimo();
   if(!empty($data))
   {
-    $data['title']="Ciclo";
+    $data['title']="Cicloacademico";
   
     $this->load->view('template/page_header');		
-    $this->load->view('ciclo_record',$data);
+    $this->load->view('cicloacademico_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,20 +154,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['ciclo_list']=$this->ciclo_model->lista_ciclo()->result();
-	$data['ciclo'] = $this->ciclo_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Ciclo";
+ // $data['cicloacademico_list']=$this->cicloacademico_model->lista_cicloacademico()->result();
+	$data['cicloacademico'] = $this->cicloacademico_model->siguiente($this->uri->segment(3))->row_array();
+  $data['title']="Cicloacademico";
 	$this->load->view('template/page_header');		
-  $this->load->view('ciclo_record',$data);
+  $this->load->view('cicloacademico_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['ciclo_list']=$this->ciclo_model->lista_ciclo()->result();
-	$data['ciclo'] = $this->ciclo_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Ciclo";
+ // $data['cicloacademico_list']=$this->cicloacademico_model->lista_cicloacademico()->result();
+	$data['cicloacademico'] = $this->cicloacademico_model->anterior($this->uri->segment(3))->row_array();
+  $data['title']="Cicloacademico";
 	$this->load->view('template/page_header');		
-  $this->load->view('ciclo_record',$data);
+  $this->load->view('cicloacademico_record',$data);
 	$this->load->view('template/page_footer');
 }
 
