@@ -19,7 +19,7 @@
 <td><?php
 $options= array('--Select--');
 foreach ($mallas as $row){
-	$options[$row->idmalla]= $row->nombre;
+	$options[$row->idmalla]= $row->nombrecorto;
 }
 
  echo form_dropdown("idmalla",$options, $asignatura['idmalla']);  ?></td>
