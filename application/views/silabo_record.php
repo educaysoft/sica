@@ -79,7 +79,7 @@ if(isset($silabo))
     foreach ($asignaturas as $row){
 	      $options[$row->idasignatura]= $row->nombre;
     }
-    echo form_input('idasignatura',$options[$asignatura['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+    echo form_input('idasignatura',$options[$silabo['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
 
 
