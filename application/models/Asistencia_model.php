@@ -63,6 +63,7 @@ class Asistencia_model extends CI_model {
  		$this->db->where('idevento',$array_item['idevento']);
  		$this->db->where('idpersona',$array_item['idpersona']);
  		$this->db->where('fecha',$array_item['fecha']);
+ 		$this->db->where('hora',$array_item['hora']);
 		$query=$this->db->get('asistencia');
 		if($query->num_rows()==0){
 			$this->db->insert("asistencia", $array_item);
