@@ -112,7 +112,7 @@ class Unidadsilabo extends CI_Controller{
 			$data0 = $this->unidadsilabo_model->listar_unidadsilabo1();
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idunidadsilabo,$r->idsilabo,$r->unidad,$r->launidad,$r->elvideo,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idsilabo="'.$r->idunidadsilabo.'">Ver</a>');
+				$data[]=array($r->idunidadsilabo,$r->idsilabo,$r->unidad,$r->launidad,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idsilabo="'.$r->idunidadsilabo.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),

@@ -42,10 +42,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>Idunidadsilabo</th>
- <th>idcurso</th>
+ <th>idsilabo</th>
  <th>unidad</th>
  <th>launidad</th>
- <th>elvideo</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
