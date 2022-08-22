@@ -82,6 +82,20 @@ if(isset($tema))
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Videotutorial:</label>
+	<div class="col-md-10">
+	<?php
+$options= array("NADA");
+foreach ($videotutoriales as $row){
+	$options[$row->idvideotutorial]= $row->nombre;
+}
+echo form_input('nombre',$options[$unidadsilabo['idvideotutorial']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
+
+
 <?php echo form_close(); ?>
 
 
