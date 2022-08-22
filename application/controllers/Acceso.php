@@ -101,7 +101,9 @@ public function edit()
 	 	$array_item=array(
 		 	
 		 	'idacceso' => $this->input->post('idacceso'),
-		 	'nombre' => $this->input->post('nombre'),
+			'idusuario' => $this->input->post('idusuario'),
+			'idmodulo' => $this->input->post('idmodulo'),
+			'idnivelacceso' => $this->input->post('idnivelacceso'),
 	 	);
 	 	$this->acceso_model->update($id,$array_item);
 	 	redirect('acceso');
