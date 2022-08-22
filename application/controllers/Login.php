@@ -347,6 +347,7 @@ if ($result == TRUE) {
 		{
 			redirect('Principal'); 
 		}else{		
+   date_default_timezone_set('America/Guayaquil');
     $date = date('d-m-y');
     $asistencia=array('idpersona'=>$result[0]->idpersona,'idevento'=>$result[0]->idevento,'fecha'=>$date,'idtipoasistencia'=>1,'comentario'=>"INGRESO AL SISTEMA");
     $this->asistencia_model->save($asistencia);
