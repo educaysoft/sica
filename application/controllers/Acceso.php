@@ -73,7 +73,6 @@ public function add()
 	public function  save()
 	{
 	 	$array_item=array(
-			'idacceso' => $this->input->post('idacceso'),
 			'idusuario' => $this->input->post('idusuario'),
 			'idmodulo' => $this->input->post('idmodulo'),
 			'idnivelacceso' => $this->input->post('idnivelacceso'),
