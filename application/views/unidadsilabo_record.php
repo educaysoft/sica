@@ -84,14 +84,7 @@ echo form_input('idsilabo',$options[$unidadsilabo['idsilabo']],array("disabled"=
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id videotutorial:</label>
-	<div class="col-md-10">
-	<?php
-      echo form_input('idvideotutorial',$unidadsilabo['idvideotutorial'],array("disabled"=>"disabled",'placeholder'=>'Idunidadsilaboes','style'=>'width:500px;'));
-		?>
-	</div> 
-</div> 
+ 
 
 
 
