@@ -35,27 +35,18 @@ echo form_input($eys_arrinput); ?></td>
 
 
 <tr>
-<td> Curso:</td>
+<td> Silabo:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($cursos as $row){
-	$options[$row->idcurso]= $row->nombre;
+foreach ($silabos as $row){
+	$options[$row->idsilabo]= $row->nombre;
 }
 
- echo form_dropdown("idcurso",$options, $unidadsilabo['idcurso']);  ?></td>
+ echo form_dropdown("idsilabo",$options, $unidadsilabo['idsilabo']);  ?></td>
 </tr>
 
  
- <tr>
-<td> Videotutorial:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($videotutorials as $row){
-	$options[$row->idvideotutorial]= $row->nombre;
-}
-
- echo form_dropdown("idvideotutorial",$options, $unidadsilabo['idvideotutorial']);  ?></td>
-</tr>
+ 
 
 
 

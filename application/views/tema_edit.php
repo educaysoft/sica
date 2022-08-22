@@ -4,26 +4,62 @@
 <hr />
  
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre del tema:</label>
+    <label class="col-md-2 col-form-label"> Nombre corto:</label>
 	<div class="col-md-10">
 		<?php
-$eys_arrinput=array('name'=>'nombre','value'=>$tema['nombre'], "style"=>"width:500px");
+$eys_arrinput=array('name'=>'nombrecorto','value'=>$tema['nombrecorto'], "style"=>"width:500px");
  echo form_input($eys_arrinput);
 		?>
 	</div> 
 </div> 
 
 
-
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Asunto:</label>
+    <label class="col-md-2 col-form-label"> Nombre largo:</label>
 	<div class="col-md-10">
 		<?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"descripcion","id" =>"descripcion");    
-echo form_textarea('descripcion',$tema['descripcion'],$textarea_options ); 
-?>
+$eys_arrinput=array('name'=>'nombrelargo','value'=>$tema['nombrelargo'], "style"=>"width:500px");
+ echo form_input($eys_arrinput);
+		?>
 	</div> 
-</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Unidad silabo:</label>
+	<div class="col-md-10">
+		<?php
+
+$options= array('--Select--');
+foreach ($unidadsilabos as $row){
+	$options[$row->idunidadsilabo]= $row->nombre;
+}
+
+ echo form_dropdown("idunidadsilabo",$options, $tema['idunidadsilabo']);  
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Video tutorial:</label>
+	<div class="col-md-10">
+		<?php
+
+$options= array('--Select--');
+foreach ($videotutoriales as $row){
+	$options[$row->idvideotutorial]= $row->nombre;
+}
+
+ echo form_dropdown("idvideotutorial",$options, $tema['idvideotutorial']);  
+		?>
+	</div> 
+</div>
+
+
+ 
 
 
 
