@@ -349,7 +349,8 @@ if ($result == TRUE) {
 		}else{		
    date_default_timezone_set('America/Guayaquil');
     $date = date("Y-m-d");
-    $asistencia=array('idpersona'=>$result[0]->idpersona,'idevento'=>$result[0]->idevento,'fecha'=>$date,'idtipoasistencia'=>1,'comentario'=>"INGRESO AL SISTEMA");
+    $hora= date("H:i:s");
+    $asistencia=array('idpersona'=>$result[0]->idpersona,'idevento'=>$result[0]->idevento,'fecha'=>$date,'hora'=>$hora,'idtipoasistencia'=>1,'comentario'=>"INGRESO AL SISTEMA");
     $this->asistencia_model->save($asistencia);
 
 		     $moduloinicio=	$this->session->userdata['logged_in']['inicio'];	
