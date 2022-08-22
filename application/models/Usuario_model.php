@@ -7,7 +7,7 @@ class Usuario_model extends CI_model {
 	}
 
 	function lista_usuarios1(){
-		 $usuario= $this->db->get('usuario1');
+		 $usuario= $this->order_by("elusuario")->db->get('usuario1');
 		 return $usuario;
 	}
 
