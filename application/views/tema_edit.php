@@ -63,25 +63,9 @@ foreach ($videotutoriales as $row){
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Duración(horas):</label>
-	<div class="col-md-10">
-		<?php
-$eys_arrinput=array('name'=>'duracion','value'=>$tema['duracion'], "style"=>"width:500px");
- echo form_input($eys_arrinput);
-		?>
-	</div> 
-</div>
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Page detalle:</label>
-	<div class="col-md-10">
-		<?php
-$eys_arrinput=array('name'=>'linkdetalle','value'=>$tema['linkdetalle'], "style"=>"width:500px");
- echo form_input($eys_arrinput);
-		?>
-	</div> 
-</div>
+
+
 
 
  <tr>
