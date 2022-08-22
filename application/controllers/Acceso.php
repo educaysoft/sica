@@ -193,7 +193,8 @@ public function elultimo()
 	$data['acceso'] = $this->acceso_model->elultimo();
   if(!empty($data))
   {
- 	$data['acceso']=$this->acceso_model->lista_accesos()->row_array();
+	$data['acceso'] = $this->acceso_model->elultimo();
+ //	$data['acceso']=$this->acceso_model->lista_accesos()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
