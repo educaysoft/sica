@@ -9,7 +9,7 @@ class Tema_model extends CI_model {
 
 function lista_temas1(){
 	$query=$this->db->order_by("idsilabo","idunidadsilabo","idtema")->get('tema1');
-	 return $tema;
+	 return $query;
 	}
 
 
