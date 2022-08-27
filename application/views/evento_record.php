@@ -17,6 +17,7 @@ if(isset($evento))
         <li> <?php echo anchor('asistencia/add/'.$evento['idevento'],'Asistencias'); ?></li>
         <li> <?php echo anchor('participacion/add/'.$evento['idevento'],'Participacion'); ?></li>
         <li> <?php echo anchor('seguimiento/add/'.$evento['idevento'],'Seguimiento'); ?></li>
+        <li> <?php echo anchor('pagoevento/add/'.$evento['idevento'],'Pagos'); ?></li>
 
 <?php 
 }else{

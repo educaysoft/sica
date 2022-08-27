@@ -127,7 +127,7 @@ foreach ($fechaeventos as $row){
 					<div class="form-group row">
 						<label class="col-md-2 col-form-label">Porcentaje</label>
 						<div class="col-md-10">
-							<input type="text" name="porcentaje_edit" id="porcentaje_edit" class="form-control" placeholder="porcentaje">  
+							<input type="text" name="valor_edit" id="valor_edit" class="form-control" placeholder="valor">  
 						</div>
 					</div>					
 
@@ -155,7 +155,6 @@ foreach ($fechaeventos as $row){
 					<label class="col-md-2 col-form-label">Tipo pagoevento:</label>
 					<div class="col-md-10">
 					<?php
-					//print_r($tipopagoeventos);
 					$options= array('--Select--');
 					foreach ($tipopagoevento as $row){
 						$options[$row->idtipopagoevento]= $row->nombre;
@@ -257,10 +256,10 @@ function get_participantes2() {
         var l=data.length+1;
         document.getElementById('idpersona').setAttribute('size',"'"+l+"'");
         for(i=0; i<data.length; i++){
-		if(data[i].porcentaje!=" "){
-			html += '<option style="color:green;"  value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].porcentaje+'</option>';
+		if(data[i].valor!=" "){
+			html += '<option style="color:green;"  value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].valor+'</option>';
 		}else{
-			html += '<option style="color:red;" value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].porcentaje+'</option>';
+			html += '<option style="color:red;" value='+data[i].idpersona+'>'+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].valor+'</option>';
 		}
         }
         $('#idpersona').html(html);
@@ -306,14 +305,14 @@ function get_pagoevento() {
   //        }
           document.getElementById("comentario").value="";
 	  document.getElementById("selpersona").value=data[i].nombres;
-          document.getElementById("porcentaje").value="";
+          document.getElementById("valor").value="";
           document.getElementById("ayuda").value="";
         }else{
 
  //       for(i=0; i<data.length; i++){
 //          html += '<option value='+data[i].idtipopagoevento+'>'+data[i].eltipopagoevento+'</option>';
           document.getElementById("comentario").value=data[0].comentario;
-          document.getElementById("porcentaje").value=data[0].porcentaje;
+          document.getElementById("valor").value=data[0].valor;
           document.getElementById("ayuda").value=data[0].ayuda;
 //        }
         }
@@ -369,16 +368,14 @@ $("#btn_update").on("click", function(){
 //	var idpagoevento=document.getElementById("idpagoevento_edit").value;
 	var fecha=document.getElementById("fecha_edit").value;
 	var idevento=document.getElementById("idevento_edit").value;
-	var porcentaje=document.getElementById("porcentaje_edit").value;
+	var valor=document.getElementById("valor_edit").value;
 	var comentario=document.getElementById("comentario_edit").value;
-	var ayuda=document.getElementById("ayuda_edit").value;
-	var idtipopagoevento=document.getElementById("idtipopagoevento_edit").value;
 	//var idpersona= $('select[name=idpersona]').val();
 	var idpersona = document.getElementById("idpersona_edit").value;
        // var idpersona=p.options[p.selectedIndex].value;
     $.ajax({
         url: "<?php echo site_url('pagoevento/save_nota') ?>",
-        data: {idevento:idevento, fecha:fecha,porcentaje:porcentaje,comentario:comentario,idpersona:idpersona,idtipopagoevento:idtipopagoevento, ayuda:ayuda},
+        data: {idevento:idevento, fecha:fecha,valor:valor,comentario:comentario,idpersona:idpersona},
         method: 'POST',
         async : false,
         dataType : 'json',
@@ -435,10 +432,8 @@ function get_pagoevento_xx() {
           $('[name="fecha_edit"]').val(fecha);
           $('[name="lapersona_edit"]').val("");
           $('[name="idpersona_edit"]').val(idpersona);
-          $('[name="porcentaje_edit"]').val("");
+          $('[name="valor_edit"]').val("");
           $('[name="comentario_edit"]').val("");
-          $('[name="ayuda_edit"]').val("");
-          $('[name="idtipopagoevento_edit"]').val("");
         }else{
           $('[name="idpagoevento_edit"]').val(data[0].idpagoevento);
           $('[name="idevento_edit"]').val(data[0].idevento);
@@ -446,9 +441,7 @@ function get_pagoevento_xx() {
           $('[name="lapersona_edit"]').val(data[0].nombres);
           $('[name="idpersona_edit"]').val(data[0].idpersona);
           $('[name="comentario_edit"]').val(data[0].comentario);
-          $('[name="porcentaje_edit"]').val(data[0].porcentaje);
-          $('[name="ayuda_edit"]').val(data[0].ayuda);
-          $('[name="idtipopagoevento__edit"]').val(data[0].idtipopagoevento);
+          $('[name="valor_edit"]').val(data[0].valor);
         }
         },
       error: function (xhr, ajaxOptions, thrownError) {

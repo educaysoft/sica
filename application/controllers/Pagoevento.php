@@ -65,8 +65,7 @@ class Pagoevento extends CI_Controller{
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'idevento' => $this->input->post('idevento'),
 		 	'fecha' => $this->input->post('fecha'),
-		 	'porcentaje' => $this->input->post('porcentaje'),
-		 	'ayuda' => $this->input->post('ayuda'),
+		 	'valor' => $this->input->post('valor'),
 		 	'comentario' => $this->input->post('comentario'),
 	 	);
 	 	$result=$this->pagoevento_model->save($array_item);
@@ -87,8 +86,7 @@ class Pagoevento extends CI_Controller{
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'idevento' => $this->input->post('idevento'),
 		 	'fecha' => $this->input->post('fecha'),
-		 	'porcentaje' => $this->input->post('porcentaje'),
-		 	'ayuda' => $this->input->post('ayuda'),
+		 	'valor' => $this->input->post('valor'),
 		 	'comentario' => $this->input->post('comentario'),
 	 	);
 	 	$result=$this->pagoevento_model->save($array_item);
@@ -124,8 +122,7 @@ class Pagoevento extends CI_Controller{
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'idevento' => $this->input->post('idevento'),
 		 	'fecha' => $this->input->post('fecha'),
-		 	'porcentaje' => $this->input->post('porcentaje'),
-		 	'ayuda' => $this->input->post('ayuda'),
+		 	'valor' => $this->input->post('valor'),
 		 	'comentario' => $this->input->post('comentario'),
 	 	);
 	 	$this->pagoevento_model->update($array_item);
@@ -166,7 +163,7 @@ function pagoevento_data()
 	 	$data0 = $this->pagoevento_model->listar_pagoevento1(0);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idpagoevento,$r->idevento,$r->nombres,$r->fecha,$r->porcentaje,
+			$data[]=array($r->idpagoevento,$r->idevento,$r->nombres,$r->fecha,$r->valor,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('pagoevento/actual').'"  data-idpagoevento="'.$r->idpagoevento.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -388,7 +385,7 @@ public function get_participantes() {
     if($this->input->post('idevento')) 
     {
         $this->db->select('*');
-		    $this->db->order_by("nombres","asc");
+        $this->db->order_by("nombres","asc");
         $this->db->where(array('idevento' => $this->input->post('idevento')));
         $query = $this->db->get('participante1');
 	$data=$query->result();
@@ -403,10 +400,10 @@ public function get_participantes2() {
     if($this->input->post('idevento')) 
     {
       $sql="";
-      $sql=$sql.'select p1.*, (select porcentaje from pagoevento p2 where p2.idpersona=p1.idpersona and p2.fecha="'.$this->input->post('fecha').'"  and p2.idevento='.$this->input->post('idevento'). ') as porcentaje from participante1 p1 where p1.idevento='.$this->input->post('idevento').' and p1.idpersona in (select p2.idpersona from pagoevento p2 where p2.idevento=p1.idevento and p2.fecha="'.$this->input->post('fecha').'"  and p2.idevento='.$this->input->post('idevento').')';
+      $sql=$sql.'select p1.*, (select valor from pagoevento p2 where p2.idpersona=p1.idpersona and p2.fecha="'.$this->input->post('fecha').'"  and p2.idevento='.$this->input->post('idevento'). ') as valor from participante1 p1 where p1.idevento='.$this->input->post('idevento').' and p1.idpersona in (select p2.idpersona from pagoevento p2 where p2.idevento=p1.idevento and p2.fecha="'.$this->input->post('fecha').'"  and p2.idevento='.$this->input->post('idevento').')';
 $sql=$sql." union "; 
 
-    $sql=$sql.'select p1.*, " " as porcentaje from participante1 p1 where idevento='.$this->input->post('idevento').' and p1.idpersona not in (select p2.idpersona from pagoevento p2 where p2.idevento=p1.idevento and p2.fecha="'.$this->input->post('fecha').'" and p2.idevento='.$this->input->post('idevento').') order by nombres ;';
+    $sql=$sql.'select p1.*, " " as valor from participante1 p1 where idevento='.$this->input->post('idevento').' and p1.idpersona not in (select p2.idpersona from pagoevento p2 where p2.idevento=p1.idevento and p2.fecha="'.$this->input->post('fecha').'" and p2.idevento='.$this->input->post('idevento').') order by nombres ;';
 
 
 
