@@ -1,26 +1,26 @@
 <?php
-class Participacion extends CI_Controller{
+class Pagoevento extends CI_Controller{
 
 	public function __construct(){
       		parent::__construct();
-      		$this->load->model('participacion_model');
+      		$this->load->model('pagoevento_model');
       		$this->load->model('documento_model');
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
          	$this->load->model('fechaevento_model');
-      		$this->load->model('tipoparticipacion_model');
+      		$this->load->model('tipopagoevento_model');
 	}
 
 	public function index(){
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
-		$data['participacion'] = $this->participacion_model->elultimo();
+  		$data['tipopagoeventos']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
+		$data['pagoevento'] = $this->pagoevento_model->elultimo();
 
- 		// print_r($data['participacion_list']);
-  		$data['title']="Lista de Participaciones";
+ 		// print_r($data['pagoevento_list']);
+  		$data['title']="Lista de Pagoeventoes";
 		$this->load->view('template/page_header');		
-  		$this->load->view('participacion_record',$data);
+  		$this->load->view('pagoevento_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
@@ -36,13 +36,13 @@ class Participacion extends CI_Controller{
 
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['eventos']= $this->evento_model->evento($idevento)->result();
-		$data['tipoparticipacion']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+		$data['tipopagoevento']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
 		$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($idevento)->result();
        
 
-		$data['title']="Nuevo Participacion";
+		$data['title']="Nuevo Pagoevento";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('participacion_form',$data);
+	 	$this->load->view('pagoevento_form',$data);
 	 	$this->load->view('template/page_footer');
 	}
 
@@ -51,10 +51,10 @@ class Participacion extends CI_Controller{
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
-		$data['title']="Nuevo Participacion";
+  		$data['tipopagoeventos']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
+		$data['title']="Nuevo Pagoevento";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('participacion_form1',$data);
+	 	$this->load->view('pagoevento_form1',$data);
 	 	$this->load->view('template/page_footer');
 	}
 
@@ -73,7 +73,7 @@ class Participacion extends CI_Controller{
 		 	'ayuda' => $this->input->post('ayuda'),
 		 	'comentario' => $this->input->post('comentario'),
 	 	);
-	 	$result=$this->participacion_model->save($array_item);
+	 	$result=$this->pagoevento_model->save($array_item);
 	 	if($result == FALSE)
 		{
 			echo "<script language='JavaScript'> alert('No se guardo la parcipación'); </script>";
@@ -81,7 +81,7 @@ class Participacion extends CI_Controller{
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-1);</script>";
 		}
-  	//redirect('participacion');
+  	//redirect('pagoevento');
  	}
 
 
@@ -94,9 +94,9 @@ class Participacion extends CI_Controller{
 		 	'porcentaje' => $this->input->post('porcentaje'),
 		 	'ayuda' => $this->input->post('ayuda'),
 		 	'comentario' => $this->input->post('comentario'),
-		 	'idtipoparticipacion' => $this->input->post('idtipoparticipacion'),
+		 	'idtipopagoevento' => $this->input->post('idtipopagoevento'),
 	 	);
-	 	$result=$this->participacion_model->save($array_item);
+	 	$result=$this->pagoevento_model->save($array_item);
 	 	if($result == FALSE)
 		{
 			$data=array('resultado'=>"FALSE");
@@ -113,13 +113,13 @@ class Participacion extends CI_Controller{
 
 	public function edit()
 	{
-	 	$data['participacion'] = $this->participacion_model->participacion($this->uri->segment(3))->row_array();
+	 	$data['pagoevento'] = $this->pagoevento_model->pagoevento($this->uri->segment(3))->row_array();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['tipoparticipaciones']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
- 	 	$data['title'] = "Actualizar Participacion";
+  	$data['tipopagoeventoes']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
+ 	 	$data['title'] = "Actualizar Pagoevento";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('participacion_edit',$data);
+ 	 	$this->load->view('pagoevento_edit',$data);
 	 	$this->load->view('template/page_footer');
 	}
 
@@ -130,22 +130,22 @@ class Participacion extends CI_Controller{
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'idevento' => $this->input->post('idevento'),
 		 	'fecha' => $this->input->post('fecha'),
-		 	'idtipoparticipacion' => $this->input->post('idtipoparticipacion'),
+		 	'idtipopagoevento' => $this->input->post('idtipopagoevento'),
 		 	'porcentaje' => $this->input->post('porcentaje'),
 		 	'ayuda' => $this->input->post('ayuda'),
 		 	'comentario' => $this->input->post('comentario'),
 	 	);
-	 	$this->participacion_model->update($array_item);
-	 	redirect('participacion');
+	 	$this->pagoevento_model->update($array_item);
+	 	redirect('pagoevento');
  	}
 
 
 
  	public function delete()
  	{
- 		$data=$this->participacion_model->delete($this->uri->segment(3));
+ 		$data=$this->pagoevento_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('participacion/elprimero');
+	 	redirect('pagoevento/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -156,25 +156,25 @@ class Participacion extends CI_Controller{
 public function listar()
 {
 	
-  $data['participacion'] = $this->participacion_model->listar_participacion1(0)->result();
+  $data['pagoevento'] = $this->pagoevento_model->listar_pagoevento1(0)->result();
   $data['title']="Certificado";
 	$this->load->view('template/page_header');		
-  $this->load->view('participacion_list',$data);
+  $this->load->view('pagoevento_list',$data);
 	$this->load->view('template/page_footer');
 }
 
-function participacion_data()
+function pagoevento_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->participacion_model->listar_participacion1(0);
+	 	$data0 = $this->pagoevento_model->listar_pagoevento1(0);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idparticipacion,$r->idevento,$r->nombres,$r->fecha,$r->porcentaje,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('participacion/actual').'"  data-idparticipacion="'.$r->idparticipacion.'">Ver</a>');
+			$data[]=array($r->idpagoevento,$r->idevento,$r->nombres,$r->fecha,$r->porcentaje,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('pagoevento/actual').'"  data-idpagoevento="'.$r->idpagoevento.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -191,10 +191,10 @@ public function reporte()
 
 	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_activo2($this->uri->segment(3))->result();
-  	$data['participacion'] = $this->participacion_model->listar_participacion1($this->uri->segment(3))->result();
+  	$data['pagoevento'] = $this->pagoevento_model->listar_pagoevento1($this->uri->segment(3))->result();
   	$data['title']="Certificado";
 	$this->load->view('template/page_header');		
- 	$this->load->view('participacion_report',$data);
+ 	$this->load->view('pagoevento_report',$data);
 	$this->load->view('template/page_footer');
 
 
@@ -214,13 +214,13 @@ public function reportepdf()
         $data['nivelrpt']=$nivelrpt;
 	$data['evento'] = $this->evento_model->evento($idevento)->row_array();
 	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_activo($idevento)->result();
-  	$data['participacion'] = $this->participacion_model->listar_participacion1($idevento)->result();
+  	$data['pagoevento'] = $this->pagoevento_model->listar_pagoevento1($idevento)->result();
   	$data['title']="Certificado";
 	$fechascortes=array(1=>"2022-04-08",2=>"2022-06-01",3=>"2022-06-10");
 	$data['fechacorte']=$fechascortes;
 //	$this->load->view('template/page_header');		
-// 	$this->load->view('participacion_report',$data);
-	$this->load->view('participacion_reportepdf',$data);
+// 	$this->load->view('pagoevento_report',$data);
+	$this->load->view('pagoevento_reportepdf',$data);
 //	$this->load->view('template/page_footer');
 
 
@@ -265,7 +265,7 @@ $this->table->set_heading('ID', 'Date', 'Title', 'Item');
     $this->load->database();
     $this->load->helper('form');
         $this->db->select('*');
-        $query = $this->db->get('participacion1');
+        $query = $this->db->get('pagoevento1');
 
 	if ($query->num_rows() > 0) {
 		$rows=$query->result();
@@ -274,7 +274,7 @@ $this->table->set_heading('ID', 'Date', 'Title', 'Item');
 foreach($rows as  $row)
 {
   $this->table->add_row(
-    anchor("work/fill_form/$row->idparticipacion", $row->idparticipacion),
+    anchor("work/fill_form/$row->idpagoevento", $row->idpagoevento),
     $row->fecha,
     $row->elevento,
     $this->typography->auto_typography($row->lapersona)
@@ -299,15 +299,15 @@ echo $table;
 public function actual()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['participacion'] = $this->participacion_model->participacion($this->uri->segment(3))->row_array();
+	$data['pagoevento'] = $this->pagoevento_model->pagoevento($this->uri->segment(3))->row_array();
   if(!empty($data))
   {
 	$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-	$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
-    $data['title']="Participacion del documento";
+	$data['tipopagoeventos']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
+    $data['title']="Pagoevento del documento";
     $this->load->view('template/page_header');		
-    $this->load->view('participacion_record',$data);
+    $this->load->view('pagoevento_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -325,15 +325,15 @@ public function actual()
 public function elprimero()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['participacion'] = $this->participacion_model->elprimero();
+	$data['pagoevento'] = $this->pagoevento_model->elprimero();
   if(!empty($data))
   {
 	$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-	$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
-    $data['title']="Participacion del documento";
+	$data['tipopagoeventos']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
+    $data['title']="Pagoevento del documento";
     $this->load->view('template/page_header');		
-    $this->load->view('participacion_record',$data);
+    $this->load->view('pagoevento_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -345,16 +345,16 @@ public function elprimero()
 public function elultimo()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['participacion'] = $this->participacion_model->elultimo();
+	$data['pagoevento'] = $this->pagoevento_model->elultimo();
   if(!empty($data))
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-	$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
-    $data['title']="Participacion del documento";
+	$data['tipopagoeventos']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
+    $data['title']="Pagoevento del documento";
   
     $this->load->view('template/page_header');		
-    $this->load->view('participacion_record',$data);
+    $this->load->view('pagoevento_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -365,30 +365,30 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['participacion_list']=$this->participacion_model->lista_participacion()->result();
+ // $data['pagoevento_list']=$this->pagoevento_model->lista_pagoevento()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['participacion'] = $this->participacion_model->siguiente($this->uri->segment(3))->row_array();
+	$data['pagoevento'] = $this->pagoevento_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
-	$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
-    $data['title']="Participacion del documento";
+	$data['tipopagoeventos']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
+    $data['title']="Pagoevento del documento";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
-  $this->load->view('participacion_record',$data);
+  $this->load->view('pagoevento_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['participacion_list']=$this->participacion_model->lista_participacion()->result();
+ // $data['pagoevento_list']=$this->pagoevento_model->lista_pagoevento()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['participacion'] = $this->participacion_model->anterior($this->uri->segment(3))->row_array();
+	$data['pagoevento'] = $this->pagoevento_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-	$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+	$data['tipopagoeventos']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
  // $data['title']="Correo";
-    $data['title']="Participacion del documento";
+    $data['title']="Pagoevento del documento";
 	$this->load->view('template/page_header');		
-  $this->load->view('participacion_record',$data);
+  $this->load->view('pagoevento_record',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -415,10 +415,10 @@ public function get_participantes2() {
     if($this->input->post('idevento')) 
     {
       $sql="";
-      $sql=$sql.'select p1.*, (select porcentaje from participacion p2 where p2.idpersona=p1.idpersona and p2.fecha="'.$this->input->post('fecha').'"  and p2.idevento='.$this->input->post('idevento'). ') as porcentaje from participante1 p1 where p1.idevento='.$this->input->post('idevento').' and p1.idpersona in (select p2.idpersona from participacion p2 where p2.idevento=p1.idevento and p2.fecha="'.$this->input->post('fecha').'"  and p2.idevento='.$this->input->post('idevento').')';
+      $sql=$sql.'select p1.*, (select porcentaje from pagoevento p2 where p2.idpersona=p1.idpersona and p2.fecha="'.$this->input->post('fecha').'"  and p2.idevento='.$this->input->post('idevento'). ') as porcentaje from participante1 p1 where p1.idevento='.$this->input->post('idevento').' and p1.idpersona in (select p2.idpersona from pagoevento p2 where p2.idevento=p1.idevento and p2.fecha="'.$this->input->post('fecha').'"  and p2.idevento='.$this->input->post('idevento').')';
 $sql=$sql." union "; 
 
-    $sql=$sql.'select p1.*, " " as porcentaje from participante1 p1 where idevento='.$this->input->post('idevento').' and p1.idpersona not in (select p2.idpersona from participacion p2 where p2.idevento=p1.idevento and p2.fecha="'.$this->input->post('fecha').'" and p2.idevento='.$this->input->post('idevento').') order by nombres ;';
+    $sql=$sql.'select p1.*, " " as porcentaje from participante1 p1 where idevento='.$this->input->post('idevento').' and p1.idpersona not in (select p2.idpersona from pagoevento p2 where p2.idevento=p1.idevento and p2.fecha="'.$this->input->post('fecha').'" and p2.idevento='.$this->input->post('idevento').') order by nombres ;';
 
 
 
@@ -428,7 +428,7 @@ $sql=$sql." union ";
 		 //   $this->db->order_by("p1.nombres","asc");
      //   $this->db->where(array('p1.idevento' => $this->input->post('idevento')));
      //   $this->db->from('participante1 p1');
-     //   $this->db->select('p1.*, (select porcentaje from participacion  p2 where p2.idpersona=p1.idpersona and p2.fecha="'+$this->input->post('fecha')+'") as porcentaje');
+     //   $this->db->select('p1.*, (select porcentaje from pagoevento  p2 where p2.idpersona=p1.idpersona and p2.fecha="'+$this->input->post('fecha')+'") as porcentaje');
       //  $query = $this->db->get();
 	$data=$query->result();
 	echo json_encode($data);
@@ -442,7 +442,7 @@ $sql=$sql." union ";
 
 
 
-public function get_participacion() {
+public function get_pagoevento() {
     $this->load->database();
     $this->load->helper('form');
     if($this->input->post('idevento')) 
@@ -451,15 +451,15 @@ public function get_participacion() {
         $this->db->where('idevento',$this->input->post('idevento'));
         $this->db->where('fecha' ,$this->input->post('fecha'));
         $this->db->where('idpersona',$this->input->post('idpersona'));
-        $query = $this->db->get('participacion1');
+        $query = $this->db->get('pagoevento1');
 
 	if ($query->num_rows() > 0) {
 		$data=$query->result();
 		echo json_encode($data);
 	}else{
 
-	//		$this->db->select('idtipoparticipacion,nombre as tipoparticipacion, "" as comentario');
-	//	$query = $this->db->get('tipoparticipacion');
+	//		$this->db->select('idtipopagoevento,nombre as tipopagoevento, "" as comentario');
+	//	$query = $this->db->get('tipopagoevento');
 
 		$data=$query->result();
 		echo json_encode($data);
@@ -472,7 +472,7 @@ public function get_participacion() {
 
 
 
-public function get_participacionp() {
+public function get_pagoeventop() {
 
     $this->load->database();
     $this->load->helper('form');
@@ -480,7 +480,7 @@ public function get_participacionp() {
     {
         $this->db->select('*');
         $this->db->where(array('idevento' => $this->input->post('idevento'),'fecha' => $this->input->post('fecha'),'idpersona' => $this->input->post('idpersona')));
-        $query = $this->db->get('participacion1');
+        $query = $this->db->get('pagoevento1');
 
 	if ($query->num_rows() > 0) {
 		$data=$query->result();
@@ -498,11 +498,11 @@ public function get_participacionp() {
 
 
 
-public function get_tipoparticipacion() {
+public function get_tipopagoevento() {
     $this->load->database();
     $this->load->helper('form');
         $this->db->select('*');
-        $query = $this->db->get('tipoparticipacion');
+        $query = $this->db->get('tipopagoevento');
 	$data=$query->result();
 	echo json_encode($data);
 	}

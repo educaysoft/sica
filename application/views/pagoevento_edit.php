@@ -1,7 +1,7 @@
 <div id="eys-nav-i">
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 
-<?php echo form_open('participacion/save_edit',array('id'=>'eys-form')); ?>
+<?php echo form_open('pagoevento/save_edit',array('id'=>'eys-form')); ?>
 
 
   <ul>
@@ -17,14 +17,14 @@
 <table>
 
 <tr>
-<td> Tipo de participacion:</td>
+<td> Tipo de pagoevento:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($tipoparticipaciones as $row){
-	$options[$row->idtipoparticipacion]= $row->nombre;
+foreach ($tipopagoeventoes as $row){
+	$options[$row->idtipopagoevento]= $row->nombre;
 }
 
- echo form_dropdown("idtipoparticipacion",$options, $participacion['idtipoparticipacion']);  ?></td>
+ echo form_dropdown("idtipopagoevento",$options, $pagoevento['idtipopagoevento']);  ?></td>
 </tr>
 
 
@@ -36,7 +36,7 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ". $row->nombres;
 }
 
- echo form_dropdown("idpersona",$options, $participacion['idpersona']);  ?></td>
+ echo form_dropdown("idpersona",$options, $pagoevento['idpersona']);  ?></td>
 </tr>
 
 <tr>
@@ -47,7 +47,7 @@ foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
 }
 
- echo form_dropdown("idevento",$options, $participacion['idevento']);  ?></td>
+ echo form_dropdown("idevento",$options, $pagoevento['idevento']);  ?></td>
 </tr>
 
 
@@ -56,14 +56,14 @@ foreach ($eventos as $row){
 
 
   <tr>
-     <td>% participaciono:</td>
-     <td><?php echo form_input(array("name"=>'porcentaje','id'=>'percentaje','value'=>$participacion['porcentaje'],'placeholder'=>'porcentaje')) ?></td>
+     <td>% pagoeventoo:</td>
+     <td><?php echo form_input(array("name"=>'porcentaje','id'=>'percentaje','value'=>$pagoevento['porcentaje'],'placeholder'=>'porcentaje')) ?></td>
   </tr>
  
 
   <tr>
      <td>% ayuda:</td>
-     <td><?php echo form_input(array("name"=>'ayuda','id'=>'ayuda','value'=>$participacion['ayuda'],'placeholder'=>'ayuda')) ?></td>
+     <td><?php echo form_input(array("name"=>'ayuda','id'=>'ayuda','value'=>$pagoevento['ayuda'],'placeholder'=>'ayuda')) ?></td>
   </tr>
  
 
@@ -73,7 +73,7 @@ foreach ($eventos as $row){
 
  <tr>
       <td>Fecha :</td>
-<td><?php echo form_input('fecha',  (isset($participacion['fecha']) ? date('Y-m-d H:i:s', strtotime($participacion['fecha'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"'); ?></td>
+<td><?php echo form_input('fecha',  (isset($pagoevento['fecha']) ? date('Y-m-d H:i:s', strtotime($pagoevento['fecha'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"'); ?></td>
   </tr>
 
 <tr>
@@ -81,7 +81,7 @@ foreach ($eventos as $row){
   <td><?php 
   
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"mensaje" );    
-echo form_textarea('comentario',$participacion['comentario'],$textarea_options ); ?></td>
+echo form_textarea('comentario',$pagoevento['comentario'],$textarea_options ); ?></td>
  </tr>
 
 
