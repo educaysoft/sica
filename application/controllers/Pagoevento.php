@@ -8,13 +8,11 @@ class Pagoevento extends CI_Controller{
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
          	$this->load->model('fechaevento_model');
-      		$this->load->model('tipopagoevento_model');
 	}
 
 	public function index(){
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['tipopagoeventos']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
 		$data['pagoevento'] = $this->pagoevento_model->elultimo();
 
  		// print_r($data['pagoevento_list']);
@@ -36,7 +34,6 @@ class Pagoevento extends CI_Controller{
 
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['eventos']= $this->evento_model->evento($idevento)->result();
-		$data['tipopagoevento']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
 		$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($idevento)->result();
        
 
@@ -51,7 +48,6 @@ class Pagoevento extends CI_Controller{
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['tipopagoeventos']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
 		$data['title']="Nuevo Pagoevento";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('pagoevento_form1',$data);
@@ -94,7 +90,6 @@ class Pagoevento extends CI_Controller{
 		 	'porcentaje' => $this->input->post('porcentaje'),
 		 	'ayuda' => $this->input->post('ayuda'),
 		 	'comentario' => $this->input->post('comentario'),
-		 	'idtipopagoevento' => $this->input->post('idtipopagoevento'),
 	 	);
 	 	$result=$this->pagoevento_model->save($array_item);
 	 	if($result == FALSE)
@@ -116,7 +111,6 @@ class Pagoevento extends CI_Controller{
 	 	$data['pagoevento'] = $this->pagoevento_model->pagoevento($this->uri->segment(3))->row_array();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['tipopagoeventoes']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
  	 	$data['title'] = "Actualizar Pagoevento";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('pagoevento_edit',$data);
@@ -130,7 +124,6 @@ class Pagoevento extends CI_Controller{
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'idevento' => $this->input->post('idevento'),
 		 	'fecha' => $this->input->post('fecha'),
-		 	'idtipopagoevento' => $this->input->post('idtipopagoevento'),
 		 	'porcentaje' => $this->input->post('porcentaje'),
 		 	'ayuda' => $this->input->post('ayuda'),
 		 	'comentario' => $this->input->post('comentario'),
@@ -304,7 +297,6 @@ public function actual()
   {
 	$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-	$data['tipopagoeventos']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
     $data['title']="Pagoevento del documento";
     $this->load->view('template/page_header');		
     $this->load->view('pagoevento_record',$data);
@@ -330,7 +322,6 @@ public function elprimero()
   {
 	$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-	$data['tipopagoeventos']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
     $data['title']="Pagoevento del documento";
     $this->load->view('template/page_header');		
     $this->load->view('pagoevento_record',$data);
@@ -350,7 +341,6 @@ public function elultimo()
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-	$data['tipopagoeventos']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
     $data['title']="Pagoevento del documento";
   
     $this->load->view('template/page_header');		
@@ -370,7 +360,6 @@ public function siguiente(){
 	$data['pagoevento'] = $this->pagoevento_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
-	$data['tipopagoeventos']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
     $data['title']="Pagoevento del documento";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
@@ -383,7 +372,6 @@ public function anterior(){
   $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['pagoevento'] = $this->pagoevento_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-	$data['tipopagoeventos']= $this->tipopagoevento_model->lista_tipopagoeventos()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
  // $data['title']="Correo";
     $data['title']="Pagoevento del documento";
