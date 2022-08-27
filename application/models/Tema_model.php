@@ -6,6 +6,16 @@ class Tema_model extends CI_model {
 		 return $tema;
 	}
 
+
+function lista_temas1(){
+	$query=$this->db->order_by("idsilabo","idunidadsilabo","idtema")->get('tema');
+	 return $tema;
+	}
+
+
+
+
+
  	function tema( $id){
  		$tema = $this->db->query('select * from tema where idtema="'. $id.'"');
 		 
