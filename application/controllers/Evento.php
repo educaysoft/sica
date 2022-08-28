@@ -364,6 +364,7 @@ public function index(){
 		$data['fechaeventos'] = $this->fechaevento_model->fechaeventos($this->uri->segment(3))->result();
 		$data['asistencia'] = $this->asistencia_model->asistenciax( $data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
 		$data['participacion'] = $this->participacion_model->participacionx($data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
+		$data['pagoevento'] = $this->pagoevento_model->pagoeventox($data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
 		$data['silabo']=$this->silabo_model->silabo($data['evento']['idsilabo'])->row_array();
 	
 //		$this->load->view('template/page_header');		

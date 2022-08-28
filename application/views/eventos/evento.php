@@ -106,6 +106,17 @@ foreach ($participacion as $row){
 }
 
 
+
+$mipago= array();
+foreach ($pagoevento as $row){
+	$mipago[$row->fecha]= $row->valor;
+	
+}
+
+
+
+
+
 ?>
 
 
@@ -220,6 +231,10 @@ foreach ($participacion as $row){
           <div class="col-sm-1">
             <span>AYUDA</span>
           </div>
+          <div class="col-sm-1">
+            <span>Pago</span>
+          </div>
+
 
 
         </div>
@@ -284,6 +299,19 @@ foreach ($participacion as $row){
 	      }
 	?>
           </div>
+
+<div class="col-sm-1">
+	 <?php
+	      if(isset($mipago[$row->fecha]))				
+	 	{
+               echo "<span>".$mipago[$row->fecha]."</span>";
+	      }else{
+               echo "<span>"." "."</span>";
+	      }
+	?>
+          </div>
+
+
 
         </div>
       </div>
