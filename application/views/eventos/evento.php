@@ -9,6 +9,15 @@
 
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
+ <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/album/">
+
+    
+
+    
+
+<link href="../../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
 
 <style>
 /* Style the body */
@@ -272,7 +281,7 @@ foreach ($pagoevento as $row){
 	      if(isset($miasistencia[$row->fecha]))				
 	 	{
             //   echo "<span>".$miasistencia[$row->fecha]."</span>";
-	      echo " class='".$miasistencia[$row->fecha]."'>";
+	      echo "<i class='".$miasistencia[$row->fecha]."'></i>";
 	      }else{
                echo "<span>"." "."</span>";
 	      }
