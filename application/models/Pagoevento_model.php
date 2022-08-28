@@ -3,7 +3,7 @@ class Pagoevento_model extends CI_model {
 
 
 	function pagoeventox($idevento,$idpersona){
-		 $this->db->order_by("idtipopagoevento asc,fecha asc");
+		 $this->db->order_by("fecha asc");
  		$this->db->where('idevento',$idevento);
  		$this->db->where('idpersona',$idpersona);
 		 $pagoevento= $this->db->get('pagoevento');
