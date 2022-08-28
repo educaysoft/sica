@@ -151,19 +151,7 @@ foreach ($fechaeventos as $row){
 					</div>
 
 
-					<div class="form-group row">
-					<label class="col-md-2 col-form-label">Tipo pagoevento:</label>
-					<div class="col-md-10">
-					<?php
-					$options= array('--Select--');
-					foreach ($tipopagoevento as $row){
-						$options[$row->idtipopagoevento]= $row->nombre;
-					}
-					 echo form_dropdown("idtipopagoevento_edit",$options, set_select('--Select--','default_value'),array('id'=>'idtipopagoevento_edit'));  
-
-					?>
-					</div>
-					</div>
+					
 
 
 				</div>
