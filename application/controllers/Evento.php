@@ -14,6 +14,7 @@ class Evento extends CI_Controller{
       $this->load->model('silabo_model');
       $this->load->model('asistencia_model');
       $this->load->model('participacion_model');
+      $this->load->model('pagoevento_model');
 
 }
 
