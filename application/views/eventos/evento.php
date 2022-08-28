@@ -273,7 +273,7 @@ foreach ($pagoevento as $row){
 	      if(isset($miasistencia[$row->fecha]))				
 	 	{
             //   echo "<span>".$miasistencia[$row->fecha]."</span>";
-	      echo "<i class='".$miasitencia[$row->fecha]."'></i>";
+	      echo "<i class='".$miasistencia[$row->fecha]."'></i>";
 	      }else{
                echo "<span>"." "."</span>";
 	      }
