@@ -362,7 +362,7 @@ echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="curre
 
 
       </div>
-</div>
+
 
 
 <div class="container" style="border:2px solid red; font-size: 15px; width:100%; background: gray; padding:3px;">
@@ -403,6 +403,14 @@ echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="curre
 
         </div>
 	</div>
+
+
+
+
+</div>
+
+
+
 
 
 
