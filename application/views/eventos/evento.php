@@ -96,7 +96,6 @@ $miasistencia= array();
 foreach ($asistencia as $row){
 	$miasistencia[$row->fecha]="bi bi-person-check"; // $row->tipoasistencia;
 }
-
 $miparticipacion= array();
 $miayuda= array();
 foreach ($participacion as $row){
@@ -273,7 +272,7 @@ foreach ($pagoevento as $row){
 	      if(isset($miasistencia[$row->fecha]))				
 	 	{
             //   echo "<span>".$miasistencia[$row->fecha]."</span>";
-	      echo "<i class='".$miasistencia[$row->fecha]."'></i>";
+	      echo " class='".$miasistencia[$row->fecha]."'>";
 	      }else{
                echo "<span>"." "."</span>";
 	      }
