@@ -100,7 +100,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 $(document).ready(function(){
 
 	var idsilabo = document.getElementById("filtro").innerHTML;
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('tema/tema_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('tema/tema_data')?>', type: 'GET',data:{idsilabo:idsilabo}},});
 
 });
 
