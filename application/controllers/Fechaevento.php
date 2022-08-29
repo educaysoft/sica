@@ -60,13 +60,19 @@ public function actual(){
 
 	    if(!isset($idevento)){
 	      $idevento=0;
-	    }else{
-	     $data["idevento"]=$idevento;
-	   }
+
 
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['temas']= $this->tema_model->lista_temas()->result();
+  		$data['temas']= $this->tema_model->lista_temas1()->result();
+
+	    }else{
+	     $data["idevento"]=$idevento;
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['eventos']= $this->evento_model->evento($idevento)->result();
+  		$data['temas']= $this->tema_model->lista_temas1($data['eventos']['idsilabo'])->result();
+	   }
+
 		$data['title']="Nuevo Fechaevento";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('fechaevento_form',$data);
