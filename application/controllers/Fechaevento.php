@@ -69,7 +69,7 @@ public function actual(){
 	    }else{
 	     $data["idevento"]=$idevento;
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['eventos']= $this->evento_model->evento($idevento)-s>result();
+		$data['eventos']= $this->evento_model->evento($idevento)->result();
 		print_r($data['eventos']);
 		die();
   		$data['temas']= $this->tema_model->lista_temas1($data['eventos']['idsilabo'])->result();
