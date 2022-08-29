@@ -107,6 +107,7 @@ class Tema extends CI_Controller{
 		
 		$data['temas'] = $this->tema_model->lista_temas1(0)->result();
 	  	$data['title']="Tema";
+  		$data['filtro']= $this->uri->segment(3);
 		$this->load->view('template/page_header');		
 	  	$this->load->view('tema_list',$data);
 		$this->load->view('template/page_footer');
