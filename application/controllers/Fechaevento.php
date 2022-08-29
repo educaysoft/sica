@@ -64,7 +64,7 @@ public function actual(){
 
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['temas']= $this->tema_model->lista_temas1()->result();
+  		$data['temas']= $this->tema_model->lista_temas1($idevento)->result();
 
 	    }else{
 	     $data["idevento"]=$idevento;
