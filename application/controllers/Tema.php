@@ -105,7 +105,7 @@ class Tema extends CI_Controller{
 	public function listar()
 	{
 		
-		$data['temas'] = $this->tema_model->lista_temas()->result();
+		$data['temas'] = $this->tema_model->lista_temas1(0)->result();
 	  	$data['title']="Tema";
 		$this->load->view('template/page_header');		
 	  	$this->load->view('tema_list',$data);
