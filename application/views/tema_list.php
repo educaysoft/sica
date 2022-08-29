@@ -33,11 +33,35 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="col-12">
              <div class="col-md-12">
                  <h3>Tema - Listar 
-                 <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
 			  
         	</h3>
        	     </div>
 
+
+
+<div class="form-group row">
+    	<label class="col-md-2 col-form-label"> Silabo:</label>
+	<?php
+		$options= array('--Select--');
+		foreach ($temas as $row){
+			$options[$row->idsilabo]= $row->elsilabo;
+		}
+	?>
+
+	<div class="col-md-10">
+		<?php
+     			echo form_dropdown("idsilabo",$options[$filtro], set_select('--Select--','default_value'),array('onchange'=>'filtra_silabo'));  
+		?>
+	</div>
+	</div>
+
+
+
+
+
+
+
+<div id="filtro"><?php echo $filtro; ?></div>
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
@@ -75,6 +99,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
+	var idsilabo = document.getElementById("filtro").innerHTML;
 	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('tema/tema_data')?>', type: 'GET'},});
 
 });
