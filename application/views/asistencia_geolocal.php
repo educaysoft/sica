@@ -55,11 +55,6 @@ $(document).ready(function(){
   }
 });
 
-<?php
-die();
-
-?>
-
 
 </script>
 
