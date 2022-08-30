@@ -72,7 +72,7 @@ public function actual(){
 		$data['eventos']= $this->evento_model->evento($idevento)->first_row('array');
 		print_r($data['eventos']);
 		die();
-  		$data['temas']= $this->tema_model->lista_temas1($data['eventos'][0['idsilabo'])->result();
+  		$data['temas']= $this->tema_model->lista_temas1($data['eventos']['idsilabo'])->result();
 	   }
 
 		$data['title']="Nuevo Fechaevento";
