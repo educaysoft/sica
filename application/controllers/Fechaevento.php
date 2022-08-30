@@ -110,7 +110,7 @@ public function actual(){
 	{
 	 	$data['fechaevento'] = $this->fechaevento_model->fechaevento($this->uri->segment(3))->row_array();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['temas']= $this->tema_model->lista_temas1($this->uri->segment(3))->result();
+  		$data['temas']= $this->tema_model->lista_temas1($date['fechaevento']['idevento'])->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Fechaevento";
