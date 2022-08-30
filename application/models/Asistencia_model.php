@@ -66,7 +66,12 @@ class Asistencia_model extends CI_model {
 		$query=$this->db->get('asistencia');
 		if($query->num_rows()==0){
 			$this->db->insert("asistencia", $array_item);
-			return TRUE;
+			if( $this->db->affected_rows()>0) {
+				$idasistencia=$this->db->insert_id();
+				return $idasistencia;
+			}else{
+				return FALSE;
+			}	
 		}else{
 
 			    if($query->result()[0]->idtipoasistencia!=$array_item['idtipoasistencia'])

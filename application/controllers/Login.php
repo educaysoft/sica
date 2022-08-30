@@ -351,11 +351,14 @@ if ($result == TRUE) {
     $date = date("Y-m-d");
     $hora= date("H:i:s");
     $asistencia=array('idpersona'=>$result[0]->idpersona,'idevento'=>$result[0]->idevento,'fecha'=>$date,'hora'=>$hora,'idtipoasistencia'=>1,'comentario'=>"INGRESO AL SISTEMA");
-    $this->asistencia_model->save($asistencia);
-
-		     $moduloinicio=	$this->session->userdata['logged_in']['inicio'];	
+    $idasistencia=$this->asistencia_model->save($asistencia);
+    		if($idasistencia !=TRUE && $idasistencia !=FALSE && $idasistencia >1)
+		{
+			$date["ïdasistencia"]=$idasistencia;
+		$this->load->view('asistencia_geolocal',$data);
+		}
+		     $moduloinicio=$this->session->userdata['logged_in']['inicio'];	
 			redirect($moduloinicio); 
-			//redirect('Portafolio'); 
 		}
 		//	redirect('aspirante/add'); 
 		//	 $this->load->view('template/page_header.php');
@@ -404,7 +407,15 @@ public function carga_masiva(){
 }
 
 
+public function save_geolocalizacion()
+{
 
+	$update_array('longitud'=>$_POST['longitud'],'latitud'=>$_POST['latitud']);
+	$idasistencia= $_POST['idasistencia'];
+
+    $this->asistencia_model->update($idasistencia,$update_array);
+
+}
 
 
 

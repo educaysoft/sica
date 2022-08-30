@@ -44,7 +44,10 @@ alter table documentosilabo drop primary key; */
 /* alter table tema add column idvideotutorial int(11); */
  
 
-alter table asistencia add column hora time; 
+/* alter table asistencia add column hora time; */
+
+alter table asistencia add column longitud decimal(11,8);
+alter table asistencia add column latitud decimal(10,8);
 
 
 
