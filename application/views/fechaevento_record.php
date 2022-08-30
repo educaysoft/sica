@@ -153,6 +153,34 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 	</div> 
 </div>
 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Hora inicio:</label>
+	<div class="col-md-10">
+		<?php
+     $eys_arrinput=array('name'=>'horainicio','id'=>'horainicio',"type"=>"time",'value'=>$fechaevento['horainicio'], "style"=>"width:500px");
+     echo form_input($eys_arrinput); 
+
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Hora fin:</label>
+	<div class="col-md-10">
+		<?php
+     $eys_arrinput=array('name'=>'horafin','id'=>'horafin',"type"=>"time",'value'=>$fechaevento['horafin'], "style"=>"width:500px");
+     echo form_input($eys_arrinput); 
+		?>
+	</div> 
+</div>
+
+
+
 </table>
 <?php echo form_close(); ?>
 
