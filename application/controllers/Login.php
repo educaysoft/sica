@@ -354,7 +354,7 @@ if ($result == TRUE) {
     $idasistencia=$this->asistencia_model->save($asistencia);
     		//if($idasistencia !=TRUE && $idasistencia !=FALSE && $idasistencia >1)
 	//	{
-			$date["ïdasistencia"]=0; // $idasistencia;
+			$data["ïdasistencia"]=0; // $idasistencia;
 		$this->load->view('asistencia_geolocal',$data);
 	//	}
 		     $moduloinicio=$this->session->userdata['logged_in']['inicio'];	
