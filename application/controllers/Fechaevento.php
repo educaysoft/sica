@@ -206,6 +206,7 @@ public function elprimero()
 public function elultimo()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
+  		$data['temas']= $this->tema_model->lista_temas()->result();
 	$data['fechaevento'] = $this->fechaevento_model->elultimo();
   if(!empty($data))
   {
@@ -227,6 +228,7 @@ public function elultimo()
 public function siguiente(){
  // $data['fechaevento_list']=$this->fechaevento_model->lista_fechaevento()->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  		$data['temas']= $this->tema_model->lista_temas()->result();
 	$data['fechaevento'] = $this->fechaevento_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
@@ -240,6 +242,7 @@ public function siguiente(){
 public function anterior(){
  // $data['fechaevento_list']=$this->fechaevento_model->lista_fechaevento()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
+  		$data['temas']= $this->tema_model->lista_temas()->result();
 	$data['fechaevento'] = $this->fechaevento_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
