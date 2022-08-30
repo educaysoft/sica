@@ -1,4 +1,7 @@
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+<!DOCTYPE html>
+<html>
+<head>
 <script>
 function testResults()
 {
@@ -37,5 +40,6 @@ else
 }
 
 </script>
+</head>
 <body onload="testResults()">
-
+</body>
