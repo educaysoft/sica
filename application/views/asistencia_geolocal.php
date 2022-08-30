@@ -47,6 +47,7 @@ $(document).ready(function(){
 
 
 
+    x.innerHTML = "Sise pudo.";
 
 
   } else { 
@@ -54,7 +55,16 @@ $(document).ready(function(){
   }
 });
 
+<?php
+die();
+
+?>
+
+
 </script>
+
+
+
 
 </body>
 </html>
