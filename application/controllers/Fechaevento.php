@@ -69,8 +69,9 @@ public function actual(){
 	    }else{
 	     $data["idevento"]=$idevento;
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['eventos']= $this->evento_model->evento($idevento)->first_row('array');
-  		$data['temas']= $this->tema_model->lista_temas1($data['eventos']['idsilabo'])->result();
+		$data['evento']= $this->evento_model->evento($idevento)->first_row('array');
+		$data['eventos']= $this->evento_model->evento($idevento)->result();
+  		$data['temas']= $this->tema_model->lista_temas1($data['evento']['idsilabo'])->result();
 	   }
 
 		$data['title']="Nuevo Fechaevento";
