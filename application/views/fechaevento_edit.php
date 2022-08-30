@@ -33,6 +33,22 @@ foreach ($eventos as $row){
  
 
 <tr>
+<td> Tema:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($temas as $row){
+	$options[$row->idtema]= $row->nombrecorto;
+}
+
+ echo form_dropdown("idtema",$options, $fechaevento['idtema']);  ?></td>
+</tr>
+
+
+
+
+
+
+<tr>
   <td>Tema a tratar(nombre largo):</td>
   <td><?php 
   
@@ -56,6 +72,28 @@ echo form_textarea('temacorto',$fechaevento['temacorto'],$textarea_options ); ?>
      $eys_arrinput=array('name'=>'ponderacion','value'=>$fechaevento['ponderacion'], "style"=>"width:500px");
      echo form_input($eys_arrinput); ?></td>
 </tr>
+
+
+<tr>
+     <td>Hora inicio:</td>
+     <td><?php 
+     $eys_arrinput=array('name'=>'horainicio','value'=>$fechaevento['horainicio'], "style"=>"width:500px");
+     echo form_input($eys_arrinput); ?></td>
+</tr>
+
+<tr>
+     <td>Hora fin:</td>
+     <td><?php 
+     $eys_arrinput=array('name'=>'horafin','value'=>$fechaevento['horafin'], "style"=>"width:500px");
+     echo form_input($eys_arrinput); ?></td>
+</tr>
+
+
+
+
+
+
+
 
 
 

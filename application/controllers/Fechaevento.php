@@ -85,10 +85,13 @@ public function actual(){
 	{
 	 	$array_item=array(
 		 	'tema' => $this->input->post('tema'),
+		 	'idtema' => $this->input->post('idtema'),
 		 	'temacorto' => $this->input->post('temacorto'),
 		 	'fecha' => $this->input->post('fecha'),
 		 	'idevento' => $this->input->post('idevento'),
 		 	'ponderacion' => $this->input->post('ponderacion'),
+		 	'horainicio' => $this->input->post('horainicio'),
+		 	'horafin' => $this->input->post('horafin'),
 	 	);
 	 	$result=$this->fechaevento_model->save($array_item);
 	 	if($result == FALSE)
@@ -122,9 +125,12 @@ public function actual(){
 	 	$array_item=array(
 		 	'idevento' => $this->input->post('idevento'),
 		 	'fecha' => $this->input->post('fecha'),
+		 	'idtema' => $this->input->post('idtema'),
 		 	'tema' => $this->input->post('tema'),
 		 	'temacorto' => $this->input->post('temacorto'),
 		 	'ponderacion' => $this->input->post('ponderacion'),
+		 	'horainicio' => $this->input->post('horainicio'),
+		 	'horafin' => $this->input->post('horafin'),
 	 	);
 	 	$this->fechaevento_model->update($id,$array_item);
 	 	redirect('fechaevento');
