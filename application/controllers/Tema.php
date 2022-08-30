@@ -257,7 +257,7 @@ public function get_unidadsilabo() {
     if($this->input->post('idsilabo')) {
         $this->db->select('*');
         $this->db->where(array('idsilabo' => $this->input->post('idsilabo')));
-        $query = $this->db->get('silabo');
+        $query = $this->db->get('unidadsilabo');
 	$data=$query->result();
 	echo json_encode($data);
 	}
