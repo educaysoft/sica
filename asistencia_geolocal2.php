@@ -18,8 +18,15 @@ $(document).ready(function(){
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position)
- {  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
+    {
+	  
+        var latitud = position.coords.latitude;
+        var longitud = position.coords.longitude;
+	var idasistencia=2464; // $idasistencia;
+	  
+	alert(latitud);
+	//    x.innerHTML = "Latitude: " + position.coords.latitude + 
+ // "<br>Longitude: " + position.coords.longitude;
 });
 
 
