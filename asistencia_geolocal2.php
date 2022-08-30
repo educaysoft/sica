@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-<body>
+<body onload=">
 
 <p>Click the button to get your coordinates.</p>
 
-<button onclick="getLocation()">Try It</button>
 
 <p id="demo"></p>
 
 <script>
-var x = document.getElementById("demo");
 
-function getLocation() {
+var x = document.getElementById("demo");
+$(document).ready(function() {
+
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else { 
