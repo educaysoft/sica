@@ -1,19 +1,31 @@
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
 
-<body onload="testResults()">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body >
+
+<p>Click the button to get your coordinates.</p>
+
+
+<p id="demo"></p>
+
 <script>
-function testResults()
-{
-if (navigator.geolocation)
-{
-    //Get the current position
+
+var x = document.getElementById("demo");
+$(document).ready(function(){
+
+  if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position)
     {
+	  
         var latitud = position.coords.latitude;
         var longitud = position.coords.longitude;
 	var idasistencia=2464; // $idasistencia;
-	alert(latitud);
-      /*  $.ajax(
+
+
+        $.ajax(
         {
 	 url: "<?php echo site_url('login/save_geolocalizacion') ?>",
         data: {idasistencia:idasistencia,longitud:logintud,latitud:latitud},
@@ -28,14 +40,37 @@ if (navigator.geolocation)
         alert(xhr.status);
         alert(thrownError);
       }
-	})*/
-    });
-	
-	}
-else
-{
- alert("Sorry... your browser does not support the HTML5 GeoLocation API");
-}
-}
+	})
+
+
+
+});
+
+
+
+
+
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+});
 
 </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

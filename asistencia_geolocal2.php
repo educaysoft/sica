@@ -23,10 +23,27 @@ $(document).ready(function(){
         var latitud = position.coords.latitude;
         var longitud = position.coords.longitude;
 	var idasistencia=2464; // $idasistencia;
-	  
-	alert(latitud);
-	//    x.innerHTML = "Latitude: " + position.coords.latitude + 
- // "<br>Longitude: " + position.coords.longitude;
+
+
+        $.ajax(
+        {
+	 url: "<?php echo site_url('login/save_geolocalizacion') ?>",
+        data: {idasistencia:idasistencia,longitud:logintud,latitud:latitud},
+        method: 'POST',
+	async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+	})
+
+
+
 });
 
 
