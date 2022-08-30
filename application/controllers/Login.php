@@ -410,7 +410,7 @@ public function carga_masiva(){
 public function save_geolocalizacion()
 {
 
-	$update_array('longitud'=>$_POST['longitud'],'latitud'=>$_POST['latitud']);
+	$update_array=array('longitud'=>$_POST['longitud'],'latitud'=>$_POST['latitud']);
 	$idasistencia= $_POST['idasistencia'];
 
     $this->asistencia_model->update($idasistencia,$update_array);
