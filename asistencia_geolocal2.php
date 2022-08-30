@@ -22,7 +22,7 @@ $(document).ready(function(){
 	  
         var latitud = position.coords.latitude;
         var longitud = position.coords.longitude;
-	var idasistencia=2464; // $idasistencia;
+	var idasistencia= $idasistencia;
 
 
         $.ajax({
