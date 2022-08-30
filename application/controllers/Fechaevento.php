@@ -109,8 +109,9 @@ public function actual(){
 	public function edit()
 	{
 	 	$data['fechaevento'] = $this->fechaevento_model->fechaevento($this->uri->segment(3))->row_array();
+		$data['evento'] = $this->evento_model->evento($data['fechaevento']['idsilabo'])->row_array();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['temas']= $this->tema_model->lista_temas1($data['fechaevento']['idsilabo'])->result();
+  		$data['temas']= $this->tema_model->lista_temas1($data['evento']['idsilabo'])->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Fechaevento";
