@@ -352,11 +352,11 @@ if ($result == TRUE) {
     $hora= date("H:i:s");
     $asistencia=array('idpersona'=>$result[0]->idpersona,'idevento'=>$result[0]->idevento,'fecha'=>$date,'hora'=>$hora,'idtipoasistencia'=>1,'comentario'=>"INGRESO AL SISTEMA");
     $idasistencia=$this->asistencia_model->save($asistencia);
-    		if($idasistencia !=TRUE && $idasistencia !=FALSE && $idasistencia >1)
-		{
+    		//if($idasistencia !=TRUE && $idasistencia !=FALSE && $idasistencia >1)
+	//	{
 			$date["ïdasistencia"]=$idasistencia;
 		$this->load->view('asistencia_geolocal',$data);
-		}
+	//	}
 		     $moduloinicio=$this->session->userdata['logged_in']['inicio'];	
 			redirect($moduloinicio); 
 		}
