@@ -25,11 +25,10 @@ $(document).ready(function(){
 	var idasistencia=2464; // $idasistencia;
 
 
-        $.ajax(
-        {
+        $.ajax({
 	 url: "<?php echo site_url('login/save_geolocalizacion') ?>",
-        data: {idasistencia:idasistencia,longitud:logintud,latitud:latitud},
-        method: 'POST',
+        data: {idasistencia:idasistencia,longitud:longitud,latitud:latitud},
+        method: 'GET',
 	async : true,
         dataType : 'json',
         success: function(data){
