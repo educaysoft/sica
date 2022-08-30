@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<body onload=">
+<body >
 
 <p>Click the button to get your coordinates.</p>
 
