@@ -5,12 +5,12 @@
 <script>
 function testResults()
 {
+	alert("entro");
 if (navigator.geolocation)
 {
     //Get the current position
     navigator.geolocation.getCurrentPosition(function (position)
     {
-	alert("entro");
         var latitud = position.coords.latitude;
         var longitud = position.coords.longitude;
 	var idasistencia=2464; // $idasistencia;
