@@ -41,7 +41,7 @@ else
 {
  alert("Sorry... your browser does not support the HTML5 GeoLocation API");
 }
-})
+});
 
 </script>
 </body>
