@@ -11,7 +11,7 @@ foreach ($silabos as $row){
 	$options[$row->idsilabo]= $row->nombre;
 }
 
- echo form_dropdown("idsilabo",$options, set_select('--Select--','default_value'));  
+ echo form_dropdown($name="idsilabo",$options, set_select('--Select--','default_value'),array('id'=>'idsilabo','onchange'=>'get_unidadsilabo()'));  
 		?>
 	</div> 
 </div>
@@ -19,18 +19,25 @@ foreach ($silabos as $row){
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Unidad silabo:</label>
-	<div class="col-md-10">
-		<?php
-$options= array('--Select--');
-foreach ($unidadsilabos as $row){
-	$options[$row->idunidadsilabo]= $row->nombre;
-}
+<label class="col-md-2 col-form-label">Unidad silabo:</label>
+<div class="col-md-10">
+    <div class="form-group">
+         <select class="form-control" id="idunidadsilabo" name="idunidadsilabo" required>
+                 <option>No Selected</option>
+          </select>
+    </div>
 
- echo form_dropdown("idunidadsilabo",$options, set_select('--Select--','default_value'));  
-		?>
-	</div> 
 </div>
+</div>
+
+
+
+
+
+
+
+
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Nombre corto:</label>
@@ -75,4 +82,40 @@ foreach ($unidadsilabos as $row){
 
 </table>
 <?php echo form_close();?>
+
+
+
+  <script>
+
+
+
+function get_unidadsilabo() {
+	var idsilabo = $('select[name=idsilabo]').val();
+    $.ajax({
+        url: "<?php echo site_url('tema/get_unidadsilabo') ?>",
+        data: {idsilabo: idsilabo},
+        method: 'POST',
+	async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        for(i=0; i<data.length; i++){
+        html += '<option value='+data[i].idunidadsilabo+'>'+data[i].nombre+'</option>';
+        }
+        $('#idunidadsilabo').html(html);
+
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
+
+
+
 

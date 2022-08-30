@@ -251,4 +251,21 @@ public function anterior(){
 	$this->load->view('template/page_footer');
 }
 
+public function get_unidadsilabo() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->post('idsilabo')) {
+        $this->db->select('*');
+        $this->db->where(array('idsilabo' => $this->input->post('idsilabo')));
+        $query = $this->db->get('silabo');
+	$data=$query->result();
+	echo json_encode($data);
+	}
+
+}
+
+
+
+
+
 }
