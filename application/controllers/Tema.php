@@ -6,6 +6,7 @@ class Tema extends CI_Controller{
       parent::__construct();
       $this->load->model('tema_model');
       $this->load->model('unidadsilabo_model');
+      $this->load->model('silabo_model');
       $this->load->model('videotutorial_model');
       $this->load->model('documento_model');
 }
