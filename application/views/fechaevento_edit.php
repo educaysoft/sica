@@ -77,14 +77,14 @@ echo form_textarea('temacorto',$fechaevento['temacorto'],$textarea_options ); ?>
 <tr>
      <td>Hora inicio:</td>
      <td><?php 
-     $eys_arrinput=array('name'=>'horainicio','value'=>$fechaevento['horainicio'], "style"=>"width:500px");
+     $eys_arrinput=array('name'=>'horainicio','id'=>'horainicio',"type"=>"time",'value'=>$fechaevento['horainicio'], "style"=>"width:500px");
      echo form_input($eys_arrinput); ?></td>
 </tr>
 
 <tr>
      <td>Hora fin:</td>
      <td><?php 
-     $eys_arrinput=array('name'=>'horafin','value'=>$fechaevento['horafin'], "style"=>"width:500px");
+     $eys_arrinput=array('name'=>'horafin','id'=>'horafin',"type"=>"time",'value'=>$fechaevento['horafin'], "style"=>"width:500px");
      echo form_input($eys_arrinput); ?></td>
 </tr>
 
