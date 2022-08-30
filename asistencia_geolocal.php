@@ -2,9 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+</head>
+<body>
+
+
 <script>
-function testResults()
-{
+$(document).ready(function() {
 	alert("entro");
 if (navigator.geolocation)
 {
@@ -41,9 +44,5 @@ else
 }
 
 </script>
-</head>
-<body onload="testResults()">
-
 </body>
-
 </html>
