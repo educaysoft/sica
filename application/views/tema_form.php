@@ -1,6 +1,23 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
 <?php echo form_open("tema/save") ?>
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Silabo:</label>
+	<div class="col-md-10">
+		<?php
+$options= array('--Select--');
+foreach ($silabos as $row){
+	$options[$row->idsilabo]= $row->nombre;
+}
+
+ echo form_dropdown("idsilabo",$options, set_select('--Select--','default_value'));  
+		?>
+	</div> 
+</div>
+
+
+
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Unidad silabo:</label>
 	<div class="col-md-10">

@@ -34,6 +34,7 @@ class Tema extends CI_Controller{
 	public function add()
 	{
 			$data['title']="Nueva tema";
+			$data['silabos'] = $this->silabo_model->lista_silabos()->result();
 			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo()->result();
   		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 			$this->load->view('template/page_header');		
