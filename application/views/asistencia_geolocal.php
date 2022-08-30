@@ -11,7 +11,7 @@ if (navigator.geolocation)
     {
         var latitud = position.coords.latitude;
         var longitud = position.coords.longitude;
-	var idasistencia=$idasistencia;
+	var idasistencia=2464; // $idasistencia;
         $.ajax(
         {
 	 url: "<?php echo site_url('login/save_geolocalizacion') ?>",
