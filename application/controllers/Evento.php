@@ -274,7 +274,7 @@ public function index(){
 			$draw= intval($this->input->get("length"));
 
 			$id=$this->uri->segment(3);
-			$data0 =$this->fechaevento_model->fechaeventos($id)->result();
+			$data0 =$this->fechaevento_model->fechaeventos($id);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->fecha,$r->tema,
