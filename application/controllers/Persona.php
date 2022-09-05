@@ -134,10 +134,10 @@ public function edit()
 public function listar()
 {
 	
-  $data['persona'] = $this->persona_model->lista_personas()->result();
-  $data['title']="Personas";
+	$data['persona'] = $this->persona_model->lista_personas()->result();
+	$data['title']="Personas";
 	$this->load->view('template/page_header');		
-  $this->load->view('persona_list',$data);
+	$this->load->view('persona_list',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -166,9 +166,6 @@ function persona_data()
 		);
 		echo json_encode($output);
 		exit();
-	
-			
-
 }
 
 

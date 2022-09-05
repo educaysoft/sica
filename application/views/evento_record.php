@@ -155,6 +155,52 @@ echo form_input($arrdatos) ?>
 
 
 
+<div class="row justify-content-center">
+      <!-- Page Heading -->
+ <div class="row">
+  <div class="col-12">
+             <div class="col-md-12">
+                 <h3>Ordenador - Listar 
+                 <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
+			  
+        	</h3>
+       	     </div>
+
+<table class="table table-striped table-bordered table-hover" id="mydatac">
+ <thead>
+ <tr>
+ <th>fecha</th>
+ <th>tema</th>
+ <th style="text-align: right;">Actions</th>
+ </tr>
+ </thead>
+
+ <tbody id="show_data">
+
+ </tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Participantes ( <?php echo anchor('participante/add', 'New'); ?>):</label>
       <?php
@@ -255,6 +301,23 @@ echo form_input($arrdatos) ?>
 
 <?php echo form_close(); ?>
 
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET'},});
+});
+
+$('#show_data').on('click','.item_ver',function(){
+var id= $(this).data('idpersona');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+
+});
+
+
+</script>
 
 
 

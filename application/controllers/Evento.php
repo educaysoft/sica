@@ -267,6 +267,35 @@ public function index(){
 
 
 
+	function evento_fechas()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$id=$this->uri->segment(3)
+			$data0 =$this->fechaevento_model->fechaeventos($id)->result();
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->fecha,$r->tema,
+					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+
+	}
+
+
+
+
+
+
+
 
 	public function elprimero()
 	{
