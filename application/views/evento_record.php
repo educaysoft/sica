@@ -307,7 +307,7 @@ echo form_input($arrdatos) ?>
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var idevento =  $('select[name=idevento]').val();
+	var idevento =39; //  $('select[name=idevento]').val();
 	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET',data:{idevento:idevento}},});
 });
 
