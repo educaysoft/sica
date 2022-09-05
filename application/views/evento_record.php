@@ -34,7 +34,7 @@ if(isset($evento))
 
 
 <?php echo form_open('evento/save_edit') ?>
-<?php echo form_hidden('idevento',$evento['idevento']) ?>
+<?php echo form_hidden('idevento',$evento['idevento'],array('name'=>'idevento')) ?>
 
 
 <!-----
@@ -307,7 +307,8 @@ echo form_input($arrdatos) ?>
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET'},});
+	var idevento = $('select[name=idevento]').val();
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET',data:{idevento:idevento}},},});
 });
 
 $('#show_data').on('click','.item_ver',function(){
