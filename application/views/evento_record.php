@@ -169,6 +169,7 @@ echo form_input($arrdatos) ?>
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
+ <th>idevento</th>
  <th>fecha</th>
  <th>tema</th>
  <th style="text-align: right;">Actions</th>

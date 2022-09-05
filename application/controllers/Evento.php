@@ -277,8 +277,8 @@ public function index(){
 			$data0 =$this->fechaevento_model->fechaeventos($id);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->fecha,$r->tema,
-					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Ver</a>');
+				$data[]=array($r->idevento,$r->fecha,$r->tema,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
