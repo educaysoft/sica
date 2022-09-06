@@ -1,7 +1,7 @@
 
 use educayso_facae;
 drop view participante1;
-create view participante1 as select participante.idparticipante,participante.idevento,evento.titulo as elevento,participante.idpersona,concat(persona.apellidos," ",persona.nombres) as nombres,documento.archivopdf from participante,persona,evento,documento where participante.idpersona=persona.idpersona and participante.idevento=evento.idevento and participante.iddocumento=documento.iddocumento
+create view participante1 as select pa.idparticipante,pa.idevento,ev.titulo as elevento,pa.idpersona,concat(pe.apellidos," ",pe.nombres) as nombres,doc.archivopdf from participante pa,persona pe,evento ev,documento doc where pa.idpersona=pe.idpersona and pa.idevento=ev.idevento and pa.iddocumento=doc.iddocumento
 UNION 
 
-select participante.idparticipante,participante.idevento,evento.titulo as elevento,participante.idpersona,concat(persona.apellidos," ",persona.nombres) as nombres," " as archivopdf from participante,persona,evento,documento where participante.idpersona=persona.idpersona and participante.idevento=evento.idevento and participante.iddocumento is null;
+select pa.idparticipante,pa.idevento,ev.titulo as elevento,pa.idpersona,concat(pe.apellidos," ",pe.nombres) as nombres," " as archivopdf  from participante pa,persona pe,evento ev,documento doc where pa.idpersona=pe.idpersona and pa.idevento=ev.idevento and pa.iddocumento is null;

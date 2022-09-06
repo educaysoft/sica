@@ -71,7 +71,8 @@ foreach ($asistencia as $row){
       if(isset($arrasistencia[$row1->fecha])){
 	      $x=$j*10;
 	      $k=$j+150;
-	      echo "<td style='color:green;"." background-color:rgb(".$x.",".$k.", 66); '>". $arrasistencia[$row1->fecha]."</td>";
+	     // echo "<td style='color:green;"." background-color:rgb(".$x.",".$k.", 66); '>". $arrasistencia[$row1->fecha]."</td>";
+	      echo "<td style='color:green;"." background-color:rgb(".$x.",".$k.", 66); '>". $row1->idtipoasistencia."</td>";
 	      $j=$j+5;
 	  $asi=$asi+1;
       }else{
