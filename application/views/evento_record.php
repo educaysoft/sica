@@ -42,9 +42,7 @@ if(isset($evento))
     <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
 		<?php
-
 		echo form_input('idevento',$evento['idevento'],array("disabled"=>"disabled",'placeholder'=>'ideventos','style'=>'width:500px;'))
-
 		?>
 	</div> 
 </div>
@@ -154,19 +152,14 @@ echo form_input($arrdatos) ?>
 </div>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> ________:</label>
+    <label class="col-md-2 col-form-label"> Temas tratados:</label>
 	<div class="col-md-10">
  
 <div class="row justify-content-center">
       <!-- Page Heading -->
  <div class="row">
   <div class="col-12">
-             <div class="col-md-12">
-                 <h3>Fecha en que se dearrolla el evento 
-                 <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
-			  
-        	</h3>
-       	     </div>
+             
 
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
@@ -304,6 +297,43 @@ echo form_input($arrdatos) ?>
 
 
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Participantes:</label>
+	<div class="col-md-10">
+ 
+<div class="row justify-content-center">
+      <!-- Page Heading -->
+ <div class="row">
+  <div class="col-12">
+             
+
+<table class="table table-striped table-bordered table-hover" id="mydatap">
+ <thead>
+ <tr>
+ <th>idevento</th>
+ <th>fecha</th>
+ <th>tema</th>
+ <th style="text-align: right;">Actions</th>
+ </tr>
+ </thead>
+
+ <tbody id="show_data">
+
+ </tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+	</div> 
+</div>
+
+
+
+
 <?php echo form_close(); ?>
 
 
@@ -312,7 +342,12 @@ echo form_input($arrdatos) ?>
 
 $(document).ready(function(){
 	var idevento =39; //  $('select[name=idevento]').val();
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET',data:{idevento:idevento}},});
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET',data:{idevento:idevento}},});
+	var mytablap= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_participantes')?>', type: 'GET',data:{idevento:idevento}},});
+
+
+
+
 });
 
 $('#show_data').on('click','.item_ver',function(){
