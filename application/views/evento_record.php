@@ -115,31 +115,23 @@ echo form_input($arrdatos) ?>
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Detalle:</label>
+	<div class="col-md-10">
+      <?php
+	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+	echo form_textarea('detalle',$evento['detalle'],$textarea_options);
+	?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha de inicio:</label>
 	<div class="col-md-10">
       <?php echo form_input('fechainicia',$evento['fechainicia'],array('type'=>'date', 'placeholder'=>'fechainicia','style'=>'width:500px;')) ?>
 	</div> 
 </div>
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fechas ( <?php echo anchor('fechaevento/add/'.$evento['idevento'], 'New'); ?>):</label>
-      <?php
- 	$options = array();
-  	foreach ($fechaeventos as $row){
-		$options[$row->idfechaevento]=$row->fecha." :: ". $row->tema;
-	}
-
-	?>
-	<div class="col-md-10">
-	<?php
-	echo form_multiselect('idfechaevento[]',$options,(array)set_value('idfechaevento', ''), array('style'=>'width:500px')); 
-	?>
-
-	</div> 
-</div>
-
-
 
 
 <div class="form-group row">
@@ -149,8 +141,13 @@ echo form_input($arrdatos) ?>
 	</div> 
 </div>
 
+
+
+
+
+
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Temas tratados:</label>
+    <label class="col-md-2 col-form-label"> Fechas ( <?php echo anchor('fechaevento/add/'.$evento['idevento'], 'New'); ?>):</label>
 	<div class="col-md-10">
  
 <div class="row justify-content-center">
@@ -197,34 +194,11 @@ echo form_input($arrdatos) ?>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Participantes ( <?php echo anchor('participante/add', 'New'); ?>):</label>
-      <?php
- 	$options = array();
-  	foreach ($participantes as $row){
-		$options[$row->idpersona]=$row->nombres;
-	}
-
-	?>
-	<div class="col-md-10">
-	<?php
-	echo form_multiselect('idparticipante[]',$options,(array)set_value('idparticipante', ''), array('style'=>'width:500px')); 
-	?>
-
-	</div> 
-</div>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Detalle:</label>
-	<div class="col-md-10">
-      <?php
-	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
-	echo form_textarea('detalle',$evento['detalle'],$textarea_options);
-	?>
-	</div> 
-</div>
+
+
 
 
 <div class="form-group row">
@@ -297,7 +271,7 @@ echo form_input($arrdatos) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Participantes:</label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('participante/add', 'Participante'); ?>:</label>
 	<div class="col-md-10">
  
 <div class="row justify-content-center">
