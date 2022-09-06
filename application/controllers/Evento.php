@@ -302,7 +302,7 @@ public function index(){
 			$data0 =$this->participante_model->participantes($id);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idparticipante,$r->nombres,
+				$data[]=array($r->idparticipante,$r->nombres,$->archivopdf,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,

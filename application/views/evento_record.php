@@ -311,9 +311,9 @@ echo form_input($arrdatos) ?>
 <table class="table table-striped table-bordered table-hover" id="mydatap">
  <thead>
  <tr>
- <th>idevento</th>
- <th>fecha</th>
- <th>tema</th>
+ <th>id</th>
+ <th>Participante</th>
+ <th>certificado</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
