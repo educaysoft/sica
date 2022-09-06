@@ -153,14 +153,16 @@ echo form_input($arrdatos) ?>
 	</div> 
 </div>
 
-
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha de finaliza:</label>
+	<div class="col-md-10">
+ 
 <div class="row justify-content-center">
       <!-- Page Heading -->
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Ordenador - Listar 
+                 <h3>Fecha en que se dearrolla el evento 
                  <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
 			  
         	</h3>
@@ -186,6 +188,8 @@ echo form_input($arrdatos) ?>
 
 
 
+	</div> 
+</div>
 
 
 
