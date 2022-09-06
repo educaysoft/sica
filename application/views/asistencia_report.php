@@ -114,7 +114,7 @@ $j=0;
     echo "<td>". $arrasistencia[$id]."</td>";
     foreach ($fechaeventos as $row1){
       if(isset($arrasistencia[$row1->fecha])){
-          echo "<td style='color:green'>". $arrasistencia[$row1->fecha]."</td>";
+          echo "<td style='color:green'>". $arrasistencia[$row1->fecha][0]."</td>";
 	  $asi=$asi+1;
       }else{
            echo "<td style='color:red'>falta</td>";
