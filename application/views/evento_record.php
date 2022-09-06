@@ -41,7 +41,7 @@ if(isset($evento))
     <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
 		<?php
-		echo form_input('idevento',$evento['idevento'],array("disabled"=>"disabled",'placeholder'=>'ideventos','style'=>'width:500px;'))
+		echo form_input('idevento',$evento['idevento'],array("id"=>"idevento","disabled"=>"disabled",'placeholder'=>'ideventos','style'=>'width:500px;'))
 		?>
 	</div> 
 </div>
