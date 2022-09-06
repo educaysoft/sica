@@ -37,7 +37,6 @@ if(isset($evento))
 <?php echo form_hidden('idevento',$evento['idevento'],array('name'=>'idevento')) ?>
 
 
-<!-----
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
@@ -47,7 +46,6 @@ if(isset($evento))
 	</div> 
 </div>
 
------>
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('tipoevento/add', 'Tipo evento:') ?> </label>
