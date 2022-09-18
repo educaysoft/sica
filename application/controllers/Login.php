@@ -355,7 +355,7 @@ if ($result == TRUE) {
     		echo  "HOLA1 HOLA1";
     		echo $idasistencia;
     		die("HOLA HOLA");
-    		if($idasistencia !=TRUE && $idasistencia !=FALSE && $idasistencia >1)
+    		if($idasistencia !=1 && $idasistencia !=0 && $idasistencia >1)
 		{
 			$data["ïdasistencia"]= $idasistencia;
 		$this->load->view('asistencia_geolocal',$data);

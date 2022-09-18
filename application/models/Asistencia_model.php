@@ -60,7 +60,6 @@ class Asistencia_model extends CI_model {
 
  	function save($array_item)
  	{
-		return 9999;
  		$this->db->where('idevento',$array_item['idevento']);
  		$this->db->where('idpersona',$array_item['idpersona']);
  		$this->db->where('fecha',$array_item['fecha']);
@@ -71,7 +70,7 @@ class Asistencia_model extends CI_model {
 				$idasistencia=$this->db->insert_id();
 				return $idasistencia;
 			}else{
-				return FALSE;
+				return 0; //FALSE;
 			}	
 		}else{
 
@@ -81,9 +80,9 @@ class Asistencia_model extends CI_model {
 				$this->db->where('fecha',$array_item['fecha']);
 				$this->db->where('idevento',$array_item['idevento']);
 				$this->db->update('asistencia',$array_item);
-		      		return TRUE;
+		      		return 1; //TRUE;
 			 }else{
-			        return FALSE;
+			        return 0; //FALSE;
 			 }
 			
 		}
