@@ -16,13 +16,13 @@
 var x = document.getElementById("demo");
 $(document).ready(function(){
 
-  if (Modernizr.geolocation) {
+  if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position)
     {
 	  
         var latitud = position.coords.latitude;
         var longitud = 3939; //position.coords.longitude;
-	var idasistencia=3210; // $idasistencia;
+	var idasistencia=3211; // $idasistencia;
 
 
         $.ajax({
