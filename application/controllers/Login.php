@@ -354,7 +354,6 @@ if ($result == TRUE) {
     $idasistencia=$this->asistencia_model->save($asistencia);
     		print_r($asistencia);
     		echo $idasistencia;
-    		die("HOLA HOLA");
     		if($idasistencia !=1 && $idasistencia !=0 && $idasistencia >1)
 		{
 			$data["ïdasistencia"]= $idasistencia;
