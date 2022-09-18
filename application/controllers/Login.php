@@ -352,6 +352,7 @@ if ($result == TRUE) {
     $hora= date("H:i:s");
     $asistencia=array('idpersona'=>$result[0]->idpersona,'idevento'=>$result[0]->idevento,'fecha'=>$date,'hora'=>$hora,'idtipoasistencia'=>1,'comentario'=>"INGRESO AL SISTEMA");
     $idasistencia=$this->asistencia_model->save($asistencia);
+    		die("HOLA1 HOLA1");
     		echo $idasistencia;
     		die("HOLA HOLA");
     		if($idasistencia !=TRUE && $idasistencia !=FALSE && $idasistencia >1)
