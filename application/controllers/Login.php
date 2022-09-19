@@ -357,7 +357,7 @@ if ($result == TRUE) {
     		if($idasistencia !=1 && $idasistencia !=0 && $idasistencia >1)
 		{
 			$data['title']="Uste esta visualizando Documentos por registro";
-			$data['ïdasistencia']="'". $idasistencia."'";
+			$data['ïd']= $idasistencia;
 
 	 $this->load->view('template/page_header.php');
 		$this->load->view('asistencia_geolocal',$data);
