@@ -416,6 +416,7 @@ public function save_geolocalizacion()
 	$idasistencia= $_GET['idasistencia'];
 
     $this->asistencia_model->update($idasistencia,$update_array);
+	echo json_encode(array("exito"=>1));
 
 }
 
