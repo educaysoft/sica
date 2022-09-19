@@ -4,7 +4,6 @@
 
 <p>Click the button to get your coordinates.</p>
 
-
 <p id="demo"><?php echo  $id; ?></p>
 
 <script>
