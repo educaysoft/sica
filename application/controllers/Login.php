@@ -357,7 +357,10 @@ if ($result == TRUE) {
     		if($idasistencia !=1 && $idasistencia !=0 && $idasistencia >1)
 		{
 			$data['ïdasistencia']= $idasistencia;
+
+	 $this->load->view('template/page_header.php');
 		$this->load->view('asistencia_geolocal',$data);
+	 $this->load->view('template/page_footer.php');
 		}
 		     $moduloinicio=$this->session->userdata['logged_in']['inicio'];	
 			redirect($moduloinicio); 
