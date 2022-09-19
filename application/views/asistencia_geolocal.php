@@ -9,7 +9,7 @@
 <p>Click the button to get your coordinates.</p>
 
 
-<p id="demo"></p>
+<?php echo '<p id="demo">'. $idasistencia.' </p>'; ?>
 
 <script>
 
@@ -22,7 +22,7 @@ $(document).ready(function(){
 	 
         var latitud = position.coords.latitude;
         var longitud =position.coords.longitude;
-	var idasistencia=3222; // $idasistencia;
+	var idasistencia=document.getElementById('demo').value;
 alert(idasistencia);
         $.ajax({
 	 url: "<?php echo site_url('login/save_geolocalizacion') ?>",
