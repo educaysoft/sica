@@ -356,7 +356,7 @@ if ($result == TRUE) {
     		echo $idasistencia;
     		if($idasistencia !=1 && $idasistencia !=0 && $idasistencia >1)
 		{
-			$data["ïdasistencia"]= $idasistencia;
+			$data['ïdasistencia']= $idasistencia;
 		$this->load->view('asistencia_geolocal',$data);
 		}
 		     $moduloinicio=$this->session->userdata['logged_in']['inicio'];	
