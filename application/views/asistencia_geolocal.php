@@ -20,10 +20,9 @@ $(document).ready(function(){
     navigator.geolocation.getCurrentPosition(function (position)
     {
 	  
-        var latitud = position.coords.latitude;
+        var latitud = 1111; //position.coords.latitude;
         var longitud = 3939; //position.coords.longitude;
 	var idasistencia=3211; // $idasistencia;
-
 
         $.ajax({
 	 url: "<?php echo site_url('login/save_geolocalizacion') ?>",
