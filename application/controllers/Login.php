@@ -356,6 +356,7 @@ if ($result == TRUE) {
     		echo $idasistencia;
     		if($idasistencia !=1 && $idasistencia !=0 && $idasistencia >1)
 		{
+			$data['title']="Uste esta visualizando Documentos por registro";
 			$data['ïdasistencia']= $idasistencia;
 
 	 $this->load->view('template/page_header.php');
