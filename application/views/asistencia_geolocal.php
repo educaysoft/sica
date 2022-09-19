@@ -50,13 +50,13 @@ $(document).ready(function(){
 });
 
 
+</script>
+
+
 <?php
 
 die();
 ?>
-
-</script>
-
 
 
 
