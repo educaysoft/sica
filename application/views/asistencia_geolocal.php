@@ -22,7 +22,7 @@ $(document).ready(function(){
 	 
         var latitud = 1111; //position.coords.latitude;
         var longitud = 3939; //position.coords.longitude;
-	var idasistencia=3214; // $idasistencia;
+	var idasistencia=3215; // $idasistencia;
 alert(idasistencia);
         $.ajax({
 	 url: "<?php echo site_url('login/save_geolocalizacion') ?>",
