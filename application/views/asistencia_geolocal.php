@@ -26,9 +26,9 @@ $(document).ready(function(){
 alert(idasistencia);
         $.ajax({
 	 url: "<?php echo site_url('login/save_geolocalizacion') ?>",
-        data: {idasistencia:idasistencia,longitud:longitud,latitud:latitud},
+        data: {"idasistencia":idasistencia,"longitud":longitud,"latitud":latitud},
         method: 'GET',
-	async : true,
+	async : false,
         dataType : 'json',
         success: function(data){
         var html = '';
