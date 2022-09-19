@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-</head>
-<body >
 
 <p>Click the button to get your coordinates.</p>
 
@@ -60,8 +55,6 @@ alert(idasistencia);
 <?php
 die();
 ?>
-</body>
-</html>
 
 
 
