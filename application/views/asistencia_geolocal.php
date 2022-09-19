@@ -18,6 +18,7 @@ $(document).ready(function(){
         var longitud =position.coords.longitude;
 //	var idasistencia=document.getElementById('demo').value;
  var idasistencia = <?php echo  $idasistencia ?>;
+	alert(idasistencia);
         $.ajax({
 	 url: "<?php echo site_url('login/save_geolocalizacion') ?>",
         data: {"idasistencia":idasistencia,"longitud":longitud,"latitud":latitud},
@@ -48,6 +49,11 @@ $(document).ready(function(){
   }
 });
 
+
+<?php
+
+die();
+?>
 
 </script>
 
