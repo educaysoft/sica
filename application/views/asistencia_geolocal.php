@@ -19,11 +19,11 @@ $(document).ready(function(){
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position)
     {
-	  
+	 
         var latitud = 1111; //position.coords.latitude;
         var longitud = 3939; //position.coords.longitude;
-	var idasistencia=3212; // $idasistencia;
-
+	var idasistencia=3213; // $idasistencia;
+alert(idasistencia);
         $.ajax({
 	 url: "<?php echo site_url('login/save_geolocalizacion') ?>",
         data: {idasistencia:idasistencia,longitud:longitud,latitud:latitud},
