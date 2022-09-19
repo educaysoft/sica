@@ -22,11 +22,11 @@ $(document).ready(function(){
 	 
         var latitud = 11; //position.coords.latitude;
         var longitud = 39; //position.coords.longitude;
-	var idasistencia=3216; // $idasistencia;
+	var idasistencia=3217; // $idasistencia;
 alert(idasistencia);
         $.ajax({
 	 url: "<?php echo site_url('login/save_geolocalizacion') ?>",
-        data: {"idasistencia":idasistencia,"longitud":longitud,"latitud":latitud},
+        data: '{"idasistencia":idasistencia,"longitud":longitud,"latitud":latitud}',
         method: 'GET',
 	async : false,
         dataType : 'json',
