@@ -44,6 +44,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <th>idparticipante</th>
  <th>evento</th>
  <th>participante</th>
+ <th>grupo</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>

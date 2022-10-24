@@ -159,7 +159,7 @@ function participante_data()
 	 	$data0 = $this->participante_model->listar_participante1();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idparticipante,$r->elevento,$r->nombres,
+			$data[]=array($r->idparticipante,$r->elevento,$r->nombres,$r->grupoletra,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('participante/actual').'"    data-idparticipante="'.$r->idparticipante.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
