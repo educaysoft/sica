@@ -136,6 +136,18 @@ echo form_input('idparticipanteestado',$options[$participante['idparticipanteest
 </div>
 
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Grupo letra:</label>
+	<div class="col-md-10">
+		<?php
+     echo form_input('grupoletra',$participante['grupoletra'],array("id"=>"grupoletra","disabled"=>"disabled",'placeholder'=>'Grupo',"style"=>"width:500px")); 
+		?>
+	</div> 
+</div>
+
+
+
 <?php echo form_close(); ?>
 
 <script>
