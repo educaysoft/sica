@@ -41,7 +41,8 @@ if(isset($_GET['inicio'])){
        $inicio=$_GET['inicio'];
        $fin=$_GET['fin'];
 
-	$arhivo=base_url()."csv/Alencastro01.csv";
+//	$arhivo=base_url()."csv/Alencastro01.csv";
+	$arhivo=base_url()."csv/Armada06.csv";
 
 	$csvFile = file($arhivo);
 	$data=[];
