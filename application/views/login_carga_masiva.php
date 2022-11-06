@@ -3,7 +3,7 @@
 
  async function save_masive(correo,cedula,nombres,apellidos,telefono) {
 	document.write("---- entro --- ");
-	var idevento = 36;
+	var idevento = 31;
 	var idinstitucion=1;
 	var email=correo;
 	var password=cedula;
