@@ -71,7 +71,7 @@ foreach ($participanteestado as $row){
      <td>Grupo:</td>
      <td>
         <?php 
-	$eys_arrinput=array('name'=>'grupoletra','value'=>$participante['grupoletra'],'readonly'=>'true', "style"=>"width:500px");
+	$eys_arrinput=array('name'=>'grupoletra','value'=>$participante['grupoletra'], "style"=>"width:500px");
 	echo form_input($eys_arrinput); ?>
      </td>
   </tr>
