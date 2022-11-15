@@ -70,6 +70,7 @@ public function actual(){
 		 	'idevento' => $this->input->post('idevento'),
 		 	'idparticipanteestado' => $this->input->post('idparticipanteestado'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'grupoletra' => $this->input->post('grupoletra'),
 	 	);
 	 	$result=$this->participante_model->save($array_item);
 	 	if($result == FALSE)
@@ -105,6 +106,7 @@ public function actual(){
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'idparticipanteestado' => $this->input->post('idparticipanteestado'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'grupoletra' => $this->input->post('grupoletra'),
 	 	);
 	 	$this->participante_model->update($id,$array_item);
 	 	redirect('participante/actual/'.$id);
@@ -117,6 +119,7 @@ public function actual(){
 		 	'idevento' => $this->input->post('idevento'),
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'grupoletra' => $this->input->post('grupoletra'),
 	 	);
 	 	echo $this->participante_model->update($id,$array_item);
  	}

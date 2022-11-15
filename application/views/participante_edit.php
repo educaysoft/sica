@@ -4,13 +4,13 @@
 <hr />
 <table>
  
-   <tr>
+ <tr>
      <td>Id participante</td>
-     <td><?php 
-
-
-$eys_arrinput=array('name'=>'idparticipante','value'=>$participante['idparticipante'],'readonly'=>'true', "style"=>"width:500px");
-echo form_input($eys_arrinput); ?></td>
+     <td>
+        <?php 
+	$eys_arrinput=array('name'=>'idparticipante','value'=>$participante['idparticipante'],'readonly'=>'true', "style"=>"width:500px");
+echo form_input($eys_arrinput); ?>
+     </td>
   </tr> 
 
 
@@ -65,6 +65,17 @@ foreach ($participanteestado as $row){
 
  echo form_dropdown("idparticipanteestado",$options, $participante['idparticipanteestado']);  ?></td>
 </tr>
+
+
+<tr>
+     <td>Grupo:</td>
+     <td>
+        <?php 
+	$eys_arrinput=array('name'=>'grupoletra','value'=>$participante['grupoletra'],'readonly'=>'true', "style"=>"width:500px");
+	echo form_input($eys_arrinput); ?>
+     </td>
+  </tr>
+
 
 
 
