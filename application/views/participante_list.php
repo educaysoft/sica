@@ -42,7 +42,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	<?php
 		$options= array('--Select--');
 		foreach ($eventos as $row){
-			$options[$row->idevento]= $row->descripcion;
+			$options[$row->idevento]= $row->titulo;
 		}
 	?>
 
