@@ -189,7 +189,7 @@ public function listarxevento()
   $data['title']="participantes";
    $data['filtro']= $this->uri->segment(3);
 	$this->load->view('template/page_header');		
-  $this->load->view('participante_list',$data);
+  $this->load->view('participante_listxevento',$data);
 	$this->load->view('template/page_footer');
 }
 
