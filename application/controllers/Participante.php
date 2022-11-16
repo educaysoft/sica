@@ -145,6 +145,7 @@ public function listar()
 	
   $data['participante'] = $this->participante_model->listar_participante1()->result();
   $data['title']="participantes";
+  $data['eventos']= $this->evento_model->lista_eventos()->result();
 	$this->load->view('template/page_header');		
   $this->load->view('participante_list',$data);
 	$this->load->view('template/page_footer');
