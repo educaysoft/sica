@@ -21,6 +21,19 @@ class Participante_model extends CI_model {
 		 return $participante;
 	}
 
+
+
+	function listar_participanteB($idevento){
+		 if($idevento>0)
+                {
+                $this->db->where('idevento='.$idevento);
+                }
+
+		 $participante= $this->db->get('participante1');
+		 return $participante;
+	}
+
+
  	function participante( $id){
  		$participante = $this->db->query('select * from participante where idparticipante="'. $id.'"');
  		return $participante;
