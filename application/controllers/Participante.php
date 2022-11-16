@@ -181,6 +181,59 @@ function participante_data()
 
 
 
+public function listarxevento()
+{
+	
+  $data['participante'] = $this->participante_model->listar_participante1()->result();
+  $data['eventos']= $this->evento_model->lista_eventos()->result();
+  $data['title']="participantes";
+   $data['filtro']= $this->uri->segment(3);
+	$this->load->view('template/page_header');		
+  $this->load->view('participante_list',$data);
+	$this->load->view('template/page_footer');
+}
+
+
+
+function participante_dataxevento()
+{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+		$id=$this->input->get('idevento');
+
+
+	 	$data0 = $this->participante_model->listar_participanteB($id);
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->idparticipante,$r->elevento,$r->nombres,$r->grupoletra,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('participante/actual').'"    data-idparticipante="'.$r->idparticipante.'">Ver</a>');
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+		echo json_encode($output);
+		exit();
+	
+			
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

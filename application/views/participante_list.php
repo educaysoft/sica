@@ -33,10 +33,26 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="col-12">
              <div class="col-md-12">
                  <h3>Lista de eventos 
-                 <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
 			  
         	</h3>
        	     </div>
+
+<div class="form-group row">
+    	<label class="col-md-2 col-form-label"> Evento:</label>
+	<?php
+		$options= array('--Select--');
+		foreach ($eventos as $row){
+			$options[$row->idevento]= $row->descripcion;
+		}
+	?>
+
+	<div class="col-md-10">
+		<?php
+     			echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_participante()'));  
+		?>
+	</div>
+	</div>
+
 
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
@@ -72,6 +88,19 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 <script type="text/javascript">
+
+var idevento=0;
+function filtra_participante()
+{
+
+idevento = $('select[name=idevento]').val();
+
+
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('participante/participante_dataxevento')?>', type: 'GET',data:{idevento:idevento}},});
+}
+
+
+
 
 $(document).ready(function(){
 
