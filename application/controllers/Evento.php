@@ -269,11 +269,12 @@ public function index(){
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$id=$this->input->get('idevento');
-			$data0 =$this->fechaevento_model->fechaeventos($id);
+			$idevento=$this->input->get('idevento');
+			$idpersona=$this->input->get('idpersona');
+			$data0 =$this->fechaevento_model->fechaeventos_AsisPart($idevento,$idpersona);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idevento,$r->fecha,$r->tema,
+				$data[]=array($r->idevento,$r->fecha,$r->temacorto,$r->asistencia,$r->participacion,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
