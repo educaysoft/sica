@@ -299,7 +299,7 @@ public function index(){
 			$data0 =$this->fechaevento_model->fechaeventos_AsisPart($idevento,$idpersona);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idevento,$r->fecha,$r->temacorto,$r->asistenciai,$r->participacion,$r->pagos,
+				$data[]=array($r->idevento,$r->fecha,$r->temacorto,$r->asistencia,$r->participacion,$r->pagos,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
