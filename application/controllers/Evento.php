@@ -1,7 +1,5 @@
 <?php
-
 class Evento extends CI_Controller{
-
   public function __construct(){
       parent::__construct();
       $this->load->model('evento_model');
@@ -15,7 +13,6 @@ class Evento extends CI_Controller{
       $this->load->model('asistencia_model');
       $this->load->model('participacion_model');
       $this->load->model('pagoevento_model');
-
 }
 
 public function index(){

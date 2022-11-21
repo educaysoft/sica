@@ -142,60 +142,30 @@ echo form_input($arrdatos) ?>
 </div>
 
 
-
-
-
-
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fechas ( <?php echo anchor('fechaevento/add/'.$evento['idevento'], 'New'); ?>):</label>
 	<div class="col-md-10">
- 
-<div class="row justify-content-center">
-      <!-- Page Heading -->
- <div class="row">
-  <div class="col-12">
-             
-
-<table class="table table-striped table-bordered table-hover" id="mydatac">
- <thead>
- <tr>
- <th>idevento</th>
- <th>fecha</th>
- <th>tema</th>
- <th style="text-align: right;">Actions</th>
- </tr>
- </thead>
-
- <tbody id="show_data">
-
- </tbody>
-</table>
-</div>
-</div>
-</div>
-
-
-
+	<div class="row justify-content-center">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12">
+	<table class="table table-striped table-bordered table-hover" id="mydatac">
+	 <thead>
+	 <tr>
+	 <th>idevento</th>
+	 <th>fecha</th>
+	 <th>tema</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
 	</div> 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -314,13 +284,8 @@ echo form_input($arrdatos) ?>
 
 $(document).ready(function(){
 	var idevento=document.getElementById("idevento").value;
-
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET',data:{idevento:idevento}},});
 	var mytablap= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_participantes')?>', type: 'GET',data:{idevento:idevento}},});
-
-
-
-
 });
 
 $('#show_data').on('click','.item_ver',function(){
