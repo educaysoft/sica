@@ -271,10 +271,10 @@ public function index(){
 
 			$idevento=$this->input->get('idevento');
 			$idpersona=$this->input->get('idpersona');
-			$data0 =$this->fechaevento_model->fechaeventos_AsisPart($idevento,$idpersona);
+			$data0 =$this->fechaevento_model->fechaeventos($idevento);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idevento,$r->fecha,$r->temacorto,$r->asistencia,$r->participacion,
+				$data[]=array($r->idevento,$r->fecha,$r->tema,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
@@ -285,6 +285,34 @@ public function index(){
 			echo json_encode($output);
 			exit();
 	}
+
+
+
+	function evento_fechasAsisPartPago()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idevento=$this->input->get('idevento');
+			$idpersona=$this->input->get('idpersona');
+			$data0 =$this->fechaevento_model->fechaeventos_AsisPart($idevento,$idpersona);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idevento,$r->fecha,$r->temacorto,$r->asistenciai,$r->participacion,$r->pagos,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
 
 
 
