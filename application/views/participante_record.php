@@ -68,7 +68,7 @@ echo form_input('idevento',$options[$participante['idevento']],array("disabled"=
     <label class="col-md-2 col-form-label">Id persona:</label>
 	<div class="col-md-10">
 		<?php
-     echo form_input('idpersona',$participante['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Idparticipantees',"style"=>"width:500px")); 
+     echo form_input('idpersona',$participante['idpersona'],array("id"=>"idpersona","disabled"=>"disabled",'placeholder'=>'Idparticipantees',"style"=>"width:500px")); 
 		?>
 	</div> 
 </div> 
