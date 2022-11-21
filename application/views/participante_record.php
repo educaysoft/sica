@@ -161,6 +161,8 @@ echo form_input('idparticipanteestado',$options[$participante['idparticipanteest
 	 <th>idevento</th>
 	 <th>fecha</th>
 	 <th>tema</th>
+	 <th>Asistencia</th>
+	 <th>Participación</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
@@ -186,7 +188,8 @@ echo form_input('idparticipanteestado',$options[$participante['idparticipanteest
 
 $(document).ready(function(){
 	var idevento=document.getElementById("idevento").value;
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET',data:{idevento:idevento}},});
+	var idpersona=document.getElementById("idpersona").value;
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET',data:{idevento:idevento,idpersona:idpersona}},});
 });
 
 

@@ -45,6 +45,18 @@ class Fechaevento_model extends CI_model {
 
 
 
+	function fechaeventos_AsisPart($idevento,$idpersona){
+		$fechaevento =$this->db->query('select fev.idevento,fecha,temacorto,(select idtipoasistencia from asistencia asi where asi.fecha=fev.fecha and  asi.idpersona='.$idpersona.' and asi.idevento=fev.idevento ) as asistencia, (select porcentaje from participacion par where par.fecha=fev.fecha and par.idpersona='.$idpersona.' and par.idevento=fev.idevento ) as participacion from fechaevento fev where fev.idevento='.$idevento.' order by fecha');
+
+ 		return $fechaevento;
+ 	}
+
+
+
+
+
+
+
 
 
  	function save($array)
