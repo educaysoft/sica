@@ -245,6 +245,7 @@ public function elprimero()
   $data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
 	$data['participante'] = $this->participante_model->elprimero();
+	$data['evento'] = $this->evento_model->evento($data['participante']['idevento'])->row_array();
   if(!empty($data))
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
@@ -266,6 +267,7 @@ public function elultimo()
   $data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
 	$data['participante'] = $this->participante_model->elultimo();
+	$data['evento'] = $this->evento_model->evento($data['participante']['idevento'])->row_array();
   if(!empty($data))
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
@@ -288,6 +290,7 @@ public function siguiente(){
   $data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
 	$data['participante'] = $this->participante_model->siguiente($this->uri->segment(3))->row_array();
+	$data['evento'] = $this->evento_model->evento($data['participante']['idevento'])->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
     $data['title']="Participante del documento";
@@ -302,6 +305,7 @@ public function anterior(){
   $data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
 	$data['participante'] = $this->participante_model->anterior($this->uri->segment(3))->row_array();
+	$data['evento'] = $this->evento_model->evento($data['participante']['idevento'])->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
  // $data['title']="Correo";
