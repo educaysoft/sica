@@ -38,6 +38,7 @@ public function actual(){
  
  
    $data['participante']=$this->participante_model->participante($this->uri->segment(3))->row_array();
+	$data['evento'] = $this->evento_model->evento($data['participante']['idevento'])->row_array();
 	$data['title']="Modulo de Participante";
 	$this->load->view('template/page_header');		
 	$this->load->view('participante_record',$data);
