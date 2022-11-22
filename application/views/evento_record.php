@@ -260,7 +260,7 @@ echo form_input($arrdatos) ?>
  </tr>
  </thead>
 
- <tbody id="show_data">
+ <tbody id="show_data1">
 
  </tbody>
 </table>
@@ -294,6 +294,15 @@ var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 
 });
+
+
+$('#show_data1').on('click','.item_ver',function(){
+var id= $(this).data('idparticipante');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
 
 
 </script>
