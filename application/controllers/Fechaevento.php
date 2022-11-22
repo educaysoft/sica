@@ -33,6 +33,7 @@ public function actual(){
 
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
+  	$data['temas']= $this->tema_model->lista_temas()->result();
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
 	$data['title']="Fechaevento del documento";
