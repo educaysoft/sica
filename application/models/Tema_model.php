@@ -8,7 +8,7 @@ class Tema_model extends CI_model {
 
 
 function lista_temas1($idunidadsilabo){
-	if($idsilabo>0)
+	if($idunidadsilabo>0)
 	{
 	$this->db->where('idunidadsilabo='.$idunidadsilabo);
 	}
