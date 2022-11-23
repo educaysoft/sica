@@ -119,6 +119,29 @@ function asignatura_data()
 }
 
 
+
+public function actual()
+{
+	$data['asignatura'] = $this->asignatura_model->asignatura($this->uri->segment(3))->row_array();
+  	$data['mallas']= $this->malla_model->lista_mallas()->result();
+  if(!empty($data))
+  {
+    $data['title']="Asignatura";
+    $this->load->view('template/page_header');		
+    $this->load->view('asignatura_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
+
+
 public function elprimero()
 {
 	$data['asignatura'] = $this->asignatura_model->elprimero();
