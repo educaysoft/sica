@@ -148,6 +148,8 @@ public function elprimero()
 {
 	$data['asignatura'] = $this->asignatura_model->elprimero();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   if(!empty($data))
   {
     $data['title']="Asignatura";
@@ -165,6 +167,8 @@ public function elultimo()
 {
 	  $data['asignatura'] = $this->asignatura_model->elultimo();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   if(!empty($data))
   {
     $data['title']="Asignatura";
@@ -184,6 +188,8 @@ public function siguiente(){
  // $data['asignatura_list']=$this->asignatura_model->lista_asignatura()->result();
 	$data['asignatura'] = $this->asignatura_model->siguiente($this->uri->segment(3))->row_array();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   $data['title']="Asignatura";
 	$this->load->view('template/page_header');		
   $this->load->view('asignatura_record',$data);
@@ -194,6 +200,8 @@ public function anterior(){
  // $data['asignatura_list']=$this->asignatura_model->lista_asignatura()->result();
 	$data['asignatura'] = $this->asignatura_model->anterior($this->uri->segment(3))->row_array();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   $data['title']="Asignatura";
 	$this->load->view('template/page_header');		
   $this->load->view('asignatura_record',$data);
