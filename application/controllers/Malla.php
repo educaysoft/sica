@@ -120,6 +120,23 @@ public function edit()
 
 
 
+public function actual()
+{
+	$data['malla'] = $this->malla_model->malla($this->uri->segment(3))->row_array();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  if(!empty($data))
+  {
+    $data['title']="Malla";
+    $this->load->view('template/page_header');		
+    $this->load->view('malla_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
 
 
 
