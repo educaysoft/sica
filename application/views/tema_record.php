@@ -66,7 +66,7 @@ if(isset($tema))
    
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Unidad del silabo: </label>
+    <label class="col-md-2 col-form-label"> Unidad del silabo: ( <?php echo anchor('unidadsilabo/actual/'.$tema['idunidadsilabo'], 'Ver'); ?>):</label>
 	<div class="col-md-10">
      	<?php 
 	$options=array();
