@@ -73,7 +73,7 @@ if(isset($silabo))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Asignatura: ( <?php echo anchor('asignatura/actual/'.$silabo['idasinatura'], 'Ver'); ?>):</label>
+    <label class="col-md-2 col-form-label"> Asignatura: ( <?php echo anchor('asignatura/actual/'.$silabo['idasignatura'], 'Ver'); ?>):</label>
 
 	<div class="col-md-10">
      <td><?php 
