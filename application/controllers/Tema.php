@@ -173,8 +173,9 @@ public function iniciar()
 public function actual()
 {
 	$data['tema'] = $this->tema_model->tema($this->uri->segment(3))->row_array();
-			$data['documentos']= $this->documento_model->lista_documentos()->result();
-		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
+	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo()->result();
   if(!empty($data))
   {
     $data['title']="Tema";
@@ -195,7 +196,7 @@ public function elprimero()
 {
 	$data['tema'] = $this->tema_model->elprimero();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   if(!empty($data))
   {
     $data['title']="Tema";
