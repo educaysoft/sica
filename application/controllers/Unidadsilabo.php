@@ -125,6 +125,32 @@ class Unidadsilabo extends CI_Controller{
 
 
 
+
+	public function actual()
+	{
+		$data['unidadsilabo'] = $this->unidadsilabo_model->unidadsilabo($this->uri->segment(3))->row_array();
+	  if(!empty($data))
+	  {
+			$data['silabos']= $this->silabo_model->lista_silabos()->result();
+
+		$data['personas']= $this->persona_model->lista_personas()->result();
+	    $data['title']="Unidadsilabo del videotutorial";
+	    $this->load->view('template/page_header');		
+	    $this->load->view('unidadsilabo_record',$data);
+	    $this->load->view('template/page_footer');
+	  }else{
+	    $this->load->view('template/page_header');		
+	    $this->load->view('registro_vacio');
+	    $this->load->view('template/page_footer');
+	  }
+	}
+
+
+
+
+
+
+
 	public function elprimero()
 	{
 		$data['unidadsilabo'] = $this->unidadsilabo_model->elprimero();
