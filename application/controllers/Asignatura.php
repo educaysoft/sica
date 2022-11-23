@@ -124,6 +124,8 @@ public function actual()
 {
 	$data['asignatura'] = $this->asignatura_model->asignatura($this->uri->segment(3))->row_array();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   if(!empty($data))
   {
     $data['title']="Asignatura";
