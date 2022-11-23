@@ -7,10 +7,10 @@ class Tema_model extends CI_model {
 	}
 
 
-function lista_temas1($idsilabo){
+function lista_temas1($idunidadsilabo){
 	if($idsilabo>0)
 	{
-	$this->db->where('idsilabo='.$idsilabo);
+	$this->db->where('idunidadsilabo='.$idunidadsilabo);
 	}
 	$query=$this->db->order_by("idsilabo","idunidadsilabo","idtema")->get('tema1');
 	 return $query;

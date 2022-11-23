@@ -12,7 +12,7 @@ if(isset($tema))
         <li> <?php echo anchor('tema/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('tema/edit/'.$tema['idtema'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('tema/delete/'.$tema['idtema'],'Delete'); ?></li>
-        <li> <?php echo anchor('tema/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('tema/listar/'.$tema['idunidadsilabo'],'Listar'); ?></li>
         <li> <?php echo anchor('temaunidad/','Unidades'); ?></li>
         <li> <?php echo anchor('tema/panel/','Panel'); ?></li>
 

@@ -125,7 +125,7 @@ function tema_data()
 
 		$idsilabo=$this->input->get('idsilabo');
 
-	 	$data0 = $this->tema_model->lista_temas1($idsilabo);
+	 	$data0 = $this->tema_model->lista_temas1($idunidadsilabo);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->elsilabo,$r->launidadsilabo,$r->idtema,$r->nombrecorto,
