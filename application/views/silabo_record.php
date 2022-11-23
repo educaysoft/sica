@@ -67,21 +67,24 @@ if(isset($silabo))
     <label class="col-md-2 col-form-label"> duración:</label>
 	<div class="col-md-10">
 		<?php
-       		echo form_input('duracion',$silabo['duracion'],array('placeholder'=>'Duracion en horas','style'=>'width:500px;'));
-		?>
+       		echo form_input('duracion',$silabo['duracion'],array('placeholder'=>'Duracion en horas','style'=>'width:500px;'));		?>
 	</div> 
 </div>  
 
-<tr>
-     <td>Asignatura:</td>
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Asignatura: ( <?php echo anchor('asignatura/actual/'.$silabo['idasinatura'], 'Ver'); ?>):</label>
+
+	<div class="col-md-10">
      <td><?php 
     $options= array("NADA");
     foreach ($asignaturas as $row){
 	      $options[$row->idasignatura]= $row->nombre;
     }
-    echo form_input('idasignatura',$options[$silabo['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
- </tr>
-
+    echo form_input('idasignatura',$options[$silabo['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
 
 
 
