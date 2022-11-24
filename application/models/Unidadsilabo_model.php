@@ -15,7 +15,7 @@ class Unidadsilabo_model extends CI_model {
 	}
 
  
-	function unidadsilabos( $idsilabo){
+	function unidadsilaboss( $idsilabo){
  		$unidadsilabo = $this->db->query('select * from unidadsilabo where idsilabo="'. $idsilabo.'"');
  		return $unidadsilabo;
  	}
