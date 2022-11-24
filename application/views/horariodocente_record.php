@@ -54,7 +54,7 @@ echo form_input('iddocente',$options[$horariodocente['iddocente']],array("disabl
      <td>Institucion:</td>
      <td><?php 
     $options= array("NADA");
-    foreach ($periodoacademicoes as $row){
+    foreach ($periodoacademicos as $row){
 	      $options[$row->idperiodoacademico]= $row->nombrelargo;
     }
     echo form_input('idperiodoacademico',$options[$horariodocente['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
