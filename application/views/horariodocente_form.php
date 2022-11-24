@@ -20,12 +20,12 @@ foreach ($docentes as $row){
 
 
 <tr>
-<td> Institución: </td>
+<td> Periodo académico: </td>
 <td><?php 
 
 $options= array('--Select--');
 foreach ($periodoacademicos as $row){
-	$options[$row->idperiodoacademico]= $row->nombre;
+	$options[$row->idperiodoacademico]= $row->nombrecorto;
 }
 
  echo form_dropdown("idperiodoacademico",$options, set_select('--Select--','default_value'));  ?></td>
