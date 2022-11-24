@@ -108,8 +108,9 @@ if(isset($silabo))
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Unidades del silabo: ( <?php echo anchor('unidadsilabo/add/'.$silabo['idsilabo'], 'New'); ?>):</label>
+
 	<div class="col-md-10">
-	<div class="row justify-content-center">
+	<div class="row justify-content-left">
       	<!-- Page Heading -->
  	<div class="row">
   	<div class="col-12">
@@ -148,7 +149,7 @@ $(document).ready(function(){
 
 
 $('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idfechaevento');
+var id= $(this).data('idunidadsilabo');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
