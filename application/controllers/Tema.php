@@ -123,7 +123,7 @@ function tema_data()
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
-		$idsilabo=$this->input->get('idsilabo');
+		$idunidadsilabo=$this->input->get('idunidadsilabo');
 
 	 	$data0 = $this->tema_model->lista_temas1($idunidadsilabo);
 		$data=array();
