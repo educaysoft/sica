@@ -1,89 +1,49 @@
 <?php
-class Pagoevento_model extends CI_model {
+class Horariodocente_model extends CI_model {
 
-
-	function participacionx($idevento,$idpersona){
-		 $this->db->order_by("idtipoparticipacion asc,fecha asc");
- 		$this->db->where('idevento',$idevento);
- 		$this->db->where('idpersona',$idpersona);
-		 $participacion= $this->db->get('participacion');
-		 return $participacion;
+	function lista_clientes(){
+		 $cliente= $this->db->get('cliente');
+		 return $cliente;
 	}
 
 
-	function listar_participacion(){
-		 $participacion= $this->db->get('participacion');
-		 return $participacion;
-	}
-
-	function listar_participacion1($idevento){
-    if($idevento>0)
-    {
-		 $this->db->order_by("idevento asc,nombres asc");
- 		$this->db->where('idevento',$idevento);
-		 $participacion= $this->db->get('participacion2');
-   }else{
-  
-		 $this->db->order_by("idevento asc,nombres asc");
-		 $participacion= $this->db->get('participacion2');
-  
-   }
-     return $participacion;
+	function lista_clientesA(){
+		 $cliente= $this->db->get('cliente1');
+		 return $cliente;
 	}
 
 
 
+ 	function cliente( $id){
+ 		$cliente = $this->db->query('select * from cliente where idcliente="'. $id.'"');
+ 		return $cliente;
+ 	}
 
- 	function participacion( $id){
- 		$participacion = $this->db->query('select * from participacion where idparticipacion="'. $id.'"');
- 		return $participacion;
+
+ 	function clientespersona( $id){
+ 		$cliente = $this->db->query('select * from cliente where idpersona="'. $id.'"');
+ 		return $cliente;
  	}
 
 
 
- 	function participacions( $id){
- 		$participacion = $this->db->query('select * from participacion1 where idevento="'. $id.'"');
- 		return $participacion;
- 	}
-
- 	function save($array_item)
+ 	function save($array)
  	{
- 		$this->db->where('idevento',$array_item['idevento']);
- 		$this->db->where('idpersona',$array_item['idpersona']);
- 		$this->db->where('fecha',$array_item['fecha']);
-		$query=$this->db->get('participacion');
-		if($query->num_rows()==0){
-			$this->db->insert("participacion", $array_item);
-		      return TRUE;
-		 }else{
-			    if($query->result()[0]->porcentaje!=$array_item['porcentaje'] || $query->result()[0]->ayuda!=$array_item['ayuda']  )
-			    {
-				$this->db->where('idpersona',$array_item['idpersona']);
-				$this->db->where('fecha',$array_item['fecha']);
-				$this->db->where('idevento',$array_item['idevento']);
-				$this->db->update('participacion',$array_item);
-		      		return TRUE;
-			 }else{
-			        return FALSE;
-			 }
-		    }
+		$this->db->insert("cliente", $array);
  	}
 
- 	function update($array_item)
+ 	function update($id,$array_item)
  	{
- 		$this->db->where('idpersona',$array_item['idpersona']);
- 		$this->db->where('fecha',$array_item['fecha']);
- 		$this->db->where('idevento',$array_item['idevento']);
- 		$this->db->update('participacion',$array_item);
+ 		$this->db->where('idcliente',$id);
+ 		$this->db->update('cliente',$array_item);
 	}
  
 
 
-
-  public function delete($id)
+ 	public function delete($id)
 	{
- 		$this->db->where('idparticipacion',$id);
-		$this->db->delete('participacion');
+ 		$this->db->where('idcliente',$id);
+		$this->db->delete('cliente');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -94,7 +54,7 @@ class Pagoevento_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idparticipacion")->get('participacion');
+		$query=$this->db->order_by("idcliente")->get('cliente');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -107,7 +67,7 @@ class Pagoevento_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idparticipacion")->get('participacion');
+		$query=$this->db->order_by("idcliente")->get('cliente');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -119,46 +79,38 @@ class Pagoevento_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$participacion = $this->db->select("idparticipacion")->order_by("idparticipacion")->get('participacion')->result_array();
-		$arr=array("idparticipacion"=>$id);
-		$clave=array_search($arr,$participacion);
-	   if(array_key_exists($clave+1,$participacion))
+ 		$cliente = $this->db->select("idcliente")->order_by("idcliente")->get('cliente')->result_array();
+		$arr=array("idcliente"=>$id);
+		$clave=array_search($arr,$cliente);
+	   if(array_key_exists($clave+1,$cliente))
 		 {
 
- 		$participacion = $this->db->query('select * from participacion where idparticipacion="'. $participacion[$clave+1]["idparticipacion"].'"');
+ 		$cliente = $this->db->query('select * from cliente where idcliente="'. $cliente[$clave+1]["idcliente"].'"');
 		 }else{
 
- 		$participacion = $this->db->query('select * from participacion where idparticipacion="'. $id.'"');
+ 		$cliente = $this->db->query('select * from cliente where idcliente="'. $id.'"');
 		 }
 		 	
- 		return $participacion;
+ 		return $cliente;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$participacion = $this->db->select("idparticipacion")->order_by("idparticipacion")->get('participacion')->result_array();
-		$arr=array("idparticipacion"=>$id);
-		$clave=array_search($arr,$participacion);
-	   if(array_key_exists($clave-1,$participacion))
+ 		$cliente = $this->db->select("idcliente")->order_by("idcliente")->get('cliente')->result_array();
+		$arr=array("idcliente"=>$id);
+		$clave=array_search($arr,$cliente);
+	   if(array_key_exists($clave-1,$cliente))
 		 {
 
- 		$participacion = $this->db->query('select * from participacion where idparticipacion="'. $participacion[$clave-1]["idparticipacion"].'"');
+ 		$cliente = $this->db->query('select * from cliente where idcliente="'. $cliente[$clave-1]["idcliente"].'"');
 		 }else{
 
- 		$participacion = $this->db->query('select * from participacion where idparticipacion="'. $id.'"');
+ 		$cliente = $this->db->query('select * from cliente where idcliente="'. $id.'"');
 		 }
 		 	
- 		return $participacion;
+ 		return $cliente;
  	}
-
-
-
-
-
-
-
-
 
 
 

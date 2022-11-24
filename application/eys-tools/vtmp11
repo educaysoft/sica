@@ -1,162 +1,80 @@
 <div id="eys-nav-i">
-
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-<?php echo form_open('participacion/save_edit') ?>
-    <ul>
+	<ul>
 <?php
-if(isset($participacion))
+if(isset($cliente))
 {
 ?>
- 
-        <li> <?php echo anchor('participacion/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('participacion/anterior/'.$participacion['idparticipacion'], 'anterior'); ?></li>
-        <li> <?php echo anchor('participacion/siguiente/'.$participacion['idparticipacion'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('participacion/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('participacion/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('participacion/edit/'.$participacion['idparticipacion'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('participacion/delete/'.$participacion['idparticipacion'],'Delete'); ?></li>
-        <li> <?php echo anchor('participacion/listar/','Listar'); ?></li>
-        <li> <?php echo anchor('participacion/evento/','Evento'); ?></li>
-        <li> <?php echo anchor('participacion/reporte/'.$participacion['idevento'], 'Reporte'); ?></li>
+   <li> <?php echo anchor('cliente/elprimero/', 'primero'); ?></li>
+   <li> <?php echo anchor('cliente/anterior/'.$cliente['idcliente'], 'anterior'); ?></li>
+   <li> <?php echo anchor('cliente/siguiente/'.$cliente['idcliente'], 'siguiente'); ?></li>
+   <li style="border-right:1px solid green"><?php echo anchor('cliente/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('cliente/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('cliente/edit/'.$cliente['idcliente'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('cliente/delete/'.$cliente['idcliente'],'Delete'); ?></li>
+        <li> <?php echo anchor('cliente/listar/','Listar'); ?></li>
 
-    </ul>
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('participacion/add', 'Nuevo'); ?></li>
-    </ul>
+        <li> <?php echo anchor('cliente/add', 'Nuevo'); ?></li>
 <?php
-	die();
 }
 ?>
 
-
-
-
-
+    </ul>
 </div>
+<br>
 <br>
 
 
-<?php echo form_hidden('idparticipacion',$participacion['idparticipacion']) ?>
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id participacion:</label>
-	<div class="col-md-10">
-		<?php
-      echo form_input('idparticipacion',$participacion['idparticipacion'],array("disabled"=>"disabled",'placeholder'=>'Ideventos','style'=>'width:500px;')); 
-		?>
-	</div> 
-</div>
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha participacion:</label>
-	<div class="col-md-10">
-		<?php
-      		 echo form_input('fecha',$participacion['fecha'],array('type'=>'date','placeholder'=>'fecha','style'=>'width:500px;')) 
-		?>
-	</div> 
-</div>
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id evento:</label>
-	<div class="col-md-10">
-		<?php
-      echo form_input('idevento',$participacion['idevento'],array("disabled"=>"disabled",'placeholder'=>'Ideventos','style'=>'width:500px;')); 
-		?>
-	</div> 
-</div>
-
-
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nomre del evento:</label>
-	<div class="col-md-10">
-		<?php
-$options= array("NADA");
-foreach ($eventos as $row){
-	$options[$row->idevento]= $row->titulo;
-}
-echo form_input('idevento',$options[$participacion['idevento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
-
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id Persona:</label>
-	<div class="col-md-10">
-		<?php
-      echo form_input('idpersona',$participacion['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Idparticipaciones','style'=>'width:500px;')); 
-		?>
-	</div> 
-</div>
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Persona:</label>
-	<div class="col-md-10">
-		<?php
-
+<?php echo form_open('cliente/save_edit') ?>
+<?php echo form_hidden('idcliente',$cliente['idcliente']) ?>
+<table>
+  <tr>
+     <td>Id Correo:</td>
+     <td><?php echo form_input('idcliente',$cliente['idcliente'],array("disabled"=>"disabled",'placeholder'=>'Idclientes')) ?></td>
+  </tr>
+ 
+ 
+<tr>
+     <td>Persona:</td>
+     <td><?php 
 $options= array("NADA");
 foreach ($personas as $row){
-	$options[$row->idpersona]= $row->nombres;
+	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
-echo form_input('nombre',$options[$participacion['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
-		?>
-	</div> 
-</div>
+
+echo form_input('idpersona',$options[$cliente['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+  </tr>
  
+
+ <tr>
+     <td>Institucion:</td>
+     <td><?php 
+    $options= array("NADA");
+    foreach ($instituciones as $row){
+	      $options[$row->idinstitucion]= $row->nombre;
+    }
+    echo form_input('idinstitucion',$options[$cliente['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+ </tr>
   
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Tipo de participacion:</label>
-	<div class="col-md-10">
-		<?php
-$options= array("NADA");
-foreach ($tipoparticipacions as $row){
-	$options[$row->idtipoparticipacion]= $row->nombre;
-}
-if(!isset($participacion['idtipoparticipacion'])){
-echo form_input('nombre',"",array("disabled"=>"disabled")) ;
-}else{
-echo form_input('nombre',$options[$participacion['idtipoparticipacion']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-}
 
-		?>
-	</div> 
-</div>
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> %Participacióm:</label>
-	<div class="col-md-10">
-		<?php
-      		 echo form_input('porcentaje',$participacion['porcentaje'],array('type'=>'text','placeholder'=>'porcentaje','style'=>'width:500px;')) 
-		?>
-	</div> 
-</div>
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> %Ayuda:</label>
-	<div class="col-md-10">
-		<?php
-      		 echo form_input('ayuda',$participacion['ayuda'],array('type'=>'text','placeholder'=>'ayuda','style'=>'width:500px;')) 
-		?>
-	</div> 
-</div>
+  
+<tr>
+      <td>Fecha de Inscripcion:</td>
+      <td><?php echo form_input('fechainscripcion',$cliente['fechainscripcion'],array('type'=>'date','placeholder'=>'fechainscripcion','style'=>'width:500px;')) ?></td>
+</tr>
 
 
 
+
+
+
+
+</table>
 <?php echo form_close(); ?>
 
 
