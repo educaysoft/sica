@@ -15,7 +15,7 @@ public function index(){
 			
   	$data['horariodocente']=$this->horariodocente_model->lista_horariodocentes()->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['periodoacademicoes']= $this->periodoacademico_model->lista_periodoacademicoes()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 			
 		$data['title']="Lista de horariodocentes";
 		$this->load->view('template/page_header');
@@ -33,7 +33,7 @@ public function index(){
 public function add()
 {
 		$data['docentes']= $this->docente_model->lista_docentes()->result();
-  		$data['periodoacademicoes']= $this->periodoacademico_model->lista_periodoacademicoes()->result();
+  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 		$data['title']="Nueva Horariodocente";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('horariodocente_form',$data);
@@ -62,7 +62,7 @@ public function edit()
 {
 	 	$data['horariodocente'] = $this->horariodocente_model->horariodocente($this->uri->segment(3))->row_array();
 		$data['docentes']= $this->docente_model->lista_docentes()->result();
-  		$data['periodoacademicoes']= $this->periodoacademico_model->lista_periodoacademicoes()->result();
+  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
  	 	$data['title'] = "Actualizar Horariodocente";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('horariodocente_edit',$data);
@@ -143,7 +143,7 @@ public function elprimero()
 
 
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['periodoacademicoes']= $this->periodoacademico_model->lista_periodoacademicoes()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 
 
 	$data['horariodocente'] = $this->horariodocente_model->elprimero();
@@ -165,7 +165,7 @@ public function elultimo()
 {
 	$data['horariodocente'] = $this->horariodocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['periodoacademicoes']= $this->periodoacademico_model->lista_periodoacademicoes()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
@@ -186,7 +186,7 @@ public function siguiente(){
  // $data['horariodocente_list']=$this->horariodocente_model->lista_horariodocente()->result();
 	$data['horariodocente'] = $this->horariodocente_model->siguiente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['periodoacademicoes']= $this->periodoacademico_model->lista_periodoacademicoes()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   
 
 $data['title']="Horariodocente";
@@ -199,7 +199,7 @@ public function anterior(){
  // $data['horariodocente_list']=$this->horariodocente_model->lista_horariodocente()->result();
 	$data['horariodocente'] = $this->horariodocente_model->anterior($this->uri->segment(3))->row_array();
  	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicoes()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   $data['title']="Horariodocente";
 	$this->load->view('template/page_header');		
   $this->load->view('horariodocente_record',$data);
