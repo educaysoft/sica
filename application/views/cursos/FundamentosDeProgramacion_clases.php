@@ -169,8 +169,8 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 
 <div style="margin: auto; width: 100%; border:5px solid red;">
 	<div class="header">
-	  <h1><?php echo "Curso :".$curso["idcurso"]; ?></h1>
-	  <p><?php echo $curso["nombre"]; ?></p>
+	  <h1><?php echo "Curso :".$silabo["idsilabo"]; ?></h1>
+	  <p><?php echo $silabo["nombre"]; ?></p>
 	</div>
 
 
@@ -179,7 +179,7 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 <div class="dbgOuter" style="border: 2px solid blue; width: 80%;">
 
 	<?php
-		foreach ($cursounidades as $row){
+		foreach ($unidadesilabo as $row){
 	?>	
 			<div class="form-check form-check-inline">
 				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onClick="show_unidad('<?php echo $row->nombre; ?>','<?php echo $row->enlace; ?>','<?php echo $row->idevaluacion; ?>')"/> 
