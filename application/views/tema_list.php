@@ -44,7 +44,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	<?php
 		$options= array('--Select--');
 		foreach ($temas as $row){
-			$options[$row->idsilabo]= $row->elsilabo;
+			$options[$row->idunidadsilabo]= $row->launidadsilabo;
 		}
 	?>
 
