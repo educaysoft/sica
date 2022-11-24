@@ -14,7 +14,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   	$data['horariodocente']=$this->horariodocente_model->lista_horariodocentes()->row_array();
-  	$data['docentes']= $this->docente_model->lista_docentes()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 			
 		$data['title']="Lista de horariodocentes";
@@ -146,7 +146,7 @@ public function elprimero()
 	$data['horariodocente'] = $this->horariodocente_model->elprimero();
   if(!empty($data))
   {
-  	$data['docentes']= $this->docente_model->lista_docentes()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
     $data['title']="Horariodocente";
     $this->load->view('template/page_header');		
     $this->load->view('horariodocente_record',$data);
