@@ -138,7 +138,7 @@ class Unidadsilabo extends CI_Controller{
 			$data0 =$this->tema_model->temas($idunidadsilabo);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idunidadsilabo,$r->idtema,$r->nombrelargo,$r->idturorial,
+				$data[]=array($r->idunidadsilabo,$r->idtema,$r->nombrelargo,$r->idtutorial,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('tema/actual').'"    data-idtema="'.$r->idtema.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
