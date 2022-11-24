@@ -39,11 +39,11 @@ if(isset($horariodocente))
  
  
 <tr>
-     <td>Persona:</td>
+     <td>Docente:</td>
      <td><?php 
 $options= array("NADA");
 foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->apellidos." ".$row->nombres;
+	$options[$row->iddocente]= $row->eldocente;
 }
 
 echo form_input('iddocente',$options[$horariodocente['iddocente']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
@@ -55,7 +55,7 @@ echo form_input('iddocente',$options[$horariodocente['iddocente']],array("disabl
      <td><?php 
     $options= array("NADA");
     foreach ($periodoacademicoes as $row){
-	      $options[$row->idperiodoacademico]= $row->nombre;
+	      $options[$row->idperiodoacademico]= $row->nombrelargo;
     }
     echo form_input('idperiodoacademico',$options[$horariodocente['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
@@ -63,10 +63,7 @@ echo form_input('iddocente',$options[$horariodocente['iddocente']],array("disabl
 
 
   
-<tr>
-      <td>Fecha de Inscripcion:</td>
-      <td><?php echo form_input('fechainscripcion',$horariodocente['fechainscripcion'],array('type'=>'date','placeholder'=>'fechainscripcion','style'=>'width:500px;')) ?></td>
-</tr>
+
 
 
 
