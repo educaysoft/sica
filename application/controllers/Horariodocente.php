@@ -47,10 +47,8 @@ public function add()
 	{
 	 	$array_item=array(
 		 	
-		 	'idhorariodocente' => $this->input->post('idhorariodocente'),
 			'iddocente' => $this->input->post('iddocente'),
 			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
-			'fechainscripcion' => $this->input->post('fechainscripcion'),
 	 	);
 	 	$this->horariodocente_model->save($array_item);
 	 	redirect('horariodocente');
@@ -79,7 +77,6 @@ public function edit()
 		 	'idhorariodocente' => $this->input->post('idhorariodocente'),
 			'iddocente' => $this->input->post('iddocente'),
 			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
-			'fechainscripcion' => $this->input->post('fechainscripcion'),
 	 	);
 	 	$this->horariodocente_model->update($id,$array_item);
 	 	redirect('horariodocente');
@@ -116,7 +113,7 @@ function horariodocente_data()
 	 	$data0 = $this->horariodocente_model->lista_horariodocentesA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idhorariodocente,$r->elhorariodocente,$r->laperiodoacademico,$r->fechainscripcion,
+			$data[]=array($r->idhorariodocente,$r->elhorariodocente,$r->laperiodoacademico,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idhorariodocente="'.$r->idhorariodocente.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,

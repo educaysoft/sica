@@ -32,10 +32,7 @@ foreach ($periodoacademicos as $row){
 </tr>
 
 
-<tr>
-<td> Fecha de inscripción: </td>
-<td><?php echo form_input(array("name"=>"fechainscripcion","id"=>"fechainscripcion","type"=>"date"));  ?></td>
-</tr>
+
 
 
 
