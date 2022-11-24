@@ -9,7 +9,7 @@
       <td>Nombre largo:</td>
       <td><?php
  
-$eys_arrinput=array('namelargo'=>'nombrelargo','value'=>$periodoacademico['nombrelargo'], "style"=>"width:500px");
+$eys_arrinput=array('name'=>'nombrelargo','value'=>$periodoacademico['nombrelargo'], "style"=>"width:500px");
  echo form_input($eys_arrinput); ?></td>
   </tr>
 
@@ -17,7 +17,7 @@ $eys_arrinput=array('namelargo'=>'nombrelargo','value'=>$periodoacademico['nombr
       <td>Nombre corto:</td>
       <td><?php
  
-$eys_arrinput=array('namecorto'=>'nombrecorto','value'=>$periodoacademico['nombrecorto'], "style"=>"width:500px");
+$eys_arrinput=array('name'=>'nombrecorto','value'=>$periodoacademico['nombrecorto'], "style"=>"width:500px");
  echo form_input($eys_arrinput); ?></td>
   </tr>
 
