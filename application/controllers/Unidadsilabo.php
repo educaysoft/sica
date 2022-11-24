@@ -126,6 +126,36 @@ class Unidadsilabo extends CI_Controller{
 
 
 
+
+	function tema_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idunidadsilabo=$this->input->get('idunidadsilabo');
+			$data0 =$this->tema_model->temas($idunidadsilabo);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idunidadsilabo,$r->idtema,$r->nombrelargo,$r->idturorial,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('tema/actual').'"    data-idtema="'.$r->idtema.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
+
+
+
 	public function actual()
 	{
 		$data['unidadsilabo'] = $this->unidadsilabo_model->unidadsilabo($this->uri->segment(3))->row_array();

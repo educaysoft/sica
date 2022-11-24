@@ -18,11 +18,14 @@ function lista_temas1($idunidadsilabo){
 
 
 
+ 	function temas( $idunidadsilabo){
+ 		$tema = $this->db->query('select * from tema where idunidadsilabo="'. $idunidadsilabo.'"');
+ 		return $tema;
+ 	}
 
 
  	function tema( $id){
  		$tema = $this->db->query('select * from tema where idtema="'. $id.'"');
-		 
  		return $tema;
  	}
 
