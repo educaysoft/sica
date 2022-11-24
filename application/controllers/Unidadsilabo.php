@@ -6,6 +6,7 @@ class Unidadsilabo extends CI_Controller{
       		$this->load->model('unidadsilabo_model');
       		$this->load->model('persona_model');
       		$this->load->model('silabo_model');
+      		$this->load->model('tema_model');
 	}
 
 	public function index(){
