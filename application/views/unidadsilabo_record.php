@@ -40,24 +40,6 @@ if(isset($unidadsilabo))
 <?php echo form_hidden('idsilabo',$unidadsilabo['idsilabo']) ?>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> No. de la unidad:</label>
-	<div class="col-md-10">
-	<?php
-      echo form_input('unidad',$unidadsilabo['unidad'],array("disabled"=>"disabled",'placeholder'=>'unidad','style'=>'width:500px;'));
-		?>
-	</div> 
-</div> 
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre:</label>
-	<div class="col-md-10">
-	<?php
-      echo form_input('nombre',$unidadsilabo['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre','style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
-
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id silabo: ( <?php echo anchor('silabo/actual/'.$unidadsilabo['idsilabo'], 'Ver'); ?>):</label>
@@ -84,6 +66,37 @@ echo form_input('idsilabo',$options[$unidadsilabo['idsilabo']],array("disabled"=
 
 
 
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> id Unidad:</label>
+	<div class="col-md-10">
+	<?php
+      echo form_input('idunidadsilabo',$unidadsilabo['idunidadsilabo'],array("id"=>"idunidadsilabo","disabled"=>"disabled",'placeholder'=>'unidad','style'=>'width:500px;'));
+		?>
+	</div> 
+</div> 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+	<?php
+      echo form_input('nombre',$unidadsilabo['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre','style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> No. de la unidad:</label>
+	<div class="col-md-10">
+	<?php
+      echo form_input('unidad',$unidadsilabo['unidad'],array("disabled"=>"disabled",'placeholder'=>'unidad','style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
  
 
 
