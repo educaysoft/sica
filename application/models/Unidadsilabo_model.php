@@ -6,15 +6,26 @@ class Unidadsilabo_model extends CI_model {
 		 return $unidadsilabo;
 	}
 
+
+
+
 	function listar_unidadsilabo1(){
 		 $unidadsilabo= $this->db->get('unidadsilabo1');
 		 return $unidadsilabo;
 	}
 
- 	function unidadsilabo( $id){
+ 
+	function unidadsilabos( $idsilabo){
+ 		$unidadsilabo = $this->db->query('select * from unidadsilabo where idsilabo="'. $idsilabo.'"');
+ 		return $unidadsilabo;
+ 	}
+
+
+	function unidadsilabo( $id){
  		$unidadsilabo = $this->db->query('select * from unidadsilabo where idunidadsilabo="'. $id.'"');
  		return $unidadsilabo;
  	}
+
  	function lista_unidades( $id){
 		$unidadsilabo = $this->db->query('select * from unidadsilabo1 where idcurso="'. $id.'"');
  		return $unidadsilabo;

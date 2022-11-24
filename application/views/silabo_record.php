@@ -37,7 +37,7 @@ if(isset($silabo))
     <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
 		<?php
-      echo form_input('idsilabo',$silabo['idsilabo'],array("disabled"=>"disabled"));
+      echo form_input('idsilabo',$silabo['idsilabo'],array("id"=>"idsilabo","disabled"=>"disabled"));
 		?>
 	</div> 
 </div> 
@@ -105,7 +105,54 @@ if(isset($silabo))
 </div>
 
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Unidades del silabo: ( <?php echo anchor('unidadsilabo/add/'.$silabo['idsilabo'], 'New'); ?>):</label>
+	<div class="col-md-10">
+	<div class="row justify-content-center">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12">
+	<table class="table table-striped table-bordered table-hover" id="mydatac">
+	 <thead>
+	 <tr>
+	 <th>idsilabo</th>
+	 <th>idunidadsilabo</th>
+	 <th>Unidad</th>
+	 <th>nombre</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
+
 <?php echo form_close(); ?>
 
 
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var idsilabo=document.getElementById("idsilabo").value;
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('silabo/unidadsilabo_data')?>', type: 'GET',data:{idsilabo:idsilabo}},});
+});
+
+
+$('#show_data').on('click','.item_ver',function(){
+var id= $(this).data('idfechaevento');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+</script>
+</body>
