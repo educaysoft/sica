@@ -23,15 +23,19 @@ $eys_arrinput=array('namecorto'=>'nombrecorto','value'=>$periodoacademico['nombr
 
 
 <tr>
-      <td>Fecha de Inicia:</td>
-<td><?php echo form_input('fechainicio',  (isset($evento['fechainicio']) ? date('Y-m-d H:i:s', strtotime($periodoacademico['fechainicio'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"'); ?></td>
+      <td>Fecha inicio :</td>
+      <td><?php echo form_input( array("name"=>'fechainicio',"id"=>'fechainicio',"value"=>$periodoacademico['fechainicio'],'type'=>'date','placeholder'=>'fecha')); ?></td>
   </tr>
+
+
 
 
 <tr>
-      <td>Fecha de fin:</td>
-<td><?php echo form_input('fechafin',  (isset($evento['fechafin']) ? date('Y-m-d H:i:s', strtotime($periodoacademico['fechafin'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"'); ?></td>
+      <td>Fecha fin :</td>
+      <td><?php echo form_input( array("name"=>'fechafin',"id"=>'fechafin',"value"=>$periodoacademico['fechafin'],'type'=>'date','placeholder'=>'fecha')); ?></td>
   </tr>
+
+
 
 
 
