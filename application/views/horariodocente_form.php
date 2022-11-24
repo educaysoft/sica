@@ -6,12 +6,12 @@
 
 
 <tr>
-<td> Persona: </td>
+<td> Docente: </td>
 <td><?php 
 
 $options= array('--Select--');
 foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->apellidos." ".$row->nombres;
+	$options[$row->iddocente]= $row->eldocente;
 }
 
  echo form_dropdown("iddocente",$options, set_select('--Select--','default_value'));  ?></td>
