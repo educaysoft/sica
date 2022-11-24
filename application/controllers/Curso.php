@@ -4,8 +4,8 @@ class Curso extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('curso_model');
-      $this->load->model('cursounidad_model');
+      $this->load->model('silabo_model');
+      $this->load->model('unidadsilabo_model');
       $this->load->model('cursodocumento_model');
       $this->load->model('documento_model');
 }
