@@ -148,9 +148,9 @@ public function panel()
 
 public function iniciar()
 {
-  	$data['evento']=array('idcurso'=>$_GET['idcurso'],'idevento'=>$_GET['idevento']);	
-	$data['curso'] = $this->curso_model->curso($_GET['idcurso'])->row_array();
-	$data['cursounidades'] = $this->cursounidad_model->lista_unidades($_GET['idcurso'])->result();
+  	$data['evento']=array('idsilabo'=>$_GET['idsilabo'],'idevento'=>$_GET['idevento']);	
+	$data['silabo'] = $this->curso_model->curso($_GET['idsilabo'])->row_array();
+	$data['unidadsilabo'] = $this->unidadsilabo_model->lista_unidades($_GET['idsilabo'])->result();
   	$data['title']="Curso";
 	$this->load->view('template/page_header');		
  	$this->load->view('cursos/FundamentosDeProgramacion_clases',$data);
