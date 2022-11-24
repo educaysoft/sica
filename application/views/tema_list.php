@@ -44,7 +44,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	<?php
 		$options= array('--Select--');
 		foreach ($temas as $row){
-			$options[$row->idunidadsilabo]= $row->launidadsilabo;
+			$options[$row->idunidadsilabo]= $row->elsilabo;
 		}
 	?>
 
@@ -99,7 +99,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var idsilabo = document.getElementById("filtro").innerHTML;
+	var idunidadsilabo = document.getElementById("filtro").innerHTML;
 	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('tema/tema_data')?>', type: 'GET',data:{idunidadsilabo:idunidadsilabo}},});
 
 });
