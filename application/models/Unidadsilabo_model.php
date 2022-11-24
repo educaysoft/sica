@@ -27,7 +27,7 @@ class Unidadsilabo_model extends CI_model {
  	}
 
  	function lista_unidades( $id){
-		$unidadsilabo = $this->db->query('select * from unidadsilabo1 where idcurso="'. $id.'"');
+		$unidadsilabo = $this->db->query('select * from unidadsilabo1 where idsilabo="'. $id.'"');
  		return $unidadsilabo;
  	}
 
