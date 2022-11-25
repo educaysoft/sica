@@ -6,7 +6,10 @@
 
 
 
-
+<tr>
+<td> Número </td>
+<td><?php echo form_input("numero","", array("placeholder"=>"Numero de nivelacademico"))  ?></td>
+</tr>
 
 <tr>
 <td> Nombre </td>

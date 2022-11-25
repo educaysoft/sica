@@ -40,7 +40,20 @@ if(isset($nivelacademico))
 	?>
 	</div> 
 </div> 
- 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Número:</label>
+	<div class="col-md-10">
+     <?php
+       echo form_input('numero',$nivelacademico['numero'],array('placeholder'=>'Numero del nivelacademico')); 
+	?>
+	</div> 
+</div>
+
+
+
+
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Nombre:</label>
 	<div class="col-md-10">
