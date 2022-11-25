@@ -120,6 +120,34 @@ public function edit()
 
 
 
+
+	function asignatura_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idmalla=$this->input->get('idmalla');
+			$data0 =$this->asignatura_model->asignaturas($idmalla);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idmalla,$r->idasignatura,$r->nivelacademico,$r->codigo,$r->nombre,$r->creditos,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('asignatura/actual').'"    data-idasignatura="'.$r->idasignatura.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
+
 public function actual()
 {
 	$data['malla'] = $this->malla_model->malla($this->uri->segment(3))->row_array();

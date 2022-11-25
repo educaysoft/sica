@@ -60,7 +60,7 @@ echo form_input('iddepartamento',$options[$periodoacademico['iddepartamento']],a
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre largo: </label>
+    <label class="col-md-2 col-form-label"> Nombre corto: </label>
 	<div class="col-md-10">
      	<?php 
       echo form_input('nombrecorto',$periodoacademico['nombrecorto'],array('placeholder'=>'Nombre corto del periodoacademico'));
