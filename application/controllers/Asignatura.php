@@ -106,7 +106,7 @@ function asignatura_data()
 	 	$data0 = $this->asignatura_model->lista_asignaturasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idasignatura,$r->nombre,$r->malla,
+			$data[]=array($r->idasignatura,$r->malla,$r->nivel,$r->nombre,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idasignatura="'.$r->idasignatura.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
