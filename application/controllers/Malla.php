@@ -132,7 +132,7 @@ public function edit()
 			$data0 =$this->asignatura_model->asignaturasm($idmalla);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idmalla,$r->idasignatura,$r->idnivelacademico,$r->codigo,$r->nombre,$r->creditos,
+				$data[]=array($r->idmalla,$r->idasignatura,$r->numero,$r->codigo,$r->nombre,$r->creditos,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('asignatura/actual').'"    data-idasignatura="'.$r->idasignatura.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
