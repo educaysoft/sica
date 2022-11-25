@@ -43,7 +43,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <tr>
  <th>ID</th>
  <th>nombre</th>
- <th>detalle</th>
+ <th>malla</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
