@@ -116,6 +116,28 @@ function nivelacademico_data()
 
 
 
+public function actual()
+{
+	$data['nivelacademico'] = $this->nivelacademico_model->nivelacademico($this->uri->segment(3))->row_array();
+  if(!empty($data))
+  {
+    $data['title']="Nivelacademico";
+    $this->load->view('template/page_header');		
+    $this->load->view('nivelacademico_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
+
+
+
 
 
 
