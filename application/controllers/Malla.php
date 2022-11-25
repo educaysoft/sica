@@ -5,6 +5,7 @@ class Malla extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('malla_model');
+      $this->load->model('asignatura_model');
   	  $this->load->model('departamento_model');
 }
 
