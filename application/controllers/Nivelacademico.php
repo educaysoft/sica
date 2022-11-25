@@ -100,7 +100,7 @@ function nivelacademico_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idnivelacademico,$r->numero,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idnivelacademico="'.$r->idnivelacademico.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('nivelacademico/actual').'"     data-idnivelacademico="'.$r->idnivelacademico.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
