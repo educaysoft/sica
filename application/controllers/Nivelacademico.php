@@ -36,6 +36,7 @@ public function  save()
 	 	$array_item=array(
 	 	'idnivelacademico' => $this->input->post('idnivelacademico'),
 	 	'nombre' => $this->input->post('nombre'),
+	 	'numero' => $this->input->post('numero'),
 	 	);
 	 	$this->nivelacademico_model->save($array_item);
 	 	redirect('nivelacademico');
@@ -61,6 +62,7 @@ public function edit()
 		 	
 		 	'idnivelacademico' => $this->input->post('idnivelacademico'),
 		 	'nombre' => $this->input->post('nombre'),
+	 		'numero' => $this->input->post('numero'),
 	 	);
 	 	$this->nivelacademico_model->update($id,$array_item);
 	 	redirect('nivelacademico');
