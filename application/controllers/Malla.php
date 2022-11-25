@@ -128,7 +128,7 @@ public function edit()
 			$draw= intval($this->input->get("length"));
 
 			$idmalla=$this->input->get('idmalla');
-			$data0 =$this->asignatura_model->asignaturas($idmalla);
+			$data0 =$this->asignatura_model->asignaturasm($idmalla);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idmalla,$r->idasignatura,$r->nivelacademico,$r->codigo,$r->nombre,$r->creditos,
