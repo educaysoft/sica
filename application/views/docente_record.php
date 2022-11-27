@@ -129,7 +129,7 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Asignaturas dictadas: ( <?php echo anchor('unidadsilabo/add/'.$silabo['idsilabo'], 'New'); ?>):</label>
+    <label class="col-md-2 col-form-label"> Silabos presentados: </label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
