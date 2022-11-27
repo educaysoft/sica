@@ -130,6 +130,29 @@ function horariodocente_data()
 
 
 
+public function actual()
+{
+	$data['horariodocente'] = $this->horariodocente_model->horariodocente($this->uri->segment(3))->row_array();
+  	$data['docentes']= $this->docente_model->lista_docentes()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+	  if(!empty($data))
+	  {
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+    $data['title']="Horariodocente";
+    $this->load->view('template/page_header');		
+    $this->load->view('horariodocente_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
+
 
 
 
@@ -137,15 +160,11 @@ function horariodocente_data()
 
 public function elprimero()
 {
-
-
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
-
-
 	$data['horariodocente'] = $this->horariodocente_model->elprimero();
-  if(!empty($data))
-  {
+	  if(!empty($data))
+	  {
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
     $data['title']="Horariodocente";
     $this->load->view('template/page_header');		
