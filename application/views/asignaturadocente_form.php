@@ -25,7 +25,7 @@ foreach ($horariodocentes as $row){
 
 $options= array('--Select--');
 foreach ($asignaturas as $row){
-	$options[$row->idasignatura]= $row->nombrecorto;
+	$options[$row->idasignatura]= $row->nombre;
 }
 
  echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));  ?></td>
