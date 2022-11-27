@@ -30,9 +30,22 @@ $options= array('--Select--');
 foreach ($mallas as $row){
 	$options[$row->idmalla]= $row->nombrecorto;
 }
-
  echo form_dropdown("idmalla",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
+
+
+<tr>
+<td> Nivel: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($nivelacademicos as $row){
+	$options[$row->idnivelacademico]= $row->nombre;
+}
+ echo form_dropdown("idnivelacademico",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
 
 
 

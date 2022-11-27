@@ -41,7 +41,6 @@ $options= array('--Select--');
 foreach ($nivelacademicos as $row){
 	$options[$row->idnivelacademico]= $row->nombre;
 }
-
  echo form_dropdown("idnivelacademico",$options, $asignatura['idnivelacademico']);  ?></td>
 </tr>
 
