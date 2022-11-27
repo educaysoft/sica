@@ -97,7 +97,7 @@ if(isset($silabo))
     foreach ($periodoacademicos as $row){
 	      $options[$row->idperiodoacademico]= $row->nombrecorto;
     }
-    echo form_input('idperiodoacademico',$options[$silabo['idperidoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+    echo form_input('idperiodoacademico',$options[$silabo['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
