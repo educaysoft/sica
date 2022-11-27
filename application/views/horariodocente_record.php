@@ -34,7 +34,7 @@ if(isset($horariodocente))
 <table>
   <tr>
      <td>Id HoarioDocente:</td>
-     <td><?php echo form_input('idhorariodocente',$horariodocente['idhorariodocente'],array("disabled"=>"disabled",'placeholder'=>'Idhorariodocentes')) ?></td>
+     <td><?php echo form_input('idhorariodocente',$horariodocente['idhorariodocente'],array("id"=>"idhorariodocente","disabled"=>"disabled",'placeholder'=>'Idhorariodocentes')) ?></td>
   </tr>
  
  
