@@ -59,7 +59,7 @@ public function add()
 public function edit()
 {
 	 	$data['horariodocente'] = $this->horariodocente_model->horariodocente($this->uri->segment(3))->row_array();
-		$data['docentes']= $this->docente_model->lista_docentes()->result();
+		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
  	 	$data['title'] = "Actualizar Horariodocente";
  	 	$this->load->view('template/page_header');		
