@@ -47,6 +47,9 @@ class Silabo extends CI_Controller{
 	 	'nombre' => $this->input->post('nombre'),
 	 	'descripcion' => $this->input->post('descripcion'),
 	 	'duracion' => $this->input->post('duracion'),
+	 	'idasignatura' => $this->input->post('idasignatura'),
+	 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+	 	'idevento' => $this->input->post('idevento'),
 	 	'linkdetalle' => $this->input->post('linkdetalle'),
 	 	);
 	 	$this->silabo_model->save($array_item);
@@ -59,6 +62,8 @@ class Silabo extends CI_Controller{
 	{
 			$data['silabo'] = $this->silabo_model->silabo($this->uri->segment(3))->row_array();
   			$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  			$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  			$data['eventos']= $this->evento_model->lista_eventos()->result();
 			$data['title'] = "Actualizar silabo";
 			$this->load->view('template/page_header');		
 			$this->load->view('silabo_edit',$data);
@@ -78,6 +83,8 @@ class Silabo extends CI_Controller{
 	 		'duracion' => $this->input->post('duracion'),
 	 		'linkdetalle' => $this->input->post('linkdetalle'),
 	 		'idasignatura' => $this->input->post('idasignatura'),
+	 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+	 	'idevento' => $this->input->post('idevento'),
 	 	);
 	 	$this->silabo_model->update($id,$array_item);
 	 	redirect('silabo/actual/'.$id);

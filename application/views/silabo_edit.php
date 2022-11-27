@@ -56,10 +56,40 @@ $options= array('--Select--');
 foreach ($asignaturas as $row){
 	$options[$row->idasignatura]= $row->nombre;
 }
- echo form_dropdown("idasignatura",$options, $silabo['idasignatura']);  ?></td>
+ echo form_dropdown("idasignatura",$options, $silabo['idasignatura']);  
 		?>
 	</div> 
 </div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Periodo académico:</label>
+	<div class="col-md-10">
+		<?php
+$options= array('--Select--');
+foreach ($periodoacademicos as $row){
+	$options[$row->idperiodoacademico]= $row->nombrecorto;
+}
+ echo form_dropdown("idperiodoacademico",$options, $silabo['idperiodoacademico']);  		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Evento:</label>
+	<div class="col-md-10">
+		<?php
+$options= array('--Select--');
+foreach ($eventos as $row){
+	$options[$row->idevento]= $row->titulo;
+}
+echo form_dropdown("idevento",$options, $silabo['idevento']);
+?>
+	</div> 
+</div>
+
+
+
 
 
  <tr>
