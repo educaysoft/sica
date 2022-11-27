@@ -75,18 +75,7 @@ foreach ($periodoacademicos as $row){
 </div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Evento:</label>
-	<div class="col-md-10">
-		<?php
-$options= array('--Select--');
-foreach ($eventos as $row){
-	$options[$row->idevento]= $row->titulo;
-}
-echo form_dropdown("idevento",$options, $silabo['idevento']);
-?>
-	</div> 
-</div>
+
 
 
 
