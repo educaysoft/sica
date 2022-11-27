@@ -10,6 +10,7 @@ class Silabo extends CI_Controller{
       $this->load->model('documento_model');
   	$this->load->model('asignatura_model');
   	$this->load->model('periodoacademico_model');
+  	$this->load->model('evento_model');
   }
 
 //=========================================================
