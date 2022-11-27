@@ -50,7 +50,7 @@ foreach ($nivelacademicos as $row){
   <td><?php 
   
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Detalle" );    
-echo form_textarea('contenidosminimos',$evento['contenidosminimos'],$textarea_options ); ?></td>
+echo form_textarea('contenidosminimos',$asignatura['contenidosminimos'],$textarea_options ); ?></td>
  </tr>
 
 <tr>
@@ -58,7 +58,7 @@ echo form_textarea('contenidosminimos',$evento['contenidosminimos'],$textarea_op
   <td><?php 
   
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Detalle" );    
-echo form_textarea('resultadosaprendizaje',$evento['resultadosaprendizaje'],$textarea_options ); ?></td>
+echo form_textarea('resultadosaprendizaje',$asignatura['resultadosaprendizaje'],$textarea_options ); ?></td>
  </tr>
 
 
