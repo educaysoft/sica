@@ -232,6 +232,7 @@ public function anterior(){
  	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
+		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   $data['title']="Asignaturadocente";
 	$this->load->view('template/page_header');		
   $this->load->view('asignaturadocente_record',$data);
