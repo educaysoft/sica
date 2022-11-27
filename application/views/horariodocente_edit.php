@@ -31,7 +31,7 @@ foreach ($docentes as $row){
 <td> Periodo académico:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($periodoacademicoes as $row){
+foreach ($periodoacademicos as $row){
 	$options[$row->idperiodoacademico]= $row->nombrecorto;
 }
 
