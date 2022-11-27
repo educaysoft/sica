@@ -43,8 +43,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <tr>
  <th>ID</th>
  <th>horariodocente</th>
- <th>Institucion</th>
- <th>FechaInscripción</th>
+ <th>Periodo</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>

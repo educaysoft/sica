@@ -113,7 +113,7 @@ function horariodocente_data()
 	 	$data0 = $this->horariodocente_model->lista_horariodocentesA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idhorariodocente,$r->elhorariodocente,$r->laperiodoacademico,
+			$data[]=array($r->idhorariodocente,$r->elhorariodocente,$r->elperiodoacademico,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idhorariodocente="'.$r->idhorariodocente.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
