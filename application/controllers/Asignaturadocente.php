@@ -52,8 +52,8 @@ public function add()
 	{
 	 	$array_item=array(
 		 	
-			'iddocente' => $this->input->post('iddocente'),
-			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+			'idhorariodocente' => $this->input->post('idhorariodocente'),
+			'idasignatura' => $this->input->post('idasignatura'),
 	 	);
 	 	$this->asignaturadocente_model->save($array_item);
 	 	redirect('asignaturadocente');
@@ -80,8 +80,8 @@ public function edit()
 	 	$array_item=array(
 		 	
 		 	'idasignaturadocente' => $this->input->post('idasignaturadocente'),
-			'iddocente' => $this->input->post('iddocente'),
-			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+			'idhorariodocente' => $this->input->post('idhorariodocente'),
+			'idasignatura' => $this->input->post('idasignatura'),
 	 	);
 	 	$this->asignaturadocente_model->update($id,$array_item);
 	 	redirect('asignaturadocente');
