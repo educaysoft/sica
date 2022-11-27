@@ -141,8 +141,8 @@ function horariodocente_data()
 			$data0 =$this->asignaturadocente_model->lista_asignaturadocentesA($idhorariodocente);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idsilabo,$r->idunidadsilabo,$r->unidad,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('unidadsilabo/actual').'"    data-idunidadsilabo="'.$r->idunidadsilabo.'">Ver</a>');
+				$data[]=array($r->idhorariodocente,$r->idasignaturadocente,$r->laasignatura,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('asignaturadocente/actual').'"    data-idasignaturadocente="'.$r->idasignaturadocente.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
