@@ -194,9 +194,9 @@ public function iniciar()
 public function actual()
 {
 	$data['silabo'] = $this->silabo_model->silabo($this->uri->segment(3))->row_array();
-			$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
-			$data['documentos']= $this->documento_model->lista_documentos()->result();
-  			$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+	$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   if(!empty($data))
   {
     $data['title']="Silabo";
@@ -218,6 +218,7 @@ public function elprimero()
 	$data['silabo'] = $this->silabo_model->elprimero();
 			$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   if(!empty($data))
   {
     $data['title']="Silabo";
@@ -236,6 +237,7 @@ public function elultimo()
 		$data['silabo'] = $this->silabo_model->elultimo();
 			$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   if(!empty($data))
   {
     $data['title']="Silabo";
@@ -256,6 +258,7 @@ public function siguiente(){
 	$data['silabo'] = $this->silabo_model->siguiente($this->uri->segment(3))->row_array();
 	$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   	$data['title']="Silabo";
 	$this->load->view('template/page_header');		
   	$this->load->view('silabo_record',$data);
@@ -267,6 +270,7 @@ public function anterior(){
 	$data['silabo'] = $this->silabo_model->anterior($this->uri->segment(3))->row_array();
 	$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   	$data['title']="Silabo";
 	$this->load->view('template/page_header');		
   	$this->load->view('silabo_record',$data);
