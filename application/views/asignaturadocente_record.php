@@ -46,7 +46,7 @@ foreach ($horariodocentes as $row){
 	$options[$row->idhorariodocente]= $row->elhorariodocente;
 }
 
-echo form_input('idhorariodocente',$options[$asignaturahorariodocente['idhorariodocente']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+echo form_input('idhorariodocente',$options[$asignaturadocente['idhorariodocente']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
   </tr>
  
 
