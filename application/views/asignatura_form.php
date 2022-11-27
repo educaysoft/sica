@@ -2,60 +2,106 @@
 <hr/>
 <?php echo form_open("asignatura/save") ?>
 <?php echo form_hidden("idasignatura")  ?>
-<table>
 
 
-<tr>
-<td> Código </td>
-<td><?php echo form_input("codigo","", array("placeholder"=>"Código"))  ?></td>
-</tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Código:</label>
+	<div class="col-md-10">
+<?php echo form_input("codigo","", array("placeholder"=>"Código"));
 
-
-<tr>
-<td> Nombre </td>
-<td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de la artículo"))  ?></td>
-</tr>
+		?>
+	</div> 
+</div>
 
 
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+<?php
+echo form_input("nombre","", array("placeholder"=>"Nombre de la artículo"));
+		?>
+	</div> 
+</div>
 
 
-<tr>
-<td> Malla: </td>
-<td><?php 
+
+
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Malla:</label>
+	<div class="col-md-10">
+<?php 
 
 $options= array('--Select--');
 foreach ($mallas as $row){
 	$options[$row->idmalla]= $row->nombrecorto;
 }
- echo form_dropdown("idmalla",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
+ echo form_dropdown("idmalla",$options, set_select('--Select--','default_value'));  
+		?>
+	</div> 
+</div>
 
 
-<tr>
-<td> Nivel: </td>
-<td><?php 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nivel:</label>
+	<div class="col-md-10">
+<?php 
 
 $options= array('--Select--');
 foreach ($nivelacademicos as $row){
 	$options[$row->idnivelacademico]= $row->nombre;
 }
- echo form_dropdown("idnivelacademico",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
+ echo form_dropdown("idnivelacademico",$options, set_select('--Select--','default_value'));  
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Resultados de aprendizaje:</label>
+	<div class="col-md-10">
+	<?php
+    
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"resultados de apendizaje" );    
+    
+ echo form_textarea("resultadosaprendizaje","", $textarea_options); 
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Contenidos mínimos:</label>
+	<div class="col-md-10">
+	<?php
+    
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"resultados de apendizaje" );    
+    
+ echo form_textarea("contenidosminimos","", $textarea_options); 
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+	<div class="col-md-10">
+<?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("asignatura","Atras");
+
+		?>
+	</div> 
+</div>
 
 
 
 
-
-<tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("asignatura","Atras") ?> </td>
-</tr>
-
-
-
-
-</table>
 <?php echo form_close();?>
 

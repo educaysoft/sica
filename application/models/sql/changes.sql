@@ -46,8 +46,13 @@ alter table documentosilabo drop primary key; */
 
 /* alter table asistencia add column hora time; */
 
+/*
 alter table asistencia add column longitud decimal(11,8);
 alter table asistencia add column latitud decimal(10,8);
+*/
+
+alter table asignatura add column contenidosminimos text not null;
+alter table asignatura add column resultadosaprendizaje text not null;
 
 
 
