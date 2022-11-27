@@ -39,25 +39,25 @@ if(isset($asignaturadocente))
  
  
 <tr>
-     <td>Docente:</td>
+     <td>HoaridoDocente:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->eldocente;
+foreach ($horariodocentes as $row){
+	$options[$row->idhorariodocente]= $row->elhorariodocente;
 }
 
-echo form_input('iddocente',$options[$asignaturadocente['iddocente']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+echo form_input('idhorariodocente',$options[$asignaturahorariodocente['idhorariodocente']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
   </tr>
  
 
  <tr>
-     <td>Periodo Académico:</td>
+     <td>Asignatura:</td>
      <td><?php 
     $options= array("NADA");
-    foreach ($periodoacademicos as $row){
-	      $options[$row->idperiodoacademico]= $row->nombrelargo;
+    foreach ($asignaturas as $row){
+	      $options[$row->idasignatura]= $row->nombrelargo;
     }
-    echo form_input('idperiodoacademico',$options[$asignaturadocente['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+    echo form_input('idasignatura',$options[$asignaturadocente['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
   
 
