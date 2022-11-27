@@ -55,6 +55,12 @@ alter table asignatura add column contenidosminimos text not null;
 alter table asignatura add column resultadosaprendizaje text not null;
 */
 
-
+/*
 alter table silabo add column idperiodoacademico int(11);
+*/
+
+
+alter table silabo drop column idevento;
+alter table silabo add column iddocente int(11);
+
 

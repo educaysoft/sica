@@ -128,10 +128,63 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Asignaturas dictadas: ( <?php echo anchor('unidadsilabo/add/'.$silabo['idsilabo'], 'New'); ?>):</label>
+
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12">
+	<table class="table table-striped table-bordered table-hover" id="mydatas">
+	 <thead>
+	 <tr>
+	 <th>iddocente</th>
+	 <th>periodo</th>
+	 <th>idsilabo</th>
+	 <th>elsilabo</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data1">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
+
 <?php echo form_close(); ?>
 
 
+<script type="text/javascript">
 
+$(document).ready(function(){
+	var iddocente=document.getElementById("iddocente").value;
+	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('docente/silabo_data')?>', type: 'GET',data:{iddocente:iddocente}},});
+
+
+});
+
+
+
+
+
+$('#show_data').on('click','.item_ver',function(){
+var id= $(this).data('idsilabo');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+
+
+
+</script>
 
 
 </body>
