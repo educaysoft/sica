@@ -7,6 +7,7 @@ class Asignaturadocente extends CI_Controller{
   	  $this->load->model('docente_model');
   	  $this->load->model('periodoacademico_model');
   	  $this->load->model('asignaturadocente_model');
+  	  $this->load->model('horariodocente_model');
 }
 
 public function index(){
@@ -14,6 +15,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   	$data['asignaturadocente']=$this->asignaturadocente_model->lista_asignaturadocentes()->row_array();
+  	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 			
