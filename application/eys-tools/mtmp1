@@ -1,49 +1,49 @@
 <?php
-class Horariodocente_model extends CI_model {
+class Asignaturadocente_model extends CI_model {
 
-	function lista_clientes(){
-		 $cliente= $this->db->get('cliente');
-		 return $cliente;
+	function lista_horariodocentes(){
+		 $horariodocente= $this->db->get('horariodocente');
+		 return $horariodocente;
 	}
 
 
-	function lista_clientesA(){
-		 $cliente= $this->db->get('cliente1');
-		 return $cliente;
+	function lista_horariodocentesA(){
+		 $horariodocente= $this->db->get('horariodocente1');
+		 return $horariodocente;
 	}
 
 
 
- 	function cliente( $id){
- 		$cliente = $this->db->query('select * from cliente where idcliente="'. $id.'"');
- 		return $cliente;
+ 	function horariodocente( $id){
+ 		$horariodocente = $this->db->query('select * from horariodocente where idhorariodocente="'. $id.'"');
+ 		return $horariodocente;
  	}
 
 
- 	function clientespersona( $id){
- 		$cliente = $this->db->query('select * from cliente where idpersona="'. $id.'"');
- 		return $cliente;
+ 	function horariodocentespersona( $id){
+ 		$horariodocente = $this->db->query('select * from horariodocente where idpersona="'. $id.'"');
+ 		return $horariodocente;
  	}
 
 
 
  	function save($array)
  	{
-		$this->db->insert("cliente", $array);
+		$this->db->insert("horariodocente", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idcliente',$id);
- 		$this->db->update('cliente',$array_item);
+ 		$this->db->where('idhorariodocente',$id);
+ 		$this->db->update('horariodocente',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idcliente',$id);
-		$this->db->delete('cliente');
+ 		$this->db->where('idhorariodocente',$id);
+		$this->db->delete('horariodocente');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -54,7 +54,7 @@ class Horariodocente_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idcliente")->get('cliente');
+		$query=$this->db->order_by("idhorariodocente")->get('horariodocente');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -67,7 +67,7 @@ class Horariodocente_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idcliente")->get('cliente');
+		$query=$this->db->order_by("idhorariodocente")->get('horariodocente');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -79,37 +79,37 @@ class Horariodocente_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$cliente = $this->db->select("idcliente")->order_by("idcliente")->get('cliente')->result_array();
-		$arr=array("idcliente"=>$id);
-		$clave=array_search($arr,$cliente);
-	   if(array_key_exists($clave+1,$cliente))
+ 		$horariodocente = $this->db->select("idhorariodocente")->order_by("idhorariodocente")->get('horariodocente')->result_array();
+		$arr=array("idhorariodocente"=>$id);
+		$clave=array_search($arr,$horariodocente);
+	   if(array_key_exists($clave+1,$horariodocente))
 		 {
 
- 		$cliente = $this->db->query('select * from cliente where idcliente="'. $cliente[$clave+1]["idcliente"].'"');
+ 		$horariodocente = $this->db->query('select * from horariodocente where idhorariodocente="'. $horariodocente[$clave+1]["idhorariodocente"].'"');
 		 }else{
 
- 		$cliente = $this->db->query('select * from cliente where idcliente="'. $id.'"');
+ 		$horariodocente = $this->db->query('select * from horariodocente where idhorariodocente="'. $id.'"');
 		 }
 		 	
- 		return $cliente;
+ 		return $horariodocente;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$cliente = $this->db->select("idcliente")->order_by("idcliente")->get('cliente')->result_array();
-		$arr=array("idcliente"=>$id);
-		$clave=array_search($arr,$cliente);
-	   if(array_key_exists($clave-1,$cliente))
+ 		$horariodocente = $this->db->select("idhorariodocente")->order_by("idhorariodocente")->get('horariodocente')->result_array();
+		$arr=array("idhorariodocente"=>$id);
+		$clave=array_search($arr,$horariodocente);
+	   if(array_key_exists($clave-1,$horariodocente))
 		 {
 
- 		$cliente = $this->db->query('select * from cliente where idcliente="'. $cliente[$clave-1]["idcliente"].'"');
+ 		$horariodocente = $this->db->query('select * from horariodocente where idhorariodocente="'. $horariodocente[$clave-1]["idhorariodocente"].'"');
 		 }else{
 
- 		$cliente = $this->db->query('select * from cliente where idcliente="'. $id.'"');
+ 		$horariodocente = $this->db->query('select * from horariodocente where idhorariodocente="'. $id.'"');
 		 }
 		 	
- 		return $cliente;
+ 		return $horariodocente;
  	}
 
 

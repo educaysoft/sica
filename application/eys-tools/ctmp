@@ -1,25 +1,25 @@
 <?php
 
-class Cliente extends CI_Controller{
+class Horariodocente extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-  	  $this->load->model('persona_model');
-  	  $this->load->model('institucion_model');
-  	  $this->load->model('cliente_model');
+  	  $this->load->model('docente_model');
+  	  $this->load->model('periodoacademico_model');
+  	  $this->load->model('horariodocente_model');
 }
 
 public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['cliente']=$this->cliente_model->lista_clientes()->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['horariodocente']=$this->horariodocente_model->lista_horariodocentes()->row_array();
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 			
-		$data['title']="Lista de clientes";
+		$data['title']="Lista de horariodocentes";
 		$this->load->view('template/page_header');
-		$this->load->view('cliente_record',$data);
+		$this->load->view('horariodocente_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -32,11 +32,11 @@ public function index(){
 
 public function add()
 {
-		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['title']="Nueva Cliente";
+		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+		$data['title']="Nueva Horariodocente";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('cliente_form',$data);
+	 	$this->load->view('horariodocente_form',$data);
 	 	$this->load->view('template/page_footer');
 
 
@@ -47,25 +47,23 @@ public function add()
 	{
 	 	$array_item=array(
 		 	
-		 	'idcliente' => $this->input->post('idcliente'),
-			'idpersona' => $this->input->post('idpersona'),
-			'idinstitucion' => $this->input->post('idinstitucion'),
-			'fechainscripcion' => $this->input->post('fechainscripcion'),
+			'iddocente' => $this->input->post('iddocente'),
+			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
-	 	$this->cliente_model->save($array_item);
-	 	redirect('cliente');
+	 	$this->horariodocente_model->save($array_item);
+	 	redirect('horariodocente');
  	}
 
 
 
 public function edit()
 {
-	 	$data['cliente'] = $this->cliente_model->cliente($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
- 	 	$data['title'] = "Actualizar Cliente";
+	 	$data['horariodocente'] = $this->horariodocente_model->horariodocente($this->uri->segment(3))->row_array();
+		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+ 	 	$data['title'] = "Actualizar Horariodocente";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('cliente_edit',$data);
+ 	 	$this->load->view('horariodocente_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -73,24 +71,23 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idcliente');
+		$id=$this->input->post('idhorariodocente');
 	 	$array_item=array(
 		 	
-		 	'idcliente' => $this->input->post('idcliente'),
-			'idpersona' => $this->input->post('idpersona'),
-			'idinstitucion' => $this->input->post('idinstitucion'),
-			'fechainscripcion' => $this->input->post('fechainscripcion'),
+		 	'idhorariodocente' => $this->input->post('idhorariodocente'),
+			'iddocente' => $this->input->post('iddocente'),
+			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
-	 	$this->cliente_model->update($id,$array_item);
-	 	redirect('cliente');
+	 	$this->horariodocente_model->update($id,$array_item);
+	 	redirect('horariodocente');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->cliente_model->delete($this->uri->segment(3));
+ 		$data=$this->horariodocente_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('cliente/elprimero');
+	 	redirect('horariodocente/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -98,26 +95,26 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Clientes";
+  $data['title']="Horariodocentes";
 	$this->load->view('template/page_header');		
-  $this->load->view('cliente_list',$data);
+  $this->load->view('horariodocente_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function cliente_data()
+function horariodocente_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->cliente_model->lista_clientesA();
+	 	$data0 = $this->horariodocente_model->lista_horariodocentesA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idcliente,$r->elcliente,$r->lainstitucion,$r->fechainscripcion,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcliente="'.$r->idcliente.'">Ver</a>');
+			$data[]=array($r->idhorariodocente,$r->eldocente,$r->elperiodoacademico,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('horariodocente/actual').'"  data-idhorariodocente="'.$r->idhorariodocente.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -133,6 +130,29 @@ function cliente_data()
 
 
 
+public function actual()
+{
+	$data['horariodocente'] = $this->horariodocente_model->horariodocente($this->uri->segment(3))->row_array();
+  	$data['docentes']= $this->docente_model->lista_docentes()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+	  if(!empty($data))
+	  {
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+    $data['title']="Horariodocente";
+    $this->load->view('template/page_header');		
+    $this->load->view('horariodocente_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
+
 
 
 
@@ -140,19 +160,15 @@ function cliente_data()
 
 public function elprimero()
 {
-
-
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-
-
-	$data['cliente'] = $this->cliente_model->elprimero();
-  if(!empty($data))
-  {
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Cliente";
+  	$data['docentes']= $this->docente_model->lista_docentes()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+	$data['horariodocente'] = $this->horariodocente_model->elprimero();
+	  if(!empty($data))
+	  {
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+    $data['title']="Horariodocente";
     $this->load->view('template/page_header');		
-    $this->load->view('cliente_record',$data);
+    $this->load->view('horariodocente_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -163,16 +179,16 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['cliente'] = $this->cliente_model->elultimo();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['horariodocente'] = $this->horariodocente_model->elultimo();
+  	$data['docentes']= $this->docente_model->lista_docentes()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Cliente";
+  	$data['docentes']= $this->docente_model->lista_docentes()->result();
+    $data['title']="Horariodocente";
   
     $this->load->view('template/page_header');		
-    $this->load->view('cliente_record',$data);
+    $this->load->view('horariodocente_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -183,26 +199,26 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['cliente_list']=$this->cliente_model->lista_cliente()->result();
-	$data['cliente'] = $this->cliente_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+ // $data['horariodocente_list']=$this->horariodocente_model->lista_horariodocente()->result();
+	$data['horariodocente'] = $this->horariodocente_model->siguiente($this->uri->segment(3))->row_array();
+  	$data['docentes']= $this->docente_model->lista_docentes()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   
 
-$data['title']="Cliente";
+$data['title']="Horariodocente";
 	$this->load->view('template/page_header');		
-  $this->load->view('cliente_record',$data);
+  $this->load->view('horariodocente_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['cliente_list']=$this->cliente_model->lista_cliente()->result();
-	$data['cliente'] = $this->cliente_model->anterior($this->uri->segment(3))->row_array();
- 	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  $data['title']="Cliente";
+ // $data['horariodocente_list']=$this->horariodocente_model->lista_horariodocente()->result();
+	$data['horariodocente'] = $this->horariodocente_model->anterior($this->uri->segment(3))->row_array();
+ 	$data['docentes']= $this->docente_model->lista_docentes()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  $data['title']="Horariodocente";
 	$this->load->view('template/page_header');		
-  $this->load->view('cliente_record',$data);
+  $this->load->view('horariodocente_record',$data);
 	$this->load->view('template/page_footer');
 }
 

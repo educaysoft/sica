@@ -2,23 +2,23 @@
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($cliente))
+if(isset($horariodocente))
 {
 ?>
-   <li> <?php echo anchor('cliente/elprimero/', 'primero'); ?></li>
-   <li> <?php echo anchor('cliente/anterior/'.$cliente['idcliente'], 'anterior'); ?></li>
-   <li> <?php echo anchor('cliente/siguiente/'.$cliente['idcliente'], 'siguiente'); ?></li>
-   <li style="border-right:1px solid green"><?php echo anchor('cliente/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('cliente/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('cliente/edit/'.$cliente['idcliente'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('cliente/delete/'.$cliente['idcliente'],'Delete'); ?></li>
-        <li> <?php echo anchor('cliente/listar/','Listar'); ?></li>
+   <li> <?php echo anchor('horariodocente/elprimero/', 'primero'); ?></li>
+   <li> <?php echo anchor('horariodocente/anterior/'.$horariodocente['idhorariodocente'], 'anterior'); ?></li>
+   <li> <?php echo anchor('horariodocente/siguiente/'.$horariodocente['idhorariodocente'], 'siguiente'); ?></li>
+   <li style="border-right:1px solid green"><?php echo anchor('horariodocente/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('horariodocente/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('horariodocente/edit/'.$horariodocente['idhorariodocente'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('horariodocente/delete/'.$horariodocente['idhorariodocente'],'Delete'); ?></li>
+        <li> <?php echo anchor('horariodocente/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('cliente/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('horariodocente/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -29,44 +29,41 @@ if(isset($cliente))
 <br>
 
 
-<?php echo form_open('cliente/save_edit') ?>
-<?php echo form_hidden('idcliente',$cliente['idcliente']) ?>
+<?php echo form_open('horariodocente/save_edit') ?>
+<?php echo form_hidden('idhorariodocente',$horariodocente['idhorariodocente']) ?>
 <table>
   <tr>
-     <td>Id Correo:</td>
-     <td><?php echo form_input('idcliente',$cliente['idcliente'],array("disabled"=>"disabled",'placeholder'=>'Idclientes')) ?></td>
+     <td>Id HoarioDocente:</td>
+     <td><?php echo form_input('idhorariodocente',$horariodocente['idhorariodocente'],array("disabled"=>"disabled",'placeholder'=>'Idhorariodocentes')) ?></td>
   </tr>
  
  
 <tr>
-     <td>Persona:</td>
+     <td>Docente:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+foreach ($docentes as $row){
+	$options[$row->iddocente]= $row->eldocente;
 }
 
-echo form_input('idpersona',$options[$cliente['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+echo form_input('iddocente',$options[$horariodocente['iddocente']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
   </tr>
  
 
  <tr>
-     <td>Institucion:</td>
+     <td>Periodo Académico:</td>
      <td><?php 
     $options= array("NADA");
-    foreach ($instituciones as $row){
-	      $options[$row->idinstitucion]= $row->nombre;
+    foreach ($periodoacademicos as $row){
+	      $options[$row->idperiodoacademico]= $row->nombrelargo;
     }
-    echo form_input('idinstitucion',$options[$cliente['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+    echo form_input('idperiodoacademico',$options[$horariodocente['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
   
 
 
   
-<tr>
-      <td>Fecha de Inscripcion:</td>
-      <td><?php echo form_input('fechainscripcion',$cliente['fechainscripcion'],array('type'=>'date','placeholder'=>'fechainscripcion','style'=>'width:500px;')) ?></td>
-</tr>
+
 
 
 

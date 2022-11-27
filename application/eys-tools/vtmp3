@@ -1,15 +1,15 @@
-<?php echo form_open('cliente/save_edit') ?>
-<?php echo form_hidden('idcliente',$cliente['idcliente']) ?>
+<?php echo form_open('horariodocente/save_edit') ?>
+<?php echo form_hidden('idhorariodocente',$horariodocente['idhorariodocente']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
 <table>
  
    <tr>
-     <td>Id cliente</td>
+     <td>Id horariodocente</td>
      <td><?php 
 
 
-$eys_arrinput=array('name'=>'idcliente','value'=>$cliente['idcliente'],'readonly'=>'true', "style"=>"width:500px");
+$eys_arrinput=array('name'=>'idhorariodocente','value'=>$horariodocente['idhorariodocente'],'readonly'=>'true', "style"=>"width:500px");
 echo form_input($eys_arrinput); ?></td>
   </tr> 
 
@@ -20,32 +20,29 @@ echo form_input($eys_arrinput); ?></td>
 <td> Persona:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+foreach ($docentes as $row){
+	$options[$row->iddocente]= $row->eldocente;
 }
 
- echo form_dropdown("idpersona",$options, $cliente['idpersona']);  ?></td>
+ echo form_dropdown("iddocente",$options, $horariodocente['iddocente']);  ?></td>
 </tr>
 
 <tr>
-<td> Institucion:</td>
+<td> Periodo académico:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
+foreach ($periodoacademicos as $row){
+	$options[$row->idperiodoacademico]= $row->nombrecorto;
 }
 
- echo form_dropdown("idinstitucion",$options, $cliente['idinstitucion']);  ?></td>
+ echo form_dropdown("idperiodoacademico",$options, $horariodocente['idperiodoacademico']);  ?></td>
 </tr>
 
-<tr>
-      <td>Fecha de Inscripcion:</td>
-      <td><?php echo form_input( array("name"=>'fechainscripcion',"id"=>'fechainscripcion',"value"=>$cliente['fechainscripcion'],'type'=>'date','placeholder'=>'fechainscripcion')); ?></td>
-  </tr>
+
 
  
  <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('cliente','Atras') ?></td>
+ <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('horariodocente','Atras') ?></td>
  </tr>
 </table>
 <?php echo form_close(); ?>
