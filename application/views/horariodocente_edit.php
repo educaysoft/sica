@@ -38,10 +38,7 @@ foreach ($periodoacademicos as $row){
  echo form_dropdown("idperiodoacademico",$options, $horariodocente['idperiodoacademico']);  ?></td>
 </tr>
 
-<tr>
-      <td>Fecha de Inscripcion:</td>
-      <td><?php echo form_input( array("name"=>'fechainscripcion',"id"=>'fechainscripcion',"value"=>$horariodocente['fechainscripcion'],'type'=>'date','placeholder'=>'fechainscripcion')); ?></td>
-  </tr>
+
 
  
  <tr>
