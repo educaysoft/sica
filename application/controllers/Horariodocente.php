@@ -130,6 +130,37 @@ function horariodocente_data()
 
 
 
+	function asignaturadocente_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idsilabo=$this->input->get('idsilabo');
+			$data0 =$this->asignaturadocente_model->lista_asignaturadocentesA($idhorariodocente);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idsilabo,$r->idunidadsilabo,$r->unidad,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('unidadsilabo/actual').'"    data-idunidadsilabo="'.$r->idunidadsilabo.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
+
+
+
+
+
 public function actual()
 {
 	$data['horariodocente'] = $this->horariodocente_model->horariodocente($this->uri->segment(3))->row_array();

@@ -64,6 +64,34 @@ echo form_input('iddocente',$options[$horariodocente['iddocente']],array("disabl
 
   
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Asignaturas de docente: </label>
+
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12">
+	<table class="table table-striped table-bordered table-hover" id="mydatac">
+	 <thead>
+	 <tr>
+	 <th>idhorariodocente</th>
+	 <th>idasignatura</th>
+	 <th>Asignatura</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
 
 
 
@@ -77,6 +105,22 @@ echo form_input('iddocente',$options[$horariodocente['iddocente']],array("disabl
 
 
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var idhorariodocente=document.getElementById("idhorariodocente").value;
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('horariodocente/asignaturadocente_data')?>', type: 'GET',data:{idhorariodocente:idhorariodocente}},});
+});
+
+
+$('#show_data').on('click','.item_ver',function(){
+var id= $(this).data('idasignaturadocente');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+</script>
 
 </body>
 
