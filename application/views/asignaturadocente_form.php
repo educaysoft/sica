@@ -6,29 +6,29 @@
 
 
 <tr>
-<td> Docente: </td>
+<td> Horario Docente: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->eldocente;
+foreach ($horariodocentes as $row){
+	$options[$row->idhorariodocente]= $row->elhorariodocente;
 }
 
- echo form_dropdown("iddocente",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idhorariodocente",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
 
 <tr>
-<td> Periodo académico: </td>
+<td> Asignatura: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($periodoacademicos as $row){
-	$options[$row->idperiodoacademico]= $row->nombrecorto;
+foreach ($asignaturas as $row){
+	$options[$row->idasignatura]= $row->nombrecorto;
 }
 
- echo form_dropdown("idperiodoacademico",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
