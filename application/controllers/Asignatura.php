@@ -49,6 +49,8 @@ public function  save()
 	 	'creditos' => $this->input->post('creditos'),
 	 	'idmalla' => $this->input->post('idmalla'),
 	 	'idnivelacademico' => $this->input->post('idnivelacademico'),
+	 	'contenidosminimos' => $this->input->post('contenidosminimos'),
+	 	'resultadosaprendizaje' => $this->input->post('resultadosaprendizaje'),
 	 	);
 	 	$this->asignatura_model->save($array_item);
 	 	redirect('asignatura');
@@ -80,6 +82,8 @@ public function edit()
 	 		'creditos' => $this->input->post('creditos'),
 	 		'idmalla' => $this->input->post('idmalla'),
 	 		'idnivelacademico' => $this->input->post('idnivelacademico'),
+	 		'contenidosminimos' => $this->input->post('contenidosminimos'),
+	 		'resultadosaprendizaje' => $this->input->post('resultadosaprendizaje'),
 	 	);
 	 	$this->asignatura_model->update($id,$array_item);
 	 	redirect('asignatura');
