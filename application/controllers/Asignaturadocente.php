@@ -19,6 +19,7 @@ public function index(){
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 			
 		$data['title']="Lista de asignaturadocentes";
 		$this->load->view('template/page_header');
