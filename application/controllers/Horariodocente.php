@@ -137,7 +137,7 @@ function horariodocente_data()
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$idsilabo=$this->input->get('idsilabo');
+			$idhorariodocente=$this->input->get('idhorariodocente');
 			$data0 =$this->asignaturadocente_model->lista_asignaturadocentesA($idhorariodocente);
 			$data=array();
 			foreach($data0->result() as $r){
