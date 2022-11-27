@@ -88,6 +88,31 @@ if(isset($silabo))
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Periodo académico: ( <?php echo anchor('periodoacademico/actual/'.$silabo['idperiodoacademico'], 'Ver'); ?>):</label>
+
+	<div class="col-md-10">
+     <td><?php 
+    $options= array("NADA");
+    foreach ($periodoacademicos as $row){
+	      $options[$row->idperiodoacademico]= $row->nombrecorto;
+    }
+    echo form_input('idperiodoacademico',$options[$silabo['idperidoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('documento/add', 'Documentos:') ?> </label>

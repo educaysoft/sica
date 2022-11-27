@@ -202,6 +202,7 @@ public function actual()
 	$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+ 	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
     $data['title']="Silabo";
@@ -224,6 +225,7 @@ public function elprimero()
 			$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+ 	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
     $data['title']="Silabo";
@@ -243,6 +245,7 @@ public function elultimo()
 			$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+ 	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
     $data['title']="Silabo";
@@ -264,6 +267,7 @@ public function siguiente(){
 	$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+ 	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['title']="Silabo";
 	$this->load->view('template/page_header');		
   	$this->load->view('silabo_record',$data);
@@ -276,6 +280,7 @@ public function anterior(){
 	$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+ 	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['title']="Silabo";
 	$this->load->view('template/page_header');		
   	$this->load->view('silabo_record',$data);
