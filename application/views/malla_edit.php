@@ -34,18 +34,15 @@ $eys_arrinput=array('name'=>'nombrelargo','value'=>$malla['nombrelargo'], "style
  echo form_input($eys_arrinput); ?></td>
   </tr>
 
+<tr>
+      <td>Fecha inicio :</td>
+      <td><?php echo form_input( array("name"=>'fechainicio',"id"=>'fechainicio',"value"=>$malla['fechainicio'],'type'=>'date','placeholder'=>'fecha de ')); ?></td>
+  </tr>
 
 <tr>
-<td> Periodo académico:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($periodoacademicos as $row){
-	$options[$row->idperiodoacademico]= $row->nombrelargo;
-}
-
- echo form_dropdown("idperidoacademico",$options, $malla['idperidoacademico']);  ?></td>
-</tr>
-
+      <td>Fecha fin :</td>
+      <td><?php echo form_input( array("name"=>'fechafin',"id"=>'fechafin',"value"=>$malla['fechafin'],'type'=>'date','placeholder'=>'fecha de ')); ?></td>
+  </tr>
 
 
 

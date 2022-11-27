@@ -50,7 +50,7 @@ echo form_input('iddepartamento',$options[$malla['iddepartamento']],array("disab
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id Periodo acad.: </label>
+    <label class="col-md-2 col-form-label"> Id malla.: </label>
 	<div class="col-md-10">
      	<?php 
       echo form_input('idmalla',$malla['idmalla'],array("id"=>"idmalla","disabled"=>"disabled"));
