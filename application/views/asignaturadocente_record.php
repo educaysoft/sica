@@ -55,7 +55,7 @@ echo form_input('idhorariodocente',$options[$asignaturadocente['idhorariodocente
      <td><?php 
     $options= array("NADA");
     foreach ($asignaturas as $row){
-	      $options[$row->idasignatura]= $row->nombrelargo;
+	      $options[$row->idasignatura]= $row->nombre;
     }
     echo form_input('idasignatura',$options[$asignaturadocente['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
