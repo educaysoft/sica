@@ -33,7 +33,7 @@ if(isset($horariodocente))
 <?php echo form_hidden('idhorariodocente',$horariodocente['idhorariodocente']) ?>
 <table>
   <tr>
-     <td>Id Correo:</td>
+     <td>Id HoarioDocente:</td>
      <td><?php echo form_input('idhorariodocente',$horariodocente['idhorariodocente'],array("disabled"=>"disabled",'placeholder'=>'Idhorariodocentes')) ?></td>
   </tr>
  
@@ -51,7 +51,7 @@ echo form_input('iddocente',$options[$horariodocente['iddocente']],array("disabl
  
 
  <tr>
-     <td>Institucion:</td>
+     <td>Periodo Académico:</td>
      <td><?php 
     $options= array("NADA");
     foreach ($periodoacademicos as $row){

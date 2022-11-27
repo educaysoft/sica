@@ -21,18 +21,18 @@ echo form_input($eys_arrinput); ?></td>
 <td><?php
 $options= array('--Select--');
 foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->apellidos." ".$row->nombres;
+	$options[$row->iddocente]= $row->eldocente;
 }
 
  echo form_dropdown("iddocente",$options, $horariodocente['iddocente']);  ?></td>
 </tr>
 
 <tr>
-<td> Institucion:</td>
+<td> Periodo académico:</td>
 <td><?php
 $options= array('--Select--');
 foreach ($periodoacademicoes as $row){
-	$options[$row->idperiodoacademico]= $row->nombre;
+	$options[$row->idperiodoacademico]= $row->nombrecorto;
 }
 
  echo form_dropdown("idperiodoacademico",$options, $horariodocente['idperiodoacademico']);  ?></td>
