@@ -7,6 +7,7 @@ class Horariodocente extends CI_Controller{
   	  $this->load->model('docente_model');
   	  $this->load->model('periodoacademico_model');
   	  $this->load->model('horariodocente_model');
+  	  $this->load->model('asignaturadocente_model');
 }
 
 public function index(){
