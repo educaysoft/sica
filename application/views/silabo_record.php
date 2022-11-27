@@ -161,6 +161,37 @@ if(isset($silabo))
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Eventos dictados: ( <?php echo anchor('unidadsilabo/add/'.$silabo['idsilabo'], 'New'); ?>):</label>
+
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12">
+	<table class="table table-striped table-bordered table-hover" id="mydatae">
+	 <thead>
+	 <tr>
+	 <th>idsilabo</th>
+	 <th>idevento</th>
+	 <th>evento</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data1">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
+
+
+
 <?php echo form_close(); ?>
 
 
@@ -170,11 +201,26 @@ if(isset($silabo))
 $(document).ready(function(){
 	var idsilabo=document.getElementById("idsilabo").value;
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('silabo/unidadsilabo_data')?>', type: 'GET',data:{idsilabo:idsilabo}},});
+
+
+	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('silabo/evento_data')?>', type: 'GET',data:{idsilabo:idsilabo}},});
+
 });
+
+
+
 
 
 $('#show_data').on('click','.item_ver',function(){
 var id= $(this).data('idunidadsilabo');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+
+$('#show_data1').on('click','.item_ver',function(){
+var id= $(this).data('idevento');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
