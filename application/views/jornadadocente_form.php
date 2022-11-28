@@ -5,35 +5,60 @@
 <table>
 
 
-<tr>
-<td> Horario Docente: </td>
-<td><?php 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Asignatura docente :</label>
+	<div class="col-md-10">
+	<?php
+
 
 $options= array('--Select--');
-foreach ($horariodocentes as $row){
-	$options[$row->idhorariodocente]= $row->elhorariodocente;
+foreach ($asignaturadocentes as $row){
+	$options[$row->idasignaturadocente]= $row->laasignatura;
 }
+ echo form_dropdown("idasignaturadocente",$options, set_select('--Select--','default_value'));  
+		?>
+	</div> 
+</div>
 
- echo form_dropdown("idhorariodocente",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
 
 
-
-<tr>
-<td> Asignatura: </td>
-<td><?php 
-
-$options= array('--Select--');
-foreach ($asignaturas as $row){
-	$options[$row->idasignatura]= $row->nombre;
-}
-
- echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha :</label>
+	<div class="col-md-10">
+	<?php
+ echo form_input(array("name"=>"fecha","id"=>"fecha","type"=>"date"));  
+		?>
+	</div> 
+</div>
 
 
 
 
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Hora inicio:</label>
+<div class="col-md-10">
+<?php
+
+ echo form_input(array("name"=>"horainicio","id"=>"horainicio","type"=>"time"));  
+
+?>
+</div>
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Duración:</label>
+	<div class="col-md-10">
+	<?php
+
+ echo form_input("duracionminuto","", array("placeholder"=>"Duración del evento",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
 
 
 
