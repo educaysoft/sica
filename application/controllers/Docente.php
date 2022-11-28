@@ -8,6 +8,7 @@ class Docente extends CI_Controller{
   	  $this->load->model('departamento_model');
   	  $this->load->model('docente_model');
   	  $this->load->model('estudio_model');
+  	  $this->load->model('silabo_model');
 }
 
 public function index(){
