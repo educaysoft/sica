@@ -1,15 +1,15 @@
-<?php echo form_open('horariodocente/save_edit') ?>
-<?php echo form_hidden('idhorariodocente',$horariodocente['idhorariodocente']) ?>
+<?php echo form_open('asignaturadocente/save_edit') ?>
+<?php echo form_hidden('idasignaturadocente',$asignaturadocente['idasignaturadocente']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
 <table>
  
    <tr>
-     <td>Id horariodocente</td>
+     <td>Id asignaturadocente</td>
      <td><?php 
 
 
-$eys_arrinput=array('name'=>'idhorariodocente','value'=>$horariodocente['idhorariodocente'],'readonly'=>'true', "style"=>"width:500px");
+$eys_arrinput=array('name'=>'idasignaturadocente','value'=>$asignaturadocente['idasignaturadocente'],'readonly'=>'true', "style"=>"width:500px");
 echo form_input($eys_arrinput); ?></td>
   </tr> 
 
@@ -24,7 +24,7 @@ foreach ($docentes as $row){
 	$options[$row->iddocente]= $row->eldocente;
 }
 
- echo form_dropdown("iddocente",$options, $horariodocente['iddocente']);  ?></td>
+ echo form_dropdown("iddocente",$options, $asignaturadocente['iddocente']);  ?></td>
 </tr>
 
 <tr>
@@ -35,14 +35,14 @@ foreach ($periodoacademicos as $row){
 	$options[$row->idperiodoacademico]= $row->nombrecorto;
 }
 
- echo form_dropdown("idperiodoacademico",$options, $horariodocente['idperiodoacademico']);  ?></td>
+ echo form_dropdown("idperiodoacademico",$options, $asignaturadocente['idperiodoacademico']);  ?></td>
 </tr>
 
 
 
  
  <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('horariodocente','Atras') ?></td>
+ <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('asignaturadocente','Atras') ?></td>
  </tr>
 </table>
 <?php echo form_close(); ?>

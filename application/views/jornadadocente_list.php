@@ -32,7 +32,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Lista de asignaturadocentes 
+                 <h3>Lista de jornadadocentes 
                  <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
 			  
         	</h3>
@@ -42,7 +42,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
- <th>asignaturadocente</th>
+ <th>jornadadocente</th>
  <th>Periodo</th>
  <th style="text-align: right;">Actions</th>
  </tr>
@@ -74,12 +74,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('asignaturadocente/asignaturadocente_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('jornadadocente/jornadadocente_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
-	var id= $(this).data('idasignaturadocente');
+	var id= $(this).data('idjornadadocente');
 	var retorno= $(this).data('retorno');
 	window.location.href = retorno+'/'+id;
 });

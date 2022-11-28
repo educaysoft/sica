@@ -1,34 +1,34 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("horariodocente/save") ?>
-<?php echo form_hidden("idhorariodocente")  ?>
+<?php echo form_open("asignaturadocente/save") ?>
+<?php echo form_hidden("idasignaturadocente")  ?>
 <table>
 
 
 <tr>
-<td> Docente: </td>
+<td> Horario Docente: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->eldocente;
+foreach ($horariodocentes as $row){
+	$options[$row->idhorariodocente]= $row->elhorariodocente;
 }
 
- echo form_dropdown("iddocente",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idhorariodocente",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
 
 <tr>
-<td> Periodo académico: </td>
+<td> Asignatura: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($periodoacademicos as $row){
-	$options[$row->idperiodoacademico]= $row->nombrecorto;
+foreach ($asignaturas as $row){
+	$options[$row->idasignatura]= $row->nombre;
 }
 
- echo form_dropdown("idperiodoacademico",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
@@ -38,7 +38,7 @@ foreach ($periodoacademicos as $row){
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("horariodocente","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("asignaturadocente","Atras") ?> </td>
 </tr>
 
 </table>
