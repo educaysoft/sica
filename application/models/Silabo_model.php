@@ -13,7 +13,7 @@ class Silabo_model extends CI_model {
 
 
  	function silaboss( $iddocente){
- 		$silabo = $this->db->query('select * from silabo where iddocente="'. $iddocente.'"');
+ 		$silabo = $this->db->query('select * from silabo1 where iddocente="'. $iddocente.'"');
  		return $silabo;
  	}
 
