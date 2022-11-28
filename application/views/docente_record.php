@@ -35,11 +35,11 @@ if(isset($docente))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Docente: </label>
+    <label class="col-md-2 col-form-label">id Docente: </label>
      	<?php 
 
 
-      echo form_input('iddocente',$docente['iddocente'],array("disabled"=>"disabled",'placeholder'=>'Iddocentes')); 
+      echo form_input('iddocente',$docente['iddocente'],array("id"=>"iddocente","disabled"=>"disabled",'placeholder'=>'Iddocentes')); 
 		?>
 	</div> 
 </div>
@@ -51,7 +51,7 @@ if(isset($docente))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Persona: </label>
+    <label class="col-md-2 col-form-label"> Docente: </label>
      	<?php 
 
 
