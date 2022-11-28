@@ -11,6 +11,7 @@ class Silabo extends CI_Controller{
   	$this->load->model('asignatura_model');
   	$this->load->model('periodoacademico_model');
   	$this->load->model('evento_model');
+  	$this->load->model('docente_model');
   }
 
 //=========================================================
@@ -22,6 +23,7 @@ class Silabo extends CI_Controller{
 			$data['silabo']=$this->silabo_model->elultimo();
 			$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
   		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 			$data['title']="Lista de silaboes";
 			$this->load->view('template/page_header');
@@ -65,6 +67,7 @@ class Silabo extends CI_Controller{
 			$data['silabo'] = $this->silabo_model->silabo($this->uri->segment(3))->row_array();
   			$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   			$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  			$data['docentes']= $this->docente_model->lista_docentesA()->result();
 			$data['title'] = "Actualizar silabo";
 			$this->load->view('template/page_header');		
 			$this->load->view('silabo_edit',$data);

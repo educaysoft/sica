@@ -76,7 +76,16 @@ foreach ($periodoacademicos as $row){
 
 
 
+<tr>
+<td> Docente:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($docentes as $row){
+	$options[$row->iddocente]= $row->eldocente;
+}
 
+ echo form_dropdown("iddocente",$options, $docente['iddocente']);  ?></td>
+</tr>
 
 
 

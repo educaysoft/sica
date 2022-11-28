@@ -105,7 +105,19 @@ if(isset($silabo))
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Docente: ( <?php echo anchor('periodoacademico/actual/'.$silabo['idperiodoacademico'], 'Ver'); ?>):</label>
 
+	<div class="col-md-10">
+     <td><?php 
+    $options= array("NADA");
+    foreach ($docentes as $row){
+	      $options[$row->iddocente]= $row->eldocente;
+    }
+    echo form_input('iddocente',$options[$silabo['iddocente']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
 
 
 
