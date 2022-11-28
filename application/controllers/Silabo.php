@@ -236,6 +236,7 @@ public function actual()
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   if(!empty($data))
   {
     $data['title']="Silabo";
@@ -259,6 +260,7 @@ public function elprimero()
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   if(!empty($data))
   {
     $data['title']="Silabo";
@@ -279,6 +281,7 @@ public function elultimo()
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   if(!empty($data))
   {
     $data['title']="Silabo";
@@ -301,6 +304,7 @@ public function siguiente(){
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['title']="Silabo";
 	$this->load->view('template/page_header');		
   	$this->load->view('silabo_record',$data);
@@ -314,6 +318,7 @@ public function anterior(){
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['title']="Silabo";
 	$this->load->view('template/page_header');		
   	$this->load->view('silabo_record',$data);
