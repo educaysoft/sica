@@ -9,6 +9,7 @@ class Jornadadocente extends CI_Controller{
   	  $this->load->model('periodoacademico_model');
   	  $this->load->model('jornadadocente_model');
   	  $this->load->model('horariodocente_model');
+  	  $this->load->model('asignaturadocente_model');
 }
 
 public function index(){
@@ -17,7 +18,9 @@ public function index(){
 			
   	$data['jornadadocente']=$this->jornadadocente_model->lista_jornadadocentes()->row_array();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
+  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 			
