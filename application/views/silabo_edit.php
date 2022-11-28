@@ -84,7 +84,7 @@ foreach ($docentes as $row){
 	$options[$row->iddocente]= $row->eldocente;
 }
 
- echo form_dropdown("iddocente",$options, $docente['iddocente']);  ?></td>
+ echo form_dropdown("iddocente",$options, $silabo['iddocente']);  ?></td>
 </tr>
 
 
