@@ -174,7 +174,7 @@ $(document).ready(function(){
 
 
 
-$('#show_data').on('click','.item_ver',function(){
+$('#show_data1').on('click','.item_ver',function(){
 var id= $(this).data('idsilabo');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
