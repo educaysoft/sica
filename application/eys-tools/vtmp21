@@ -1,44 +1,23 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("asignaturadocente/save") ?>
-<?php echo form_hidden("idasignaturadocente")  ?>
+<?php echo form_open("nivelacademico/save") ?>
+<?php echo form_hidden("idnivelacademico")  ?>
 <table>
 
 
+
 <tr>
-<td> Horario Docente: </td>
-<td><?php 
-
-$options= array('--Select--');
-foreach ($horariodocentes as $row){
-	$options[$row->idhorariodocente]= $row->elhorariodocente;
-}
-
- echo form_dropdown("idhorariodocente",$options, set_select('--Select--','default_value'));  ?></td>
+<td> Número </td>
+<td><?php echo form_input("numero","", array("placeholder"=>"Numero de nivelacademico"))  ?></td>
 </tr>
 
-
-
 <tr>
-<td> Asignatura: </td>
-<td><?php 
-
-$options= array('--Select--');
-foreach ($asignaturas as $row){
-	$options[$row->idasignatura]= $row->nombre;
-}
-
- echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));  ?></td>
+<td> Nombre </td>
+<td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de nivelacademico"))  ?></td>
 </tr>
 
-
-
-
-
-
-
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("asignaturadocente","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("nivelacademico","Atras") ?> </td>
 </tr>
 
 </table>

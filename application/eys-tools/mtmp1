@@ -1,49 +1,33 @@
 <?php
-class Jornadadocente_model extends CI_model {
+class Paralelo_model extends CI_model {
 
-	function lista_asignaturadocentes(){
-		 $asignaturadocente= $this->db->get('asignaturadocente');
-		 return $asignaturadocente;
+	function lista_nivelacademicos(){
+		 $nivelacademico= $this->db->get('nivelacademico');
+		 return $nivelacademico;
 	}
 
-
-	function lista_asignaturadocentesA(){
-		 $asignaturadocente= $this->db->get('asignaturadocente1');
-		 return $asignaturadocente;
-	}
-
-
-
- 	function asignaturadocente( $id){
- 		$asignaturadocente = $this->db->query('select * from asignaturadocente where idasignaturadocente="'. $id.'"');
- 		return $asignaturadocente;
+ 	function nivelacademico( $id){
+ 		$nivelacademico = $this->db->query('select * from nivelacademico where idnivelacademico="'. $id.'"');
+ 		return $nivelacademico;
  	}
-
-
- 	function asignaturadocentespersona( $id){
- 		$asignaturadocente = $this->db->query('select * from asignaturadocente where idpersona="'. $id.'"');
- 		return $asignaturadocente;
- 	}
-
-
 
  	function save($array)
  	{
-		$this->db->insert("asignaturadocente", $array);
+		$this->db->insert("nivelacademico", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idasignaturadocente',$id);
- 		$this->db->update('asignaturadocente',$array_item);
+ 		$this->db->where('idnivelacademico',$id);
+ 		$this->db->update('nivelacademico',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idasignaturadocente',$id);
-		$this->db->delete('asignaturadocente');
+ 		$this->db->where('idnivelacademico',$id);
+		$this->db->delete('nivelacademico');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -54,7 +38,7 @@ class Jornadadocente_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idasignaturadocente")->get('asignaturadocente');
+		$query=$this->db->order_by("idnivelacademico")->get('nivelacademico');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -67,7 +51,7 @@ class Jornadadocente_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idasignaturadocente")->get('asignaturadocente');
+		$query=$this->db->order_by("idnivelacademico")->get('nivelacademico');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -79,37 +63,37 @@ class Jornadadocente_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$asignaturadocente = $this->db->select("idasignaturadocente")->order_by("idasignaturadocente")->get('asignaturadocente')->result_array();
-		$arr=array("idasignaturadocente"=>$id);
-		$clave=array_search($arr,$asignaturadocente);
-	   if(array_key_exists($clave+1,$asignaturadocente))
+ 		$nivelacademico = $this->db->select("idnivelacademico")->order_by("idnivelacademico")->get('nivelacademico')->result_array();
+		$arr=array("idnivelacademico"=>$id);
+		$clave=array_search($arr,$nivelacademico);
+	   if(array_key_exists($clave+1,$nivelacademico))
 		 {
 
- 		$asignaturadocente = $this->db->query('select * from asignaturadocente where idasignaturadocente="'. $asignaturadocente[$clave+1]["idasignaturadocente"].'"');
+ 		$nivelacademico = $this->db->query('select * from nivelacademico where idnivelacademico="'. $nivelacademico[$clave+1]["idnivelacademico"].'"');
 		 }else{
 
- 		$asignaturadocente = $this->db->query('select * from asignaturadocente where idasignaturadocente="'. $id.'"');
+ 		$nivelacademico = $this->db->query('select * from nivelacademico where idnivelacademico="'. $id.'"');
 		 }
 		 	
- 		return $asignaturadocente;
+ 		return $nivelacademico;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$asignaturadocente = $this->db->select("idasignaturadocente")->order_by("idasignaturadocente")->get('asignaturadocente')->result_array();
-		$arr=array("idasignaturadocente"=>$id);
-		$clave=array_search($arr,$asignaturadocente);
-	   if(array_key_exists($clave-1,$asignaturadocente))
+ 		$nivelacademico = $this->db->select("idnivelacademico")->order_by("idnivelacademico")->get('nivelacademico')->result_array();
+		$arr=array("idnivelacademico"=>$id);
+		$clave=array_search($arr,$nivelacademico);
+	   if(array_key_exists($clave-1,$nivelacademico))
 		 {
 
- 		$asignaturadocente = $this->db->query('select * from asignaturadocente where idasignaturadocente="'. $asignaturadocente[$clave-1]["idasignaturadocente"].'"');
+ 		$nivelacademico = $this->db->query('select * from nivelacademico where idnivelacademico="'. $nivelacademico[$clave-1]["idnivelacademico"].'"');
 		 }else{
 
- 		$asignaturadocente = $this->db->query('select * from asignaturadocente where idasignaturadocente="'. $id.'"');
+ 		$nivelacademico = $this->db->query('select * from nivelacademico where idnivelacademico="'. $id.'"');
 		 }
 		 	
- 		return $asignaturadocente;
+ 		return $nivelacademico;
  	}
 
 
