@@ -21,7 +21,7 @@ echo form_input($eys_arrinput); ?></td>
 <td><?php
 $options= array('--Select--');
 foreach ($horariodocentes as $row){
-	$options[$row->idhorariodocente]= $elhorariodocente;
+	$options[$row->idhorariodocente]= $row->elhorariodocente;
 }
 
  echo form_dropdown("idhorariodocente",$options, $asignaturadocente['idhorariodocente']);  ?></td>
