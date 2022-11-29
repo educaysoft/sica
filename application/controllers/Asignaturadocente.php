@@ -19,6 +19,7 @@ public function index(){
   	$data['asignaturadocente']=$this->asignaturadocente_model->lista_asignaturadocentes()->row_array();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 			
@@ -145,6 +146,7 @@ public function actual()
 	$data['asignaturadocente'] = $this->asignaturadocente_model->asignaturadocente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 	  if(!empty($data))
@@ -175,6 +177,7 @@ public function elprimero()
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 	$data['asignaturadocente'] = $this->asignaturadocente_model->elprimero();
+  		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 	  if(!empty($data))
@@ -196,6 +199,7 @@ public function elultimo()
 	$data['asignaturadocente'] = $this->asignaturadocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   if(!empty($data))
@@ -218,6 +222,7 @@ public function siguiente(){
  // $data['asignaturadocente_list']=$this->asignaturadocente_model->lista_asignaturadocente()->result();
 	$data['asignaturadocente'] = $this->asignaturadocente_model->siguiente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
+  		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
@@ -234,6 +239,7 @@ public function anterior(){
 	$data['asignaturadocente'] = $this->asignaturadocente_model->anterior($this->uri->segment(3))->row_array();
  	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   $data['title']="Asignaturadocente";
