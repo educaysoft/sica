@@ -67,6 +67,7 @@ public function edit()
 	 	$data['asignaturadocente'] = $this->asignaturadocente_model->asignaturadocente($this->uri->segment(3))->row_array();
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
   		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
  	 	$data['title'] = "Actualizar Asignaturadocente";
  	 	$this->load->view('template/page_header');		
