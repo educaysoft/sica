@@ -42,14 +42,7 @@ if(isset($paralelo))
 </div> 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Número:</label>
-	<div class="col-md-10">
-     <?php
-       echo form_input('numero',$paralelo['numero'],array('placeholder'=>'Numero del paralelo')); 
-	?>
-	</div> 
-</div>
+
 
 
 

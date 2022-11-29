@@ -6,10 +6,7 @@
 
 
 
-<tr>
-<td> Número </td>
-<td><?php echo form_input("numero","", array("placeholder"=>"Numero de paralelo"))  ?></td>
-</tr>
+
 
 <tr>
 <td> Nombre </td>

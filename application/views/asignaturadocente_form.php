@@ -33,7 +33,17 @@ foreach ($asignaturas as $row){
 
 
 
+<tr>
+<td> Paralelo: </td>
+<td><?php 
 
+$options= array('--Select--');
+foreach ($paralelos as $row){
+	$options[$row->idparalelo]= $row->nombre;
+}
+
+ echo form_dropdown("idparalelo",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
 
 
 

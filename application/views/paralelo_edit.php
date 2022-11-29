@@ -13,12 +13,7 @@ $eys_arrinput=array('name'=>'idparalelo','value'=>$paralelo['idparalelo'],'reado
 echo form_input($eys_arrinput); ?></td>
   </tr> 
 
-<tr>
-      <td>Numero:</td>
-      <td><?php
-$eys_arrinput=array('name'=>'numero','value'=>$paralelo['numero'], "style"=>"width:500px");
- echo form_input($eys_arrinput); ?></td>
-  </tr>
+
 
 
   <tr>

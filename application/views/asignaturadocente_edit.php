@@ -17,25 +17,37 @@ echo form_input($eys_arrinput); ?></td>
 
  
  <tr>
-<td> Persona:</td>
+<td> Horario docente:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->eldocente;
+foreach ($horariodocentes as $row){
+	$options[$row->idhorariodocente]= $elhorariodocente;
 }
 
- echo form_dropdown("iddocente",$options, $asignaturadocente['iddocente']);  ?></td>
+ echo form_dropdown("idhorariodocente",$options, $asignaturadocente['idhorariodocente']);  ?></td>
 </tr>
 
 <tr>
-<td> Periodo académico:</td>
+<td> Asignatura:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($periodoacademicos as $row){
-	$options[$row->idperiodoacademico]= $row->nombrecorto;
+foreach ($asignaturas as $row){
+	$options[$row->idasignatura]= $row->nombre;
 }
 
- echo form_dropdown("idperiodoacademico",$options, $asignaturadocente['idperiodoacademico']);  ?></td>
+ echo form_dropdown("idasignatura",$options, $asignaturadocente['idasignatura']);  ?></td>
+</tr>
+
+
+<tr>
+<td> Paralelo:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($paralelos as $row){
+	$options[$row->idparalelo]= $row->nombre;
+}
+
+ echo form_dropdown("idparalelo",$options, $asignaturadocente['idparalelo']);  ?></td>
 </tr>
 
 

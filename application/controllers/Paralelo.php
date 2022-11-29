@@ -36,7 +36,6 @@ public function  save()
 	 	$array_item=array(
 	 	'idparalelo' => $this->input->post('idparalelo'),
 	 	'nombre' => $this->input->post('nombre'),
-	 	'numero' => $this->input->post('numero'),
 	 	);
 	 	$this->paralelo_model->save($array_item);
 	 	redirect('paralelo');
@@ -62,7 +61,6 @@ public function edit()
 		 	
 		 	'idparalelo' => $this->input->post('idparalelo'),
 		 	'nombre' => $this->input->post('nombre'),
-	 		'numero' => $this->input->post('numero'),
 	 	);
 	 	$this->paralelo_model->update($id,$array_item);
 	 	redirect('paralelo');
