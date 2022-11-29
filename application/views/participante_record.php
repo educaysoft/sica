@@ -161,8 +161,10 @@ echo form_input('idparticipanteestado',$options[$participante['idparticipanteest
 	 <th>idevento</th>
 	 <th>fecha</th>
 	 <th>tema</th>
-	 <th>Asistencia</th>
-	 <th>Participación</th>
+	 <th>Asis</th>
+	 <th>Long</th>
+	 <th>Lati</th>
+	 <th>Parti</th>
 	 <th>Pagos</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>

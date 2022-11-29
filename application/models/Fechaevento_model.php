@@ -46,7 +46,7 @@ class Fechaevento_model extends CI_model {
 
 
 	function fechaeventos_AsisPart($idevento,$idpersona){
-		$fechaevento =$this->db->query('select fev.idevento,fecha,temacorto,(select idtipoasistencia from asistencia asi where asi.fecha=fev.fecha and  asi.idpersona='.$idpersona.' and asi.idevento=fev.idevento ) as asistencia, (select porcentaje from participacion par where par.fecha=fev.fecha and par.idpersona='.$idpersona.' and par.idevento=fev.idevento ) as participacion, (select valor from pagoevento pev where pev.fecha=fev.fecha and pev.idpersona='.$idpersona.' and pev.idevento=fev.idevento ) as pagos   from fechaevento fev where fev.idevento='.$idevento.' order by fecha');
+		$fechaevento =$this->db->query('select fev.idevento,fecha,temacorto,(select idtipoasistencia from asistencia asi where asi.fecha=fev.fecha and  asi.idpersona='.$idpersona.' and asi.idevento=fev.idevento ) as asistencia, (select longitud from asistencia asi where asi.fecha=fev.fecha and  asi.idpersona='.$idpersona.' and asi.idevento=fev.idevento ) as longitud,  (select latitud from asistencia asi where asi.fecha=fev.fecha and  asi.idpersona='.$idpersona.' and asi.idevento=fev.idevento ) as latitud, (select porcentaje from participacion par where par.fecha=fev.fecha and par.idpersona='.$idpersona.' and par.idevento=fev.idevento ) as participacion, (select valor from pagoevento pev where pev.fecha=fev.fecha and pev.idpersona='.$idpersona.' and pev.idevento=fev.idevento ) as pagos   from fechaevento fev where fev.idevento='.$idevento.' order by fecha');
 
  		return $fechaevento;
  	}
