@@ -8,6 +8,7 @@ class Participante extends CI_Controller{
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
       		$this->load->model('participanteestado_model');
+      		ethis->load->model('tipoparticipacion_model');
 	}
 
 	public function index(){
@@ -17,6 +18,7 @@ class Participante extends CI_Controller{
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['participante'] = $this->participante_model->elultimo();
 		$data['evento'] = $this->evento_model->evento($data['participante']['idevento'])->row_array();
+  		$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
 
  		// print_r($data['participante_list']);
   		$data['title']="Lista de Participantees";
