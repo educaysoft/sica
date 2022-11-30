@@ -181,11 +181,118 @@ echo form_input('idparticipanteestado',$options[$participante['idparticipanteest
 
 
 
+<form>
+	<div class="modal fade" id="Modal_Edit" tabindex="-1"  role="dialog" arias-labelledby="exampleModalLabel" aria-hidden="true" >
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Editar notas</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">idparticipacion</label>
+						<div class="col-md-10">
+							<input type="text" name="idparticipacion_edit" id="idparticipacion_edit" class="form-control" placeholder="idparticipacion">  
+						</div>
+					</div>					
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">idevento</label>
+						<div class="col-md-10">
+							<input type="text" name="idevento_edit" id="idevento_edit" class="form-control" placeholder="idevento">  
+						</div>
+					</div>					
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Fecha</label>
+						<div class="col-md-10">
+							<input type="text" name="fecha_edit" id="fecha_edit" class="form-control" placeholder="fecha">  
+						</div>
+					</div>					
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">idpersona</label>
+						<div class="col-md-10">
+							<input type="text" name="idpersona_edit" id="idpersona_edit" class="form-control" placeholder="idperaon">  
+						</div>
+					</div>					
+
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Alumno</label>
+						<div class="col-md-10">
+							<input type="text" name="lapersona_edit" id="lapersona_edit" class="form-control" placeholder="alumno">  
+						</div>
+					</div>					
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Porcentaje</label>
+						<div class="col-md-10">
+							<input type="text" name="porcentaje_edit" id="porcentaje_edit" class="form-control" placeholder="porcentaje">  
+						</div>
+					</div>					
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Ayuda</label>
+						<div class="col-md-10">
+							<input type="text" name="ayuda_edit" id="ayuda_edit" class="form-control" placeholder="Ayuda">  
+						</div>
+					</div>					
+										
+					<div class="form-group row">
+					<label class="col-md-2 col-form-label"> Comentario:</label>
+					<div class="col-md-10">
+					<?php
+					$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"comentario",'id'=>'comentario_edit' );
+					echo form_textarea("comentario_edit","",$textarea_options);
+
+					?>
+					</div>
+					</div>
+
+
+					<div class="form-group row">
+					<label class="col-md-2 col-form-label">Tipo participacion:</label>
+					<div class="col-md-10">
+					<?php
+					//print_r($tipoparticipacions);
+					$options= array('--Select--');
+					foreach ($tipoparticipacion as $row){
+						$options[$row->idtipoparticipacion]= $row->nombre;
+					}
+					 echo form_dropdown("idtipoparticipacion_edit",$options, set_select('--Select--','default_value'),array('id'=>'idtipoparticipacion_edit'));  
+
+					?>
+					</div>
+					</div>
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="submit" id="btn_update" class="btn btn-primary">Guardar</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+</form>
+
+
+
+
 
 <?php echo form_close(); ?>
 
 
 <script type="text/javascript">
+
+
 
 
 
@@ -195,6 +302,63 @@ $(document).ready(function(){
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechasAsisPartPago')?>', type: 'GET',data:{idevento:idevento,idpersona:idpersona}},});
 });
 
+$('#show_data').on('click','.item_ver',function(){
+var idevento= $(this).data('idevento');
+var fecha= $(this).data('fecha');
+get_participacion_xx(idevento,fecha);
+//var retorno= $(this).data('retorno');
+//window.location.href = retorno+'/'+id;
+
+});
+
+
+function get_participacion_xx(ide,f) {
+	var fecha=f;
+	var idevento=ide;
+	var idpersona= document.getElementById("idpersona").value;
+//	var idpersona=document.getElementById("idpersona").value;
+	idpersona=parseInt(idpersona);
+    $.ajax({
+        url: "<?php echo site_url('participacion/get_participacion') ?>",
+        data: {idevento:idevento,fecha:fecha,idpersona:idpersona},
+        method: 'POST',
+        async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+	var comentario="";
+        var i;
+	$('#Modal_Edit').modal('show');
+        if(data.length!=1){
+          $('[name="idparticipacion_edit"]').val(0);
+          $('[name="idevento_edit"]').val(idevento);
+          $('[name="fecha_edit"]').val(fecha);
+          $('[name="lapersona_edit"]').val("");
+          $('[name="idpersona_edit"]').val(idpersona);
+          $('[name="porcentaje_edit"]').val("");
+          $('[name="comentario_edit"]').val("");
+          $('[name="ayuda_edit"]').val("");
+          $('[name="idtipoparticipacion_edit"]').val("");
+        }else{
+          $('[name="idparticipacion_edit"]').val(data[0].idparticipacion);
+          $('[name="idevento_edit"]').val(data[0].idevento);
+          $('[name="fecha_edit"]').val(data[0].fecha);
+          $('[name="lapersona_edit"]').val(data[0].nombres);
+          $('[name="idpersona_edit"]').val(data[0].idpersona);
+          $('[name="comentario_edit"]').val(data[0].comentario);
+          $('[name="porcentaje_edit"]').val(data[0].porcentaje);
+          $('[name="ayuda_edit"]').val(data[0].ayuda);
+          $('[name="idtipoparticipacion__edit"]').val(data[0].idtipoparticipacion);
+        }
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
 
 
 
