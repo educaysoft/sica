@@ -33,6 +33,7 @@ public function actual(){
  
    $data['documentos']= $this->documento_model->lista_documentos()->result();
   $data['eventos']= $this->evento_model->lista_eventos()->result();
+	$data['tipoparticipacion']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
 
 
   		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
