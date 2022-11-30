@@ -8,7 +8,7 @@ class Participante extends CI_Controller{
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
       		$this->load->model('participanteestado_model');
-      		ethis->load->model('tipoparticipacion_model');
+      		$this->load->model('tipoparticipacion_model');
 	}
 
 	public function index(){
