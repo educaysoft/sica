@@ -324,10 +324,10 @@ public function anterior(){
 public function get_participantes() {
     $this->load->database();
     $this->load->helper('form');
-    if($this->input->post('idevento')) 
+    if($this->input->get('idevento')) 
     {
         $this->db->select('*');
-        $this->db->where(array('idevento' => $this->input->post('idevento')));
+        $this->db->where(array('idevento' => $this->input->get('idevento')));
         $query = $this->db->get('participante1');
 	$data=$query->result();
 	echo json_encode($data);

@@ -118,7 +118,7 @@ echo form_textarea("comentario","",$textarea_options);
 	    $.ajax({
 		url: "<?php echo site_url('asistencia/get_participantes') ?>",
 		data: {idevento:idevento},
-		method: 'POST',
+		method: 'GET',
 		async : true,
 		dataType : 'json',
 		success: function(data){
