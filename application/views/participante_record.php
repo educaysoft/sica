@@ -404,7 +404,7 @@ $("#btn_update").on("click", function(){
         success: function(data){
         var html = '';
         var i;
-        get_participantes2();
+       // get_participantes2();
 	$("#Modal_Edit").modal("hide");
         alert("Se guardo con exito");
         },

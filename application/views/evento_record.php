@@ -145,7 +145,7 @@ echo form_input($arrdatos) ?>
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fechas ( <?php echo anchor('fechaevento/add/'.$evento['idevento'], 'New'); ?>):</label>
 	<div class="col-md-10">
-	<div class="row justify-content-center">
+	<div class="row justify-content-left">
       	<!-- Page Heading -->
  	<div class="row">
   	<div class="col-12">
@@ -245,7 +245,7 @@ echo form_input($arrdatos) ?>
     <label class="col-md-2 col-form-label"> <?php echo anchor('participante/add', 'Participante'); ?>:</label>
 	<div class="col-md-10">
  
-<div class="row justify-content-center">
+<div class="row justify-content-left">
       <!-- Page Heading -->
  <div class="row">
   <div class="col-12">
