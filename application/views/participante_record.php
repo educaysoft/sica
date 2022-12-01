@@ -376,6 +376,50 @@ function get_participacion_xx(ide,f,p) {
 }
 
 
+//function save_nota() {
+$("#btn_update").on("click", function(){
+	var f = document.getElementById("idfechaevento");
+  	var arrtmp=f.options[f.selectedIndex].text;
+	const x=arrtmp.split(" - ");
+	var fecha=x[0];
+//	var idparticipacion=document.getElementById("idparticipacion_edit").value;
+	var fecha=document.getElementById("fecha_edit").value;
+	var idevento=document.getElementById("idevento_edit").value;
+	var porcentaje=document.getElementById("porcentaje_edit").value;
+	var comentario=document.getElementById("comentario_edit").value;
+	var ayuda=document.getElementById("ayuda_edit").value;
+	var idtipoparticipacion=document.getElementById("idtipoparticipacion_edit").value;
+	//var idpersona= $('select[name=idpersona]').val();
+	var idpersona = document.getElementById("idpersona_edit").value;
+       // var idpersona=p.options[p.selectedIndex].value;
+    $.ajax({
+        url: "<?php echo site_url('participacion/save_nota') ?>",
+        data: {idevento:idevento, fecha:fecha,porcentaje:porcentaje,comentario:comentario,idpersona:idpersona,idtipoparticipacion:idtipoparticipacion, ayuda:ayuda},
+        method: 'POST',
+        async : false,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        get_participantes2();
+	$("#Modal_Edit").modal("hide");
+        alert("Se guardo con exito");
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+    return false;
+
+});
+
+
+
+
+
+
 
 function verpdf(){
 
