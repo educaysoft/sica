@@ -378,10 +378,13 @@ function get_participacion_xx(ide,f,p) {
 
 //function save_nota() {
 $("#btn_update").on("click", function(){
-	var f = document.getElementById("idfechaevento");
-  	var arrtmp=f.options[f.selectedIndex].text;
-	const x=arrtmp.split(" - ");
-	var fecha=x[0];
+
+
+//	var f = document.getElementById("idfechaevento");
+  //	var arrtmp=f.options[f.selectedIndex].text;
+//	const x=arrtmp.split(" - ");
+//	var fecha=x[0];
+	var f=$('#show_data').data(fecha);
 //	var idparticipacion=document.getElementById("idparticipacion_edit").value;
 	var fecha=document.getElementById("fecha_edit").value;
 	var idevento=document.getElementById("idevento_edit").value;
