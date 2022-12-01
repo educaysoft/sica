@@ -96,7 +96,7 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
 
-echo form_input('nombre',$options[$participante['idpersona']],array("disabled"=>"disabled","style"=>"width:500px"));
+echo form_input('nombre',$options[$participante['idpersona']],array("id"=>"nombre","disabled"=>"disabled","style"=>"width:500px"));
 		?>
 	</div> 
 </div> 
@@ -317,17 +317,20 @@ $(document).ready(function(){
 $('#show_data').on('click','.item_ver',function(){
 var idevento= $(this).data('idevento');
 var fecha= $(this).data('fecha');
-get_participacion_xx(idevento,fecha);
+var p= $(this).data('participacion');
+get_participacion_xx(idevento,fecha,p);
 //var retorno= $(this).data('retorno');
 //window.location.href = retorno+'/'+id;
 
 });
 
 
-function get_participacion_xx(ide,f) {
+function get_participacion_xx(ide,f,p) {
 	var fecha=f;
+	var participacion=p;
 	var idevento=ide;
 	var idpersona= document.getElementById("idpersona").value;
+	var nombre= document.getElementById("nombre").value;
 //	var idpersona=document.getElementById("idpersona").value;
 	idpersona=parseInt(idpersona);
     $.ajax({
@@ -345,9 +348,9 @@ function get_participacion_xx(ide,f) {
           $('[name="idparticipacion_edit"]').val(0);
           $('[name="idevento_edit"]').val(idevento);
           $('[name="fecha_edit"]').val(fecha);
-          $('[name="lapersona_edit"]').val("");
+          $('[name="lapersona_edit"]').val(nombre);
           $('[name="idpersona_edit"]').val(idpersona);
-          $('[name="porcentaje_edit"]').val("");
+          $('[name="porcentaje_edit"]').val(participacion);
           $('[name="comentario_edit"]').val("");
           $('[name="ayuda_edit"]').val("");
           $('[name="idtipoparticipacion_edit"]').val("");

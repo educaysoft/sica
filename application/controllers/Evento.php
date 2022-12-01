@@ -300,7 +300,7 @@ public function index(){
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idevento,$r->fecha,$r->temacorto,$r->asistencia,$r->longitud,$r->latitud,$r->participacion,$r->pagos,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'"  data-fecha="'.$r->fecha.'"  >Part</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'"  data-fecha="'.$r->fecha.'"  data-participacion="'.$r->participacion.'"   >Part</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
