@@ -18,6 +18,7 @@ $posi_nomb_x=$_POST["posi_nomb_x"];
 $posi_nomb_y=$_POST["posi_nomb_y"];
 
 $ancho_x=$_POST["ancho_x"];
+$alto_y=$_POST["alto_y"];
 
 
 $posi_codigo_x=$_POST["posi_codigo_x"];
@@ -69,9 +70,15 @@ echo $pageCount;
 for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	$tplId = $pdf->importPage($pageNo);
 	//$pdf->useTemplate($tplId, 20, 10, 200);
-
+	
+	if ($ancho_x>$alto_y)
+	{
 	$pdf->AddPage('L',[296.67,210.56]);
-	//El tamaño se acopa al tamaño del template
+	}else{
+	$pdf->AddPage('P',[$ancho_x,$alto_y]);
+	}
+
+//El tamaño se acopa al tamaño del template
 	//$pdf->AddPage('L', array($size['w'], $size['h']));
 	// use the imported page and place it at point 10,10 with a width of 100 mm
 

@@ -1,3 +1,15 @@
+<style>
+.modal.face .modal-dialog{
+	transform: translate3d(0,100vh,0);
+}
+
+.modal.in .modal-dialog{
+	transform: translate3d(0,0,0);
+}
+
+</style>
+
+
 <div id="eys-nav-i">
 
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>

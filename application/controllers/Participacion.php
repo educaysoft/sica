@@ -14,7 +14,7 @@ class Participacion extends CI_Controller{
 	public function index(){
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+  		$data['tipoparticipacion']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
 		$data['participacion'] = $this->participacion_model->elultimo();
 
  		// print_r($data['participacion_list']);
@@ -304,7 +304,7 @@ public function actual()
   {
 	$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-	$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+	$data['tipoparticipacion']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
     $data['title']="Participacion del documento";
     $this->load->view('template/page_header');		
     $this->load->view('participacion_record',$data);
