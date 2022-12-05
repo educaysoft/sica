@@ -110,6 +110,17 @@ $('#show_data').on('click','.item_ver',function(){
 
 
 
+$('#show_data').on('click','.item_ver2',function(){
+
+	var id= $(this).data('idevento2');
+	var retorno= $(this).data('retorno2');
+	window.location.href = retorno+'/'+id;
+
+});
+
+
+
+
 var idevento_estado=0;
 function filtra_evento()
 {
