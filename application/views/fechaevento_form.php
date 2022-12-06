@@ -27,7 +27,12 @@ foreach ($eventos as $row){
 <div class="col-md-10">
 <?php
 
- echo form_input(array("name"=>"fecha","id"=>"fecha","type"=>"date"));  
+   date_default_timezone_set('America/Guayaquil');
+    $date = date("Y-m-d");
+    $hora= date("H:i:s");
+
+
+ echo form_input(array("name"=>"fecha","id"=>"fecha","type"=>"date","value"=>$date));  
 
 ?>
 </div>
