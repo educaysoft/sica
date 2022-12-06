@@ -53,6 +53,7 @@ class Tema extends CI_Controller{
 	 	'idunidadsilabo' => $this->input->post('idunidadsilabo'),
 	 	'fechaimpartida' => $this->input->post('fechaimpartida'),
 	 	'duracionminutos' => $this->input->post('duracionminutos'),
+		 	'numerosesion' => $this->input->post('numerosesion'),
 	 	);
 	 	$this->tema_model->save($array_item);
 	 	redirect('tema');
@@ -85,6 +86,7 @@ class Tema extends CI_Controller{
 	 		'fechaimpartida' => $this->input->post('fechaimpartida'),
 	 		'duracionminutos' => $this->input->post('duracionminutos'),
 		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
+		 	'numerosesion' => $this->input->post('numerosesion'),
 	 	);
 	 	$this->tema_model->update($id,$array_item);
 	 	redirect('tema/actual/'.$id);
