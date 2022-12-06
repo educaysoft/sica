@@ -19,7 +19,7 @@ function lista_temas1($idunidadsilabo){
 
 
  	function temas( $idunidadsilabo){
- 		$tema = $this->db->query('select * from tema where idunidadsilabo="'. $idunidadsilabo.'"');
+ 		$tema = $this->db->query('select * from tema where idunidadsilabo="'. $idunidadsilabo.'" order by fechaimpartida');
  		return $tema;
  	}
 
