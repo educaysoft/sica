@@ -102,6 +102,16 @@ if(isset($tema))
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Número de sesión:</label>
+	<div class="col-md-10">
+		<?php
+       echo form_input('numerosesion',$tema['numerosesion'],array('placeholder'=>'número de sisión','style'=>'width:50px;'));
+		?>
+	</div> 
+</div>
+
+
 
 
 <div class="form-group row">
