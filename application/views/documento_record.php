@@ -4,25 +4,23 @@
 <?php
 if(isset($documento))
 {
-
-$permitir=0;
-$j=0;
-		$numero=$j;
-if(isset($this->session->userdata['acceso'])){
-  foreach($this->session->userdata['acceso'] as $row)
-	    {
-		if("documento"==$row["modulo"]["nombre"]);
-		{
-			$numero=$j;
-			$permitir=1;
-		}	
-		$j=$j+1;
-	    } 
-}
-if($permitir==0){
-
-redirect('login/logout');
-}
+	$permitir=0;
+	$j=0;
+	$numero=$j;
+	if(isset($this->session->userdata['acceso'])){
+  		foreach($this->session->userdata['acceso'] as $row)
+	    	{
+			if("documento"==$row["modulo"]["nombre"]);
+			{
+				$numero=$j;
+				$permitir=1;
+			}		
+			$j=$j+1;
+	    	} 
+	}
+	if($permitir==0){
+		redirect('login/logout');
+	}
 
 
 

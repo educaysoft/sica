@@ -4,15 +4,53 @@
 <?php
 if(isset($evento))
 {
+
+	$permitir=0;
+	$j=0;
+	$numero=$j;
+	if(isset($this->session->userdata['acceso'])){
+  		foreach($this->session->userdata['acceso'] as $row)
+	    	{
+			if("evento"==$row["modulo"]["nombre"]);
+			{
+				$numero=$j;
+				$permitir=1;
+			}		
+			$j=$j+1;
+	    	} 
+	}
+	if($permitir==0){
+		redirect('login/logout');
+	}
+
 ?>
 	<li> <?php echo anchor('evento/elprimero/', 'primero'); ?></li>
         <li> <?php echo anchor('evento/siguiente/'.$evento['idevento'], 'siguiente'); ?></li>
         <li> <?php echo anchor('evento/anterior/'.$evento['idevento'], 'anterior'); ?></li>
         <li style="border-right:1px solid green"><?php echo anchor('evento/elultimo/', 'Último'); ?></li>
+
+	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['create']){ ?>
         <li> <?php echo anchor('evento/add', 'Nuevo'); ?></li>
+	<?php } ?>
+
+
+	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['update']){ ?>
         <li> <?php echo anchor('evento/edit/'.$evento['idevento'],'Edit'); ?></li>
+	<?php } ?>
+
+	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['delete']){ ?>
         <li style="border-right:1px solid green"> <?php echo anchor('evento/delete/'.$evento['idevento'],'Delete'); ?></li>
+	<?php } ?>
+
+	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['read']){ ?>
         <li> <?php echo anchor('evento/listar/','Eventos'); ?></li>
+	<?php } ?>
+
+
+	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['read']){ ?>
+        <li style="border-right:1px solid green"> <?php echo anchor('evento/detalle/'.$evento['idevento'],'Detalles'); ?></li>
+	<?php } ?>
+
         <li> <?php echo anchor('evento/listar_participantes/'.$evento['idevento'],'Certificados'); ?></li>
         <li> <?php echo anchor('asistencia/add/'.$evento['idevento'],'Asistencias'); ?></li>
         <li> <?php echo anchor('participacion/add/'.$evento['idevento'],'Participacion'); ?></li>
