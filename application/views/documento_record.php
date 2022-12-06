@@ -34,8 +34,13 @@ if(isset($this->session->userdata['acceso'])){
 	<?php } ?>
         <li> <?php echo anchor('documento/edit/'.$documento['iddocumento'],'Edit'); ?></li>
 
+	<?php
+	if($this->session->userdata['acceso'][$numero]['nivelacceso']['delete']){ ?>
+
         <li style="border-right:1px solid green"> <?php echo anchor('documento/delete/'.$documento['iddocumento'],'Delete'); ?></li>
-        <li> <?php echo anchor('documento/listar/','Listar'); ?></li>
+	<?php } ?>
+	
+<li> <?php echo anchor('documento/listar/','Listar'); ?></li>
         <li> <?php echo "<a onclick='verpdf()'>Ver PDF</a>" ?></li>
 
 
