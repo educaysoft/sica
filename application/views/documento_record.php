@@ -32,7 +32,13 @@ if(isset($this->session->userdata['acceso'])){
 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['create']){ ?>
         <li> <?php echo anchor('o/add', 'Nuevo'); ?></li>
 	<?php } ?>
+
+
+	<?php
+	if($this->session->userdata['acceso'][$numero]['nivelacceso']['edit']){ ?>
+
         <li> <?php echo anchor('documento/edit/'.$documento['iddocumento'],'Edit'); ?></li>
+	<?php } ?>
 
 	<?php
 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['delete']){ ?>
@@ -40,7 +46,13 @@ if(isset($this->session->userdata['acceso'])){
         <li style="border-right:1px solid green"> <?php echo anchor('documento/delete/'.$documento['iddocumento'],'Delete'); ?></li>
 	<?php } ?>
 	
-<li> <?php echo anchor('documento/listar/','Listar'); ?></li>
+	<?php
+	if($this->session->userdata['acceso'][$numero]['nivelacceso']['read']){ ?>
+		<li> <?php echo anchor('documento/listar/','Listar'); ?></li>
+	<?php } ?>
+
+
+
         <li> <?php echo "<a onclick='verpdf()'>Ver PDF</a>" ?></li>
 
 
