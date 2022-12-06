@@ -29,8 +29,10 @@ foreach ($eventos as $row){
 
    date_default_timezone_set('America/Guayaquil');
     $date = date("Y-m-d");
-    $hora= date("H:i:s");
+    $horai= date("H:i:s");
+    
 
+    $horaf= date("H:i:s",strtotime(' + 2 hours'));
 
  echo form_input(array("name"=>"fecha","id"=>"fecha","type"=>"date","value"=>$date));  
 
@@ -106,7 +108,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div class="col-md-10">
 <?php
 
- echo form_input(array("name"=>"horainicio","id"=>"horainicio","type"=>"time","value"=>$hora));  
+ echo form_input(array("name"=>"horainicio","id"=>"horainicio","type"=>"time","value"=>$horai));  
 
 ?>
 </div>
@@ -118,7 +120,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div class="col-md-10">
 <?php
 
- echo form_input(array("name"=>"horafin","id"=>"horafin","type"=>"time"));  
+ echo form_input(array("name"=>"horafin","id"=>"horafin","type"=>"time","value"=>$horaf));  
 
 ?>
 </div>
