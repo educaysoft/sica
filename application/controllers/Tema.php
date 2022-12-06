@@ -83,6 +83,7 @@ class Tema extends CI_Controller{
 		 	'nombrelargo' => $this->input->post('nombrelargo'),
 	 		'idunidadsilabo' => $this->input->post('idunidadsilabo'),
 	 		'fechaimpartida' => $this->input->post('fechaimpartida'),
+	 		'duracionminutos' => $this->input->post('duracionminutos'),
 		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
 	 	);
 	 	$this->tema_model->update($id,$array_item);
