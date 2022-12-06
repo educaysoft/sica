@@ -44,6 +44,32 @@ foreach ($unidadsilabos as $row){
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha impartida:</label>
+	<div class="col-md-10">
+
+      <?php echo form_input( array("name"=>'fechaimpartida',"id"=>'fechaimpartida',"value"=>$tema['fechaimpartida'],'type'=>'date','placeholder'=>'fecha impartida'));
+
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Duración (minutos):</label>
+	<div class="col-md-10">
+		<?php
+$eys_arrinput=array('name'=>'duracionminutos','value'=>$tema['duracionminutos'], "style"=>"width:100px");
+ echo form_input($eys_arrinput);
+		?>
+	</div> 
+</div>
+
+
+
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Video tutorial:</label>
 	<div class="col-md-10">
 		<?php

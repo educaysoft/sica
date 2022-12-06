@@ -58,6 +58,32 @@ foreach ($silabos as $row){
 </div>
 
 <div class="form-group row">
+<label class="col-md-2 col-form-label">Fecha impartida:</label>
+<div class="col-md-10">
+<?php
+
+
+ echo form_input(array("name"=>"fechaimpartida","id"=>"fechaimpartida","type"=>"date"));  
+
+?>
+</div>
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Duración (minutos):</label>
+	<div class="col-md-10">
+		<?php
+ echo form_input("duracionminutos","", array("placeholder"=>"Duracion en minutos",'style'=>'width:100px;'));
+		?>
+	</div> 
+</div>
+
+
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Videotutorial:</label>
 	<div class="col-md-10">
 	<?php

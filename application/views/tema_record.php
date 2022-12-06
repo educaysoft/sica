@@ -81,6 +81,28 @@ if(isset($tema))
 	</div> 
 </div>
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha impartida:</label>
+	<div class="col-md-10">
+		<?php
+      		 echo form_input('fechaimpartida',$tema['fechaimpartida'],array('type'=>'date','placeholder'=>'fecha impartida','style'=>'width:500px;')) 
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Duración (minutos):</label>
+	<div class="col-md-10">
+		<?php
+       echo form_input('duracionminutos',$tema['duracionminutos'],array('placeholder'=>'duracion minutos','style'=>'width:100px;'));
+		?>
+	</div> 
+</div>
+
+
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id videotutorial:</label>
