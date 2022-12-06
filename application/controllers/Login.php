@@ -132,26 +132,25 @@ public function new_user_registration() {
           if ($result == TRUE) {
 		if($fuente==0)  
 		{
-            		  $data['message_display'] = 'Registration Successfully !';
-             		 $this->load->view('template/page_header.php');
+            		$data['message_display'] = 'Registration Successfully !';
+             		$this->load->view('template/page_header.php');
               		$this->load->view('login_form', $data);
-             		 $this->load->view('template/page_footer.php');
+             		$this->load->view('template/page_footer.php');
 		}else{
 			echo json_encode(array('resultado'=>$result));
 		}
           } else {
 		if($fuente==0)  
 		{
-		  
-            $data['perfiles']= $this->perfil_model->lista_perfiles()->result();
-            $data['message_display'] = 'Username already exist!';
-            //$data['programa_list'] = $this->programa_model->list_programa()->result();
-            $data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-            $data['eventos']= $this->evento_model->lista_eventos()->result();
-             $this->load->view('template/page_header.php');
-          //$this->load->view('registration_form', $data);
-          $this->load->view('registration_form',$data);
-             $this->load->view('template/page_footer.php');
+            		$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
+            		$data['message_display'] = 'Username already exist!';
+            		//$data['programa_list'] = $this->programa_model->list_programa()->result();
+            		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+            		$data['eventos']= $this->evento_model->lista_eventos()->result();
+             		$this->load->view('template/page_header.php');
+         		 //$this->load->view('registration_form', $data);
+          		$this->load->view('registration_form',$data);
+             		$this->load->view('template/page_footer.php');
 		}else{
 			echo json_encode(array('resultado'=>$result));
 		}
@@ -285,8 +284,7 @@ if ($result == TRUE) {
 	// Se busca la información del dueño del usuario.
 		$result2 = $this->login_model->get_persona($result[0]->idpersona);
 		if ($result2 != false) {
-		     
-      $resulti = $this->institucion_model->get_institucion($result[0]->idinstitucion);
+      			$resulti = $this->institucion_model->get_institucion($result[0]->idinstitucion);
 			$session_data = array(
 				'email' => $result[0]->email,
 				'idusuario' => $result[0]->idusuario,
@@ -306,8 +304,6 @@ if ($result == TRUE) {
 			$accesos = array();
 			foreach($result3 as $row)
 			{
-
-
 				$elmodulo = $this->modulo_model->modulo($row->idmodulo);
 				if ($elmodulo != false)
 				{
@@ -347,23 +343,25 @@ if ($result == TRUE) {
 		{
 			redirect('Principal'); 
 		}else{		
-   date_default_timezone_set('America/Guayaquil');
-    $date = date("Y-m-d");
-    $hora= date("H:i:s");
-    $asistencia=array('idpersona'=>$result[0]->idpersona,'idevento'=>$result[0]->idevento,'fecha'=>$date,'hora'=>$hora,'idtipoasistencia'=>1,'comentario'=>"INGRESO AL SISTEMA");
-    $idasistencia=$this->asistencia_model->save($asistencia);
-    		print_r($asistencia);
-    		echo $idasistencia;
-    		if($idasistencia !=1 && $idasistencia !=0 && $idasistencia >1)
-		{
-			$data['title']="Uste esta visualizando Documentos por registro";
-			$data['idasistencia']= $idasistencia;
+   			date_default_timezone_set('America/Guayaquil');
+    			$date = date("Y-m-d");
+    			$hora= date("H:i:s");
+    			$asistencia=array('idpersona'=>$result[0]->idpersona,'idevento'=>$result[0]->idevento,'fecha'=>$date,'hora'=>$hora,'idtipoasistencia'=>1,'comentario'=>"INGRESO AL SISTEMA");
+    			$idasistencia=$this->asistencia_model->save($asistencia);
+    		//	print_r($asistencia);
+    		//	echo $idasistencia;
+			if($idasistencia !=1 && $idasistencia !=0 && $idasistencia >1)
+			{
+				$data['title']="Uste esta visualizando Documentos por registro";
+				$data['idasistencia']= $idasistencia;
 
-	 $this->load->view('template/page_header.php');
-		$this->load->view('asistencia_geolocal',$data);
-	 $this->load->view('template/page_footer.php');
-		}
-		     $moduloinicio=$this->session->userdata['logged_in']['inicio'];	
+				 $this->load->view('template/page_header.php');
+				$this->load->view('asistencia_geolocal',$data);
+				$this->load->view('template/page_footer.php');
+			}
+		   	  $moduloinicio=$this->session->userdata['logged_in']['inicio'];	
+			echo $moduloinicio;
+			die();
 			redirect($moduloinicio); 
 		}
 		//	redirect('aspirante/add'); 
