@@ -5,7 +5,7 @@
 if(isset($documento))
 {
 
-
+$permitir=0
 $j=0;
 		$numero=$j;
 if(isset($this->session->userdata['acceso'])){
@@ -14,10 +14,16 @@ if(isset($this->session->userdata['acceso'])){
 		if("documento"==$row["modulo"]["nombre"]);
 		{
 			$numero=$j;
+			$permitir=1;
 		}	
 		$j=$j+1;
 	    } 
 }
+if($permitir==0){
+
+redirect('login/logout');
+}
+
 
 
 
@@ -30,7 +36,7 @@ if(isset($this->session->userdata['acceso'])){
 	<?php
        
 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['create']){ ?>
-        <li> <?php echo anchor('o/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('documento/add', 'Nuevo'); ?></li>
 	<?php } ?>
 
 
