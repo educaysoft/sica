@@ -5,7 +5,7 @@
 if(isset($documento))
 {
 
-$permitir=0
+$permitir=0;
 $j=0;
 		$numero=$j;
 if(isset($this->session->userdata['acceso'])){
