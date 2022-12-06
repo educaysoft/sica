@@ -35,9 +35,9 @@ if(isset($this->session->userdata['acceso'])){
 
 
 	<?php
-	if($this->session->userdata['acceso'][$numero]['nivelacceso']['edit']){ ?>
+	if($this->session->userdata['acceso'][$numero]['nivelacceso']['update']){ ?>
 
-        <li> <?php echo anchor('documento/edit/'.$documento['iddocumento'],'read'); ?></li>
+        <li> <?php echo anchor('documento/edit/'.$documento['iddocumento'],'Edit'); ?></li>
 	<?php } ?>
 
 	<?php
