@@ -11,7 +11,7 @@ foreach ($periodoacademicos as $row){
 	$options[$row->idperiodoacademico]= $row->nombrecorto;
 }
 
- echo form_dropdown($name="idperiodoacademico",$options, set_select('--Select--','default_value'),array('id'=>'idperiodoacademico','onchange'=>'get_periodoacademico()'));  
+ echo form_dropdown($name="idperiodoacademico",$options, set_select('--Select--','default_value'),array('id'=>'idperiodoacademico'));  
 		?>
 	</div> 
 </div>
