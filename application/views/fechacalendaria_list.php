@@ -44,13 +44,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	<?php
 		$options= array('--Select--');
 		foreach ($fechacalendarias as $row){
-			$options[$row->idunidadsilabo]= $row->elsilabo;
+			$options[$row->idperiodoacademico]= $row->elperiodoacademico;
 		}
 	?>
 
 	<div class="col-md-10">
 		<?php
-     			echo form_dropdown("idsilabo",$options[$filtro], set_select('--Select--','default_value'),array('onchange'=>'filtra_silabo'));  
+     			echo form_dropdown("idperiodoacademico",$options[$filtro], set_select('--Select--','default_value'),array('onchange'=>'filtra_periodoacademico'));  
 		?>
 	</div>
 	</div>
@@ -96,8 +96,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var idunidadsilabo = document.getElementById("filtro").innerHTML;
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('fechacalendaria/fechacalendaria_data')?>', type: 'GET',data:{idunidadsilabo:idunidadsilabo}},});
+	var idperiodoacademico = document.getElementById("filtro").innerHTML;
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('fechacalendaria/fechacalendaria_data')?>', type: 'GET',data:{idperiodoacademico:idperiodoacademico}},});
 
 });
 
