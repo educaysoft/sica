@@ -33,31 +33,31 @@ if(isset($jornadadocente))
 <?php echo form_hidden('idjornadadocente',$jornadadocente['idjornadadocente']) ?>
 <table>
   <tr>
-     <td>Id HoarioDocente:</td>
+     <td>Id JornadaDocente:</td>
      <td><?php echo form_input('idjornadadocente',$jornadadocente['idjornadadocente'],array("disabled"=>"disabled",'placeholder'=>'Idjornadadocentes')) ?></td>
   </tr>
  
  
 <tr>
-     <td>HoaridoDocente:</td>
+     <td>AsignaturaDocente:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($horariodocentes as $row){
-	$options[$row->idhorariodocente]= $row->elhorariodocente;
+foreach ($asignaturadocentes as $row){
+	$options[$row->idasignaturadocente]= $row->laasignatura;
 }
 
-echo form_input('idhorariodocente',$options[$jornadadocente['idhorariodocente']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+echo form_input('idasignaturadocente',$options[$jornadadocente['idasignaturadocente']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
   </tr>
  
 
  <tr>
-     <td>Asignatura:</td>
+     <td>Dia semana:</td>
      <td><?php 
     $options= array("NADA");
-    foreach ($asignaturas as $row){
-	      $options[$row->idasignatura]= $row->nombre;
+    foreach ($diasemanas as $row){
+	      $options[$row->iddiasemana]= $row->nombre;
     }
-    echo form_input('idasignatura',$options[$jornadadocente['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+    echo form_input('iddiasemana',$options[$jornadadocente['iddiasemana']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
   
 
