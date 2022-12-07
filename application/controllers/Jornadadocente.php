@@ -20,7 +20,7 @@ public function index(){
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
   	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['diasemanas']= $this->diasemana_model->lista_diasemana()->result();
+  	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 			
 		$data['title']="Lista de jornadadocentes";
