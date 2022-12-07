@@ -18,7 +18,7 @@ class Fechacalendaria extends CI_Controller{
 	public function index(){
 		if(isset($this->session->userdata['logged_in'])){
 			$data['fechacalendaria']=$this->fechacalendaria_model->elultimo();
-			$data['periodoacademicos'] = $this->periodoacademico_model->listar_periodoacademico()->result();
+			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
   			$data['instituciones']= $this->institucion_model->lista_institucions()->result();
 			$data['title']="Lista de fechacalendariaes";
 			$this->load->view('template/page_header');
