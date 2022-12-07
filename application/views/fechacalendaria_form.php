@@ -8,7 +8,7 @@
 		<?php
 $options= array('--Select--');
 foreach ($periodoacademicos as $row){
-	$options[$row->idperiodoacademico]= $row->nombre;
+	$options[$row->idperiodoacademico]= $row->nombrecorto;
 }
 
  echo form_dropdown($name="idperiodoacademico",$options, set_select('--Select--','default_value'),array('id'=>'idperiodoacademico','onchange'=>'get_periodoacademico()'));  
@@ -102,7 +102,7 @@ function get_periodoacademico() {
         var html = '';
         var i;
         for(i=0; i<data.length; i++){
-        html += '<option value='+data[i].idperiodoacademico+'>'+data[i].nombre+'</option>';
+        html += '<option value='+data[i].idperiodoacademico+'>'+data[i].nombrecorto+'</option>';
         }
         $('#idperiodoacademico').html(html);
 
