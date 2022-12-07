@@ -1,51 +1,33 @@
 <?php
-class Fechacalendaria_model extends CI_model {
+class Diasemana_model extends CI_model {
 
-	function lista_temas(){
-		 $tema= $this->db->get('tema');
-		 return $tema;
+	function lista_paralelos(){
+		 $paralelo= $this->db->get('paralelo');
+		 return $paralelo;
 	}
 
-
-function lista_temas1($idunidadsilabo){
-	if($idunidadsilabo>0)
-	{
-	$this->db->where('idunidadsilabo='.$idunidadsilabo);
-	}
-	$query=$this->db->order_by("idsilabo","idunidadsilabo","idtema")->get('tema1');
-	 return $query;
-	}
-
-
-
- 	function temas( $idunidadsilabo){
- 		$tema = $this->db->query('select * from tema where idunidadsilabo="'. $idunidadsilabo.'" order by fechaimpartida');
- 		return $tema;
- 	}
-
-
- 	function tema( $id){
- 		$tema = $this->db->query('select * from tema where idtema="'. $id.'"');
- 		return $tema;
+ 	function paralelo( $id){
+ 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $id.'"');
+ 		return $paralelo;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("tema", $array);
+		$this->db->insert("paralelo", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idtema',$id);
- 		$this->db->update('tema',$array_item);
+ 		$this->db->where('idparalelo',$id);
+ 		$this->db->update('paralelo',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idtema',$id);
-		$this->db->delete('tema');
+ 		$this->db->where('idparalelo',$id);
+		$this->db->delete('paralelo');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -54,29 +36,9 @@ function lista_temas1($idunidadsilabo){
  	}
 
 
-public function get_tema($id){
-	$condition = "idtema =" .  $id ;
-	$this->db->select('*');
-	$this->db->from('tema');
-	$this->db->where($condition);
-	$this->db->limit(1);
-	$query = $this->db->get();
-
-	if ($query->num_rows() == 1) {
-		return $query->result();
-	} else {
-		return false;
-	}
-
-}
-
-
-
-
-
 	function elprimero()
 	{
-		$query=$this->db->order_by("idtema")->get('tema');
+		$query=$this->db->order_by("idparalelo")->get('paralelo');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -89,7 +51,7 @@ public function get_tema($id){
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idtema")->get('tema');
+		$query=$this->db->order_by("idparalelo")->get('paralelo');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -101,48 +63,40 @@ public function get_tema($id){
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$tema = $this->db->select("idtema")->order_by("idtema")->get('tema')->result_array();
-		$arr=array("idtema"=>$id);
-		$clave=array_search($arr,$tema);
-	   if(array_key_exists($clave+1,$tema))
+ 		$paralelo = $this->db->select("idparalelo")->order_by("idparalelo")->get('paralelo')->result_array();
+		$arr=array("idparalelo"=>$id);
+		$clave=array_search($arr,$paralelo);
+	   if(array_key_exists($clave+1,$paralelo))
 		 {
 
- 		$tema = $this->db->query('select * from tema where idtema="'. $tema[$clave+1]["idtema"].'"');
+ 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $paralelo[$clave+1]["idparalelo"].'"');
 		 }else{
 
- 		$tema = $this->db->query('select * from tema where idtema="'. $id.'"');
+ 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $id.'"');
 		 }
 		 	
- 		return $tema;
+ 		return $paralelo;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$tema = $this->db->select("idtema")->order_by("idtema")->get('tema')->result_array();
-		$arr=array("idtema"=>$id);
-		$clave=array_search($arr,$tema);
-	   if(array_key_exists($clave-1,$tema))
+ 		$paralelo = $this->db->select("idparalelo")->order_by("idparalelo")->get('paralelo')->result_array();
+		$arr=array("idparalelo"=>$id);
+		$clave=array_search($arr,$paralelo);
+	   if(array_key_exists($clave-1,$paralelo))
 		 {
 
- 		$tema = $this->db->query('select * from tema where idtema="'. $tema[$clave-1]["idtema"].'"');
+ 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $paralelo[$clave-1]["idparalelo"].'"');
 		 }else{
 
- 		$tema = $this->db->query('select * from tema where idtema="'. $id.'"');
+ 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $id.'"');
 		 }
 		 	
- 		return $tema;
+ 		return $paralelo;
  	}
 
 
-
-	function lista_temaes_con_inscripciones(){
-		 $this->db->select('tema.*');
-		 $this->db->from('tema,evento');
-		 $this->db->where('evento.idtema=tema.idtema and evento.idevento_estado=2');
-		 $tema= $this->db->get();
-		 return $tema;
-	}
 
 
 
