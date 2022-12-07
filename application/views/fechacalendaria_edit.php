@@ -1,5 +1,5 @@
-<?php echo form_open('tema/save_edit') ?>
-<?php echo form_hidden('idtema',$tema['idtema']) ?>
+<?php echo form_open('fechacalendaria/save_edit') ?>
+<?php echo form_hidden('idfechacalendaria',$fechacalendaria['idfechacalendaria']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
  
@@ -7,7 +7,7 @@
     <label class="col-md-2 col-form-label"> Nombre corto:</label>
 	<div class="col-md-10">
 		<?php
-$eys_arrinput=array('name'=>'nombrecorto','value'=>$tema['nombrecorto'], "style"=>"width:500px");
+$eys_arrinput=array('name'=>'nombrecorto','value'=>$fechacalendaria['nombrecorto'], "style"=>"width:500px");
  echo form_input($eys_arrinput);
 		?>
 	</div> 
@@ -18,7 +18,7 @@ $eys_arrinput=array('name'=>'nombrecorto','value'=>$tema['nombrecorto'], "style"
     <label class="col-md-2 col-form-label"> Nombre largo:</label>
 	<div class="col-md-10">
 		<?php
-$eys_arrinput=array('name'=>'nombrelargo','value'=>$tema['nombrelargo'], "style"=>"width:500px");
+$eys_arrinput=array('name'=>'nombrelargo','value'=>$fechacalendaria['nombrelargo'], "style"=>"width:500px");
  echo form_input($eys_arrinput);
 		?>
 	</div> 
@@ -36,7 +36,7 @@ foreach ($unidadsilabos as $row){
 	$options[$row->idunidadsilabo]= $row->nombre;
 }
 
- echo form_dropdown("idunidadsilabo",$options, $tema['idunidadsilabo']);  
+ echo form_dropdown("idunidadsilabo",$options, $fechacalendaria['idunidadsilabo']);  
 		?>
 	</div> 
 </div>
@@ -47,7 +47,7 @@ foreach ($unidadsilabos as $row){
     <label class="col-md-2 col-form-label"> Fecha impartida:</label>
 	<div class="col-md-10">
 
-      <?php echo form_input( array("name"=>'fechaimpartida',"id"=>'fechaimpartida',"value"=>$tema['fechaimpartida'],'type'=>'date','placeholder'=>'fecha impartida'));
+      <?php echo form_input( array("name"=>'fechaimpartida',"id"=>'fechaimpartida',"value"=>$fechacalendaria['fechaimpartida'],'type'=>'date','placeholder'=>'fecha impartida'));
 
 		?>
 	</div> 
@@ -58,7 +58,7 @@ foreach ($unidadsilabos as $row){
     <label class="col-md-2 col-form-label"> Duración (minutos):</label>
 	<div class="col-md-10">
 		<?php
-$eys_arrinput=array('name'=>'duracionminutos','value'=>$tema['duracionminutos'], "style"=>"width:100px");
+$eys_arrinput=array('name'=>'duracionminutos','value'=>$fechacalendaria['duracionminutos'], "style"=>"width:100px");
  echo form_input($eys_arrinput);
 		?>
 	</div> 
@@ -69,7 +69,7 @@ $eys_arrinput=array('name'=>'duracionminutos','value'=>$tema['duracionminutos'],
     <label class="col-md-2 col-form-label"> Número de sesión:</label>
 	<div class="col-md-10">
 		<?php
-$eys_arrinput=array('name'=>'numerosesion','value'=>$tema['numerosesion'], "style"=>"width:50px");
+$eys_arrinput=array('name'=>'numerosesion','value'=>$fechacalendaria['numerosesion'], "style"=>"width:50px");
  echo form_input($eys_arrinput);
 		?>
 	</div> 
@@ -87,7 +87,7 @@ foreach ($videotutoriales as $row){
 	$options[$row->idvideotutorial]= $row->nombre;
 }
 
- echo form_dropdown("idvideotutorial",$options, $tema['idvideotutorial']);  
+ echo form_dropdown("idvideotutorial",$options, $fechacalendaria['idvideotutorial']);  
 		?>
 	</div> 
 </div>
@@ -103,7 +103,7 @@ foreach ($videotutoriales as $row){
 
 
  <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('tema','Atras') ?></td>
+ <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('fechacalendaria','Atras') ?></td>
  </tr>
 </table>
 <?php echo form_close(); ?>

@@ -31,9 +31,7 @@ if(isset($documento))
         <li> <?php echo anchor('documento/siguiente/'.$documento['iddocumento'], 'siguiente'); ?></li>
         <li> <?php echo anchor('documento/anterior/'.$documento['iddocumento'], 'anterior'); ?></li>
         <li style="border-right:1px solid green"><?php echo anchor('documento/elultimo/', 'Último'); ?></li>
-	<?php
-       
-	if($this->session->userdata['acceso'][$numero]['nivelacceso']['create']){ ?>
+	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['create']){ ?>
         <li> <?php echo anchor('documento/add', 'Nuevo'); ?></li>
 	<?php } ?>
 

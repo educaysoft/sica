@@ -43,7 +43,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     	<label class="col-md-2 col-form-label"> Silabo:</label>
 	<?php
 		$options= array('--Select--');
-		foreach ($temas as $row){
+		foreach ($fechacalendarias as $row){
 			$options[$row->idunidadsilabo]= $row->elsilabo;
 		}
 	?>
@@ -68,7 +68,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <th>Silabo</th>
  <th>UnidadSilabo</th>
  <th>ID</th>
- <th>Descripción del tema</th>
+ <th>Descripción del fechacalendaria</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
@@ -100,13 +100,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 $(document).ready(function(){
 
 	var idunidadsilabo = document.getElementById("filtro").innerHTML;
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('tema/tema_data')?>', type: 'GET',data:{idunidadsilabo:idunidadsilabo}},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('fechacalendaria/fechacalendaria_data')?>', type: 'GET',data:{idunidadsilabo:idunidadsilabo}},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('idtema');
+var id= $(this).data('idfechacalendaria');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 

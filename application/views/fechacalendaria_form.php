@@ -1,6 +1,6 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("tema/save") ?>
+<?php echo form_open("fechacalendaria/save") ?>
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Silabo:</label>
@@ -11,7 +11,7 @@ foreach ($silabos as $row){
 	$options[$row->idsilabo]= $row->nombre;
 }
 
- echo form_dropdown($name="idsilabo",$options, set_select('--Select--','default_value'),array('id'=>'idsilabo','onchange'=>'get_unidadsilabo()'));  
+ echo form_dropdown($name="idsilabo",$options, set_select('--Select--','default_value'),array('id'=>'idsilabo','onchange'=>'get_periodoacademico()'));  
 		?>
 	</div> 
 </div>
@@ -22,7 +22,7 @@ foreach ($silabos as $row){
 <label class="col-md-2 col-form-label">Unidad silabo:</label>
 <div class="col-md-10">
     <div class="form-group">
-         <select class="form-control" id="idunidadsilabo" name="idunidadsilabo" required>
+         <select class="form-control" id="idperiodoacademico" name="idperiodoacademico" required>
                  <option>No Selected</option>
           </select>
     </div>
@@ -31,19 +31,11 @@ foreach ($silabos as $row){
 </div>
 
 
-
-
-
-
-
-
-
-
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Nombre corto:</label>
 	<div class="col-md-10">
 		<?php
- echo form_input("nombrecorto","", array("placeholder"=>"Nombre de tema",'style'=>'width:500px;'));
+ echo form_input("actividad","", array("placeholder"=>"Nombre de fechacalendaria",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 
@@ -52,7 +44,7 @@ foreach ($silabos as $row){
     <label class="col-md-2 col-form-label"> Nombre largo:</label>
 	<div class="col-md-10">
 		<?php
- echo form_input("nombrelargo","", array("placeholder"=>"Nombre de tema",'style'=>'width:500px;'));
+ echo form_input("detalle","", array("placeholder"=>"Nombre de fechacalendaria",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
@@ -95,10 +87,10 @@ foreach ($silabos as $row){
 	<div class="col-md-10">
 	<?php
 	$options= array('--Select--');
-	foreach ($videotutoriales as $row){
-		$options[$row->idvideotutorial]= $row->nombre;
+	foreach ($instituciones as $row){
+		$options[$row->idinstitucion]= $row->nombre;
 	}
-	 echo form_dropdown("idvideotutorial",$options, set_select('--Select--','default_value')); 
+	 echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value')); 
 		?>
 	</div> 
 </div>
@@ -110,7 +102,7 @@ foreach ($silabos as $row){
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("tema","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("fechacalendaria","Atras") ?> </td>
 </tr>
 
 </table>
@@ -122,10 +114,10 @@ foreach ($silabos as $row){
 
 
 
-function get_unidadsilabo() {
+function get_periodoacademico() {
 	var idsilabo = $('select[name=idsilabo]').val();
     $.ajax({
-        url: "<?php echo site_url('tema/get_unidadsilabo') ?>",
+        url: "<?php echo site_url('fechacalendaria/get_periodoacademico') ?>",
         data: {idsilabo: idsilabo},
         method: 'POST',
 	async : true,
@@ -134,9 +126,9 @@ function get_unidadsilabo() {
         var html = '';
         var i;
         for(i=0; i<data.length; i++){
-        html += '<option value='+data[i].idunidadsilabo+'>'+data[i].nombre+'</option>';
+        html += '<option value='+data[i].idperiodoacademico+'>'+data[i].nombre+'</option>';
         }
-        $('#idunidadsilabo').html(html);
+        $('#idperiodoacademico').html(html);
 
 
         },

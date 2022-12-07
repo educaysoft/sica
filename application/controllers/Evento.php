@@ -156,8 +156,12 @@ public function index(){
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
-		
 
+$data['filtro']=0;
+		if(isset($this->uri->segment(3)))
+		{
+		$data['filtro']= $this->uri->segment(3);
+		}
 
 		$data['title']="Evento";
 		$this->load->view('template/page_header');		
@@ -188,6 +192,20 @@ public function index(){
 			exit();
 
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

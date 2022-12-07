@@ -1,106 +1,141 @@
 <?php
 
-class Paralelo extends CI_Controller{
+class Fechacalendaria extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('nivelacademico_model');
+      $this->load->model('tema_model');
+      $this->load->model('unidadsilabo_model');
+      $this->load->model('silabo_model');
+      $this->load->model('videotutorial_model');
+      $this->load->model('documento_model');
 }
 
-public function index(){
-	if(isset($this->session->userdata['logged_in'])){
-		$data['nivelacademico']=$this->nivelacademico_model->nivelacademico(1)->row_array();
-		$data['title']="Lista de nivelacademicoes";
-		$this->load->view('template/page_header');
-		$this->load->view('nivelacademico_record',$data);
-		$this->load->view('template/page_footer');
-	}else{
-	 	$this->load->view('template/page_header.php');
-		$this->load->view('login_form');
-	 	$this->load->view('template/page_footer.php');
+//=========================================================
+// Es la primera función que se ejecuta cuando llamamos a
+// http://educaysoft.org/sica/tema
+// ========================================================
+	public function index(){
+		if(isset($this->session->userdata['logged_in'])){
+			$data['tema']=$this->tema_model->elultimo();
+			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo()->result();
+  			$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+			$data['title']="Lista de temaes";
+			$this->load->view('template/page_header');
+			$this->load->view('tema_record',$data);
+			$this->load->view('template/page_footer');
+		}else{
+			$this->load->view('template/page_header.php');
+			$this->load->view('login_form');
+			$this->load->view('template/page_footer.php');
+		}
 	}
-}
 
 
-public function add()
-{
-		$data['title']="Nueva nivelacademico";
-	 	$this->load->view('template/page_header');		
-	 	$this->load->view('nivelacademico_form',$data);
-	 	$this->load->view('template/page_footer');
-}
+	public function add()
+	{
+			$data['title']="Nueva tema";
+			$data['silabos'] = $this->silabo_model->lista_silabos()->result();
+			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo()->result();
+  		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+			$this->load->view('template/page_header');		
+			$this->load->view('tema_form',$data);
+			$this->load->view('template/page_footer');
+	}
 
 
-public function  save()
+	public function  save()
 	{
 	 	$array_item=array(
-	 	'idnivelacademico' => $this->input->post('idnivelacademico'),
-	 	'nombre' => $this->input->post('nombre'),
-	 	'numero' => $this->input->post('numero'),
+	 	'nombrecorto' => $this->input->post('nombrecorto'),
+		'idvideotutorial' => $this->input->post('idvideotutorial'),
+	 	'nombrelargo' => $this->input->post('nombrelargo'),
+	 	'idunidadsilabo' => $this->input->post('idunidadsilabo'),
+	 	'fechaimpartida' => $this->input->post('fechaimpartida'),
+	 	'duracionminutos' => $this->input->post('duracionminutos'),
+		 	'numerosesion' => $this->input->post('numerosesion'),
 	 	);
-	 	$this->nivelacademico_model->save($array_item);
-	 	redirect('nivelacademico');
+	 	$this->tema_model->save($array_item);
+	 	redirect('tema');
  	}
 
 
 
-public function edit()
-{
-	 	$data['nivelacademico'] = $this->nivelacademico_model->nivelacademico($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar nivelacademico";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('nivelacademico_edit',$data);
-	 	$this->load->view('template/page_footer');
- 
-}
+	public function edit()
+	{
+			$data['tema'] = $this->tema_model->tema($this->uri->segment(3))->row_array();
+  			$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo()->result();
+			$data['title'] = "Actualizar tema";
+			$this->load->view('template/page_header');		
+			$this->load->view('tema_edit',$data);
+			$this->load->view('template/page_footer');
+	 
+	}
 
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idnivelacademico');
+		$id=$this->input->post('idtema');
 	 	$array_item=array(
 		 	
-		 	'idnivelacademico' => $this->input->post('idnivelacademico'),
-		 	'nombre' => $this->input->post('nombre'),
-	 		'numero' => $this->input->post('numero'),
+		 	'idtema' => $this->input->post('idtema'),
+		 	'nombrecorto' => $this->input->post('nombrecorto'),
+		 	'nombrelargo' => $this->input->post('nombrelargo'),
+	 		'idunidadsilabo' => $this->input->post('idunidadsilabo'),
+	 		'fechaimpartida' => $this->input->post('fechaimpartida'),
+	 		'duracionminutos' => $this->input->post('duracionminutos'),
+		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
+		 	'numerosesion' => $this->input->post('numerosesion'),
 	 	);
-	 	$this->nivelacademico_model->update($id,$array_item);
-	 	redirect('nivelacademico');
+	 	$this->tema_model->update($id,$array_item);
+	 	redirect('tema/actual/'.$id);
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->nivelacademico_model->delete($this->uri->segment(3));
- 		echo json_encode($data);
-	 	redirect('nivelacademico/elprimero');
+ 		$this->tema_model->delete($this->uri->segment(3));
+ //		echo json_encode($data);
+	 	redirect('tema/elultimo');
 	//	$db['default']['db_debug']=FALSE
  	}
 
 
-public function listar()
-{
-	
-  $data['title']="Paralelo";
-	$this->load->view('template/page_header');		
-  $this->load->view('nivelacademico_list',$data);
-	$this->load->view('template/page_footer');
-}
 
 
 
-function nivelacademico_data()
+
+
+
+
+
+	public function listar()
+	{
+		
+		$data['temas'] = $this->tema_model->lista_temas1(0)->result();
+	  	$data['title']="Fechacalendaria";
+  		$data['filtro']= $this->uri->segment(3);
+		$this->load->view('template/page_header');		
+	  	$this->load->view('tema_list',$data);
+		$this->load->view('template/page_footer');
+	}
+
+
+
+function tema_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
+		$idunidadsilabo=$this->input->get('idunidadsilabo');
 
-	 	$data0 = $this->nivelacademico_model->lista_nivelacademicos();
+	 	$data0 = $this->tema_model->lista_temas1($idunidadsilabo);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idnivelacademico,$r->numero,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('nivelacademico/actual').'"     data-idnivelacademico="'.$r->idnivelacademico.'">Ver</a>');
+			$data[]=array($r->elsilabo,$r->launidadsilabo,$r->idtema,$r->nombrecorto,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('tema/actual').'"    data-idtema="'.$r->idtema.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -116,14 +151,42 @@ function nivelacademico_data()
 
 
 
+public function panel()
+{
+	
+	$data['temas'] = $this->tema_model->lista_temas()->result();
+  	$data['title']="Fechacalendaria";
+	$this->load->view('template/page_header');		
+  	$this->load->view('temas/temas',$data);
+	$this->load->view('template/page_footer');
+}
+
+
+public function iniciar()
+{
+  	$data['evento']=array('idtema'=>$_GET['idtema'],'idevento'=>$_GET['idevento']);	
+	$data['tema'] = $this->tema_model->tema($_GET['idtema'])->row_array();
+	$data['unidadsilabos'] = $this->unidadsilabo_model->lista_unidades($_GET['idtema'])->result();
+  	$data['title']="Fechacalendaria";
+	$this->load->view('template/page_header');		
+ 	$this->load->view('temas/FundamentosDeProgramacion_clases',$data);
+	$this->load->view('template/page_footer');
+}
+
+
+
+
 public function actual()
 {
-	$data['nivelacademico'] = $this->nivelacademico_model->nivelacademico($this->uri->segment(3))->row_array();
+	$data['tema'] = $this->tema_model->tema($this->uri->segment(3))->row_array();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
+	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo()->result();
   if(!empty($data))
   {
-    $data['title']="Paralelo";
+    $data['title']="Fechacalendaria";
     $this->load->view('template/page_header');		
-    $this->load->view('nivelacademico_record',$data);
+    $this->load->view('tema_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -135,22 +198,16 @@ public function actual()
 
 
 
-
-
-
-
-
-
-
-
 public function elprimero()
 {
-	$data['nivelacademico'] = $this->nivelacademico_model->elprimero();
+	$data['tema'] = $this->tema_model->elprimero();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
+	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   if(!empty($data))
   {
-    $data['title']="Paralelo";
+    $data['title']="Fechacalendaria";
     $this->load->view('template/page_header');		
-    $this->load->view('nivelacademico_record',$data);
+    $this->load->view('tema_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -161,13 +218,15 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['nivelacademico'] = $this->nivelacademico_model->elultimo();
+		$data['tema'] = $this->tema_model->elultimo();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   if(!empty($data))
   {
-    $data['title']="Paralelo";
+    $data['title']="Fechacalendaria";
   
     $this->load->view('template/page_header');		
-    $this->load->view('nivelacademico_record',$data);
+    $this->load->view('tema_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -178,21 +237,42 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['nivelacademico_list']=$this->nivelacademico_model->lista_nivelacademico()->result();
-	$data['nivelacademico'] = $this->nivelacademico_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Paralelo";
+ // $data['tema_list']=$this->tema_model->lista_tema()->result();
+	$data['tema'] = $this->tema_model->siguiente($this->uri->segment(3))->row_array();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+  	$data['title']="Fechacalendaria";
 	$this->load->view('template/page_header');		
-  $this->load->view('nivelacademico_record',$data);
+  	$this->load->view('tema_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['nivelacademico_list']=$this->nivelacademico_model->lista_nivelacademico()->result();
-	$data['nivelacademico'] = $this->nivelacademico_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Paralelo";
+ // $data['tema_list']=$this->tema_model->lista_tema()->result();
+	$data['tema'] = $this->tema_model->anterior($this->uri->segment(3))->row_array();
+		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['title']="Fechacalendaria";
 	$this->load->view('template/page_header');		
-  $this->load->view('nivelacademico_record',$data);
+  	$this->load->view('tema_record',$data);
 	$this->load->view('template/page_footer');
 }
+
+public function get_unidadsilabo() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->post('idsilabo')) {
+        $this->db->select('*');
+        $this->db->where(array('idsilabo' => $this->input->post('idsilabo')));
+        $query = $this->db->get('unidadsilabo');
+	$data=$query->result();
+	echo json_encode($data);
+	}
+
+}
+
+
+
+
 
 }

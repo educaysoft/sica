@@ -55,6 +55,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	</div>
 
 
+<div id="filtro"><?php echo $filtro; ?></div>
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
@@ -127,8 +128,8 @@ function filtra_evento()
 
 idevento_estado = $('select[name=idevento_estado]').val();
 
-
-var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('evento/evento_data')?>', type: 'GET',data:{idevento_estado:idevento_estado}},});
+	var idparticipante = document.getElementById("filtro").innerHTML;
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('evento/evento_data')?>', type: 'GET',data:{idevento_estado:idevento_estado,idparticipante:idparticipante}},});
 }
 
 
