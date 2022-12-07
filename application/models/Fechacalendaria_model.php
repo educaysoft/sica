@@ -7,19 +7,19 @@ class Fechacalendaria_model extends CI_model {
 	}
 
 
-function lista_fechacalendarias1($idunidadsilabo){
-	if($idunidadsilabo>0)
+function lista_fechacalendarias1($idperiodoacademico){
+	if($idperiodoacademico>0)
 	{
-	$this->db->where('idunidadsilabo='.$idunidadsilabo);
+	$this->db->where('idperiodoacademico='.$idperiodoacademico);
 	}
-	$query=$this->db->order_by("idsilabo","idunidadsilabo","idfechacalendaria")->get('fechacalendaria1');
+	$query=$this->db->order_by("idsilabo","idperiodoacademico","idfechacalendaria")->get('fechacalendaria1');
 	 return $query;
 	}
 
 
 
- 	function fechacalendarias( $idunidadsilabo){
- 		$fechacalendaria = $this->db->query('select * from fechacalendaria where idunidadsilabo="'. $idunidadsilabo.'" order by fechaimpartida');
+ 	function fechacalendarias( $idperiodoacademico){
+ 		$fechacalendaria = $this->db->query('select * from fechacalendaria where idperiodoacademico="'. $idperiodoacademico.'" order by fechaimpartida');
  		return $fechacalendaria;
  	}
 

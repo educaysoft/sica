@@ -19,7 +19,6 @@ if(isset($fechacalendaria))
 <?php 
 }else{
 ?>
-
         <li> <?php echo anchor('fechacalendaria/add', 'Nuevo'); ?></li>
 <?php
 }
@@ -43,30 +42,17 @@ if(isset($fechacalendaria))
 </div> 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre corto:</label>
+    <label class="col-md-2 col-form-label"> Id institucion:</label>
 	<div class="col-md-10">
-		<?php
-       echo form_input('actividad',$fechacalendaria['actividad'],array('placeholder'=>'Nombre del fechacalendaria','style'=>'width:500px;'));
-		?>
-	</div> 
-</div> 
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre largo:</label>
-	<div class="col-md-10">
-		<?php
-       echo form_input('detalle',$fechacalendaria['detalle'],array('placeholder'=>'Descripción del fechacalendaria','style'=>'width:500px;'));
+	<?php
+      echo form_input('idinstitucion',$fechacalendaria['idinstitucion'],array("disabled"=>"disabled",'placeholder'=>'Idperiodoacademicoes','style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
 
 
-
-   
-
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Periodo académico: ( <?php echo anchor('periodoacademico/actual/'.$fechacalendaria['idperiodoacademico'], 'Ver'); ?>):</label>
+    <label class="col-md-2 col-form-label"> Periodo : ( <?php echo anchor('periodoacademico/actual/'.$fechacalendaria['idperiodoacademico'], 'Ver'); ?>):</label>
 	<div class="col-md-10">
      	<?php 
 	$options=array();
@@ -81,8 +67,31 @@ if(isset($fechacalendaria))
 	</div> 
 </div>
 
+
+
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha impartida:</label>
+    <label class="col-md-2 col-form-label"> Actividad :</label>
+	<div class="col-md-10">
+		<?php
+       echo form_input('actividad',$fechacalendaria['actividad'],array('placeholder'=>'Nombre del fechacalendaria','style'=>'width:500px;'));
+		?>
+	</div> 
+</div> 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Detalle:</label>
+	<div class="col-md-10">
+		<?php
+       echo form_input('detalle',$fechacalendaria['detalle'],array('placeholder'=>'Descripción del fechacalendaria','style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha calendaria:</label>
 	<div class="col-md-10">
 		<?php
       		 echo form_input('fechacalendaria',$fechacalendaria['fechacalendaria'],array('type'=>'date','placeholder'=>'fecha calendaria','style'=>'width:500px;')) 
@@ -100,14 +109,7 @@ if(isset($fechacalendaria))
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id institucion:</label>
-	<div class="col-md-10">
-	<?php
-      echo form_input('idinstitucion',$fechacalendaria['idinstitucion'],array("disabled"=>"disabled",'placeholder'=>'Idperiodoacademicoes','style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
+
 
 
 
