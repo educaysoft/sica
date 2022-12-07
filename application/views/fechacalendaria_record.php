@@ -118,7 +118,7 @@ if(isset($fechacalendaria))
 	<?php
 $options= array("NADA");
 foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->;
+	$options[$row->idinstitucion]= $row->nombre;
 }
 echo form_input('',$options[$fechacalendaria['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
