@@ -130,7 +130,7 @@ function fechacalendaria_data()
 	 	$data0 = $this->fechacalendaria_model->lista_fechacalendarias1($idperiodoacademico);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->elsilabo,$r->laperiodoacademico,$r->idfechacalendaria,$r->actividad,
+			$data[]=array($r->elperiodoacademico,$r->idfechacalendaria,$r->fechacalendaria,$r->actividad,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('fechacalendaria/actual').'"    data-idfechacalendaria="'.$r->idfechacalendaria.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
