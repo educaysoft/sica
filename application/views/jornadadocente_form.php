@@ -11,28 +11,30 @@
     <label class="col-md-2 col-form-label">Asignatura docente :</label>
 	<div class="col-md-10">
 	<?php
-
-
-$options= array('--Select--');
-foreach ($asignaturadocentes as $row){
-	$options[$row->idasignaturadocente]= $row->laasignatura;
-}
- echo form_dropdown("idasignaturadocente",$options, set_select('--Select--','default_value'));  
+	$options= array('--Select--');
+	foreach ($asignaturadocentes as $row){
+		$options[$row->idasignaturadocente]= $row->laasignatura;
+	}
+	 echo form_dropdown("idasignaturadocente",$options, set_select('--Select--','default_value'));  
 		?>
 	</div> 
 </div>
+
 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha :</label>
+    <label class="col-md-2 col-form-label">Día de semana :</label>
 	<div class="col-md-10">
 	<?php
- echo form_input(array("name"=>"fecha","id"=>"fecha","type"=>"date"));  
+	$options= array('--Select--');
+	foreach ($diasemanas as $row){
+		$options[$row->iddiasemana]= $row->nombre;
+	}
+	 echo form_dropdown("iddiasemana",$options, set_select('--Select--','default_value'));  
 		?>
 	</div> 
 </div>
-
 
 
 

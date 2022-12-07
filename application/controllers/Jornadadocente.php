@@ -58,7 +58,10 @@ public function add()
 	 	$array_item=array(
 		 	
 			'idhorariodocente' => $this->input->post('idhorariodocente'),
-			'idasignatura' => $this->input->post('idasignatura'),
+			'idasignaturadocente' => $this->input->post('idasignaturadocente'),
+			'iddiasemana' => $this->input->post('iddiasemana'),
+			'horainicio' => $this->input->post('horainicio'),
+			'duracionminutos' => $this->input->post('duracionminutos'),
 	 	);
 	 	$this->jornadadocente_model->save($array_item);
 	 	redirect('jornadadocente');
@@ -84,10 +87,14 @@ public function edit()
 	{
 		$id=$this->input->post('idjornadadocente');
 	 	$array_item=array(
-		 	
-		 	'idjornadadocente' => $this->input->post('idjornadadocente'),
-			'idhorariodocente' => $this->input->post('idhorariodocente'),
-			'idasignatura' => $this->input->post('idasignatura'),
+
+
+			'idjornadadocente' => $this->input->post('idjornadadocente'),
+			'idasignaturadocente' => $this->input->post('idasignaturadocente'),
+			'iddiasemana' => $this->input->post('iddiasemana'),
+			'horainicio' => $this->input->post('horainicio'),
+			'duracionminutos' => $this->input->post('duracionminutos'),
+
 	 	);
 	 	$this->jornadadocente_model->update($id,$array_item);
 	 	redirect('jornadadocente');
