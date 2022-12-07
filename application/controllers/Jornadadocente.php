@@ -44,7 +44,6 @@ public function add()
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
   	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
   	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
-  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 		$data['title']="Nueva Jornadadocente";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('jornadadocente_form',$data);
@@ -75,7 +74,6 @@ public function edit()
 	 	$data['jornadadocente'] = $this->jornadadocente_model->jornadadocente($this->uri->segment(3))->row_array();
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
-  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
  	 	$data['title'] = "Actualizar Jornadadocente";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('jornadadocente_edit',$data);
@@ -153,7 +151,6 @@ public function actual()
 {
 	$data['jornadadocente'] = $this->jornadadocente_model->jornadadocente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 	  if(!empty($data))
@@ -182,7 +179,6 @@ public function actual()
 public function elprimero()
 {
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 	$data['jornadadocente'] = $this->jornadadocente_model->elprimero();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
@@ -204,7 +200,6 @@ public function elultimo()
 {
 	$data['jornadadocente'] = $this->jornadadocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   if(!empty($data))
@@ -227,7 +222,6 @@ public function siguiente(){
  // $data['jornadadocente_list']=$this->jornadadocente_model->lista_jornadadocente()->result();
 	$data['jornadadocente'] = $this->jornadadocente_model->siguiente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   
