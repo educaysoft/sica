@@ -36,8 +36,8 @@ class Fechacalendaria extends CI_Controller{
 	{
 			$data['title']="Nueva fechacalendaria";
 			$data['silabos'] = $this->silabo_model->lista_silabos()->result();
-			$data['periodoacademicos'] = $this->periodoacademico_model->listar_periodoacademico()->result();
-  		$data['instituciones']= $this->institucion_model->lista_institucions()->result();
+			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
+  		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 			$this->load->view('template/page_header');		
 			$this->load->view('fechacalendaria_form',$data);
 			$this->load->view('template/page_footer');
@@ -62,8 +62,8 @@ class Fechacalendaria extends CI_Controller{
 	public function edit()
 	{
 			$data['fechacalendaria'] = $this->fechacalendaria_model->fechacalendaria($this->uri->segment(3))->row_array();
-  			$data['instituciones']= $this->institucion_model->lista_institucions()->result();
-			$data['periodoacademicos'] = $this->periodoacademico_model->listar_periodoacademico()->result();
+  			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
 			$data['title'] = "Actualizar fechacalendaria";
 			$this->load->view('template/page_header');		
 			$this->load->view('fechacalendaria_edit',$data);
@@ -176,8 +176,8 @@ public function actual()
 {
 	$data['fechacalendaria'] = $this->fechacalendaria_model->fechacalendaria($this->uri->segment(3))->row_array();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['instituciones']= $this->institucion_model->lista_institucions()->result();
-	$data['periodoacademicos'] = $this->periodoacademico_model->listar_periodoacademico()->result();
+	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
     $data['title']="Fechacalendaria";
@@ -198,7 +198,7 @@ public function elprimero()
 {
 	$data['fechacalendaria'] = $this->fechacalendaria_model->elprimero();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['instituciones']= $this->institucion_model->lista_institucions()->result();
+	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   if(!empty($data))
   {
     $data['title']="Fechacalendaria";
@@ -216,7 +216,7 @@ public function elultimo()
 {
 		$data['fechacalendaria'] = $this->fechacalendaria_model->elultimo();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-		$data['instituciones']= $this->institucion_model->lista_institucions()->result();
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   if(!empty($data))
   {
     $data['title']="Fechacalendaria";
@@ -236,7 +236,7 @@ public function siguiente(){
  // $data['fechacalendaria_list']=$this->fechacalendaria_model->lista_fechacalendaria()->result();
 	$data['fechacalendaria'] = $this->fechacalendaria_model->siguiente($this->uri->segment(3))->row_array();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-		$data['instituciones']= $this->institucion_model->lista_institucions()->result();
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['title']="Fechacalendaria";
 	$this->load->view('template/page_header');		
   	$this->load->view('fechacalendaria_record',$data);
@@ -246,7 +246,7 @@ public function siguiente(){
 public function anterior(){
  // $data['fechacalendaria_list']=$this->fechacalendaria_model->lista_fechacalendaria()->result();
 	$data['fechacalendaria'] = $this->fechacalendaria_model->anterior($this->uri->segment(3))->row_array();
-		$data['instituciones']= $this->institucion_model->lista_institucions()->result();
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['title']="Fechacalendaria";
 	$this->load->view('template/page_header');		
