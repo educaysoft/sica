@@ -57,7 +57,6 @@ public function add()
 	{
 	 	$array_item=array(
 		 	
-			'idhorariodocente' => $this->input->post('idhorariodocente'),
 			'idasignaturadocente' => $this->input->post('idasignaturadocente'),
 			'iddiasemana' => $this->input->post('iddiasemana'),
 			'horainicio' => $this->input->post('horainicio'),
