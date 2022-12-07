@@ -1,3 +1,4 @@
 
 use educayso_facae;
-create view fechacalendaria1 as select fechacalendaria.idfechacalendaria,fechacalendaria.actividad,periodoacademico.idperiodoacademico,periodoacademico.nombrecorto as elperiodoacademico from fechacalendaria, periodoacademico where fechacalendaria.idperiodoacademico=periodoacademico.idperiodoacademico ;
+drop view fechacalendaria1;
+create view fechacalendaria1 as select fechacalendaria.idfechacalendaria,fechacalendaria.fechacalendaria,fechacalendaria.actividad,periodoacademico.idperiodoacademico,periodoacademico.nombrecorto as elperiodoacademico from fechacalendaria, periodoacademico where fechacalendaria.idperiodoacademico=periodoacademico.idperiodoacademico ;

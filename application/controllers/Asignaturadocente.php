@@ -57,6 +57,7 @@ public function add()
 		 	
 			'idhorariodocente' => $this->input->post('idhorariodocente'),
 			'idasignatura' => $this->input->post('idasignatura'),
+			'idparalelo' => $this->input->post('idparalelo'),
 	 	);
 	 	$this->asignaturadocente_model->save($array_item);
 	 	redirect('asignaturadocente');
@@ -88,6 +89,7 @@ public function edit()
 		 	'idasignaturadocente' => $this->input->post('idasignaturadocente'),
 			'idhorariodocente' => $this->input->post('idhorariodocente'),
 			'idasignatura' => $this->input->post('idasignatura'),
+			'idparalelo' => $this->input->post('idparalelo'),
 	 	);
 	 	$this->asignaturadocente_model->update($id,$array_item);
 	 	redirect('asignaturadocente');
