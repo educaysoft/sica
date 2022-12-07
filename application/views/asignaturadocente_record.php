@@ -67,7 +67,7 @@ echo form_input('idhorariodocente',$options[$asignaturadocente['idhorariodocente
      <td>Paralelo:</td>
      <td><?php 
     $options= array("NADA");
-    foreach ($paralelo as $row){
+    foreach ($paralelos as $row){
 	      $options[$row->idparalelo]= $row->nombre;
     }
     echo form_input('idparalelo',$options[$asignaturadocente['idparalelo']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
