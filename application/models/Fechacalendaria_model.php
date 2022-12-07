@@ -12,7 +12,7 @@ function lista_fechacalendarias1($idperiodoacademico){
 	{
 	$this->db->where('idperiodoacademico='.$idperiodoacademico);
 	}
-	$query=$this->db->order_by("idsilabo","idperiodoacademico","idfechacalendaria")->get('fechacalendaria1');
+	$query=$this->db->order_by("idperiodoacademico","idfechacalendaria")->get('fechacalendaria1');
 	 return $query;
 	}
 
