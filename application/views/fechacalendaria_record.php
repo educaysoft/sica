@@ -66,12 +66,12 @@ if(isset($fechacalendaria))
    
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Unidad del silabo: ( <?php echo anchor('periodoacademico/actual/'.$fechacalendaria['idperiodoacademico'], 'Ver'); ?>):</label>
+    <label class="col-md-2 col-form-label"> Periodo académico: ( <?php echo anchor('periodoacademico/actual/'.$fechacalendaria['idperiodoacademico'], 'Ver'); ?>):</label>
 	<div class="col-md-10">
      	<?php 
 	$options=array();
   	foreach ($periodoacademicos as $row){
-		$options[$row->idperiodoacademico]=$row->nombre;
+		$options[$row->idperiodoacademico]=$row->nombrecorto;
 	}
 	?>
 		<?php
@@ -85,31 +85,17 @@ if(isset($fechacalendaria))
     <label class="col-md-2 col-form-label"> Fecha impartida:</label>
 	<div class="col-md-10">
 		<?php
-      		 echo form_input('fechaimpartida',$fechacalendaria['fechaimpartida'],array('type'=>'date','placeholder'=>'fecha impartida','style'=>'width:500px;')) 
+      		 echo form_input('fechacalendaria',$fechacalendaria['fechacalendaria'],array('type'=>'date','placeholder'=>'fecha calendaria','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Duración (minutos):</label>
-	<div class="col-md-10">
-		<?php
-       echo form_input('duracionminutos',$fechacalendaria['duracionminutos'],array('placeholder'=>'duracion minutos','style'=>'width:100px;'));
-		?>
-	</div> 
-</div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Número de sesión:</label>
-	<div class="col-md-10">
-		<?php
-       echo form_input('numerosesion',$fechacalendaria['numerosesion'],array('placeholder'=>'número de sisión','style'=>'width:50px;'));
-		?>
-	</div> 
-</div>
+
+
 
 
 
@@ -127,14 +113,14 @@ if(isset($fechacalendaria))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Videotutorial:</label>
+    <label class="col-md-2 col-form-label">Institucion:</label>
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
 foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
+	$options[$row->idinstitucion]= $row->;
 }
-echo form_input('nombre',$options[$fechacalendaria['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('',$options[$fechacalendaria['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
