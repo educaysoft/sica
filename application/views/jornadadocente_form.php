@@ -57,7 +57,7 @@
 	<div class="col-md-10">
 	<?php
 
- echo form_input("duracionminuto","", array("placeholder"=>"Duración del evento",'style'=>'width:500px;')); 
+ echo form_input("duracionminutos","", array("placeholder"=>"Duración del evento",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>

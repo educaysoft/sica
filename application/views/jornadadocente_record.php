@@ -46,6 +46,22 @@ if(isset($jornadadocente))
 </div>
  
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Asignatura docente:</label>
+	<div class="col-md-10">
+		<?php
+	$options= array("NADA");
+	foreach ($asignaturadocentes as $row){
+		$options[$row->idasignaturadocente]= $row->elhorariodocente;
+	}
+echo form_input('idasignaturadocente',$options[$jornadadocente['idasignaturadocente']],array("disabled"=>"disabled",'style'=>'width:500px;'));  
+
+		?>
+	</div> 
+</div>
+
+
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Asignatura docente:</label>
@@ -53,7 +69,7 @@ if(isset($jornadadocente))
 		<?php
 	$options= array("NADA");
 	foreach ($asignaturadocentes as $row){
-		$options[$row->idasignaturadocente]= $row->laasignatura;
+		$options[$row->idasignaturadocente]= $row->laasignatura."-".$row->paralelo;
 	}
 echo form_input('idasignaturadocente',$options[$jornadadocente['idasignaturadocente']],array("disabled"=>"disabled",'style'=>'width:500px;'));  
 
@@ -82,7 +98,7 @@ echo form_input('idasignaturadocente',$options[$jornadadocente['idasignaturadoce
     <label class="col-md-2 col-form-label"> Hora inicio:</label>
 	<div class="col-md-10">
 		<?php
-       echo form_input('horainicio',$jornadadocente['horainicio'],array('placeholder'=>'número de sisión','style'=>'width:50px;'));
+       echo form_input('horainicio',$jornadadocente['horainicio'],array('placeholder'=>'número de sisión','style'=>'width:100px;'));
 		?>
 	</div> 
 </div>
@@ -92,7 +108,7 @@ echo form_input('idasignaturadocente',$options[$jornadadocente['idasignaturadoce
     <label class="col-md-2 col-form-label"> Duración:</label>
 	<div class="col-md-10">
 		<?php
-       echo form_input('duracionminutos',$jornadadocente['duracionminutos'],array('placeholder'=>'duración en minutos','style'=>'width:50px;'));
+       echo form_input('duracionminutos',$jornadadocente['duracionminutos'],array('placeholder'=>'duración en minutos','style'=>'width:100px;'));
 		?>
 	</div> 
 </div>
