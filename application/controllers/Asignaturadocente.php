@@ -41,6 +41,7 @@ public function add()
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
+  		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
   		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 		$data['title']="Nueva Asignaturadocente";
 	 	$this->load->view('template/page_header');		
