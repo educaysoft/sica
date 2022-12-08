@@ -137,10 +137,35 @@ function asignaturadocente_data()
 		);
 		echo json_encode($output);
 		exit();
-	
-			
 
 }
+
+
+
+
+	function jornadadocente_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idasignaturadocente=$this->input->get('idasignaturadocente');
+			$data0 =$this->jornadadocente_model->jornadadocentes($idasignaturadocente);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idasignaturadocente,$r->idjornadadocente,$r->nombre,$r->horainicio,$r->duracionminutos,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm jornadadocente_ver"  data-retorno="'.site_url('jornadadocente/actual').'"    data-idjornadadocente="'.$r->idjornadadocente.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
 
 
 
