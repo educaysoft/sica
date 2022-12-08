@@ -18,7 +18,7 @@ public function index(){
 			
   	$data['jornadadocente']=$this->jornadadocente_model->lista_jornadadocentes()->row_array();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
-  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
+  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
@@ -41,7 +41,7 @@ public function add()
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
-  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
+  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
   	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
 		$data['title']="Nueva Jornadadocente";
 	 	$this->load->view('template/page_header');		
@@ -150,7 +150,7 @@ public function actual()
 	$data['jornadadocente'] = $this->jornadadocente_model->jornadadocente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
-  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
+  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
 	  if(!empty($data))
@@ -182,7 +182,7 @@ public function elprimero()
 	$data['jornadadocente'] = $this->jornadadocente_model->elprimero();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
   	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
-  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
+  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 	  if(!empty($data))
 	  {
@@ -202,7 +202,7 @@ public function elultimo()
 {
 	$data['jornadadocente'] = $this->jornadadocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
+  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
@@ -226,7 +226,7 @@ public function siguiente(){
  // $data['jornadadocente_list']=$this->jornadadocente_model->lista_jornadadocente()->result();
 	$data['jornadadocente'] = $this->jornadadocente_model->siguiente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
+  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
@@ -242,7 +242,7 @@ public function anterior(){
  // $data['jornadadocente_list']=$this->jornadadocente_model->lista_jornadadocente()->result();
 	$data['jornadadocente'] = $this->jornadadocente_model->anterior($this->uri->segment(3))->row_array();
  	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
+  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
