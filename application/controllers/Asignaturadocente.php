@@ -155,7 +155,7 @@ function asignaturadocente_data()
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idasignaturadocente,$r->idjornadadocente,$r->nombre,$r->horainicio,$r->duracionminutos,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm jornadadocente_ver"  data-retorno="'.site_url('jornadadocente/actual').'"    data-idjornadadocente="'.$r->idjornadadocente.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('jornadadocente/actual').'"    data-idjornadadocente="'.$r->idjornadadocente.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
