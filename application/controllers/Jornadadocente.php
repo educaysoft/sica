@@ -179,6 +179,7 @@ public function elprimero()
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
 	$data['jornadadocente'] = $this->jornadadocente_model->elprimero();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
+  	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
   	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 	  if(!empty($data))
@@ -202,6 +203,7 @@ public function elultimo()
   	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
   if(!empty($data))
   {
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
@@ -225,6 +227,7 @@ public function siguiente(){
   	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
   
 
 $data['title']="Jornadadocente";
@@ -240,6 +243,7 @@ public function anterior(){
   	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
   $data['title']="Jornadadocente";
 	$this->load->view('template/page_header');		
   $this->load->view('jornadadocente_record',$data);
