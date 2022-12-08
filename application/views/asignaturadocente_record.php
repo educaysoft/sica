@@ -38,7 +38,7 @@ if(isset($asignaturadocente))
 	<div class="col-md-10">
 	<?php
 
-      echo form_input('idasignaturadocente',$asignaturadocente['idasignaturadocente'],array("disabled"=>"disabled",'placeholder'=>'Idasignaturadocentes'));
+      echo form_input('idasignaturadocente',$asignaturadocente['idasignaturadocente'],array("id"=>"idasignaturadocente","disabled"=>"disabled",'placeholder'=>'Idasignaturadocentes'));
 		?>
 	</div> 
 </div>
