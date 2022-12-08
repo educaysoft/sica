@@ -125,7 +125,7 @@ function asignaturadocente_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->asignaturadocente_model->lista_asignaturadocentesA();
+	 	$data0 = $this->asignaturadocente_model->lista_asignaturadocentesA(0);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idasignaturadocente,$r->elhorariodocente,$r->laasignatura,$r->paralelo,
