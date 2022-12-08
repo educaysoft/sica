@@ -10,6 +10,7 @@ class Asignaturadocente extends CI_Controller{
   	  $this->load->model('asignaturadocente_model');
   	  $this->load->model('horariodocente_model');
   	  $this->load->model('paralelo_model');
+  	  $this->load->model('jornadadocente_model');
 }
 
 public function index(){
