@@ -7,7 +7,8 @@ class Asignaturadocente_model extends CI_model {
 	}
 
 
-	function lista_asignaturadocentesA(){
+	function lista_asignaturadocentesA($idhorariodocente){
+ 		$this->db->where('idhorariodocente',$idhorariodocente);
 		 $asignaturadocente= $this->db->get('asignaturadocente1');
 		 return $asignaturadocente;
 	}
