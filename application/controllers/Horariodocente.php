@@ -213,11 +213,9 @@ public function elultimo()
 {
 	$data['horariodocente'] = $this->horariodocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
-  	$data['docentes']= $this->docente_model->lista_docentes()->result();
     $data['title']="Horariodocente";
   
     $this->load->view('template/page_header');		
