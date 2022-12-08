@@ -179,6 +179,7 @@ public function elprimero()
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
 	$data['jornadadocente'] = $this->jornadadocente_model->elprimero();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
+  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 	  if(!empty($data))
 	  {
@@ -198,6 +199,7 @@ public function elultimo()
 {
 	$data['jornadadocente'] = $this->jornadadocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
+  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   if(!empty($data))
@@ -220,6 +222,7 @@ public function siguiente(){
  // $data['jornadadocente_list']=$this->jornadadocente_model->lista_jornadadocente()->result();
 	$data['jornadadocente'] = $this->jornadadocente_model->siguiente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
+  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   
@@ -234,9 +237,9 @@ public function anterior(){
  // $data['jornadadocente_list']=$this->jornadadocente_model->lista_jornadadocente()->result();
 	$data['jornadadocente'] = $this->jornadadocente_model->anterior($this->uri->segment(3))->row_array();
  	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
-		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   $data['title']="Jornadadocente";
 	$this->load->view('template/page_header');		
   $this->load->view('jornadadocente_record',$data);
