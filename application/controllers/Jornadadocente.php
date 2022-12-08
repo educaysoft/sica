@@ -150,7 +150,9 @@ public function actual()
 	$data['jornadadocente'] = $this->jornadadocente_model->jornadadocente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
+  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
 	  if(!empty($data))
 	  {
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
