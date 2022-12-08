@@ -20,8 +20,8 @@ class Jornadadocente_model extends CI_model {
  	}
 
 
- 	function jornadadocentespersona( $id){
- 		$jornadadocente = $this->db->query('select * from jornadadocente where idpersona="'. $id.'"');
+ 	function jornadadocentes( $idasignaturadocente){
+ 		$jornadadocente = $this->db->query('select * from jornadadocente where idasignaturadocente="'. $idasignaturadocente.'"');
  		return $jornadadocente;
  	}
 
