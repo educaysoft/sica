@@ -91,6 +91,20 @@ public function edit()
 
 
 
+ 	public function delete()
+ 	{
+ 		$data=$this->asignatura_model->delete($this->uri->segment(3));
+ 		echo json_encode($data);
+	 	redirect('asignatura/elprimero');
+	//	$db['default']['db_debug']=FALSE
+ 	}
+
+
+
+
+
+
+
 public function listar()
 {
 	
