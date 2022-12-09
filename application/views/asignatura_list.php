@@ -79,11 +79,16 @@ $(document).ready(function(){
 
 });
 
-$('#show_data').on('click','.item_ver',function(){
 
-window.location.href = "http://localhost/facae/index.php/asignatura";
+
+$('#show_data').on('click','.item_ver',function(){
+	var id= $(this).data('idiasignatura');
+	var retorno= $(this).data('retorno2');
+	window.location.href = retorno+'/'+id;
 
 });
+
+
 
 
 </script>
