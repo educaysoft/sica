@@ -145,7 +145,7 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
       	<!-- Page Heading -->
  	<div class="row">
   	<div class="col-12">
-	<table class="table table-striped table-bordered table-hover" id="mydatas">
+	<table class="table table-striped table-bordered table-hover" id="mydataie">
 	 <thead>
 	 <tr>
 	 <th>idpersona</th>
@@ -179,7 +179,7 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
       	<!-- Page Heading -->
  	<div class="row">
   	<div class="col-12">
-	<table class="table table-striped table-bordered table-hover" id="mydatae">
+	<table class="table table-striped table-bordered table-hover" id="mydatas">
 	 <thead>
 	 <tr>
 	 <th>iddocente</th>
