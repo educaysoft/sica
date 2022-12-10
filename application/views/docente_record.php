@@ -75,9 +75,6 @@ foreach ($departamentos as $row){
 	$options[$row->iddepartamento]= $row->nombre;
 }
 
-	?>
-	<div class="col-md-10">
-		<?php
 echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
