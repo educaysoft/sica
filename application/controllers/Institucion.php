@@ -42,15 +42,15 @@ public function  save()
 
 
 
-public function edit()
-{
-	 	$data['institucion'] = $this->institucion_model->institucion($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar institucion";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('institucion_edit',$data);
-	 	$this->load->view('template/page_footer');
- 
-}
+	public function edit()
+	{
+			$data['institucion'] = $this->institucion_model->institucion($this->uri->segment(3))->row_array();
+			$data['title'] = "Actualizar institucion";
+			$this->load->view('template/page_header');		
+			$this->load->view('institucion_edit',$data);
+			$this->load->view('template/page_footer');
+	 
+	}
 
 
 	public function  save_edit()
@@ -73,14 +73,14 @@ public function edit()
  	}
 
 
-public function listar()
-{
-	
-  $data['title']="Institucion";
-	$this->load->view('template/page_header');		
-  $this->load->view('institucion_list',$data);
-	$this->load->view('template/page_footer');
-}
+	public function listar()
+	{
+		
+	  $data['title']="Institucion";
+		$this->load->view('template/page_header');		
+	  $this->load->view('institucion_list',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
 

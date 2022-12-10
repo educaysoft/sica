@@ -2,7 +2,7 @@
 class Institucion_model extends CI_model {
 
 	function lista_instituciones(){
-		 $institucion= $this->db->get('institucion');
+		 $institucion= $this->db->order_by("nombre")->get('institucion');
 		 return $institucion;
 	}
 
