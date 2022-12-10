@@ -183,9 +183,9 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 	 <thead>
 	 <tr>
 	 <th>iddocente</th>
-	 <th>periodo</th>
 	 <th>idsilabo</th>
 	 <th>elsilabo</th>
+	 <th>periodo</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
@@ -230,7 +230,7 @@ window.location.href = retorno+'/'+id;
 
 
 
-$('#show_data1').on('click','.item_ver',function(){
+$('#show_datas').on('click','.item_ver',function(){
 var id= $(this).data('idsilabo');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
