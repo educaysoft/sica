@@ -182,6 +182,34 @@ public function actual(){
 
 
 
+	function estudio_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idpersona=$this->input->get('idpersona');
+			$data0 =$this->estudio_model->estudios($idpersona);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idpersona,$r->idestudio,$r->lainstitucion,$r->nivel,$r->titulo,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_vere"  data-retornoe="'.site_url('estudio/actual').'"    data-idestudio="'.$r->idestudio.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
+
+
 
 	public function elprimero()
 	{

@@ -126,6 +126,40 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Estudios realizados: </label>
+
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12">
+	<table class="table table-striped table-bordered table-hover" id="mydatas">
+	 <thead>
+	 <tr>
+	 <th>idpersona</th>
+	 <th>idestudio</th>
+	 <th>intitucion</th>
+	 <th>nivel</th>
+	 <th>titulo</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_datae">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
+
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Silabos presentados: </label>
 
 	<div class="col-md-10">
@@ -155,6 +189,7 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 
 
 
+
 <?php echo form_close(); ?>
 
 
@@ -167,6 +202,22 @@ $(document).ready(function(){
 
 });
 
+
+
+$(document).ready(function(){
+	var idpersona=document.getElementById("idpesona").value;
+	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('docente/estudio_data')?>', type: 'GET',data:{idpersona:idpersona}},});
+
+
+});
+
+
+
+$('#show_datae').on('click','.item_vere',function(){
+var id= $(this).data('idestudio');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
 
 
 
