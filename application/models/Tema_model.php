@@ -18,6 +18,18 @@ function lista_temas1($idunidadsilabo){
 
 
 
+function lista_temass($idsilabo){
+	if($idsilabo>0)
+	{
+	$this->db->where('idsilabo='.$idsilabo);
+	}
+	$query=$this->db->order_by("fechaimpartida","idsilabo","idunidadsilabo","idtema")->get('tema1');
+	 return $query;
+	}
+
+
+
+
  	function temas( $idunidadsilabo){
  		$tema = $this->db->query('select * from tema where idunidadsilabo="'. $idunidadsilabo.'" order by fechaimpartida');
  		return $tema;

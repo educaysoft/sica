@@ -65,14 +65,14 @@ public function actual(){
 
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['temas']= $this->tema_model->lista_temas1($idevento)->result();
+  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 
 	    }else{
 	     $data["idevento"]=$idevento;
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['evento']= $this->evento_model->evento($idevento)->first_row('array');
 		$data['eventos']= $this->evento_model->evento($idevento)->result();
-  		$data['temas']= $this->tema_model->lista_temas1($data['evento']['idsilabo'])->result();
+  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 	   }
 
 		$data['title']="Nuevo Fechaevento";
