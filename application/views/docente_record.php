@@ -34,6 +34,18 @@ if(isset($docente))
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label">id persona: </label>
+	<div class="col-md-10">
+     	<?php 
+      echo form_input('idpersona',$docente['idpersona'],array("id"=>"idpersona","disabled"=>"disabled",'placeholder'=>'Iddocentes')); 
+		?>
+	</div> 
+</div>
+
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label">id Docente: </label>
 	<div class="col-md-10">
      	<?php 
@@ -177,7 +189,7 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
-	 <tbody id="show_data1">
+	 <tbody id="show_datas">
 	 </tbody>
 	</table>
 	</div>
