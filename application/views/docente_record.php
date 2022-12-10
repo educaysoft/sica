@@ -209,19 +209,15 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 
 $(document).ready(function(){
 	var iddocente=document.getElementById("iddocente").value;
+	var idpersona=document.getElementById("idpersona").value;
 	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('docente/silabo_data')?>', type: 'GET',data:{iddocente:iddocente}},});
-
-
-});
-
-
-
-$(document).ready(function(){
-	var idpersona=document.getElementById("idpesona").value;
 	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('docente/estudio_data')?>', type: 'GET',data:{idpersona:idpersona}},});
 
 
 });
+
+
+
 
 
 
