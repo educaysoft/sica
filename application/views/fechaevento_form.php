@@ -49,8 +49,7 @@ $options= array('--Select--');
 foreach ($temas as $row){
 	$options[$row->fechaimpartida]= $row->nombrecorto;
 }
-
- echo form_dropdown("idtema",$options, set_select('--Select--',$options[$date]),array('id'=>'idtema'));  
+ echo form_dropdown("idtema",$options, set_select($options[$date],'default_value'),array('id'=>'idtema'));  
 ?>
 </div>
 </div>
