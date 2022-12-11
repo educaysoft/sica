@@ -41,18 +41,16 @@ foreach ($eventos as $row){
 </div>
 
 
-
-
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Tema programado:</label>
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
 foreach ($temas as $row){
-	$options[$row->idtema]= $row->nombrecorto;
+	$options[$row->fechaimpartida]= $row->nombrecorto;
 }
 
- echo form_dropdown("idtema",$options, set_select('--Select--','default_value'),array('id'=>'idtema'));  
+ echo form_dropdown("idtema",$options, set_select('--Select--',$options[$date]),array('id'=>'idtema'));  
 ?>
 </div>
 </div>
