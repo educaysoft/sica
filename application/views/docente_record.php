@@ -121,24 +121,11 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('estudio/add', 'Estudios:') ?> </label>
-	<div class="col-md-10">
-     	<?php 
 
-	$options = array();
-  	foreach ($estudios as $row){
-		$options[$row->idpersona]=$row->nivel." - ".$row->lainstitucion;
-	}
-
-			 echo form_multiselect('idestudio[]',$options,(array)set_value('idestudio', ''), array('style'=>'width:500px')); 
-		?>
-	</div> 
-</div>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Estudios realizados: </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('estudio/add', 'Estudios realizados:') ?> </label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
