@@ -47,7 +47,7 @@ foreach ($eventos as $row){
 <?php
 $options= array('--Select--');
 foreach ($temas as $row){
-	$options[$row->fechaimpartida]= $row->nombrecorto;
+	$options[$row->fechaimpartida]=$row->fechaimpartida." - ".$row->nombrecorto;
 }
  echo form_dropdown("idtema",$options, set_select($options[$date],'default_value'),array('id'=>'idtema'));  
 ?>
