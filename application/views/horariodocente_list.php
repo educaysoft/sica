@@ -38,6 +38,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
         	</h3>
        	     </div>
 
+
+
+
+	<div id="eys-nav-i">
+	<ul>
+    		<li> <?php echo anchor('horariodocente', 'Home'); ?></li>
+	</ul>
+       	</div>
+<br>
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
