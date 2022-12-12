@@ -46,7 +46,7 @@ if(isset($asignaturadocente))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Horario docente <?php echo anchor('horariodocente', '(Ver)'); ?>:</label>
+    <label class="col-md-2 col-form-label"> Horario docente <?php echo anchor('horariodocente/actual/'.$asignaturadocente['idhorariodocente'] , '(Ver)'); ?>:</label>
 	<div class="col-md-10">
 	<?php
 	$options= array("NADA");
