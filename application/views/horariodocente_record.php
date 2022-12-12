@@ -31,36 +31,46 @@ if(isset($horariodocente))
 
 <?php echo form_open('horariodocente/save_edit') ?>
 <?php echo form_hidden('idhorariodocente',$horariodocente['idhorariodocente']) ?>
-<table>
-  <tr>
-     <td>Id HoarioDocente:</td>
-     <td><?php echo form_input('idhorariodocente',$horariodocente['idhorariodocente'],array("id"=>"idhorariodocente","disabled"=>"disabled",'placeholder'=>'Idhorariodocentes')) ?></td>
-  </tr>
- 
- 
-<tr>
-     <td>Docente:</td>
-     <td><?php 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id horario docente: </label>
+	<div class="col-md-10">
+     	<?php 
+      echo form_input('idhorariodocente',$horariodocente['idhorariodocente'],array("id"=>"idhorariodocente","disabled"=>"disabled",'placeholder'=>'Idhorariodocentes')); 
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Docente: </label>
+	<div class="col-md-10">
+     	<?php 
 $options= array("NADA");
 foreach ($docentes as $row){
 	$options[$row->iddocente]= $row->eldocente;
 }
 
-echo form_input('iddocente',$options[$horariodocente['iddocente']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
-  </tr>
- 
+echo form_input('iddocente',$options[$horariodocente['iddocente']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 
- <tr>
-     <td>Periodo Académico:</td>
-     <td><?php 
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Periodo académico: </label>
+	<div class="col-md-10">
+     	<?php 
     $options= array("NADA");
     foreach ($periodoacademicos as $row){
 	      $options[$row->idperiodoacademico]= $row->nombrelargo;
     }
-    echo form_input('idperiodoacademico',$options[$horariodocente['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
- </tr>
-  
-
+    echo form_input('idperiodoacademico',$options[$horariodocente['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
 
   
 
@@ -99,7 +109,6 @@ echo form_input('iddocente',$options[$horariodocente['iddocente']],array("disabl
 
 
 
-</table>
 <?php echo form_close(); ?>
 
 
