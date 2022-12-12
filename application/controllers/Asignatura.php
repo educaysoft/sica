@@ -138,6 +138,33 @@ function asignatura_data()
 
 
 
+
+	function silabo_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$iddocente=$this->input->get('iddocente');
+			$data0 =$this->silabo_model->silabosa($idasignatura);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idasignatura,$r->idsilabo,$r->elsilabo,$r->elperiodo,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('silabo/actual').'"    data-idsilabo="'.$r->idsilabo.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
 public function actual()
 {
 	$data['asignatura'] = $this->asignatura_model->asignatura($this->uri->segment(3))->row_array();

@@ -101,23 +101,6 @@ if(isset($asignatura))
 </div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Docentes:</label>
-	<div class="col-md-10">
-      <?php
- 	$options = array();
-  	foreach ($docentes as $row){
-		$options[$row->iddocente]=$row->eldocente;
-	}
-
-	?>
-	<div class="col-md-10">
-	<?php
-	echo form_multiselect('iddocente[]',$options,(array)set_value('iddocente', ''), array('style'=>'width:500px')); 
-	?>
-	</div> 
-</div>
-
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Resultados Aprendizaje:</label>
@@ -143,10 +126,65 @@ if(isset($asignatura))
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Silabos presentados: </label>
+
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12">
+	<table class="table table-striped table-bordered table-hover" id="mydatas">
+	 <thead>
+	 <tr>
+	 <th>idasignatura</th>
+	 <th>idsilabo</th>
+	 <th>elsilabo</th>
+	 <th>periodo</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_datas">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
 
 <?php echo form_close(); ?>
 
+<script type="text/javascript">
 
+$(document).ready(function(){
+	var idasignatura=document.getElementById("idasignatura").value;
+	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('asignatura/silabo_data')?>', type: 'GET',data:{idasignatura:idasignatura}},});
+
+
+});
+
+
+
+
+
+
+
+
+
+$('#show_datas').on('click','.item_ver',function(){
+var id= $(this).data('idsilabo');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+
+
+
+</script>
 
 
 
