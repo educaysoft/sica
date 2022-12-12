@@ -13,7 +13,7 @@
 	<?php
 	$options= array('--Select--');
 	foreach ($asignaturadocentes as $row){
-		$options[$row->idasignaturadocente]= $row->laasignatura;
+		$options[$row->idasignaturadocente]= $row->laasignatura."-".$row->paralelo;
 	}
 	 echo form_dropdown("idasignaturadocente",$options, set_select('--Select--','default_value'));  
 		?>
