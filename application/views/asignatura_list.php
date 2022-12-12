@@ -41,7 +41,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 	<div id="eys-nav-i">
 	<ul>
-    		<li> <?php echo anchor('acceso', 'Home'); ?></li>
+    		<li> <?php echo anchor('asignatura', 'Home'); ?></li>
 	</ul>
        	</div>
 <br>
