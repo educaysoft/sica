@@ -32,6 +32,37 @@ if(isset($jornadadocente))
 <?php echo form_open('jornadadocente/save_edit') ?>
 <?php echo form_hidden('idjornadadocente',$jornadadocente['idjornadadocente']) ?>
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Distributivo docente:</label>
+	<div class="col-md-10">
+		<?php
+	$options= array("NADA");
+	foreach ($asignaturadocentes as $row){
+		$options[$row->idasignaturadocente]= $row->elhorariodocente;
+	}
+echo form_input('idasignaturadocente',$options[$jornadadocente['idasignaturadocente']],array("disabled"=>"disabled",'style'=>'width:500px;'));  
+
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Asignatura docente <?php echo anchor('asignaturadocente/actual/'.$jornadadocente['idasignaturadocente'] , 'Ver'); ?>:</label>
+	<div class="col-md-10">
+		<?php
+	$options= array("NADA");
+	foreach ($asignaturadocentes as $row){
+		$options[$row->idasignaturadocente]= $row->laasignatura."-".$row->paralelo;
+	}
+echo form_input('idasignaturadocente',$options[$jornadadocente['idasignaturadocente']],array("disabled"=>"disabled",'style'=>'width:500px;'));  
+
+		?>
+	</div> 
+</div>
+
+
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label">ID JornadaDOCENTE:</label>
@@ -46,36 +77,12 @@ if(isset($jornadadocente))
 </div>
  
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Asignatura docente:</label>
-	<div class="col-md-10">
-		<?php
-	$options= array("NADA");
-	foreach ($asignaturadocentes as $row){
-		$options[$row->idasignaturadocente]= $row->elhorariodocente;
-	}
-echo form_input('idasignaturadocente',$options[$jornadadocente['idasignaturadocente']],array("disabled"=>"disabled",'style'=>'width:500px;'));  
-
-		?>
-	</div> 
-</div>
 
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Asignatura docente:</label>
-	<div class="col-md-10">
-		<?php
-	$options= array("NADA");
-	foreach ($asignaturadocentes as $row){
-		$options[$row->idasignaturadocente]= $row->laasignatura."-".$row->paralelo;
-	}
-echo form_input('idasignaturadocente',$options[$jornadadocente['idasignaturadocente']],array("disabled"=>"disabled",'style'=>'width:500px;'));  
 
-		?>
-	</div> 
-</div>
+
  
 
 
