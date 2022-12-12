@@ -16,7 +16,7 @@ public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['jornadadocente']=$this->jornadadocente_model->lista_jornadadocentes()->row_array();
+  	$data['jornadadocente']=$this->jornadadocente_model->elultimo();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
   	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
