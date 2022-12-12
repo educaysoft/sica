@@ -146,7 +146,7 @@ function asignatura_data()
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$iddocente=$this->input->get('iddocente');
+			$idasignatura=$this->input->get('idasignatura');
 			$data0 =$this->silabo_model->silabosa($idasignatura);
 			$data=array();
 			foreach($data0->result() as $r){
