@@ -36,7 +36,7 @@ if(isset($asignatura))
 	<div class="col-md-10">
       <?php
 
-  $eys_arrctl=array("name"=>'idasignatura','value'=>$asignatura['idasignatura'],"disabled"=>"disabled",'placeholder'=>'Idasignaturas','style'=>'width:500px;');
+  $eys_arrctl=array("name"=>'idasignatura',"id"=>"idasignatura" ,'value'=>$asignatura['idasignatura'],"disabled"=>"disabled",'placeholder'=>'Idasignaturas','style'=>'width:500px;');
  echo form_input($eys_arrctl); 
 	?>
 	</div> 
