@@ -9,6 +9,7 @@ class Asignatura extends CI_Controller{
   	$this->load->model('nivelacademico_model');
       		$this->load->model('docente_model');
       		$this->load->model('persona_model');
+      		$this->load->model('silabo_model');
 }
 
 public function index(){
