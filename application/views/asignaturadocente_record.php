@@ -63,7 +63,7 @@ echo form_input('idhorariodocente',$options[$asignaturadocente['idhorariodocente
  
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Asignatura:</label>
+    <label class="col-md-2 col-form-label"> Asignatura  <?php echo anchor('asignatura/actual/'.$asignaturadocente['idasignatura'] , '(Ver)'); ?> :</label>
 	<div class="col-md-10">
 	<?php
     $options= array("NADA");
