@@ -88,6 +88,7 @@ echo form_input('iddocente',$options[$horariodocente['iddocente']],array("disabl
 	 <th>idhorariodocente</th>
 	 <th>idasignatura</th>
 	 <th>Asignatura</th>
+	 <th>Paralelo</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
