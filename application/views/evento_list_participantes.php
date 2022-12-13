@@ -224,6 +224,7 @@ var alto_y=$(this).data('alto_y');
 
 var posi_nomb_x=$(this).data('posi_nomb_x');
 var posi_nomb_y=$(this).data('posi_nomb_y');
+var size_nombre=$(this).data('size_nombre');
 
 var posi_codigo_x=$(this).data('posi_codigo_x');
 var posi_codigo_y=$(this).data('posi_codigo_y');
@@ -290,6 +291,7 @@ if(iddocumento2==0)
 
     	formData.append("posi_nomb_x", posi_nomb_x);
     	formData.append("posi_nomb_y", posi_nomb_y);
+    	formData.append("size_nombre", size_nombre);
 
     	formData.append("posi_codigo_x", posi_codigo_x);
     	formData.append("posi_codigo_y", posi_codigo_y);

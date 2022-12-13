@@ -97,6 +97,15 @@ echo form_input($eys_arrinput); ?></td>
 
 
 <tr>
+     <td>Tamaño letra nombre(20):</td>
+     <td><?php 
+     $eys_arrinput=array('name'=>'size_nombre','value'=>$certificado['size_nombre'], "style"=>"width:500px");
+     echo form_input($eys_arrinput); ?></td>
+</tr>
+
+
+
+<tr>
      <td>Posicion X:</td>
      <td><?php 
      $eys_arrinput=array('name'=>'posi_nomb_x','value'=>$certificado['posi_nomb_x'], "style"=>"width:500px");

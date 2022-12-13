@@ -16,6 +16,8 @@ $codigo=substr($archivo,0,strlen($archivo)-4);
 $ruta=$_POST["ruta"];
 $posi_nomb_x=$_POST["posi_nomb_x"];
 $posi_nomb_y=$_POST["posi_nomb_y"];
+$size_nombre=$_POST["size_nombre"];
+
 
 $ancho_x=$_POST["ancho_x"];
 $alto_y=$_POST["alto_y"];
@@ -116,7 +118,8 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 //	$pdf->SetTextColor(0, 0,255);
 
 
-	$pdf->SetFont('Arial','B',20);
+	//$pdf->SetFont('Arial','B',20);
+	$pdf->SetFont('Arial','B',$size_nombre);
 	$pdf->SetTextColor(0, 0,0);
 
 	$pdf->SetXY($pos_nomb_x,$posi_nomb_y);
