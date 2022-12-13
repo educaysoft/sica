@@ -51,6 +51,7 @@ public function  save()
 	 	'archivo' => $this->input->post('archivo'),
 	 	'posi_nomb_x' => $this->input->post('posi_nomb_x'),
 	 	'posi_nomb_y' => $this->input->post('posi_nomb_y'),
+	 	'size_nombre' => $this->input->post('size_nombre'),
 
 	 	'posi_codigo_x' => $this->input->post('posi_codigo_x'),
 	 	'posi_codigo_y' => $this->input->post('posi_codigo_y'),
@@ -106,6 +107,7 @@ public function edit()
 	 		'iddocumento' => $this->input->post('iddocumento'),
 		 	'posi_nomb_x' => $this->input->post('posi_nomb_x'),
 		 	'posi_nomb_y' => $this->input->post('posi_nomb_y'),
+	 		'size_nombre' => $this->input->post('size_nombre'),
 
 			'posi_codigo_x' => $this->input->post('posi_codigo_x'),
 			'posi_codigo_y' => $this->input->post('posi_codigo_y'),
