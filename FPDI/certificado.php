@@ -202,16 +202,11 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	
 	if(intval($posi_texto1_y)>0)
 	{
-		//$pdf->SetFont('Arial','',$font_size_texto1);
-	//	$pdf->SetXY($posi_texto1_x,$posi_texto1_y);
-	//	$pdf->MultiCell($ancho_texto1,$alto_texto1,$texto1);
-
-
-		$pdf->SetFont('Arial','',12);
-		$pdf->SetXY(100,100);
-	//	$pdf->MultiCell(50,29,"HOLA MUNDO DEL PHP COMO LO ESTO ESTCRIE");
-
+		$pdf->SetFont('Arial','',$font_size_texto1);
+		$pdf->SetXY($posi_texto1_x,$posi_texto1_y);
 		$pdf->MultiCell($ancho_texto1,$alto_texto1,$texto1);
+
+
 
 	}
 

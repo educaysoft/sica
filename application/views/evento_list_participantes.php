@@ -315,12 +315,15 @@ if(iddocumento2==0)
     	formData.append("firma3_y", firma3_y);
 
 
-	var texto1=$(this).data('texto1');
-	var posi_texto1_x=$(this).data('posi_texto1_x');
-	var posi_texto1_y=$(this).data('posi_texto1_y');
-	var ancho_texto1=$(this).data('ancho_texto1');
-	var alto_texto1=$(this).data('alto_texto1');
-	var font_size_texto1=$(this).data('font_size_texto1');
+	
+    	formData.append("texto1", texto1);
+    	formData.append("posi_texto1_x", posi_texto1_x);
+    	formData.append("posi_texto1_y", posi_texto1_y);
+    	formData.append("ancho_texto1", ancho_texto1);
+    	formData.append("alto_texto1", alto_texto1);
+    	formData.append("font_size_texto1", font_size_texto1);
+
+
 
 
     	formData.append("fecha", fechaelaboracion);
