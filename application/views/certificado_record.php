@@ -360,13 +360,71 @@ echo form_input('idtipodocu',$options[$certificado['idtipodocu']],array("disable
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> TExto1:</label>
+	<div class="col-md-10">
+		<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('texto1',$certificado['texto1'],$textarea_options); 
+		?>
+	</div> 
+</div>
 
 
 
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">posicion x texto1: </label>
+	<div class="col-md-10">
+		<?php
+		 $eys_arrctl=array("name"=>'posi_texto1_x','value'=>$certificado['posi_texto1_x'],"disabled"=>"disabled",'placeholder'=>'Posición x','style'=>'width:600px;');
+		 echo form_input($eys_arrctl);
+		?>
+	</div>
+</div>
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">posicion y texto1: </label>
+	<div class="col-md-10">
+		<?php
+		 $eys_arrctl=array("name"=>'posi_texto1_y','value'=>$certificado['posi_texto1_y'],"disabled"=>"disabled",'placeholder'=>'Posición y','style'=>'width:600px;');
+		 echo form_input($eys_arrctl);
+		?>
+	</div>
+</div>
+
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">ancho texto 1: </label>
+	<div class="col-md-10">
+		<?php
+		 $eys_arrctl=array("name"=>'ancho_texto1','value'=>$certificado['ancho_texto1'],"disabled"=>"disabled",'placeholder'=>'Ancho','style'=>'width:600px;');
+		 echo form_input($eys_arrctl);
+		?>
+	</div>
+</div>
 
 
 
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">Alto texto1: </label>
+	<div class="col-md-10">
+		<?php
+		 $eys_arrctl=array("name"=>'alto_texto1','value'=>$certificado['alto_texto1'],"disabled"=>"disabled",'placeholder'=>'Alto','style'=>'width:600px;');
+		 echo form_input($eys_arrctl);
+		?>
+	</div>
+</div>
 
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">tamaño de fuente: </label>
+	<div class="col-md-10">
+		<?php
+		 $eys_arrctl=array("name"=>'font_size_texto1','value'=>$certificado['font_size_texto1'],"disabled"=>"disabled",'placeholder'=>'tamaño de fuente','style'=>'width:600px;');
+		 echo form_input($eys_arrctl);
+		?>
+	</div>
+</div>
 
 
 

@@ -185,13 +185,54 @@ echo form_input($eys_arrinput); ?></td>
 </tr>
 
 
+<tr>
+  <td>Texto 1:</td>
+  <td><?php 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correohead","id" =>"correohead");    
+echo form_textarea('texto1',$certificado['texto1'],$textarea_options ); ?></td>
+</tr>
 
 
 
 
- <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('certificado','Atras') ?></td>
- </tr>
+<tr>
+    <td>posicion text1 x:</td>
+    <td><?php 
+    $eys_arrinput=array('name'=>'posi_texto1_x','value'=>$certificado['posi_texto1_x'], "style"=>"width:500px");
+    echo form_input($eys_arrinput); ?></td>
+</tr>
+
+<tr>
+    <td>posicion text1 y:</td>
+    <td><?php 
+    $eys_arrinput=array('name'=>'posi_texto1_y','value'=>$certificado['posi_texto1_y'], "style"=>"width:500px");
+    echo form_input($eys_arrinput); ?></td>
+</tr>
+
+<tr>
+    <td>Anco texto1 :</td>
+    <td><?php 
+    $eys_arrinput=array('name'=>'ancho_texto1','value'=>$certificado['ancho_texto1'], "style"=>"width:500px");
+    echo form_input($eys_arrinput); ?></td>
+</tr>
+
+<tr>
+    <td>Alto texto1 :</td>
+    <td><?php 
+    $eys_arrinput=array('name'=>'alto_texto1','value'=>$certificado['alto_texto1'], "style"=>"width:500px");
+    echo form_input($eys_arrinput); ?></td>
+</tr>
+
+<tr>
+    <td>tamaño fuente texto1 :</td>
+    <td><?php 
+    $eys_arrinput=array('name'=>'font_size_texto1','value'=>$certificado['font_size_texto1'], "style"=>"width:500px");
+    echo form_input($eys_arrinput); ?></td>
+</tr>
+
+
+
+
 
 <tr>
   <td>Head para enviar:</td>
@@ -215,6 +256,14 @@ echo form_textarea('correosubject',$certificado['correosubject'],$textarea_optio
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correofoot","id" =>"correofoot");    
 echo form_textarea('correofoot',$certificado['correofoot'],$textarea_options ); ?></td>
 </tr>
+
+
+
+
+
+ <tr>
+ <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('certificado','Atras') ?></td>
+ </tr>
 
 
 

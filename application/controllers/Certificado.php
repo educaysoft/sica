@@ -71,6 +71,15 @@ public function  save()
 
 	 	'ancho_x' => $this->input->post('ancho_x'),
 	 	'alto_y' => $this->input->post('alto_y'),
+
+
+		'texto1' => $this->input->post('texto1'),
+	 	'posi_texto1_x' => $this->input->post('posi_texto1_x'),
+	 	'posi_texto1_y' => $this->input->post('posi_texto1_y'),
+	 	'ancho_texto1' => $this->input->post('ancho_texto1'),
+	 	'alto_texto1' => $this->input->post('alto_texto1'),
+	 	'font_size_texto1' => $this->input->post('font_size_texto1'),
+
 		'correohead' => $this->input->post('correohead'),
 		'correosubject' => $this->input->post('correosubject'),
 		'correofoot' => $this->input->post('correofoot'),
@@ -127,6 +136,16 @@ public function edit()
 
 		 	'firma3_x' => $this->input->post('firma3_x'),
 		 	'firma3_y' => $this->input->post('firma3_y'),
+
+		 	'texto1' => $this->input->post('texto1'),
+		 	'posi_texto1_x' => $this->input->post('posi_texto1_x'),
+		 	'posi_texto1_y' => $this->input->post('posi_texto1_y'),
+		 	'ancho_texto1' => $this->input->post('ancho_texto1'),
+		 	'alto_texto1' => $this->input->post('alto_texto1'),
+		 	'font_size_texto1' => $this->input->post('font_size_texto1'),
+
+
+
 
 
 			'correohead' => $this->input->post('correohead'),

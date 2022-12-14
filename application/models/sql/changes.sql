@@ -60,7 +60,17 @@ alter table silabo add column idperiodoacademico int(11);
 */
 
 
+/*
 alter table silabo drop column idevento;
 alter table silabo add column iddocente int(11);
 
+*/
+
+
+/*alter table certificado add column texto1 text;*/
+alter table certificado add posi_texto1_x decimal(5,2);
+alter table certificado add posi_texto1_y decimal(5,2);
+alter table certificado add font_size_texto1 decimal(5,2);
+alter table certificado add ancho_texto1 decimal(5,2);
+alter table certificado add alto_texto1 decimal(5,2);
 

@@ -182,6 +182,18 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 		$pdf->Text($realposix,$posi_fecha_y,$espacio_impresion);
 	}
 
+	
+	if(intval($posi_texto1_y)>0)
+	{
+		$pdf->SetFont('Arial','',$font_size_texto1);
+		$pdf->SetXY($posi_texto1_x,$posi_texto1_y);
+
+		$pdf->MultiCell($ancho_texto1,$alto_texto1,$texto1);
+	}
+
+
+
+
 }
 //$pdf->Output('I', 'generated.pdf');
 $archivo=str_replace("'","",$archivo);
