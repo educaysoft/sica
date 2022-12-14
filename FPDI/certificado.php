@@ -209,8 +209,9 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 
 		$pdf->SetFont('Arial','',12);
 		$pdf->SetXY(100,100);
-		$pdf->MultiCell(50,29,"HOLA MUNDO DEL PHP COMO LO ESTO ESTCRIE");
+	//	$pdf->MultiCell(50,29,"HOLA MUNDO DEL PHP COMO LO ESTO ESTCRIE");
 
+		$pdf->MultiCell($ancho_texto1,$alto_texto1,$texto1);
 
 	}
 
