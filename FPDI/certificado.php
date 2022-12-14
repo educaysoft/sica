@@ -44,7 +44,7 @@ $firma3_y=$_POST["firma3_y"];
 
 
 
-$txto1=$_POST["texto1"];
+$texto1=$_POST["texto1"];
 $posi_texto1_x=$_POST["posi_texto1_x"];
 $posi_texto1_y=$_POST["posi_texto1_y"];
 $ancho_texto1=$_POST["ancho_texto1"];
@@ -120,6 +120,10 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 		$espacio_impresion=$pdf->GetStringWidth($codigo);
 	}
 	$realposix=$posi_codigo_x+($espacio_impresion/2-($pdf->GetStringWidth($codigo)/2));
+
+	if($posi_nombre<20){  //cuando no es un certificado
+		$realposix=$posi_codigo_x;
+	}
 	$pdf->Text($realposix,$posi_codigo_y,$codigo);
 
 	// now write some text above the imported page
@@ -134,6 +138,10 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	$pdf->SetXY($pos_nomb_x,$posi_nomb_y);
 	$espacio_impresion=$posif;  //-$posix;
 	$realposix=$posi_nomb_x+($espacio_impresion/2-($pdf->GetStringWidth($participante)/2));
+	if($posi_nombre<20){
+		$realposix=$posi_nomb_x;
+	}
+
 	$pdf->Text($realposix,$posi_nomb_y,utf8_decode(mb_strtoupper($participante,'utf-8')));
 
 	//write the date of de certificaod
@@ -194,10 +202,16 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	
 	if(intval($posi_texto1_y)>0)
 	{
-		$pdf->SetFont('Arial','',$font_size_texto1);
-		$pdf->SetXY($posi_texto1_x,$posi_texto1_y);
+		//$pdf->SetFont('Arial','',$font_size_texto1);
+	//	$pdf->SetXY($posi_texto1_x,$posi_texto1_y);
+	//	$pdf->MultiCell($ancho_texto1,$alto_texto1,$texto1);
 
-		$pdf->MultiCell($ancho_texto1,$alto_texto1,$texto1);
+
+		$pdf->SetFont('Arial','',12);
+		$pdf->SetXY(100,100);
+		$pdf->MultiCell(50,29,"HOLA MUNDO DEL PHP COMO LO ESTO ESTCRIE");
+
+
 	}
 
 
