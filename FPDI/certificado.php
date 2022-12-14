@@ -44,6 +44,15 @@ $firma3_y=$_POST["firma3_y"];
 
 
 
+$txto1=$_POST["texto1"];
+$posi_texto1_x=$_POST["posi_texto1_x"];
+$posi_texto1_y=$_POST["posi_texto1_y"];
+$ancho_texto1=$_POST["ancho_texto1"];
+$alto_texto1=$_POST["alto_texto1"];
+$font_size_texto1=$_POST["font_size_texto1"];
+
+
+
 
 
 

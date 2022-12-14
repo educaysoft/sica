@@ -245,6 +245,12 @@ var firma3_x=$(this).data('firma3_x');
 var firma3_y=$(this).data('firma3_y');
 
 
+var texto1=$(this).data('texto1');
+var posi_texto1_x=$(this).data('posi_texto1_x');
+var posi_texto1_y=$(this).data('posi_texto1_y');
+var ancho_texto1=$(this).data('ancho_texto1');
+var alto_texto1=$(this).data('alto_texto1');
+var font_size_texto1=$(this).data('font_size_texto1');
 
 
 var iddocumento2=$(this).data('iddocumento2');
@@ -307,6 +313,15 @@ if(iddocumento2==0)
 
     	formData.append("firma3_x", firma3_x);
     	formData.append("firma3_y", firma3_y);
+
+
+	var texto1=$(this).data('texto1');
+	var posi_texto1_x=$(this).data('posi_texto1_x');
+	var posi_texto1_y=$(this).data('posi_texto1_y');
+	var ancho_texto1=$(this).data('ancho_texto1');
+	var alto_texto1=$(this).data('alto_texto1');
+	var font_size_texto1=$(this).data('font_size_texto1');
+
 
     	formData.append("fecha", fechaelaboracion);
 
