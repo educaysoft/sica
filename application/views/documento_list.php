@@ -27,7 +27,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 
 
-
+<div id="eys-nav-i">
+	<ul>
+		<li> <?php echo anchor('documento', 'Home'); ?></li>
+	</ul>
+</div>
 
 
 <div class="row justify-content-center">
@@ -56,11 +60,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	</div>
 
 
-<div id="eys-nav-i">
-	<ul>
-		<li> <?php echo anchor('documento', 'Home'); ?></li>
-	</ul>
-</div>
+
 
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
