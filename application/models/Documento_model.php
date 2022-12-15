@@ -217,7 +217,7 @@ class Documento_model extends CI_model {
   // Para presentar los destinatarios
 	function destinatarios( $iddocu)
 	{
-		$destinatarios=$this->db->query('select idpersona,nombres from destinatario1 where iddocumento="'. $iddocu.'"');
+		$destinatarios=$this->db->query('select idpersona,eldestinatario from destinatario1 where iddocumento="'. $iddocu.'"');
 		return $destinatarios;
 	}
 

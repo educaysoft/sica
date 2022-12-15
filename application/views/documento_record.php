@@ -137,7 +137,7 @@ if(isset($documento))
      	<?php 
 	$options=array();
   	foreach ($destinatarios as $row){
-		$options[$row->idpersona]=$row->nombres;
+		$options[$row->idpersona]=$row->eldestinatario;
 	}
 	?>
 	<div class="col-md-10">
