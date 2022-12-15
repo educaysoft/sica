@@ -24,7 +24,7 @@ public function index(){
 
 public function add()
 {
-		$data['personas']= $this->persona_model->lista_persona()->result();
+		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['title']="Nuevo Destinario";
 	 	$this->load->view('template/page_header');		
@@ -50,7 +50,7 @@ public function add()
 public function edit()
 {
 	 	$data['usuario'] = $this->usuario_model->usuario($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_persona()->result();
+		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['perfiles']= $this->perfil_model->lista_perfil()->result();
  	 	$data['title'] = "Actualizar Persona";
  	 	$this->load->view('template/page_header');		
@@ -95,7 +95,7 @@ public function elprimero()
 	$data['destinatario'] = $this->destinatario_model->elprimero();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Correo";
     $this->load->view('template/page_header');		
     $this->load->view('destinatario_record',$data);
@@ -113,7 +113,7 @@ public function elultimo()
 	$data['destinatario'] = $this->destinatario_model->elultimo();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Correo";
   
     $this->load->view('template/page_header');		
@@ -131,7 +131,7 @@ public function siguiente(){
  // $data['destinatario_list']=$this->destinatario_model->lista_destinatario()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['destinatario'] = $this->destinatario_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_persona()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
   $data['title']="Correo";
 	$this->load->view('template/page_header');		
   $this->load->view('destinatario_record',$data);
@@ -142,7 +142,7 @@ public function anterior(){
  // $data['destinatario_list']=$this->destinatario_model->lista_destinatario()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['destinatario'] = $this->destinatario_model->anterior($this->uri->segment(3))->row_array();
- 	$data['personas']= $this->persona_model->lista_persona()->result();
+ 	$data['personas']= $this->persona_model->lista_personas()->result();
   $data['title']="Correo";
 	$this->load->view('template/page_header');		
   $this->load->view('destinatario_record',$data);
