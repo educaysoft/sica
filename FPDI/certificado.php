@@ -102,8 +102,7 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 
 	//write the code of de certificaod
 	$pdf->SetFont('Helvetica','B',15);
-
-	if($posi_codigo_x==0)
+	if($posi_codigo_x==0 )
 	{
 		$pdf->SetTextColor(0, 0,0);
 	}else{
@@ -122,6 +121,7 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	$realposix=$posi_codigo_x+($espacio_impresion/2-($pdf->GetStringWidth($codigo)/2));
 
 	if($posi_nombre<20){  //cuando no es un certificado
+		$pdf->SetTextColor(0, 0,0);
 		$realposix=$posi_codigo_x;
 	}
 	$pdf->Text($realposix,$posi_codigo_y,$codigo);
@@ -196,7 +196,29 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 		}
 
 		$realposix=$posi_fecha_x+($espacio_impresion/2-($pdf->GetStringWidth($fecha)/2));
-		$pdf->Text($realposix,$posi_fecha_y,$espacio_impresion);
+		if($posi_nombre<20){  //cuando no es un certificado
+			$pdf->SetTextColor(0, 0,0);
+			$realposix=$posi_fecha_x;
+		}
+
+
+    $dias = array('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado');
+
+    $dia = $dias[date('w', strtotime($fecha))];
+
+
+    $num = date("j", strtotime($fecha));
+
+    $anno = date("Y", strtotime($fecha));
+
+    $mes = array('enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre');
+
+    $mes = $mes[(date('m', strtotime($fecha))*1)-1];
+
+    $fechaimp= $dia.', '.$num.' de '.$mes.' del '.$anno;
+
+
+		$pdf->Text($realposix,$posi_fecha_y,$fechaimp);
 	}
 
 	
@@ -204,7 +226,7 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	{
 		$pdf->SetFont('Arial','',$font_size_texto1);
 		$pdf->SetXY($posi_texto1_x,$posi_texto1_y);
-		$pdf->MultiCell($ancho_texto1,$alto_texto1,$texto1);
+		$pdf->MultiCell($ancho_texto1,$alto_texto1,utf8_decode($texto1));
 
 
 

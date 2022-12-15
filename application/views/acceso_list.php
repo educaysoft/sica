@@ -58,11 +58,13 @@ foreach ($usuarios as $row){
 			  
         	</h3>
        	     </div>
-	<div id="eys-nav-i">
+
+<div id="eys-nav-i">
 	<ul>
-    		<li> <?php echo anchor('acceso', 'Home'); ?></li>
+		<li> <?php echo anchor('acceso', 'Home'); ?></li>
 	</ul>
-       	</div>
+</div>
+
 <br>
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
