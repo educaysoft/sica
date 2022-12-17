@@ -1,391 +1,108 @@
 <div id="eys-nav-i">
-    <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-   <ul>
+<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	<ul>
 <?php
-if(isset($certificado))
+if(isset($horariodocente))
 {
 ?>
-        <li> <?php echo anchor('certificado/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('certificado/siguiente/'.$certificado['idcertificado'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('certificado/anterior/'.$certificado['idcertificado'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('certificado/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('certificado/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('certificado/edit/'.$certificado['idcertificado'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('certificado/delete/'.$certificado['idcertificado'],'Delete'); ?></li>
-        <li> <?php echo anchor('certificado/listar/','Listar'); ?></li>
+   <li> <?php echo anchor('horariodocente/elprimero/', 'primero'); ?></li>
+   <li> <?php echo anchor('horariodocente/anterior/'.$horariodocente['idhorariodocente'], 'anterior'); ?></li>
+   <li> <?php echo anchor('horariodocente/siguiente/'.$horariodocente['idhorariodocente'], 'siguiente'); ?></li>
+   <li style="border-right:1px solid green"><?php echo anchor('horariodocente/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('horariodocente/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('horariodocente/edit/'.$horariodocente['idhorariodocente'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('horariodocente/delete/'.$horariodocente['idhorariodocente'],'Delete'); ?></li>
+        <li> <?php echo anchor('horariodocente/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('certificado/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('horariodocente/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
+
     </ul>
 </div>
 <br>
 <br>
 
 
-<?php echo form_hidden('idcertificado',$certificado['idcertificado']) ?>
+<?php echo form_open('horariodocente/save_edit') ?>
+<?php echo form_hidden('idhorariodocente',$horariodocente['idhorariodocente']) ?>
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id horario docente: </label>
+	<div class="col-md-10">
+     	<?php 
+      echo form_input('idhorariodocente',$horariodocente['idhorariodocente'],array("id"=>"idhorariodocente","disabled"=>"disabled",'placeholder'=>'Idhorariodocentes')); 
+		?>
+	</div> 
+</div>
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Id certificado:</label>
-<div class="col-md-10">
-<?php
-  $eys_arrctl=array("name"=>'idcertificado','value'=>$certificado['idcertificado'],"disabled"=>"disabled",'placeholder'=>'Idcertificados','style'=>'width:500px;');
- echo form_input($eys_arrctl); 
-?>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Propietario:</label>
-<div class="col-md-10">
-<?php
-  $eys_arrctl=array("name"=>'propietario','value'=>$certificado['propietario'],"disabled"=>"disabled",'placeholder'=>'Ipropietario','style'=>'width:500px;');
- echo form_input($eys_arrctl); 
-?>
-</div>
-</div>
-
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Archivo:</label>
-<div class="col-md-10">
-<?php
-  $eys_arrctl=array("name"=>'archivo','value'=>$certificado['archivo'],"disabled"=>"disabled",'placeholder'=>'Direccion y nombre del archivo','style'=>'width:500px;');
- echo form_input($eys_arrctl); 
-?>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Ubicación:</label>
-<div class="col-md-10">
-<?php
-
-  $eys_arrctl=array("name"=>'ubicacion','value'=>$certificado['ubicacion'],"disabled"=>"disabled",'placeholder'=>'Ubicación del archivo de certificado','style'=>'width:600px;');
- echo form_input($eys_arrctl); 
-?>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Ubicación:</label>
-<div class="col-md-10">
-<?php
-  $eys_arrctl=array("name"=>'evento','value'=>$certificado['evento'],"disabled"=>"disabled",'placeholder'=>'Evento del certificado','style'=>'width:600px;');
- echo form_input($eys_arrctl); 
-?>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Evento:</label>
-<div class="col-md-10">
-<?php
-
+    <label class="col-md-2 col-form-label"> Docente: </label>
+	<div class="col-md-10">
+     	<?php 
 $options= array("NADA");
-foreach ($eventos as $row){
-	$options[$row->idevento]= $row->titulo;
+foreach ($docentes as $row){
+	$options[$row->iddocente]= $row->eldocente;
 }
 
-echo form_input('idevento',$options[$certificado['idevento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-?>
-</div>
-</div>
+echo form_input('iddocente',$options[$horariodocente['iddocente']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Tipo documento:</label>
-<div class="col-md-10">
-<?php
-
-$options= array("NADA");
-foreach ($tipodocus as $row){
-	$options[$row->idtipodocu]= $row->descripcion;
-}
-
-echo form_input('idtipodocu',$options[$certificado['idtipodocu']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-?>
-</div>
-</div>
-
-
-<div class="form-group row">
-	<label class="col-md-2 col-form-label">Documento:</label>
-	<div class="col-md-10">
-		<?php
-		$options= array("NADA");
-		foreach ($documentos as $row){
-			$options[$row->iddocumento]= $row->asunto;
-		}
-
-		echo form_input('iddocumento',$options[$certificado['iddocumento']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
-		?>
-	</div>
-</div>
-
-
-<div class="form-group row">
-	<label class="col-md-2 col-form-label"> Ancho x(296.67):</label>
-	<div class="col-md-10">
-		<?php
-		  $eys_arrctl=array("name"=>'ancho_x','value'=>$certificado['ancho_x'],"disabled"=>"disabled",'placeholder'=>'Ancho del certificado','style'=>'width:600px;');
-		 echo form_input($eys_arrctl); 
-		?>
-	</div>
-</div>
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Alto  Y(210.56): </label>
-<div class="col-md-10">
-<?php
-
-  $eys_arrctl=array("name"=>'alto_y','value'=>$certificado['alto_y'],"disabled"=>"disabled",'placeholder'=>'Alto del certificado y','style'=>'width:600px;');
- echo form_input($eys_arrctl);
-
-?>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> posi nombre X: </label>
-<div class="col-md-10">
-<?php
-  $eys_arrctl=array("name"=>'posi_nomb_x','value'=>$certificado['posi_nomb_x'],"disabled"=>"disabled",'placeholder'=>'Posicion de nombre en x','style'=>'width:600px;');
- echo form_input($eys_arrctl); 
-
-?>
-</div>
-</div>
-
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">posi nombre Y(115 mm) : </label>
-<div class="col-md-10">
-<?php
-  $eys_arrctl=array("name"=>'posi_nomb_y','value'=>$certificado['posi_nomb_y'],"disabled"=>"disabled",'placeholder'=>'Posicion de nombre en y','style'=>'width:600px;');
- echo form_input($eys_arrctl);
-?>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> posi fecha X : </label>
-<div class="col-md-10">
-<?php
-  $eys_arrctl=array("name"=>'posi_fecha_x','value'=>$certificado['posi_fecha_x'],"disabled"=>"disabled",'placeholder'=>'Posicion de fecha en x','style'=>'width:600px;');
- echo form_input($eys_arrctl);
-?>
-</div>
-</div>
-
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">posi fecha Y(115 mm): </label>
-<div class="col-md-10">
-<?php
-
-  $eys_arrctl=array("name"=>'posi_fecha_y','value'=>$certificado['posi_fecha_y'],"disabled"=>"disabled",'placeholder'=>'Posicion de fecha en y','style'=>'width:600px;');
- echo form_input($eys_arrctl);
-?>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-	<label class="col-md-2 col-form-label">posi codigo X: </label>
-	<div class="col-md-10">
-		<?php
-		  $eys_arrctl=array("name"=>'posi_codigo_x','value'=>$certificado['posi_codigo_x'],"disabled"=>"disabled",'placeholder'=>'Posicion de codigo en x','style'=>'width:600px;');
-		 echo form_input($eys_arrctl);
-		?>
-	</div>
-</div>
-
-
-<div class="form-group row">
-	<label class="col-md-2 col-form-label">posi codigo Y(115 mm): </label>
-	<div class="col-md-10">
-		<?php
-		 $eys_arrctl=array("name"=>'posi_codigo_y','value'=>$certificado['posi_codigo_y'],"disabled"=>"disabled",'placeholder'=>'Posicion de codigo en y','style'=>'width:600px;');
-		 echo form_input($eys_arrctl);
-		?>
-	</div>
-</div>
-
-
-
-
-
-
-
-
-<div class="form-group row">
-	<label class="col-md-2 col-form-label">firma1 X: </label>
-	<div class="col-md-10">
-		<?php
-		  $eys_arrctl=array("name"=>'firma1_x','value'=>$certificado['firma1_x'],"disabled"=>"disabled",'placeholder'=>'Posicion x de la primera firma ','style'=>'width:600px;');
-		 echo form_input($eys_arrctl);
-		?>
-	</div>
-</div>
-
-
-<div class="form-group row">
-	<label class="col-md-2 col-form-label">firma1 Y(115 mm): </label>
-	<div class="col-md-10">
-		<?php
-		 $eys_arrctl=array("name"=>'firma1_y','value'=>$certificado['firma1_y'],"disabled"=>"disabled",'placeholder'=>'Posición y de la primera firma','style'=>'width:600px;');
-		 echo form_input($eys_arrctl);
-		?>
-	</div>
-</div>
-
-
-
-
-
-
-<div class="form-group row">
-	<label class="col-md-2 col-form-label">firma2 X: </label>
-	<div class="col-md-10">
-		<?php
-		  $eys_arrctl=array("name"=>'firma2_x','value'=>$certificado['firma2_x'],"disabled"=>"disabled",'placeholder'=>'Posicion x de la primera firma ','style'=>'width:600px;');
-		 echo form_input($eys_arrctl);
-		?>
-	</div>
-</div>
-
-
-<div class="form-group row">
-	<label class="col-md-2 col-form-label">firma2 Y(115 mm): </label>
-	<div class="col-md-10">
-		<?php
-		 $eys_arrctl=array("name"=>'firma2_y','value'=>$certificado['firma2_y'],"disabled"=>"disabled",'placeholder'=>'Posición y de la primera firma','style'=>'width:600px;');
-		 echo form_input($eys_arrctl);
-		?>
-	</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<div class="form-group row">
-	<label class="col-md-2 col-form-label">firma3 X: </label>
-	<div class="col-md-10">
-		<?php
-		  $eys_arrctl=array("name"=>'firma3_x','value'=>$certificado['firma3_x'],"disabled"=>"disabled",'placeholder'=>'Posicion x de la primera firma ','style'=>'width:600px;');
-		 echo form_input($eys_arrctl);
-		?>
-	</div>
-</div>
-
-
-<div class="form-group row">
-	<label class="col-md-2 col-form-label">firma3 Y(115 mm): </label>
-	<div class="col-md-10">
-		<?php
-		 $eys_arrctl=array("name"=>'firma3_y','value'=>$certificado['firma3_y'],"disabled"=>"disabled",'placeholder'=>'Posición y de la primera firma','style'=>'width:600px;');
-		 echo form_input($eys_arrctl);
-		?>
-	</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Head para enviar:</label>
-	<div class="col-md-10">
-		<?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('correohead',$certificado['correohead'],$textarea_options); 
-		?>
-	</div> 
-</div>
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Subject:</label>
-	<div class="col-md-10">
-		<?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('correosubject',$certificado['correosubject'],$textarea_options); 
 		?>
 	</div> 
 </div>
 
 
+
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Foot para enviar:</label>
+    <label class="col-md-2 col-form-label">Periodo académico: </label>
 	<div class="col-md-10">
-		<?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('correofoot',$certificado['correofoot'],$textarea_options); 
+     	<?php 
+    $options= array("NADA");
+    foreach ($periodoacademicos as $row){
+	      $options[$row->idperiodoacademico]= $row->nombrelargo;
+    }
+    echo form_input('idperiodoacademico',$options[$horariodocente['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
+
+  
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Asignaturas de docente: </label>
+
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12">
+	<table class="table table-striped table-bordered table-hover" id="mydatac">
+	 <thead>
+	 <tr>
+	 <th>idhorariodocente</th>
+	 <th>idasignatura</th>
+	 <th>Asignatura</th>
+	 <th>Paralelo</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
 
 
 
@@ -398,8 +115,30 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var idhorariodocente=document.getElementById("idhorariodocente").value;
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('horariodocente/asignaturadocente_data')?>', type: 'GET',data:{idhorariodocente:idhorariodocente}},});
+});
+
+
+$('#show_data').on('click','.item_ver',function(){
+var id= $(this).data('idasignaturadocente');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+</script>
 
 </body>
+
+
+
+
+
+
 
 
 

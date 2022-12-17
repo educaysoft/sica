@@ -19,30 +19,21 @@ foreach ($docentes as $row){
 
 
 
-
 <tr>
-<td> Documento del portafolio: </td>
+<td> Periodo académico: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($portafoliomodelos as $row){
-	$options[$row->idportafoliomodelo]= $row->nombre;
+foreach ($periodoacademicos as $row){
+	$options[$row->idperiodoacademico]= $row->nombrecorto;
 }
 
- echo form_dropdown("idportafoliomodelo",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idperiodoacademico",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
-<tr>
-<td> Estado: </td>
-<td><?php 
 
-$options= array('--Select--');
-foreach ($portafolioestados as $row){
-	$options[$row->idportafolioestado]= $row->nombre;
-}
 
- echo form_dropdown("idportafolioestado",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
+
 
 
 

@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("horariodocente/save") ?>
-<?php echo form_hidden("idhorariodocente")  ?>
+<?php echo form_open("distributivodocente/save") ?>
+<?php echo form_hidden("iddistributivodocente")  ?>
 <table>
 
 
@@ -38,7 +38,7 @@ foreach ($periodoacademicos as $row){
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("horariodocente","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("distributivodocente","Atras") ?> </td>
 </tr>
 
 </table>

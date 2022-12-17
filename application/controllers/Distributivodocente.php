@@ -1,12 +1,12 @@
 <?php
 
-class Portafoliodocente extends CI_Controller{
+class Distributivodocente extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
   	  $this->load->model('docente_model');
   	  $this->load->model('periodoacademico_model');
-  	  $this->load->model('portafoliodocente_model');
+  	  $this->load->model('distributivodocente_model');
   	  $this->load->model('asignaturadocente_model');
 }
 
@@ -14,13 +14,13 @@ public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['portafoliodocente']=$this->portafoliodocente_model->lista_portafoliodocentes()->row_array();
+  	$data['distributivodocente']=$this->distributivodocente_model->lista_distributivodocentes()->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 			
-		$data['title']="Lista de portafoliodocentes";
+		$data['title']="Lista de distributivodocentes";
 		$this->load->view('template/page_header');
-		$this->load->view('portafoliodocente_record',$data);
+		$this->load->view('distributivodocente_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -35,9 +35,9 @@ public function add()
 {
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
-		$data['title']="Nueva Portafoliodocente";
+		$data['title']="Nueva Distributivodocente";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('portafoliodocente_form',$data);
+	 	$this->load->view('distributivodocente_form',$data);
 	 	$this->load->view('template/page_footer');
 
 
@@ -51,20 +51,20 @@ public function add()
 			'iddocente' => $this->input->post('iddocente'),
 			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
-	 	$this->portafoliodocente_model->save($array_item);
-	 	redirect('portafoliodocente');
+	 	$this->distributivodocente_model->save($array_item);
+	 	redirect('distributivodocente');
  	}
 
 
 
 public function edit()
 {
-	 	$data['portafoliodocente'] = $this->portafoliodocente_model->portafoliodocente($this->uri->segment(3))->row_array();
+	 	$data['distributivodocente'] = $this->distributivodocente_model->distributivodocente($this->uri->segment(3))->row_array();
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
- 	 	$data['title'] = "Actualizar Portafoliodocente";
+ 	 	$data['title'] = "Actualizar Distributivodocente";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('portafoliodocente_edit',$data);
+ 	 	$this->load->view('distributivodocente_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -72,23 +72,23 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idportafoliodocente');
+		$id=$this->input->post('iddistributivodocente');
 	 	$array_item=array(
 		 	
-		 	'idportafoliodocente' => $this->input->post('idportafoliodocente'),
+		 	'iddistributivodocente' => $this->input->post('iddistributivodocente'),
 			'iddocente' => $this->input->post('iddocente'),
 			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
-	 	$this->portafoliodocente_model->update($id,$array_item);
-	 	redirect('portafoliodocente');
+	 	$this->distributivodocente_model->update($id,$array_item);
+	 	redirect('distributivodocente');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->portafoliodocente_model->delete($this->uri->segment(3));
+ 		$data=$this->distributivodocente_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('portafoliodocente/elprimero');
+	 	redirect('distributivodocente/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -96,26 +96,26 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Portafoliodocentes";
+  $data['title']="Distributivodocentes";
 	$this->load->view('template/page_header');		
-  $this->load->view('portafoliodocente_list',$data);
+  $this->load->view('distributivodocente_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function portafoliodocente_data()
+function distributivodocente_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->portafoliodocente_model->lista_portafoliodocentesA();
+	 	$data0 = $this->distributivodocente_model->lista_distributivodocentesA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idportafoliodocente,$r->eldocente,$r->elperiodoacademico,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('portafoliodocente/actual').'"  data-idportafoliodocente="'.$r->idportafoliodocente.'">Ver</a>');
+			$data[]=array($r->iddistributivodocente,$r->eldocente,$r->elperiodoacademico,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('distributivodocente/actual').'"  data-iddistributivodocente="'.$r->iddistributivodocente.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -137,11 +137,11 @@ function portafoliodocente_data()
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$idportafoliodocente=$this->input->get('idportafoliodocente');
-			$data0 =$this->asignaturadocente_model->lista_asignaturadocentesA($idportafoliodocente);
+			$iddistributivodocente=$this->input->get('iddistributivodocente');
+			$data0 =$this->asignaturadocente_model->lista_asignaturadocentesA($iddistributivodocente);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idportafoliodocente,$r->idasignaturadocente,$r->laasignatura,$r->paralelo,
+				$data[]=array($r->iddistributivodocente,$r->idasignaturadocente,$r->laasignatura,$r->paralelo,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('asignaturadocente/actual').'"    data-idasignaturadocente="'.$r->idasignaturadocente.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
@@ -164,15 +164,15 @@ function portafoliodocente_data()
 
 public function actual()
 {
-	$data['portafoliodocente'] = $this->portafoliodocente_model->portafoliodocente($this->uri->segment(3))->row_array();
+	$data['distributivodocente'] = $this->distributivodocente_model->distributivodocente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 	  if(!empty($data))
 	  {
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-    $data['title']="Portafoliodocente";
+    $data['title']="Distributivodocente";
     $this->load->view('template/page_header');		
-    $this->load->view('portafoliodocente_record',$data);
+    $this->load->view('distributivodocente_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -194,13 +194,13 @@ public function elprimero()
 {
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-	$data['portafoliodocente'] = $this->portafoliodocente_model->elprimero();
+	$data['distributivodocente'] = $this->distributivodocente_model->elprimero();
 	  if(!empty($data))
 	  {
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-    $data['title']="Portafoliodocente";
+    $data['title']="Distributivodocente";
     $this->load->view('template/page_header');		
-    $this->load->view('portafoliodocente_record',$data);
+    $this->load->view('distributivodocente_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -211,15 +211,15 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['portafoliodocente'] = $this->portafoliodocente_model->elultimo();
+	$data['distributivodocente'] = $this->distributivodocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
-    $data['title']="Portafoliodocente";
+    $data['title']="Distributivodocente";
   
     $this->load->view('template/page_header');		
-    $this->load->view('portafoliodocente_record',$data);
+    $this->load->view('distributivodocente_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -230,26 +230,26 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['portafoliodocente_list']=$this->portafoliodocente_model->lista_portafoliodocente()->result();
-	$data['portafoliodocente'] = $this->portafoliodocente_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['distributivodocente_list']=$this->distributivodocente_model->lista_distributivodocente()->result();
+	$data['distributivodocente'] = $this->distributivodocente_model->siguiente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   
 
-$data['title']="Portafoliodocente";
+$data['title']="Distributivodocente";
 	$this->load->view('template/page_header');		
-  $this->load->view('portafoliodocente_record',$data);
+  $this->load->view('distributivodocente_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['portafoliodocente_list']=$this->portafoliodocente_model->lista_portafoliodocente()->result();
-	$data['portafoliodocente'] = $this->portafoliodocente_model->anterior($this->uri->segment(3))->row_array();
+ // $data['distributivodocente_list']=$this->distributivodocente_model->lista_distributivodocente()->result();
+	$data['distributivodocente'] = $this->distributivodocente_model->anterior($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
-  $data['title']="Portafoliodocente";
+  $data['title']="Distributivodocente";
 	$this->load->view('template/page_header');		
-  $this->load->view('portafoliodocente_record',$data);
+  $this->load->view('distributivodocente_record',$data);
 	$this->load->view('template/page_footer');
 }
 
