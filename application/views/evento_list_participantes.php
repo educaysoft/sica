@@ -201,15 +201,15 @@ $('#show_data').on('click','.item_enviar',function(){
 
 $('#show_data').on('click','.item_gene',function(){
 
-var iddocumento=0;	
-var idtipodocu= $(this).data('idtipodocu');
+	var iddocumento=0;	
+	var idtipodocu= $(this).data('idtipodocu');
 
-//alert(iddocumento);
-var asunto="CERTIFICADO - "+$(this).data('titulo');
+	//alert(iddocumento);
+	var asunto="CERTIFICADO - "+$(this).data('titulo');
 
-let fechaelaboracion=$(this).data('fechafinaliza');
-fechaelaboracion=fechaelaboracion.substring(0,10);
-var idevento=$(this).data('idevento');
+	let fechaelaboracion=$(this).data('fechafinaliza');
+	fechaelaboracion=fechaelaboracion.substring(0,10);
+	var idevento=$(this).data('idevento');
 var idordenador=$(this).data('idordenador');
 var iddirectorio=$(this).data('iddirectorio');
 var iddocumento_estado=1;

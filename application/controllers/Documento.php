@@ -77,6 +77,14 @@ class Documento extends CI_Controller{
 
 
 
+	public get_parametros()
+	{
+
+ 	$iddocumento => $this->input->post('iddocumento');
+ 	echo $this->documento_model->parametros_documento($iddocumento);
+
+	}
+
 
 
 

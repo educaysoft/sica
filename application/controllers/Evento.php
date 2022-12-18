@@ -262,6 +262,8 @@ public function index(){
 
 
 
+
+
 	public function reportepdf()
 	{
 		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();

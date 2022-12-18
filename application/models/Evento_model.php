@@ -59,6 +59,9 @@ class Evento_model extends CI_model {
 
 
 
+
+
+
   // Para guardar un registro nuevo
 	function save($array)
  	{

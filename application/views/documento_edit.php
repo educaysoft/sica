@@ -106,12 +106,19 @@ echo form_button("carga","cargar archivo",$js); ?>
       				$options[$row->idordenador]= $row->nombre;
    			}
 			
-
+			if($documento['iddocumento_estado']==3) //si ha sido generado
+			{
+				$js='onClick="generar_documento()"';     
+				echo form_button("carga","volver a generar",$js); 
+			}else{
 			// url de la funcion php que carga el archivo en el 
 			$url1= base_url()."index.php/documento/save";
 			$js='onClick="uploadFiles(\''.$url1.'\')"';     
 
-			echo form_button("carga","cargar a directorio",$js); ?>
+			echo form_button("carga","cargar a directorio",$js);
+
+}
+ ?>
 		</div> 
 	</div>
 </td>
@@ -323,7 +330,7 @@ function get_directorio() {
 
 
 
-  async function nombredearchivo()
+ async function nombredearchivo()
 {
  indice=document.getElementById("iddocumento").value;
  fecha=document.getElementById("fechaelaboracion").value;
@@ -356,6 +363,156 @@ formData.append("archivopdf",document.getElementById('archivopdf').value);
   alert('The file has been uploaded successfully.');
 
 };
+
+
+
+
+
+function generar_documento()
+{
+
+	var iddocumento=document.getElementById("iddocumento").value;
+   $.ajax({
+        url: "<?php echo site_url('documento/get_parametros') ?>",
+        data: {iddocumento:iddocumento},
+        method: 'POST',
+	async : false,
+        dataType : 'json',
+        success: function(data){
+	iddocumento=data.iddocumento;
+	iddocumento2=data.iddocumento;
+ 	archivopdf2= data.archivopdf;	
+
+var idtipodocu= data.idtipodocu;
+
+//alert(iddocumento);
+var asunto="CERTIFICADO - "+data.titulo;
+
+let fechaelaboracion=data.fechafinaliza;
+var idevento=data.idevento;
+var idordenador=data.idordenador;
+var iddirectorio=data.iddirectorio;
+var iddocumento_estado=3;
+var idpersona=data.idpersona;
+var idparticipante=data.idparticipante;
+
+var ancho_x=data.ancho_x;
+var alto_y=data.alto_y;
+
+var posi_nomb_x=data.posi_nomb_x;
+var posi_nomb_y=data.posi_nomb_y;
+var size_nombre=data.size_nombre;
+
+var posi_codigo_x=data.posi_codigo_x;
+var posi_codigo_y=data.posi_codigo_y;
+
+var posi_fecha_x=data.posi_fecha_x;
+var posi_fecha_y=data.posi_fecha_y;
+
+var firma1_x=data.firma1_x;
+var firma1_y=data.firma1_y;
+
+var firma2_x=data.firma2_x;
+var firma2_y=data.firma2_y;
+
+var firma3_x=data.firma3_x;
+var firma3_y=data.firma3_y;
+
+var texto1=data.texto1;
+var posi_texto1_x=data.posi_texto1_x;
+var posi_texto1_y=data.posi_texto1_y;
+var ancho_texto1=data.ancho_texto1;
+var alto_texto1=data.alto_texto1;
+var font_size_texto1=data.font_size_texto1;
+
+var iddocumento2=data.iddocumento2;
+var maquina=data.elordenador;
+var elparticipante=data.elparticipante;
+var ruta=data.ruta;
+var archivopdf=data.archivopdf;
+var archivopdf2="";
+var filename="";
+
+
+// Generando el certificado
+	
+  	var formData = new FormData();
+	var participante=elparticipante;
+	var modelo=archivopdf;
+	var archivo=archivopdf2;
+	
+	formData.append("asunto", asunto);
+	formData.append("participante", participante);
+    	formData.append("modelo", modelo);
+    	formData.append("maquina", maquina);
+    	formData.append("ruta", ruta);
+    	formData.append("archivo", archivo);
+
+    	formData.append("ancho_x", ancho_x);
+    	formData.append("alto_y", alto_y);
+
+    	formData.append("posi_nomb_x", posi_nomb_x);
+    	formData.append("posi_nomb_y", posi_nomb_y);
+    	formData.append("size_nombre", size_nombre);
+
+    	formData.append("posi_codigo_x", posi_codigo_x);
+    	formData.append("posi_codigo_y", posi_codigo_y);
+
+    	formData.append("posi_fecha_x", posi_fecha_x);
+    	formData.append("posi_fecha_y", posi_fecha_y);
+
+    	formData.append("firma1_x", firma1_x);
+    	formData.append("firma1_y", firma1_y);
+
+    	formData.append("firma2_x", firma2_x);
+    	formData.append("firma2_y", firma2_y);
+
+    	formData.append("firma3_x", firma3_x);
+    	formData.append("firma3_y", firma3_y);
+
+
+	
+    	formData.append("texto1", texto1);
+    	formData.append("posi_texto1_x", posi_texto1_x);
+    	formData.append("posi_texto1_y", posi_texto1_y);
+    	formData.append("ancho_texto1", ancho_texto1);
+    	formData.append("alto_texto1", alto_texto1);
+    	formData.append("font_size_texto1", font_size_texto1);
+
+    	formData.append("fecha", fechaelaboracion);
+
+	url= "https://"+maquina+"/FPDI/certificado.php";
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("POST",url,false);
+    	xhttp.send(formData);
+	xhttp.onreadystatechange = function(){
+
+ 		if(xhttp.readyState === XMLHttpRequest.DONE) {
+    			var status = xhttp.status;
+    			if (status === 0 || (status >= 200 && status < 400)) {
+      				// The request has been completed successfully
+				var response = xhttp.responseText;
+          			alert(response + "archivo cargado");
+			//	history.back(); //Go to the previous page
+       			}else{
+				alert("No se pudo cargar el archivo");
+			}
+			}
+              	};
+
+	},
+      error: function (xhr, ajaxOptions, thrownError){ 
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+
+
+
+}
+
 
 
 
