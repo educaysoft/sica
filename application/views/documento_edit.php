@@ -433,6 +433,7 @@ var archivopdf=data.archivopdf;
 var archivopdf2="";
 var filename="";
 
+      alert("se asigno las variables");
 
 // Generando el certificado
 	
