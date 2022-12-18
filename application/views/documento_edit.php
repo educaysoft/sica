@@ -373,9 +373,9 @@ function generar_documento()
 
 	var iddocumento=document.getElementById("iddocumento").value;
    $.ajax({
-        url: "<?php echo site_url('documento/get_parametros') ?>",
+        url: "<?php echo site_url('documento/get_parametros'); ?>",
         data: {iddocumento:iddocumento},
-        method: 'POST',
+        method: '',
 	async : false,
         dataType : 'json',
         success: function(data){
