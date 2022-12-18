@@ -500,7 +500,7 @@ var filename="";
        			}else{
 				alert("No se pudo cargar el archivo");
 			}
-			}
+			}else{ alert("que paso chico");}
               	};
 
 	},
