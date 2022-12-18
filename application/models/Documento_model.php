@@ -90,7 +90,13 @@ class Documento_model extends CI_model {
  	function parametros_documento($iddocumento){
  		$evento = $this->db->query('select * from eventoP where iddocumento2="'. $iddocumento.'" order by elparticipante');
 
- 		echo json_encode(json_decode('$evento->row_array()'),JSON_PRETTY_PRINT);
+		if($evento->num_rows()>0)
+		{
+ 		echo json_encode(json_decode($evento->first_row('array')),JSON_PRETTY_PRINT);
+		}else{
+
+ 		echo json_encode(json_decode(array()),JSON_PRETTY_PRINT);
+		}
  	}
 
 
