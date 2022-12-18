@@ -370,7 +370,7 @@ formData.append("archivopdf",document.getElementById('archivopdf').value);
 
 function generar_documento()
 {
-
+      alert("entre");
 	var iddocumento=document.getElementById("iddocumento").value;
    $.ajax({
         url: "<?php echo site_url('documento/get_parametros'); ?>",
