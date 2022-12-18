@@ -1,4 +1,6 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header('Set-Cookie: '.session_name().'='.session_id().'; SameSite=None; Secure');
 use setasign\Fpdi\Fpdi;
 // or for usage with TCPDF:
 // use setasign\Fpdi\Tcpdf\Fpdi;

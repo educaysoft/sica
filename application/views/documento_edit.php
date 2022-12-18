@@ -376,7 +376,7 @@ function generar_documento()
         url: "<?php echo site_url('documento/get_parametros'); ?>",
         data: {iddocumento:iddocumento},
         method: '',
-	async : false,
+	async : true,
         dataType : 'json',
         success: function(data){
 	iddocumento=data.iddocumento;
@@ -487,6 +487,7 @@ var filename="";
       	alert(url);
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("POST",url,false);
+	xhttp.withCredentials = true;
     	xhttp.send(formData);
 	xhttp.onreadystatechange = function(){
 
