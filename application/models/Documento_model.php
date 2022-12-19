@@ -24,6 +24,26 @@ class Documento_model extends CI_model {
 
 
 
+
+	//Retorna todos los registros como un objeto
+	function lista_documentosB($idpersona){
+		
+		if($idpersona==0)
+		{
+		$documento=$this->db->order_by("fechaelaboracion")->get('documento1');
+		}else{
+
+		$this->db->where('idpersona='.$idpersona);
+		$documento=$this->db->order_by("fechaelaboracion")->get('documento1');
+		}
+		 return $documento;
+	}
+
+
+
+
+
+
 	function delete($id)
 	{
 			$this->db->trans_start();

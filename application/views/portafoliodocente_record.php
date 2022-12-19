@@ -56,7 +56,7 @@ foreach ($docentes as $row){
 	$options[$row->iddocente]= $row->eldocente;
 }
 
-echo form_input('iddocente',$options[$portafoliodocente['iddocente']],array("disabled"=>"disabled", "style"=>"width:500px")); ?>
+echo form_input('iddocente',$options[$portafoliodocente['iddocente']],array("id"=>"iddocente","disabled"=>"disabled", "style"=>"width:500px")); ?>
 	</div> 
 </div>
 
@@ -160,6 +160,23 @@ echo form_input('iddocumento',$options[$portafoliodocente['iddocumento']],array(
 
 <?php echo form_close(); ?>
 
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var iddocente=document.getElementById("iddocente").value;
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('portafoliodocente/documento_data')?>', type: 'GET',data:{iddocente:iddocente}},});
+});
+
+
+$('#show_data').on('click','.item_ver',function(){
+var id= $(this).data('idasignaturadocente');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+</script>
 
 
 
