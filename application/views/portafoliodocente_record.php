@@ -91,7 +91,6 @@ echo form_input('iddocumento',$options[$portafoliodocente['iddocumento']],array(
 	</div> 
 </div>
 
----->
 
 
 <div class="form-group row">
@@ -109,6 +108,7 @@ echo form_input('iddocumento',$options[$portafoliodocente['iddocumento']],array(
 </div> 
 
 
+---->
 
 
 <div class="form-group row">
@@ -138,10 +138,11 @@ echo form_input('iddocumento',$options[$portafoliodocente['iddocumento']],array(
 	<table class="table table-striped table-bordered table-hover" id="mydatac">
 	 <thead>
 	 <tr>
-	 <th>iddocente</th>
+	 <th>iddocu</th>
 	 <th>idpersona</th>
-	 <th>fecha</th>
-	 <th>asunto</th>
+	 <th>titulo</th>
+	 <th>elabor.</th>
+	 <th>archvo.</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
