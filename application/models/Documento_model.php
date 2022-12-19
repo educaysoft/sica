@@ -26,7 +26,7 @@ class Documento_model extends CI_model {
 
 
 	//Retorna todos los registros como un objeto
-	function lista_documentosB($idpersona){
+	function lista_documentosC($idpersona){
 		
 		if($idpersona==0)
 		{
