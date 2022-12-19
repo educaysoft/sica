@@ -68,7 +68,7 @@ echo form_input('iddocente',$options[$portafoliodocente['iddocente']],array("id"
   
      <?php 
 $options= array("NADA");
-foreach ($docente as $row){
+foreach ($docentes as $row){
 	$options[$row->iddocente]= $row->idpersona;
 }
 echo form_input('idpersona',$options[$portafoliodocente['iddocente']],array("id"=>"idpersona","disabled"=>"disabled", "style"=>"width:500px")); ?>
