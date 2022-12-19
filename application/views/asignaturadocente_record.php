@@ -46,15 +46,15 @@ if(isset($asignaturadocente))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Horario docente <?php echo anchor('horariodocente/actual/'.$asignaturadocente['idhorariodocente'] , '(Ver)'); ?>:</label>
+    <label class="col-md-2 col-form-label"> Horario docente <?php echo anchor('distributivodocente/actual/'.$asignaturadocente['iddistributivodocente'] , '(Ver)'); ?>:</label>
 	<div class="col-md-10">
 	<?php
 	$options= array("NADA");
-	foreach ($horariodocentes as $row){
-		$options[$row->idhorariodocente]= $row->elhorariodocente;
+	foreach ($distributivodocentes as $row){
+		$options[$row->iddistributivodocente]= $row->eldistributivodocente;
 	}
 
-echo form_input('idhorariodocente',$options[$asignaturadocente['idhorariodocente']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('iddistributivodocente',$options[$asignaturadocente['iddistributivodocente']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 
 		?>
 	</div> 
