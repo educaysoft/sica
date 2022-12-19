@@ -382,6 +382,7 @@ function generar_documento()
 	iddocumento=data.iddocumento;
 	iddocumento2=data.iddocumento;
  	archivopdf2= data.archivopdf;	
+	if(iddocumento>0){
 
 var idtipodocu= data.idtipodocu;
 
@@ -485,7 +486,7 @@ var filename="";
 	
 	url= "https://"+maquina+"/FPDI/certificado.php";
 	var xhttp = new XMLHttpRequest();
-	xhttp.open("POST",url,false);
+	xhttp.open("POST",url,true);
     	xhttp.send(formData);
 	xhttp.onreadystatechange = function(){
 
@@ -501,7 +502,7 @@ var filename="";
 			}
 			}else{ alert("que paso chico");}
               	};
-
+	}
 	},
       error: function (xhr, ajaxOptions, thrownError){ 
         alert(xhr.status);
