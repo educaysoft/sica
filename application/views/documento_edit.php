@@ -487,7 +487,6 @@ var filename="";
       	alert(url);
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("POST",url,true);
-	xhttp.withCredentials = true;
     	xhttp.send(formData);
 	xhttp.onreadystatechange = function(){
 
