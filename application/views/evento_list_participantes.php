@@ -284,7 +284,7 @@ if(iddocumento2==0)
 	var participante=elparticipante;
 	var modelo=archivopdf;
 	var archivo=archivopdf2;
-	
+ alert(ruta);	
 	formData.append("asunto", asunto);
 	formData.append("participante", participante);
     	formData.append("modelo", modelo);

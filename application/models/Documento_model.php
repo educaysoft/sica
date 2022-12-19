@@ -92,6 +92,7 @@ class Documento_model extends CI_model {
 
 		if($evento->num_rows()>0)
 		{
+
  		echo json_encode(json_decode($evento->first_row('array').toString()),JSON_PRETTY_PRINT);
 		}else{
 
