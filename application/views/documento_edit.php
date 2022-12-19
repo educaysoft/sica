@@ -389,6 +389,7 @@ var idtipodocu= data.idtipodocu;
 var asunto="CERTIFICADO - "+data.titulo;
 
 let fechaelaboracion=data.fechafinaliza;
+	fechaelaboracion=fechaelaboracion.substring(0,10);
 var idevento=data.idevento;
 var idordenador=data.idordenador;
 var iddirectorio=data.iddirectorio;
@@ -486,7 +487,7 @@ var filename="";
 	url= "https://"+maquina+"/FPDI/certificado.php";
       	alert(url);
 	var xhttp = new XMLHttpRequest();
-	xhttp.open("POST",url,true);
+	xhttp.open("POST",url,false);
     	xhttp.send(formData);
 	xhttp.onreadystatechange = function(){
 
