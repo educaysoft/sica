@@ -376,7 +376,7 @@ function generar_documento()
         url: "<?php echo site_url('documento/get_parametros'); ?>",
         data: {iddocumento:iddocumento},
         method: '',
-	async : true,
+	async : false,
         dataType : 'json',
         success: function(data){
 	iddocumento=data.iddocumento;
