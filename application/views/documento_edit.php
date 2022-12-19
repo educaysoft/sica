@@ -375,7 +375,7 @@ function generar_documento()
    $.ajax({
         url: "<?php echo site_url('documento/get_parametros'); ?>",
         data: {iddocumento:iddocumento},
-        method: 'GET',
+        method: 'POST',
 	async :false ,
         dataType : 'json',
         success: function(data){
@@ -482,13 +482,10 @@ var filename="";
     	formData.append("font_size_texto1", font_size_texto1);
 
     	formData.append("fecha", fechaelaboracion);
- formData.forEach((value,key) => {
-    console.log(key+value)
-     });
+	
 	url= "https://"+maquina+"/FPDI/certificado.php";
-      	alert(url);
 	var xhttp = new XMLHttpRequest();
-	xhttp.open("POST",url,true);
+	xhttp.open("POST",url,false);
     	xhttp.send(formData);
 	xhttp.onreadystatechange = function(){
 

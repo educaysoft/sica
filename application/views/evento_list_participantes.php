@@ -323,9 +323,6 @@ if(iddocumento2==0)
     	formData.append("alto_texto1", alto_texto1);
     	formData.append("font_size_texto1", font_size_texto1);
 
-
-
-
     	formData.append("fecha", fechaelaboracion);
 
 	url= "https://"+maquina+"/FPDI/certificado.php";
