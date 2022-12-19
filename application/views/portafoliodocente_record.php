@@ -63,21 +63,20 @@ echo form_input('iddocente',$options[$portafoliodocente['iddocente']],array("id"
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Descripción del documeto:</label>
+    <label class="col-md-2 col-form-label">Id persona:</label>
 	<div class="col-md-10">
   
      <?php 
 $options= array("NADA");
-foreach ($portafoliomodelos as $row){
-	$options[$row->idportafoliomodelo]= $row->nombre;
+foreach ($docente as $row){
+	$options[$row->iddocente]= $row->idpersona;
 }
-echo form_input('idportafoliomodelo',$options[$portafoliodocente['idportafoliomodelo']],array("disabled"=>"disabled", "style"=>"width:500px")); ?>
-
+echo form_input('idpersona',$options[$portafoliodocente['iddocente']],array("id"=>"idpersona","disabled"=>"disabled", "style"=>"width:500px")); ?>
 	</div> 
 </div>
 
 
-
+<!----
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label">  Documento (<?php echo "<a onclick='verpdf()'>Ver PDF</a>" ?>) :</label>
@@ -92,7 +91,7 @@ echo form_input('iddocumento',$options[$portafoliodocente['iddocumento']],array(
 	</div> 
 </div>
 
-
+---->
 
 
 <div class="form-group row">
@@ -164,13 +163,13 @@ echo form_input('iddocumento',$options[$portafoliodocente['iddocumento']],array(
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var iddocente=document.getElementById("iddocente").value;
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('portafoliodocente/documento_data')?>', type: 'GET',data:{iddocente:iddocente}},});
+	var idpersona=document.getElementById("idpersona").value;
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('portafoliodocente/documento_data')?>', type: 'GET',data:{idpersona:idpersona}},});
 });
 
 
 $('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idasignaturadocente');
+var id= $(this).data('iddocumento');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
