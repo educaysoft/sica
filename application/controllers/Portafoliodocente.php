@@ -5,6 +5,7 @@ class Portafoliodocente extends CI_Controller{
   public function __construct(){
       parent::__construct();
   	  $this->load->model('docente_model');
+  	  $this->load->model('documento_model');
   	  $this->load->model('periodoacademico_model');
   	  $this->load->model('portafoliodocente_model');
   	  $this->load->model('asignaturadocente_model');
