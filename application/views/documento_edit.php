@@ -499,7 +499,7 @@ var filename="";
           			alert(response + "archivo cargado");
 			//	history.back(); //Go to the previous page
        			}else{
-				alert("No se pudo cargar el archivo");
+				alert("No se pudo cargar el archivo"+status);
 			}
 			}else{ alert("que paso chico");}
               	};
