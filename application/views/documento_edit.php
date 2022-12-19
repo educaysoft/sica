@@ -482,7 +482,7 @@ var filename="";
     	formData.append("font_size_texto1", font_size_texto1);
 
     	formData.append("fecha", fechaelaboracion);
-alert($.toJSON(formData));
+alert(formData.toString());
 
 	url= "https://"+maquina+"/FPDI/certificado.php";
       	alert(url);
