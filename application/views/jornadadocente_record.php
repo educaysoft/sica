@@ -38,7 +38,7 @@ if(isset($jornadadocente))
 		<?php
 	$options= array("NADA");
 	foreach ($asignaturadocentes as $row){
-		$options[$row->idasignaturadocente]= $row->elhorariodocente;
+		$options[$row->idasignaturadocente]= $row->eldistributivodocente;
 	}
 echo form_input('idasignaturadocente',$options[$jornadadocente['idasignaturadocente']],array("disabled"=>"disabled",'style'=>'width:500px;'));  
 
