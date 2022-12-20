@@ -96,7 +96,7 @@ function generaqr()
     
 	$data['codigoqr'] = $this->codigoqr_model->codigoqr($this->uri->segment(3))->row_array();
     $this->load->view('template/page_header');		
-    $this->load->view('generaqr_gene',$data);
+    $this->load->view('codigoqr_gene',$data);
     $this->load->view('template/page_footer');
 
 }
