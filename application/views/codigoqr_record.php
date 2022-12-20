@@ -13,6 +13,7 @@ if(isset($codigoqr))
         <li> <?php echo anchor('codigoqr/edit/'.$codigoqr['idcodigoqr'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('codigoqr/delete/'.$codigoqr['idcodigoqr'],'Delete'); ?></li>
         <li> <?php echo anchor('codigoqr/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('codigoqr/generaqr/'.$codigoqr['idcodigoqr'],'GeneraQR'); ?></li>
 
 <?php 
 }else{

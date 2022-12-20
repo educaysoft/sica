@@ -90,6 +90,18 @@ public function listar()
 
 
 
+function generaqr()
+{
+
+    
+	$data['codigoqr'] = $this->codigoqr_model->codigoqr($this->uri->segment(3))->row_array();
+    $this->load->view('template/page_header');		
+    $this->load->view('generaqr',$date);
+    $this->load->view('template/page_footer');
+
+}
+
+
 function codigoqr_data()
 {
 		$draw= intval($this->input->get("draw"));
