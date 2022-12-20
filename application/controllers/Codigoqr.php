@@ -63,7 +63,12 @@ public function edit()
 	 	$array_item=array(
 		 	
 		 	'idcodigoqr' => $this->input->post('idcodigoqr'),
-		 	'nombre' => $this->input->post('nombre'),
+
+	 	'filename' => $this->input->post('filename'),
+	 	'tamanio' => $this->input->post('tamanio'),
+	 	'level' => $this->input->post('level'),
+	 	'framesize' => $this->input->post('framesize'),
+	 	'contenido' => $this->input->post('contenido'),
 	 	);
 	 	$this->codigoqr_model->update($id,$array_item);
 	 	redirect('codigoqr');
