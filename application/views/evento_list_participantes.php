@@ -201,15 +201,15 @@ $('#show_data').on('click','.item_enviar',function(){
 
 $('#show_data').on('click','.item_gene',function(){
 
-var iddocumento=0;	
-var idtipodocu= $(this).data('idtipodocu');
+	var iddocumento=0;	
+	var idtipodocu= $(this).data('idtipodocu');
 
-//alert(iddocumento);
-var asunto="CERTIFICADO - "+$(this).data('titulo');
+	//alert(iddocumento);
+	var asunto="CERTIFICADO - "+$(this).data('titulo');
 
-let fechaelaboracion=$(this).data('fechafinaliza');
-fechaelaboracion=fechaelaboracion.substring(0,10);
-var idevento=$(this).data('idevento');
+	let fechaelaboracion=$(this).data('fechafinaliza');
+	fechaelaboracion=fechaelaboracion.substring(0,10);
+	var idevento=$(this).data('idevento');
 var idordenador=$(this).data('idordenador');
 var iddirectorio=$(this).data('iddirectorio');
 var iddocumento_estado=1;
@@ -284,7 +284,7 @@ if(iddocumento2==0)
 	var participante=elparticipante;
 	var modelo=archivopdf;
 	var archivo=archivopdf2;
-	
+ alert(ruta);	
 	formData.append("asunto", asunto);
 	formData.append("participante", participante);
     	formData.append("modelo", modelo);
@@ -322,9 +322,6 @@ if(iddocumento2==0)
     	formData.append("ancho_texto1", ancho_texto1);
     	formData.append("alto_texto1", alto_texto1);
     	formData.append("font_size_texto1", font_size_texto1);
-
-
-
 
     	formData.append("fecha", fechaelaboracion);
 
