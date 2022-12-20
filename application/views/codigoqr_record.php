@@ -48,15 +48,66 @@ if(isset($codigoqr))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre:</label>
+    <label class="col-md-2 col-form-label"> Filename:</label>
 	<div class="col-md-10">
      <?php
-       echo form_input('nombre',$codigoqr['nombre'],array('placeholder'=>'Nombre del codigoqr')); 
+       echo form_input('filename',$codigoqr['filename'],array('placeholder'=>'Nombre del codigoqr')); 
 
 	?>
 	</div> 
 </div> 
-   
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> TAmaño:</label>
+	<div class="col-md-10">
+     <?php
+       echo form_input('tamanio',$codigoqr['tamanio'],array('placeholder'=>'Nombre del codigoqr')); 
+
+	?>
+	</div> 
+</div>
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Level:</label>
+	<div class="col-md-10">
+     <?php
+       echo form_input('level',$codigoqr['level'],array('placeholder'=>'Nombre del codigoqr')); 
+
+	?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> framesize:</label>
+	<div class="col-md-10">
+     <?php
+       echo form_input('framesize',$codigoqr['framesize'],array('placeholder'=>'Nombre del codigoqr')); 
+
+	?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Contenido:</label>
+	<div class="col-md-10">
+     <?php
+       echo form_input('contenido',$codigoqr['contenido'],array('placeholder'=>'Nombre del codigoqr')); 
+
+	?>
+	</div> 
+</div>
+
+
+
+
+
+
+
+
    
 <?php echo form_close(); ?>
 
