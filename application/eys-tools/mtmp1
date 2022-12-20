@@ -1,49 +1,33 @@
 <?php
-class Portafoliodocente_model extends CI_model {
+class Codigoqr_model extends CI_model {
 
-	function lista_horariodocentes(){
-		 $horariodocente= $this->db->get('horariodocente');
-		 return $horariodocente;
+	function lista_paralelos(){
+		 $paralelo= $this->db->get('paralelo');
+		 return $paralelo;
 	}
 
-
-	function lista_horariodocentesA(){
-		 $horariodocente= $this->db->get('horariodocente1');
-		 return $horariodocente;
-	}
-
-
-
- 	function horariodocente( $id){
- 		$horariodocente = $this->db->query('select * from horariodocente where idhorariodocente="'. $id.'"');
- 		return $horariodocente;
+ 	function paralelo( $id){
+ 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $id.'"');
+ 		return $paralelo;
  	}
-
-
- 	function horariodocentespersona( $id){
- 		$horariodocente = $this->db->query('select * from horariodocente where idpersona="'. $id.'"');
- 		return $horariodocente;
- 	}
-
-
 
  	function save($array)
  	{
-		$this->db->insert("horariodocente", $array);
+		$this->db->insert("paralelo", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idhorariodocente',$id);
- 		$this->db->update('horariodocente',$array_item);
+ 		$this->db->where('idparalelo',$id);
+ 		$this->db->update('paralelo',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idhorariodocente',$id);
-		$this->db->delete('horariodocente');
+ 		$this->db->where('idparalelo',$id);
+		$this->db->delete('paralelo');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -54,7 +38,7 @@ class Portafoliodocente_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idhorariodocente")->get('horariodocente');
+		$query=$this->db->order_by("idparalelo")->get('paralelo');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -67,7 +51,7 @@ class Portafoliodocente_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idhorariodocente")->get('horariodocente');
+		$query=$this->db->order_by("idparalelo")->get('paralelo');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -79,37 +63,37 @@ class Portafoliodocente_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$horariodocente = $this->db->select("idhorariodocente")->order_by("idhorariodocente")->get('horariodocente')->result_array();
-		$arr=array("idhorariodocente"=>$id);
-		$clave=array_search($arr,$horariodocente);
-	   if(array_key_exists($clave+1,$horariodocente))
+ 		$paralelo = $this->db->select("idparalelo")->order_by("idparalelo")->get('paralelo')->result_array();
+		$arr=array("idparalelo"=>$id);
+		$clave=array_search($arr,$paralelo);
+	   if(array_key_exists($clave+1,$paralelo))
 		 {
 
- 		$horariodocente = $this->db->query('select * from horariodocente where idhorariodocente="'. $horariodocente[$clave+1]["idhorariodocente"].'"');
+ 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $paralelo[$clave+1]["idparalelo"].'"');
 		 }else{
 
- 		$horariodocente = $this->db->query('select * from horariodocente where idhorariodocente="'. $id.'"');
+ 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $id.'"');
 		 }
 		 	
- 		return $horariodocente;
+ 		return $paralelo;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$horariodocente = $this->db->select("idhorariodocente")->order_by("idhorariodocente")->get('horariodocente')->result_array();
-		$arr=array("idhorariodocente"=>$id);
-		$clave=array_search($arr,$horariodocente);
-	   if(array_key_exists($clave-1,$horariodocente))
+ 		$paralelo = $this->db->select("idparalelo")->order_by("idparalelo")->get('paralelo')->result_array();
+		$arr=array("idparalelo"=>$id);
+		$clave=array_search($arr,$paralelo);
+	   if(array_key_exists($clave-1,$paralelo))
 		 {
 
- 		$horariodocente = $this->db->query('select * from horariodocente where idhorariodocente="'. $horariodocente[$clave-1]["idhorariodocente"].'"');
+ 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $paralelo[$clave-1]["idparalelo"].'"');
 		 }else{
 
- 		$horariodocente = $this->db->query('select * from horariodocente where idhorariodocente="'. $id.'"');
+ 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $id.'"');
 		 }
 		 	
- 		return $horariodocente;
+ 		return $paralelo;
  	}
 
 
