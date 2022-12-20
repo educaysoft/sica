@@ -486,7 +486,7 @@ alert(ruta);
 	
 	url= "https://"+maquina+"/FPDI/certificado.php";
 	var xhttp = new XMLHttpRequest();
-	xhttp.open("POST",url,false);
+	xhttp.open("POST",url);
     	xhttp.send(formData);
 	xhttp.onreadystatechange = function(){
 
