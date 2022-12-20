@@ -1,6 +1,6 @@
 <?php
 
-require '"'.$_SERVER["DOCUMENT_ROOT"].'/sica/QR/pqrcode/qrlib.php'.'"' ;
+require 'QR/pqrcode/qrlib.php' ;
 $archivo=  $_SERVER["DOCUMENT_ROOT"] .'/sica/QR/codigosqr/'.$codigoqr['filename'];
 echo $archivo;
 die();
