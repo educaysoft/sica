@@ -1,6 +1,6 @@
 <?php
 
-require base_url().'pqrcode/qrlib.php';
+require basename(base_url().'QR/pqrcode/qrlib.php');
 $archivo=base_url().'QR/codigosqr/'.$codigoqr['filename'];
 echo $archivo;
 die();
