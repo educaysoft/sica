@@ -443,7 +443,6 @@ var filename="";
 	var participante=elparticipante;
 	var modelo=archivopdf;
 	var archivo=archivopdf2;
-alert(ruta);	
 	formData.append("asunto", asunto);
 	formData.append("participante", participante);
     	formData.append("modelo", modelo);
@@ -486,10 +485,9 @@ alert(ruta);
 	
 	url= "https://"+maquina+"/FPDI/certificado.php";
 	var xhttp = new XMLHttpRequest();
-	xhttp.open("POST",url);
+	xhttp.open("GET",url,false);
     	xhttp.send(formData);
 	xhttp.onreadystatechange = function(){
-
  		if(xhttp.readyState === XMLHttpRequest.DONE) {
     			var status = xhttp.status;
     			if (status === 0 || (status >= 200 && status < 400)) {

@@ -2,7 +2,7 @@
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Origin: https://educaysoft.org");
 header("Access-Control-Allow-Credentials: true");
-header("Access-Control-Allow-Methods: OPTIONS,POST,GET");
+header("Access-Control-Allow-Methods: OPTIONS,GET,GET");
 header('Set-Cookie: '.session_name().'='.session_id().'; SameSite=None; Secure');
 use setasign\Fpdi\Fpdi;
 // or for usage with TCPDF:
@@ -13,58 +13,58 @@ use setasign\Fpdi\Fpdi;
 
 // setup the autoload function
 require_once('vendor/autoload.php');
-$participante=$_POST["participante"]; 
-$detalle=$_POST["asunto"]; 
-$modelo=$_POST["modelo"];  //Modelo de certificado 
-$archivo=$_POST["archivo"];  //Nombre del archivo generado 
+$participante=$_GET["participante"]; 
+$detalle=$_GET["asunto"]; 
+$modelo=$_GET["modelo"];  //Modelo de certificado 
+$archivo=$_GET["archivo"];  //Nombre del archivo generado 
 $codigo=substr($archivo,0,strlen($archivo)-4);
-$ruta=$_POST["ruta"];
-$posi_nomb_x=$_POST["posi_nomb_x"];
-$posi_nomb_y=$_POST["posi_nomb_y"];
-$size_nombre=$_POST["size_nombre"];
+$ruta=$_GET["ruta"];
+$posi_nomb_x=$_GET["posi_nomb_x"];
+$posi_nomb_y=$_GET["posi_nomb_y"];
+$size_nombre=$_GET["size_nombre"];
 
 
-$ancho_x=$_POST["ancho_x"];
-$alto_y=$_POST["alto_y"];
+$ancho_x=$_GET["ancho_x"];
+$alto_y=$_GET["alto_y"];
 
 
-$posi_codigo_x=$_POST["posi_codigo_x"];
-$posi_codigo_y=$_POST["posi_codigo_y"];
+$posi_codigo_x=$_GET["posi_codigo_x"];
+$posi_codigo_y=$_GET["posi_codigo_y"];
 
-$posi_fecha_x=$_POST["posi_fecha_x"];
-$posi_fecha_y=$_POST["posi_fecha_y"];
-
-
-
-
-$firma1_x=$_POST["firma1_x"];
-$firma1_y=$_POST["firma1_y"];
-
-$firma2_x=$_POST["firma2_x"];
-$firma2_y=$_POST["firma2_y"];
-
-
-$firma3_x=$_POST["firma3_x"];
-$firma3_y=$_POST["firma3_y"];
-
-
-
-$texto1=$_POST["texto1"];
-$posi_texto1_x=$_POST["posi_texto1_x"];
-$posi_texto1_y=$_POST["posi_texto1_y"];
-$ancho_texto1=$_POST["ancho_texto1"];
-$alto_texto1=$_POST["alto_texto1"];
-$font_size_texto1=$_POST["font_size_texto1"];
+$posi_fecha_x=$_GET["posi_fecha_x"];
+$posi_fecha_y=$_GET["posi_fecha_y"];
 
 
 
 
+$firma1_x=$_GET["firma1_x"];
+$firma1_y=$_GET["firma1_y"];
+
+$firma2_x=$_GET["firma2_x"];
+$firma2_y=$_GET["firma2_y"];
 
 
-$fecha=date('F d Y',strtotime($_POST["fecha"]));
+$firma3_x=$_GET["firma3_x"];
+$firma3_y=$_GET["firma3_y"];
+
+
+
+$texto1=$_GET["texto1"];
+$posi_texto1_x=$_GET["posi_texto1_x"];
+$posi_texto1_y=$_GET["posi_texto1_y"];
+$ancho_texto1=$_GET["ancho_texto1"];
+$alto_texto1=$_GET["alto_texto1"];
+$font_size_texto1=$_GET["font_size_texto1"];
+
+
+
+
+
+
+$fecha=date('F d Y',strtotime($_GET["fecha"]));
 
 //$posif=296.67;
-$posif= $_POST["ancho_x"];
+$posif= $_GET["ancho_x"];
 // initiate FPDI
 $pdf = new Fpdi();
 
