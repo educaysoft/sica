@@ -439,14 +439,12 @@ var filename="";
 	
   	var formData = new FormData();
 	var modelo=archivopdf;
-	var archivo=archivopdf2;
 	formData.append("asunto", asunto);
 	formData.append("elparticipante", elparticipante);
     	formData.append("archivopdf", archivopdf);
     	formData.append("archivopdf2", archivopdf2);
     	formData.append("maquina", maquina);
     	formData.append("ruta", ruta);
-    	formData.append("archivo", archivo);
 
     	formData.append("ancho_x", ancho_x);
     	formData.append("alto_y", alto_y);

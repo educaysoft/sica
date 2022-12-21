@@ -212,7 +212,7 @@ $('#show_data').on('click','.item_gene',function(){
 	var idevento=$(this).data('idevento');
 var idordenador=$(this).data('idordenador');
 var iddirectorio=$(this).data('iddirectorio');
-var iddocumento_estado=1;
+var iddocumento_estado=3;
 var idpersona=$(this).data('idpersona');
 var idparticipante=$(this).data('idparticipante');
 
@@ -287,9 +287,9 @@ if(iddocumento2==0)
 	formData.append("asunto", asunto);
 	formData.append("elparticipante", participante);
     	formData.append("archivopdf", arhivopdf);
+    	formData.append("archivopdf2", archivopdf2);
     	formData.append("maquina", maquina);
     	formData.append("ruta", ruta);
-    	formData.append("archivopdf2", archivopdf2);
 
     	formData.append("ancho_x", ancho_x);
     	formData.append("alto_y", alto_y);

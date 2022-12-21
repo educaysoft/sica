@@ -18,8 +18,8 @@ echo "cargando variables";
 $participante=$_POST["elparticipante"]; 
 $detalle=$_POST["asunto"]; 
 $modelo=$_POST["archivopdf"];  //Modelo de certificado 
-$archivo=$_POST["archivopdf2"];  //Nombre del archivo generado 
-$codigo=substr($archivo,0,strlen($archivo)-4);
+$archivopdf2=$_POST["archivopdf2"];  //Nombre del archivo generado 
+$codigo=substr($archivopdf2,0,strlen($archivopdf2)-4);
 $ruta=$_POST["ruta"];
 $posi_nomb_x=$_POST["posi_nomb_x"];
 $posi_nomb_y=$_POST["posi_nomb_y"];
@@ -236,8 +236,8 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 
 }
 //$pdf->Output('I', 'generated.pdf');
-$archivo=str_replace("'","",$archivo);
-$y="..".$ruta.$archivo;
+$archivopdf2=str_replace("'","",$archivopdf2);
+$y="..".$ruta.$archivopdf2;
 echo $y;
 $pdf->Output('F',$y);
 
