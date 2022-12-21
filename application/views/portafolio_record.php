@@ -2,25 +2,25 @@
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($portafoliodocente) and !empty($portafoliodocente))
+if(isset($portafolio) and !empty($portafolio))
 {
 ?>
-        <li> <?php echo anchor('portafoliodocente/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('portafoliodocente/anterior/'.$portafoliodocente['idportafoliodocente'], 'anterior'); ?></li>
-        <li> <?php echo anchor('portafoliodocente/siguiente/'.$portafoliodocente['idportafoliodocente'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('portafoliodocente/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('portafoliodocente/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('portafoliodocente/edit/'.$portafoliodocente['idportafoliodocente'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('portafoliodocente/delete/'.$portafoliodocente['idportafoliodocente'],'Delete'); ?></li>
-        <li> <?php echo anchor('portafoliodocente/listar/','Listar'); ?></li>
-        <li> <?php echo anchor('portafoliodocente/listar_doce/','Portafolio'); ?></li>
-        <li> <?php echo anchor('portafoliodocente/reportepdf/'.$portafoliodocente['idportafoliodocente'],'Reporte'); ?></li>
+        <li> <?php echo anchor('portafolio/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('portafolio/anterior/'.$portafolio['idportafolio'], 'anterior'); ?></li>
+        <li> <?php echo anchor('portafolio/siguiente/'.$portafolio['idportafolio'], 'siguiente'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('portafolio/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('portafolio/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('portafolio/edit/'.$portafolio['idportafolio'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('portafolio/delete/'.$portafolio['idportafolio'],'Delete'); ?></li>
+        <li> <?php echo anchor('portafolio/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('portafolio/listar_doce/','Portafolio'); ?></li>
+        <li> <?php echo anchor('portafolio/reportepdf/'.$portafolio['idportafolio'],'Reporte'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('portafoliodocente/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('portafolio/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -31,8 +31,8 @@ if(isset($portafoliodocente) and !empty($portafoliodocente))
 <br>
 
 
-<?php echo form_open('portafoliodocente/save_edit') ?>
-<?php echo form_hidden('idportafoliodocente',$portafoliodocente['idportafoliodocente']) ?>
+<?php echo form_open('portafolio/save_edit') ?>
+<?php echo form_hidden('idportafolio',$portafolio['idportafolio']) ?>
 
 
 <div class="form-group row">
@@ -40,7 +40,7 @@ if(isset($portafoliodocente) and !empty($portafoliodocente))
 	<div class="col-md-10">
 
 
-     <?php echo form_input('idportafoliodocente',$portafoliodocente['idportafoliodocente'],array("disabled"=>"disabled",'placeholder'=>'Idportafoliodocentes')); ?>
+     <?php echo form_input('idportafolio',$portafolio['idportafolio'],array("disabled"=>"disabled",'placeholder'=>'Idportafolios')); ?>
  
 	</div> 
 </div>
@@ -56,7 +56,7 @@ foreach ($docentes as $row){
 	$options[$row->iddocente]= $row->eldocente;
 }
 
-echo form_input('iddocente',$options[$portafoliodocente['iddocente']],array("id"=>"iddocente","disabled"=>"disabled", "style"=>"width:500px")); ?>
+echo form_input('iddocente',$options[$portafolio['iddocente']],array("id"=>"iddocente","disabled"=>"disabled", "style"=>"width:500px")); ?>
 	</div> 
 </div>
 
@@ -71,7 +71,7 @@ $options= array("NADA");
 foreach ($docentes as $row){
 	$options[$row->iddocente]= $row->idpersona;
 }
-echo form_input('idpersona',$options[$portafoliodocente['iddocente']],array("id"=>"idpersona","disabled"=>"disabled", "style"=>"width:500px")); ?>
+echo form_input('idpersona',$options[$portafolio['iddocente']],array("id"=>"idpersona","disabled"=>"disabled", "style"=>"width:500px")); ?>
 	</div> 
 </div>
 
@@ -86,7 +86,7 @@ $options= array("NADA");
 foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
-echo form_input('iddocumento',$options[$portafoliodocente['iddocumento']],array("id"=>"iddocumento","disabled"=>"disabled","style"=>"width:500px"));
+echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"iddocumento","disabled"=>"disabled","style"=>"width:500px"));
 		?>
 	</div> 
 </div>
@@ -101,7 +101,7 @@ echo form_input('iddocumento',$options[$portafoliodocente['iddocumento']],array(
 	foreach ($portafolioestados as $row){
 		$options[$row->idportafolioestado]= $row->nombre;
 	}
-	echo form_input('idportafolioestado',$options[$portafoliodocente['idportafolioestado']],array("disabled"=>"disabled", "style"=>"width:500px")); 
+	echo form_input('idportafolioestado',$options[$portafolio['idportafolioestado']],array("disabled"=>"disabled", "style"=>"width:500px")); 
 	?>
 
 	</div> 
@@ -119,7 +119,7 @@ echo form_input('iddocumento',$options[$portafoliodocente['iddocumento']],array(
 	foreach ($periodoacademicos as $row){
 		$options[$row->idperiodoacademico]= $row->nombrelargo;
 	}
-	echo form_input('idperiodoacademico',$options[$portafoliodocente['idperiodoacademico']],array("disabled"=>"disabled", "style"=>"width:500px")); 
+	echo form_input('idperiodoacademico',$options[$portafolio['idperiodoacademico']],array("disabled"=>"disabled", "style"=>"width:500px")); 
 	?>
 
 	</div> 
@@ -165,7 +165,7 @@ echo form_input('iddocumento',$options[$portafoliodocente['iddocumento']],array(
 
 $(document).ready(function(){
 	var idpersona=document.getElementById("idpersona").value;
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('portafoliodocente/documento_data')?>', type: 'GET',data:{idpersona:idpersona}},});
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('portafolio/documento_data')?>', type: 'GET',data:{idpersona:idpersona}},});
 });
 
 

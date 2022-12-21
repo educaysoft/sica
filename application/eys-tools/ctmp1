@@ -1,54 +1,71 @@
 <?php
 
-class Codigoqr extends CI_Controller{
+class Documentoportafolio extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('paralelo_model');
+  	  $this->load->model('docente_model');
+  	  $this->load->model('documento_model');
+  	  $this->load->model('periodoacademico_model');
+  	  $this->load->model('portafoliodocente_model');
+  	  $this->load->model('asignaturadocente_model');
 }
 
 public function index(){
-	if(isset($this->session->userdata['logged_in'])){
-		$data['paralelo']=$this->paralelo_model->paralelo(1)->row_array();
-		$data['title']="Lista de paraleloes";
+
+  	if(isset($this->session->userdata['logged_in'])){
+			
+  	$data['portafoliodocente']=$this->portafoliodocente_model->lista_portafoliodocentes()->row_array();
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+			
+		$data['title']="Lista de portafoliodocentes";
 		$this->load->view('template/page_header');
-		$this->load->view('paralelo_record',$data);
+		$this->load->view('portafoliodocente_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
 		$this->load->view('login_form');
 	 	$this->load->view('template/page_footer.php');
 	}
-}
+
+ }
 
 
 public function add()
 {
-		$data['title']="Nueva paralelo";
+		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+		$data['title']="Nueva Documentoportafolio";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('paralelo_form',$data);
+	 	$this->load->view('portafoliodocente_form',$data);
 	 	$this->load->view('template/page_footer');
+
+
 }
 
 
-public function  save()
+	public function  save()
 	{
 	 	$array_item=array(
-	 	'idparalelo' => $this->input->post('idparalelo'),
-	 	'nombre' => $this->input->post('nombre'),
+		 	
+			'iddocente' => $this->input->post('iddocente'),
+			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
-	 	$this->paralelo_model->save($array_item);
-	 	redirect('paralelo');
+	 	$this->portafoliodocente_model->save($array_item);
+	 	redirect('portafoliodocente');
  	}
 
 
 
 public function edit()
 {
-	 	$data['paralelo'] = $this->paralelo_model->paralelo($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar paralelo";
+	 	$data['portafoliodocente'] = $this->portafoliodocente_model->portafoliodocente($this->uri->segment(3))->row_array();
+		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+ 	 	$data['title'] = "Actualizar Documentoportafolio";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('paralelo_edit',$data);
+ 	 	$this->load->view('portafoliodocente_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +73,23 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idparalelo');
+		$id=$this->input->post('idportafoliodocente');
 	 	$array_item=array(
 		 	
-		 	'idparalelo' => $this->input->post('idparalelo'),
-		 	'nombre' => $this->input->post('nombre'),
+		 	'idportafoliodocente' => $this->input->post('idportafoliodocente'),
+			'iddocente' => $this->input->post('iddocente'),
+			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
-	 	$this->paralelo_model->update($id,$array_item);
-	 	redirect('paralelo');
+	 	$this->portafoliodocente_model->update($id,$array_item);
+	 	redirect('portafoliodocente');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->paralelo_model->delete($this->uri->segment(3));
+ 		$data=$this->portafoliodocente_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('paralelo/elprimero');
+	 	redirect('portafoliodocente/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -79,26 +97,26 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Codigoqr";
+  $data['title']="Documentoportafolios";
 	$this->load->view('template/page_header');		
-  $this->load->view('paralelo_list',$data);
+  $this->load->view('portafoliodocente_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function paralelo_data()
+function portafoliodocente_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->paralelo_model->lista_paralelos();
+	 	$data0 = $this->portafoliodocente_model->lista_portafoliodocentesA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idparalelo,$r->numero,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('paralelo/actual').'"     data-idparalelo="'.$r->idparalelo.'">Ver</a>');
+			$data[]=array($r->idportafoliodocente,$r->eldocente,$r->elperiodoacademico,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('portafoliodocente/actual').'"  data-idportafoliodocente="'.$r->idportafoliodocente.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -114,14 +132,70 @@ function paralelo_data()
 
 
 
+	function asignaturadocente_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idportafoliodocente=$this->input->get('idportafoliodocente');
+			$data0 =$this->asignaturadocente_model->lista_asignaturadocentesA($idportafoliodocente);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idportafoliodocente,$r->idasignaturadocente,$r->laasignatura,$r->paralelo,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('asignaturadocente/actual').'"    data-idasignaturadocente="'.$r->idasignaturadocente.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
+	function documento_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idpersona=$this->input->get('idpersona');
+			$data0 =$this->documento_model->lista_documentosC($idpersona);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->iddocumento,$r->idpersona,$r->asunto,$r->fechaelaboracion,$r->archivopdf,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('documento/actual').'"    data-iddocumento="'.$r->iddocumento.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
+
 public function actual()
 {
-	$data['paralelo'] = $this->paralelo_model->paralelo($this->uri->segment(3))->row_array();
-  if(!empty($data))
-  {
-    $data['title']="Codigoqr";
+	$data['portafoliodocente'] = $this->portafoliodocente_model->portafoliodocente($this->uri->segment(3))->row_array();
+  	$data['docentes']= $this->docente_model->lista_docentes()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+	  if(!empty($data))
+	  {
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+    $data['title']="Documentoportafolio";
     $this->load->view('template/page_header');		
-    $this->load->view('paralelo_record',$data);
+    $this->load->view('portafoliodocente_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -129,8 +203,6 @@ public function actual()
     $this->load->view('template/page_footer');
   }
  }
-
-
 
 
 
@@ -143,12 +215,15 @@ public function actual()
 
 public function elprimero()
 {
-	$data['paralelo'] = $this->paralelo_model->elprimero();
-  if(!empty($data))
-  {
-    $data['title']="Codigoqr";
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+	$data['portafoliodocente'] = $this->portafoliodocente_model->elprimero();
+	  if(!empty($data))
+	  {
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+    $data['title']="Documentoportafolio";
     $this->load->view('template/page_header');		
-    $this->load->view('paralelo_record',$data);
+    $this->load->view('portafoliodocente_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -159,13 +234,15 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['paralelo'] = $this->paralelo_model->elultimo();
+	$data['portafoliodocente'] = $this->portafoliodocente_model->elultimo();
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
-    $data['title']="Codigoqr";
+    $data['title']="Documentoportafolio";
   
     $this->load->view('template/page_header');		
-    $this->load->view('paralelo_record',$data);
+    $this->load->view('portafoliodocente_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -176,21 +253,30 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['paralelo_list']=$this->paralelo_model->lista_paralelo()->result();
-	$data['paralelo'] = $this->paralelo_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Codigoqr";
+ // $data['portafoliodocente_list']=$this->portafoliodocente_model->lista_portafoliodocente()->result();
+	$data['portafoliodocente'] = $this->portafoliodocente_model->siguiente($this->uri->segment(3))->row_array();
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  
+
+$data['title']="Documentoportafolio";
 	$this->load->view('template/page_header');		
-  $this->load->view('paralelo_record',$data);
+  $this->load->view('portafoliodocente_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['paralelo_list']=$this->paralelo_model->lista_paralelo()->result();
-	$data['paralelo'] = $this->paralelo_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Codigoqr";
+ // $data['portafoliodocente_list']=$this->portafoliodocente_model->lista_portafoliodocente()->result();
+	$data['portafoliodocente'] = $this->portafoliodocente_model->anterior($this->uri->segment(3))->row_array();
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  $data['title']="Documentoportafolio";
 	$this->load->view('template/page_header');		
-  $this->load->view('paralelo_record',$data);
+  $this->load->view('portafoliodocente_record',$data);
 	$this->load->view('template/page_footer');
 }
+
+
+
 
 }

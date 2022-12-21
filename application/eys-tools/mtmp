@@ -1,33 +1,49 @@
 <?php
-class Paralelo_model extends CI_model {
+class Portafoliodocente_model extends CI_model {
 
-	function lista_paralelos(){
-		 $paralelo= $this->db->get('paralelo');
-		 return $paralelo;
+	function lista_portafoliodocentes(){
+		 $portafoliodocente= $this->db->get('portafoliodocente');
+		 return $portafoliodocente;
 	}
 
- 	function paralelo( $id){
- 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $id.'"');
- 		return $paralelo;
+
+	function lista_portafoliodocentesA(){
+		 $portafoliodocente= $this->db->get('portafoliodocente1');
+		 return $portafoliodocente;
+	}
+
+
+
+ 	function portafoliodocente( $id){
+ 		$portafoliodocente = $this->db->query('select * from portafoliodocente where idportafoliodocente="'. $id.'"');
+ 		return $portafoliodocente;
  	}
+
+
+ 	function portafoliodocentespersona( $id){
+ 		$portafoliodocente = $this->db->query('select * from portafoliodocente where idpersona="'. $id.'"');
+ 		return $portafoliodocente;
+ 	}
+
+
 
  	function save($array)
  	{
-		$this->db->insert("paralelo", $array);
+		$this->db->insert("portafoliodocente", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idparalelo',$id);
- 		$this->db->update('paralelo',$array_item);
+ 		$this->db->where('idportafoliodocente',$id);
+ 		$this->db->update('portafoliodocente',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idparalelo',$id);
-		$this->db->delete('paralelo');
+ 		$this->db->where('idportafoliodocente',$id);
+		$this->db->delete('portafoliodocente');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -38,7 +54,7 @@ class Paralelo_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idparalelo")->get('paralelo');
+		$query=$this->db->order_by("idportafoliodocente")->get('portafoliodocente');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -51,7 +67,7 @@ class Paralelo_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idparalelo")->get('paralelo');
+		$query=$this->db->order_by("idportafoliodocente")->get('portafoliodocente');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -63,37 +79,37 @@ class Paralelo_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$paralelo = $this->db->select("idparalelo")->order_by("idparalelo")->get('paralelo')->result_array();
-		$arr=array("idparalelo"=>$id);
-		$clave=array_search($arr,$paralelo);
-	   if(array_key_exists($clave+1,$paralelo))
+ 		$portafoliodocente = $this->db->select("idportafoliodocente")->order_by("idportafoliodocente")->get('portafoliodocente')->result_array();
+		$arr=array("idportafoliodocente"=>$id);
+		$clave=array_search($arr,$portafoliodocente);
+	   if(array_key_exists($clave+1,$portafoliodocente))
 		 {
 
- 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $paralelo[$clave+1]["idparalelo"].'"');
+ 		$portafoliodocente = $this->db->query('select * from portafoliodocente where idportafoliodocente="'. $portafoliodocente[$clave+1]["idportafoliodocente"].'"');
 		 }else{
 
- 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $id.'"');
+ 		$portafoliodocente = $this->db->query('select * from portafoliodocente where idportafoliodocente="'. $id.'"');
 		 }
 		 	
- 		return $paralelo;
+ 		return $portafoliodocente;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$paralelo = $this->db->select("idparalelo")->order_by("idparalelo")->get('paralelo')->result_array();
-		$arr=array("idparalelo"=>$id);
-		$clave=array_search($arr,$paralelo);
-	   if(array_key_exists($clave-1,$paralelo))
+ 		$portafoliodocente = $this->db->select("idportafoliodocente")->order_by("idportafoliodocente")->get('portafoliodocente')->result_array();
+		$arr=array("idportafoliodocente"=>$id);
+		$clave=array_search($arr,$portafoliodocente);
+	   if(array_key_exists($clave-1,$portafoliodocente))
 		 {
 
- 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $paralelo[$clave-1]["idparalelo"].'"');
+ 		$portafoliodocente = $this->db->query('select * from portafoliodocente where idportafoliodocente="'. $portafoliodocente[$clave-1]["idportafoliodocente"].'"');
 		 }else{
 
- 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $id.'"');
+ 		$portafoliodocente = $this->db->query('select * from portafoliodocente where idportafoliodocente="'. $id.'"');
 		 }
 		 	
- 		return $paralelo;
+ 		return $portafoliodocente;
  	}
 
 

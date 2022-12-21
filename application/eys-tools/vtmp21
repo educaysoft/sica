@@ -1,20 +1,44 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("paralelo/save") ?>
-<?php echo form_hidden("idparalelo")  ?>
+<?php echo form_open("portafoliodocente/save") ?>
+<?php echo form_hidden("idportafoliodocente")  ?>
 <table>
 
 
-
-
-
 <tr>
-<td> Nombre </td>
-<td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de paralelo"))  ?></td>
+<td> Docente: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($docentes as $row){
+	$options[$row->iddocente]= $row->eldocente;
+}
+
+ echo form_dropdown("iddocente",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
+
+
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("paralelo","Atras") ?> </td>
+<td> Periodo académico: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($periodoacademicos as $row){
+	$options[$row->idperiodoacademico]= $row->nombrecorto;
+}
+
+ echo form_dropdown("idperiodoacademico",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
+
+
+
+
+
+<tr>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("portafoliodocente","Atras") ?> </td>
 </tr>
 
 </table>
