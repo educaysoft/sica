@@ -81,6 +81,7 @@ class Documento extends CI_Controller{
 	{
 
  	$iddocumento = $this->input->get('iddocumento');
+	header("Content-type: application/json; charset=utf-8");
  	echo json_encode($this->documento_model->parametros_documento($iddocumento));
 
 	}
