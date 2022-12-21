@@ -81,7 +81,7 @@ class Documento extends CI_Controller{
 	{
 
  	$iddocumento = $this->input->get('iddocumento');
- 	echo json_encode($this->documento_model->parametros_documento($iddocumento)->result());
+ 	echo json_decode($this->documento_model->parametros_documento($iddocumento)->result());
 
 	}
 
