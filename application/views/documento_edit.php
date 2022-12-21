@@ -442,6 +442,7 @@ var filename="";
 	var archivo=archivopdf2;
 	formData.append("asunto", asunto);
 	formData.append("elparticipante", elparticipante);
+    	formData.append("archivopdf", archivopdf);
     	formData.append("archivopdf2", archivopdf2);
     	formData.append("maquina", maquina);
     	formData.append("ruta", ruta);
@@ -478,7 +479,7 @@ var filename="";
     	formData.append("alto_texto1", alto_texto1);
     	formData.append("font_size_texto1", font_size_texto1);
 
-    	formData.append("fecha", fechaelaboracion);
+    	formData.append("fechafinaliza", fechaelaboracion);
 
 
 	console.log(formData);
