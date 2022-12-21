@@ -381,7 +381,6 @@ function generar_documento()
         success: function(data){
 	iddocumento=data.iddocumento;
 	iddocumento2=data.iddocumento;
- 	archivopdf2= data.archivopdf;	
 	if(iddocumento>0){
 
 var idtipodocu= data.idtipodocu;
@@ -431,8 +430,8 @@ var iddocumento2=data.iddocumento2;
 var maquina=data.elordenador;
 var elparticipante=data.elparticipante;
 var ruta=data.ruta
-var archivopdf=a.archivopdf;
-var archivopdf2="";
+var archivopdf=data.archivopdf;
+var archivopdf2= data.archivopdf2;	
 var filename="";
 
       alert("se asigno las variables");
