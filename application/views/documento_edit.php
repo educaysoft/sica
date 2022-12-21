@@ -433,7 +433,7 @@ var ruta=data.ruta
 var archivopdf=data.archivopdf;
 var archivopdf2= data.archivopdf2;	
 var filename="";
-
+print_r(data);
       alert("se asigno las variables");
 
 // Generando el certificado
