@@ -282,15 +282,14 @@ if(iddocumento2==0)
 	
   	var formData = new FormData();
 	var participante=elparticipante;
-	var modelo=archivopdf;
-	var archivo=archivopdf2;
- alert(ruta);	
+	
+	
 	formData.append("asunto", asunto);
 	formData.append("elparticipante", participante);
-    	formData.append("modelo", modelo);
+    	formData.append("archivopdf", arhivopdf);
     	formData.append("maquina", maquina);
     	formData.append("ruta", ruta);
-    	formData.append("archivopdf2", archivo);
+    	formData.append("archivopdf2", archivopdf2);
 
     	formData.append("ancho_x", ancho_x);
     	formData.append("alto_y", alto_y);
@@ -314,7 +313,6 @@ if(iddocumento2==0)
     	formData.append("firma3_x", firma3_x);
     	formData.append("firma3_y", firma3_y);
 
-
 	
     	formData.append("texto1", texto1);
     	formData.append("posi_texto1_x", posi_texto1_x);
@@ -323,11 +321,11 @@ if(iddocumento2==0)
     	formData.append("alto_texto1", alto_texto1);
     	formData.append("font_size_texto1", font_size_texto1);
 
-    	formData.append("fecha", fechaelaboracion);
+    	formData.append("fechafinaliza", fechaelaboracion);
 
 	url= "https://"+maquina+"/FPDI/certificado.php";
 	var xhttp = new XMLHttpRequest();
-	xhttp.open("POST",url,false);
+	xhttp.open("POST",url);
     	xhttp.send(formData);
 	xhttp.onreadystatechange = function(){
 
