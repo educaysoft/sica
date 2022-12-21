@@ -331,6 +331,7 @@ if(iddocumento2==0)
 
     	formData.append("fechafinaliza", fechaelaboracion);
 
+	console.log(formData);
 	url= "https://"+maquina+"/FPDI/certificado.php";
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("POST",url);
@@ -347,7 +348,7 @@ if(iddocumento2==0)
        			}else{
 				alert("No se pudo cargar el archivo");
 			}
-			}
+			}else{ alert("que paso chico");}
               	};
     		// Send request with data
 

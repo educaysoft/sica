@@ -65,7 +65,7 @@ class Documento extends CI_Controller{
 			'fechaelaboracion' => $this->input->post('fechaelaboracion'),
 			'idordenador' => $this->input->post('idordenador'),
 			'iddirectorio' => $this->input->post('iddirectorio'),
-			'iddocumento_estado' => 1,  //no cargado
+			'iddocumento_estado' => 1$this->input->post('iddocumento_estado'),
 	 	);
 		$array_creador=array(
 			'iddocumento'=>0,
