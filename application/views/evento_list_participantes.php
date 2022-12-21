@@ -384,7 +384,7 @@ if(iddocumento2==0)
 				}
 				var archivo = archivopdf2;
 				var certi= ruta.trim()+archivo.trim();
-		//		window.location.href = certi;
+				window.location.href = certi;
 
 
 		},
