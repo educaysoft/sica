@@ -1,4 +1,5 @@
 <?php
+echo "<! DOCTYPE html>";
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Origin: https://educaysoft.org");
 header("Access-Control-Allow-Credentials: true");
@@ -13,10 +14,11 @@ use setasign\Fpdi\Fpdi;
 
 // setup the autoload function
 require_once('vendor/autoload.php');
+echo "cargando variables";
 $participante=$_GET["participante"]; 
 $detalle=$_GET["asunto"]; 
-$modelo=$_GET["modelo"];  //Modelo de certificado 
-$archivo=$_GET["archivo"];  //Nombre del archivo generado 
+$modelo=$_GET["archivopdf"];  //Modelo de certificado 
+$archivo=$_GET["archivopdf2"];  //Nombre del archivo generado 
 $codigo=substr($archivo,0,strlen($archivo)-4);
 $ruta=$_GET["ruta"];
 $posi_nomb_x=$_GET["posi_nomb_x"];
@@ -247,3 +249,4 @@ $y="..".$ruta.$archivo;
 echo $y;
 $pdf->Output('F',$y);
 
+echo "finalizo";
