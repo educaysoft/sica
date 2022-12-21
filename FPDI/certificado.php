@@ -15,8 +15,8 @@ use setasign\Fpdi\Fpdi;
 // setup the autoload function
 require_once('vendor/autoload.php');
 echo "cargando variables";
-$participante=$_GET["participante"]; 
-$detalle=$_GET["asunto"]; 
+$participante=$_GET["elparticipante"]; 
+$detalle=$_GET["titulo"]; 
 $modelo=$_GET["archivopdf"];  //Modelo de certificado 
 $archivo=$_GET["archivopdf2"];  //Nombre del archivo generado 
 $codigo=substr($archivo,0,strlen($archivo)-4);
@@ -58,12 +58,7 @@ $ancho_texto1=$_GET["ancho_texto1"];
 $alto_texto1=$_GET["alto_texto1"];
 $font_size_texto1=$_GET["font_size_texto1"];
 
-
-
-
-
-
-$fecha=date('F d Y',strtotime($_GET["fecha"]));
+$fecha=date('F d Y',strtotime($_GET["fechafinaliza"]));
 
 //$posif=296.67;
 $posif= $_GET["ancho_x"];
@@ -96,7 +91,7 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	$pdf->AddPage('P',[$ancho_x,$alto_y]);
 	}
 
-//El tamaño se acopa al tamaño del template
+	//El tamaño se acopa al tamaño del template
 	//$pdf->AddPage('L', array($size['w'], $size['h']));
 	// use the imported page and place it at point 10,10 with a width of 100 mm
 
@@ -127,7 +122,7 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	}
 	$realposix=$posi_codigo_x+($espacio_impresion/2-($pdf->GetStringWidth($codigo)/2));
 
-	if($posi_nombre<20){  //cuando no es un certificado
+	if($size_nombre<20){  //cuando no es un certificado
 		$pdf->SetTextColor(0, 0,0);
 		$realposix=$posi_codigo_x;
 	}
@@ -142,10 +137,10 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	$pdf->SetFont('Arial','B',$size_nombre);
 	$pdf->SetTextColor(0, 0,0);
 
-	$pdf->SetXY($pos_nomb_x,$posi_nomb_y);
+	$pdf->SetXY($posi_nomb_x,$posi_nomb_y);
 	$espacio_impresion=$posif;  //-$posix;
 	$realposix=$posi_nomb_x+($espacio_impresion/2-($pdf->GetStringWidth($participante)/2));
-	if($posi_nombre<20){
+	if($size_nombre<20){
 		$realposix=$posi_nomb_x;
 	}
 
@@ -168,9 +163,6 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 		$i="https://educaysoft.org/sica/".'firmas/francisstalin.jpg';
 		$pdf->Image("firmadecano.jpg",$firma1_x,$firma1_y,40);
 	}
-
-
-
 
 
 	if(intval($firma2_x)>0 && intval($firma2_y)>0)
@@ -203,7 +195,7 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 		}
 
 		$realposix=$posi_fecha_x+($espacio_impresion/2-($pdf->GetStringWidth($fecha)/2));
-		if($posi_nombre<20){  //cuando no es un certificado
+		if($size_nombre<20){  //cuando no es un certificado
 			$pdf->SetTextColor(0, 0,0);
 			$realposix=$posi_fecha_x;
 		}

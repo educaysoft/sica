@@ -430,8 +430,8 @@ var font_size_texto1=data.font_size_texto1;
 var iddocumento2=data.iddocumento2;
 var maquina=data.elordenador;
 var elparticipante=data.elparticipante;
-var ruta=data.ruta;
-var archivopdf=data.archivopdf;
+var ruta=data.ruta
+var archivopdf=a.archivopdf;
 var archivopdf2="";
 var filename="";
 
@@ -440,12 +440,11 @@ var filename="";
 // Generando el certificado
 	
   	var formData = new FormData();
-	var participante=elparticipante;
 	var modelo=archivopdf;
 	var archivo=archivopdf2;
 	formData.append("asunto", asunto);
-	formData.append("participante", participante);
-    	formData.append("modelo", modelo);
+	formData.append("elparticipante", elparticipante);
+    	formData.append("modelo", archivopdf2);
     	formData.append("maquina", maquina);
     	formData.append("ruta", ruta);
     	formData.append("archivo", archivo);
