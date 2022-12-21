@@ -113,10 +113,10 @@ class Documento_model extends CI_model {
 		if($evento->num_rows()>0)
 		{
 
- 		echo $evento->first_row('array');
+ 		return $evento->first_row('array');
 		}else{
 
- 		echo array();
+ 		return array();
 		}
  	}
 
