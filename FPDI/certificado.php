@@ -16,7 +16,7 @@ use setasign\Fpdi\Fpdi;
 require_once('vendor/autoload.php');
 echo "cargando variables";
 $participante=$_GET["elparticipante"]; 
-$detalle=$_GET["titulo"]; 
+$detalle=$_GET["asunto"]; 
 $modelo=$_GET["archivopdf"];  //Modelo de certificado 
 $archivo=$_GET["archivopdf2"];  //Nombre del archivo generado 
 $codigo=substr($archivo,0,strlen($archivo)-4);
