@@ -482,11 +482,10 @@ var filename="";
     	formData.append("fechafinaliza", fechaelaboracion);
 
 
-	console.log(formData);
 
 	url= "https://"+maquina+"/FPDI/certificado.php";
 	var xhttp = new XMLHttpRequest();
-	xhttp.open("GET",url,true);
+	xhttp.open("GET",url);
     	xhttp.send(formData);
 	xhttp.onreadystatechange = function(){
  		if(xhttp.readyState === XMLHttpRequest.DONE) {
