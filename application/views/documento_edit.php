@@ -433,7 +433,6 @@ var ruta=data.ruta
 var archivopdf=data.archivopdf;
 var archivopdf2= data.archivopdf2;	
 var filename="";
-console.log(data)
       alert("se asigno las variables");
 
 // Generando el certificado
@@ -480,7 +479,10 @@ console.log(data)
     	formData.append("font_size_texto1", font_size_texto1);
 
     	formData.append("fecha", fechaelaboracion);
-	
+
+
+	console.log(formDataa);
+
 	url= "https://"+maquina+"/FPDI/certificado.php";
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET",url,false);
