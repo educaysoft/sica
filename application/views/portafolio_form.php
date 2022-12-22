@@ -11,7 +11,7 @@
 
 $options= array('--Select--');
 foreach ($personas as $row){
-	$options[$row->idpersona]= $row->elpersona;
+	$options[$row->idpersona]= $row->lapersona;
 }
 
  echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'));  ?></td>
