@@ -52,11 +52,11 @@ if(isset($portafolio) and !empty($portafolio))
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
-foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->eldocente;
+foreach ($personas as $row){
+	$options[$row->idpersona]= $row->elpersona;
 }
 
-echo form_input('iddocente',$options[$portafolio['iddocente']],array("id"=>"iddocente","disabled"=>"disabled", "style"=>"width:500px")); ?>
+echo form_input('idpersona',$options[$portafolio['idpersona']],array("id"=>"idpersona","disabled"=>"disabled", "style"=>"width:500px")); ?>
 	</div> 
 </div>
 
@@ -68,10 +68,10 @@ echo form_input('iddocente',$options[$portafolio['iddocente']],array("id"=>"iddo
   
      <?php 
 $options= array("NADA");
-foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->idpersona;
+foreach ($personas as $row){
+	$options[$row->idpersona]= $row->idpersona;
 }
-echo form_input('idpersona',$options[$portafolio['iddocente']],array("id"=>"idpersona","disabled"=>"disabled", "style"=>"width:500px")); ?>
+echo form_input('idpersona',$options[$portafolio['idpersona']],array("id"=>"idpersona","disabled"=>"disabled", "style"=>"width:500px")); ?>
 	</div> 
 </div>
 
@@ -128,7 +128,7 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Documentos del docente: </label>
+    <label class="col-md-2 col-form-label"> Documentos del persona: </label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
