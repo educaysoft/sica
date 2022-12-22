@@ -53,7 +53,7 @@ if(isset($documentoportafolio) and !empty($documentoportafolio))
      <?php 
 $options= array("NADA");
 foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->eldocumento;
+	$options[$row->iddocumento]= $row->asunto;
 }
 
 echo form_input('iddocumento',$options[$documentoportafolio['iddocumento']],array("id"=>"iddocumento","disabled"=>"disabled", "style"=>"width:500px")); ?>
