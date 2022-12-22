@@ -33,7 +33,7 @@ public function index(){
 public function add()
 {
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
-  		$data['portafolios']= $this->portafolio_model->lista_portafolios()->result();
+  		$data['portafolios']= $this->portafolio_model->lista_portafoliosA()->result();
 		$data['title']="Nueva Documentoportafolio";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('documentoportafolio_form',$data);
