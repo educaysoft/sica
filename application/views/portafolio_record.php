@@ -48,7 +48,7 @@ if(isset($portafolio) and !empty($portafolio))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Docente:</label>
+    <label class="col-md-2 col-form-label">La persona:</label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");

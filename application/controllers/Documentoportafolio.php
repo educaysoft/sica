@@ -4,11 +4,9 @@ class Documentoportafolio extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-  	  $this->load->model('docente_model');
   	  $this->load->model('documento_model');
-  	  $this->load->model('periodoacademico_model');
+  	  $this->load->model('portafolio_model');
   	  $this->load->model('documentoportafolio_model');
-  	  $this->load->model('asignaturadocente_model');
 }
 
 public function index(){
@@ -16,8 +14,8 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   	$data['documentoportafolio']=$this->documentoportafolio_model->lista_documentoportafolios()->row_array();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  	$data['documentos']= $this->documento_model->lista_documentosA()->result();
+  	$data['portafolios']= $this->portafolio_model->lista_portafolios()->result();
 			
 		$data['title']="Lista de documentoportafolios";
 		$this->load->view('template/page_header');
@@ -34,8 +32,8 @@ public function index(){
 
 public function add()
 {
-		$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+		$data['documentos']= $this->documento_model->lista_documentosA()->result();
+  		$data['portafolios']= $this->portafolio_model->lista_portafolios()->result();
 		$data['title']="Nueva Documentoportafolio";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('documentoportafolio_form',$data);
@@ -49,8 +47,8 @@ public function add()
 	{
 	 	$array_item=array(
 		 	
-			'iddocente' => $this->input->post('iddocente'),
-			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+			'iddocumento' => $this->input->post('iddocumento'),
+			'idportafolio' => $this->input->post('idportafolio'),
 	 	);
 	 	$this->documentoportafolio_model->save($array_item);
 	 	redirect('documentoportafolio');
@@ -61,8 +59,8 @@ public function add()
 public function edit()
 {
 	 	$data['documentoportafolio'] = $this->documentoportafolio_model->documentoportafolio($this->uri->segment(3))->row_array();
-		$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+		$data['documentos']= $this->documento_model->lista_documentosA()->result();
+  		$data['portafolios']= $this->portafolio_model->lista_portafolios()->result();
  	 	$data['title'] = "Actualizar Documentoportafolio";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('documentoportafolio_edit',$data);
@@ -77,8 +75,8 @@ public function edit()
 	 	$array_item=array(
 		 	
 		 	'iddocumentoportafolio' => $this->input->post('iddocumentoportafolio'),
-			'iddocente' => $this->input->post('iddocente'),
-			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+			'iddocumento' => $this->input->post('iddocumento'),
+			'idportafolio' => $this->input->post('idportafolio'),
 	 	);
 	 	$this->documentoportafolio_model->update($id,$array_item);
 	 	redirect('documentoportafolio');
@@ -115,7 +113,7 @@ function documentoportafolio_data()
 	 	$data0 = $this->documentoportafolio_model->lista_documentoportafoliosA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->iddocumentoportafolio,$r->eldocente,$r->elperiodoacademico,
+			$data[]=array($r->iddocumentoportafolio,$r->eldocumento,$r->elportafolio,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('documentoportafolio/actual').'"  data-iddocumentoportafolio="'.$r->iddocumentoportafolio.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -132,18 +130,18 @@ function documentoportafolio_data()
 
 
 
-	function asignaturadocente_data()
+	function asignaturadocumento_data()
 	{
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
 			$iddocumentoportafolio=$this->input->get('iddocumentoportafolio');
-			$data0 =$this->asignaturadocente_model->lista_asignaturadocentesA($iddocumentoportafolio);
+			$data0 =$this->asignaturadocumento_model->lista_asignaturadocumentosA($iddocumentoportafolio);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->iddocumentoportafolio,$r->idasignaturadocente,$r->laasignatura,$r->paralelo,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('asignaturadocente/actual').'"    data-idasignaturadocente="'.$r->idasignaturadocente.'">Ver</a>');
+				$data[]=array($r->iddocumentoportafolio,$r->idasignaturadocumento,$r->laasignatura,$r->paralelo,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('asignaturadocumento/actual').'"    data-idasignaturadocumento="'.$r->idasignaturadocumento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -188,11 +186,11 @@ function documentoportafolio_data()
 public function actual()
 {
 	$data['documentoportafolio'] = $this->documentoportafolio_model->documentoportafolio($this->uri->segment(3))->row_array();
-  	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['portafolios']= $this->portafolio_model->lista_portafolios()->result();
 	  if(!empty($data))
 	  {
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['documentos']= $this->documento_model->lista_documentosA()->result();
     $data['title']="Documentoportafolio";
     $this->load->view('template/page_header');		
     $this->load->view('documentoportafolio_record',$data);
@@ -215,12 +213,12 @@ public function actual()
 
 public function elprimero()
 {
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['portafolios']= $this->portafolio_model->lista_portafolios()->result();
+  	$data['documentos']= $this->documento_model->lista_documentosA()->result();
 	$data['documentoportafolio'] = $this->documentoportafolio_model->elprimero();
 	  if(!empty($data))
 	  {
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['documentos']= $this->documento_model->lista_documentosA()->result();
     $data['title']="Documentoportafolio";
     $this->load->view('template/page_header');		
     $this->load->view('documentoportafolio_record',$data);
@@ -235,8 +233,8 @@ public function elprimero()
 public function elultimo()
 {
 	$data['documentoportafolio'] = $this->documentoportafolio_model->elultimo();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  	$data['documentos']= $this->documento_model->lista_documentosA()->result();
+  	$data['portafolios']= $this->portafolio_model->lista_portafolios()->result();
   if(!empty($data))
   {
     $data['title']="Documentoportafolio";
@@ -255,8 +253,8 @@ public function elultimo()
 public function siguiente(){
  // $data['documentoportafolio_list']=$this->documentoportafolio_model->lista_documentoportafolio()->result();
 	$data['documentoportafolio'] = $this->documentoportafolio_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  	$data['documentos']= $this->documento_model->lista_documentosA()->result();
+  	$data['portafolios']= $this->portafolio_model->lista_portafolios()->result();
   
 
 $data['title']="Documentoportafolio";
@@ -268,8 +266,8 @@ $data['title']="Documentoportafolio";
 public function anterior(){
  // $data['documentoportafolio_list']=$this->documentoportafolio_model->lista_documentoportafolio()->result();
 	$data['documentoportafolio'] = $this->documentoportafolio_model->anterior($this->uri->segment(3))->row_array();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  	$data['documentos']= $this->documento_model->lista_documentosA()->result();
+  	$data['portafolios']= $this->portafolio_model->lista_portafolios()->result();
   $data['title']="Documentoportafolio";
 	$this->load->view('template/page_header');		
   $this->load->view('documentoportafolio_record',$data);

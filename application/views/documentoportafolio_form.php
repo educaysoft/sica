@@ -10,11 +10,11 @@
 <td><?php 
 
 $options= array('--Select--');
-foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->eldocente;
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->eldocumento;
 }
 
- echo form_dropdown("iddocente",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
@@ -24,11 +24,11 @@ foreach ($docentes as $row){
 <td><?php 
 
 $options= array('--Select--');
-foreach ($periodoacademicos as $row){
-	$options[$row->idperiodoacademico]= $row->nombrecorto;
+foreach ($portafolios as $row){
+	$options[$row->idportafolio]= $row->nombrecorto;
 }
 
- echo form_dropdown("idperiodoacademico",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idportafolio",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 

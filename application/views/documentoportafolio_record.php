@@ -52,11 +52,11 @@ if(isset($documentoportafolio) and !empty($documentoportafolio))
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
-foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->eldocente;
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->eldocumento;
 }
 
-echo form_input('iddocente',$options[$documentoportafolio['iddocente']],array("id"=>"iddocente","disabled"=>"disabled", "style"=>"width:500px")); ?>
+echo form_input('iddocumento',$options[$documentoportafolio['iddocumento']],array("id"=>"iddocumento","disabled"=>"disabled", "style"=>"width:500px")); ?>
 	</div> 
 </div>
 
@@ -68,10 +68,10 @@ echo form_input('iddocente',$options[$documentoportafolio['iddocente']],array("i
   
      <?php 
 $options= array("NADA");
-foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->idpersona;
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->idpersona;
 }
-echo form_input('idpersona',$options[$documentoportafolio['iddocente']],array("id"=>"idpersona","disabled"=>"disabled", "style"=>"width:500px")); ?>
+echo form_input('idpersona',$options[$documentoportafolio['iddocumento']],array("id"=>"idpersona","disabled"=>"disabled", "style"=>"width:500px")); ?>
 	</div> 
 </div>
 
@@ -116,10 +116,10 @@ echo form_input('iddocumento',$options[$documentoportafolio['iddocumento']],arra
 	<div class="col-md-10">
 	<?php 
 	$options= array("NADA");
-	foreach ($periodoacademicos as $row){
-		$options[$row->idperiodoacademico]= $row->nombrelargo;
+	foreach ($portafolios as $row){
+		$options[$row->idportafolio]= $row->nombrelargo;
 	}
-	echo form_input('idperiodoacademico',$options[$documentoportafolio['idperiodoacademico']],array("disabled"=>"disabled", "style"=>"width:500px")); 
+	echo form_input('idportafolio',$options[$documentoportafolio['idportafolio']],array("disabled"=>"disabled", "style"=>"width:500px")); 
 	?>
 
 	</div> 
@@ -128,7 +128,7 @@ echo form_input('iddocumento',$options[$documentoportafolio['iddocumento']],arra
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Documentos del docente: </label>
+    <label class="col-md-2 col-form-label"> Documentos del documento: </label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
