@@ -8,7 +8,6 @@ class Portafolio extends CI_Controller{
   	  $this->load->model('documento_model');
   	  $this->load->model('periodoacademico_model');
   	  $this->load->model('portafolio_model');
-  	  $this->load->model('asignaturapersona_model');
 }
 
 public function index(){
