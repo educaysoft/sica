@@ -14,7 +14,7 @@ public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['portafolios']=$this->portafolio_model->lista_portafolios()->row_array();
+  	$data['portafolio']=$this->portafolio_model->lista_portafolios()->row_array();
   	$data['personas']= $this->persona_model->lista_personasA()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 			
