@@ -6,7 +6,7 @@
 
 
 <tr>
-<td> Docente: </td>
+<td> Documento: </td>
 <td><?php 
 
 $options= array('--Select--');
@@ -20,12 +20,12 @@ foreach ($documentos as $row){
 
 
 <tr>
-<td> Periodo académico: </td>
+<td> Portafolio: </td>
 <td><?php 
 
 $options= array('--Select--');
 foreach ($portafolios as $row){
-	$options[$row->idportafolio]= $row->nombrecorto;
+	$options[$row->idportafolio]= $row->elportafolio;
 }
 
  echo form_dropdown("idportafolio",$options, set_select('--Select--','default_value'));  ?></td>
