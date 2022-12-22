@@ -36,7 +36,7 @@ if(isset($documentoportafolio) and !empty($documentoportafolio))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Id portafolio:</label>
+    <label class="col-md-2 col-form-label">Id documentoportafolio:</label>
 	<div class="col-md-10">
 
 
@@ -48,7 +48,7 @@ if(isset($documentoportafolio) and !empty($documentoportafolio))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Docente:</label>
+    <label class="col-md-2 col-form-label">Documento:</label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
@@ -63,97 +63,26 @@ echo form_input('iddocumento',$options[$documentoportafolio['iddocumento']],arra
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Id persona:</label>
+    <label class="col-md-2 col-form-label">Id portafolio:</label>
 	<div class="col-md-10">
   
      <?php 
 $options= array("NADA");
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->idpersona;
+foreach ($portafolios as $row){
+	$options[$row->idportafolio]= $row->idportafolio;
 }
-echo form_input('idpersona',$options[$documentoportafolio['iddocumento']],array("id"=>"idpersona","disabled"=>"disabled", "style"=>"width:500px")); ?>
-	</div> 
-</div>
-
-
-<!----
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">  Documento (<?php echo "<a onclick='verpdf()'>Ver PDF</a>" ?>) :</label>
-	<div class="col-md-10">
-		<?php
-$options= array("NADA");
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
-}
-echo form_input('iddocumento',$options[$documentoportafolio['iddocumento']],array("id"=>"iddocumento","disabled"=>"disabled","style"=>"width:500px"));
-		?>
+echo form_input('idportafolio',$options[$documentoportafolio['idportafolio']],array("id"=>"idportafilio","disabled"=>"disabled", "style"=>"width:500px")); ?>
 	</div> 
 </div>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">Estado del documento:</label>
-	<div class="col-md-10">
-	<?php 
-	$options= array("NADA");
-	foreach ($portafolioestados as $row){
-		$options[$row->idportafolioestado]= $row->nombre;
-	}
-	echo form_input('idportafolioestado',$options[$documentoportafolio['idportafolioestado']],array("disabled"=>"disabled", "style"=>"width:500px")); 
-	?>
-
-	</div> 
-</div> 
-
-
----->
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">Periodo académico:</label>
-	<div class="col-md-10">
-	<?php 
-	$options= array("NADA");
-	foreach ($portafolios as $row){
-		$options[$row->idportafolio]= $row->nombrelargo;
-	}
-	echo form_input('idportafolio',$options[$documentoportafolio['idportafolio']],array("disabled"=>"disabled", "style"=>"width:500px")); 
-	?>
-
-	</div> 
-</div>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Documentos del documento: </label>
 
-	<div class="col-md-10">
-	<div class="row justify-content-left">
-      	<!-- Page Heading -->
- 	<div class="row">
-  	<div class="col-12">
-	<table class="table table-striped table-bordered table-hover" id="mydatac">
-	 <thead>
-	 <tr>
-	 <th>iddocu</th>
-	 <th>idpersona</th>
-	 <th>titulo</th>
-	 <th>elabor.</th>
-	 <th>archvo.</th>
-	 <th style="text-align: right;">Actions</th>
-	 </tr>
-	 </thead>
-	 <tbody id="show_data">
-	 </tbody>
-	</table>
-	</div>
-	</div>
-	</div>
-	</div> 
-</div>
+
+
 
 
 
@@ -161,22 +90,7 @@ echo form_input('iddocumento',$options[$documentoportafolio['iddocumento']],arra
 <?php echo form_close(); ?>
 
 
-<script type="text/javascript">
 
-$(document).ready(function(){
-	var idpersona=document.getElementById("idpersona").value;
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documentoportafolio/documento_data')?>', type: 'GET',data:{idpersona:idpersona}},});
-});
-
-
-$('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('iddocumento');
-var retorno= $(this).data('retorno');
-window.location.href = retorno+'/'+id;
-});
-
-
-</script>
 
 
 
