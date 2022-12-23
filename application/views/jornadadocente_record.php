@@ -112,7 +112,7 @@ echo form_input('idasignaturadocente',$options[$jornadadocente['idasignaturadoce
 
   
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Duración:</label>
+    <label class="col-md-2 col-form-label"> Duración(minutos(minutos)):</label>
 	<div class="col-md-10">
 		<?php
        echo form_input('duracionminutos',$jornadadocente['duracionminutos'],array('placeholder'=>'duración en minutos','style'=>'width:100px;'));
