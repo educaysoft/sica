@@ -10,7 +10,7 @@
 <td><?php 
 
 $options= array('--Select--');
-foreach ($horariodocentes as $row){
+foreach ($distributivodocentes as $row){
 	$options[$row->idhorariodocente]= $row->elhorariodocente;
 }
 
