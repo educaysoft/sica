@@ -11,10 +11,10 @@
 
 $options= array('--Select--');
 foreach ($distributivodocentes as $row){
-	$options[$row->idhorariodocente]= $row->elhorariodocente;
+	$options[$row->iddistributivodocente]= $row->eldistributivodocente;
 }
 
- echo form_dropdown("idhorariodocente",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("iddistributivodocente",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
