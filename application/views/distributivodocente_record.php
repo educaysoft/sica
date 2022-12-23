@@ -75,7 +75,7 @@ echo form_input('iddocente',$options[$distributivodocente['iddocente']],array("d
   
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Asignaturas de docente: </label>
+    <label class="col-md-2 col-form-label"> Asignaturas de docente<?php echo anchor('asignaturadocente/add', '(New)'); ?>: </label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
