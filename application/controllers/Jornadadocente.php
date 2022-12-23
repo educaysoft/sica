@@ -70,6 +70,8 @@ public function add()
 	public function edit()
 	{
 			$data['jornadadocente'] = $this->jornadadocente_model->jornadadocente($this->uri->segment(3))->row_array();
+  	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
+  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
 			$data['docentes']= $this->docente_model->lista_docentesA()->result();
 			$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 			$data['title'] = "Actualizar Jornadadocente";
