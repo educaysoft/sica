@@ -64,7 +64,7 @@ foreach ($diasemanas as $row){
 	<div class="col-md-10">
 	<?php
 
- echo form_input("duracionminutos", array("placeholder"=>"Duración del evento","value"=>$jornadadocente['duracionminutos'],'style'=>'width:500px;')); 
+ echo form_input( array("name"=>"duracionminutos","id"=>"duracionminutos","placeholder"=>"Duración del evento","value"=>$jornadadocente['duracionminutos'],'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
