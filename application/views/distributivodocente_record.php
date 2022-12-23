@@ -87,6 +87,7 @@ echo form_input('iddocente',$options[$distributivodocente['iddocente']],array("d
 	 <tr>
 	 <th>iddistributivodocente</th>
 	 <th>idasignatura</th>
+	 <th>nivel</th>
 	 <th>Asignatura</th>
 	 <th>Paralelo</th>
 	 <th style="text-align: right;">Actions</th>
