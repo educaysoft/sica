@@ -26,28 +26,28 @@ class Fechaevento extends CI_Controller{
 
 
 
-public function actual(){
- if(isset($this->session->userdata['logged_in'])){
+	public function actual(){
+	 if(isset($this->session->userdata['logged_in'])){
 
-	$data['fechaevento'] = $this->fechaevento_model->fechaevento($this->uri->segment(3))->row_array();
+		$data['fechaevento'] = $this->fechaevento_model->fechaevento($this->uri->segment(3))->row_array();
 
-	$data['documentos']= $this->documento_model->lista_documentos()->result();
-  	$data['eventos']= $this->evento_model->lista_eventos()->result();
-  	$data['temas']= $this->tema_model->lista_temas()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['temas']= $this->tema_model->lista_temas()->result();
 
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-	$data['title']="Fechaevento del documento";
- 
-	$data['title']="Modulo de Personas";
-	$this->load->view('template/page_header');		
-	$this->load->view('fechaevento_record',$data);
-	$this->load->view('template/page_footer');
-   }else{
-	$this->load->view('template/page_header.php');
-	$this->load->view('login_form');
-	$this->load->view('template/page_footer.php');
-   }
-}
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['title']="Fechaevento del documento";
+	 
+		$data['title']="Modulo de Personas";
+		$this->load->view('template/page_header');		
+		$this->load->view('fechaevento_record',$data);
+		$this->load->view('template/page_footer');
+	   }else{
+		$this->load->view('template/page_header.php');
+		$this->load->view('login_form');
+		$this->load->view('template/page_footer.php');
+	   }
+	}
 
 
 
@@ -136,7 +136,7 @@ public function actual(){
 		 	'horafin' => $this->input->post('horafin'),
 	 	);
 	 	$this->fechaevento_model->update($id,$array_item);
-	 	redirect('fechaevento');
+	 	redirect('fechaevento/actual/'.$id);
  	}
 
 

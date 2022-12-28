@@ -115,7 +115,7 @@ echo form_input('idtema',$options[$fechaevento['idtema']],array("disabled"=>"dis
   
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Tema a tratar:</label>
+    <label class="col-md-2 col-form-label"> Tema a tratar(largo):</label>
 	<div class="col-md-10">
 		<?php
 
@@ -129,7 +129,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Tema a tratar:</label>
+    <label class="col-md-2 col-form-label"> Tema a tratar(corto):</label>
 	<div class="col-md-10">
 		<?php
 
