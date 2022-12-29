@@ -41,11 +41,17 @@ if(isset($calendarioacademico))
 	</div> 
 </div> 
 
+
+
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id institucion:</label>
+    <label class="col-md-2 col-form-label">Institucion:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('idinstitucion',$calendarioacademico['idinstitucion'],array("disabled"=>"disabled",'placeholder'=>'Idperiodoacademicoes','style'=>'width:500px;'));
+$options= array("NADA");
+foreach ($instituciones as $row){
+	$options[$row->idinstitucion]= $row->nombre;
+}
+echo form_input('',$options[$calendarioacademico['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
@@ -69,45 +75,4 @@ if(isset($calendarioacademico))
 
 
 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">Institucion:</label>
-	<div class="col-md-10">
-	<?php
-$options= array("NADA");
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
-}
-echo form_input('',$options[$calendarioacademico['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
-
-
 <?php echo form_close(); ?>
-
-
-

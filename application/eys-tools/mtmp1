@@ -1,5 +1,5 @@
 <?php
-class Calendarioacademico_model extends CI_model {
+class Fechacalendario_model extends CI_model {
 
 	function lista_fechacalendarias(){
 		 $fechacalendaria= $this->db->get('fechacalendaria');
