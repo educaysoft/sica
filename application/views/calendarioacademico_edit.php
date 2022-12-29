@@ -3,91 +3,51 @@
 <h2> <?php echo $title; ?></h2>
 <hr />
  
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre corto:</label>
-	<div class="col-md-10">
-		<?php
-$eys_arrinput=array('name'=>'nombrecorto','value'=>$calendarioacademico['nombrecorto'], "style"=>"width:500px");
- echo form_input($eys_arrinput);
-		?>
-	</div> 
-</div> 
+ 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre largo:</label>
-	<div class="col-md-10">
-		<?php
-$eys_arrinput=array('name'=>'nombrelargo','value'=>$calendarioacademico['nombrelargo'], "style"=>"width:500px");
- echo form_input($eys_arrinput);
-		?>
-	</div> 
-</div>
+
 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Unidad silabo:</label>
+    <label class="col-md-2 col-form-label"> Institución:</label>
 	<div class="col-md-10">
 		<?php
 
 $options= array('--Select--');
-foreach ($unidadsilabos as $row){
-	$options[$row->idunidadsilabo]= $row->nombre;
+foreach ($instituciones as $row){
+	$options[$row->idinstitucion]= $row->nombre;
 }
 
- echo form_dropdown("idunidadsilabo",$options, $calendarioacademico['idunidadsilabo']);  
+ echo form_dropdown("idinstitucion",$options, $calendarioacademico['idinstitucion']);  
 		?>
 	</div> 
 </div>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha impartida:</label>
-	<div class="col-md-10">
-
-      <?php echo form_input( array("name"=>'fechaimpartida',"id"=>'fechaimpartida',"value"=>$calendarioacademico['fechaimpartida'],'type'=>'date','placeholder'=>'fecha impartida'));
-
-		?>
-	</div> 
-</div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Duración (minutos):</label>
-	<div class="col-md-10">
-		<?php
-$eys_arrinput=array('name'=>'duracionminutos','value'=>$calendarioacademico['duracionminutos'], "style"=>"width:100px");
- echo form_input($eys_arrinput);
-		?>
-	</div> 
-</div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Número de sesión:</label>
-	<div class="col-md-10">
-		<?php
-$eys_arrinput=array('name'=>'numerosesion','value'=>$calendarioacademico['numerosesion'], "style"=>"width:50px");
- echo form_input($eys_arrinput);
-		?>
-	</div> 
-</div>
+
+
+
 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Video tutorial:</label>
+    <label class="col-md-2 col-form-label"> Periodo académico:</label>
 	<div class="col-md-10">
 		<?php
 
 $options= array('--Select--');
-foreach ($videotutoriales as $row){
-	$options[$row->idvideotutorial]= $row->nombre;
+foreach ($periodoacademicos as $row){
+	$options[$row->idperiodoacademico]= $row->nombrecorto;
 }
 
- echo form_dropdown("idvideotutorial",$options, $calendarioacademico['idvideotutorial']);  
+ echo form_dropdown("idperiodoacademico",$options, $calendarioacademico['idperiodoacademico']);  
 		?>
 	</div> 
 </div>

@@ -69,35 +69,14 @@ if(isset($calendarioacademico))
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Actividad :</label>
-	<div class="col-md-10">
-		<?php
-       echo form_input('actividad',$calendarioacademico['actividad'],array('placeholder'=>'Nombre del calendarioacademico','style'=>'width:500px;'));
-		?>
-	</div> 
-</div> 
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Detalle:</label>
-	<div class="col-md-10">
-		<?php
-       echo form_input('detalle',$calendarioacademico['detalle'],array('placeholder'=>'Descripción del calendarioacademico','style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
+ 
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha calendaria:</label>
-	<div class="col-md-10">
-		<?php
-      		 echo form_input('calendarioacademico',$calendarioacademico['calendarioacademico'],array('type'=>'date','placeholder'=>'fecha calendaria','style'=>'width:500px;')) 
-		?>
-	</div> 
-</div>
+
+
+
+
 
 
 
