@@ -142,7 +142,7 @@ public function actual()
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 
 
-	$data['estudio'] = $this->estudio_model->estudio($this->uri->segmento(3))->row_array();
+	$data['estudio'] = $this->estudio_model->estudio($this->uri->segment(3))->row_array();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
