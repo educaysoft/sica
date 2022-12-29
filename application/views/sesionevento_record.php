@@ -181,7 +181,23 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 
-</table>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Modo de evaluación: </label>
+	<div class="col-md-10">
+     <?php 
+$options= array("NADA");
+foreach ($modoevaluacions as $row){
+	$options[$row->idmodoevaluacion]= $row->titulo;
+}
+
+echo form_input('idmodoevaluacion',$options[$sesionevento['idmodoevaluacion']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
+
+
+
+
 <?php echo form_close(); ?>
 
 

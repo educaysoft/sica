@@ -17,6 +17,7 @@ class Sesionevento extends CI_Controller{
   		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['sesionevento'] = $this->sesionevento_model->elultimo();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 
  		// print_r($data['sesionevento_list']);
   		$data['title']="Lista de Sesioneventoes";
