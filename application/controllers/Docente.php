@@ -138,7 +138,7 @@ public function actual(){
 			$data0 = $this->docente_model->lista_docentesB();
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->iddocente,$r->eldocente,$r->lacarrera,$r->fechadesde,$r->fechahasta,
+				$data[]=array($r->iddocente,$r->eldocente,
 					$r->href='<a href="javascript:void(0);" class="item_ver" data-doctos="'.$r->idpersona.'">'.$r->cantidad.'</a>',
 					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('docente/actual').'"  data-iddocente="'.$r->iddocente.'">Ver</a>');
 			}	

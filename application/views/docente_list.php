@@ -43,9 +43,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <tr>
  <th>ID</th>
  <th>docente</th>
- <th>Carrera</th>
- <th>Desde</th>
- <th>Hasta</th>
  <th>doctos</th>
  <th style="text-align: right;">Actions</th>
  </tr>
