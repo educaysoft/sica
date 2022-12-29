@@ -191,7 +191,7 @@ window.location.href = retorno+'/'+id;
 
 $('#show_datas').on('click','.item_ver',function(){
 var id= $(this).data('idsilabo');
-var retorno= $(this).data('retornos);
+var retorno= $(this).data('retornos');
 window.location.href = retorno+'/'+id;
 });
 
