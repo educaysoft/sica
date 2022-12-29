@@ -54,7 +54,7 @@ $eys_arrinput=array('name'=>'detalle','value'=>$fechacalendario['detalle'], "sty
 
 $options= array('--Select--');
 foreach ($calendarioacademicos as $row){
-	$options[$row->idcalendarioacademico]= $row->nombre;
+	$options[$row->idcalendarioacademico]= $row->elcalendarioacademico;
 }
 
  echo form_dropdown("idcalendarioacademico",$options, $fechacalendario['idcalendarioacademico']);  
