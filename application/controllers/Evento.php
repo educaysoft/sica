@@ -292,7 +292,7 @@ public function index(){
 
 			$idevento=$this->input->get('idevento');
 			$idpersona=$this->input->get('idpersona');
-			$data0 =$this->sesionevento_model->sesioneventosiA($idevento);
+			$data0 =$this->sesionevento_model->sesioneventosA($idevento);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idsesionevento,$r->idevento,$r->fecha,$r->tema, $r->puntual,$r->atrasado,
