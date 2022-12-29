@@ -37,7 +37,7 @@ if(isset($persona))
     <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
 	<?php
-		echo form_input('idpersona',$persona['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Idpersonas'));
+		echo form_input('idpersona',$persona['idpersona'],array("id"=>"idpersona","disabled"=>"disabled",'placeholder'=>'Idpersonas'));
 	?>
 	</div> 
 </div> 
