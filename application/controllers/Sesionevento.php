@@ -158,7 +158,7 @@ class Sesionevento extends CI_Controller{
 public function listar()
 {
 	
-  $data['title']="Fecha de evento";
+  $data['title']="Sesiones de evento";
 	$this->load->view('template/page_header');		
   $this->load->view('sesionevento_list',$data);
 	$this->load->view('template/page_footer');
