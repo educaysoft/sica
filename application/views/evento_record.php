@@ -194,6 +194,8 @@ echo form_input($arrdatos) ?>
 	 <th>idevento</th>
 	 <th>fecha</th>
 	 <th>tema</th>
+	 <th>puntuales</th>
+	 <th>atrasados</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
