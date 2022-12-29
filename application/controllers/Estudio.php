@@ -134,6 +134,33 @@ function estudio_data()
 
 
 
+public function actual()
+{
+
+
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+
+
+	$data['estudio'] = $this->estudio_model->estudio($this->uri->segmento(3))->row_array();
+  if(!empty($data))
+  {
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+    $data['title']="Estudio";
+    $this->load->view('template/page_header');		
+    $this->load->view('estudio_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
+
 
 
 
