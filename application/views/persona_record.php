@@ -145,10 +145,57 @@ echo form_input('idgenero',$options[$persona['idgenero']],array("disabled"=>"dis
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Documentos del persona: </label>
+
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12">
+	<table class="table table-striped table-bordered table-hover" id="mydatac">
+	 <thead>
+	 <tr>
+	 <th>iddocu</th>
+	 <th>idpersona</th>
+	 <th>titulo</th>
+	 <th>elabor.</th>
+	 <th>archvo.</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
+
+
 
 <?php echo form_close(); ?>
 
+<script type="text/javascript">
 
+$(document).ready(function(){
+	var idpersona=document.getElementById("idpersona").value;
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('persona/documento_data')?>', type: 'GET',data:{idpersona:idpersona}},});
+});
+
+
+$('#show_data').on('click','.item_ver',function(){
+var id= $(this).data('iddocumento');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+</script>
 
 
 
