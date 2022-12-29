@@ -82,10 +82,10 @@ public function index(){
 	{
 			$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
-		  $data['silabos']= $this->silabo_model->lista_silabos()->result();
+		  	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-	    $data['title'] = "Actualizar Evento";
+	    		$data['title'] = "Actualizar Evento";
 			$this->load->view('template/page_header');		
 			$this->load->view('evento_edit',$data);
 			$this->load->view('template/page_footer');
@@ -292,10 +292,10 @@ public function index(){
 
 			$idevento=$this->input->get('idevento');
 			$idpersona=$this->input->get('idpersona');
-			$data0 =$this->sesionevento_model->sesioneventos($idevento);
+			$data0 =$this->sesionevento_model->sesioneventosiA($idevento);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idsesionevento,$r->idevento,$r->fecha,$r->tema,
+				$data[]=array($r->idsesionevento,$r->idevento,$r->fecha,$r->tema, $r->puntual,$r->atrasado,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('sesionevento/actual').'"    data-idsesionevento="'.$r->idsesionevento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
