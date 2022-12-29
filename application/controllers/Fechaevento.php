@@ -75,7 +75,7 @@ class Fechaevento extends CI_Controller{
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 	   }
 
-		$data['title']="Nuevo Fechaevento";
+		$data['title']="Nueva sesion de eventos";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('fechaevento_form',$data);
 	 	$this->load->view('template/page_footer');
