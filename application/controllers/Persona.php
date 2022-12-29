@@ -6,6 +6,7 @@ class Persona extends CI_Controller{
       parent::__construct();
       $this->load->model('persona_model');
       $this->load->model('correo_model');
+      $this->load->model('documento_model');
       $this->load->model('telefono_model');
       $this->load->model('genero_model');
 }
