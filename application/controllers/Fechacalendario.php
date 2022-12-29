@@ -8,7 +8,7 @@ class Fechacalendario extends CI_Controller{
       $this->load->model('periodoacademico_model');
       $this->load->model('silabo_model');
       $this->load->model('institucion_model');
-      $this->load->model('documento_model');
+      $this->load->model('calendariocademico_model');
 }
 
 //=========================================================
@@ -62,8 +62,7 @@ class Fechacalendario extends CI_Controller{
 	public function edit()
 	{
 			$data['fechacalendario'] = $this->fechacalendario_model->fechacalendario($this->uri->segment(3))->row_array();
-  			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
+	$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicos()->result();
 			$data['title'] = "Actualizar fechacalendario";
 			$this->load->view('template/page_header');		
 			$this->load->view('fechacalendario_edit',$data);
