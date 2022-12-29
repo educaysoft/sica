@@ -35,15 +35,9 @@ foreach ($personas as $row){
 
 
 
-<tr>
-<td> Fecha de desde: </td>
-<td><?php echo form_input(array("name"=>"fechadesde","id"=>"fechadesde","type"=>"date"));  ?></td>
-</tr>
 
-<tr>
-<td> Fecha de hasta: </td>
-<td><?php echo form_input(array("name"=>"fechahasta","id"=>"fechahasta","type"=>"date"));  ?></td>
-</tr>
+
+
 
 
 <tr>

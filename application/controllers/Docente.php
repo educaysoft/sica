@@ -75,8 +75,6 @@ public function actual(){
 		 	'iddocente' => $this->input->post('iddocente'),
 			'idpersona' => $this->input->post('idpersona'),
 			'iddepartamento' => $this->input->post('iddepartamento'),
-			'fechadesde' => $this->input->post('fechadesde'),
-			'fechahasta' => $this->input->post('fechahasta'),
 	 	);
 	 	$this->docente_model->save($array_item);
 	 	redirect('docente');
@@ -105,7 +103,6 @@ public function actual(){
 		 	'iddocente' => $this->input->post('iddocente'),
 			'idpersona' => $this->input->post('idpersona'),
 			'iddepartamento' => $this->input->post('iddepartamento'),
-			'fechainscripcion' => $this->input->post('fechainscripcion'),
 	 	);
 	 	$this->docente_model->update($id,$array_item);
 	 	redirect('docente');

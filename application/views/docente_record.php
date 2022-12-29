@@ -94,29 +94,11 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 
   
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha desde: </label>
-	<div class="col-md-10">
-     	<?php 
-
-
-      echo form_input('fechadesde',$docente['fechadesde'],array('type'=>'date','placeholder'=>'fechadesde','style'=>'width:500px;')); 
-
-		?>
-	</div> 
-</div>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha hasta: </label>
-	<div class="col-md-10">
-     	<?php 
 
-       echo form_input('fechahasta',$docente['fechahasta'],array('type'=>'date','placeholder'=>'fechahasta','style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
+
 
 
 
