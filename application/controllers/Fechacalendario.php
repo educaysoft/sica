@@ -62,7 +62,7 @@ class Fechacalendario extends CI_Controller{
 	public function edit()
 	{
 			$data['fechacalendario'] = $this->fechacalendario_model->fechacalendario($this->uri->segment(3))->row_array();
-	$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicos1()->result();
+	$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
 			$data['title'] = "Actualizar fechacalendario";
 			$this->load->view('template/page_header');		
 			$this->load->view('fechacalendario_edit',$data);
