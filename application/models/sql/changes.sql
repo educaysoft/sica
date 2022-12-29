@@ -86,6 +86,24 @@ rename table fechaevento to sesionevento;
 alter table sesionevento modify column idfechaevento int(11);
 alter table sesionevento drop primary key; 
 alter table sesionevento change idfechaevento idsesionevento int(11) not null auto_increment primary key; 
-*/
 
 alter table sesionevento change  idevaluasession idmodoevaluacion int(11) not null default 1;
+
+*/
+
+
+
+
+/*
+rename table fechacalendaria to fechacalendario;
+alter table fechacalendario modify column idfechacalendaria int(11);
+alter table fechacalendario drop primary key; 
+alter table fechacalendario change idfechacalendaria idfechacalendario int(11) not null auto_increment primary key; 
+alter table fechacalendario drop column idperiodoacademico;
+alter table fechacalendario drop column idinstitucion;
+alter table fechacalendario change fechacalendaria fechacalendario date;
+*/
+
+alter table fechacalendario add column idcalendarioacademico int(11);
+
+

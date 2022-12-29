@@ -32,18 +32,40 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Documento_estado - Listar 
-                 <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
+                 <h3>Calendarioacademico - Listar 
 			  
         	</h3>
        	     </div>
 
+
+
+<div class="form-group row">
+    	<label class="col-md-2 col-form-label"> Silabo:</label>
+	<?php
+		$options= array('--Select--');
+		foreach ($fechacalendarias as $row){
+			$options[$row->idperiodoacademico]= $row->elperiodoacademico;
+		}
+	?>
+
+	<div class="col-md-10">
+		<?php
+     			echo form_dropdown("idperiodoacademico",$options[$filtro], set_select('--Select--','default_value'),array('onchange'=>'filtra_periodoacademico'));  
+		?>
+	</div>
+	</div>
+
+
+
+
+<div id="filtro"><?php echo $filtro; ?></div>
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>ID</th>
- <th>número</th>
- <th>nombre</th>
+ <th>Periodolectivo</th>
+ <th>idfechacalendaria</th>
+ <th>fechacalendaria</th>
+ <th>actividad</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
@@ -74,13 +96,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('paralelo/paralelo_data')?>', type: 'GET'},});
+	var idperiodoacademico = document.getElementById("filtro").innerHTML;
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('fechacalendaria/fechacalendaria_data')?>', type: 'GET',data:{idperiodoacademico:idperiodoacademico}},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('idparalelo');
+var id= $(this).data('idfechacalendaria');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 

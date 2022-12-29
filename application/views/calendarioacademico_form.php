@@ -1,6 +1,6 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("fechacalendaria/save") ?>
+<?php echo form_open("calendarioacademico/save") ?>
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Periodo académico:</label>
@@ -25,7 +25,7 @@ foreach ($periodoacademicos as $row){
     <label class="col-md-2 col-form-label"> Actividad realizada:</label>
 	<div class="col-md-10">
 		<?php
- echo form_input("actividad","", array("placeholder"=>"Nombre de fechacalendaria",'style'=>'width:500px;'));
+ echo form_input("actividad","", array("placeholder"=>"Nombre de calendarioacademico",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 
@@ -34,7 +34,7 @@ foreach ($periodoacademicos as $row){
     <label class="col-md-2 col-form-label"> Detalle de actividad:</label>
 	<div class="col-md-10">
 		<?php
- echo form_input("detalle","", array("placeholder"=>"Nombre de fechacalendaria",'style'=>'width:500px;'));
+ echo form_input("detalle","", array("placeholder"=>"Nombre de calendarioacademico",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
@@ -45,7 +45,7 @@ foreach ($periodoacademicos as $row){
 <?php
 
 
- echo form_input(array("name"=>"fechacalendaria","id"=>"fechacalendaria","type"=>"date"));  
+ echo form_input(array("name"=>"calendarioacademico","id"=>"calendarioacademico","type"=>"date"));  
 
 ?>
 </div>
@@ -78,7 +78,7 @@ foreach ($periodoacademicos as $row){
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("fechacalendaria","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("calendarioacademico","Atras") ?> </td>
 </tr>
 
 </table>
@@ -93,7 +93,7 @@ foreach ($periodoacademicos as $row){
 function get_periodoacademico() {
 	var idperiodoacademico = $('select[name=idperiodoacademico]').val();
     $.ajax({
-        url: "<?php echo site_url('fechacalendaria/get_periodoacademico') ?>",
+        url: "<?php echo site_url('calendarioacademico/get_periodoacademico') ?>",
         data: {idperiodoacademico: idperiodoacademico},
         method: 'POST',
 	async : true,
