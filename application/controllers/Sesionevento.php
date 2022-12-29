@@ -8,6 +8,7 @@ class Sesionevento extends CI_Controller{
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
       		$this->load->model('tema_model');
+      		$this->load->model('modoevaluacion_model');
 	}
 
 	public function index(){
