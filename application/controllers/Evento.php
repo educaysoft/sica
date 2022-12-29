@@ -6,7 +6,7 @@ class Evento extends CI_Controller{
       $this->load->model('evento_estado_model');
       $this->load->model('tipoevento_model');
       $this->load->model('participante_model');
-      $this->load->model('fechaevento_model');
+      $this->load->model('sesionevento_model');
       $this->load->model('institucion_model');
       $this->load->model('pagina_model');
       $this->load->model('silabo_model');
@@ -25,7 +25,7 @@ public function index(){
 	$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
-	$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
+	$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 	$data['title']="Uste esta visualizando Eventos por registro";
 	$this->load->view('template/page_header');		
 	$this->load->view('evento_record',$data);
@@ -139,7 +139,7 @@ public function index(){
 	  $data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
-		$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
+		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 
 
@@ -291,11 +291,11 @@ public function index(){
 
 			$idevento=$this->input->get('idevento');
 			$idpersona=$this->input->get('idpersona');
-			$data0 =$this->fechaevento_model->fechaeventos($idevento);
+			$data0 =$this->sesionevento_model->sesioneventos($idevento);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idfechaevento,$r->idevento,$r->fecha,$r->tema,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('fechaevento/actual').'"    data-idfechaevento="'.$r->idfechaevento.'">Ver</a>');
+				$data[]=array($r->idsesionevento,$r->idevento,$r->fecha,$r->tema,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('sesionevento/actual').'"    data-idsesionevento="'.$r->idsesionevento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -316,7 +316,7 @@ public function index(){
 
 			$idevento=$this->input->get('idevento');
 			$idpersona=$this->input->get('idpersona');
-			$data0 =$this->fechaevento_model->fechaeventos_AsisPart($idevento,$idpersona);
+			$data0 =$this->sesionevento_model->sesioneventos_AsisPart($idevento,$idpersona);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idevento,$r->fecha,$r->tema,$r->asistencia,$r->longitud,$r->latitud,$r->participacion,$r->pagos,
@@ -383,7 +383,7 @@ public function index(){
 			$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 			$data['silabos']= $this->silabo_model->lista_silabos()->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
-			$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
+			$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 			$data['title']="Evento";
 			$this->load->view('template/page_header');		
 			$this->load->view('evento_record',$data);
@@ -409,7 +409,7 @@ public function index(){
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 			$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
-			$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
+			$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 			$data['title']="Evento";
 			$this->load->view('template/page_header');		
 			$this->load->view('evento_record',$data);
@@ -432,7 +432,7 @@ public function index(){
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
-		$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
+		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 	  	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 	  	$data['title']="Evento";
 		$this->load->view('template/page_header');		
@@ -451,7 +451,7 @@ public function index(){
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
-		$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($data['evento']['idevento'])->result();
+		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 		$data['title']="Evento";
 		$this->load->view('template/page_header');		
 		$this->load->view('evento_record',$data);
@@ -464,7 +464,7 @@ public function index(){
 	public function detalle()
 	{
 		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
-		$data['fechaeventos'] = $this->fechaevento_model->fechaeventos($this->uri->segment(3))->result();
+		$data['sesioneventos'] = $this->sesionevento_model->sesioneventos($this->uri->segment(3))->result();
 		$data['asistencia'] = $this->asistencia_model->asistenciax( $data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
 		$data['participacion'] = $this->participacion_model->participacionx($data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
 		$data['pagoevento'] = $this->pagoevento_model->pagoeventox($data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
