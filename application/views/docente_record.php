@@ -96,16 +96,6 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 
 
 
-
-
-
-
-
-
-
-
-
-
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('estudio/add', 'Estudios realizados:') ?> </label>
 
@@ -192,7 +182,7 @@ $(document).ready(function(){
 
 $('#show_datae').on('click','.item_vere',function(){
 var id= $(this).data('idestudio');
-var retorno= $(this).data('retorno');
+var retorno= $(this).data('retornoe');
 window.location.href = retorno+'/'+id;
 });
 
@@ -201,7 +191,7 @@ window.location.href = retorno+'/'+id;
 
 $('#show_datas').on('click','.item_ver',function(){
 var id= $(this).data('idsilabo');
-var retorno= $(this).data('retorno');
+var retorno= $(this).data('retornos);
 window.location.href = retorno+'/'+id;
 });
 
