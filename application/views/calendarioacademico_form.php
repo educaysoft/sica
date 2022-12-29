@@ -2,6 +2,21 @@
 <hr/>
 <?php echo form_open("calendarioacademico/save") ?>
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Institucion:</label>
+	<div class="col-md-10">
+	<?php
+	$options= array('--Select--');
+	foreach ($instituciones as $row){
+		$options[$row->idinstitucion]= $row->nombre;
+	}
+	 echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value')); 
+		?>
+	</div> 
+</div>
+
+
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Periodo académico:</label>
 	<div class="col-md-10">
@@ -21,31 +36,30 @@ foreach ($periodoacademicos as $row){
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Actividad realizada:</label>
-	<div class="col-md-10">
-		<?php
- echo form_input("actividad","", array("placeholder"=>"Nombre de calendarioacademico",'style'=>'width:500px;'));
-		?>
-	</div> 
-</div> 
+ 
+
+
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Detalle de actividad:</label>
-	<div class="col-md-10">
-		<?php
- echo form_input("detalle","", array("placeholder"=>"Nombre de calendarioacademico",'style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Fecha calendaria:</label>
+<label class="col-md-2 col-form-label">Fecha desde:</label>
 <div class="col-md-10">
 <?php
 
 
- echo form_input(array("name"=>"calendarioacademico","id"=>"calendarioacademico","type"=>"date"));  
+ echo form_input(array("name"=>"fechadesde","id"=>"fechadesde","type"=>"date"));  
+
+?>
+</div>
+</div>
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Fecha hasta:</label>
+<div class="col-md-10">
+<?php
+
+
+ echo form_input(array("name"=>"fechahasta","id"=>"fechahasta","type"=>"date"));  
 
 ?>
 </div>
@@ -56,20 +70,6 @@ foreach ($periodoacademicos as $row){
 
 
 
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Institucion:</label>
-	<div class="col-md-10">
-	<?php
-	$options= array('--Select--');
-	foreach ($instituciones as $row){
-		$options[$row->idinstitucion]= $row->nombre;
-	}
-	 echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value')); 
-		?>
-	</div> 
-</div>
 
 
 <table>

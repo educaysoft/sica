@@ -6,9 +6,7 @@ class Calendarioacademico extends CI_Controller{
       parent::__construct();
       $this->load->model('calendarioacademico_model');
       $this->load->model('periodoacademico_model');
-      $this->load->model('silabo_model');
       $this->load->model('institucion_model');
-      $this->load->model('documento_model');
 }
 
 //=========================================================
@@ -35,9 +33,8 @@ class Calendarioacademico extends CI_Controller{
 	public function add()
 	{
 			$data['title']="Nueva calendarioacademico";
-			$data['silabos'] = $this->silabo_model->lista_silabos()->result();
 			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
-  		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 			$this->load->view('template/page_header');		
 			$this->load->view('calendarioacademico_form',$data);
 			$this->load->view('template/page_footer');
@@ -47,11 +44,10 @@ class Calendarioacademico extends CI_Controller{
 	public function  save()
 	{
 	 	$array_item=array(
-	 	'actividad' => $this->input->post('actividad'),
 		'idinstitucion' => $this->input->post('idinstitucion'),
-	 	'detalle' => $this->input->post('detalle'),
 	 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
-	 	'calendarioacademico' => $this->input->post('calendarioacademico'),
+	 	'fechadesde' => $this->input->post('fechadesde'),
+	 	'fechahasta' => $this->input->post('fechahasta'),
 	 	);
 	 	$this->calendarioacademico_model->save($array_item);
 	 	redirect('calendarioacademico');
@@ -78,11 +74,10 @@ class Calendarioacademico extends CI_Controller{
 	 	$array_item=array(
 		 	
 		 	'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
-		 	'actividad' => $this->input->post('actividad'),
-		 	'detalle' => $this->input->post('detalle'),
 	 		'idperiodoacademico' => $this->input->post('idperiodoacademico'),
-	 		'calendarioacademico' => $this->input->post('calendarioacademico'),
 		 	'idinstitucion' => $this->input->post('idinstitucion'),
+	 		'fechadesde' => $this->input->post('fechadesde'),
+	 		'fechahasta' => $this->input->post('fechahasta'),
 	 	);
 	 	$this->calendarioacademico_model->update($id,$array_item);
 	 	redirect('calendarioacademico/actual/'.$id);
