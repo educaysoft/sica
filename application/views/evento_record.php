@@ -297,6 +297,9 @@ echo form_input($arrdatos) ?>
  <th>id</th>
  <th>Participante</th>
  <th>certificado</th>
+ <th>grupo</th>
+ <th>puntual</th>
+ <th>atrasados</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
