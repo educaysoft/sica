@@ -4,15 +4,15 @@ class Modoevaluacion extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('paralelo_model');
+      $this->load->model('modoevaluacion_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['paralelo']=$this->paralelo_model->paralelo(1)->row_array();
-		$data['title']="Lista de paraleloes";
+		$data['modoevaluacion']=$this->modoevaluacion_model->modoevaluacion(1)->row_array();
+		$data['title']="Lista de modoevaluaciones";
 		$this->load->view('template/page_header');
-		$this->load->view('paralelo_record',$data);
+		$this->load->view('modoevaluacion_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva paralelo";
+		$data['title']="Nueva modoevaluacion";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('paralelo_form',$data);
+	 	$this->load->view('modoevaluacion_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,21 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idparalelo' => $this->input->post('idparalelo'),
+	 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->paralelo_model->save($array_item);
-	 	redirect('paralelo');
+	 	$this->modoevaluacion_model->save($array_item);
+	 	redirect('modoevaluacion');
  	}
 
 
 
 public function edit()
 {
-	 	$data['paralelo'] = $this->paralelo_model->paralelo($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar paralelo";
+	 	$data['modoevaluacion'] = $this->modoevaluacion_model->modoevaluacion($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar modoevaluacion";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('paralelo_edit',$data);
+ 	 	$this->load->view('modoevaluacion_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +56,22 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idparalelo');
+		$id=$this->input->post('idmodoevaluacion');
 	 	$array_item=array(
 		 	
-		 	'idparalelo' => $this->input->post('idparalelo'),
+		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->paralelo_model->update($id,$array_item);
-	 	redirect('paralelo');
+	 	$this->modoevaluacion_model->update($id,$array_item);
+	 	redirect('modoevaluacion');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->paralelo_model->delete($this->uri->segment(3));
+ 		$data=$this->modoevaluacion_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('paralelo/elprimero');
+	 	redirect('modoevaluacion/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -81,24 +81,24 @@ public function listar()
 	
   $data['title']="Modoevaluacion";
 	$this->load->view('template/page_header');		
-  $this->load->view('paralelo_list',$data);
+  $this->load->view('modoevaluacion_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function paralelo_data()
+function modoevaluacion_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->paralelo_model->lista_paralelos();
+	 	$data0 = $this->modoevaluacion_model->lista_modoevaluacions();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idparalelo,$r->numero,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('paralelo/actual').'"     data-idparalelo="'.$r->idparalelo.'">Ver</a>');
+			$data[]=array($r->idmodoevaluacion,$r->numero,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('modoevaluacion/actual').'"     data-idmodoevaluacion="'.$r->idmodoevaluacion.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -116,12 +116,12 @@ function paralelo_data()
 
 public function actual()
 {
-	$data['paralelo'] = $this->paralelo_model->paralelo($this->uri->segment(3))->row_array();
+	$data['modoevaluacion'] = $this->modoevaluacion_model->modoevaluacion($this->uri->segment(3))->row_array();
   if(!empty($data))
   {
     $data['title']="Modoevaluacion";
     $this->load->view('template/page_header');		
-    $this->load->view('paralelo_record',$data);
+    $this->load->view('modoevaluacion_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -143,12 +143,12 @@ public function actual()
 
 public function elprimero()
 {
-	$data['paralelo'] = $this->paralelo_model->elprimero();
+	$data['modoevaluacion'] = $this->modoevaluacion_model->elprimero();
   if(!empty($data))
   {
     $data['title']="Modoevaluacion";
     $this->load->view('template/page_header');		
-    $this->load->view('paralelo_record',$data);
+    $this->load->view('modoevaluacion_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -159,13 +159,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['paralelo'] = $this->paralelo_model->elultimo();
+	$data['modoevaluacion'] = $this->modoevaluacion_model->elultimo();
   if(!empty($data))
   {
     $data['title']="Modoevaluacion";
   
     $this->load->view('template/page_header');		
-    $this->load->view('paralelo_record',$data);
+    $this->load->view('modoevaluacion_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -176,20 +176,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['paralelo_list']=$this->paralelo_model->lista_paralelo()->result();
-	$data['paralelo'] = $this->paralelo_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['modoevaluacion_list']=$this->modoevaluacion_model->lista_modoevaluacion()->result();
+	$data['modoevaluacion'] = $this->modoevaluacion_model->siguiente($this->uri->segment(3))->row_array();
   $data['title']="Modoevaluacion";
 	$this->load->view('template/page_header');		
-  $this->load->view('paralelo_record',$data);
+  $this->load->view('modoevaluacion_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['paralelo_list']=$this->paralelo_model->lista_paralelo()->result();
-	$data['paralelo'] = $this->paralelo_model->anterior($this->uri->segment(3))->row_array();
+ // $data['modoevaluacion_list']=$this->modoevaluacion_model->lista_modoevaluacion()->result();
+	$data['modoevaluacion'] = $this->modoevaluacion_model->anterior($this->uri->segment(3))->row_array();
   $data['title']="Modoevaluacion";
 	$this->load->view('template/page_header');		
-  $this->load->view('paralelo_record',$data);
+  $this->load->view('modoevaluacion_record',$data);
 	$this->load->view('template/page_footer');
 }
 

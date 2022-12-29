@@ -13,6 +13,7 @@ class Evento extends CI_Controller{
       $this->load->model('asistencia_model');
       $this->load->model('participacion_model');
       $this->load->model('pagoevento_model');
+      $this->load->model('modoevaluacion_model');
 }
 
 public function index(){

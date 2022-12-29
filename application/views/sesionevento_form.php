@@ -23,7 +23,7 @@ foreach ($eventos as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Fecha de evento:</label>
+<label class="col-md-2 col-form-label">Fecha de la sesión:</label>
 <div class="col-md-10">
 <?php
 
@@ -123,6 +123,21 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 </div>
 </div>
 
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Modo de evaluación:</label>
+<div class="col-md-10">
+<?php
+$options= array('--Select--');
+foreach ($modoevaluacions as $row){
+	$options[$row->idmodoevaluacion]= $row->titulo;
+}
+
+ echo form_dropdown("idmodoevaluacion",$options, set_select('--Select--','default_value'),array('id'=>'idmodoevaluacion'));  
+?>
+</div>
+</div>
 
 
 
