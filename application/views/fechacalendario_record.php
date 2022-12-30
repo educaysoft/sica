@@ -44,21 +44,7 @@ if(isset($fechacalendario))
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Periodo : ( <?php echo anchor('periodoacademico/actual/'.$fechacalendario['idperiodoacademico'], 'Ver'); ?>):</label>
-	<div class="col-md-10">
-     	<?php 
-	$options=array();
-  	foreach ($periodoacademicos as $row){
-		$options[$row->idperiodoacademico]=$row->nombrecorto;
-	}
-	?>
-		<?php
 
-    echo form_input('idperiodoacademico',$options[$fechacalendario['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
-		?>
-	</div> 
-</div>
 
 
 
