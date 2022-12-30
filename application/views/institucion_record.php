@@ -43,7 +43,10 @@ if(isset($institucion))
       <td><?php echo form_input('nombre',$institucion['nombre'],array('placeholder'=>'Nombre del institucion')) ?></td>
   </tr>
 
-   
+  <tr>
+      <td>Iniciales:</td>
+      <td><?php echo form_input('iniciales',$institucion['iniciales'],array('placeholder'=>'Iniciales de la institucion')) ?></td>
+  </tr> 
    
 
 </table>

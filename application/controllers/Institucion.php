@@ -35,6 +35,7 @@ public function  save()
 	{
 	 	$array_item=array(
 	 	'nombre' => $this->input->post('nombre'),
+	 	'iniciales' => $this->input->post('iniciales'),
 	 	);
 	 	$this->institucion_model->save($array_item);
 	 	redirect('institucion');
@@ -60,6 +61,7 @@ public function  save()
 		 	
 		 	'idinstitucion' => $this->input->post('idinstitucion'),
 		 	'nombre' => $this->input->post('nombre'),
+	 		'iniciales' => $this->input->post('iniciales'),
 	 	);
 	 	$this->institucion_model->update($id,$array_item);
 	 	redirect('institucion');
