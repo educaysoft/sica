@@ -12,7 +12,7 @@ if(isset($fechacalendario))
         <li> <?php echo anchor('fechacalendario/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('fechacalendario/edit/'.$fechacalendario['idfechacalendario'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('fechacalendario/delete/'.$fechacalendario['idfechacalendario'],'Delete'); ?></li>
-        <li> <?php echo anchor('fechacalendario/listar/'.$fechacalendario['idfecho'],'Listar'); ?></li>
+        <li> <?php echo anchor('fechacalendario/listar/'.$fechacalendario['idfechacalendario'],'Listar'); ?></li>
         <li> <?php echo anchor('fechacalendariounidad/','Unidades'); ?></li>
         <li> <?php echo anchor('fechacalendario/panel/','Panel'); ?></li>
 
