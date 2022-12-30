@@ -41,14 +41,7 @@ if(isset($fechacalendario))
 	</div> 
 </div> 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id institucion:</label>
-	<div class="col-md-10">
-	<?php
-      echo form_input('idinstitucion',$fechacalendario['idinstitucion'],array("disabled"=>"disabled",'placeholder'=>'Idperiodoacademicoes','style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
+
 
 
 <div class="form-group row">
