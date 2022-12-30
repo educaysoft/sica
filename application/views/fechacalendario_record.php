@@ -93,7 +93,18 @@ if(isset($fechacalendario))
 
 
 
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Calendario academico:</label>
+	<div class="col-md-10">
+	<?php
+$options= array("NADA");
+foreach ($calendarioacademicos as $row){
+	$options[$row->idcalendarioacademico]= $row->elcalendarioacademico;
+}
+echo form_input('',$options[$fechacalendario['idcalendarioacademico']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
 
 
 <?php echo form_close(); ?>
