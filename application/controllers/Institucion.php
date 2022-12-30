@@ -112,6 +112,22 @@ function institucion_data()
 }
 
 
+public function actual()
+{
+	$data['institucion'] = $this->institucion_model->institucion($this->uri->segment(3))->row_array();
+  if(!empty($data))
+  {
+    $data['title']="Institucion";
+    $this->load->view('template/page_header');		
+    $this->load->view('institucion_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
 
 
 
