@@ -97,7 +97,7 @@ function institucion_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idinstitucion,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idinstitucion="'.$r->idinstitucion.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('institucion/actual').'"    data-idinstitucion="'.$r->idinstitucion.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
