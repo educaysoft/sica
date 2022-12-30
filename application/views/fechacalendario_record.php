@@ -93,18 +93,7 @@ if(isset($fechacalendario))
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">Institucion:</label>
-	<div class="col-md-10">
-	<?php
-$options= array("NADA");
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
-}
-echo form_input('',$options[$fechacalendario['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
+
 
 
 <?php echo form_close(); ?>
