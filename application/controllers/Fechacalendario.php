@@ -48,10 +48,9 @@ class Fechacalendario extends CI_Controller{
 	{
 	 	$array_item=array(
 	 	'actividad' => $this->input->post('actividad'),
-		'idinstitucion' => $this->input->post('idinstitucion'),
 	 	'detalle' => $this->input->post('detalle'),
-	 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	'fechacalendario' => $this->input->post('fechacalendario'),
+	 	'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
 	 	);
 	 	$this->fechacalendario_model->save($array_item);
 	 	redirect('fechacalendario');
@@ -79,9 +78,8 @@ class Fechacalendario extends CI_Controller{
 		 	'idfechacalendario' => $this->input->post('idfechacalendario'),
 		 	'actividad' => $this->input->post('actividad'),
 		 	'detalle' => $this->input->post('detalle'),
-	 		'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 		'fechacalendario' => $this->input->post('fechacalendario'),
-		 	'idinstitucion' => $this->input->post('idinstitucion'),
+	 		'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
 	 	);
 	 	$this->fechacalendario_model->update($id,$array_item);
 	 	redirect('fechacalendario/actual/'.$id);
