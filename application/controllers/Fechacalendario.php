@@ -172,8 +172,7 @@ public function iniciar()
 public function actual()
 {
 	$data['fechacalendario'] = $this->fechacalendario_model->fechacalendario($this->uri->segment(3))->row_array();
-	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
+  	$data['calendarioacademicos']= $this->calendarioacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
     $data['title']="Fechacalendario";
