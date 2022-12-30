@@ -18,7 +18,7 @@ class Fechacalendario extends CI_Controller{
 	public function index(){
 		if(isset($this->session->userdata['logged_in'])){
 			$data['fechacalendario']=$this->fechacalendario_model->elultimo();
-			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
+			$data['periodoacademicos'] = $this->periodoacademico_model->lista_calendarioacademicos1()->result();
   			$data['calendarioacademicos']= $this->calendarioacademico_model->lista_periodoacademicos()->result();
 			$data['title']="Lista de fechacalendarioes";
 			$this->load->view('template/page_header');
@@ -172,7 +172,7 @@ public function iniciar()
 public function actual()
 {
 	$data['fechacalendario'] = $this->fechacalendario_model->fechacalendario($this->uri->segment(3))->row_array();
-  	$data['calendarioacademicos']= $this->calendarioacademico_model->lista_calendarioacademicos()->result();
+  	$data['calendarioacademicos']= $this->calendarioacademico_model->lista_calendarioacademicos1()->result();
   if(!empty($data))
   {
     $data['title']="Fechacalendario";
