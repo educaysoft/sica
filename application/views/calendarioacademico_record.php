@@ -36,7 +36,7 @@ if(isset($calendarioacademico))
     <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
 		<?php
-      echo form_input('idcalendarioacademico',$calendarioacademico['idcalendarioacademico'],array("disabled"=>"disabled"));
+      echo form_input('idcalendarioacademico',$calendarioacademico['idcalendarioacademico'],array("id"=>"idcalendarioacademico","disabled"=>"disabled"));
 		?>
 	</div> 
 </div> 
