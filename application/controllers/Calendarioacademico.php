@@ -162,6 +162,34 @@ public function iniciar()
 
 
 
+	function fecha_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idpersona=$this->input->get('idcalendarioacademico');
+			$data0 =$this->fechacalendario_model->lista_fechacalendario($idcalendarioacademico);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idcalendarioacademico,$r->idfechacalendario,$r->fecha,$r->actividad,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('fechacalendario/actual').'"    data-idfechacalendario="'.$r->idfechacalendario.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
+
+
 
 public function actual()
 {
