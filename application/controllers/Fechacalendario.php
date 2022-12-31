@@ -191,7 +191,6 @@ public function actual()
 public function elprimero()
 {
 	$data['fechacalendario'] = $this->fechacalendario_model->elprimero();
-	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   if(!empty($data))
   {
@@ -209,7 +208,6 @@ public function elprimero()
 public function elultimo()
 {
 		$data['fechacalendario'] = $this->fechacalendario_model->elultimo();
-	$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   if(!empty($data))
   {
@@ -229,7 +227,6 @@ public function elultimo()
 public function siguiente(){
  // $data['fechacalendario_list']=$this->fechacalendario_model->lista_fechacalendario()->result();
 	$data['fechacalendario'] = $this->fechacalendario_model->siguiente($this->uri->segment(3))->row_array();
-	$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['title']="Fechacalendario";
 	$this->load->view('template/page_header');		
@@ -241,7 +238,6 @@ public function anterior(){
  // $data['fechacalendario_list']=$this->fechacalendario_model->lista_fechacalendario()->result();
 	$data['fechacalendario'] = $this->fechacalendario_model->anterior($this->uri->segment(3))->row_array();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['title']="Fechacalendario";
 	$this->load->view('template/page_header');		
   	$this->load->view('fechacalendario_record',$data);
