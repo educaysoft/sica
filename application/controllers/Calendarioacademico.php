@@ -173,7 +173,7 @@ public function iniciar()
 			$data0 =$this->fechacalendario_model->lista_fechacalendarios1($idcalendarioacademico);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idcalendarioacademico,$r->idfechacalendario,$r->fecha,$r->actividad,
+				$data[]=array($r->idcalendarioacademico,$r->idfechacalendario,$r->fechacalendario,$r->actividad,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('fechacalendario/actual').'"    data-idfechacalendario="'.$r->idfechacalendario.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
