@@ -114,7 +114,7 @@ if(isset($calendarioacademico))
 
 $(document).ready(function(){
 	var idcalendarioacademico=document.getElementById("idcalendarioacademico").value;
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('calendarioacademico/fecha_data')?>', type: 'GET',data:{idpersona:idpersona}},});
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('calendarioacademico/fecha_data')?>', type: 'GET',data:{idcalendarioacademico:idcalendarioacademico}},});
 });
 
 
