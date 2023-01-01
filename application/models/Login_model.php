@@ -237,7 +237,7 @@ public function read_user_information($email,$password) {
             $this->db->limit(1);
             $query = $this->db->get();
             if ($query->num_rows() == 1) {
-                        $condition = "idpagina =" .$arrusuario[0]["idpagina"];
+                        $condition = "idpagina =" .$arrusuario[0]->idpagina;
                         $this->db->select('*');
                         $this->db->from('pagina');
                         $this->db->where($condition);
