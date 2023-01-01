@@ -269,7 +269,7 @@ foreach ($pagoevento as $row){
 
 
       <?php
-      foreach($fechaeventos as  $row)
+      foreach($sesioneventos as  $row)
       {
 
       ?>
