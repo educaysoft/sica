@@ -29,7 +29,7 @@ if (isset($message_display)) {
 <main class="w3-container" style=" font-size:50%; padding:30px;">
 
 
-
+<!------
 <div >
     <label class="form-label" for="idevento">Evento:</label>
 
@@ -45,7 +45,7 @@ if (isset($message_display)) {
     </div>
 
 </div>
-
+------>
 
 
  <div >
