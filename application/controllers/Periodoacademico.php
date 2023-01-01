@@ -149,7 +149,7 @@ public function edit()
 
 public function actual()
 {
-	$data['periodoacademico'] = $this->periodoacademico_model->periodoacademico($this->uri->segment(3))->row?array();
+	$data['periodoacademico'] = $this->periodoacademico_model->periodoacademico($this->uri->segment(3))->row_array();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   if(!empty($data))
   {
