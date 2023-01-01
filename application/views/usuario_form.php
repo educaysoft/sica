@@ -44,6 +44,21 @@ foreach ($perfiles as $row){
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("usuario","Atrás") ?> </td>
 </tr>
 
+<tr>
+<td> Páginas de inicio: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($paginas as $row){
+	$options[$row->idpagina]= $row->nombre;
+}
+
+ echo form_dropdown("idpagina",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
+
+
 </table>
 <?php echo form_close();?>
 

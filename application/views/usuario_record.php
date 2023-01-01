@@ -116,6 +116,22 @@ echo form_input('idperfil',$options[$usuario['idperfil']],array("disabled"=>"dis
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Pagina de incio :</label>
+	<div class="col-md-10">
+	<?php
+
+$options= array("NADA");
+foreach ($paginas as $row){
+	$options[$row->idpagina]= $row->nombre;
+}
+
+echo form_input('idpagina',$options[$usuario['idpagina']],array("disabled"=>"disabled",'style'=>'width:500px'));
+	?>
+	</div> 
+</div>
+
+
 
 
 

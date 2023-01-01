@@ -229,6 +229,7 @@ public function read_user_information($email,$password) {
             $idusuario=$query->result()[0]->idusuario;
             $condition = "idusuario =" . "'" . $idusuario . "'";
            // $condition = $condition. " and idevento= ". $idevento ;
+            $condition = $condition. " and onoff=1" ;
             $this->db->select('*');
             $this->db->from('password');
             $this->db->where($condition);
@@ -236,16 +237,7 @@ public function read_user_information($email,$password) {
             $this->db->limit(1);
             $query = $this->db->get();
             if ($query->num_rows() == 1) {
-                $arrusuario[0]->{'idevento'}=$query->result()[0]->idevento;
-                $condition = "idevento =" .$query->result()[0]->idevento ;
-	              $this->db->select('*');
-                $this->db->from('evento');
-                $this->db->where($condition);
-                $this->db->limit(1);
-                $query = $this->db->get();
-                if ($query->num_rows() == 1) {
-
-                        $condition = "idpagina =" .$query->result()[0]->idpagina ;
+                        $condition = "idpagina =" .$arrusuario[0]["idpagina"];
                         $this->db->select('*');
                         $this->db->from('pagina');
                         $this->db->where($condition);
@@ -253,20 +245,14 @@ public function read_user_information($email,$password) {
                         $query = $this->db->get();
                         if ($query->num_rows() == 1) {
                               $arrusuario[0]->{'inicio'}=$query->result()[0]->ruta;
-                               print_r($arrusuario);
-                                 die();
                               return $arrusuario;
                           } else {
-                           return false;
+                              $arrusuario[0]->{'inicio'}="principal";
+                              return $arrusuario;
                           }
                 }else{
                            return false;
-
                 }         
-            }else{
-
-              return false;
-            }
         }else{
       return false;
     }
