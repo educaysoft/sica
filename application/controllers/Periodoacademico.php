@@ -147,6 +147,26 @@ public function edit()
 
 
 
+public function actual()
+{
+	$data['periodoacademico'] = $this->periodoacademico_model->periodoacademico($this->uri->segment(3))->row?array();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  if(!empty($data))
+  {
+    $data['title']="Periodoacademico";
+    $this->load->view('template/page_header');		
+    $this->load->view('periodoacademico_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
 
 
 public function elprimero()
