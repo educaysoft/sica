@@ -99,7 +99,7 @@ function pagina_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idpagina,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idpagina="'.$r->idpagina.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('pagina/actual').'"   data-idpagina="'.$r->idpagina.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -112,6 +112,25 @@ function pagina_data()
 			
 
 }
+
+
+
+
+public function actual()
+{
+	$data['pagina'] = $this->pagina_model->pagina($this->uri->segment(3))->row_array();
+  if(!empty($data))
+  {
+    $data['title']="Pagina";
+    $this->load->view('template/page_header');		
+    $this->load->view('pagina_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
 
 
 
