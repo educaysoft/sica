@@ -360,8 +360,8 @@ if ($result == TRUE) {
 				$this->load->view('template/page_footer.php');
 			}
 		   	  $moduloinicio=$this->session->userdata['logged_in']['inicio'];	
-		//	echo $moduloinicio;
-		//	die();
+			echo $moduloinicio;
+			die();
 			redirect($moduloinicio); 
 		}
 		//	redirect('aspirante/add'); 
