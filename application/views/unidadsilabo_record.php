@@ -114,7 +114,7 @@ echo form_input('idsilabo',$options[$unidadsilabo['idsilabo']],array("disabled"=
 	 <th>idtema</th>
 	 <th>unidad</th>
 	 <th>sesión</th>
-	 <th>nombrelargo</th>
+	 <th>tema(nombre corto)</th>
 	 <th>duracion</th>
 	 <th>idvideoturorial</th>
 	 <th style="text-align: right;">Actions</th>
