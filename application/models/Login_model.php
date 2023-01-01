@@ -216,7 +216,8 @@ public function login($data) {
 }
 
 // Read data from database to show data in admin page
-public function read_user_information($email,$password,$idevento) {
+//public function read_user_information($email,$password,$idevento) {
+public function read_user_information($email,$password) {
 	$condition = "email =" . "'" . $email . "'";
 	$this->db->select('*');
 	$this->db->from('usuario');

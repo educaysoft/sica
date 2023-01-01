@@ -278,8 +278,9 @@ public function user_login_process() {
 if ($result == TRUE) {
 	$email = $this->input->post('email');
 	$password = $this->input->post('password');
-	$idevento = $this->input->post('idevento');
-	$result = $this->login_model->read_user_information($email,$password,$idevento);
+//	$idevento = $this->input->post('idevento');
+//	$result = $this->login_model->read_user_information($email,$password,$idevento);
+	$result = $this->login_model->read_user_information($email,$password);
 	if ($result != false) {
 	// Se busca la información del dueño del usuario.
 		$result2 = $this->login_model->get_persona($result[0]->idpersona);
