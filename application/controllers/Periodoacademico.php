@@ -120,6 +120,30 @@ public function edit()
 
 
 
+	function silabo_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idperiodoacademico=$this->input->get('idperiodoacademico');
+			$data0 =$this->silabo_model->silabosp($idperiodoacademico);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->iddocente,$r->idsilabo,$r->elsilabo,$r->elperiodo,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retornos="'.site_url('silabo/actual').'"    data-idsilabo="'.$r->idsilabo.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
 
 
 

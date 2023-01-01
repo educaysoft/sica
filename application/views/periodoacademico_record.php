@@ -53,7 +53,7 @@ echo form_input('iddepartamento',$options[$periodoacademico['iddepartamento']],a
     <label class="col-md-2 col-form-label"> Id Periodo acad.: </label>
 	<div class="col-md-10">
      	<?php 
-      echo form_input('idperiodoacademico',$periodoacademico['idperiodoacademico'],array("disabled"=>"disabled"));
+      echo form_input('idperiodoacademico',$periodoacademico['idperiodoacademico'],array("id"=>"idperiodoacademico", "disabled"=>"disabled"));
 	?>
 	</div> 
 </div>
@@ -107,9 +107,66 @@ echo form_input('fechafin',$periodoacademico['fechafin'],array('placeholder'=>'F
 	</div> 
 </div>
 
-   
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Silabos presentados: </label>
+
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12">
+	<table class="table table-striped table-bordered table-hover" id="mydatas">
+	 <thead>
+	 <tr>
+	 <th>iddocente</th>
+	 <th>idsilabo</th>
+	 <th>elsilabo</th>
+	 <th>periodo</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_datas">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
 
 <?php echo form_close(); ?>
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var idperiodoacademico=document.getElementById("idperiodoacademico").value;
+	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('periodoacademico/silabo_data')?>', type: 'GET',data:{idperiodoacademico:idperiodoacademico}},});
 
 
+});
+
+
+
+
+
+
+
+
+$('#show_datas').on('click','.item_ver',function(){
+var id= $(this).data('idsilabo');
+var retorno= $(this).data('retornos');
+window.location.href = retorno+'/'+id;
+});
+
+
+
+
+
+</script>
+
+</body>
