@@ -253,8 +253,8 @@ public function read_user_information($email,$password) {
                         $query = $this->db->get();
                         if ($query->num_rows() == 1) {
                               $arrusuario[0]->{'inicio'}=$query->result()[0]->ruta;
-                           //    print_r($arrusuario);
-                           //      die();
+                               print_r($arrusuario);
+                                 die();
                               return $arrusuario;
                           } else {
                            return false;
