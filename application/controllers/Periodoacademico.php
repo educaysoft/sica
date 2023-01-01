@@ -4,8 +4,9 @@ class Periodoacademico extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('periodoacademico_model');
-  	  $this->load->model('departamento_model');
+      	$this->load->model('periodoacademico_model');
+    	$this->load->model('departamento_model');
+    	$this->load->model('silabo_model');
 }
 
 public function index(){
