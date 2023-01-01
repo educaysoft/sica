@@ -82,10 +82,10 @@ if(isset($tema))
 </div>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha impartida:</label>
+    <label class="col-md-2 col-form-label"> Número de sesión:</label>
 	<div class="col-md-10">
 		<?php
-      		 echo form_input('fechaimpartida',$tema['fechaimpartida'],array('type'=>'date','placeholder'=>'fecha impartida','style'=>'width:500px;')) 
+       echo form_input('numerosesion',$tema['numerosesion'],array('placeholder'=>'número de sisión','style'=>'width:50px;'));
 		?>
 	</div> 
 </div>
@@ -102,14 +102,7 @@ if(isset($tema))
 </div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Número de sesión:</label>
-	<div class="col-md-10">
-		<?php
-       echo form_input('numerosesion',$tema['numerosesion'],array('placeholder'=>'número de sisión','style'=>'width:50px;'));
-		?>
-	</div> 
-</div>
+
 
 
 
