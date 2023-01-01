@@ -1,10 +1,8 @@
 <?php
 
 Class Login_model extends CI_Model {
-
 	public function nuevo_participante($data)
 	{
-
 		$condition = "idpersona =" .  $data['idpersona']." and idevento = ". $data['idevento'];
 		$this->db->select('*');
 		$this->db->from('participante');
@@ -200,7 +198,7 @@ public function login($data) {
 
       if ($query->num_rows() == 1) {
             $idusuario=$query->result()[0]->idusuario;
-            $condition = "idusuario =" . "'" . $idusuario . "' AND " . "password =" . "'" . $data['password'] . "' AND "."idevento =".$data['idevento'];
+            $condition = "idusuario =" . "'" . $idusuario . "' AND " . "password =" . "'" . $data['password'] . "'";  // AND "."idevento =".$data['idevento'];
          //   $condition = $condition. " and onoff = 1" ;
             $this->db->select('*');
             $this->db->from('password');

@@ -264,7 +264,7 @@ public function user_login_process() {
 	// ======================================================================	
 	
 	$data = array(
-	'idevento' => $this->input->post('idevento'),
+//	'idevento' => $this->input->post('idevento'),
 	'email' => $this->input->post('email'),
 	'password' => $this->input->post('password')
 	);
