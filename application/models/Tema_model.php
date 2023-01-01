@@ -23,7 +23,7 @@ function lista_temass($idsilabo){
 	{
 	$this->db->where('idsilabo='.$idsilabo);
 	}
-	$query=$this->db->order_by("fechaimpartida","idsilabo","idunidadsilabo","idtema")->get('tema1');
+	$query=$this->db->order_by("idsilabo","idunidadsilabo","numerosesion","idtema")->get('tema1');
 	 return $query;
 	}
 
@@ -31,7 +31,7 @@ function lista_temass($idsilabo){
 
 
  	function temas( $idunidadsilabo){
- 		$tema = $this->db->query('select * from tema where idunidadsilabo="'. $idunidadsilabo.'" order by fechaimpartida');
+ 		$tema = $this->db->query('select * from tema where idunidadsilabo="'. $idunidadsilabo.'" order by numerosesion');
  		return $tema;
  	}
 
