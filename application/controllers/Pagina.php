@@ -95,7 +95,7 @@ function pagina_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->pagina_model->lista_paginaes();
+	 	$data0 = $this->pagina_model->lista_paginas();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idpagina,$r->nombre,
