@@ -76,6 +76,7 @@ public function add()
 		 	'password' => $this->input->post('password'),
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'idperfil' => $this->input->post('idperfil'),
+		 	'idpagina' => $this->input->post('idpagina'),
 		 	'email' => $this->input->post('email'),
 	 	);
 	 	$this->usuario_model->save($array_item);
@@ -107,6 +108,7 @@ public function edit()
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'idinstitucion' => $this->input->post('idinstitucion'),
 		 	'idperfil' => $this->input->post('idperfil'),
+		 	'idpagina' => $this->input->post('idpagina'),
 		 	'email' => $this->input->post('email'),
 		 	'inicio' => $this->input->post('inicio'),
 	 	);
