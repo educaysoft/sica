@@ -80,10 +80,11 @@ class Sesionevento extends CI_Controller{
 	   }
    		date_default_timezone_set('America/Guayaquil');
 	     	$date = date("Y-m-d");
-
-		if true== $this->fechacalendario_model->fechacalendario($data)->result();
-			return 0: 	
-
+		$puede== $this->fechacalendario_model->fechacalendario($data)->result();
+		if(!$puede)
+		{	
+		i	return 0: 	
+		}
 		$data['title']="Nueva sesion de eventos";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('sesionevento_form',$data);

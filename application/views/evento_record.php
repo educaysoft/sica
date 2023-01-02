@@ -262,7 +262,7 @@ echo form_input($arrdatos) ?>
 </div>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('silabo/add', 'Silabo:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('silabo/actual/'.$evento['idsilabo'], 'Silabo:') ?> </label>
      <?php 
     $options= array("NADA");
     foreach ($silabos as $row){
