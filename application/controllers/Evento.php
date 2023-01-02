@@ -159,7 +159,7 @@ public function index(){
    		$data['filtro']=0;
 		if($this->uri->segment(3))
 		{
-i		$idpersona=$this->uri->segment(3);
+			$idpersona=$this->uri->segment(3);
 
 		$data['participante'] =$this->participante_model->participantep($idpersona)->result();
 		$data['filtro']= $data['participante']['idparticipante']);
