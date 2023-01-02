@@ -117,7 +117,7 @@ echo form_input('idperfil',$options[$usuario['idperfil']],array("disabled"=>"dis
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Pagina de incio :</label>
+    <label class="col-md-2 col-form-label"> Página de incio : <?php echo anchor('pagina/actual/'.$usuario['idpagina'], 'ver'); ?> </label>
 	<div class="col-md-10">
 	<?php
 
