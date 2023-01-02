@@ -71,13 +71,18 @@ class Sesionevento extends CI_Controller{
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 
 	    }else{
-	     $data["idevento"]=$idevento;
+	     	$data["idevento"]=$idevento;
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['evento']= $this->evento_model->evento($idevento)->first_row('array');
 		$data['eventos']= $this->evento_model->evento($idevento)->result();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 	   }
+   		date_default_timezone_set('America/Guayaquil');
+	     	$date = date("Y-m-d");
+
+		if true== $this->fechacalendario_model->fechacalendario($data)->result();
+			return 0: 	
 
 		$data['title']="Nueva sesion de eventos";
 	 	$this->load->view('template/page_header');		
