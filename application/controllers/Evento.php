@@ -162,7 +162,7 @@ public function index(){
 		if(isset($this->uri->segment(3)))
 		{
 		$data['filtro']= $this->uri->segment(3);
-/		}
+		}
 
 		$data['title']="Evento";
 		$this->load->view('template/page_header');		
