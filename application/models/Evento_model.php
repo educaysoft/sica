@@ -27,11 +27,12 @@ class Evento_model extends CI_model {
 
 		if($idparticipante>0)
 		{
-		$this->db->where(exist (select 'idparticipante='.$idparticipante);
+
+
+	$evento = $this->db->query('select * from evento1 where EXISTS (select idevento from participante where participante.idevento=evento1.idevento and participante.idparticipante= "'.$idparticipante.'") order by idevento');
+
 		}
 
-//		 $evento= $this->db->order_by('idevento_estado')->get('evento1');
-	$evento = $this->db->query('select * from evento1 where EXISTS (select idevento from participante where participante.idevento=evento1.idevento and participante.idparticipante= "'.$idparticipante.'" order by idevento');
 		 return $evento;	
 	}
 
