@@ -162,7 +162,7 @@ public function index(){
 			$idpersona=$this->uri->segment(3);
 
 		$data['participante'] =$this->participante_model->participantep($idpersona)->result();
-		$data['filtro']= $data['participante']['idparticipante']);
+		$data['filtro']= $data['participante']['idparticipante'];
 		}
 
 		$data['title']="Evento";
