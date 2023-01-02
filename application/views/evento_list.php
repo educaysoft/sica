@@ -49,7 +49,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 	<div class="col-md-10">
 		<?php
-     			echo form_dropdown("idevento_estado",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_evento()'));  
+     			echo form_dropdown("idevento_estado",$options, 0,array('onchange'=>'filtra_evento()'));  
 		?>
 	</div>
 	</div>
