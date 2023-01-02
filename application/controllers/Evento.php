@@ -156,10 +156,13 @@ public function index(){
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 
-   $data['filtro']=0;
+   		$data['filtro']=0;
 		if($this->uri->segment(3))
 		{
-		$data['filtro']= $this->uri->segment(3);
+i		$idpersona=$this->uri->segment(3);
+
+		$data['participante'] =$this->participante_model->participantep($idpersona)->result();
+		$data['filtro']= $data['participante']['idparticipante']);
 		}
 
 		$data['title']="Evento";
@@ -174,8 +177,9 @@ public function index(){
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 		$id=$this->input->get('idevento_estado');
+		$idparticipante=$this->input->get('idparticipante');
 
-		$data0 = $this->evento_model->lista_eventosA($id);
+		$data0 = $this->evento_model->lista_eventosA($id,$idparticipante);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,

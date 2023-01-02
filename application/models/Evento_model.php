@@ -18,13 +18,20 @@ class Evento_model extends CI_model {
 
 
 	//Retorna todos los registros como un objeto
-	function lista_eventosA($idevento_estado){
+	function lista_eventosA($idevento_estado,$idparticipante){
 		if($idevento_estado>0)
 		{
 		$this->db->where('idevento_estado='.$idevento_estado);
 		}
-	
-		 $evento= $this->db->order_by('idevento_estado')->get('evento1');
+
+
+		if($idparticipante>0)
+		{
+		$this->db->where(exist (select 'idparticipante='.$idparticipante);
+		}
+
+//		 $evento= $this->db->order_by('idevento_estado')->get('evento1');
+	$evento = $this->db->query('select * from evento1 where EXISTS (select idevento from participante where participante.idevento=evento1.idevento and participante.idparticipante= "'.$idparticipante.'" order by idevento');
 		 return $evento;	
 	}
 

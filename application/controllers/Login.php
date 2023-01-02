@@ -361,9 +361,7 @@ if ($result == TRUE) {
 				$this->load->view('template/page_footer.php');
 			}
 		   	  $moduloinicio=$this->session->userdata['logged_in']['inicio'];	
-			//echo $moduloinicio;
-			//die();
-			redirect($moduloinicio); 
+			redirect($moduloinicio."/".$result[0]->idpersona); 
 		}
 		//	redirect('aspirante/add'); 
 		//	 $this->load->view('template/page_header.php');

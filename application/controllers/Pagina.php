@@ -64,7 +64,7 @@ public function edit()
 		 	'ruta' => $this->input->post('ruta'),
 	 	);
 	 	$this->pagina_model->update($id,$array_item);
-	 	redirect('pagina');
+	 	redirect('pagina/actual/'.$id);
  	}
 
 

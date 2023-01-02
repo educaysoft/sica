@@ -113,7 +113,7 @@ public function edit()
 		 	'inicio' => $this->input->post('inicio'),
 	 	);
 	 	$this->usuario_model->update($id,$array_item);
-	 	redirect('usuario');
+	 	redirect('usuario/actual/'.$id);
  	}
 
  	public function delete()

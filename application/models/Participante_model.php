@@ -9,6 +9,11 @@ class Participante_model extends CI_model {
 	}
 
 
+	function participantep($idpersona){
+ 		$this->db->where('idpersona',$idpersona);
+		 $participacion= $this->db->get('participante');
+		 return $participacion;
+	}
 
 
 	function listar_participante(){
