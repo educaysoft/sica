@@ -107,4 +107,5 @@ alter table fechacalendario change fechacalendaria fechacalendario date;
 alter table fechacalendario add column idcalendarioacademico int(11);
 */
 
-alter table asistencia drop column idevento;
+/*alter table asistencia drop column idevento;*/
+alter table asistencia add column idevento int(11);

@@ -79,9 +79,9 @@ $(document).ready(function(){
 });
 
 $('#show_data').on('click','.item_ver',function(){
-var id=$(this).data('idtelefono');
-window.location.href = "http://localhost/facae/index.php/telefono/actual/"+id;
-
+	var id= $(this).data('idtelefono');
+	var retorno= $(this).data('retorno');
+	window.location.href = retorno+'/'+id;
 });
 
 

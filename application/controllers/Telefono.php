@@ -148,7 +148,7 @@ function telefono_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idtelefono,$r->lapersona,$r->numero,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtelefono="'.$r->idtelefono.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('telefono/actual').'"  data-idtelefono="'.$r->idtelefono.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
