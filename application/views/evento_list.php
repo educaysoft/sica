@@ -126,7 +126,7 @@ var idevento_estado=0;
 function filtra_evento()
 {
 
-idevento_estado = $('select[name=idevento_estado]').val();
+       var idevento_estado = $('select[name=idevento_estado]').val();
 
 	var idpersona = document.getElementById("filtro").innerHTML;
 var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('evento/evento_data')?>', type: 'GET',data:{idevento_estado:idevento_estado,idpersona:idpersona}},});
