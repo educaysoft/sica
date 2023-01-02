@@ -194,8 +194,6 @@ echo form_input($arrdatos) ?>
 	 <th>idevento</th>
 	 <th>fecha</th>
 	 <th>tema</th>
-	 <th>puntuales</th>
-	 <th>atrasados</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
@@ -298,8 +296,6 @@ echo form_input($arrdatos) ?>
  <th>Participante</th>
  <th>certificado</th>
  <th>grupo</th>
- <th>puntual</th>
- <th>atrasados</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>

@@ -137,13 +137,11 @@ public function index(){
 		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
-	  $data['silabos']= $this->silabo_model->lista_silabos()->result();
+	  	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
-
-
 		$data['title']="Evento";
 		$this->load->view('template/page_header');		
 		$this->load->view('evento_record',$data);
@@ -172,16 +170,15 @@ public function index(){
 
 	function evento_data()
 	{
-			$draw= intval($this->input->get("draw"));
-			$draw= intval($this->input->get("start"));
-			$draw= intval($this->input->get("length"));
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+		$id=$this->input->get('idevento_estado');
 
-			$id=$this->input->get('idevento_estado');
-
-			$data0 = $this->evento_model->lista_eventosA($id);
-			$data=array();
-			foreach($data0->result() as $r){
-				$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
+		$data0 = $this->evento_model->lista_eventosA($id);
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
 					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Edit</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver2"  data-retorno2="'.site_url('evento/detalle').'"    data-idevento2="'.$r->idevento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
@@ -295,7 +292,7 @@ public function index(){
 			$data0 =$this->sesionevento_model->sesioneventosA($idevento);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idsesionevento,$r->idevento,$r->fecha,$r->tema, $r->puntual,$r->atrasado,
+				$data[]=array($r->idsesionevento,$r->idevento,$r->fecha,$r->tema, 
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('sesionevento/actual').'"    data-idsesionevento="'.$r->idsesionevento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
@@ -349,7 +346,7 @@ public function index(){
 			$data0 =$this->participante_model->participantes($id);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idparticipante,$r->nombres,$r->archivopdf,$r->grupoletra,$r->puntual,$r->atrasado,
+				$data[]=array($r->idparticipante,$r->nombres,$r->archivopdf,$r->grupoletra,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('participante/actual').'"    data-idparticipante="'.$r->idparticipante.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
