@@ -40,12 +40,12 @@ if(isset($pagina))
  
  <tr>
       <td>Nombres:</td>
-      <td><?php echo form_input('nombre',$pagina['nombre'],array('placeholder'=>'Nombre del pagina','style'=>'width:500px;')) ?></td>
+      <td><?php echo form_input('nombre',$pagina['nombre'],array("disabled"=>"disabled",'placeholder'=>'Nombre del pagina','style'=>'width:500px;')) ?></td>
   </tr>
 
   <tr>
       <td>Ruta:</td>
-      <td><?php echo form_input('ruta',$pagina['ruta'],array('placeholder'=>'Ruta de la pagina','style'=>'width:500px;')) ?></td>
+      <td><?php echo form_input('ruta',$pagina['ruta'],array("disabled"=>"disabled",'placeholder'=>'Ruta de la pagina','style'=>'width:500px;')) ?></td>
   </tr> 
    
 
