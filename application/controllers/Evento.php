@@ -161,10 +161,8 @@ public function index(){
 		{
 			$idpersona=$this->uri->segment(3);
 
-		$data['participante'] =$this->participante_model->participantep($idpersona)->result();
-			print_r($data['participante']);
-			die();
-		$data['filtro']= $data['participante']['idparticipante'];
+	//	$data['participante'] =$this->participante_model->participantep($idpersona)->result();
+		$data['filtro']= $idpersona; //$data['participante']['idparticipante'];
 		}
 
 		$data['title']="Evento";
@@ -179,10 +177,10 @@ public function index(){
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 		$id=$this->input->get('idevento_estado');
-		$idparticipante=$this->input->get('idparticipante');
+		$idpersona=$this->input->get('idpersona');
 
-		$data0 = $this->evento_model->lista_eventosA($id,$idparticipante);
-		$data=array();
+		$data0 = $this->evento_model->lista_eventosA($id,$idpersona);
+		$data=array
 		foreach($data0->result() as $r){
 			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
 					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Edit</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver2"  data-retorno2="'.site_url('evento/detalle').'"    data-idevento2="'.$r->idevento.'">Ver</a>');
