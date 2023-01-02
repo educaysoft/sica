@@ -159,7 +159,7 @@ public function index(){
 		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 
    $data['filtro']=0;
-		if(isset($this->uri->segment(3)))
+		if($this->uri->segment(3))
 		{
 		$data['filtro']= $this->uri->segment(3);
 		}
