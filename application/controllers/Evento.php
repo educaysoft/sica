@@ -162,6 +162,8 @@ public function index(){
 			$idpersona=$this->uri->segment(3);
 
 		$data['participante'] =$this->participante_model->participantep($idpersona)->result();
+			print_r($data['participante']);
+			die();
 		$data['filtro']= $data['participante']['idparticipante'];
 		}
 
