@@ -38,8 +38,9 @@ class Sesionevento extends CI_Controller{
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
-		$data['temas']= $this->tema_model->lista_temas()->result();
 
+		$data['evento'] = $this->evento_model->evento($data['sesionevento']['idevento'])->row_array();
+  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['title']="Sesionevento del documento";
 	 
