@@ -61,6 +61,7 @@ public function index(){
 	{
 	 	$array_item=array(
 		 	'idevento' => $this->input->post('idevento'),
+		 	'idtipoevento' => $this->input->post('idtipoevento'),
 		 	'idevento_estado' => $this->input->post('idevento_estado'),
 		 	'idinstitucion' => $this->input->post('idinstitucion'),
 		 	'titulo' => $this->input->post('titulo'),
@@ -100,6 +101,7 @@ public function index(){
 	 	$array_item=array(
 
 		 	'idevento_estado' => $this->input->post('idevento_estado'),
+		 	'idtipoevento' => $this->input->post('idtipoevento'),
 		 	'idinstitucion' => $this->input->post('idinstitucion'),
 		 	'titulo' => $this->input->post('titulo'),
 			'fechacreacion' => $this->input->post('fechacreacion'),
