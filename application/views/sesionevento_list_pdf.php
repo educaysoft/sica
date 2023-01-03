@@ -26,7 +26,7 @@
 
 
 	$pdf->Cell(10,5,'id',1,0,'C',1);
-	$pdf->Cell(60,5,'fecha',1,0,'C',1);
+	$pdf->Cell(40,5,'fecha',1,0,'C',1);
 	$pdf->Cell(90,5,'tema',1,1,'C',1);
  
 	 
@@ -41,8 +41,8 @@
 	foreach ($sesioneventos as $row){  //Recorre todas la participaciones realiadas por los participantes
 	       
 		    $i=$i+1;
-		    $pdf->Cell(5,5,$row->idsesionevento,1,0,'R',0); 
-		    $pdf->Cell(60,5,utf8_decode($row->fecha),1,0,'L',0);
+		    $pdf->Cell(10,5,$row->idsesionevento,1,0,'R',0); 
+		    $pdf->Cell(40,5,utf8_decode($row->fecha),1,0,'L',0);
 		    $pdf->Cell(90,5,utf8_decode($row->tema),1,1,'L',0);
 
     }
