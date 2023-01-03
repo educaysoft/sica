@@ -324,7 +324,7 @@ public function index(){
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idevento,$r->fecha,$r->tema,$r->asistencia,$r->longitud,$r->latitud,$r->participacion,$r->pagos,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'"  data-fecha="'.$r->fecha.'"  data-participacion="'.$r->participacion.'"   >Part</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_geo"  data-latitud="'.$r->latitud.'"  data-logitud="'.$r->logitud.'">geo</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'"  data-fecha="'.$r->fecha.'"  data-participacion="'.$r->participacion.'"   >Part</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_geo"  data-latitud="'.$r->latitud.'"  data-longitud="'.$r->longitud.'">geo</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
