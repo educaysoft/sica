@@ -126,6 +126,7 @@ class Sesionevento extends CI_Controller{
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Sesionevento";
  	 	$this->load->view('template/page_header');		
