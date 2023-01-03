@@ -11,7 +11,7 @@
 
         
 	$pdf = new PDF();
-	$pdf->SetMargins(23, 44, 11.7);
+	$pdf->SetMargins(23, 10, 11.7);
 
 
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
