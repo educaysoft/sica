@@ -82,7 +82,7 @@ class Sesionevento extends CI_Controller{
    		date_default_timezone_set('America/Guayaquil');
 	     	$date = date("Y-m-d
 		$puede= $this->fechacalendario_model->existe($data['evento']['idsilabo'],$date);
-		if(!$puede)
+		if($puede==false)
 		{	
 			return 0; 	
 		}
