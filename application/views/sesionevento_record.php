@@ -77,7 +77,7 @@ echo form_input('idevento',$options[$sesionevento['idevento']],array("disabled"=
      <?php 
 $options= array("NADA");
 foreach ($temas as $row){
-	$options[$row->idtema]= $row->nombrecorto;
+	$options[$row->idtema]="Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto;
 }
 
 echo form_input('idtema',$options[$sesionevento['idtema']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
