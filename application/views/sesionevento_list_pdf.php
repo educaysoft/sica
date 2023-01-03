@@ -11,6 +11,9 @@
 
         
 	$pdf = new PDF();
+	$pdf->SetMargins(23, 44, 11.7);
+
+
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
@@ -24,7 +27,6 @@
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
 
-		$pdf->setX(40);
 
 	$pdf->Cell(10,5,'id',1,0,'C',1);
 	$pdf->Cell(40,5,'fecha',1,0,'C',1);
