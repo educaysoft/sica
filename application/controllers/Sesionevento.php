@@ -204,6 +204,18 @@ function sesionevento_data()
 
 
 
+	public function reportepdf()
+	{
+		
+
+	 	$data['sesionevento']= $this->sesionevento_model->listar_sesionevento1();
+
+		$data['title']="Evento";
+		$this->load->view('template/page_header');		
+		$this->load->view('sesionevento_list_pdf',$data);
+		$this->load->view('template/page_footer');
+	}
+
 
 
 
