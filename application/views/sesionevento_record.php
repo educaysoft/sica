@@ -72,7 +72,7 @@ echo form_input('idevento',$options[$sesionevento['idevento']],array("disabled"=
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">   <?php echo anchor('tema/actual/'.$sesionevento['idtema'],'Tema programado: '); ?></label>
+    <label class="col-md-2 col-form-label">   <?php echo anchor('tema/actual/'.$sesionevento['idtema'],'Tema silabo: '); ?></label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
@@ -114,13 +114,16 @@ echo form_input('idtema',$options[$sesionevento['idtema']],array("disabled"=>"di
  
   
 
+
+
+
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Tema a tratar(largo):</label>
+    <label class="col-md-2 col-form-label"> Tema tratado(corto):</label>
 	<div class="col-md-10">
 		<?php
 
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('tema',$sesionevento['tema'],$textarea_options); 
+ echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options); 
 
 
 		?>
@@ -129,12 +132,12 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Tema a tratar(corto):</label>
+    <label class="col-md-2 col-form-label"> Tema tratado(largo):</label>
 	<div class="col-md-10">
 		<?php
 
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options); 
+ echo form_textarea('tema',$sesionevento['tema'],$textarea_options); 
 
 
 		?>
@@ -194,6 +197,10 @@ echo form_input('idmodoevaluacion',$options[$sesionevento['idmodoevaluacion']],a
 		?>
 	</div> 
 </div>
+
+
+
+
 
 
 

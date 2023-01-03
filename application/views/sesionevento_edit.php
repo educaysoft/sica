@@ -90,7 +90,16 @@ echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); ?
 
 
 
+<tr>
+<td> Modo de evaluacion:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($modoevaluacions as $row){
+	$options[$row->idmodoevaluacion]= $row->nombre;
+}
 
+ echo form_dropdown("idmodoevaluacion",$options, $sesionevento['idmodoevaluacion']);  ?></td>
+</tr>
 
 
 
