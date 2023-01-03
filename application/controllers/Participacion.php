@@ -445,12 +445,12 @@ $sql=$sql." union ";
 public function get_participacion() {
     $this->load->database();
     $this->load->helper('form');
-    if($this->input->post('idevento')) 
+    if($this->input->get('idevento')) 
     {
         $this->db->select('*');
-        $this->db->where('idevento',$this->input->post('idevento'));
-        $this->db->where('fecha' ,$this->input->post('fecha'));
-        $this->db->where('idpersona',$this->input->post('idpersona'));
+        $this->db->where('idevento',$this->input->get('idevento'));
+        $this->db->where('fecha' ,$this->input->get('fecha'));
+        $this->db->where('idpersona',$this->input->get('idpersona'));
         $query = $this->db->get('participacion1');
 
 	if ($query->num_rows() > 0) {

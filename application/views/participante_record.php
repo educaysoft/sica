@@ -339,7 +339,7 @@ alert(ide);
     $.ajax({
         url: "<?php echo site_url('participacion/get_participacion') ?>",
         data: {idevento:idevento,fecha:fecha,idpersona:idpersona},
-        method: 'POST',
+        method: 'GET',
         async : true,
         dataType : 'json',
         success: function(data){
