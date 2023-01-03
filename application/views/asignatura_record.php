@@ -103,6 +103,19 @@ if(isset($asignatura))
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Créditos:</label>
+	<div class="col-md-10">
+      <?php
+
+  $eys_arrctl=array("name"=>'creditos','value'=>$asignatura['creditos'],"disabled"=>"disabled",'placeholder'=>'Crédigos','style'=>'width:500px;');
+ echo form_input($eys_arrctl);
+	?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Resultados Aprendizaje:</label>
 	<div class="col-md-10">
       <?php
