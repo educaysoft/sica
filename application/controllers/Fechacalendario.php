@@ -35,7 +35,8 @@ class Fechacalendario extends CI_Controller{
 	{
 			$data['title']="Nueva fechacalendario";
 			$data['silabos'] = $this->silabo_model->lista_silabos()->result();
-			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
+  			$data['calendarioacademicos']= $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
+			$data['title']="Lista de fechacalendarioes";
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 			$this->load->view('template/page_header');		
 			$this->load->view('fechacalendario_form',$data);
