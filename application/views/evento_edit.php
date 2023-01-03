@@ -17,6 +17,18 @@
 <table>
 
 <tr>
+<td> Tipo de evento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($tipoeventos as $row){
+	$options[$row->idtipoevento]= $row->nombre;
+}
+
+ echo form_dropdown("idtipoevento",$options, $evento['idtipoevento']);  ?></td>
+</tr>
+
+
+<tr>
 <td> Estado del evento:</td>
 <td><?php
 $options= array('--Select--');
