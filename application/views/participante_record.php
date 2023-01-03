@@ -327,7 +327,7 @@ get_participacion_xx(idevento,fecha,p);
 
 $('#show_data').on('click','.item_geo',function(){
 var latitud= $(this).data('latitud');
-var longitud $(this).data('longitud');
+var longitud= $(this).data('longitud');
 var loc= "http://maps.google.com/maps?z=20&t=m&q=loc:"+latitud+"+"+longitud;
 alert(loc);
 window.location.href =loc;
