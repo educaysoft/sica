@@ -34,7 +34,7 @@
 
 	$pdf->SetFont('Arial','',7);
 
-/*
+
 	$id=0;
 	$persona="";
 	$i=0;
@@ -46,7 +46,7 @@
 		    $pdf->Cell(90,5,utf8_decode($row->tema),1,1,'L',0);
 
     }
- */
+
     
 
 
