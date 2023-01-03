@@ -7,6 +7,37 @@ class Fechacalendario_model extends CI_model {
 	}
 
 
+	function existe($idsilabo,$fecha)
+	{
+
+	$this->db->select('*');
+	$this->db->from('silabo');
+	$condition = "idsilabo =" .  $idsilabo ;
+	$this->db->where($condition);
+	$this->db->limit(1);
+	$query = $this->db->get();
+	if ($query->num_rows() == 1) {
+		$this->db->select('*');
+		$this->db->from('fechacalendario1');
+		$condition = "idperiodoacademico =" .  $query->result()[0]->idperiodoacademico ;
+		$this->db->where($condition);
+		$condition = "fechacalendario =" .  $fecha ;
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 1) {
+			return true;
+		} else {
+			return false;
+		}
+
+		} else {
+			return false;
+		}
+
+	}
+
+
 function lista_fechacalendarios1($idcalendarioacademico){
 	if($idcalendarioacademico>0)
 	{

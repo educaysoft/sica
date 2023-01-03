@@ -1,0 +1,3 @@
+
+use educayso_facae;
+create view fechacalendario1 as select fechacalendario.idfechacalendario,fechacalendario.fechacalendario,fechacalendario.actividad,periodoacademico.idperiodoacademico,periodoacademico.nombrecorto as elperiodoacademico,institucion.idinstitucion from fechacalendario,calendarioacademico, periodoacademico,institucion where fechacalendario.idcalendarioacademico=calendarioacademico.idcalendarioacademico and calendarioacademico.idperiodoacademico=periodoacademico.idperiodoacademico and calendarioacademico.idinstitucion=institucion.idinstitucion ;
