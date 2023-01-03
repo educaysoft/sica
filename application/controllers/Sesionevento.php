@@ -208,7 +208,7 @@ function sesionevento_data()
 	{
 		
 
-	 	$data['sesionevento']= $this->sesionevento_model->listar_sesionevento1()->row_array();
+	 	$data['sesionevento']= $this->sesionevento_model->listar_sesionevento1()->result();
 
 		$data['title']="Evento";
 		$this->load->view('template/page_header');		
