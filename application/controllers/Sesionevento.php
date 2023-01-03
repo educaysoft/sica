@@ -42,7 +42,7 @@ class Sesionevento extends CI_Controller{
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['title']="Sesionevento del documento";
 	 
-		$data['title']="Modulo de Personas";
+		$data['title']="Modulo de sesiones del evento";
 		$this->load->view('template/page_header');		
 		$this->load->view('sesionevento_record',$data);
 		$this->load->view('template/page_footer');
