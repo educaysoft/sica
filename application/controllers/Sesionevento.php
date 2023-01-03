@@ -222,7 +222,7 @@ function sesionevento_data()
 
 public function elprimero()
 {
-  data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['sesionevento'] = $this->sesionevento_model->elprimero();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   if(!empty($data))
