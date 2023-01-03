@@ -35,6 +35,7 @@ class Sesionevento extends CI_Controller{
 		$data['sesionevento'] = $this->sesionevento_model->sesionevento($this->uri->segment(3))->row_array();
 
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['temas']= $this->tema_model->lista_temas()->result();
 
@@ -209,6 +210,7 @@ public function elprimero()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['sesionevento'] = $this->sesionevento_model->elprimero();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   if(!empty($data))
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
@@ -230,6 +232,7 @@ public function elultimo()
   $data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['temas']= $this->tema_model->lista_temas()->result();
 	$data['sesionevento'] = $this->sesionevento_model->elultimo();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   if(!empty($data))
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
@@ -251,6 +254,7 @@ public function siguiente(){
  // $data['sesionevento_list']=$this->sesionevento_model->lista_sesionevento()->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['temas']= $this->tema_model->lista_temas()->result();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 	$data['sesionevento'] = $this->sesionevento_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
@@ -266,6 +270,7 @@ public function anterior(){
   $data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['temas']= $this->tema_model->lista_temas()->result();
 	$data['sesionevento'] = $this->sesionevento_model->anterior($this->uri->segment(3))->row_array();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
  	$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
  // $data['title']="Correo";
