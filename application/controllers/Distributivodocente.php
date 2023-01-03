@@ -52,7 +52,7 @@ public function add()
 			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
 	 	$result=$this->distributivodocente_model->save($array_item);
-	 	if($result == FALSE)
+	 	if($result == false)
 		{
 			echo "<script language='JavaScript'> alert('Docente ya ha sido asignado'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
