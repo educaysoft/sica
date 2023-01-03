@@ -331,6 +331,7 @@ function get_participacion_xx(ide,f,p) {
 	var fecha=f;
 	var participacion=p;
 	var idevento=ide;
+alert(ide);
 	var idpersona= document.getElementById("idpersona").value;
 	var nombre= document.getElementById("nombre").value;
 //	var idpersona=document.getElementById("idpersona").value;
