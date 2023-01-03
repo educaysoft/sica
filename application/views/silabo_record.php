@@ -89,7 +89,7 @@ if(isset($silabo))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Periodo académico: ( <?php echo anchor('periodoacademico/actual/'.$silabo['idperiodoacademico'], 'Ver'); ?>):</label>
+    <label class="col-md-2 col-form-label"> Periodo: ( <?php echo anchor('periodoacademico/actual/'.$silabo['idperiodoacademico'], 'Ver'); ?>):</label>
 
 	<div class="col-md-10">
      <td><?php 
@@ -144,7 +144,7 @@ if(isset($silabo))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Unidades del silabo: ( <?php echo anchor('unidadsilabo/add/'.$silabo['idsilabo'], 'New'); ?>):</label>
+    <label class="col-md-2 col-form-label"> Unidades : ( <?php echo anchor('unidadsilabo/add/'.$silabo['idsilabo'], 'New'); ?>):</label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
