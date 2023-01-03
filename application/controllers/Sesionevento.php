@@ -123,10 +123,10 @@ class Sesionevento extends CI_Controller{
 	 	$data['sesionevento'] = $this->sesionevento_model->sesionevento($this->uri->segment(3))->row_array();
 		$data['evento'] = $this->evento_model->evento($data['sesionevento']['idevento'])->row_array();
 
-		print_r($data['evento']);
-		die();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['temas']= $this->tema_model->lista_temas1($data['evento']['idsilabo'])->result();
+		print_r($data['temas']);
+		die();
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Sesionevento";
