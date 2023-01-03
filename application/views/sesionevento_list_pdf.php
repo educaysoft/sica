@@ -25,7 +25,7 @@
 	$pdf->SetFont('Arial','B',8);
 
 
-	$pdf->Cell(5,5,'id',1,0,'C',1);
+	$pdf->Cell(10,5,'id',1,0,'C',1);
 	$pdf->Cell(60,5,'fecha',1,0,'C',1);
 	$pdf->Cell(90,5,'tema',1,1,'C',1);
  
