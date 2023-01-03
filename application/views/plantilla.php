@@ -22,7 +22,7 @@ class PDF extends PDF_Sector
 
 		$i=base_url().'images/logo.jpg';
 		$j=base_url().'images/MTI-UTLVTE.jpg';
-		$this->Image($i,5,5,20);
+		$this->Image($i,10,5,20);
 		$this->Image($j,170,5,20);
 		$this->SetFont('Arial','B',10);
 		$this->Cell(30);
