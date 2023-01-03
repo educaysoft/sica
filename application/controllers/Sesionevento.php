@@ -13,11 +13,12 @@ class Sesionevento extends CI_Controller{
 	}
 
 	public function index(){
+		$data['sesionevento'] = $this->sesionevento_model->elultimo();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['temas']= $this->tema_model->lista_temas()->result();
+		$data['evento'] = $this->evento_model->evento($data['sesionevento']['idevento'])->row_array();
+  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
-		$data['sesionevento'] = $this->sesionevento_model->elultimo();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 
  		// print_r($data['sesionevento_list']);
