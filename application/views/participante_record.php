@@ -315,11 +315,9 @@ $(document).ready(function(){
 });
 
 $('#show_data').on('click','.item_ver',function(){
-alert("hola");
 var idevento= $(this).data('idevento');
 var fecha= $(this).data('fecha');
 var p= $(this).data('participacion');
-alert(fecha);
 get_participacion_xx(idevento,fecha,p);
 //var retorno= $(this).data('retorno');
 //window.location.href = retorno+'/'+id;
@@ -327,11 +325,23 @@ get_participacion_xx(idevento,fecha,p);
 });
 
 
+$('#show_data').on('click','.item_geor',function(){
+var latitud= $(this).data('latitud');
+var longitud $(this).data('longitud');
+var loc= "http://maps.google.com/maps?z=20&t=m&q=loc:"+latitud+"+"+longitud;
+alert(loc);
+window.location.href =loc;
+
+});
+
+
+
+
+
 function get_participacion_xx(ide,f,p) {
 	var fecha=f;
 	var participacion=p;
 	var idevento=ide;
-alert(ide);
 	var idpersona= document.getElementById("idpersona").value;
 	var nombre= document.getElementById("nombre").value;
 //	var idpersona=document.getElementById("idpersona").value;
@@ -377,6 +387,9 @@ alert(ide);
     })
 
 }
+
+
+
 
 
 //function save_nota() {
@@ -463,13 +476,6 @@ var iddocumento=document.getElementById("iddocumento").value;
       }
 
     })
-
-
-
-
-
-
-
 
 
 }
