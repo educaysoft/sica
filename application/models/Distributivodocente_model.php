@@ -31,9 +31,9 @@ class Distributivodocente_model extends CI_model {
  	{
 		$this->db->select('*');
 		$this->db->from('distributivodocente');
-		$condition = "iddocente =" . "'" . $array['iddocente'] . "'";
+		$condition = "iddocente =" .  $array['iddocente'] ;
 		$this->db->where($condition);
-		$condition = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
+		$condition = "idperiodoacademico =" . $array['idperiodoacademico'];
 		$this->db->where($condition);
 		$this->db->limit(1);
 		$query = $this->db->get();
