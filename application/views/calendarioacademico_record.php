@@ -77,7 +77,7 @@ if(isset($calendarioacademico))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fechas del calendario: </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('fechacalendario/add', 'Fechas'); ?>: </label>
 	<div class="col-md-10">
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
