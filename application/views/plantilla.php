@@ -17,10 +17,10 @@ class PDF extends PDF_Sector
 	var $NbVal;
 
 
-
 	function Header()
 	{
 
+		$ithis->setX(20);
 		$i=base_url().'images/logo.jpg';
 		$j=base_url().'images/MTI-UTLVTE.jpg';
 		$this->Image($i,5,5,20);
