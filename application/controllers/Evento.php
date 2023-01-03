@@ -295,7 +295,7 @@ public function index(){
 			$data0 =$this->sesionevento_model->sesioneventosA($idevento);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idsesionevento,$r->idevento,$r->fecha,$r->tema, 
+				$data[]=array($r->idsesionevento,$r->idevento,$r->fecha,$r->numerosesion,$r->tema, 
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('sesionevento/actual').'"    data-idsesionevento="'.$r->idsesionevento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
