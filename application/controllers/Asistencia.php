@@ -4,7 +4,6 @@ class Asistencia extends CI_Controller{
 	public function __construct(){
       		parent::__construct();
       		$this->load->model('asistencia_model');
-      		$this->load->model('documento_model');
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
       		$this->load->model('tipoasistencia_model');
@@ -105,12 +104,24 @@ class Asistencia extends CI_Controller{
 	 	$data['asistencia'] = $this->asistencia_model->asistencia($this->uri->segment(3))->row_array();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Asistencia";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('asistencia_edit',$data);
 	 	$this->load->view('template/page_footer');
 	}
+
+
+
+
+	public function geolocal()
+	{
+ 	 	$data['title'] = "Actualizar Asistencia";
+ 	 	$this->load->view('template/page_header');		
+ 	 	$this->load->view('geolocalizacion');
+	 	$this->load->view('template/page_footer');
+	}
+
+
 
 
 	public function  save_edit()
@@ -119,7 +130,9 @@ class Asistencia extends CI_Controller{
 	 	$array_item=array(
 		 	'idevento' => $this->input->post('idevento'),
 		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'fecha' => $this->input->post('fecha'),
+		 	'idtipoasistencia' => $this->input->post('idtipoasistencia'),
+		 	'comentario' => $this->input->post('comentario'),
 	 	);
 	 	$this->asistencia_model->update($id,$array_item);
 	 	redirect('asistencia');
@@ -254,14 +267,13 @@ echo $table;
 
 public function elprimero()
 {
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['asistencia'] = $this->asistencia_model->elprimero();
   if(!empty($data))
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Asistencia del documento";
+    $data['title']="Asistencia ";
     $this->load->view('template/page_header');		
     $this->load->view('asistencia_record',$data);
     $this->load->view('template/page_footer');
@@ -274,13 +286,12 @@ public function elprimero()
 
 public function elultimo()
 {
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['asistencia'] = $this->asistencia_model->elultimo();
   if(!empty($data))
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Asistencia del documento";
+    $data['title']="Asistencia ";
   
     $this->load->view('template/page_header');		
     $this->load->view('asistencia_record',$data);
@@ -295,11 +306,10 @@ public function elultimo()
 
 public function siguiente(){
  // $data['asistencia_list']=$this->asistencia_model->lista_asistencia()->result();
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['asistencia'] = $this->asistencia_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
-    $data['title']="Asistencia del documento";
+    $data['title']="Asistencia ";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
   $this->load->view('asistencia_record',$data);
@@ -308,12 +318,11 @@ public function siguiente(){
 
 public function anterior(){
  // $data['asistencia_list']=$this->asistencia_model->lista_asistencia()->result();
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['asistencia'] = $this->asistencia_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
  // $data['title']="Correo";
-    $data['title']="Asistencia del documento";
+    $data['title']="Asistencia ";
 	$this->load->view('template/page_header');		
   $this->load->view('asistencia_record',$data);
 	$this->load->view('template/page_footer');
