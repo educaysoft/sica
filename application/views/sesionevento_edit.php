@@ -37,7 +37,7 @@ foreach ($eventos as $row){
 <td><?php
 $options= array('--Select--');
 foreach ($temas as $row){
-	$options[$row->idtema]= $row->nombrecorto;
+	$options[$row->idtema]="Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto;
 }
 
  echo form_dropdown("idtema",$options, $sesionevento['idtema']);  ?></td>

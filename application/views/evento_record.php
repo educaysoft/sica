@@ -193,6 +193,7 @@ echo form_input($arrdatos) ?>
 	 <th>id</th>
 	 <th>idevento</th>
 	 <th>fecha</th>
+	 <th>sesion</th>
 	 <th>tema</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>

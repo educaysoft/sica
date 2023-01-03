@@ -7,11 +7,11 @@
 	<div class="col-md-10">
 		<?php
 $options= array('--Select--');
-foreach ($periodoacademicos as $row){
-	$options[$row->idperiodoacademico]= $row->nombrecorto;
+foreach ($calendarioacademicos as $row){
+	$options[$row->idcalendarioacademico]= $row->elcalendarioacademico;
 }
 
- echo form_dropdown($name="idperiodoacademico",$options, set_select('--Select--','default_value'),array('id'=>'idperiodoacademico'));  
+ echo form_dropdown($name="idcalendarioacademico",$options, set_select('--Select--','default_value'),array('id'=>'idcalendarioacademico'));  
 		?>
 	</div> 
 </div>
@@ -90,11 +90,11 @@ foreach ($periodoacademicos as $row){
 
 
 
-function get_periodoacademico() {
-	var idperiodoacademico = $('select[name=idperiodoacademico]').val();
+function get_calendarioacademico() {
+	var idcalendarioacademico = $('select[name=idcalendarioacademico]').val();
     $.ajax({
-        url: "<?php echo site_url('fechacalendario/get_periodoacademico') ?>",
-        data: {idperiodoacademico: idperiodoacademico},
+        url: "<?php echo site_url('fechacalendario/get_calendarioacademico') ?>",
+        data: {idcalendarioacademico: idcalendarioacademico},
         method: 'POST',
 	async : true,
         dataType : 'json',
@@ -102,9 +102,9 @@ function get_periodoacademico() {
         var html = '';
         var i;
         for(i=0; i<data.length; i++){
-        html += '<option value='+data[i].idperiodoacademico+'>'+data[i].nombrecorto+'</option>';
+        html += '<option value='+data[i].idcalendarioacademico+'>'+data[i].nombrecorto+'</option>';
         }
-        $('#idperiodoacademico').html(html);
+        $('#idcalendarioacademico').html(html);
 
 
         },

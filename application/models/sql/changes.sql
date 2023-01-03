@@ -108,4 +108,7 @@ alter table fechacalendario add column idcalendarioacademico int(11);
 */
 
 /*alter table asistencia drop column idevento;*/
-alter table asistencia add column idevento int(11);
+/* alter table asistencia add column idevento int(11);*/
+
+
+alter table sesionevento modify column idtema int(11) default 0;
