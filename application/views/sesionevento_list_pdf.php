@@ -1,4 +1,8 @@
 <?php
+
+  echo " hola" ;
+  die();
+
 	include 'plantilla.php';
 //	require 'conexion.php';
 	
