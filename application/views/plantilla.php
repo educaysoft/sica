@@ -25,13 +25,13 @@ class PDF extends PDF_Sector
 		$this->Image($i,20,5,20);
 		$this->Image($j,170,5,20);
 		$this->SetFont('Arial','B',10);
-		$this->Cell(20);
+		$this->Cell(25);
 		$this->Cell(100,5,utf8_decode($this->institucion),0,1,'C');
-		$this->Cell(20);
+		$this->Cell(25);
 		$this->Cell(100,5,utf8_decode($this->unidad),0,1,'C');
-		$this->Cell(20);
+		$this->Cell(25);
 		$this->Cell(100,5,utf8_decode($this->departamento),0,1,'C');
-		$this->Cell(20);
+		$this->Cell(25);
 		$this->Cell(100,5,utf8_decode($this->titulo),0,1,'C');
 		$this->Ln(8);
 //		$this->Cell(40,5,utf8_decode('CÁTEDRA:'),0,0,'L');
