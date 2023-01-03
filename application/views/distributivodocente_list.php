@@ -53,6 +53,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <th>ID</th>
  <th>distributivodocente</th>
  <th>Periodo</th>
+ <th>Asignaturas</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
