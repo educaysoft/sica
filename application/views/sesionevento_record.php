@@ -72,7 +72,7 @@ echo form_input('idevento',$options[$sesionevento['idevento']],array("disabled"=
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Tema programado: ( <?php echo anchor('tema/actual/'.$sesionevento['idtema'], 'Ver'); ?>):</label>
+    <label class="col-md-2 col-form-label">  ( <?php echo anchor('tema/actual/'.$sesionevento['idtema'],'Tema programado: '); ?>):</label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
