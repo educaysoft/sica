@@ -17,7 +17,6 @@
 	$pdf->titulo="hjas";
 	
 
-		$pdf->setX(40);
 
 	$pdf->AliasNbPages();
 	$pdf->AddPage();
@@ -25,6 +24,7 @@
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
 
+		$pdf->setX(40);
 
 	$pdf->Cell(10,5,'id',1,0,'C',1);
 	$pdf->Cell(40,5,'fecha',1,0,'C',1);
