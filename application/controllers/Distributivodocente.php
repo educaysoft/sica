@@ -51,7 +51,16 @@ public function add()
 			'iddocente' => $this->input->post('iddocente'),
 			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
-	 	$this->distributivodocente_model->save($array_item);
+	 	$result=$this->distributivodocente_model->save($array_item);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Docente ya ha sido asignado'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+
+
 	 	redirect('distributivodocente');
  	}
 
