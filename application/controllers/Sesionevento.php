@@ -8,6 +8,7 @@ class Sesionevento extends CI_Controller{
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
       		$this->load->model('tema_model');
+      		$this->load->model('fechacalendario_model');
       		$this->load->model('modoevaluacion_model');
 	}
 
@@ -79,8 +80,8 @@ class Sesionevento extends CI_Controller{
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 	   }
    		date_default_timezone_set('America/Guayaquil');
-	     	$date = date("Y-m-d");
-		$puede= $this->fechacalendario_model->fechacalendario($data['evento']['idsilabo'],$date);
+	     	$date = date("Y-m-d
+		$puede= $this->fechacalendario_model->existe($data['evento']['idsilabo'],$date);
 		if(!$puede)
 		{	
 			return 0; 	
