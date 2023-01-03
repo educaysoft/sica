@@ -20,7 +20,6 @@ class PDF extends PDF_Sector
 	function Header()
 	{
 
-		$this->setX(40);
 		$i=base_url().'images/logo.jpg';
 		$j=base_url().'images/MTI-UTLVTE.jpg';
 		$this->Image($i,5,5,20);

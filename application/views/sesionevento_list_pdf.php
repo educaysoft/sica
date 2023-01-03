@@ -17,6 +17,7 @@
 	$pdf->titulo="hjas";
 	
 
+		$pdf->setX(40);
 
 	$pdf->AliasNbPages();
 	$pdf->AddPage();
