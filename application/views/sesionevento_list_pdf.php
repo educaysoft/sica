@@ -7,25 +7,8 @@
 //	$query = "SELECT e.estado, m.id_municipio, m.municipio FROM t_municipio AS m INNER JOIN t_estado AS e ON m.id_estado=e.id_estado";
 //	$resultado = $mysqli->query($query);
 
-  echo " paso" ;
-  die();
 
 
-	if(isset($_GET["idparticipanteestado"]))
-	{
-		$idparticipanteestado=$_GET["idparticipanteestado"];
-	}else{
-		$idparticipanteestado=0;
-	}
-        
-
-
-	if(isset($_GET["idpersona"]))
-	{
-		$idpersona=$_GET["idpersona"];
-	}else{
-		$idpersona=0;
-	}
         
 	$pdf = new PDF();
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
@@ -34,6 +17,8 @@
 	$pdf->titulo="hjas";
 	
 
+  echo " saleis" ;
+  die();
 
 	$pdf->AliasNbPages();
 	$pdf->AddPage();
