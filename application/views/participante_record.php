@@ -315,6 +315,7 @@ $(document).ready(function(){
 });
 
 $('#show_data').on('click','.item_ver',function(){
+alert("hola");
 var idevento= $(this).data('idevento');
 var fecha= $(this).data('fecha');
 var p= $(this).data('participacion');
