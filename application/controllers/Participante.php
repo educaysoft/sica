@@ -236,14 +236,6 @@ function participante_dataxevento()
 
 
 
-
-
-
-
-
-
-
-
 public function elprimero()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();

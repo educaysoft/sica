@@ -194,7 +194,7 @@ echo form_input($arrdatos) ?>
 	 <th>idevento</th>
 	 <th>fecha</th>
 	 <th>sesion</th>
-	 <th>tema</th>
+	 <th>tema tratado</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
