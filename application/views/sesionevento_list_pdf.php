@@ -17,8 +17,6 @@
 	$pdf->titulo="hjas";
 	
 
-  echo " saleis" ;
-  die();
 
 	$pdf->AliasNbPages();
 	$pdf->AddPage();
