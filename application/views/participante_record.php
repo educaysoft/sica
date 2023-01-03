@@ -318,6 +318,7 @@ $('#show_data').on('click','.item_ver',function(){
 var idevento= $(this).data('idevento');
 var fecha= $(this).data('fecha');
 var p= $(this).data('participacion');
+alert(fecha);
 get_participacion_xx(idevento,fecha,p);
 //var retorno= $(this).data('retorno');
 //window.location.href = retorno+'/'+id;
