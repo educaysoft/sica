@@ -25,7 +25,7 @@ class Sesionevento_model extends CI_model {
 
 
  	function sesioneventosA( $id){
- 		$sesionevento = $this->db->query('select * from sesionevento1 where idevento="'. $id.'" ORDER BY DATE_FORMAT(fecha ASC,"%M %d, %Y")');
+ 		$sesionevento = $this->db->query('select * from sesionevento1 where idevento="'. $id.'" ORDER BY DATE_FORMAT(fecha,"%Y %m, %d")');
  		return $sesionevento;
  	}
 
