@@ -21,7 +21,7 @@ class Fechacalendario_model extends CI_model {
 		$this->db->from('fechacalendario1');
 		$condition = "idperiodoacademico =" .  $query->result()[0]->idperiodoacademico ;
 		$this->db->where($condition);
-		$condition = "fechacalendario =" .  $fecha ;
+		$condition = "fechacalendario ='" .  $fecha."'" ;
 		$this->db->where($condition);
 		$this->db->limit(1);
 		$query = $this->db->get();
