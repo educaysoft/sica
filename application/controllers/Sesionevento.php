@@ -80,7 +80,7 @@ class Sesionevento extends CI_Controller{
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 	   }
    		date_default_timezone_set('America/Guayaquil');
-	     	$date = date("Y-m-d
+	     	$date = date("Y-m-d");
 		$puede= $this->fechacalendario_model->existe($data['evento']['idsilabo'],$date);
 		if($puede==false)
 		{	
