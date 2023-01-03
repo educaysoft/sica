@@ -7,7 +7,7 @@ class Participacion extends CI_Controller{
       		$this->load->model('documento_model');
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
-         	$this->load->model('fechaevento_model');
+         	$this->load->model('sesionevento_model');
       		$this->load->model('tipoparticipacion_model');
 	}
 
@@ -37,7 +37,7 @@ class Participacion extends CI_Controller{
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['eventos']= $this->evento_model->evento($idevento)->result();
 		$data['tipoparticipacion']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
-		$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($idevento)->result();
+		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($idevento)->result();
        
 
 		$data['title']="Nuevo Participacion";
@@ -190,7 +190,7 @@ public function reporte()
 {
 
 	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
-	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_activo2($this->uri->segment(3))->result();
+	$data['sesioneventos'] =$this->sesionevento_model->sesionevento_activo2($this->uri->segment(3))->result();
   	$data['participacion'] = $this->participacion_model->listar_participacion1($this->uri->segment(3))->result();
   	$data['title']="Certificado";
 	$this->load->view('template/page_header');		
@@ -213,7 +213,7 @@ public function reportepdf()
 	}
         $data['nivelrpt']=$nivelrpt;
 	$data['evento'] = $this->evento_model->evento($idevento)->row_array();
-	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_activo($idevento)->result();
+	$data['sesioneventos'] =$this->sesionevento_model->sesionevento_activo($idevento)->result();
   	$data['participacion'] = $this->participacion_model->listar_participacion1($idevento)->result();
   	$data['title']="Certificado";
 	$fechascortes=array(1=>"2022-10-05",2=>"2022-12-01",3=>"2022-12-16");
