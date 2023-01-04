@@ -38,6 +38,21 @@ class Evento_model extends CI_model {
 
 
 
+	function lista_eventosTE($idevento_estado){
+		$this->db->select('*');
+		$this->db->where('idevento_estado='.$idevento_estado);
+		$this->db->from('evento1');
+
+		 return $evento;	
+	}
+
+
+
+
+
+
+
+
 
   //Retorna solamente un registro de un silabo
  	function eventoss($idsilabo){

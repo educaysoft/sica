@@ -178,10 +178,15 @@ public function index(){
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
-		$id=$this->input->get('idevento_estado');
-		$idpersona=$this->input->get('idpersona');
 
-		$data0 = $this->evento_model->lista_eventosA($id,$idpersona);
+		if($this->uri->segment(3))
+		{
+		$id= $this->uri->segment(3);
+		}else{
+
+		$id=$this->input->get('idevento_estado');
+		}
+		$data0 = $this->evento_model->lista_eventosTE($id);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
