@@ -386,7 +386,7 @@ function generar_documento()
 var idtipodocu= data.idtipodocu;
 
 //alert(iddocumento);
-var asunto="CERTIFICADO - "+data.titulo;
+var asunto=data.asunto; // "CERTIFICADO - "+data.titulo;
 
 let fechaelaboracion=data.fechafinaliza;
 	fechaelaboracion=fechaelaboracion.substring(0,10);
