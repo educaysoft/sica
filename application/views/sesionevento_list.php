@@ -30,8 +30,27 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div id="eys-nav-i">
 	<ul>
 		<li> <?php echo anchor('sesionevento', 'Home'); ?></li>
+		<li> <?php echo anchor('sesionevento/reportepdf', 'Reportepdf'); ?></li>
 	</ul>
 </div>
+
+
+<div class="form-group row">
+    	<label class="col-md-2 col-form-label"> Evento:</label>
+	<?php
+		$options= array(0=>'--Select--');
+		foreach ($eventos as $row){
+			$options[$row->idevento]= $row->titulo;
+		}
+	?>
+
+	<div class="col-md-10">
+		<?php
+     			echo form_dropdown("idevento",$options, 0,array('onchange'=>'filtra_evento()'));  
+		?>
+	</div>
+	</div>
+
 
 
 <div class="row justify-content-center">
@@ -94,6 +113,19 @@ window.location.href = retorno+'/'+id;
 
 
 });
+
+
+
+var idevento=0;
+function filtra_evento()
+{
+
+       var idevento = $('select[name=idevento]').val();
+
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('sesionevento/sesionevento_data')?>', type: 'GET',data:{idevento:idevento}},});
+}
+
+
 
 
 </script>

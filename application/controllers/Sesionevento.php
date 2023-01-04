@@ -184,6 +184,12 @@ function sesionevento_data()
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
+		if($this->uri->segment(3))
+		{
+			$idevento=$this->uri->segment(3);
+		}else{
+			$idevento=$this->input->get('idevento');
+		}
 
 	 	$data0 = $this->sesionevento_model->listar_sesionevento1();
 		$data=array();

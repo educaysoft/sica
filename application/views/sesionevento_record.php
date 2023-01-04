@@ -15,7 +15,7 @@ if(isset($sesionevento))
         <li> <?php echo anchor('sesionevento/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('sesionevento/edit/'.$sesionevento['idsesionevento'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('sesionevento/delete/'.$sesionevento['idsesionevento'],'Delete'); ?></li>
-        <li> <?php echo anchor('sesionevento/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('sesionevento/listar/'.$sesionevento['idevento'],'Listar'); ?></li>
 
     </ul>
 <?php 
