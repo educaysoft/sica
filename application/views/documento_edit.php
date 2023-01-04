@@ -370,8 +370,8 @@ formData.append("archivopdf",document.getElementById('archivopdf').value);
 
 function generar_documento()
 {
-      alert("entre");
 	var iddocumento=document.getElementById("iddocumento").value;
+	var asunto=document.getElementById("asunto").value;
    $.ajax({
         url: "<?php echo site_url('documento/get_parametros'); ?>",
         data: {iddocumento:iddocumento},
@@ -386,7 +386,7 @@ function generar_documento()
 var idtipodocu= data.idtipodocu;
 
 //alert(iddocumento);
-var asunto=data.asunto; // "CERTIFICADO - "+data.titulo;
+//var asunto=data.asunto; // "CERTIFICADO - "+data.titulo;
 
 let fechaelaboracion=data.fechafinaliza;
 	fechaelaboracion=fechaelaboracion.substring(0,10);
