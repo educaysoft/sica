@@ -42,6 +42,7 @@ class Evento_model extends CI_model {
 		$this->db->select('*');
 		$this->db->where('idevento_estado='.$idevento_estado);
 		$this->db->from('evento1');
+		$evento = $this->db->get();
 
 		 return $evento;	
 	}
