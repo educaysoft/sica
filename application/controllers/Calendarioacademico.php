@@ -190,7 +190,7 @@ public function iniciar()
 	public function reportepdf()
 	{
 		$idcalendarioacademico=$this->uri->segment(3);
-	 	$data['fechacalendario']= $this->fechacalendario_model->fechacalendarios1($idcalendarioacademico)->result();
+	 	$data['fechacalendarios']= $this->fechacalendario_model->lista_fechacalendarios1($idcalendarioacademico)->result();
 
 		$data['title']="Evento";
 		$this->load->view('calendarioacademico_list_pdf',$data);
