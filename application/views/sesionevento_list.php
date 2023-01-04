@@ -30,7 +30,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div id="eys-nav-i">
 	<ul>
 		<li> <?php echo anchor('sesionevento', 'Home'); ?></li>
-		<li> <?php echo anchor('sesionevento/reportepdf', 'Reportepdf'); ?></li>
+		<li> <?php echo anchor('sesionevento/reportepdf/'.$sesioneventos[0]['idevento'], 'Reportepdf'); ?></li>
 	</ul>
 </div>
 
