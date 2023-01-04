@@ -192,7 +192,7 @@ function sesionevento_data()
 			$idevento=$this->input->get('idevento');
 		}
 
-	 	$data0 = $this->sesionevento_model->sesioneventoA($idevento);
+	 	$data0 = $this->sesionevento_model->sesioneventosA($idevento);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idsesionevento,$r->elevento,$r->fecha,$r->tema,
