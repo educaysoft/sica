@@ -2,7 +2,7 @@
 
 
 	include 'plantilla.php';
-
+	
 
 
         
@@ -13,7 +13,7 @@
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
-	$pdf->titulo="hjas";
+	$pdf->titulo="calendario Academico";
 	
 
 
@@ -26,6 +26,7 @@
 
 	$pdf->Cell(10,5,'id',1,0,'C',1);
 	$pdf->Cell(40,5,'fecha',1,0,'C',1);
+	$pdf->Cell(60,5,'periodo',1,0,'C',1);
 	$pdf->Cell(90,5,'tema',1,1,'C',1);
  
 	 
@@ -37,12 +38,13 @@
 	$id=0;
 	$persona="";
 	$i=0;
-	foreach ($sesioneventos as $row){  //Recorre todas la participaciones realiadas por los participantes
+	foreach ($fechacalendarios as $row){  //Recorre todas la participaciones realiadas por los participantes
 	       
 		    $i=$i+1;
-		    $pdf->Cell(10,5,$row->idsesionevento,1,0,'R',0); 
-		    $pdf->Cell(40,5,utf8_decode($row->fecha),1,0,'L',0);
-		    $pdf->Cell(90,5,utf8_decode($row->tema),1,1,'L',0);
+		    $pdf->Cell(10,5,$row->idfechacalendario,1,0,'R',0); 
+		    $pdf->Cell(40,5,utf8_decode($row->fechacalendario),1,0,'L',0);
+		    $pdf->Cell(60,5,utf8_decode($row->elperiodoacademico),1,1,'L',0);
+		    $pdf->Cell(90,5,utf8_decode($row->actividad),1,1,'L',0);
 
     }
 
