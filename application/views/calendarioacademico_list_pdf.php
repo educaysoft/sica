@@ -25,9 +25,9 @@
 
 
 	$pdf->Cell(10,5,'id',1,0,'C',1);
-	$pdf->Cell(40,5,'fecha',1,0,'C',1);
-	$pdf->Cell(60,5,'periodo',1,0,'C',1);
-	$pdf->Cell(90,5,'tema',1,1,'C',1);
+	$pdf->Cell(20,5,'fecha',1,0,'C',1);
+	$pdf->Cell(40,5,'periodo',1,0,'C',1);
+	$pdf->Cell(70,5,'tema',1,1,'C',1);
  
 	 
 
@@ -42,9 +42,9 @@
 	       
 		    $i=$i+1;
 		    $pdf->Cell(10,5,$row->idfechacalendario,1,0,'R',0); 
-		    $pdf->Cell(40,5,utf8_decode($row->fechacalendario),1,0,'L',0);
-		    $pdf->Cell(60,5,utf8_decode($row->elperiodoacademico),1,1,'L',0);
-		    $pdf->Cell(90,5,utf8_decode($row->actividad),1,1,'L',0);
+		    $pdf->Cell(20,5,utf8_decode($row->fechacalendario),1,0,'L',0);
+		    $pdf->Cell(40,5,utf8_decode($row->elperiodoacademico),1,1,'L',0);
+		    $pdf->Cell(70,5,utf8_decode($row->actividad),1,1,'L',0);
 
     }
 
