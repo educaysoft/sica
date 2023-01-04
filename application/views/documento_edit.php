@@ -470,7 +470,8 @@ var filename="";
 
 
 	
-    	formData.append("texto1", texto1);
+    	//formData.append("texto1", texto1);
+    	formData.append("texto1", asunto);
     	formData.append("posi_texto1_x", posi_texto1_x);
     	formData.append("posi_texto1_y", posi_texto1_y);
     	formData.append("ancho_texto1", ancho_texto1);
