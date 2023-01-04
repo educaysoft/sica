@@ -38,12 +38,12 @@ class Fechacalendario_model extends CI_model {
 	}
 
 
-function lista_fechacalendarios1($idcalendarioacademico){
-	if($idcalendarioacademico>0)
+function lista_fechacalendarios1($idperiodoacademico){
+	if($idperiodoacademico>0)
 	{
 	$this->db->where('idperiodoacademico='.$idperiodoacademico);
 	}
-	$query=$this->db->order_by("idfechacalendario")->get('fechacalendario1');
+	$query=$this->db->order_by("fechacalendario")->get('fechacalendario1');
 	 return $query;
 	}
 
