@@ -170,7 +170,7 @@ public function iniciar()
 			$draw= intval($this->input->get("length"));
 
 			$idcalendarioacademico=$this->input->get('idcalendarioacademico');
-			$data0 =$this->fechacalendario_model->lista_fechacalendarios1($idcalendarioacademico);
+			$data0 =$this->fechacalendario_model->fechacalendarios($idcalendarioacademico);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idcalendarioacademico,$r->idfechacalendario,$r->fechacalendario,$r->actividad,

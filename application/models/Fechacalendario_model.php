@@ -49,8 +49,8 @@ function lista_fechacalendarios1($idperiodoacademico){
 
 
 
- 	function fechacalendarios( $idperiodoacademico){
- 		$fechacalendario = $this->db->query('select * from fechacalendario where idperiodoacademico="'. $idperiodoacademico.'" order by fechaimpartida');
+ 	function fechacalendarios( $idcalendarioacademico){
+ 		$fechacalendario = $this->db->query('select * from fechacalendario where idcalendarioacademico="'. $idcalendarioacademico.'" order by fechacalendario');
  		return $fechacalendario;
  	}
 
