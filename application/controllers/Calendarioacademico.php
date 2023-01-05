@@ -204,7 +204,6 @@ public function iniciar()
 public function actual()
 {
 	$data['calendarioacademico'] = $this->calendarioacademico_model->calendarioacademico($this->uri->segment(3))->row_array();
-	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
@@ -226,7 +225,6 @@ public function actual()
 public function elprimero()
 {
 	$data['calendarioacademico'] = $this->calendarioacademico_model->elprimero();
-	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   if(!empty($data))
   {
@@ -244,7 +242,6 @@ public function elprimero()
 public function elultimo()
 {
 		$data['calendarioacademico'] = $this->calendarioacademico_model->elultimo();
-	$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   if(!empty($data))
   {
@@ -264,7 +261,6 @@ public function elultimo()
 public function siguiente(){
  // $data['calendarioacademico_list']=$this->calendarioacademico_model->lista_calendarioacademico()->result();
 	$data['calendarioacademico'] = $this->calendarioacademico_model->siguiente($this->uri->segment(3))->row_array();
-	$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['title']="Calendarioacademico";
 	$this->load->view('template/page_header');		
@@ -276,7 +272,6 @@ public function anterior(){
  // $data['calendarioacademico_list']=$this->calendarioacademico_model->lista_calendarioacademico()->result();
 	$data['calendarioacademico'] = $this->calendarioacademico_model->anterior($this->uri->segment(3))->row_array();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['title']="Calendarioacademico";
 	$this->load->view('template/page_header');		
   	$this->load->view('calendarioacademico_record',$data);
