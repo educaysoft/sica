@@ -5,7 +5,7 @@ class Distributivo extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('distributivo_model');
-      $this->load->model('fechacalendario_model');
+      $this->load->model('distributivodocente_model');
       $this->load->model('periodoacademico_model');
       $this->load->model('institucion_model');
 }
