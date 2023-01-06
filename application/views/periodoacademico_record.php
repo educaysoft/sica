@@ -13,6 +13,7 @@ if(isset($periodoacademico))
         <li> <?php echo anchor('periodoacademico/edit/'.$periodoacademico['idperiodoacademico'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('periodoacademico/delete/'.$periodoacademico['idperiodoacademico'],'Delete'); ?></li>
         <li> <?php echo anchor('periodoacademico/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('periodoacademico/calendarioacademico/','Calendario'); ?></li>
 
 <?php 
 }else{
