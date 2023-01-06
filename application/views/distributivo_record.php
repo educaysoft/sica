@@ -78,7 +78,7 @@ if(isset($distributivo))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('fechacalendario/add', 'Fechas'); ?>: </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('distributivodocente/add', 'Docentes'); ?>: </label>
 	<div class="col-md-10">
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
@@ -87,10 +87,10 @@ if(isset($distributivo))
 	<table class="table table-striped table-bordered table-hover" id="mydatac">
 	 <thead>
 	 <tr>
-	 <th>idcalendario</th>
-	 <th>idfecha</th>
-	 <th>fecha</th>
-	 <th>actividad.</th>
+	 <th>iddistributivo</th>
+	 <th>iddisdoce</th>
+	 <th>iddocente</th>
+	 <th>eldocente</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
@@ -115,12 +115,12 @@ if(isset($distributivo))
 
 $(document).ready(function(){
 	var iddistributivo=document.getElementById("iddistributivo").value;
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('distributivo/fecha_data')?>', type: 'GET',data:{iddistributivo:iddistributivo}},});
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('distributivo/docente_data')?>', type: 'GET',data:{iddistributivo:iddistributivo}},});
 });
 
 
 $('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idfechacalendario');
+var id= $(this).data('iddistributivodocente');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });

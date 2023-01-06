@@ -163,17 +163,17 @@ public function iniciar()
 
 
 
-	function fecha_data()
+	function docente_data()
 	{
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
 			$iddistributivo=$this->input->get('iddistributivo');
-			$data0 =$this->fechacalendario_model->fechacalendarios($iddistributivo);
+			$data0 =$this->distributivodocente_model->distributivodocentes($iddistributivo);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->iddistributivo,$r->idfechacalendario,$r->fechacalendario,$r->actividad,
+				$data[]=array($r->iddistributivo,$r->iddistributivodocente,$r->iddocente,$r->eldocente,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('fechacalendario/actual').'"    data-idfechacalendario="'.$r->idfechacalendario.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
