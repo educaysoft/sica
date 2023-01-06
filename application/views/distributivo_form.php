@@ -1,6 +1,6 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("calendarioacademico/save") ?>
+<?php echo form_open("distributivo/save") ?>
 
 
 <div class="form-group row">
@@ -58,7 +58,7 @@ foreach ($periodoacademicos as $row){
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("calendarioacademico","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("distributivo","Atras") ?> </td>
 </tr>
 
 </table>
@@ -73,7 +73,7 @@ foreach ($periodoacademicos as $row){
 function get_periodoacademico() {
 	var idperiodoacademico = $('select[name=idperiodoacademico]').val();
     $.ajax({
-        url: "<?php echo site_url('calendarioacademico/get_periodoacademico') ?>",
+        url: "<?php echo site_url('distributivo/get_periodoacademico') ?>",
         data: {idperiodoacademico: idperiodoacademico},
         method: 'POST',
 	async : true,

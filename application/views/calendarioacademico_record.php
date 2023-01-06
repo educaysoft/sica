@@ -13,8 +13,9 @@ if(isset($calendarioacademico))
         <li> <?php echo anchor('calendarioacademico/edit/'.$calendarioacademico['idcalendarioacademico'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('calendarioacademico/delete/'.$calendarioacademico['idcalendarioacademico'],'Delete'); ?></li>
         <li> <?php echo anchor('calendarioacademico/listar/'.$calendarioacademico['idperiodoacademico'],'Listar'); ?></li>
-        <li> <?php echo anchor('calendarioacademicounidad/','Unidades'); ?></li>
         <li> <?php echo anchor('calendarioacademico/reportepdf/'.$calendarioacademico['idperiodoacademico'],'reportepdf'); ?></li>
+        <li> <?php echo anchor('calendarioacademicounidad/','Unidades'); ?></li>
+        <li> <?php echo anchor('distributivo/','Distributivo'); ?></li>
 
 <?php 
 }else{

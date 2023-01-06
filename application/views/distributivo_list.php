@@ -43,7 +43,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     	<label class="col-md-2 col-form-label"> Silabo:</label>
 	<?php
 		$options= array('--Select--');
-		foreach ($calendarioacademicos as $row){
+		foreach ($distributivos as $row){
 			$options[$row->idperiodoacademico]= $row->elperiodoacademico;
 		}
 	?>
@@ -63,8 +63,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>Periodolectivo</th>
- <th>idcalendarioacademico</th>
- <th>calendarioacademico</th>
+ <th>iddistributivo</th>
+ <th>distributivo</th>
  <th>actividad</th>
  <th style="text-align: right;">Actions</th>
  </tr>
@@ -97,13 +97,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 $(document).ready(function(){
 
 	var idperiodoacademico = document.getElementById("filtro").innerHTML;
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('calendarioacademico/calendarioacademico_data')?>', type: 'GET',data:{idperiodoacademico:idperiodoacademico}},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('distributivo/distributivo_data')?>', type: 'GET',data:{idperiodoacademico:idperiodoacademico}},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('idcalendarioacademico');
+var id= $(this).data('iddistributivo');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 

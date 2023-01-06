@@ -2,24 +2,25 @@
 	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($fechacalendaria))
+if(isset($calendarioacademico))
 {
 ?>
-        <li> <?php echo anchor('fechacalendaria/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('fechacalendaria/siguiente/'.$fechacalendaria['idfechacalendaria'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('fechacalendaria/anterior/'.$fechacalendaria['idfechacalendaria'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('fechacalendaria/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('fechacalendaria/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('fechacalendaria/edit/'.$fechacalendaria['idfechacalendaria'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('fechacalendaria/delete/'.$fechacalendaria['idfechacalendaria'],'Delete'); ?></li>
-        <li> <?php echo anchor('fechacalendaria/listar/'.$fechacalendaria['idperiodoacademico'],'Listar'); ?></li>
-        <li> <?php echo anchor('fechacalendariaunidad/','Unidades'); ?></li>
-        <li> <?php echo anchor('fechacalendaria/panel/','Panel'); ?></li>
+        <li> <?php echo anchor('calendarioacademico/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('calendarioacademico/siguiente/'.$calendarioacademico['idcalendarioacademico'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('calendarioacademico/anterior/'.$calendarioacademico['idcalendarioacademico'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('calendarioacademico/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('calendarioacademico/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('calendarioacademico/edit/'.$calendarioacademico['idcalendarioacademico'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('calendarioacademico/delete/'.$calendarioacademico['idcalendarioacademico'],'Delete'); ?></li>
+        <li> <?php echo anchor('calendarioacademico/listar/'.$calendarioacademico['idperiodoacademico'],'Listar'); ?></li>
+        <li> <?php echo anchor('calendarioacademico/reportepdf/'.$calendarioacademico['idperiodoacademico'],'reportepdf'); ?></li>
+        <li> <?php echo anchor('calendarioacademicounidad/','Unidades'); ?></li>
+        <li> <?php echo anchor('distributivo/','Distributivo'); ?></li>
 
 <?php 
 }else{
 ?>
-        <li> <?php echo anchor('fechacalendaria/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('calendarioacademico/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -29,30 +30,36 @@ if(isset($fechacalendaria))
 <br>
 
 
-<?php echo form_open('fechacalendaria/save_edit') ?>
-<?php echo form_hidden('idfechacalendaria',$fechacalendaria['idfechacalendaria']) ?>
+<?php echo form_open('calendarioacademico/save_edit') ?>
+<?php echo form_hidden('idcalendarioacademico',$calendarioacademico['idcalendarioacademico']) ?>
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
 		<?php
-      echo form_input('idfechacalendaria',$fechacalendaria['idfechacalendaria'],array("disabled"=>"disabled"));
+      echo form_input('idcalendarioacademico',$calendarioacademico['idcalendarioacademico'],array("id"=>"idcalendarioacademico","disabled"=>"disabled"));
 		?>
 	</div> 
 </div> 
 
+
+
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id institucion:</label>
+    <label class="col-md-2 col-form-label">Institucion:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('idinstitucion',$fechacalendaria['idinstitucion'],array("disabled"=>"disabled",'placeholder'=>'Idperiodoacademicoes','style'=>'width:500px;'));
-		?>
+	$options= array("NADA");
+	foreach ($instituciones as $row){
+		$options[$row->idinstitucion]= $row->nombre;
+	}
+	echo form_input('',$options[$calendarioacademico['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+	?>
 	</div> 
 </div>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Periodo : ( <?php echo anchor('periodoacademico/actual/'.$fechacalendaria['idperiodoacademico'], 'Ver'); ?>):</label>
+    <label class="col-md-2 col-form-label"> Periodo : ( <?php echo anchor('periodoacademico/actual/'.$calendarioacademico['idperiodoacademico'], 'Ver'); ?>):</label>
 	<div class="col-md-10">
      	<?php 
 	$options=array();
@@ -62,39 +69,7 @@ if(isset($fechacalendaria))
 	?>
 		<?php
 
-    echo form_input('idperiodoacademico',$options[$fechacalendaria['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
-		?>
-	</div> 
-</div>
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Actividad :</label>
-	<div class="col-md-10">
-		<?php
-       echo form_input('actividad',$fechacalendaria['actividad'],array('placeholder'=>'Nombre del fechacalendaria','style'=>'width:500px;'));
-		?>
-	</div> 
-</div> 
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Detalle:</label>
-	<div class="col-md-10">
-		<?php
-       echo form_input('detalle',$fechacalendaria['detalle'],array('placeholder'=>'Descripción del fechacalendaria','style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha calendaria:</label>
-	<div class="col-md-10">
-		<?php
-      		 echo form_input('fechacalendaria',$fechacalendaria['fechacalendaria'],array('type'=>'date','placeholder'=>'fecha calendaria','style'=>'width:500px;')) 
+    echo form_input('idperiodoacademico',$options[$calendarioacademico['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
@@ -102,33 +77,56 @@ if(isset($fechacalendaria))
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Institucion:</label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('fechacalendario/add', 'Fechas'); ?>: </label>
 	<div class="col-md-10">
-	<?php
-$options= array("NADA");
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
-}
-echo form_input('',$options[$fechacalendaria['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-		?>
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12">
+	<table class="table table-striped table-bordered table-hover" id="mydatac">
+	 <thead>
+	 <tr>
+	 <th>idcalendario</th>
+	 <th>idfecha</th>
+	 <th>fecha</th>
+	 <th>actividad.</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
 	</div> 
 </div>
+
+
+
+
 
 
 <?php echo form_close(); ?>
 
 
+<script type="text/javascript">
 
+$(document).ready(function(){
+	var idcalendarioacademico=document.getElementById("idcalendarioacademico").value;
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('calendarioacademico/fecha_data')?>', type: 'GET',data:{idcalendarioacademico:idcalendarioacademico}},});
+});
+
+
+$('#show_data').on('click','.item_ver',function(){
+var id= $(this).data('idfechacalendario');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+</script>
+
+
+</body>

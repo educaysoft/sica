@@ -1,5 +1,5 @@
-<?php echo form_open('calendarioacademico/save_edit') ?>
-<?php echo form_hidden('idcalendarioacademico',$calendarioacademico['idcalendarioacademico']) ?>
+<?php echo form_open('distributivo/save_edit') ?>
+<?php echo form_hidden('iddistributivo',$distributivo['iddistributivo']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
  
@@ -20,7 +20,7 @@ foreach ($instituciones as $row){
 	$options[$row->idinstitucion]= $row->nombre;
 }
 
- echo form_dropdown("idinstitucion",$options, $calendarioacademico['idinstitucion']);  
+ echo form_dropdown("idinstitucion",$options, $distributivo['idinstitucion']);  
 		?>
 	</div> 
 </div>
@@ -47,7 +47,7 @@ foreach ($periodoacademicos as $row){
 	$options[$row->idperiodoacademico]= $row->nombrecorto;
 }
 
- echo form_dropdown("idperiodoacademico",$options, $calendarioacademico['idperiodoacademico']);  
+ echo form_dropdown("idperiodoacademico",$options, $distributivo['idperiodoacademico']);  
 		?>
 	</div> 
 </div>
@@ -63,7 +63,7 @@ foreach ($periodoacademicos as $row){
 
 
  <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('calendarioacademico','Atras') ?></td>
+ <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('distributivo','Atras') ?></td>
  </tr>
 </table>
 <?php echo form_close(); ?>
