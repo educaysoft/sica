@@ -64,10 +64,10 @@ echo form_input('iddocente',$options[$distributivodocente['iddocente']],array("d
 	<div class="col-md-10">
      	<?php 
     $options= array("NADA");
-    foreach ($periodoacademicos as $row){
-	      $options[$row->idperiodoacademico]= $row->nombrelargo;
+    foreach ($distributivos as $row){
+	      $options[$row->iddistributivo]= $row->nombrelargo;
     }
-    echo form_input('idperiodoacademico',$options[$distributivodocente['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+    echo form_input('iddistributivo',$options[$distributivodocente['iddistributivo']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
