@@ -13,7 +13,7 @@ public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 		$data['periodoacademico']=$this->periodoacademico_model->elultimo();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['title']="Lista de periodoacademicoes";
+		$data['title']="Lista de periodoacademicos";
 		$this->load->view('template/page_header');
 		$this->load->view('periodoacademico_record',$data);
 		$this->load->view('template/page_footer');
@@ -103,7 +103,7 @@ public function edit()
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
-	 	$data0 = $this->periodoacademico_model->lista_periodoacademicoes();
+	 	$data0 = $this->periodoacademico_model->lista_periodoacademicos();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idperiodoacademico,$r->nombre,
