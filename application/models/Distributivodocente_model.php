@@ -19,6 +19,14 @@ class Distributivodocente_model extends CI_model {
  		return $distributivodocente;
  	}
 
+	function distributivodocentes1( $id){
+ 		$distributivodocente = $this->db->query('select * from distributivodocente1 where iddistributivo="'. $id.'"');
+ 		return $distributivodocente;
+ 	}
+
+
+
+
 
  	function distributivodocentespersona( $id){
  		$distributivodocente = $this->db->query('select * from distributivodocente where idpersona="'. $id.'"');

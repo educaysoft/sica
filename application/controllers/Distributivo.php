@@ -170,7 +170,7 @@ public function iniciar()
 			$draw= intval($this->input->get("length"));
 
 			$iddistributivo=$this->input->get('iddistributivo');
-			$data0 =$this->distributivodocente_model->distributivodocentes($iddistributivo);
+			$data0 =$this->distributivodocente_model->distributivodocentes1($iddistributivo);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->iddistributivo,$r->iddistributivodocente,$r->iddocente,$r->eldocente,
