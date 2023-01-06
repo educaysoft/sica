@@ -80,7 +80,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('periodoacademio/periodoacademico_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('periodoacademico/periodoacademico_data')?>', type: 'GET'},});
 
 });
 
