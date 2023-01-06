@@ -107,7 +107,7 @@ public function edit()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idperiodoacademico,$r->nombrecorto,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idperiodoacademico="'.$r->idperiodoacademico.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('periodoacademico/actual').'"  data-idperiodoacademico="'.$r->idperiodoacademico.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
