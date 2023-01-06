@@ -5,7 +5,7 @@ class Distributivodocente extends CI_Controller{
   public function __construct(){
       parent::__construct();
   	  $this->load->model('docente_model');
-  	  $this->load->model('periodoacademico_model');
+  	  $this->load->model('distributivo_model');
   	  $this->load->model('distributivodocente_model');
   	  $this->load->model('asignaturadocente_model');
 }
@@ -16,7 +16,7 @@ public function index(){
 			
   	$data['distributivodocente']=$this->distributivodocente_model->lista_distributivodocentes()->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
 			
 		$data['title']="Lista de distributivodocentes";
 		$this->load->view('template/page_header');
@@ -34,7 +34,7 @@ public function index(){
 public function add()
 {
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  		$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
 		$data['title']="Nueva Distributivodocente";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('distributivodocente_form',$data);
@@ -49,7 +49,7 @@ public function add()
 	 	$array_item=array(
 		 	
 			'iddocente' => $this->input->post('iddocente'),
-			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+			'iddistributivo' => $this->input->post('iddistributivo'),
 	 	);
 	 	$result=$this->distributivodocente_model->save($array_item);
 	 	if($result == false)
@@ -70,7 +70,7 @@ public function edit()
 {
 	 	$data['distributivodocente'] = $this->distributivodocente_model->distributivodocente($this->uri->segment(3))->row_array();
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  		$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
  	 	$data['title'] = "Actualizar Distributivodocente";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('distributivodocente_edit',$data);
@@ -86,7 +86,7 @@ public function edit()
 		 	
 		 	'iddistributivodocente' => $this->input->post('iddistributivodocente'),
 			'iddocente' => $this->input->post('iddocente'),
-			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+			'iddistributivo' => $this->input->post('iddistributivo'),
 	 	);
 	 	$this->distributivodocente_model->update($id,$array_item);
 	 	redirect('distributivodocente');
@@ -123,7 +123,7 @@ function distributivodocente_data()
 	 	$data0 = $this->distributivodocente_model->lista_distributivodocentesA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->iddistributivodocente,$r->eldocente,$r->elperiodoacademico,$r->numeasig,
+			$data[]=array($r->iddistributivodocente,$r->eldocente,$r->eldistributivo,$r->numeasig,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('distributivodocente/actual').'"  data-iddistributivodocente="'.$r->iddistributivodocente.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -175,7 +175,7 @@ public function actual()
 {
 	$data['distributivodocente'] = $this->distributivodocente_model->distributivodocente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
 	  if(!empty($data))
 	  {
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
@@ -201,7 +201,7 @@ public function actual()
 
 public function elprimero()
 {
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
 	$data['distributivodocente'] = $this->distributivodocente_model->elprimero();
 	  if(!empty($data))
@@ -222,7 +222,7 @@ public function elultimo()
 {
 	$data['distributivodocente'] = $this->distributivodocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
   if(!empty($data))
   {
     $data['title']="Distributivodocente";
@@ -242,7 +242,7 @@ public function siguiente(){
  // $data['distributivodocente_list']=$this->distributivodocente_model->lista_distributivodocente()->result();
 	$data['distributivodocente'] = $this->distributivodocente_model->siguiente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
   
 
 $data['title']="Distributivodocente";
@@ -255,7 +255,7 @@ public function anterior(){
  // $data['distributivodocente_list']=$this->distributivodocente_model->lista_distributivodocente()->result();
 	$data['distributivodocente'] = $this->distributivodocente_model->anterior($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
   $data['title']="Distributivodocente";
 	$this->load->view('template/page_header');		
   $this->load->view('distributivodocente_record',$data);
