@@ -9,7 +9,7 @@ Maestría de Tecnología de la Información
 .. toctree::
    :maxdepth: 2
 
-   programa
+   basedatos
    datosgenerales
    admision
    asignaturas
