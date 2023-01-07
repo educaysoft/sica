@@ -122,7 +122,7 @@ function calendarioacademico_data()
 	 	$data0 = $this->calendarioacademico_model->lista_calendarioacademicos1($idperiodoacademico);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->elperiodoacademico,$r->idcalendarioacademico,$r->calendarioacademico,$r->actividad,
+			$data[]=array($r->idcalendarioacademico,$r->iddepartamento,$r->idperiodoacademico,$r->calendarioacademico,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('calendarioacademico/actual').'"    data-idcalendarioacademico="'.$r->idcalendarioacademico.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
