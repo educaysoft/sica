@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Sistema Integrado de Contro Academico!
-======================================= =
+========================================
 
 .. toctree::
    :maxdepth: 2

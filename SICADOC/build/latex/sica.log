@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.9.24)  6 JAN 2023 20:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.9.24)  6 JAN 2023 23:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -530,7 +530,7 @@ File: l3backend-pdftex.def 2020-01-29 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count294
 \l__pdf_internal_box=\box66
 )
-No file sica.aux.
+(./sica.aux)
 \openout1 = `sica.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
@@ -551,7 +551,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 83.
 LaTeX Font Info:    ... okay on input line 83.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 83.
 LaTeX Font Info:    ... okay on input line 83.
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count295
 \scratchdimen=\dimen193
@@ -622,6 +622,8 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 83.
 LaTeX Info: Redefining \pageref on input line 83.
 LaTeX Info: Redefining \nameref on input line 83.
+
+(./sica.out) (./sica.out)
 \@outlinefile=\write5
 \openout5 = `sica.out'.
 
@@ -653,7 +655,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 
-]
+] (./sica.toc)
 \tf@toc=\write6
 \openout6 = `sica.toc'.
 
@@ -663,43 +665,39 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 Chapter 1.
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 9
-6.
+[1
+
+] [2
+
+]
+Chapter 2.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
+06.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 No file sica.ind.
-[1
-
-] (./sica.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `sica.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `sica.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  E81C69F63AD497B126C77C1297BE8A5D;139.
+[3] (./sica.aux)
+Package rerunfilecheck Info: File `sica.out' has not changed.
+(rerunfilecheck)             Checksum: 39B0251606B1C38D275E8BA20D07A1D2;271.
  ) 
 Here is how much of TeX's memory you used:
- 13568 strings out of 479304
- 193039 string characters out of 5869779
- 519107 words of memory out of 5000000
- 30473 multiletter control sequences out of 15000+600000
- 434046 words of font info for 61 fonts, out of 8000000 for 9000
+ 13592 strings out of 479304
+ 193341 string characters out of 5869779
+ 519498 words of memory out of 5000000
+ 30483 multiletter control sequences out of 15000+600000
+ 436849 words of font info for 63 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  83i,11n,88p,246b,396s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/urw/times/utmr8a.pfb>
-Output written on sica.pdf (5 pages, 31204 bytes).
+1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
+r8a.pfb>
+Output written on sica.pdf (7 pages, 44985 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 34 compressed objects within 1 object stream
- 7 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 74 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
+ 10 named destinations out of 1000 (max. 500000)
+ 37 words of extra memory for PDF output out of 10000 (max. 10000000)
 
