@@ -7,7 +7,6 @@ class Fechacalendario extends CI_Controller{
       $this->load->model('fechacalendario_model');
       $this->load->model('periodoacademico_model');
       $this->load->model('silabo_model');
-      $this->load->model('institucion_model');
       $this->load->model('calendarioacademico_model');
 }
 
@@ -37,7 +36,6 @@ class Fechacalendario extends CI_Controller{
 			$data['silabos'] = $this->silabo_model->lista_silabos()->result();
   			$data['calendarioacademicos']= $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
 			$data['title']="Lista de fechacalendarioes";
-  		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 			$this->load->view('template/page_header');		
 			$this->load->view('fechacalendario_form',$data);
 			$this->load->view('template/page_footer');
@@ -192,7 +190,6 @@ public function actual()
 public function elprimero()
 {
 	$data['fechacalendario'] = $this->fechacalendario_model->elprimero();
-	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['calendarioacademicos']= $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
   if(!empty($data))
   {
@@ -210,7 +207,6 @@ public function elprimero()
 public function elultimo()
 {
 		$data['fechacalendario'] = $this->fechacalendario_model->elultimo();
-		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['calendarioacademicos']= $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
   if(!empty($data))
   {
@@ -230,7 +226,6 @@ public function elultimo()
 public function siguiente(){
  // $data['fechacalendario_list']=$this->fechacalendario_model->lista_fechacalendario()->result();
 	$data['fechacalendario'] = $this->fechacalendario_model->siguiente($this->uri->segment(3))->row_array();
-		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['calendarioacademicos']= $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
   	$data['title']="Fechacalendario";
 	$this->load->view('template/page_header');		
@@ -241,7 +236,6 @@ public function siguiente(){
 public function anterior(){
  // $data['fechacalendario_list']=$this->fechacalendario_model->lista_fechacalendario()->result();
 	$data['fechacalendario'] = $this->fechacalendario_model->anterior($this->uri->segment(3))->row_array();
-		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['calendarioacademicos']= $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
   	$data['title']="Fechacalendario";
 	$this->load->view('template/page_header');		
