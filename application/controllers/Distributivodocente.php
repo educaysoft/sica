@@ -16,7 +16,7 @@ public function index(){
 			
   	$data['distributivodocente']=$this->distributivodocente_model->lista_distributivodocentes()->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
+  	$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
 			
 		$data['title']="Lista de distributivodocentes";
 		$this->load->view('template/page_header');
