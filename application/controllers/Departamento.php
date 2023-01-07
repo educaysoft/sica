@@ -36,6 +36,7 @@ public function add()
 		 	
 		 	'idunidad' => $this->input->post('idunidad'),
 		 	'nombre' => $this->input->post('nombre'),
+	 	'iniciales' => $this->input->post('iniciales'),
 			
 	 	);
 	 	$this->departamento_model->save($array_item);
@@ -62,6 +63,7 @@ public function edit()
 		 	
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
 		 	'nombre' => $this->input->post('nombre'),
+	 	'iniciales' => $this->input->post('iniciales'),
 	 	);
 	 	$this->departamento_model->update($id,$array_item);
 	 	redirect('departamento');

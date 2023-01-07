@@ -44,7 +44,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	<?php
 		$options= array('--Select--');
 		foreach ($calendarioacademicos as $row){
-			$options[$row->idperiodoacademico]= $row->elperiodoacademico;
+			$options[$row->idperiodoacademico]= $row->elcalendarioacademico;
 		}
 	?>
 

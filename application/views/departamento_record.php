@@ -63,7 +63,10 @@ echo form_input('idunidad',$options[$departamento['idunidad']],array("disabled"=
   
 
 
-
+<tr>
+      <td>Iniciales:</td>
+      <td><?php echo form_input('iniciales',$institucion['iniciales'],array('placeholder'=>'Iniciales de la institucion')) ?></td>
+  </tr>
 
 
 
