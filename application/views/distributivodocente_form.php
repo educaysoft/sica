@@ -20,7 +20,7 @@ foreach ($docentes as $row){
 
 
 <tr>
-<td> Periodo académico: </td>
+<td> Distributivo: </td>
 <td><?php 
 
 $options= array('--Select--');
