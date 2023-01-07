@@ -118,8 +118,10 @@ alter table fechacalendario add column idcalendarioacademico int(11);
 /* alter table distributivo change  idinstitucion idunidad int(11); */
 
 /* alter table calendarioacademico change idinstitucion iddepartamento int(11); */
-alter table departamento add column iniciales varchar(10);
+/*alter table departamento add column iniciales varchar(10);*/
 
+/* alter table calendarioacademico change idinstitucion iddepartamento int(11); */
+alter table distributivo drop column idinstitucion;
 
 
 

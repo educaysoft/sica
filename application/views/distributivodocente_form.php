@@ -25,7 +25,7 @@ foreach ($docentes as $row){
 
 $options= array('--Select--');
 foreach ($distributivos as $row){
-	$options[$row->iddistributivo]= $row->nombrecorto;
+	$options[$row->iddistributivo]= $row->eldistributivo;
 }
 
  echo form_dropdown("iddistributivo",$options, set_select('--Select--','default_value'));  ?></td>
