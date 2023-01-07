@@ -92,7 +92,7 @@ if(isset($fechacalendario))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"><?php echo anchor('calendarioacademico/actual/'.$fechacalendario['idcalendarioacademico'],'Calendario acadiemico'); ?>  Calendario academico:</label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('calendarioacademico/actual/'.$fechacalendario['idcalendarioacademico'],'Calendario acadiemico:'); ?> </label>
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");

@@ -204,7 +204,7 @@ public function iniciar()
 public function actual()
 {
 	$data['calendarioacademico'] = $this->calendarioacademico_model->calendarioacademico($this->uri->segment(3))->row_array();
-	$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+	$data['departamentoes']= $this->departamento_model->lista_departamentos()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
