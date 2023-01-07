@@ -45,7 +45,7 @@ if(isset($calendarioacademico))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Institucion:</label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('departamento/actual/'.$calendarioacademico['iddepartamento'], 'Departamento'); ?>:</label>
 	<div class="col-md-10">
 	<?php
 	$options= array("NADA");
