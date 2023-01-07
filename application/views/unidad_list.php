@@ -27,9 +27,16 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 
 
+<div id="eys-nav-i">
+	<ul>
+		<li> <?php echo anchor('unidad', 'Home'); ?></li>
+	</ul>
+</div>
+
+
 <div class="row justify-content-center">
       <!-- Page Heading -->
-1iv class="row">
+<div class="row">
   <div class="col-12">
              <div class="col-md-12">
                  <h3>Institucion - Listar 
