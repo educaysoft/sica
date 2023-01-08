@@ -67,10 +67,7 @@
 	$nnotas[$p]=0;
 	}
 	$nparcial=0;
-
 	$pdf->SetFont('Arial','',7);
-
-
 	$id=0;
 	$persona="";
 	$i=0;
@@ -133,7 +130,7 @@
 	    die();
 	    foreach($parcial as $sp)   //---Imprime los totales de cada parcial
 	    {
-	       if($nnotas[$k+1]>=1){
+	       if($nnotas[$k]>=1){
 		$sum=$sum+round($sp,0);
     		$pdf->Cell(10,5,round($sp,0),1,0,'R',0);
 		$k=$k+1;
