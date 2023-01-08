@@ -126,8 +126,6 @@
 		  }
 	    $k=0;
 	    $sum=0;
-	    print_r($parcial);
-	    die();
 	    foreach($parcial as $sp)   //---Imprime los totales de cada parcial
 	    {
 	       if($nnotas[$k]>=1){
