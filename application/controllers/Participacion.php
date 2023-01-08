@@ -225,8 +225,8 @@ public function reportepdf()
 
 	}	
 //	echo " " ;
-//	print_r($data['fechascorte']);
-//	die();
+	print_r($data['fechascorte']);
+	die();
 //	$fechascortes=array(1=>"2022-10-05",2=>"2022-12-01",3=>"2022-12-16");
 //	$data['fechacorte']=$fechascortes;
 //	$this->load->view('template/page_header');		
