@@ -19,6 +19,8 @@ function lista_calendarioacademicos1($idperiodoacademico){
 
 	function fechasdecorte($idsilabo)
 	{
+
+		echo $idsilabo;
 		$fechadecorte=array();
 				$condition = "idsilabo =" . $idsilabo ;
 				$this->db->select('*');
