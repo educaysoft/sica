@@ -116,7 +116,7 @@
 			$pdf->Cell(8,5,'0',1,0,'R',0);
 			foreach($fechacorte as $p=>$fc)
 			{
-			      if($row1->fecha<$fc)
+			      if($row1->fecha<=$fc)
 				{
 					$parcial[$p]=$parcial[$p]+ 0; 	$nnotas[$p]=$nnotas[$p]+1; $nparcial=$p;
 					break;
