@@ -128,7 +128,7 @@
 	    $sum=0;
 	    foreach($parcial as $sp)   //---Imprime los totales de cada parcial
 	    {
-	       if($nnotas[$k+1]>1){
+	       if($nnotas[$k+1]>=1){
 		$sum=$sum+round($sp,0);
     		$pdf->Cell(10,5,round($sp,0),1,0,'R',0);
 		$k=$k+1;
@@ -270,7 +270,7 @@
     $sum=0;
     foreach($parcial as $sp)
     {
-	       if($nnotas[$k+1]>1){
+	       if($nnotas[$k+1]>=1){
 		$sum=$sum+round($sp,0);
     		$pdf->Cell(10,5,round($sp,0),1,0,'R',0);
 		$k=$k+1;
