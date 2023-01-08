@@ -123,7 +123,7 @@ echo form_input('nombre',$options[$participacion['idpersona']],array("disabled"=
 	<div class="col-md-10">
 		<?php
 $options= array("NADA");
-foreach ($tipoparticipacions as $row){
+foreach ($tipoparticipaciones as $row){
 	$options[$row->idtipoparticipacion]= $row->nombre;
 }
 if(!isset($participacion['idtipoparticipacion'])){

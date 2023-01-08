@@ -15,7 +15,7 @@ class Participacion extends CI_Controller{
 	public function index(){
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['tipoparticipacion']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+  		$data['tipoparticipaciones']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
 		$data['participacion'] = $this->participacion_model->elultimo();
 
  		// print_r($data['participacion_list']);
@@ -315,7 +315,7 @@ public function actual()
   {
 	$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-	$data['tipoparticipacion']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+	$data['tipoparticipaciones']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
     $data['title']="Participacion del documento";
     $this->load->view('template/page_header');		
     $this->load->view('participacion_record',$data);
@@ -341,7 +341,7 @@ public function elprimero()
   {
 	$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-	$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+	$data['tipoparticipaciones']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
     $data['title']="Participacion del documento";
     $this->load->view('template/page_header');		
     $this->load->view('participacion_record',$data);
@@ -361,7 +361,7 @@ public function elultimo()
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-	$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+	$data['tipoparticipaciones']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
     $data['title']="Participacion del documento";
   
     $this->load->view('template/page_header');		
@@ -381,7 +381,7 @@ public function siguiente(){
 	$data['participacion'] = $this->participacion_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
-	$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+	$data['tipoparticipaciones']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
     $data['title']="Participacion del documento";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
@@ -394,7 +394,7 @@ public function anterior(){
   $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['participacion'] = $this->participacion_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-	$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+	$data['tipoparticipaciones']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
  // $data['title']="Correo";
     $data['title']="Participacion del documento";
