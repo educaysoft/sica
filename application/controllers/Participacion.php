@@ -221,7 +221,7 @@ public function reportepdf()
 	$fechas= $this->calendarioacademico_model->fechasdecorte($data['evento']['idsilabo'])->result_array();
 	foreach($fechas as $k=>$v)
 	{
-	      array_push($data['fechascorte'],$v->fechacalendario);
+	      array_push($data['fechascorte'],$v['fechacalendario']);
 
 	}	
 	echo " " ;
