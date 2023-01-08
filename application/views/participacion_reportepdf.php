@@ -42,7 +42,7 @@
 	$pdf->Cell(55,5,'Participante',1,0,'C',1);
 	$pdf->Cell(5,5,'GE',1,0,'C',1);
 	$pdf->Cell(5,5,'CO',1,0,'C',1);
-	foreach ($fechaeventos as $row){
+	foreach ($sesioneventos as $row){
 		$pdf->Cell(8,5,$row->temacorto,1,0,'C',1);
 	}
 	$pdf->Cell(10,5,'P1',1,0,'C',1);
@@ -80,13 +80,13 @@
 	  if($idpersona==$row->idpersona || $idpersona==0){ // En caso de que solo quiere el de un estudiante    
 	  if($id!=$row->idpersona)
 	  {
-	   if($id>0){    //Antes de comenzar a imprimer primero debe llenar registro
+	   if($id>0){    //Antes de comenzar a imprimir primero debe llenar registro
 		    $i=$i+1;
 		    $pdf->Cell(5,5,$i,1,0,'R',0); 
 		    $pdf->Cell(55,5,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
 		    $pdf->Cell(5,5,utf8_decode($arrgenero1[$id]),1,0,'L',0);
 		    $pdf->Cell(5,5,utf8_decode($arrcolegio1[$id]),1,0,'L',0);
-		    foreach ($fechaeventos as $row1){     //Recorre todas las fecha programadas en el evento
+		    foreach ($sesioneventos as $row1){     //Recorre todas las fecha programadas en el evento
 		      if(isset($arrparticipacion[$row1->fecha])){    //Si el participante tuvo participacion en esa fecha
 			      if($nivelrpt==2 || $nivelrpt==1)
 			      { 
@@ -214,7 +214,7 @@
     $pdf->Cell(55,5,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
     $pdf->Cell(5,5,utf8_decode($arrgenero1[$id]),1,0,'L',0);
     $pdf->Cell(5,5,utf8_decode($arrcolegio1[$id]),1,0,'L',0);
-    foreach ($fechaeventos as $row1){
+    foreach ($sesioneventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
 
 	      if($nivelrpt==2 || $nivelrpt==1)
