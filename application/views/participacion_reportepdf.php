@@ -111,7 +111,7 @@
 					$nparcial=$p;
 					$salir=1;
 			      }
-			      if($salir==1) break;
+			      if($salir==1){ break;}
 
 			}  
 		      }else{     //Si no tuvo participacion en esa fecha
@@ -250,8 +250,7 @@
 			$nparcial=$p;
 			$salir=1;
 	      }
-	      if($salir==1)break;
-
+	      if($salir==1){break;}
 	}  
 
       }else{
