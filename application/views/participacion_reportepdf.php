@@ -66,6 +66,8 @@
 	$parcial[$p]=0;
 	$nnotas[$p]=0;
 	}
+	    print_r($parcial);
+	    die();
 	$nparcial=0;
 	$pdf->SetFont('Arial','',7);
 	$id=0;
