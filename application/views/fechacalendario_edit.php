@@ -64,7 +64,15 @@ foreach ($calendarioacademicos as $row){
 
 
 
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Hito:</label>
+	<div class="col-md-10">
+		<?php
+$eys_arrinput=array('name'=>'hito','value'=>$fechacalendario['hito'], "style"=>"width:500px");
+ echo form_input($eys_arrinput);
+		?>
+	</div> 
+</div>
 
 
 

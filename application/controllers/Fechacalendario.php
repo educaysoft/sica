@@ -49,6 +49,7 @@ class Fechacalendario extends CI_Controller{
 	 	'detalle' => $this->input->post('detalle'),
 	 	'fechacalendario' => $this->input->post('fechacalendario'),
 	 	'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
+	 	'hito' => $this->input->post('hito'),
 	 	);
 	 	$this->fechacalendario_model->save($array_item);
 	 	redirect('fechacalendario');
@@ -78,6 +79,7 @@ class Fechacalendario extends CI_Controller{
 		 	'detalle' => $this->input->post('detalle'),
 	 		'fechacalendario' => $this->input->post('fechacalendario'),
 	 		'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
+	 		'hito' => $this->input->post('hito'),
 	 	);
 	 	$this->fechacalendario_model->update($id,$array_item);
 	 	redirect('fechacalendario/actual/'.$id);
