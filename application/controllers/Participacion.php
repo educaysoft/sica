@@ -221,10 +221,10 @@ public function reportepdf()
 	$fechas= $this->calendarioacademico_model->fechasdecorte($data['evento']['idsilabo'])->result_array();
 	foreach($fechas as $k=>$v)
 	{
-		$data['fechascorte']=$v;
+	      array_push($data['fechascorte'],$v);
 
 	}	
-
+	echo " " ;
 	print_r($data['fechascorte']);
 	die();
 //	$fechascortes=array(1=>"2022-10-05",2=>"2022-12-01",3=>"2022-12-16");
