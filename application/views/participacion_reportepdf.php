@@ -103,7 +103,7 @@
 			$pdf->SetTextColor(0,0,0);
 			foreach($fechacorte as $p=>$fc)
 			{
-			      if($row1->fecha<$fc)
+			      if($row1->fecha<=$fc)
 				{
 					$parcial[$p]=$parcial[$p]+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2);
 					$nnotas[$p]=$nnotas[$p]+1;
