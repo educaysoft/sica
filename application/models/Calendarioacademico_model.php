@@ -17,6 +17,26 @@ function lista_calendarioacademicos1($idperiodoacademico){
 	}
 
 
+	function fechasdecorte($idsilabo)
+	{
+		$fechadecorte=array();
+				$condition = "idsilabo =" . $idsilabo ;
+				$this->db->select('*');
+				$this->db->from('silabo');
+				$this->db->where($condition);
+				$this->db->limit(1);
+				$query = $this->db->get();
+				if ($query->num_rows() > 0) {
+						$idperiodoacademico=$query->result()[0]->idperiodoacademico;
+	
+
+ 		$fechasdecorte = $this->db->query('select fechacalendario from fechacalendario1 where idperiodoacademico='.$idperiodoacademico.' and  actividad link "%SUMATORIA%"   order by fechaimpartida');
+				}
+ 		return $fechadecorte;
+		
+	
+	}
+
 
  	function calendarioacademicos( $idperiodoacademico){
  		$calendarioacademico = $this->db->query('select * from calendarioacademico where idperiodoacademico="'. $idperiodoacademico.'" order by fechaimpartida');
