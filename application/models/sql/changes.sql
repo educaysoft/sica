@@ -121,7 +121,9 @@ alter table fechacalendario add column idcalendarioacademico int(11);
 /*alter table departamento add column iniciales varchar(10);*/
 
 /* alter table calendarioacademico change idinstitucion iddepartamento int(11); */
-alter table distributivo drop column idinstitucion;
+/* alter table distributivo drop column idinstitucion; */
+
+alter table fechacalendario add column hito tinyint default 0;
 
 
 

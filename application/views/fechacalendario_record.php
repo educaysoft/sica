@@ -78,7 +78,14 @@ if(isset($fechacalendario))
 
 
 
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Hito:</label>
+	<div class="col-md-10">
+		<?php
+       echo form_input('actividad',$fechacalendario['hito'],array('placeholder'=>'Hito','style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
 
 
 
