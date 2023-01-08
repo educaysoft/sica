@@ -35,7 +35,7 @@ function lista_calendarioacademicos1($idperiodoacademico){
  		//$fechasdecorte = $this->db->query('select fechacalendario from fechacalendario1 where idperiodoacademico='.$idperiodoacademico.' and  actividad like '."'%SUMATORIA%'".'   order by fechacalendario');
  		$fechasdecorte = $this->db->query('select fechacalendario from fechacalendario1 where idperiodoacademico='.$idperiodoacademico.'    order by fechacalendario');
 				}
- 		return $fechadecorte;
+ 		return $fechasdecorte;
 		
 	
 	}
