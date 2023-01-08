@@ -20,7 +20,6 @@ function lista_calendarioacademicos1($idperiodoacademico){
 	function fechasdecorte($idsilabo)
 	{
 
-		echo $idsilabo;
 		$fechadecorte=array();
 				$condition = "idsilabo =" . $idsilabo ;
 				$this->db->select('*');
@@ -31,6 +30,7 @@ function lista_calendarioacademicos1($idperiodoacademico){
 				if ($query->num_rows() > 0) {
 						$idperiodoacademico=$query->result()[0]->idperiodoacademico;
 	
+		echo $idperiodoacademico;
 
  		$fechasdecorte = $this->db->query('select fechacalendario from fechacalendario1 where idperiodoacademico='.$idperiodoacademico.' and  actividad like "%SUMATORIA%"   order by fechacalendario');
 				}
