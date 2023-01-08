@@ -217,12 +217,18 @@ public function reportepdf()
 	$data['sesioneventos'] =$this->sesionevento_model->sesionevento_activo($idevento)->result();
   	$data['participacion'] = $this->participacion_model->listar_participacion1($idevento)->result();
   	$data['title']="Certificado";
+	$data['fechacorte']=array();
+	$fechas= $this->calendarioacademico_model->fechasdecorte($data['evento']['idsilabo'])->result_array();
+	foreach($fechas as $k=>$v)
+	{
+		$data['fechacorte']=$v;
 
-	$fechascortes= $this->calendarioacademico_model->fechasdecorte($data['evento']['idsilabo'])->result_array();
+	}	
+
 	print_r($fechascortes);
 	die();
-	$fechascortes=array(1=>"2022-10-05",2=>"2022-12-01",3=>"2022-12-16");
-	$data['fechacorte']=$fechascortes;
+//	$fechascortes=array(1=>"2022-10-05",2=>"2022-12-01",3=>"2022-12-16");
+//	$data['fechacorte']=$fechascortes;
 //	$this->load->view('template/page_header');		
 // 	$this->load->view('participacion_report',$data);
 	$this->load->view('participacion_reportepdf',$data);
