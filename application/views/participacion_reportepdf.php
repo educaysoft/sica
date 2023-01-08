@@ -66,8 +66,6 @@
 	$parcial[$p]=0;
 	$nnotas[$p]=0;
 	}
-	    print_r($parcial);
-	    die();
 	$nparcial=0;
 	$pdf->SetFont('Arial','',7);
 	$id=0;
@@ -166,7 +164,6 @@
 		{
 			$parcial[$p]=0;
 			$nnotas[$p]=0;
-
 		}
 		$nparcial=0;
 		$sum=0;
@@ -272,6 +269,10 @@
 
     $k=0;
     $sum=0;
+ 	print_r($parcial);
+    	die();
+
+
     foreach($parcial as $sp)
     {
 	       if($nnotas[$k+1]>=1){
