@@ -9,7 +9,7 @@ class Estudio_model extends CI_model {
 
 	function lista_estudios1($idpersona){
 
- 		$this->db->where('idestudio',$idpersona);
+ 		$this->db->where('idpersona',$idpersona);
 		 $estudio= $this->db->get('estudio1');
 		 return $estudio;
 	}
