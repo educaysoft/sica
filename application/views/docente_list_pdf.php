@@ -32,9 +32,11 @@
 	 
 
 
+	$pdf->SetFont('Arial','',14);
+
+
+    	$pdf->Cell(10,5,$estudio[0]->idestudiante,1,1,'L',0); 
 	$pdf->SetFont('Arial','',7);
-
-
 	$id=0;
 	$persona="";
 	$i=0;
