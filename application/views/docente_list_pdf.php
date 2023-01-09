@@ -23,7 +23,7 @@
 
 
 	$pdf->SetFont('Arial','',14);
-    	$pdf->Text(10,5,$estudios[0]->idestudiante); 
+    	$pdf->Text(100,50,$estudios[0]->idestudiante); 
 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
