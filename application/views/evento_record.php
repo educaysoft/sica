@@ -1,5 +1,5 @@
 <div id="eys-nav-i">
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title.$evento['idevento'];  ?></h3>
     <ul>
 <?php
 if(isset($evento))

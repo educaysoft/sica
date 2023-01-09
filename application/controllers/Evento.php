@@ -27,7 +27,7 @@ public function index(){
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 	$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
-	$data['title']="Uste esta visualizando Eventos por registro";
+	$data['title']="Usted esta visualizando el Eventos  #";
 	$this->load->view('template/page_header');		
 	$this->load->view('evento_record',$data);
 	$this->load->view('template/page_footer');
