@@ -24,7 +24,7 @@
 
 	$pdf->SetFont('Arial','',14);
 	$pdf->SetTextColor(0, 0,0);
-    	$pdf->Text(20,30,$estudios[0]->elestudiante); 
+    	$pdf->Text(20,35,"Docente:". $estudios[0]->elestudiante); 
 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
