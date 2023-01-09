@@ -7,6 +7,16 @@ class Estudio_model extends CI_model {
 	}
 
 
+	function lista_estudios1($idpersona){
+
+ 		$this->db->where('idestudio',$idpersona);
+		 $estudio= $this->db->get('estudio1');
+		 return $estudio;
+	}
+
+
+
+
 	function lista_estudiosA(){
 		 $estudio= $this->db->get('estudio1');
 		 return $estudio;

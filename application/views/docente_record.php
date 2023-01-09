@@ -13,6 +13,7 @@ if(isset($docente))
         <li> <?php echo anchor('docente/edit/'.$docente['iddocente'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('docente/delete/'.$docente['iddocente'],'Delete'); ?></li>
         <li> <?php echo anchor('docente/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('docente/reportepdf/'.$docente['idpersona'],'reportepdf'); ?></li>
 
 <?php 
 }else{

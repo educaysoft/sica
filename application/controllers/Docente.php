@@ -34,6 +34,23 @@ public function index(){
 
 
 
+
+
+	public function reportepdf()
+	{
+		$idpersona=$this->uri->segment(3);
+	 	$data['estudios']= $this->estudio_model->lista_estudios1($idpersona)->result();
+
+		$data['title']="Evento";
+		$this->load->view('docente_list_pdf',$data);
+	}
+
+
+
+
+
+
+
 public function actual(){
  if(isset($this->session->userdata['logged_in'])){
 
