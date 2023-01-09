@@ -19,7 +19,12 @@
 
 	$pdf->AliasNbPages();
 	$pdf->AddPage();
-	
+
+
+
+	$pdf->SetFont('Arial','',14);
+    	$pdf->Text(1w0,5,$estudios[0]->idestudiante); 
+
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
 
@@ -32,10 +37,6 @@
 	 
 
 
-	$pdf->SetFont('Arial','',14);
-
-
-    	$pdf->Cell(10,5,$estudio[0]->idestudiante,1,1,'L',0); 
 	$pdf->SetFont('Arial','',7);
 	$id=0;
 	$persona="";
