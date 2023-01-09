@@ -118,7 +118,7 @@ function estudio_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idestudio,$r->elestudiante,$r->lainstitucion,$r->nivel,$r->titulo,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idestudio="'.$r->idestudio.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('estudio/actual').'"   data-idestudio="'.$r->idestudio.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
