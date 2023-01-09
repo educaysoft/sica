@@ -42,9 +42,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
- <th>estudio</th>
- <th>Institucion</th>
- <th>FechaInscripción</th>
+ <th>persona</th>
+ <th>niveln</th>
+ <th>titulo</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
