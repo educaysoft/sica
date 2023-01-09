@@ -40,7 +40,8 @@ public function index(){
 	{
 		$idpersona=$this->uri->segment(3);
 	 	$data['estudios']= $this->estudio_model->lista_estudios1($idpersona)->result();
-
+		print_r($data['estudios']);
+		die();
 		$data['title']="Evento";
 		$this->load->view('docente_list_pdf',$data);
 	}
