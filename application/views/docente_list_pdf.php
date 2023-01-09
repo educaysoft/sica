@@ -24,7 +24,7 @@
 	$pdf->SetFont('Arial','B',8);
 
 
-	$pdf->Cell(10,5,'idestudio',1,0,'C',1);
+	$pdf->Cell(10,5,'idestu',1,0,'C',1);
 	$pdf->Cell(60,5,'institucion',1,0,'C',1);
 	$pdf->Cell(10,5,'nivel',1,0,'C',1);
 	$pdf->Cell(70,5,'titulo',1,1,'C',1);
@@ -42,8 +42,8 @@
 	       
 		    $i=$i+1;
 		    $pdf->Cell(10,5,$row->idestudio,1,0,'R',0); 
-		    $pdf->Cell(25,5,utf8_decode($row->lainstitucion),1,0,'L',0);
-		    $pdf->Cell(60,5,utf8_decode($row->nivel),1,0,'L',0);
+		    $pdf->Cell(60,5,utf8_decode($row->lainstitucion),1,0,'L',0);
+		    $pdf->Cell(10,5,utf8_decode($row->nivel),1,0,'L',0);
 		    $pdf->Cell(70,5,utf8_decode($row->titulo),1,1,'L',0);
 
     }
