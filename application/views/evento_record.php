@@ -182,7 +182,7 @@ echo form_input($arrdatos) ?>
 	 <thead>
 	 <tr>
 	 <th>id</th>
-	 <th>idevento</th>
+	 <th>ponderacion</th>
 	 <th>fecha</th>
 	 <th>sesion</th>
 	 <th>tema tratado</th>
