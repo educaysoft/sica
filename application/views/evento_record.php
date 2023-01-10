@@ -1,6 +1,6 @@
 <div id="eys-nav-i">
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title.$evento['idevento'];  ?></h3>
-    <ul>
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title  ?></h3>
+	<div id="idevento"><?php echo $evento['idevento']; ?></div>
 <?php
 if(isset($evento))
 {
@@ -73,17 +73,6 @@ if(isset($evento))
 
 <?php echo form_open('evento/save_edit') ?>
 <?php echo form_hidden('idevento',$evento['idevento'],array('name'=>'idevento')) ?>
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id:</label>
-	<div class="col-md-10">
-		<?php
-		echo form_input('idevento',$evento['idevento'],array("id"=>"idevento","disabled"=>"disabled",'placeholder'=>'ideventos','style'=>'width:500px;'))
-		?>
-	</div> 
-</div>
-
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('tipoevento/add', 'Tipo evento:') ?> </label>
