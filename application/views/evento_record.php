@@ -1,5 +1,5 @@
 <div id="eys-nav-i">
-	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title  ?></h3>
+	<span style="text-align: left; margin-top:-10px;"> <?php echo $title  ?></span>
 	<div id="idevento"><?php echo $evento['idevento']; ?></div>
 
 <ul>
