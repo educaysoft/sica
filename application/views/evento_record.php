@@ -1,6 +1,6 @@
 <div id="eys-nav-i">
-	<span style="text-align: left; font-size:medium"> <?php echo $title  ?></span>
-	<span id="idevento"><?php echo $evento['idevento']; ?></span>
+	<span style="text-align: left; font-size:large"> <?php echo $title  ?></span>
+	<span style="font-size:large" id="idevento"><?php echo $evento['idevento']; ?></span>
 
 <ul>
 <?php
