@@ -176,6 +176,7 @@ public function index(){
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
+  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		$data['title']="Evento";
 		$this->load->view('template/page_header');		
