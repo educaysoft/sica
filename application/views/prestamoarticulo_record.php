@@ -93,7 +93,7 @@ echo form_input('idpersona',$options[$prestamoarticulo['idpersona']],array("disa
     <label class="col-md-2 col-form-label"> Fecha de prestamo:</label>
 	<div class="col-md-10">
 		<?php
-      		 echo form_input('fechaprestamo',$prestamoarticulo['fechaprestamo'],array('type'=>'date','placeholder'=>'fecha','style'=>'width:500px;')) 
+      		 echo form_input('fechaprestamo',$prestamoarticulo['fechaprestamo'],array('type'=>'date',"disabled"=>"disabled", 'placeholder'=>'fecha','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
@@ -117,7 +117,7 @@ echo form_input('idpersona',$options[$prestamoarticulo['idpersona']],array("disa
     <label class="col-md-2 col-form-label"> Fecha devolucion:</label>
 	<div class="col-md-10">
 		<?php
-      		 echo form_input('fechadevolucion',$prestamoarticulo['fechadevolucion'],array('type'=>'date','placeholder'=>'fecha','style'=>'width:500px;')) 
+      		 echo form_input('fechadevolucion',$prestamoarticulo['fechadevolucion'],array('type'=>'date',"disabled"=>"disabled",  'placeholder'=>'fecha','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
@@ -142,7 +142,7 @@ echo form_input('idpersona',$options[$prestamoarticulo['idpersona']],array("disa
 	<div class="col-md-10">
 		<?php
 
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+$textarea_options = array('class' => 'form-control','rows' => '4', "disabled"=>"disabled",  'cols' => '20', 'style'=> 'width:500px;height:100px;');    
  echo form_textarea('detalle',$prestamoarticulo['detalle'],$textarea_options); 
 
 

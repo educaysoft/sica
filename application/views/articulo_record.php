@@ -61,7 +61,7 @@ if(isset($articulo))
 	<div class="col-md-10">
      <?php
     
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+$textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'disabled',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
  echo form_textarea('detalle',$articulo['detalle'],$textarea_options); 
 		?>
 	</div> 

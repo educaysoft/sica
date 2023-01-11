@@ -77,7 +77,7 @@ foreach ($personas as $row){
 
     $horaf= date("H:i:s",strtotime(' + 2 hours'));
 
- echo form_input(array("name"=>"fechadevolucion","id"=>"fechadevolucion","type"=>"date","value"=>$date));  
+ echo form_input(array("name"=>"fechadevolucion","id"=>"fechadevolucion","type"=>"date","value"=>0,"disabled"=>"disabled"));  
 
 ?>
 </div>
@@ -88,7 +88,7 @@ foreach ($personas as $row){
 <div class="col-md-10">
 <?php
 
- echo form_input(array("name"=>"horadevolucion","id"=>"horadevolucion","type"=>"time","value"=>$horaf));  
+ echo form_input(array("name"=>"horadevolucion","id"=>"horadevolucion","type"=>"time","value"=>0,"disabled"=>"disabled"));  
 
 ?>
 </div>
