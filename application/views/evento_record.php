@@ -553,7 +553,6 @@ window.location.href = retorno+'/'+id;
 $('#show_data').on('click','.item_edit',function(){
 var idsesionevento= $(this).data('idsesionevento');
 var idevento= $(this).data('idevento');
-alert(idsesionevento);
 
 get_sesionevento(idsesionevento,idevento);
 

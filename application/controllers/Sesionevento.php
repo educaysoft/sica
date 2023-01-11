@@ -310,7 +310,7 @@ public function anterior(){
 public function get_sesionevento() {
     $this->load->database();
     $this->load->helper('form');
-    if($this->input->post('idsesionevento')) 
+    if($this->input->get('idsesionevento')) 
     {
         $this->db->select('*');
 		    $this->db->order_by("fecha","asc");
