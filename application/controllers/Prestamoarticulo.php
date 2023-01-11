@@ -61,9 +61,7 @@ class Prestamoarticulo extends CI_Controller{
 	public function add()
 	{
 
-
-
-	     	$data["idevento"]=$idevento;
+		$data['articulos']= $this->articulo_model->lista_articulos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['evento']= $this->evento_model->evento($idevento)->first_row('array');
 		$data['eventos']= $this->evento_model->evento($idevento)->result();
