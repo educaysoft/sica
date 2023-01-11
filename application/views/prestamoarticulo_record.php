@@ -57,15 +57,15 @@ if(isset($prestamoarticulo))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('evento/actual/'.$prestamoarticulo['idevento'], 'Evento:'); ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('articulo/actual/'.$prestamoarticulo['idarticulo'], 'Evento:'); ?> </label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
-foreach ($eventos as $row){
-	$options[$row->idevento]= $row->titulo;
+foreach ($articulos as $row){
+	$options[$row->idarticulo]= $row->nombre;
 }
 
-echo form_input('idevento',$options[$prestamoarticulo['idevento']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+echo form_input('idarticulo',$options[$prestamoarticulo['idarticulo']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
@@ -73,15 +73,15 @@ echo form_input('idevento',$options[$prestamoarticulo['idevento']],array("disabl
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">   <?php echo anchor('tema/actual/'.$prestamoarticulo['idtema'],'Tema silabo: '); ?></label>
+    <label class="col-md-2 col-form-label">   <?php echo anchor('persona/actual/'.$prestamoarticulo['idpersona'],'Tema silabo: '); ?></label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
-foreach ($temas as $row){
-	$options[$row->idtema]="Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto;
+foreach ($personas as $row){
+	$options[$row->idpersona]=$row->apellidos."  ".$row->nombres;
 }
 
-echo form_input('idtema',$options[$prestamoarticulo['idtema']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+echo form_input('idpersona',$options[$prestamoarticulo['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
@@ -99,17 +99,24 @@ echo form_input('idtema',$options[$prestamoarticulo['idtema']],array("disabled"=
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha de la sesión:</label>
+    <label class="col-md-2 col-form-label"> Fecha de prestamo:</label>
 	<div class="col-md-10">
 		<?php
-      		 echo form_input('fecha',$prestamoarticulo['fecha'],array('type'=>'date','placeholder'=>'fecha','style'=>'width:500px;')) 
+      		 echo form_input('fechaprestamo',$prestamoarticulo['fechaprestamo'],array('type'=>'date','placeholder'=>'fecha','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
 
 
 
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha devolucion:</label>
+	<div class="col-md-10">
+		<?php
+      		 echo form_input('fechadevolucion',$prestamoarticulo['fechadevolucion'],array('type'=>'date','placeholder'=>'fecha','style'=>'width:500px;')) 
+		?>
+	</div> 
+</div>
 
 
  
@@ -119,12 +126,12 @@ echo form_input('idtema',$options[$prestamoarticulo['idtema']],array("disabled"=
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Tema tratado(corto):</label>
+    <label class="col-md-2 col-form-label"> Detalle:</label>
 	<div class="col-md-10">
 		<?php
 
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('temacorto',$prestamoarticulo['temacorto'],$textarea_options); 
+ echo form_textarea('detalle',$prestamoarticulo['detalle'],$textarea_options); 
 
 
 		?>
@@ -132,39 +139,19 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 </div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Tema tratado(largo):</label>
-	<div class="col-md-10">
-		<?php
-
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('tema',$prestamoarticulo['tema'],$textarea_options); 
 
 
-		?>
-	</div> 
-</div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Ponderacion:</label>
-	<div class="col-md-10">
-		<?php
-
-    echo form_input('ponderacion',$prestamoarticulo['ponderacion'],array("disabled"=>"disabled",'placeholder'=>'ponderacion')); 
-
-		?>
-	</div> 
-</div>
 
 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Hora inicio:</label>
+    <label class="col-md-2 col-form-label"> Hora pretamo:</label>
 	<div class="col-md-10">
 		<?php
-     $eys_arrinput=array('name'=>'horainicio','id'=>'horainicio',"type"=>"time",'value'=>$prestamoarticulo['horainicio'], "style"=>"width:500px");
+     $eys_arrinput=array('name'=>'horaprestamo','id'=>'horaprestamo',"type"=>"time",'value'=>$prestamoarticulo['horaprestamo'], "style"=>"width:500px");
      echo form_input($eys_arrinput); 
 
 		?>
@@ -174,10 +161,10 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Hora fin:</label>
+    <label class="col-md-2 col-form-label"> Hora devolucion:</label>
 	<div class="col-md-10">
 		<?php
-     $eys_arrinput=array('name'=>'horafin','id'=>'horafin',"type"=>"time",'value'=>$prestamoarticulo['horafin'], "style"=>"width:500px");
+     $eys_arrinput=array('name'=>'horadevolucion','id'=>'horadevolucion',"type"=>"time",'value'=>$prestamoarticulo['horadevolucion'], "style"=>"width:500px");
      echo form_input($eys_arrinput); 
 		?>
 	</div> 
@@ -185,19 +172,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Modo de evaluación: </label>
-	<div class="col-md-10">
-     <?php 
-$options= array("NADA");
-foreach ($modoevaluacions as $row){
-	$options[$row->idmodoevaluacion]= $row->nombre;
-}
 
-echo form_input('idmodoevaluacion',$options[$prestamoarticulo['idmodoevaluacion']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
-		?>
-	</div> 
-</div>
 
 
 
