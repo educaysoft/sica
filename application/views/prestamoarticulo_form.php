@@ -12,7 +12,7 @@
 <?php
 $options= array('--Select--');
 foreach ($articulos as $row){
-	$options[$row->idarticulo]= $row->titulo;
+	$options[$row->idarticulo]= $row->nombre;
 }
 
  echo form_dropdown("idarticulo",$options, set_select('--Select--','default_value'),array('id'=>'idarticulo'));  
