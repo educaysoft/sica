@@ -72,7 +72,7 @@ foreach ($unidadsilabos as $row){
 <label class="col-md-2 col-form-label">Número de sesión:</label>
 <div class="col-md-10">
 <?php
-
+print_r($sesionevento);
  echo form_input("numerosesion",$sesionevento['nsesion'], array("placeholder"=>"Numero de sesion"));
 
 ?>
