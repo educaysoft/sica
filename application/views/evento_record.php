@@ -553,14 +553,14 @@ window.location.href = retorno+'/'+id;
 $('#show_data').on('click','.item_edit',function(){
 var idsesionevento= $(this).data('idsesionevento');
 var idevento= $(this).data('idevento');
-get_participacion_xx(idsesionevento,idevento);
+get_sesionevento(idsesionevento,idevento);
 
 });
 
 
-/*
 
-function get_participacion_xx(idsesionevento,idevento) {
+
+function get_sesionevento(idsesionevento,idevento) {
     $.ajax({
         url: "<?php echo site_url('sesionevento/get_sesionevento') ?>",
         data: {idsesionevento:idsesionevento},
@@ -581,8 +581,8 @@ function get_participacion_xx(idsesionevento,idevento) {
           $('[name="temacorto_edit"]').val('');
           $('[name="ponderacion_edit"]').val(0);
           $('[name="horainicio_edit"]').val('');
-          $('[name="horafin_edit"]').val(''n);
-          $('[name="idmodoevaluacion_edit"]').val(idmodoevaluacion);
+          $('[name="horafin_edit"]').val('');
+          $('[name="idmodoevaluacion_edit"]').val(0);
         }else{
           $('[name="idsesionevento_edit"]').val(data[0].idsesionevento);
           $('[name="idevento_edit"]').val(data[0].idevento);
@@ -604,7 +604,7 @@ function get_participacion_xx(idsesionevento,idevento) {
     })
 
 }
- */
+
 
 /*
 $("#btn_update").on("click", function(){

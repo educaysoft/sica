@@ -307,6 +307,20 @@ public function anterior(){
 
 
 
+public function get_sesionevento() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->post('idsesionevento')) 
+    {
+        $this->db->select('*');
+		    $this->db->order_by("fecha","asc");
+        $this->db->where(array('idsesioevento' => $this->input->post('idsesionevento')));
+        $query = $this->db->get('sesionevento');
+	$data=$query->result();
+	echo json_encode($data);
+	}
+}
+
 
 
 
