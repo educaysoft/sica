@@ -19,13 +19,13 @@ class Prestamoarticulo_model extends CI_model {
 
 
  	function prestamoarticulos( $id){
- 		$prestamoarticulo = $this->db->query('select * from prestamoarticulo where idevento="'. $id.'" order by fecha');
+ 		$prestamoarticulo = $this->db->query('select * from prestamoarticulo where idarticulo="'. $id.'" order by fechaprestamo');
  		return $prestamoarticulo;
  	}
 
 
  	function prestamoarticulosA( $id){
- 		$prestamoarticulo = $this->db->query('select * from prestamoarticulo1 where idevento="'. $id.'" ORDER BY date(fecha) ASC');
+ 		$prestamoarticulo = $this->db->query('select * from prestamoarticulo1 where idarticulo="'. $id.'" ORDER BY date(fechaprestamo) ASC');
  		return $prestamoarticulo;
  	}
 

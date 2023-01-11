@@ -108,6 +108,35 @@ function articulo_data()
 }
 
 
+
+
+	function pretamo_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idarticulo=$this->input->get('idarticulo');
+			$data0 =$this->pretamoarticulo_model->prestamoarticulosA($idarticulo);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idprestamoarticulo,$r->idarticulo,$r->lapersona,$r->fechaprestamo,$r->horaprestamo,$r->fechadevolucion,$r->horadevolucion,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamoarticulo/actual').'"    data-idprestamoarticulo="'.$r->idprestamoarticulo.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
+
 public function elprimero()
 {
 	$data['articulo'] = $this->articulo_model->elprimero();
