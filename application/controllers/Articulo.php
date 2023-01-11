@@ -6,14 +6,12 @@ class Articulo extends CI_Controller{
       parent::__construct();
       $this->load->model('articulo_model');
   	  $this->load->model('institucion_model');
-  	  $this->load->model('categoria_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 	  	$data['articulo']=$this->articulo_model->articulo(1)->row_array();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  		$data['categorias']= $this->categoria_model->lista_categorias()->result();
   		$data['title']="Lista de Artiulos";
 			$this->load->view('template/page_header');		
   		$this->load->view('articulo_record',$data);
@@ -29,7 +27,6 @@ public function index(){
 public function add()
 {
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  		$data['categorias']= $this->categoria_model->lista_categorias()->result();
 		$data['title']="Nuevo Artículo";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('articulo_form',$data);
@@ -44,7 +41,6 @@ public function  save()
 	 	'nombre' => $this->input->post('nombre'),
 	 	'detalle' => $this->input->post('detalle'),
 	 	'idinstitucion' => $this->input->post('idinstitucion'),
-	 	'idcategoria' => $this->input->post('idcategoria'),
 	 	);
 	 	$this->articulo_model->save($array_item);
 	 	redirect('articulo');
@@ -56,7 +52,6 @@ public function edit()
 {
 	 	$data['articulo'] = $this->articulo_model->articulo($this->uri->segment(3))->row_array();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  		$data['categorias']= $this->categoria_model->lista_categorias()->result();
  	 	$data['title'] = "Actualizar Articulo";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('articulo_edit',$data);
@@ -74,7 +69,6 @@ public function edit()
 		 	'nombre' => $this->input->post('nombre'),
 		 	'detalle' => $this->input->post('detalle'),
 	 		'idinstitucion' => $this->input->post('idinstitucion'),
-	 		'idcategoria' => $this->input->post('idcategoria'),
 	 	);
 	 	$this->articulo_model->update($id,$array_item);
 	 	redirect('articulo');
@@ -101,7 +95,7 @@ function articulo_data()
 	 	$data0 = $this->articulo_model->lista_articulosA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idarticulo,$r->nombre,$r->lacategoria,$r->lainstitucion,
+			$data[]=array($r->idarticulo,$r->nombre,$r->lainstitucion,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idarticulo="'.$r->idarticulo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -118,7 +112,6 @@ public function elprimero()
 {
 	$data['articulo'] = $this->articulo_model->elprimero();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['categorias']= $this->categoria_model->lista_categorias()->result();
   if(!empty($data))
   {
     $data['title']="Articulo";
@@ -136,7 +129,6 @@ public function elultimo()
 {
 	  $data['articulo'] = $this->articulo_model->elultimo();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['categorias']= $this->categoria_model->lista_categorias()->result();
   if(!empty($data))
   {
     $data['title']="Articulo";
@@ -156,7 +148,6 @@ public function siguiente(){
  // $data['articulo_list']=$this->articulo_model->lista_articulo()->result();
 	$data['articulo'] = $this->articulo_model->siguiente($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['categorias']= $this->categoria_model->lista_categorias()->result();
   $data['title']="Articulo";
 	$this->load->view('template/page_header');		
   $this->load->view('articulo_record',$data);
@@ -167,7 +158,6 @@ public function anterior(){
  // $data['articulo_list']=$this->articulo_model->lista_articulo()->result();
 	$data['articulo'] = $this->articulo_model->anterior($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['categorias']= $this->categoria_model->lista_categorias()->result();
   $data['title']="Articulo";
 	$this->load->view('template/page_header');		
   $this->load->view('articulo_record',$data);
