@@ -65,11 +65,6 @@ class Prestamoarticulo extends CI_Controller{
 		$data['personas']= $this->persona_model->lista_personas()->result();
    		date_default_timezone_set('America/Guayaquil');
 	     	$date = date("Y-m-d");
-		$puede= $this->fechacalendario_model->existe($data['evento']['idsilabo'],$date);
-		if($puede==false)
-		{	
-			return 0; 	
-		}
 		$data['title']="Nueva sesion de eventos";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('prestamoarticulo_form',$data);
