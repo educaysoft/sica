@@ -69,7 +69,7 @@ class Prestamoarticulo_model extends CI_model {
 
  	function save($array)
 	{	
-		$condition ="idevento="."'". $array['idevento']."' and  fecha=". "'".$array['fecha']."'";
+		$condition ="idarticulo="."'". $array['idarticulo']."' and  fechapretamo=". "'".$array['fechaprestamo']."' and  horaprestamo=". "'".$array['horaprestamo']."'";
 		$this->db->select('*');
 		$this->db->from('prestamoarticulo');
 		$this->db->where($condition);
@@ -85,8 +85,9 @@ class Prestamoarticulo_model extends CI_model {
 				return false;
 			}
 		}else{
-			$this->db->where('fecha',$array['fecha']);
-			$this->db->where('idevento',$array['idevento']);
+			$this->db->where('fechaprestamo',$array['fechaprestamo']);
+			$this->db->where('horaprestamo',$array['horaprestamo']);
+			$this->db->where('idarticulo',$array['idarticulo']);
 			$this->db->update('prestamoarticulo',$array);
 
 			if($this->db->affected_rows()>0)
