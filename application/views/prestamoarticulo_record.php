@@ -15,8 +15,8 @@ if(isset($prestamoarticulo))
         <li> <?php echo anchor('prestamoarticulo/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('prestamoarticulo/edit/'.$prestamoarticulo['idprestamoarticulo'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('prestamoarticulo/delete/'.$prestamoarticulo['idprestamoarticulo'],'Delete'); ?></li>
-        <li> <?php echo anchor('prestamoarticulo/listar/'.$prestamoarticulo['idevento'],'Listar'); ?></li>
-	<li> <?php echo anchor('prestamoarticulo/reportepdf/'.$prestamoarticulo['idevento'], 'Reportepdf'); ?></li>
+        <li> <?php echo anchor('prestamoarticulo/listar/'.$prestamoarticulo['idprestamoarticulo'],'Listar'); ?></li>
+	<li> <?php echo anchor('prestamoarticulo/reportepdf/'.$prestamoarticulo['idprestamoarticulo'], 'Reportepdf'); ?></li>
 
     </ul>
 <?php 
