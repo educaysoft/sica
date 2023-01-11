@@ -553,17 +553,7 @@ window.location.href = retorno+'/'+id;
 $('#show_data').on('click','.item_edit',function(){
 var idsesionevento= $(this).data('idsesionevento');
 var idevento= $(this).data('idevento');
-//var fecha= $(this).data('fecha');
-//var idtema= $(this).data('idtema');
-//var tema= $(this).data('tema');
-//var temacorto= $(this).data('temacorto');
-//var ponderacion= $(this).data('ponderacion');
-//var horainicio= $(this).data('horainicio');
-//var horafin= $(this).data('horafin');
-//var idmodoevaluacion= $(this).data('idmodoevaluacion');
 get_participacion_xx(idsesionevento,idevento);
-//var retorno= $(this).data('retorno');
-//window.location.href = retorno+'/'+id;
 
 });
 
@@ -618,15 +608,10 @@ function get_participacion_xx(idsesionevento,idevento) {
 }
 
 
+/*
 $("#btn_update").on("click", function(){
 
-
-//	var f = document.getElementById("idfechaevento");
-  //	var arrtmp=f.options[f.selectedIndex].text;
-//	const x=arrtmp.split(" - ");
-//	var fecha=x[0];
 	var f=$('#show_data').data(fecha);
-//	var idparticipacion=document.getElementById("idparticipacion_edit").value;
 	var idsesionevento=document.getElementById("idsesionevento_edit").value;
 	var idevento=document.getElementById("idevento_edit").value;
 	var fecha=document.getElementById("fecha_edit").value;
@@ -636,7 +621,6 @@ $("#btn_update").on("click", function(){
 	var horainicio=document.getElementById("horainicio_edit").value;
 	var horafin=document.getElementById("horafin_edit").value;
 	var idmodoevaluacion=document.getElementById("idmodoevaluacion_edit").value;
-       // var idpersona=p.options[p.selectedIndex].value;
     $.ajax({
         url: "<?php echo site_url('participacion/save_nota') ?>",
         data: {idsesionevento:idsesionevento,idevento:idevento, fecha:fecha,idtema:idtema,temacorto:temacorto,ponderacion:ponderacion,horainicio:horainicio,horafin:horafin,idmodoevaliuacion:idmodoevaluacion},
@@ -646,7 +630,6 @@ $("#btn_update").on("click", function(){
         success: function(data){
         var html = '';
         var i;
-       // get_participantes2();
 	$("#Modal_Edit").modal("hide");
         alert("Se guardo con exito");
         },
@@ -660,7 +643,7 @@ $("#btn_update").on("click", function(){
 
 });
 
-
+ */
 
 
 
