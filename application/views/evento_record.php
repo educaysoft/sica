@@ -1,3 +1,16 @@
+<style>
+.modal.face .modal-dialog{
+	transform: translate3d(0,100vh,0);
+}
+
+.modal.in .modal-dialog{
+	transform: translate3d(0,0,0);
+}
+
+</style>
+
+
+
 <div id="eys-nav-i">
 	<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idevento"><?php echo $evento['idevento']; ?></idem></div>
 	
