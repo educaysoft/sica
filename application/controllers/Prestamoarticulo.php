@@ -31,12 +31,8 @@ class Prestamoarticulo extends CI_Controller{
 
 		$data['prestamoarticulo'] = $this->prestamoarticulo_model->prestamoarticulo($this->uri->segment(3))->row_array();
 
-		$data['documentos']= $this->documento_model->lista_documentos()->result();
-		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
-		$data['eventos']= $this->evento_model->lista_eventos()->result();
 
-		$data['evento'] = $this->evento_model->evento($data['prestamoarticulo']['idevento'])->row_array();
-  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
+		$data['articulos']= $this->articulo_model->lista_articulos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['title']="Prestamoarticulo del documento";
 	 
