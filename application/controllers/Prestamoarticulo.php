@@ -63,25 +63,12 @@ class Prestamoarticulo extends CI_Controller{
 
 
 
-	     $idevento=$this->uri->segment(3);
-
-	    if(!isset($idevento)){
-	      $idevento=0;
-
-
-		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['eventos']= $this->evento_model->lista_eventos()->result();
-		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
-  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
-
-	    }else{
 	     	$data["idevento"]=$idevento;
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['evento']= $this->evento_model->evento($idevento)->first_row('array');
 		$data['eventos']= $this->evento_model->evento($idevento)->result();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
-	   }
    		date_default_timezone_set('America/Guayaquil');
 	     	$date = date("Y-m-d");
 		$puede= $this->fechacalendario_model->existe($data['evento']['idsilabo'],$date);
