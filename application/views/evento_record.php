@@ -1,6 +1,6 @@
 <style>
 .modal.face .modal-dialog{
-	transform: translate3d(0,100vh,0);
+	transform: translate3d(0,120vh,0);
 }
 
 .modal.in .modal-dialog{
