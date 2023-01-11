@@ -5,6 +5,7 @@ class Articulo extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('articulo_model');
+      $this->load->model('prestamoarticulo_model');
   	  $this->load->model('institucion_model');
 }
 
@@ -117,7 +118,7 @@ function articulo_data()
 			$draw= intval($this->input->get("length"));
 
 			$idarticulo=$this->input->get('idarticulo');
-			$data0 =$this->pretamoarticulo_model->prestamoarticulosA($idarticulo);
+			$data0 =$this->prestamoarticulo_model->prestamoarticulosA($idarticulo);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idprestamoarticulo,$r->idarticulo,$r->lapersona,$r->fechaprestamo,$r->horaprestamo,$r->fechadevolucion,$r->horadevolucion,
