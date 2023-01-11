@@ -22,9 +22,9 @@
 
 
 
-	$pdf->SetFont('Arial','',14);
+	$pdf->SetFont('Arial','',12);
 	$pdf->SetTextColor(0, 0,0);
-    	$pdf->Text(20,40,"Docente:  ". $estudios[0]->elestudiante); 
+    	$pdf->Text(20,40,"Docente:  ".$estudios[0]->cedula." - " $estudios[0]->lapersona); 
 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
