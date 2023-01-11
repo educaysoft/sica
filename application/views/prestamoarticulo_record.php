@@ -38,7 +38,7 @@ if(isset($prestamoarticulo))
 <br>
 
 
-<?php echo form_hidden('idevento',$prestamoarticulo['idevento']) ?>
+<?php echo form_hidden('idevento',$prestamoarticulo['idprestamoarticulo']) ?>
 <table>
 
 
