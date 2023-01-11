@@ -20,7 +20,18 @@ foreach ($articulos as $row){
 </div>
 </div>
 
-
+<div class="form-group row">
+<label class="col-md-2 col-form-label">persona:</label>
+<div class="col-md-10">
+<?php
+$options= array('--Select--');
+foreach ($personas as $row){
+	$options[$row->idpersona]=$row->apellidos." - ".$row->nombres;
+}
+ echo form_dropdown("idpersona",$options,$date, array('id'=>'idpersona'));  
+?>
+</div>
+</div>
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Fecha del prestamo:</label>
@@ -42,6 +53,19 @@ foreach ($articulos as $row){
 
 
 <div class="form-group row">
+<label class="col-md-2 col-form-label">Hora prestamo:</label>
+<div class="col-md-10">
+<?php
+
+ echo form_input(array("name"=>"horaprestamo","id"=>"horaprestamo","type"=>"time","value"=>$horai));  
+
+?>
+</div>
+</div>
+
+
+
+<div class="form-group row">
 <label class="col-md-2 col-form-label">Fecha de devolucion:</label>
 <div class="col-md-10">
 <?php
@@ -59,19 +83,17 @@ foreach ($articulos as $row){
 </div>
 </div>
 
-
 <div class="form-group row">
-<label class="col-md-2 col-form-label">persona:</label>
+<label class="col-md-2 col-form-label">Hora devolucion:</label>
 <div class="col-md-10">
 <?php
-$options= array('--Select--');
-foreach ($personas as $row){
-	$options[$row->idpersona]=$row->apellidos." - ".$row->nombres;
-}
- echo form_dropdown("idpersona",$options,$date, array('id'=>'idpersona'));  
+
+ echo form_input(array("name"=>"horadevolucion","id"=>"horadevolucion","type"=>"time","value"=>$horaf));  
+
 ?>
 </div>
 </div>
+
 
 
 
@@ -96,28 +118,10 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Hora prestamo:</label>
-<div class="col-md-10">
-<?php
-
- echo form_input(array("name"=>"horaprestamo","id"=>"horaprestamo","type"=>"time","value"=>$horai));  
-
-?>
-</div>
-</div>
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Hora devolucion:</label>
-<div class="col-md-10">
-<?php
 
- echo form_input(array("name"=>"horadevolucion","id"=>"horadevolucion","type"=>"time","value"=>$horaf));  
 
-?>
-</div>
-</div>
 
 
 
