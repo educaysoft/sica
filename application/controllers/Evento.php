@@ -20,6 +20,7 @@ class Evento extends CI_Controller{
 public function index(){
  if(isset($this->session->userdata['logged_in'])){
 	$data['evento'] = $this->evento_model->elultimo();
+	$data['eventos']= $this->evento_model->lista_eventos()->result();
 	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
@@ -176,6 +177,7 @@ public function index(){
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		$data['title']="Evento";
@@ -418,6 +420,7 @@ public function index(){
 		$data['evento'] = $this->evento_model->elprimero();
 		  if(!empty($data))
 		  {
+			$data['eventos']= $this->evento_model->lista_eventos()->result();
 			$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 			$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
@@ -426,6 +429,7 @@ public function index(){
 			$data['silabos']= $this->silabo_model->lista_silabos()->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 			$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
+			$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 		
   			$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 			$data['title']="Evento";
@@ -446,6 +450,7 @@ public function index(){
 		$data['evento'] = $this->evento_model->elultimo();
 		  if(!empty($data))
 		  {
+			$data['eventos']= $this->evento_model->lista_eventos()->result();
 			$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 			$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
@@ -454,6 +459,7 @@ public function index(){
 			$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 			$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
+			$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   			$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 			$data['title']="Evento";
 			$this->load->view('template/page_header');		
@@ -471,6 +477,7 @@ public function index(){
 	public function siguiente(){
 	 // $data['evento_list']=$this->evento_model->lista_evento()->result();
 		$data['evento'] = $this->evento_model->siguiente($this->uri->segment(3))->row_array();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
@@ -479,6 +486,7 @@ public function index(){
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 	  	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 	  	$data['title']="Evento";
 		$this->load->view('template/page_header');		
@@ -490,14 +498,16 @@ public function index(){
 	public function anterior(){
 	 // $data['evento_list']=$this->evento_model->lista_evento()->result();
 		$data['evento'] = $this->evento_model->anterior($this->uri->segment(3))->row_array();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
-	$data['silabos']= $this->silabo_model->lista_silabos()->result();
+		$data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['title']="Evento";
 		$this->load->view('template/page_header');		
