@@ -80,7 +80,7 @@ class Prestamoarticulo extends CI_Controller{
 		 	'fechaprestamo' => $this->input->post('fechaprestamo'),
 		 	'fechadevolucion' => $this->input->post('fechadevolucion'),
 		 	'detalle' => $this->input->post('detalle'),
-		 	'horapretamo' => $this->input->post('horaprestamo'),
+		 	'horaprestamo' => $this->input->post('horaprestamo'),
 		 	'horadevolucion' => $this->input->post('horadevolucion'),
 	 	);
 	 	$result=$this->prestamoarticulo_model->save($array_item);
