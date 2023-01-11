@@ -7,7 +7,7 @@ class Prestamoarticulo extends CI_Controller{
       		$this->load->model('documento_model');
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
-      		$this->load->model('tema_model');
+      		$this->load->model('articulo_model');
       		$this->load->model('fechacalendario_model');
       		$this->load->model('modoevaluacion_model');
 	}
