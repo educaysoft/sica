@@ -77,7 +77,7 @@ foreach ($unidadsilabos as $row){
 
 ?>
 </div>
-</div
+</div>
 
 
 
