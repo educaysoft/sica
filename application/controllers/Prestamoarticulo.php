@@ -13,6 +13,7 @@ class Prestamoarticulo extends CI_Controller{
 	}
 
 	public function index(){
+		$data['prestamoarticulo'] = $this->prestamoarticulo_model->elultimo();
 		$data['articulos']= $this->articulo_model->lista_articulos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
 
