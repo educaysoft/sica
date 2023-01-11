@@ -138,6 +138,30 @@ function articulo_data()
 
 
 
+
+public function actual()
+{
+	$data['articulo'] = $this->articulo_model->articulo($this->uri->segment(3))->row_array();
+ 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  if(!empty($data))
+  {
+    $data['title']="Articulo";
+    $this->load->view('template/page_header');		
+    $this->load->view('articulo_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
+
+
+
 public function elprimero()
 {
 	$data['articulo'] = $this->articulo_model->elprimero();
