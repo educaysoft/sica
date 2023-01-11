@@ -61,15 +61,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
   
 
 
-   <tr>
-     <td>Malla:</td>
-     <td><?php 
-    $options= array("NADA");
-    foreach ($mallas as $row){
-	      $options[$row->idmalla]= $row->nombre;
-    }
-    echo form_input('idmalla',$options[$articulo['idmalla']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
- </tr>
+   
    
 
 </table>
