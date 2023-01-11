@@ -63,10 +63,6 @@ class Prestamoarticulo extends CI_Controller{
 
 		$data['articulos']= $this->articulo_model->lista_articulos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['evento']= $this->evento_model->evento($idevento)->first_row('array');
-		$data['eventos']= $this->evento_model->evento($idevento)->result();
-  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
-		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
    		date_default_timezone_set('America/Guayaquil');
 	     	$date = date("Y-m-d");
 		$puede= $this->fechacalendario_model->existe($data['evento']['idsilabo'],$date);
