@@ -8,6 +8,7 @@ class Evento extends CI_Controller{
       $this->load->model('participante_model');
       $this->load->model('sesionevento_model');
       $this->load->model('institucion_model');
+      $this->load->model('tema_model');
       $this->load->model('pagina_model');
       $this->load->model('silabo_model');
       $this->load->model('asistencia_model');
@@ -27,6 +28,7 @@ public function index(){
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 	$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
+  	$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 	$data['title']="Usted esta visualizando el Eventos  #";
 	$this->load->view('template/page_header');		
 	$this->load->view('evento_record',$data);
@@ -423,6 +425,8 @@ public function index(){
 			$data['silabos']= $this->silabo_model->lista_silabos()->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 			$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
+		
+  			$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 			$data['title']="Evento";
 			$this->load->view('template/page_header');		
 			$this->load->view('evento_record',$data);
@@ -449,6 +453,7 @@ public function index(){
 			$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 			$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
+  			$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 			$data['title']="Evento";
 			$this->load->view('template/page_header');		
 			$this->load->view('evento_record',$data);
@@ -473,6 +478,7 @@ public function index(){
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 	  	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 	  	$data['title']="Evento";
 		$this->load->view('template/page_header');		
 	  	$this->load->view('evento_record',$data);
@@ -491,6 +497,7 @@ public function index(){
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
+  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['title']="Evento";
 		$this->load->view('template/page_header');		
 		$this->load->view('evento_record',$data);
