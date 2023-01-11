@@ -81,7 +81,7 @@ class Sesionevento extends CI_Controller{
 		$data['evento']= $this->evento_model->evento($idevento)->first_row('array');
 		$data['eventos']= $this->evento_model->evento($idevento)->result();
 
-  		$data['unidadsilabos']= $this->unidadsilabo_model->lista_unidadsilabo($ta['evento']['idsilabo'])->result();
+  		$data['unidadsilabos']= $this->unidadsilabo_model->unidadsilaboss($data['evento']['idsilabo'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 	   }
    		date_default_timezone_set('America/Guayaquil');

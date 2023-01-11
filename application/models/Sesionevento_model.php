@@ -61,7 +61,11 @@ class Sesionevento_model extends CI_model {
 
 
 
+	function sesionevento_sesiones($idevento){
+        $sesiones=$this->db->query('select count(idsesionevento) as nsesion from sesionevento where idevento='.$idevento.';');
 
+
+}
 
 
 
