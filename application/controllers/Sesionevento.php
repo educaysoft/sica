@@ -92,7 +92,7 @@ class Sesionevento extends CI_Controller{
 	//	{	
 	//		return 0; 	
 	//	}
-		$data['sesionevento'] = $this->sesionevento_model->sesionevento_sesiones($idevento)->row_array();
+		$data['sesionevento'] = $this->sesionevento_model->sesionevento_sesiones($idevento)->();
 		$data['title']="Nueva sesion de eventos";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('sesionevento_form',$data);
