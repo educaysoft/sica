@@ -29,42 +29,44 @@ if(isset($articulo))
 
 
 <?php echo form_hidden('idarticulo',$articulo['idarticulo']) ?>
-<table>
 
-  <tr>
-     <td>Id artículo:</td>
-     <td><?php
+
+ <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id artículo:</label>
+	<div class="col-md-10">
+     <?php
 
   $eys_arrctl=array("id"=>"idarticulo",  "name"=>'idarticulo','value'=>$articulo['idarticulo'],"disabled"=>"disabled",'placeholder'=>'Idarticulos','style'=>'width:500px;');
- echo form_input($eys_arrctl) ?></td>
-  </tr>
- 
- <tr>
-      <td>Nombre:</td>
-      <td><?php
+ echo form_input($eys_arrctl);
+		?>
+	</div> 
+</div>
+
+
+ <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+     <?php
 
   $eys_arrctl=array("name"=>'nombre','value'=>$articulo['nombre'],"disabled"=>"disabled",'placeholder'=>'Inombre','style'=>'width:500px;');
- echo form_input($eys_arrctl) ?></td>
-  </tr>
+ echo form_input($eys_arrctl);
+		?>
+	</div> 
+</div>
 
 
 
-<tr>
-      <td>Detalle:</td>
-      <td><?php
+ <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Detalle:</label>
+	<div class="col-md-10">
+     <?php
     
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('detalle',$articulo['detalle'],$textarea_options); ?></td>
-  </tr>
-
-
+ echo form_textarea('detalle',$articulo['detalle'],$textarea_options); 
+		?>
+	</div> 
+</div>
   
-
-
-   
-   
-
-</table>
 
 
 <div class="form-group row">
