@@ -75,14 +75,13 @@ class Prestamoarticulo extends CI_Controller{
 	public function  save()
 	{
 	 	$array_item=array(
-		 	'tema' => $this->input->post('tema'),
-		 	'idtema' => $this->input->post('idtema'),
-		 	'temacorto' => $this->input->post('temacorto'),
-		 	'fecha' => $this->input->post('fecha'),
-		 	'idevento' => $this->input->post('idevento'),
-		 	'ponderacion' => $this->input->post('ponderacion'),
-		 	'horainicio' => $this->input->post('horainicio'),
-		 	'horafin' => $this->input->post('horafin'),
+		 	'idarticulo' => $this->input->post('idarticulo'),
+		 	'idpersona' => $this->input->post('idpersona'),
+		 	'fechaprestamo' => $this->input->post('fechaprestamo'),
+		 	'fechadevolucion' => $this->input->post('fechadevolucion'),
+		 	'detalle' => $this->input->post('detalle'),
+		 	'horapretamo' => $this->input->post('horaprestamo'),
+		 	'horadevolucion' => $this->input->post('horadevolucion'),
 	 	);
 	 	$result=$this->prestamoarticulo_model->save($array_item);
 	 	if($result == FALSE)
@@ -118,14 +117,14 @@ class Prestamoarticulo extends CI_Controller{
 	{
 		$id=$this->input->post('idprestamoarticulo');
 	 	$array_item=array(
-		 	'idevento' => $this->input->post('idevento'),
-		 	'fecha' => $this->input->post('fecha'),
-		 	'idtema' => $this->input->post('idtema'),
-		 	'tema' => $this->input->post('tema'),
-		 	'temacorto' => $this->input->post('temacorto'),
-		 	'ponderacion' => $this->input->post('ponderacion'),
-		 	'horainicio' => $this->input->post('horainicio'),
-		 	'horafin' => $this->input->post('horafin'),
+		 	'idprestamoarticulo' => $this->input->post('idprestamoarticulo'),
+		 	'idarticulo' => $this->input->post('idarticulo'),
+		 	'idpersona' => $this->input->post('idpersona'),
+		 	'fechaprestamo' => $this->input->post('fechaprestamo'),
+		 	'fechadevolucion' => $this->input->post('fechadevolucion'),
+		 	'detalle' => $this->input->post('detalle'),
+		 	'horapretamo' => $this->input->post('horaprestamo'),
+		 	'horadevolucion' => $this->input->post('horadevolucion'),
 	 	);
 	 	$this->prestamoarticulo_model->update($id,$array_item);
 	 	redirect('prestamoarticulo/actual/'.$id);
