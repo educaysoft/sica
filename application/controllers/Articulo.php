@@ -110,7 +110,7 @@ function articulo_data()
 
 
 
-	function pretamo_data()
+	function prestamo_data()
 	{
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
