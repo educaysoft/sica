@@ -35,7 +35,7 @@ if(isset($articulo))
      <td>Id artículo:</td>
      <td><?php
 
-  $eys_arrctl=array("name"=>'idarticulo','value'=>$articulo['idarticulo'],"disabled"=>"disabled",'placeholder'=>'Idarticulos','style'=>'width:500px;');
+  $eys_arrctl=array("id"=>"idarticulo",  "name"=>'idarticulo','value'=>$articulo['idarticulo'],"disabled"=>"disabled",'placeholder'=>'Idarticulos','style'=>'width:500px;');
  echo form_input($eys_arrctl) ?></td>
   </tr>
  
