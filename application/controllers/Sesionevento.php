@@ -313,8 +313,8 @@ public function get_sesionevento() {
     if($this->input->get('idsesionevento')) 
     {
         $this->db->select('*');
-		    $this->db->order_by("fecha","asc");
-        $this->db->where(array('idsesioevento' => $this->input->post('idsesionevento')));
+    	$this->db->order_by("fecha","asc");
+        $this->db->where(array('idsesionevento' => $this->input->get('idsesionevento')));
         $query = $this->db->get('sesionevento');
 	$data=$query->result();
 	echo json_encode($data);
