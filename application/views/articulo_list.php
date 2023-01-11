@@ -26,6 +26,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 </style>
 
+<div id="eys-nav-i">
+	<ul>
+		<li> <?php echo anchor('articulo', 'Home'); ?></li>
+	</ul>
+</div>
+
+
 
 <div class="row justify-content-center">
       <!-- Page Heading -->
@@ -80,7 +87,9 @@ $(document).ready(function(){
 
 $('#show_data').on('click','.item_ver',function(){
 
-window.location.href = "http://localhost/facae/index.php/articulo";
+var id= $(this).data('idarticulo');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
 
 });
 

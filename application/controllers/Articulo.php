@@ -97,7 +97,7 @@ function articulo_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idarticulo,$r->nombre,$r->detalle,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idarticulo="'.$r->idarticulo.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('articulo/actual').'"  data-idarticulo="'.$r->idarticulo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
