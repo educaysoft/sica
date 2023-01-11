@@ -85,7 +85,16 @@ class Sesionevento_model extends CI_model {
 				return false;
 			}
 		}else{
-			return false;
+			$this->db->where('fecha',$array['fecha']);
+			$this->db->where('idevento',$array['idevento']);
+			$this->db->update('sesionevento',$array);
+
+			if($this->db->affected_rows()>0)
+			{
+				return true;
+			}else{
+				return false;
+			}
 		}
  	}
 

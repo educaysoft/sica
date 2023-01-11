@@ -79,6 +79,36 @@ public function index(){
  	}
 
 
+
+
+	public function  save_sesion()
+	{
+	 	$array_item=array(
+		 	'idsesionevento' => $this->input->post('idsesionevento'),
+		 	'idevento' => $this->input->post('idevento'),
+		 	'fecha' => $this->input->post('fecha'),
+		 	'idtema' => $this->input->post('idtema'),
+		 	'temacorto' => $this->input->post('temacorto'),
+		 	'ponderacion' => $this->input->post('ponderacion'),
+		 	'horainicio' => $this->input->post('horainicio'),
+		 	'horafin' => $this->input->post('horafin'),
+		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
+	 	);
+	 	$result=$this->sesionevento_model->save($array_item);
+	 	if($result == FALSE)
+		{
+			$data=array('resultado'=>"FALSE");
+		}else{
+			$data=array('resultado'=>"TRUE");
+		}
+		echo json_encode($data);
+  }	
+
+
+
+
+
+
 	public function edit()
 	{
 			$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
@@ -304,7 +334,7 @@ public function index(){
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idsesionevento,$r->ponderacion,$r->fecha,$r->numerosesion,$r->tema, 
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('sesionevento/actual').'"    data-idsesionevento="'.$r->idsesionevento.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('sesionevento/actual').'"    data-idsesionevento="'.$r->idsesionevento.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_edit"  data-idsesionevento="'.$r->idsesionevento.'"  data-idevento="'.$r->idevento.'">edit</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
