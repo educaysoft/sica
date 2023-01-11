@@ -349,12 +349,7 @@ foreach ($eventos as $row){
 
 
 
-				<div class="form-group row">
-					<label class="col-md-2 col-form-label">idparticipacion</label>
-					<div class="col-md-10">
-						<input type="text" name="idparticipacion_edit" id="idparticipacion_edit" class="form-control" placeholder="idparticipacion">  
-					</div>
-				</div>					
+									
 									
 
 
