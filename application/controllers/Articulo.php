@@ -92,10 +92,10 @@ function articulo_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->articulo_model->lista_articulosA();
+	 	$data0 = $this->articulo_model->lista_articulos();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idarticulo,$r->nombre,$r->lainstitucion,
+			$data[]=array($r->idarticulo,$r->nombre,$r->detalle,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idarticulo="'.$r->idarticulo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
