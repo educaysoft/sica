@@ -7,7 +7,7 @@
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label"><?php echo anchor('articulo/actual/'.$idarticulo, 'Articulo:'); ?> </label>
+<label class="col-md-2 col-form-label">Articulo: </label>
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
