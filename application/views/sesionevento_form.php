@@ -55,8 +55,29 @@ foreach ($temas as $row){
 </div>
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Unidad:</label>
+<div class="col-md-10">
+<?php
+$options= array('--Select--');
+foreach ($unidadsilabos as $row){
+	$options[$row->idunidadsilabo]="Unidad: ".$row->unidad." - Sesion: ".$row->nombre;
+}
+ echo form_dropdown("idunidadsilabo",$options,$date, array('id'=>'idunidadsilabo'));  
+?>
+</div>
+</div>
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Número de sesión:</label>
+<div class="col-md-10">
+<?php
 
+ echo form_input("numerosesion",$sesionevento['nsesion'], array("placeholder"=>"Numero de sesion"));
+
+?>
+</div>
+</div
 
 
 
