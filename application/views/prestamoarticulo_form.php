@@ -7,15 +7,15 @@
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label"><?php echo anchor('evento/actual/'.$idevento, 'Evento:'); ?> </label>
+<label class="col-md-2 col-form-label"><?php echo anchor('articulo/actual/'.$idarticulo, 'Articulo:'); ?> </label>
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
-foreach ($eventos as $row){
-	$options[$row->idevento]= $row->titulo;
+foreach ($articulos as $row){
+	$options[$row->idarticulo]= $row->titulo;
 }
 
- echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('id'=>'idevento'));  
+ echo form_dropdown("idarticulo",$options, set_select('--Select--','default_value'),array('id'=>'idarticulo'));  
 ?>
 </div>
 </div>
@@ -23,7 +23,7 @@ foreach ($eventos as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Fecha de la sesión:</label>
+<label class="col-md-2 col-form-label">Fecha del prestamo:</label>
 <div class="col-md-10">
 <?php
 
@@ -34,7 +34,26 @@ foreach ($eventos as $row){
 
     $horaf= date("H:i:s",strtotime(' + 2 hours'));
 
- echo form_input(array("name"=>"fecha","id"=>"fecha","type"=>"date","value"=>$date));  
+ echo form_input(array("name"=>"fechaprestamo","id"=>"fechaprestamo","type"=>"date","value"=>$date));  
+
+?>
+</div>
+</div>
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Fecha de devolucion:</label>
+<div class="col-md-10">
+<?php
+
+   date_default_timezone_set('America/Guayaquil');
+    $date = date("Y-m-d");
+    $horai= date("H:i:s");
+    
+
+    $horaf= date("H:i:s",strtotime(' + 2 hours'));
+
+ echo form_input(array("name"=>"fechadevolucion","id"=>"fechadevolucion","type"=>"date","value"=>$date));  
 
 ?>
 </div>
@@ -46,10 +65,10 @@ foreach ($eventos as $row){
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
-foreach ($temas as $row){
-	$options[$row->idtema]="Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto;
+foreach ($personas as $row){
+	$options[$row->idpersona]=$row->apellidos." - ".$row->nombres;
 }
- echo form_dropdown("idtema",$options,$date, array('id'=>'idtema'));  
+ echo form_dropdown("idpersona",$options,$date, array('id'=>'idpersona'));  
 ?>
 </div>
 </div>
@@ -66,7 +85,7 @@ foreach ($temas as $row){
 <?php
     
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Tema a  tratar" );    
- echo form_textarea("tema","", $textarea_options);  
+ echo form_textarea("persona","", $textarea_options);  
 
 ?>
 </div>
@@ -79,7 +98,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <?php
     
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Tema a  tratar" );    
- echo form_textarea("temacorto","", $textarea_options);  
+ echo form_textarea("personacorto","", $textarea_options);  
 
 ?>
 </div>
@@ -153,9 +172,9 @@ foreach ($modoevaluacions as $row){
 <script>
 
 	$(document).ready(()=>{
-	  var idevento= <?php echo $idevento; ?>;
-	  if(idevento>0){
-		    $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
+	  var idarticulo= <?php echo $idarticulo; ?>;
+	  if(idarticulo>0){
+		    $('#idarticulo option[value="'+idarticulo+'"]').attr('selected','selected');
 		    get_participantes();
 	  }
 	});     
