@@ -69,7 +69,7 @@ class Prestamoarticulo_model extends CI_model {
 
  	function save($array)
 	{	
-		$condition ="idarticulo="."'". $array['idarticulo']."' and  fechapretamo=". "'".$array['fechaprestamo']."' and  horaprestamo=". "'".$array['horaprestamo']."'";
+		$condition ="idarticulo="."'". $array['idarticulo']."' and  fechaprestamo=". "'".$array['fechaprestamo']."' and  horaprestamo=". "'".$array['horaprestamo']."'";
 		$this->db->select('*');
 		$this->db->from('prestamoarticulo');
 		$this->db->where($condition);
