@@ -558,11 +558,9 @@ get_participacion_xx(idsesionevento,idevento);
 });
 
 
-
+/*
 
 function get_participacion_xx(idsesionevento,idevento) {
-//	var idpersona=document.getElementById("idpersona").value;
-//	idpersona=parseInt(idpersona);
     $.ajax({
         url: "<?php echo site_url('sesionevento/get_sesionevento') ?>",
         data: {idsesionevento:idsesionevento},
@@ -606,7 +604,7 @@ function get_participacion_xx(idsesionevento,idevento) {
     })
 
 }
-
+ */
 
 /*
 $("#btn_update").on("click", function(){
