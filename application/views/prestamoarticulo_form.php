@@ -28,7 +28,7 @@ $options= array('--Select--');
 foreach ($personas as $row){
 	$options[$row->idpersona]=$row->apellidos." - ".$row->nombres;
 }
- echo form_dropdown("idpersona",$options,$date, array('id'=>'idpersona'));  
+ echo form_dropdown("idpersona",$options,set_select('--Select--','default_value'), array('id'=>'idpersona'));  
 ?>
 </div>
 </div>
