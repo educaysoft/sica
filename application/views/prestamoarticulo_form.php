@@ -61,7 +61,7 @@ foreach ($articulos as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Tema programado:</label>
+<label class="col-md-2 col-form-label">persona:</label>
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
@@ -75,17 +75,33 @@ foreach ($personas as $row){
 
 
 
-
-
-
-
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Tema a tratar:</label>
+<label class="col-md-2 col-form-label">Detalle:</label>
 <div class="col-md-10">
 <?php
     
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Tema a  tratar" );    
- echo form_textarea("persona","", $textarea_options);  
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Detalle del prestamo" );    
+ echo form_textarea("detalle","", $textarea_options);  
+
+?>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Hora prestamo:</label>
+<div class="col-md-10">
+<?php
+
+ echo form_input(array("name"=>"horaprestamo","id"=>"horaprestamo","type"=>"time","value"=>$horai));  
 
 ?>
 </div>
@@ -93,12 +109,11 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Tema nombre(corto):</label>
+<label class="col-md-2 col-form-label">Hora devolucion:</label>
 <div class="col-md-10">
 <?php
-    
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Tema a  tratar" );    
- echo form_textarea("personacorto","", $textarea_options);  
+
+ echo form_input(array("name"=>"horadevolucion","id"=>"horadevolucion","type"=>"time","value"=>$horaf));  
 
 ?>
 </div>
@@ -106,57 +121,6 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Ponderacion:</label>
-<div class="col-md-10">
-<?php
-
- echo form_input("ponderacion","", array("placeholder"=>"Ponderacion"));
-
-?>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Hora inicio:</label>
-<div class="col-md-10">
-<?php
-
- echo form_input(array("name"=>"horainicio","id"=>"horainicio","type"=>"time","value"=>$horai));  
-
-?>
-</div>
-</div>
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Hora fin:</label>
-<div class="col-md-10">
-<?php
-
- echo form_input(array("name"=>"horafin","id"=>"horafin","type"=>"time","value"=>$horaf));  
-
-?>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Modo de evaluación:</label>
-<div class="col-md-10">
-<?php
-$options= array('--Select--');
-foreach ($modoevaluacions as $row){
-	$options[$row->idmodoevaluacion]= $row->nombre;
-}
-
- echo form_dropdown("idmodoevaluacion",$options, set_select('--Select--','default_value'),array('id'=>'idmodoevaluacion'));  
-?>
-</div>
-</div>
 
 
 
