@@ -73,7 +73,7 @@ foreach ($unidadsilabos as $row){
 <div class="col-md-10">
 <?php
 print_r($sesionevento);
- echo form_input("numerosesion",$sesionevento['nsesion'], array("placeholder"=>"Numero de sesion"));
+ echo form_input("numerosesion",$sesionevento[0]->nsesion], array("placeholder"=>"Numero de sesion"));
 
 ?>
 </div>
