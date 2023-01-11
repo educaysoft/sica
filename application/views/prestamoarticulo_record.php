@@ -43,16 +43,7 @@ if(isset($prestamoarticulo))
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id evento:</label>
-	<div class="col-md-10">
-		<?php
 
-    echo form_input('idevento',$prestamoarticulo['idevento'],array("disabled"=>"disabled",'placeholder'=>'Ideventos')); 
-
-		?>
-	</div> 
-</div>
 
 
 
