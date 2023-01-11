@@ -3,7 +3,7 @@
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open("sesionevento/save") ?>
+<?php echo form_open("prestamoarticulo/save") ?>
 
 
 <div class="form-group row">
@@ -144,7 +144,7 @@ foreach ($modoevaluacions as $row){
 
 <table>
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("sesionevento","Atrás") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("prestamoarticulo","Atrás") ?> </td>
 </tr>
 
 </table>

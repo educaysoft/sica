@@ -1,9 +1,9 @@
 <?php
-class Sesionevento extends CI_Controller{
+class Prestamoarticulo extends CI_Controller{
 
 	public function __construct(){
       		parent::__construct();
-      		$this->load->model('sesionevento_model');
+      		$this->load->model('prestamoarticulo_model');
       		$this->load->model('documento_model');
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
@@ -13,18 +13,18 @@ class Sesionevento extends CI_Controller{
 	}
 
 	public function index(){
-		$data['sesionevento'] = $this->sesionevento_model->elultimo();
+		$data['prestamoarticulo'] = $this->prestamoarticulo_model->elultimo();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
-		$data['evento'] = $this->evento_model->evento($data['sesionevento']['idevento'])->row_array();
+		$data['evento'] = $this->evento_model->evento($data['prestamoarticulo']['idevento'])->row_array();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 
- 		// print_r($data['sesionevento_list']);
-  		$data['title']="Lista de Sesioneventoes";
+ 		// print_r($data['prestamoarticulo_list']);
+  		$data['title']="Lista de Prestamoarticuloes";
 		$this->load->view('template/page_header');		
-  		$this->load->view('sesionevento_record',$data);
+  		$this->load->view('prestamoarticulo_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
@@ -33,20 +33,20 @@ class Sesionevento extends CI_Controller{
 	public function actual(){
 	 if(isset($this->session->userdata['logged_in'])){
 
-		$data['sesionevento'] = $this->sesionevento_model->sesionevento($this->uri->segment(3))->row_array();
+		$data['prestamoarticulo'] = $this->prestamoarticulo_model->prestamoarticulo($this->uri->segment(3))->row_array();
 
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
 
-		$data['evento'] = $this->evento_model->evento($data['sesionevento']['idevento'])->row_array();
+		$data['evento'] = $this->evento_model->evento($data['prestamoarticulo']['idevento'])->row_array();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['title']="Sesionevento del documento";
+		$data['title']="Prestamoarticulo del documento";
 	 
 		$data['title']="Modulo de sesiones del evento";
 		$this->load->view('template/page_header');		
-		$this->load->view('sesionevento_record',$data);
+		$this->load->view('prestamoarticulo_record',$data);
 		$this->load->view('template/page_footer');
 	   }else{
 		$this->load->view('template/page_header.php');
@@ -91,7 +91,7 @@ class Sesionevento extends CI_Controller{
 		}
 		$data['title']="Nueva sesion de eventos";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('sesionevento_form',$data);
+	 	$this->load->view('prestamoarticulo_form',$data);
 	 	$this->load->view('template/page_footer');
 	}
 
@@ -108,7 +108,7 @@ class Sesionevento extends CI_Controller{
 		 	'horainicio' => $this->input->post('horainicio'),
 		 	'horafin' => $this->input->post('horafin'),
 	 	);
-	 	$result=$this->sesionevento_model->save($array_item);
+	 	$result=$this->prestamoarticulo_model->save($array_item);
 	 	if($result == FALSE)
 		{
 			echo "<script language='JavaScript'> alert('Fecha para este evento ya fue asignado'); </script>";
@@ -123,24 +123,24 @@ class Sesionevento extends CI_Controller{
 
 	public function edit()
 	{
-	 	$data['sesionevento'] = $this->sesionevento_model->sesionevento($this->uri->segment(3))->row_array();
-		$data['evento'] = $this->evento_model->evento($data['sesionevento']['idevento'])->row_array();
+	 	$data['prestamoarticulo'] = $this->prestamoarticulo_model->prestamoarticulo($this->uri->segment(3))->row_array();
+		$data['evento'] = $this->evento_model->evento($data['prestamoarticulo']['idevento'])->row_array();
 
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
- 	 	$data['title'] = "Actualizar Sesionevento";
+ 	 	$data['title'] = "Actualizar Prestamoarticulo";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('sesionevento_edit',$data);
+ 	 	$this->load->view('prestamoarticulo_edit',$data);
 	 	$this->load->view('template/page_footer');
 	}
 
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idsesionevento');
+		$id=$this->input->post('idprestamoarticulo');
 	 	$array_item=array(
 		 	'idevento' => $this->input->post('idevento'),
 		 	'fecha' => $this->input->post('fecha'),
@@ -151,17 +151,17 @@ class Sesionevento extends CI_Controller{
 		 	'horainicio' => $this->input->post('horainicio'),
 		 	'horafin' => $this->input->post('horafin'),
 	 	);
-	 	$this->sesionevento_model->update($id,$array_item);
-	 	redirect('sesionevento/actual/'.$id);
+	 	$this->prestamoarticulo_model->update($id,$array_item);
+	 	redirect('prestamoarticulo/actual/'.$id);
  	}
 
 
 
  	public function delete()
  	{
- 		$data=$this->sesionevento_model->delete($this->uri->segment(3));
+ 		$data=$this->prestamoarticulo_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('sesionevento/elprimero');
+	 	redirect('prestamoarticulo/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -173,13 +173,13 @@ public function listar()
 	$data['eventos']= $this->evento_model->lista_eventos()->result();
   $data['title']="Sesiones de evento";
 	$this->load->view('template/page_header');		
-  $this->load->view('sesionevento_list',$data);
+  $this->load->view('prestamoarticulo_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function sesionevento_data()
+function prestamoarticulo_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
@@ -192,11 +192,11 @@ function sesionevento_data()
 			$idevento=$this->input->get('idevento');
 		}
 
-	 	$data0 = $this->sesionevento_model->sesioneventosA($idevento);
+	 	$data0 = $this->prestamoarticulo_model->prestamoarticulosA($idevento);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idsesionevento,$r->elevento,$r->fecha,$r->tema,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('sesionevento/actual').'"   data-idsesionevento="'.$r->idsesionevento.'">Ver</a>');
+			$data[]=array($r->idprestamoarticulo,$r->elevento,$r->fecha,$r->tema,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('prestamoarticulo/actual').'"   data-idprestamoarticulo="'.$r->idprestamoarticulo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -215,11 +215,11 @@ function sesionevento_data()
 	{
 		
 
-	 	$data['sesioneventos']= $this->sesionevento_model->sesioneventosA($this->uri->segment(3))->result();
+	 	$data['prestamoarticulos']= $this->prestamoarticulo_model->prestamoarticulosA($this->uri->segment(3))->result();
 
 		$data['title']="Evento";
 	//	$this->load->view('template/page_header');		
-		$this->load->view('sesionevento_list_pdf',$data);
+		$this->load->view('prestamoarticulo_list_pdf',$data);
 //		$this->load->view('template/page_footer');
 	}
 
@@ -230,16 +230,16 @@ function sesionevento_data()
 public function elprimero()
 {
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['sesionevento'] = $this->sesionevento_model->elprimero();
+	$data['prestamoarticulo'] = $this->prestamoarticulo_model->elprimero();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   if(!empty($data))
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Sesionevento del documento";
+    $data['title']="Prestamoarticulo del documento";
     $this->load->view('template/page_header');		
-    $this->load->view('sesionevento_record',$data);
+    $this->load->view('prestamoarticulo_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -252,16 +252,16 @@ public function elultimo()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['temas']= $this->tema_model->lista_temas()->result();
-	$data['sesionevento'] = $this->sesionevento_model->elultimo();
+	$data['prestamoarticulo'] = $this->prestamoarticulo_model->elultimo();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   if(!empty($data))
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Sesionevento del documento";
+    $data['title']="Prestamoarticulo del documento";
   
     $this->load->view('template/page_header');		
-    $this->load->view('sesionevento_record',$data);
+    $this->load->view('prestamoarticulo_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -272,32 +272,32 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['sesionevento_list']=$this->sesionevento_model->lista_sesionevento()->result();
+ // $data['prestamoarticulo_list']=$this->prestamoarticulo_model->lista_prestamoarticulo()->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['temas']= $this->tema_model->lista_temas()->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
-	$data['sesionevento'] = $this->sesionevento_model->siguiente($this->uri->segment(3))->row_array();
+	$data['prestamoarticulo'] = $this->prestamoarticulo_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
-    $data['title']="Sesionevento del documento";
+    $data['title']="Prestamoarticulo del documento";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
-  $this->load->view('sesionevento_record',$data);
+  $this->load->view('prestamoarticulo_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['sesionevento_list']=$this->sesionevento_model->lista_sesionevento()->result();
+ // $data['prestamoarticulo_list']=$this->prestamoarticulo_model->lista_prestamoarticulo()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['temas']= $this->tema_model->lista_temas()->result();
-	$data['sesionevento'] = $this->sesionevento_model->anterior($this->uri->segment(3))->row_array();
+	$data['prestamoarticulo'] = $this->prestamoarticulo_model->anterior($this->uri->segment(3))->row_array();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
  	$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
  // $data['title']="Correo";
-    $data['title']="Sesionevento del documento";
+    $data['title']="Prestamoarticulo del documento";
 	$this->load->view('template/page_header');		
-  $this->load->view('sesionevento_record',$data);
+  $this->load->view('prestamoarticulo_record',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -307,15 +307,15 @@ public function anterior(){
 
 
 
-public function get_sesionevento() {
+public function get_prestamoarticulo() {
     $this->load->database();
     $this->load->helper('form');
-    if($this->input->get('idsesionevento')) 
+    if($this->input->get('idprestamoarticulo')) 
     {
         $this->db->select('*');
     	$this->db->order_by("fecha","asc");
-        $this->db->where(array('idsesionevento' => $this->input->get('idsesionevento')));
-        $query = $this->db->get('sesionevento');
+        $this->db->where(array('idprestamoarticulo' => $this->input->get('idprestamoarticulo')));
+        $query = $this->db->get('prestamoarticulo');
 	$data=$query->result();
 	echo json_encode($data);
 	}

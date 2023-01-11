@@ -1,107 +1,205 @@
 <div id="eys-nav-i">
-	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-	<ul>
+
+<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+<?php echo form_open('sesionevento/save_edit') ?>
+    <ul>
 <?php
-if(isset($calendarioacademico))
+if(isset($sesionevento))
 {
 ?>
-        <li> <?php echo anchor('calendarioacademico/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('calendarioacademico/siguiente/'.$calendarioacademico['idcalendarioacademico'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('calendarioacademico/anterior/'.$calendarioacademico['idcalendarioacademico'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('calendarioacademico/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('calendarioacademico/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('calendarioacademico/edit/'.$calendarioacademico['idcalendarioacademico'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('calendarioacademico/delete/'.$calendarioacademico['idcalendarioacademico'],'Delete'); ?></li>
-        <li> <?php echo anchor('calendarioacademico/listar/'.$calendarioacademico['idperiodoacademico'],'Listar'); ?></li>
-        <li> <?php echo anchor('calendarioacademico/reportepdf/'.$calendarioacademico['idperiodoacademico'],'reportepdf'); ?></li>
-        <li> <?php echo anchor('calendarioacademicounidad/','Unidades'); ?></li>
-        <li> <?php echo anchor('distributivo/','Distributivo'); ?></li>
+ 
+        <li> <?php echo anchor('sesionevento/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('sesionevento/anterior/'.$sesionevento['idsesionevento'], 'anterior'); ?></li>
+        <li> <?php echo anchor('sesionevento/siguiente/'.$sesionevento['idsesionevento'], 'siguiente'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('sesionevento/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('sesionevento/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('sesionevento/edit/'.$sesionevento['idsesionevento'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('sesionevento/delete/'.$sesionevento['idsesionevento'],'Delete'); ?></li>
+        <li> <?php echo anchor('sesionevento/listar/'.$sesionevento['idevento'],'Listar'); ?></li>
+	<li> <?php echo anchor('sesionevento/reportepdf/'.$sesionevento['idevento'], 'Reportepdf'); ?></li>
 
+    </ul>
 <?php 
 }else{
 ?>
-        <li> <?php echo anchor('calendarioacademico/add', 'Nuevo'); ?></li>
+
+        <li> <?php echo anchor('sesionevento/add', 'Nuevo'); ?></li>
+    </ul>
 <?php
+	die();
 }
 ?>
-    </ul>
+
+
+
+
+
 </div>
 <br>
-<br>
 
 
-<?php echo form_open('calendarioacademico/save_edit') ?>
-<?php echo form_hidden('idcalendarioacademico',$calendarioacademico['idcalendarioacademico']) ?>
+<?php echo form_hidden('idevento',$sesionevento['idevento']) ?>
+<table>
+
+
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id:</label>
+    <label class="col-md-2 col-form-label"> Id evento:</label>
 	<div class="col-md-10">
 		<?php
-      echo form_input('idcalendarioacademico',$calendarioacademico['idcalendarioacademico'],array("id"=>"idcalendarioacademico","disabled"=>"disabled"));
-		?>
-	</div> 
-</div> 
 
+    echo form_input('idevento',$sesionevento['idevento'],array("disabled"=>"disabled",'placeholder'=>'Ideventos')); 
 
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">Institucion:</label>
-	<div class="col-md-10">
-	<?php
-	$options= array("NADA");
-	foreach ($instituciones as $row){
-		$options[$row->idinstitucion]= $row->nombre;
-	}
-	echo form_input('',$options[$calendarioacademico['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-	?>
-	</div> 
-</div>
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Periodo : ( <?php echo anchor('periodoacademico/actual/'.$calendarioacademico['idperiodoacademico'], 'Ver'); ?>):</label>
-	<div class="col-md-10">
-     	<?php 
-	$options=array();
-  	foreach ($periodoacademicos as $row){
-		$options[$row->idperiodoacademico]=$row->nombrecorto;
-	}
-	?>
-		<?php
-
-    echo form_input('idperiodoacademico',$options[$calendarioacademico['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
 
 
 
-
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('fechacalendario/add', 'Fechas'); ?>: </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('evento/actual/'.$sesionevento['idevento'], 'Evento:'); ?> </label>
 	<div class="col-md-10">
-	<div class="row justify-content-left">
-      	<!-- Page Heading -->
- 	<div class="row">
-  	<div class="col-12">
-	<table class="table table-striped table-bordered table-hover" id="mydatac">
-	 <thead>
-	 <tr>
-	 <th>idcalendario</th>
-	 <th>idfecha</th>
-	 <th>fecha</th>
-	 <th>actividad.</th>
-	 <th style="text-align: right;">Actions</th>
-	 </tr>
-	 </thead>
-	 <tbody id="show_data">
-	 </tbody>
-	</table>
-	</div>
-	</div>
-	</div>
+     <?php 
+$options= array("NADA");
+foreach ($eventos as $row){
+	$options[$row->idevento]= $row->titulo;
+}
+
+echo form_input('idevento',$options[$sesionevento['idevento']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
 	</div> 
 </div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">   <?php echo anchor('tema/actual/'.$sesionevento['idtema'],'Tema silabo: '); ?></label>
+	<div class="col-md-10">
+     <?php 
+$options= array("NADA");
+foreach ($temas as $row){
+	$options[$row->idtema]="Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto;
+}
+
+echo form_input('idtema',$options[$sesionevento['idtema']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha de la sesión:</label>
+	<div class="col-md-10">
+		<?php
+      		 echo form_input('fecha',$sesionevento['fecha'],array('type'=>'date','placeholder'=>'fecha','style'=>'width:500px;')) 
+		?>
+	</div> 
+</div>
+
+
+
+
+
+
+ 
+  
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Tema tratado(corto):</label>
+	<div class="col-md-10">
+		<?php
+
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options); 
+
+
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Tema tratado(largo):</label>
+	<div class="col-md-10">
+		<?php
+
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('tema',$sesionevento['tema'],$textarea_options); 
+
+
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Ponderacion:</label>
+	<div class="col-md-10">
+		<?php
+
+    echo form_input('ponderacion',$sesionevento['ponderacion'],array("disabled"=>"disabled",'placeholder'=>'ponderacion')); 
+
+		?>
+	</div> 
+</div>
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Hora inicio:</label>
+	<div class="col-md-10">
+		<?php
+     $eys_arrinput=array('name'=>'horainicio','id'=>'horainicio',"type"=>"time",'value'=>$sesionevento['horainicio'], "style"=>"width:500px");
+     echo form_input($eys_arrinput); 
+
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Hora fin:</label>
+	<div class="col-md-10">
+		<?php
+     $eys_arrinput=array('name'=>'horafin','id'=>'horafin',"type"=>"time",'value'=>$sesionevento['horafin'], "style"=>"width:500px");
+     echo form_input($eys_arrinput); 
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Modo de evaluación: </label>
+	<div class="col-md-10">
+     <?php 
+$options= array("NADA");
+foreach ($modoevaluacions as $row){
+	$options[$row->idmodoevaluacion]= $row->nombre;
+}
+
+echo form_input('idmodoevaluacion',$options[$sesionevento['idmodoevaluacion']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
+
+
 
 
 
@@ -111,22 +209,17 @@ if(isset($calendarioacademico))
 <?php echo form_close(); ?>
 
 
-<script type="text/javascript">
 
-$(document).ready(function(){
-	var idcalendarioacademico=document.getElementById("idcalendarioacademico").value;
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('calendarioacademico/fecha_data')?>', type: 'GET',data:{idcalendarioacademico:idcalendarioacademico}},});
-});
-
-
-$('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idfechacalendario');
-var retorno= $(this).data('retorno');
-window.location.href = retorno+'/'+id;
-});
-
-
-</script>
 
 
 </body>
+
+
+
+
+
+
+
+
+
+</html>

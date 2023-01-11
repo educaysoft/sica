@@ -1,15 +1,15 @@
-<?php echo form_open('sesionevento/save_edit') ?>
-<?php echo form_hidden('idsesionevento',$sesionevento['idsesionevento']) ?>
+<?php echo form_open('prestamoarticulo/save_edit') ?>
+<?php echo form_hidden('idprestamoarticulo',$prestamoarticulo['idprestamoarticulo']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
 <table>
  
    <tr>
-     <td>Id sesionevento</td>
+     <td>Id prestamoarticulo</td>
      <td><?php 
 
 
-$eys_arrinput=array('name'=>'idsesionevento','value'=>$sesionevento['idsesionevento'],'readonly'=>'true', "style"=>"width:500px");
+$eys_arrinput=array('name'=>'idprestamoarticulo','value'=>$prestamoarticulo['idprestamoarticulo'],'readonly'=>'true', "style"=>"width:500px");
 echo form_input($eys_arrinput); ?></td>
   </tr> 
 
@@ -22,13 +22,13 @@ foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
 }
 
- echo form_dropdown("idevento",$options, $sesionevento['idevento']);  ?></td>
+ echo form_dropdown("idevento",$options, $prestamoarticulo['idevento']);  ?></td>
 </tr>
 
  
  <tr>
       <td>Fecha :</td>
-      <td><?php echo form_input( array("name"=>'fecha',"id"=>'fecha',"value"=>$sesionevento['fecha'],'type'=>'date','placeholder'=>'fecha')); ?></td>
+      <td><?php echo form_input( array("name"=>'fecha',"id"=>'fecha',"value"=>$prestamoarticulo['fecha'],'type'=>'date','placeholder'=>'fecha')); ?></td>
   </tr>
  
 
@@ -40,7 +40,7 @@ foreach ($temas as $row){
 	$options[$row->idtema]="Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto;
 }
 
- echo form_dropdown("idtema",$options, $sesionevento['idtema']);  ?></td>
+ echo form_dropdown("idtema",$options, $prestamoarticulo['idtema']);  ?></td>
 </tr>
 
 
@@ -53,7 +53,7 @@ foreach ($temas as $row){
   <td><?php 
   
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"tema","id" =>"tema");    
-echo form_textarea('tema',$sesionevento['tema'],$textarea_options ); ?></td>
+echo form_textarea('tema',$prestamoarticulo['tema'],$textarea_options ); ?></td>
  </tr>
 
 
@@ -62,14 +62,14 @@ echo form_textarea('tema',$sesionevento['tema'],$textarea_options ); ?></td>
   <td><?php 
   
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"tema","id" =>"temacorto");    
-echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); ?></td>
+echo form_textarea('temacorto',$prestamoarticulo['temacorto'],$textarea_options ); ?></td>
  </tr>
 
 
 <tr>
      <td>Ponderacion:</td>
      <td><?php 
-     $eys_arrinput=array('name'=>'ponderacion','value'=>$sesionevento['ponderacion'], "style"=>"width:500px");
+     $eys_arrinput=array('name'=>'ponderacion','value'=>$prestamoarticulo['ponderacion'], "style"=>"width:500px");
      echo form_input($eys_arrinput); ?></td>
 </tr>
 
@@ -77,14 +77,14 @@ echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); ?
 <tr>
      <td>Hora inicio:</td>
      <td><?php 
-     $eys_arrinput=array('name'=>'horainicio','id'=>'horainicio',"type"=>"time",'value'=>$sesionevento['horainicio'], "style"=>"width:500px");
+     $eys_arrinput=array('name'=>'horainicio','id'=>'horainicio',"type"=>"time",'value'=>$prestamoarticulo['horainicio'], "style"=>"width:500px");
      echo form_input($eys_arrinput); ?></td>
 </tr>
 
 <tr>
      <td>Hora fin:</td>
      <td><?php 
-     $eys_arrinput=array('name'=>'horafin','id'=>'horafin',"type"=>"time",'value'=>$sesionevento['horafin'], "style"=>"width:500px");
+     $eys_arrinput=array('name'=>'horafin','id'=>'horafin',"type"=>"time",'value'=>$prestamoarticulo['horafin'], "style"=>"width:500px");
      echo form_input($eys_arrinput); ?></td>
 </tr>
 
@@ -98,7 +98,7 @@ foreach ($modoevaluacions as $row){
 	$options[$row->idmodoevaluacion]= $row->nombre;
 }
 
- echo form_dropdown("idmodoevaluacion",$options, $sesionevento['idmodoevaluacion']);  ?></td>
+ echo form_dropdown("idmodoevaluacion",$options, $prestamoarticulo['idmodoevaluacion']);  ?></td>
 </tr>
 
 
@@ -108,7 +108,7 @@ foreach ($modoevaluacions as $row){
 
 
  <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('sesionevento','Atras') ?></td>
+ <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('prestamoarticulo','Atras') ?></td>
  </tr>
 </table>
 <?php echo form_close(); ?>
