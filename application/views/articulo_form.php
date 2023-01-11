@@ -4,7 +4,17 @@
 <?php echo form_hidden("idarticulo")  ?>
 <table>
 
+<tr>
+<td> Institución: </td>
+<td><?php 
 
+$options= array('--Select--');
+foreach ($instituciones as $row){
+	$options[$row->idinstitucion]= $row->nombre;
+}
+
+ echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
 
 
 
@@ -19,30 +29,10 @@
 <td><?php echo form_input("detalle","", array("placeholder"=>"Detalle de artiulo"))  ?></td>
 </tr>
 
-<tr>
-<td> Institución: </td>
-<td><?php 
-
-$options= array('--Select--');
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
-}
-
- echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
 
 
-<tr>
-<td> Categoría: </td>
-<td><?php 
 
-$options= array('--Select--');
-foreach ($categorias as $row){
-	$options[$row->idcategoria]= $row->nombre;
-}
 
- echo form_dropdown("idcategoria",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
 
 
 
