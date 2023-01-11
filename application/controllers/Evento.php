@@ -28,6 +28,7 @@ public function index(){
 	$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 	$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
   	$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 	$data['title']="Usted esta visualizando el Eventos  #";
