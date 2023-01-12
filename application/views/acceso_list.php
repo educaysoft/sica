@@ -119,7 +119,9 @@ $(document).ready(function(){
 
 $('#show_data').on('click','.item_ver',function(){
 
-window.location.href = "http://localhost/facae/index.php/acceso";
+var id= $(this).data('idacceso');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
 
 });
 

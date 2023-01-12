@@ -141,7 +141,7 @@ function acceso_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idacceso,$r->elusuario,$r->elmodulo,$r->elnivelacceso,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idacceso="'.$r->idacceso.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('acceso/actual').'"  data-idacceso="'.$r->idacceso.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
