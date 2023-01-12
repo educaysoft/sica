@@ -114,6 +114,18 @@ class Sesionevento extends CI_Controller{
 		 	'horafin' => $this->input->post('horafin'),
 	 	);
 	 	$result=$this->sesionevento_model->save($array_item);
+	 	$array_item=array(
+	 	'nombrecorto' => $this->input->post('temacorto'),
+		'idvideotutorial' => 0,
+	 	'nombrelargo' => $this->input->post('tema'),
+	 	'idunidadsilabo' => $this->input->post('idunidadsilabo'),
+	 	'duracionminutos' => 120,
+		 'numerosesion' => $this->input->post('numerosesion'),
+	 	);
+	 	$this->tema_model->save($array_item);
+
+
+
 	 	if($result == FALSE)
 		{
 			echo "<script language='JavaScript'> alert('Fecha para este evento ya fue asignado'); </script>";

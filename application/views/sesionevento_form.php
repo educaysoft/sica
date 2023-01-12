@@ -42,7 +42,7 @@ foreach ($eventos as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Tema programado:</label>
+<label class="col-md-2 col-form-label">Tema dictados:</label>
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
