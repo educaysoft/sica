@@ -82,7 +82,7 @@ public function edit()
 public function listar()
 {
 	
-  $data['nivelacceso'] = $this->nivelacceso_model->lista_nivelaccesoes()->result();
+  $data['nivelacceso'] = $this->nivelacceso_model->lista_nivelaccesos()->result();
   $data['title']="Nivelacceso";
 	$this->load->view('template/page_header');		
   $this->load->view('nivelacceso_list',$data);
