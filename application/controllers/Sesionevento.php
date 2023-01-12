@@ -272,9 +272,10 @@ public function elprimero()
 public function elultimo()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-  		$data['temas']= $this->tema_model->lista_temas()->result();
 	$data['sesionevento'] = $this->sesionevento_model->elultimo();
+		$data['evento'] = $this->evento_model->evento($data['sesionevento']['idevento'])->row_array();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
   if(!empty($data))
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
