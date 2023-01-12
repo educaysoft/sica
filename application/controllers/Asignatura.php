@@ -17,6 +17,7 @@ public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 	  	$data['asignatura']=$this->asignatura_model->asignatura(1)->row_array();
   		$data['mallas']= $this->malla_model->lista_mallas()->result();
+ 		$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
   		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   		$data['title']="Lista de asignatura";
