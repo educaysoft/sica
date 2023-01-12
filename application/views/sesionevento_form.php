@@ -34,7 +34,7 @@ foreach ($eventos as $row){
 
     $horaf= date("H:i:s",strtotime(' + 2 hours'));
 
- echo form_input(array("name"=>"fecha","id"=>"fecha","readonly"=>"false", "type"=>"date","value"=>$date));  
+ echo form_input(array("name"=>"fecha","id"=>"fecha", "type"=>"date","value"=>$date));  
 
 ?>
 </div>
