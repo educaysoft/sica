@@ -85,7 +85,7 @@ foreach ($unidadsilabos as $row){
 <div class="col-md-10">
 <?php
     
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Tema a  tratar" );    
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Descripción corta del tema" );    
  echo form_textarea("temacorto","", $textarea_options);  
 
 ?>
@@ -99,7 +99,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div class="col-md-10">
 <?php
     
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Tema a  tratar" );    
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Descripción larga del tema" );    
  echo form_textarea("tema","", $textarea_options);  
 
 ?>
