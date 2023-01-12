@@ -73,21 +73,7 @@ foreach ($unidadsilabos as $row){
 <div class="col-md-10">
 <?php
  //print_r($sesionevento);
- echo form_input("numerosesion",$sesionevento[0]->nsesion+1, array("placeholder"=>"Numero de sesion"));
-
-?>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Tema a tratar:</label>
-<div class="col-md-10">
-<?php
-    
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Tema a  tratar" );    
- echo form_textarea("tema","", $textarea_options);  
+ echo form_input("numerosesion",$sesionevento[0]->nsesion+1, array("disabled"=>"disabled","placeholder"=>"Numero de sesion"));
 
 ?>
 </div>
@@ -109,6 +95,23 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <div class="form-group row">
+<label class="col-md-2 col-form-label">Tema descripción:</label>
+<div class="col-md-10">
+<?php
+    
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Tema a  tratar" );    
+ echo form_textarea("tema","", $textarea_options);  
+
+?>
+</div>
+</div>
+
+
+
+
+
+
+<div class="form-group row">
 <label class="col-md-2 col-form-label">Ponderacion:</label>
 <div class="col-md-10">
 <?php
@@ -126,7 +129,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div class="col-md-10">
 <?php
 
- echo form_input(array("name"=>"horainicio","id"=>"horainicio","type"=>"time","value"=>$horai));  
+ echo form_input(array("name"=>"horainicio","id"=>"horainicio","disabled"=>"disabled","type"=>"time","value"=>$horai));  
 
 ?>
 </div>
@@ -138,7 +141,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div class="col-md-10">
 <?php
 
- echo form_input(array("name"=>"horafin","id"=>"horafin","type"=>"time","value"=>$horaf));  
+ echo form_input(array("name"=>"horafin","id"=>"horafin","disabled"=>"disabled",   "type"=>"time","value"=>$horaf));  
 
 ?>
 </div>
