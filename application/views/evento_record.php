@@ -160,7 +160,7 @@ echo form_input($arrdatos) ?>
     <label class="col-md-2 col-form-label"> Detalle:</label>
 	<div class="col-md-10">
       <?php
-	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:500px;height:100px;');    
 	echo form_textarea('detalle',$evento['detalle'],$textarea_options);
 	?>
 	</div> 
@@ -171,7 +171,7 @@ echo form_input($arrdatos) ?>
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha de inicio:</label>
 	<div class="col-md-10">
-      <?php echo form_input('fechainicia',$evento['fechainicia'],array('type'=>'date', 'placeholder'=>'fechainicia','style'=>'width:500px;')) ?>
+      <?php echo form_input('fechainicia',$evento['fechainicia'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechainicia','style'=>'width:500px;')) ?>
 	</div> 
 </div>
 
@@ -179,7 +179,7 @@ echo form_input($arrdatos) ?>
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha de finaliza:</label>
 	<div class="col-md-10">
-      <?php echo form_input('fechafinaliza',$evento['fechafinaliza'],array('type'=>'date', 'placeholder'=>'fechafinaliza','style'=>'width:500px;')) ?>
+      <?php echo form_input('fechafinaliza',$evento['fechafinaliza'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechafinaliza','style'=>'width:500px;')) ?>
 	</div> 
 </div>
 

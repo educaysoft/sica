@@ -61,7 +61,7 @@ foreach ($temas as $row){
 <?php
 $options= array('--Select--');
 foreach ($unidadsilabos as $row){
-	$options[$row->idunidadsilabo]="Unidad: ".$row->unidad." - Sesion: ".$row->nombre;
+	$options[$row->idunidadsilabo]="Unidad: ".$row->unidad;
 }
  echo form_dropdown("idunidadsilabo",$options,$date, array('id'=>'idunidadsilabo'));  
 ?>
@@ -73,7 +73,7 @@ foreach ($unidadsilabos as $row){
 <div class="col-md-10">
 <?php
  //print_r($sesionevento);
- echo form_input("numerosesion",$sesionevento[0]->nsesion, array("placeholder"=>"Numero de sesion"));
+ echo form_input("numerosesion",$sesionevento[0]->nsesion+1, array("placeholder"=>"Numero de sesion"));
 
 ?>
 </div>
