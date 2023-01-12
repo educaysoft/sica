@@ -70,9 +70,10 @@ foreach ($usuarios as $row){
  <thead>
  <tr>
  <th>ID</th>
- <th>usuario</th>
- <th>modulo</th>
- <th>NivelAcceso</th>
+ <th>create</th>
+ <th>read</th>
+ <th>update</th>
+ <th>delete</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
@@ -113,7 +114,7 @@ var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo si
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('acceso/acceso_data')?>', type: 'GET',data:{idusuario:idusuario}},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('nivelacceso/nivelacceso_data')?>', type: 'GET',data:{idusuario:idusuario}},});
 
 });
 
