@@ -4,15 +4,15 @@ class Areaconocimiento extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('paralelo_model');
+      $this->load->model('areaconocimiento_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['paralelo']=$this->paralelo_model->paralelo(1)->row_array();
-		$data['title']="Lista de paraleloes";
+		$data['areaconocimiento']=$this->areaconocimiento_model->areaconocimiento(1)->row_array();
+		$data['title']="Lista de areaconocimientoes";
 		$this->load->view('template/page_header');
-		$this->load->view('paralelo_record',$data);
+		$this->load->view('areaconocimiento_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva paralelo";
+		$data['title']="Nueva areaconocimiento";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('paralelo_form',$data);
+	 	$this->load->view('areaconocimiento_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,21 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idparalelo' => $this->input->post('idparalelo'),
+	 	'idareaconocimiento' => $this->input->post('idareaconocimiento'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->paralelo_model->save($array_item);
-	 	redirect('paralelo');
+	 	$this->areaconocimiento_model->save($array_item);
+	 	redirect('areaconocimiento');
  	}
 
 
 
 public function edit()
 {
-	 	$data['paralelo'] = $this->paralelo_model->paralelo($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar paralelo";
+	 	$data['areaconocimiento'] = $this->areaconocimiento_model->areaconocimiento($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar areaconocimiento";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('paralelo_edit',$data);
+ 	 	$this->load->view('areaconocimiento_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +56,22 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idparalelo');
+		$id=$this->input->post('idareaconocimiento');
 	 	$array_item=array(
 		 	
-		 	'idparalelo' => $this->input->post('idparalelo'),
+		 	'idareaconocimiento' => $this->input->post('idareaconocimiento'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->paralelo_model->update($id,$array_item);
-	 	redirect('paralelo');
+	 	$this->areaconocimiento_model->update($id,$array_item);
+	 	redirect('areaconocimiento');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->paralelo_model->delete($this->uri->segment(3));
+ 		$data=$this->areaconocimiento_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('paralelo/elprimero');
+	 	redirect('areaconocimiento/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -81,24 +81,24 @@ public function listar()
 	
   $data['title']="Areaconocimiento";
 	$this->load->view('template/page_header');		
-  $this->load->view('paralelo_list',$data);
+  $this->load->view('areaconocimiento_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function paralelo_data()
+function areaconocimiento_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->paralelo_model->lista_paralelos();
+	 	$data0 = $this->areaconocimiento_model->lista_areaconocimientos();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idparalelo,$r->numero,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('paralelo/actual').'"     data-idparalelo="'.$r->idparalelo.'">Ver</a>');
+			$data[]=array($r->idareaconocimiento,$r->numero,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('areaconocimiento/actual').'"     data-idareaconocimiento="'.$r->idareaconocimiento.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -116,12 +116,12 @@ function paralelo_data()
 
 public function actual()
 {
-	$data['paralelo'] = $this->paralelo_model->paralelo($this->uri->segment(3))->row_array();
+	$data['areaconocimiento'] = $this->areaconocimiento_model->areaconocimiento($this->uri->segment(3))->row_array();
   if(!empty($data))
   {
     $data['title']="Areaconocimiento";
     $this->load->view('template/page_header');		
-    $this->load->view('paralelo_record',$data);
+    $this->load->view('areaconocimiento_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -143,12 +143,12 @@ public function actual()
 
 public function elprimero()
 {
-	$data['paralelo'] = $this->paralelo_model->elprimero();
+	$data['areaconocimiento'] = $this->areaconocimiento_model->elprimero();
   if(!empty($data))
   {
     $data['title']="Areaconocimiento";
     $this->load->view('template/page_header');		
-    $this->load->view('paralelo_record',$data);
+    $this->load->view('areaconocimiento_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -159,13 +159,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['paralelo'] = $this->paralelo_model->elultimo();
+	$data['areaconocimiento'] = $this->areaconocimiento_model->elultimo();
   if(!empty($data))
   {
     $data['title']="Areaconocimiento";
   
     $this->load->view('template/page_header');		
-    $this->load->view('paralelo_record',$data);
+    $this->load->view('areaconocimiento_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -176,20 +176,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['paralelo_list']=$this->paralelo_model->lista_paralelo()->result();
-	$data['paralelo'] = $this->paralelo_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['areaconocimiento_list']=$this->areaconocimiento_model->lista_areaconocimiento()->result();
+	$data['areaconocimiento'] = $this->areaconocimiento_model->siguiente($this->uri->segment(3))->row_array();
   $data['title']="Areaconocimiento";
 	$this->load->view('template/page_header');		
-  $this->load->view('paralelo_record',$data);
+  $this->load->view('areaconocimiento_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['paralelo_list']=$this->paralelo_model->lista_paralelo()->result();
-	$data['paralelo'] = $this->paralelo_model->anterior($this->uri->segment(3))->row_array();
+ // $data['areaconocimiento_list']=$this->areaconocimiento_model->lista_areaconocimiento()->result();
+	$data['areaconocimiento'] = $this->areaconocimiento_model->anterior($this->uri->segment(3))->row_array();
   $data['title']="Areaconocimiento";
 	$this->load->view('template/page_header');		
-  $this->load->view('paralelo_record',$data);
+  $this->load->view('areaconocimiento_record',$data);
 	$this->load->view('template/page_footer');
 }
 
