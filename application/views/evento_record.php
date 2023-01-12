@@ -657,21 +657,9 @@ $("#btn_update").on("click", function(){
 
 
 
-
-
 </script>
 
-
-
-
 </body>
-
-
-
-
-
-
-
 
 
 </html>

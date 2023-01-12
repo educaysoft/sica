@@ -103,9 +103,24 @@ class Sesionevento extends CI_Controller{
 
 	public function  save()
 	{
+
+	 	$array_item2=array(
+	 	'nombrecorto' => $this->input->post('temacorto'),
+		'idvideotutorial' => 0,
+	 	'nombrelargo' => $this->input->post('tema'),
+	 	'idunidadsilabo' => $this->input->post('idunidadsilabo'),
+	 	'duracionminutos' => 120,
+		 'numerosesion' => $this->input->post('numerosesion'),
+	 	);
+	 	$idtema =$this->tema_model->save($array_item2);
+
+
+
+
+
 	 	$array_item=array(
 		 	'tema' => $this->input->post('tema'),
-		 	'idtema' => $this->input->post('idtema'),
+		 	'idtema' => $idtema,
 		 	'temacorto' => $this->input->post('temacorto'),
 		 	'fecha' => $this->input->post('fecha'),
 		 	'idevento' => $this->input->post('idevento'),
@@ -114,17 +129,6 @@ class Sesionevento extends CI_Controller{
 		 	'horafin' => $this->input->post('horafin'),
 	 	);
 	 	$result=$this->sesionevento_model->save($array_item);
-	 	$array_item=array(
-	 	'nombrecorto' => $this->input->post('temacorto'),
-		'idvideotutorial' => 0,
-	 	'nombrelargo' => $this->input->post('tema'),
-	 	'idunidadsilabo' => $this->input->post('idunidadsilabo'),
-	 	'duracionminutos' => 120,
-		 'numerosesion' => $this->input->post('numerosesion'),
-	 	);
-	 	$this->tema_model->save($array_item);
-
-
 
 	 	if($result == FALSE)
 		{
