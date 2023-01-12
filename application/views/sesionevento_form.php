@@ -34,7 +34,7 @@ foreach ($eventos as $row){
 
     $horaf= date("H:i:s",strtotime(' + 2 hours'));
 
- echo form_input(array("name"=>"fecha","id"=>"fecha","disabled"=>"disabled", "type"=>"date","value"=>$date));  
+ echo form_input(array("name"=>"fecha","id"=>"fecha","readonly"=>"true", "type"=>"date","value"=>$date));  
 
 ?>
 </div>
@@ -73,7 +73,7 @@ foreach ($unidadsilabos as $row){
 <div class="col-md-10">
 <?php
  //print_r($sesionevento);
- echo form_input("numerosesion",$sesionevento[0]->nsesion+1, array("disabled"=>"disabled","placeholder"=>"Numero de sesion"));
+ echo form_input("numerosesion",$sesionevento[0]->nsesion+1, array("readonly"=>"true","placeholder"=>"Numero de sesion"));
 
 ?>
 </div>
@@ -129,7 +129,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div class="col-md-10">
 <?php
 
- echo form_input(array("name"=>"horainicio","id"=>"horainicio","disabled"=>"disabled","type"=>"time","value"=>$horai));  
+ echo form_input(array("name"=>"horainicio","id"=>"horainicio","readonly"=>"true","type"=>"time","value"=>$horai));  
 
 ?>
 </div>
@@ -141,7 +141,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div class="col-md-10">
 <?php
 
- echo form_input(array("name"=>"horafin","id"=>"horafin","disabled"=>"disabled",   "type"=>"time","value"=>$horaf));  
+ echo form_input(array("name"=>"horafin","id"=>"horafin","readonly"=>"true",   "type"=>"time","value"=>$horaf));  
 
 ?>
 </div>
