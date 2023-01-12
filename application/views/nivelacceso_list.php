@@ -70,6 +70,7 @@ foreach ($usuarios as $row){
  <thead>
  <tr>
  <th>ID</th>
+ <th>nombre</th>
  <th>create</th>
  <th>read</th>
  <th>update</th>
