@@ -99,7 +99,7 @@ function nivelacceso_data()
 	 	$data0 = $this->nivelacceso_model->lista_nivelaccesoes();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idnivelacceso,$r->nombre,
+			$data[]=array($r->idnivelacceso,$r->nombre,$r->create,$r->read,$r->update,$r->delete,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idnivelacceso="'.$r->idnivelacceso.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,

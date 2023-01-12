@@ -32,21 +32,47 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Documento_estado - Listar 
-                 <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
+                 <h3>Lista de accesos 
+                  <div class="float-right">
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Usuario:</label>
+<?php
+$options= array('--Select--');
+foreach ($usuarios as $row){
+	$options[$row->idusuario]= $row->elusuario."-".$row->email;
+}
+?>
+
+	<div class="col-md-10">
+
+<?php
+     echo form_dropdown("idusuario",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_usuario()'));  
+?>
+</div>
+</div>
+
+
+
+</div>
 			  
         	</h3>
        	     </div>
 
+<div id="eys-nav-i">
+	<ul>
+		<li> <?php echo anchor('acceso', 'Home'); ?></li>
+	</ul>
+</div>
+
+<br>
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
  <th>ID</th>
- <th>nombre</th>
- <th>create</th>
- <th>read</th>
- <th>update</th>
- <th>delete</th>
+ <th>usuario</th>
+ <th>modulo</th>
+ <th>NivelAcceso</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
@@ -60,30 +86,40 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </div>
 
 <div class="modal fade" id="Modal_pdf" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: 800px;">
-
-
-
-
-
- <div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-</div>
-
+ 	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	</div>
  </div>
 
 
 
 <script type="text/javascript">
 
+
+
+var idusuario=0;
+function filtra_usuario()
+{
+
+idusuario = $('select[name=idusuario]').val();
+
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('acceso/acceso_data')?>', type: 'GET',data:{idusuario:idusuario}},});
+}
+
+
+
+
+
+
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('nivelacademico/nivelacademico_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('acceso/acceso_data')?>', type: 'GET',data:{idusuario:idusuario}},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('idnivelacademico');
+var id= $(this).data('idacceso');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 
