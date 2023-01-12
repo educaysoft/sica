@@ -102,7 +102,7 @@ function nivelacceso_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idnivelacceso,$r->nombre,$r->create,$r->read,$r->update,$r->delete,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idnivelacceso="'.$r->idnivelacceso.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('nivelacceso/actual').'"  data-idnivelacceso="'.$r->idnivelacceso.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
