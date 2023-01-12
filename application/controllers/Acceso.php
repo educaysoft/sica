@@ -37,7 +37,7 @@ public function index(){
 
 public function actual(){
  if(isset($this->session->userdata['logged_in'])){
-	$data['acceso']=$this->acceso_model->usuario($this->uri->segment(3))->row_array();
+	$data['acceso']=$this->acceso_model->acceso($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
