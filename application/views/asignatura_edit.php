@@ -35,6 +35,21 @@ foreach ($mallas as $row){
 
 
 <tr>
+<td> Área conocimiento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($areaconocimientos as $row){
+	$options[$row->idareaconocimiento]= $row->nombre;
+}
+
+ echo form_dropdown("idareaconocimiento",$options, $asignatura['idareaconocimiento']);  ?></td>
+</tr>
+
+
+
+
+
+<tr>
 <td> Nivel:</td>
 <td><?php
 $options= array('--Select--');

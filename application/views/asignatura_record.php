@@ -86,6 +86,23 @@ if(isset($asignatura))
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Área conocimiento: ( <?php echo anchor('areaconocimiento/actual/'.$asignatura['idareaconocimiento'], 'Ver'); ?>):</label>
+	<div class="col-md-10">
+      <?php
+    $options= array("NADA");
+    foreach ($areaconocimientos as $row){
+	      $options[$row->idareaconocimiento]= $row->nombre;
+    }
+    echo form_input('idareaconocimiento',$options[$asignatura['idareaconocimiento']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+	?>
+	</div> 
+</div>
+
+
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Nivel:</label>
 	<div class="col-md-10">
       <?php

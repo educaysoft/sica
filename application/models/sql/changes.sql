@@ -123,7 +123,7 @@ alter table fechacalendario add column idcalendarioacademico int(11);
 /* alter table calendarioacademico change idinstitucion iddepartamento int(11); */
 /* alter table distributivo drop column idinstitucion; */
 
-alter table fechacalendario add column hito tinyint default 0;
+/* alter table fechacalendario add column hito tinyint default 0; */
 
-
+alter table asignatura add column idareaconocimiento int(11) default 0;
 
