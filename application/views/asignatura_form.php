@@ -55,7 +55,7 @@ foreach ($mallas as $row){
 <?php 
 
 $options= array('--Select--');
-foreach ($areconocimientos as $row){
+foreach ($areaconocimientos as $row){
 	$options[$row->idareconocimiento]= $row->nombre;
 }
  echo form_dropdown("idareconocimiento",$options, set_select('--Select--','default_value'));  
