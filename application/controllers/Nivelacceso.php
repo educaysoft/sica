@@ -4,6 +4,7 @@ class Nivelacceso extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
+   	$this->load->model('usuario_model');
       $this->load->model('nivelacceso_model');
 }
 
@@ -82,6 +83,7 @@ public function edit()
 public function listar()
 {
 	
+  $data['usuarios'] = $this->usuario_model->lista_usuarios()->result();
   $data['nivelacceso'] = $this->nivelacceso_model->lista_nivelaccesos()->result();
   $data['title']="Nivelacceso";
 	$this->load->view('template/page_header');		
