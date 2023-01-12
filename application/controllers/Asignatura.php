@@ -63,6 +63,7 @@ public function edit()
 {
 	 	$data['asignatura'] = $this->asignatura_model->asignatura($this->uri->segment(3))->row_array();
   		$data['mallas']= $this->malla_model->lista_mallas()->result();
+ 		$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
   		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
  	 	$data['title'] = "Actualizar Asignatura";
  	 	$this->load->view('template/page_header');		
@@ -172,6 +173,7 @@ public function actual()
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
+ 	$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
   if(!empty($data))
   {
     $data['title']="Asignatura";
@@ -196,6 +198,7 @@ public function elprimero()
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
+ 	$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
   if(!empty($data))
   {
     $data['title']="Asignatura";
@@ -215,6 +218,7 @@ public function elultimo()
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
+ 	$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
   if(!empty($data))
   {
     $data['title']="Asignatura";
@@ -236,6 +240,7 @@ public function siguiente(){
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
+ 	$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
   $data['title']="Asignatura";
 	$this->load->view('template/page_header');		
   $this->load->view('asignatura_record',$data);
@@ -248,6 +253,7 @@ public function anterior(){
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
+ 	$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
   $data['title']="Asignatura";
 	$this->load->view('template/page_header');		
   $this->load->view('asignatura_record',$data);
