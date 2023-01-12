@@ -98,7 +98,7 @@ function nivelacceso_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->nivelacceso_model->lista_nivelaccesoes();
+	 	$data0 = $this->nivelacceso_model->lista_nivelaccesos();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idnivelacceso,$r->nombre,$r->create,$r->read,$r->update,$r->delete,
