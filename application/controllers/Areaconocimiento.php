@@ -97,7 +97,7 @@ function areaconocimiento_data()
 	 	$data0 = $this->areaconocimiento_model->lista_areaconocimientos();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idareaconocimiento,$r->numero,$r->nombre,
+			$data[]=array($r->idareaconocimiento,$r->nombre,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('areaconocimiento/actual').'"     data-idareaconocimiento="'.$r->idareaconocimiento.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
