@@ -35,6 +35,7 @@ public function index(){
 public function add()
 {
   		$data['mallas']= $this->malla_model->lista_mallas()->result();
+ 		$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
   		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
 		$data['title']="Nuevo asignatura";
 	 	$this->load->view('template/page_header');		
