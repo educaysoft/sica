@@ -26,38 +26,20 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 </style>
 
-
 <div id="eys-nav-i">
 	<ul>
-		<li> <?php echo anchor('prestamoarticulo', 'Home'); ?></li>
+		<li> <?php echo anchor('aula', 'Home'); ?></li>
 	</ul>
 </div>
-
-
-<div class="form-group row">
-    	<label class="col-md-2 col-form-label"> Evento:</label>
-	<?php
-		$options= array(0=>'--Select--');
-		foreach ($eventos as $row){
-			$options[$row->idevento]= $row->titulo;
-		}
-	?>
-
-	<div class="col-md-10">
-		<?php
-     			echo form_dropdown("idevento",$options, 0,array('onchange'=>'filtra_evento()'));  
-		?>
-	</div>
-	</div>
 
 
 
 <div class="row justify-content-center">
       <!-- Page Heading -->
- <div class="row">
+<div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Lista de eventos 
+                 <h3>Institucion - Listar 
                  <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
 			  
         	</h3>
@@ -66,10 +48,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>IDprestamoarticulo</th>
- <th>evento</th>
- <th>Fecha</th>
- <th>tema</th>
+ <th>ID</th>
+ <th>nombre</th>
+ <th>detalle</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
@@ -100,31 +81,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('prestamoarticulo/prestamoarticulo_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('aula/aula_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('idprestamoarticulo');
+var id= $(this).data('idaula');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 
-
 });
-
-
-
-var idevento=0;
-function filtra_evento()
-{
-
-       var idevento = $('select[name=idevento]').val();
-
-var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('prestamoarticulo/prestamoarticulo_data')?>', type: 'GET',data:{idevento:idevento}},});
-}
-
-
 
 
 </script>
