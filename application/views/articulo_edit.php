@@ -6,12 +6,14 @@
  
  <tr>
       <td>Nombre:</td>
-      <td><?php echo form_input('nombre',$articulo['nombre'],array('placeholder'=>'Nombre Institucion')) ?></td>
+      <td><?php echo form_input('nombre',$articulo['nombre'],array('placeholder'=>'Nombre del ', "style"=>"width:500px")) ?></td>
   </tr>
 
 <tr>
       <td>Detalle:</td>
-      <td><?php echo form_input('detalle',$articulo['detalle'],array('placeholder'=>'Nombre Institucion')) ?></td>
+<td><?php 
+	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle del articulo" );    
+      echo form_textarea('detalle',$articulo['detalle'],$textara_opcions) ?></td>
   </tr>
 
 <tr>
@@ -27,16 +29,7 @@ foreach ($instituciones as $row){
 
 
 
-<tr>
-<td> Categoria:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($categorias as $row){
-	$options[$row->idcategoria]= $row->nombre;
-}
 
- echo form_dropdown("idcategoria",$options, $articulo['idcategoria']);  ?></td>
-</tr>
 
 
  <tr>
