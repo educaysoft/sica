@@ -13,7 +13,7 @@
       <td>Detalle:</td>
 <td><?php 
 	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle del articulo" );    
-      echo form_textarea('detalle',$articulo['detalle'],$textara_opcions) ?></td>
+      echo form_textarea('detalle',$articulo['detalle'],$textarea_options) ?></td>
   </tr>
 
 <tr>
