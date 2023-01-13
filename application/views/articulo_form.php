@@ -31,7 +31,7 @@ foreach ($instituciones as $row){
 	
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle" );    
 	
- echo form_input("detalle","", $textarea_options);  ?></td>
+ echo form_textarea("detalle","", $textarea_options);  ?></td>
 </tr>
 
 
