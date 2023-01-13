@@ -20,13 +20,18 @@ foreach ($instituciones as $row){
 
 <tr>
 <td> Nombre </td>
-<td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de la artículo"))  ?></td>
+<td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de la artículo",'style'=>'width:500px;'))  ?></td>
 </tr>
 
 
 <tr>
 <td> Detalle: </td>
-<td><?php echo form_input("detalle","", array("placeholder"=>"Detalle de artiulo"))  ?></td>
+<td><?php
+	
+	
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle" );    
+	
+ echo form_input("detalle","", $textarea_options);  ?></td>
 </tr>
 
 
