@@ -276,7 +276,7 @@ public function index(){
 		$id=$this->input->get('idpersona');
 
 		$data0 = $this->evento_model->lista_eventosP($id);
-		$data=vay();
+		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
 					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Edit</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver2"  data-retorno2="'.site_url('evento/detalle').'"    data-idevento2="'.$r->idevento.'">Ver</a>');
