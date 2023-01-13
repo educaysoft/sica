@@ -44,21 +44,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
        	     </div>
 
 
-<div class="form-group row">
-    	<label class="col-md-2 col-form-label"> Estado:</label>
-	<?php
-		$options= array(0=>'--Select--');
-		foreach ($evento_estados as $row){
-			$options[$row->idevento_estado]= $row->nombre;
-		}
-	?>
 
-	<div class="col-md-10">
-		<?php
-     			echo form_dropdown("idevento_estado",$options, 0,array('onchange'=>'filtra_evento()'));  
-		?>
-	</div>
-	</div>
 
 
 <div id="filtro"><?php echo $filtro; ?></div>
