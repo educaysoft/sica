@@ -5,7 +5,7 @@ class Aula extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('aula_model');
-      $this->load->model('prestamoaula_model');
+      $this->load->model('usoaula_model');
   	  $this->load->model('institucion_model');
 }
 
@@ -118,11 +118,11 @@ function aula_data()
 			$draw= intval($this->input->get("length"));
 
 			$idaula=$this->input->get('idaula');
-			$data0 =$this->prestamoaula_model->prestamoaulasA($idaula);
+			$data0 =$this->usoaula_model->usoaulasA($idaula);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idprestamoaula,$r->idaula,$r->lapersona,$r->fechaprestamo,$r->horaprestamo,$r->fechadevolucion,$r->horadevolucion,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamoaula/actual').'"    data-idprestamoaula="'.$r->idprestamoaula.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamoaula/edit').'"    data-idprestamoaula="'.$r->idprestamoaula.'">edit</a>');
+				$data[]=array($r->idusoaula,$r->idaula,$r->lapersona,$r->fechaprestamo,$r->horaprestamo,$r->fechadevolucion,$r->horadevolucion,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('usoaula/actual').'"    data-idusoaula="'.$r->idusoaula.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('usoaula/edit').'"    data-idusoaula="'.$r->idusoaula.'">edit</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
