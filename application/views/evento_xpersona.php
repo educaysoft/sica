@@ -131,11 +131,11 @@ $('#show_data').on('click','.item_ver2',function(){
 var idevento_estado=0;
 function filtra_evento()
 {
-       var idevento_estado = $('select[name=idevento_estado]').val();
+//       var idevento_estado = $('select[name=idevento_estado]').val();
 
 //	var idpersona = document.getElementById("filtro").innerHTML;
        
-var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('evento/evento_data')?>', type: 'GET',data:{idevento_estado:idevento_estado}},});
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('evento/persona_data')?>', type: 'GET',data:{idpersona:idpersona}},});
 }
 
 

@@ -38,6 +38,26 @@ class Evento_model extends CI_model {
 
 
 
+
+
+	function lista_eventosP($idpersona){
+
+
+	$evento = $this->db->query('select * from evento1 where EXISTS (select idevento from participante where participante.idevento=evento1.idevento and participante.idpersona= "'.$idpersona.'") order by idevento');
+
+
+		 return $evento;	
+	}
+
+
+
+
+
+
+
+
+
+
 	function lista_eventosTE($idevento_estado){
 		$this->db->select('*');
 		$this->db->where('idevento_estado='.$idevento_estado);
