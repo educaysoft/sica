@@ -99,8 +99,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <script type="text/javascript">
 
 $(document).ready(function(){
+	var idpersona = document.getElementById("filtro").innerHTML;
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/persona_data')?>', type: 'GET',data:{idpersona:idpersona}},});
 
 });
 
