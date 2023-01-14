@@ -14,9 +14,9 @@ class Destinatario_model extends CI_model {
 
 
 
- 	function usuario( $id){
- 		$usuario = $this->db->query('select * from usuario where idusuario="'. $id.'"');
- 		return $usuario;
+ 	function destinatario( $id){
+ 		$destinatario = $this->db->query('select * from destinatario where iddestinatario="'. $id.'"');
+ 		return $destinatario;
  	}
 
  	function save($array)
