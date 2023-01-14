@@ -81,12 +81,14 @@ foreach ($nivelacademicos as $row){
 </div>
 
 
-
-<tr>
-      <td>Creditos:</td>
-      <td><?php echo form_input('creditos',"",array('placeholder'=>'creditos de la asignatura')) ?></td>
-  </tr>
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Créditos:</label>
+	<div class="col-md-10">
+<?php 
+       echo form_input('creditos',"",array('placeholder'=>'creditos de la asignatura'));
+		?>
+	</div> 
+</div>
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Resultados de aprendizaje:</label>
