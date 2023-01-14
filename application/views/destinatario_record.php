@@ -102,7 +102,7 @@ echo form_input('nombre',$options[$destinatario['idpersona']],array("disabled"=>
     <label class="col-md-2 col-form-label"> Detalle:</label>
 	<div class="col-md-10">
 		<?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+$textarea_options = array('class' => 'form-control','rows' => '4',  "disabled"=>"disabled",   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
  echo form_textarea('detalle',$destinatario['detalle'],$textarea_options); 
 		?>
 	</div> 
