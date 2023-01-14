@@ -15,7 +15,7 @@ class Asignatura extends CI_Controller{
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-	  	$data['asignatura']=$this->asignatura_model->asignatura(1)->row_array();
+	  	$data['asignatura']=$this->asignatura_model->elultimo();
   		$data['mallas']= $this->malla_model->lista_mallas()->result();
  		$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
   		$data['docentes']= $this->docente_model->lista_docentesA()->result();
@@ -93,7 +93,7 @@ public function edit()
 	 		'resultadosaprendizaje' => $this->input->post('resultadosaprendizaje'),
 	 	);
 	 	$this->asignatura_model->update($id,$array_item);
-	 	redirect('asignatura');
+	 	redirect('asignatura/actual/'.$id);
  	}
 
 

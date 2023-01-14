@@ -92,15 +92,15 @@ public function add()
  	}
 
 
-public function edit()
-{
-	$data["persona"] = $this->persona_model->persona($this->uri->segment(3))->row_array();
-  	$data["generos"]= $this->genero_model->lista_generos()->result();
-  	$data["title"] = "Actualizar Persona";
-  	$this->load->view('template/page_header');		
-  	$this->load->view('persona_edit',$data);
- 	$this->load->view('template/page_footer');
-}
+	public function edit()
+	{
+		$data["persona"] = $this->persona_model->persona($this->uri->segment(3))->row_array();
+		$data["generos"]= $this->genero_model->lista_generos()->result();
+		$data["title"] = "Actualizar Persona";
+		$this->load->view('template/page_header');		
+		$this->load->view('persona_edit',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
 	public function  save_edit()
