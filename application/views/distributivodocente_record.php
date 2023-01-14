@@ -79,7 +79,7 @@ echo form_input('iddocente',$options[$distributivodocente['iddocente']],array("d
      	<?php 
     $options= array("NADA");
     foreach ($departamentos as $row){
-	      $options[$row->iddepartamento]= $row->eldepartamento;
+	      $options[$row->iddepartamento]= $row->nombre;
     }
     echo form_input('iddepartamento',$options[$departamentodocente['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
