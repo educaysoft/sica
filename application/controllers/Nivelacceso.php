@@ -12,7 +12,7 @@ public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 	$data['nivelacceso'] = $this->nivelacceso_model->elultimo();
 	//  	$data['nivelacceso']=$this->nivelacceso_model->nivelacceso(1)->row_array();
-  		$data['title']="Lista de Empresas";
+  		$data['title']="Niveles de acceso";
 			$this->load->view('template/page_header');		
   		$this->load->view('nivelacceso_record',$data);
 			$this->load->view('template/page_footer');
@@ -75,7 +75,7 @@ public function edit()
 	 	'inicio' => $this->input->post('inicio'),
 	 	);
 	 	$this->nivelacceso_model->update($id,$array_item);
-	 	redirect('nivelacceso');
+	 	redirect('nivelacceso/actual/'.$id);
  	}
 
 
