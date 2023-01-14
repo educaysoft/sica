@@ -8,6 +8,7 @@ class Distributivodocente extends CI_Controller{
   	  $this->load->model('distributivo_model');
   	  $this->load->model('distributivodocente_model');
   	  $this->load->model('asignaturadocente_model');
+  	  $this->load->model('departamento_model');
 }
 
 public function index(){
@@ -35,6 +36,7 @@ public function add()
 {
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   		$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
+  		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['title']="Nueva Distributivodocente";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('distributivodocente_form',$data);
