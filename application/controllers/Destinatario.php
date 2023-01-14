@@ -14,7 +14,7 @@ public function index(){
   $data['personas']= $this->persona_model->lista_personas()->result();
   $data['destinatario']=$this->destinatario_model->elprimero();
 
- // print_r($data['usuario_list']);
+ // print_r($data['destinatario_list']);
   $data['title']="Lista de Destinatarios";
 	$this->load->view('template/page_header');		
   $this->load->view('destinatario_record',$data);
@@ -69,7 +69,7 @@ public function edit()
 		 	'iddocumento' => $this->input->post('iddocumento'),
 		 	'detalle' => $this->input->post('detalle'),
 	 	);
-	 	$this->usuario_model->update($id,$array_item);
+	 	$this->destinatario_model->update($id,$array_item);
 	 	redirect('destinatario/actual/'.$id);
  	}
 
