@@ -88,6 +88,30 @@ public function edit()
 
 
 
+public function actual()
+{
+  $data['documentos']= $this->documento_model->lista_documentos()->result();
+  $data['destinatario'] = $this->destinatario_model->destinatario($this->uri->segment(3));
+  if(!empty($data))
+  {
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+    $data['title']="Correo";
+    $this->load->view('template/page_header');		
+    $this->load->view('destinatario_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
+
+
+
 
 public function elprimero()
 {

@@ -8,6 +8,19 @@
 
 
 <div class="form-group row">
+<label class="col-md-2 col-form-label">id destinatario:</label>
+<div class="col-md-10">
+<?php
+
+$eys_arrinput=array('name'=>'iddestinatario','value'=>$persona['iddestinatario'],'readonly'=>'true', "style"=>"width:500px");
+echo form_input($eys_arrinput); 
+?>
+</div>
+</div>
+
+
+
+<div class="form-group row">
 <label class="col-md-2 col-form-label">Asunto:</label>
 <div class="col-md-10">
 <?php
