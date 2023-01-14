@@ -12,7 +12,7 @@ class Destinatario extends CI_Controller{
 public function index(){
   $data['documentos']= $this->documento_model->lista_documentos()->result();
   $data['personas']= $this->persona_model->lista_personas()->result();
-  $data['destinatario']=$this->destinatario_model->elprimero();
+  $data['destinatario']=$this->destinatario_model->elultimo();
 
  // print_r($data['destinatario_list']);
   $data['title']="Lista de Destinatarios";
