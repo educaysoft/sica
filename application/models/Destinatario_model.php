@@ -14,7 +14,7 @@ class Destinatario_model extends CI_model {
 
 
 
- 	function destinatario( $id){
+ 	function destinatario($id){
  		$destinatario = $this->db->query('select * from destinatario where iddestinatario="'. $id.'"');
  		return $destinatario;
  	}
@@ -26,8 +26,8 @@ class Destinatario_model extends CI_model {
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idusuario',$id);
- 		$this->db->update('usuario',$array_item);
+ 		$this->db->where('iddestinatario',$id);
+ 		$this->db->update('destinatario',$array_item);
 	}
 
 
