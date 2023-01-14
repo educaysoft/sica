@@ -45,7 +45,7 @@ class Distributivodocente_model extends CI_model {
 		$this->db->where($condition);
 		$this->db->limit(1);
 		$query = $this->db->get();
-		if ($query->num_rows() == 0
+		if ($query->num_rows() == 0){
 			$this->db->insert("distributivodocente", $array);
 			return true;
 		}else{
