@@ -91,7 +91,7 @@ public function edit()
 public function actual()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-  $data['destinatario'] = $this->destinatario_model->destinatario($this->uri->segment(3));
+  $data['destinatario'] = $this->destinatario_model->destinatario($this->uri->segment(3))->row_array();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
