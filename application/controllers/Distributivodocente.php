@@ -207,7 +207,7 @@ public function actual()
 
 public function elprimero()
 {
-  	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
+  	$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
 	$data['distributivodocente'] = $this->distributivodocente_model->elprimero();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
@@ -229,7 +229,7 @@ public function elultimo()
 {
 	$data['distributivodocente'] = $this->distributivodocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
+  	$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   if(!empty($data))
   {
@@ -250,7 +250,7 @@ public function siguiente(){
  // $data['distributivodocente_list']=$this->distributivodocente_model->lista_distributivodocente()->result();
 	$data['distributivodocente'] = $this->distributivodocente_model->siguiente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
+  	$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   
 
@@ -264,7 +264,7 @@ public function anterior(){
  // $data['distributivodocente_list']=$this->distributivodocente_model->lista_distributivodocente()->result();
 	$data['distributivodocente'] = $this->distributivodocente_model->anterior($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
+  	$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   $data['title']="Distributivodocente";
 	$this->load->view('template/page_header');		
