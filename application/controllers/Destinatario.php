@@ -49,7 +49,7 @@ public function add()
 
 public function edit()
 {
-		$data['destinatario']= $this->destinatario_model->destinatario($this->uri->segment(3))->result();
+		$data['destinatario']= $this->destinatario_model->destinatario($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Persona";
