@@ -63,7 +63,9 @@ if(isset($destinatario))
 	foreach ($documentos as $row){
 		$options[$row->iddocumento]= $row->asunto;
 	}
-echo form_input('iddocumento',$options[$destinatario['iddocumento']],array("disabled"=>"disabled"));
+
+$textarea_options = array('class' => 'form-control','rows' => '4',  "disabled"=>"disabled" 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('iddocumento',$options[$destinatario['iddocumento']],$textarea_options); 
 		?>
 	</div> 
 </div>
