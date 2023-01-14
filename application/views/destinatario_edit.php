@@ -12,7 +12,7 @@
 <div class="col-md-10">
 <?php
 
-$eys_arrinput=array('name'=>'iddestinatario','value'=>$persona['iddestinatario'],'readonly'=>'true', "style"=>"width:500px");
+$eys_arrinput=array('name'=>'iddestinatario','value'=>$destinatario['iddestinatario'],'readonly'=>'true', "style"=>"width:500px");
 echo form_input($eys_arrinput); 
 ?>
 </div>
