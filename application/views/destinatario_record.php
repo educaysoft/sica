@@ -33,59 +33,81 @@ if(isset($destinatario))
 
 <?php echo form_open('destinatario/save_edit') ?>
 <?php echo form_hidden('iddestinatario',$destinatario['iddestinatario']) ?>
-<table>
 
-
-<tr>
-     <td>Id Destinatario:</td>
-     <td><?php echo form_input('iddestinatario',$destinatario['iddestinatario'],array("disabled"=>"disabled",'placeholder'=>'Iddestinatarios')) ?></td>
-  </tr>
-<tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id destinatario:</label>
+	<div class="col-md-10">
+		<?php
+      echo form_input('iddestinatario',$destinatario['iddestinatario'],array("disabled"=>"disabled",'placeholder'=>'Iddestinatarios'));
+		?>
+	</div> 
+</div>
  
 
-<tr>
-     <td>Id Documento:</td>
-     <td><?php echo form_input('iddocumento',$destinatario['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos')) ?></td>
-  </tr>
-<tr>
-     <td>Documento:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
-}
 
-echo form_input('iddocumento',$options[$destinatario['iddocumento']],array("disabled"=>"disabled")) ?></td>
-  </tr>
- 
- 
-  <tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id Documento:</label>
+	<div class="col-md-10">
+		<?php
+      echo form_input('iddocumento',$destinatario['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos'));
+		?>
+	</div> 
+</div>
 
-     <td>Idpersona:</td>
-     <td><?php echo form_input('idpersona',$destinatario['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Iddestinatarios')) ?></td>
 
-<tr>
-     <td>Persona:</td>
-     <td><?php 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Documento:</label>
+	<div class="col-md-10">
+		<?php
+	$options= array("NADA");
+	foreach ($documentos as $row){
+		$options[$row->iddocumento]= $row->asunto;
+	}
+echo form_input('iddocumento',$options[$destinatario['iddocumento']],array("disabled"=>"disabled"));
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Idpersona:</label>
+	<div class="col-md-10">
+		<?php
+      echo form_input('idpersona',$destinatario['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Iddestinatarios'));
+		?>
+	</div> 
+</div>
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Persona:</label>
+	<div class="col-md-10">
+		<?php
 $options= array("NADA");
 foreach ($personas as $row){
 	$options[$row->idpersona]= $row->nombres;
 }
-
-echo form_input('nombre',$options[$destinatario['idpersona']],array("disabled"=>"disabled")) ?></td>
-  </tr>
-
+echo form_input('nombre',$options[$destinatario['idpersona']],array("disabled"=>"disabled"));
+		?>
+	</div> 
+</div>
  
   
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Detalle:</label>
+	<div class="col-md-10">
+		<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('detalle',$destinatario['detalle'],$textarea_options); 
+		?>
+	</div> 
+</div>
 
 
 
-
-
-
-
-</table>
 <?php echo form_close(); ?>
 
 
