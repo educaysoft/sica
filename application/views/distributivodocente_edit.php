@@ -28,14 +28,29 @@ foreach ($docentes as $row){
 </tr>
 
 <tr>
-<td> Periodo académico:</td>
+<td> Distributivo:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($periodoacademicos as $row){
-	$options[$row->idperiodoacademico]= $row->nombrecorto;
+foreach ($distributivos as $row){
+	$options[$row->iddistributivo]= $row->nombrecorto;
 }
 
- echo form_dropdown("idperiodoacademico",$options, $distributivodocente['idperiodoacademico']);  ?></td>
+ echo form_dropdown("iddistributivo",$options, $distributivodocente['iddistributivo']);  ?></td>
+</tr>
+
+
+
+
+
+<tr>
+<td> Departamenmto:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($departamentos as $row){
+	$options[$row->iddepartamento]= $row->nombrecorto;
+}
+
+ echo form_dropdown("iddepartamento",$options, $departamentodocente['iddepartamento']);  ?></td>
 </tr>
 
 

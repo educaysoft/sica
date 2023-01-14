@@ -18,6 +18,7 @@ public function index(){
   	$data['distributivodocente']=$this->distributivodocente_model->lista_distributivodocentes()->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
+  		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			
 		$data['title']="Lista de distributivodocentes";
 		$this->load->view('template/page_header');
@@ -52,6 +53,7 @@ public function add()
 		 	
 			'iddocente' => $this->input->post('iddocente'),
 			'iddistributivo' => $this->input->post('iddistributivo'),
+			'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
 	 	$result=$this->distributivodocente_model->save($array_item);
 	 	if($result == false)
@@ -89,6 +91,7 @@ public function edit()
 		 	'iddistributivodocente' => $this->input->post('iddistributivodocente'),
 			'iddocente' => $this->input->post('iddocente'),
 			'iddistributivo' => $this->input->post('iddistributivo'),
+			'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
 	 	$this->distributivodocente_model->update($id,$array_item);
 	 	redirect('distributivodocente');
@@ -178,6 +181,7 @@ public function actual()
 	$data['distributivodocente'] = $this->distributivodocente_model->distributivodocente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	  if(!empty($data))
 	  {
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
@@ -206,6 +210,7 @@ public function elprimero()
   	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
 	$data['distributivodocente'] = $this->distributivodocente_model->elprimero();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	  if(!empty($data))
 	  {
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
@@ -225,6 +230,7 @@ public function elultimo()
 	$data['distributivodocente'] = $this->distributivodocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   if(!empty($data))
   {
     $data['title']="Distributivodocente";
@@ -245,6 +251,7 @@ public function siguiente(){
 	$data['distributivodocente'] = $this->distributivodocente_model->siguiente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   
 
 $data['title']="Distributivodocente";
@@ -258,6 +265,7 @@ public function anterior(){
 	$data['distributivodocente'] = $this->distributivodocente_model->anterior($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['distributivos']= $this->distributivo_model->lista_distributivos()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   $data['title']="Distributivodocente";
 	$this->load->view('template/page_header');		
   $this->load->view('distributivodocente_record',$data);

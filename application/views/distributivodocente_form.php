@@ -35,7 +35,7 @@ foreach ($distributivos as $row){
 
 
 <tr>
-<td> Distributivo: </td>
+<td> Dertamento: </td>
 <td><?php 
 
 $options= array('--Select--');
