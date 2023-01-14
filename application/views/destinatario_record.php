@@ -64,7 +64,7 @@ if(isset($destinatario))
 		$options[$row->iddocumento]= $row->asunto;
 	}
 
-$textarea_options = array('class' => 'form-control','rows' => '4',  "disabled"=>"disabled" 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+$textarea_options = array('class' => 'form-control','rows' => '4',  "disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
  echo form_textarea('iddocumento',$options[$destinatario['iddocumento']],$textarea_options); 
 		?>
 	</div> 
