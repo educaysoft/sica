@@ -40,6 +40,7 @@ public function add()
 	 	$array_item=array(
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'detalle' => $this->input->post('detalle'),
 	 	);
 	 	$this->destinatario_model->save($array_item);
 	 	redirect('destinatario');
