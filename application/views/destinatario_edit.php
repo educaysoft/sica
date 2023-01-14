@@ -3,7 +3,7 @@
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open("destinatario/save") ?>
+<?php echo form_open("destinatario/save_edit") ?>
 
 
 
@@ -17,7 +17,7 @@ foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
 
- echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value'));  
+ echo form_dropdown("iddocumento",$options, $destinatario['iddocumento']);  
 
 ?>
 </div>
@@ -34,7 +34,7 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos.' '.$row->nombres;
 }
 
- echo form_dropdown("idpersona",$options, set_select('--Select--','default_value')); 
+ echo form_dropdown("idpersona",$options,$destinatario['idpersona']); 
 ?>
 </div>
 </div>
@@ -45,7 +45,7 @@ foreach ($personas as $row){
 <div class="col-md-10">
 <?php
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Detalle",'id'=>'detalle' );    
- echo form_textarea("detalle","", $textarea_options); 
+ echo form_textarea("detalle",$destinatario['detalle'], $textarea_options); 
 ?>
 </div>
 </div>

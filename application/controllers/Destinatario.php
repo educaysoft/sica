@@ -49,12 +49,11 @@ public function add()
 
 public function edit()
 {
-	 	$data['usuario'] = $this->usuario_model->usuario($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['perfiles']= $this->perfil_model->lista_perfil()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Persona";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('usuario_edit',$data);
+ 	 	$this->load->view('destinatario_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -62,15 +61,15 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idusuario');
+		$id=$this->input->post('iddestinatario');
 	 	$array_item=array(
-		 	'password' => $this->input->post('password'),
+		 	'iddestinatario' => $this->input->post('iddestinatario'),
 		 	'idpersona' => $this->input->post('idpersona'),
-		 	'idperfil' => $this->input->post('idpefil'),
-		 	'email' => $this->input->post('email'),
+		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'detalle' => $this->input->post('detalle'),
 	 	);
 	 	$this->usuario_model->update($id,$array_item);
-	 	redirect('usuario');
+	 	redirect('destinatario/actual/'.$id);
  	}
 
 
