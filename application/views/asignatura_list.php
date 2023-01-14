@@ -32,7 +32,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Institucion - Listar 
+                 <h3>Asignatura - Listar 
                  <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
 			  
         	</h3>
@@ -50,6 +50,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <tr>
  <th>ID</th>
  <th>malla</th>
+ <th>Area</th>
  <th>nivel</th>
  <th>nombre</th>
  <th style="text-align: right;">Actions</th>
