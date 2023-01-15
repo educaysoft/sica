@@ -17,7 +17,7 @@ class Distributivo extends CI_Controller{
 	public function index(){
 		if(isset($this->session->userdata['logged_in'])){
 			$data['distributivo']=$this->distributivo_model->elultimo();
-			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
+			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
   			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			$data['title']="Lista de distributivoes";
 			$this->load->view('template/page_header');
@@ -275,7 +275,7 @@ public function anterior(){
  // $data['distributivo_list']=$this->distributivo_model->lista_distributivo()->result();
 	$data['distributivo'] = $this->distributivo_model->anterior($this->uri->segment(3))->row_array();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
+	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
   	$data['title']="Distributivo";
 	$this->load->view('template/page_header');		
   	$this->load->view('distributivo_record',$data);

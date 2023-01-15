@@ -6,6 +6,15 @@ class Periodoacademico_model extends CI_model {
 		 return $periodoacademico;
 	}
 
+
+	function lista_periodoacademicos1(){
+		 $periodoacademico= $this->db->get('periodoacademico1');
+		 return $periodoacademico;
+	}
+
+
+
+
  	function periodoacademico( $id){
  		$periodoacademico = $this->db->query('select * from periodoacademico where idperiodoacademico="'. $id.'"');
 		 

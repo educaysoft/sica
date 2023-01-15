@@ -64,12 +64,12 @@ echo form_input('iddepartamento',$options[$distributivo['iddepartamento']],array
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Periodo : ( <?php echo anchor('periodoacademico/actual/'.$distributivo['idperiodoacademico'], 'Ver'); ?>):</label>
+    <label class="col-md-2 col-form-label"> ( <?php echo anchor('periodoacademico/actual/'.$distributivo['idperiodoacademico'], 'Periodo :'); ?>):</label>
 	<div class="col-md-10">
      	<?php 
 	$options=array();
   	foreach ($periodoacademicos as $row){
-		$options[$row->idperiodoacademico]=$row->nombrecorto;
+		$options[$row->idperiodoacademico]=$row->elperiodoacademico;
 	}
 	?>
 		<?php
