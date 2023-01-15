@@ -15,23 +15,24 @@ foreach ($distributivos as $row){
 	$options[$row->iddistributivo]= $row->eldistributivo;
 }
 
- echo form_dropdown("iddistributivo",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("iddistributivo",$options, set_select('--Select--','default_value'),array('id'=>'iddistributivo','onchange'=>'get_docentes()'));  ?></td>
 </tr>
 
 
 
 
-<tr>
-<td> DistributivoDocente: </td>
-<td><?php 
 
-$options= array('--Select--');
-foreach ($distributivodocentes as $row){
-	$options[$row->iddistributivodocente]= $row->eldistributivodocente;
-}
+<div class="form-group row">
+<label class="col-md-2 col-form-label">DistributivoDocente:</label>
+<div class="col-md-10">
+    <div class="form-group">
 
- echo form_dropdown("iddistributivodocente",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
+   <select class="form-control" id="iddistributivodocente" name="iddistributivodocente" required>
+                 <option>No Selected</option>
+          </select>
+    </div>
+</div>
+</div>
 
 
 <tr>
@@ -87,3 +88,37 @@ foreach ($paralelos as $row){
 </table>
 <?php echo form_close();?>
 
+
+ <script>
+
+
+function get_docentes() {
+	var iddistributivo = $('select[name=iddistributivo]').val();
+    $.ajax({
+        url: "<?php echo site_url('asignaturadocente/get_docentes') ?>",
+        data: {iddistributivo: iddistributivo},
+        method: 'post',
+	async : true,
+        datatype : 'json',
+        success: function(data){
+        var html = '';
+        var i
+        for(i=0; i<data.length; i++){
+        html += '<option value='+data[i].iddistributivodocente+'>'+data[i].eldocente+'</option>';
+        }
+        $('#iddistributivodocente').html(html);
+
+
+        },
+      error: function (xhr, ajaxoptions, thrownerror) {
+        alert(xhr.status);
+        alert(thrownerror);
+      }
+    })
+
+}
+
+
+
+
+</script>
