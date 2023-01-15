@@ -53,7 +53,6 @@ public function add()
 		 	
 			'iddocente' => $this->input->post('iddocente'),
 			'iddistributivo' => $this->input->post('iddistributivo'),
-			'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
 	 	$result=$this->distributivodocente_model->save($array_item);
 	 	if($result == false)
@@ -91,7 +90,6 @@ public function edit()
 		 	'iddistributivodocente' => $this->input->post('iddistributivodocente'),
 			'iddocente' => $this->input->post('iddocente'),
 			'iddistributivo' => $this->input->post('iddistributivo'),
-			'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
 	 	$this->distributivodocente_model->update($id,$array_item);
 	 	redirect('distributivodocente');
