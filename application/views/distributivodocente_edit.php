@@ -42,16 +42,7 @@ foreach ($distributivos as $row){
 
 
 
-<tr>
-<td> Departamenmto:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($departamentos as $row){
-	$options[$row->iddepartamento]= $row->nombrecorto;
-}
 
- echo form_dropdown("iddepartamento",$options, $departamentodocente['iddepartamento']);  ?></td>
-</tr>
 
 
 
