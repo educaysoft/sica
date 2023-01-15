@@ -6,7 +6,7 @@
 
 
 <tr>
-<td> Horario Docente: </td>
+<td> DistributivoDocente: </td>
 <td><?php 
 
 $options= array('--Select--');
@@ -25,7 +25,7 @@ foreach ($distributivodocentes as $row){
 
 $options= array('--Select--');
 foreach ($asignaturas as $row){
-	$options[$row->idasignatura]= $row->nombre;
+	$options[$row->idasignatura]=$row->malla."-".$row->nombre;
 }
 
  echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));  ?></td>
