@@ -44,7 +44,7 @@ foreach ($departamentos as $row){
 
 $options= array('--Select--');
 foreach ($periodoacademicos as $row){
-	$options[$row->idperiodoacademico]= $row->nombrecorto;
+	$options[$row->idperiodoacademico]= $row->elperiodoacademico;
 }
 
  echo form_dropdown("idperiodoacademico",$options, $distributivo['idperiodoacademico']);  
