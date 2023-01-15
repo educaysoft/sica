@@ -44,7 +44,7 @@ if(isset($distributivo))
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label"> Depart-Carrera: </label>
+<label class="col-md-2 col-form-label"> <?php echo anchor('departamento/actual/'.$distributivo['iddepartamento'], 'Departamento - carrera'); ?>: </label>
      	<?php 
 
 $options= array("NADA");
