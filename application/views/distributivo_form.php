@@ -8,7 +8,7 @@
 	<div class="col-md-10">
 	<?php
 	$options= array('--Select--');
-	foreach ($departamentoes as $row){
+	foreach ($departamentos as $row){
 		$options[$row->iddepartamento]= $row->nombre;
 	}
 	 echo form_dropdown("iddepartamento",$options, set_select('--Select--','default_value')); 
