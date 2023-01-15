@@ -105,6 +105,30 @@ function unidad_data()
 }
 
 
+
+
+public function actual()
+{
+  $data['departamento']=$this->departamento_model->departamento($this->uri->segment(3))->row_array(); 
+  $data['unidades']= $this->unidad_model->lista_unidades()->result();
+  if(!empty($data))
+  {
+    $data['title']="Departamento";
+    $this->load->view('template/page_header');		
+    $this->load->view('departamento_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
+
+
 public function elprimero()
 {
   $data['departamento']=$this->departamento_model->departamento(1)->row_array(); 
