@@ -18,7 +18,7 @@ class Distributivo extends CI_Controller{
 		if(isset($this->session->userdata['logged_in'])){
 			$data['distributivo']=$this->distributivo_model->elultimo();
 			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
-  			$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+  			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			$data['title']="Lista de distributivoes";
 			$this->load->view('template/page_header');
 			$this->load->view('distributivo_record',$data);
@@ -35,7 +35,7 @@ class Distributivo extends CI_Controller{
 	{
 			$data['title']="Nueva distributivo";
 			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
-  			$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+  			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			$this->load->view('template/page_header');		
 			$this->load->view('distributivo_form',$data);
 			$this->load->view('template/page_footer');
@@ -57,7 +57,7 @@ class Distributivo extends CI_Controller{
 	public function edit()
 	{
 			$data['distributivo'] = $this->distributivo_model->distributivo($this->uri->segment(3))->row_array();
-  			$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+  			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
 			$data['title'] = "Actualizar distributivo";
 			$this->load->view('template/page_header');		
@@ -204,7 +204,7 @@ public function iniciar()
 public function actual()
 {
 	$data['distributivo'] = $this->distributivo_model->distributivo($this->uri->segment(3))->row_array();
-	$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
@@ -225,7 +225,7 @@ public function actual()
 public function elprimero()
 {
 	$data['distributivo'] = $this->distributivo_model->elprimero();
-	$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
@@ -243,7 +243,7 @@ public function elprimero()
 public function elultimo()
 {
 		$data['distributivo'] = $this->distributivo_model->elultimo();
-		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
@@ -263,7 +263,7 @@ public function elultimo()
 public function siguiente(){
  // $data['distributivo_list']=$this->distributivo_model->lista_distributivo()->result();
 	$data['distributivo'] = $this->distributivo_model->siguiente($this->uri->segment(3))->row_array();
-		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['title']="Distributivo";
 	$this->load->view('template/page_header');		
@@ -274,7 +274,7 @@ public function siguiente(){
 public function anterior(){
  // $data['distributivo_list']=$this->distributivo_model->lista_distributivo()->result();
 	$data['distributivo'] = $this->distributivo_model->anterior($this->uri->segment(3))->row_array();
-	$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['title']="Distributivo";
 	$this->load->view('template/page_header');		
