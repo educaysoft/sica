@@ -42,9 +42,9 @@ public function index(){
 public function add()
 {
 	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['distributivo']=$this->distributivo_model->lista_distributivos()->result();
+  	$data['distributivos']=$this->distributivo_model->lista_distributivos()->result();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
-	$data['malla']= $this->malla_model->lista_mallas()->result();
+	$data['mallas']= $this->malla_model->lista_mallas()->result();
 	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
   	$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
