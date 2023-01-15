@@ -130,6 +130,6 @@ alter table fechacalendario add column idcalendarioacademico int(11);
 
 /*  alter table distributivodocente add column iddepartamento int(11) default 0; */
 
-alter table destinatario add column detalle text default '' ;
+/* alter table destinatario add column detalle text default '' ; */
 
-
+ alter table distributivo add column iddepartamento int(11) default 0;

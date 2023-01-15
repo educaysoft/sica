@@ -43,6 +43,22 @@ if(isset($distributivo))
 </div> 
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label"> Depart-Carrera: </label>
+     	<?php 
+
+$options= array("NADA");
+foreach ($departamentos as $row){
+	$options[$row->iddepartamento]= $row->nombre;
+}
+
+	?>
+	<div class="col-md-10">
+		<?php
+echo form_input('iddepartamento',$options[$distributivo['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
 
 
 
