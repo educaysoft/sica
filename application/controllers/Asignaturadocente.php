@@ -40,7 +40,7 @@ public function index(){
 public function add()
 {
 	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
   	$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
