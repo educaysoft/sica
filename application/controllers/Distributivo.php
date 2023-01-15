@@ -205,7 +205,7 @@ public function actual()
 {
 	$data['distributivo'] = $this->distributivo_model->distributivo($this->uri->segment(3))->row_array();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
+	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
   if(!empty($data))
   {
     $data['title']="Distributivo";
