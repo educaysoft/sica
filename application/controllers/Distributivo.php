@@ -226,7 +226,7 @@ public function elprimero()
 {
 	$data['distributivo'] = $this->distributivo_model->elprimero();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
+	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
   if(!empty($data))
   {
     $data['title']="Distributivo";
@@ -264,7 +264,7 @@ public function siguiente(){
  // $data['distributivo_list']=$this->distributivo_model->lista_distributivo()->result();
 	$data['distributivo'] = $this->distributivo_model->siguiente($this->uri->segment(3))->row_array();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
+	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
   	$data['title']="Distributivo";
 	$this->load->view('template/page_header');		
   	$this->load->view('distributivo_record',$data);
