@@ -118,7 +118,7 @@ function get_docentes() {
 	var iddistributivo = $('select[name=iddistributivo]').val();
     $.ajax({
         url: "<?php echo site_url('asignaturadocente/get_docentes') ?>",
-        data: {iddistributivo: iddistributivo},
+        data: {iddistributivo:iddistributivo},
         method: 'GET',
 	async : true,
         datatype : 'json',
