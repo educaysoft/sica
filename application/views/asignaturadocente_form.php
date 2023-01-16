@@ -122,7 +122,6 @@ function get_docentes() {
         var html = '';
         var i;
         for(i=0; i<data.length; i++){
-        //html += '<option value='+data[i]->iddistributivodocente+'>'+data[i]->eldocente+'</option>';
         html += '<option value='+data[i].iddistributivodocente+'>'+data[i].iddistributivodocente+'</option>';
         }
         $('#iddistributivodocente').html(html);
@@ -145,7 +144,7 @@ function get_asignaturas() {
         url: "<?php echo site_url('asignaturadocente/get_asignaturas') ?>",
         data: {idmalla: idmalla},
         method: 'GET',
-	async : true,
+	async : false,
         datatype : 'json',
         success: function(data){
         var html = '';
