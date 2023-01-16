@@ -142,7 +142,7 @@ function get_docentes() {
 function get_asignaturas() {
 	var idmalla = $('select[name=idmalla]').val();
     $.ajax({
-        url: "<?php echo site_url('asignaturadocente/get_asignaturas') ?>",
+        url: "<?php echo site_url('asignaturadocente/get_asignaturas1') ?>",
         data: {idmalla:idmalla},
         method: 'POST',
 	async : true,
