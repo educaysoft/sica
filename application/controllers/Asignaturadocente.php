@@ -288,9 +288,9 @@ public function anterior(){
 public function get_docentes() {
     $this->load->database();
     $this->load->helper('form');
-    if($this->input->get('iddistributivo')) {
+    if($this->input->post('iddistributivo')) {
         $this->db->select('*');
-        $this->db->where(array('iddistributivo' => $this->input->get('iddistributivo')));
+        $this->db->where(array('iddistributivo' => $this->input->post('iddistributivo')));
         $query = $this->db->get('distributivodocente1');
 	$data=$query->result();
 	echo json_encode($data);
@@ -303,9 +303,9 @@ public function get_docentes() {
 public function get_asignaturas() {
     $this->load->database();
     $this->load->helper('form');
-    if($this->input->get('idmalla')) {
+    if($this->input->post('idmalla')) {
         $this->db->select('*');
-        $this->db->where(array('idmalla' => $this->input->get('idmalla')));
+        $this->db->where(array('idmalla' => $this->input->post('idmalla')));
         $query = $this->db->get('asignatura1');
 	$data=$query->result();
 	echo json_encode($data);
