@@ -108,7 +108,7 @@ echo form_dropdown("idparalelo",$options, set_select('--Select--','default_value
 
 
  <script>
-
+document.cookie = "witcher=Geralt; SameSite=None; Secure";
 
 function get_docentes() {
 	var iddistributivo = $('select[name=iddistributivo]').val();
