@@ -538,9 +538,9 @@ exit;
 public function get_directorio() {
     $this->load->database();
     $this->load->helper('form');
-    if($this->input->get('idordenador')) {
+    if($this->input->post('idordenador')) {
         $this->db->select('*');
-        $this->db->where(array('idordenador' => $this->input->get('idordenador')));
+        $this->db->where(array('idordenador' => $this->input->post('idordenador')));
         $query = $this->db->get('directorio');
 	$data=$query->result();
 	echo json_encode($data);
