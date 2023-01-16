@@ -120,7 +120,7 @@ function get_docentes() {
         datatype : 'json',
         success: function(data){
         var html = '';
-        var i
+        var i;
         for(i=0; i<data.length; i++){
         //html += '<option value='+data[i]->iddistributivodocente+'>'+data[i]->eldocente+'</option>';
         html += '<option value='+data[i].iddistributivodocente+'>'+data[i].iddistributivodocente+'</option>';
@@ -149,7 +149,7 @@ function get_asignaturas() {
         datatype : 'json',
         success: function(data){
         var html = '';
-        var i
+        var i;
         for(i=0; i<data.length; i++){
         html += '<option value='+data[i].idasignatura+'>'+data[i].nombre+'</option>';
         }
