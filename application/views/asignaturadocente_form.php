@@ -119,7 +119,7 @@ function get_docentes() {
     $.ajax({
         url: "<?php echo site_url('asignaturadocente/get_docentes') ?>",
         data: {iddistributivo: iddistributivo},
-        method: 'post',
+        method: 'GET',
 	async : true,
         datatype : 'json',
         success: function(data){
