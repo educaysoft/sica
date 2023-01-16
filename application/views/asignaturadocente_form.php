@@ -144,7 +144,7 @@ function get_asignaturas() {
     $.ajax({
         url: "<?php echo site_url('asignaturadocente/get_asignaturas') ?>",
         data: {idmalla:idmalla},
-        method: 'POST',
+        method: 'GET',
 	async : true,
         datatype : 'json',
         success: function(data){
