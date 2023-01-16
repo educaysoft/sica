@@ -291,7 +291,7 @@ public function get_docentes() {
     if($this->input->post('iddistributivo')) {
         $this->db->select('*');
         $this->db->where(array('iddistributivo' => $this->input->post('iddistributivo')));
-        $query = $this->db->get('distributivodocente');
+        $query = $this->db->get('distributivodocente1');
 	$data=$query->result();
 	echo json_encode($data);
 	}

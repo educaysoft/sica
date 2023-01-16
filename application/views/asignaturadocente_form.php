@@ -2,28 +2,33 @@
 <hr/>
 <?php echo form_open("asignaturadocente/save") ?>
 <?php echo form_hidden("idasignaturadocente")  ?>
-<table>
 
 
 
-<tr>
-<td> Distributivo: </td>
-<td><?php 
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Distributivo:</label>
+<div class="col-md-10">
+    <div class="form-group">
+<?php 
 
 $options= array('--Select--');
 foreach ($distributivos as $row){
 	$options[$row->iddistributivo]= $row->eldistributivo;
 }
 
- echo form_dropdown("iddistributivo",$options, set_select('--Select--','default_value'),array('id'=>'iddistributivo','onchange'=>'get_docentes()'));  ?></td>
-</tr>
+echo form_dropdown("iddistributivo",$options, set_select('--Select--','default_value'),array('id'=>'iddistributivo','onchange'=>'get_docentes()')); 
+?>
 
+    </div>
+</div>
+</div>
 
 
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">DistributivoDocente:</label>
+<label class="col-md-2 col-form-label">Distributivo Docente:</label>
 <div class="col-md-10">
     <div class="form-group">
 
@@ -35,17 +40,23 @@ foreach ($distributivos as $row){
 </div>
 
 
-<tr>
-<td> Malla: </td>
-<td><?php 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Malla:</label>
+<div class="col-md-10">
+    <div class="form-group">
+<?php 
 $options= array('--Select--');
 foreach ($mallas as $row){
 	$options[$row->idmalla]=$row->nombrecorto;
 }
 
- echo form_dropdown("idmalla",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
+ echo form_dropdown("idmalla",$options, set_select('--Select--','default_value'));  
+
+?>
+    </div>
+</div>
+</div>
 
 
 
@@ -53,34 +64,45 @@ foreach ($mallas as $row){
 
 
 
-<tr>
-<td> Asignatura: </td>
-<td><?php 
-
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Paralelo:</label>
+<div class="col-md-10">
+    <div class="form-group">
+<?php 
 $options= array('--Select--');
 foreach ($asignaturas as $row){
 	$options[$row->idasignatura]=$row->malla."-".$row->nombre;
 }
 
- echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
+ echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));  
+
+?>
+    </div>
+</div>
+</div>
 
 
 
-<tr>
-<td> Paralelo: </td>
-<td><?php 
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Paralelo:</label>
+<div class="col-md-10">
+    <div class="form-group">
+<?php 
 
 $options= array('--Select--');
 foreach ($paralelos as $row){
 	$options[$row->idparalelo]= $row->nombre;
 }
 
- echo form_dropdown("idparalelo",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
+echo form_dropdown("idparalelo",$options, set_select('--Select--','default_value')); 
 
+?>
+    </div>
+</div>
+</div>
 
-
+<table>
 <tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("asignaturadocente","Atras") ?> </td>
 </tr>
