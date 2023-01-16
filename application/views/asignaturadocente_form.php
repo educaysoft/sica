@@ -127,7 +127,7 @@ function get_docentes() {
         var i
         for(i=0; i<data.length; i++){
         //html += '<option value='+data[i]->iddistributivodocente+'>'+data[i]->eldocente+'</option>';
-        html += '<option value='+data[i].iddistributivodocente+'>'+data.length+'</option>';
+        html += '<option value='+data[i].iddistributivodocente+'>'+data[i].iddistributivodocente+'</option>';
         }
         $('#iddistributivodocente').html(html);
 
