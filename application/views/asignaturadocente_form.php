@@ -119,6 +119,7 @@ function get_docentes() {
 	async : true,
         datatype : 'json',
         success: function(data){
+	console.dir(data);
         var html = '';
         var i;
         for(i=0; i<data.length; i++){
