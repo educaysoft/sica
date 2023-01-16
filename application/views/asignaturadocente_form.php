@@ -115,7 +115,7 @@ echo form_dropdown("idparalelo",$options, set_select('--Select--','default_value
 
 
 function get_docentes() {
-	var iddistributivo = $('select[name=iddistributivo]').val();
+	var iddistributivo =4; // $('select[name=iddistributivo]').val();
     $.ajax({
         url: "<?php echo site_url('asignaturadocente/get_docentes') ?>",
         data: {iddistributivo:iddistributivo},
