@@ -143,7 +143,7 @@ function get_asignaturas() {
 	var idmalla = $('select[name=idmalla]').val();
     $.ajax({
         url: "<?php echo site_url('asignaturadocente/get_asignaturas') ?>",
-        data: {idmalla:idmalla},
+        data: {idmalla: idmalla},
         method: 'GET',
 	async : true,
         datatype : 'json',
