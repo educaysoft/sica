@@ -301,7 +301,7 @@ public function get_docentes() {
 
 
 public function get_asignaturas() {
-    $this->load->database
+    $this->load->database();
     $this->load->helper('form');
     if($this->input->get('idmalla')) {
         $this->db->select('*');
