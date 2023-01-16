@@ -51,7 +51,7 @@ foreach ($mallas as $row){
 	$options[$row->idmalla]=$row->nombrecorto;
 }
 
- echo form_dropdown("idmalla",$options, set_select('--Select--','default_value'));  
+ echo form_dropdown("idmalla",$options, set_select('--Select--','default_value'),array('id'=>'idmalla','onchange'=>'get_asignaturas()'));  
 
 ?>
     </div>
@@ -68,15 +68,11 @@ foreach ($mallas as $row){
 <label class="col-md-2 col-form-label">Paralelo:</label>
 <div class="col-md-10">
     <div class="form-group">
-<?php 
-$options= array('--Select--');
-foreach ($asignaturas as $row){
-	$options[$row->idasignatura]=$row->malla."-".$row->nombre;
-}
 
- echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));  
 
-?>
+   <select class="form-control" id="idasignatura" name="idasignatura" required>
+                 <option>No Selected</option>
+          </select>
     </div>
 </div>
 </div>
@@ -115,7 +111,7 @@ echo form_dropdown("idparalelo",$options, set_select('--Select--','default_value
 
 
 function get_docentes() {
-	var iddistributivo =4; // $('select[name=iddistributivo]').val();
+	var iddistributivo = $('select[name=iddistributivo]').val();
     $.ajax({
         url: "<?php echo site_url('asignaturadocente/get_docentes') ?>",
         data: {iddistributivo:iddistributivo},
@@ -140,6 +136,39 @@ function get_docentes() {
     })
 
 }
+
+
+
+function get_asignaturas() {
+	var idmalla = $('select[name=idmalla]').val();
+    $.ajax({
+        url: "<?php echo site_url('asignaturadocente/get_asignaturas') ?>",
+        data: {idmalla:idmalla},
+        method: 'GET',
+	async : true,
+        datatype : 'json',
+        success: function(data){
+        var html = '';
+        var i
+        for(i=0; i<data.length; i++){
+        html += '<option value='+data[i]->idasignatura+'>'+data[i]->laasignatura+'</option>';
+        }
+        $('#idasignatura').html(html);
+
+
+        },
+      error: function (xhr, ajaxoptions, thrownerror) {
+        alert(xhr.status);
+        alert(thrownerror);
+      }
+    })
+
+}
+
+
+
+
+
 
 
 
