@@ -119,12 +119,10 @@ function get_docentes() {
 	async : false,
         dataType : 'json',
         success: function(data){
-		alert(data.length);
-	console.log(data);
         var html = '';
         var i;
         for(i=0; i<data.length; i++){
-        html += '<option value='+data[i][iddistributivodocente]+'>'+data[i][iddistributivodocente]+'</option>';
+        html += '<option value='+data[i].iddistributivodocente+'>'+data[i].eldocente+'</option>';
         }
         $('#iddistributivodocente').html(html);
 
