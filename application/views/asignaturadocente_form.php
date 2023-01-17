@@ -117,7 +117,7 @@ function get_docentes() {
         data: {iddistributivo:iddistributivo},
         method: 'POST',
 	cache: false,
-	async : true,
+	async : false,
         datatype : 'json',
         success: function(data){
 		alert(data.length);
