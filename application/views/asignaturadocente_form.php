@@ -145,7 +145,7 @@ function get_asignaturas() {
         data: {idmalla: idmalla},
         method: 'POST',
 	async : true,
-        datatype : 'json',
+        dataType : 'json',
         success: function(data){
         var html = '';
         var i;
