@@ -116,10 +116,11 @@ function get_docentes() {
         url: "<?php echo site_url('asignaturadocente/get_docentes') ?>",
         data: {iddistributivo:iddistributivo},
         method: 'POST',
+	cache: false,
 	async : true,
         datatype : 'json',
         success: function(data){
-		alert(data.results.length);
+		alert(data.length);
 	console.log(data);
         var html = '';
         var i;
