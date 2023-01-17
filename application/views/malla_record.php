@@ -122,7 +122,7 @@ echo form_input('fechafin',$malla['fechafin'],array('placeholder'=>'Fecha en que
 	 <th>idmalla</th>
 	 <th>idasig</th>
 	 <th>idnivel</th>
-	 <th>codigo</th>
+	 <th>area</th>
 	 <th>nombre</th>
 	 <th>creditos</th>
 	 <th style="text-align: right;">Actions</th>
