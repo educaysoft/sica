@@ -147,10 +147,11 @@ function get_asignaturas() {
 	async : true,
         dataType : 'json',
         success: function(data){
+		console.log(data);
         var html = '';
         var i;
         for(i=0; i<data.length; i++){
-        html += '<option value='+data[i].idasignatura+'>'+data[i].nombres+'</option>';
+        html += '<option value='+data[i].idasignatura+'>'+data[i].nombre+'</option>';
         }
         $('#idasignatura').html(html);
 
