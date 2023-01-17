@@ -231,6 +231,7 @@ function get_directorio() {
 	async : true,
         dataType : 'json',
         success: function(data){
+	console.log(data);
         var html = '';
         var i;
         for(i=0; i<data.length; i++){
