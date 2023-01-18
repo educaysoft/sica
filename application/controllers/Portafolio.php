@@ -14,7 +14,7 @@ public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['portafolio']=$this->portafolio_model->lista_portafolios()->row_array();
+  	$data['portafolio']=$this->portafolio_model->elultimo();
   	$data['personas']= $this->persona_model->lista_personasA()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 			
@@ -31,17 +31,17 @@ public function index(){
  }
 
 
-public function add()
-{
-		$data['personas']= $this->persona_model->lista_personasA()->result();
-  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
-		$data['title']="Nueva Portafolio";
-	 	$this->load->view('template/page_header');		
-	 	$this->load->view('portafolio_form',$data);
-	 	$this->load->view('template/page_footer');
+	public function add()
+	{
+			$data['personas']= $this->persona_model->lista_personasA()->result();
+			$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+			$data['title']="Nueva Portafolio";
+			$this->load->view('template/page_header');		
+			$this->load->view('portafolio_form',$data);
+			$this->load->view('template/page_footer');
 
 
-}
+	}
 
 
 	public function  save()
