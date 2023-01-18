@@ -43,7 +43,19 @@ if(isset($ubicacionarticulo))
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('unidad/actual/'.$ubicacionarticulo['idunidad'], 'La unidad:'); ?> </label>
+	<div class="col-md-10">
+     <?php 
+$options= array("NADA");
+foreach ($unidades as $row){
+	$options[$row->idunidad]= $row->nombre;
+}
 
+echo form_input('idunidad',$options[$ubicacionarticulo['idunidad']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
 
 
 
@@ -90,49 +102,14 @@ echo form_input('idpersona',$options[$ubicacionarticulo['idpersona']],array("dis
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha de prestamo:</label>
+    <label class="col-md-2 col-form-label"> Fecha ubicación:</label>
 	<div class="col-md-10">
 		<?php
-      		 echo form_input('fechaprestamo',$ubicacionarticulo['fechaprestamo'],array('type'=>'date',"disabled"=>"disabled", 'placeholder'=>'fecha','style'=>'width:500px;')) 
+      		 echo form_input('fecha',$ubicacionarticulo['fecha'],array('type'=>'date',"disabled"=>"disabled", 'placeholder'=>'fecha','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
 
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Hora pretamo:</label>
-	<div class="col-md-10">
-		<?php
-     $eys_arrinput=array('name'=>'horaprestamo','id'=>'horaprestamo',"type"=>"time",'value'=>$ubicacionarticulo['horaprestamo'], "style"=>"width:500px");
-     echo form_input($eys_arrinput); 
-
-		?>
-	</div> 
-</div>
-
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha devolucion:</label>
-	<div class="col-md-10">
-		<?php
-      		 echo form_input('fechadevolucion',$ubicacionarticulo['fechadevolucion'],array('type'=>'date',"disabled"=>"disabled",  'placeholder'=>'fecha','style'=>'width:500px;')) 
-		?>
-	</div> 
-</div>
-
-
- <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Hora devolucion:</label>
-	<div class="col-md-10">
-		<?php
-     $eys_arrinput=array('name'=>'horadevolucion','id'=>'horadevolucion',"type"=>"time",'value'=>$ubicacionarticulo['horadevolucion'], "style"=>"width:500px");
-     echo form_input($eys_arrinput); 
-		?>
-	</div> 
-</div>
-  
 
 
 

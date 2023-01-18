@@ -5,7 +5,7 @@ CREATE TABLE `ubicacionarticulo` (
   `idarticulo` int(11) DEFAULT NULL,
   `idpersona` int(11) DEFAULT NULL,
   `fecha` date DEFAULT NULL,
-  `idunidaod` int(11) DEFAULT NULL,
+  `idunidad` int(11) DEFAULT NULL,
   `detalle` text DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
