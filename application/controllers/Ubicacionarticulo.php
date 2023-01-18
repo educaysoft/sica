@@ -4,7 +4,7 @@ class Ubicacionarticulo extends CI_Controller{
 	public function __construct(){
       		parent::__construct();
       		$this->load->model('ubicacionarticulo_model');
-      		$this->load->model('departamento_model');
+      		$this->load->model('unidad_model');
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
       		$this->load->model('articulo_model');
@@ -34,7 +34,7 @@ class Ubicacionarticulo extends CI_Controller{
 
 		$data['articulos']= $this->articulo_model->lista_articulos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['title']="Ubicacionarticulo del departamento";
+		$data['title']="Ubicacionarticulo del unidad";
 	 
 		$data['title']="Modulo de sesiones del evento";
 		$this->load->view('template/page_header');		
@@ -55,7 +55,7 @@ class Ubicacionarticulo extends CI_Controller{
 
 		$data['articulos']= $this->articulo_model->lista_articulos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['unidads']= $this->unidad_model->lista_unidads()->result();
    		date_default_timezone_set('America/Guayaquil');
 	     	$date = date("Y-m-d");
 		$data['title']="Nueva sesion de eventos";
@@ -192,7 +192,7 @@ function ubicacionarticulo_data()
 
 public function elprimero()
 {
-  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  	$data['unidads']= $this->unidad_model->lista_unidads()->result();
 	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->elprimero();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   if(!empty($data))
@@ -200,7 +200,7 @@ public function elprimero()
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Ubicacionarticulo del departamento";
+    $data['title']="Ubicacionarticulo del unidad";
     $this->load->view('template/page_header');		
     $this->load->view('ubicacionarticulo_record',$data);
     $this->load->view('template/page_footer');
@@ -213,7 +213,7 @@ public function elprimero()
 
 public function elultimo()
 {
-  $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  $data['unidads']= $this->unidad_model->lista_unidads()->result();
   		$data['temas']= $this->tema_model->lista_temas()->result();
 	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->elultimo();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
@@ -221,7 +221,7 @@ public function elultimo()
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Ubicacionarticulo del departamento";
+    $data['title']="Ubicacionarticulo del unidad";
   
     $this->load->view('template/page_header');		
     $this->load->view('ubicacionarticulo_record',$data);
@@ -236,13 +236,13 @@ public function elultimo()
 
 public function siguiente(){
  // $data['ubicacionarticulo_list']=$this->ubicacionarticulo_model->lista_ubicacionarticulo()->result();
-	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['unidads']= $this->unidad_model->lista_unidads()->result();
   		$data['temas']= $this->tema_model->lista_temas()->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
-    $data['title']="Ubicacionarticulo del departamento";
+    $data['title']="Ubicacionarticulo del unidad";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
   $this->load->view('ubicacionarticulo_record',$data);
@@ -251,13 +251,13 @@ public function siguiente(){
 
 public function anterior(){
  // $data['ubicacionarticulo_list']=$this->ubicacionarticulo_model->lista_ubicacionarticulo()->result();
-  $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  $data['unidads']= $this->unidad_model->lista_unidads()->result();
 	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->anterior($this->uri->segment(3))->row_array();
-		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['eventos']= $this->evento_model->lista_eventos()->result();
+  	$data['eventos']= $this->evento_model->lista_eventos()->result();
  // $data['title']="Correo";
-    $data['title']="Ubicacionarticulo del departamento";
+    $data['title']="Ubicacionarticulo del unidad";
 	$this->load->view('template/page_header');		
   $this->load->view('ubicacionarticulo_record',$data);
 	$this->load->view('template/page_footer');

@@ -35,14 +35,14 @@ foreach ($personas as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Departamento:</label>
+<label class="col-md-2 col-form-label">Unidad:</label>
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
-foreach ($departamentos as $row){
-	$options[$row->iddepartamento]=$row->nombre;
+foreach ($unidads as $row){
+	$options[$row->idunidad]=$row->nombre;
 }
- echo form_dropdown("iddepartamento",$options,set_select('--Select--','default_value'), array('id'=>'iddepartamento'));  
+ echo form_dropdown("idunidad",$options,set_select('--Select--','default_value'), array('id'=>'idunidad'));  
 ?>
 </div>
 </div>
