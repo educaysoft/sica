@@ -33,6 +33,24 @@ foreach ($personas as $row){
 </div>
 </div>
 
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">departamento:</label>
+<div class="col-md-10">
+<?php
+$options= array('--Select--');
+foreach ($departamentos as $row){
+	$options[$row->iddepartamento]=$row->nombre;
+}
+ echo form_dropdown("iddepartamento",$options,set_select('--Select--','default_value'), array('id'=>'iddepartamento'));  
+?>
+</div>
+</div>
+
+
+
+
+
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Fecha del prestamo:</label>
 <div class="col-md-10">
@@ -45,85 +63,11 @@ foreach ($personas as $row){
 
     $horaf= date("H:i:s",strtotime(' + 2 hours'));
 
- echo form_input(array("name"=>"fechaprestamo","id"=>"fechaprestamo","type"=>"date","value"=>$date));  
+ echo form_input(array("name"=>"fecha","id"=>"fecha","type"=>"date","value"=>$date));  
 
 ?>
 </div>
 </div>
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Hora prestamo:</label>
-<div class="col-md-10">
-<?php
-
- echo form_input(array("name"=>"horaprestamo","id"=>"horaprestamo","type"=>"time","value"=>$horai));  
-
-?>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Fecha de devolucion:</label>
-<div class="col-md-10">
-<?php
-
-   date_default_timezone_set('America/Guayaquil');
-    $date = date("Y-m-d");
-    $horai= date("H:i:s");
-    
-
-    $horaf= date("H:i:s",strtotime(' + 2 hours'));
-
- echo form_input(array("name"=>"fechadevolucion","id"=>"fechadevolucion","type"=>"date","value"=>0,"disabled"=>"disabled"));  
-
-?>
-</div>
-</div>
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Hora devolucion:</label>
-<div class="col-md-10">
-<?php
-
- echo form_input(array("name"=>"horadevolucion","id"=>"horadevolucion","type"=>"time","value"=>0,"disabled"=>"disabled"));  
-
-?>
-</div>
-</div>
-
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Detalle:</label>
-<div class="col-md-10">
-<?php
-    
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Detalle del prestamo" );    
- echo form_textarea("detalle","", $textarea_options);  
-
-?>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
