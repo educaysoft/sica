@@ -16,6 +16,7 @@ class Ubicacionarticulo extends CI_Controller{
 		$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->elultimo();
 		$data['articulos']= $this->articulo_model->lista_articulos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['unidades']= $this->unidad_model->lista_unidades()->result();
 
  		// print_r($data['ubicacionarticulo_list']);
   		$data['title']="Lista de Ubicacionarticuloes";
