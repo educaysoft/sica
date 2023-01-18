@@ -112,7 +112,7 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Periodo académico:</label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('periodoacademico/actual/'.$portafolio['idperiodoacademico'], 'Periodo académico:'); ?></label>
 	<div class="col-md-10">
 	<?php 
 	$options= array("NADA");
