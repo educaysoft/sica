@@ -55,7 +55,7 @@ class Ubicacionarticulo extends CI_Controller{
 
 		$data['articulos']= $this->articulo_model->lista_articulos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['unidads']= $this->unidad_model->lista_unidads()->result();
+		$data['unidades']= $this->unidad_model->lista_unidades()->result();
    		date_default_timezone_set('America/Guayaquil');
 	     	$date = date("Y-m-d");
 		$data['title']="Nueva sesion de eventos";
@@ -192,7 +192,7 @@ function ubicacionarticulo_data()
 
 public function elprimero()
 {
-  	$data['unidads']= $this->unidad_model->lista_unidads()->result();
+  	$data['unidades']= $this->unidad_model->lista_unidades()->result();
 	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->elprimero();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   if(!empty($data))
@@ -213,7 +213,7 @@ public function elprimero()
 
 public function elultimo()
 {
-  $data['unidads']= $this->unidad_model->lista_unidads()->result();
+  $data['unidades']= $this->unidad_model->lista_unidades()->result();
   		$data['temas']= $this->tema_model->lista_temas()->result();
 	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->elultimo();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
@@ -236,7 +236,7 @@ public function elultimo()
 
 public function siguiente(){
  // $data['ubicacionarticulo_list']=$this->ubicacionarticulo_model->lista_ubicacionarticulo()->result();
-	$data['unidads']= $this->unidad_model->lista_unidads()->result();
+	$data['unidades']= $this->unidad_model->lista_unidades()->result();
   		$data['temas']= $this->tema_model->lista_temas()->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->siguiente($this->uri->segment(3))->row_array();
@@ -251,7 +251,7 @@ public function siguiente(){
 
 public function anterior(){
  // $data['ubicacionarticulo_list']=$this->ubicacionarticulo_model->lista_ubicacionarticulo()->result();
-  $data['unidads']= $this->unidad_model->lista_unidads()->result();
+  $data['unidades']= $this->unidad_model->lista_unidades()->result();
 	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->anterior($this->uri->segment(3))->row_array();
 	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
  	$data['personas']= $this->persona_model->lista_personas()->result();
