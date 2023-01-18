@@ -55,6 +55,7 @@ class Ubicacionarticulo extends CI_Controller{
 
 		$data['articulos']= $this->articulo_model->lista_articulos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
    		date_default_timezone_set('America/Guayaquil');
 	     	$date = date("Y-m-d");
 		$data['title']="Nueva sesion de eventos";
