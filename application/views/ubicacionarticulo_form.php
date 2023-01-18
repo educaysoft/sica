@@ -52,7 +52,7 @@ foreach ($unidades as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Fecha del prestamo:</label>
+<label class="col-md-2 col-form-label">Fecha de ubicación:</label>
 <div class="col-md-10">
 <?php
 

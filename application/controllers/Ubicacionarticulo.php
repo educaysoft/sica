@@ -70,11 +70,8 @@ class Ubicacionarticulo extends CI_Controller{
 	 	$array_item=array(
 		 	'idarticulo' => $this->input->post('idarticulo'),
 		 	'idpersona' => $this->input->post('idpersona'),
-		 	'fechaprestamo' => $this->input->post('fechaprestamo'),
-		 	'fechadevolucion' => $this->input->post('fechadevolucion'),
-		 	'detalle' => $this->input->post('detalle'),
-		 	'horaprestamo' => $this->input->post('horaprestamo'),
-		 	'horadevolucion' => $this->input->post('horadevolucion'),
+		 	'fecha' => $this->input->post('fecha'),
+		 	'idunidad' => $this->input->post('idunidad'),
 	 	);
 	 	$result=$this->ubicacionarticulo_model->save($array_item);
 	 	if($result == FALSE)
@@ -106,13 +103,11 @@ class Ubicacionarticulo extends CI_Controller{
 		$id=$this->input->post('idubicacionarticulo');
 	 	$array_item=array(
 		 	'idubicacionarticulo' => $this->input->post('idubicacionarticulo'),
+
 		 	'idarticulo' => $this->input->post('idarticulo'),
 		 	'idpersona' => $this->input->post('idpersona'),
-		 	'fechaprestamo' => $this->input->post('fechaprestamo'),
-		 	'fechadevolucion' => $this->input->post('fechadevolucion'),
-		 	'detalle' => $this->input->post('detalle'),
-		 	'horaprestamo' => $this->input->post('horaprestamo'),
-		 	'horadevolucion' => $this->input->post('horadevolucion'),
+		 	'fecha' => $this->input->post('fecha'),
+		 	'idunidad' => $this->input->post('idunidad'),
 	 	);
 	 	$this->ubicacionarticulo_model->update($id,$array_item);
 	 	redirect('ubicacionarticulo/actual/'.$id);
