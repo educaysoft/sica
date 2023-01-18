@@ -19,13 +19,13 @@ class Ubicacionarticulo_model extends CI_model {
 
 
  	function ubicacionarticulos( $id){
- 		$ubicacionarticulo = $this->db->query('select * from ubicacionarticulo where idarticulo="'. $id.'" order by fechaprestamo');
+ 		$ubicacionarticulo = $this->db->query('select * from ubicacionarticulo where idarticulo="'. $id.'" order by fecha');
  		return $ubicacionarticulo;
  	}
 
 
  	function ubicacionarticulosA( $id){
- 		$ubicacionarticulo = $this->db->query('select * from ubicacionarticulo1 where idarticulo="'. $id.'" ORDER BY date(fechaprestamo) ASC');
+ 		$ubicacionarticulo = $this->db->query('select * from ubicacionarticulo1 where idarticulo="'. $id.'" ORDER BY date(fecha) ASC');
  		return $ubicacionarticulo;
  	}
 
@@ -69,7 +69,7 @@ class Ubicacionarticulo_model extends CI_model {
 
  	function save($array)
 	{	
-		$condition ="idarticulo="."'". $array['idarticulo']."' and  fechaprestamo=". "'".$array['fechaprestamo']."' and  horaprestamo=". "'".$array['horaprestamo']."'";
+		$condition ="idarticulo="."'". $array['idarticulo']."' and  fecha=". "'".$array['fecha']."'";
 		$this->db->select('*');
 		$this->db->from('ubicacionarticulo');
 		$this->db->where($condition);
@@ -85,8 +85,7 @@ class Ubicacionarticulo_model extends CI_model {
 				return false;
 			}
 		}else{
-			$this->db->where('fechaprestamo',$array['fechaprestamo']);
-			$this->db->where('horaprestamo',$array['horaprestamo']);
+			$this->db->where('fecha',$array['fecha']);
 			$this->db->where('idarticulo',$array['idarticulo']);
 			$this->db->update('ubicacionarticulo',$array);
 
