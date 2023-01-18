@@ -364,7 +364,7 @@ echo form_input('idtipodocu',$options[$certificado['idtipodocu']],array("disable
     <label class="col-md-2 col-form-label"> TExto1:</label>
 	<div class="col-md-10">
 		<?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+$textarea_options = array('class' => 'form-control','rows' => '4', "disabled"=>"disabled",  'cols' => '20', 'style'=> 'width:500px;height:100px;');    
  echo form_textarea('texto1',$certificado['texto1'],$textarea_options); 
 		?>
 	</div> 
