@@ -1,5 +1,5 @@
 <?php
-class Usoaula_model extends CI_model {
+class Ubicacionarticulo_model extends CI_model {
 
 	function listar_prestamoarticulo(){
 		 $prestamoarticulo= $this->db->get('prestamoarticulo');

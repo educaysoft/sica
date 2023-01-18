@@ -3,8 +3,8 @@ class Ubicacionarticulo extends CI_Controller{
 
 	public function __construct(){
       		parent::__construct();
-      		$this->load->model('prestamoarticulo_model');
-      		$this->load->model('documento_model');
+      		$this->load->model('ubicacionarticulo_model');
+      		$this->load->model('departamento_model');
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
       		$this->load->model('articulo_model');
@@ -13,14 +13,14 @@ class Ubicacionarticulo extends CI_Controller{
 	}
 
 	public function index(){
-		$data['prestamoarticulo'] = $this->prestamoarticulo_model->elultimo();
+		$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->elultimo();
 		$data['articulos']= $this->articulo_model->lista_articulos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
 
- 		// print_r($data['prestamoarticulo_list']);
+ 		// print_r($data['ubicacionarticulo_list']);
   		$data['title']="Lista de Ubicacionarticuloes";
 		$this->load->view('template/page_header');		
-  		$this->load->view('prestamoarticulo_record',$data);
+  		$this->load->view('ubicacionarticulo_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
@@ -29,16 +29,16 @@ class Ubicacionarticulo extends CI_Controller{
 	public function actual(){
 	 if(isset($this->session->userdata['logged_in'])){
 
-		$data['prestamoarticulo'] = $this->prestamoarticulo_model->prestamoarticulo($this->uri->segment(3))->row_array();
+		$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->ubicacionarticulo($this->uri->segment(3))->row_array();
 
 
 		$data['articulos']= $this->articulo_model->lista_articulos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['title']="Ubicacionarticulo del documento";
+		$data['title']="Ubicacionarticulo del departamento";
 	 
 		$data['title']="Modulo de sesiones del evento";
 		$this->load->view('template/page_header');		
-		$this->load->view('prestamoarticulo_record',$data);
+		$this->load->view('ubicacionarticulo_record',$data);
 		$this->load->view('template/page_footer');
 	   }else{
 		$this->load->view('template/page_header.php');
@@ -59,7 +59,7 @@ class Ubicacionarticulo extends CI_Controller{
 	     	$date = date("Y-m-d");
 		$data['title']="Nueva sesion de eventos";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('prestamoarticulo_form',$data);
+	 	$this->load->view('ubicacionarticulo_form',$data);
 	 	$this->load->view('template/page_footer');
 	}
 
@@ -75,7 +75,7 @@ class Ubicacionarticulo extends CI_Controller{
 		 	'horaprestamo' => $this->input->post('horaprestamo'),
 		 	'horadevolucion' => $this->input->post('horadevolucion'),
 	 	);
-	 	$result=$this->prestamoarticulo_model->save($array_item);
+	 	$result=$this->ubicacionarticulo_model->save($array_item);
 	 	if($result == FALSE)
 		{
 			echo "<script language='JavaScript'> alert('Fecha para este evento ya fue asignado'); </script>";
@@ -90,21 +90,21 @@ class Ubicacionarticulo extends CI_Controller{
 
 	public function edit()
 	{
-	 	$data['prestamoarticulo'] = $this->prestamoarticulo_model->prestamoarticulo($this->uri->segment(3))->row_array();
+	 	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->ubicacionarticulo($this->uri->segment(3))->row_array();
 		$data['articulos']= $this->articulo_model->lista_articulos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
  	 	$data['title'] = "Actualizar Ubicacionarticulo";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('prestamoarticulo_edit',$data);
+ 	 	$this->load->view('ubicacionarticulo_edit',$data);
 	 	$this->load->view('template/page_footer');
 	}
 
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idprestamoarticulo');
+		$id=$this->input->post('idubicacionarticulo');
 	 	$array_item=array(
-		 	'idprestamoarticulo' => $this->input->post('idprestamoarticulo'),
+		 	'idubicacionarticulo' => $this->input->post('idubicacionarticulo'),
 		 	'idarticulo' => $this->input->post('idarticulo'),
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'fechaprestamo' => $this->input->post('fechaprestamo'),
@@ -113,17 +113,17 @@ class Ubicacionarticulo extends CI_Controller{
 		 	'horaprestamo' => $this->input->post('horaprestamo'),
 		 	'horadevolucion' => $this->input->post('horadevolucion'),
 	 	);
-	 	$this->prestamoarticulo_model->update($id,$array_item);
-	 	redirect('prestamoarticulo/actual/'.$id);
+	 	$this->ubicacionarticulo_model->update($id,$array_item);
+	 	redirect('ubicacionarticulo/actual/'.$id);
  	}
 
 
 
  	public function delete()
  	{
- 		$data=$this->prestamoarticulo_model->delete($this->uri->segment(3));
+ 		$data=$this->ubicacionarticulo_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('prestamoarticulo/elprimero');
+	 	redirect('ubicacionarticulo/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -135,13 +135,13 @@ public function listar()
 	$data['eventos']= $this->evento_model->lista_eventos()->result();
   $data['title']="Sesiones de evento";
 	$this->load->view('template/page_header');		
-  $this->load->view('prestamoarticulo_list',$data);
+  $this->load->view('ubicacionarticulo_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function prestamoarticulo_data()
+function ubicacionarticulo_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
@@ -154,11 +154,11 @@ function prestamoarticulo_data()
 			$idevento=$this->input->get('idevento');
 		}
 
-	 	$data0 = $this->prestamoarticulo_model->prestamoarticulosA($idevento);
+	 	$data0 = $this->ubicacionarticulo_model->ubicacionarticulosA($idevento);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idprestamoarticulo,$r->elevento,$r->fecha,$r->tema,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('prestamoarticulo/actual').'"   data-idprestamoarticulo="'.$r->idprestamoarticulo.'">Ver</a>');
+			$data[]=array($r->idubicacionarticulo,$r->elevento,$r->fecha,$r->tema,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('ubicacionarticulo/actual').'"   data-idubicacionarticulo="'.$r->idubicacionarticulo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -177,11 +177,11 @@ function prestamoarticulo_data()
 	{
 		
 
-	 	$data['prestamoarticulos']= $this->prestamoarticulo_model->prestamoarticulosA($this->uri->segment(3))->result();
+	 	$data['ubicacionarticulos']= $this->ubicacionarticulo_model->ubicacionarticulosA($this->uri->segment(3))->result();
 
 		$data['title']="Evento";
 	//	$this->load->view('template/page_header');		
-		$this->load->view('prestamoarticulo_list_pdf',$data);
+		$this->load->view('ubicacionarticulo_list_pdf',$data);
 //		$this->load->view('template/page_footer');
 	}
 
@@ -191,17 +191,17 @@ function prestamoarticulo_data()
 
 public function elprimero()
 {
-  	$data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['prestamoarticulo'] = $this->prestamoarticulo_model->elprimero();
+  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->elprimero();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   if(!empty($data))
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Ubicacionarticulo del documento";
+    $data['title']="Ubicacionarticulo del departamento";
     $this->load->view('template/page_header');		
-    $this->load->view('prestamoarticulo_record',$data);
+    $this->load->view('ubicacionarticulo_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -212,18 +212,18 @@ public function elprimero()
 
 public function elultimo()
 {
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
+  $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   		$data['temas']= $this->tema_model->lista_temas()->result();
-	$data['prestamoarticulo'] = $this->prestamoarticulo_model->elultimo();
+	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->elultimo();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   if(!empty($data))
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Ubicacionarticulo del documento";
+    $data['title']="Ubicacionarticulo del departamento";
   
     $this->load->view('template/page_header');		
-    $this->load->view('prestamoarticulo_record',$data);
+    $this->load->view('ubicacionarticulo_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -234,32 +234,31 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['prestamoarticulo_list']=$this->prestamoarticulo_model->lista_prestamoarticulo()->result();
-	$data['documentos']= $this->documento_model->lista_documentos()->result();
+ // $data['ubicacionarticulo_list']=$this->ubicacionarticulo_model->lista_ubicacionarticulo()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   		$data['temas']= $this->tema_model->lista_temas()->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
-	$data['prestamoarticulo'] = $this->prestamoarticulo_model->siguiente($this->uri->segment(3))->row_array();
+	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
-    $data['title']="Ubicacionarticulo del documento";
+    $data['title']="Ubicacionarticulo del departamento";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
-  $this->load->view('prestamoarticulo_record',$data);
+  $this->load->view('ubicacionarticulo_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['prestamoarticulo_list']=$this->prestamoarticulo_model->lista_prestamoarticulo()->result();
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
-  		$data['temas']= $this->tema_model->lista_temas()->result();
-	$data['prestamoarticulo'] = $this->prestamoarticulo_model->anterior($this->uri->segment(3))->row_array();
+ // $data['ubicacionarticulo_list']=$this->ubicacionarticulo_model->lista_ubicacionarticulo()->result();
+  $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->anterior($this->uri->segment(3))->row_array();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
  	$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
  // $data['title']="Correo";
-    $data['title']="Ubicacionarticulo del documento";
+    $data['title']="Ubicacionarticulo del departamento";
 	$this->load->view('template/page_header');		
-  $this->load->view('prestamoarticulo_record',$data);
+  $this->load->view('ubicacionarticulo_record',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -269,15 +268,15 @@ public function anterior(){
 
 
 
-public function get_prestamoarticulo() {
+public function get_ubicacionarticulo() {
     $this->load->database();
     $this->load->helper('form');
-    if($this->input->get('idprestamoarticulo')) 
+    if($this->input->get('idubicacionarticulo')) 
     {
         $this->db->select('*');
     	$this->db->order_by("fecha","asc");
-        $this->db->where(array('idprestamoarticulo' => $this->input->get('idprestamoarticulo')));
-        $query = $this->db->get('prestamoarticulo');
+        $this->db->where(array('idubicacionarticulo' => $this->input->get('idubicacionarticulo')));
+        $query = $this->db->get('ubicacionarticulo');
 	$data=$query->result();
 	echo json_encode($data);
 	}
