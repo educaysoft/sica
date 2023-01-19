@@ -39,8 +39,9 @@ $eys_arrinput=array('name'=>'actividad','value'=>$fechacalendario['actividad'], 
     <label class="col-md-2 col-form-label"> detalle:</label>
 	<div class="col-md-10">
 		<?php
-$eys_arrinput=array('name'=>'detalle','value'=>$fechacalendario['detalle'], "style"=>"width:500px");
- echo form_input($eys_arrinput);
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Detalle" );    
+echo form_textarea('detalle',$fechacalendario['detalle'],$textarea_options ); ?></td>
+
 		?>
 	</div> 
 </div>

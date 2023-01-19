@@ -60,7 +60,11 @@ if(isset($fechacalendario))
     <label class="col-md-2 col-form-label"> Detalle:</label>
 	<div class="col-md-10">
 		<?php
-       echo form_input('detalle',$fechacalendario['detalle'],array('placeholder'=>'Descripción del fechacalendario','style'=>'width:500px;'));
+
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:50%;height:100px;', "placeholder"=>"Tema a  tratar" );    
+
+	echo form_textarea('detalle',$fechacalendario['detalle'],$textarea_options);
+
 		?>
 	</div> 
 </div>
