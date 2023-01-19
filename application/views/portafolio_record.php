@@ -40,7 +40,7 @@ if(isset($portafolio) and !empty($portafolio))
 	<div class="col-md-10">
 
 
-     <?php echo form_input('idportafolio',$portafolio['idportafolio'],array("id"=>"idportafolio","disabled"=>"disabled",'placeholder'=>'Idportafolios')); ?>
+     <?php echo form_input('idportafolio',$portafolio['idportafolio'],array("disabled"=>"disabled",'placeholder'=>'Idportafolios')); ?>
  
 	</div> 
 </div>
@@ -164,9 +164,8 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var idpersona=8; //document.getElementById("idpersona").value;
-	var idportafolio=1; //document.getElementById("idportafolio").value;
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('portafolio/documento_data')?>', type: 'GET',data:{idpersona:idpersona,idportafolio:idportafolio}},});
+	var idpersona=document.getElementById("idpersona").value;
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('portafolio/documento_data')?>', type: 'GET',data:{idpersona:idpersona}},});
 });
 
 
