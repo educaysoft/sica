@@ -56,7 +56,7 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->lapersona;
 }
 
-echo form_input('idpersona',$options[$portafolio['idpersona']],array("id"=>"idpersona","disabled"=>"disabled", "style"=>"width:500px")); ?>
+echo form_input('lapersona',$options[$portafolio['idpersona']],array("id"=>"lapersona","disabled"=>"disabled", "style"=>"width:500px")); ?>
 	</div> 
 </div>
 
