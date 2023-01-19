@@ -165,7 +165,7 @@ function portafolio_data()
 
 			$idpersona=$this->input->get('idpersona');
 			$idportafolio=$this->input->get('idportafolio');
-			$data0 =$this->documento_model->lista_documentosD($idpersona,$idportafolio);
+			$data0 =$this->documento_model->lista_documentosD(8,1);
 			console.log($data0);
 			$data=array();
 			foreach($data0->result() as $r){
