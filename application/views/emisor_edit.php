@@ -29,7 +29,7 @@ $options= array('--Select--');
 foreach ($personas as $row){
 	$options[$row->idpersona]= $row->lapersona;
 }
- echo form_dropdown("idpersona",$options,%emisor['idpersona']);  ?></td>
+ echo form_dropdown("idpersona",$options,$emisor['idpersona']);  ?></td>
 </tr>
 
 
