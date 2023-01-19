@@ -47,12 +47,13 @@ class Emisor extends CI_Controller{
 
 public function edit()
 {
-	 	$data['usuario'] = $this->usuario_model->usuario($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['perfiles']= $this->perfil_model->lista_perfil()->result();
+
+	 	$data['emisor'] = $this->emisor_model->emisor($this->uri->segment(3))->row_array();
+		$data['personas']= $this->persona_model->lista_personasA()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Persona";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('usuario_edit',$data);
+ 	 	$this->load->view('emisor_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
