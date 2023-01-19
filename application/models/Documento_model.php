@@ -48,8 +48,8 @@ class Documento_model extends CI_model {
 		$documento=$this->db->order_by("fechaelaboracion")->get('documentoportafolio1');
 		}else{
 
-		$this->db->where('idpersona='.$idpersona);
-		$this->db->where('idportafolio='.$idportafolio);
+		$this->db->where('idpersona',$idpersona);
+		$this->db->where('idportafolio',$idportafolio);
 		$documento=$this->db->order_by("fechaelaboracion")->get('documentoportafolio1');
 		}
 		 return $documento;
