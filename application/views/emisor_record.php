@@ -35,58 +35,67 @@ if(isset($emisor))
 <?php echo form_hidden('iddocumento',$emisor['iddocumento']) ?>
 <table>
 
-<tr>
-     <td>Id Emisor:</td>
-     <td><?php echo form_input('idemisor',$emisor['idemisor'],array("disabled"=>"disabled",'placeholder'=>'Idemisors')) ?></td>
-  </tr>
-<tr>
- 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id emisor:</label>
+	<div class="col-md-10">
+	<?php
+      echo form_input('idemisor',$emisor['idemisor'],array("disabled"=>"disabled",'placeholder'=>'Idemisors'));
+	?>
+	</div> 
+</div> 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id documento:</label>
+	<div class="col-md-10">
+	<?php
+      echo form_input('iddocumento',$emisor['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos'));
+	?>
+	</div> 
+</div> 
 
 
 
-
-<tr>
-     <td>Id Documento:</td>
-     <td><?php echo form_input('iddocumento',$emisor['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos')) ?></td>
-  </tr>
-<tr>
-     <td>Documento:</td>
-     <td><?php 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Documento:</label>
+	<div class="col-md-10">
+	<?php
 $options= array("NADA");
 foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
+echo form_input('iddocumento',$options[$emisor['iddocumento']],array("disabled"=>"disabled"));
+	?>
+	</div> 
+</div> 
 
-echo form_input('iddocumento',$options[$emisor['iddocumento']],array("disabled"=>"disabled")) ?></td>
-  </tr>
- 
- 
-  <tr>
-     <td>Id Persona:</td>
-     <td><?php echo form_input('idpersona',$emisor['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Idemisores')) ?></td>
-  </tr>
-<tr>
-     <td>Persona:</td>
-     <td><?php 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id persona:</label>
+	<div class="col-md-10">
+	<?php
+     	 echo form_input('idpersona',$emisor['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Idemisores'));
+	?>
+	</div> 
+</div> 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Persona:</label>
+	<div class="col-md-10">
+	<?php
 $options= array("NADA");
 foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
+echo form_input('idpersona',$options[$emisor['idpersona']],array("disabled"=>"disabled"));
+	?>
+	</div> 
+</div> 
 
-echo form_input('idpersona',$options[$emisor['idpersona']],array("disabled"=>"disabled")) ?></td>
-  </tr>
-
- 
-  
-
-
-
-
-
-
-
-
-</table>
 <?php echo form_close(); ?>
 
 
