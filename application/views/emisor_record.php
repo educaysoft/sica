@@ -59,7 +59,7 @@ if(isset($emisor))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Documento:</label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('documento/actual/'.$emisor['iddocumento'], 'Documento:'); ?></label>
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");

@@ -61,12 +61,11 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idusuario');
+		$id=$this->input->post('idemisor');
 	 	$array_item=array(
-		 	'password' => $this->input->post('password'),
+
 		 	'idpersona' => $this->input->post('idpersona'),
-		 	'idperfil' => $this->input->post('idpefil'),
-		 	'email' => $this->input->post('email'),
+		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$this->usuario_model->update($id,$array_item);
 	 	redirect('usuario');
