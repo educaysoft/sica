@@ -1,7 +1,7 @@
 <?php
 class Tipodocumento_model extends CI_model {
 
-	function lista_tipodocumento(){
+	function lista_tipodocumentos(){
 		 $tipodocumento= $this->db->get('tipodocumento');
 		 return $tipodocumento;
 	}
