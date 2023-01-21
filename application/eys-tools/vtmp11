@@ -1,47 +1,77 @@
 <div id="eys-nav-i">
-
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-<?php echo form_open('tipodocu/save_edit') ?>
-    <ul>
-        <li> <?php echo anchor('tipodocu/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('tipodocu/anterior/'.$tipodocu['idtipodocu'], 'anterior'); ?></li>
-        <li> <?php echo anchor('tipodocu/siguiente/'.$tipodocu['idtipodocu'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('tipodocu/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('tipodocu/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('tipodocu/edit/'.$tipodocu['idtipodocu'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('tipodocu/delete/'.$tipodocu['idtipodocu'],'Delete'); ?></li>
-        <li> <?php echo anchor('tipodocu/listar/','Listar'); ?></li>
+	<ul>
+<?php
+if(isset($estudio))
+{
+?>
+   <li> <?php echo anchor('estudio/elprimero/', 'primero'); ?></li>
+   <li> <?php echo anchor('estudio/anterior/'.$estudio['idestudio'], 'anterior'); ?></li>
+   <li> <?php echo anchor('estudio/siguiente/'.$estudio['idestudio'], 'siguiente'); ?></li>
+   <li style="border-right:1px solid green"><?php echo anchor('estudio/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('estudio/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('estudio/edit/'.$estudio['idestudio'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('estudio/delete/'.$estudio['idestudio'],'Delete'); ?></li>
+        <li> <?php echo anchor('estudio/listar/','Listar'); ?></li>
+
+<?php 
+}else{
+?>
+
+        <li> <?php echo anchor('estudio/add', 'Nuevo'); ?></li>
+<?php
+}
+?>
 
     </ul>
 </div>
 <br>
+<br>
 
 
-<?php echo form_hidden('idtipodocu',$tipodocu['idtipodocu']) ?>
+<?php echo form_open('estudio/save_edit') ?>
+<?php echo form_hidden('idestudio',$estudio['idestudio']) ?>
 <table>
-
-
- 
- 
-
-
   <tr>
-     <td>Id Tipo Doc:</td>
-     <td><?php echo form_input('idtipodocu',$tipodocu['idtipodocu'],array("disabled"=>"disabled",'placeholder'=>'Idtipodocus')) ?></td>
+     <td>Id Correo:</td>
+     <td><?php echo form_input('idestudio',$estudio['idestudio'],array("disabled"=>"disabled",'placeholder'=>'Idestudios')) ?></td>
   </tr>
  
  
- 
-  <tr>
-     <td>Descripción:</td>
-     <td><?php echo form_input('descripcion',$tipodocu['descripcion'],array("disabled"=>"disabled",'placeholder'=>'descripcion')) ?></td>
+<tr>
+     <td>Persona:</td>
+     <td><?php 
+$options= array("NADA");
+foreach ($personas as $row){
+	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+}
+
+echo form_input('idpersona',$options[$estudio['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
   </tr>
+ 
 
-
+ <tr>
+     <td>Institucion:</td>
+     <td><?php 
+    $options= array("NADA");
+    foreach ($instituciones as $row){
+	      $options[$row->idinstitucion]= $row->nombre;
+    }
+    echo form_input('idinstitucion',$options[$estudio['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+ </tr>
   
 
 
+  
+<tr>
+      <td>Nivel del estudio:</td>
+      <td><?php echo form_input('nivel',$estudio['nivel'],array('type'=>'date','placeholder'=>'Niver de estudio','style'=>'width:500px;')) ?></td>
+</tr>
 
+<tr>
+      <td>Titulo:</td>
+      <td><?php echo form_input('titulo',$estudio['titulo'],array('type'=>'date','placeholder'=>'Titulo obtenido','style'=>'width:500px;')) ?></td>
+</tr>
 
 
 

@@ -1,41 +1,66 @@
 <?php
-class Tipodocumento_model extends CI_model {
+class Identidad_model extends CI_model {
 
-	function lista_tipodocu(){
-		 $tipodocu= $this->db->get('tipodocu');
-		 return $tipodocu;
-	}
-
-	function lista_tipodocusA(){
-		 $tipodocu= $this->db->get('tipodocu1');
-		 return $tipodocu;
+	function lista_estudios(){
+		 $estudio= $this->db->get('estudio');
+		 return $estudio;
 	}
 
 
+	function lista_estudios1($idpersona){
+
+ 		$this->db->where('idpersona',$idpersona);
+		 $estudio= $this->db->get('estudio1');
+		 return $estudio;
+	}
 
 
- 	function tipodocu( $id){
- 		$tipodocu = $this->db->query('select * from tipodocu where idtipodocu="'. $id.'"');
- 		return $tipodocu;
+
+
+	function lista_estudiosA(){
+		 $estudio= $this->db->get('estudio1');
+		 return $estudio;
+	}
+
+
+
+ 	function estudio( $id){
+ 		$estudio = $this->db->query('select * from estudio where idestudio="'. $id.'"');
+ 		return $estudio;
  	}
+
+
+
+ 	function estudios( $idpersona){
+ 		$estudio = $this->db->query('select * from estudio1 where idpersona="'. $idpersona.'"');
+ 		return $estudio;
+ 	}
+
+
+ 	function estudiospersona( $id){
+ 		$estudio = $this->db->query('select * from estudio where idpersona="'. $id.'"');
+ 		return $estudio;
+ 	}
+
+
 
  	function save($array)
  	{
-		$this->db->insert("tipodocu", $array);
+		$this->db->insert("estudio", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idtipodocu',$id);
- 		$this->db->update('tipodocu',$array_item);
+ 		$this->db->where('idestudio',$id);
+ 		$this->db->update('estudio',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idtipodocu',$id);
-		$this->db->delete('tipodocu');
+ 		$this->db->where('idestudio',$id);
+		$this->db->delete('estudio');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -46,7 +71,7 @@ class Tipodocumento_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idtipodocu")->get('tipodocu');
+		$query=$this->db->order_by("idestudio")->get('estudio');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -59,7 +84,7 @@ class Tipodocumento_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idtipodocu")->get('tipodocu');
+		$query=$this->db->order_by("idestudio")->get('estudio');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -71,40 +96,38 @@ class Tipodocumento_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$tipodocu = $this->db->select("idtipodocu")->order_by("idtipodocu")->get('tipodocu')->result_array();
-		$arr=array("idtipodocu"=>$id);
-		$clave=array_search($arr,$tipodocu);
-	   if(array_key_exists($clave+1,$tipodocu))
+ 		$estudio = $this->db->select("idestudio")->order_by("idestudio")->get('estudio')->result_array();
+		$arr=array("idestudio"=>$id);
+		$clave=array_search($arr,$estudio);
+	   if(array_key_exists($clave+1,$estudio))
 		 {
 
- 		$tipodocu = $this->db->query('select * from tipodocu where idtipodocu="'. $tipodocu[$clave+1]["idtipodocu"].'"');
+ 		$estudio = $this->db->query('select * from estudio where idestudio="'. $estudio[$clave+1]["idestudio"].'"');
 		 }else{
 
- 		$tipodocu = $this->db->query('select * from tipodocu where idtipodocu="'. $id.'"');
+ 		$estudio = $this->db->query('select * from estudio where idestudio="'. $id.'"');
 		 }
 		 	
- 		return $tipodocu;
+ 		return $estudio;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$tipodocu = $this->db->select("idtipodocu")->order_by("idtipodocu")->get('tipodocu')->result_array();
-		$arr=array("idtipodocu"=>$id);
-		$clave=array_search($arr,$tipodocu);
-	   if(array_key_exists($clave-1,$tipodocu))
+ 		$estudio = $this->db->select("idestudio")->order_by("idestudio")->get('estudio')->result_array();
+		$arr=array("idestudio"=>$id);
+		$clave=array_search($arr,$estudio);
+	   if(array_key_exists($clave-1,$estudio))
 		 {
 
- 		$tipodocu = $this->db->query('select * from tipodocu where idtipodocu="'. $tipodocu[$clave-1]["idtipodocu"].'"');
+ 		$estudio = $this->db->query('select * from estudio where idestudio="'. $estudio[$clave-1]["idestudio"].'"');
 		 }else{
 
- 		$tipodocu = $this->db->query('select * from tipodocu where idtipodocu="'. $id.'"');
+ 		$estudio = $this->db->query('select * from estudio where idestudio="'. $id.'"');
 		 }
 		 	
- 		return $tipodocu;
+ 		return $estudio;
  	}
-
-
 
 
 

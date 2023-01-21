@@ -1,104 +1,124 @@
 <?php
 
-class Tipodocu extends CI_Controller{
+class Estudio extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('tipodocu_model');
+  	  $this->load->model('persona_model');
+  	  $this->load->model('institucion_model');
+  	  $this->load->model('estudio_model');
 }
 
 public function index(){
-  	$data['tipodocu']=$this->tipodocu_model->tipodocu(1)->row_array();
- 
-  	$data['title']="Tipos de documentos";
-	$this->load->view('template/page_header');		
-  	$this->load->view('tipodocu_record',$data);
-	$this->load->view('template/page_footer');
-}
+
+  	if(isset($this->session->userdata['logged_in'])){
+			
+  	$data['estudio']=$this->estudio_model->lista_estudios()->row_array();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['estudios']= $this->estudio_model->lista_estudios()->result();
+			
+		$data['title']="Lista de estudios";
+		$this->load->view('template/page_header');
+		$this->load->view('estudio_record',$data);
+		$this->load->view('template/page_footer');
+	}else{
+	 	$this->load->view('template/page_header.php');
+		$this->load->view('login_form');
+	 	$this->load->view('template/page_footer.php');
+	}
+
+ }
 
 
-public function add()
-{
-		$data['title']="Nueva Tipo de documento";
-	 	$this->load->view('template/page_header');		
-	 	$this->load->view('tipodocu_form',$data);
-	 	$this->load->view('template/page_footer');
-
-
-}
+	public function add()
+	{
+			$data['personas']= $this->persona_model->lista_personas()->result();
+			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+			$data['title']="Nueva Estudio";
+			$this->load->view('template/page_header');		
+			$this->load->view('estudio_form',$data);
+			$this->load->view('template/page_footer');
+	}
 
 
 	public function  save()
 	{
 	 	$array_item=array(
 		 	
-		 	'idtipodocu' => $this->input->post('idtipodocu'),
-		 	'descripcion' => $this->input->post('descripcion'),
+		 	'idestudio' => $this->input->post('idestudio'),
+			'idpersona' => $this->input->post('idpersona'),
+			'idinstitucion' => $this->input->post('idinstitucion'),
+			'nivel' => $this->input->post('nivel'),
+			'titulo' => $this->input->post('titulo'),
 	 	);
-	 	$this->tipodocu_model->save($array_item);
-	 	redirect('tipodocu');
+	 	$this->estudio_model->save($array_item);
+	 	redirect('estudio');
  	}
 
 
 
 	public function edit()
 	{
-	 	$data['tipodocu'] = $this->tipodocu_model->tipodocu($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar tipodocu";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('tipodocu_edit',$data);
-	 	$this->load->view('template/page_footer');
- 
+			$data['estudio'] = $this->estudio_model->estudio($this->uri->segment(3))->row_array();
+			$data['personas']= $this->persona_model->lista_personas()->result();
+			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+			$data['title'] = "Actualizar Estudio";
+			$this->load->view('template/page_header');		
+			$this->load->view('estudio_edit',$data);
+			$this->load->view('template/page_footer');
+	 
 	}
 
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idtipodocu');
+		$id=$this->input->post('idestudio');
 	 	$array_item=array(
 		 	
-		 	'idtipodocu' => $this->input->post('idtipodocu'),
-		 	'descripcion' => $this->input->post('descripcion'),
+		 	'idestudio' => $this->input->post('idestudio'),
+			'idpersona' => $this->input->post('idpersona'),
+			'idinstitucion' => $this->input->post('idinstitucion'),
+			'nivel' => $this->input->post('nivel'),
+			'titulo' => $this->input->post('titulo'),
 	 	);
-	 	$this->tipodocu_model->update($id,$array_item);
-	 	redirect('tipodocu');
+	 	$this->estudio_model->update($id,$array_item);
+	 	redirect('estudio');
  	}
-
 
 
  	public function delete()
  	{
- 		$data=$this->tipodocu_model->delete($this->uri->segment(3));
+ 		$data=$this->estudio_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('tipodocu/elprimero');
+	 	redirect('estudio/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
 
-public function listar()
-{
-	
-  $data['tipodocu_list'] = $this->tipodocu_model->lista_tipodocusA()->result();
-  $data['title']="Tipo documento";
-	$this->load->view('template/page_header');		
-  $this->load->view('tipodocu_list',$data);
-	$this->load->view('template/page_footer');
-}
+	public function listar()
+	{
+		
+		$data['title']="Estudios";
+		$this->load->view('template/page_header');		
+		$this->load->view('estudio_list',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
 
-function tipodocu_data()
+function estudio_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->tipodocu_model->lista_tipodocusA();
+	 	$data0 = $this->estudio_model->lista_estudiosA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idtipodocu,$r->descripcion,$r->cantidad,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipodocu="'.$r->idtipodocu.'">Ver</a>');
+			$data[]=array($r->idestudio,$r->elestudiante,$r->lainstitucion,$r->nivel,$r->titulo,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('estudio/actual').'"   data-idestudio="'.$r->idestudio.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -114,6 +134,33 @@ function tipodocu_data()
 
 
 
+public function actual()
+{
+
+
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+
+
+	$data['estudio'] = $this->estudio_model->estudio($this->uri->segment(3))->row_array();
+  if(!empty($data))
+  {
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+    $data['title']="Estudio";
+    $this->load->view('template/page_header');		
+    $this->load->view('estudio_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
+
 
 
 
@@ -121,12 +168,19 @@ function tipodocu_data()
 
 public function elprimero()
 {
-	$data['tipodocu'] = $this->tipodocu_model->elprimero();
+
+
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+
+
+	$data['estudio'] = $this->estudio_model->elprimero();
   if(!empty($data))
   {
-    $data['title']="Tipo documento";
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+    $data['title']="Estudio";
     $this->load->view('template/page_header');		
-    $this->load->view('tipodocu_record',$data);
+    $this->load->view('estudio_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +191,16 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['tipodocu'] = $this->tipodocu_model->elultimo();
+	$data['estudio'] = $this->estudio_model->elultimo();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   if(!empty($data))
   {
-    $data['title']="Tipo documento";
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+    $data['title']="Estudio";
   
     $this->load->view('template/page_header');		
-    $this->load->view('tipodocu_record',$data);
+    $this->load->view('estudio_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,42 +211,28 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['tipodocu_list']=$this->tipodocu_model->lista_tipodocu()->result();
-	$data['tipodocu'] = $this->tipodocu_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Tipo documento";
+ // $data['estudio_list']=$this->estudio_model->lista_estudio()->result();
+	$data['estudio'] = $this->estudio_model->siguiente($this->uri->segment(3))->row_array();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  
+
+$data['title']="Estudio";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipodocu_record',$data);
+  $this->load->view('estudio_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['tipodocu_list']=$this->tipodocu_model->lista_tipodocu()->result();
-	$data['tipodocu'] = $this->tipodocu_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Tipo documento";
+ // $data['estudio_list']=$this->estudio_model->lista_estudio()->result();
+	$data['estudio'] = $this->estudio_model->anterior($this->uri->segment(3))->row_array();
+ 	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  $data['title']="Estudio";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipodocu_record',$data);
+  $this->load->view('estudio_record',$data);
 	$this->load->view('template/page_footer');
 }
-
-
-
-public function get_tipodocu() {
-    $this->load->database();
-    $this->load->helper('form');
-    if($this->input->post('idtipodocu')) {
-        $this->db->select('*');
-        $this->db->where(array('idtipodocu' => $this->input->post('idtipodocu')));
-        $query = $this->db->get('documento');
-	$data=$query->result();
-	echo json_encode($data);
-	}
-
-}
-
-
-
-
-
 
 
 

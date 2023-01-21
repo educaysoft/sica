@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("estudio/save") ?>
-<?php echo form_hidden("idestudio")  ?>
+<?php echo form_open("identidad/save") ?>
+<?php echo form_hidden("ididentidad")  ?>
 
 <?php
 
@@ -50,7 +50,7 @@ foreach ($instituciones as $row){
 
 
 <tr>
-<td> Nivel del estudio: </td>
+<td> Nivel del identidad: </td>
 <td><?php echo form_input(array("name"=>"nivel","id"=>"nivel","type"=>"text"));  ?></td>
 </tr>
 
@@ -61,7 +61,7 @@ foreach ($instituciones as $row){
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("estudio","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("identidad","Atras") ?> </td>
 </tr>
 
 </table>
