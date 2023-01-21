@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("identidad/save") ?>
-<?php echo form_hidden("ididentidad")  ?>
+<?php echo form_open("identificacion/save") ?>
+<?php echo form_hidden("ididentificacion")  ?>
 
 <?php
 
@@ -50,15 +50,15 @@ foreach ($tipodocumentos as $row){
 
 
 <tr>
-<td> No de identidad: </td>
-<td><?php echo form_input(array("name"=>"identidad","id"=>"identidad","type"=>"text"));  ?></td>
+<td> No de identificacion: </td>
+<td><?php echo form_input(array("name"=>"identificacion","id"=>"identificacion","type"=>"text"));  ?></td>
 </tr>
 
 
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("identidad","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("identificacion","Atras") ?> </td>
 </tr>
 
 </table>

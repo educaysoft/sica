@@ -29,7 +29,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <div id="eys-nav-i">
 	<ul>
-		<li> <?php echo anchor('estudio', 'Home'); ?></li>
+		<li> <?php echo anchor('identidad', 'Home'); ?></li>
 	</ul>
 </div>
 
@@ -39,7 +39,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Lista de estudios 
+                 <h3>Lista de identidads 
                  <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
 			  
         	</h3>
@@ -83,13 +83,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('estudio/estudio_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('identidad/identidad_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('idestudio');
+var id= $(this).data('ididentidad');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 

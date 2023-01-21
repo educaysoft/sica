@@ -1,26 +1,26 @@
 <?php
 
-class Identidad extends CI_Controller{
+class Identificacion extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
   	  $this->load->model('persona_model');
-  	  $this->load->model('institucion_model');
-  	  $this->load->model('estudio_model');
+  	  $this->load->model('tipodocumento_model');
+  	  $this->load->model('identidad_model');
 }
 
 public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['estudio']=$this->estudio_model->lista_estudios()->row_array();
+  	$data['identidad']=$this->identidad_model->lista_identidads()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['estudios']= $this->estudio_model->lista_estudios()->result();
+  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
+  	$data['identidads']= $this->identidad_model->lista_identidads()->result();
 			
-		$data['title']="Lista de estudios";
+		$data['title']="Lista de identidads";
 		$this->load->view('template/page_header');
-		$this->load->view('estudio_record',$data);
+		$this->load->view('identidad_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -34,10 +34,10 @@ public function index(){
 	public function add()
 	{
 			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-			$data['title']="Nueva Identidad";
+			$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
+			$data['title']="Nueva Identificacion";
 			$this->load->view('template/page_header');		
-			$this->load->view('estudio_form',$data);
+			$this->load->view('identidad_form',$data);
 			$this->load->view('template/page_footer');
 	}
 
@@ -46,26 +46,25 @@ public function index(){
 	{
 	 	$array_item=array(
 		 	
-		 	'idestudio' => $this->input->post('idestudio'),
+		 	'ididentidad' => $this->input->post('ididentidad'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idinstitucion' => $this->input->post('idinstitucion'),
-			'nivel' => $this->input->post('nivel'),
-			'titulo' => $this->input->post('titulo'),
+			'idtipodocumento' => $this->input->post('idtipodocumento'),
+			'identidad' => $this->input->post('identidad'),
 	 	);
-	 	$this->estudio_model->save($array_item);
-	 	redirect('estudio');
+	 	$this->identidad_model->save($array_item);
+	 	redirect('identidad');
  	}
 
 
 
 	public function edit()
 	{
-			$data['estudio'] = $this->estudio_model->estudio($this->uri->segment(3))->row_array();
+			$data['identidad'] = $this->identidad_model->identidad($this->uri->segment(3))->row_array();
 			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-			$data['title'] = "Actualizar Identidad";
+			$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
+			$data['title'] = "Actualizar Identificacion";
 			$this->load->view('template/page_header');		
-			$this->load->view('estudio_edit',$data);
+			$this->load->view('identidad_edit',$data);
 			$this->load->view('template/page_footer');
 	 
 	}
@@ -73,25 +72,24 @@ public function index(){
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idestudio');
+		$id=$this->input->post('ididentidad');
 	 	$array_item=array(
 		 	
-		 	'idestudio' => $this->input->post('idestudio'),
+		 	'ididentidad' => $this->input->post('ididentidad'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idinstitucion' => $this->input->post('idinstitucion'),
-			'nivel' => $this->input->post('nivel'),
-			'titulo' => $this->input->post('titulo'),
+			'idtipodocumento' => $this->input->post('idtipodocumento'),
+			'identidad' => $this->input->post('identidad'),
 	 	);
-	 	$this->estudio_model->update($id,$array_item);
-	 	redirect('estudio');
+	 	$this->identidad_model->update($id,$array_item);
+	 	redirect('identidad');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->estudio_model->delete($this->uri->segment(3));
+ 		$data=$this->identidad_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('estudio/elprimero');
+	 	redirect('identidad/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -99,26 +97,26 @@ public function index(){
 	public function listar()
 	{
 		
-		$data['title']="Identidads";
+		$data['title']="Identificacions";
 		$this->load->view('template/page_header');		
-		$this->load->view('estudio_list',$data);
+		$this->load->view('identidad_list',$data);
 		$this->load->view('template/page_footer');
 	}
 
 
 
-function estudio_data()
+function identidad_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->estudio_model->lista_estudiosA();
+	 	$data0 = $this->identidad_model->lista_identidadsA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idestudio,$r->elestudiante,$r->lainstitucion,$r->nivel,$r->titulo,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('estudio/actual').'"   data-idestudio="'.$r->idestudio.'">Ver</a>');
+			$data[]=array($r->ididentidad,$r->eltipodocumento,$r->identidad,$r->lapersona,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('identidad/actual').'"   data-ididentidad="'.$r->ididentidad.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -139,16 +137,16 @@ public function actual()
 
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
 
 
-	$data['estudio'] = $this->estudio_model->estudio($this->uri->segment(3))->row_array();
+	$data['identidad'] = $this->identidad_model->identidad($this->uri->segment(3))->row_array();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Identidad";
+    $data['title']="Identificacion";
     $this->load->view('template/page_header');		
-    $this->load->view('estudio_record',$data);
+    $this->load->view('identidad_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -171,16 +169,16 @@ public function elprimero()
 
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
 
 
-	$data['estudio'] = $this->estudio_model->elprimero();
+	$data['identidad'] = $this->identidad_model->elprimero();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Identidad";
+    $data['title']="Identificacion";
     $this->load->view('template/page_header');		
-    $this->load->view('estudio_record',$data);
+    $this->load->view('identidad_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -191,16 +189,16 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['estudio'] = $this->estudio_model->elultimo();
+	$data['identidad'] = $this->identidad_model->elultimo();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Identidad";
+    $data['title']="Identificacion";
   
     $this->load->view('template/page_header');		
-    $this->load->view('estudio_record',$data);
+    $this->load->view('identidad_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -211,26 +209,26 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['estudio_list']=$this->estudio_model->lista_estudio()->result();
-	$data['estudio'] = $this->estudio_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['identidad_list']=$this->identidad_model->lista_identidad()->result();
+	$data['identidad'] = $this->identidad_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
   
 
-$data['title']="Identidad";
+$data['title']="Identificacion";
 	$this->load->view('template/page_header');		
-  $this->load->view('estudio_record',$data);
+  $this->load->view('identidad_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['estudio_list']=$this->estudio_model->lista_estudio()->result();
-	$data['estudio'] = $this->estudio_model->anterior($this->uri->segment(3))->row_array();
+ // $data['identidad_list']=$this->identidad_model->lista_identidad()->result();
+	$data['identidad'] = $this->identidad_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  $data['title']="Identidad";
+  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
+  $data['title']="Identificacion";
 	$this->load->view('template/page_header');		
-  $this->load->view('estudio_record',$data);
+  $this->load->view('identidad_record',$data);
 	$this->load->view('template/page_footer');
 }
 

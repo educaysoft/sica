@@ -1,26 +1,26 @@
 <?php
 
-class Identidad extends CI_Controller{
+class Nacionalidadpersona extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
   	  $this->load->model('persona_model');
   	  $this->load->model('tipodocumento_model');
-  	  $this->load->model('identidad_model');
+  	  $this->load->model('nacionalidadpersona_model');
 }
 
 public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['identidad']=$this->identidad_model->lista_identidads()->row_array();
+  	$data['nacionalidadpersona']=$this->nacionalidadpersona_model->lista_nacionalidadpersonas()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
-  	$data['identidads']= $this->identidad_model->lista_identidads()->result();
+  	$data['nacionalidadpersonas']= $this->nacionalidadpersona_model->lista_nacionalidadpersonas()->result();
 			
-		$data['title']="Lista de identidads";
+		$data['title']="Lista de nacionalidadpersonas";
 		$this->load->view('template/page_header');
-		$this->load->view('identidad_record',$data);
+		$this->load->view('nacionalidadpersona_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -35,9 +35,9 @@ public function index(){
 	{
 			$data['personas']= $this->persona_model->lista_personas()->result();
 			$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
-			$data['title']="Nueva Identidad";
+			$data['title']="Nueva Nacionalidadpersona";
 			$this->load->view('template/page_header');		
-			$this->load->view('identidad_form',$data);
+			$this->load->view('nacionalidadpersona_form',$data);
 			$this->load->view('template/page_footer');
 	}
 
@@ -46,25 +46,25 @@ public function index(){
 	{
 	 	$array_item=array(
 		 	
-		 	'ididentidad' => $this->input->post('ididentidad'),
+		 	'idnacionalidadpersona' => $this->input->post('idnacionalidadpersona'),
 			'idpersona' => $this->input->post('idpersona'),
 			'idtipodocumento' => $this->input->post('idtipodocumento'),
-			'identidad' => $this->input->post('identidad'),
+			'nacionalidadpersona' => $this->input->post('nacionalidadpersona'),
 	 	);
-	 	$this->identidad_model->save($array_item);
-	 	redirect('identidad');
+	 	$this->nacionalidadpersona_model->save($array_item);
+	 	redirect('nacionalidadpersona');
  	}
 
 
 
 	public function edit()
 	{
-			$data['identidad'] = $this->identidad_model->identidad($this->uri->segment(3))->row_array();
+			$data['nacionalidadpersona'] = $this->nacionalidadpersona_model->nacionalidadpersona($this->uri->segment(3))->row_array();
 			$data['personas']= $this->persona_model->lista_personas()->result();
 			$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
-			$data['title'] = "Actualizar Identidad";
+			$data['title'] = "Actualizar Nacionalidadpersona";
 			$this->load->view('template/page_header');		
-			$this->load->view('identidad_edit',$data);
+			$this->load->view('nacionalidadpersona_edit',$data);
 			$this->load->view('template/page_footer');
 	 
 	}
@@ -72,24 +72,24 @@ public function index(){
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('ididentidad');
+		$id=$this->input->post('idnacionalidadpersona');
 	 	$array_item=array(
 		 	
-		 	'ididentidad' => $this->input->post('ididentidad'),
+		 	'idnacionalidadpersona' => $this->input->post('idnacionalidadpersona'),
 			'idpersona' => $this->input->post('idpersona'),
 			'idtipodocumento' => $this->input->post('idtipodocumento'),
-			'identidad' => $this->input->post('identidad'),
+			'nacionalidadpersona' => $this->input->post('nacionalidadpersona'),
 	 	);
-	 	$this->identidad_model->update($id,$array_item);
-	 	redirect('identidad');
+	 	$this->nacionalidadpersona_model->update($id,$array_item);
+	 	redirect('nacionalidadpersona');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->identidad_model->delete($this->uri->segment(3));
+ 		$data=$this->nacionalidadpersona_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('identidad/elprimero');
+	 	redirect('nacionalidadpersona/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -97,26 +97,26 @@ public function index(){
 	public function listar()
 	{
 		
-		$data['title']="Identidads";
+		$data['title']="Nacionalidadpersonas";
 		$this->load->view('template/page_header');		
-		$this->load->view('identidad_list',$data);
+		$this->load->view('nacionalidadpersona_list',$data);
 		$this->load->view('template/page_footer');
 	}
 
 
 
-function identidad_data()
+function nacionalidadpersona_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->identidad_model->lista_identidadsA();
+	 	$data0 = $this->nacionalidadpersona_model->lista_nacionalidadpersonasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->ididentidad,$r->eltipodocumento,$r->identidad,$r->lapersona,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('identidad/actual').'"   data-ididentidad="'.$r->ididentidad.'">Ver</a>');
+			$data[]=array($r->idnacionalidadpersona,$r->eltipodocumento,$r->nacionalidadpersona,$r->lapersona,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('nacionalidadpersona/actual').'"   data-idnacionalidadpersona="'.$r->idnacionalidadpersona.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -140,13 +140,13 @@ public function actual()
   	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
 
 
-	$data['identidad'] = $this->identidad_model->identidad($this->uri->segment(3))->row_array();
+	$data['nacionalidadpersona'] = $this->nacionalidadpersona_model->nacionalidadpersona($this->uri->segment(3))->row_array();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Identidad";
+    $data['title']="Nacionalidadpersona";
     $this->load->view('template/page_header');		
-    $this->load->view('identidad_record',$data);
+    $this->load->view('nacionalidadpersona_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -172,13 +172,13 @@ public function elprimero()
   	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
 
 
-	$data['identidad'] = $this->identidad_model->elprimero();
+	$data['nacionalidadpersona'] = $this->nacionalidadpersona_model->elprimero();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Identidad";
+    $data['title']="Nacionalidadpersona";
     $this->load->view('template/page_header');		
-    $this->load->view('identidad_record',$data);
+    $this->load->view('nacionalidadpersona_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -189,16 +189,16 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['identidad'] = $this->identidad_model->elultimo();
+	$data['nacionalidadpersona'] = $this->nacionalidadpersona_model->elultimo();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Identidad";
+    $data['title']="Nacionalidadpersona";
   
     $this->load->view('template/page_header');		
-    $this->load->view('identidad_record',$data);
+    $this->load->view('nacionalidadpersona_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -209,26 +209,26 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['identidad_list']=$this->identidad_model->lista_identidad()->result();
-	$data['identidad'] = $this->identidad_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['nacionalidadpersona_list']=$this->nacionalidadpersona_model->lista_nacionalidadpersona()->result();
+	$data['nacionalidadpersona'] = $this->nacionalidadpersona_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
   
 
-$data['title']="Identidad";
+$data['title']="Nacionalidadpersona";
 	$this->load->view('template/page_header');		
-  $this->load->view('identidad_record',$data);
+  $this->load->view('nacionalidadpersona_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['identidad_list']=$this->identidad_model->lista_identidad()->result();
-	$data['identidad'] = $this->identidad_model->anterior($this->uri->segment(3))->row_array();
+ // $data['nacionalidadpersona_list']=$this->nacionalidadpersona_model->lista_nacionalidadpersona()->result();
+	$data['nacionalidadpersona'] = $this->nacionalidadpersona_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
-  $data['title']="Identidad";
+  $data['title']="Nacionalidadpersona";
 	$this->load->view('template/page_header');		
-  $this->load->view('identidad_record',$data);
+  $this->load->view('nacionalidadpersona_record',$data);
 	$this->load->view('template/page_footer');
 }
 

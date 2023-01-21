@@ -1,66 +1,66 @@
 <?php
-class Estudio_model extends CI_model {
+class Identidad_model extends CI_model {
 
-	function lista_estudios(){
-		 $estudio= $this->db->get('estudio');
-		 return $estudio;
+	function lista_identidads(){
+		 $identidad= $this->db->get('identidad');
+		 return $identidad;
 	}
 
 
-	function lista_estudios1($idpersona){
+	function lista_identidads1($idpersona){
 
  		$this->db->where('idpersona',$idpersona);
-		 $estudio= $this->db->get('estudio1');
-		 return $estudio;
+		 $identidad= $this->db->get('identidad1');
+		 return $identidad;
 	}
 
 
 
 
-	function lista_estudiosA(){
-		 $estudio= $this->db->get('estudio1');
-		 return $estudio;
+	function lista_identidadsA(){
+		 $identidad= $this->db->get('identidad1');
+		 return $identidad;
 	}
 
 
 
- 	function estudio( $id){
- 		$estudio = $this->db->query('select * from estudio where idestudio="'. $id.'"');
- 		return $estudio;
+ 	function identidad( $id){
+ 		$identidad = $this->db->query('select * from identidad where ididentidad="'. $id.'"');
+ 		return $identidad;
  	}
 
 
 
- 	function estudios( $idpersona){
- 		$estudio = $this->db->query('select * from estudio1 where idpersona="'. $idpersona.'"');
- 		return $estudio;
+ 	function identidads( $idpersona){
+ 		$identidad = $this->db->query('select * from identidad1 where idpersona="'. $idpersona.'"');
+ 		return $identidad;
  	}
 
 
- 	function estudiospersona( $id){
- 		$estudio = $this->db->query('select * from estudio where idpersona="'. $id.'"');
- 		return $estudio;
+ 	function identidadspersona( $id){
+ 		$identidad = $this->db->query('select * from identidad where idpersona="'. $id.'"');
+ 		return $identidad;
  	}
 
 
 
  	function save($array)
  	{
-		$this->db->insert("estudio", $array);
+		$this->db->insert("identidad", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idestudio',$id);
- 		$this->db->update('estudio',$array_item);
+ 		$this->db->where('ididentidad',$id);
+ 		$this->db->update('identidad',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idestudio',$id);
-		$this->db->delete('estudio');
+ 		$this->db->where('ididentidad',$id);
+		$this->db->delete('identidad');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -71,7 +71,7 @@ class Estudio_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idestudio")->get('estudio');
+		$query=$this->db->order_by("ididentidad")->get('identidad');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -84,7 +84,7 @@ class Estudio_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idestudio")->get('estudio');
+		$query=$this->db->order_by("ididentidad")->get('identidad');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -96,37 +96,37 @@ class Estudio_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$estudio = $this->db->select("idestudio")->order_by("idestudio")->get('estudio')->result_array();
-		$arr=array("idestudio"=>$id);
-		$clave=array_search($arr,$estudio);
-	   if(array_key_exists($clave+1,$estudio))
+ 		$identidad = $this->db->select("ididentidad")->order_by("ididentidad")->get('identidad')->result_array();
+		$arr=array("ididentidad"=>$id);
+		$clave=array_search($arr,$identidad);
+	   if(array_key_exists($clave+1,$identidad))
 		 {
 
- 		$estudio = $this->db->query('select * from estudio where idestudio="'. $estudio[$clave+1]["idestudio"].'"');
+ 		$identidad = $this->db->query('select * from identidad where ididentidad="'. $identidad[$clave+1]["ididentidad"].'"');
 		 }else{
 
- 		$estudio = $this->db->query('select * from estudio where idestudio="'. $id.'"');
+ 		$identidad = $this->db->query('select * from identidad where ididentidad="'. $id.'"');
 		 }
 		 	
- 		return $estudio;
+ 		return $identidad;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$estudio = $this->db->select("idestudio")->order_by("idestudio")->get('estudio')->result_array();
-		$arr=array("idestudio"=>$id);
-		$clave=array_search($arr,$estudio);
-	   if(array_key_exists($clave-1,$estudio))
+ 		$identidad = $this->db->select("ididentidad")->order_by("ididentidad")->get('identidad')->result_array();
+		$arr=array("ididentidad"=>$id);
+		$clave=array_search($arr,$identidad);
+	   if(array_key_exists($clave-1,$identidad))
 		 {
 
- 		$estudio = $this->db->query('select * from estudio where idestudio="'. $estudio[$clave-1]["idestudio"].'"');
+ 		$identidad = $this->db->query('select * from identidad where ididentidad="'. $identidad[$clave-1]["ididentidad"].'"');
 		 }else{
 
- 		$estudio = $this->db->query('select * from estudio where idestudio="'. $id.'"');
+ 		$identidad = $this->db->query('select * from identidad where ididentidad="'. $id.'"');
 		 }
 		 	
- 		return $estudio;
+ 		return $identidad;
  	}
 
 
