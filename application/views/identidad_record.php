@@ -54,24 +54,21 @@ echo form_input('idpersona',$options[$identidad['idpersona']],array("disabled"=>
      <td>Institucion:</td>
      <td><?php 
     $options= array("NADA");
-    foreach ($instituciones as $row){
-	      $options[$row->idinstitucion]= $row->nombre;
+    foreach ($tipodocumentos as $row){
+	      $options[$row->idtipodocumento]= $row->nombre;
     }
-    echo form_input('idinstitucion',$options[$identidad['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+    echo form_input('idtipodocumento',$options[$identidad['idtipodocumento']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
   
 
 
   
 <tr>
-      <td>Nivel del identidad:</td>
-      <td><?php echo form_input('nivel',$identidad['nivel'],array('type'=>'date','placeholder'=>'Niver de identidad','style'=>'width:500px;')) ?></td>
+      <td>No. identidad:</td>
+      <td><?php echo form_input('identidad',$identidad['identidad'],array('type'=>'date','placeholder'=>'Niver de identidad','style'=>'width:500px;')) ?></td>
 </tr>
 
-<tr>
-      <td>Titulo:</td>
-      <td><?php echo form_input('titulo',$identidad['titulo'],array('type'=>'date','placeholder'=>'Titulo obtenido','style'=>'width:500px;')) ?></td>
-</tr>
+
 
 
 

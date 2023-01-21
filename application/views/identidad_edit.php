@@ -28,19 +28,19 @@ foreach ($personas as $row){
 </tr>
 
 <tr>
-<td> Institucion:</td>
+<td> Tipo documento:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
+foreach ($tipodocumentos as $row){
+	$options[$row->idtipodocumento]= $row->nombre;
 }
 
- echo form_dropdown("idinstitucion",$options, $identidad['idinstitucion']);  ?></td>
+ echo form_dropdown("idtipodocumento",$options, $identidad['idtipodocumento']);  ?></td>
 </tr>
 
 <tr>
       <td>Fecha de Inscripcion:</td>
-      <td><?php echo form_input( array("name"=>'fechainscripcion',"id"=>'fechainscripcion',"value"=>$identidad['fechainscripcion'],'type'=>'date','placeholder'=>'fechainscripcion')); ?></td>
+      <td><?php echo form_input( array("name"=>'identidad',"id"=>'identidad',"value"=>$identidad['identidad'],'placeholder'=>'identidad')); ?></td>
   </tr>
 
  

@@ -37,27 +37,24 @@ foreach ($personas as $row){
 
 
 <tr>
-<td> Institución: </td>
+<td> Tipo documento: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
+foreach ($tipodocumentos as $row){
+	$options[$row->idtipodocumento]= $row->nombre;
 }
 
- echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idtipodocumento",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
 <tr>
-<td> Nivel del identidad: </td>
-<td><?php echo form_input(array("name"=>"nivel","id"=>"nivel","type"=>"text"));  ?></td>
+<td> No de identidad: </td>
+<td><?php echo form_input(array("name"=>"identidad","id"=>"identidad","type"=>"text"));  ?></td>
 </tr>
 
-<tr>
-<td> Título obtenido: </td>
-<td><?php echo form_input(array("name"=>"titulo","id"=>"titulo","type"=>"text"));  ?></td>
-</tr>
+
 
 
 <tr>

@@ -5,7 +5,7 @@ class Identidad extends CI_Controller{
   public function __construct(){
       parent::__construct();
   	  $this->load->model('persona_model');
-  	  $this->load->model('institucion_model');
+  	  $this->load->model('tipodocumento_model');
   	  $this->load->model('identidad_model');
 }
 
@@ -15,7 +15,7 @@ public function index(){
 			
   	$data['identidad']=$this->identidad_model->lista_identidads()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
   	$data['identidads']= $this->identidad_model->lista_identidads()->result();
 			
 		$data['title']="Lista de identidads";
@@ -34,7 +34,7 @@ public function index(){
 	public function add()
 	{
 			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+			$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
 			$data['title']="Nueva Identidad";
 			$this->load->view('template/page_header');		
 			$this->load->view('identidad_form',$data);
@@ -48,9 +48,8 @@ public function index(){
 		 	
 		 	'ididentidad' => $this->input->post('ididentidad'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idinstitucion' => $this->input->post('idinstitucion'),
-			'nivel' => $this->input->post('nivel'),
-			'titulo' => $this->input->post('titulo'),
+			'idtipodocumento' => $this->input->post('idtipodocumento'),
+			'identidad' => $this->input->post('identidad'),
 	 	);
 	 	$this->identidad_model->save($array_item);
 	 	redirect('identidad');
@@ -62,7 +61,7 @@ public function index(){
 	{
 			$data['identidad'] = $this->identidad_model->identidad($this->uri->segment(3))->row_array();
 			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+			$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
 			$data['title'] = "Actualizar Identidad";
 			$this->load->view('template/page_header');		
 			$this->load->view('identidad_edit',$data);
@@ -78,9 +77,8 @@ public function index(){
 		 	
 		 	'ididentidad' => $this->input->post('ididentidad'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idinstitucion' => $this->input->post('idinstitucion'),
-			'nivel' => $this->input->post('nivel'),
-			'titulo' => $this->input->post('titulo'),
+			'idtipodocumento' => $this->input->post('idtipodocumento'),
+			'identidad' => $this->input->post('identidad'),
 	 	);
 	 	$this->identidad_model->update($id,$array_item);
 	 	redirect('identidad');
@@ -117,7 +115,7 @@ function identidad_data()
 	 	$data0 = $this->identidad_model->lista_identidadsA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->ididentidad,$r->elestudiante,$r->lainstitucion,$r->nivel,$r->titulo,
+			$data[]=array($r->ididentidad,$r->eltipodocumento,$r->identidad,$r->lapersona,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('identidad/actual').'"   data-ididentidad="'.$r->ididentidad.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -139,7 +137,7 @@ public function actual()
 
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
 
 
 	$data['identidad'] = $this->identidad_model->identidad($this->uri->segment(3))->row_array();
@@ -171,7 +169,7 @@ public function elprimero()
 
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
 
 
 	$data['identidad'] = $this->identidad_model->elprimero();
@@ -193,7 +191,7 @@ public function elultimo()
 {
 	$data['identidad'] = $this->identidad_model->elultimo();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
@@ -214,7 +212,7 @@ public function siguiente(){
  // $data['identidad_list']=$this->identidad_model->lista_identidad()->result();
 	$data['identidad'] = $this->identidad_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
   
 
 $data['title']="Identidad";
@@ -227,7 +225,7 @@ public function anterior(){
  // $data['identidad_list']=$this->identidad_model->lista_identidad()->result();
 	$data['identidad'] = $this->identidad_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
   $data['title']="Identidad";
 	$this->load->view('template/page_header');		
   $this->load->view('identidad_record',$data);
