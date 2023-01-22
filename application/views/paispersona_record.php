@@ -51,7 +51,7 @@ echo form_input('idpersona',$options[$paispersona['idpersona']],array("disabled"
  
 
  <tr>
-     <td>Institucion:</td>
+     <td>Pais residencia:</td>
      <td><?php 
     $options= array("NADA");
     foreach ($paises as $row){

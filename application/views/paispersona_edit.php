@@ -31,11 +31,11 @@ foreach ($personas as $row){
 <td> Tipo documento:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($nacionalidades as $row){
-	$options[$row->idnacionalidad]= $row->nombre;
+foreach ($paises as $row){
+	$options[$row->idpais]= $row->nombre;
 }
 
- echo form_dropdown("idnacionalidad",$options, $paispersona['idnacionalidad']);  ?></td>
+ echo form_dropdown("idpais",$options, $paispersona['idpais']);  ?></td>
 </tr>
 
 <tr>
