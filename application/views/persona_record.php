@@ -117,6 +117,26 @@ if(isset($persona))
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('pais/add', 'Pais resicencia:'); ?>:</label>
+	<div class="col-md-10">
+	<?php
+ 	$options = array();
+  	foreach ($paises as $row){
+		$optieons[$row->idpais]=$row->nombre;
+	}
+ echo form_multiselect('pais[]',$options,(array)set_value('idpais', ''), array('style'=>'width:500px')); 
+
+	?>
+	</div> 
+</div>
+
+
+
+
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Fofo:</label>
 	<div class="col-md-10">
 	<?php
