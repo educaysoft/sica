@@ -2,23 +2,23 @@
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($nacionalidadpersona))
+if(isset($paispersona))
 {
 ?>
-   <li> <?php echo anchor('nacionalidadpersona/elprimero/', 'primero'); ?></li>
-   <li> <?php echo anchor('nacionalidadpersona/anterior/'.$nacionalidadpersona['idnacionalidadpersona'], 'anterior'); ?></li>
-   <li> <?php echo anchor('nacionalidadpersona/siguiente/'.$nacionalidadpersona['idnacionalidadpersona'], 'siguiente'); ?></li>
-   <li style="border-right:1px solid green"><?php echo anchor('nacionalidadpersona/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('nacionalidadpersona/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('nacionalidadpersona/edit/'.$nacionalidadpersona['idnacionalidadpersona'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('nacionalidadpersona/delete/'.$nacionalidadpersona['idnacionalidadpersona'],'Delete'); ?></li>
-        <li> <?php echo anchor('nacionalidadpersona/listar/','Listar'); ?></li>
+   <li> <?php echo anchor('paispersona/elprimero/', 'primero'); ?></li>
+   <li> <?php echo anchor('paispersona/anterior/'.$paispersona['idpaispersona'], 'anterior'); ?></li>
+   <li> <?php echo anchor('paispersona/siguiente/'.$paispersona['idpaispersona'], 'siguiente'); ?></li>
+   <li style="border-right:1px solid green"><?php echo anchor('paispersona/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('paispersona/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('paispersona/edit/'.$paispersona['idpaispersona'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('paispersona/delete/'.$paispersona['idpaispersona'],'Delete'); ?></li>
+        <li> <?php echo anchor('paispersona/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('nacionalidadpersona/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('paispersona/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -29,12 +29,12 @@ if(isset($nacionalidadpersona))
 <br>
 
 
-<?php echo form_open('nacionalidadpersona/save_edit') ?>
-<?php echo form_hidden('idnacionalidadpersona',$nacionalidadpersona['idnacionalidadpersona']) ?>
+<?php echo form_open('paispersona/save_edit') ?>
+<?php echo form_hidden('idpaispersona',$paispersona['idpaispersona']) ?>
 <table>
   <tr>
      <td>Id Correo:</td>
-     <td><?php echo form_input('idnacionalidadpersona',$nacionalidadpersona['idnacionalidadpersona'],array("disabled"=>"disabled",'placeholder'=>'Idnacionalidadpersonas')) ?></td>
+     <td><?php echo form_input('idpaispersona',$paispersona['idpaispersona'],array("disabled"=>"disabled",'placeholder'=>'Idpaispersonas')) ?></td>
   </tr>
  
  
@@ -46,18 +46,18 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
 
-echo form_input('idpersona',$options[$nacionalidadpersona['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+echo form_input('idpersona',$options[$paispersona['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
   </tr>
  
 
  <tr>
-     <td>Institucion:</td>
+     <td>Pais residencia:</td>
      <td><?php 
     $options= array("NADA");
-    foreach ($nacionalidades as $row){
-	      $options[$row->idnacionalidad]= $row->nombre;
+    foreach ($paises as $row){
+	      $options[$row->idpais]= $row->nombre;
     }
-    echo form_input('idnacionalidad',$options[$nacionalidadpersona['idnacionalidad']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+    echo form_input('idpais',$options[$paispersona['idpais']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
   
 
@@ -65,7 +65,7 @@ echo form_input('idpersona',$options[$nacionalidadpersona['idpersona']],array("d
   
 <tr>
       <td>Fecha desde:</td>
-      <td><?php echo form_input('fechadesde',$nacionalidadpersona['fechadesde'],array('type'=>'date','placeholder'=>'fechadesde','style'=>'width:500px;')) ?></td>
+      <td><?php echo form_input('fechadesde',$paispersona['fechadesde'],array('type'=>'date','placeholder'=>'fechadesde','style'=>'width:500px;')) ?></td>
 </tr>
 
 

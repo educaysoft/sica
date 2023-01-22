@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("paispersona/save") ?>
-<?php echo form_hidden("idpaispersona")  ?>
+<?php echo form_open("provinciapersona/save") ?>
+<?php echo form_hidden("idprovinciapersona")  ?>
 
 <?php
 
@@ -58,7 +58,7 @@ foreach ($nacionalidades as $row){
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("paispersona","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("provinciapersona","Atras") ?> </td>
 </tr>
 
 </table>
