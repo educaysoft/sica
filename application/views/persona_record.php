@@ -122,7 +122,7 @@ if(isset($persona))
 	<?php
  	$options = array();
   	foreach ($paispersonas as $row){
-		$optieons[$row->idpais]=$row->nombre;
+		$optieons[$row->idpaispersona]=$row->elpais;
 	}
  echo form_multiselect('pais[]',$options,(array)set_value('idpais', ''), array('style'=>'width:500px')); 
 
