@@ -5,7 +5,7 @@ class Paispersona extends CI_Controller{
   public function __construct(){
       parent::__construct();
   	  $this->load->model('persona_model');
-  	  $this->load->model('nacionalidad_model');
+  	  $this->load->model('pais_model');
   	  $this->load->model('paispersona_model');
 }
 
@@ -15,7 +15,7 @@ public function index(){
 			
   	$data['paispersona']=$this->paispersona_model->lista_paispersonas()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
+  	$data['paises']= $this->pais_model->lista_paises()->result();
   	$data['paispersonas']= $this->paispersona_model->lista_paispersonas()->result();
 			
 		$data['title']="Lista de paispersonas";
@@ -34,7 +34,7 @@ public function index(){
 	public function add()
 	{
 			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
+			$data['paises']= $this->pais_model->lista_paises()->result();
 			$data['title']="Nueva Paispersona";
 			$this->load->view('template/page_header');		
 			$this->load->view('paispersona_form',$data);
@@ -48,7 +48,7 @@ public function index(){
 		 	
 		'idpaispersona' => $this->input->post('idpaispersona'),
 		'idpersona' => $this->input->post('idpersona'),
-		'idnacionalidad' => $this->input->post('idnacionalidad'),
+		'idpais' => $this->input->post('idpais'),
 		'fechadesde' => $this->input->post('fechadesde'),
 	 	);
 	 	$this->paispersona_model->save($array_item);
@@ -61,7 +61,7 @@ public function index(){
 	{
 			$data['paispersona'] = $this->paispersona_model->paispersona($this->uri->segment(3))->row_array();
 			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
+			$data['paises']= $this->pais_model->lista_paises()->result();
 			$data['title'] = "Actualizar Paispersona";
 			$this->load->view('template/page_header');		
 			$this->load->view('paispersona_edit',$data);
@@ -77,7 +77,7 @@ public function index(){
 		 	
 		 	'idpaispersona' => $this->input->post('idpaispersona'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idnacionalidad' => $this->input->post('idnacionalidad'),
+			'idpais' => $this->input->post('idpais'),
 			'fechadesde' => $this->input->post('fechadesde'),
 	 	);
 	 	$this->paispersona_model->update($id,$array_item);
@@ -115,7 +115,7 @@ function paispersona_data()
 	 	$data0 = $this->paispersona_model->lista_paispersonasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idpaispersona,$r->lapersona,$r->lanacionalidad,
+			$data[]=array($r->idpaispersona,$r->lapersona,$r->lapais,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('paispersona/actual').'"   data-idpaispersona="'.$r->idpaispersona.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -137,7 +137,7 @@ public function actual()
 
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
+  	$data['paises']= $this->pais_model->lista_paises()->result();
 
 
 	$data['paispersona'] = $this->paispersona_model->paispersona($this->uri->segment(3))->row_array();
@@ -169,7 +169,7 @@ public function elprimero()
 
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
+  	$data['paises']= $this->pais_model->lista_paises()->result();
 
 
 	$data['paispersona'] = $this->paispersona_model->elprimero();
@@ -191,7 +191,7 @@ public function elultimo()
 {
 	$data['paispersona'] = $this->paispersona_model->elultimo();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
+  	$data['paises']= $this->pais_model->lista_paises()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
@@ -212,7 +212,7 @@ public function siguiente(){
  // $data['paispersona_list']=$this->paispersona_model->lista_paispersona()->result();
 	$data['paispersona'] = $this->paispersona_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
+  	$data['paises']= $this->pais_model->lista_paises()->result();
   
 
 $data['title']="Paispersona";
@@ -225,7 +225,7 @@ public function anterior(){
  // $data['paispersona_list']=$this->paispersona_model->lista_paispersona()->result();
 	$data['paispersona'] = $this->paispersona_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
+  	$data['paises']= $this->pais_model->lista_paises()->result();
   $data['title']="Paispersona";
 	$this->load->view('template/page_header');		
   $this->load->view('paispersona_record',$data);
