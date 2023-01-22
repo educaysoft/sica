@@ -1,12 +1,12 @@
 <?php
 class Sexo_model extends CI_model {
 
-	function lista_sexoes(){
+	function lista_sexos(){
 		 $sexo= $this->db->get('sexo');
 		 return $sexo;
 	}
 
-	function lista_sexoesA(){
+	function lista_sexosA(){
 		 $sexo= $this->db->get('sexo1');
 		 return $sexo;
 	}
