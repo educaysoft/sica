@@ -22,7 +22,7 @@ class Documento extends CI_Controller{
 			$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 
   	$data['documento_estados']= $this->documento_estado_model->lista_documento_estado()->result();
-			$data['title']="Usted esta visualizando el documento: ";
+			$data['title']="Usted esta visualizando el documento No: ";
 			$this->load->view('template/page_header');		
 			$this->load->view('documento_record',$data);
 			$this->load->view('template/page_footer');
@@ -101,7 +101,7 @@ class Documento extends CI_Controller{
 		$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
 		$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 		$data['documento_estados']= $this->documento_estado_model->lista_documento_estado()->result();
-	  $data['title']="Documento";
+		$data['title']="Usted esta visualizando el documento No: ";
 		$this->load->view('template/page_header');		
 	  $this->load->view('documento_record',$data);
 		$this->load->view('template/page_footer');
@@ -227,7 +227,7 @@ public function elprimero()
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
   	$data['documento_estados']= $this->documento_estado_model->lista_documento_estado()->result();
-    $data['title']="Documento";
+	$data['title']="Usted esta visualizando el documento No: ";
   
     $this->load->view('template/page_header');		
     $this->load->view('documento_record',$data);
@@ -255,7 +255,7 @@ public function elultimo()
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
   	$data['documento_estados']= $this->documento_estado_model->lista_documento_estado()->result();
-    $data['title']="Documento";
+	$data['title']="Usted esta visualizando el documento No: ";
   
     $this->load->view('template/page_header');		
     $this->load->view('documento_record',$data);
@@ -287,7 +287,7 @@ public function siguiente(){
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
   	$data['documento_estados']= $this->documento_estado_model->lista_documento_estado()->result();
-  $data['title']="Documento";
+	$data['title']="Usted esta visualizando el documento No: ";
 	$this->load->view('template/page_header');		
   $this->load->view('documento_record',$data);
 	$this->load->view('template/page_footer');
@@ -303,7 +303,7 @@ public function anterior(){
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
   	$data['documento_estados']= $this->documento_estado_model->lista_documento_estado()->result();
-  $data['title']="Documento";
+	$data['title']="Usted esta visualizando el documento No: ";
 	$this->load->view('template/page_header');		
   $this->load->view('documento_record',$data);
 	$this->load->view('template/page_footer');
@@ -326,7 +326,7 @@ public function anterior(){
 		$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 		$data['directorios'] = $this->directorio_model->lista_directoriosxordenador($data['documento']['idordenador'])->result();
   		$data['documento_estados']= $this->documento_estado_model->lista_documento_estado()->result();
-    		$data['title'] = "Actualizar Documento";
+    		$data['title'] = "Actualizar el  Documento No: ";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('documento_edit',$data);
 	 	$this->load->view('template/page_footer');
