@@ -54,10 +54,10 @@ echo form_input('idpersona',$options[$paispersona['idpersona']],array("disabled"
      <td>Institucion:</td>
      <td><?php 
     $options= array("NADA");
-    foreach ($nacionalidades as $row){
-	      $options[$row->idnacionalidad]= $row->nombre;
+    foreach ($paises as $row){
+	      $options[$row->idpais]= $row->nombre;
     }
-    echo form_input('idnacionalidad',$options[$paispersona['idnacionalidad']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+    echo form_input('idpais',$options[$paispersona['idpais']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
   
 
