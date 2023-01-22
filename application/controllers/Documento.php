@@ -22,7 +22,7 @@ class Documento extends CI_Controller{
 			$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 
   	$data['documento_estados']= $this->documento_estado_model->lista_documento_estado()->result();
-			$data['title']="Uste esta visualizando Documentos por registro";
+			$data['title']="Usted esta visualizando el documento: ";
 			$this->load->view('template/page_header');		
 			$this->load->view('documento_record',$data);
 			$this->load->view('template/page_footer');
