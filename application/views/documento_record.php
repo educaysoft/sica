@@ -1,5 +1,5 @@
 <div id="eys-nav-i">
-	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?><idem style="font-size:large" id="iddocumento"><?php echo $evento['iddocumento']; ?></idem></h3>
 	    <ul>
 <?php
 if(isset($documento))
@@ -92,14 +92,7 @@ if(isset($documento))
 	</div> 
 </div> 
 
-<div class="form-group row">
-  <label class="col-md-2 col-form-label"> Id:</label>
-	<div class="col-md-10">
-		<?php
-      		echo form_input('iddocumento',$documento['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'iddocumentos','style'=>'width:500px;')) 
-		?>
-	</div> 
-</div> 
+ 
 
 
 
