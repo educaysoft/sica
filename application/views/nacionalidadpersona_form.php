@@ -37,11 +37,11 @@ foreach ($personas as $row){
 
 
 <tr>
-<td> Tipo documento: </td>
+<td> Nacionalidad: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($nacionalidads as $row){
+foreach ($nacionalidades as $row){
 	$options[$row->idnacionalidad]= $row->nombre;
 }
 
