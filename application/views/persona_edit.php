@@ -54,11 +54,11 @@ echo form_input($eys_arrinput); ?></td>
 <td> Genero:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($generos as $row){
-	$options[$row->idgenero]= $row->nombre;
+foreach ($sexos as $row){
+	$options[$row->idsexo]= $row->nombre;
 }
 
- echo form_dropdown("idgenero",$options, $persona['idgenero']);  ?></td>
+ echo form_dropdown("idsexo",$options, $persona['idsexo']);  ?></td>
 </tr>
 
 
