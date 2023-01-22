@@ -1,66 +1,41 @@
 <?php
-class Identificacion_model extends CI_model {
+class Sexo_model extends CI_model {
 
-	function lista_identidads(){
-		 $identidad= $this->db->get('identidad');
-		 return $identidad;
+	function lista_nacionalidades(){
+		 $nacionalidad= $this->db->get('nacionalidad');
+		 return $nacionalidad;
 	}
 
-
-	function lista_identidads1($idpersona){
-
- 		$this->db->where('idpersona',$idpersona);
-		 $identidad= $this->db->get('identidad1');
-		 return $identidad;
-	}
-
-
-
-
-	function lista_identidadsA(){
-		 $identidad= $this->db->get('identidad1');
-		 return $identidad;
+	function lista_nacionalidadesA(){
+		 $nacionalidad= $this->db->get('nacionalidad1');
+		 return $nacionalidad;
 	}
 
 
 
- 	function identidad( $id){
- 		$identidad = $this->db->query('select * from identidad where ididentidad="'. $id.'"');
- 		return $identidad;
+
+ 	function nacionalidad( $id){
+ 		$nacionalidad = $this->db->query('select * from nacionalidad where idnacionalidad="'. $id.'"');
+ 		return $nacionalidad;
  	}
-
-
-
- 	function identidads( $idpersona){
- 		$identidad = $this->db->query('select * from identidad1 where idpersona="'. $idpersona.'"');
- 		return $identidad;
- 	}
-
-
- 	function identidadspersona( $id){
- 		$identidad = $this->db->query('select * from identidad where idpersona="'. $id.'"');
- 		return $identidad;
- 	}
-
-
 
  	function save($array)
  	{
-		$this->db->insert("identidad", $array);
+		$this->db->insert("nacionalidad", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('ididentidad',$id);
- 		$this->db->update('identidad',$array_item);
+ 		$this->db->where('idnacionalidad',$id);
+ 		$this->db->update('nacionalidad',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('ididentidad',$id);
-		$this->db->delete('identidad');
+ 		$this->db->where('idnacionalidad',$id);
+		$this->db->delete('nacionalidad');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -71,7 +46,7 @@ class Identificacion_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("ididentidad")->get('identidad');
+		$query=$this->db->order_by("idnacionalidad")->get('nacionalidad');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -84,7 +59,7 @@ class Identificacion_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("ididentidad")->get('identidad');
+		$query=$this->db->order_by("idnacionalidad")->get('nacionalidad');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -96,38 +71,40 @@ class Identificacion_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$identidad = $this->db->select("ididentidad")->order_by("ididentidad")->get('identidad')->result_array();
-		$arr=array("ididentidad"=>$id);
-		$clave=array_search($arr,$identidad);
-	   if(array_key_exists($clave+1,$identidad))
+ 		$nacionalidad = $this->db->select("idnacionalidad")->order_by("idnacionalidad")->get('nacionalidad')->result_array();
+		$arr=array("idnacionalidad"=>$id);
+		$clave=array_search($arr,$nacionalidad);
+	   if(array_key_exists($clave+1,$nacionalidad))
 		 {
 
- 		$identidad = $this->db->query('select * from identidad where ididentidad="'. $identidad[$clave+1]["ididentidad"].'"');
+ 		$nacionalidad = $this->db->query('select * from nacionalidad where idnacionalidad="'. $nacionalidad[$clave+1]["idnacionalidad"].'"');
 		 }else{
 
- 		$identidad = $this->db->query('select * from identidad where ididentidad="'. $id.'"');
+ 		$nacionalidad = $this->db->query('select * from nacionalidad where idnacionalidad="'. $id.'"');
 		 }
 		 	
- 		return $identidad;
+ 		return $nacionalidad;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$identidad = $this->db->select("ididentidad")->order_by("ididentidad")->get('identidad')->result_array();
-		$arr=array("ididentidad"=>$id);
-		$clave=array_search($arr,$identidad);
-	   if(array_key_exists($clave-1,$identidad))
+ 		$nacionalidad = $this->db->select("idnacionalidad")->order_by("idnacionalidad")->get('nacionalidad')->result_array();
+		$arr=array("idnacionalidad"=>$id);
+		$clave=array_search($arr,$nacionalidad);
+	   if(array_key_exists($clave-1,$nacionalidad))
 		 {
 
- 		$identidad = $this->db->query('select * from identidad where ididentidad="'. $identidad[$clave-1]["ididentidad"].'"');
+ 		$nacionalidad = $this->db->query('select * from nacionalidad where idnacionalidad="'. $nacionalidad[$clave-1]["idnacionalidad"].'"');
 		 }else{
 
- 		$identidad = $this->db->query('select * from identidad where ididentidad="'. $id.'"');
+ 		$nacionalidad = $this->db->query('select * from nacionalidad where idnacionalidad="'. $id.'"');
 		 }
 		 	
- 		return $identidad;
+ 		return $nacionalidad;
  	}
+
+
 
 
 

@@ -1,122 +1,104 @@
 <?php
 
-class Identificacion extends CI_Controller{
+class Sexo extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-  	  $this->load->model('persona_model');
-  	  $this->load->model('tipodocumento_model');
-  	  $this->load->model('identidad_model');
+      $this->load->model('nacionalidad_model');
 }
 
 public function index(){
-
-  	if(isset($this->session->userdata['logged_in'])){
-			
-  	$data['identidad']=$this->identidad_model->lista_identidads()->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
-  	$data['identidads']= $this->identidad_model->lista_identidads()->result();
-			
-		$data['title']="Lista de identidads";
-		$this->load->view('template/page_header');
-		$this->load->view('identidad_record',$data);
-		$this->load->view('template/page_footer');
-	}else{
-	 	$this->load->view('template/page_header.php');
-		$this->load->view('login_form');
-	 	$this->load->view('template/page_footer.php');
-	}
-
- }
+  	$data['nacionalidad']=$this->nacionalidad_model->nacionalidad(1)->row_array();
+ 
+  	$data['title']="Tipos de documentos";
+	$this->load->view('template/page_header');		
+  	$this->load->view('nacionalidad_record',$data);
+	$this->load->view('template/page_footer');
+}
 
 
-	public function add()
-	{
-			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
-			$data['title']="Nueva Identificacion";
-			$this->load->view('template/page_header');		
-			$this->load->view('identidad_form',$data);
-			$this->load->view('template/page_footer');
-	}
+public function add()
+{
+		$data['title']="Nueva Tipo de documento";
+	 	$this->load->view('template/page_header');		
+	 	$this->load->view('nacionalidad_form',$data);
+	 	$this->load->view('template/page_footer');
+
+
+}
 
 
 	public function  save()
 	{
 	 	$array_item=array(
 		 	
-		 	'ididentidad' => $this->input->post('ididentidad'),
-			'idpersona' => $this->input->post('idpersona'),
-			'idtipodocumento' => $this->input->post('idtipodocumento'),
-			'identidad' => $this->input->post('identidad'),
+		 	'idnacionalidad' => $this->input->post('idnacionalidad'),
+		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->identidad_model->save($array_item);
-	 	redirect('identidad');
+	 	$this->nacionalidad_model->save($array_item);
+	 	redirect('nacionalidad');
  	}
 
 
 
 	public function edit()
 	{
-			$data['identidad'] = $this->identidad_model->identidad($this->uri->segment(3))->row_array();
-			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
-			$data['title'] = "Actualizar Identificacion";
-			$this->load->view('template/page_header');		
-			$this->load->view('identidad_edit',$data);
-			$this->load->view('template/page_footer');
-	 
+	 	$data['nacionalidad'] = $this->nacionalidad_model->nacionalidad($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar nacionalidad";
+ 	 	$this->load->view('template/page_header');		
+ 	 	$this->load->view('nacionalidad_edit',$data);
+	 	$this->load->view('template/page_footer');
+ 
 	}
 
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('ididentidad');
+		$id=$this->input->post('idnacionalidad');
 	 	$array_item=array(
 		 	
-		 	'ididentidad' => $this->input->post('ididentidad'),
-			'idpersona' => $this->input->post('idpersona'),
-			'idtipodocumento' => $this->input->post('idtipodocumento'),
-			'identidad' => $this->input->post('identidad'),
+		 	'idnacionalidad' => $this->input->post('idnacionalidad'),
+		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->identidad_model->update($id,$array_item);
-	 	redirect('identidad');
+	 	$this->nacionalidad_model->update($id,$array_item);
+	 	redirect('nacionalidad');
  	}
+
 
 
  	public function delete()
  	{
- 		$data=$this->identidad_model->delete($this->uri->segment(3));
+ 		$data=$this->nacionalidad_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('identidad/elprimero');
+	 	redirect('nacionalidad/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
 
-	public function listar()
-	{
-		
-		$data['title']="Identificacions";
-		$this->load->view('template/page_header');		
-		$this->load->view('identidad_list',$data);
-		$this->load->view('template/page_footer');
-	}
+public function listar()
+{
+	
+  $data['nacionalidad_list'] = $this->nacionalidad_model->lista_nacionalidadsA()->result();
+  $data['title']="Tipo documento";
+	$this->load->view('template/page_header');		
+  $this->load->view('nacionalidad_list',$data);
+	$this->load->view('template/page_footer');
+}
 
 
 
-function identidad_data()
+function nacionalidad_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->identidad_model->lista_identidadsA();
+	 	$data0 = $this->nacionalidad_model->lista_nacionalidadsA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->ididentidad,$r->eltipodocumento,$r->identidad,$r->lapersona,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('identidad/actual').'"   data-ididentidad="'.$r->ididentidad.'">Ver</a>');
+			$data[]=array($r->idnacionalidad,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idnacionalidad="'.$r->idnacionalidad.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -132,33 +114,6 @@ function identidad_data()
 
 
 
-public function actual()
-{
-
-
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
-
-
-	$data['identidad'] = $this->identidad_model->identidad($this->uri->segment(3))->row_array();
-  if(!empty($data))
-  {
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Identificacion";
-    $this->load->view('template/page_header');		
-    $this->load->view('identidad_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
- }
-
-
-
-
-
 
 
 
@@ -166,19 +121,12 @@ public function actual()
 
 public function elprimero()
 {
-
-
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
-
-
-	$data['identidad'] = $this->identidad_model->elprimero();
+	$data['nacionalidad'] = $this->nacionalidad_model->elprimero();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Identificacion";
+    $data['title']="Tipo documento";
     $this->load->view('template/page_header');		
-    $this->load->view('identidad_record',$data);
+    $this->load->view('nacionalidad_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -189,16 +137,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['identidad'] = $this->identidad_model->elultimo();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
+	$data['nacionalidad'] = $this->nacionalidad_model->elultimo();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Identificacion";
+    $data['title']="Tipo documento";
   
     $this->load->view('template/page_header');		
-    $this->load->view('identidad_record',$data);
+    $this->load->view('nacionalidad_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -209,28 +154,42 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['identidad_list']=$this->identidad_model->lista_identidad()->result();
-	$data['identidad'] = $this->identidad_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
-  
-
-$data['title']="Identificacion";
+ // $data['nacionalidad_list']=$this->nacionalidad_model->lista_nacionalidad()->result();
+	$data['nacionalidad'] = $this->nacionalidad_model->siguiente($this->uri->segment(3))->row_array();
+  $data['title']="Tipo documento";
 	$this->load->view('template/page_header');		
-  $this->load->view('identidad_record',$data);
+  $this->load->view('nacionalidad_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['identidad_list']=$this->identidad_model->lista_identidad()->result();
-	$data['identidad'] = $this->identidad_model->anterior($this->uri->segment(3))->row_array();
- 	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
-  $data['title']="Identificacion";
+ // $data['nacionalidad_list']=$this->nacionalidad_model->lista_nacionalidad()->result();
+	$data['nacionalidad'] = $this->nacionalidad_model->anterior($this->uri->segment(3))->row_array();
+  $data['title']="Tipo documento";
 	$this->load->view('template/page_header');		
-  $this->load->view('identidad_record',$data);
+  $this->load->view('nacionalidad_record',$data);
 	$this->load->view('template/page_footer');
 }
+
+
+
+public function get_nacionalidad() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->post('idnacionalidad')) {
+        $this->db->select('*');
+        $this->db->where(array('idnacionalidad' => $this->input->post('idnacionalidad')));
+        $query = $this->db->get('documento');
+	$data=$query->result();
+	echo json_encode($data);
+	}
+
+}
+
+
+
+
+
 
 
 

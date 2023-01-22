@@ -1,72 +1,45 @@
 <div id="eys-nav-i">
+
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-	<ul>
-<?php
-if(isset($identidad))
-{
-?>
-   <li> <?php echo anchor('identidad/elprimero/', 'primero'); ?></li>
-   <li> <?php echo anchor('identidad/anterior/'.$identidad['ididentidad'], 'anterior'); ?></li>
-   <li> <?php echo anchor('identidad/siguiente/'.$identidad['ididentidad'], 'siguiente'); ?></li>
-   <li style="border-right:1px solid green"><?php echo anchor('identidad/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('identidad/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('identidad/edit/'.$identidad['ididentidad'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('identidad/delete/'.$identidad['ididentidad'],'Delete'); ?></li>
-        <li> <?php echo anchor('identidad/listar/','Listar'); ?></li>
-
-<?php 
-}else{
-?>
-
-        <li> <?php echo anchor('identidad/add', 'Nuevo'); ?></li>
-<?php
-}
-?>
+<?php echo form_open('nacionalidad/save_edit') ?>
+    <ul>
+        <li> <?php echo anchor('nacionalidad/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('nacionalidad/anterior/'.$nacionalidad['idnacionalidad'], 'anterior'); ?></li>
+        <li> <?php echo anchor('nacionalidad/siguiente/'.$nacionalidad['idnacionalidad'], 'siguiente'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('nacionalidad/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('nacionalidad/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('nacionalidad/edit/'.$nacionalidad['idnacionalidad'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('nacionalidad/delete/'.$nacionalidad['idnacionalidad'],'Delete'); ?></li>
+        <li> <?php echo anchor('nacionalidad/listar/','Listar'); ?></li>
 
     </ul>
 </div>
 <br>
-<br>
 
 
-<?php echo form_open('identidad/save_edit') ?>
-<?php echo form_hidden('ididentidad',$identidad['ididentidad']) ?>
+<?php echo form_hidden('idnacionalidad',$nacionalidad['idnacionalidad']) ?>
 <table>
+
+
+ 
+ 
+
+
   <tr>
-     <td>Id Correo:</td>
-     <td><?php echo form_input('ididentidad',$identidad['ididentidad'],array("disabled"=>"disabled",'placeholder'=>'Ididentidads')) ?></td>
+     <td>Id Tipo Doc:</td>
+     <td><?php echo form_input('idnacionalidad',$nacionalidad['idnacionalidad'],array("disabled"=>"disabled",'placeholder'=>'Idnacionalidads')) ?></td>
   </tr>
  
  
-<tr>
-     <td>Persona:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
-}
-
-echo form_input('idpersona',$options[$identidad['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
-  </tr>
  
-
- <tr>
-     <td>Institucion:</td>
-     <td><?php 
-    $options= array("NADA");
-    foreach ($tipodocumentos as $row){
-	      $options[$row->idtipodocumento]= $row->nombre;
-    }
-    echo form_input('idtipodocumento',$options[$identidad['idtipodocumento']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
- </tr>
-  
+  <tr>
+     <td>Descripción:</td>
+     <td><?php echo form_input('nombre',$nacionalidad['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?></td>
+  </tr>
 
 
   
-<tr>
-      <td>No. identidad:</td>
-      <td><?php echo form_input('identidad',$identidad['identidad'],array('type'=>'date','placeholder'=>'Niver de identidad','style'=>'width:500px;')) ?></td>
-</tr>
+
 
 
 
