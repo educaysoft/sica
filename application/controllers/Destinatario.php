@@ -30,7 +30,6 @@ public function add()
 		$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
 	}
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['title']="Nuevo Destinario";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('destinatario_form',$data);
