@@ -110,7 +110,7 @@ if(isset($persona))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('pais/add', 'Pais resicencia:'); ?>:</label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('paispersona/add', 'Pais resicencia:'); ?>:</label>
 	<div class="col-md-10">
 	<?php
  	$options = array();
