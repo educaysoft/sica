@@ -8,14 +8,14 @@ class Persona extends CI_Controller{
       $this->load->model('correo_model');
       $this->load->model('documento_model');
       $this->load->model('telefono_model');
-      $this->load->model('genero_model');
+      $this->load->model('sexo_model');
 }
 
 public function index(){
  if(isset($this->session->userdata['logged_in'])){
 	$data['persona'] = $this->persona_model->elultimo();
 	$data['correos'] =$this->correo_model->correospersona($data['persona']['idpersona'])->result();
-  	$data["generos"]= $this->genero_model->lista_generos()->result();
+  	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
 	$data['title']="Modulo de Personas";
 	$this->load->view('template/page_header');		
@@ -34,7 +34,7 @@ public function actual(){
 	$data['persona']=$this->persona_model->persona($this->uri->segment(3))->row_array();
 	$data['correos'] =$this->correo_model->correospersona($data['persona']['idpersona'])->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
-  	$data["generos"]= $this->genero_model->lista_generos()->result();
+  	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
 	$data['title']="Modulo de Personas";
 	$this->load->view('template/page_header');		
 	$this->load->view('persona_record',$data);
@@ -51,7 +51,7 @@ public function actual(){
 public function add()
 {
 		$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['generos']= $this->genero_model->lista_generos()->result();
+  	$data['sexos']= $this->sexo_model->lista_sexos()->result();
 		$data['title']="Nueva Persona";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('persona_form',$data);
@@ -68,7 +68,7 @@ public function add()
 		 	'nombres' => $this->input->post('nombres'),
 			'apellidos' => $this->input->post('apellidos'),
 			'fechanacimiento' => $this->input->post('fechanacimiento'),
-			'idgenero' => $this->input->post('idgenero'),
+			'idsexo' => $this->input->post('idsexo'),
 			'foto' => $this->input->post('foto'));
 	
 		$array_correo=array(
@@ -95,7 +95,7 @@ public function add()
 	public function edit()
 	{
 		$data["persona"] = $this->persona_model->persona($this->uri->segment(3))->row_array();
-		$data["generos"]= $this->genero_model->lista_generos()->result();
+		$data["sexos"]= $this->sexo_model->lista_sexos()->result();
 		$data["title"] = "Actualizar Persona";
 		$this->load->view('template/page_header');		
 		$this->load->view('persona_edit',$data);
@@ -113,7 +113,7 @@ public function add()
      'nombres' => $this->input->post('nombres'),
 		 	'apellidos' => $this->input->post('apellidos'),
 			'fechanacimiento' => $this->input->post('fechanacimiento'),
-			'idgenero' => $this->input->post('idgenero'),
+			'idsexo' => $this->input->post('idsexo'),
 	 	);
 	 	$this->persona_model->update($id,$array_item);
 	 	redirect('persona/actual/'.$id);
@@ -210,7 +210,7 @@ public function elprimero()
 	$data['persona'] = $this->persona_model->elprimero();
 	$data['correos'] =$this->correo_model->correospersona($data['persona']['idpersona'])->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
-  	$data["generos"]= $this->genero_model->lista_generos()->result();
+  	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
   if(!empty($data))
   {
     $data['title']="Persona";
@@ -235,7 +235,7 @@ public function elultimo()
 	$data['persona'] = $this->persona_model->elultimo();
 	$data['correos'] =$this->correo_model->correospersona($data['persona']['idpersona'])->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
-  	$data["generos"]= $this->genero_model->lista_generos()->result();
+  	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
   if(!empty($data))
   {
     $data['title']="Personas";
@@ -264,7 +264,7 @@ public function siguiente(){
 	$data['persona'] = $this->persona_model->siguiente($this->uri->segment(3))->row_array();
 	$data['correos'] =$this->correo_model->correospersona($data['persona']['idpersona'])->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
-  	$data["generos"]= $this->genero_model->lista_generos()->result();
+  	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
   	$data['title']="Personas";
 	$this->load->view('template/page_header');		
   	$this->load->view('persona_record',$data);
@@ -275,7 +275,7 @@ public function siguiente(){
 public function anterior(){
 	$data['persona'] = $this->persona_model->anterior($this->uri->segment(3))->row_array();
 	$data['correos'] =$this->correo_model->correospersona($data['persona']['idpersona'])->result();
-  	$data["generos"]= $this->genero_model->lista_generos()->result();
+  	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
   	$data['title']="Personas";
 	$this->load->view('template/page_header');		
