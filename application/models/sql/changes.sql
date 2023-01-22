@@ -137,3 +137,4 @@ alter table fechacalendario add column idcalendarioacademico int(11);
 /* alter table distributivodocente drop column iddepartamento; */
 
 
+alter table persona change idgenero idsexo int(11);
