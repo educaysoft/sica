@@ -15,6 +15,7 @@ public function index(){
  if(isset($this->session->userdata['logged_in'])){
 	$data['persona'] = $this->persona_model->elultimo();
 	$data['correos'] =$this->correo_model->correospersona($data['persona']['idpersona'])->result();
+  	$data["paises"]= $this->pais_model->lista_paises()->result();
   	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
 	$data['title']="Modulo de Personas";
