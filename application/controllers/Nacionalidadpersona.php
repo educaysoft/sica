@@ -115,7 +115,7 @@ function nacionalidadpersona_data()
 	 	$data0 = $this->nacionalidadpersona_model->lista_nacionalidadpersonasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idnacionalidadpersona,$r->elnacionalidad,$r->nacionalidadpersona,$r->lapersona,
+			$data[]=array($r->idnacionalidadpersona,$r->lapersona,$r->lanacionalidad,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('nacionalidadpersona/actual').'"   data-idnacionalidadpersona="'.$r->idnacionalidadpersona.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,

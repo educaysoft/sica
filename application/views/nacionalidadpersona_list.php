@@ -50,9 +50,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <tr>
  <th>ID</th>
  <th>persona</th>
- <th>institucion</th>
- <th>nivel</th>
- <th>titulo</th>
+ <th>nacionalidad</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
