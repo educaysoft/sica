@@ -41,17 +41,17 @@ foreach ($personas as $row){
 <td><?php 
 
 $options= array('--Select--');
-foreach ($tipodocumentos as $row){
-	$options[$row->idtipodocumento]= $row->nombre;
+foreach ($nacionalidads as $row){
+	$options[$row->idnacionalidad]= $row->nombre;
 }
 
- echo form_dropdown("idtipodocumento",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idnacionalidad",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
 <tr>
-<td> No de nacionalidadpersona: </td>
-<td><?php echo form_input(array("name"=>"nacionalidadpersona","id"=>"nacionalidadpersona","type"=>"text"));  ?></td>
+<td> Fechadesde: </td>
+<td><?php echo form_input(array("name"=>"fechadesde","id"=>"fechadesde","type"=>"date"));  ?></td>
 </tr>
 
 

@@ -5,7 +5,7 @@ class Nacionalidadpersona extends CI_Controller{
   public function __construct(){
       parent::__construct();
   	  $this->load->model('persona_model');
-  	  $this->load->model('tipodocumento_model');
+  	  $this->load->model('nacionalidad_model');
   	  $this->load->model('nacionalidadpersona_model');
 }
 
@@ -15,7 +15,7 @@ public function index(){
 			
   	$data['nacionalidadpersona']=$this->nacionalidadpersona_model->lista_nacionalidadpersonas()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
+  	$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
   	$data['nacionalidadpersonas']= $this->nacionalidadpersona_model->lista_nacionalidadpersonas()->result();
 			
 		$data['title']="Lista de nacionalidadpersonas";
@@ -34,7 +34,7 @@ public function index(){
 	public function add()
 	{
 			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
+			$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
 			$data['title']="Nueva Nacionalidadpersona";
 			$this->load->view('template/page_header');		
 			$this->load->view('nacionalidadpersona_form',$data);
@@ -46,10 +46,10 @@ public function index(){
 	{
 	 	$array_item=array(
 		 	
-		 	'idnacionalidadpersona' => $this->input->post('idnacionalidadpersona'),
-			'idpersona' => $this->input->post('idpersona'),
-			'idtipodocumento' => $this->input->post('idtipodocumento'),
-			'nacionalidadpersona' => $this->input->post('nacionalidadpersona'),
+		'idnacionalidadpersona' => $this->input->post('idnacionalidadpersona'),
+		'idpersona' => $this->input->post('idpersona'),
+		'idnacionalidad' => $this->input->post('idnacionalidad'),
+		'fechadesde' => $this->input->post('fechadesde'),
 	 	);
 	 	$this->nacionalidadpersona_model->save($array_item);
 	 	redirect('nacionalidadpersona');
@@ -61,7 +61,7 @@ public function index(){
 	{
 			$data['nacionalidadpersona'] = $this->nacionalidadpersona_model->nacionalidadpersona($this->uri->segment(3))->row_array();
 			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
+			$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
 			$data['title'] = "Actualizar Nacionalidadpersona";
 			$this->load->view('template/page_header');		
 			$this->load->view('nacionalidadpersona_edit',$data);
@@ -77,8 +77,8 @@ public function index(){
 		 	
 		 	'idnacionalidadpersona' => $this->input->post('idnacionalidadpersona'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idtipodocumento' => $this->input->post('idtipodocumento'),
-			'nacionalidadpersona' => $this->input->post('nacionalidadpersona'),
+			'idnacionalidad' => $this->input->post('idnacionalidad'),
+			'fechadesde' => $this->input->post('fechadesde'),
 	 	);
 	 	$this->nacionalidadpersona_model->update($id,$array_item);
 	 	redirect('nacionalidadpersona');
@@ -115,7 +115,7 @@ function nacionalidadpersona_data()
 	 	$data0 = $this->nacionalidadpersona_model->lista_nacionalidadpersonasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idnacionalidadpersona,$r->eltipodocumento,$r->nacionalidadpersona,$r->lapersona,
+			$data[]=array($r->idnacionalidadpersona,$r->elnacionalidad,$r->nacionalidadpersona,$r->lapersona,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('nacionalidadpersona/actual').'"   data-idnacionalidadpersona="'.$r->idnacionalidadpersona.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -137,7 +137,7 @@ public function actual()
 
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
+  	$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
 
 
 	$data['nacionalidadpersona'] = $this->nacionalidadpersona_model->nacionalidadpersona($this->uri->segment(3))->row_array();
@@ -169,7 +169,7 @@ public function elprimero()
 
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
+  	$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
 
 
 	$data['nacionalidadpersona'] = $this->nacionalidadpersona_model->elprimero();
@@ -191,7 +191,7 @@ public function elultimo()
 {
 	$data['nacionalidadpersona'] = $this->nacionalidadpersona_model->elultimo();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
+  	$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
@@ -212,7 +212,7 @@ public function siguiente(){
  // $data['nacionalidadpersona_list']=$this->nacionalidadpersona_model->lista_nacionalidadpersona()->result();
 	$data['nacionalidadpersona'] = $this->nacionalidadpersona_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
+  	$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
   
 
 $data['title']="Nacionalidadpersona";
@@ -225,7 +225,7 @@ public function anterior(){
  // $data['nacionalidadpersona_list']=$this->nacionalidadpersona_model->lista_nacionalidadpersona()->result();
 	$data['nacionalidadpersona'] = $this->nacionalidadpersona_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['tipodocumentos']= $this->tipodocumento_model->lista_tipodocumentos()->result();
+  	$data['nacionalidades']= $this->nacionalidad_model->lista_nacionalidades()->result();
   $data['title']="Nacionalidadpersona";
 	$this->load->view('template/page_header');		
   $this->load->view('nacionalidadpersona_record',$data);

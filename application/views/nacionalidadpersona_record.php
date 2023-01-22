@@ -54,18 +54,18 @@ echo form_input('idpersona',$options[$nacionalidadpersona['idpersona']],array("d
      <td>Institucion:</td>
      <td><?php 
     $options= array("NADA");
-    foreach ($tipodocumentos as $row){
-	      $options[$row->idtipodocumento]= $row->nombre;
+    foreach ($nacionalidads as $row){
+	      $options[$row->idnacionalidad]= $row->nombre;
     }
-    echo form_input('idtipodocumento',$options[$nacionalidadpersona['idtipodocumento']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+    echo form_input('idnacionalidad',$options[$nacionalidadpersona['idnacionalidad']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
   
 
 
   
 <tr>
-      <td>No. nacionalidadpersona:</td>
-      <td><?php echo form_input('nacionalidadpersona',$nacionalidadpersona['nacionalidadpersona'],array('type'=>'date','placeholder'=>'Niver de nacionalidadpersona','style'=>'width:500px;')) ?></td>
+      <td>Fecha desde:</td>
+      <td><?php echo form_input('fechadesde',$fechadesde['fechadesde'],array('type'=>'date','placeholder'=>'fechadesde','style'=>'width:500px;')) ?></td>
 </tr>
 
 
