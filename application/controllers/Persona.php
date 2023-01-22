@@ -38,7 +38,7 @@ public function actual(){
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
   	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
   	$data["paispersonas"]= $this->paispersona_model->lista_paispersonas1($data['persona']['idpersona'])->result();
-	$data['title']="Modulo de Personas";
+	$data['title']="Usted esta visualizando la persona No : ";
 	$this->load->view('template/page_header');		
 	$this->load->view('persona_record',$data);
 	$this->load->view('template/page_footer');
@@ -218,7 +218,7 @@ public function elprimero()
   	$data["paispersonas"]= $this->paispersona_model->lista_paispersonas1($data['persona']['idpersona'])->result();
   if(!empty($data))
   {
-    $data['title']="Persona";
+	$data['title']="Usted esta visualizando la persona No : ";
   
     $this->load->view('template/page_header');		
     $this->load->view('persona_record',$data);
@@ -244,7 +244,7 @@ public function elultimo()
   	$data["paispersonas"]= $this->paispersona_model->lista_paispersonas1($data['persona']['idpersona'])->result();
   if(!empty($data))
   {
-    $data['title']="Personas";
+	$data['title']="Usted esta visualizando la persona No : ";
   
     $this->load->view('template/page_header');		
     $this->load->view('persona_record',$data);
@@ -272,7 +272,7 @@ public function siguiente(){
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
   	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
   	$data["paispersonas"]= $this->paispersona_model->lista_paispersonas1($data['persona']['idpersona'])->result();
-  	$data['title']="Personas";
+	$data['title']="Usted esta visualizando la persona No : ";
 	$this->load->view('template/page_header');		
   	$this->load->view('persona_record',$data);
 	$this->load->view('template/page_footer');
@@ -285,7 +285,7 @@ public function anterior(){
   	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
   	$data["paispersonas"]= $this->paispersona_model->lista_paispersonas1($data['persona']['idpersona'])->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
-  	$data['title']="Personas";
+	$data['title']="Usted esta visualizando la persona No : ";
 	$this->load->view('template/page_header');		
   	$this->load->view('persona_record',$data);
 	$this->load->view('template/page_footer');
