@@ -21,8 +21,8 @@ class Destinatario_model extends CI_model {
 
  	function save($array)
  	{
-		$conditioni1 = "iddocumento =" . "'" . $array['iddocumento'] . "'";
-		$conditioni2 = "idpersona =" . "'" . $array['idpersona'] . "'";
+		$condition1 = "iddocumento =" . "'" . $array['iddocumento'] . "'";
+		$condition2 = "idpersona =" . "'" . $array['idpersona'] . "'";
 		$this->db->select('*');
 		$this->db->from('destinatario');
 		$this->db->where($condition1);
