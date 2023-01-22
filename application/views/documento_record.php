@@ -126,7 +126,7 @@ if(isset($documento))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('destinatario/add', 'Destinatarios/as:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('destinatario/add/'.$documento['iddocumento'], 'Destinatarios/as:') ?> </label>
      	<?php 
 	$options=array();
   	foreach ($destinatarios as $row){

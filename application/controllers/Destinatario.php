@@ -24,6 +24,11 @@ public function index(){
 
 public function add()
 {
+	if($this->uri->segment(3)){
+		$data['documentos']= $this->documento_model->lista_documentosA($this->uri->segment(3))->result();
+	}else{
+		$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
+	}
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['title']="Nuevo Destinario";
