@@ -99,6 +99,7 @@ public function add()
 	{
 		$data["persona"] = $this->persona_model->persona($this->uri->segment(3))->row_array();
 		$data["sexos"]= $this->sexo_model->lista_sexos()->result();
+  		$data["paispersonas"]= $this->paispersona_model->lista_paispersonas1($data['persona']['idpersona'])->result();
 		$data["title"] = "Actualizar Persona";
 		$this->load->view('template/page_header');		
 		$this->load->view('persona_edit',$data);
