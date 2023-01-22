@@ -144,7 +144,7 @@ if(isset($persona))
 	<?php
  	$options = array();
   	foreach ($provinciapersonas as $row){
-		$options[$row->idprovinciapersona]=$row->elpais;
+		$options[$row->idprovinciapersona]=$row->laprovincia;
 	}
  echo form_multiselect('provinciapersona[]',$options,(array)set_value('idprovinciapersona', ''), array('style'=>'width:500px')); 
 
