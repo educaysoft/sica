@@ -1,5 +1,5 @@
 <div id="eys-nav-i">
-	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?><idem style="font-size:large" id="idpersona"><?php echo $persona['idpersona']; ?></idem></h3>
 	<ul>
 <?php
 if(isset($persona))
@@ -33,14 +33,7 @@ if(isset($persona))
 <?php echo form_hidden('idpersona',$persona['idpersona']) ?>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id:</label>
-	<div class="col-md-10">
-	<?php
-		echo form_input('idpersona',$persona['idpersona'],array("id"=>"idpersona","disabled"=>"disabled",'placeholder'=>'Idpersonas'));
-	?>
-	</div> 
-</div> 
+ 
 
 
 <div class="form-group row">
