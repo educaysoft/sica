@@ -40,7 +40,7 @@ foreach ($nacionalidads as $row){
 
 <tr>
       <td>Fecha de Inscripcion:</td>
-      <td><?php echo form_input( array("name"=>'fechadesde',"id"=>'fechadesde',"value"=>$nacionalidadpersona['fechadesde'],'placeholder'=>'fechadesde'i,"type"=>"date")); ?></td>
+      <td><?php echo form_input( array("name"=>'fechadesde',"id"=>'fechadesde',"value"=>$nacionalidadpersona['fechadesde'],'placeholder'=>'fechadesde',"type"=>"date")); ?></td>
   </tr>
 
  
