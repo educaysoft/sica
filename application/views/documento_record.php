@@ -1,5 +1,5 @@
 <div id="eys-nav-i">
-	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?><idem style="font-size:large" id="iddocumento"><?php echo $evento['iddocumento']; ?></idem></h3>
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?><idem style="font-size:large" id="iddocumento"><?php echo $documento['iddocumento']; ?></idem></h3>
 	    <ul>
 <?php
 if(isset($documento))
