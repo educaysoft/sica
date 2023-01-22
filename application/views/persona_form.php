@@ -76,10 +76,10 @@ echo form_input(array("name"=>"fechanacimiento","id"=>"fechanacimiento","type"=>
 	<div class="col-md-10">
 		<?php
 		$options= array('--Select--');
-		foreach ($generos as $row){
-		$options[$row->idgenero]= $row->nombre;
+		foreach ($sexos as $row){
+		$options[$row->idsexo]= $row->nombre;
 		}
- 		echo form_dropdown("idgenero",$options, set_select('--Select--','default_value'));  
+ 		echo form_dropdown("idsexo",$options, set_select('--Select--','default_value'));  
 		?>
 	</div> 
 </div> 
