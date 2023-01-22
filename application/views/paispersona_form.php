@@ -41,11 +41,11 @@ foreach ($personas as $row){
 <td><?php 
 
 $options= array('--Select--');
-foreach ($nacionalidades as $row){
-	$options[$row->idnacionalidad]= $row->nombre;
+foreach ($paises as $row){
+	$options[$row->idpais]= $row->nombre;
 }
 
- echo form_dropdown("idnacionalidad",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idpais",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
