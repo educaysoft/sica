@@ -5,7 +5,7 @@ class Provinciapersona extends CI_Controller{
   public function __construct(){
       parent::__construct();
   	  $this->load->model('persona_model');
-  	  $this->load->model('pais_model');
+  	  $this->load->model('provincia_model');
   	  $this->load->model('provinciapersona_model');
 }
 
@@ -15,7 +15,7 @@ public function index(){
 			
   	$data['provinciapersona']=$this->provinciapersona_model->lista_provinciapersonas()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['paises']= $this->pais_model->lista_paises()->result();
+  	$data['provincias']= $this->provincia_model->lista_provincias()->result();
   	$data['provinciapersonas']= $this->provinciapersona_model->lista_provinciapersonas()->result();
 			
 		$data['title']="Lista de provinciapersonas";
@@ -34,7 +34,7 @@ public function index(){
 	public function add()
 	{
 			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['paises']= $this->pais_model->lista_paises()->result();
+			$data['provincias']= $this->provincia_model->lista_provincias()->result();
 			$data['title']="Nueva Provinciapersona";
 			$this->load->view('template/page_header');		
 			$this->load->view('provinciapersona_form',$data);
@@ -48,7 +48,7 @@ public function index(){
 		 	
 		'idprovinciapersona' => $this->input->post('idprovinciapersona'),
 		'idpersona' => $this->input->post('idpersona'),
-		'idpais' => $this->input->post('idpais'),
+		'idprovincia' => $this->input->post('idprovincia'),
 		'fechadesde' => $this->input->post('fechadesde'),
 	 	);
 	 	$this->provinciapersona_model->save($array_item);
@@ -61,7 +61,7 @@ public function index(){
 	{
 			$data['provinciapersona'] = $this->provinciapersona_model->provinciapersona($this->uri->segment(3))->row_array();
 			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['paises']= $this->pais_model->lista_paises()->result();
+			$data['provincias']= $this->provincia_model->lista_provincias()->result();
 			$data['title'] = "Actualizar Provinciapersona";
 			$this->load->view('template/page_header');		
 			$this->load->view('provinciapersona_edit',$data);
@@ -77,7 +77,7 @@ public function index(){
 		 	
 		 	'idprovinciapersona' => $this->input->post('idprovinciapersona'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idpais' => $this->input->post('idpais'),
+			'idprovincia' => $this->input->post('idprovincia'),
 			'fechadesde' => $this->input->post('fechadesde'),
 	 	);
 	 	$this->provinciapersona_model->update($id,$array_item);
@@ -115,7 +115,7 @@ function provinciapersona_data()
 	 	$data0 = $this->provinciapersona_model->lista_provinciapersonasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idprovinciapersona,$r->lapersona,$r->lapais,
+			$data[]=array($r->idprovinciapersona,$r->lapersona,$r->laprovincia,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('provinciapersona/actual').'"   data-idprovinciapersona="'.$r->idprovinciapersona.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -137,7 +137,7 @@ public function actual()
 
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['paises']= $this->pais_model->lista_paises()->result();
+  	$data['provincias']= $this->provincia_model->lista_provincias()->result();
 
 
 	$data['provinciapersona'] = $this->provinciapersona_model->provinciapersona($this->uri->segment(3))->row_array();
@@ -169,7 +169,7 @@ public function elprimero()
 
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['paises']= $this->pais_model->lista_paises()->result();
+  	$data['provincias']= $this->provincia_model->lista_provincias()->result();
 
 
 	$data['provinciapersona'] = $this->provinciapersona_model->elprimero();
@@ -191,7 +191,7 @@ public function elultimo()
 {
 	$data['provinciapersona'] = $this->provinciapersona_model->elultimo();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['paises']= $this->pais_model->lista_paises()->result();
+  	$data['provincias']= $this->provincia_model->lista_provincias()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
@@ -212,7 +212,7 @@ public function siguiente(){
  // $data['provinciapersona_list']=$this->provinciapersona_model->lista_provinciapersona()->result();
 	$data['provinciapersona'] = $this->provinciapersona_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['paises']= $this->pais_model->lista_paises()->result();
+  	$data['provincias']= $this->provincia_model->lista_provincias()->result();
   
 
 $data['title']="Provinciapersona";
@@ -225,7 +225,7 @@ public function anterior(){
  // $data['provinciapersona_list']=$this->provinciapersona_model->lista_provinciapersona()->result();
 	$data['provinciapersona'] = $this->provinciapersona_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['paises']= $this->pais_model->lista_paises()->result();
+  	$data['provincias']= $this->provincia_model->lista_provincias()->result();
   $data['title']="Provinciapersona";
 	$this->load->view('template/page_header');		
   $this->load->view('provinciapersona_record',$data);
