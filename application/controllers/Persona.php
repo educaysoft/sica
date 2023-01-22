@@ -9,6 +9,7 @@ class Persona extends CI_Controller{
       $this->load->model('documento_model');
       $this->load->model('telefono_model');
       $this->load->model('sexo_model');
+      $this->load->model('pais_model');
 }
 
 public function index(){
