@@ -54,7 +54,7 @@ echo form_input('idpersona',$options[$nacionalidadpersona['idpersona']],array("d
      <td>Institucion:</td>
      <td><?php 
     $options= array("NADA");
-    foreach ($nacionalidads as $row){
+    foreach ($nacionalidades as $row){
 	      $options[$row->idnacionalidad]= $row->nombre;
     }
     echo form_input('idnacionalidad',$options[$nacionalidadpersona['idnacionalidad']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
