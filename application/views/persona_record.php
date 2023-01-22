@@ -121,7 +121,7 @@ if(isset($persona))
 	<div class="col-md-10">
 	<?php
  	$options = array();
-  	foreach ($paises as $row){
+  	foreach ($paispersonas as $row){
 		$optieons[$row->idpais]=$row->nombre;
 	}
  echo form_multiselect('pais[]',$options,(array)set_value('idpais', ''), array('style'=>'width:500px')); 
