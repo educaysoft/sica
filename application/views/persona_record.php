@@ -124,7 +124,7 @@ if(isset($persona))
   	foreach ($paispersonas as $row){
 		$optieons[$row->idpaispersona]=$row->elpais;
 	}
- echo form_multiselect('pais[]',$options,(array)set_value('idpais', ''), array('style'=>'width:500px')); 
+ echo form_multiselect('paispersona[]',$options,(array)set_value('idpaispersona', ''), array('style'=>'width:500px')); 
 
 	?>
 	</div> 
