@@ -21,7 +21,22 @@ class Destinatario_model extends CI_model {
 
  	function save($array)
  	{
-		$this->db->insert("destinatario", $array);
+		$conditioni1 = "iddocumento =" . "'" . $array['iddocumento'] . "'";
+		$conditioni2 = "idpersona =" . "'" . $array['idpersona'] . "'";
+		$this->db->select('*');
+		$this->db->from('destinatario');
+		$this->db->where($condition1);
+		$this->db->where($condition2);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+			$this->db->insert("destinatario", $array);
+			return true;
+		}else{
+			return false;
+		}
+
+
  	}
 
  	function update($id,$array_item)

@@ -46,8 +46,15 @@ public function add()
 		 	'iddocumento' => $this->input->post('iddocumento'),
 		 	'detalle' => $this->input->post('detalle'),
 	 	);
-	 	$this->destinatario_model->save($array_item);
-	 	redirect('destinatario');
+	 	$result= $this->destinatario_model->save($array_item);
+
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('El destinatario ya esta asignado'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
  	}
 
 
