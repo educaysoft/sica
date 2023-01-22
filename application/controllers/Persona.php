@@ -37,6 +37,7 @@ public function actual(){
 	$data['correos'] =$this->correo_model->correospersona($data['persona']['idpersona'])->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
   	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
+  	$data["paises"]= $this->pais_model->lista_paises()->result();
 	$data['title']="Modulo de Personas";
 	$this->load->view('template/page_header');		
 	$this->load->view('persona_record',$data);
@@ -213,6 +214,7 @@ public function elprimero()
 	$data['correos'] =$this->correo_model->correospersona($data['persona']['idpersona'])->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
   	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
+  	$data["paises"]= $this->pais_model->lista_paises()->result();
   if(!empty($data))
   {
     $data['title']="Persona";
@@ -238,6 +240,7 @@ public function elultimo()
 	$data['correos'] =$this->correo_model->correospersona($data['persona']['idpersona'])->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
   	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
+  	$data["paises"]= $this->pais_model->lista_paises()->result();
   if(!empty($data))
   {
     $data['title']="Personas";
@@ -267,6 +270,7 @@ public function siguiente(){
 	$data['correos'] =$this->correo_model->correospersona($data['persona']['idpersona'])->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
   	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
+  	$data["paises"]= $this->pais_model->lista_paises()->result();
   	$data['title']="Personas";
 	$this->load->view('template/page_header');		
   	$this->load->view('persona_record',$data);
@@ -278,6 +282,7 @@ public function anterior(){
 	$data['persona'] = $this->persona_model->anterior($this->uri->segment(3))->row_array();
 	$data['correos'] =$this->correo_model->correospersona($data['persona']['idpersona'])->result();
   	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
+  	$data["paises"]= $this->pais_model->lista_paises()->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
   	$data['title']="Personas";
 	$this->load->view('template/page_header');		
