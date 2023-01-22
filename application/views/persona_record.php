@@ -133,11 +133,11 @@ if(isset($persona))
      	<?php 
 
 $options= array("NADA");
-foreach ($generos as $row){
-	$options[$row->idgenero]= $row->nombre;
+foreach ($sexos as $row){
+	$options[$row->idsexo]= $row->nombre;
 }
 
-echo form_input('idgenero',$options[$persona['idgenero']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('idsexo',$options[$persona['idsexo']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
