@@ -65,7 +65,7 @@ echo form_input('idpersona',$options[$nacionalidadpersona['idpersona']],array("d
   
 <tr>
       <td>Fecha desde:</td>
-      <td><?php echo form_input('fechadesde',$fechadesde['fechadesde'],array('type'=>'date','placeholder'=>'fechadesde','style'=>'width:500px;')) ?></td>
+      <td><?php echo form_input('fechadesde',$nacionalidadpersona['fechadesde'],array('type'=>'date','placeholder'=>'fechadesde','style'=>'width:500px;')) ?></td>
 </tr>
 
 
