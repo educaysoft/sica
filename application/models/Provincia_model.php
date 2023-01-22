@@ -1,12 +1,12 @@
 <?php
 class Provincia_model extends CI_model {
 
-	function lista_provinciaes(){
+	function lista_provincias(){
 		 $provincia= $this->db->get('provincia');
 		 return $provincia;
 	}
 
-	function lista_provinciaesA(){
+	function lista_provinciasA(){
 		 $provincia= $this->db->get('provincia1');
 		 return $provincia;
 	}
