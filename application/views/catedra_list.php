@@ -28,7 +28,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <div id="eys-nav-i">
 	<ul>
-		<li> <?php echo anchor('evento', 'Home'); ?></li>
+		<li> <?php echo anchor('catedra', 'Home'); ?></li>
 	</ul>
 </div>
 
@@ -39,7 +39,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="col-12">
 
              <div class="col-md-12">
-                 <h3>Lista de eventos 
+                 <h3>Lista de catedras 
         	</h3>
        	     </div>
 
@@ -48,14 +48,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
     	<label class="col-md-2 col-form-label"> Estado:</label>
 	<?php
 		$options= array(0=>'--Select--');
-		foreach ($evento_estados as $row){
-			$options[$row->idevento_estado]= $row->nombre;
+		foreach ($catedra_estados as $row){
+			$options[$row->idcatedra_estado]= $row->nombre;
 		}
 	?>
 
 	<div class="col-md-10">
 		<?php
-     			echo form_dropdown("idevento_estado",$options, 0,array('onchange'=>'filtra_evento()'));  
+     			echo form_dropdown("idcatedra_estado",$options, 0,array('onchange'=>'filtra_catedra()'));  
 		?>
 	</div>
 	</div>
@@ -65,7 +65,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>IDevento</th>
+ <th>IDcatedra</th>
  <th>Nombre</th>
  <th>Fecha</th>
  <th>Estado</th>
@@ -100,7 +100,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('catedra/catedra_data')?>', type: 'GET'},});
 
 });
 
@@ -109,7 +109,7 @@ $(document).ready(function(){
 
 $('#show_data').on('click','.item_ver',function(){
 
-	var id= $(this).data('idevento');
+	var id= $(this).data('idcatedra');
 	var retorno= $(this).data('retorno');
 	window.location.href = retorno+'/'+id;
 
@@ -119,7 +119,7 @@ $('#show_data').on('click','.item_ver',function(){
 
 $('#show_data').on('click','.item_ver2',function(){
 
-	var id= $(this).data('idevento2');
+	var id= $(this).data('idcatedra2');
 	var retorno= $(this).data('retorno2');
 	window.location.href = retorno+'/'+id;
 
@@ -128,14 +128,14 @@ $('#show_data').on('click','.item_ver2',function(){
 
 
 
-var idevento_estado=0;
-function filtra_evento()
+var idcatedra_estado=0;
+function filtra_catedra()
 {
-       var idevento_estado = $('select[name=idevento_estado]').val();
+       var idcatedra_estado = $('select[name=idcatedra_estado]').val();
 
 //	var idpersona = document.getElementById("filtro").innerHTML;
        
-var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('evento/evento_data')?>', type: 'GET',data:{idevento_estado:idevento_estado}},});
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('catedra/catedra_data')?>', type: 'GET',data:{idcatedra_estado:idcatedra_estado}},});
 }
 
 

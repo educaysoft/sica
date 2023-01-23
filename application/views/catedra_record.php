@@ -12,12 +12,12 @@
 
 
 <div id="eys-nav-i">
-	<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idevento"><?php echo $evento['idevento']; ?></idem></div>
+	<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idcatedra"><?php echo $catedra['idcatedra']; ?></idem></div>
 	
 
 <ul>
 <?php
-if(isset($evento))
+if(isset($catedra))
 {
 
 	$permitir=0;
@@ -26,7 +26,7 @@ if(isset($evento))
 	if(isset($this->session->userdata['acceso'])){
   		foreach($this->session->userdata['acceso'] as $row)
 	    	{
-			if("evento"==$row["modulo"]["nombre"]);
+			if("catedra"==$row["modulo"]["nombre"]);
 			{
 				$numero=$j;
 				$permitir=1;
@@ -39,44 +39,44 @@ if(isset($evento))
 	}
 
 ?>
-	<li> <?php echo anchor('evento/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('evento/siguiente/'.$evento['idevento'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('evento/anterior/'.$evento['idevento'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('evento/elultimo/', 'Último'); ?></li>
+	<li> <?php echo anchor('catedra/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('catedra/siguiente/'.$catedra['idcatedra'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('catedra/anterior/'.$catedra['idcatedra'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('catedra/elultimo/', 'Último'); ?></li>
 
 	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['create']){ ?>
-        <li> <?php echo anchor('evento/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('catedra/add', 'Nuevo'); ?></li>
 	<?php } ?>
 
 
 	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['update']){ ?>
-        <li> <?php echo anchor('evento/edit/'.$evento['idevento'],'Edit'); ?></li>
+        <li> <?php echo anchor('catedra/edit/'.$catedra['idcatedra'],'Edit'); ?></li>
 	<?php } ?>
 
 	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['delete']){ ?>
-        <li style="border-right:1px solid green"> <?php echo anchor('evento/delete/'.$evento['idevento'],'Delete'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('catedra/delete/'.$catedra['idcatedra'],'Delete'); ?></li>
 	<?php } ?>
 
 	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['read']){ ?>
-        <li> <?php echo anchor('evento/listar/','Eventos'); ?></li>
+        <li> <?php echo anchor('catedra/listar/','Catedras'); ?></li>
 	<?php } ?>
 
 
 	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['read']){ ?>
-        <li style="border-right:1px solid green"> <?php echo anchor('evento/detalle/'.$evento['idevento'],'Detalles'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('catedra/detalle/'.$catedra['idcatedra'],'Detalles'); ?></li>
 	<?php } ?>
 
-        <li> <?php echo anchor('evento/listar_participantes/'.$evento['idevento'],'Certificados'); ?></li>
-        <li> <?php echo anchor('asistencia/add/'.$evento['idevento'],'Asistencias'); ?></li>
-        <li> <?php echo anchor('participacion/add/'.$evento['idevento'],'Participacion'); ?></li>
-        <li> <?php echo anchor('seguimiento/add/'.$evento['idevento'],'Seguimiento'); ?></li>
-        <li> <?php echo anchor('pagoevento/add/'.$evento['idevento'],'Pagos'); ?></li>
+        <li> <?php echo anchor('catedra/listar_participantes/'.$catedra['idcatedra'],'Certificados'); ?></li>
+        <li> <?php echo anchor('asistencia/add/'.$catedra['idcatedra'],'Asistencias'); ?></li>
+        <li> <?php echo anchor('participacion/add/'.$catedra['idcatedra'],'Participacion'); ?></li>
+        <li> <?php echo anchor('seguimiento/add/'.$catedra['idcatedra'],'Seguimiento'); ?></li>
+        <li> <?php echo anchor('pagocatedra/add/'.$catedra['idcatedra'],'Pagos'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('evento_estado/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('catedra_estado/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -86,20 +86,20 @@ if(isset($evento))
 <br>
 
 
-<?php echo form_open('evento/save_edit') ?>
-<?php echo form_hidden('idevento',$evento['idevento'],array('name'=>'idevento')) ?>
+<?php echo form_open('catedra/save_edit') ?>
+<?php echo form_hidden('idcatedra',$catedra['idcatedra'],array('name'=>'idcatedra')) ?>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('tipoevento/add', 'Tipo evento:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('tipocatedra/add', 'Tipo catedra:') ?> </label>
      <?php 
     $options= array("NADA");
-    foreach ($tipoeventos as $row){
-	      $options[$row->idtipoevento]= $row->nombre;
+    foreach ($tipocatedras as $row){
+	      $options[$row->idtipocatedra]= $row->nombre;
     }
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'idtipoevento','value'=>$options[$evento['idtipoevento']],"disabled"=>"disabled", "style"=>"width:500px");
+    $arrdatos=array('name'=>'idtipocatedra','value'=>$options[$catedra['idtipocatedra']],"disabled"=>"disabled", "style"=>"width:500px");
 echo form_input($arrdatos) ?>
 
 	</div> 
@@ -111,16 +111,16 @@ echo form_input($arrdatos) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('evento_estado/add', 'Evento estado:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('catedra_estado/add', 'Catedra estado:') ?> </label>
      <?php 
     $options= array("NADA");
-    foreach ($evento_estados as $row){
-	      $options[$row->idevento_estado]= $row->nombre;
+    foreach ($catedra_estados as $row){
+	      $options[$row->idcatedra_estado]= $row->nombre;
     }
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'idevento_estado','value'=>$options[$evento['idevento_estado']],"disabled"=>"disabled", "style"=>"width:500px");
+    $arrdatos=array('name'=>'idcatedra_estado','value'=>$options[$catedra['idcatedra_estado']],"disabled"=>"disabled", "style"=>"width:500px");
 echo form_input($arrdatos) ?>
 
 	</div> 
@@ -140,7 +140,7 @@ echo form_input($arrdatos) ?>
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'idinstitucion','value'=>$options[$evento['idinstitucion']],"disabled"=>"disabled", "style"=>"width:500px");
+    $arrdatos=array('name'=>'idinstitucion','value'=>$options[$catedra['idinstitucion']],"disabled"=>"disabled", "style"=>"width:500px");
 echo form_input($arrdatos) ?>
 	</div> 
 </div>
@@ -148,9 +148,9 @@ echo form_input($arrdatos) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Titulo del evento:</label>
+    <label class="col-md-2 col-form-label"> Titulo del catedra:</label>
 	<div class="col-md-10">
-     <?php echo form_input('titulo',$evento['titulo'],array("disabled"=>"disabled",'placeholder'=>'titulo','style'=>'width:500px;')) 
+     <?php echo form_input('titulo',$catedra['titulo'],array("disabled"=>"disabled",'placeholder'=>'titulo','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
@@ -161,7 +161,7 @@ echo form_input($arrdatos) ?>
 	<div class="col-md-10">
       <?php
 	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:500px;height:100px;');    
-	echo form_textarea('detalle',$evento['detalle'],$textarea_options);
+	echo form_textarea('detalle',$catedra['detalle'],$textarea_options);
 	?>
 	</div> 
 </div>
@@ -171,7 +171,7 @@ echo form_input($arrdatos) ?>
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha de inicio:</label>
 	<div class="col-md-10">
-      <?php echo form_input('fechainicia',$evento['fechainicia'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechainicia','style'=>'width:500px;')) ?>
+      <?php echo form_input('fechainicia',$catedra['fechainicia'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechainicia','style'=>'width:500px;')) ?>
 	</div> 
 </div>
 
@@ -179,13 +179,13 @@ echo form_input($arrdatos) ?>
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha de finaliza:</label>
 	<div class="col-md-10">
-      <?php echo form_input('fechafinaliza',$evento['fechafinaliza'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechafinaliza','style'=>'width:500px;')) ?>
+      <?php echo form_input('fechafinaliza',$catedra['fechafinaliza'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechafinaliza','style'=>'width:500px;')) ?>
 	</div> 
 </div>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Sesiones ( <?php echo anchor('sesionevento/add/'.$evento['idevento'], 'New'); ?>):</label>
+    <label class="col-md-2 col-form-label"> Sesiones ( <?php echo anchor('sesioncatedra/add/'.$catedra['idcatedra'], 'New'); ?>):</label>
 	<div class="col-md-10">
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
@@ -244,7 +244,7 @@ echo form_input($arrdatos) ?>
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'idpagina','value'=>$options[$evento['idpagina']],"disabled"=>"disabled", "style"=>"width:500px");
+    $arrdatos=array('name'=>'idpagina','value'=>$options[$catedra['idpagina']],"disabled"=>"disabled", "style"=>"width:500px");
 echo form_input($arrdatos) ?>
 	</div> 
 </div>
@@ -253,7 +253,7 @@ echo form_input($arrdatos) ?>
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Duración:</label>
 	<div class="col-md-10">
-     <?php echo form_input('duracion',$evento['duracion'],array("disabled"=>"disabled",'placeholder'=>'duracion','style'=>'width:500px;')) 
+     <?php echo form_input('duracion',$catedra['duracion'],array("disabled"=>"disabled",'placeholder'=>'duracion','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
@@ -261,13 +261,13 @@ echo form_input($arrdatos) ?>
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Costo:</label>
 	<div class="col-md-10">
-     <?php echo form_input('costo',$evento['costo'],array("disabled"=>"disabled",'placeholder'=>'costo','style'=>'width:500px;')) 
+     <?php echo form_input('costo',$catedra['costo'],array("disabled"=>"disabled",'placeholder'=>'costo','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('silabo/actual/'.$evento['idsilabo'], 'Silabo:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('silabo/actual/'.$catedra['idsilabo'], 'Silabo:') ?> </label>
      <?php 
     $options= array("NADA");
     foreach ($silabos as $row){
@@ -276,7 +276,7 @@ echo form_input($arrdatos) ?>
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'idsilabo','value'=>$options[$evento['idsilabo']],"disabled"=>"disabled", "style"=>"width:500px");
+    $arrdatos=array('name'=>'idsilabo','value'=>$options[$catedra['idsilabo']],"disabled"=>"disabled", "style"=>"width:500px");
 echo form_input($arrdatos) ?>
 	</div> 
 </div>
@@ -335,14 +335,14 @@ echo form_input($arrdatos) ?>
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Evento: </label>
+<label class="col-md-2 col-form-label">Catedra: </label>
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
-foreach ($eventos as $row){
-	$options[$row->idevento]= $row->titulo;
+foreach ($catedras as $row){
+	$options[$row->idcatedra]= $row->titulo;
 }
- echo form_dropdown("idevento_edit",$options, set_select('--Select--','default_value'),array('id'=>'idevento_edit'));  
+ echo form_dropdown("idcatedra_edit",$options, set_select('--Select--','default_value'),array('id'=>'idcatedra_edit'));  
 ?>
 </div>
 </div>
@@ -537,13 +537,13 @@ foreach ($modoevaluacions as $row){
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var idevento=document.getElementById("idevento").innerHTML;
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET',data:{idevento:idevento}},});
-	var mytablap= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_participantes')?>', type: 'GET',data:{idevento:idevento}},});
+	var idcatedra=document.getElementById("idcatedra").innerHTML;
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('catedra/catedra_fechas')?>', type: 'GET',data:{idcatedra:idcatedra}},});
+	var mytablap= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('catedra/catedra_participantes')?>', type: 'GET',data:{idcatedra:idcatedra}},});
 });
 
 $('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idsesionevento');
+var id= $(this).data('idsesioncatedra');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 
@@ -559,20 +559,20 @@ window.location.href = retorno+'/'+id;
 
 
 $('#show_data').on('click','.item_edit',function(){
-var idsesionevento= $(this).data('idsesionevento');
-var idevento= $(this).data('idevento');
+var idsesioncatedra= $(this).data('idsesioncatedra');
+var idcatedra= $(this).data('idcatedra');
 
-get_sesionevento(idsesionevento,idevento);
+get_sesioncatedra(idsesioncatedra,idcatedra);
 
 });
 
 
 
 
-function get_sesionevento(idsesionevento,idevento) {
+function get_sesioncatedra(idsesioncatedra,idcatedra) {
     $.ajax({
-        url: "<?php echo site_url('sesionevento/get_sesionevento') ?>",
-        data: {idsesionevento:idsesionevento},
+        url: "<?php echo site_url('sesioncatedra/get_sesioncatedra') ?>",
+        data: {idsesioncatedra:idsesioncatedra},
         method: 'GET',
         async : true,
         dataType : 'json',
@@ -582,8 +582,8 @@ function get_sesionevento(idsesionevento,idevento) {
         var i;
 	$('#Modal_Edit').modal('show');
         if(data.length!=1){
-          $('[name="idsesionevento_edit"]').val(0);
-          $('[name="idevento_edit"]').val(idevento);
+          $('[name="idsesioncatedra_edit"]').val(0);
+          $('[name="idcatedra_edit"]').val(idcatedra);
           $('[name="fecha_edit"]').val('');
           $('[name="idtema_edit"]').val(0);
           $('[name="tema_edit"]').val('');
@@ -593,8 +593,8 @@ function get_sesionevento(idsesionevento,idevento) {
           $('[name="horafin_edit"]').val('');
           $('[name="idmodoevaluacion_edit"]').val(0);
         }else{
-          $('[name="idsesionevento_edit"]').val(data[0].idsesionevento);
-          $('[name="idevento_edit"]').val(data[0].idevento);
+          $('[name="idsesioncatedra_edit"]').val(data[0].idsesioncatedra);
+          $('[name="idcatedra_edit"]').val(data[0].idcatedra);
           $('[name="fecha_edit"]').val(data[0].fecha);
           $('[name="idtema_edit"]').val(data[0].idtema);
           $('[name="tema_edit"]').val(data[0].tema);
@@ -619,8 +619,8 @@ function get_sesionevento(idsesionevento,idevento) {
 $("#btn_update").on("click", function(){
 
 	var f=$('#show_data').data(fecha);
-	var idsesionevento=document.getElementById("idsesionevento_edit").value;
-	var idevento=document.getElementById("idevento_edit").value;
+	var idsesioncatedra=document.getElementById("idsesioncatedra_edit").value;
+	var idcatedra=document.getElementById("idcatedra_edit").value;
 	var fecha=document.getElementById("fecha_edit").value;
 	var idtema=document.getElementById("idtema_edit").value;
 	var temacorto=document.getElementById("temacorto_edit").value;
@@ -630,7 +630,7 @@ $("#btn_update").on("click", function(){
 	var idmodoevaluacion=document.getElementById("idmodoevaluacion_edit").value;
     $.ajax({
         url: "<?php echo site_url('participacion/save_nota') ?>",
-        data: {idsesionevento:idsesionevento,idevento:idevento, fecha:fecha,idtema:idtema,temacorto:temacorto,ponderacion:ponderacion,horainicio:horainicio,horafin:horafin,idmodoevaliuacion:idmodoevaluacion},
+        data: {idsesioncatedra:idsesioncatedra,idcatedra:idcatedra, fecha:fecha,idtema:idtema,temacorto:temacorto,ponderacion:ponderacion,horainicio:horainicio,horafin:horafin,idmodoevaliuacion:idmodoevaluacion},
         method: 'POST',
         async : false,
         dataType : 'json',

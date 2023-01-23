@@ -1,12 +1,12 @@
 <div id="eys-nav-i">
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 
-<?php echo form_open('evento/save_edit',array('id'=>'eys-form')); ?>
+<?php echo form_open('catedra/save_edit',array('id'=>'eys-form')); ?>
 
 
   <ul>
 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
-        <li> <?php echo anchor('evento', 'Cancelar'); ?></li>
+        <li> <?php echo anchor('catedra', 'Cancelar'); ?></li>
     </ul>
 </div>
 <br>
@@ -17,26 +17,26 @@
 <table>
 
 <tr>
-<td> Tipo de evento:</td>
+<td> Tipo de catedra:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($tipoeventos as $row){
-	$options[$row->idtipoevento]= $row->nombre;
+foreach ($tipocatedras as $row){
+	$options[$row->idtipocatedra]= $row->nombre;
 }
 
- echo form_dropdown("idtipoevento",$options, $evento['idtipoevento']);  ?></td>
+ echo form_dropdown("idtipocatedra",$options, $catedra['idtipocatedra']);  ?></td>
 </tr>
 
 
 <tr>
-<td> Estado del evento:</td>
+<td> Estado del catedra:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($evento_estados as $row){
-	$options[$row->idevento_estado]= $row->nombre;
+foreach ($catedra_estados as $row){
+	$options[$row->idcatedra_estado]= $row->nombre;
 }
 
- echo form_dropdown("idevento_estado",$options, $evento['idevento_estado']);  ?></td>
+ echo form_dropdown("idcatedra_estado",$options, $catedra['idcatedra_estado']);  ?></td>
 </tr>
 
 
@@ -48,14 +48,14 @@ foreach ($instituciones as $row){
 	$options[$row->idinstitucion]= $row->nombre;
 }
 
- echo form_dropdown("idinstitucion",$options, $evento['idinstitucion']);  ?></td>
+ echo form_dropdown("idinstitucion",$options, $catedra['idinstitucion']);  ?></td>
 </tr>
 
 
 
   <tr>
-     <td>idevento:</td>
-     <td><?php echo form_input(array("name"=>'idevento','id'=>'idevento','value'=>$evento['idevento'],'placeholder'=>'Ideventos')) ?></td>
+     <td>idcatedra:</td>
+     <td><?php echo form_input(array("name"=>'idcatedra','id'=>'idcatedra','value'=>$catedra['idcatedra'],'placeholder'=>'Idcatedras')) ?></td>
   </tr>
 
 
@@ -63,7 +63,7 @@ foreach ($instituciones as $row){
      <td>Titulo:</td>
   <td><?php 
 	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Título" );    
-	echo form_textarea('titulo',$evento['titulo'],$textarea_options ); 
+	echo form_textarea('titulo',$catedra['titulo'],$textarea_options ); 
 ?></td>
   </tr>
  
@@ -71,7 +71,7 @@ foreach ($instituciones as $row){
 
  <tr>
       <td>Fecha de Inicia:</td>
-<td><?php echo form_input('fechainicia',  (isset($evento['fechainicia']) ? date('Y-m-d H:i:s', strtotime($evento['fechainicia'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"'); ?></td>
+<td><?php echo form_input('fechainicia',  (isset($catedra['fechainicia']) ? date('Y-m-d H:i:s', strtotime($catedra['fechainicia'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"'); ?></td>
   </tr>
 
 
@@ -79,7 +79,7 @@ foreach ($instituciones as $row){
 
  <tr>
       <td>Fecha de finaliza:</td>
-<td><?php echo form_input('fechafinaliza',  (isset($evento['fechafinaliza']) ? date('Y-m-d H:i:s', strtotime($evento['fechafinaliza'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"'); ?></td>
+<td><?php echo form_input('fechafinaliza',  (isset($catedra['fechafinaliza']) ? date('Y-m-d H:i:s', strtotime($catedra['fechafinaliza'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"'); ?></td>
   </tr>
 
 <tr>
@@ -87,7 +87,7 @@ foreach ($instituciones as $row){
   <td><?php 
   
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Detalle" );    
-echo form_textarea('detalle',$evento['detalle'],$textarea_options ); ?></td>
+echo form_textarea('detalle',$catedra['detalle'],$textarea_options ); ?></td>
  </tr>
 
 
@@ -99,19 +99,19 @@ foreach ($paginas as $row){
 	$options[$row->idpagina]= $row->nombre;
 }
 
- echo form_dropdown("idpagina",$options, $evento['idpagina']);  ?></td>
+ echo form_dropdown("idpagina",$options, $catedra['idpagina']);  ?></td>
 </tr>
 
 
 
 <tr>
      <td>Duración:</td>
-     <td><?php echo form_input(array("name"=>'duracion','id'=>'duracion','value'=>$evento['duracion'],'placeholder'=>'Duración')) ?></td>
+     <td><?php echo form_input(array("name"=>'duracion','id'=>'duracion','value'=>$catedra['duracion'],'placeholder'=>'Duración')) ?></td>
   </tr>
 
 <tr>
      <td>Costo:</td>
-     <td><?php echo form_input(array("name"=>'costo','id'=>'costo','value'=>$evento['costo'],'placeholder'=>'Costo')) ?></td>
+     <td><?php echo form_input(array("name"=>'costo','id'=>'costo','value'=>$catedra['costo'],'placeholder'=>'Costo')) ?></td>
   </tr>
 
 
@@ -124,7 +124,7 @@ foreach ($silabos as $row){
 	$options[$row->idsilabo]= $row->nombre;
 }
 
- echo form_dropdown("idsilabo",$options, $evento['idsilabo']);  ?></td>
+ echo form_dropdown("idsilabo",$options, $catedra['idsilabo']);  ?></td>
 </tr>
 
 
@@ -137,7 +137,7 @@ foreach ($silabos as $row){
    <script>
   async function nombredearchivo()
 {
- indice=document.getElementById("idevento").value;
+ indice=document.getElementById("idcatedra").value;
  fecha=document.getElementById("fechacreacion").value;
  var emisor=document.getElementById("idemisor");
 if(emisor.length>0)
