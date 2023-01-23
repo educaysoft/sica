@@ -97,7 +97,7 @@ public function actual(){
 	 	$result=$this->docente_model->save($array_item);
 	 	if($result == FALSE)
 		{
-			echo "<script language='JavaScript'> alert('Persona ya existe'); </script>";
+			echo "<script language='JavaScript'> alert('Docente ya existe'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";

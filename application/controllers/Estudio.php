@@ -46,13 +46,19 @@ public function index(){
 	{
 	 	$array_item=array(
 		 	
-		 	'idestudio' => $this->input->post('idestudio'),
 			'idpersona' => $this->input->post('idpersona'),
 			'idinstitucion' => $this->input->post('idinstitucion'),
 			'nivel' => $this->input->post('nivel'),
 			'titulo' => $this->input->post('titulo'),
 	 	);
-	 	$this->estudio_model->save($array_item);
+	 	$result=$this->estudio_model->save($array_item);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Estudios ya existe'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
 	 	redirect('estudio');
  	}
 

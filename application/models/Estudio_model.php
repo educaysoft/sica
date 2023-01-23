@@ -46,7 +46,23 @@ class Estudio_model extends CI_model {
 
  	function save($array)
  	{
-		$this->db->insert("estudio", $array);
+
+		$condition1 = "idpersona =" . "'" . $array['idpersona'] . "'";
+		$condition2 = "idinstitucion =" . "'" . $array['idinstitucion'] . "'";
+		$condition3 = "nivel =" . "'" . $array['nivel'] . "'";
+		$this->db->select('*');
+		$this->db->from('estudio');
+		$this->db->where($condition1);
+		$this->db->where($condition2);
+		$this->db->where($condition3);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+			$this->db->insert("estudio", $array);
+			return true;
+		   }else{
+			return false;
+		   }
  	}
 
  	function update($id,$array_item)
