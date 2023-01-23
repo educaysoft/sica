@@ -71,7 +71,6 @@ class Persona_model extends CI_model {
 			}
 			$this->db->trans_commit();
 			return true;
-	
 		   }else{
 			$this->db->trans_rollback();
 			return false;

@@ -94,8 +94,14 @@ public function actual(){
 			'idpersona' => $this->input->post('idpersona'),
 			'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
-	 	$this->docente_model->save($array_item);
-	 	redirect('docente');
+	 	$result=$this->docente_model->save($array_item);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Persona ya existe'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
  	}
 
 

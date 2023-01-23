@@ -35,7 +35,24 @@ class Docente_model extends CI_model {
 
  	function save($array)
  	{
-		$this->db->insert("docente", $array);
+		$condition1 = "iddepartamento =" . "'" . $array['iddepartamento'] . "'";
+		$condition2 = "idpersona =" . "'" . $array['idpersona'] . "'";
+		$this->db->select('*');
+		$this->db->from('docente');
+		$this->db->where($condition1);
+		$this->db->where($condition2);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+			$this->db->insert("docente", $array);
+			return true;
+		   }else{
+			return false;
+		   }
+
+
+
+
  	}
 
  	function update($id,$array_item)
