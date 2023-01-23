@@ -39,25 +39,9 @@ foreach ($instituciones as $row){
 </tr>
 
 <tr>
-      <td>Fecha de registro:</td>
-      <td><?php echo form_input( array("name"=>'nivel',"id"=>'nivel',"value"=>$estudiante['nivel'],'type'=>'text','placeholder'=>'nivel')); ?></td>
-
+      <td>Fecha de Inscripcion:</td>
+      <td><?php echo form_input( array("name"=>'fechainscripcion',"id"=>'fechainscripcion',"value"=>$estudiante['fechainscripcion'],'type'=>'date','placeholder'=>'fechainscripcion')); ?></td>
   </tr>
-
-
-<tr>
-      <td>Fecha de registro:</td>
-      <td><?php echo form_input( array("name"=>'fecharegistro',"id"=>'fecharegistro',"value"=>$estudiante['fecharegistro'],'type'=>'date','placeholder'=>'fecharegistro')); ?></td>
-
-  </tr>
-
-<tr>
-<td>Número de registro:</td>
-<td><?php echo form_input( array("name"=>'numeroregistro',"id"=>'numeroregistro',"value"=>$estudiante['numeroregistro'],'type'=>'text','placeholder'=>'numeroregistro')); ?></td>
-
-</tr>
-
-
 
  
  <tr>
