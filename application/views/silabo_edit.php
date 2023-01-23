@@ -54,7 +54,7 @@ $eys_arrinput=array('name'=>'linkdetalle','value'=>$silabo['linkdetalle'], "styl
 		<?php
 $options= array('--Select--');
 foreach ($asignaturas as $row){
-	$options[$row->idasignatura]= $row->nombre;
+	$options[$row->idasignatura]=$row->malla."-".$row->area."-".$row->nombre;
 }
  echo form_dropdown("idasignatura",$options, $silabo['idasignatura']);  
 		?>
