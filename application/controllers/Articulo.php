@@ -7,6 +7,7 @@ class Articulo extends CI_Controller{
       $this->load->model('articulo_model');
       $this->load->model('prestamoarticulo_model');
   	  $this->load->model('institucion_model');
+  	  $this->load->model('ubicacion_model');
 }
 
 public function index(){
