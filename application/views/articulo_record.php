@@ -86,7 +86,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
-	 <tbody id="show_data">
+	 <tbody id="show_datau">
 	 </tbody>
 	</table>
 	</div>
@@ -145,6 +145,15 @@ $(document).ready(function(){
 
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('articulo/prestamo_data')?>', type: 'GET',data:{idarticulo:idarticulo}},});
 });
+
+$('#show_datau').on('click','.item_ver',function(){
+var id= $(this).data('idubicacionarticulo');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+
 
 
 $('#show_data').on('click','.item_ver',function(){
