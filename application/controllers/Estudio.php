@@ -59,7 +59,6 @@ public function index(){
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}
-	 	redirect('estudio');
  	}
 
 
