@@ -43,7 +43,7 @@ if(isset($distributivodocente))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Docente: </label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('docente/actual/'.$distributivodocente['iddocente'], 'Docente:'); ?>  </label>
 	<div class="col-md-10">
      	<?php 
 $options= array("NADA");
