@@ -55,7 +55,10 @@ foreach ($instituciones as $row){
   </tr>
 
 
-
+<tr>
+      <td>Titulo:</td>
+      <td><?php echo form_input( array("name"=>'titulo',"id"=>'titulo',"value"=>$estudio['titulo'],'type'=>'text','placeholder'=>'nivel')); ?></td>
+  </tr>
 
 
  <tr>

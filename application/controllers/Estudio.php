@@ -84,6 +84,8 @@ public function index(){
 		 	'idestudio' => $this->input->post('idestudio'),
 			'idpersona' => $this->input->post('idpersona'),
 			'idinstitucion' => $this->input->post('idinstitucion'),
+			'fecharegistro' => $this->input->post('fecharegistro'),
+			'numeroregistro' => $this->input->post('numeroregistro'),
 			'nivel' => $this->input->post('nivel'),
 			'titulo' => $this->input->post('titulo'),
 	 	);
