@@ -111,6 +111,35 @@ function articulo_data()
 
 
 
+	function ubicacion_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idarticulo=$this->input->get('idarticulo');
+			$data0 =$this->ubicacionarticulo_model->ubicacionarticulosA($idarticulo);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idubicacionarticulo,$r->idarticulo,$r->launidad,$r->lapersona,$r->fecha,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamoarticulo/actual').'"    data-idprestamoarticulo="'.$r->idprestamoarticulo.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamoarticulo/edit').'"    data-idprestamoarticulo="'.$r->idprestamoarticulo.'">edit</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
+
+
+
 	function prestamo_data()
 	{
 			$draw= intval($this->input->get("draw"));

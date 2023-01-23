@@ -68,6 +68,36 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 </div>
   
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('ubicacionarticulo/add', 'Ubicación'); ?>: </label>
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12">
+	<table class="table table-striped table-bordered table-hover" id="mydatau">
+	 <thead>
+	 <tr>
+	 <th>idubicacionarticulo</th>
+	 <th>idarticulo</th>
+	 <th>launidad</th>
+	 <th>Responsable</th>
+	 <th>fecha</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('prestamoarticulo/add', 'Prestamo'); ?>: </label>
@@ -109,6 +139,10 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 
 $(document).ready(function(){
 	var idarticulo=document.getElementById("idarticulo").value;
+
+	var mytablaf= $('#mydatau').DataTable({"ajax": {url: '<?php echo site_url('articulo/ubicacion_data')?>', type: 'GET',data:{idarticulo:idarticulo}},});
+
+
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('articulo/prestamo_data')?>', type: 'GET',data:{idarticulo:idarticulo}},});
 });
 
