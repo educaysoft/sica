@@ -212,7 +212,7 @@ if(isset($persona))
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var idpersona=document.getElementById("idpersona").value;
+	var idpersona=document.getElementById("idpersona").innerHTML;
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('persona/documento_data')?>', type: 'GET',data:{idpersona:idpersona}},});
 });
 
