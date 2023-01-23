@@ -122,7 +122,7 @@ function distributivo_data()
 	 	$data0 = $this->distributivo_model->lista_distributivos1($idperiodoacademico);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->elperiodoacademico,$r->iddistributivo,$r->distributivo,$r->actividad,
+			$data[]=array($r->iddistributivo,$r->elperiodoacademico,$r->eldistributivo,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('distributivo/actual').'"    data-iddistributivo="'.$r->iddistributivo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,

@@ -62,10 +62,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>Periodolectivo</th>
  <th>iddistributivo</th>
+ <th>Periodo</th>
  <th>distributivo</th>
- <th>actividad</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
