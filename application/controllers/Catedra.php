@@ -2,38 +2,38 @@
 class Catedra extends CI_Controller{
   public function __construct(){
       parent::__construct();
-      $this->load->model('catedra_model');
-      $this->load->model('catedra_estado_model');
-      $this->load->model('tipocatedra_model');
+      $this->load->model('evento_model');
+      $this->load->model('evento_estado_model');
+      $this->load->model('tipoevento_model');
       $this->load->model('participante_model');
-      $this->load->model('sesioncatedra_model');
+      $this->load->model('sesionevento_model');
       $this->load->model('institucion_model');
       $this->load->model('tema_model');
       $this->load->model('pagina_model');
       $this->load->model('silabo_model');
       $this->load->model('asistencia_model');
       $this->load->model('participacion_model');
-      $this->load->model('pagocatedra_model');
+      $this->load->model('pagoevento_model');
       $this->load->model('modoevaluacion_model');
 }
 
 public function index(){
  if(isset($this->session->userdata['logged_in'])){
-	$data['catedra'] = $this->catedra_model->elultimo();
-	$data['catedras']= $this->catedra_model->lista_catedras()->result();
-	$data['certificados'] =$this->catedra_model->certificados($data['catedra']['idcatedra'])->result();
-	$data['catedra_estados']= $this->catedra_estado_model->lista_catedra_estados()->result();
-	$data['tipocatedras']= $this->tipocatedra_model->lista_tipocatedras()->result();
+	$data['evento'] = $this->evento_model->elultimo();
+	$data['eventos']= $this->evento_model->lista_eventos()->result();
+	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
+	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+	$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();
-	$data['participantes'] =$this->participante_model->participantes($data['catedra']['idcatedra'])->result();
+	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
-	$data['sesioncatedras'] =$this->sesioncatedra_model->sesioncatedras($data['catedra']['idcatedra'])->result();
-  	$data['temas']= $this->tema_model->lista_temass($data['catedra']['idsilabo'])->result();
+	$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
+  	$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 	$data['title']="Usted esta visualizando el Catedras  #";
 	$this->load->view('template/page_header');		
-	$this->load->view('catedra_record',$data);
+	$this->load->view('evento_record',$data);
 	$this->load->view('template/page_footer');
    }else{
 	$this->load->view('template/page_header.php');
@@ -43,30 +43,30 @@ public function index(){
 }
 
 //==============================================
-// Llamar al formulario para un nuevo catedra.
+// Llamar al formulario para un nuevo evento.
 // ==============================================
 
 	public function add()
 	{
 		$data['title']="Usted esta Creando un nuevo Catedra";
-		$data['catedra_estados']= $this->catedra_estado_model->lista_catedra_estados()->result();
+		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		$this->load->view('template/page_header');		
-		$this->load->view('catedra_form',$data);
+		$this->load->view('evento_form',$data);
 		$this->load->view('template/page_footer');
 	}
 
 //==============================================
-// Guardar el nuevo catedra.
+// Guardar el nuevo evento.
 // ==============================================
 	public function  save()
 	{
 	 	$array_item=array(
-		 	'idcatedra' => $this->input->post('idcatedra'),
-		 	'idtipocatedra' => $this->input->post('idtipocatedra'),
-		 	'idcatedra_estado' => $this->input->post('idcatedra_estado'),
+		 	'idevento' => $this->input->post('idevento'),
+		 	'idtipoevento' => $this->input->post('idtipoevento'),
+		 	'idevento_estado' => $this->input->post('idevento_estado'),
 		 	'idinstitucion' => $this->input->post('idinstitucion'),
 		 	'titulo' => $this->input->post('titulo'),
 			'fechainicia' => $this->input->post('fechainicia'),
@@ -78,8 +78,8 @@ public function index(){
 			'costo' => $this->input->post('costo'),
 			'idsilabo' => $this->input->post('idsilabo'),
 	 	);	 
-	 	$this->catedra_model->save($array_item);
-	 	redirect('catedra');
+	 	$this->evento_model->save($array_item);
+	 	redirect('evento');
  	}
 
 
@@ -88,8 +88,8 @@ public function index(){
 	public function  save_sesion()
 	{
 	 	$array_item=array(
-		 	'idsesioncatedra' => $this->input->post('idsesioncatedra'),
-		 	'idcatedra' => $this->input->post('idcatedra'),
+		 	'idsesionevento' => $this->input->post('idsesionevento'),
+		 	'idevento' => $this->input->post('idevento'),
 		 	'fecha' => $this->input->post('fecha'),
 		 	'idtema' => $this->input->post('idtema'),
 		 	'temacorto' => $this->input->post('temacorto'),
@@ -98,7 +98,7 @@ public function index(){
 		 	'horafin' => $this->input->post('horafin'),
 		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
 	 	);
-	 	$result=$this->sesioncatedra_model->save($array_item);
+	 	$result=$this->sesionevento_model->save($array_item);
 	 	if($result == FALSE)
 		{
 			$data=array('resultado'=>"FALSE");
@@ -115,15 +115,15 @@ public function index(){
 
 	public function edit()
 	{
-			$data['catedra'] = $this->catedra_model->catedra($this->uri->segment(3))->row_array();
+			$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		  	$data['silabos']= $this->silabo_model->lista_silabos()->result();
-			$data['tipocatedras']= $this->tipocatedra_model->lista_tipocatedras()->result();
-			$data['catedra_estados']= $this->catedra_estado_model->lista_catedra_estados()->result();
+			$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
+			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	    		$data['title'] = "Actualizar Catedra";
 			$this->load->view('template/page_header');		
-			$this->load->view('catedra_edit',$data);
+			$this->load->view('evento_edit',$data);
 			$this->load->view('template/page_footer');
 	 
 	}
@@ -131,11 +131,11 @@ public function index(){
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idcatedra');
+		$id=$this->input->post('idevento');
 	 	$array_item=array(
 
-		 	'idcatedra_estado' => $this->input->post('idcatedra_estado'),
-		 	'idtipocatedra' => $this->input->post('idtipocatedra'),
+		 	'idevento_estado' => $this->input->post('idevento_estado'),
+		 	'idtipoevento' => $this->input->post('idtipoevento'),
 		 	'idinstitucion' => $this->input->post('idinstitucion'),
 		 	'titulo' => $this->input->post('titulo'),
 			'fechacreacion' => $this->input->post('fechacreacion'),
@@ -147,8 +147,8 @@ public function index(){
 			'costo' => $this->input->post('costo'),
 			'idsilabo' => $this->input->post('idsilabo'),
 	 	);
-	 	$this->catedra_model->update($id,$array_item);
-	 	redirect('catedra/actual/'.$id);
+	 	$this->evento_model->update($id,$array_item);
+	 	redirect('evento/actual/'.$id);
  	}
 
 
@@ -156,9 +156,9 @@ public function index(){
 
  	public function delete()
  	{
- 		$data=$this->catedra_model->delete($this->uri->segment(3));
+ 		$data=$this->evento_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('catedra/elultimo');
+	 	redirect('evento/elultimo');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -170,31 +170,31 @@ public function index(){
 
 	public function actual(){
 
-		$data['catedra'] = $this->catedra_model->catedra($this->uri->segment(3))->row_array();
-		$data['catedras']= $this->catedra_model->lista_catedras()->result();
-		$data['certificados'] =$this->catedra_model->certificados($data['catedra']['idcatedra'])->result();
-		$data['tipocatedras']= $this->tipocatedra_model->lista_tipocatedras()->result();
-		$data['catedra_estados']= $this->catedra_estado_model->lista_catedra_estados()->result();
+		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
+		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
+		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	  	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['participantes'] =$this->participante_model->participantes($data['catedra']['idcatedra'])->result();
-		$data['sesioncatedras'] =$this->sesioncatedra_model->sesioncatedras($data['catedra']['idcatedra'])->result();
+		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
-  		$data['temas']= $this->tema_model->lista_temass($data['catedra']['idsilabo'])->result();
+  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
-		$data['title']="Esta viendo el catedra #: ";
+		$data['title']="Esta viendo el evento #: ";
 		$this->load->view('template/page_header');		
-		$this->load->view('catedra_record',$data);
+		$this->load->view('evento_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
 
 	public function listar()
 	{
-		$data['catedra'] = $this->catedra_model->catedra(1)->row_array();
-		$data['catedra_estados']= $this->catedra_estado_model->lista_catedra_estados()->result();
+		$data['evento'] = $this->evento_model->evento(1)->row_array();
+		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['participantes'] =$this->participante_model->participantes($data['catedra']['idcatedra'])->result();
+		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 
    		$data['filtro']=0;
 		if($this->uri->segment(3))
@@ -206,11 +206,11 @@ public function index(){
 
 		$data['title']="Catedra";
 		$this->load->view('template/page_header');		
-		$this->load->view('catedra_list',$data);
+		$this->load->view('evento_list',$data);
 		$this->load->view('template/page_footer');
 	}
 
-	function catedra_data()
+	function evento_data()
 	{
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
@@ -221,13 +221,13 @@ public function index(){
 		$id= $this->uri->segment(3);
 		}else{
 
-		$id=$this->input->get('idcatedra_estado');
+		$id=$this->input->get('idevento_estado');
 		}
-		$data0 = $this->catedra_model->lista_catedrasTE($id);
+		$data0 = $this->evento_model->lista_eventosTE($id);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idcatedra,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
-					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('catedra/actual').'"    data-idcatedra="'.$r->idcatedra.'">Edit</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver2"  data-retorno2="'.site_url('catedra/detalle').'"    data-idcatedra2="'.$r->idcatedra.'">Ver</a>');
+			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
+					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Edit</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver2"  data-retorno2="'.site_url('evento/detalle').'"    data-idevento2="'.$r->idevento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -243,10 +243,10 @@ public function index(){
 
 	public function listarxp()
 	{
-		$data['catedra'] = $this->catedra_model->catedra(1)->row_array();
-		$data['catedra_estados']= $this->catedra_estado_model->lista_catedra_estados()->result();
+		$data['evento'] = $this->evento_model->evento(1)->row_array();
+		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['participantes'] =$this->participante_model->participantes($data['catedra']['idcatedra'])->result();
+		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 
    		$data['filtro']=0;
 		if($this->uri->segment(3))
@@ -258,7 +258,7 @@ public function index(){
 
 		$data['title']="Catedra";
 		$this->load->view('template/page_header');		
-		$this->load->view('catedra_xpersona',$data);
+		$this->load->view('evento_xpersona',$data);
 		$this->load->view('template/page_footer');
 	}
 
@@ -275,11 +275,11 @@ public function index(){
 
 		$id=$this->input->get('idpersona');
 
-		$data0 = $this->catedra_model->lista_catedrasP($id);
+		$data0 = $this->evento_model->lista_eventosP($id);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idcatedra,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
-					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('catedra/actual').'"    data-idcatedra="'.$r->idcatedra.'">Edit</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver2"  data-retorno2="'.site_url('catedra/detalle').'"    data-idcatedra2="'.$r->idcatedra.'">Ver</a>');
+			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
+					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Edit</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver2"  data-retorno2="'.site_url('evento/detalle').'"    data-idevento2="'.$r->idevento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -306,41 +306,41 @@ public function index(){
 
 	public function listar_participantes()
 	{
-		$data['catedra'] = $this->catedra_model->catedra(1)->row_array();
-		$data['catedra_estados']= $this->catedra_estado_model->lista_catedra_estados()->result();
+		$data['evento'] = $this->evento_model->evento(1)->row_array();
+		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['participantes'] =$this->participante_model->participantes($data['catedra']['idcatedra'])->result();
+		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 		
 
 		$data['filtro']= $this->uri->segment(3);
 
 		$data['title']="Catedra";
 		$this->load->view('template/page_header');		
-		$this->load->view('catedra_list_participantes',$data);
+		$this->load->view('evento_list_participantes',$data);
 		$this->load->view('template/page_footer');
 	}
 
 
 
-	function catedra_data_participantes()
+	function evento_data_participantes()
 	{
 
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
-		$id=$this->input->get('idcatedra');
-		$data0 = $this->catedra_model->lista_catedraP($id);
+		$id=$this->input->get('idevento');
+		$data0 = $this->evento_model->lista_eventoP($id);
 		$data=array();
 		foreach($data0->result() as $r)
 		{
 		if($r->iddocumento2==null){	
 			$idtipodocu=14; //Cuando se genera el certificado
-			$data[]=array($r->idcatedra,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_gene" data-idtipodocu="'.$idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'"    data-idcatedra="'.$r->idcatedra.'"     data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'" data-idparticipante="'.$r->idparticipante.'"       data-elparticipante="'.$r->elparticipante.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"  data-size_nombre="'.$r->size_nombre.'"  data-posi_nomb_x="'.$r->posi_nomb_x.'"   data-posi_nomb_y="'.$r->posi_nomb_y.'"  data-ancho_x="'.$r->ancho_x.'"   data-alto_y="'.$r->alto_y.'" data-firma1_x="'.$r->firma1_x.'"   data-firma1_y="'.$r->firma1_y.'"  data-firma2_x="'.$r->firma2_x.'"   data-firma2_y="'.$r->firma2_y.'"    data-firma3_x="'.$r->firma3_x.'"   data-firma3_y="'.$r->firma3_y.'"     data-posi_fecha_x="'.$r->posi_fecha_x.'"   data-posi_fecha_y="'.$r->posi_fecha_y.'"   data-posi_codigo_x="'.$r->posi_codigo_x.'"   data-posi_codigo_y="'.$r->posi_codigo_y.'"   data-texto1="'.$r->texto1.'"   data-posi_texto1_x="'.$r->posi_texto1_x.'"   data-posi_texto1_y="'.$r->posi_texto1_y.'"  data-ancho_texto1="'.$r->ancho_texto1.'"    data-alto_texto1="'.$r->alto_texto1.'"    data-font_size_texto1="'.$r->font_size_texto1.'"           data-archivopdf="'.$r->archivopdf.'">gene</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'" data-archivo="'.$r->archivopdf.'"  data-iddocumento="'.$r->iddocumento.'">download</a>');
+			$data[]=array($r->idevento,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_gene" data-idtipodocu="'.$idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'"    data-idevento="'.$r->idevento.'"     data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'" data-idparticipante="'.$r->idparticipante.'"       data-elparticipante="'.$r->elparticipante.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"  data-size_nombre="'.$r->size_nombre.'"  data-posi_nomb_x="'.$r->posi_nomb_x.'"   data-posi_nomb_y="'.$r->posi_nomb_y.'"  data-ancho_x="'.$r->ancho_x.'"   data-alto_y="'.$r->alto_y.'" data-firma1_x="'.$r->firma1_x.'"   data-firma1_y="'.$r->firma1_y.'"  data-firma2_x="'.$r->firma2_x.'"   data-firma2_y="'.$r->firma2_y.'"    data-firma3_x="'.$r->firma3_x.'"   data-firma3_y="'.$r->firma3_y.'"     data-posi_fecha_x="'.$r->posi_fecha_x.'"   data-posi_fecha_y="'.$r->posi_fecha_y.'"   data-posi_codigo_x="'.$r->posi_codigo_x.'"   data-posi_codigo_y="'.$r->posi_codigo_y.'"   data-texto1="'.$r->texto1.'"   data-posi_texto1_x="'.$r->posi_texto1_x.'"   data-posi_texto1_y="'.$r->posi_texto1_y.'"  data-ancho_texto1="'.$r->ancho_texto1.'"    data-alto_texto1="'.$r->alto_texto1.'"    data-font_size_texto1="'.$r->font_size_texto1.'"           data-archivopdf="'.$r->archivopdf.'">gene</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'" data-archivo="'.$r->archivopdf.'"  data-iddocumento="'.$r->iddocumento.'">download</a>');
 		}else{
-			$data[]=array($r->idcatedra,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'" data-archivo="'.$r->archivopdf.'"  data-iddocumento="'.$r->iddocumento.'">download</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_enviar" data-idtipodocu="'.$r->idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'"    data-idcatedra="'.$r->idcatedra.'"     data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'" data-idparticipante="'.$r->idparticipante.'"       data-elparticipante="'.$r->elparticipante.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'"   data-archivopdf="'.$r->archivopdf.'"   data-correosubject="'.$r->correosubject.'"    data-correohead="'.$r->correohead.'"    data-correofoot="'.$r->correofoot.'">enviar</a>');		}
+			$data[]=array($r->idevento,$r->titulo,$r->elparticipante,$r->estado,$r->lainstitucion,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'" data-archivo="'.$r->archivopdf.'"  data-iddocumento="'.$r->iddocumento.'">download</a>'.$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_enviar" data-idtipodocu="'.$r->idtipodocu.'" data-titulo="'.$r->titulo.'" data-fechafinaliza="'.$r->fechafinaliza.'"  data-idordenador="'.$r->idordenador.'"    data-idevento="'.$r->idevento.'"     data-iddirectorio="'.$r->iddirectorio.'"  data-idpersona="'.$r->idpersona.'"  data-elordenador="'.$r->elordenador.'" data-idparticipante="'.$r->idparticipante.'"       data-elparticipante="'.$r->elparticipante.'" data-ruta="'.$r->ruta.'" data-iddocumento="'.$r->iddocumento.'"  data-iddocumento2="'.$r->iddocumento2.'"   data-ordenador="'.$r->elordenador.'"  data-ruta="'.$r->ruta.'"   data-archivopdf="'.$r->archivopdf.'"   data-correosubject="'.$r->correosubject.'"    data-correohead="'.$r->correohead.'"    data-correofoot="'.$r->correofoot.'">enviar</a>');		}
 
 
 		}	
@@ -361,16 +361,16 @@ public function index(){
 
 	public function reportepdf()
 	{
-		$data['catedra'] = $this->catedra_model->catedra($this->uri->segment(3))->row_array();
-		$data['catedra_estados']= $this->catedra_estado_model->lista_catedra_estados()->result();
+		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
+		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		
-		$data['participantes'] = $this->participante_model->participantes($data['catedra']['idcatedra'])->result();
+		$data['participantes'] = $this->participante_model->participantes($data['evento']['idevento'])->result();
 
 
 		$data['title']="Catedra";
 		$this->load->view('template/page_header');		
-		$this->load->view('catedra_list_pdf',$data);
+		$this->load->view('evento_list_pdf',$data);
 		$this->load->view('template/page_footer');
 	}
 
@@ -378,19 +378,19 @@ public function index(){
 
 
 
-	function catedra_fechas()
+	function evento_fechas()
 	{
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$idcatedra=$this->input->get('idcatedra');
+			$idevento=$this->input->get('idevento');
 			$idpersona=$this->input->get('idpersona');
-			$data0 =$this->sesioncatedra_model->sesioncatedrasA($idcatedra);
+			$data0 =$this->sesionevento_model->sesioneventosA($idevento);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idsesioncatedra,$r->ponderacion,$r->fecha,$r->numerosesion,$r->tema, 
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('sesioncatedra/actual').'"    data-idsesioncatedra="'.$r->idsesioncatedra.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_edit"  data-idsesioncatedra="'.$r->idsesioncatedra.'"  data-idcatedra="'.$r->idcatedra.'">edit</a>');
+				$data[]=array($r->idsesionevento,$r->ponderacion,$r->fecha,$r->numerosesion,$r->tema, 
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('sesionevento/actual').'"    data-idsesionevento="'.$r->idsesionevento.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_edit"  data-idsesionevento="'.$r->idsesionevento.'"  data-idevento="'.$r->idevento.'">edit</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -403,19 +403,19 @@ public function index(){
 
 
 
-	function catedra_fechasAsisPartPago()
+	function evento_fechasAsisPartPago()
 	{
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$idcatedra=$this->input->get('idcatedra');
+			$idevento=$this->input->get('idevento');
 			$idpersona=$this->input->get('idpersona');
-			$data0 =$this->sesioncatedra_model->sesioncatedras_AsisPart($idcatedra,$idpersona);
+			$data0 =$this->sesionevento_model->sesioneventos_AsisPart($idevento,$idpersona);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idcatedra,$r->fecha,$r->tema,$r->asistencia,$r->longitud,$r->latitud,$r->participacion,$r->pagos,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('catedra/actual').'"    data-idcatedra="'.$r->idcatedra.'"  data-fecha="'.$r->fecha.'"  data-participacion="'.$r->participacion.'"   >Part</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_geo"  data-latitud="'.$r->latitud.'"  data-longitud="'.$r->longitud.'">geo</a>');
+				$data[]=array($r->idevento,$r->fecha,$r->tema,$r->asistencia,$r->longitud,$r->latitud,$r->participacion,$r->pagos,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'"  data-fecha="'.$r->fecha.'"  data-participacion="'.$r->participacion.'"   >Part</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_geo"  data-latitud="'.$r->latitud.'"  data-longitud="'.$r->longitud.'">geo</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -433,13 +433,13 @@ public function index(){
 
 
 
-	function catedra_participantes()
+	function evento_participantes()
 	{
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$id=$this->input->get('idcatedra');
+			$id=$this->input->get('idevento');
 			$data0 =$this->participante_model->participantes($id);
 			$data=array();
 			foreach($data0->result() as $r){
@@ -468,24 +468,24 @@ public function index(){
 	public function elprimero()
 	{
 
-		$data['catedra'] = $this->catedra_model->elprimero();
+		$data['evento'] = $this->evento_model->elprimero();
 		  if(!empty($data))
 		  {
-			$data['catedras']= $this->catedra_model->lista_catedras()->result();
-			$data['certificados'] =$this->catedra_model->certificados($data['catedra']['idcatedra'])->result();
-			$data['catedra_estados']= $this->catedra_estado_model->lista_catedra_estados()->result();
-			$data['tipocatedras']= $this->tipocatedra_model->lista_tipocatedras()->result();
+			$data['eventos']= $this->evento_model->lista_eventos()->result();
+			$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
+			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+			$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-			$data['participantes'] =$this->participante_model->participantes($data['catedra']['idcatedra'])->result();
+			$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 			$data['silabos']= $this->silabo_model->lista_silabos()->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
-			$data['sesioncatedras'] =$this->sesioncatedra_model->sesioncatedras($data['catedra']['idcatedra'])->result();
+			$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 			$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 		
-  			$data['temas']= $this->tema_model->lista_temass($data['catedra']['idsilabo'])->result();
+  			$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 			$data['title']="Catedra";
 			$this->load->view('template/page_header');		
-			$this->load->view('catedra_record',$data);
+			$this->load->view('evento_record',$data);
 			$this->load->view('template/page_footer');
 		  }else{
 			$this->load->view('template/page_header');		
@@ -498,23 +498,23 @@ public function index(){
 
 	public function elultimo()
 	{
-		$data['catedra'] = $this->catedra_model->elultimo();
+		$data['evento'] = $this->evento_model->elultimo();
 		  if(!empty($data))
 		  {
-			$data['catedras']= $this->catedra_model->lista_catedras()->result();
-			$data['certificados'] =$this->catedra_model->certificados($data['catedra']['idcatedra'])->result();
-			$data['catedra_estados']= $this->catedra_estado_model->lista_catedra_estados()->result();
-			$data['tipocatedras']= $this->tipocatedra_model->lista_tipocatedras()->result();
+			$data['eventos']= $this->evento_model->lista_eventos()->result();
+			$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
+			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+			$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();
-			$data['participantes'] =$this->participante_model->participantes($data['catedra']['idcatedra'])->result();
+			$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
-			$data['sesioncatedras'] =$this->sesioncatedra_model->sesioncatedras($data['catedra']['idcatedra'])->result();
+			$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 			$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
-  			$data['temas']= $this->tema_model->lista_temass($data['catedra']['idsilabo'])->result();
+  			$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 			$data['title']="Catedra";
 			$this->load->view('template/page_header');		
-			$this->load->view('catedra_record',$data);
+			$this->load->view('evento_record',$data);
 			$this->load->view('template/page_footer');
 		  }else{
 			$this->load->view('template/page_header');		
@@ -526,43 +526,43 @@ public function index(){
 
 
 	public function siguiente(){
-	 // $data['catedra_list']=$this->catedra_model->lista_catedra()->result();
-		$data['catedra'] = $this->catedra_model->siguiente($this->uri->segment(3))->row_array();
-		$data['catedras']= $this->catedra_model->lista_catedras()->result();
-		$data['certificados'] =$this->catedra_model->certificados($data['catedra']['idcatedra'])->result();
-		$data['tipocatedras']= $this->tipocatedra_model->lista_tipocatedras()->result();
-		$data['catedra_estados']= $this->catedra_estado_model->lista_catedra_estados()->result();
+	 // $data['evento_list']=$this->evento_model->lista_evento()->result();
+		$data['evento'] = $this->evento_model->siguiente($this->uri->segment(3))->row_array();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
+		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
+		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
-		$data['sesioncatedras'] =$this->sesioncatedra_model->sesioncatedras($data['catedra']['idcatedra'])->result();
-	  	$data['participantes'] =$this->participante_model->participantes($data['catedra']['idcatedra'])->result();
+		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
+	  	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
-  		$data['temas']= $this->tema_model->lista_temass($data['catedra']['idsilabo'])->result();
+  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 	  	$data['title']="Catedra";
 		$this->load->view('template/page_header');		
-	  	$this->load->view('catedra_record',$data);
+	  	$this->load->view('evento_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
 
 	public function anterior(){
-	 // $data['catedra_list']=$this->catedra_model->lista_catedra()->result();
-		$data['catedra'] = $this->catedra_model->anterior($this->uri->segment(3))->row_array();
-		$data['catedras']= $this->catedra_model->lista_catedras()->result();
-		$data['tipocatedras']= $this->tipocatedra_model->lista_tipocatedras()->result();
-		$data['certificados'] =$this->catedra_model->certificados($data['catedra']['idcatedra'])->result();
-		$data['catedra_estados']= $this->catedra_estado_model->lista_catedra_estados()->result();
+	 // $data['evento_list']=$this->evento_model->lista_evento()->result();
+		$data['evento'] = $this->evento_model->anterior($this->uri->segment(3))->row_array();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
+		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
+		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		$data['silabos']= $this->silabo_model->lista_silabos()->result();
-		$data['participantes'] =$this->participante_model->participantes($data['catedra']['idcatedra'])->result();
-		$data['sesioncatedras'] =$this->sesioncatedra_model->sesioncatedras($data['catedra']['idcatedra'])->result();
+		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
-  		$data['temas']= $this->tema_model->lista_temass($data['catedra']['idsilabo'])->result();
+  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['title']="Catedra";
 		$this->load->view('template/page_header');		
-		$this->load->view('catedra_record',$data);
+		$this->load->view('evento_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
@@ -571,16 +571,16 @@ public function index(){
 
 	public function detalle()
 	{
-		$data['catedra'] = $this->catedra_model->catedra($this->uri->segment(3))->row_array();
-		$data['sesioncatedras'] = $this->sesioncatedra_model->sesioncatedras($this->uri->segment(3))->result();
-		$data['asistencia'] = $this->asistencia_model->asistenciax( $data['catedra']['idcatedra'] , $this->session->userdata['logged_in']['idpersona'])->result();
-		$data['participacion'] = $this->participacion_model->participacionx($data['catedra']['idcatedra'] , $this->session->userdata['logged_in']['idpersona'])->result();
-		$data['pagocatedra'] = $this->pagocatedra_model->pagocatedrax($data['catedra']['idcatedra'] , $this->session->userdata['logged_in']['idpersona'])->result();
-		$data['silabo']=$this->silabo_model->silabo($data['catedra']['idsilabo'])->row_array();
+		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
+		$data['sesioneventos'] = $this->sesionevento_model->sesioneventos($this->uri->segment(3))->result();
+		$data['asistencia'] = $this->asistencia_model->asistenciax( $data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
+		$data['participacion'] = $this->participacion_model->participacionx($data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
+		$data['pagoevento'] = $this->pagoevento_model->pagoeventox($data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
+		$data['silabo']=$this->silabo_model->silabo($data['evento']['idsilabo'])->row_array();
 	
 //		$this->load->view('template/page_header');		
 //		unset($this->session->userdata['logged_in']);
-		$this->load->view('catedras/catedra',$data);
+		$this->load->view('eventos/evento',$data);
 	}
 
 
@@ -592,7 +592,7 @@ public function canvas(){
 }
 
 function show_pdf() {
-	 	$data['catedra'] = $this->catedra_model->catedra($this->uri->segment(3))->row_array();
+	 	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
  $this->load->view('template/page_header');
  $data['blog_text'] = "POSTULACION"; 
  $this->load->view('cargapdf',$data);
@@ -721,13 +721,13 @@ exit;
 
 
 
-	public function get_catedra() {
+	public function get_evento() {
 	    $this->load->database();
 	    $this->load->helper('form');
 	    if($this->input->post('idinstitucion')) {
 		$this->db->select('*');
-		$this->db->where(array('idinstitucion' => $this->input->post('idinstitucion'),'idcatedra_estado'=>2));  //SOLO ESTADO INSCRIPCION
-		$query = $this->db->get('catedra');
+		$this->db->where(array('idinstitucion' => $this->input->post('idinstitucion'),'idevento_estado'=>2));  //SOLO ESTADO INSCRIPCION
+		$query = $this->db->get('evento');
 		$data=$query->result();
 		echo json_encode($data);
 		}
@@ -735,13 +735,13 @@ exit;
 	}
 
 
-	public function get_catedra1() {
+	public function get_evento1() {
 	    $this->load->database();
 	    $this->load->helper('form');
 	    if($this->input->post('idinstitucion')) {
 		$this->db->select('*');
 		$this->db->where(array('idinstitucion' => $this->input->post('idinstitucion')));  //SOLO ESTADO INSCRIPCION
-		$query = $this->db->get('catedra');
+		$query = $this->db->get('evento');
 		$data=$query->result();
 		echo json_encode($data);
 		}
@@ -752,13 +752,13 @@ exit;
 
 
 
-	public function get_catedra2() {
+	public function get_evento2() {
 	    $this->load->database();
 	    $this->load->helper('form');
-	    if($this->input->post('idcatedra')) {
+	    if($this->input->post('idevento')) {
 		$this->db->select('*');
-		$this->db->where(array('idcatedra' => $this->input->post('idcatedra')));
-		$query = $this->db->get('catedra');
+		$this->db->where(array('idevento' => $this->input->post('idevento')));
+		$query = $this->db->get('evento');
 		$data=$query->result();
 		echo json_encode($data);
 		}
