@@ -34,7 +34,7 @@ class Jornadadocente_model extends CI_model {
 		$condition2 = "iddiasemana =" . "'" . $array['iddiasemana'] . "'";
 		$condition3 = "horainicio =" . "'" . $array['horainicio'] . "'";
 		$this->db->select('*');
-		$this->db->from('docente');
+		$this->db->from('jornadadocente');
 		$this->db->where($condition1);
 		$this->db->where($condition2);
 		$this->db->where($condition3);
