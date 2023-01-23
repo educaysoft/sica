@@ -29,7 +29,23 @@ class Jornadadocente_model extends CI_model {
 
  	function save($array)
  	{
-		$this->db->insert("jornadadocente", $array);
+
+		$condition1 = "idasignaturadocente =" . "'" . $array['idasignaturadocente'] . "'";
+		$condition2 = "iddiasemana =" . "'" . $array['iddiasemana'] . "'";
+		$condition3 = "horainicio =" . "'" . $array['horainicio'] . "'";
+		$this->db->select('*');
+		$this->db->from('docente');
+		$this->db->where($condition1);
+		$this->db->where($condition2);
+		$this->db->where($condition3);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+			$this->db->insert("jornadadocente", $array);
+			return true;
+		   }else{
+			return false;
+		   }
  	}
 
  	function update($id,$array_item)

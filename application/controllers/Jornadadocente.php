@@ -61,8 +61,15 @@ public function add()
 			'horainicio' => $this->input->post('horainicio'),
 			'duracionminutos' => $this->input->post('duracionminutos'),
 	 	);
-	 	$this->jornadadocente_model->save($array_item);
-	 	redirect('jornadadocente');
+	         $result=$this->jornadadocente_model->save($array_item);
+
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Jornada ya esta asignada'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
  	}
 
 

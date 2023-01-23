@@ -140,6 +140,10 @@ alter table fechacalendario add column idcalendarioacademico int(11);
 /* alter table persona change idgenero idsexo int(11); */
 
 
-alter table estudio add column fecharegistro date;
-alter table estudio add column numeroregistro varchar(50);
+/* alter table estudio add column fecharegistro date; */
+/* alter table estudio add column numeroregistro varchar(50); */
+
+
+ alter table estudio change titulo titulo text;
+
 
