@@ -51,7 +51,7 @@ foreach ($instituciones as $row){
 
 <tr>
       <td>Número de registro:</td>
-      <td><?php echo form_input( array("name"=>'numeroregistro',"id"=>'numeroregistro',"value"=>$estudio['numeroregistro'],'type'=>'date','placeholder'=>'numeroregistro')); ?></td>
+      <td><?php echo form_input( array("name"=>'numeroregistro',"id"=>'numeroregistro',"value"=>$estudio['numeroregistro'],'type'=>'text','placeholder'=>'numeroregistro')); ?></td>
   </tr>
 
 
