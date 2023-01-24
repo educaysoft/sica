@@ -73,13 +73,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('periodoacademio/periodoacademio_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('malla/malla_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-window.location.href = "http://localhost/facae/index.php/periodoacademio";
+var id= $(this).data('idmalla');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
 
 });
 
