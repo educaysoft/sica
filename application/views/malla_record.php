@@ -109,7 +109,7 @@ echo form_input('fechafin',$malla['fechafin'],array('placeholder'=>'Fecha en que
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Asignaturas: </label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('asignatura/add/', 'Asignatura'); ?>  </label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
