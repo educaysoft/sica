@@ -151,7 +151,7 @@ function get_asignaturas() {
         var html = '';
         var i;
         for(i=0; i<data.length; i++){
-        html += '<option value='+data[i].idasignatura+'>'+data[i].area+" - "+data[i].nombre+'</option>';
+        html += '<option value='+data[i].idasignatura+'>'+data[i].area+" - "+data[i].nivel+" - "+data[i].nombre+'</option>';
         }
         $('#idasignatura').html(html);
 
