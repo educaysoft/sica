@@ -31,6 +31,11 @@ class Asignatura_model extends CI_model {
  	function save($array)
  	{
 		$this->db->insert("asignatura", $array);
+		if( $this->db->affected_rows()>0){
+			return true;
+	   	}else{
+			return false;
+		}
  	}
 
  	function update($id,$array_item)

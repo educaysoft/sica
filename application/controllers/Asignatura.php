@@ -57,8 +57,16 @@ public function  save()
 	 	'contenidosminimos' => $this->input->post('contenidosminimos'),
 	 	'resultadosaprendizaje' => $this->input->post('resultadosaprendizaje'),
 	 	);
-	 	$this->asignatura_model->save($array_item);
-	 	redirect('asignatura');
+	 	$result=$this->asignatura_model->save($array_item);
+
+
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Persona ya existe'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
  	}
 
 
@@ -93,7 +101,8 @@ public function edit()
 	 		'resultadosaprendizaje' => $this->input->post('resultadosaprendizaje'),
 	 	);
 	 	$this->asignatura_model->update($id,$array_item);
-	 	redirect('asignatura/actual/'.$id);
+		echo "<script language='JavaScript'> window.history.go(-2);</script>";
+	 //	redirect('asignatura/actual/'.$id);
  	}
 
 
