@@ -51,8 +51,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
- <th>documentoportafolio</th>
- <th>Periodo</th>
+ <th>iddocumento</th>
+ <th>Asunto</th>
+ <th>Fecha</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
