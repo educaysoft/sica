@@ -32,7 +32,25 @@ class Asignaturadocente_model extends CI_model {
 
  	function save($array)
  	{
-		$this->db->insert("asignaturadocente", $array);
+
+		$condition1 = "iddistributivodocente =" . "'" . $array['iddistributivodocente'] . "'";
+		$condition2 = "idasignatura =" . "'" . $array['idasignatura'] . "'";
+		$condition3 = "idparalelo =" . "'" . $array['idparalelo'] . "'";
+		$this->db->select('*');
+		$this->db->from('asignaturadocente');
+		$this->db->where($condition1);
+		$this->db->where($condition2);
+		$this->db->where($condition3);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+			$this->db->insert("asignaturadocente", $array);
+			return true;
+		   }else{
+			return false;
+		   }
+
+
  	}
 
  	function update($id,$array_item)
