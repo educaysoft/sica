@@ -103,10 +103,10 @@ public function edit()
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
-	 	$data0 = $this->malla_model->lista_mallaes();
+	 	$data0 = $this->malla_model->lista_mallas();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idmalla,$r->nombre,
+			$data[]=array($r->idmalla,$r->nombrecorto,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idmalla="'.$r->idmalla.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
