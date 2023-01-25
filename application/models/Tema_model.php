@@ -51,13 +51,27 @@ function lista_temass($idsilabo){
 
  	function save($array)
  	{
-		$this->db->insert("tema", $array);
-		if($this->db->affected_rows()>0)
-		{
-			return $this->db->insert_id();
+
+		$condition ="idunidadsilabo="."'". $array['idunidadsilabo']."' and  numerosesion=". "'".$array['numerosesion']."'";
+		$this->db->select('*');
+		$this->db->from('tema');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if($query->num_rows()==0)
+		{	
+			$this->db->insert("tema", $array);
+			if($this->db->affected_rows()>0)
+			{
+				return $this->db->insert_id();
+			}else{
+				return 0;
+			}
 		}else{
-			return 0;
-		}
+				return 0;
+			}
+
+
  	}
 
  	function update($id,$array_item)
