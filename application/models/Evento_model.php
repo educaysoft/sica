@@ -10,7 +10,7 @@ class Evento_model extends CI_model {
 
 	function lista_eventos_open($idevento){
 		if($idevento>0){
-		$this->db->where("idevento",$idevento");  
+		$this->db->where("idevento",$idevento);  
 		}
 
 
