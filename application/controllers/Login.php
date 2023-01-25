@@ -113,7 +113,7 @@ public function new_user_registration() {
           $datapersona = array('cedula'=>$this->input->post('cedula'),'nombres'=>$this->input->post('nombres'),'apellidos'=>$this->input->post('apellidos'));
           $datapersona+=['foto'=>"fotos/".$this->input->post('cedula').".png"];
           $datapersona+=['pdf'=>"pdfs/".$this->input->post('cedula').".pdf"];
-          $datapersona+=["idgenero"=>1];
+          $datapersona+=["idsexo"=>1];
           $datapersona+=["idestadocivil"=>1];
           $datapersona+=["idtiposangre"=>1];
           $datapersona+=["idnacionalidad"=>1];
@@ -184,7 +184,7 @@ public function carga_masiva_save() {
           $datapersona = array('cedula'=>$this->input->get('cedula'),'nombres'=>$this->input->get('nombres'),'apellidos'=>$this->input->get('apellidos'));
           $datapersona+=['foto'=>"fotos/".$this->input->get('cedula').".png"];
           $datapersona+=['pdf'=>"pdfs/".$this->input->get('cedula').".pdf"];
-          $datapersona+=["idgenero"=>1];
+          $datapersona+=["idsexo"=>1];
           $datapersona+=["idestadocivil"=>1];
           $datapersona+=["idtiposangre"=>1];
           $datapersona+=["idnacionalidad"=>1];
