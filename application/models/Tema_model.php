@@ -68,7 +68,7 @@ function lista_temass($idsilabo){
 				return 0;
 			}
 		}else{
-				return 0;
+				return $query->result()[0]->idtema;;
 			}
 
 
