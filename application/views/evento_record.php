@@ -285,7 +285,7 @@ echo form_input($arrdatos) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('participante/add', 'Participante'); ?>:</label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('participante/add/'.$evento['idevento'], 'Participante'); ?>:</label>
 	<div class="col-md-10">
  
 <div class="row justify-content-left">
