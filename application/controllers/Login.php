@@ -385,7 +385,7 @@ public function logout() {
 
 // Removing session data
 	
-	 $data['eventos']= $this->evento_model->lista_eventos_open()->result();
+	 $data['eventos']= $this->evento_model->lista_eventos_open(0)->result();
 	$sess_array = array(
 			'email' => ''
 			);
