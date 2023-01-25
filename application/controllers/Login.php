@@ -127,7 +127,7 @@ public function new_user_registration() {
           //correo
           $datacorreo=array('idpersona'=>0,'nombre'=>$this->input->post('email'),'idcorreo_estado'=>1);
 
-	 $data['eventos']= $this->evento_model->lista_eventos_open()->result();
+	 $data['eventos']= $this->evento_model->lista_eventos_open(0)->result();
           $result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono);
           if ($result == TRUE) {
 		if($fuente==0)  
