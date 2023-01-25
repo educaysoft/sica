@@ -8,7 +8,12 @@ class Evento_model extends CI_model {
 	}
 
 
-	function lista_eventos_open(){
+	function lista_eventos_open($idevento){
+		if($idevento>0){
+		$this->db->where("idevento",$idevento");  
+		}
+
+
 		$this->db->where("idevento_estado=2 or idevento_estado=3");  //SOLO ESTADO INSCRIPCION OR EN EJECUCION
 		 $evento= $this->db->get('evento');
 		 return $evento;
@@ -121,7 +126,6 @@ class Evento_model extends CI_model {
 						$this->db->update('evento',array('idpagina'=>$this->db->insert_id()));
 				}
 				$this->db->trans_commit();
-				die("Se guardo el evento y se la pagina de detalle" );
 				return true;
 		}else{
 			$this->db->trans_rollback();

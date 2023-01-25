@@ -58,9 +58,17 @@ public function actual(){
 
 	public function add()
 	{
+
+		if($this->uri->segment(3)){
+			$data['eventos']= $this->evento_model->lista_eventos_open($this->uri->segment(3))->result();
+		}else{
+			$data['eventos']= $this->evento_model->lista_eventos_open(0)->result();
+		}
+
+
+
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
-		$data['eventos']= $this->evento_model->lista_eventos_open()->result();
 		$data['title']="Nuevo Participante";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('participante_form',$data);
