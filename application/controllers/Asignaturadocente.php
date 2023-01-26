@@ -67,12 +67,13 @@ public function add()
 	 	);
 	 	$result=$this->asignaturadocente_model->save($array_item);
 
+
 	 	if($result == FALSE)
 		{
-			echo "<script language='JavaScript'> alert('Asignatura ya fue asignada'); </script>";
-			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		echo "<script language='JavaScript'> alert('Asignatura ya fue asignada'); </script>";
+		echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
-			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}
  	}
 

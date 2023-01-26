@@ -29,9 +29,23 @@ class Asignaturadocente_model extends CI_model {
  	}
 
 
-
  	function save($array)
  	{
+
+		$condition1 = "iddistributivodocente =" . "'" . $array['iddistributivodocente'] . "'";
+		$condition2 = "idasignatura =" . "'" . $array['idasignatura'] . "'";
+		$this->db->select('*');
+		$this->db->from('asignaturadocente');
+		$this->db->where($condition1);
+		$this->db->where($condition2);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) { // Crear un silabo para la asignatura docente nuevo
+			$nombre
+
+
+		}
+
 
 		$condition1 = "iddistributivodocente =" . "'" . $array['iddistributivodocente'] . "'";
 		$condition2 = "idasignatura =" . "'" . $array['idasignatura'] . "'";
