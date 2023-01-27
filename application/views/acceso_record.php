@@ -80,7 +80,7 @@ echo form_input('idmodulo',$options[$acceso['idmodulo']],array("disabled"=>"disa
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('niveacceso/actual/'.$acceso['idnivelacceso'], 'Nivel de acceso:'); ?></label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('nivelacceso/actual/'.$acceso['idnivelacceso'], 'Nivel de acceso:'); ?></label>
 	<div class="col-md-10">
 	<?php
 

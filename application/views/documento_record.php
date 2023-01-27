@@ -22,8 +22,8 @@ if(isset($documento))
 		redirect('login/logout');
 	}
 
-
-
+	print_r($this->session->userdata['acceso']);
+	die();
 
 ?>
 

@@ -122,7 +122,6 @@ function filtra_usuario()
 {
 
 idusuario = $('select[name=idusuario]').val();
-alert(idusuario);
 var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('acceso/acceso_data')?>', type: 'GET',data:{idusuario:idusuario}},});
 }
 

@@ -50,15 +50,15 @@ public function  save()
 
 
 
-public function edit()
-{
-	 	$data['nivelacceso'] = $this->nivelacceso_model->nivelacceso($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar Nivelacceso";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('nivelacceso_edit',$data);
-	 	$this->load->view('template/page_footer');
- 
-}
+	public function edit()
+	{
+			$data['nivelacceso'] = $this->nivelacceso_model->nivelacceso($this->uri->segment(3))->row_array();
+			$data['title'] = "Actualizar Nivelacceso";
+			$this->load->view('template/page_header');		
+			$this->load->view('nivelacceso_edit',$data);
+			$this->load->view('template/page_footer');
+	 
+	}
 
 
 	public function  save_edit()
