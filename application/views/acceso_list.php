@@ -97,15 +97,6 @@ foreach ($usuarios as $row){
 
 
 
-var idusuario=0;
-function filtra_usuario()
-{
-
-idusuario = $('select[name=idusuario]').val();
-
-var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('acceso/acceso_data')?>', type: 'GET',data:{idusuario:idusuario}},});
-}
-
 
 
 
@@ -124,6 +115,18 @@ var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 
 });
+
+
+var idusuario=0;
+function filtra_usuario()
+{
+
+idusuario = $('select[name=idusuario]').val();
+alert(idusuario);
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('acceso/acceso_data')?>', type: 'GET',data:{idusuario:idusuario}},});
+}
+
+
 
 
 </script>
