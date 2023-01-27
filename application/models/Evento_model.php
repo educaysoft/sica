@@ -98,11 +98,11 @@ class Evento_model extends CI_model {
 				$evento = $this->db->query('select * from evento where idsilabo="'. $idsilabo.'" order by idevento');
  				return $evento;
 			}else{
-				return "";
+				return $query;
 			}	
 
 		}else{
-			return "";
+			return "$query;
 		}	
  	}
 
