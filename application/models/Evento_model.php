@@ -90,7 +90,7 @@ class Evento_model extends CI_model {
 			$idperiodoacademico=$query->result()[0]->idperiodoacademico;
 			$condition1 = "iddocente =" . $iddocente ;
 			$condition2 = "idperiodoacademico =" . $idperiodoacademico ;
-			$this->b->select('*');
+			$this->db->select('*');
 			$this->db->from('silabo');
 			$this->db->where($condition1);
 			$this->db->where($condition2);
