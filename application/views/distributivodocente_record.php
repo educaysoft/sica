@@ -114,6 +114,32 @@ echo form_input('iddocente',$options[$distributivodocente['iddocente']],array("d
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Eventos dictados: ( <?php echo anchor('evento/add', 'New'); ?>):</label>
+
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12">
+	<table class="table table-striped table-bordered table-hover" id="mydatae">
+	 <thead>
+	 <tr>
+	 <th>idsilabo</th>
+	 <th>idevento</th>
+	 <th>evento</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data1">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
 
 
 
@@ -129,6 +155,11 @@ echo form_input('iddocente',$options[$distributivodocente['iddocente']],array("d
 $(document).ready(function(){
 	var iddistributivodocente=document.getElementById("iddistributivodocente").value;
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/asignaturadocente_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
+
+
+	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/evento_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
+
+
 });
 
 
@@ -137,6 +168,14 @@ var id= $(this).data('idasignaturadocente');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
+
+
+$('#show_data1').on('click','.item_ver',function(){
+var id= $(this).data('idevento');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
 
 
 </script>

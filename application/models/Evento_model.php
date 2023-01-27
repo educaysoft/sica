@@ -75,6 +75,98 @@ class Evento_model extends CI_model {
 
 
 
+  //Retorna solamente un registro de un silabo
+ 	function eventosd($iddistributivodocente){
+		$condition = "iddistributivo =" . $iddistributivodocente ;
+		$this->db->select('*');
+		$this->db->from('distributivodocente1');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			$iddocente=$query->result()[0]->iddocente;
+			$idperiodoacademico=$query->result()[0]->idperiodoacademico;
+			$condition1 = "iddocente =" . $iddocente ;
+			$condition2 = "idperiodoacademico =" . $idperiodoacademico ;
+			$this->b->select('*');
+			$this->db->from('silabo');
+			$this->db->where($condition);
+			$this->db->limit(1);
+			$query = $this->db->get();
+			if ($query->num_rows() > 0) {
+				$idsilabo=$query->result()[0]->idsilabo;
+				$evento = $this->db->query('select * from evento where idsilabo="'. $idsilabo.'" order by idevento');
+ 				return $evento;
+			}else{
+				return array();
+			}	
+
+		}else{
+			return array();
+		}	
+ 	}
+
+
+
+
+  //Retorna solamente un registro de un silabo
+ 	function eventoss($idsilabo){
+	$evento = $this->db->query('select * from evento where idsilabo="'. $idsilabo.'" order by idevento');
+ 		return $evento;
+ 	}
+
+
+
+  //Retorna solamente un registro de el id pasado como parame
+ 	function evento($id){
+	$evento = $this->db->query('select * from evento where idevento="'. $id.'" order by idevento');
+ 		return $evento;
+ 	}
+
+
+
+
+  //Retorna solamente un registro de el id pasado como parame
+ 	function lista_eventoP($id){
+ 		$evento = $this->db->query('select * from eventoP where idevento="'. $id.'" order by elparticipante');
+ 		return $evento;
+ 	}
+
+
+
+
+
+
+
+
+
+  // Para guardar un registro nuevo
+	function save($array)
+ 	{
+		$this->db->trans_begin();
+		$this->db->insert("evento", $array);
+		if($this->db->affected_rows()>0){
+			$idevento=$this->db->insert_id();
+			$namefile1="evento-".sprintf("%d",$idevento) ;
+			$namefile2="evento/detalle/".sprintf("%d",$idevento) ;
+			$this->db->insert("pagina", array("nombre"=>$namefile1,"ruta"=>$namefile2));
+			if($this->db->affected_rows()>0){
+						$this->db->where('idevento',$idevento);
+						$this->db->update('evento',array('idpagina'=>$this->db->insert_id()));
+				}
+				$this->db->trans_commit();
+				return true;
+		}else{
+			$this->db->trans_rollback();
+			die("No de pudo grabar" );
+			return false;
+		}
+
+
+
+	$evento = $this->db->query('select * from evento where idsilabo="'. $idsilabo.'" order by idevento');
+ 		return $evento;
+ 	}
 
 
 
