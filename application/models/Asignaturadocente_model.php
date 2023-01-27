@@ -102,7 +102,7 @@ class Asignaturadocente_model extends CI_model {
 
 			echo "<script language='JavaScript'> alert('Primero elimine la Joranada académica'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
-			i$result= false;
+			$result= false;
 
 		}else{
  			$this->db->where('idasignaturadocente',$id);
