@@ -171,13 +171,7 @@ class Evento_model extends CI_model {
 
 
 
-  //Retorna solamente un registro de un silabo
- 	function eventoss($idsilabo){
-	$evento = $this->db->query('select * from evento where idsilabo="'. $idsilabo.'" order by idevento');
- 		return $evento;
- 	}
-
-
+ 
 
   //Retorna solamente un registro de el id pasado como parame
  	function evento($id){
