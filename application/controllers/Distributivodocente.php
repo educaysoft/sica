@@ -179,7 +179,7 @@ function distributivodocente_data()
 			$data0 =$this->evento_model->eventosd($iddistributivodocente);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idsilabo,$r->idevento,$r->titulo,
+				$data[]=array($r->idsilabo,$r->idevento,$r->titulo,$r->codigoclassroom,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
