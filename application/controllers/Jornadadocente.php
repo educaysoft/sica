@@ -38,15 +38,21 @@ public function index(){
 
 public function add()
 {
-		$data['docentes']= $this->docente_model->lista_docentesA()->result();
-		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+
+	if($this->uri->segment(3)){
+  		$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA($this->uri->segment(3))->result();
+	}else{
+  		$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
+	}
+
+	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
-  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
   	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
-		$data['title']="Nueva Jornadadocente";
-	 	$this->load->view('template/page_header');		
-	 	$this->load->view('jornadadocente_form',$data);
-	 	$this->load->view('template/page_footer');
+	$data['title']="Nueva Jornadadocente";
+ 	$this->load->view('template/page_header');		
+ 	$this->load->view('jornadadocente_form',$data);
+ 	$this->load->view('template/page_footer');
 
 
 }
