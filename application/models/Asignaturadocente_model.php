@@ -100,8 +100,6 @@ class Asignaturadocente_model extends CI_model {
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) { // Crear un silabo para la asignatura docente nuevo
 
-			echo "<script language='JavaScript'> alert('Primero elimine la Joranada académica'); </script>";
-			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 			$result= false;
 
 		}else{

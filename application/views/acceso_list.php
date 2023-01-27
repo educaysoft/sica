@@ -47,7 +47,7 @@ foreach ($usuarios as $row){
 	<div class="col-md-10">
 
 <?php
-     echo form_dropdown("idusuario",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_usuario()'));  
+     echo form_dropdown("idusuario",$options, set_select('--Select--','default_value'),array('id'=>'idusuario','onchange'=>'filtra_usuario()'));  
 ?>
 </div>
 </div>
