@@ -9,6 +9,7 @@ class Distributivodocente extends CI_Controller{
   	  $this->load->model('distributivodocente_model');
   	  $this->load->model('asignaturadocente_model');
   	  $this->load->model('departamento_model');
+  	  $this->load->model('evento_model');
 }
 
 public function index(){
