@@ -40,9 +40,9 @@ public function add()
 {
 
 	if($this->uri->segment(3)){
-  		$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA($this->uri->segment(3))->result();
+  		$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentes1($this->uri->segment(3))->result();
 	}else{
-  		$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
+  		$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentes1(0)->result();
 	}
 
 	$data['docentes']= $this->docente_model->lista_docentesA()->result();
