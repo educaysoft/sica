@@ -34,7 +34,7 @@ if(isset($asignaturadocente))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> id Horario docente:</label>
+    <label class="col-md-2 col-form-label"> idasignaturadocente:</label>
 	<div class="col-md-10">
 	<?php
 
@@ -46,7 +46,7 @@ if(isset($asignaturadocente))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Horario docente <?php echo anchor('distributivodocente/actual/'.$asignaturadocente['iddistributivodocente'] , '(Ver)'); ?>:</label>
+    <label class="col-md-2 col-form-label"> distributivo docente <?php echo anchor('distributivodocente/actual/'.$asignaturadocente['iddistributivodocente'] , '(Ver)'); ?>:</label>
 	<div class="col-md-10">
 	<?php
 	$options= array("NADA");

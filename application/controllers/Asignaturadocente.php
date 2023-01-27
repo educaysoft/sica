@@ -113,8 +113,14 @@ public function edit()
  	public function delete()
  	{
  		$data=$this->asignaturadocente_model->delete($this->uri->segment(3));
- 		echo json_encode($data);
-	 	redirect('asignaturadocente/elprimero');
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Primero elimine la Joranada académica'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
 	//	$db['default']['db_debug']=FALSE
  	}
 
