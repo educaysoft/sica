@@ -52,7 +52,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <tr>
  <th>ID</th>
  <th>distributivodocente</th>
- <th>Periodo</th>
  <th>Asignaturas</th>
  <th style="text-align: right;">Actions</th>
  </tr>
@@ -83,7 +82,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <script type="text/javascript">
 
 $(document).ready(function(){
-
 	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/distributivodocente_data')?>', type: 'GET'},});
 
 });

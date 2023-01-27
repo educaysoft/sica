@@ -127,7 +127,7 @@ function distributivodocente_data()
 	 	$data0 = $this->distributivodocente_model->lista_distributivodocentesA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->iddistributivodocente,$r->eldocente,$r->eldistributivo,$r->numeasig,
+			$data[]=array($r->iddistributivodocente,$r->eldistributivodocente,$r->numeasig,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('distributivodocente/actual').'"  data-iddistributivodocente="'.$r->iddistributivodocente.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
