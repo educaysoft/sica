@@ -32,7 +32,7 @@ foreach ($distributivodocentes as $row){
 <td><?php
 $options= array('--Select--');
 foreach ($asignaturas as $row){
-	$options[$row->idasignatura]= $row->nombre;
+	$options[$row->idasignatura]=$row->area." - ".$row->nivel." - ".$row->nombre;
 }
 
  echo form_dropdown("idasignatura",$options, $asignaturadocente['idasignatura']);  ?></td>
