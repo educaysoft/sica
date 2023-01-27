@@ -91,13 +91,28 @@ class Asignaturadocente_model extends CI_model {
 
  	public function delete($id)
 	{
- 		$this->db->where('idasignaturadocente',$id);
-		$this->db->delete('asignaturadocente');
-    		if($this->db->affected_rows()==1)
-			$result=true;
-		else
-			$result=false;
-		return $result;
+
+		$condition1 = "idasignaturadocente =" . "'" . $id . "'";
+		$this->db->select('*');
+		$this->db->from('jornadadocente');
+		$this->db->where($condition1);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) { // Crear un silabo para la asignatura docente nuevo
+
+			echo "<script language='JavaScript'> alert('Primero elimine la Joranada académica'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+			i$result= false;
+
+		}else{
+ 			$this->db->where('idasignaturadocente',$id);
+			$this->db->delete('asignaturadocente');
+    			if($this->db->affected_rows()==1)
+				$result=true;
+			else
+				$result=false;
+		}
+			return $result;
  	}
 
 
