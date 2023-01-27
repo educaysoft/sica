@@ -176,7 +176,7 @@ function distributivodocente_data()
 			$draw= intval($this->input->get("length"));
 
 			$iddistributivodocente=$this->input->get('iddistributivodocente');
-			$data0 =$this->evento_model->eventoss($iddistributivodocente);
+			$data0 =$this->evento_model->eventosd($iddistributivodocente);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idsilabo,$r->idevento,$r->titulo,
