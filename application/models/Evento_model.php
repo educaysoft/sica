@@ -88,19 +88,10 @@ class Evento_model extends CI_model {
 	//		die();
 			$iddocente=$query->result()[0]->iddocente;
 			$idperiodoacademico=$query->result()[0]->idperiodoacademico;
-			$condition1 = "iddocente =" . $iddocente ;
-			$condition2 = "idperiodoacademico =" . $idperiodoacademico ;
-			$this->db->select('*');
-			$this->db->from('silabo');
-			$this->db->where($condition1);
-			$this->db->where($condition2);
-			$this->db->limit(1);
-			$query = $this->db->get();
-			if ($query->num_rows() > 0) {
-	//		print_r($query);
+//		print_r($query);
 	//		die();
 				$idsilabo=$query->result()[0]->idsilabo;
-				$evento = $this->db->query('select * from evento where idsilabo="'. $idsilabo.'" order by idevento');
+				$evento = $this->db->query('select * from evento where idsilabo into (select idsilabo from silabo where iddocente="'. $iddocente.'" and idperiodoacademico="'.$idperiodoacademico.'") order by idevento');
  				return $evento;
 			}else{
 				return $query;
