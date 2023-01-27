@@ -90,7 +90,7 @@ class Evento_model extends CI_model {
 			$idperiodoacademico=$query->result()[0]->idperiodoacademico;
 //		print_r($query);
 	//		die();
-				$evento = $this->db->query('select * from evento where idsilabo into (select idsilabo from silabo where iddocente="'. $iddocente.'" and idperiodoacademico="'.$idperiodoacademico.'") order by idevento');
+				$evento = $this->db->query('select * from evento where idsilabo in (select idsilabo from silabo where iddocente="'. $iddocente.'" and idperiodoacademico="'.$idperiodoacademico.'") order by idevento');
  				return $evento;
 			}else{
 				return $query;
