@@ -102,7 +102,7 @@ class Evento_model extends CI_model {
 			}	
 
 		}else{
-			return "$query;
+			return $query;
 		}	
  	}
 
