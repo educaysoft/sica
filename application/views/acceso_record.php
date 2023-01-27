@@ -52,7 +52,7 @@ if(isset($acceso))
  
 $options= array("NADA");
 foreach ($usuarios as $row){
-	$options[$row->idusuario]= $row->elusuario;
+	$options[$row->idusuario]= $row->elusuario."-".$row->email;
 }
 
 echo form_input('idusuario',$options[$acceso['idusuario']],array("disabled"=>"disabled",'style'=>'width:500px')); 
@@ -64,7 +64,7 @@ echo form_input('idusuario',$options[$acceso['idusuario']],array("disabled"=>"di
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Modulo:</label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('modulo/actual/'.$acceso['idmodulo'], 'Modulo:'); ?> </label>
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
@@ -80,7 +80,7 @@ echo form_input('idmodulo',$options[$acceso['idmodulo']],array("disabled"=>"disa
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nivel de acceso:</label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('niveacceso/actual/'.$acceso['idnivelacceso'], 'Nivel de acceso:'); ?></label>
 	<div class="col-md-10">
 	<?php
 
