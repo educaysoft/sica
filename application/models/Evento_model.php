@@ -173,12 +173,6 @@ class Evento_model extends CI_model {
 
  
 
-
-
-
-  //Retorna solamente un registro de el id pasado como parame
- 	function lista_eventoP($id){
- 		$evento = $this->db->query('select * from eventoP where idevento="'. $id.'" order by elparticipante');
  		return $evento;
  	}
 
