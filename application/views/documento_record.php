@@ -10,10 +10,10 @@ if(isset($documento))
 	if(isset($this->session->userdata['acceso'])){
   		foreach($this->session->userdata['acceso'] as $row)
 	    	{
-			if("documento"==$row["modulo"]["nombre"]);
+			if($row["modulo"]["id"]==16) //modulo documento
 			{
-				$numero=$j;
-				$permitir=1;
+				$numero=$j; //el inidice del arreglo donde estan los permisos
+				$permitir=1; //indicador de que si se encontro permisos
 			}		
 			$j=$j+1;
 	    	} 
@@ -22,8 +22,8 @@ if(isset($documento))
 		redirect('login/logout');
 	}
 
-	print_r($this->session->userdata['acceso']);
-	die();
+//	print_r($this->session->userdata['acceso']);
+//	die();
 
 ?>
 
