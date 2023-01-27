@@ -144,6 +144,13 @@ alter table fechacalendario add column idcalendarioacademico int(11);
 /* alter table estudio add column numeroregistro varchar(50); */
 
 
- alter table estudio change titulo titulo text;
+/* alter table estudio change titulo titulo text;*/
+
+alter table evento add column codigoclassroom varchar(20);
+
+
+
+
+
 
 

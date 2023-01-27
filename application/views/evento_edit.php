@@ -127,7 +127,10 @@ foreach ($silabos as $row){
  echo form_dropdown("idsilabo",$options, $evento['idsilabo']);  ?></td>
 </tr>
 
-
+<tr>
+     <td>Codigo Classroom:</td>
+     <td><?php echo form_input(array("name"=>'codigoclassroom','id'=>'codigoclassroom','value'=>$evento['codigoclassroom'],'placeholder'=>'Classroom')) ?></td>
+  </tr>
 
    
 

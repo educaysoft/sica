@@ -184,33 +184,6 @@ echo form_input($arrdatos) ?>
 </div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Sesiones ( <?php echo anchor('sesionevento/add/'.$evento['idevento'], 'New'); ?>):</label>
-	<div class="col-md-10">
-	<div class="row justify-content-left">
-      	<!-- Page Heading -->
- 	<div class="row">
-  	<div class="col-12">
-	<table class="table table-striped table-bordered table-hover" id="mydatac">
-	 <thead>
-	 <tr>
-	 <th>id</th>
-	 <th>ponderacion</th>
-	 <th>fecha</th>
-	 <th>sesion</th>
-	 <th>tema tratado</th>
-	 <th style="text-align: right;">Actions</th>
-	 </tr>
-	 </thead>
-	 <tbody id="show_data">
-	 </tbody>
-	</table>
-	</div>
-	</div>
-	</div>
-	</div> 
-</div>
-
 
 
 
@@ -280,6 +253,46 @@ echo form_input($arrdatos) ?>
 echo form_input($arrdatos) ?>
 	</div> 
 </div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Código classroom:</label>
+	<div class="col-md-10">
+     <?php echo form_input('codigoclassroom',$evento['codigoclassroom'],array("disabled"=>"disabled",'placeholder'=>'codigoclassroom','style'=>'width:500px;')) 
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Sesiones ( <?php echo anchor('sesionevento/add/'.$evento['idevento'], 'New'); ?>):</label>
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12">
+	<table class="table table-striped table-bordered table-hover" id="mydatac">
+	 <thead>
+	 <tr>
+	 <th>id</th>
+	 <th>ponderacion</th>
+	 <th>fecha</th>
+	 <th>sesion</th>
+	 <th>tema tratado</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
 
 
 

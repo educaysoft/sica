@@ -127,6 +127,17 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Codigo classroom:</label>
+	<div class="col-md-10">
+	<?php
+
+ echo form_input("codigoclassroom","", array("placeholder"=>"Codigo Classroom",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
+
+
 
 <?php echo form_close();?>
     
