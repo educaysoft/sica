@@ -84,6 +84,8 @@ class Evento_model extends CI_model {
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
+			print_r($query);
+			die();
 			$iddocente=$query->result()[0]->iddocente;
 			$idperiodoacademico=$query->result()[0]->idperiodoacademico;
 			$condition1 = "iddocente =" . $iddocente ;
@@ -95,6 +97,8 @@ class Evento_model extends CI_model {
 			$this->db->limit(1);
 			$query = $this->db->get();
 			if ($query->num_rows() > 0) {
+			print_r($query);
+			die();
 				$idsilabo=$query->result()[0]->idsilabo;
 				$evento = $this->db->query('select * from evento where idsilabo="'. $idsilabo.'" order by idevento');
  				return $evento;
