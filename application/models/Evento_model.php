@@ -77,15 +77,15 @@ class Evento_model extends CI_model {
 
   //Retorna solamente un registro de un silabo
  	function eventosd($iddistributivodocente){
-		$condition = "iddistributivo =" . $iddistributivodocente ;
+		$condition = "iddistributivodocente =" . $iddistributivodocente ;
 		$this->db->select('*');
 		$this->db->from('distributivodocente1');
 		$this->db->where($condition);
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
-			print_r($query);
-			die();
+	//		print_r($query);
+	//		die();
 			$iddocente=$query->result()[0]->iddocente;
 			$idperiodoacademico=$query->result()[0]->idperiodoacademico;
 			$condition1 = "iddocente =" . $iddocente ;
@@ -97,8 +97,8 @@ class Evento_model extends CI_model {
 			$this->db->limit(1);
 			$query = $this->db->get();
 			if ($query->num_rows() > 0) {
-			print_r($query);
-			die();
+	//		print_r($query);
+	//		die();
 				$idsilabo=$query->result()[0]->idsilabo;
 				$evento = $this->db->query('select * from evento where idsilabo="'. $idsilabo.'" order by idevento');
  				return $evento;
