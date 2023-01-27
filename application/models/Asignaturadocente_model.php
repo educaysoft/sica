@@ -41,7 +41,7 @@ class Asignaturadocente_model extends CI_model {
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() == 0) { // Crear un silabo para la asignatura docente nuevo
-			$nombre
+			$nombre="";
 
 
 		}
