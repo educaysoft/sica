@@ -72,7 +72,7 @@
 		    if(isset($dia['Miercoles'])){
 		    $pdf->Cell(70,5,utf8_decode($dia['Miercoles']),1,1,'L',0);
 		    }else{
-`;
+
 		    $pdf->Cell(70,5,"",1,1,'L',0);
 		    }
 	}
