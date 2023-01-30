@@ -53,13 +53,29 @@
 
 	print_r($horario2);	
 	die();
-/*	foreach ($asignaturadocente as $row){  //Recorre todas la participaciones realizadas por los participantes
+	foreach ($horario2 as $hora=>$dia){  //Recorre todas la participaciones realizadas por los participantes
 		    $i=$i+1;
-		    $pdf->Cell(10,5,$row->idestudio,1,0,'R',0); 
-		    $pdf->Cell(60,5,utf8_decode($row->lainstitucion),1,0,'L',0);
-		    $pdf->Cell(10,5,utf8_decode($row->nivel),1,0,'L',0);
-		    $pdf->Cell(70,5,utf8_decode($row->titulo),1,1,'L',0);
-	}*/
+		    $pdf->Cell(10,5,$hora,1,0,'R',0); 
+		    if(isset($dia->Lunes){
+		    $pdf->Cell(60,5,utf8_decode($dia->Lunes),1,0,'L',0);
+		    }else{
+		    $pdf->Cell(60,5,"",1,0,'L',0);
+		    }
+
+		    if(isset($dia->Martes){
+		    $pdf->Cell(10,5,utf8_decode($dia->Martes),1,0,'L',0);
+		    }else{
+		    $pdf->Cell(10,5,"",1,0,'L',0);
+
+		    }
+
+		    if(isset($dia->Miercoles){
+		    $pdf->Cell(70,5,utf8_decode($dia->Miercoles),1,1,'L',0);
+		    }else{
+
+		    $pdf->Cell(70,5,"",1,1,'L',0);
+		    }
+	}
 
     
 
