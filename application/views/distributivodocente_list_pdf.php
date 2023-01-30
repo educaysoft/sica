@@ -56,20 +56,20 @@
 	foreach ($horario2 as $hora=>$dia){  //Recorre todas la participaciones realizadas por los participantes
 		    $i=$i+1;
 		    $pdf->Cell(10,5,$hora,1,0,'R',0); 
-		    if(isset($dia->Lunes){
+		    if(isset($dia->Lunes)){
 		    $pdf->Cell(60,5,utf8_decode($dia->Lunes),1,0,'L',0);
 		    }else{
 		    $pdf->Cell(60,5,"",1,0,'L',0);
 		    }
 
-		    if(isset($dia->Martes){
+		    if(isset($dia->Martes)){
 		    $pdf->Cell(10,5,utf8_decode($dia->Martes),1,0,'L',0);
 		    }else{
 		    $pdf->Cell(10,5,"",1,0,'L',0);
 
 		    }
 
-		    if(isset($dia->Miercoles){
+		    if(isset($dia->Miercoles)){
 		    $pdf->Cell(70,5,utf8_decode($dia->Miercoles),1,1,'L',0);
 		    }else{
 
