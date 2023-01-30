@@ -20,7 +20,8 @@
 	$pdf->AliasNbPages();
 	$pdf->AddPage();
 
-
+        print_r($jornadadocente);
+	die();
 
 	$pdf->SetFont('Arial','',12);
 	$pdf->SetTextColor(0, 0,0);
