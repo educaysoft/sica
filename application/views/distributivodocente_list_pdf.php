@@ -29,10 +29,10 @@
 	$pdf->SetFont('Arial','B',8);
 
 
-	$pdf->Cell(10,5,'idestu',1,0,'C',1);
-	$pdf->Cell(60,5,'institucion',1,0,'C',1);
-	$pdf->Cell(10,5,'nivel',1,0,'C',1);
-	$pdf->Cell(70,5,'titulo',1,1,'C',1);
+	$pdf->Cell(15,5,'HORA',1,0,'C',1);
+	$pdf->Cell(50,5,'Lunes',1,0,'C',1);
+	$pdf->Cell(50,5,'Martes',1,0,'C',1);
+	$pdf->Cell(50,5,'titulo',1,1,'C',1);
  
 	 
 
@@ -55,25 +55,25 @@
 //	die();
 	foreach ($horario2 as $hora=>$dia){  //Recorre todas la participaciones realizadas por los participantes
 		    $i=$i+1;
-		    $pdf->Cell(10,5,$hora,1,0,'R',0); 
+		    $pdf->Cell(15,5,$hora,1,0,'R',0); 
 		    if(isset($dia['Lunes'])){
-		    $pdf->Cell(60,5,utf8_decode($dia['Lunes']),1,0,'L',0);
+		    $pdf->Cell(50,5,utf8_decode($dia['Lunes']),1,0,'L',0);
 		    }else{
-		    $pdf->Cell(60,5,"",1,0,'L',0);
+		    $pdf->Cell(50,5,"",1,0,'L',0);
 		    }
 
 		    if(isset($dia['Martes'])){
-		    $pdf->Cell(10,5,utf8_decode($dia['Martes']),1,0,'L',0);
+		    $pdf->Cell(50,5,utf8_decode($dia['Martes']),1,0,'L',0);
 		    }else{
-		    $pdf->Cell(10,5,"",1,0,'L',0);
+		    $pdf->Cell(50,5,"",1,0,'L',0);
 
 		    }
 
 		    if(isset($dia['Miercoles'])){
-		    $pdf->Cell(70,5,utf8_decode($dia['Miercoles']),1,1,'L',0);
+		    $pdf->Cell(50,5,utf8_decode($dia['Miercoles']),1,1,'L',0);
 		    }else{
 
-		    $pdf->Cell(70,5,"",1,1,'L',0);
+		    $pdf->Cell(50,5,"",1,1,'L',0);
 		    }
 	}
 
