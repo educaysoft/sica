@@ -53,7 +53,7 @@
 	}
 
 	print_r($horario2);	
-
+	die();
 /*	foreach ($asignaturadocente as $row){  //Recorre todas la participaciones realizadas por los participantes
 		    $i=$i+1;
 		    $pdf->Cell(10,5,$row->idestudio,1,0,'R',0); 
