@@ -51,8 +51,8 @@
 		}
 	}
 
-	print_r($horario2);	
-	die();
+//	print_r($horario2);	
+//	die();
 	foreach ($horario2 as $hora=>$dia){  //Recorre todas la participaciones realizadas por los participantes
 		    $i=$i+1;
 		    $pdf->Cell(10,5,$hora,1,0,'R',0); 
