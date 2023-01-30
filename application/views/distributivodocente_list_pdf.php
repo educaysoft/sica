@@ -45,7 +45,7 @@
 	$horario2=array();
 	foreach ($horario1 as $row1){
 		foreach ($jornadadocente as $row){
-			if($row->horainicio==$row1->hora){
+			if($row->horainicio==$row1["hora"]){
 				$horario2[$row1->hora][$row->nombre]=$row->laasignatura."-".$row->nivel."-".$row->paralelo;
 			}
 		}
