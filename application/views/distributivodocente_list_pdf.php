@@ -29,10 +29,12 @@
 	$pdf->SetFont('Arial','B',8);
 
 
-	$pdf->Cell(15,5,'HORA',1,0,'C',1);
-	$pdf->Cell(50,5,'Lunes',1,0,'C',1);
-	$pdf->Cell(50,5,'Martes',1,0,'C',1);
-	$pdf->Cell(50,5,'titulo',1,1,'C',1);
+	$pdf->Cell(12,5,'HORA',1,0,'C',1);
+	$pdf->Cell(30,5,'Lunes',1,0,'C',1);
+	$pdf->Cell(30,5,'Martes',1,0,'C',1);
+	$pdf->Cell(30,5,'Miercoles',1,0,'C',1);
+	$pdf->Cell(30,5,'Jueves',1,0,'C',1);
+	$pdf->Cell(30,5,'Viernes',1,1,'C',1);
  
 	 
 
@@ -55,25 +57,38 @@
 //	die();
 	foreach ($horario2 as $hora=>$dia){  //Recorre todas la participaciones realizadas por los participantes
 		    $i=$i+1;
-		    $pdf->Cell(15,5,$hora,1,0,'R',0); 
+		    $pdf->Cell(12,5,$hora,1,0,'R',0); 
 		    if(isset($dia['Lunes'])){
-		    $pdf->Cell(50,5,utf8_decode($dia['Lunes']),1,0,'L',0);
+		    $pdf->Cell(30,5,utf8_decode($dia['Lunes']),1,0,'L',0);
 		    }else{
-		    $pdf->Cell(50,5,"",1,0,'L',0);
+		    $pdf->Cell(30,5,"",1,0,'L',0);
 		    }
 
 		    if(isset($dia['Martes'])){
-		    $pdf->Cell(50,5,utf8_decode($dia['Martes']),1,0,'L',0);
+		    $pdf->Cell(30,5,utf8_decode($dia['Martes']),1,0,'L',0);
 		    }else{
-		    $pdf->Cell(50,5,"",1,0,'L',0);
-
+		    $pdf->Cell(30,5,"",1,0,'L',0);
 		    }
 
+
 		    if(isset($dia['Miercoles'])){
-		    $pdf->Cell(50,5,utf8_decode($dia['Miercoles']),1,1,'L',0);
+		    $pdf->Cell(30,5,utf8_decode($dia['Miercoles']),1,0,'L',0);
+		    }else{
+		    $pdf->Cell(30,5,"",1,0,'L',0);
+		    }
+
+
+		    if(isset($dia['Jueves'])){
+		    $pdf->Cell(30,5,utf8_decode($dia['Jueves']),1,0,'L',0);
+		    }else{
+		    $pdf->Cell(30,5,"",1,0,'L',0);
+		    }
+
+		    if(isset($dia['Viernes'])){
+		    $pdf->Cell(30,5,utf8_decode($dia['Viernes']),1,1,'L',0);
 		    }else{
 
-		    $pdf->Cell(50,5,"",1,1,'L',0);
+		    $pdf->Cell(30,5,"",1,1,'L',0);
 		    }
 	}
 
