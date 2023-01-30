@@ -25,7 +25,7 @@
 
 	$pdf->SetFont('Arial','',12);
 	$pdf->SetTextColor(0, 0,0);
-    	$pdf->Text(20,40,"Distributivodocente:  ".$jornadadocente[0]->iddistributivodocente); 
+    	$pdf->Text(20,40,"Distributivodocente:  ".$jornadadocente["iddistributivodocente"]); 
 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
