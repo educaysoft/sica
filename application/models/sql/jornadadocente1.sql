@@ -1,3 +1,3 @@
 use educayso_facae;
-
-create view jornadadocente1 as select jodo.idasignaturadocente,jodo.idjornadadocente,jodo.horainicio,jodo.duracionminutos,dise.nombre from jornadadocente jodo, diasemana dise where jodo.iddiasemana=dise.iddiasemana;
+drop view jornadadocente1;
+create view jornadadocente1 as select jodo.idasignaturadocente,jodo.idjornadadocente,jodo.horainicio,jodo.duracionminutos,dise.nombre ,asig.nombre as laasignatura,niac.nombre as nivel,para.nombre as paralelo,dido.iddistributivodocente from jornadadocente jodo,asignaturadocente asdo, diasemana dise,paralelo para,nivelacademico niac,asignatura asig,distributivodocente dido where asdo.iddistributivodocente=dido.iddistributivodocente and  jodo.idasignaturadocente=asdo.idasignaturadocente and  jodo.iddiasemana=dise.iddiasemana and asdo.idasignatura=asig.idasignatura and asdo.idparalelo=para.idparalelo and asig.idnivelacademico=niac.idnivelacademico;
