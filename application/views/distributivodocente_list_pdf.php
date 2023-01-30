@@ -41,11 +41,11 @@
 	$id=0;
 	$persona="";
 	$i=0;
-	$horario1=array("hora"=>"07:00:00","hora"=>"08:00:00","hora"=>"09:00:00","hora"=>"10:00:00");
+	$horario1=array("07:00:00","08:00:00","09:00:00","10:00:00");
 	$horario2=array();
-	foreach ($horario1 as $row1){
+	foreach ($horario1 as $hora){
 		foreach ($jornadadocente as $row){
-			if($row->horainicio==$row1["hora"]){
+			if($row->horainicio==$hora){
 				$horario2[$row1->hora][$row->nombre]=$row->laasignatura."-".$row->nivel."-".$row->paralelo;
 			}
 		}
