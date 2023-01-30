@@ -41,7 +41,7 @@
 	$id=0;
 	$persona="";
 	$i=0;
-	$horario1=array("07:00:00","08:00:00","09:00:00","10:00:00");
+	$horario1=array("07:00:00","08:00:00","09:00:00","10:00:00","11:00:00","12:00:00","13:00:00");
 	$horario2=array();
 	foreach ($horario1 as $hora){
 		foreach ($jornadadocente as $row){
