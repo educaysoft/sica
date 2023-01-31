@@ -25,7 +25,9 @@
 
 
 	$pdf->Cell(10,5,'id',1,0,'C',1);
-	$pdf->Cell(40,5,'fecha',1,0,'C',1);
+	$pdf->Cell(20,5,'fecha',1,0,'C',1);
+	$pdf->Cell(20,5,'inicio',1,0,'C',1);
+	$pdf->Cell(20,5,'fin',1,0,'C',1);
 	$pdf->Cell(90,5,'tema',1,1,'C',1);
  
 	 
@@ -41,7 +43,9 @@
 	       
 		    $i=$i+1;
 		    $pdf->Cell(10,5,$row->idsesionevento,1,0,'R',0); 
-		    $pdf->Cell(40,5,utf8_decode($row->fecha),1,0,'L',0);
+		    $pdf->Cell(20,5,utf8_decode($row->fecha),1,0,'L',0);
+		    $pdf->Cell(20,5,utf8_decode($row->horainicio),1,0,'L',0);
+		    $pdf->Cell(20,5,utf8_decode($row->horafin),1,0,'L',0);
 		    $pdf->Cell(90,5,utf8_decode($row->tema),1,1,'L',0);
 
     }
