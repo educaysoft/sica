@@ -305,7 +305,7 @@ if ($result == TRUE) {
 			$accesos = array();
 			foreach($result3 as $row)
 			{
-				$elmodulo = $this->modulo_model->modulo2`($row->idmodulo);
+				$elmodulo = $this->modulo_model->arrmodulo($row->idmodulo);
 				if ($elmodulo != false)
 				{
 					$idmodulo=$elmodulo[0]->idmodulo;
