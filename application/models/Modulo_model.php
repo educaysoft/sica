@@ -18,6 +18,14 @@ class Modulo_model extends CI_model {
  		return $modulo;
  	}
 
+ 	function arrmodulo( $id){
+ 		$modulo = $this->db->query('select * from modulo where idmodulo="'. $id.'"');
+ 		return $moduloi->row_array();
+ 	}
+
+
+
+
  	function save($array)
  	{
 		$this->db->insert("modulo", $array);

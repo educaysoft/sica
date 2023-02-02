@@ -75,7 +75,7 @@ public function edit()
  	{
  		$data=$this->modulo_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	if($result == FALSE)
+	 	if($result == true)
 		{
 			echo "<script language='JavaScript'> alert('modulo no fue eliminado'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
