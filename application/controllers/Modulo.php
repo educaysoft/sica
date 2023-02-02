@@ -73,14 +73,14 @@ public function edit()
 
  	public function delete()
  	{
- 		$data=$this->persona_model->delete($this->uri->segment(3));
+ 		$data=$this->modulo_model->delete($this->uri->segment(3));
  		echo json_encode($data);
 	 	if($result == FALSE)
 		{
-			echo "<script language='JavaScript'> alert('Persona modulo no fue eliminado'); </script>";
+			echo "<script language='JavaScript'> alert('modulo no fue eliminado'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
-			echo "<script language='JavaScript'> alert('Persona modulo fue eliminado'); </script>";
+			echo "<script language='JavaScript'> alert('modulo fue eliminado'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}
  	}
