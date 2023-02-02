@@ -25,6 +25,36 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Periodo académico:</label>
+	<div class="col-md-10">
+		<?php
+$options= array('--Select--');
+foreach ($periodoacademicos as $row){
+	$options[$row->idperiodoacademico]= $row->nombrecorto;
+}
+echo form_dropdown("idperiodoacademico",$options,set_select('--Select--','default_value'));  	
+?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Docente:</label>
+	<div class="col-md-10">
+		<?php
+$options= array('--Select--');
+foreach ($docentes as $row){
+	$options[$row->iddocente]= $row->eldocente;
+}
+
+echo form_dropdown("iddocente",$options,set_select('--Select--','default_value')); 
+
+?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Duración del silabo:</label>
 	<div class="col-md-10">
 		<?php
