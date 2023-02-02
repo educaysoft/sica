@@ -20,7 +20,7 @@ class Modulo_model extends CI_model {
 
  	function arrmodulo( $id){
  		$modulo = $this->db->query('select * from modulo where idmodulo="'. $id.'"');
- 		return $moduloi->row_array();
+ 		return $modulo->row_array();
  	}
 
 
