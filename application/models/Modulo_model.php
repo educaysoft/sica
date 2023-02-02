@@ -15,7 +15,7 @@ class Modulo_model extends CI_model {
 
  	function modulo( $id){
  		$modulo = $this->db->query('select * from modulo where idmodulo="'. $id.'"');
- 		return $modulo->result();
+ 		return $modulo;
  	}
 
  	function save($array)
