@@ -36,8 +36,38 @@ class Silabo_model extends CI_model {
 
  	function save($array)
  	{
-		$this->db->insert("silabo", $array);
+	   $this->db->trans_begin();
+		$condition1 = "idasignatura =" . "'" . $array['idasignatura'] . "'";
+		$condition2 = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
+
+		$this->db->select('*');
+		$this->db->from('silabo');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+			$this->db->insert("silabo", $array);
+  			if( $this->db->affected_rows()>0){
+				$idsilabo=$this->db->insert_id();
+				for(i=1;i<=3;$i++){
+					$arrayunidad=array();
+					$arrayunidad['idilabo']=$idsilabo;
+					$arrayunidad['unidad']=$i;
+					$arrayunidad['nombre']="Unidad #".$i ;
+					$this->db->insert('unidadsilabo',$arrayunidad);
+				}	
+			$this->db->trans_commit();
+			return true;
+		   }else{
+			$this->db->trans_rollback();
+			return false;
+		   }
+		}else{
+			$this->db->trans_rollback();
+			return false;
  	}
+ 	}
+
 
  	function update($id,$array_item)
  	{
