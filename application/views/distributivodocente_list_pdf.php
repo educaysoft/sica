@@ -61,7 +61,7 @@ $current_y = $pdf->GetY();
 $current_x = $pdf->GetX();
 
 $cell_width = 30;  //define cell width
-$cell_height=10;    //define cell height
+$cell_height=5;    //define cell height
 	
 	foreach ($horario2 as $hora=>$dia){  //Recorre todas la participaciones realizadas por los participantes
 		    $i=$i+1;
