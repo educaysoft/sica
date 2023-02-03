@@ -320,6 +320,7 @@ public function get_asignaturas() {
     if($this->input->post('idmalla')) {
         $this->db->select('*');
         $this->db->where(array('idmalla' => $this->input->post('idmalla')));
+        $this->db->order_by("area");
         $query = $this->db->order_by("nivel")->get('asignatura1');
 	$data=$query->result();
 	echo json_encode($data);
