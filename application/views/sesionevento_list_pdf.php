@@ -19,7 +19,10 @@
 
 	$pdf->AliasNbPages();
 	$pdf->AddPage();
-	
+
+
+    	$pdf->Text(20,40,"Docente:  ".$sesioneventos[0]->elevento); 
+
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
 
