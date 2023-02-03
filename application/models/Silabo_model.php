@@ -42,7 +42,8 @@ class Silabo_model extends CI_model {
 
 		$this->db->select('*');
 		$this->db->from('silabo');
-		$this->db->where($condition);
+		$this->db->where($condition1);
+		$this->db->where($condition2);
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() == 0) {
