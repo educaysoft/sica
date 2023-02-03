@@ -78,9 +78,15 @@ $cell_height=10;    //define cell height
 		    }
 
 		    if(isset($dia['Martes'])){
-		    $pdf->Cell(30,10,utf8_decode($dia['Martes']),1,0,'L',0);
+		   // $pdf->Cell(30,10,utf8_decode($dia['Martes']),1,0,'L',0);
+		    	$pdf->MultiCell($cell_width,5,utf8_decode($dia['Martes']),1);	    
+	 	    	$current_x+=$cell_width;
+			$pdf->SetXY($current_x, $current_y);   
 		    }else{
-		    $pdf->Cell(30,10,"",1,0,'L',0);
+		    //$pdf->Cell(30,10,"",1,0,'L',0);
+		    	$pdf->Cell($cell_width,$cell_height,"",1,0,'L',0);
+	 	    	$current_x+=$cell_width;
+			$pdf->SetXY($current_x, $current_y);   
 		    }
 
 
