@@ -140,7 +140,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <label class="col-md-2 col-form-label">Hora fin:</label>
 <div class="col-md-10">
 <?php
-
+ $horaf="";
  echo form_input(array("name"=>"horafin","id"=>"horafin","readonly"=>"true",   "type"=>"time","value"=>$horaf));  
 
 ?>
