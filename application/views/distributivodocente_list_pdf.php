@@ -120,12 +120,11 @@ $cell_height=10;    //define cell height
 		    	$pdf->MultiCell($cell_width,5,utf8_decode($dia['Viernes']),1);	    
 	 	    	$current_x+=$cell_width;
 			$pdf->SetXY($current_x, $current_y);   
+i			$pdf->Ln();
+
 		    }else{
 
-		   // $pdf->Cell(30,10,"",1,1,'L',0);
-		    	$pdf->Cell($cell_width,$cell_height,"",1,0,'L',0);
-	 	    	$current_x+=$cell_width;
-			$pdf->SetXY($current_x, $current_y);   
+		   	 $pdf->Cell(30,10,"",1,1,'L',0);
 		    }
 	}
 
