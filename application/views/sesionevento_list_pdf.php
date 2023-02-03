@@ -28,6 +28,7 @@
 
 
 	$pdf->Cell(10,5,'#sesion',1,0,'C',1);
+	$pdf->Cell(15,5,'dia',1,0,'C',1);
 	$pdf->Cell(15,5,'fecha',1,0,'C',1);
 	$pdf->Cell(15,5,'inicio',1,0,'C',1);
 	$pdf->Cell(15,5,'fin',1,0,'C',1);
@@ -56,6 +57,13 @@ $cell_height=10;    //define cell height
 		    //$pdf->Cell(15,5,utf8_decode($row->horainicio),1,0,'L',0);
 		    //$pdf->Cell(15,5,utf8_decode($row->horafin),1,0,'L',0);
 		   // $pdf->Cell(90,5,utf8_decode($row->tema),1,1,'L',0);
+  			$dias = array('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado');
+    			$dia = $dias[date('w', strtotime($row->fecha))];
+
+
+		    $pdf->MultiCell($cell_width,5,utf8_decode($dia),1);
+	 	 	$current_x+=$cell_width;
+			$pdf->SetXY($current_x, $current_y);   
 
 
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->fecha),1);
