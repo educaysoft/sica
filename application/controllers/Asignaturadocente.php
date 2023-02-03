@@ -45,7 +45,7 @@ public function add()
 	{
 
 
-  	$data['distributivodocentes']=$this->distributivodocente_model->distributivodocentes2($this->uri->segment(3))->result();
+  	$data['distributivodocentes']=$this->distributivodocente_model->distributivodocentes2($this->uri->segment(3))->row_array();
 	$data['docentes']= $this->docente_model->docente1($data['distributivodocentes']['iddocente'])->result();
 	}else{
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
