@@ -47,7 +47,7 @@
 $start_x=$pdf->GetX(); //initial x (start of column position)
 $current_y = $pdf->GetY();
 $current_x = $pdf->GetX();
-$cell_width = 30;  //define cell width
+$cell_width = 15;  //define cell width
 $cell_height=10;    //define cell height
 		    //$pdf->Cell(15,5,utf8_decode($row->fecha),1,0,'L',0);
 		    //$pdf->Cell(15,5,utf8_decode($row->horainicio),1,0,'L',0);
@@ -62,8 +62,9 @@ $cell_height=10;    //define cell height
 	 	 	$current_x+=$cell_width;
 			$pdf->SetXY($current_x, $current_y);   
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->horafin),1);
-	 	 	$current_x+=$cell_width+75;
+	 	 	$current_x+=$cell_width;
 			$pdf->SetXY($current_x, $current_y);   
+i			$cell_width=90;
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->tema),1);
 	 	 	$current_x+=$cell_width;
     }
