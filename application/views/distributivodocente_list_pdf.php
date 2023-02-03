@@ -60,7 +60,7 @@
 		    $pdf->Cell(12,10,$hora,1,0,'R',0); 
 		    if(isset($dia['Lunes'])){
 		   // $pdf->SetXY(30,10);
-		    $pdf->MultiCell(30,10,utf8_decode($dia['Lunes']),1);	    
+		    $pdf->MultiCell(30,5,utf8_decode($dia['Lunes']),1);	    
 		   // $pdf->Cell(30,10,utf8_decode($dia['Lunes']),1,0,'L',0);
 		    }else{
 		    $pdf->Cell(30,10,"",1,0,'L',0);
