@@ -55,6 +55,22 @@ echo form_dropdown("iddocente",$options,set_select('--Select--','default_value')
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Asignatura:</label>
+	<div class="col-md-10">
+		<?php
+$options= array('--Select--');
+foreach ($asignaturas as $row){
+	$options[$row->idasignatura]=$row->malla."-".$row->area."-".$row->nombre;
+}
+ echo form_dropdown("idasignatura",$options,set_select('--Select--','default_value'));  
+		?>
+	</div> 
+</div>
+
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Duración del silabo:</label>
 	<div class="col-md-10">
 		<?php
