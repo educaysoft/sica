@@ -80,8 +80,8 @@ public function add()
 			'idsexo' => $this->input->post('idsexo'),
 			'foto' => $this->input->post('foto'),
 	                'idusuario'=>$this->session->userdata['logged_in']['idusuario'],
-			'fechacreacion'->$fecha,
-			'horacreacion'->$hora
+			'fechacreacion'=>$fecha,
+			'horacreacion'=>$hora
 		);
 	
 		$array_correo=array(
@@ -89,8 +89,8 @@ public function add()
 			'nombre'=>$this->input->post('correo'),
 			'idcorreo_estado'=>1,
 	                'idusuario'=>$this->session->userdata['logged_in']['idusuario'],
-			'fechacreacion'->$fecha,
-			'horacreacion'->$hora
+			'fechacreacion'=>$fecha,
+			'horacreacion'=>$hora
 		);
 			
 		$array_telefono=array(
@@ -99,8 +99,8 @@ public function add()
 			'idoperadora'=>1,
 			'idtelefono_estado'=>1,
 	                'idusuario'=>$this->session->userdata['logged_in']['idusuario'],
-			'fechacreacion'->$fecha,
-			'horacreacion'->$hora
+			'fechacreacion'=>$fecha,
+			'horacreacion'=>$hora
 		);
 		$result=$this->persona_model->save($array_item,$array_correo,$array_telefono);
 	 	if($result == FALSE)
