@@ -56,6 +56,10 @@
 //	print_r($horario2);	
 //	die();
 	
+
+	foreach ($horario2 as $hora=>$dia){  //Recorre todas la participaciones realizadas por los participantes
+		    $i=$i+1;
+		    $pdf->Cell(12,10,$hora,1,0,'R',0); 
 $start_x=$pdf->GetX(); //initial x (start of column position)
 $current_y = $pdf->GetY();
 $current_x = $pdf->GetX();
@@ -63,9 +67,6 @@ $current_x = $pdf->GetX();
 $cell_width = 30;  //define cell width
 $cell_height=10;    //define cell height
 	
-	foreach ($horario2 as $hora=>$dia){  //Recorre todas la participaciones realizadas por los participantes
-		    $i=$i+1;
-		    $pdf->Cell(12,10,$hora,1,0,'R',0); 
 		    if(isset($dia['Lunes'])){
 		    	$pdf->MultiCell($cell_width,5,utf8_decode($dia['Lunes']),1);	    
 	 	    	$current_x+=$cell_width;
