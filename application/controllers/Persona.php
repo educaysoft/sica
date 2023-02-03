@@ -67,6 +67,7 @@ public function add()
 
 	public function  save()
 	{
+
    			date_default_timezone_set('America/Guayaquil');
     			$fecha = date("Y-m-d");
     			$hora= date("H:i:s");

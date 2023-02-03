@@ -150,10 +150,16 @@ alter table fechacalendario add column idcalendarioacademico int(11);
 
 
 
-alter table persona add column idusuario int(11);
+/*alter table persona add column idusuario int(11);
 alter table persona add column fechacreacion date;
-alter table persona add column horacreacion time;
+alter table persona add column horacreacion time;*/
 
 
+alter table correo add column idusuario int(11);
+alter table correo add column fechacreacion date;
+alter table correo add column horacreacion time;
 
 
+alter table telefono add column idusuario int(11);
+alter table telefono add column fechacreacion date;
+alter table telefono add column horacreacion time;
