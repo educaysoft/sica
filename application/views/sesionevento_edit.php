@@ -84,11 +84,12 @@ echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); ?
 <tr>
      <td>Hora fin:</td>
      <td><?php 
-	if($sesionevento['horafin']==strtotime( "00:00" )){
+
+	if($sesionevento['horafin']==strtotime( "00:00:00" )){
    		date_default_timezone_set('America/Guayaquil');
     		$date = date("Y-m-d");
     		$h$sesionevento['horafin']= date("H:i:s");
-    {
+     }
      $eys_arrinput=array('name'=>'horafin','id'=>'horafin',"type"=>"time",'value'=>$sesionevento['horafin'], "style"=>"width:500px");
      echo form_input($eys_arrinput); ?></td>
 </tr>
