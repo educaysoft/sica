@@ -67,14 +67,13 @@ $cell_height=5;    //define cell height
 		    $i=$i+1;
 		    $pdf->Cell(12,10,$hora,1,0,'R',0); 
 		    if(isset($dia['Lunes'])){
-		   // $pdf->SetXY(30,10);
-		    $pdf->MultiCell($cell_width,$cell_height,utf8_decode($dia['Lunes']),1);	    
-		   // $pdf->Cell(30,10,utf8_decode($dia['Lunes']),1,0,'L',0);
-	 	    $current_x+=$cell_width;
-		   // $pdf->SetX(30,10);
+		    	$pdf->MultiCell($cell_width,$cell_height,utf8_decode($dia['Lunes']),1);	    
+	 	    	$current_x+=$cell_width;
 			$pdf->SetXY($current_x, $current_y);   
 		    }else{
-		    $pdf->Cell(30,10,"",1,0,'L',0);
+		    	$pdf->Cell($cell_width,$cell_height,"",1,0,'L',0);
+	 	    	$current_x+=$cell_width;
+			$pdf->SetXY($current_x, $current_y);   
 		    }
 
 		    if(isset($dia['Martes'])){
