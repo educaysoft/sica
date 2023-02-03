@@ -26,6 +26,13 @@ class Docente_model extends CI_model {
  	}
 
 
+ 	function docente1( $id){
+ 		$docente = $this->db->query('select * from docente1 where iddocente="'. $id.'"');
+ 		return $docente;
+ 	}
+
+
+
  	function docentespersona( $id){
  		$docente = $this->db->query('select * from docente where idpersona="'. $id.'"');
  		return $docente;

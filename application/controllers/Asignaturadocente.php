@@ -41,9 +41,19 @@ public function index(){
 
 public function add()
 {
-	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['distributivos']=$this->distributivo_model->lista_distributivos1(0)->result();
+	if($this->uri->segment(3))
+	{
+
+
+  	$data['distributivodocentes']=$this->distributivodocente_model->distributivodocentes2($this->uri->segment(3))->result();
+	$data['docentes']= $this->docente_model->lista_docente1($data['distributivodocentes']['iddocente'])->result();
+	}else{
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
+	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+	}
+
+
+  	$data['distributivos']=$this->distributivo_model->lista_distributivos1(0)->result();
 	$data['mallas']= $this->malla_model->lista_mallas()->result();
 	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
   	$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();

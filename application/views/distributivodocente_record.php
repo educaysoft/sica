@@ -34,7 +34,7 @@ if(isset($distributivodocente))
 <?php echo form_hidden('iddistributivodocente',$distributivodocente['iddistributivodocente']) ?>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id horario docente: </label>
+    <label class="col-md-2 col-form-label"> Id distributivo docente: </label>
 	<div class="col-md-10">
      	<?php 
       echo form_input('iddistributivodocente',$distributivodocente['iddistributivodocente'],array("id"=>"iddistributivodocente","disabled"=>"disabled",'placeholder'=>'Iddistributivodocentes')); 
@@ -84,7 +84,7 @@ echo form_input('iddocente',$options[$distributivodocente['iddocente']],array("d
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Asignaturas de docente<?php echo anchor('asignaturadocente/add', '(New)'); ?>: </label>
+    <label class="col-md-2 col-form-label"> Asignaturas de docente<?php echo anchor('asignaturadocente/add/'.$distributivodocente['iddistributivodocente'], '(New)'); ?>: </label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
