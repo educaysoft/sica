@@ -49,7 +49,7 @@ class Silabo_model extends CI_model {
 			$this->db->insert("silabo", $array);
   			if( $this->db->affected_rows()>0){
 				$idsilabo=$this->db->insert_id();
-				for(i=1;i<=3;$i++){
+				for($i=1;$i<=3;$i++){
 					$arrayunidad=array();
 					$arrayunidad['idilabo']=$idsilabo;
 					$arrayunidad['unidad']=$i;
