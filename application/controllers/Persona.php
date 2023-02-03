@@ -67,6 +67,9 @@ public function add()
 
 	public function  save()
 	{
+   			date_default_timezone_set('America/Guayaquil');
+    			$date = date("Y-m-d");
+    			$hora= date("H:i:s");
 	 	$array_item=array(
 		 	
 		 	'idpersona' => $this->input->post('idpersona'),
@@ -75,18 +78,30 @@ public function add()
 			'apellidos' => $this->input->post('apellidos'),
 			'fechanacimiento' => $this->input->post('fechanacimiento'),
 			'idsexo' => $this->input->post('idsexo'),
-			'foto' => $this->input->post('foto'));
+			'foto' => $this->input->post('foto'),
+	                'idusuario'=>$this->session->userdata['logged_in']['idusuario'],
+			'fechacreacion'->$fecha,
+			'horacreacion'->$hora
+		);
 	
 		$array_correo=array(
 			'idpersona'=>0,
 			'nombre'=>$this->input->post('correo'),
-			'idcorreo_estado'=>1);
+			'idcorreo_estado'=>1,
+	                'idusuario'=>$this->session->userdata['logged_in']['idusuario'],
+			'fechacreacion'->$fecha,
+			'horacreacion'->$hora
+		);
 			
 		$array_telefono=array(
 			'idpersona'=>0,
 			'numero'=>$this->input->post('telefono'),
 			'idoperadora'=>1,
-			'idtelefono_estado'=>1);
+			'idtelefono_estado'=>1,
+	                'idusuario'=>$this->session->userdata['logged_in']['idusuario'],
+			'fechacreacion'->$fecha,
+			'horacreacion'->$hora
+		);
 		$result=$this->persona_model->save($array_item,$array_correo,$array_telefono);
 	 	if($result == FALSE)
 		{

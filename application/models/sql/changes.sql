@@ -146,10 +146,13 @@ alter table fechacalendario add column idcalendarioacademico int(11);
 
 /* alter table estudio change titulo titulo text;*/
 
-alter table evento add column codigoclassroom varchar(20);
+/*alter table evento add column codigoclassroom varchar(20);*/
 
 
 
+alter table persona add column idusuario int(11);
+alter table persona add column fechacreacion date;
+alter table persona add column horacreacion time;
 
 
 
