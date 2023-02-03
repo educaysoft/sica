@@ -42,12 +42,30 @@
 	foreach ($sesioneventos as $row){  //Recorre todas la participaciones realiadas por los participantes
 	       
 		    $i=$i+1;
-		    $pdf->Cell(10,5,$row->idsesionevento,1,0,'R',0); 
-		    $pdf->Cell(15,5,utf8_decode($row->fecha),1,0,'L',0);
-		    $pdf->Cell(15,5,utf8_decode($row->horainicio),1,0,'L',0);
-		    $pdf->Cell(15,5,utf8_decode($row->horafin),1,0,'L',0);
-		    $pdf->Cell(90,5,utf8_decode($row->tema),1,1,'L',0);
+		    $pdf->Cell(10,10,$row->idsesionevento,1,0,'R',0); 
 
+$start_x=$pdf->GetX(); //initial x (start of column position)
+$current_y = $pdf->GetY();
+$current_x = $pdf->GetX();
+$cell_width = 30;  //define cell width
+$cell_height=10;    //define cell height
+		    //$pdf->Cell(15,5,utf8_decode($row->fecha),1,0,'L',0);
+		    //$pdf->Cell(15,5,utf8_decode($row->horainicio),1,0,'L',0);
+		    //$pdf->Cell(15,5,utf8_decode($row->horafin),1,0,'L',0);
+		   // $pdf->Cell(90,5,utf8_decode($row->tema),1,1,'L',0);
+
+
+		    $pdf->MultiCell($cell_width,5,utf8_decode($row->fecha),1);
+	 	 	$current_x+=$cell_width;
+			$pdf->SetXY($current_x, $current_y);   
+		    $pdf->MultiCell($cell_width,5,utf8_decode($row->horainicio),1);
+	 	 	$current_x+=$cell_width;
+			$pdf->SetXY($current_x, $current_y);   
+		    $pdf->MultiCell($cell_width,5,utf8_decode($row->horafin),1);
+	 	 	$current_x+=$cell_width+75;
+			$pdf->SetXY($current_x, $current_y);   
+		    $pdf->MultiCell($cell_width,5,utf8_decode($row->tema),1);
+	 	 	$current_x+=$cell_width;
     }
 
     
