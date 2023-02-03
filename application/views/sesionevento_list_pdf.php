@@ -24,7 +24,7 @@
 	$pdf->SetFont('Arial','B',8);
 
 
-	$pdf->Cell(10,5,'id',1,0,'C',1);
+	$pdf->Cell(10,5,'#sesion',1,0,'C',1);
 	$pdf->Cell(15,5,'fecha',1,0,'C',1);
 	$pdf->Cell(15,5,'inicio',1,0,'C',1);
 	$pdf->Cell(15,5,'fin',1,0,'C',1);
@@ -42,7 +42,7 @@
 	foreach ($sesioneventos as $row){  //Recorre todas la participaciones realiadas por los participantes
 	       
 		    $i=$i+1;
-		    $pdf->Cell(10,10,$row->idsesionevento,1,0,'R',0); 
+		    $pdf->Cell(10,5,$row->numerosesion,1,0,'R',0); 
 
 $start_x=$pdf->GetX(); //initial x (start of column position)
 $current_y = $pdf->GetY();
