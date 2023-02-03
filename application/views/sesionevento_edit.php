@@ -84,7 +84,7 @@ echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); ?
 <tr>
      <td>Hora fin:</td>
      <td><?php 
-	if($sesionevento['horafin']==""){
+	if($sesionevento['horafin']=="00:00"){
    		date_default_timezone_set('America/Guayaquil');
     		$date = date("Y-m-d");
     		$h$sesionevento['horafin']= date("H:i:s");
