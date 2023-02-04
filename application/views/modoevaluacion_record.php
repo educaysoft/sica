@@ -1,3 +1,9 @@
+<!--Arhivo: modeevaluacion_record.php -->
+<!--Modulo: modoevaluacion -->
+<!--Descripción: vista que permite visualizar la información del modo de evaluacion -->
+<!--Autor: Stalin Francis -->
+<!--Fecha: Ultima evaluación: Sabado 4 febrero 2023 -->
+
 <div id="eys-nav-i">
 	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
@@ -57,7 +63,17 @@ if(isset($modoevaluacion))
 	</div> 
 </div> 
    
-   
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Ponderación:</label>
+	<div class="col-md-10">
+     <?php
+       echo form_input('ponderacion',$modoevaluacion['ponderacion'],array('placeholder'=>'ponderación de la evaluacion')); 
+	?>
+	</div> 
+</div>
+
+
+
 <?php echo form_close(); ?>
 
 

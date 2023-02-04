@@ -1,4 +1,11 @@
 <?php
+/*----------------------------------------------------------------------------------
+	Arhivo: Modoevaluacion.php -->
+	Modulo: modoevaluacion -->
+	Descripción: permite administrar la información del modo de evaluacion -->
+	Autor: Stalin Francis -->
+	Fecha: Ultima evaluación: Sabado 4 febrero 2023 -->
+-----------------------------------------------------*/
 
 class Modoevaluacion extends CI_Controller{
 
@@ -36,6 +43,7 @@ public function  save()
 	 	$array_item=array(
 	 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
 	 	'nombre' => $this->input->post('nombre'),
+	 	'ponderacion' => $this->input->post('ponderacion'),
 	 	);
 	 	$this->modoevaluacion_model->save($array_item);
 	 	redirect('modoevaluacion');
@@ -61,6 +69,7 @@ public function edit()
 		 	
 		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
 		 	'nombre' => $this->input->post('nombre'),
+	 		'ponderacion' => $this->input->post('ponderacion'),
 	 	);
 	 	$this->modoevaluacion_model->update($id,$array_item);
 	 	redirect('modoevaluacion');

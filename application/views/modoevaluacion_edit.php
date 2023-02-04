@@ -1,3 +1,10 @@
+<!--Arhivo: modeevaluacion_edit.php -->
+<!--Modulo: modoevaluacion -->
+<!--Descripción: vista que permite modificar la información del modo de evaluacion -->
+<!--Autor: Stalin Francis -->
+<!--Fecha: Ultima evaluación: Sabado 4 febrero 2023 -->
+
+
 <?php echo form_open('modoevaluacion/save_edit') ?>
 <?php echo form_hidden('idmodoevaluacion',$modoevaluacion['idmodoevaluacion']) ?>
 <h2> <?php echo $title; ?></h2>
@@ -23,7 +30,12 @@ $eys_arrinput=array('name'=>'nombre','value'=>$modoevaluacion['nombre'], "style"
  echo form_input($eys_arrinput); ?></td>
   </tr>
 
-
+<tr>
+      <td>Ponderación:</td>
+      <td><?php
+$eys_arrinput=array('name'=>'ponderacion','value'=>$modoevaluacion['ponderacion'], "style"=>"width:500px");
+ echo form_input($eys_arrinput); ?></td>
+  </tr>
 
 
 
