@@ -89,6 +89,28 @@ if(isset($evento))
 <?php echo form_open('evento/save_edit') ?>
 <?php echo form_hidden('idevento',$evento['idevento'],array('name'=>'idevento')) ?>
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Título del evento:</label>
+	<div class="col-md-10">
+     <?php echo form_input('titulo',$evento['titulo'],array("disabled"=>"disabled",'placeholder'=>'titulo','style'=>'width:600px;')) 
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Detalle:</label>
+	<div class="col-md-10">
+      <?php
+	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
+	echo form_textarea('detalle',$evento['detalle'],$textarea_options);
+	?>
+	</div> 
+</div>
+
+
+
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('tipoevento/add', 'Tipo evento:') ?> </label>
      <?php 
@@ -99,7 +121,7 @@ if(isset($evento))
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'idtipoevento','value'=>$options[$evento['idtipoevento']],"disabled"=>"disabled", "style"=>"width:500px");
+    $arrdatos=array('name'=>'idtipoevento','value'=>$options[$evento['idtipoevento']],"disabled"=>"disabled", "style"=>"width:600px");
 echo form_input($arrdatos) ?>
 
 	</div> 
@@ -120,7 +142,7 @@ echo form_input($arrdatos) ?>
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'idevento_estado','value'=>$options[$evento['idevento_estado']],"disabled"=>"disabled", "style"=>"width:500px");
+    $arrdatos=array('name'=>'idevento_estado','value'=>$options[$evento['idevento_estado']],"disabled"=>"disabled", "style"=>"width:600px");
 echo form_input($arrdatos) ?>
 
 	</div> 
@@ -140,38 +162,24 @@ echo form_input($arrdatos) ?>
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'idinstitucion','value'=>$options[$evento['idinstitucion']],"disabled"=>"disabled", "style"=>"width:500px");
+    $arrdatos=array('name'=>'idinstitucion','value'=>$options[$evento['idinstitucion']],"disabled"=>"disabled", "style"=>"width:600px");
 echo form_input($arrdatos) ?>
 	</div> 
 </div>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Titulo del evento:</label>
-	<div class="col-md-10">
-     <?php echo form_input('titulo',$evento['titulo'],array("disabled"=>"disabled",'placeholder'=>'titulo','style'=>'width:500px;')) 
-		?>
-	</div> 
-</div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Detalle:</label>
-	<div class="col-md-10">
-      <?php
-	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:500px;height:100px;');    
-	echo form_textarea('detalle',$evento['detalle'],$textarea_options);
-	?>
-	</div> 
-</div>
+
+
 
 
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha de inicio:</label>
 	<div class="col-md-10">
-      <?php echo form_input('fechainicia',$evento['fechainicia'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechainicia','style'=>'width:500px;')) ?>
+      <?php echo form_input('fechainicia',$evento['fechainicia'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechainicia','style'=>'width:600px;')) ?>
 	</div> 
 </div>
 
@@ -179,7 +187,7 @@ echo form_input($arrdatos) ?>
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha de finaliza:</label>
 	<div class="col-md-10">
-      <?php echo form_input('fechafinaliza',$evento['fechafinaliza'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechafinaliza','style'=>'width:500px;')) ?>
+      <?php echo form_input('fechafinaliza',$evento['fechafinaliza'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechafinaliza','style'=>'width:600px;')) ?>
 	</div> 
 </div>
 
@@ -200,7 +208,7 @@ echo form_input($arrdatos) ?>
 	?>
 	<div class="col-md-10">
 		<?php
-			 echo form_multiselect('idcertificado[]',$options,(array)set_value('idcertificado', ''), array('onChange="ver_certicado()"', 'style'=>'width:500px')); 
+			 echo form_multiselect('idcertificado[]',$options,(array)set_value('idcertificado', ''), array('onChange="ver_certicado()"', 'style'=>'width:600px')); 
 		?>
 	</div> 
 </div>
@@ -217,7 +225,7 @@ echo form_input($arrdatos) ?>
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'idpagina','value'=>$options[$evento['idpagina']],"disabled"=>"disabled", "style"=>"width:500px");
+    $arrdatos=array('name'=>'idpagina','value'=>$options[$evento['idpagina']],"disabled"=>"disabled", "style"=>"width:600px");
 echo form_input($arrdatos) ?>
 	</div> 
 </div>
@@ -226,7 +234,7 @@ echo form_input($arrdatos) ?>
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Duración:</label>
 	<div class="col-md-10">
-     <?php echo form_input('duracion',$evento['duracion'],array("disabled"=>"disabled",'placeholder'=>'duracion','style'=>'width:500px;')) 
+     <?php echo form_input('duracion',$evento['duracion'],array("disabled"=>"disabled",'placeholder'=>'duracion','style'=>'width:600px;')) 
 		?>
 	</div> 
 </div>
@@ -234,7 +242,7 @@ echo form_input($arrdatos) ?>
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Costo:</label>
 	<div class="col-md-10">
-     <?php echo form_input('costo',$evento['costo'],array("disabled"=>"disabled",'placeholder'=>'costo','style'=>'width:500px;')) 
+     <?php echo form_input('costo',$evento['costo'],array("disabled"=>"disabled",'placeholder'=>'costo','style'=>'width:600px;')) 
 		?>
 	</div> 
 </div>
@@ -249,7 +257,7 @@ echo form_input($arrdatos) ?>
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'idsilabo','value'=>$options[$evento['idsilabo']],"disabled"=>"disabled", "style"=>"width:500px");
+    $arrdatos=array('name'=>'idsilabo','value'=>$options[$evento['idsilabo']],"disabled"=>"disabled", "style"=>"width:600px");
 echo form_input($arrdatos) ?>
 	</div> 
 </div>
@@ -258,7 +266,7 @@ echo form_input($arrdatos) ?>
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Código classroom:</label>
 	<div class="col-md-10">
-     <?php echo form_input('codigoclassroom',$evento['codigoclassroom'],array("disabled"=>"disabled",'placeholder'=>'codigoclassroom','style'=>'width:500px;')) 
+     <?php echo form_input('codigoclassroom',$evento['codigoclassroom'],array("disabled"=>"disabled",'placeholder'=>'codigoclassroom','style'=>'width:600px;')) 
 		?>
 	</div> 
 </div>

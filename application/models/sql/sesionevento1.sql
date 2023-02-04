@@ -7,9 +7,9 @@ create view sesionevento1 as select seev.idsesionevento,seev.idevento,moev.nombr
 
 
 
-create view sesionevento1 as select seev.idsesionevento,seev.idevento,moev.nombre as evaluacion, seev.ponderacion, seev.fecha,seev.horainicio,seev.horafin,seev.tema, even.titulo as elevento,seev.idtema,tesi.numerosesion   from sesionevento seev,evento even,modoevaluacion moev,tema tesi  where seev.idevento=even.idevento and seev.idmodoevaluacion=moev.idmodoevaluacion and seev.idtema=tesi.idtema 
+create view sesionevento1 as select seev.idsesionevento,seev.idevento,moev.nombre as evaluacion, moev.ponderacion, seev.fecha,seev.horainicio,seev.horafin,seev.tema, even.titulo as elevento,seev.idtema,tesi.numerosesion   from sesionevento seev,evento even,modoevaluacion moev,tema tesi  where seev.idevento=even.idevento and seev.idmodoevaluacion=moev.idmodoevaluacion and seev.idtema=tesi.idtema 
 
 
 UNION
 
- select seev.idsesionevento,seev.idevento,moev.nombre as evaluacion,  seev.ponderacion, seev.fecha,seev.horainicio,seev.horafin,seev.tema, even.titulo as elevento,seev.idtema, " " as numerosesion   from sesionevento seev,evento even,modoevaluacion moev,tema tesi  where seev.idevento=even.idevento and seev.idmodoevaluacion=moev.idmodoevaluacion and seev.idtema is null; 
+ select seev.idsesionevento,seev.idevento,moev.nombre as evaluacion,  moev.ponderacion, seev.fecha,seev.horainicio,seev.horafin,seev.tema, even.titulo as elevento,seev.idtema, " " as numerosesion   from sesionevento seev,evento even,modoevaluacion moev,tema tesi  where seev.idevento=even.idevento and seev.idmodoevaluacion=moev.idmodoevaluacion and seev.idtema is null; 
