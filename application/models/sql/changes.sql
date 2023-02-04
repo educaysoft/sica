@@ -155,11 +155,20 @@ alter table persona add column fechacreacion date;
 alter table persona add column horacreacion time;*/
 
 
-alter table correo add column idusuario int(11);
-alter table correo add column fechacreacion date;
-alter table correo add column horacreacion time;
+/* alter table correo add column idusuario int(11);*/
+/* alter table correo add column fechacreacion date; */
+/*alter table correo add column horacreacion time; */
 
 
-alter table telefono add column idusuario int(11);
-alter table telefono add column fechacreacion date;
-alter table telefono add column horacreacion time;
+/* alter table telefono add column idusuario int(11);*/
+/* alter table telefono add column fechacreacion date;*/
+/* alter table telefono add column horacreacion time; */
+
+
+
+/* alter table sesionevento add column idusuario int(11);*/
+/* alter table sesionevento add column fechacreacion date;*/
+/* alter table sesionevento add column horacreacion time; */
+
+ alter table modoevaluacion add column ponderacion decimal(5,3);
+

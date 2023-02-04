@@ -11,6 +11,7 @@ Sistema Integrado de Contro Academico!
    :caption: Contents:
 
    database
+   modulos
 
 Indices and tables
 ==================
