@@ -11,9 +11,9 @@
 
 
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
-	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
-	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
-	$pdf->titulo="hjas";
+	$pdf->unidad='UNIDAD DE NIVELACION';
+	$pdf->departamento='PERIODO: 2022-2S';
+	$pdf->titulo="CONTROL ACADÉMICO - LECCIONARIO";
 	
 
 
@@ -21,8 +21,8 @@
 	$pdf->AddPage();
 
 
-    	$pdf->Text(20,40,"Evento(Clase):  ".$sesioneventos[0]->elevento); 
-    	$pdf->Text(20,45,"Docente:  ".$instructor[0]->nombres); 
+    	$pdf->Text(20,35,"Evento(Clase):  ".$sesioneventos[0]->elevento); 
+    	$pdf->Text(20,40,"Docente:  ".$instructor[0]->nombres); 
 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
