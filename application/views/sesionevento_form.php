@@ -59,11 +59,12 @@ foreach ($temas as $row){
 <label class="col-md-2 col-form-label">Unidad:</label>
 <div class="col-md-10">
 <?php
-$options= array('--Select--');
+$options= array();
 foreach ($unidadsilabos as $row){
 	$options[$row->idunidadsilabo]="Unidad: ".$row->unidad;
 }
  $primero= reset($options);
+ 
  echo form_dropdown("idunidadsilabo",$options,$primero, array('id'=>'idunidadsilabo'));  
 ?>
 </div>
@@ -145,12 +146,13 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <label class="col-md-2 col-form-label">Modo de evaluación:</label>
 <div class="col-md-10">
 <?php
-$options= array('--Select--');
+$options= array();
 foreach ($modoevaluacions as $row){
 	$options[$row->idmodoevaluacion]= $row->nombre;
 }
 
- echo form_dropdown("idmodoevaluacion",$options, set_select('--Select--','default_value'),array('id'=>'idmodoevaluacion'));  
+ $primero= reset($options);
+ echo form_dropdown("idmodoevaluacion",$options,$primero,array('id'=>'idmodoevaluacion'));  
 ?>
 </div>
 </div>
