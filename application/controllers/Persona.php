@@ -71,6 +71,8 @@ public function add()
    			date_default_timezone_set('America/Guayaquil');
     			$fecha = date("Y-m-d");
     			$hora= date("H:i:s");
+			$idusuario=$this->session->userdata['logged_in']['idusuario'];
+
 	 	$array_item=array(
 		 	
 		 	'idpersona' => $this->input->post('idpersona'),
@@ -80,7 +82,7 @@ public function add()
 			'fechanacimiento' => $this->input->post('fechanacimiento'),
 			'idsexo' => $this->input->post('idsexo'),
 			'foto' => $this->input->post('foto'),
-	                'idusuario'=>$this->session->userdata['logged_in']['idusuario'],
+	                'idusuario'=>$idusuario,
 			'fechacreacion'=>$fecha,
 			'horacreacion'=>$hora
 		);

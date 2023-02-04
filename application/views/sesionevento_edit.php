@@ -66,12 +66,7 @@ echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); ?
  </tr>
 
 
-<tr>
-     <td>Ponderacion:</td>
-     <td><?php 
-     $eys_arrinput=array('name'=>'ponderacion','value'=>$sesionevento['ponderacion'], "style"=>"width:500px");
-     echo form_input($eys_arrinput); ?></td>
-</tr>
+
 
 
 <tr>

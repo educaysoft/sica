@@ -170,5 +170,7 @@ alter table persona add column horacreacion time;*/
 /* alter table sesionevento add column fechacreacion date;*/
 /* alter table sesionevento add column horacreacion time; */
 
- alter table modoevaluacion add column ponderacion decimal(5,3);
+/* alter table modoevaluacion add column ponderacion decimal(5,3); */
+
+alter table sesionevento drop column ponderacion;
 
