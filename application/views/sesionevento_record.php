@@ -191,7 +191,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
      <?php 
 $options= array("NADA");
 foreach ($modoevaluacions as $row){
-	$options[$row->idmodoevaluacion]= $row->nombre;
+	$options[$row->idmodoevaluacion]= $row->ponderacion." - ".$row->nombre;
 }
 
 echo form_input('idmodoevaluacion',$options[$sesionevento['idmodoevaluacion']],array("disabled"=>"disabled",'style'=>'width:500px;')); 

@@ -105,12 +105,12 @@ class Sesionevento extends CI_Controller{
 	{
 
 	 	$array_item2=array(
-	 	'nombrecorto' => $this->input->post('temacorto'),
-		'idvideotutorial' => 0,
-	 	'nombrelargo' => $this->input->post('tema'),
-	 	'idunidadsilabo' => $this->input->post('idunidadsilabo'),
-	 	'duracionminutos' => 120,
-		 'numerosesion' => $this->input->post('numerosesion'),
+	 		'nombrecorto' => $this->input->post('temacorto'),
+			'idvideotutorial' => 0,
+	 		'nombrelargo' => $this->input->post('tema'),
+	 		'idunidadsilabo' => $this->input->post('idunidadsilabo'),
+	 		'duracionminutos' => 120,
+		 	'numerosesion' => $this->input->post('numerosesion'),
 	 	);
 	 	$idtema =$this->tema_model->save($array_item2);
 
