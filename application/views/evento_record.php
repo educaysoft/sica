@@ -276,8 +276,9 @@ echo form_input($arrdatos) ?>
 	 <thead>
 	 <tr>
 	 <th>id</th>
-	 <th>ponderacion</th>
 	 <th>fecha</th>
+	 <th>inicio</th>
+	 <th>termino</th>
 	 <th>sesion</th>
 	 <th>tema tratado</th>
 	 <th style="text-align: right;">Actions</th>
