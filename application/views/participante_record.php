@@ -148,6 +148,22 @@ echo form_input('idparticipanteestado',$options[$participante['idparticipanteest
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Nivel del participante:</label>
+	<div class="col-md-10">
+		<?php
+$options= array("NADA");
+foreach ($nivelparticipante as $row){
+	$options[$row->idnivelparticipante]= $row->nombre;
+}
+echo form_input('idnivelparticipante',$options[$participante['idnivelparticipante']],array("disabled"=>"disabled","style"=>"width:500px"));
+		?>
+	</div> 
+</div>
+
+
+
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label">Grupo letra:</label>
