@@ -63,7 +63,7 @@ $options= array('--Select--');
 foreach ($unidadsilabos as $row){
 	$options[$row->idunidadsilabo]="Unidad: ".$row->unidad;
 }
- echo form_dropdown("idunidadsilabo",$options,array_values($options)[0], array('id'=>'idunidadsilabo'));  
+ echo form_dropdown("idunidadsilabo",$options,reset($options), array('id'=>'idunidadsilabo'));  
 ?>
 </div>
 </div>
