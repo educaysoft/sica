@@ -148,7 +148,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <?php
 $options= array();
 foreach ($modoevaluacions as $row){
-	$options[$row->idmodoevaluacion]= $row->nombre;
+	$options[$row->idmodoevaluacion]= $row->nombre."(Porderación=".$row->ponderacion.")";
 }
 
  $primero= reset($options);
