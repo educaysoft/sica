@@ -243,7 +243,7 @@ function sesionevento_data()
 		
 
 	 	$data['sesioneventos']= $this->sesionevento_model->sesioneventosA($this->uri->segment(3))->result();
-		$data['participanted']=$this->participante_model->eldocente($this->uri->segment(3))-result();
+		$data['instructor']=$this->participante_model->instructor($this->uri->segment(3))->result();
 		$data['title']="Evento";
 	//	$this->load->view('template/page_header');		
 		$this->load->view('sesionevento_list_pdf',$data);

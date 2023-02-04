@@ -39,6 +39,23 @@ class Participante_model extends CI_model {
 	}
 
 
+
+	function instructor($idevento){
+		 if($idevento>0)
+                {
+                $this->db->where('idevento='.$idevento);
+                $this->db->where('idnivelparticipante=2'); // 2= instructor
+                }
+
+		 $participante= $this->db->get('participante1');
+		 return $participante;
+	}
+
+
+
+
+
+
  	function participante( $id){
  		$participante = $this->db->query('select * from participante where idparticipante="'. $id.'"');
  		return $participante;

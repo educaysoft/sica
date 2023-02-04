@@ -22,7 +22,7 @@
 
 
     	$pdf->Text(20,40,"Evento(Clase):  ".$sesioneventos[0]->elevento); 
-    	$pdf->Text(20,45,"Docente:  ".$sesioneventos[0]->eldocente); 
+    	$pdf->Text(20,45,"Docente:  ".$instructor[0]->nombres); 
 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);

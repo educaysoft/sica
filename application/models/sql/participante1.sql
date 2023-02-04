@@ -9,10 +9,10 @@ select pa.idparticipante,pa.idpersona,ev.idevento,ev.titulo as elevento,concat(p
 
 
 
-create view participante1 as select pa.idparticipante,pa.idpersona,ev.idevento,ev.titulo as elevento,concat(pe.apellidos," ",pe.nombres) as nombres,doc.archivopdf,pa.grupoletra  from participante pa,evento ev,persona pe,documento doc where pa.idpersona=pe.idpersona and pa.idevento=ev.idevento and pa.iddocumento=doc.iddocumento
+create view participante1 as select pa.idparticipante,pa.idnivelparticipante,pa.idpersona,ev.idevento,ev.titulo as elevento,concat(pe.apellidos," ",pe.nombres) as nombres,doc.archivopdf,pa.grupoletra  from participante pa,evento ev,persona pe,documento doc where pa.idpersona=pe.idpersona and pa.idevento=ev.idevento and pa.iddocumento=doc.iddocumento
 UNION 
 
-select pa.idparticipante,pa.idpersona,ev.idevento,ev.titulo as elevento,concat(pe.apellidos," ",pe.nombres) as nombres," " as archivopdf,pa.grupoletra  from participante pa,evento ev,persona pe,documento doc where pa.idpersona=pe.idpersona and pa.idevento=ev.idevento and pa.idevento=ev.idevento and  pa.iddocumento=0;
+select pa.idparticipante,pa.idnivelparticipante,pa.idpersona,ev.idevento,ev.titulo as elevento,concat(pe.apellidos," ",pe.nombres) as nombres," " as archivopdf,pa.grupoletra  from participante pa,evento ev,persona pe,documento doc where pa.idpersona=pe.idpersona and pa.idevento=ev.idevento and pa.idevento=ev.idevento and  pa.iddocumento=0;
 
 
 
