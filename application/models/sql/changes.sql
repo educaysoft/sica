@@ -172,5 +172,7 @@ alter table persona add column horacreacion time;*/
 
 /* alter table modoevaluacion add column ponderacion decimal(5,3); */
 
-alter table sesionevento drop column ponderacion;
+/* alter table sesionevento drop column ponderacion;*/
+
+alter table participante add column idnivelparticipante int(11) not null default 1;
 

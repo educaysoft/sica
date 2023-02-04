@@ -4,15 +4,15 @@ class Nivelparticipante extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('participanteestado_model');
+      $this->load->model('nivelparticipante_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['participanteestado']=$this->participanteestado_model->participanteestado(1)->row_array();
-		$data['title']="Lista de participanteestadoes";
+		$data['nivelparticipante']=$this->nivelparticipante_model->nivelparticipante(1)->row_array();
+		$data['title']="Lista de nivelparticipantees";
 		$this->load->view('template/page_header');
-		$this->load->view('participanteestado_record',$data);
+		$this->load->view('nivelparticipante_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva participanteestado";
+		$data['title']="Nueva nivelparticipante";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('participanteestado_form',$data);
+	 	$this->load->view('nivelparticipante_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,21 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idparticipanteestado' => $this->input->post('idparticipanteestado'),
+	 	'idnivelparticipante' => $this->input->post('idnivelparticipante'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->participanteestado_model->save($array_item);
-	 	redirect('participanteestado');
+	 	$this->nivelparticipante_model->save($array_item);
+	 	redirect('nivelparticipante');
  	}
 
 
 
 public function edit()
 {
-	 	$data['participanteestado'] = $this->participanteestado_model->participanteestado($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar participanteestado";
+	 	$data['nivelparticipante'] = $this->nivelparticipante_model->nivelparticipante($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar nivelparticipante";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('participanteestado_edit',$data);
+ 	 	$this->load->view('nivelparticipante_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +56,22 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idparticipanteestado');
+		$id=$this->input->post('idnivelparticipante');
 	 	$array_item=array(
 		 	
-		 	'idparticipanteestado' => $this->input->post('idparticipanteestado'),
+		 	'idnivelparticipante' => $this->input->post('idnivelparticipante'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->participanteestado_model->update($id,$array_item);
-	 	redirect('participanteestado');
+	 	$this->nivelparticipante_model->update($id,$array_item);
+	 	redirect('nivelparticipante');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->participanteestado_model->delete($this->uri->segment(3));
+ 		$data=$this->nivelparticipante_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('participanteestado/elprimero');
+	 	redirect('nivelparticipante/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -81,24 +81,24 @@ public function listar()
 	
   $data['title']="Nivelparticipante";
 	$this->load->view('template/page_header');		
-  $this->load->view('participanteestado_list',$data);
+  $this->load->view('nivelparticipante_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function participanteestado_data()
+function nivelparticipante_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->participanteestado_model->lista_participanteestados();
+	 	$data0 = $this->nivelparticipante_model->lista_nivelparticipantes();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idparticipanteestado,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idparticipanteestado="'.$r->idparticipanteestado.'">Ver</a>');
+			$data[]=array($r->idnivelparticipante,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idnivelparticipante="'.$r->idnivelparticipante.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -121,12 +121,12 @@ function participanteestado_data()
 
 public function elprimero()
 {
-	$data['participanteestado'] = $this->participanteestado_model->elprimero();
+	$data['nivelparticipante'] = $this->nivelparticipante_model->elprimero();
   if(!empty($data))
   {
     $data['title']="Nivelparticipante";
     $this->load->view('template/page_header');		
-    $this->load->view('participanteestado_record',$data);
+    $this->load->view('nivelparticipante_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +137,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['participanteestado'] = $this->participanteestado_model->elultimo();
+	$data['nivelparticipante'] = $this->nivelparticipante_model->elultimo();
   if(!empty($data))
   {
     $data['title']="Nivelparticipante";
   
     $this->load->view('template/page_header');		
-    $this->load->view('participanteestado_record',$data);
+    $this->load->view('nivelparticipante_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,20 +154,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['participanteestado_list']=$this->participanteestado_model->lista_participanteestado()->result();
-	$data['participanteestado'] = $this->participanteestado_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['nivelparticipante_list']=$this->nivelparticipante_model->lista_nivelparticipante()->result();
+	$data['nivelparticipante'] = $this->nivelparticipante_model->siguiente($this->uri->segment(3))->row_array();
   $data['title']="Nivelparticipante";
 	$this->load->view('template/page_header');		
-  $this->load->view('participanteestado_record',$data);
+  $this->load->view('nivelparticipante_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['participanteestado_list']=$this->participanteestado_model->lista_participanteestado()->result();
-	$data['participanteestado'] = $this->participanteestado_model->anterior($this->uri->segment(3))->row_array();
+ // $data['nivelparticipante_list']=$this->nivelparticipante_model->lista_nivelparticipante()->result();
+	$data['nivelparticipante'] = $this->nivelparticipante_model->anterior($this->uri->segment(3))->row_array();
   $data['title']="Nivelparticipante";
 	$this->load->view('template/page_header');		
-  $this->load->view('participanteestado_record',$data);
+  $this->load->view('nivelparticipante_record',$data);
 	$this->load->view('template/page_footer');
 }
 
