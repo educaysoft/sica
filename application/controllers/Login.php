@@ -31,10 +31,15 @@ public function index() {
 
 // Show registration page
 public function user_registration_show() {
+
+        if($this->get('idevento') ){
+		$data['eventos']= $this->evento_model->lista_eventos_open($this->get('idevento'))->result();
+	}else{	
  	//$data['programa_list'] = $this->programa_model->list_programa()->result();
+//		$data['instituciones']= $this->institucion_model->lista_instituciones_con_inscripciones()->result();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
+	}
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
-	$data['instituciones']= $this->institucion_model->lista_instituciones_con_inscripciones()->result();
-	$data['eventos']= $this->evento_model->lista_eventos()->result();
 	$this->load->view('template/page_header.php');
 	//$this->load->view('registration_form',$data);
 	$this->load->view('registration_form',$data);

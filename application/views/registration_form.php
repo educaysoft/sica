@@ -49,22 +49,10 @@
 						echo form_open('login/new_user_registration');
 					?>
 
-					<div  class="w3-container" style="text-align:left; font-size: 70%;">
-
-						<?php 
-
-						echo "<label  style='text-align:left; font-size: 100%;' for='institucion'> Institución: </label>";
-							$options= array('--Select--');
-							foreach ($instituciones as $row){
-								$options[$row->idinstitucion]= $row->nombre;
-							}
-
-						 echo form_dropdown($name="idinstitucion",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idinstitucion','onchange'=>'get_evento()'));  ?>
-
-					</div>
+					
 
 
-
+<!-----
 
 	<div  class="w3-container" style="text-align:left; font-size: 70%;">
 
@@ -75,13 +63,9 @@
                  <option>No Selected</option>
           </select>
     </div>
-
-
-
-
 					</div>
 
-
+---->
 
 <!----
 					<div  class="w3-container" style="text-align:left; font-size: 70%;">
@@ -99,6 +83,27 @@
 					</div>
 
 -->
+
+<div  class="w3-container" style="text-align:left; font-size: 70%;">
+
+						<?php 
+
+						echo "<label  style='text-align:left; font-size: 100%;' for='evento'> Sexo: </label>";
+							$options= array('--Select--');
+							foreach ($eventos as $row){
+								$options[$row->idevento]= $row->titulo;
+							}
+
+						 echo form_dropdown($name="idevento",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idevento','onchange'=>'show_detalle()'));  ?>
+
+					</div>
+
+
+
+
+
+
+
 
 					<div  class="w3-container" style="text-align:left; font-size: 70%;">
 						<?php
@@ -148,6 +153,22 @@
 						echo form_input($data);
 					?>
 					</div>
+
+					<div  class="w3-container" style="text-align:left; font-size: 70%;">
+
+						<?php 
+
+						echo "<label  style='text-align:left; font-size: 100%;' for='sexo'> Sexo: </label>";
+							$options= array('--Select--');
+							foreach ($sexos as $row){
+								$options[$row->idsexo]= $row->nombre;
+							}
+
+						 echo form_dropdown($name="idsexo",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idsexo','onchange'=>'get_evento()'));  ?>
+
+					</div>
+
+
 
 					<div class="w3-container"  style="text-align:left; font-size: 70%;" >
 					<?php
