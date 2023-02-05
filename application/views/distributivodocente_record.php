@@ -52,7 +52,7 @@ foreach ($docentes as $row){
 	$options[$row->iddocente]= $row->eldocente;
 }
 
-echo form_input('iddocente',$options[$distributivodocente['iddocente']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+echo form_input('iddocente',$options[$distributivodocente['iddocente']],array("id"=>"iddocente","disabled"=>"disabled",'style'=>'width:500px;')); 
 
 		?>
 	</div> 
@@ -114,6 +114,38 @@ echo form_input('iddocente',$options[$distributivodocente['iddocente']],array("d
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Silabos presentados: </label>
+
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12">
+	<table class="table table-striped table-bordered table-hover" id="mydatas">
+	 <thead>
+	 <tr>
+	 <th>iddocente</th>
+	 <th>idsilabo</th>
+	 <th>elsilabo</th>
+	 <th>periodo</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_datas">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Eventos dictados: ( <?php echo anchor('evento/add', 'New'); ?>):</label>
 
 	<div class="col-md-10">
@@ -155,6 +187,11 @@ echo form_input('iddocente',$options[$distributivodocente['iddocente']],array("d
 $(document).ready(function(){
 	var iddistributivodocente=document.getElementById("iddistributivodocente").value;
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/asignaturadocente_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
+
+
+
+	var iddocente=document.getElementById("iddocente").value;
+	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('docente/silabo_data')?>', type: 'GET',data:{iddocente:iddocente}},});
 
 
 	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/evento_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
