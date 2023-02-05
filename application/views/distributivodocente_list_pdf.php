@@ -66,10 +66,11 @@ $current_x = $pdf->GetX();
 $cell_width = 30;  //define cell width
 $cell_height=10;    //define cell height
 	
-	$pdf->SetXY($current_x, $current_y);   
+		$pdf->SetXY($current_x, $current_y);   
 		    $i=$i+1;
 		    $pdf->Cell(12,10,$hora,1,0,'R',1); 
-
+	 	   	$current_x+=18;
+			$pdf->SetXY($current_x, $current_y);   
 		    if(isset($dia['Lunes'])){
 		    	$pdf->MultiCell($cell_width,5,utf8_decode($dia['Lunes']),1);	    
 	 	    	$current_x+=$cell_width;
