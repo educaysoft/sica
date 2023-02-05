@@ -32,7 +32,7 @@ public function index() {
 // Show registration page
 public function user_registration_show() {
 
-        if($this->get('idevento') ){
+        if($this->input->get('idevento') ){
 		$data['eventos']= $this->evento_model->lista_eventos_open($this->get('idevento'))->result();
 	}else{	
  	//$data['programa_list'] = $this->programa_model->list_programa()->result();
