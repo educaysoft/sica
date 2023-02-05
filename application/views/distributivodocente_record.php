@@ -43,6 +43,10 @@ if(isset($distributivodocente))
 </div>
 
 
+
+
+
+
 <div class="form-group row">
     <label class="col-md-2 col-form-label"><?php echo anchor('docente/actual/'.$distributivodocente['iddocente'], 'Docente:'); ?>  </label>
 	<div class="col-md-10">
@@ -52,8 +56,9 @@ foreach ($docentes as $row){
 	$options[$row->iddocente]= $row->eldocente;
 }
 
-echo form_input('iddocente',$options[$distributivodocente['iddocente']],array("id"=>"iddocente","disabled"=>"disabled",'style'=>'width:500px;')); 
+echo form_input('eldocente',$options[$distributivodocente['iddocente']],array("id"=>"eldocente","disabled"=>"disabled",'style'=>'width:500px;')); 
 
+echo form_hidden('iddocente',$distributivodocente['iddocente'],array("id"=>"iddocente")); 
 		?>
 	</div> 
 </div>
