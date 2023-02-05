@@ -22,7 +22,7 @@ class Silabo extends CI_Controller{
 		if(isset($this->session->userdata['logged_in'])){
 			$data['silabo']=$this->silabo_model->elultimo();
 			$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
-  		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  			$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
   		$data['docentes']= $this->docente_model->lista_docentesA()->result();
  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 			$data['title']="Lista de silaboes";
@@ -237,7 +237,7 @@ public function actual()
 	$data['silabo'] = $this->silabo_model->silabo($this->uri->segment(3))->row_array();
 	$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   if(!empty($data))
@@ -261,7 +261,7 @@ public function elprimero()
 	$data['silabo'] = $this->silabo_model->elprimero();
 			$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   if(!empty($data))
@@ -282,7 +282,7 @@ public function elultimo()
 		$data['silabo'] = $this->silabo_model->elultimo();
 			$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   if(!empty($data))
@@ -305,7 +305,7 @@ public function siguiente(){
 	$data['silabo'] = $this->silabo_model->siguiente($this->uri->segment(3))->row_array();
 	$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['title']="Silabo";
@@ -319,7 +319,7 @@ public function anterior(){
 	$data['silabo'] = $this->silabo_model->anterior($this->uri->segment(3))->row_array();
 	$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['title']="Silabo";
