@@ -119,7 +119,7 @@ echo form_hidden('iddocente',$distributivodocente['iddocente'],array("id"=>"iddo
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Silabos presentados: </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('silabo/add/', 'Silabos presentados:'); ?> </label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
@@ -210,6 +210,15 @@ var id= $(this).data('idasignaturadocente');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
+
+
+
+$('#show_datas').on('click','.item_ver',function(){
+var id= $(this).data('idsilabo');
+var retorno= $(this).data('retornos');
+window.location.href = retorno+'/'+id;
+});
+
 
 
 $('#show_data1').on('click','.item_ver',function(){
