@@ -33,6 +33,7 @@
 	$pdf->Cell(15,5,'fecha',1,0,'C',1);
 	$pdf->Cell(15,5,'inicio',1,0,'C',1);
 	$pdf->Cell(15,5,'fin',1,0,'C',1);
+	$pdf->Cell(15,5,'nasis',1,0,'C',1);
 	$pdf->Cell(90,5,'tema',1,1,'C',1);
  
 	 
@@ -76,6 +77,10 @@ $cell_height=10;    //define cell height
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->horafin),1);
 	 	 	$current_x+=$cell_width;
 			$pdf->SetXY($current_x, $current_y);   
+		    $pdf->MultiCell($cell_width,5,utf8_decode($row->numeasis),1);
+	 	 	$current_x+=$cell_width;
+			$pdf->SetXY($current_x, $current_y);   
+
 			$cell_width=90;
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->tema),1);
 	 	 	$current_x+=$cell_width;
