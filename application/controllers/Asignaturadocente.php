@@ -24,7 +24,7 @@ public function index(){
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
-		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
 			
 		$data['title']="Lista de asignaturadocentes";
 		$this->load->view('template/page_header');
