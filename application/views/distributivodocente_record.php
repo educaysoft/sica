@@ -58,7 +58,7 @@ foreach ($docentes as $row){
 
 echo form_input('eldocente',$options[$distributivodocente['iddocente']],array("id"=>"eldocente","disabled"=>"disabled",'style'=>'width:500px;')); 
 
-echo form_hidden('iddocente',$distributivodocente['iddocente'],array("id"=>"iddocente")); 
+ form_input(array('name"=>'iddocente',$distributivodocente['iddocente'],"id"=>"iddocente")); 
 		?>
 	</div> 
 </div>
@@ -191,12 +191,12 @@ echo form_hidden('iddocente',$distributivodocente['iddocente'],array("id"=>"iddo
 
 $(document).ready(function(){
 	var iddistributivodocente=document.getElementById("iddistributivodocente").value;
+	var iddocente=document.getElementById("iddocente").value;
+	alert(iddocente);
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/asignaturadocente_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
 
 
 
-	var iddocente=document.getElementById("iddocente").value;
-	alert(iddocente);
 	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('docente/silabo_data')?>', type: 'GET',data:{iddocente:iddocente}},});
 
 
