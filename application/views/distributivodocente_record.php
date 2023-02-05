@@ -80,9 +80,6 @@ echo form_input('iddocente',$options[$distributivodocente['iddocente']],array("d
 
 
 
-
-
-
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Asignaturas de docente<?php echo anchor('asignaturadocente/add/'.$distributivodocente['iddistributivodocente'], '(New)'); ?>: </label>
 
@@ -94,11 +91,12 @@ echo form_input('iddocente',$options[$distributivodocente['iddocente']],array("d
 	<table class="table table-striped table-bordered table-hover" id="mydatac">
 	 <thead>
 	 <tr>
-	 <th>iddistributivodocente</th>
-	 <th>idasignatura</th>
+	 <th>iddistdocen</th>
+	 <th>idasig</th>
 	 <th>nivel</th>
 	 <th>Asignatura</th>
 	 <th>Paralelo</th>
+	 <th>horas</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
