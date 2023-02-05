@@ -199,7 +199,8 @@ function distributivodocente_data()
 	{
 		$iddistributivodocente=$this->uri->segment(3);
 		$data['jornadadocente'] = $this->jornadadocente_model->jornadadocentexdido($iddistributivodocente)->result();
-		$data['docente']=$this->docente_model->docente1($data['jornadadocente'][0]['iddocente'])->result();
+		$data['distributivodocente']=$this->distributivodocente_model->distributivodocente($iddistributivodocente)->result();
+		$data['docente']=$this->docente_model->docente1($data['distributivodocente'][0]['iddocente'])->result();
 		$data['title']="Evento";
 		$this->load->view('distributivodocente_list_pdf',$data);
 	}
