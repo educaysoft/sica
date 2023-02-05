@@ -196,6 +196,7 @@ $(document).ready(function(){
 
 
 	var iddocente=document.getElementById("iddocente").value;
+	alert(iddocente);
 	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('docente/silabo_data')?>', type: 'GET',data:{iddocente:iddocente}},});
 
 
