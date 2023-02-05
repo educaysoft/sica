@@ -191,7 +191,7 @@ echo form_input('eldocente',$options[$distributivodocente['iddocente']],array("i
 
 $(document).ready(function(){
 	var iddistributivodocente=document.getElementById("iddistributivodocente").value;
-	var iddocente=document.getElementById("iddocente").value;
+	var iddocente= 64; //document.getElementById("iddocente").value;
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/asignaturadocente_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
 
 
