@@ -12,7 +12,6 @@
 			<p>Conviertete en parte de nuestra comunidad universitaria, registrate en nuestra plataforma y beneficiate de todos los eventos académicos que se organizan en el Alma Mater.</p><br>
 			<p>Para poder hacerlo sigue las siguientes instrucciones: </p><br>
 			<ol>
-			<li> Escoge la institución en la cual quieres participar.</a></li>
 			<li> Escoge el evento académico.  </li>
 			<li> Ingresa tus datos de contacto  que se solicita.  </li>
 			<li> No te olvides de registrar un correo electrónico válido.  </li>

@@ -84,6 +84,7 @@ public function new_user_registration() {
           $this->form_validation->set_rules('apellidos', 'Apellidos', 'trim|required|xss_clean');
           $this->form_validation->set_rules('nombres', 'Nombres', 'trim|required|xss_clean');
           $this->form_validation->set_rules('idevento', 'Evento', 'trim|required|xss_clean');
+          $this->form_validation->set_rules('idsexo', 'Sexo', 'trim|required|xss_clean');
           $this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');
           $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
           if ($this->form_validation->run() == FALSE) {
@@ -110,7 +111,8 @@ public function new_user_registration() {
 
             if(isset($lapagina['ruta']))
             {
-          $datausuario = array('idinstitucion'=>$this->input->post('idinstitucion'),'email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>$lapagina["ruta"]);
+		    $idinstitucion=1; //Universidad tecnica luis varga torres
+          $datausuario = array('idinstitucion'=>$idinstitucion,'email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>$lapagina["ruta"]);
             }else{
 
           $datausuario = array('email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>'principal');
