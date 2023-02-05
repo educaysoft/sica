@@ -23,7 +23,7 @@
 
 	$pdf->SetFont('Arial','',12);
 	$pdf->SetTextColor(0, 0,0);
-    	$pdf->Text(20,40,"Distributivodocente:  ".$jornadadocente[0]->iddistributivodocente); 
+    	$pdf->Text(20,40,"Docente:  ".$docente[0]->eldocente); 
 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
@@ -43,7 +43,7 @@
 	$id=0;
 	$persona="";
 	$i=0;
-	$horario1=array("07:00:00","08:00:00","09:00:00","10:00:00","11:00:00","12:00:00","13:00:00");
+	$horario1=array("07:00:00","07:30:00","08:00:00","08:30:00","09:00:00","09:30:00","10:00:00","10:30:00","11:00:00","11:30:00","12:00:00","12:30:00","13:00:00","13:30:00","14:00:00","14:30:00","15:00:00","15:30:00");
 	$horario2=array();
 	foreach ($horario1 as $hora){
 		foreach ($jornadadocente as $row){

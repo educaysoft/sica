@@ -241,8 +241,6 @@ function sesionevento_data()
 
 	public function reportepdf()
 	{
-		
-
 	 	$data['sesioneventos']= $this->sesionevento_model->sesioneventosA($this->uri->segment(3))->result();
 		$data['instructor']=$this->participante_model->instructor($this->uri->segment(3))->result();
 		$data['title']="Evento";
