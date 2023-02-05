@@ -33,17 +33,17 @@
 				</header>
 				<div class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
 					<?php
-            $idinstitucion=0;
-            $idevento=0;
-            if(isset($_GET['idinstitucion']))
-            {
-              $idinstitucion=$_GET['idinstitucion'];
-            }
+         //   $idinstitucion=0;
+         //   $idevento=0;
+         //   if(isset($_GET['idinstitucion']))
+         //   {
+         //     $idinstitucion=$_GET['idinstitucion'];
+         //   }
 
-            if(isset($_GET['idevento']))
-            {
-              $idevento=$_GET['idevento'];
-            }
+          //  if(isset($_GET['idevento']))
+          //  {
+          //    $idevento=$_GET['idevento'];
+          //  }
 
 
 						echo form_open('login/new_user_registration');
@@ -88,7 +88,7 @@
 
 						<?php 
 
-						echo "<label  style='text-align:left; font-size: 100%;' for='evento'> Sexo: </label>";
+						echo "<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: </label>";
 							$options= array('--Select--');
 							foreach ($eventos as $row){
 								$options[$row->idevento]= $row->titulo;

@@ -14,6 +14,7 @@ parent::__construct();
 	$this->load->model('modulo_model');
 	$this->load->model('nivelacceso_model');
 	$this->load->model('institucion_model');
+      $this->load->model('sexo_model');
       	$this->load->model('evento_model');
       	$this->load->model('pagina_model');
       	$this->load->model('asistencia_model');
@@ -39,6 +40,7 @@ public function user_registration_show() {
 //		$data['instituciones']= $this->institucion_model->lista_instituciones_con_inscripciones()->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
 	}
+  	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
 	$this->load->view('template/page_header.php');
 	//$this->load->view('registration_form',$data);
