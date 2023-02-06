@@ -41,6 +41,7 @@ foreach ($eventos as $row){
 	$eldia="No encontrado";	
 	foreach ($jornadadocente as $row){
     		$dia = $dias[date('w', strtotime($fecha))];
+		echo $dia. " = ".$row->nombre."\n";
 		if($row->nombre==$dia){
 			$eldia=$dia;
 		}
