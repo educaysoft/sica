@@ -31,6 +31,20 @@
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Tipo de  evento:</label>
+	<div class="col-md-10">
+	<?php
+    $options= array('--Select--');
+    foreach ($tipoeventos as $row){
+      $options[$row->idtipoevento]= $row->nombre;
+    }
+     echo form_dropdown("idtipoevento",$options, set_select('--Select--','default_value')); 
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Estado del evento:</label>
 	<div class="col-md-10">
 	<?php
@@ -125,6 +139,24 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 		?>
 	</div> 
 </div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Silabo:</label>
+	<div class="col-md-10">
+	<?php
+	$options= array('--Select--');
+	foreach ($silabos as $row){
+		$options[$row->idsilabo]= $row->nombre;
+	}
+	echo form_dropdown("idsilabo",$options, set_select('--Select--','default_value')); 
+		?>
+	</div> 
+</div>
+
+
+
 
 
 <div class="form-group row">

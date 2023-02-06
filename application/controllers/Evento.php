@@ -50,6 +50,7 @@ public function index(){
 	{
 		$data['title']="Usted esta Creando un nuevo Evento";
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 		$data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
