@@ -53,8 +53,8 @@
 		}
 	}
 
-	print_r($horario2);	
-	die();
+//	print_r($horario2);	
+//	die();
 	
 
 	    $next_y = $pdf->GetY();
