@@ -10,7 +10,7 @@ class Sesionevento extends CI_Controller{
       		$this->load->model('unidadsilabo_model');
       		$this->load->model('tema_model');
       		$this->load->model('silabo_model');
-      		$this->load->model('distributivo_model');
+      		$this->load->model('distributivodocente_model');
       		$this->load->model('fechacalendario_model');
       		$this->load->model('modoevaluacion_model');
       		$this->load->model('participante_model');
