@@ -6,6 +6,13 @@ class Areaconocimiento_model extends CI_model {
 		 return $areaconocimiento;
 	}
 
+
+	function lista_areaconocimientos1(){
+		 $areaconocimiento= $this->db->get('areaconocimiento1');
+		 return $areaconocimiento;
+	}
+
+
  	function areaconocimiento( $id){
  		$areaconocimiento = $this->db->query('select * from areaconocimiento where idareaconocimiento="'. $id.'"');
  		return $areaconocimiento;

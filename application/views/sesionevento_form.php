@@ -41,13 +41,13 @@ foreach ($eventos as $row){
 	$eldia="No encontrado";	
 	foreach ($jornadadocente as $row){
     		$dia = $dias[date('w', strtotime($fecha))];
-		echo $dia. " = ".$row->nombre."\n";
+		//$echo $dia. " = ".$row->nombre."\n";
 		if($row->nombre==$dia){
 			$eldia=$dia;
 		}
 
 	}
-	die();
+	//die();
 
     	$horaf= date("H:i:s",strtotime(' + 2 hours'));
  	echo form_input(array("name"=>"fecha","id"=>"fecha", "type"=>"date","value"=>$fecha)); echo $eldia; 
