@@ -63,7 +63,7 @@ $options= array('--Select--');
 foreach ($temas as $row){
 	$options[$row->idtema]="Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto;
 }
- echo form_dropdown("idtema",$options,$date, array('id'=>'idtema'));  
+ echo form_dropdown("idtema",$options,$fecha, array('id'=>'idtema'));  
 ?>
 </div>
 </div>
