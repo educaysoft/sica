@@ -88,7 +88,7 @@ class Sesionevento extends CI_Controller{
   		$data['unidadsilabos']= $this->unidadsilabo_model->unidadsilaboss($data['evento']['idsilabo'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   		$data['silabo']= $this->silabo_model->silabo($data['evento']['idsilabo'])->first_row('array');
-		$data['distributivodocente']=$this->distributivodocente_model->distributivo_pado($data['silabo']['idperiodoacademico'],$data['silabo']['iddocente'])->first_row('array');	
+		$data['distributivodocente']=$this->distributivodocente_model->distributivodocente_pado($data['silabo']['idperiodoacademico'],$data['silabo']['iddocente'])->first_row('array');	
 			$data['asignaturadocente']= $this->asignaturadocente_model->lista_asignaturadocentesA($data['distributivodocente']['iddistributivodocente'])->result();
 			$data['jornadadocente']= $this->jornadadocente_model->jornadadocente($data['asignaturadocente']['idasignaturadocente'])->result();
 	   }
