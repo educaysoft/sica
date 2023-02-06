@@ -112,7 +112,7 @@ public function new_user_registration() {
             if(isset($lapagina['ruta']))
             {
 		    $idinstitucion=1; //Universidad tecnica luis varga torres
-          $datausuario = array('idinstitucion'=>$idinstitucion,'email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>$lapagina["ruta"]);
+          $datausuario = array('idinstitucion'=>$idinstitucion,'email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>$lapagina["ruta"],'idpagina'=>47);
             }else{
 
           $datausuario = array('email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>'principal');
