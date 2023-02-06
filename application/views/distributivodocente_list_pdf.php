@@ -73,6 +73,7 @@ $cell_height=10;    //define cell height
 			$pdf->SetXY($current_x, $current_y);   
 		    if(isset($dia['Lunes'])){
 		    	$pdf->MultiCell($cell_width,5,utf8_decode($dia['Lunes']),1);	    
+			$next_y = $pdf->GetY();
 	 	    	$current_x+=$cell_width;
 			$pdf->SetXY($current_x, $current_y);   
 		    }else{
@@ -83,6 +84,7 @@ $cell_height=10;    //define cell height
 
 		    if(isset($dia['Martes'])){
 		    	$pdf->MultiCell($cell_width,5,utf8_decode($dia['Martes']),1);	    
+			$next_y = $pdf->GetY();
 	 	    	$current_x+=$cell_width;
 			$pdf->SetXY($current_x, $current_y);   
 		    }else{
@@ -105,6 +107,7 @@ $cell_height=10;    //define cell height
 
 		    if(isset($dia['Jueves'])){
 		    	$pdf->MultiCell($cell_width,5,utf8_decode($dia['Jueves']),1);	    
+			$next_y = $pdf->GetY();
 	 	    	$current_x+=$cell_width;
 			$pdf->SetXY($current_x, $current_y);   
 		    }else{
@@ -117,6 +120,7 @@ $cell_height=10;    //define cell height
 		    if(isset($dia['Viernes'])){
 		    //$pdf->Cell(30,10,utf8_decode($dia['Viernes']),1,1,'L',0);
 		    	$pdf->MultiCell($cell_width,5,utf8_decode($dia['Viernes']),1);	    
+			$next_y = $pdf->GetY();
 	 	    	$current_x+=$cell_width;
 
 		    }else{
