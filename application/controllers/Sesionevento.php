@@ -14,6 +14,7 @@ class Sesionevento extends CI_Controller{
       		$this->load->model('fechacalendario_model');
       		$this->load->model('modoevaluacion_model');
       		$this->load->model('participante_model');
+      		$this->load->model('asignaturadocente_model');
 	}
 
 	public function index(){
