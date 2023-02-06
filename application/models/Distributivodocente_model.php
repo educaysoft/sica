@@ -22,7 +22,7 @@ class Distributivodocente_model extends CI_model {
 
 
  	function distributivodocente_pado( $idperiodoacademico,$iddocente){
- 		$distributivodocente = $this->db->query('select * from distributivodocente where idperiodoacademico="'. $idperiodoacademico.'" and iddocente="'.$iddocente.'"');
+ 		$distributivodocente = $this->db->query('select * from distributivodocente1 where idperiodoacademico="'. $idperiodoacademico.'" and iddocente="'.$iddocente.'"');
  		return $distributivodocente;
 	}
 
