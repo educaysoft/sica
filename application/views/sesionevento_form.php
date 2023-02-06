@@ -20,21 +20,36 @@ foreach ($eventos as $row){
 </div>
 </div>
 
+<?php
 
+
+
+
+
+?>
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Fecha de la sesión:</label>
 <div class="col-md-10">
 <?php
 
+ $dias = array('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado');
    date_default_timezone_set('America/Guayaquil');
-    $date = date("Y-m-d");
+    $fecha = date("Y-m-d");
     $horai= date("H:i:s");
     
+	$eldia="No encontrado";	
+	foreach ($jornadadocente as $row){
+    		$dia = $dias[date('w', strtotime($fecha))];
+		if($row->nombre==$dia){
+			$eldia=$dia;
+		}
+
+	}
 
     $horaf= date("H:i:s",strtotime(' + 2 hours'));
 
- echo form_input(array("name"=>"fecha","id"=>"fecha", "type"=>"date","value"=>$date));  
+ echo form_input(array("name"=>"fecha","id"=>"fecha", "type"=>"date","value"=>$date)); echo $eldia; 
 
 ?>
 </div>
