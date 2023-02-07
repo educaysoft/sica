@@ -8,6 +8,24 @@ class Documento_model extends CI_model {
 	}
 
 
+
+	//Retorna todos los registros como un objeto
+	function lista_documentosxtipo($idtipodocumento){
+		
+		if($idtipodocumento==0)
+		{
+		$documento=$this->db->order_by("fechaelaboracion")->get('documento1');
+		}else{
+
+		$this->db->where('idtipodocumento='.$idtipodocumento);
+		$documento=$this->db->order_by("fechaelaboracion")->get('documento1');
+		}
+		 return $documento;
+	}
+
+
+
+
 	//Retorna todos los registros como un objeto
 	function lista_documentosA($iddocumento){
 		

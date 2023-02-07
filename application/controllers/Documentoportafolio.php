@@ -32,7 +32,8 @@ public function index(){
 
 public function add()
 {
-		$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$tipodocumento=21;  //portafolio
+		$data['documentos']= $this->documento_model->lista_documentosxtipo($tipodocumento)->result();
   		$data['portafolios']= $this->portafolio_model->lista_portafoliosA()->result();
 		$data['title']="Nueva Documentoportafolio";
 	 	$this->load->view('template/page_header');		
