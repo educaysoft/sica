@@ -128,7 +128,7 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('documentoportafolio/add/'.$portafolio['idpersona'], 'Documento:'); ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('documentoportafolio/add/'.$portafolio['idportafolio'], 'Documento:'); ?> </label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">

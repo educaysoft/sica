@@ -32,9 +32,15 @@ public function index(){
 
 public function add()
 {
-		$tipodocumento=21;  //portafolio
+
+		$idportafolio=0;
+	if($this->uri->segment(3)){
+		$idportafolio=$this->uri->segment(3);
+	}
+
+		$tipodocumento=17;  //portafolio
 		$data['documentos']= $this->documento_model->lista_documentosxtipo($tipodocumento)->result();
-  		$data['portafolios']= $this->portafolio_model->lista_portafoliosA()->result();
+  		$data['portafolios']= $this->portafolio_model->lista_portafoliosA($idportafolio)->result();
 		$data['title']="Nueva Documentoportafolio";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('documentoportafolio_form',$data);
