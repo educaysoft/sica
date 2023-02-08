@@ -380,7 +380,7 @@ if ($result == TRUE) {
 	} else {
 
 		$data = array('error_message' => '-Invalid Username or Password');
-	 	$data['eventos']= $this->evento_model->lista_eventos_open()->result();
+	 	$data['eventos']= $this->evento_model->lista_eventos_open(0)->result();
 		$this->load->view('template/page_header.php');
 		$this->load->view('login_form', $data);
 		$this->load->view('template/page_footer.php');
