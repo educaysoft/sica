@@ -447,7 +447,7 @@ public function index(){
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idparticipante,$r->nombres,$r->archivopdf,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_grupo"  data-retorno="'.site_url('participante/edit').'"    data-idparticipante="'.$r->grupoletra.'">'.$r->grupoletra.'</a>',
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_grupo"  data-retorno="'.site_url('participante/edit').'"    data-idparticipante="'.$r->idparticipante.'">'.$r->grupoletra.'</a>',
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('participante/actual').'"    data-idparticipante="'.$r->idparticipante.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
