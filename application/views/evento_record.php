@@ -578,6 +578,15 @@ var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
 
+$('#show_data1').on('click','.item_grupo',function(){
+var id= $(this).data('idparticipante');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+
+
 
 
 $('#show_data').on('click','.item_edit',function(){

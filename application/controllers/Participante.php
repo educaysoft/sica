@@ -126,8 +126,15 @@ public function actual(){
 		 	'iddocumento' => $this->input->post('iddocumento'),
 		 	'grupoletra' => $this->input->post('grupoletra'),
 	 	);
-	 	$this->participante_model->update($id,$array_item);
-	 	redirect('participante/actual/'.$id);
+	 	$result=$this->participante_model->update($id,$array_item);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Persona ya existe'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+
  	}
 
 	public function  save_edit2()

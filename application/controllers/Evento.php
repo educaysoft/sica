@@ -446,7 +446,8 @@ public function index(){
 			$data0 =$this->participante_model->participantes($id);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idparticipante,$r->nombres,$r->archivopdf,$r->grupoletra,
+				$data[]=array($r->idparticipante,$r->nombres,$r->archivopdf,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_grupo"  data-retorno="'.site_url('participante/edit').'"    data-idparticipante="'.$r->grupoletra,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('participante/actual').'"    data-idparticipante="'.$r->idparticipante.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,

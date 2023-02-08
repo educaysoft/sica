@@ -33,9 +33,19 @@ public function add()
 
 public function  save()
 	{
+
+
+   			date_default_timezone_set('America/Guayaquil');
+    			$fecha = date("Y-m-d");
+    			$hora= date("H:i:s");
+			$idusuario=$this->session->userdata['logged_in']['idusuario'];
+
 	 	$array_item=array(
 	 	'nombre' => $this->input->post('nombre'),
 	 	'iniciales' => $this->input->post('iniciales'),
+	        'idusuario'=>$idusuario,
+		'fechacreacion'=>$fecha,
+		'horacreacion'=>$hora
 	 	);
 	 	$this->institucion_model->save($array_item);
 	 	redirect('institucion');

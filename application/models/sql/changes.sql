@@ -174,5 +174,12 @@ alter table persona add column horacreacion time;*/
 
 /* alter table sesionevento drop column ponderacion;*/
 
-alter table participante add column idnivelparticipante int(11) not null default 1;
+/* alter table participante add column idnivelparticipante int(11) not null default 1; */
+
+
+
+/* alter table institucion add column idusuario int(11); */
+ alter table institucion add column fechacreacion date;
+ alter table institucion add column horacreacion time;
+
 
