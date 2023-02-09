@@ -16,6 +16,10 @@ function index()
 
 }
 
+function persona(){
+	 	redirect('persona/actual/');
+}
+
 
  function Persona() {
  $this->load->view('Persona');
