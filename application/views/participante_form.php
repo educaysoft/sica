@@ -34,8 +34,20 @@ foreach ($personas as $row){
 
 
 
+<div class="form-group row">
+  <label class="col-md-2 col-form-label">Nivel de participacion (<?php echo anchor('nivelparticipante/add', 'Nuevo'); ?>):</label>
+	<div class="col-md-10">
+		<?php
+$options= array('--Select--');
+foreach ($nivelparticipante as $row){
+	$options[$row->idnivelparticipante]= $row->nombre;
+}
 
+ echo form_dropdown("idnivelparticipante",$options,set_select('--Select--','default_value'));  
 
+		?>
+	</div> 
+</div> 
 
 
 <div id="eys-nav-i">
