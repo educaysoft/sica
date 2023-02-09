@@ -17,7 +17,16 @@ function index()
 }
 
 function persona(){
-	 	redirect('persona/actual/');
+
+	if($this->uri->segment(3))
+	{
+	 	redirect('persona/actual/'.$this->uri->segment(3));
+	}else{
+	 	redirect('persona');
+	}
+
+
+
 }
 
 
