@@ -4,15 +4,49 @@
 <?php
 if(isset($estudio))
 {
+	$permitir=0;
+	$j=0;
+	$numero=$j;
+	if(isset($this->session->userdata['acceso'])){
+  		foreach($this->session->userdata['acceso'] as $row)
+	    	{
+			if("evento"==$row["modulo"]["nombre"]);
+			{
+				$numero=$j;
+				$permitir=1;
+			}		
+			$j=$j+1;
+	    	} 
+	}
+	if($permitir==0){
+		redirect('login/logout');
+	}
 ?>
    <li> <?php echo anchor('estudio/elprimero/', 'primero'); ?></li>
    <li> <?php echo anchor('estudio/anterior/'.$estudio['idestudio'], 'anterior'); ?></li>
    <li> <?php echo anchor('estudio/siguiente/'.$estudio['idestudio'], 'siguiente'); ?></li>
    <li style="border-right:1px solid green"><?php echo anchor('estudio/elultimo/', 'Último'); ?></li>
+
+
+	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['create']){ ?>
         <li> <?php echo anchor('estudio/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('estudio/edit/'.$estudio['idestudio'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('estudio/delete/'.$estudio['idestudio'],'Delete'); ?></li>
+	<?php } ?>
+
+
+	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['update']){ ?>
+        <li> <?php echo anchor('estudio/edit/'.$evento['idestudio'],'Edit'); ?></li>
+	<?php } ?>
+
+
+	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['delete']){ ?>
+        <li style="border-right:1px solid green"> <?php echo anchor('estudio/delete/'.$evento['idestudio'],'Delete'); ?></li>
+	<?php } ?>
+
+
+	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['read']){ ?>
         <li> <?php echo anchor('estudio/listar/','Listar'); ?></li>
+	<?php } ?>
+
 
 <?php 
 }else{
