@@ -21,9 +21,6 @@ function persona(){
 }
 
 
- function Persona() {
- $this->load->view('Persona');
- }
 
  function css() {
  $this->load->view('page_css');
