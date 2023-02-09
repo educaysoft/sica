@@ -34,12 +34,12 @@ if(isset($estudio))
 
 
 	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['update']){ ?>
-        <li> <?php echo anchor('estudio/edit/'.$evento['idestudio'],'Edit'); ?></li>
+        <li> <?php echo anchor('estudio/edit/'.$estudio['idestudio'],'Edit'); ?></li>
 	<?php } ?>
 
 
 	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['delete']){ ?>
-        <li style="border-right:1px solid green"> <?php echo anchor('estudio/delete/'.$evento['idestudio'],'Delete'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('estudio/delete/'.$estudio['idestudio'],'Delete'); ?></li>
 	<?php } ?>
 
 
