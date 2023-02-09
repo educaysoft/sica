@@ -124,7 +124,7 @@ function estudio_data()
 	 	$data0 = $this->estudio_model->lista_estudiosA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idestudio,$r->elestudiante,$r->lainstitucion,$r->nivel,$r->titulo,
+			$data[]=array($r->idestudio,$r->lapersona,$r->lainstitucion,$r->nivel,$r->titulo,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('estudio/actual').'"   data-idestudio="'.$r->idestudio.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
