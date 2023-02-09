@@ -19,13 +19,13 @@ class Usoaula_model extends CI_model {
 
 
  	function usoaulas( $id){
- 		$usoaula = $this->db->query('select * from usoaula where idarticulo="'. $id.'" order by fechaprestamo');
+ 		$usoaula = $this->db->query('select * from usoaula where idaula="'. $id.'" order by fechaprestamo');
  		return $usoaula;
  	}
 
 
  	function usoaulasA( $id){
- 		$usoaula = $this->db->query('select * from usoaula1 where idarticulo="'. $id.'" ORDER BY date(fechaprestamo) ASC');
+ 		$usoaula = $this->db->query('select * from usoaula1 where idaula="'. $id.'" ORDER BY date(fechaprestamo) ASC');
  		return $usoaula;
  	}
 

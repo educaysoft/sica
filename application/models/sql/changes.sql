@@ -179,7 +179,8 @@ alter table persona add column horacreacion time;*/
 
 
 /* alter table institucion add column idusuario int(11); */
- alter table institucion add column fechacreacion date;
- alter table institucion add column horacreacion time;
+/* alter table institucion add column fechacreacion date;  */
+/* alter table institucion add column horacreacion time; */
 
-
+ 
+alter table jornadadocente add column idaula int(11);
