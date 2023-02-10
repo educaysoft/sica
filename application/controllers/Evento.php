@@ -16,6 +16,7 @@ class Evento extends CI_Controller{
       $this->load->model('pagoevento_model');
       $this->load->model('modoevaluacion_model');
       $this->load->model('asignaturadocente_model');
+      $this->load->model('calendarioacademico_model');
 }
 
 public function index(){
@@ -33,6 +34,7 @@ public function index(){
 	$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
   	$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 	$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
+	$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
 	$data['title']="Usted esta visualizando el Eventos  #";
 	$this->load->view('template/page_header');		
 	$this->load->view('evento_record',$data);
@@ -82,6 +84,7 @@ public function index(){
 			'idsilabo' => $this->input->post('idsilabo'),
 			'codigoclassroom' => $this->input->post('codigoclassroom'),
 			'idasignaturadocente' => $this->input->post('idasignaturadocente'),
+			'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
 	 	);	 
 	 	$this->evento_model->save($array_item);
 	 	redirect('evento');
@@ -125,6 +128,7 @@ public function index(){
 		  	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 			$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 			$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
+			$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
 			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	    		$data['title'] = "Actualizar Evento";
@@ -154,6 +158,7 @@ public function index(){
 			'idsilabo' => $this->input->post('idsilabo'),
 			'codigoclassroom' => $this->input->post('codigoclassroom'),
 			'idasignaturadocente' => $this->input->post('idasignaturadocente'),
+			'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
 	 	);
 	 	$this->evento_model->update($id,$array_item);
 	 	redirect('evento/actual/'.$id);
@@ -191,6 +196,7 @@ public function index(){
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
+		$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
 		$data['title']="Esta viendo el evento #: ";
 		$this->load->view('template/page_header');		
 		$this->load->view('evento_record',$data);
@@ -549,6 +555,7 @@ public function index(){
 	  	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 		$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
+		$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 	  	$data['title']="Evento";
 		$this->load->view('template/page_header');		
@@ -571,6 +578,7 @@ public function index(){
 		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 		$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
+		$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['title']="Evento";
 		$this->load->view('template/page_header');		
