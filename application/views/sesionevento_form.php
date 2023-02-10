@@ -42,11 +42,15 @@ foreach ($eventos as $row){
     //print_r($jornadadocente);
    //die(); 
 	$eldia="No encontrado";	
+    	$lahorai="00:00:00";
+    	$lahoraf="00:00:00";
 	foreach ($jornadadocente as $row){
     		$dia = $dias[date('w', strtotime($fecha))];
 		//$echo $dia. " = ".$row->nombre."\n";
 		if($row->nombre==$dia ){
 			$eldia=$dia;
+			$lahorai=$row->horainicio;
+			$lahoraf=strtotime(' + 2 hours',$lahorai);
 		}
 
 	}
@@ -141,7 +145,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div class="col-md-10">
 <?php
 
- echo form_input(array("name"=>"horainicio","id"=>"horainicio","readonly"=>"true","type"=>"time","value"=>$horai));  
+ echo form_input(array("name"=>"horainicio","id"=>"horainicio","readonly"=>"true","type"=>"time","value"=>$horai)); echo $lahorai;  
 
 ?>
 </div>
@@ -153,7 +157,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div class="col-md-10">
 <?php
  $horaf="";
- echo form_input(array("name"=>"horafin","id"=>"horafin","readonly"=>"true",   "type"=>"time","value"=>$horaf));  
+ echo form_input(array("name"=>"horafin","id"=>"horafin","readonly"=>"true",   "type"=>"time","value"=>$horaf));  echo $lahoraf;
 
 ?>
 </div>
