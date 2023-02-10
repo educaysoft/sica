@@ -21,6 +21,21 @@
 <?php echo form_open('evento/save_edit') ?>
 <?php echo form_hidden('idevento',$evento['idevento'],array('name'=>'idevento')) ?>
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('institucion/add', 'Institucion:') ?> </label>
+     <?php 
+    $options= array("NADA");
+    foreach ($instituciones as $row){
+	      $options[$row->idinstitucion]= $row->nombre;
+    }
+	?>
+	<div class="col-md-10">
+		<?php
+    $arrdatos=array('name'=>'idinstitucion','value'=>$options[$evento['idinstitucion']],"disabled"=>"disabled", "style"=>"width:600px");
+echo form_input($arrdatos) ?>
+	</div> 
+</div>
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Título del evento:</label>
@@ -43,61 +58,13 @@
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('tipoevento/add', 'Tipo evento:') ?> </label>
-     <?php 
-    $options= array("NADA");
-    foreach ($tipoeventos as $row){
-	      $options[$row->idtipoevento]= $row->nombre;
-    }
-	?>
-	<div class="col-md-10">
-		<?php
-    $arrdatos=array('name'=>'idtipoevento','value'=>$options[$evento['idtipoevento']],"disabled"=>"disabled", "style"=>"width:600px");
-echo form_input($arrdatos) ?>
-
-	</div> 
-</div>
 
 
 
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('evento_estado/add', 'Evento estado:') ?> </label>
-     <?php 
-    $options= array("NADA");
-    foreach ($evento_estados as $row){
-	      $options[$row->idevento_estado]= $row->nombre;
-    }
-	?>
-	<div class="col-md-10">
-		<?php
-    $arrdatos=array('name'=>'idevento_estado','value'=>$options[$evento['idevento_estado']],"disabled"=>"disabled", "style"=>"width:600px");
-echo form_input($arrdatos) ?>
-
-	</div> 
-</div>
-
-
-
-
-
- <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('institucion/add', 'Institucion:') ?> </label>
-     <?php 
-    $options= array("NADA");
-    foreach ($instituciones as $row){
-	      $options[$row->idinstitucion]= $row->nombre;
-    }
-	?>
-	<div class="col-md-10">
-		<?php
-    $arrdatos=array('name'=>'idinstitucion','value'=>$options[$evento['idinstitucion']],"disabled"=>"disabled", "style"=>"width:600px");
-echo form_input($arrdatos) ?>
-	</div> 
-</div>
+ 
 
 
 
