@@ -52,7 +52,7 @@ foreach ($eventos as $row){
 			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
 			$lahoraf=date("H:i:s",$lahoraf);
 			array_push($sesiones,array("sesion"=>$i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
-			if(strtotime($fechasesion)==strtotime($fecha){
+			if(strtotime($fechasesion)==strtotime($fecha)){
 				$sesionactual=$i;
 			}
 			$i=$i+1;
