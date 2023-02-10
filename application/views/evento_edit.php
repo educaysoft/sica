@@ -116,7 +116,7 @@ foreach ($paginas as $row){
 
 
 <tr>
-<td> Asignaturadocente:</td>
+<td> CalendarioAcademico:</td>
 <td><?php
 $options= array('--Select--');
 foreach ($calendarioacademicos as $row){
