@@ -7,6 +7,7 @@ class Jornadadocente extends CI_Controller{
   	  $this->load->model('docente_model');
   	  $this->load->model('asignatura_model');
   	  $this->load->model('diasemana_model');
+  	  $this->load->model('aula_model');
   	  $this->load->model('jornadadocente_model');
   	  $this->load->model('horariodocente_model');
   	  $this->load->model('asignaturadocente_model');
@@ -21,6 +22,7 @@ public function index(){
   	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
+  	$data['aulas']= $this->aula_model->lista_aulas()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 			
 		$data['title']="Lista de jornadadocentes";
@@ -49,6 +51,7 @@ public function add()
 	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
   	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
+  	$data['aulas']= $this->aula_model->lista_aulas()->result();
 	$data['title']="Nueva Jornadadocente";
  	$this->load->view('template/page_header');		
  	$this->load->view('jornadadocente_form',$data);
@@ -64,6 +67,7 @@ public function add()
 		 	
 			'idasignaturadocente' => $this->input->post('idasignaturadocente'),
 			'iddiasemana' => $this->input->post('iddiasemana'),
+			'idaula' => $this->input->post('idaula'),
 			'horainicio' => $this->input->post('horainicio'),
 			'duracionminutos' => $this->input->post('duracionminutos'),
 	 	);
@@ -83,6 +87,7 @@ public function add()
 	public function edit()
 	{
 			$data['jornadadocente'] = $this->jornadadocente_model->jornadadocente($this->uri->segment(3))->row_array();
+  	$data['aulas']= $this->aula_model->lista_aulas()->result();
   	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
   	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
 			$data['docentes']= $this->docente_model->lista_docentesA()->result();
@@ -104,6 +109,7 @@ public function add()
 			'idjornadadocente' => $this->input->post('idjornadadocente'),
 			'idasignaturadocente' => $this->input->post('idasignaturadocente'),
 			'iddiasemana' => $this->input->post('iddiasemana'),
+			'idaula' => $this->input->post('idaula'),
 			'horainicio' => $this->input->post('horainicio'),
 			'duracionminutos' => $this->input->post('duracionminutos'),
 
@@ -164,6 +170,7 @@ public function actual()
 {
 	$data['jornadadocente'] = $this->jornadadocente_model->jornadadocente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
+  	$data['aulas']= $this->aula_model->lista_aulas()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
   	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
@@ -196,6 +203,7 @@ public function elprimero()
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
 	$data['jornadadocente'] = $this->jornadadocente_model->elprimero();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
+  	$data['aulas']= $this->aula_model->lista_aulas()->result();
   	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
   	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
@@ -217,6 +225,7 @@ public function elultimo()
 {
 	$data['jornadadocente'] = $this->jornadadocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
+  	$data['aulas']= $this->aula_model->lista_aulas()->result();
   	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
@@ -240,6 +249,7 @@ public function elultimo()
 public function siguiente(){
  // $data['jornadadocente_list']=$this->jornadadocente_model->lista_jornadadocente()->result();
 	$data['jornadadocente'] = $this->jornadadocente_model->siguiente($this->uri->segment(3))->row_array();
+  	$data['aulas']= $this->aula_model->lista_aulas()->result();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
@@ -258,6 +268,7 @@ public function anterior(){
 	$data['jornadadocente'] = $this->jornadadocente_model->anterior($this->uri->segment(3))->row_array();
  	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
+  	$data['aulas']= $this->aula_model->lista_aulas()->result();
   	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
 	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
