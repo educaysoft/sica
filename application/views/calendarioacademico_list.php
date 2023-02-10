@@ -38,7 +38,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
        	     </div>
 
 
-
+<!---
 <div class="form-group row">
     	<label class="col-md-2 col-form-label"> Silabo:</label>
 	<?php
@@ -55,7 +55,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	</div>
 	</div>
 
-
+--->
 
 
 <div id="filtro"><?php echo $filtro; ?></div>
@@ -97,7 +97,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 $(document).ready(function(){
 
 	var idperiodoacademico = document.getElementById("filtro").innerHTML;
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('calendarioacademico/calendarioacademico_data')?>', type: 'GET',data:{idperiodoacademico:idperiodoacademico}},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('calendarioacademico/calendarioacademico_data')?>', type: 'GET'},});
 
 });
 
