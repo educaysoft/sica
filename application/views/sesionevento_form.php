@@ -37,14 +37,17 @@ foreach ($eventos as $row){
    date_default_timezone_set('America/Guayaquil');
     $fecha = date("Y-m-d");
     $horai= date("H:i:s");
-    
+
+
+    print_r($jornadadocente);
+   die(); 
 	$eldia="No encontrado";	
 	foreach ($jornadadocente as $row){
     		$dia = $dias[date('w', strtotime($fecha))];
 		//$echo $dia. " = ".$row->nombre."\n";
-		if($row->nombre==$dia){
+		if($row->nombre==$dia ){
 			$eldia=$dia;
-		}
+		}}
 
 	}
 	//die();
