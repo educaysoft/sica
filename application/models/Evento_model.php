@@ -136,6 +136,8 @@ class Evento_model extends CI_model {
 
   //Retorna solamente un registro de el id pasado como parame
  	function lista_eventoP($id){
+
+		$this->db->where("idevento_estado=2 or idevento_estado=3");  //SOLO ESTADO INSCRIPCION OR EN EJECUCION
  		$evento = $this->db->query('select * from eventoP where idevento="'. $id.'" order by elparticipante');
  		return $evento;
  	}
