@@ -119,6 +119,21 @@ foreach ($paginas as $row){
 <td> Asignaturadocente:</td>
 <td><?php
 $options= array('--Select--');
+foreach ($calendarioacademicos as $row){
+	$options[$row->idcalendarioacademico]= $row->nombre;
+}
+
+ echo form_dropdown("idcalendarioacademico",$options, $evento['idcalendarioacademico']);  ?></td>
+</tr>
+
+
+
+
+
+<tr>
+<td> Asignaturadocente:</td>
+<td><?php
+$options= array('--Select--');
 foreach ($asignaturadocentes as $row){
 	$options[$row->idasignaturadocente]= $row->eldistributivodocente."-".$row->laasignatura."-".$row->paralelo;
 }

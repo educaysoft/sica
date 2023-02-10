@@ -247,6 +247,30 @@ echo form_input($arrdatos) ?>
 	</div> 
 </div>
 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('calendarioacademico/actual/'.$evento['idcalendarioacademico'], 'Calendario academico:') ?> </label>
+     <?php 
+    $options= array("NADA");
+    foreach ($calendarioacademicos as $row){
+	      $options[$row->idcalendarioacademico]=$row->nombre; 
+    }
+	?>
+	<div class="col-md-10">
+		<?php
+    $arrdatos=array('name'=>'idcalendarioacademico','value'=>$options[$evento['idcalendarioacademico']],"disabled"=>"disabled", "style"=>"width:600px");
+echo form_input($arrdatos) ?>
+	</div> 
+</div>
+
+
+
+
+
+
+
+
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('asignaturadocente/actual/'.$evento['idasignaturadocente'], 'Asignaturadocente:') ?> </label>
      <?php 
