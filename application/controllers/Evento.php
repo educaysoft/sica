@@ -121,6 +121,7 @@ public function index(){
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		  	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 			$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
+			$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->row_array();
 			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 	    		$data['title'] = "Actualizar Evento";
