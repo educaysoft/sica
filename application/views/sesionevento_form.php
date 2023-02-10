@@ -50,7 +50,7 @@ foreach ($eventos as $row){
 		if($row->nombre==$dia ){
 			$eldia=$dia;
 			$lahorai=$row->horainicio;
-			$lahoraf=strtotime(' + 2 hours',$lahorai);
+			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
 		}
 
 	}
