@@ -50,7 +50,7 @@ foreach ($eventos as $row){
 			$lahorai=$row->horainicio;
 			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
 			$lahoraf=date("H:i:s",$lahoraf);
-			$sesiones=array_push(array("sesion"=>i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
+			$sesiones=array_push(array("sesion"=>$i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
 			$i=$i+1;
 		}
 		$fechasesion=date("Y-m-d",strtotime($fechasesion."+ 1 days")); 
