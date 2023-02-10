@@ -201,7 +201,7 @@ echo form_input($arrdatos) ?>
 
 
 
-<div class="form-group row" style="border-style:solid;" >
+<div class="form-group row" style="border:solid;" >
     <label class="col-md-2 col-form-label"> Sesiones ( <?php echo anchor('sesionevento/add/'.$evento['idevento'], 'New'); ?>):</label>
 	<div class="col-md-10">
 	<div class="row justify-content-left">
