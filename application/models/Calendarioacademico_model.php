@@ -7,6 +7,18 @@ class Calendarioacademico_model extends CI_model {
 	}
 
 
+
+	function lista_calendarioacademicosA($idcalendarioacademico){
+		if($idcalendarioacademico>0){
+ 		$this->db->where('idcalendarioacademico',$idcalendarioacademico);
+		}
+		 $calendarioacademico= $this->db->get('calendarioacademico1');
+		 return $calendarioacademico;
+	}
+
+
+
+
 function lista_calendarioacademicos1($idperiodoacademico){
 	if($idperiodoacademico>0)
 	{

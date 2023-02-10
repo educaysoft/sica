@@ -1,4 +1,7 @@
 
 use educayso_facae;
-drop view calendarioacademico1;
-create view calendarioacademico1 as select calendarioacademico.idcalendarioacademico,calendarioacademico.idperiodoacademico,calendarioacademico.iddepartamento,concat(departamento.iniciales," - ",periodoacademico.nombrecorto) as elcalendarioacademico from calendarioacademico, periodoacademico,departamento where calendarioacademico.idperiodoacademico=periodoacademico.idperiodoacademico and calendarioacademico.iddepartamento=departamento.iddepartamento ;
+create view calendarioacademico1 as select calendarioacademico.idcalendarioacademico,calendarioacademico.nombre,calendarioacademico.fechadesde,calendarioacademico.fechahasta,calendarioacademico.idperiodoacademico,calendarioacademico.iddepartamento,concat(departamento.iniciales," - ",periodoacademico.nombrecorto) as elcalendarioacademico from calendarioacademico, periodoacademico,departamento where calendarioacademico.idperiodoacademico=periodoacademico.idperiodoacademico and calendarioacademico.iddepartamento=departamento.iddepartamento 
+
+UNION
+
+select calendarioacademico.idcalendarioacademico,calendarioacademico.nombre,calendarioacademico.fechadesde,calendarioacademico.fechahasta,calendarioacademico.idperiodoacademico,calendarioacademico.iddepartamento,concat(" - ",periodoacademico.nombrecorto) as elcalendarioacademico from calendarioacademico, periodoacademico where calendarioacademico.idperiodoacademico=periodoacademico.idperiodoacademico and calendarioacademico.iddepartamento=0 ;
