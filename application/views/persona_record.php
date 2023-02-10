@@ -174,7 +174,7 @@ if(isset($persona))
 
 
 
-<div class="form-group row">
+<div class="form-group row" style="border:solid; padding:1cm;">
     <label class="col-md-2 col-form-label"> Documentos del persona: </label>
 
 	<div class="col-md-10">
