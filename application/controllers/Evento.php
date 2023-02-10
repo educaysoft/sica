@@ -179,6 +179,33 @@ public function index(){
 
 
 
+	public function frontend(){
+
+		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
+		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
+		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+	  	$data['silabos']= $this->silabo_model->lista_silabos()->result();
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
+		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
+		$data['paginas']= $this->pagina_model->lista_paginas()->result();
+		$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
+		$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
+		$data['title']="Esta viendo el evento #: ";
+		$this->load->view('template/page_header');		
+		$this->load->view('evento_frontend',$data);
+		$this->load->view('template/page_footer');
+	}
+
+
+
+
+
+
 
 
 	public function actual(){
