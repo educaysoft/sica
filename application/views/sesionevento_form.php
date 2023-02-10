@@ -39,8 +39,8 @@ foreach ($eventos as $row){
     $horai= date("H:i:s");
 
 
-    print_r($jornadadocente);
-   die(); 
+    //print_r($jornadadocente);
+   //die(); 
 	$eldia="No encontrado";	
 	foreach ($jornadadocente as $row){
     		$dia = $dias[date('w', strtotime($fecha))];
