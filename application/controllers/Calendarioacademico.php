@@ -119,7 +119,7 @@ function calendarioacademico_data()
 
 	//	$idperiodoacademico=$this->input->get('idperiodoacademico');
 
-	 	$data0 = $this->calendarioacademico_model->lista_calendarioacademicos1($0);
+	 	$data0 = $this->calendarioacademico_model->lista_calendarioacademicos1(0);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idcalendarioacademico,$r->iddepartamento,$r->idperiodoacademico,$r->elcalendarioacademico,
