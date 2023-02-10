@@ -46,6 +46,7 @@ class Evento_model extends CI_model {
 
 	function lista_eventosP($idpersona){
 
+		$this->db->where("idevento_estado=2 or idevento_estado=3");  //SOLO ESTADO INSCRIPCION OR EN EJECUCION
 
 	$evento = $this->db->query('select * from evento1 where EXISTS (select idevento from participante where participante.idevento=evento1.idevento and participante.idpersona= "'.$idpersona.'") order by idevento');
 
