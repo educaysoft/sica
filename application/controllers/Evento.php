@@ -548,6 +548,7 @@ public function index(){
 		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 	  	$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+		$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 	  	$data['title']="Evento";
 		$this->load->view('template/page_header');		
@@ -569,6 +570,7 @@ public function index(){
 		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+		$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['title']="Evento";
 		$this->load->view('template/page_header');		
