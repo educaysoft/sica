@@ -32,6 +32,7 @@ public function index(){
 	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 	$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
   	$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
+	$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
 	$data['title']="Usted esta visualizando el Eventos  #";
 	$this->load->view('template/page_header');		
 	$this->load->view('evento_record',$data);
