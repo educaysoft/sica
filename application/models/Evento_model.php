@@ -138,7 +138,9 @@ class Evento_model extends CI_model {
  	function lista_eventoP($id){
 
 		$this->db->where("idevento_estado=2 or idevento_estado=3");  //SOLO ESTADO INSCRIPCION OR EN EJECUCION
- 		$evento = $this->db->query('select * from eventoP where idevento="'. $id.'" order by elparticipante');
+		$this->db->where("idevento",$id); 
+
+		$evento=$this->db->order_by("elparticipante")->get('eventoP');
  		return $evento;
  	}
 
