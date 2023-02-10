@@ -93,7 +93,7 @@ if(isset($persona))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('correo/add', 'Correo:'); ?>:</label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('correo/add/'.$persona['idpersona'], 'Correo:'); ?>:</label>
 	<div class="col-md-10">
 	<?php
  	$options = array();

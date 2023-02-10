@@ -54,7 +54,17 @@ public function actual(){
 
 public function add()
 {
+
+	if($this->uri->segment(3))
+	{
+		$data['personas']= $this->persona_model->persona($this->uri->segment(3))->result();
+
+	}else{
+
 		$data['personas']= $this->persona_model->lista_personas()->result();
+	}
+
+
   	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
 		$data['title']="Nueva Correo";
 	 	$this->load->view('template/page_header');		
