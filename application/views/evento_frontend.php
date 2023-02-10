@@ -153,7 +153,7 @@ echo form_input($arrdatos) ?>
 
 
 
-<div class="form-group row" style="border:solid; padding:2cm;" >
+<div class="form-group row" style="border:solid; padding:1cm;" >
     <label class="col-md-2 col-form-label"> Sesiones ( <?php echo anchor('sesionevento/add/'.$evento['idevento'], 'New'); ?>):</label>
 	<div class="col-md-10">
 	<div class="row justify-content-left">
@@ -186,7 +186,7 @@ echo form_input($arrdatos) ?>
 
 
 
-<div class="form-group row">
+<div class="form-group row" style="border:solid; padding:1cm;">
     <label class="col-md-2 col-form-label"> <?php echo anchor('participante/add/'.$evento['idevento'], 'Participante'); ?>:</label>
 	<div class="col-md-10">
  
