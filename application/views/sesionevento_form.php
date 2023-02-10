@@ -39,6 +39,7 @@ foreach ($eventos as $row){
     $horai= date("H:i:s");
 
 	$sesionactual=0;
+	$sesiontotal=0;
 
  $fechasesion=$calendarioacademico[0]->fechadesde;
  $sesiones=array();
@@ -55,6 +56,7 @@ foreach ($eventos as $row){
 			if(strtotime($fechasesion)==strtotime($fecha)){
 				$sesionactual=$i;
 			}
+			$sesiontotal=$sesiontotal+1;
 			$i=$i+1;
 		}
 	}
