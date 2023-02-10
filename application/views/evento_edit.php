@@ -115,6 +115,19 @@ foreach ($paginas as $row){
   </tr>
 
 
+<tr>
+<td> Silabo:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($asignaturadocentes as $row){
+	$options[$row->idasignaturadocente]= $row->eldistributivodocente."-".$row->laasignatura."-".$row->paralelo;
+}
+
+ echo form_dropdown("idasignaturadocente",$options, $evento['idasignaturadocente']);  ?></td>
+</tr>
+
+
+
 
 <tr>
 <td> Silabo:</td>

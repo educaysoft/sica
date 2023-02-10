@@ -248,6 +248,24 @@ echo form_input($arrdatos) ?>
 </div>
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('asignaturadocente/actual/'.$evento['idasignaturadocente'], 'Asignaturadocente:') ?> </label>
+     <?php 
+    $options= array("NADA");
+    foreach ($asignaturadocentes as $row){
+	      $options[$row->idasignaturadocente]= $row->nombre;
+    }
+	?>
+	<div class="col-md-10">
+		<?php
+    $arrdatos=array('name'=>'idasignaturadocente','value'=>$options[$evento['idasignaturadocente']],"disabled"=>"disabled", "style"=>"width:600px");
+echo form_input($arrdatos) ?>
+	</div> 
+</div>
+
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('silabo/actual/'.$evento['idsilabo'], 'Silabo:') ?> </label>
      <?php 
     $options= array("NADA");

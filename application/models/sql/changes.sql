@@ -183,4 +183,6 @@ alter table persona add column horacreacion time;*/
 /* alter table institucion add column horacreacion time; */
 
  
-alter table jornadadocente add column idaula int(11);
+/* alter table jornadadocente add column idaula int(11); */
+
+alter table evento add column idasignaturadocente int(11);
