@@ -39,11 +39,36 @@ foreach ($eventos as $row){
     $horai= date("H:i:s");
 
 
-    //print_r($jornadadocente);
-   //die(); 
+ $fechasesion=$calendarioacademico[0]->fechadesde;
+ $sesion=array();
+     i=1;
+    do {
+	
+	foreach ($jornadadocente as $row){
+    		$dia = $dias[date('w', strtotime($fechasesion))];
+		if($row->nombre==$dia ){
+			$lahorai=$row->horainicio;
+			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
+			$lahoraf=date("H:i:s",$lahoraf);
+			$sesiones=array_push(array("sesion"=>i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
+			$i=$i+1;
+		}
+		$fechasesion=date("Y-m-d",strtotime($fechasesion."+ 1 days")); 
+	}
+
+    }while(strtotime($fechasesion)<=strtotime($calendarioacademico[0]->fechahasta));
+
+
+    print_r($session);
+  die(); 
 	$eldia="No encontrado";	
     	$lahorai="00:00:00";
     	$lahoraf="00:00:00";
+
+
+
+
+
 	foreach ($jornadadocente as $row){
     		$dia = $dias[date('w', strtotime($fecha))];
 		//$echo $dia. " = ".$row->nombre."\n";
@@ -52,9 +77,7 @@ foreach ($eventos as $row){
 			$lahorai=$row->horainicio;
 			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
 			$lahoraf=date("H:i:s",$lahoraf);
-
 		}
-
 	}
 	//die();
 

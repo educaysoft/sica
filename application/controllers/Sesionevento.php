@@ -67,14 +67,10 @@ class Sesionevento extends CI_Controller{
 	public function add()
 	{
 
-
-
 	     $idevento=$this->uri->segment(3);
 
 	    if(!isset($idevento)){
 	      $idevento=0;
-
-
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
@@ -102,6 +98,7 @@ class Sesionevento extends CI_Controller{
 	//	{	
 	//		return 0; 	
 	//	}
+		$data['calendarioacademico'] = $this->calendarioacademico_model->lista_calendarioacademicosA($data['evento']['idcalendarioacademico'])->result();
 		$data['sesionevento'] = $this->sesionevento_model->sesionevento_sesiones($idevento)->result();
 		$data['title']="Nueva sesion de eventos";
 	 	$this->load->view('template/page_header');		
