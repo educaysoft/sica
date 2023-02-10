@@ -57,15 +57,15 @@ foreach ($eventos as $row){
 			}
 			$i=$i+1;
 		}
-		$fechasesion=date("Y-m-d",strtotime($fechasesion."+ 1 days")); 
 	}
+		$fechasesion=date("Y-m-d",strtotime($fechasesion."+ 1 days")); 
 
     }while(strtotime($fechasesion)<=strtotime($calendarioacademico[0]->fechahasta));
 
 
-    print_r($sesiones);
-    echo $fecha;
-  die(); 
+   // print_r($sesiones);
+   // echo $fecha;
+  //die(); 
 	$eldia="No encontrado";	
     	$lahorai="00:00:00";
     	$lahoraf="00:00:00";
