@@ -75,6 +75,49 @@ if(isset($calendarioacademico))
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre: </label>
+	<div class="col-md-10">
+     	<?php 
+      echo form_input('nombre',$periodoacademico['nombre'],array('placeholder'=>'Nombre corto del periodoacademico'));
+
+	?>
+	</div> 
+</div>
+
+
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha desde: </label>
+	<div class="col-md-10">
+     	<?php 
+
+       echo form_input('fechadesde',$periodoacademico['fechadesde'],array('placeholder'=>'Fecha en que inicia el calendario')); 
+
+?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha hasta: </label>
+	<div class="col-md-10">
+     	<?php 
+
+       echo form_input('fechahasta',$periodoacademico['fechahasta'],array('placeholder'=>'Fecha en que inicia el calendario')); 
+
+?>
+	</div> 
+</div>
+
+
+
+
+
+
 
 
 <div class="form-group row">

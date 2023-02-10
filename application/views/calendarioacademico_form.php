@@ -35,6 +35,38 @@ foreach ($periodoacademicos as $row){
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+		<?php
+$eys_arrinput=array('name'=>'nombre','value'=>'', "style"=>"width:500px");
+ echo form_input($eys_arrinput); 
+		?>
+	</div> 
+</div>
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fechadesde:</label>
+	<div class="col-md-10">
+		<?php
+      echo form_input( array("name"=>'fechadesde',"id"=>'fechadesde',"value"=>'','type'=>'date','placeholder'=>'fecha')); 
+		?>
+	</div> 
+</div>
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fechahasta:</label>
+	<div class="col-md-10">
+		<?php
+      echo form_input( array("name"=>'fechahasta',"id"=>'fechahasta',"value"=>'','type'=>'date','placeholder'=>'fecha')); 
+		?>
+	</div> 
+</div>
+
+
 
  
 
