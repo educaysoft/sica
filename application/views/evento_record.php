@@ -252,7 +252,7 @@ echo form_input($arrdatos) ?>
      <?php 
     $options= array("NADA");
     foreach ($asignaturadocentes as $row){
-	      $options[$row->idasignaturadocente]= $row->nombre;
+	      $options[$row->idasignaturadocente]=$row->eldistributivodocente."-".$row->laasignatura."-".$row->paralelo; 
     }
 	?>
 	<div class="col-md-10">
