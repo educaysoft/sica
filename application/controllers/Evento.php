@@ -188,6 +188,7 @@ public function index(){
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
+		$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
 		$data['title']="Esta viendo el evento #: ";
 		$this->load->view('template/page_header');		
 		$this->load->view('evento_record',$data);
