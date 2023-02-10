@@ -64,6 +64,7 @@ foreach ($eventos as $row){
 
 
     print_r($sesiones);
+    echo $fecha;
   die(); 
 	$eldia="No encontrado";	
     	$lahorai="00:00:00";
