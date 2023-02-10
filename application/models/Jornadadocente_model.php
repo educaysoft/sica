@@ -6,6 +6,15 @@ class Jornadadocente_model extends CI_model {
 		 return $jornadadocente;
 	}
 
+	function jornadadocentexaula($idaula){
+		 $this->db->where('idaula',$idaula);
+		 $jornadadocente= $this->db->get('jornadadocente1');
+		 return $jornadadocente;
+	}
+
+
+
+
 
 	function lista_jornadadocentesA(){
 		 $jornadadocente= $this->db->get('jornadadocente1');

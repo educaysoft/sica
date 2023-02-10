@@ -118,11 +118,11 @@ function aula_data()
 			$draw= intval($this->input->get("length"));
 
 			$idaula=$this->input->get('idaula');
-			$data0 =$this->usoaula_model->usoaulasA($idaula);
+			$data0 =$this->jornadadocente_model->jornadadocentexaula($idaula);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idusoaula,$r->idaula,$r->lapersona,$r->fechaprestamo,$r->horaprestamo,$r->fechadevolucion,$r->horadevolucion,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('usoaula/actual').'"    data-idusoaula="'.$r->idusoaula.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('usoaula/edit').'"    data-idusoaula="'.$r->idusoaula.'">edit</a>');
+				$data[]=array($r->idaula,$r->laasignatura,$r->horainicio,$r->duracionminutos,$r->nombre,$r->nivel,$r->paralelo,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('usoaula/actual').'"    data-idaula="'.$r->idaula.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('aula/edit').'"    data-idaula="'.$r->idaula.'">edit</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),

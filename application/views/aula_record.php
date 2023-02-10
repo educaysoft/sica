@@ -70,7 +70,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('prestamoaula/add', 'Prestamo'); ?>: </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('Joranadadocente/add', 'Uso'); ?>: </label>
 	<div class="col-md-10">
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
@@ -79,13 +79,13 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 	<table class="table table-striped table-bordered table-hover" id="mydatac">
 	 <thead>
 	 <tr>
-	 <th>idprestamoaula</th>
 	 <th>idaula</th>
-	 <th>lapersona</th>
-	 <th>fechaprestamo.</th>
-	 <th>horaprestamo.</th>
-	 <th>fechadevolucion.</th>
-	 <th>horadevolucion.</th>
+	 <th>asignatura</th>
+	 <th>horainicio</th>
+	 <th>duracionminutos.</th>
+	 <th>nombre</th>
+	 <th>nivel.</th>
+	 <th>paralelo.</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
