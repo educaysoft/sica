@@ -47,7 +47,7 @@ foreach ($eventos as $row){
 		//$echo $dia. " = ".$row->nombre."\n";
 		if($row->nombre==$dia ){
 			$eldia=$dia;
-		}}
+		}
 
 	}
 	//die();
