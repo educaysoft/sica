@@ -131,7 +131,7 @@ foreach ($unidadsilabos as $row){
 <?php
  //print_r($sesionevento);
  //echo form_input("numerosesion",$sesionevento[0]->nsesion+1, array("readonly"=>"true","placeholder"=>"Numero de sesion"));
- echo form_input("numerosesion",$sesionactual, array("readonly"=>"true","placeholder"=>"Numero de sesion"));
+ echo form_input("numerosesion",$sesionactual, array("readonly"=>"true","placeholder"=>"Numero de sesion")); echo "/".$sesiontotal;
 
 ?>
 </div>
