@@ -5,7 +5,7 @@ class Aula extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('aula_model');
-      $this->load->model('usoaula_model');
+      $this->load->model('jornadadocente_model');
   	  $this->load->model('institucion_model');
 }
 
