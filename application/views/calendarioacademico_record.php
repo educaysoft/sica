@@ -79,7 +79,7 @@ if(isset($calendarioacademico))
     <label class="col-md-2 col-form-label"> Nombre: </label>
 	<div class="col-md-10">
      	<?php 
-      echo form_input('nombre',$periodoacademico['nombre'],array('placeholder'=>'Nombre corto del periodoacademico'));
+      echo form_input('nombre',$calendarioacademico['nombre'],array('placeholder'=>'Nombre corto del periodoacademico'));
 
 	?>
 	</div> 
@@ -95,7 +95,7 @@ if(isset($calendarioacademico))
 	<div class="col-md-10">
      	<?php 
 
-       echo form_input('fechadesde',$periodoacademico['fechadesde'],array('placeholder'=>'Fecha en que inicia el calendario')); 
+       echo form_input('fechadesde',$calendarioacademico['fechadesde'],array('placeholder'=>'Fecha en que inicia el calendario')); 
 
 ?>
 	</div> 
@@ -107,7 +107,7 @@ if(isset($calendarioacademico))
 	<div class="col-md-10">
      	<?php 
 
-       echo form_input('fechahasta',$periodoacademico['fechahasta'],array('placeholder'=>'Fecha en que inicia el calendario')); 
+       echo form_input('fechahasta',$calendarioacademico['fechahasta'],array('placeholder'=>'Fecha en que inicia el calendario')); 
 
 ?>
 	</div> 
