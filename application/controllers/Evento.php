@@ -81,6 +81,7 @@ public function index(){
 			'costo' => $this->input->post('costo'),
 			'idsilabo' => $this->input->post('idsilabo'),
 			'codigoclassroom' => $this->input->post('codigoclassroom'),
+			'idasignaturadocente' => $this->input->post('idasignaturadocente'),
 	 	);	 
 	 	$this->evento_model->save($array_item);
 	 	redirect('evento');
@@ -152,6 +153,7 @@ public function index(){
 			'costo' => $this->input->post('costo'),
 			'idsilabo' => $this->input->post('idsilabo'),
 			'codigoclassroom' => $this->input->post('codigoclassroom'),
+			'idasignaturadocente' => $this->input->post('idasignaturadocente'),
 	 	);
 	 	$this->evento_model->update($id,$array_item);
 	 	redirect('evento/actual/'.$id);
