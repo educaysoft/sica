@@ -47,6 +47,9 @@ class Calendarioacademico extends CI_Controller{
 	 	$array_item=array(
 		'iddepartamento' => $this->input->post('iddepartamento'),
 	 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+	 	'nombre' => $this->input->post('nombre'),
+	 	'fechadesde' => $this->input->post('fechadesde'),
+	 	'fechahasta' => $this->input->post('fechahasta'),
 	 	);
 	 	$this->calendarioacademico_model->save($array_item);
 	 	redirect('calendarioacademico');
@@ -75,6 +78,9 @@ class Calendarioacademico extends CI_Controller{
 		 	'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
 	 		'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
+	 		'nombre' => $this->input->post('nombre'),
+	 		'fechadesde' => $this->input->post('fechadesde'),
+	 		'fechahasta' => $this->input->post('fechahasta'),
 	 	);
 	 	$this->calendarioacademico_model->update($id,$array_item);
 	 	redirect('calendarioacademico/actual/'.$id);
