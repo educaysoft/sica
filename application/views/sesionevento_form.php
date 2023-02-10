@@ -41,7 +41,7 @@ foreach ($eventos as $row){
 
  $fechasesion=$calendarioacademico[0]->fechadesde;
  $sesion=array();
-     i=1;
+     $i=1;
     do {
 	
 	foreach ($jornadadocente as $row){
