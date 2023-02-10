@@ -59,7 +59,7 @@ foreach ($eventos as $row){
     }while(strtotime($fechasesion)<=strtotime($calendarioacademico[0]->fechahasta));
 
 
-    print_r($session);
+    print_r($sessiones);
   die(); 
 	$eldia="No encontrado";	
     	$lahorai="00:00:00";
