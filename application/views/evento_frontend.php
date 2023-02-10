@@ -21,21 +21,6 @@
 <?php echo form_open('evento/save_edit') ?>
 <?php echo form_hidden('idevento',$evento['idevento'],array('name'=>'idevento')) ?>
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('institucion/add', 'Institucion:') ?> </label>
-     <?php 
-    $options= array("NADA");
-    foreach ($instituciones as $row){
-	      $options[$row->idinstitucion]= $row->nombre;
-    }
-	?>
-	<div class="col-md-10">
-		<?php
-    $arrdatos=array('name'=>'idinstitucion','value'=>$options[$evento['idinstitucion']],"disabled"=>"disabled", "style"=>"width:600px");
-echo form_input($arrdatos) ?>
-	</div> 
-</div>
-
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Título del evento:</label>
@@ -168,7 +153,7 @@ echo form_input($arrdatos) ?>
 
 
 
-<div class="form-group row" style="border:solid;" >
+<div class="form-group row" style="border:solid; padding:2cm;" >
     <label class="col-md-2 col-form-label"> Sesiones ( <?php echo anchor('sesionevento/add/'.$evento['idevento'], 'New'); ?>):</label>
 	<div class="col-md-10">
 	<div class="row justify-content-left">
