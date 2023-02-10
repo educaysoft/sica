@@ -38,6 +38,7 @@ foreach ($eventos as $row){
     $fecha = date("Y-m-d");
     $horai= date("H:i:s");
 
+	$sesionactual=0;
 
  $fechasesion=$calendarioacademico[0]->fechadesde;
  $sesiones=array();
@@ -51,6 +52,9 @@ foreach ($eventos as $row){
 			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
 			$lahoraf=date("H:i:s",$lahoraf);
 			array_push($sesiones,array("sesion"=>$i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
+			if(strtotime($fechasesion)==strtotime($fecha){
+				$sesionactual=$i;
+			}
 			$i=$i+1;
 		}
 		$fechasesion=date("Y-m-d",strtotime($fechasesion."+ 1 days")); 
@@ -123,7 +127,8 @@ foreach ($unidadsilabos as $row){
 <div class="col-md-10">
 <?php
  //print_r($sesionevento);
- echo form_input("numerosesion",$sesionevento[0]->nsesion+1, array("readonly"=>"true","placeholder"=>"Numero de sesion"));
+ //echo form_input("numerosesion",$sesionevento[0]->nsesion+1, array("readonly"=>"true","placeholder"=>"Numero de sesion"));
+ echo form_input("numerosesion",$sesionactual, array("readonly"=>"true","placeholder"=>"Numero de sesion"));
 
 ?>
 </div>
