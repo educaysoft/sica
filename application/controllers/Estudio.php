@@ -13,7 +13,7 @@ public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['estudio']=$this->estudio_model->lista_estudios()->row_array();
+  	$data['estudio']=$this->estudio_model->elultimo();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['estudios']= $this->estudio_model->lista_estudios()->result();
