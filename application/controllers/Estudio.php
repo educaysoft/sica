@@ -36,7 +36,7 @@ public function index(){
 		if($this->uri->segment(3))
 		{
 			$idpersona=$this->uri->segment(3);
-			$data['personas']= $this->persona_model->personas($idpersona)->result();
+			$data['personas']= $this->persona_model->persona($idpersona)->result();
 		}else{
 
 			$data['personas']= $this->persona_model->lista_personas()->result();
