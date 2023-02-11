@@ -80,7 +80,7 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
 
-echo form_input('idpersona',$options[$estudio['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+echo form_input('idpersona',$options[$estudio['idpersona']],array("disabled"=>"disabled",'style'=>'width:600px;')) ?></td>
   </tr>
  
 
@@ -91,7 +91,7 @@ echo form_input('idpersona',$options[$estudio['idpersona']],array("disabled"=>"d
     foreach ($instituciones as $row){
 	      $options[$row->idinstitucion]= $row->nombre;
     }
-    echo form_input('idinstitucion',$options[$estudio['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+    echo form_input('idinstitucion',$options[$estudio['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:600px;')) ?></td>
  </tr>
   
 
@@ -99,14 +99,24 @@ echo form_input('idpersona',$options[$estudio['idpersona']],array("disabled"=>"d
   
 <tr>
       <td>Nivel del estudio:</td>
-      <td><?php echo form_input('nivel',$estudio['nivel'],array('type'=>'date','placeholder'=>'Niver de estudio','style'=>'width:500px;')) ?></td>
+      <td><?php echo form_input('nivel',$estudio['nivel'],array("disabled"=>"disabled",'type'=>'text','placeholder'=>'Niver de estudio','style'=>'width:600px;')) ?></td>
 </tr>
 
 <tr>
       <td>Titulo:</td>
-      <td><?php echo form_input('titulo',$estudio['titulo'],array('type'=>'date','placeholder'=>'Titulo obtenido','style'=>'width:500px;')) ?></td>
+      <td><?php echo form_input('titulo',$estudio['titulo'],array("disabled"=>"disabled",'type'=>'text','placeholder'=>'Titulo obtenido','style'=>'width:600px;')) ?></td>
 </tr>
 
+
+<tr>
+      <td>Fecha de registro:</td>
+      <td><?php echo form_input('fecharegistro',$estudio['fecharegistro'],array("disabled"=>"disabled",'type'=>'date','placeholder'=>'Titulo obtenido','style'=>'width:600px;')) ?></td>
+</tr>
+
+<tr>
+      <td>Número registro:</td>
+      <td><?php echo form_input('numeroregistro',$estudio['numeroregistro'],array("disabled"=>"disabled",'type'=>'text','placeholder'=>'Titulo obtenido','style'=>'width:500px;')) ?></td>
+</tr>
 
 
 

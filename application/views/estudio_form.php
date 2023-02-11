@@ -59,6 +59,16 @@ foreach ($instituciones as $row){
 <td><?php echo form_input(array("name"=>"titulo","id"=>"titulo","type"=>"text"));  ?></td>
 </tr>
 
+<tr>
+<td> Fecha de registro: </td>
+<td><?php echo form_input(array("name"=>"fecharegistro","id"=>"fecharegistro","type"=>"date"));  ?></td>
+</tr>
+
+<tr>
+<td> Número registro: </td>
+<td><?php echo form_input(array("name"=>"numeroregistro","id"=>"numeroregistro","type"=>"text"));  ?></td>
+</tr>
+
 
 <tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("estudio","Atras") ?> </td>
