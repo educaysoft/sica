@@ -37,7 +37,7 @@ class Ubicacionarticulo extends CI_Controller{
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['title']="Ubicacionarticulo del unidad";
 	 
-		$data['title']="Modulo de sesiones del evento";
+		$data['title']="Modulo ubicación del artículo: ";
 		$this->load->view('template/page_header');		
 		$this->load->view('ubicacionarticulo_record',$data);
 		$this->load->view('template/page_footer');
@@ -59,7 +59,7 @@ class Ubicacionarticulo extends CI_Controller{
 		$data['unidades']= $this->unidad_model->lista_unidades()->result();
    		date_default_timezone_set('America/Guayaquil');
 	     	$date = date("Y-m-d");
-		$data['title']="Nueva sesion de eventos";
+		$data['title']="Nueva ubicación de artículo: ";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('ubicacionarticulo_form',$data);
 	 	$this->load->view('template/page_footer');
