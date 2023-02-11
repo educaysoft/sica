@@ -98,7 +98,7 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('estudio/add', 'Estudios realizados:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('estudio/add/'.$docente['idpersona'], 'Estudios realizados:') ?> </label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">

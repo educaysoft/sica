@@ -33,7 +33,14 @@ public function index(){
 
 	public function add()
 	{
+		if($this->uri->segment(3))
+		{
+			$idpersona=$this->uri->segment(3);
+			$data['personas']= $this->persona_model->personas($idpersona)->result();
+		}else{
+
 			$data['personas']= $this->persona_model->lista_personas()->result();
+		}
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 			$data['title']="Nueva Estudio";
 			$this->load->view('template/page_header');		
