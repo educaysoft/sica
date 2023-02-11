@@ -67,7 +67,7 @@ if(isset($estudio))
 <?php echo form_hidden('idestudio',$estudio['idestudio']) ?>
 <table>
   <tr>
-     <td>Id Correo:</td>
+     <td>Id Estudio:</td>
      <td><?php echo form_input('idestudio',$estudio['idestudio'],array("disabled"=>"disabled",'placeholder'=>'Idestudios')) ?></td>
   </tr>
  

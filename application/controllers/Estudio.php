@@ -57,6 +57,8 @@ public function index(){
 			'idinstitucion' => $this->input->post('idinstitucion'),
 			'nivel' => $this->input->post('nivel'),
 			'titulo' => $this->input->post('titulo'),
+			'fecharegistro' => $this->input->post('fecharegistro'),
+			'numeroregistro' => $this->input->post('numeroregistro'),
 	 	);
 	 	$result=$this->estudio_model->save($array_item);
 	 	if($result == FALSE)
