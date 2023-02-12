@@ -84,7 +84,9 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
 
 
 
-<div class="row">
+
+<div class="form-group row">
+ <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Codeigniter 3 CRUD Example from scratch</h2>
@@ -93,12 +95,11 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
             <a class="btn btn-success" href="<?php echo base_url('itemCRUD/create') ?>"> Create New Item</a>
         </div>
     </div>
-</div>
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Asignaturas de docente<?php echo anchor('asignaturadocente/add/'.$distributivodocente['iddistributivodocente'], '(New)'); ?>: </label>
+</div> 
+
+  <label class="col-md-2 col-form-label"> Asignaturas de docente<?php echo anchor('asignaturadocente/add/'.$distributivodocente['iddistributivodocente'], '(New)'); ?>: </label>
 
 	<div class="col-md-10">
-<button type="button" style="float:right;">Right Float Button</button>
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
  	<div class="row">
