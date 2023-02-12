@@ -86,10 +86,6 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
 
 
 <div class="form-group row" style="border:solid ; padding:1cm;">
-<b>CodeIgniter 4 - Simple CRUD App</b>
-    <a href="/users/new" class="text-right btn btn-success">
-        Create New
-    </a>
     
 
 	<div class="col-md-10">
@@ -97,6 +93,11 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
       	<!-- Page Heading -->
  	<div class="row">
   	<div class="col-12">
+
+<b>CodeIgniter 4 - Simple CRUD App</b>
+    <a href="/users/new" class="text-right btn btn-success">
+        Create New
+    </a>
 	<table class="table table-striped table-bordered table-hover" id="mydatac">
 	 <thead>
 	 <tr>
