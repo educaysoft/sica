@@ -37,8 +37,14 @@ public function index(){
 
 public function add()
 {
+	$iddistributivo=0;
+	if($this->uri->segment(3))
+	{
+		$iddistributivo=$this->uri->segment(3);
+	}
+
+  		$data['distributivos']= $this->distributivo_model->lista_distributivos1($iddistributivo)->result();
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  		$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['title']="Nueva Distributivodocente";
 	 	$this->load->view('template/page_header');		

@@ -5,19 +5,6 @@
 <table>
 
 
-<tr>
-<td> Docente: </td>
-<td><?php 
-
-$options= array('--Select--');
-foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->eldocente;
-}
-
- echo form_dropdown("iddocente",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
-
-
 
 <tr>
 <td> Distributivo: </td>
@@ -27,9 +14,26 @@ $options= array('--Select--');
 foreach ($distributivos as $row){
 	$options[$row->iddistributivo]= $row->eldistributivo;
 }
-
  echo form_dropdown("iddistributivo",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
+
+
+
+
+<tr>
+<td> Docente: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($docentes as $row){
+	$options[$row->iddocente]= $row->eldocente;
+}
+ echo form_dropdown("iddocente",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
+
+
 
 
 
