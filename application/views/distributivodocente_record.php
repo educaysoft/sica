@@ -86,11 +86,13 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
 
 
 <div class="form-group row" style="border:solid ; padding:1cm;">
+<div style="max-width:500px">
 <h3>CodeIgniter 4 - Simple CRUD App</h3>
 <div class="text-end my-2">
     <a href="/users/new" class="btn btn-success">
         Create New
     </a>
+</div>
 </div>
     
 
