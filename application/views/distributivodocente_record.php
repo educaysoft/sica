@@ -94,7 +94,7 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
       	<!-- Page Heading -->
  	<div class="row">
   	<div class="col-12" style="border:solid;">
-<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:1cm solid white;">
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <b>Asignaturas del docente</b>
