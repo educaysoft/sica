@@ -145,7 +145,7 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
             <b>Silabos  del docente</b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('silabo/add/') ?>">Nueva asignatura</a>
+            <a class="btn btn-success" href="<?php echo base_url('silabo/add/') ?>">Crear un silabo</a>
         </div>
     </div>
 </div>
