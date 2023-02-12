@@ -86,7 +86,7 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
 
 
 <div class="form-group row">
-<div class="coll-md-10" id="textbox">
+<div style="clear:both;" id="textbox">
 <p style="float:left;"> hola</p>
 <p style="float:right;"> hola</p>
 </div>
