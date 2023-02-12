@@ -86,7 +86,12 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
 
 
 <div class="form-group row" style="border:solid ; padding:1cm;">
-
+<h3>CodeIgniter 4 - Simple CRUD App</h3>
+<div class="text-end my-2">
+    <a href="/users/new" class="btn btn-success">
+        Create New
+    </a>
+</div>
     <label class="col-md-2 col-form-label"> Asignaturas de docente<?php echo anchor('asignaturadocente/add/'.$distributivodocente['iddistributivodocente'], '(New)'); ?>: </label>
 
 	<div class="col-md-10">
