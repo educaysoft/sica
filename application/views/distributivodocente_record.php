@@ -93,11 +93,11 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
  	<div class="row">
-  	<div class="col-12" style="border:solid; padding:0.5cm">
+  	<div class="col-12" style="border:solid; padding-left:0.5cm;  padding-right:0.5cm;">
 <div class="row" style="background-color:gray; padding-top:0.5cm">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Asignaturas del docente</h2>
+            <b>Asignaturas del docente</b>
         </div>
         <div class="pull-right">
             <a class="btn btn-success" href="<?php echo base_url('asignaturadocente/add/'.$distributivodocente['iddistributivodocente']) ?>">Nueva asignatura</a>
