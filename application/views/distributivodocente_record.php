@@ -85,7 +85,7 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
 
 
 
-<div class="form-group row" style="border:solid; padding:0.5cm">
+<div class="form-group row" >
   
 
 
@@ -93,7 +93,7 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
  	<div class="row">
-  	<div class="col-12">
+  	<div class="col-12" style="border:solid; padding:0.5cm">
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
