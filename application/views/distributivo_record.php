@@ -109,6 +109,8 @@ echo form_input('iddepartamento',$options[$distributivo['iddepartamento']],array
 	 <th>iddisdoce</th>
 	 <th>iddocente</th>
 	 <th>eldocente</th>
+	 <th>#asigna</th>
+	 <th>horas</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
