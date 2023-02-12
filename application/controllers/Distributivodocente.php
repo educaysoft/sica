@@ -43,7 +43,7 @@ public function add()
 		$iddistributivo=$this->uri->segment(3);
 	}
 
-  		$data['distributivos']= $this->distributivo_model->lista_distributivos1($iddistributivo)->result();
+  		$data['distributivos']= $this->distributivo_model->distributivo1($iddistributivo)->result();
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['title']="Nueva Distributivodocente";
