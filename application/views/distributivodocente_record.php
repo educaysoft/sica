@@ -132,13 +132,25 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('silabo/add/', 'Silabos presentados:'); ?> </label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
  	<div class="row">
-  	<div class="col-12">
+  	<div class="col-12" style="border:solid;">
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Silabos  del docente</b>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-success" href="<?php echo base_url('silabo/add/') ?>">Nueva asignatura</a>
+        </div>
+    </div>
+</div>
+
+
 	<table class="table table-striped table-bordered table-hover" id="mydatas">
 	 <thead>
 	 <tr>
