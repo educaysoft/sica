@@ -86,10 +86,13 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
 
 
 <div class="form-group row">
+
+<p style="float:left;"> hola</p>
+<p style="float:right;"> hola</p>
+
     <label class="col-md-2 col-form-label"> Asignaturas de docente<?php echo anchor('asignaturadocente/add/'.$distributivodocente['iddistributivodocente'], '(New)'); ?>: </label>
 
 	<div class="col-md-10">
-<button type="button" style="float:right;">Right Float Button</button>
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
  	<div class="row">
