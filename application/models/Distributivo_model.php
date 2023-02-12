@@ -29,6 +29,13 @@ function lista_distributivos1($idperiodoacademico){
  		return $distributivo;
  	}
 
+
+ 	function distributivo1( $id){
+ 		$distributivo = $this->db->query('select * from distributivo1 where iddistributivo="'. $id.'"');
+ 		return $distributivo;
+ 	}
+
+
  	function save($array)
  	{
 		$this->db->insert("distributivo", $array);
