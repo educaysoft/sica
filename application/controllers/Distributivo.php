@@ -165,6 +165,8 @@ public function iniciar()
 
 	function docente_data()
 	{
+
+    			$this->template->set('title', 'Add New Employee');
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
