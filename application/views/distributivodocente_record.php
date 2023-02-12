@@ -95,7 +95,7 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
   	<div class="col-12">
 
 <b>CodeIgniter 4 - Simple CRUD App</b>
-<div class="btn-text-right">
+<div class="btn-text-right" style="width: 100vw">
     <a href="/users/new" class=" btn btn-success" style="text-align:right;">
         Create New
     </a>
