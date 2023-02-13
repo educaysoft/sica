@@ -482,7 +482,7 @@ public function index(){
 			$draw= intval($this->input->get("length"));
 
 			$id=$this->input->get('idevento');
-			$data0 =$this->participante_model->participantes1($id);
+			$data0 =$this->participante_model->participantes($id);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idparticipante,$r->nombres,$r->hoy,$r->archivopdf,
