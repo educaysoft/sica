@@ -48,8 +48,14 @@ class Distributivo extends CI_Controller{
 		'iddepartamento' => $this->input->post('iddepartamento'),
 	 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
-	 	$this->distributivo_model->save($array_item);
-	 	redirect('distributivo');
+	 	$result=$this->distributivo_model->save($array_item);
+	 	if($result == false)
+		{
+			echo "<script language='JavaScript'> alert('Persona ya existe'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
  	}
 
 

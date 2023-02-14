@@ -38,7 +38,23 @@ function lista_distributivos1($idperiodoacademico){
 
  	function save($array)
  	{
-		$this->db->insert("distributivo", $array);
+
+		$condition1 = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
+		$condition2 = "iddepartamento =" . "'" . $array['iddepartamento'] . "'";
+		$this->db->select('*');
+		$this->db->from('distributivo');
+		$this->db->where($condition1);
+		$this->db->where($condition2);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+			$this->db->insert("distributivo", $array);
+			return true;
+		}else{
+			return false;
+		}
+
+
  	}
 
  	function update($id,$array_item)
