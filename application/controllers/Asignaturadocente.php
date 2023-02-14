@@ -123,8 +123,8 @@ public function edit()
 
  	public function delete()
  	{
- 		$data=$this->asignaturadocente_model->delete($this->uri->segment(3));
-	 	if($result == FALSE)
+ 		$result=$this->asignaturadocente_model->delete($this->uri->segment(3));
+	 	if($result == false)
 		{
 			echo "<script language='JavaScript'> alert('Primero elimine la Joranada académica'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
