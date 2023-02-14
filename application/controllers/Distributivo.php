@@ -44,14 +44,24 @@ class Distributivo extends CI_Controller{
 
 	public function  save()
 	{
+
+
+   		date_default_timezone_set('America/Guayaquil');
+    		$fecha = date("Y-m-d");
+    		$hora= date("H:i:s");
+		$idusuario=$this->session->userdata['logged_in']['idusuario'];
+
 	 	$array_item=array(
 		'iddepartamento' => $this->input->post('iddepartamento'),
 	 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+	        'idusuario'=>$idusuario,
+		'fechacreacion'=>$fecha,
+		'horacreacion'=>$hora
 	 	);
 	 	$result=$this->distributivo_model->save($array_item);
 	 	if($result == false)
 		{
-			echo "<script language='JavaScript'> alert('Persona ya existe'); </script>";
+			echo "<script language='JavaScript'> alert('El distributivo ya fue creado'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
@@ -89,9 +99,16 @@ class Distributivo extends CI_Controller{
 
  	public function delete()
  	{
- 		$this->distributivo_model->delete($this->uri->segment(3));
+ 		$result->$this->distributivo_model->delete($this->uri->segment(3));
+	 	if($result == false)
+		{
+			echo "<script language='JavaScript'> alert('El distributivo no pudo eliminarse revise permisos'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
  //		echo json_encode($data);
-	 	redirect('distributivo/elultimo');
+	 //	redirect('distributivo/elultimo');
 	//	$db['default']['db_debug']=FALSE
  	}
 

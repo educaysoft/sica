@@ -67,12 +67,21 @@ function lista_distributivos1($idperiodoacademico){
 
  	public function delete($id)
 	{
+
+		$idusuario=$this->session->userdata['logged_in']['idusuario'];
+		if($idusuario==413) //SOLO PUEDE STALIN FRANCIS educaysoft@hotmail.com
+		{	
  		$this->db->where('iddistributivo',$id);
 		$this->db->delete('distributivo');
-    		if($this->db->affected_rows()==1)
-			$result=true;
-		else
+    			if($this->db->affected_rows()==1){
+				$result=true;
+
+			}else{
+				$result=false;
+			}
+		}else{
 			$result=false;
+		}
 		return $result;
  	}
 

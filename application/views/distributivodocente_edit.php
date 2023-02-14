@@ -17,7 +17,7 @@ echo form_input($eys_arrinput); ?></td>
 
  
  <tr>
-<td> Persona:</td>
+<td> Docente:</td>
 <td><?php
 $options= array('--Select--');
 foreach ($docentes as $row){
@@ -32,7 +32,7 @@ foreach ($docentes as $row){
 <td><?php
 $options= array('--Select--');
 foreach ($distributivos as $row){
-	$options[$row->iddistributivo]= $row->nombrecorto;
+	$options[$row->iddistributivo]= $row->eldistributivo;
 }
 
  echo form_dropdown("iddistributivo",$options, $distributivodocente['iddistributivo']);  ?></td>
