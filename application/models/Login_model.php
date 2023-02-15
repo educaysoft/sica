@@ -264,6 +264,7 @@ public function read_user_information($email,$password) {
                               $arrusuario[0]->{'inicio'}="principal";
                               return $arrusuario;
                           }
+			  }
                 }else{
                            return false;
                 }         
