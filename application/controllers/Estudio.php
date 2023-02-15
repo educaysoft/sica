@@ -7,6 +7,7 @@ class Estudio extends CI_Controller{
   	  $this->load->model('persona_model');
   	  $this->load->model('institucion_model');
   	  $this->load->model('estudio_model');
+  	$this->load->model('nivelestudio_model');
 }
 
 public function index(){
@@ -17,6 +18,7 @@ public function index(){
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['estudios']= $this->estudio_model->lista_estudios()->result();
+  		$data['nivelestudios']= $this->nivelestudio_model->lista_nivelestudios()->result();
 			
 		$data['title']="Lista de estudios";
 		$this->load->view('template/page_header');
@@ -41,6 +43,7 @@ public function index(){
 
 			$data['personas']= $this->persona_model->lista_personas()->result();
 		}
+  		$data['nivelestudios']= $this->nivelestudio_model->lista_nivelestudios()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 			$data['title']="Nueva Estudio";
 			$this->load->view('template/page_header');		
@@ -58,6 +61,7 @@ public function index(){
 			'nivel' => $this->input->post('nivel'),
 			'titulo' => $this->input->post('titulo'),
 			'fecharegistro' => $this->input->post('fecharegistro'),
+	 	'idnivelestudio' => $this->input->post('idnivelestudio'),
 			'numeroregistro' => $this->input->post('numeroregistro'),
 	 	);
 	 	$result=$this->estudio_model->save($array_item);
@@ -77,6 +81,7 @@ public function index(){
 			$data['estudio'] = $this->estudio_model->estudio($this->uri->segment(3))->row_array();
 			$data['personas']= $this->persona_model->lista_personas()->result();
 			$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  		$data['nivelestudios']= $this->nivelestudio_model->lista_nivelestudios()->result();
 			$data['title'] = "Actualizar Estudio";
 			$this->load->view('template/page_header');		
 			$this->load->view('estudio_edit',$data);
@@ -95,6 +100,7 @@ public function index(){
 			'idinstitucion' => $this->input->post('idinstitucion'),
 			'fecharegistro' => $this->input->post('fecharegistro'),
 			'numeroregistro' => $this->input->post('numeroregistro'),
+	 		'idnivelestudio' => $this->input->post('idnivelestudio'),
 			'nivel' => $this->input->post('nivel'),
 			'titulo' => $this->input->post('titulo'),
 	 	);
@@ -156,6 +162,7 @@ public function actual()
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['nivelestudios']= $this->nivelestudio_model->lista_nivelestudios()->result();
 
 
 	$data['estudio'] = $this->estudio_model->estudio($this->uri->segment(3))->row_array();
@@ -188,6 +195,7 @@ public function elprimero()
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['nivelestudios']= $this->nivelestudio_model->lista_nivelestudios()->result();
 
 
 	$data['estudio'] = $this->estudio_model->elprimero();
@@ -210,6 +218,7 @@ public function elultimo()
 	$data['estudio'] = $this->estudio_model->elultimo();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['nivelestudios']= $this->nivelestudio_model->lista_nivelestudios()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
@@ -231,6 +240,7 @@ public function siguiente(){
 	$data['estudio'] = $this->estudio_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['nivelestudios']= $this->nivelestudio_model->lista_nivelestudios()->result();
   
 
 $data['title']="Estudio";
@@ -244,6 +254,7 @@ public function anterior(){
 	$data['estudio'] = $this->estudio_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	$data['nivelestudios']= $this->nivelestudio_model->lista_nivelestudios()->result();
   $data['title']="Estudio";
 	$this->load->view('template/page_header');		
   $this->load->view('estudio_record',$data);

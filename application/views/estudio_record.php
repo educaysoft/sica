@@ -96,11 +96,25 @@ echo form_input('idpersona',$options[$estudio['idpersona']],array("disabled"=>"d
   
 
 
-  
 <tr>
-      <td>Nivel del estudio:</td>
-      <td><?php echo form_input('nivel',$estudio['nivel'],array("disabled"=>"disabled",'type'=>'text','placeholder'=>'Niver de estudio','style'=>'width:600px;')) ?></td>
+     <td>Nivel estudio:</td>
+     <td><?php 
+
+
+    $options= array("NADA");
+    foreach ($nivelestuidos as $row){
+	      $options[$row->idnivelestuido]= $row->nombre;
+    }
+    echo form_input('idnivelestuido',$options[$estudio['idnivelestuido']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+
+	?>
+	</td> 
 </tr>
+
+
+
+  
+
 
 <tr>
       <td>Titulo:</td>
