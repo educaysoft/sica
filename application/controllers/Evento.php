@@ -317,9 +317,14 @@ public function index(){
 
 		$id=$this->input->get('idpersona');
 
-		$data0 = $this->evento_model->lista_eventosP($id);
-		$data=array();
-		foreach($data0->result() as $r){
+
+		$result = $this->docente_model->esdocente($id);
+		if($result)
+		{
+
+			$data0 = $this->evento_model->lista_eventosP($id);
+			$data=array();
+			foreach($data0->result() as $r){
 			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
 					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Edit</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver2"  data-retorno2="'.site_url('evento/detalle').'"    data-idevento2="'.$r->idevento.'">Ver</a>');
 			}	
@@ -328,6 +333,29 @@ public function index(){
 				"recordsFiltered"=> $data0->num_rows(),
 				"data"=>$data
 			);
+		}else{
+
+
+			$data0 = $this->evento_model->lista_eventosP($id);
+			$data=array();
+			foreach($data0->result() as $r){
+			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
+					$r->href='<a href="javascript:void(0);"  class="btn btn-info btn-sm item_ver2"  data-retorno2="'.site_url('evento/detalle').'"    data-idevento2="'.$r->idevento.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+
+
+
+
+
+
+
+
+		}	
 			echo json_encode($output);
 			exit();
 

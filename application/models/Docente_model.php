@@ -40,6 +40,17 @@ class Docente_model extends CI_model {
 
 
 
+ 	function esdocente( $id){
+ 		$query = $this->db->query('select * from docente where idpersona="'. $id.'"');
+		if ($query->num_rows() == 0) {
+			return false;
+		   }else{
+			return true;
+		   }
+ 	}
+
+
+
  	function save($array)
  	{
 		$condition1 = "iddepartamento =" . "'" . $array['iddepartamento'] . "'";
