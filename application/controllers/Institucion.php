@@ -81,7 +81,7 @@ public function  save()
  	public function delete()
  	{
  		$result=$this->institucion_model->delete($this->uri->segment(3));
-	 	if($result == false)
+	 	if($result == FALSE)
 		{
 			echo "<script language='JavaScript'> alert('La institucion no pudo eliminarse revise permisos'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
