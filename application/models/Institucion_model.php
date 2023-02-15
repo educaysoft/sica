@@ -23,7 +23,7 @@ class Institucion_model extends CI_model {
 		$this->db->insert("institucion", $array);
 		  if( $this->db->affected_rows()>0){
 			$idinstitucion=$this->db->insert_id();
-		$this->db->insert("vitacora", array("idusuario"=>$idusuario,"fecha"=>$fecha,"tabla"=>"persona","accion"=>"se creo la institucion con id=".$idinstitucion,"url"=>$_SERVER['REQUEST_URI'],"hora"=>$hora));
+		$this->db->insert("vitacora", array("idusuario"=>$idusuario,"fecha"=>$fecha,"tabla"=>"institucion","accion"=>"se creo la institucion con id=".$idinstitucion,"url"=>$_SERVER['REQUEST_URI'],"hora"=>$hora));
 
 			return true;
 		   }else{
@@ -42,12 +42,20 @@ class Institucion_model extends CI_model {
 
  	public function delete($id)
 	{
+		$idusuario=$this->session->userdata['logged_in']['idusuario'];
+		if($idusuario==413) //SOLO PUEDE STALIN FRANCIS educaysoft@hotmail.com
+		{	
  		$this->db->where('idinstitucion',$id);
 		$this->db->delete('institucion');
     		if($this->db->affected_rows()==1)
+		{
 			$result=true;
-		else
+		}else{
 			$result=false;
+		}
+		}else{
+			$result=false;
+		}
 		return $result;
  	}
 

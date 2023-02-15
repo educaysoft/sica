@@ -80,7 +80,14 @@ public function  save()
 
  	public function delete()
  	{
- 		$this->institucion_model->delete($this->uri->segment(3));
+ 		$result=$this->institucion_model->delete($this->uri->segment(3));
+	 	if($result == false)
+		{
+			echo "<script language='JavaScript'> alert('La institucion no pudo eliminarse revise permisos'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
 	 	redirect('institucion/elultimo');
  	}
 
