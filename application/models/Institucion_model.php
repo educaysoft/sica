@@ -54,7 +54,7 @@ class Institucion_model extends CI_model {
 				$result=false;
 			}
 		}else{
-			$result=false;
+			$result=FALSE;
 		}
 			echo "aqui ".$result;
 			die();
