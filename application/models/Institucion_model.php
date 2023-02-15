@@ -14,7 +14,22 @@ class Institucion_model extends CI_model {
 
  	function save($array)
  	{
+
+   		date_default_timezone_set('America/Guayaquil');
+    		$fecha = date("Y-m-d");
+    		$hora= date("H:i:s");
+		$idusuario=$this->session->userdata['logged_in']['idusuario'];
+
 		$this->db->insert("institucion", $array);
+		  if( $this->db->affected_rows()>0){
+			$idinstitucion=$this->db->insert_id();
+		$this->db->insert("vitacora", array("idusuario"=>$idusuario,"fecha"=>$fecha,"tabla"=>"persona","accion"=>"se creo la institucion con id=".$idinstitucion,"url"=>$_SERVER['REQUEST_URI'],"hora"=>$hora));
+
+			return true;
+		   }else{
+			return false;
+		   }
+
  	}
 
  	function update($id,$array_item)

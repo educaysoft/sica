@@ -85,7 +85,7 @@ if(isset($persona))
 	foreach ($sexos as $row){
 		$options[$row->idsexo]= $row->nombre;
 	}
-	echo form_input('idsexo',$options[$persona['idsexo']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+	echo form_input('idsexo',$options[$persona['idsexo']],array("disabled"=>"disabled",'style'=>'width:600px;'));
 	?>
 	</div> 
 </div>
