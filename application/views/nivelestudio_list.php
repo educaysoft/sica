@@ -77,13 +77,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('nivelacademico/nivelacademico_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('nivelestudio/nivelestudio_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('idnivelacademico');
+var id= $(this).data('idnivelestudio');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 

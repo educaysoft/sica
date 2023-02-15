@@ -1,98 +1,55 @@
 <?php
 
-class Vitacora extends CI_Controller{
+class Nivelestudio extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('acceso_model');
-  	  $this->load->model('persona_model');
-  	  $this->load->model('usuario_model');
-  	  $this->load->model('modulo_model');
-  	  $this->load->model('nivelacceso_model');
+      $this->load->model('nivelacademico_model');
 }
 
 public function index(){
-
-  	if(isset($this->session->userdata['logged_in'])){
-			
-  	$data['acceso']=$this->acceso_model->lista_accesos()->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
-  	$data['modulos']= $this->modulo_model->lista_modulos()->result();
-  	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
-			
-		$data['title']="Lista de accesos";
+	if(isset($this->session->userdata['logged_in'])){
+		$data['nivelacademico']=$this->nivelacademico_model->nivelacademico(1)->row_array();
+		$data['title']="Lista de nivelacademicoes";
 		$this->load->view('template/page_header');
-		$this->load->view('acceso_record',$data);
+		$this->load->view('nivelacademico_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
 		$this->load->view('login_form');
 	 	$this->load->view('template/page_footer.php');
 	}
-
- }
-
-
-
-public function actual(){
- if(isset($this->session->userdata['logged_in'])){
-	$data['acceso']=$this->acceso_model->acceso($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
-  	$data['modulos']= $this->modulo_model->lista_modulos()->result();
-  	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
-	$data['title']="Modulo de acceso";
-	$this->load->view('template/page_header');		
-	$this->load->view('acceso_record',$data);
-	$this->load->view('template/page_footer');
-   }else{
-	$this->load->view('template/page_header.php');
-	$this->load->view('login_form');
-	$this->load->view('template/page_footer.php');
-   }
 }
-
 
 
 public function add()
 {
-	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
-  	$data['modulos']= $this->modulo_model->lista_modulos()->result();
-  	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
-		$data['title']="Nueva Vitacora";
+		$data['title']="Nueva nivelacademico";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('acceso_form',$data);
+	 	$this->load->view('nivelacademico_form',$data);
 	 	$this->load->view('template/page_footer');
-
-
 }
 
 
-	public function  save()
+public function  save()
 	{
 	 	$array_item=array(
-			'idusuario' => $this->input->post('idusuario'),
-			'idmodulo' => $this->input->post('idmodulo'),
-			'idnivelacceso' => $this->input->post('idnivelacceso'),
+	 	'idnivelacademico' => $this->input->post('idnivelacademico'),
+	 	'nombre' => $this->input->post('nombre'),
+	 	'numero' => $this->input->post('numero'),
 	 	);
-	 	$this->acceso_model->save($array_item);
-	 	redirect('acceso');
+	 	$this->nivelacademico_model->save($array_item);
+	 	redirect('nivelacademico');
  	}
 
 
 
 public function edit()
 {
-	 	$data['acceso'] = $this->acceso_model->acceso($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
-  		$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
-  		$data['modulos']= $this->modulo_model->lista_modulos()->result();
- 	 	$data['title'] = "Actualizar Vitacora";
+	 	$data['nivelacademico'] = $this->nivelacademico_model->nivelacademico($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar nivelacademico";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('acceso_edit',$data);
+ 	 	$this->load->view('nivelacademico_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -100,52 +57,50 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idacceso');
+		$id=$this->input->post('idnivelacademico');
 	 	$array_item=array(
 		 	
-		 	'idacceso' => $this->input->post('idacceso'),
-			'idusuario' => $this->input->post('idusuario'),
-			'idmodulo' => $this->input->post('idmodulo'),
-			'idnivelacceso' => $this->input->post('idnivelacceso'),
+		 	'idnivelacademico' => $this->input->post('idnivelacademico'),
+		 	'nombre' => $this->input->post('nombre'),
+	 		'numero' => $this->input->post('numero'),
 	 	);
-	 	$this->acceso_model->update($id,$array_item);
-	 	redirect('acceso');
+	 	$this->nivelacademico_model->update($id,$array_item);
+	 	redirect('nivelacademico');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->acceso_model->delete($this->uri->segment(3));
+ 		$data=$this->nivelacademico_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('acceso/elprimero');
+	 	redirect('nivelacademico/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
 
-	public function listar()
-	{
+public function listar()
+{
 	
-  		$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
-  		$data['title']="Vitacoras";
-		$this->load->view('template/page_header');		
-  		$this->load->view('acceso_list',$data);
-		$this->load->view('template/page_footer');
-	}
+  $data['title']="Nivelestudio";
+	$this->load->view('template/page_header');		
+  $this->load->view('nivelacademico_list',$data);
+	$this->load->view('template/page_footer');
+}
 
 
 
-function acceso_data()
+function nivelacademico_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
-		$id=$this->input->get('idusuario');
 
-	 	$data0 = $this->acceso_model->lista_accesosA($id);
+
+	 	$data0 = $this->nivelacademico_model->lista_nivelacademicos();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idacceso,$r->elusuario,$r->elmodulo,$r->elnivelacceso,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('acceso/actual').'"  data-idacceso="'.$r->idacceso.'">Ver</a>');
+			$data[]=array($r->idnivelacademico,$r->numero,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('nivelacademico/actual').'"     data-idnivelacademico="'.$r->idnivelacademico.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -161,6 +116,28 @@ function acceso_data()
 
 
 
+public function actual()
+{
+	$data['nivelacademico'] = $this->nivelacademico_model->nivelacademico($this->uri->segment(3))->row_array();
+  if(!empty($data))
+  {
+    $data['title']="Nivelestudio";
+    $this->load->view('template/page_header');		
+    $this->load->view('nivelacademico_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
+
+
+
 
 
 
@@ -168,22 +145,12 @@ function acceso_data()
 
 public function elprimero()
 {
-	$data['acceso'] = $this->acceso_model->elprimero();
-
-
+	$data['nivelacademico'] = $this->nivelacademico_model->elprimero();
   if(!empty($data))
   {
- 	$data['acceso']=$this->acceso_model->lista_accesos()->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
-  	$data['modulos']= $this->modulo_model->lista_modulos()->result();
-  	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
-	
-
-
-    $data['title']="Vitacora";
+    $data['title']="Nivelestudio";
     $this->load->view('template/page_header');		
-    $this->load->view('acceso_record',$data);
+    $this->load->view('nivelacademico_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -194,22 +161,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['acceso'] = $this->acceso_model->elultimo();
+	$data['nivelacademico'] = $this->nivelacademico_model->elultimo();
   if(!empty($data))
   {
-	$data['acceso'] = $this->acceso_model->elultimo();
- //	$data['acceso']=$this->acceso_model->lista_accesos()->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
-  	$data['modulos']= $this->modulo_model->lista_modulos()->result();
-  	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
-	
-
-
-    $data['title']="Vitacora";
+    $data['title']="Nivelestudio";
   
     $this->load->view('template/page_header');		
-    $this->load->view('acceso_record',$data);
+    $this->load->view('nivelacademico_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -220,38 +178,21 @@ public function elultimo()
 }
 
 public function siguiente(){
- 
-
-	$data['acceso'] = $this->acceso_model->siguiente($this->uri->segment(3))->row_array();
-
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
-  	$data['modulos']= $this->modulo_model->lista_modulos()->result();
-  	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
-	
-
-
- 	$data['title']="Vitacora";
+ // $data['nivelacademico_list']=$this->nivelacademico_model->lista_nivelacademico()->result();
+	$data['nivelacademico'] = $this->nivelacademico_model->siguiente($this->uri->segment(3))->row_array();
+  $data['title']="Nivelestudio";
 	$this->load->view('template/page_header');		
-  	$this->load->view('acceso_record',$data);
+  $this->load->view('nivelacademico_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
-	$data['acceso'] = $this->acceso_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
-  	$data['modulos']= $this->modulo_model->lista_modulos()->result();
-  	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
-	 
- 
-  $data['title']="Vitacora";
+ // $data['nivelacademico_list']=$this->nivelacademico_model->lista_nivelacademico()->result();
+	$data['nivelacademico'] = $this->nivelacademico_model->anterior($this->uri->segment(3))->row_array();
+  $data['title']="Nivelestudio";
 	$this->load->view('template/page_header');		
-  $this->load->view('acceso_record',$data);
+  $this->load->view('nivelacademico_record',$data);
 	$this->load->view('template/page_footer');
 }
-
-
-
 
 }

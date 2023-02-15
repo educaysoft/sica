@@ -190,8 +190,11 @@ alter table persona add column horacreacion time;*/
 /* alter table evento add column idcalendarioacademico int(11); */
 
 
- alter table distributivo add column idusuario int(11); 
- alter table distributivo add column fechacreacion date; 
- alter table distributivo add column horacreacion time; 
+/* alter table distributivo add column idusuario int(11);*/ 
+ /*alter table distributivo add column fechacreacion date; */ 
+ /*alter table distributivo add column horacreacion time; */ 
 
 
+
+
+alter table estudio change nivel  idnivelestudio int(11);

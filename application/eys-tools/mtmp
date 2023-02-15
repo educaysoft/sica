@@ -1,57 +1,33 @@
 <?php
-class Acceso_model extends CI_model {
+class Nivelacademico_model extends CI_model {
 
-	function lista_accesos(){
-		 $acceso= $this->db->get('acceso');
-		 return $acceso;
+	function lista_nivelacademicos(){
+		 $nivelacademico= $this->db->get('nivelacademico');
+		 return $nivelacademico;
 	}
 
-
-	function lista_accesosA($id){
-		 if($id>0){
-		 $this->db->where('idusuario',$id);
-		 }
-		 $acceso= $this->db->get('acceso1');
-		 return $acceso;
-	}
-
-
-
- 	function acceso( $id){
- 		$acceso = $this->db->query('select * from acceso where idacceso="'. $id.'"');
- 		return $acceso;
+ 	function nivelacademico( $id){
+ 		$nivelacademico = $this->db->query('select * from nivelacademico where idnivelacademico="'. $id.'"');
+ 		return $nivelacademico;
  	}
-
-
- 	function usuario($id){
- 		$acceso = $this->db->where('idusuario',$id)->get('acceso');
- 		return $acceso;
- 	}
-
-
- 	function get_usuario($id){
- 		$acceso = $this->db->where('idusuario',$id)->get('acceso');
- 		return $acceso->result();
- 	}
-
 
  	function save($array)
  	{
-		$this->db->insert("acceso", $array);
+		$this->db->insert("nivelacademico", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idacceso',$id);
- 		$this->db->update('acceso',$array_item);
+ 		$this->db->where('idnivelacademico',$id);
+ 		$this->db->update('nivelacademico',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idacceso',$id);
-		$this->db->delete('acceso');
+ 		$this->db->where('idnivelacademico',$id);
+		$this->db->delete('nivelacademico');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -62,7 +38,7 @@ class Acceso_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idacceso")->get('acceso');
+		$query=$this->db->order_by("idnivelacademico")->get('nivelacademico');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -75,7 +51,7 @@ class Acceso_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idacceso")->get('acceso');
+		$query=$this->db->order_by("idnivelacademico")->get('nivelacademico');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -87,37 +63,37 @@ class Acceso_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$acceso = $this->db->select("idacceso")->order_by("idacceso")->get('acceso')->result_array();
-		$arr=array("idacceso"=>$id);
-		$clave=array_search($arr,$acceso);
-	   if(array_key_exists($clave+1,$acceso))
+ 		$nivelacademico = $this->db->select("idnivelacademico")->order_by("idnivelacademico")->get('nivelacademico')->result_array();
+		$arr=array("idnivelacademico"=>$id);
+		$clave=array_search($arr,$nivelacademico);
+	   if(array_key_exists($clave+1,$nivelacademico))
 		 {
 
- 		$acceso = $this->db->query('select * from acceso where idacceso="'. $acceso[$clave+1]["idacceso"].'"');
+ 		$nivelacademico = $this->db->query('select * from nivelacademico where idnivelacademico="'. $nivelacademico[$clave+1]["idnivelacademico"].'"');
 		 }else{
 
- 		$acceso = $this->db->query('select * from acceso where idacceso="'. $id.'"');
+ 		$nivelacademico = $this->db->query('select * from nivelacademico where idnivelacademico="'. $id.'"');
 		 }
 		 	
- 		return $acceso;
+ 		return $nivelacademico;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$acceso = $this->db->select("idacceso")->order_by("idacceso")->get('acceso')->result_array();
-		$arr=array("idacceso"=>$id);
-		$clave=array_search($arr,$acceso);
-	   if(array_key_exists($clave-1,$acceso))
+ 		$nivelacademico = $this->db->select("idnivelacademico")->order_by("idnivelacademico")->get('nivelacademico')->result_array();
+		$arr=array("idnivelacademico"=>$id);
+		$clave=array_search($arr,$nivelacademico);
+	   if(array_key_exists($clave-1,$nivelacademico))
 		 {
 
- 		$acceso = $this->db->query('select * from acceso where idacceso="'. $acceso[$clave-1]["idacceso"].'"');
+ 		$nivelacademico = $this->db->query('select * from nivelacademico where idnivelacademico="'. $nivelacademico[$clave-1]["idnivelacademico"].'"');
 		 }else{
 
- 		$acceso = $this->db->query('select * from acceso where idacceso="'. $id.'"');
+ 		$nivelacademico = $this->db->query('select * from nivelacademico where idnivelacademico="'. $id.'"');
 		 }
 		 	
- 		return $acceso;
+ 		return $nivelacademico;
  	}
 
 
