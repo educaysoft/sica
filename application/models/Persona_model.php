@@ -110,6 +110,9 @@ class Persona_model extends CI_model {
 
  	public function delete($id)
 	{
+		$idusuario=$this->session->userdata['logged_in']['idusuario'];
+		if($idusuario==413) //SOLO PUEDE STALIN FRANCIS educaysoft@hotmail.com
+		{	
 		$condition = "idpersona =" . "'" . $id . "'";
 		$this->db->select('*');
 		$this->db->from('correo');
@@ -158,6 +161,9 @@ class Persona_model extends CI_model {
 		}
 
 
+		}else{
+			$result=FALSE;
+		}
 		return $result;
  	}
 

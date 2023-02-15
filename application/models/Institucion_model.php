@@ -14,7 +14,6 @@ class Institucion_model extends CI_model {
 
  	function save($array)
  	{
-
    		date_default_timezone_set('America/Guayaquil');
     		$fecha = date("Y-m-d");
     		$hora= date("H:i:s");
