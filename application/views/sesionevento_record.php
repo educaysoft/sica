@@ -6,6 +6,27 @@
 <?php
 if(isset($sesionevento))
 {
+	$permitir=0;
+	$j=0;
+	$numero=$j;
+	if(isset($this->session->userdata['acceso'])){
+  		foreach($this->session->userdata['acceso'] as $row)
+	    	{
+			if($row["modulo"]["id"]==25) //modulo documento
+			{
+				$numero=$j; //el inidice del arreglo donde estan los permisos
+				$permitir=1; //indicador de que si se encontro permisos
+			}		
+			$j=$j+1;
+	    	} 
+	}
+	if($permitir==0){
+		redirect('login/logout');
+	}
+
+
+
+
 ?>
  
         <li> <?php echo anchor('sesionevento/elprimero/', 'primero'); ?></li>
