@@ -6,6 +6,7 @@ class Evento extends CI_Controller{
       $this->load->model('evento_estado_model');
       $this->load->model('tipoevento_model');
       $this->load->model('participante_model');
+      $this->load->model('docente_model');
       $this->load->model('sesionevento_model');
       $this->load->model('institucion_model');
       $this->load->model('tema_model');
