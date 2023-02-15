@@ -71,7 +71,7 @@ class Persona_model extends CI_model {
 			}
 
 
-		   	$this->db->insert("vitacora", array("idusuario"=>$array_persona['idusuario'],"fecha"=>$array_persona['fechacreacion'],"tabla"=>"persona","accion"=>"se creoo la persona con id=".$idpersona),"url"=>$_SERVER['REQUEST_URI']);
+		   	$this->db->insert("vitacora", array("idusuario"=>$array_persona['idusuario'],"fecha"=>$array_persona['fechacreacion'],"tabla"=>"persona","accion"=>"se creoo la persona con id=".$idpersona,"url"=>$_SERVER['REQUEST_URI']));
 
 			$this->db->trans_commit();
 			return true;
@@ -90,10 +90,10 @@ class Persona_model extends CI_model {
 
 	function update($idpersona,$array_item)
 	{
-   			date_default_timezone_set('America/Guayaquil');
-    			$fecha = date("Y-m-d");
-    			$hora= date("H:i:s");
-			$idusuario=$this->session->userdata['logged_in']['idusuario'];
+   		date_default_timezone_set('America/Guayaquil');
+    		$fecha = date("Y-m-d");
+    		$hora= date("H:i:s");
+		$idusuario=$this->session->userdata['logged_in']['idusuario'];
 
 		$this->db->where('idpersona',$idpersona);
 		$this->db->update('persona',$array_item);
