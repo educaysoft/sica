@@ -45,14 +45,14 @@ class Institucion_model extends CI_model {
 		$idusuario=$this->session->userdata['logged_in']['idusuario'];
 		if($idusuario==413) //SOLO PUEDE STALIN FRANCIS educaysoft@hotmail.com
 		{	
- 		$this->db->where('idinstitucion',$id);
-		$this->db->delete('institucion');
-    		if($this->db->affected_rows()==1)
-		{
-			$result=true;
-		}else{
-			$result=false;
-		}
+ 			$this->db->where('idinstitucion',$id);
+			$this->db->delete('institucion');
+    			if($this->db->affected_rows()==1)
+			{
+				$result=true;
+			}else{
+				$result=false;
+			}
 		}else{
 			$result=false;
 		}
