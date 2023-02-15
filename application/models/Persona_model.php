@@ -97,7 +97,7 @@ class Persona_model extends CI_model {
 
 		$this->db->where('idpersona',$idpersona);
 		$this->db->update('persona',$array_item);
-		$this->db->insert("vitacora", array("idusuario"=>$idusuario,"fecha"=>$fecha,"tabla"=>"persona","accion"=>"se modifico la persona con id=".$idpersona),"url"=>$_SERVER['REQUEST_URI'],"hora"=>$hora);
+		$this->db->insert("vitacora", array("idusuario"=>$idusuario,"fecha"=>$fecha,"tabla"=>"persona","accion"=>"se modifico la persona con id=".$idpersona,"url"=>$_SERVER['REQUEST_URI'],"hora"=>$hora));
    }
 
 	function getCSV() {
