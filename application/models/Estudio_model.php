@@ -46,6 +46,10 @@ class Estudio_model extends CI_model {
 
  	function save($array)
  	{
+   		date_default_timezone_set('America/Guayaquil');
+    		$fecha = date("Y-m-d");
+    		$hora= date("H:i:s");
+		$idusuario=$this->session->userdata['logged_in']['idusuario'];
 
 		$condition1 = "idpersona =" . "'" . $array['idpersona'] . "'";
 		$condition2 = "idinstitucion =" . "'" . $array['idinstitucion'] . "'";
@@ -59,6 +63,8 @@ class Estudio_model extends CI_model {
 		$query = $this->db->get();
 		if ($query->num_rows() == 0) {
 			$this->db->insert("estudio", $array);
+			$idestudio=$this->db->insert_id();
+		$this->db->insert("vitacora", array("idusuario"=>$idusuario,"fecha"=>$fecha,"tabla"=>"estudio","accion"=>"se creo el estuod(titulo)( con id=".$idestudio,"url"=>$_SERVER['REQUEST_URI'],"hora"=>$hora));
 			return true;
 		   }else{
 			return false;
@@ -75,12 +81,20 @@ class Estudio_model extends CI_model {
 
  	public function delete($id)
 	{
- 		$this->db->where('idestudio',$id);
-		$this->db->delete('estudio');
-    		if($this->db->affected_rows()==1)
-			$result=true;
-		else
-			$result=false;
+		$idusuario=$this->session->userdata['logged_in']['idusuario'];
+		if($idusuario==413) //SOLO PUEDE STALIN FRANCIS educaysoft@hotmail.com
+		{	
+ 			$this->db->where('idestudio',$id);
+			$this->db->delete('estudio');
+    			if($this->db->affected_rows()==1)
+			{
+				$result=true;
+			}else{
+				$result=false;
+			}
+		}else{
+			$result=FALSE;
+		}
 		return $result;
  	}
 

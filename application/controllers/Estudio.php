@@ -111,9 +111,20 @@ public function index(){
 
  	public function delete()
  	{
- 		$data=$this->estudio_model->delete($this->uri->segment(3));
- 		echo json_encode($data);
-	 	redirect('estudio/elprimero');
+
+ 		$result=$this->estudio_model->delete($this->uri->segment(3));
+	 	if(!$result)
+		{
+			echo "<script language='JavaScript'> alert('La institucion no pudo eliminarse revise permisos'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+
+
+ //		$data=$this->estudio_model->delete($this->uri->segment(3));
+ //		echo json_encode($data);
+//	 	redirect('estudio/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
