@@ -248,6 +248,19 @@ public function read_user_information($email,$password) {
                               $arrusuario[0]->{'inicio'}=$query->result()[0]->ruta;
                               return $arrusuario;
                           } else {
+
+
+                        $condition = "idpagina =47";
+                        $this->db->select('*');
+                        $this->db->from('pagina');
+                        $this->db->where($condition);
+                        $this->db->limit(1);
+                        $query = $this->db->get();
+                        if ($query->num_rows() == 1) {
+                              $arrusuario[0]->{'inicio'}=$query->result()[0]->ruta;
+                              return $arrusuario;
+                          } else {
+
                               $arrusuario[0]->{'inicio'}="principal";
                               return $arrusuario;
                           }
