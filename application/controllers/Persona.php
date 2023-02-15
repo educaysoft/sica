@@ -151,7 +151,7 @@ public function add()
  		$result=$this->persona_model->delete($this->uri->segment(3));
 	 	if(!$result)
 		{
-			echo "<script language='JavaScript'> alert('La institucion no pudo eliminarse revise permisos'); </script>";
+			echo "<script language='JavaScript'> alert('La persona no pudo eliminarse revise permisos'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
