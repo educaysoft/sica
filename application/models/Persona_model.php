@@ -69,6 +69,10 @@ class Persona_model extends CI_model {
 				$array_telefono['idpersona']=$idpersona;
 				$this->db->insert('telefono',$array_telefono);
 			}
+
+
+		   	$this->db->insert("vitacora", array("idusuario"=>$array_persona['idusuario'],"fecha"=>$array_persona['fechacreacion'],"tabla"=>"persona","accion"=>"se creoo la persona con id=".$idpersona),"url"=>$_SERVER['REQUEST_URI']);
+
 			$this->db->trans_commit();
 			return true;
 		   }else{
@@ -84,10 +88,16 @@ class Persona_model extends CI_model {
 
 	}
 
-	function update($id,$array_item)
+	function update($idpersona,$array_item)
 	{
-		$this->db->where('idpersona',$id);
+   			date_default_timezone_set('America/Guayaquil');
+    			$fecha = date("Y-m-d");
+    			$hora= date("H:i:s");
+			$idusuario=$this->session->userdata['logged_in']['idusuario'];
+
+		$this->db->where('idpersona',$idpersona);
 		$this->db->update('persona',$array_item);
+		$this->db->insert("vitacora", array("idusuario"=>$idusuario,"fecha"=>$fecha,"tabla"=>"persona","accion"=>"se modifico la persona con id=".$idpersona),"url"=>$_SERVER['REQUEST_URI'],"hora"=>$hora);
    }
 
 	function getCSV() {
