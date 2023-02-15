@@ -35,17 +35,17 @@ if(isset($institucion))
 
   <tr>
      <td>idinstitucion:</td>
-     <td><?php echo form_input('idinstitucion',$institucion['idinstitucion'],array("disabled"=>"disabled")) ?></td>
+     <td><?php echo form_input('idinstitucion',$institucion['idinstitucion'],array("disabled"=>"disabled",'style'=>'width:600px;')) ?></td>
   </tr>
  
  <tr>
       <td>Nombres:</td>
-      <td><?php echo form_input('nombre',$institucion['nombre'],array('placeholder'=>'Nombre del institucion')) ?></td>
+      <td><?php echo form_input('nombre',$institucion['nombre'],array('placeholder'=>'Nombre del institucion',"disabled"=>"disabled",'style'=>'width:600px;')) ?></td>
   </tr>
 
   <tr>
       <td>Iniciales:</td>
-      <td><?php echo form_input('iniciales',$institucion['iniciales'],array('placeholder'=>'Iniciales de la institucion')) ?></td>
+      <td><?php echo form_input('iniciales',$institucion['iniciales'],array('placeholder'=>'Iniciales de la institucion',"disabled"=>"disabled",'style'=>'width:600px;')) ?></td>
   </tr> 
    
 
