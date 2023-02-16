@@ -211,7 +211,7 @@ foreach ($modoevaluacions as $row){
 
 <table>
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("participante","Atrás") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("sesionevento","Atrás") ?> </td>
 </tr>
 
 </table>
