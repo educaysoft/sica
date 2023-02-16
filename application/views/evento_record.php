@@ -450,6 +450,7 @@ foreach ($eventos as $row){
 <div class="col-md-10">
 <?php
 
+ $dias = array('Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado');
    date_default_timezone_set('America/Guayaquil');
     $date = date("Y-m-d");
     $horai= date("H:i:s");
@@ -457,6 +458,57 @@ foreach ($eventos as $row){
 
     $horaf= date("H:i:s",strtotime(' + 2 hours'));
 
+	$sesionactual=0;
+	$sesiontotal=0;
+
+ $fechasesion=$calendarioacademico[0]->fechadesde;
+ $sesiones=array();
+     $i=1;
+    do {
+	
+	foreach ($jornadadocente as $row){
+    		$dia = $dias[date('w', strtotime($fechasesion))];
+		if($row->nombre==$dia ){
+			$lahorai=$row->horainicio;
+			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
+			$lahoraf=date("H:i:s",$lahoraf);
+			array_push($sesiones,array("sesion"=>$i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
+			if(strtotime($fechasesion)==strtotime($fecha)){
+				$sesionactual=$i;
+			}
+			$sesiontotal=$sesiontotal+1;
+			$i=$i+1;
+		}
+	}
+		$fechasesion=date("Y-m-d",strtotime($fechasesion."+ 1 days")); 
+
+    }while(strtotime($fechasesion)<=strtotime($calendarioacademico[0]->fechahasta));
+
+
+   // print_r($sesiones);
+   // echo $fecha;
+  //die(); 
+	$eldia="No encontrado";	
+    	$lahorai="00:00:00";
+    	$lahoraf="00:00:00";
+
+
+
+
+
+	foreach ($jornadadocente as $row){
+    		$dia = $dias[date('w', strtotime($fecha))];
+		//$echo $dia. " = ".$row->nombre."\n";
+		if($row->nombre==$dia ){
+			$eldia=$dia;
+			$lahorai=$row->horainicio;
+			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
+			$lahoraf=date("H:i:s",$lahoraf);
+		}
+	}
+	//die();
+
+    	$horaf= date("H:i:s",strtotime(' + 2 hours'));
  echo form_input(array("name"=>"fecha_edit","id"=>"fecha_edit","type"=>"date","value"=>$date));  
 
 ?>
@@ -522,7 +574,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div class="col-md-10">
 <?php
 
- echo form_input(array("name"=>"horainicio_edit","id"=>"horainicio_edit","type"=>"time","value"=>$horai));  
+ echo form_input(array("name"=>"horainicio_edit","id"=>"horainicio_edit","type"=>"time","value"=>$horai));  ; echo $lahorai;
 
 ?>
 </div>
@@ -532,8 +584,9 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <label class="col-md-2 col-form-label">Hora fin:</label>
 <div class="col-md-10">
 <?php
+ $horaf="";
+ echo form_input(array("name"=>"horafin_edit","id"=>"","type"=>"time","value"=>$horaf));   echo $lahoraf;
 
- echo form_input(array("name"=>"horafin_edit","id"=>"","type"=>"time","value"=>$horaf));  
 
 ?>
 </div>
@@ -546,9 +599,10 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <?php
 $options= array('--Select--');
 foreach ($modoevaluacions as $row){
-	$options[$row->idmodoevaluacion]= $row->nombre;
+	$options[$row->idmodoevaluacion]= $row->nombre."(Porderación=".$row->ponderacion.")";
 }
 
+ $primero= reset($options);
  echo form_dropdown("idmodoevaluacion_edit",$options, set_select('--Select--','default_value'),array('id'=>'idmodoevaluacion_edit'));  
 ?>
 </div>
