@@ -45,7 +45,7 @@ class Sesionevento extends CI_Controller{
 
 
 	public function actual(){
-	 if(isset($this->session->userdata['logged_in'])){
+//	 if(isset($this->session->userdata['logged_in'])){
 
 		$data['sesionevento'] = $this->sesionevento_model->sesionevento($this->uri->segment(3))->row_array();
 
@@ -62,11 +62,11 @@ class Sesionevento extends CI_Controller{
 		$this->load->view('template/page_header');		
 		$this->load->view('sesionevento_record',$data);
 		$this->load->view('template/page_footer');
-	   }else{
-		$this->load->view('template/page_header.php');
-		$this->load->view('login_form');
-		$this->load->view('template/page_footer.php');
-	   }
+//	   }else{
+//		$this->load->view('template/page_header.php');
+//		$this->load->view('login_form');
+//		$this->load->view('template/page_footer.php');
+//	   }
 	}
 
 
