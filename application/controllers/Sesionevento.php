@@ -192,7 +192,14 @@ class Sesionevento extends CI_Controller{
 		 	'horainicio' => $this->input->post('horainicio'),
 		 	'horafin' => $this->input->post('horafin'),
 	 	);
-	 	$this->sesionevento_model->update($id,$array_item);
+	 	$result=$this->sesionevento_model->update($id,$array_item);
+	 	if(!$result)
+		{
+			echo "<script language='JavaScript'> alert('sesion no dr pudo mofigicar'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
 	 	redirect('sesionevento/actual/'.$id);
  	}
 

@@ -106,6 +106,12 @@ class Sesionevento_model extends CI_model {
  	{
  		$this->db->where('idsesionevento',$id);
  		$this->db->update('sesionevento',$array_item);
+		if($this->db->affected_rows()>0)
+		{
+			return true;
+		}else{
+			return false;
+		}
 	}
  
 
