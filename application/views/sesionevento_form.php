@@ -20,13 +20,6 @@ foreach ($eventos as $row){
 </div>
 </div>
 
-<?php
-
-
-
-
-
-?>
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Fecha de la sesión:</label>
@@ -218,7 +211,7 @@ foreach ($modoevaluacions as $row){
 
 <table>
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("sesionevento","Atrás") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("participante","Atrás") ?> </td>
 </tr>
 
 </table>
