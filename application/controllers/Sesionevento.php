@@ -297,20 +297,20 @@ public function elprimero()
 
 public function elultimo()
 {
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['sesionevento'] = $this->sesionevento_model->elultimo();
-		$data['evento'] = $this->evento_model->evento($data['sesionevento']['idevento'])->row_array();
-		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
-  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
+	$data['evento'] = $this->evento_model->evento($data['sesionevento']['idevento'])->row_array();
+	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+  	$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
   if(!empty($data))
   {
-  		$data['eventos']= $this->evento_model->lista_eventos()->result();
+  	$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Sesionevento del documento";
+    	$data['title']="Sesionevento del documento";
   
-    $this->load->view('template/page_header');		
-    $this->load->view('sesionevento_record',$data);
-    $this->load->view('template/page_footer');
+    	$this->load->view('template/page_header');		
+    	$this->load->view('sesionevento_record',$data);
+    	$this->load->view('template/page_footer');
   }else{
 
     $this->load->view('template/page_header');		
