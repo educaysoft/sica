@@ -200,7 +200,6 @@ class Sesionevento extends CI_Controller{
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}
-	 	redirect('sesionevento/actual/'.$id);
  	}
 
 
