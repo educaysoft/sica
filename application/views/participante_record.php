@@ -1,6 +1,6 @@
 <style>
 .modal.face .modal-dialog{
-	transform: translate3d(0,100vh,0);
+	transform: translate3d(0,150vh,0);
 }
 
 .modal.in .modal-dialog{
@@ -276,22 +276,6 @@ echo form_input('idnivelparticipante',$options[$participante['idnivelparticipant
 					<?php
 					$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"comentario",'id'=>'comentario_edit' );
 					echo form_textarea("comentario_edit","",$textarea_options);
-
-					?>
-					</div>
-					</div>
-
-
-					<div class="form-group row">
-					<label class="col-md-2 col-form-label">Tipo participacion:</label>
-					<div class="col-md-10">
-					<?php
-					//print_r($tipoparticipacions);
-					$options= array('--Select--');
-					foreach ($tipoparticipacion as $row){
-						$options[$row->idtipoparticipacion]= $row->nombre;
-					}
-					 echo form_dropdown("idtipoparticipacion_edit",$options, set_select('--Select--','default_value'),array('id'=>'idtipoparticipacion_edit'));  
 
 					?>
 					</div>
