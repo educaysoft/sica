@@ -413,6 +413,9 @@ $("#btn_update").on("click", function(){
         data: {idevento:idevento, fecha:fecha,porcentaje:porcentaje,comentario:comentario,idpersona:idpersona, ayuda:ayuda},
         dataType : 'JSON',
         success: function(data){
+		data.idevento=idevento;
+		data.idpersona=idpersona;
+
 	$("#Modal_Edit").modal("hide"); 
 	mytablaf.ajax.reload(null,false);
 	},
