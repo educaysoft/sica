@@ -311,7 +311,7 @@ echo form_input('idnivelparticipante',$options[$participante['idnivelparticipant
 $(document).ready(function(){
 	var idevento=document.getElementById("idevento").value;
 	var idpersona=document.getElementById("idpersona").value;
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechasAsisPartPago')?>', type: 'GET',data:{idevento:idevento,idpersona:idpersona}},});
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechasAsisPartPago')?>', type: 'GET',data:function(d){d.idevento=idevento; d.idpersona=idpersona}},});
 });
 
 $('#show_data').on('click','.item_ver',function(){
