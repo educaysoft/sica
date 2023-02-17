@@ -408,15 +408,11 @@ $("#btn_update").on("click", function(){
 	//var idpersona= $('select[name=idpersona]').val();
 	var idpersona = document.getElementById("idpersona_edit").value;
        // var idpersona=p.options[p.selectedIndex].value;
-    $.ajax({
+    $.ajax({type:"POST",
         url: "<?php echo site_url('participacion/save_nota') ?>",
         data: {idevento:idevento, fecha:fecha,porcentaje:porcentaje,comentario:comentario,idpersona:idpersona, ayuda:ayuda},
-        method: 'POST',
-        async : false,
-        dataType : 'json',
+        dataType : 'JSON',
         success: function(data){
-        var html = '';
-        var i;
 	$("#Modal_Edit").modal("hide"); 
 	mytablaf.ajax.reload(null,false);
 	},
