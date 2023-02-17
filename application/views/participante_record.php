@@ -417,13 +417,15 @@ $("#btn_update").on("click", function(){
         success: function(data){
         var html = '';
         var i;
-	$("#Modal_Edit").modal("hide"); mytablaf.ajax.reload(null,false);},
+	$("#Modal_Edit").modal("hide"); 
+	mytablaf.ajax.reload(null,false);
+	},
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
         alert(thrownError);
       }
 
-    })
+    });
     return false;
 
 });
