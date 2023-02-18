@@ -43,7 +43,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <th># </th>
  <th>Participante</th>
 <?php
-foreach ($fechaeventos as $row){
+foreach ($sesioneventos as $row){
   echo "<th>". $row->fecha."<br>" . $row->tema." </th>";
 }
   echo "<th> % </th>";
@@ -69,7 +69,7 @@ foreach ($participacion as $row){
     $i=$i+1;
     echo "<tr><td>". $i."</td>";
     echo "<td>". $arrparticipacion[$id]."</td>";
-    foreach ($fechaeventos as $row1){
+    foreach ($sesioneventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
           echo "<td>". $arrparticipacion[$row1->fecha]."</td>";
 	  $sum=$sum+ $arrparticipacion[$row1->fecha];
@@ -99,7 +99,7 @@ foreach ($participacion as $row){
   $i=$i+1;
     echo "<tr><td>". $i."</td>";
     echo "<td>". $arrparticipacion[$id]."</td>";
-    foreach ($fechaeventos as $row1){
+    foreach ($sesioneventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
           echo "<td>". $arrparticipacion[$row1->fecha]."</td>";
 	  $sum=$sum+ $arrparticipacion[$row1->fecha];
