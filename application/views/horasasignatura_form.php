@@ -10,11 +10,11 @@
 <td><?php 
 
 $options= array('--Select--');
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+foreach ($asignaturas as $row){
+	$options[$row->idasignatura]= $row->apellidos." ".$row->nombres;
 }
 
- echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
