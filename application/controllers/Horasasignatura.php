@@ -5,8 +5,8 @@ class Horasasignatura extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('horasasignatura_model');
-  	  $this->load->model('persona_model');
-  	  $this->load->model('horasasignatura_estado_model');
+  	  $this->load->model('asignatura_model');
+  	  $this->load->model('tipohorasasignatura_model');
 }
 
 public function index(){
@@ -14,8 +14,8 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   	$data['horasasignatura']=$this->horasasignatura_model->lista_horasasignaturas()->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['horasasignatura_estados']= $this->horasasignatura_estado_model->lista_horasasignatura_estado()->result();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignatura()->result();
 			
 		$data['title']="Lista de horasasignaturas";
 		$this->load->view('template/page_header');
@@ -34,8 +34,8 @@ public function actual(){
  if(isset($this->session->userdata['logged_in'])){
 
 	$data['horasasignatura'] = $this->horasasignatura_model->horasasignatura($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['horasasignatura_estados']= $this->horasasignatura_estado_model->lista_horasasignatura_estado()->result();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignatura()->result();
 	$data['title']="Modulo de Telefonos";
 	$this->load->view('template/page_header');		
 	$this->load->view('horasasignatura_record',$data);
@@ -57,15 +57,15 @@ public function add()
 
 	if($this->uri->segment(3))
 	{
-		$data['personas']= $this->persona_model->persona($this->uri->segment(3))->result();
+		$data['asignaturas']= $this->asignatura_model->asignatura($this->uri->segment(3))->result();
 
 	}else{
 
-		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 	}
 
 
-  	$data['horasasignatura_estados']= $this->horasasignatura_estado_model->lista_horasasignatura_estado()->result();
+  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignatura()->result();
 		$data['title']="Nueva Horasasignatura";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('horasasignatura_form',$data);
@@ -81,8 +81,8 @@ public function add()
 		 	
 		 	'idhorasasignatura' => $this->input->post('idhorasasignatura'),
 		 	'nombre' => $this->input->post('nombre'),
-			'idpersona' => $this->input->post('idpersona'),
-			'idhorasasignatura_estado' => $this->input->post('idhorasasignatura_estado'),
+			'idasignatura' => $this->input->post('idasignatura'),
+			'idtipohorasasignatura' => $this->input->post('idtipohorasasignatura'),
 	 	);
 	 	$this->horasasignatura_model->save($array_item);
 	 	//redirect('horasasignatura');
@@ -94,8 +94,8 @@ public function add()
 public function edit()
 {
 	 	$data['horasasignatura'] = $this->horasasignatura_model->horasasignatura($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['horasasignatura_estados']= $this->horasasignatura_estado_model->lista_horasasignatura_estado()->result();
+		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  		$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignatura()->result();
  	 	$data['title'] = "Actualizar Horasasignatura";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('horasasignatura_edit',$data);
@@ -111,8 +111,8 @@ public function edit()
 		 	
 		 	'idhorasasignatura' => $this->input->post('idhorasasignatura'),
 		 	'nombre' => $this->input->post('nombre'),
-			'idpersona' => $this->input->post('idpersona'),
-			'idhorasasignatura_estado' => $this->input->post('idhorasasignatura_estado'),
+			'idasignatura' => $this->input->post('idasignatura'),
+			'idtipohorasasignatura' => $this->input->post('idtipohorasasignatura'),
 	 	);
 	 	$this->horasasignatura_model->update($id,$array_item);
 	 	//redirect('horasasignatura');
@@ -150,7 +150,7 @@ function horasasignatura_data()
 	 	$data0 = $this->horasasignatura_model->lista_horasasignaturasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idhorasasignatura,$r->lapersona,$r->elhorasasignatura,
+			$data[]=array($r->idhorasasignatura,$r->laasignatura,$r->elhorasasignatura,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idhorasasignatura="'.$r->idhorasasignatura.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -175,10 +175,10 @@ function horasasignatura_data()
 public function elprimero()
 {
 	$data['horasasignatura'] = $this->horasasignatura_model->elprimero();
-  	$data['horasasignatura_estados']= $this->horasasignatura_estado_model->lista_horasasignatura_estado()->result();
+  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignatura()->result();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
     $data['title']="Horasasignatura";
     $this->load->view('template/page_header');		
     $this->load->view('horasasignatura_record',$data);
@@ -193,10 +193,10 @@ public function elprimero()
 public function elultimo()
 {
 	$data['horasasignatura'] = $this->horasasignatura_model->elultimo();
-  	$data['horasasignatura_estados']= $this->horasasignatura_estado_model->lista_horasasignatura_estado()->result();
+  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignatura()->result();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
     $data['title']="Horasasignatura";
   
     $this->load->view('template/page_header');		
@@ -213,8 +213,8 @@ public function elultimo()
 public function siguiente(){
  // $data['horasasignatura_list']=$this->horasasignatura_model->lista_horasasignatura()->result();
 	$data['horasasignatura'] = $this->horasasignatura_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['horasasignatura_estados']= $this->horasasignatura_estado_model->lista_horasasignatura_estado()->result();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignatura()->result();
   $data['title']="Horasasignatura";
 	$this->load->view('template/page_header');		
   $this->load->view('horasasignatura_record',$data);
@@ -224,8 +224,8 @@ public function siguiente(){
 public function anterior(){
  // $data['horasasignatura_list']=$this->horasasignatura_model->lista_horasasignatura()->result();
 	$data['horasasignatura'] = $this->horasasignatura_model->anterior($this->uri->segment(3))->row_array();
- 	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['horasasignatura_estados']= $this->horasasignatura_estado_model->lista_horasasignatura_estado()->result();
+ 	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignatura()->result();
   $data['title']="Horasasignatura";
 	$this->load->view('template/page_header');		
   $this->load->view('horasasignatura_record',$data);
