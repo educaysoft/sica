@@ -26,7 +26,7 @@ foreach ($asignaturas as $row){
 
 $options= array('--Select--');
 foreach ($tipohorasasignaturas as $row){
-	$options[$row->idtipohorasasignatura]=$malla." - ".$r->area." - ".$row->nombre;
+	$options[$row->idtipohorasasignatura]=$r->malla." - ".$r->area." - ".$row->nombre;
 }
 
  echo form_dropdown("idtipohorasasignatura",$options, set_select('--Select--','default_value'));  ?></td>
