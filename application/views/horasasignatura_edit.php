@@ -21,7 +21,7 @@ echo form_input($eys_arrinput); ?></td>
 <td><?php
 $options= array('--Select--');
 foreach ($asignaturas as $row){
-	$options[$row->idasignatura]= $row->apellidos." ".$row->nombres;
+	$options[$row->idasignatura]= $row->nombre;
 }
 
  echo form_dropdown("idasignatura",$options, $horasasignatura['idasignatura']);  ?></td>
