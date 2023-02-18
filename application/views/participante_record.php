@@ -175,12 +175,15 @@ echo form_input('idnivelparticipante',$options[$participante['idnivelparticipant
 </div>
 
 
+
 <div class="form-group row">
 	<div class="col-md-10">
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
  	<div class="row">
   	<div class="col-12" style="border:solid;">
+
+
 	<table class="table table-striped table-bordered table-hover" id="mydatac">
 	 <thead>
 	 <tr>
@@ -203,6 +206,7 @@ echo form_input('idnivelparticipante',$options[$participante['idnivelparticipant
 	</div>
 	</div> 
 </div>
+
 
 
 
