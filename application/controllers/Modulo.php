@@ -109,7 +109,7 @@ function modulo_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idmodulo,$r->nombre,$r->inicial,$r->icono,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idmodulo="'.$r->idmodulo.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('modulo/actual').'"   data-idmodulo="'.$r->idmodulo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
