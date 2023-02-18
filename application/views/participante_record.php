@@ -50,7 +50,6 @@ if(isset($participante))
 
 
 <?php echo form_hidden('idevento',$participante['idevento']) ?>
-<table>
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label">Id evento:</label>
