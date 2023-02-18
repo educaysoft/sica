@@ -95,6 +95,7 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
 
+$elparticipante=$options[$participante['idpersona']];
 echo form_input('nombre',$options[$participante['idpersona']],array("id"=>"nombre","disabled"=>"disabled","style"=>"width:500px"));
 		?>
 	</div> 
@@ -185,7 +186,7 @@ echo form_input('idnivelparticipante',$options[$participante['idnivelparticipant
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <b>Sesioner recibidas y Calificaciones del estudiante: </b>
+	<b>Sesioner recibidas y Calificaciones obtenidas por :<?php echo $elparticipante ?> </b>
         </div>
         
     </div>
