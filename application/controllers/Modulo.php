@@ -64,6 +64,9 @@ public function edit()
 		 	
 		 	'idmodulo' => $this->input->post('idmodulo'),
 		 	'nombre' => $this->input->post('nombre'),
+	 		'modulo' => $this->input->post('modulo'),
+	 		'icono' => $this->input->post('icono'),
+	 		'inicial' => $this->input->post('inicial'),
 	 	);
 	 	$this->modulo_model->update($id,$array_item);
 	 	redirect('modulo');

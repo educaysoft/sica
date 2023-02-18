@@ -1,6 +1,6 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("modulo/save") ?>
+<?php echo form_open("modulo/save_edit") ?>
 <?php echo form_hidden("idmodulo")  ?>
 <table>
 
