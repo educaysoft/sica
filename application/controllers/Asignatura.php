@@ -11,7 +11,7 @@ class Asignatura extends CI_Controller{
       		$this->load->model('persona_model');
       		$this->load->model('areaconocimiento_model');
       		$this->load->model('silabo_model');
-      		$this->load->model('horasasignatuara_model');
+      		$this->load->model('horasasignatura_model');
 }
 
 public function index(){
