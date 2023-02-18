@@ -28,11 +28,11 @@ foreach ($asignaturas as $row){
 <td><?php 
 
 $options= array('--Select--');
-foreach ($horasasignatura_estados as $row){
-	$options[$row->idhorasasignatura_estado]= $row->nombre;
+foreach ($tipohorasasignaturas as $row){
+	$options[$row->idtipohorasasignatura]= $row->nombre;
 }
 
- echo form_dropdown("idhorasasignatura_estado",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idtipohorasasignatura",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
