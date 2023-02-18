@@ -46,7 +46,7 @@ foreach ($asignaturas as $row){
 	$options[$row->idasignatura]= $row->nombre;
 }
 
-echo form_input('idasignatura',$options[$horasasignatura['idasignatura']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idasignatura',$options[$horasasignatura['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
   </tr>
  
  
@@ -58,14 +58,14 @@ foreach ($tipohorasasignaturas as $row){
 	$options[$row->idtipohorasasignatura]= $row->nombre;
 }
 
-echo form_input('idtipohorasasignatura',$options[$horasasignatura['idtipohorasasignatura']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idtipohorasasignatura',$options[$horasasignatura['idtipohorasasignatura']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
   </tr>
 
 
  
   <tr>
      <td>Cantidad de horas:</td>
-     <td><?php echo form_input('cantidad',$horasasignatura['catidad'],array("disabled"=>"disabled",'placeholder'=>'Cantidad')) ?></td>
+     <td><?php echo form_input('cantidad',$horasasignatura['cantidad'],array("disabled"=>"disabled",'placeholder'=>'Cantidad','style'=>'width:500px'))) ?></td>
   </tr>
 
 
