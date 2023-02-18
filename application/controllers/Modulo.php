@@ -121,6 +121,29 @@ function modulo_data()
 }
 
 
+
+public function actual()
+{
+  $data['modulo'] = $this->modulo_model->modulo($this->uri->segment(3))->row_array();
+  if(!empty($data))
+  {
+    $data['title']="Modulo";
+    $this->load->view('template/page_header');		
+    $this->load->view('modulo_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
+
+
+
 public function elprimero()
 {
 	$data['modulo'] = $this->modulo_model->elprimero();
