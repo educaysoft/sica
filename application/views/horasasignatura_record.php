@@ -42,11 +42,11 @@ if(isset($horasasignatura))
      <td>Persona:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+foreach ($asignaturas as $row){
+	$options[$row->idasignatura]= $row->apellidos." ".$row->nombres;
 }
 
-echo form_input('idpersona',$options[$horasasignatura['idpersona']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idasignatura',$options[$horasasignatura['idasignatura']],array("disabled"=>"disabled")) ?></td>
   </tr>
  
  
