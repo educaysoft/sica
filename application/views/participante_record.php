@@ -178,7 +178,7 @@ echo form_input('idnivelparticipante',$options[$participante['idnivelparticipant
 
 <div class="form-group row">
 	<div class="col-md-10">
-	<div class="row justify-content-center">
+	<div class="row justify-content-left">
       	<!-- Page Heading -->
  	<div class="row">
   	<div class="col-12" style="border:solid;">
@@ -188,9 +188,7 @@ echo form_input('idnivelparticipante',$options[$participante['idnivelparticipant
         <div class="pull-left">
             <b>Asistencia y Calificaciones de estudiante: </b>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('sesionevento/add/'.$evento['idevento']) ?>">Nueva sesion</a>
-        </div>
+        
     </div>
 </div>
 
