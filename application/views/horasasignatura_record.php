@@ -54,11 +54,11 @@ echo form_input('idasignatura',$options[$horasasignatura['idasignatura']],array(
      <td>Tipo de horas:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($horasasignatura_estados as $row){
-	$options[$row->idhorasasignatura_estado]= $row->nombre;
+foreach ($tipohorasasignaturas as $row){
+	$options[$row->idtipohorasasignatura]= $row->nombre;
 }
 
-echo form_input('idhorasasignatura_estado',$options[$horasasignatura['idhorasasignatura_estado']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idtipohorasasignatura',$options[$horasasignatura['idtipohorasasignatura']],array("disabled"=>"disabled")) ?></td>
   </tr>
 
 
