@@ -1,23 +1,20 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("nivelacademico/save") ?>
-<?php echo form_hidden("idnivelacademico")  ?>
+<?php echo form_open("tipoevento/save") ?>
+<?php echo form_hidden("idtipoevento")  ?>
 <table>
 
 
 
-<tr>
-<td> Número </td>
-<td><?php echo form_input("numero","", array("placeholder"=>"Numero de nivelacademico"))  ?></td>
-</tr>
+
 
 <tr>
 <td> Nombre </td>
-<td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de nivelacademico"))  ?></td>
+<td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de tipoevento"))  ?></td>
 </tr>
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("nivelacademico","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("tipoevento","Atras") ?> </td>
 </tr>
 
 </table>
