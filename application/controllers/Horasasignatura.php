@@ -94,7 +94,7 @@ public function add()
 public function edit()
 {
 	 	$data['horasasignatura'] = $this->horasasignatura_model->horasasignatura($this->uri->segment(3))->row_array();
-		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA(0)->result();
   		$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignaturas()->result();
  	 	$data['title'] = "Actualizar Horasasignatura";
  	 	$this->load->view('template/page_header');		

@@ -17,11 +17,11 @@ echo form_input($eys_arrinput); ?></td>
 
  
  <tr>
-<td> Persona:</td>
+<td> Asignatura:</td>
 <td><?php
 $options= array('--Select--');
 foreach ($asignaturas as $row){
-	$options[$row->idasignatura]= $row->nombre;
+	$options[$row->idasignatura]=$row->malla." - ".$row->area." - ".$row->nombre;
 }
 
  echo form_dropdown("idasignatura",$options, $horasasignatura['idasignatura']);  ?></td>
@@ -39,11 +39,11 @@ foreach ($asignaturas as $row){
 <td> Estado del horasasignatura:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($horasasignatura_estados as $row){
-	$options[$row->idhorasasignatura_estado]= $row->nombre;
+foreach ($tipohorasasignaturas as $row){
+	$options[$row->idtipohorasasignatura]= $row->nombre;
 }
 
- echo form_dropdown("idhorasasignatura_estado",$options, $horasasignatura['idhorasasignatura_estado']);  ?></td>
+ echo form_dropdown("idtipohorasasignatura",$options, $horasasignatura['idtipohorasasignatura']);  ?></td>
 </tr>
 
 
