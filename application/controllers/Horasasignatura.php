@@ -15,7 +15,7 @@ public function index(){
 			
   	$data['horasasignatura']=$this->horasasignatura_model->lista_horasasignaturas()->row_array();
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
-  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignatura()->result();
+  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignaturas()->result();
 			
 		$data['title']="Lista de horasasignaturas";
 		$this->load->view('template/page_header');
