@@ -6,7 +6,7 @@
 
 
 <tr>
-<td> Persona: </td>
+<td> Asignatura: </td>
 <td><?php 
 
 $options= array('--Select--');
@@ -18,24 +18,24 @@ foreach ($asignaturas as $row){
 </tr>
 
 
-<tr>
-<td> Horasasignatura: </td>
-<td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de Unidad"))  ?></td>
-</tr>
+
 
 <tr>
-<td> Estado: </td>
+<td> Tipo de horas: </td>
 <td><?php 
 
 $options= array('--Select--');
 foreach ($tipohorasasignaturas as $row){
-	$options[$row->idtipohorasasignatura]= $row->nombre;
+	$options[$row->idtipohorasasignatura]=$malla." - ".$r->area." - ".$row->nombre;
 }
 
  echo form_dropdown("idtipohorasasignatura",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
-
+<tr>
+<td> Cantidad de horas: </td>
+<td><?php echo form_input("nombre","", array("placeholder"=>"Cantidad de horas(float)"))  ?></td>
+</tr>
 
 <tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("horasasignatura","Atras") ?> </td>

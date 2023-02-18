@@ -61,7 +61,7 @@ public function add()
 
 	}else{
 
-		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
 	}
 
 
