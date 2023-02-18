@@ -157,6 +157,26 @@ if(isset($asignatura))
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('horasasignatura/add/'.$persona['idpersona'], 'Correo:'); ?>:</label>
+	<div class="col-md-10">
+	<?php
+ 	$options = array();
+  	foreach ($horasasignaturas as $row){
+		$options[$row->idhorasasignatura]=$row->cantidad;
+	}
+ echo form_multiselect('horasasignatura[]',$options,(array)set_value('idhorasasignatura', ''), array('style'=>'width:500px')); 
+
+	?>
+	</div> 
+</div>
+
+
+
+
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Silabos( <?php echo anchor('silabo/add', 'new'); ?>) : </label>
 
 	<div class="col-md-10">

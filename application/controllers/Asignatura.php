@@ -11,11 +11,13 @@ class Asignatura extends CI_Controller{
       		$this->load->model('persona_model');
       		$this->load->model('areaconocimiento_model');
       		$this->load->model('silabo_model');
+      		$this->load->model('horasasignatuara_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 	  	$data['asignatura']=$this->asignatura_model->elultimo();
+		$data['horasasignaturas'] =$this->horasasignatura_model->horasasignatura($data['asignatura']['idasignatura'])->result();
   		$data['mallas']= $this->malla_model->lista_mallas()->result();
  		$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
   		$data['docentes']= $this->docente_model->lista_docentesA()->result();
