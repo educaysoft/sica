@@ -80,7 +80,7 @@ public function add()
 	 	$array_item=array(
 		 	
 		 	'idhorasasignatura' => $this->input->post('idhorasasignatura'),
-		 	'nombre' => $this->input->post('nombre'),
+		 	'cantidad' => $this->input->post('cantidad'),
 			'idasignatura' => $this->input->post('idasignatura'),
 			'idtipohorasasignatura' => $this->input->post('idtipohorasasignatura'),
 	 	);
@@ -110,7 +110,7 @@ public function edit()
 	 	$array_item=array(
 		 	
 		 	'idhorasasignatura' => $this->input->post('idhorasasignatura'),
-		 	'nombre' => $this->input->post('nombre'),
+		 	'cantidad' => $this->input->post('cantidad'),
 			'idasignatura' => $this->input->post('idasignatura'),
 			'idtipohorasasignatura' => $this->input->post('idtipohorasasignatura'),
 	 	);
