@@ -27,16 +27,8 @@ foreach ($asignaturas as $row){
  echo form_dropdown("idasignatura",$options, $horasasignatura['idasignatura']);  ?></td>
 </tr>
 
-
-
 <tr>
-      <td>Nombre:</td>
-      <td><?php echo form_input( array("name"=>'nombre',"id"=>'nombre',"value"=>$horasasignatura['nombre'],'type'=>'text','placeholder'=>'nombre del horasasignatura')); ?></td>
-  </tr>
-
-
-<tr>
-<td> Estado del horasasignatura:</td>
+<td> Topo de horas:</td>
 <td><?php
 $options= array('--Select--');
 foreach ($tipohorasasignaturas as $row){
@@ -45,6 +37,14 @@ foreach ($tipohorasasignaturas as $row){
 
  echo form_dropdown("idtipohorasasignatura",$options, $horasasignatura['idtipohorasasignatura']);  ?></td>
 </tr>
+
+<tr>
+      <td>Cantidad:</td>
+      <td><?php echo form_input( array("name"=>'cantidad',"id"=>'cantidad',"value"=>$horasasignatura['cantidad'],'type'=>'text','placeholder'=>'cantidad')); ?></td>
+  </tr>
+
+
+
 
 
  <tr>
