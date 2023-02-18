@@ -115,7 +115,13 @@ foreach ($participacion as $row){
 	  $can=$can+1;
       }
     } 
+
+	if($can>0)
+	{
       $resu=round(($sum/($can)),2);
+	}else{
+	$resu=0;
+	}
       echo "<td>".$resu."</td>";
       echo "</tr>";
 	$sum=0;
