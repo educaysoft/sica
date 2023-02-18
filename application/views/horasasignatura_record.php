@@ -43,7 +43,7 @@ if(isset($horasasignatura))
      <td><?php 
 $options= array("NADA");
 foreach ($asignaturas as $row){
-	$options[$row->idasignatura]= $row->apellidos." ".$row->nombres;
+	$options[$row->idasignatura]= $row->nombre;
 }
 
 echo form_input('idasignatura',$options[$horasasignatura['idasignatura']],array("disabled"=>"disabled")) ?></td>
