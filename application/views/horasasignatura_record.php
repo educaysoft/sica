@@ -65,7 +65,7 @@ echo form_input('idtipohorasasignatura',$options[$horasasignatura['idtipohorasas
  
   <tr>
      <td>Cantidad de horas:</td>
-     <td><?php echo form_input('cantidad',$horasasignatura['cantidad'],array("disabled"=>"disabled",'placeholder'=>'Cantidad','style'=>'width:500px'))) ?></td>
+     <td><?php echo form_input('cantidad',$horasasignatura['cantidad'],array("disabled"=>"disabled",'placeholder'=>'Cantidad','style'=>'width:500px')) ?></td>
   </tr>
 
 
