@@ -39,7 +39,7 @@ if(isset($horasasignatura))
  
  
 <tr>
-     <td>Persona:</td>
+     <td>Asignatura:</td>
      <td><?php 
 $options= array("NADA");
 foreach ($asignaturas as $row){
@@ -50,19 +50,8 @@ echo form_input('idasignatura',$options[$horasasignatura['idasignatura']],array(
   </tr>
  
  
-
-
-
- 
-  <tr>
-     <td>Horasasignatura:</td>
-     <td><?php echo form_input('nombre',$horasasignatura['nombre'],array("disabled"=>"disabled",'placeholder'=>'Nombre')) ?></td>
-  </tr>
-
-
-  
 <tr>
-     <td>Estado del Horasasignatura:</td>
+     <td>Tipo de horas:</td>
      <td><?php 
 $options= array("NADA");
 foreach ($horasasignatura_estados as $row){
@@ -71,6 +60,17 @@ foreach ($horasasignatura_estados as $row){
 
 echo form_input('idhorasasignatura_estado',$options[$horasasignatura['idhorasasignatura_estado']],array("disabled"=>"disabled")) ?></td>
   </tr>
+
+
+ 
+  <tr>
+     <td>Cantidad de horas:</td>
+     <td><?php echo form_input('cantidad',$horasasignatura['catidad'],array("disabled"=>"disabled",'placeholder'=>'Cantidad')) ?></td>
+  </tr>
+
+
+  
+
 
 
 
