@@ -315,6 +315,8 @@ echo form_input($arrdatos) ?>
 
 
 
+
+
 <div class="form-group row">
 	<div class="col-md-10">
 	<div class="row justify-content-left">
@@ -332,8 +334,6 @@ echo form_input($arrdatos) ?>
         </div>
     </div>
 </div>
-
-
 
 	<table class="table table-striped table-bordered table-hover" id="mydatac">
 	 <thead>
