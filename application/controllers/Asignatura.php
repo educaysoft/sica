@@ -186,6 +186,7 @@ function asignatura_data()
 public function actual()
 {
 	$data['asignatura'] = $this->asignatura_model->asignatura($this->uri->segment(3))->row_array();
+	$data['horasasignaturas'] =$this->horasasignatura_model->horasasignaturasA($data['asignatura']['idasignatura'])->result();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
@@ -211,6 +212,7 @@ public function actual()
 public function elprimero()
 {
 	$data['asignatura'] = $this->asignatura_model->elprimero();
+	$data['horasasignaturas'] =$this->horasasignatura_model->horasasignaturasA($data['asignatura']['idasignatura'])->result();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
@@ -231,6 +233,7 @@ public function elprimero()
 public function elultimo()
 {
 	  $data['asignatura'] = $this->asignatura_model->elultimo();
+	$data['horasasignaturas'] =$this->horasasignatura_model->horasasignaturasA($data['asignatura']['idasignatura'])->result();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
@@ -253,6 +256,7 @@ public function elultimo()
 public function siguiente(){
  // $data['asignatura_list']=$this->asignatura_model->lista_asignatura()->result();
 	$data['asignatura'] = $this->asignatura_model->siguiente($this->uri->segment(3))->row_array();
+	$data['horasasignaturas'] =$this->horasasignatura_model->horasasignaturasA($data['asignatura']['idasignatura'])->result();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
@@ -266,6 +270,7 @@ public function siguiente(){
 public function anterior(){
  // $data['asignatura_list']=$this->asignatura_model->lista_asignatura()->result();
 	$data['asignatura'] = $this->asignatura_model->anterior($this->uri->segment(3))->row_array();
+	$data['horasasignaturas'] =$this->horasasignatura_model->horasasignaturasA($data['asignatura']['idasignatura'])->result();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
