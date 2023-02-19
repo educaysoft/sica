@@ -35,7 +35,7 @@ foreach ($tipohorasasignaturas as $row){
 
 <tr>
 <td> Cantidad de horas: </td>
-<td><?php echo form_input("nombre","", array("placeholder"=>"Cantidad de horas(float)"))  ?></td>
+<td><?php echo form_input("cantidad","", array("placeholder"=>"Cantidad de horas(float)"))  ?></td>
 </tr>
 
 <tr>
