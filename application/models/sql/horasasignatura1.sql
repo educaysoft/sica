@@ -1,0 +1,4 @@
+
+use educayso_facae;
+
+create view horasasignatura1 as select horasasignatura.idhorasasignatura,horasasignatura.cantidad,horasasignatura.idasignatura,tipohorasasignatura.idtipohorasasignatura, tipohorasasignatura.nombre as descripcion  from horasasignatura,tipohorasasignatura  where horasasignatura.idtipohorasasignatura=tipohorasasignatura.idtipohorasasignatura;

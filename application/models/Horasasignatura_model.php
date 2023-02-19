@@ -21,7 +21,7 @@ class Horasasignatura_model extends CI_model {
 
 
  	function horasasignaturasA( $idasignatura){
- 		$horasasignatura = $this->db->query('select * from horasasignatura where idasignatura="'. $idasignatura.'"');
+ 		$horasasignatura = $this->db->query('select * from horasasignatura1 where idasignatura="'. $idasignatura.'"');
  		return $horasasignatura;
  	}
 
