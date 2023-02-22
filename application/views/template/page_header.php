@@ -656,7 +656,7 @@ if(isset($this->session->userdata['acceso'])){
 		$nombre=$row["modulo"]["nombre"];
 		$icono=$row["modulo"]["icono"];
 		$modulo=$row["modulo"]["modulo"];
-      echo '<li><a id="'.$id.'" style="font-size:80%; color:orange;" href="'.base_url().'index.php/'.$modulo.'"><img src="'.base_url().'assets/iconos/'.$icono.'.png" wide="49" height="50" alt="Formget logo"></a></li>';
+      echo '<li><a id="'.$id.'" style="font-size:80%; color:orange;" href="'.base_url().'index.php/'.$modulo.'/'.$this->session->userdata['logged_in']['idpersona'].'"><img src="'.base_url().'assets/iconos/'.$icono.'.png" wide="49" height="50" alt="Formget logo"></a></li>';
 	    } 
 }
         ?>
