@@ -31,6 +31,15 @@ foreach ($eventos as $row){
     $fecha = date("Y-m-d");
     $horai= date("H:i:s");
 
+
+$sesiondictada= array();
+foreach ($sesionevento as $row){
+	$sesiondictada[$row->fecha]= $row->idsesionevento;
+}
+
+
+
+
 	$sesionactual=0;
 	$sesiontotal=0;
 
@@ -41,14 +50,21 @@ foreach ($eventos as $row){
 	
 	foreach ($jornadadocente as $row){
     		$dia = $dias[date('w', strtotime($fechasesion))];
-		if($row->nombre==$dia ){
+		if($row->nombre==$dia ){    //verifica si la fecha esta en el horario.
 			$lahorai=$row->horainicio;
 			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
 			$lahoraf=date("H:i:s",$lahoraf);
 			array_push($sesiones,array("sesion"=>$i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
+			if($sesionactual==0){
+			if(!$sesiondictada[$fechasesion])
+			{
+				$fecha=$fechasesion;
+			}
+			
 			if(strtotime($fechasesion)==strtotime($fecha)){
 				$sesionactual=$i;
 			}
+			
 			$sesiontotal=$sesiontotal+1;
 			$i=$i+1;
 		}
