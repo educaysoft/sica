@@ -197,7 +197,7 @@ public function carga_masiva_save() {
           $datapersona+=["idsexo"=>1];
           $datapersona+=["idestadocivil"=>1];
           $datapersona+=["idtiposangre"=>1];
-          $datapersona+=["idnacionalidad"=>1]
+          $datapersona+=["idnacionalidad"=>1];
 
           // se suma un partipacipante
           $dataparticipante=array();
