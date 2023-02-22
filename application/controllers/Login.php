@@ -331,12 +331,13 @@ if ($result == TRUE) {
 					$read=$elnivelacceso['read'];
 					$update=$elnivelacceso['update'];
 					$delete=$elnivelacceso['delete'];
+					$navegar=$elnivelacceso['navegar'];
 				}
 
 			
 				$accesotmp = array(
 				'modulo' =>array('id'=>$idmodulo,'nombre'=>$nombre,'icono'=>$icono,'modulo'=>$modulo),
-				'nivelacceso' =>array('create'=>$create,'read'=>$read,'update'=>$update,'delete'=>$delete)
+				'nivelacceso' =>array('create'=>$create,'read'=>$read,'update'=>$update,'delete'=>$delete,'navegar'=>$navegar)
 				);
 				array_push($accesos,$accesotmp);
 			}	
