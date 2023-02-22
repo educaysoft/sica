@@ -187,7 +187,8 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div class="col-md-10">
 <?php
 
- echo form_input(array("name"=>"horainicio","id"=>"horainicio","readonly"=>"true","type"=>"time","value"=>$horai)); echo $lahorai;  
+ echo form_input(array("name"=>"horainicio","id"=>"horainicio","type"=>"time","value"=>$horai)); echo $lahorai;  
+ //echo form_input(array("name"=>"horainicio","id"=>"horainicio","readonly"=>"true","type"=>"time","value"=>$horai)); echo $lahorai;  
 
 ?>
 </div>
@@ -199,7 +200,8 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div class="col-md-10">
 <?php
  $horaf="";
- echo form_input(array("name"=>"horafin","id"=>"horafin","readonly"=>"true",   "type"=>"time","value"=>$horaf));  echo $lahoraf;
+ echo form_input(array("name"=>"horafin","id"=>"horafin",  "type"=>"time","value"=>$horaf));  echo $lahoraf;
+// echo form_input(array("name"=>"horafin","id"=>"horafin","readonly"=>"true",   "type"=>"time","value"=>$horaf));  echo $lahoraf;
 
 ?>
 </div>
