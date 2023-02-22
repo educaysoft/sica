@@ -56,7 +56,7 @@ foreach ($sesionevento as $row){
 			$lahoraf=date("H:i:s",$lahoraf);
 			array_push($sesiones,array("sesion"=>$i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
 			if($sesionactual==0){
-			if(!$sesiondictada[$fechasesion])
+			if(!isset($sesiondictada[$fechasesion]))
 			{
 				$fecha=$fechasesion;
 			}}
