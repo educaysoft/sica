@@ -197,4 +197,8 @@ alter table persona add column horacreacion time;*/
 
 
 
-alter table estudio change nivel  idnivelestudio int(11);
+/* alter table estudio change nivel  idnivelestudio int(11); */
+
+
+
+alter table nivelacceso add column navegar tinyint default 0;

@@ -15,7 +15,6 @@
 	<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idevento"><?php echo $evento['idevento']; ?></idem></div>
 	
 
-<ul>
 <?php
 if(isset($evento))
 {
@@ -39,6 +38,10 @@ if(isset($evento))
 	}
 
 ?>
+
+
+<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['navegar']){ ?>
+<ul>
 	<li> <?php echo anchor('evento/elprimero/', 'primero'); ?></li>
         <li> <?php echo anchor('evento/siguiente/'.$evento['idevento'], 'siguiente'); ?></li>
         <li> <?php echo anchor('evento/anterior/'.$evento['idevento'], 'anterior'); ?></li>
@@ -72,6 +75,7 @@ if(isset($evento))
         <li> <?php echo anchor('seguimiento/add/'.$evento['idevento'],'Seguimiento'); ?></li>
         <li> <?php echo anchor('pagoevento/add/'.$evento['idevento'],'Pagos'); ?></li>
 
+	<?php } ?>
 <?php 
 }else{
 ?>
