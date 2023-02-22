@@ -229,7 +229,7 @@ foreach ($modoevaluacions as $row){
 
 <table>
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("sesionevento","Atrás") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?> <input type="button" onclick="history.back()" name="volver atrás" value="volver atrás"></td>
 </tr>
 
 </table>
