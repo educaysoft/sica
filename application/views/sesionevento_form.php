@@ -39,6 +39,8 @@ foreach ($sesionevento as $row){
 
 
 
+print_r($sesiondictada);
+die;
 
 	$sesionactual=0;
 	$sesiontotal=0;
@@ -98,7 +100,7 @@ foreach ($sesionevento as $row){
 	//die();
 
     	$horaf= date("H:i:s",strtotime(' + 2 hours'));
- 	echo form_input(array("name"=>"fecha","id"=>"fecha",  "type"=>"date","value"=>$fecha)); echo $eldia; 
+ 	echo form_input(array("name"=>"fecha","id"=>"fecha","readonly"=>"true",  "type"=>"date","value"=>$fecha)); echo $eldia; 
 
 ?>
 </div>
