@@ -134,9 +134,6 @@ class Sesionevento extends CI_Controller{
 	 	$idtema =$this->tema_model->save($array_item2);
 
 
-
-
-
 	 	$array_item=array(
 		 	'tema' => $this->input->post('tema'),
 		 	'idtema' => $idtema,
@@ -196,9 +193,9 @@ class Sesionevento extends CI_Controller{
 	 	if(!$result)
 		{
 			echo "<script language='JavaScript'> alert('sesion no dr pudo mofigicar'); </script>";
-			echo "<script language='JavaScript'> window.history.go(-1);</script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
-			echo "<script language='JavaScript'> window.history.go(-1);</script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}
  	}
 
