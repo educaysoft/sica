@@ -314,7 +314,7 @@ echo form_input($arrdatos) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Código classroom:</label>
+    <label class="col-md-2 col-form-label"> url de registro:</label>
 	<div class="col-md-10">
      <?php echo form_input('codigoclassroom',$evento['codigoclassroom'],array("disabled"=>"disabled",'placeholder'=>'codigoclassroom','style'=>'width:600px;')) 
 		?>
