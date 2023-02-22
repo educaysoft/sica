@@ -59,7 +59,7 @@ foreach ($sesionevento as $row){
 			if(!$sesiondictada[$fechasesion])
 			{
 				$fecha=$fechasesion;
-			}
+			}}
 			
 			if(strtotime($fechasesion)==strtotime($fecha)){
 				$sesionactual=$i;
