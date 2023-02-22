@@ -95,6 +95,23 @@ if(isset($evento))
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('institucion/add', 'Institucion:') ?> </label>
+     <?php 
+    $options= array("NADA");
+    foreach ($instituciones as $row){
+	      $options[$row->idinstitucion]= $row->nombre;
+    }
+	?>
+	<div class="col-md-10">
+		<?php
+    $arrdatos=array('name'=>'idinstitucion','value'=>$options[$evento['idinstitucion']],"disabled"=>"disabled", "style"=>"width:600px");
+echo form_input($arrdatos) ?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Título del evento:</label>
 	<div class="col-md-10">
      <?php echo form_input('titulo',$evento['titulo'],array("disabled"=>"disabled",'placeholder'=>'titulo','style'=>'width:600px;')) 
@@ -156,20 +173,7 @@ echo form_input($arrdatos) ?>
 
 
 
- <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('institucion/add', 'Institucion:') ?> </label>
-     <?php 
-    $options= array("NADA");
-    foreach ($instituciones as $row){
-	      $options[$row->idinstitucion]= $row->nombre;
-    }
-	?>
-	<div class="col-md-10">
-		<?php
-    $arrdatos=array('name'=>'idinstitucion','value'=>$options[$evento['idinstitucion']],"disabled"=>"disabled", "style"=>"width:600px");
-echo form_input($arrdatos) ?>
-	</div> 
-</div>
+ 
 
 
 
@@ -179,7 +183,7 @@ echo form_input($arrdatos) ?>
 
 
 
-
+<!---
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha de inicio:</label>
 	<div class="col-md-10">
@@ -194,7 +198,6 @@ echo form_input($arrdatos) ?>
       <?php echo form_input('fechafinaliza',$evento['fechafinaliza'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechafinaliza','style'=>'width:600px;')) ?>
 	</div> 
 </div>
-
 
 
 
@@ -252,6 +255,7 @@ echo form_input($arrdatos) ?>
 </div>
 
 
+--->
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('calendarioacademico/actual/'.$evento['idcalendarioacademico'], 'Calendario academico:') ?> </label>
