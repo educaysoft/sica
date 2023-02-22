@@ -334,7 +334,7 @@ echo form_input($arrdatos) ?>
             <b>Sesiones dictadas: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('sesionevento/add/'.$evento['idevento']) ?>">Nueva sesion</a><a class="btn btn-success" href="<?php echo base_url('sesionevento/reportepdf/'.$evento['idevento']) ?>">Reporte</a>
+            <a class="btn btn-success" href="<?php echo base_url('sesionevento/add/'.$evento['idevento']) ?>">Nueva sesion</a><a class="btn btn-danger" href="<?php echo base_url('sesionevento/reportepdf/'.$evento['idevento']) ?>">Reporte</a>
         </div>
     </div>
 </div>
@@ -380,7 +380,7 @@ echo form_input($arrdatos) ?>
             <b>Los participantes: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('participante/add/'.$evento['idevento']) ?>">Agregar participante</a>
+            <a class="btn btn-success" href="<?php echo base_url('participante/add/'.$evento['idevento']) ?>">Agregar participante</a><a class="btn btn-danger" href="<?php echo base_url('asistencia/add/'.$evento['idevento']) ?>">Tomar Asistencia</a>
         </div>
     </div>
 </div>
