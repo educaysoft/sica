@@ -39,11 +39,6 @@ foreach ($sesionevento as $row){
 
 
 
-print_r($sesiondictada);
-echo "";
-print_r($jornadadocente);
-
-die;
 
 	$sesionactual=0;
 	$sesiontotal=0;
