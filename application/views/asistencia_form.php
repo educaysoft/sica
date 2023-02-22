@@ -28,10 +28,10 @@ foreach ($eventos as $row){
 <?php
 
 $options= array('--Select--');
-foreach ($fechaeventos as $row){
-	$options[$row->idfechaevento]= $row->fecha." - ".$row->tema;
+foreach ($sesioneventos as $row){
+	$options[$row->idsesionevento]= $row->fecha." - ".$row->tema;
 }
- echo form_dropdown("idfechaevento",$options, set_select('--Select--','default_value'),array('id'=>'idfechaevento','onchange'=>'get_participantes2()'));  
+ echo form_dropdown("idsesionevento",$options, set_select('--Select--','default_value'),array('id'=>'idsesionevento','onchange'=>'get_participantes2()'));  
 
 ?>
 </div>
@@ -144,7 +144,7 @@ echo form_textarea("comentario","",$textarea_options);
 
 	function get_participantes2() {
 		var idevento = $('select[name=idevento]').val();
-		var f = document.getElementById("idfechaevento");
+		var f = document.getElementById("idsesionevento");
 		var arrtmp=f.options[f.selectedIndex].text;
 		const x=arrtmp.split(" - ");
 		var fecha=x[0];
@@ -192,7 +192,7 @@ echo form_textarea("comentario","",$textarea_options);
 
 	function get_asistencia() {
 
-		var f = document.getElementById("idfechaevento");
+		var f = document.getElementById("idsesionevento");
   		var arrtmp=f.options[f.selectedIndex].text;
 		const x=arrtmp.split(" - ");
 		var fecha=x[0];
@@ -268,7 +268,7 @@ echo form_textarea("comentario","",$textarea_options);
 
 
 	function save_asistencia() {
-		var f = document.getElementById("idfechaevento");
+		var f = document.getElementById("idsesionevento");
 		var arrtmp=f.options[f.selectedIndex].text;
 		const x=arrtmp.split(" - ");
 		var fecha=x[0];
