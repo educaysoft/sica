@@ -72,7 +72,7 @@ echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); ?
 <tr>
      <td>Hora inicio:</td>
      <td><?php 
-     $eys_arrinput=array('name'=>'horainicio','id'=>'horainicio',"type"=>"time",'value'=>$sesionevento['horainicio'], "style"=>"width:500px");
+     $eys_arrinput=array('name'=>'horainicio','id'=>'horainicio',"type"=>"time","step"=>1,"min"=>"07:00:00","max"=>"19:00:00",'value'=>$sesionevento['horainicio'], "style"=>"width:500px");
      echo form_input($eys_arrinput); ?></td>
 </tr>
 
@@ -88,7 +88,7 @@ echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); ?
     		$date = date("Y-m-d");
     		$sesionevento['horafin']= date("H:i:s");
      }
-     $eys_arrinput=array('name'=>'horafin','id'=>'horafin',"type"=>"time",'value'=>$sesionevento['horafin'], "style"=>"width:500px");
+     $eys_arrinput=array('name'=>'horafin','id'=>'horafin',"type"=>"time","step"=>1,"min"=>"07:00:00","max"=>"19:00:00",'value'=>$sesionevento['horafin'], "style"=>"width:500px");
      echo form_input($eys_arrinput); ?></td>
 </tr>
 
