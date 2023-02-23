@@ -6,7 +6,7 @@
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Evento:</label>
+<label class="col-md-2 col-form-label"><a href= "<?php echo base_url(); ?>evento/actual/<?php echo $eventos[0]->idevento; ?> "   >&#x1F448;</a>:</label>
 <div class="col-md-10">
 <?php
 
