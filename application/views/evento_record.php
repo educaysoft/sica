@@ -280,7 +280,7 @@ echo form_input($arrdatos) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('asignaturadocente/actual/'.$evento['idasignaturadocente'], 'Asignaturadocente:') ?> </label>
+    <label class="col-md-2 col-form-label"><a href= "<?php echo base_url(); ?>asignaturadocente/actual/<?php echo $evento['idasignaturadocente']; ?> "   >AsinaturaDocente: &#x1F448;</a>  </label>
      <?php 
     $options= array("NADA");
     foreach ($asignaturadocentes as $row){
