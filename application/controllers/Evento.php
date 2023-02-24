@@ -53,15 +53,17 @@ public function index(){
 
 	public function add()
 	{
-		$data['title']="Usted esta Creando un nuevo Evento";
-		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
-		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
-		$data['silabos']= $this->silabo_model->lista_silabos()->result();
-		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['paginas']= $this->pagina_model->lista_paginas()->result();
-		$this->load->view('template/page_header');		
-		$this->load->view('evento_form',$data);
-		$this->load->view('template/page_footer');
+	$data['title']="Usted esta Creando un nuevo Evento";
+	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+	$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
+	$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
+	$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
+	$data['silabos']= $this->silabo_model->lista_silabos()->result();
+	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['paginas']= $this->pagina_model->lista_paginas()->result();
+	$this->load->view('template/page_header');		
+	$this->load->view('evento_form',$data);
+	$this->load->view('template/page_footer');
 	}
 
 //==============================================

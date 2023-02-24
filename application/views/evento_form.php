@@ -106,6 +106,40 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 </div> 
 
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> CalendarioAcademico:</label>
+	<div class="col-md-10">
+	<?php
+$options= array('--Select--');
+foreach ($calendarioacademicos as $row){
+	$options[$row->idcalendarioacademico]= $row->nombre;
+}
+
+ echo form_dropdown("idcalendarioacademico",$options, $evento['idcalendarioacademico']);  
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Asignaturadocente:</label>
+	<div class="col-md-10">
+	<?php
+$options= array('--Select--');
+foreach ($asignaturadocentes as $row){
+	$options[$row->idasignaturadocente]= $row->eldistributivodocente."-".$row->laasignatura."-".$row->paralelo;
+}
+
+ echo form_dropdown("idasignaturadocente",$options, $evento['idasignaturadocente']); 
+
+		?>
+	</div> 
+</div>
+
+
+
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Página de inicio:</label>
 	<div class="col-md-10">
