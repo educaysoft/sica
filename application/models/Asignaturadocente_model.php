@@ -11,6 +11,7 @@ class Asignaturadocente_model extends CI_model {
 		if($iddistributivodocente>0){
  		$this->db->where('iddistributivodocente',$iddistributivodocente);
 		}
+		 $this->db->order_by("eldistributivodocente asc, laasignatura asc, paralelo asc");
 		 $asignaturadocente= $this->db->get('asignaturadocente1');
 		 return $asignaturadocente;
 	}
