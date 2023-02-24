@@ -116,7 +116,7 @@ foreach ($calendarioacademicos as $row){
 	$options[$row->idcalendarioacademico]= $row->nombre;
 }
 
- echo form_dropdown("idcalendarioacademico",$options, $evento['idcalendarioacademico']);  
+ echo form_dropdown("idcalendarioacademico",$options,set_select('--Select--','default_value'));  
 		?>
 	</div> 
 </div>
@@ -132,7 +132,7 @@ foreach ($asignaturadocentes as $row){
 	$options[$row->idasignaturadocente]= $row->eldistributivodocente."-".$row->laasignatura."-".$row->paralelo;
 }
 
- echo form_dropdown("idasignaturadocente",$options, $evento['idasignaturadocente']); 
+ echo form_dropdown("idasignaturadocente",$options, set_select('--Select--','default_value')); 
 
 		?>
 	</div> 
