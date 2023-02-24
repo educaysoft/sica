@@ -44,7 +44,13 @@ foreach ($temas as $row){
 </tr>
 
 
-
+<tr>
+  <td>Tema a tratar(nombre corto):</td>
+  <td><?php 
+  
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"tema","id" =>"temacorto");    
+echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); ?></td>
+ </tr>
 
 
 
@@ -57,13 +63,7 @@ echo form_textarea('tema',$sesionevento['tema'],$textarea_options ); ?></td>
  </tr>
 
 
-<tr>
-  <td>Tema a tratar(nombre corto):</td>
-  <td><?php 
-  
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"tema","id" =>"temacorto");    
-echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); ?></td>
- </tr>
+
 
 
 
