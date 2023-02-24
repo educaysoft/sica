@@ -39,13 +39,13 @@ class Silabo extends CI_Controller{
 
 	public function add()
 	{
-  			$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
-  			$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
-  			$data['docentes']= $this->docente_model->lista_docentesA()->result();
-			$data['title']="Nueva silabo";
-			$this->load->view('template/page_header');
-			$this->load->view('silabo_form',$data);
-			$this->load->view('template/page_footer');
+  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
+  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+		$data['title']="Nueva silabo";
+		$this->load->view('template/page_header');
+		$this->load->view('silabo_form',$data);
+		$this->load->view('template/page_footer');
 	}
 
 

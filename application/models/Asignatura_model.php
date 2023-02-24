@@ -8,7 +8,7 @@ class Asignatura_model extends CI_model {
 
 
 	function lista_asignaturasA(){
-		 $asignatura= $this->db->get('asignatura1');
+		 $asignatura= $this->db->order_by("malla asc,area asc,nombre asc")->get('asignatura1');
 		 return $asignatura;
 	}
 
