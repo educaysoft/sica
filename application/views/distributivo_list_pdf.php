@@ -43,13 +43,11 @@
 	$persona="";
 	$i=0;
 	foreach ($distributivodocentes as $row){  //Recorre todas la participaciones realiadas por los participantes
-	       
 		    $i=$i+1;
 		    $pdf->Cell(10,5,$row->iddistributivo,1,0,'R',0); 
 		    $pdf->Cell(20,5,utf8_decode($row->elperiodoacademico),1,0,'L',0);
 		    $pdf->Cell(70,5,utf8_decode($row->eldocente),1,0,'L',0);
 		    $pdf->Cell(10,5,utf8_decode($row->horas),1,1,'L',0);
-
     }
 
     

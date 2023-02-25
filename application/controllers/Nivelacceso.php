@@ -42,6 +42,7 @@ public function  save()
 	 	'read' => $this->input->post('read'),
 	 	'update' => $this->input->post('update'),
 	 	'delete' => $this->input->post('delete'),
+	 	'navegar' => $this->input->post('navegar'),
 	 	'inicio' => $this->input->post('inicio'),
 	 	);
 	 	$this->nivelacceso_model->save($array_item);
@@ -72,6 +73,7 @@ public function  save()
 	 	'read' => $this->input->post('read'),
 	 	'update' => $this->input->post('update'),
 	 	'delete' => $this->input->post('delete'),
+	 	'navegar' => $this->input->post('navegar'),
 	 	'inicio' => $this->input->post('inicio'),
 	 	);
 	 	$this->nivelacceso_model->update($id,$array_item);

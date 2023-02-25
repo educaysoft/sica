@@ -50,6 +50,15 @@
 </tr>
 
 <tr>
+<td> Navegar: </td>
+<td><?php 
+    $eys_arrinput=array('name'=>'navegar','value'=>$nivelacceso['navegar'], "style"=>"width:500px");
+    echo form_input($eys_arrinput);  ?></td>
+</tr>
+
+
+
+<tr>
 <td> Modulo de inicio: </td>
 <td><?php 
     $eys_arrinput=array('name'=>'inicio','value'=>$nivelacceso['inicio'], "style"=>"width:500px");

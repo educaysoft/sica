@@ -86,6 +86,16 @@ if(isset($nivelacceso))
  echo form_input($eys_arrctl) ?></td>
   </tr>
 
+<tr>
+      <td>Navegar:</td>
+      <td><?php
+
+
+  $eys_arrctl=array("name"=>'navegar','value'=>$nivelacceso['navegar'],"disabled"=>"disabled",'placeholder'=>'navegar','style'=>'width:500px;');
+ echo form_input($eys_arrctl) ?></td>
+  </tr>
+
+
 
   <tr>
       <td>Modulo de inicio:</td>

@@ -35,6 +35,12 @@
 </tr>
 
 <tr>
+<td> Navegar: </td>
+<td><?php echo form_input("navegar","", array("placeholder"=>"0 o 1"))  ?></td>
+</tr>
+
+
+<tr>
 <td> Modulo de inicio: </td>
 <td><?php echo form_input("inicio","", array("placeholder"=>"Modulo con el que inicia"))  ?></td>
 </tr>
