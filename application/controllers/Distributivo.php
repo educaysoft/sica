@@ -8,6 +8,7 @@ class Distributivo extends CI_Controller{
       $this->load->model('distributivodocente_model');
       $this->load->model('periodoacademico_model');
       $this->load->model('departamento_model');
+      $this->load->model('fechacalendario_model');
 }
 
 //=========================================================
