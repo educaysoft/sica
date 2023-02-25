@@ -216,7 +216,7 @@ public function iniciar()
 	{
 		$idperiodoacademico=$this->uri->segment(3);
 	 	$data['fechacalendarios']= $this->fechacalendario_model->lista_fechacalendarios1($idperiodoacademico)->result();
-		$data{'distributivodocentes'] =$this->distributivodocente_model->distributivodocentes1($iddistributivo)->result();
+		$data['distributivodocentes'] =$this->distributivodocente_model->distributivodocentes1($iddistributivo)->result();
 
 		$data['title']="Evento";
 		$this->load->view('distributivo_list_pdf',$data);
