@@ -214,7 +214,7 @@ public function iniciar()
 
 	public function reportepdf()
 	{
-		$idperiodoacademico=$this->uri->segment(3);
+		$iddistributivo=$this->uri->segment(3);
 	 	$data['fechacalendarios']= $this->fechacalendario_model->lista_fechacalendarios1($idperiodoacademico)->result();
 		$data['distributivodocentes'] =$this->distributivodocente_model->distributivodocentes1($iddistributivo)->result();
 
