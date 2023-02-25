@@ -32,8 +32,8 @@
 
 	$pdf->Cell(10,5,'dist',1,0,'C',1);
 	$pdf->Cell(60,5,'periodo',1,0,'C',1);
-	$pdf->Cell(10,5,'nivel',1,0,'C',1);
-	$pdf->Cell(70,5,'docente',1,1,'C',1);
+	$pdf->Cell(70,5,'docente',1,0,'C',1);
+	$pdf->Cell(10,5,'horas',1,1,'C',1);
  
 	 
 
@@ -47,8 +47,8 @@
 		    $i=$i+1;
 		    $pdf->Cell(10,5,$row->iddistributivo,1,0,'R',0); 
 		    $pdf->Cell(60,5,utf8_decode($row->elperiodoacademico),1,0,'L',0);
-		    $pdf->Cell(10,5,utf8_decode($row->eldocente),1,0,'L',0);
-		    $pdf->Cell(70,5,utf8_decode($row->horas),1,1,'L',0);
+		    $pdf->Cell(70,5,utf8_decode($row->horas),1,0,'L',0);
+		    $pdf->Cell(10,5,utf8_decode($row->horas),1,1,'L',0);
 
     }
 

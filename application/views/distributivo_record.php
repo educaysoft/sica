@@ -13,7 +13,7 @@ if(isset($distributivo))
         <li> <?php echo anchor('distributivo/edit/'.$distributivo['iddistributivo'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('distributivo/delete/'.$distributivo['iddistributivo'],'Delete'); ?></li>
         <li> <?php echo anchor('distributivo/listar/'.$distributivo['idperiodoacademico'],'Listar'); ?></li>
-        <li> <?php echo anchor('distributivo/reportepdf/'.$distributivo['idperiodoacademico'],'reportepdf'); ?></li>
+        <li> <?php echo anchor('distributivo/reportepdf/'.$distributivo['iddistributivo'],'reportepdf'); ?></li>
         <li> <?php echo anchor('distributivounidad/','Unidades'); ?></li>
         <li> <?php echo anchor('distributivo/','Distributivo'); ?></li>
 
