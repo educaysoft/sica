@@ -62,6 +62,7 @@ public function index(){
 			'titulo' => $this->input->post('titulo'),
 			'fecharegistro' => $this->input->post('fecharegistro'),
 	 	'idnivelestudio' => $this->input->post('idnivelestudio'),
+	 		'idnivelestudio' => $this->input->post('idnivelestudio'),
 			'numeroregistro' => $this->input->post('numeroregistro'),
 	 	);
 	 	$result=$this->estudio_model->save($array_item);
