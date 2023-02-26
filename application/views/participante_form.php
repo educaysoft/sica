@@ -72,7 +72,7 @@ foreach ($nivelparticipante as $row){
   <label class="col-md-2 col-form-label">Grupo</label>
 	<div class="col-md-10">
 		<?php
-	$eys_arrinput=array('name'=>'grupoletra','value'=>$participante['grupoletra'], "style"=>"width:500px");
+	$eys_arrinput=array('name'=>'grupoletra','value'=>'A', "style"=>"width:500px");
 	echo form_input($eys_arrinput); 
 		?>
 	</div> 
