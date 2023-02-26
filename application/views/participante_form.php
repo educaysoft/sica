@@ -44,7 +44,7 @@ $options= array('--Select--');
 foreach ($participanteestado as $row){
 	$options[$row->idparticipanteestado]= $row->nombre;
 }
- echo form_dropdown("idparticipanteestado",$options, $participante['idparticipanteestado']); 
+ echo form_dropdown("idparticipanteestado",$options, set_select('--Select--','default_value')); 
 		?>
 	</div> 
 </div> 
@@ -65,6 +65,19 @@ foreach ($nivelparticipante as $row){
 		?>
 	</div> 
 </div> 
+
+
+
+<div class="form-group row">
+  <label class="col-md-2 col-form-label">Grupo</label>
+	<div class="col-md-10">
+		<?php
+	$eys_arrinput=array('name'=>'grupoletra','value'=>$participante['grupoletra'], "style"=>"width:500px");
+	echo form_input($eys_arrinput); 
+		?>
+	</div> 
+</div> 
+
 
 
 <div id="eys-nav-i">
