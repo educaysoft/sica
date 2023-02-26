@@ -58,7 +58,6 @@ public function index(){
 		 	
 			'idpersona' => $this->input->post('idpersona'),
 			'idinstitucion' => $this->input->post('idinstitucion'),
-			'nivel' => $this->input->post('nivel'),
 			'titulo' => $this->input->post('titulo'),
 			'fecharegistro' => $this->input->post('fecharegistro'),
 	 	'idnivelestudio' => $this->input->post('idnivelestudio'),
