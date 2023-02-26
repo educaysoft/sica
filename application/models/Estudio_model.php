@@ -53,7 +53,7 @@ class Estudio_model extends CI_model {
 
 		$condition1 = "idpersona =" . "'" . $array['idpersona'] . "'";
 		$condition2 = "idinstitucion =" . "'" . $array['idinstitucion'] . "'";
-		$condition3 = "nivel =" . "'" . $array['nivel'] . "'";
+		$condition3 = "idnivel =" . "'" . $array['idnivel'] . "'";
 		$this->db->select('*');
 		$this->db->from('estudio');
 		$this->db->where($condition1);
