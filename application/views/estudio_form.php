@@ -48,11 +48,21 @@ foreach ($instituciones as $row){
  echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
-
 <tr>
-<td> Nivel del estudio: </td>
-<td><?php echo form_input(array("name"=>"nivel","id"=>"nivel","type"=>"text"));  ?></td>
+<td> Nivel estudio: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($nivelestudios as $row){
+	$options[$row->idnivelestudio]= $row->nombre;
+}
+
+ echo form_dropdown("idnivelestudio",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
+
+
+
+
 
 <tr>
 <td> Título obtenido: </td>
