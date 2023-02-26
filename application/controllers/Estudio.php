@@ -101,7 +101,6 @@ public function index(){
 			'fecharegistro' => $this->input->post('fecharegistro'),
 			'numeroregistro' => $this->input->post('numeroregistro'),
 	 		'idnivelestudio' => $this->input->post('idnivelestudio'),
-			'nivel' => $this->input->post('nivel'),
 			'titulo' => $this->input->post('titulo'),
 	 	);
 	 	$this->estudio_model->update($id,$array_item);
