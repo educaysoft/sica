@@ -8,7 +8,7 @@ class Seguimiento extends CI_Controller{
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
       		$this->load->model('tiposeguimiento_model');
-         	$this->load->model('fechaevento_model');
+         	$this->load->model('sesionevento_model');
 	}
 
 	public function index(){
@@ -38,7 +38,7 @@ class Seguimiento extends CI_Controller{
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['tiposeguimientos']= $this->tiposeguimiento_model->lista_tiposeguimientos()->result();
-		$data['fechaeventos'] =$this->fechaevento_model->fechaeventos($idevento)->result();
+		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($idevento)->result();
 		$data['title']="Nuevo Seguimiento";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('seguimiento_form',$data);
@@ -175,7 +175,7 @@ public function reporte()
 {
 
 	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
-	$data['fechaeventos'] =$this->fechaevento_model->fechaevento_seguimiento($this->uri->segment(3))->result();
+	$data['sesioneventos'] =$this->sesionevento_model->sesionevento_seguimiento($this->uri->segment(3))->result();
 	$data['seguimiento'] = $this->seguimiento_model->listar_seguimiento_reporte($this->uri->segment(3))->result();
   	$data['title']="Certificado";
   	$this->load->view('seguimiento_report',$data);
