@@ -658,7 +658,7 @@ if(isset($this->session->userdata['acceso'])){
 		$modulo=$row["modulo"]["modulo"];
 		$funcion=$row["modulo"]["funcion"];
 
-      echo '<li><a id="'.$id.'" style="font-size:80%; color:orange;" href="'.base_url().'index.php/'.$modulo.'/'.  ($funcion!='')?  $funcion.$this->session->userdata['logged_in']['idpersona']:''.'"><img src="'.base_url().'assets/iconos/'.$icono.'.png" wide="49" height="50" alt="Formget logo"></a></li>';
+      echo '<li><a id="'.$id.'" style="font-size:80%; color:orange;" href="'.base_url().'index.php/'.$modulo.'/'. (empty($funcion) ? '': $funcion.$this->session->userdata['logged_in']['idpersona']).'"><img src="'.base_url().'assets/iconos/'.$icono.'.png" wide="49" height="50" alt="Formget logo"></a></li>';
 	    } 
 }
         ?>
