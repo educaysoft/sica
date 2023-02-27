@@ -322,7 +322,7 @@ if ($result == TRUE) {
 					$nombre=$elmodulo[0]->nombre;
 					$icono=$elmodulo[0]->icono;
 					$modulo=$elmodulo[0]->modulo;
-					$modulo=$elmodulo[0]->funcion;
+					$funcion=$elmodulo[0]->funcion;
 				}
 				$elnivelacceso = $this->nivelacceso_model->nivelacceso($row->idnivelacceso)->row_array();
 				if($elnivelacceso)
