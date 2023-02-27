@@ -48,10 +48,19 @@ if(isset($modulo))
   </tr>
 
 <tr>
-      <td>Nombre:</td>
+      <td>Modulo:</td>
       <td><?php
 
   $eys_arrctl=array("name"=>'modulo','value'=>$modulo['modulo'],"disabled"=>"disabled",'placeholder'=>'Imodulo','style'=>'width:500px;');
+ echo form_input($eys_arrctl) ?></td>
+  </tr>
+
+
+<tr>
+      <td>Funcion:</td>
+      <td><?php
+
+  $eys_arrctl=array("name"=>'funcion','value'=>$modulo['funcion'],"disabled"=>"disabled",'placeholder'=>'Ifuncion','style'=>'width:500px;');
  echo form_input($eys_arrctl) ?></td>
   </tr>
 

@@ -201,4 +201,6 @@ alter table persona add column horacreacion time;*/
 
 
 
-alter table nivelacceso add column navegar tinyint default 0;
+/* alter table nivelacceso add column navegar tinyint default 0;*/
+
+alter table modulo add column funcion varchar(100);

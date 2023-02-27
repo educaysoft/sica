@@ -18,6 +18,12 @@
 <td><?php echo form_input("modulo","", array("placeholder"=>"Nombre del modulo"))  ?></td>
 </tr>
 
+<tr>
+<td> Funcion </td>
+<td><?php echo form_input("funcion","", array("placeholder"=>"Nombre de la funcion"))  ?></td>
+</tr>
+
+
 
 <tr>
 <td> Icono: </td>

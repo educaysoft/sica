@@ -42,6 +42,18 @@
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Funcion:</label>
+	<div class="col-md-10">
+	<?php
+ $eys_arrinput=array('name'=>'funcion','value'=>$modulo['funcion'], "style"=>"width:500px");
+ echo form_input($eys_arrinput); 
+	?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Icono:</label>
 	<div class="col-md-10">
 	<?php
