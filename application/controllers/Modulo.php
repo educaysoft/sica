@@ -10,7 +10,7 @@ class Modulo extends CI_Controller{
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 	  	$data['modulo']=$this->modulo_model->elmodulo(1)->row_array();
-  		$data['title']="Lista de Empresas";
+  		$data['title']="Modulo del sistema";
 			$this->load->view('template/page_header');		
   		$this->load->view('modulo_record',$data);
 			$this->load->view('template/page_footer');

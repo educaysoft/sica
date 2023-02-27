@@ -32,7 +32,7 @@ if(isset($modulo))
 <table>
 
   <tr>
-     <td>Id Institucion:</td>
+     <td>Id :</td>
      <td><?php
 
   $eys_arrctl=array("name"=>'idmodulo','value'=>$modulo['idmodulo'],"disabled"=>"disabled",'placeholder'=>'Idmodulos','style'=>'width:500px;');
@@ -47,7 +47,16 @@ if(isset($modulo))
  echo form_input($eys_arrctl) ?></td>
   </tr>
 
-  
+<tr>
+      <td>Nombre:</td>
+      <td><?php
+
+  $eys_arrctl=array("name"=>'modulo','value'=>$modulo['modulo'],"disabled"=>"disabled",'placeholder'=>'Imodulo','style'=>'width:500px;');
+ echo form_input($eys_arrctl) ?></td>
+  </tr>
+
+
+
  <tr>
       <td>Inicial:</td>
       <td><?php
