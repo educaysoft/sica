@@ -42,10 +42,10 @@ foreach ($eventos as $row){
 <?php
 
 $options= array('--Select--');
-foreach ($fechaeventos as $row){
-	$options[$row->idfechaevento]= $row->fecha." - ".$row->tema;
+foreach ($sesioneventos as $row){
+	$options[$row->idsesionevento]= $row->fecha." - ".$row->tema;
 }
- echo form_dropdown("idfechaevento",$options, set_select('--Select--','default_value'),array('id'=>'idfechaevento','onchange'=>'get_participantes2()'));  
+ echo form_dropdown("idsesionevento",$options, set_select('--Select--','default_value'),array('id'=>'idsesionevento','onchange'=>'get_participantes2()'));  
 
 ?>
 </div>
@@ -270,7 +270,7 @@ echo '<a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Envi
 
 	function get_participantes2() {
 		var idevento = $('select[name=idevento]').val();
-		var f = document.getElementById("idfechaevento");
+		var f = document.getElementById("idsesionevento");
 		var arrtmp=f.options[f.selectedIndex].text;
 		const x=arrtmp.split(" - ");
 		var fecha=x[0];
@@ -318,7 +318,7 @@ echo '<a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Envi
 
 	function get_seguimiento() {
 
-		var f = document.getElementById("idfechaevento");
+		var f = document.getElementById("idsesionevento");
   		var arrtmp=f.options[f.selectedIndex].text;
 		const x=arrtmp.split(" - ");
 		var fecha=x[0];
@@ -385,7 +385,7 @@ echo '<a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Envi
 
 //	function save_seguimiento() {
 $("#btn_update").on("click", function(){
-		var f = document.getElementById("idfechaevento");
+		var f = document.getElementById("idsesionevento");
 		var arrtmp=f.options[f.selectedIndex].text;
 		const x=arrtmp.split(" - ");
 		var fecha=x[0];
@@ -458,7 +458,7 @@ $("#btn_update").on("click", function(){
 
 
 function get_seguimiento_xx() {
-	var f = document.getElementById("idfechaevento");
+	var f = document.getElementById("idsesionevento");
   	var arrtmp=f.options[f.selectedIndex].text;
 	const x=arrtmp.split(" - ");
 	var fecha=x[0];
