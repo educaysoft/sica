@@ -242,10 +242,41 @@ $(document).ready(function(){
 
 
 $('#show_data').on('click','.item_ver',function(){
+var nombre= $(this).data('elperiodoacademico')+" - "+$(this).data('laasignatura') ;
+var descripcion= $(this).data('elperiodoacademico')+" - "+$(this).data('laasignatura') ;
+var idperiodoacademico= $(this).data('idperiodoacademico
+var iddocente= $(this).data('iddocente');
+var idasignatura= $(this).data('idasignatura');
+var duracion= "4 meses";
+var linkdetalle= "";
+$.ajax({url: '<?php echo site_url('silabo/save')?>',
+	method: 'POST',
+	data:{nombre:nombre,descripcion:descripcion,idperiodoacademico:idperiodoacademico,iddocente:iddocente,idasignatura:idasignatura,duracion:duracion,linkdetalle:linkdetalle},
+	async : true,
+	dataType: 'json',
+	successs: function(data){
+
+	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('docente/silabo_data')?>', type: 'GET',data:{iddocente:iddocente}},});
+	},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+	    })
+	}
+
+
+
+
+
+$('#show_data').on('click','.item_gesi',function(){
 var id= $(this).data('idasignaturadocente');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
+
+
+
 
 
 

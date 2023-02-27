@@ -128,10 +128,8 @@ echo form_textarea("comentario","",$textarea_options);
 		html += '<option value='+data[i].idpersona+'>'+data[i].nombres+'</option>';
 		}
 		$('#idpersona').html(html);
-
 		var select = document.getElementById('idpersona');
 		select.size = select.length;  
-
 		},
 	      error: function (xhr, ajaxOptions, thrownError) {
 		alert(xhr.status);
