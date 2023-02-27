@@ -64,7 +64,6 @@ public function edit()
 		$id=$this->input->post('id');
 	 	$array_item=array(
 		 	
-		 	'id' => $this->input->post('idunidad'),
 		 	'nombre' => $this->input->post('nombre'),
 			'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
