@@ -241,7 +241,10 @@ $(document).ready(function(){
 });
 
 
-$('#show_data').on('click','.item_ver',function(){
+
+
+
+$('#show_data').on('click','.item_gesi',function(){
 var nombre= $(this).data('elperiodoacademico')+" - "+$(this).data('laasignatura') ;
 var descripcion= $(this).data('elperiodoacademico')+" - "+$(this).data('laasignatura') ;
 var idperiodoacademico= $(this).data('idperiodoacademico
@@ -263,13 +266,13 @@ $.ajax({url: '<?php echo site_url('silabo/save')?>',
 		alert(thrownError);
 	      }
 	    })
-	}
+	});
 
 
 
 
 
-$('#show_data').on('click','.item_gesi',function(){
+$('#show_data').on('click','.item_ver',function(){
 var id= $(this).data('idasignaturadocente');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
