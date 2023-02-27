@@ -337,7 +337,7 @@ if ($result == TRUE) {
 
 			
 				$accesotmp = array(
-				'modulo' =>array('id'=>$idmodulo,'nombre'=>$nombre,'icono'=>$icono,'modulo'=>$modulo),
+				'modulo' =>array('id'=>$idmodulo,'nombre'=>$nombre,'icono'=>$icono,'modulo'=>$modulo,'funcion'=>$funcion),
 				'nivelacceso' =>array('create'=>$create,'read'=>$read,'update'=>$update,'delete'=>$delete,'navegar'=>$navegar)
 				);
 				array_push($accesos,$accesotmp);
