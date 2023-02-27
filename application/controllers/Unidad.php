@@ -10,7 +10,7 @@ class Unidad extends CI_Controller{
 
 public function index(){
 
-  	$data['unidades']=$this->unidad_model->unidad(1)->row_array();
+  	$data['unidad']=$this->unidad_model->unidad(1)->row_array();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   
  // print_r($data['usuario_list']);
