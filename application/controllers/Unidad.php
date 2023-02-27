@@ -37,7 +37,6 @@ public function add()
 	{
 	 	$array_item=array(
 		 	
-		 	'id' => $this->input->post('idunidad'),
 		 	'nombre' => $this->input->post('nombre'),
 			'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
@@ -61,7 +60,7 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('id');
+		$idunidad=$this->input->post('idunidad');
 	 	$array_item=array(
 		 	
 		 	'nombre' => $this->input->post('nombre'),
