@@ -16,7 +16,7 @@ public function index(){
  // print_r($data['usuario_list']);
  	 $data['title']="Lista de Unidades";
 	$this->load->view('template/page_header');		
- 	 $this->load->view('_record',$data);
+ 	 $this->load->view('unidad_record',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -26,7 +26,7 @@ public function add()
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['title']="Nueva Unidad";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('_form',$data);
+	 	$this->load->view('unidad_form',$data);
 	 	$this->load->view('template/page_footer');
 
 
@@ -53,7 +53,7 @@ public function edit()
 	 	$data[''] = $this->unidad_model->unidad($this->uri->segment(3))->row_array();
  	 	$data['title'] = "Actualizar Unidad";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('_edit',$data);
+ 	 	$this->load->view('unidad_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -77,7 +77,7 @@ public function listar()
   $data[''] = $this->unidad_model->lista_unidadesA()->result();
   $data['title']="Unidad";
 	$this->load->view('template/page_header');		
-  $this->load->view('_list',$data);
+  $this->load->view('unidad_list',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -112,7 +112,7 @@ public function elprimero()
   {
     $data['title']="Unidad";
     $this->load->view('template/page_header');		
-    $this->load->view('_record',$data);
+    $this->load->view('unidad_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -130,7 +130,7 @@ public function elultimo()
     $data['title']="Unidad";
   
     $this->load->view('template/page_header');		
-    $this->load->view('_record',$data);
+    $this->load->view('unidad_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -141,22 +141,22 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['_list']=$this->unidad_model->lista_unidad()->result();
+ // $data['unidad_list']=$this->unidad_model->lista_unidad()->result();
 	$data[''] = $this->unidad_model->siguiente($this->uri->segment(3))->row_array();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   $data['title']="Unidad";
 	$this->load->view('template/page_header');		
-  $this->load->view('_record',$data);
+  $this->load->view('unidad_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['_list']=$this->unidad_model->lista_unidad()->result();
+ // $data['unidad_list']=$this->unidad_model->lista_unidad()->result();
 	$data[''] = $this->unidad_model->anterior($this->uri->segment(3))->row_array();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   $data['title']="Unidad";
 	$this->load->view('template/page_header');		
-  $this->load->view('_record',$data);
+  $this->load->view('unidad_record',$data);
 	$this->load->view('template/page_footer');
 }
 
