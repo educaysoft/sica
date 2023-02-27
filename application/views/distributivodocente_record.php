@@ -247,7 +247,7 @@ $(document).ready(function(){
 $('#show_data').on('click','.item_gesi',function(){
 var nombre= $(this).data('elperiodoacademico')+" - "+$(this).data('laasignatura') ;
 var descripcion= $(this).data('elperiodoacademico')+" - "+$(this).data('laasignatura') ;
-var idperiodoacademico= $(this).data('idperiodoacademico
+var idperiodoacademico= $(this).data('idperiodoacademico');
 var iddocente= $(this).data('iddocente');
 var idasignatura= $(this).data('idasignatura');
 var duracion= "4 meses";
