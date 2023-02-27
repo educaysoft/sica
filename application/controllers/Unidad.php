@@ -41,7 +41,7 @@ public function add()
 		 	'nombre' => $this->input->post('nombre'),
 			'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
-	 	$this->_model->save($array_item);
+	 	$this->unidad_model->save($array_item);
 	 	redirect('');
  	}
 
@@ -68,7 +68,7 @@ public function edit()
 		 	'nombre' => $this->input->post('nombre'),
 			'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
-	 	$this->_model->update($id,$array_item);
+	 	$this->unidad_model->update($id,$array_item);
 	 	redirect('');
  	}
 
