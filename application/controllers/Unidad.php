@@ -4,7 +4,7 @@ class Unidad extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('_model');
+      $this->load->model('unidad_model');
   	$this->load->model('institucion_model');
 }
 
