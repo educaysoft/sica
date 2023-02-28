@@ -313,14 +313,18 @@ echo form_input($arrdatos) ?>
 </div>
 
 
+
+
+
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> url de registro:</label>
+    <label class="col-md-2 col-form-label"> Registra a la clase:</label>
 	<div class="col-md-10">
-     <?php echo form_input('codigoclassroom',$evento['codigoclassroom'],array("disabled"=>"disabled",'placeholder'=>'codigoclassroom','style'=>'width:600px;')) 
-		?>
+      <?php
+	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
+	echo form_textarea('codigoclassroom',$evento['codigoclassroom'],$textarea_options);
+	?>
 	</div> 
 </div>
-
 
 
 
