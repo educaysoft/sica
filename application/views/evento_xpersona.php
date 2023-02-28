@@ -35,7 +35,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="col-12">
 
              <div class="col-md-12">
-	     <b>Lista de eventos(cursos) de:  <?php echo $persona[0]->apellidos+" "+ $persona[0]->nombres; ?>      	</b>
+	     <b>Lista de eventos(cursos) de:  <?php echo $persona[0]->apellidos; ?> <?php echo "  "; ?>  <?php echo $persona[0]->nombres; ?>    	</b>
        	     </div>
 
 
