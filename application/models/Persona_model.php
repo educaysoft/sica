@@ -50,6 +50,12 @@ class Persona_model extends CI_model {
 
 	function save($array_persona,$array_correo,$array_telefono)
 	{
+
+   			date_default_timezone_set('America/Guayaquil');
+    			$fecha = date("Y-m-d");
+    			$hora= date("H:i:s");
+			$idusuario=$this->session->userdata['logged_in']['idusuario'];
+
 	   $this->db->trans_begin();
 		$condition = "cedula =" . "'" . $array_persona['cedula'] . "'";
 		$this->db->select('*');
@@ -71,7 +77,7 @@ class Persona_model extends CI_model {
 			}
 
 
-		   	$this->db->insert("vitacora", array("idusuario"=>$array_persona['idusuario'],"fecha"=>$array_persona['fechacreacion'],"tabla"=>"persona","accion"=>"se creoo la persona con id=".$idpersona,"url"=>$_SERVER['REQUEST_URI']));
+		   	$this->db->insert("vitacora", array("idusuario"=>$array_persona['idusuario'],,"hora"=>$hora,"fecha"=>$array_persona['fechacreacion'],"tabla"=>"persona","accion"=>"se creoo la persona con id=".$idpersona,"url"=>$_SERVER['REQUEST_URI']));
 
 			$this->db->trans_commit();
 			return true;

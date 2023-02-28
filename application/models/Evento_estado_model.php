@@ -13,13 +13,28 @@ class Evento_estado_model extends CI_model {
 
  	function save($array)
  	{
+   		date_default_timezone_set('America/Guayaquil');
+    		$fecha = date("Y-m-d");
+    		$hora= date("H:i:s");
+		$idusuario=$this->session->userdata['logged_in']['idusuario'];
 		$this->db->insert("evento_estado", $array);
+
+	   if( $this->db->affected_rows()>0){
+		$idevento=$this->db->insert_id();
+		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fechai,"hora"=>$hora,"tabla"=>"evento","accion"=>"se creo un nuevo evento con id=".$idevento,"url"=>$_SERVER['REQUEST_URI']));
+			return true;
+	   }else{
+		$this->db->trans_rollback();
+		return false;
+	   }
+
  	}
 
  	function update($id,$array_item)
  	{
  		$this->db->where('idevento_estado',$id);
  		$this->db->update('evento_estado',$array_item);
+		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fechai,"hora"=>$hora,"tabla"=>"evento","accion"=>"se modifico el  evento con id=".$array_tiem['idevento'],"url"=>$_SERVER['REQUEST_URI']));
 	}
  
 

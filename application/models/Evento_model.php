@@ -156,6 +156,11 @@ class Evento_model extends CI_model {
   // Para guardar un registro nuevo
 	function save($array)
  	{
+
+   		date_default_timezone_set('America/Guayaquil');
+    		$fecha = date("Y-m-d");
+    		$hora= date("H:i:s");
+
 		$this->db->trans_begin();
 		$this->db->insert("evento", $array);
 		if($this->db->affected_rows()>0){
@@ -167,6 +172,8 @@ class Evento_model extends CI_model {
 						$this->db->where('idevento',$idevento);
 						$this->db->update('evento',array('idpagina'=>$this->db->insert_id()));
 				}
+
+		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fechai,"hora"=>$hora,"tabla"=>"evento","accion"=>"se creo un nuevo evento con id=".$idevento,"url"=>$_SERVER['REQUEST_URI']));
 				$this->db->trans_commit();
 				return true;
 		}else{
@@ -179,8 +186,16 @@ class Evento_model extends CI_model {
 	// Para actualiza un registro
  	function update($id,$array_item)
  	{
+   		date_default_timezone_set('America/Guayaquil');
+    		$fecha = date("Y-m-d");
+    		$hora= date("H:i:s");
+
  		$this->db->where('idevento',$id);
- 		$this->db->update('evento',$array_item);	}
+		$this->db->update('evento',$array_item);
+
+		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fechai,"hora"=>$hora,"tabla"=>"evento","accion"=>"se modifico el  evento con id=".$idevento,"url"=>$_SERVER['REQUEST_URI']));
+
+	}
 
 
 
