@@ -30,6 +30,7 @@
 
 if(isset($sesionevento))
 {
+?>
     <ul>
         <li> <?php echo anchor('sesionevento/elprimero/', 'primero'); ?></li>
         <li> <?php echo anchor('sesionevento/anterior/'.$sesionevento['idsesionevento'], 'anterior'); ?></li>
