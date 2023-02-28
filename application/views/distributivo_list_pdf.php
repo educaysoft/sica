@@ -33,7 +33,7 @@
 	$pdf->Cell(10,5,'#',1,0,'C',1);
 	$pdf->Cell(20,5,'cedula',1,0,'C',1);
 	$pdf->Cell(70,5,'docente',1,0,'C',1);
-	$pdf->Cell(10,5,'horas',1,1,'C',1);
+	$pdf->Cell(10,5,'horas',1,0,'C',1);
 	$pdf->Cell(50,5,'correo',1,1,'C',1);
  
 	 
