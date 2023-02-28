@@ -153,24 +153,24 @@ function distributivodocente_data()
 
 	function asignaturadocente_data()
 	{
-			$draw= intval($this->input->get("draw"));
-			$draw= intval($this->input->get("start"));
-			$draw= intval($this->input->get("length"));
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
 
-			$iddistributivodocente=$this->input->get('iddistributivodocente');
-			$data0 =$this->asignaturadocente_model->lista_asignaturadocentesA($iddistributivodocente);
-			$data=array();
-			foreach($data0->result() as $r){
-				$data[]=array($r->iddistributivodocente,$r->idasignaturadocente,$r->nivel,$r->laasignatura,$r->paralelo,$r->horas,
+		$iddistributivodocente=$this->input->get('iddistributivodocente');
+		$data0 =$this->asignaturadocente_model->lista_asignaturadocentesA($iddistributivodocente);
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->iddistributivodocente,$r->idasignaturadocente,$r->nivel,$r->laasignatura,$r->paralelo,$r->horas,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('asignaturadocente/actual').'"    data-idasignaturadocente="'.$r->idasignaturadocente.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_gesi"  data-retorno="'.site_url('silabo/save').'"     data-paralelo="'.$r->paralelo.'"  data-laasignatura="'.$r->laasignatura.'"   data-elperiodoacademico="'.$r->elperiodoacademico.'"  data-idperiodoacademico="'.$r->idperiodoacademico.'"  data-iddocente="'.$r->iddocente.'" data-idasignatura="'.$r->idasignatura.'">GeSi</a>');
 			}	
-			$output=array( "draw"=>$draw,
+		$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
 				"recordsFiltered"=> $data0->num_rows(),
 				"data"=>$data
 			);
-			echo json_encode($output);
-			exit();
+		echo json_encode($output);
+		exit();
 	}
 
 
