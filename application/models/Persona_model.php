@@ -77,7 +77,7 @@ class Persona_model extends CI_model {
 			}
 
 
-		   	$this->db->insert("vitacora", array("idusuario"=>$array_persona['idusuario'],,"hora"=>$hora,"fecha"=>$array_persona['fechacreacion'],"tabla"=>"persona","accion"=>"se creoo la persona con id=".$idpersona,"url"=>$_SERVER['REQUEST_URI']));
+		   	$this->db->insert("vitacora", array("idusuario"=>$idusuario,"hora"=>$hora,"fecha"=>$array_persona['fechacreacion'],"tabla"=>"persona","accion"=>"se creoo la persona con id=".$idpersona,"url"=>$_SERVER['REQUEST_URI']));
 
 			$this->db->trans_commit();
 			return true;

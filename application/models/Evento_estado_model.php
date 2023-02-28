@@ -20,8 +20,8 @@ class Evento_estado_model extends CI_model {
 		$this->db->insert("evento_estado", $array);
 
 	   if( $this->db->affected_rows()>0){
-		$idevento=$this->db->insert_id();
-		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fechai,"hora"=>$hora,"tabla"=>"evento","accion"=>"se creo un nuevo evento con id=".$idevento,"url"=>$_SERVER['REQUEST_URI']));
+		$idevento_estado=$this->db->insert_id();
+		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fechai,"hora"=>$hora,"tabla"=>"evento_estado","accion"=>"se creo un nuevo evento_estado con id=".$idevento_estado,"url"=>$_SERVER['REQUEST_URI']));
 			return true;
 	   }else{
 		$this->db->trans_rollback();
@@ -34,7 +34,6 @@ class Evento_estado_model extends CI_model {
  	{
  		$this->db->where('idevento_estado',$id);
  		$this->db->update('evento_estado',$array_item);
-		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fechai,"hora"=>$hora,"tabla"=>"evento","accion"=>"se modifico el  evento con id=".$array_tiem['idevento'],"url"=>$_SERVER['REQUEST_URI']));
 	}
  
 
