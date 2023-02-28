@@ -263,6 +263,11 @@ $.ajax({url: '<?php echo site_url('silabo/save')?>',
 	var idtipoevento=2; // CURSOS DE MALLA
 	var idevento_estado=2; //INSCRIPCION
 	var idinstitucion=1;  //Universidad Tecnica Luis Vargas Torres
+	var fechainicia = new Date(); 
+	var fechafinaliza= new Date();
+	var detalle =titulo;
+	var idusuario=0;
+	var fecha= new Date();
 	var duracion=0;
 	var costo=0;	
 	var idsilabo=0;
