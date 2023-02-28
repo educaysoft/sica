@@ -261,26 +261,6 @@ $.ajax({url: '<?php echo site_url('silabo/save')?>',
 	successs: function(data){
 
 
-$.ajax({url: '<?php echo site_url('evento/save')?>',
-	method: 'POST',
-	data:{idtipoevento:idtipoevento,idevento_estado:idevento_estado,idinstitucion:idinstitucion,titulo:titulo,fechainicia:fechainicia,fechafinaliza:fechafinaliza,detalle:detalle,idusuario:idusuario,fecha:fecha,duracion:duracion,costo:costo,idsilabo:idsilabo,codigoclassroom:codigoclassroom,idasignaturadocente:idasignaturadocente,idcalendarioacademico:idcalendarioacademico},
-	async : true,
-	dataType: 'json',
-	successs: function(data){
-
-	
-	
-	
-	
-	},
-	      error: function (xhr, ajaxOptions, thrownError) {
-		alert(xhr.status);
-		alert(thrownError);
-	      }
-	    })
-
-
-
 
 	
 	
