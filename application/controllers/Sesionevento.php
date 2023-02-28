@@ -30,7 +30,7 @@ class Sesionevento extends CI_Controller{
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 
  		// print_r($data['sesionevento_list']);
-  		$data['title']="Lista de Sesioneventoes";
+  		$data['title']="Esta viendo la  Sesión #: ";
 		$this->load->view('template/page_header');		
   		$this->load->view('sesionevento_record',$data);
 		$this->load->view('template/page_footer');
