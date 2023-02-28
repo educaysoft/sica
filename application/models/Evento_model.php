@@ -173,7 +173,7 @@ class Evento_model extends CI_model {
 						$this->db->update('evento',array('idpagina'=>$this->db->insert_id()));
 				}
 
-		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fechai,"hora"=>$hora,"tabla"=>"evento","accion"=>"se creo un nuevo evento con id=".$idevento,"url"=>$_SERVER['REQUEST_URI']));
+		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fecha,"hora"=>$hora,"tabla"=>"evento","accion"=>"se creo un nuevo evento con id=".$idevento,"url"=>$_SERVER['REQUEST_URI']));
 				$this->db->trans_commit();
 				return true;
 		}else{
@@ -193,7 +193,7 @@ class Evento_model extends CI_model {
  		$this->db->where('idevento',$id);
 		$this->db->update('evento',$array_item);
 
-		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fechai,"hora"=>$hora,"tabla"=>"evento","accion"=>"se modifico el  evento con id=".$idevento,"url"=>$_SERVER['REQUEST_URI']));
+		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fecha,"hora"=>$hora,"tabla"=>"evento","accion"=>"se modifico el  evento con id=".$idevento,"url"=>$_SERVER['REQUEST_URI']));
 
 	}
 
