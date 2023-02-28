@@ -1,11 +1,8 @@
 <div id="eys-nav-i">
 
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-<?php echo form_open('sesionevento/save_edit') ?>
-    <ul>
+	<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idisesionevento"><?php echo $sesionevento['idsesionevento']; ?></idem></div>
+
 <?php
-if(isset($sesionevento))
-{
 	$permitir=0;
 	$j=0;
 	$numero=$j;
@@ -29,6 +26,11 @@ if(isset($sesionevento))
 
 ?>
  
+<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['navegar']){ ?>
+
+if(isset($sesionevento))
+{
+    <ul>
         <li> <?php echo anchor('sesionevento/elprimero/', 'primero'); ?></li>
         <li> <?php echo anchor('sesionevento/anterior/'.$sesionevento['idsesionevento'], 'anterior'); ?></li>
         <li> <?php echo anchor('sesionevento/siguiente/'.$sesionevento['idsesionevento'], 'siguiente'); ?></li>
@@ -45,9 +47,15 @@ if(isset($sesionevento))
 ?>
 
         <li> <?php echo anchor('sesionevento/add', 'Nuevo'); ?></li>
+
+
     </ul>
 <?php
-	die();
+}
+?>
+
+
+<?php
 }
 ?>
 
@@ -60,7 +68,6 @@ if(isset($sesionevento))
 
 
 <?php echo form_hidden('idevento',$sesionevento['idevento']) ?>
-<table>
 
 
 
