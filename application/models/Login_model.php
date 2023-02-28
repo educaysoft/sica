@@ -114,6 +114,7 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 							    $date = date('d-m-y h:i:s');
 							    $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>$date,'fechaoff'=>''));
 							    $this->db->insert('acceso',array('idusuario'=>$idusuario,'idmodulo'=>7,'idnivelacceso'=>2));
+							    $this->db->insert('acceso',array('idusuario'=>$idusuario,'idmodulo'=>25,'idnivelacceso'=>2));
 							    if ($this->db->affected_rows() > 0) {
 							      $this->db->trans_complete();
 										return true;
