@@ -79,7 +79,7 @@ foreach ($instituciones as $row){
 
  <tr>
       <td>Fecha de finaliza:</td>
-<td><?php echo form_input('fechafinaliza',  (isset($evento['fechafinaliza']) ? date('Y-m-d H:i:s', strtotime($evento['fechafinaliza'])) : ""), 'class="form-control  datetime" id="start_date" autocomplete="off"',array("type"=>"date")); ?></td>
+<td><?php echo form_input("name"=>'fechafinaliza',"id"=>"fechafinaliza","value"=>$evento['fechafinaliza'], 'class=>"form-control  datetime" id="start_date" autocomplete="off"',"type"=>"date")); ?></td>
   </tr>
 
 <tr>
