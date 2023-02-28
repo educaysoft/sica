@@ -58,6 +58,7 @@ class Silabo_model extends CI_model {
 					$this->db->insert('unidadsilabo',$arrayunidad);
 				}	
 			$this->db->trans_commit();
+			echo json_encode(json_decode('{"idsilabo":'.$idsilabo.'}'),JSON_PRETTY_PRINT);	
 			return true;
 		   }else{
 			$this->db->trans_rollback();
