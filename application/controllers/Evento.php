@@ -72,7 +72,6 @@ public function index(){
 	public function  save()
 	{
 	 	$array_item=array(
-		 	'idevento' => $this->input->post('idevento'),
 		 	'idtipoevento' => $this->input->post('idtipoevento'),
 		 	'idevento_estado' => $this->input->post('idevento_estado'),
 		 	'idinstitucion' => $this->input->post('idinstitucion'),

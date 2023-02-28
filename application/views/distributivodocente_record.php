@@ -246,6 +246,7 @@ $(document).ready(function(){
 
 $('#show_data').on('click','.item_gesi',function(){
 var nombre= $(this).data('elperiodoacademico')+" - "+$(this).data('laasignatura') ;
+var titulo= $(this).data('elperiodoacademico')+" -".$(this).date('paralelo') ." - "+$(this).data('laasignatura') ;
 var descripcion= $(this).data('elperiodoacademico')+" - "+$(this).data('laasignatura') ;
 var idperiodoacademico= $(this).data('idperiodoacademico');
 var iddocente= $(this).data('iddocente');
@@ -255,11 +256,50 @@ var linkdetalle= "";
 $.ajax({url: '<?php echo site_url('silabo/save')?>',
 	method: 'POST',
 	data:{nombre:nombre,descripcion:descripcion,idperiodoacademico:idperiodoacademico,iddocente:iddocente,idasignatura:idasignatura,duracion:duracion,linkdetalle:linkdetalle},
+	async : false,
+	dataType: 'json',
+	successs: function(data){
+
+	var idtipoevento=2; // CURSOS DE MALLA
+	var idevento_estado=2; //INSCRIPCION
+	var idinstitucion=1;  //Universidad Tecnica Luis Vargas Torres
+	var fechainicia = New Date(); 
+	var fechafinaliza= New Date();
+	var detalle =titulo;
+	var idusuario=0
+	var fecha= New Date();
+	var duracion=0;
+	var costo=0;	
+	var idsilabo=0;
+	var codigoclassroom="";	
+	var idasignaturadocente=0;	
+	var idcalendarioacademico=o;
+
+$.ajax({url: '<?php echo site_url('evento/save')?>',
+	method: 'POST',
+	data:{idtipoevento:idtipoevento,idevento_estado:idevento_estado,idinstitucion:idinstitucion,titulo:titulo,fechainicia:fechainicia,fechafinaliza:fechafinaliza,detalle:detalle,idusuario:idusuario,fecha:fecha,duracion:duracion,costo:costo,idsilabo:idsilabo,codigoclassroom:codigoclassroom,idasignaturadocente:idasignaturadocente,idcalendarioacademico:idcalendarioacademico},
 	async : true,
 	dataType: 'json',
 	successs: function(data){
 
-	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('docente/silabo_data')?>', type: 'GET',data:{iddocente:iddocente}},});
+	
+	
+	
+	
+	},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+	    })
+
+
+
+
+	
+	
+	
+	
 	},
 	      error: function (xhr, ajaxOptions, thrownError) {
 		alert(xhr.status);
