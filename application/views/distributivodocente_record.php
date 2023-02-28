@@ -257,7 +257,6 @@ $.ajax({url: '<?php echo site_url('silabo/save')?>',
 	method: 'POST',
 	data:{nombre:nombre,descripcion:descripcion,idperiodoacademico:idperiodoacademico,iddocente:iddocente,idasignatura:idasignatura,duracion:duracion,linkdetalle:linkdetalle},
 	async : false,
-	dataType: 'json',
 	successs: function(data){
 
 	var idtipoevento=2; // CURSOS DE MALLA
