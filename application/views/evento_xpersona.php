@@ -26,11 +26,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 </style>
 
-<div id="eys-nav-i">
-	<ul>
-		<li> <?php echo anchor('evento', 'Home'); ?></li>
-	</ul>
-</div>
+
 
 
 <div class="row justify-content-center">
@@ -39,8 +35,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="col-12">
 
              <div class="col-md-12">
-                 <h3>Lista de eventos 
-        	</h3>
+	     <b>Lista de eventos(cursos) de <?php $persona[0]->lapersona ?>      	</b>
        	     </div>
 
 

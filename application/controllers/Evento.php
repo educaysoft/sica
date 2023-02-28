@@ -296,6 +296,7 @@ public function index(){
 		if($this->uri->segment(3))
 		{
 			$idpersona=$this->uri->segment(3);
+			$data['persona']=$this->persona_model->persona($this->uri->segment(3))->result();
 
 		$data['filtro']= $idpersona; //$data['participante']['idparticipante'];
 		}
