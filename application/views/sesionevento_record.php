@@ -26,7 +26,7 @@
 
 ?>
  
-<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['navegar']){ ?>
+<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['navegar']){ 
 
 if(isset($sesionevento))
 {
