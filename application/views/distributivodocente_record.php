@@ -260,20 +260,6 @@ $.ajax({url: '<?php echo site_url('silabo/save')?>',
 	dataType: 'json',
 	successs: function(data){
 
-	var idtipoevento=2; // CURSOS DE MALLA
-	var idevento_estado=2; //INSCRIPCION
-	var idinstitucion=1;  //Universidad Tecnica Luis Vargas Torres
-	var fechainicia = New Date(); 
-	var fechafinaliza= New Date();
-	var detalle =titulo;
-	var idusuario=0;
-	var fecha= New Date();
-	var duracion=0;
-	var costo=0;	
-	var idsilabo=0;
-	var codigoclassroom="";	
-	var idasignaturadocente=0;	
-	var idcalendarioacademico=0;
 
 $.ajax({url: '<?php echo site_url('evento/save')?>',
 	method: 'POST',
