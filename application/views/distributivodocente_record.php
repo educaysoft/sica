@@ -266,14 +266,14 @@ $.ajax({url: '<?php echo site_url('silabo/save')?>',
 	var fechainicia = New Date(); 
 	var fechafinaliza= New Date();
 	var detalle =titulo;
-	var idusuario=0
+	var idusuario=0;
 	var fecha= New Date();
 	var duracion=0;
 	var costo=0;	
 	var idsilabo=0;
 	var codigoclassroom="";	
 	var idasignaturadocente=0;	
-	var idcalendarioacademico=o;
+	var idcalendarioacademico=0;
 
 $.ajax({url: '<?php echo site_url('evento/save')?>',
 	method: 'POST',
