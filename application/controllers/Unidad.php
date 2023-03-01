@@ -79,7 +79,7 @@ public function listar()
 	$this->load->view('template/page_footer');
 }
 
-function _data()
+function unidad_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
