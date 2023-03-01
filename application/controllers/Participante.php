@@ -89,7 +89,7 @@ public function actual(){
 		 	'grupoletra' => $this->input->post('grupoletra'),
 	 	);
 	 	$result=$this->participante_model->save($array_item);
-	 	if($result == FALSE)
+	 	if(!$result)
 		{
 			echo "<script language='JavaScript'> alert('Participante ya existe'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
