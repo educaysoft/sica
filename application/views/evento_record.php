@@ -183,7 +183,6 @@ echo form_input($arrdatos) ?>
 
 
 
-<!---
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha de inicio:</label>
 	<div class="col-md-10">
@@ -200,6 +199,7 @@ echo form_input($arrdatos) ?>
 </div>
 
 
+<!---
 
 
 
