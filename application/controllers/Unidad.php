@@ -89,7 +89,7 @@ function unidad_data()
 	 	$data0 = $this->unidad_model->lista_unidadesA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->id,$r->lainstitucion,$r->nombre,
+			$data[]=array($r->idunidad,$r->lainstitucion,$r->nombre,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-id="'.$r->idunidad.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
