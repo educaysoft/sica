@@ -79,14 +79,14 @@ public function listar()
 	$this->load->view('template/page_footer');
 }
 
-function unidad_data()
+function _data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->_model->lista_unidadesA();
+	 	$data0 = $this->unidad_model->lista_unidadesA();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->id,$r->lainstitucion,$r->nombre,
