@@ -70,6 +70,26 @@ public function edit()
 	 	redirect('');
  	}
 
+
+
+ 	public function delete()
+ 	{
+ 		$result=$this->unidad_model->delete($this->uri->segment(3));
+	 	if(!$result)
+		{
+			echo "<script language='JavaScript'> alert('La persona no pudo eliminarse revise permisos'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+ 		//$data=$this->persona_model->delete($this->uri->segment(3));
+ 		//echo json_encode($data);
+	 	//redirect('persona/elprimero');
+	//	$db['default']['db_debug']=FALSE
+ 	}
+
+
+
 public function listar()
 {
   $data['unidad'] = $this->unidad_model->lista_unidadesA()->result();
