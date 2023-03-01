@@ -29,7 +29,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <div id="eys-nav-i">
 	<ul>
-		<li> <?php echo anchor('evento', 'Home'); ?></li>
+		<li> <?php echo anchor('evento/actual/'.$this->uri->segment(3), 'Home'); ?></li>
 	</ul>
 </div>
 
