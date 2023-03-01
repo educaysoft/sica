@@ -41,7 +41,7 @@ public function add()
 			'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
 	 	$this->unidad_model->save($array_item);
-	 	redirect('');
+	 	redirect('unidad');
  	}
 
 
@@ -49,7 +49,7 @@ public function add()
 public function edit()
 {
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-	 	$data[''] = $this->unidad_model->unidad($this->uri->segment(3))->row_array();
+	 	$data['unidad'] = $this->unidad_model->unidad($this->uri->segment(3))->row_array();
  	 	$data['title'] = "Actualizar Unidad";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('unidad_edit',$data);
@@ -72,7 +72,7 @@ public function edit()
 
 public function listar()
 {
-  $data[''] = $this->unidad_model->lista_unidadesA()->result();
+  $data['unidad'] = $this->unidad_model->lista_unidadesA()->result();
   $data['title']="Unidad";
 	$this->load->view('template/page_header');		
   $this->load->view('unidad_list',$data);
@@ -104,7 +104,7 @@ function unidad_data()
 
 public function elprimero()
 {
-	$data[''] = $this->unidad_model->elprimero();
+	$data['unidad'] = $this->unidad_model->elprimero();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   if(!empty($data))
   {
@@ -121,7 +121,7 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data[''] = $this->unidad_model->elultimo();
+	$data['unidad'] = $this->unidad_model->elultimo();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   if(!empty($data))
   {
@@ -140,7 +140,7 @@ public function elultimo()
 
 public function siguiente(){
  // $data['unidad_list']=$this->unidad_model->lista_unidad()->result();
-	$data[''] = $this->unidad_model->siguiente($this->uri->segment(3))->row_array();
+	$data['unidad'] = $this->unidad_model->siguiente($this->uri->segment(3))->row_array();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   $data['title']="Unidad";
 	$this->load->view('template/page_header');		
@@ -150,7 +150,7 @@ public function siguiente(){
 
 public function anterior(){
  // $data['unidad_list']=$this->unidad_model->lista_unidad()->result();
-	$data[''] = $this->unidad_model->anterior($this->uri->segment(3))->row_array();
+	$data['unidad'] = $this->unidad_model->anterior($this->uri->segment(3))->row_array();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   $data['title']="Unidad";
 	$this->load->view('template/page_header');		
