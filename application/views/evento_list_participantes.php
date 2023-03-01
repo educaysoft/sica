@@ -49,6 +49,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>IDevento</th>
+ <th>docume</th>
  <th>Nombre</th>
  <th>participante</th>
  <th>Estado</th>
