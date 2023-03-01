@@ -93,16 +93,16 @@ return $participante;
 		$this->db->where('idpersona',$array['idpersona']);
 		$this->db->limit(1);
 		$query = $this->db->get();
-		if ($query->num_rows() == 0) {
-		    $this->db->insert("participante", $array);
-			if($this->db->affected_rows()==1){
-				$result=TRUE;
-      }else{
-				$result=FALSE;
-      }
-    }else{
-				$result=FALSE;
-    }
+		if($query->num_rows() == 0) {
+		    	$this->db->insert("participante", $array);
+			if($this->db->affected_rows()>0){
+				$result=true;
+      			}else{
+				$result=false;
+      			}
+    		}else{
+			$result=false;
+    		}	
 
  	}
 
