@@ -37,8 +37,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 			  
         	</h3>
        	     </div>
-
-
+<?php echo $idpersona; 
+die();
+?>
 
 
 	<div id="eys-nav-i">
