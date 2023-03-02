@@ -69,7 +69,7 @@ echo form_input('iddocumento',$options[$documentoportafolio['iddocumento']],arra
      <?php 
 $options= array("NADA");
 foreach ($portafolios as $row){
-	$options[$row->idportafolio]= $row->elportafolio;
+	$options[$row->idportafolio]= $row->lapersona." - ".$row->elperiodo;
 }
 echo form_input('idportafolio',$options[$documentoportafolio['idportafolio']],array("id"=>"idportafilio","disabled"=>"disabled", "style"=>"width:500px")); ?>
 	</div> 
