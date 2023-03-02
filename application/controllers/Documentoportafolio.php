@@ -15,7 +15,7 @@ public function index(){
 			
   	$data['documentoportafolio']=$this->documentoportafolio_model->lista_documentoportafolios()->row_array();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
-  	$data['portafolios']= $this->portafolio_model->lista_portafoliosA()->result();
+  	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
 			
 		$data['title']="Lista de documentoportafolios";
 		$this->load->view('template/page_header');
