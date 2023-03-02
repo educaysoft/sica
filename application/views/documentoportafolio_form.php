@@ -25,7 +25,7 @@ foreach ($documentos as $row){
 
 $options= array('--Select--');
 foreach ($portafolios as $row){
-	$options[$row->idportafolio]= $row->lapersona+" - "+$row->elperiodo;
+	$options[$row->idportafolio]= $row->lapersona;
 }
 
  echo form_dropdown("idportafolio",$options, set_select('--Select--','default_value'));  ?></td>
