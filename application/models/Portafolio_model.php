@@ -18,8 +18,18 @@ class Portafolio_model extends CI_model {
 
 
 
-	function lista_portafoliosA($idpersona){
+	function lista_portafoliosA($idiportafolio){
+		 if($idportafolio>0){
+			$this->db->where("idportafolio",$idportafolio);
+		 }
+		 	$portafolio= $this->db->get('portafolio1');
+		 return $portafolio;
+	}
 
+
+
+
+	function lista_portafoliosxpersona($idpersona){
 		 if($idpersona>0){
 			$this->db->where("idpersona",$idpersona);
 		 }
