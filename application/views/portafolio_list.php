@@ -50,10 +50,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>ID</th>
+ <th>idporta</th>
  <th>idperiodo</th>
  <th>idpersona</th>
- <th>Portafolio</th>
+ <th>periodo</th>
+ <th>persona</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>

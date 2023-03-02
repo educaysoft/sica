@@ -114,7 +114,7 @@ function portafolio_data()
 	 	$data0 = $this->portafolio_model->lista_portafoliosA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idportafolio,$r->idperiodoacademico,$r->idpersona,$r->elportafolio,
+			$data[]=array($r->idportafolio,$r->idperiodoacademico,$r->idpersona,$r->elperiodo,$r->lapersona,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('portafolio/actual').'"  data-idportafolio="'.$r->idportafolio.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
