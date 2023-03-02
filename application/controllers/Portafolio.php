@@ -95,10 +95,10 @@ public function edit()
 
 public function listar()
 {
-	
-  $data['title']="Portafolios";
+  	$data['title']="Portafolios";
+  	$data['idpersona']=$this->uri->segment(3);
 	$this->load->view('template/page_header');		
-  $this->load->view('portafolio_list',$data);
+  	$this->load->view('portafolio_list',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -109,9 +109,9 @@ function portafolio_data()
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
-
-
-	 	$data0 = $this->portafolio_model->lista_portafoliosA();
+		
+		$idpersona = $this->input->get("idpersona");
+	 	$data0 = $this->portafolio_model->lista_portafoliosA($idpersona);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idportafolio,$r->idperiodoacademico,$r->idpersona,$r->elperiodo,$r->lapersona,
