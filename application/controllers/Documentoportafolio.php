@@ -67,7 +67,7 @@ public function edit()
 {
 	 	$data['documentoportafolio'] = $this->documentoportafolio_model->documentoportafolio($this->uri->segment(3))->row_array();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
-  		$data['portafolios']= $this->portafolio_model->lista_portafoliosA()->result();
+  		$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
  	 	$data['title'] = "Actualizar Documentoportafolio";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('documentoportafolio_edit',$data);
@@ -117,7 +117,7 @@ function documentoportafolio_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->documentoportafolio_model->lista_documentoportafoliosA();
+	 	$data0 = $this->documentoportafolio_model->lista_documentoportafoliosA(0);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->iddocumentoportafolio,$r->iddocumento,$r->asunto,$r->fechaelaboracion,
@@ -194,7 +194,7 @@ public function actual()
 {
 	$data['documentoportafolio'] = $this->documentoportafolio_model->documentoportafolio($this->uri->segment(3))->row_array();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
-  	$data['portafolios']= $this->portafolio_model->lista_portafoliosA()->result();
+  	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
 	  if(!empty($data))
 	  {
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
@@ -220,7 +220,7 @@ public function actual()
 
 public function elprimero()
 {
-  	$data['portafolios']= $this->portafolio_model->lista_portafoliosA()->result();
+  	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['documentoportafolio'] = $this->documentoportafolio_model->elprimero();
 	  if(!empty($data))
@@ -241,7 +241,7 @@ public function elultimo()
 {
 	$data['documentoportafolio'] = $this->documentoportafolio_model->elultimo();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
-  	$data['portafolios']= $this->portafolio_model->lista_portafoliosA()->result();
+  	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
   if(!empty($data))
   {
     $data['title']="Documentoportafolio";
@@ -261,7 +261,7 @@ public function siguiente(){
  // $data['documentoportafolio_list']=$this->documentoportafolio_model->lista_documentoportafolio()->result();
 	$data['documentoportafolio'] = $this->documentoportafolio_model->siguiente($this->uri->segment(3))->row_array();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
-  	$data['portafolios']= $this->portafolio_model->lista_portafoliosA()->result();
+  	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
   
 
 $data['title']="Documentoportafolio";
@@ -274,7 +274,7 @@ public function anterior(){
  // $data['documentoportafolio_list']=$this->documentoportafolio_model->lista_documentoportafolio()->result();
 	$data['documentoportafolio'] = $this->documentoportafolio_model->anterior($this->uri->segment(3))->row_array();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
-  	$data['portafolios']= $this->portafolio_model->lista_portafoliosA()->result();
+  	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
   $data['title']="Documentoportafolio";
 	$this->load->view('template/page_header');		
   $this->load->view('documentoportafolio_record',$data);
