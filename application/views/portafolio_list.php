@@ -82,8 +82,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <script type="text/javascript">
 
 $(document).ready(function(){
-   alert("aqui");
-	var idpersona=<?php echo $idpersona; ?>;
+	var idpersona="<?php echo $idpersona; ?>";
 	alert(idpersona);
 	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('portafolio/portafolio_data')?>', type: 'GET', data:{idpersona;idpersona}},});
 
