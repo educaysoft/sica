@@ -39,11 +39,13 @@ class Silabo_model extends CI_model {
 	   $this->db->trans_begin();
 		$condition1 = "idasignatura =" . "'" . $array['idasignatura'] . "'";
 		$condition2 = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
+		$condition3 = "iddocente =" . "'" . $array['iddocente'] . "'";
 
 		$this->db->select('*');
 		$this->db->from('silabo');
 		$this->db->where($condition1);
 		$this->db->where($condition2);
+		$this->db->where($condition3);
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() == 0) {
