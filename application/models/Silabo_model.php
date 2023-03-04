@@ -60,7 +60,7 @@ class Silabo_model extends CI_model {
 					$this->db->insert('unidadsilabo',$arrayunidad);
 				}	
 				//Se busca la asignacion del docente a esta asignatura
-
+/*
 
 		$condition1 = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
 		$this->db->select('*');
@@ -114,8 +114,11 @@ class Silabo_model extends CI_model {
 			$idasignaturadocente=0;
 		}
 
+ */
+
 			$this->db->trans_commit();
-			return array("idsilabo"=>$idsilabo,"idcalendarioacademico"=>$idcalendarioacademico,"idasignaturadocente"=>$idasignaturadocente);	
+//			return array("idsilabo"=>$idsilabo,"idcalendarioacademico"=>$idcalendarioacademico,"idasignaturadocente"=>$idasignaturadocente);	
+			return array("idsilabo"=>1,"idcalendarioacademico"=>1,"idasignaturadocente"=>1);	
 		//	return true;
 		   }else{
 			$this->db->trans_rollback();
