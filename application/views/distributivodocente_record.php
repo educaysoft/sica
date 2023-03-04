@@ -255,6 +255,36 @@ var duracion= "4 meses";
 var linkdetalle= "";
 
 
+
+
+
+
+
+
+
+$.ajax({url: '<?php echo site_url('silabo/save')?>',
+	method: 'POST',
+	data:{nombre:nombre,descripcion:descripcion,idperiodoacademico:idperiodoacademico,iddocente:iddocente,idasignatura:idasignatura,duracion:duracion,linkdetalle:linkdetalle},
+	async : false,
+	successs: function(data){
+		data= JSON.parse(data);
+
+ 		console.log(data)	
+		
+	var idsilabo=data[0]->idsilabo;
+	var idasignaturadocente=data[0]->idasignaturadocente;	
+	var idcalendarioacademico=data[0]->idcalendarioacademico;
+	
+	},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+
+	    })
+
+
+
 	var idtipoevento=2; // CURSOS DE MALLA
 	var idevento_estado=2; //INSCRIPCION
 	var idinstitucion=1;  //Universidad Tecnica Luis Vargas Torres
@@ -265,10 +295,7 @@ var linkdetalle= "";
 	var fecha= new Date();
 	var duracion=0;
 	var costo=0;	
-	var idsilabo=0;
 	var codigoclassroom="";	
-	var idasignaturadocente=0;	
-	var idcalendarioacademico=0;
 
 $.ajax({url: '<?php echo site_url('evento/save')?>',
 	method: 'POST',
@@ -295,21 +322,6 @@ $.ajax({url: '<?php echo site_url('evento/save')?>',
 
 
 
-
-$.ajax({url: '<?php echo site_url('silabo/save')?>',
-	method: 'POST',
-	data:{nombre:nombre,descripcion:descripcion,idperiodoacademico:idperiodoacademico,iddocente:iddocente,idasignatura:idasignatura,duracion:duracion,linkdetalle:linkdetalle},
-	async : false,
-	successs: function(data){
-
-	
-	
-	},
-	      error: function (xhr, ajaxOptions, thrownError) {
-		alert(xhr.status);
-		alert(thrownError);
-	      }
-	    })
 	});
 
 

@@ -40,7 +40,6 @@ class Silabo_model extends CI_model {
 		$condition1 = "idasignatura =" . "'" . $array['idasignatura'] . "'";
 		$condition2 = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
 		$condition3 = "iddocente =" . "'" . $array['iddocente'] . "'";
-
 		$this->db->select('*');
 		$this->db->from('silabo');
 		$this->db->where($condition1);
@@ -52,6 +51,7 @@ class Silabo_model extends CI_model {
 			$this->db->insert("silabo", $array);
   			if( $this->db->affected_rows()>0){
 				$idsilabo=$this->db->insert_id();
+				// Se crea las unidades del silabo
 				for($i=1;$i<=4;$i++){
 					$arrayunidad=array();
 					$arrayunidad['idsilabo']=$idsilabo;
@@ -59,9 +59,64 @@ class Silabo_model extends CI_model {
 					$arrayunidad['nombre']="Unidad #".$i ;
 					$this->db->insert('unidadsilabo',$arrayunidad);
 				}	
+				//Se busca la asignacion del docente a esta asignatura
+
+
+		$condition1 = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
+		$this->db->select('*');
+		$this->db->from('calandarioacademico');
+		$this->db->where($condition1);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			$idcalendarioacademico=$query->result()[0]->idcalendarioacademico;
+		}else{
+			$iddistributivo=0;
+		}
+
+		$condition1 = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
+		$this->db->select('*');
+		$this->db->from('distributivo');
+		$this->db->where($condition1);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			$iddistributivo=$query->result()[0]->iddistributivo;
+		}else{
+			$iddistributivo=0;
+		}
+
+		$condition1 = "iddistributivo =" . "'" . $iddistributivo . "'";
+		$condition2 = "iddocente =" . "'" . $array['iddocente'] . "'";
+		$this->db->select('*');
+		$this->db->from('distributivodocente');
+		$this->db->where($condition1);
+		$this->db->where($condition2);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			$iddistributivodocente=$query->result()[0]->iddistributivodocente;
+		}else{
+			$iddistributivodocente=0;
+		}	
+
+		$condition1 = "iddistributivodocente =" . "'" . $iddistributivodocente . "'";
+		$condition2 = "idasignatura =" . "'" . $array['idasignatura'] . "'";
+		$this->db->select('*');
+		$this->db->from('asignaturadocente');
+		$this->db->where($condition1);
+		$this->db->where($condition2);
+		$this->db->limit(1);
+		$query= $this->db->get();
+		if ($query->num_rows() == 0) {
+			$idasignaturadocente=$query->result()[0]->idasignaturadocente;
+		}else{
+			$idasignaturadocente=0;
+		}
+
 			$this->db->trans_commit();
-			echo json_encode(json_decode('{"idsilabo":'.$idsilabo.'}'),JSON_PRETTY_PRINT);	
-			return true;
+			echo json_encode(array("idsilabo"=>$idsilabo,"idcalendarioacademico"=>$idcalendarioacademico,"idasignaturadocente"=>$idasignaturadocente));	
+		//	return true;
 		   }else{
 			$this->db->trans_rollback();
 			return false;
@@ -71,6 +126,14 @@ class Silabo_model extends CI_model {
 			return false;
  	}
  	}
+
+
+
+
+
+
+
+
 
 
  	function update($id,$array_item)
