@@ -60,18 +60,18 @@ class Silabo_model extends CI_model {
 					$this->db->insert('unidadsilabo',$arrayunidad);
 				}	
 				//Se busca la asignacion del docente a esta asignatura
-/*
+
 
 		$condition1 = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
 		$this->db->select('*');
-		$this->db->from('calandarioacademico');
+		$this->db->from('calendarioacademico');
 		$this->db->where($condition1);
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
 			$idcalendarioacademico=$query->result()[0]->idcalendarioacademico;
 		}else{
-			$iddistributivo=0;
+			$idcalendarioacademico=0;
 		}
 
 		$condition1 = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
@@ -114,11 +114,11 @@ class Silabo_model extends CI_model {
 			$idasignaturadocente=0;
 		}
 
- */
+ 
 
 			$this->db->trans_commit();
-//			return array("idsilabo"=>$idsilabo,"idcalendarioacademico"=>$idcalendarioacademico,"idasignaturadocente"=>$idasignaturadocente);	
-			return array("idsilabo"=>1,"idcalendarioacademico"=>1,"idasignaturadocente"=>1);	
+			return array("idsilabo"=>$idsilabo,"idcalendarioacademico"=>$idcalendarioacademico,"idasignaturadocente"=>$idasignaturadocente);	
+	//		return array("idsilabo"=>1,"idcalendarioacademico"=>1,"idasignaturadocente"=>1);	
 		//	return true;
 		   }else{
 			$this->db->trans_rollback();
@@ -129,6 +129,9 @@ class Silabo_model extends CI_model {
 			return false;
  	}
  	}
+
+
+
 
 
 
