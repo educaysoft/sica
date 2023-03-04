@@ -60,8 +60,9 @@ class Silabo extends CI_Controller{
 	 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	'linkdetalle' => $this->input->post('linkdetalle'),
 	 	);
-	 	$this->silabo_model->save($array_item);
-	 	redirect('silabo');
+	 	$data=$this->silabo_model->save($array_item);
+		echo json_encode($data);
+	 //	redirect('silabo');
  	}
 
 
