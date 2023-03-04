@@ -253,11 +253,7 @@ var iddocente= $(this).data('iddocente');
 var idasignatura= $(this).data('idasignatura');
 var duracion= "4 meses";
 var linkdetalle= "";
-$.ajax({url: '<?php echo site_url('silabo/save')?>',
-	method: 'POST',
-	data:{nombre:nombre,descripcion:descripcion,idperiodoacademico:idperiodoacademico,iddocente:iddocente,idasignatura:idasignatura,duracion:duracion,linkdetalle:linkdetalle},
-	async : false,
-	successs: function(data){
+
 
 	var idtipoevento=2; // CURSOS DE MALLA
 	var idevento_estado=2; //INSCRIPCION
@@ -293,6 +289,19 @@ $.ajax({url: '<?php echo site_url('evento/save')?>',
 
 	
 	
+
+
+
+
+
+
+
+$.ajax({url: '<?php echo site_url('silabo/save')?>',
+	method: 'POST',
+	data:{nombre:nombre,descripcion:descripcion,idperiodoacademico:idperiodoacademico,iddocente:iddocente,idasignatura:idasignatura,duracion:duracion,linkdetalle:linkdetalle},
+	async : false,
+	successs: function(data){
+
 	
 	
 	},
