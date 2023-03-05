@@ -61,8 +61,8 @@ class Silabo_model extends CI_model {
 				}	
 				//Se busca la asignacion del docente a esta asignatura
 
-/*
-		$condition1 = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
+
+		$condition1 = "idperiodoacademico =" . $array['idperiodoacademico'] ;
 		$this->db->select('*');
 		$this->db->from('calendarioacademico');
 		$this->db->where($condition1);
@@ -73,7 +73,7 @@ class Silabo_model extends CI_model {
 		}else{
 			$idcalendarioacademico=0;
 		}
-
+/*
 		$condition1 = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
 		$this->db->select('*');
 		$this->db->from('distributivo');
@@ -118,7 +118,7 @@ class Silabo_model extends CI_model {
 
 			$this->db->trans_commit();
 	//	return $query->first_row('array');
-		$data = array("idsilabo"=>$idsilabo);
+		$data = array("idsilabo"=>$idsilabo,"idcalendarioacademico"=>$idcalendarioacademico);
 
 		return $data;
 

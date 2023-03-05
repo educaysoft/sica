@@ -264,9 +264,9 @@ $.ajax({url: '<?php echo site_url('silabo/save')?>',
 	dataType: 'json',
 	success: function(data){
 		alert(data);
-	 //idsilabo=data.idsilabo;
-	 idasignaturadocente=data.idasignaturadocente;	
-	// idcalendarioacademico=data.idcalendarioacademico;
+	 idsilabo=data.idsilabo;
+	 //idasignaturadocente=data.idasignaturadocente;	
+	 idcalendarioacademico=data.idcalendarioacademico;
 	
 	},
 	      error: function (xhr, ajaxOptions, thrownError) {
