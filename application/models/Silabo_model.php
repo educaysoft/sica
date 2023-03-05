@@ -73,7 +73,7 @@ class Silabo_model extends CI_model {
 		}else{
 			$idcalendarioacademico=0;
 		}
-
+/*
 		$condition1 = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
 		$this->db->select('*');
 		$this->db->from('distributivo');
@@ -108,15 +108,16 @@ class Silabo_model extends CI_model {
 		$this->db->where($condition2);
 		$this->db->limit(1);
 		$query= $this->db->get();
-		if ($query->num_rows() == 0) {
+		if ($query->num_rows() > 0) {
 			$idasignaturadocente=$query->result()[0]->idasignaturadocente;
 		}else{
 			$idasignaturadocente=0;
 		}
 
- 
+ */
 
 			$this->db->trans_commit();
+		return $query->first_row('array');
 		return array("idsilabo"=>$idsilabo);
 		//,"idcalendarioacademico"=>$idcalendarioacademico,"idasignaturadocente"=>$idasignaturadocente);	
 	//		return array("idsilabo"=>1,"idcalendarioacademico"=>1,"idasignaturadocente"=>1);	
