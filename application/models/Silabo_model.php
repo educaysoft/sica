@@ -8,8 +8,8 @@ class Silabo_model extends CI_model {
 
 
 	function lista_silabosA(){
-		 $silabo= $this->db->get('silabo1');
-		 return $silabo;
+		$query=$this->db->order_by("elsilabo")->get('silabo1');
+		 return $query;
 	}
 
 
