@@ -17,7 +17,6 @@
 if(isset($participante))
 {
 
-
 	$permitir=0;
 	$j=0;
 	$numero=$j;

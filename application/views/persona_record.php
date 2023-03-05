@@ -1,10 +1,33 @@
 <div id="eys-nav-i">
 	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?><idem style="font-size:large" id="idpersona"><?php echo $persona['idpersona']; ?></idem></h3>
-	<ul>
 <?php
 if(isset($persona))
 {
+
+	$permitir=0;
+	$j=0;
+	$numero=$j;
+	if(isset($this->session->userdata['acceso'])){
+  		foreach($this->session->userdata['acceso'] as $row)
+	    	{
+			if("evento"==$row["modulo"]["nombre"]);
+			{
+				$numero=$j;
+				$permitir=1;
+			}		
+			$j=$j+1;
+	    	} 
+	}
+	if($permitir==0){
+		redirect('login/logout');
+	}
+
 ?>
+
+
+<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['navegar']){ ?>
+<ul>
+
         <li> <?php echo anchor('persona/elprimero/', 'primero'); ?></li>
         <li> <?php echo anchor('persona/siguiente/'.$persona['idpersona'], 'siguiente'); ?></li>
         <li> <?php echo anchor('persona/anterior/'.$persona['idpersona'], 'anterior'); ?></li>
@@ -14,6 +37,7 @@ if(isset($persona))
         <li style="border-right:1px solid green"> <?php echo anchor('persona/delete/'.$persona['idpersona'],'Delete'); ?></li>
         <li> <?php echo anchor('persona/listar/','Listar'); ?></li>
 
+	<?php } ?>
 <?php 
 }else{
 ?>
