@@ -157,7 +157,10 @@ foreach ($silabos as $row){
 
 <tr>
      <td>Codigo Classroom:</td>
-     <td><?php echo form_input(array("name"=>'codigoclassroom','id'=>'codigoclassroom','value'=>$evento['codigoclassroom'],'placeholder'=>'Classroom')) ?></td>
+     <td><?php
+	
+	$textarea_options = array("name"=>'codigoclassroom','id'=>'codigoclassroom','value'=>$evento['codigoclassroom'],'class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
+ echo form_textarea($textarea_options); ?></td>
   </tr>
 
    
