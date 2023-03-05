@@ -270,7 +270,7 @@ $.ajax({url: '<?php echo site_url('silabo/save')?>',
 	data:{nombre:nombre,descripcion:descripcion,idperiodoacademico:idperiodoacademico,iddocente:iddocente,idasignatura:idasignatura,duracion:duracion,linkdetalle:linkdetalle},
 	async : false,
 	dataType: 'json',
-	successs: function(data){
+	success: function(data){
  		console.log(data)	
 		
 	 idsilabo=data.idsilabo;
