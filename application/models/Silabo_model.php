@@ -62,6 +62,26 @@ class Silabo_model extends CI_model {
 				//Se busca la asignacion del docente a esta asignatura
 
 
+
+		$condition1 = "idperiodoacademico =" . $array['idperiodoacademico'] ;
+		$this->db->select('*');
+		$this->db->from('periodoacademico');
+		$this->db->where($condition1);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			$fechainicio=$query->result()[0]->fechainicio;
+			$fechafin=$query->result()[0]->fechafin;
+		}else{
+			$fechainicio="";
+			$fechafin="";
+		}
+
+
+
+
+
+
 		$condition1 = "idperiodoacademico =" . $array['idperiodoacademico'] ;
 		$this->db->select('*');
 		$this->db->from('calendarioacademico');
@@ -73,8 +93,8 @@ class Silabo_model extends CI_model {
 		}else{
 			$idcalendarioacademico=0;
 		}
-/*
-		$condition1 = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
+
+		$condition1 = "idperiodoacademico =" .  $array['idperiodoacademico'] ;
 		$this->db->select('*');
 		$this->db->from('distributivo');
 		$this->db->where($condition1);
@@ -86,8 +106,8 @@ class Silabo_model extends CI_model {
 			$iddistributivo=0;
 		}
 
-		$condition1 = "iddistributivo =" . "'" . $iddistributivo . "'";
-		$condition2 = "iddocente =" . "'" . $array['iddocente'] . "'";
+		$condition1 = "iddistributivo =" . $iddistributivo ;
+		$condition2 = "iddocente =" . $array['iddocente'] ;
 		$this->db->select('*');
 		$this->db->from('distributivodocente');
 		$this->db->where($condition1);
@@ -100,8 +120,8 @@ class Silabo_model extends CI_model {
 			$iddistributivodocente=0;
 		}	
 
-		$condition1 = "iddistributivodocente =" . "'" . $iddistributivodocente . "'";
-		$condition2 = "idasignatura =" . "'" . $array['idasignatura'] . "'";
+		$condition1 = "iddistributivodocente =" .  $iddistributivodocente ;
+		$condition2 = "idasignatura =" .  $array['idasignatura'] ;
 		$this->db->select('*');
 		$this->db->from('asignaturadocente');
 		$this->db->where($condition1);
@@ -114,11 +134,11 @@ class Silabo_model extends CI_model {
 			$idasignaturadocente=0;
 		}
 
- */
+ 
 
 			$this->db->trans_commit();
 	//	return $query->first_row('array');
-		$data = array("idsilabo"=>$idsilabo,"idcalendarioacademico"=>$idcalendarioacademico);
+		$data = array("idsilabo"=>$idsilabo,"idcalendarioacademico"=>$idcalendarioacademico,"idasignaturadocente"=>$idasignaturadocente,"fechainicio"=>$fechainicio,"fechafin"=>$fechafin);
 
 		return $data;
 
