@@ -46,7 +46,7 @@ if(isset($asignaturadocente))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> distributivo docente <?php echo anchor('distributivodocente/actual/'.$asignaturadocente['iddistributivodocente'] , '(Ver)'); ?>:</label>
+    <label class="col-md-2 col-form-label"><a href= "<?php echo base_url(); ?>distributivodocente/actual/<?php echo $asignaturadocente['iddistributivodocente']; ?> "   >Distri_Docente: &#x1F448;</a>     </label>
 	<div class="col-md-10">
 	<?php
 	$options= array("NADA");
@@ -63,7 +63,7 @@ echo form_input('iddistributivodocente',$options[$asignaturadocente['iddistribut
  
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Asignatura  <?php echo anchor('asignatura/actual/'.$asignaturadocente['idasignatura'] , '(Ver)'); ?> :</label>
+    <label class="col-md-2 col-form-label"><a href= "<?php echo base_url(); ?>asignatura/actual/<?php echo $asignaturadocente['idasignatura']; ?> "   >Asignatura: &#x1F448;</a>         </label>
 	<div class="col-md-10">
 	<?php
     $options= array("NADA");
