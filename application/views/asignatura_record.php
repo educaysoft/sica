@@ -201,6 +201,7 @@ if(isset($asignatura))
 	 <th>idsilabo</th>
 	 <th>elsilabo</th>
 	 <th>periodo</th>
+	 <th>eldocente</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
