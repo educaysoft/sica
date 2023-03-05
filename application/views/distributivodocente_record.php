@@ -246,7 +246,7 @@ $(document).ready(function(){
 
 $('#show_data').on('click','.item_gesi',function(){
 var nombre= $(this).data('elperiodoacademico')+" - "+$(this).data('laasignatura') ;
-var titulo= $(this).data('elperiodoacademico')+" - "+$(this).data('paralelo')+" - "+$(this).data('laasignatura') ;
+var titulo= $(this).data('elperiodoacademico')+" - P"+$(this).data('paralelo')+" - "+$(this).data('laasignatura') ;
 var descripcion= $(this).data('elperiodoacademico')+" - "+$(this).data('laasignatura') ;
 var idperiodoacademico= $(this).data('idperiodoacademico');
 var iddocente= $(this).data('iddocente');

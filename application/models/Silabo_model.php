@@ -117,7 +117,7 @@ class Silabo_model extends CI_model {
  */
 
 			$this->db->trans_commit();
-		return $query->first_row('array');
+	//	return $query->first_row('array');
 		return array("idsilabo"=>$idsilabo);
 		//,"idcalendarioacademico"=>$idcalendarioacademico,"idasignaturadocente"=>$idasignaturadocente);	
 	//		return array("idsilabo"=>1,"idcalendarioacademico"=>1,"idasignaturadocente"=>1);	
