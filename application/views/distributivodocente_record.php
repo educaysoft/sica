@@ -271,8 +271,7 @@ $.ajax({url: '<?php echo site_url('silabo/save')?>',
 	async : false,
 	dataType: 'json',
 	success: function(data){
- 		console.log(data)	
-		
+		alert(data);
 	 idsilabo=data.idsilabo;
 	 idasignaturadocente=data.idasignaturadocente;	
 	 idcalendarioacademico=data.idcalendarioacademico;
@@ -303,7 +302,7 @@ $.ajax({url: '<?php echo site_url('evento/save')?>',
 	method: 'POST',
 	data:{idtipoevento:idtipoevento,idevento_estado:idevento_estado,idinstitucion:idinstitucion,titulo:titulo,fechainicia:fechainicia,fechafinaliza:fechafinaliza,detalle:detalle,idusuario:idusuario,fecha:fecha,duracion:duracion,costo:costo,idsilabo:idsilabo,codigoclassroom:codigoclassroom,idasignaturadocente:idasignaturadocente,idcalendarioacademico:idcalendarioacademico},
 	async : true,
-	successs: function(data){
+	success: function(data){
 	
 	
 	},
