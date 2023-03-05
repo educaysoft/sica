@@ -11,15 +11,35 @@
 
 
 <div id="eys-nav-i">
+	<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idevento"><?php echo $participante['idparticipante']; ?></idem></div>
 
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-<?php echo form_open('participante/save_edit') ?>
-    <ul>
 <?php
 if(isset($participante))
 {
+
+
+	$permitir=0;
+	$j=0;
+	$numero=$j;
+	if(isset($this->session->userdata['acceso'])){
+  		foreach($this->session->userdata['acceso'] as $row)
+	    	{
+			if("evento"==$row["modulo"]["nombre"]);
+			{
+				$numero=$j;
+				$permitir=1;
+			}		
+			$j=$j+1;
+	    	} 
+	}
+	if($permitir==0){
+		redirect('login/logout');
+	}
+
 ?>
  
+<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['navegar']){ ?>
+<ul>
         <li> <?php echo anchor('participante/elprimero/', 'primero'); ?></li>
         <li> <?php echo anchor('participante/anterior/'.$participante['idparticipante'], 'anterior'); ?></li>
         <li> <?php echo anchor('participante/siguiente/'.$participante['idparticipante'], 'siguiente'); ?></li>
@@ -29,21 +49,17 @@ if(isset($participante))
         <li style="border-right:1px solid green"> <?php echo anchor('participante/delete/?idparticipante='.$participante['idparticipante'].'&idevento='.$participante['idevento'],'Delete'); ?></li>
         <li> <?php echo anchor('participante/listar/','Listar'); ?></li>
 
-    </ul>
+	<?php } ?>
 <?php 
 }else{
 ?>
 
         <li> <?php echo anchor('participante/add', 'Nuevo'); ?></li>
-    </ul>
 <?php
-	die();
 }
 ?>
 
-
-
-
+    </ul>
 
 </div>
 <br>
