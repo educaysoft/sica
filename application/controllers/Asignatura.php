@@ -142,7 +142,7 @@ function asignatura_data()
 	 	$data0 = $this->asignatura_model->lista_asignaturasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idasignatura,$r->malla,$r->area,$r->nivel,$r->nombre,$r->eldocente,
+			$data[]=array($r->idasignatura,$r->malla,$r->area,$r->nivel,$r->nombre,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('asignatura/actual').'"    data-idasignatura="'.$r->idasignatura.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -167,7 +167,7 @@ function asignatura_data()
 			$data0 =$this->silabo_model->silabosa($idasignatura);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idasignatura,$r->idsilabo,$r->elsilabo,$r->elperiodo,
+				$data[]=array($r->idasignatura,$r->idsilabo,$r->elsilabo,$r->elperiodo,$r->eldocente,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('silabo/actual').'"    data-idsilabo="'.$r->idsilabo.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
