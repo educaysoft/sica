@@ -149,7 +149,7 @@ foreach ($asignaturadocentes as $row){
 <td><?php
 $options= array('--Select--');
 foreach ($silabos as $row){
-	$options[$row->idsilabo]= $row->nombre;
+	$options[$row->idsilabo]= $row->elsilabo." - ".$row->eldocente;
 }
 
  echo form_dropdown("idsilabo",$options, $evento['idsilabo']);  ?></td>

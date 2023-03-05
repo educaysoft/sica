@@ -128,7 +128,7 @@ public function index(){
 	{
 			$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 			$data['paginas']= $this->pagina_model->lista_paginas()->result();
-		  	$data['silabos']= $this->silabo_model->lista_silabos()->result();
+		  	$data['silabos']= $this->silabo_model->lista_silabosA()->result();
 			$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 			$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
 			$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();

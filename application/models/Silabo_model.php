@@ -6,6 +6,15 @@ class Silabo_model extends CI_model {
 		 return $silabo;
 	}
 
+
+	function lista_silabosA(){
+		 $silabo= $this->db->get('silabo1');
+		 return $silabo;
+	}
+
+
+
+
  	function silabo( $id){
  		$silabo = $this->db->query('select * from silabo where idsilabo="'. $id.'"');
  		return $silabo;
