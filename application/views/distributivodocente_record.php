@@ -269,7 +269,7 @@ $.ajax({url: '<?php echo site_url('silabo/save')?>',
 	 idsilabo=data.idsilabo;
 	 idasignaturadocente=data.idasignaturadocente;	
 	 idcalendarioacademico=data.idcalendarioacademico;
-	 fechainicia=data.fechaincio;
+	 fechainicia=data.fechainicio;
 	 fechafinaliza=data.fechafin;
 	
 	},
