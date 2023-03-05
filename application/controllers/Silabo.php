@@ -61,7 +61,6 @@ class Silabo extends CI_Controller{
 	 	'linkdetalle' => $this->input->post('linkdetalle'),
 	 	);
 	 	$data=$this->silabo_model->save($array_item);
-		print_r($data);
 		header("Content-type: application/json; charset=utf-8");
 		echo json_encode($data);
 	 //	redirect('silabo');
