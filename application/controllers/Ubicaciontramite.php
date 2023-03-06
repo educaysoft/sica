@@ -56,7 +56,7 @@ class Ubicaciontramite extends CI_Controller{
 
 		$data['tramites']= $this->tramite_model->lista_tramites()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
    		date_default_timezone_set('America/Guayaquil');
 	     	$date = date("Y-m-d");
 		$data['title']="Nueva ubicación de artículo: ";
@@ -188,7 +188,7 @@ function ubicaciontramite_data()
 
 public function elprimero()
 {
-  	$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['ubicaciontramite'] = $this->ubicaciontramite_model->elprimero();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   if(!empty($data))
@@ -209,7 +209,7 @@ public function elprimero()
 
 public function elultimo()
 {
-  $data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+  $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   		$data['temas']= $this->tema_model->lista_temas()->result();
 	$data['ubicaciontramite'] = $this->ubicaciontramite_model->elultimo();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
@@ -232,7 +232,7 @@ public function elultimo()
 
 public function siguiente(){
  // $data['ubicaciontramite_list']=$this->ubicaciontramite_model->lista_ubicaciontramite()->result();
-	$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   		$data['temas']= $this->tema_model->lista_temas()->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 	$data['ubicaciontramite'] = $this->ubicaciontramite_model->siguiente($this->uri->segment(3))->row_array();
@@ -247,7 +247,7 @@ public function siguiente(){
 
 public function anterior(){
  // $data['ubicaciontramite_list']=$this->ubicaciontramite_model->lista_ubicaciontramite()->result();
-  $data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+  $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['ubicaciontramite'] = $this->ubicaciontramite_model->anterior($this->uri->segment(3))->row_array();
 	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
  	$data['personas']= $this->persona_model->lista_personas()->result();

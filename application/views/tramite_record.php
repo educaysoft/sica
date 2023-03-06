@@ -80,7 +80,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 	 <tr>
 	 <th>idubicaciontramite</th>
 	 <th>idtramite</th>
-	 <th>launidad</th>
+	 <th>ladepartamento</th>
 	 <th>Responsable</th>
 	 <th>fecha</th>
 	 <th style="text-align: right;">Actions</th>
