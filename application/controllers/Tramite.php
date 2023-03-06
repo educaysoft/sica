@@ -121,7 +121,7 @@ function tramite_data()
 			$data0 =$this->ubicaciontramite_model->ubicaciontramitesA($idtramite);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idubicaciontramite,$r->idtramite,$r->launidad,$r->lapersona,$r->fecha,
+				$data[]=array($r->idubicaciontramite,$r->idtramite,$r->eldapartamento,$r->lapersona,$r->fecha,$r->hora,$r->detalle,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('ubicaciontramite/actual').'"    data-idubicaciontramite="'.$r->idubicaciontramite.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('ubicaciontramite/edit').'"    data-idubicaciontramite="'.$r->idubicaciontramite.'">edit</a>');
 			}	
 			$output=array( "draw"=>$draw,

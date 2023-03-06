@@ -83,6 +83,8 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 	 <th>ladepartamento</th>
 	 <th>Responsable</th>
 	 <th>fecha</th>
+	 <th>hora</th>
+	 <th>detalle</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
@@ -116,7 +118,6 @@ $(document).ready(function(){
 	var mytablaf= $('#mydatau').DataTable({"ajax": {url: '<?php echo site_url('tramite/ubicacion_data')?>', type: 'GET',data:{idtramite:idtramite}},});
 
 
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('tramite/prestamo_data')?>', type: 'GET',data:{idtramite:idtramite}},});
 });
 
 $('#show_datau').on('click','.item_ver',function(){

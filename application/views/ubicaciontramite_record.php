@@ -60,7 +60,7 @@ echo form_input('iddepartamento',$options[$ubicaciontramite['iddepartamento']],a
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('tramite/actual/'.$ubicaciontramite['idtramite'], 'El tráamite:'); ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('tramite/actual/'.$ubicaciontramite['idtramite'], 'El trámite:'); ?> </label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
