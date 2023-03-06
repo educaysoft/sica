@@ -56,10 +56,7 @@ foreach ($personas as $row){
 
 
 
- <tr>
-      <td>Fecha devolucion :</td>
-      <td><?php echo form_input( array("name"=>'fechadevolucion',"id"=>'fechadevolucion',"value"=>$ubicaciontramite['fechadevolucion'],'type'=>'date','placeholder'=>'fecha')); ?></td>
-  </tr>
+ 
  
 
 <tr>
