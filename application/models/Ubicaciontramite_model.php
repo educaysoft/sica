@@ -19,13 +19,13 @@ class Ubicaciontramite_model extends CI_model {
 
 
  	function ubicaciontramites( $id){
- 		$ubicaciontramite = $this->db->query('select * from ubicaciontramite where idarticulo="'. $id.'" order by fecha');
+ 		$ubicaciontramite = $this->db->query('select * from ubicaciontramite where idtramite="'. $id.'" order by fecha');
  		return $ubicaciontramite;
  	}
 
 
  	function ubicaciontramitesA( $id){
- 		$ubicaciontramite = $this->db->query('select * from ubicaciontramite1 where idarticulo="'. $id.'" ORDER BY date(fecha) ASC');
+ 		$ubicaciontramite = $this->db->query('select * from ubicaciontramite1 where idtramite="'. $id.'" ORDER BY date(fecha) ASC');
  		return $ubicaciontramite;
  	}
 
@@ -69,7 +69,7 @@ class Ubicaciontramite_model extends CI_model {
 
  	function save($array)
 	{	
-		$condition ="idarticulo="."'". $array['idarticulo']."' and  fecha=". "'".$array['fecha']."'";
+		$condition ="idtramite="."'". $array['idtramite']."' and  fecha=". "'".$array['fecha']."'";
 		$this->db->select('*');
 		$this->db->from('ubicaciontramite');
 		$this->db->where($condition);
@@ -86,7 +86,7 @@ class Ubicaciontramite_model extends CI_model {
 			}
 		}else{
 			$this->db->where('fecha',$array['fecha']);
-			$this->db->where('idarticulo',$array['idarticulo']);
+			$this->db->where('idtramite',$array['idtramite']);
 			$this->db->update('ubicaciontramite',$array);
 
 			if($this->db->affected_rows()>0)
