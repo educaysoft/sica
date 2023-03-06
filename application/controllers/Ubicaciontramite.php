@@ -16,7 +16,7 @@ class Ubicaciontramite extends CI_Controller{
 		$data['ubicaciontramite'] = $this->ubicaciontramite_model->elultimo();
 		$data['tramites']= $this->tramite_model->lista_tramites()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 
  		// print_r($data['ubicaciontramite_list']);
   		$data['title']="Lista de Ubicaciontramitees";
