@@ -5,7 +5,6 @@ class Tramite extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('tramite_model');
-      $this->load->model('prestamotramite_model');
   	  $this->load->model('institucion_model');
   	  $this->load->model('ubicaciontramite_model');
 }
@@ -140,28 +139,6 @@ function tramite_data()
 
 
 
-
-	function prestamo_data()
-	{
-			$draw= intval($this->input->get("draw"));
-			$draw= intval($this->input->get("start"));
-			$draw= intval($this->input->get("length"));
-
-			$idtramite=$this->input->get('idtramite');
-			$data0 =$this->prestamotramite_model->prestamotramitesA($idtramite);
-			$data=array();
-			foreach($data0->result() as $r){
-				$data[]=array($r->idprestamotramite,$r->idtramite,$r->lapersona,$r->fechaprestamo,$r->horaprestamo,$r->fechadevolucion,$r->horadevolucion,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamotramite/actual').'"    data-idprestamotramite="'.$r->idprestamotramite.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamotramite/edit').'"    data-idprestamotramite="'.$r->idprestamotramite.'">edit</a>');
-			}	
-			$output=array( "draw"=>$draw,
-				"recordsTotal"=> $data0->num_rows(),
-				"recordsFiltered"=> $data0->num_rows(),
-				"data"=>$data
-			);
-			echo json_encode($output);
-			exit();
-	}
 
 
 
