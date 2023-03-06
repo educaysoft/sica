@@ -78,9 +78,9 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 	<table class="table table-striped table-bordered table-hover" id="mydatau">
 	 <thead>
 	 <tr>
-	 <th>idubicaciontramite</th>
+	 <th>idubica</th>
 	 <th>idtramite</th>
-	 <th>ladepartamento</th>
+	 <th>ubicacion</th>
 	 <th>Responsable</th>
 	 <th>fecha</th>
 	 <th>hora</th>
