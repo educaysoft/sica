@@ -35,6 +35,7 @@ class Ubicaciontramite extends CI_Controller{
 
 		$data['tramites']= $this->tramite_model->lista_tramites()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['title']="Ubicaciontramite del departamento";
 	 
 		$data['title']="Modulo ubicación del artículo: ";
@@ -223,6 +224,7 @@ public function elultimo()
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
     $data['title']="Ubicaciontramite del departamento";
   
     $this->load->view('template/page_header');		
@@ -244,6 +246,7 @@ public function siguiente(){
 	$data['ubicaciontramite'] = $this->ubicaciontramite_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
     $data['title']="Ubicaciontramite del departamento";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
@@ -258,6 +261,7 @@ public function anterior(){
 	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
  // $data['title']="Correo";
     $data['title']="Ubicaciontramite del departamento";
 	$this->load->view('template/page_header');		
