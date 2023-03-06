@@ -18,7 +18,7 @@
 
 
 	$pdf->AliasNbPages();
-	$pdf->AddPage();
+	$pdf->AddPage('L');
 
 
     	$pdf->Text(20,35,"Evento(Clase):  ".$sesioneventos[0]->elevento); 
