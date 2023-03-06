@@ -16,7 +16,7 @@ public function index(){
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
  		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['title']="Lista de Artiulos";
-			$this->load->view('template/page_header');		
+		$this->load->view('template/page_header');		
   		$this->load->view('tramite_record',$data);
 			$this->load->view('template/page_footer');
 	}else{
@@ -57,6 +57,7 @@ public function edit()
 {
 	 	$data['tramite'] = $this->tramite_model->tramite($this->uri->segment(3))->row_array();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+ 		$data['personas']= $this->persona_model->lista_personas()->result();
  	 	$data['title'] = "Actualizar Tramite";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('tramite_edit',$data);
