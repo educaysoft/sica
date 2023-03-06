@@ -39,10 +39,10 @@ foreach ($personas as $row){
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
-foreach ($unidades as $row){
-	$options[$row->idunidad]=$row->nombre;
+foreach ($departamentoes as $row){
+	$options[$row->iddepartamento]=$row->nombre;
 }
- echo form_dropdown("idunidad",$options,set_select('--Select--','default_value'), array('id'=>'idunidad'));  
+ echo form_dropdown("iddepartamento",$options,set_select('--Select--','default_value'), array('id'=>'iddepartamento'));  
 ?>
 </div>
 </div>
