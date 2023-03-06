@@ -60,7 +60,7 @@ echo form_input('idunidad',$options[$ubicaciondocente['idunidad']],array("disabl
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('tramite/actual/'.$ubicaciondocente['idtramite'], 'El artículo:'); ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('tramite/actual/'.$ubicaciondocente['idtramite'], 'El tramite:'); ?> </label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
