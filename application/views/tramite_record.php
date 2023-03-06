@@ -69,12 +69,25 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
   
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('ubicaciontramite/add', 'Ubicación'); ?>: </label>
 	<div class="col-md-10">
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
  	<div class="row">
-  	<div class="col-12">
+  	<div class="col-12" style="border:solid;">
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Seguimiento al tramite: </b>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-success" href="<?php echo base_url('ubicaciontramite/add/') ?>">Nueva ubicación</a><a class="btn btn-danger" href="<?php echo base_url('tramite/reportepdf/'.$tramite['idtramite']) ?>">Reporte</a>
+        </div>
+    </div>
+</div>
+
+
+
 	<table class="table table-striped table-bordered table-hover" id="mydatau">
 	 <thead>
 	 <tr>
