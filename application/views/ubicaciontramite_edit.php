@@ -59,12 +59,7 @@ foreach ($personas as $row){
  
  
 
-<tr>
-     <td>Hora devolucion:</td>
-     <td><?php 
-     $eys_arrinput=array('name'=>'horadevolucion','id'=>'horadevolucion',"type"=>"time",'value'=>$ubicaciontramite['horadevolucion'], "style"=>"width:500px");
-     echo form_input($eys_arrinput); ?></td>
-</tr>
+
 
 
 
