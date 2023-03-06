@@ -27,6 +27,19 @@ foreach ($tramites as $row){
 
 
 <tr>
+<td> Departamento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($departamento as $row){
+	$options[$row->iddepartamento]=$row->nombre;
+}
+
+ echo form_dropdown("iddepartamento",$options, $ubicaciontramite['iddepartamento']);  ?></td>
+</tr>
+
+
+
+<tr>
 <td> Persona:</td>
 <td><?php
 $options= array('--Select--');

@@ -72,7 +72,9 @@ class Ubicaciontramite extends CI_Controller{
 		 	'idtramite' => $this->input->post('idtramite'),
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'fecha' => $this->input->post('fecha'),
+		 	'hora' => $this->input->post('hora'),
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
+		 	'detalle' => $this->input->post('detalle'),
 	 	);
 	 	$result=$this->ubicaciontramite_model->save($array_item);
 	 	if($result == FALSE)
@@ -108,7 +110,9 @@ class Ubicaciontramite extends CI_Controller{
 		 	'idtramite' => $this->input->post('idtramite'),
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'fecha' => $this->input->post('fecha'),
+		 	'hora' => $this->input->post('hora'),
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
+		 	'detalle' => $this->input->post('detalle'),
 	 	);
 	 	$this->ubicaciontramite_model->update($id,$array_item);
 	 	redirect('ubicaciontramite/actual/'.$id);
