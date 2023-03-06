@@ -18,11 +18,11 @@ echo form_input($eys_arrinput); ?></td>
 <td> Articulo:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($articulos as $row){
-	$options[$row->idarticulo]= $row->nombre;
+foreach ($tramites as $row){
+	$options[$row->idtramite]= $row->nombre;
 }
 
- echo form_dropdown("idarticulo",$options, $ubicaciontramite['idarticulo']);  ?></td>
+ echo form_dropdown("idtramite",$options, $ubicaciontramite['idtramite']);  ?></td>
 </tr>
 
 
