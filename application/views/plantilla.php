@@ -25,7 +25,7 @@ class PDF extends PDF_Sector
 //		$j=base_url().'images/MTI-UTLVTE.jpg';
 		$this->Image($i,30,7,130);
 //		$this->Image($j,170,5,20);
-		$this->SetFont('Arial','B',10);
+		$this->SetFont('Arial','B',8);
 		$this->Cell(25);
 		$this->Cell(100,5,"",0,1,'C');
 //		$this->Cell(100,5,utf8_decode($this->institucion),0,1,'C');
@@ -46,6 +46,11 @@ class PDF extends PDF_Sector
 	}
 	function Footer()
 	{
+
+		$this->SetY(-30);
+
+		$this->SetFont('Arial','I',8);
+		$this->Cell(0,10,'------------------------',0,0,'C');
 		$this->SetY(-15);
 		$this->SetFont('Arial','I',8);
 		$this->Cell(0,10,'Pagina '.$this->PageNo().'/{nb}',0,0,'C');
