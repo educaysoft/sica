@@ -42,7 +42,7 @@ foreach ($personas as $row){
 
  <tr>
       <td>Fecha prestamo :</td>
-      <td><?php echo form_input( array("name"=>'fechaprestamo',"id"=>'fechaprestamo',"value"=>$ubicaciontramite['fechaprestamo'],'type'=>'date','placeholder'=>'fecha')); ?></td>
+      <td><?php echo form_input( array("name"=>'fecha',"id"=>'fecha',"value"=>$ubicaciontramite['fecha'],'type'=>'date','placeholder'=>'fecha')); ?></td>
   </tr>
  
 
