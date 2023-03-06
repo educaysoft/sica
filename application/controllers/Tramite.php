@@ -137,15 +137,6 @@ function tramite_data()
 
 
 
-
-
-
-
-
-
-
-
-
 public function actual()
 {
 	$data['tramite'] = $this->tramite_model->tramite($this->uri->segment(3))->row_array();

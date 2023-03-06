@@ -7,14 +7,14 @@ class Ubicaciontramite extends CI_Controller{
       		$this->load->model('unidad_model');
       		$this->load->model('persona_model');
       		$this->load->model('evento_model');
-      		$this->load->model('articulo_model');
+      		$this->load->model('tramite_model');
       		$this->load->model('fechacalendario_model');
       		$this->load->model('modoevaluacion_model');
 	}
 
 	public function index(){
 		$data['ubicaciontramite'] = $this->ubicaciontramite_model->elultimo();
-		$data['articulos']= $this->articulo_model->lista_articulos()->result();
+		$data['tramites']= $this->tramite_model->lista_tramites()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['unidades']= $this->unidad_model->lista_unidades()->result();
 
@@ -33,7 +33,7 @@ class Ubicaciontramite extends CI_Controller{
 		$data['ubicaciontramite'] = $this->ubicaciontramite_model->ubicaciontramite($this->uri->segment(3))->row_array();
 
 
-		$data['articulos']= $this->articulo_model->lista_articulos()->result();
+		$data['tramites']= $this->tramite_model->lista_tramites()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['title']="Ubicaciontramite del unidad";
 	 
@@ -54,7 +54,7 @@ class Ubicaciontramite extends CI_Controller{
 	public function add()
 	{
 
-		$data['articulos']= $this->articulo_model->lista_articulos()->result();
+		$data['tramites']= $this->tramite_model->lista_tramites()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['unidades']= $this->unidad_model->lista_unidades()->result();
    		date_default_timezone_set('America/Guayaquil');
@@ -69,7 +69,7 @@ class Ubicaciontramite extends CI_Controller{
 	public function  save()
 	{
 	 	$array_item=array(
-		 	'idarticulo' => $this->input->post('idarticulo'),
+		 	'idtramite' => $this->input->post('idtramite'),
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'fecha' => $this->input->post('fecha'),
 		 	'idunidad' => $this->input->post('idunidad'),
@@ -90,7 +90,7 @@ class Ubicaciontramite extends CI_Controller{
 	public function edit()
 	{
 	 	$data['ubicaciontramite'] = $this->ubicaciontramite_model->ubicaciontramite($this->uri->segment(3))->row_array();
-		$data['articulos']= $this->articulo_model->lista_articulos()->result();
+		$data['tramites']= $this->tramite_model->lista_tramites()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
  	 	$data['title'] = "Actualizar Ubicaciontramite";
  	 	$this->load->view('template/page_header');		
@@ -105,7 +105,7 @@ class Ubicaciontramite extends CI_Controller{
 	 	$array_item=array(
 		 	'idubicaciontramite' => $this->input->post('idubicaciontramite'),
 
-		 	'idarticulo' => $this->input->post('idarticulo'),
+		 	'idtramite' => $this->input->post('idtramite'),
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'fecha' => $this->input->post('fecha'),
 		 	'idunidad' => $this->input->post('idunidad'),
