@@ -30,7 +30,7 @@ foreach ($tramites as $row){
 <td> Departamento:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($departamento as $row){
+foreach ($departamentos as $row){
 	$options[$row->iddepartamento]=$row->nombre;
 }
 

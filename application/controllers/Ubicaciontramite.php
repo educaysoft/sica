@@ -94,6 +94,7 @@ class Ubicaciontramite extends CI_Controller{
 	 	$data['ubicaciontramite'] = $this->ubicaciontramite_model->ubicaciontramite($this->uri->segment(3))->row_array();
 		$data['tramites']= $this->tramite_model->lista_tramites()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
  	 	$data['title'] = "Actualizar Ubicaciontramite";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('ubicaciontramite_edit',$data);
