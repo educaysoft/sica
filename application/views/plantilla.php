@@ -50,7 +50,8 @@ class PDF extends PDF_Sector
 		$this->SetY(-30);
 
 		$this->SetFont('Arial','I',8);
-		$this->Cell(0,10,'------------------------',0,0,'C');
+		$this->Cell(0,10,'--------------------------------',0,1,'C');
+		$this->Cell(0,10,'Firma',0,0,'C');
 		$this->SetY(-15);
 		$this->SetFont('Arial','I',8);
 		$this->Cell(0,10,'Pagina '.$this->PageNo().'/{nb}',0,0,'C');
