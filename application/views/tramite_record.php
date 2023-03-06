@@ -55,6 +55,22 @@ if(isset($tramite))
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">   Solicitante:</label>
+	<div class="col-md-10">
+     <?php 
+$options= array("NADA");
+foreach ($personas as $row){
+	$options[$row->idpersona]=$row->apellidos."  ".$row->nombres;
+}
+
+echo form_input('idpersona',$options[$tramite['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
+
+
+
 
  <div class="form-group row">
     <label class="col-md-2 col-form-label"> Detalle:</label>

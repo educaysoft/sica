@@ -7,12 +7,14 @@ class Tramite extends CI_Controller{
       $this->load->model('tramite_model');
   	  $this->load->model('institucion_model');
   	  $this->load->model('ubicaciontramite_model');
+  	  $this->load->model('persona_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 	  	$data['tramite']=$this->tramite_model->elultimo();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+ 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['title']="Lista de Artiulos";
 			$this->load->view('template/page_header');		
   		$this->load->view('tramite_record',$data);

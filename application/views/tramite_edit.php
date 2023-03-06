@@ -27,7 +27,16 @@ foreach ($instituciones as $row){
  echo form_dropdown("idinstitucion",$options, $tramite['idinstitucion']);  ?></td>
 </tr>
 
+<tr>
+<td> Solicitante:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($personas as $row){
+	$options[$row->idpersona]=$row->apellidos."  ".$row->nombres;
+}
 
+ echo form_dropdown("idpersona",$options, $tramite['idpersona']);  ?></td>
+</tr>
 
 
 
