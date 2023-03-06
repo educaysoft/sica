@@ -30,6 +30,7 @@ public function index(){
 public function add()
 {
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+ 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['title']="Nuevo Artículo";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('tramite_form',$data);
@@ -44,6 +45,7 @@ public function  save()
 	 	'nombre' => $this->input->post('nombre'),
 	 	'detalle' => $this->input->post('detalle'),
 	 	'idinstitucion' => $this->input->post('idinstitucion'),
+	 	'idpersona' => $this->input->post('idpersona'),
 	 	);
 	 	$this->tramite_model->save($array_item);
 	 	redirect('tramite');
@@ -72,6 +74,7 @@ public function edit()
 		 	'nombre' => $this->input->post('nombre'),
 		 	'detalle' => $this->input->post('detalle'),
 	 		'idinstitucion' => $this->input->post('idinstitucion'),
+	 		'idpersona' => $this->input->post('idpersona'),
 	 	);
 	 	$this->tramite_model->update($id,$array_item);
 	 	redirect('tramite');
@@ -143,6 +146,7 @@ public function actual()
 {
 	$data['tramite'] = $this->tramite_model->tramite($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+ 		$data['personas']= $this->persona_model->lista_personas()->result();
   if(!empty($data))
   {
     $data['title']="Tramite";
@@ -166,6 +170,7 @@ public function elprimero()
 {
 	$data['tramite'] = $this->tramite_model->elprimero();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+ 		$data['personas']= $this->persona_model->lista_personas()->result();
   if(!empty($data))
   {
     $data['title']="Tramite";
@@ -183,6 +188,7 @@ public function elultimo()
 {
 	  $data['tramite'] = $this->tramite_model->elultimo();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+ 		$data['personas']= $this->persona_model->lista_personas()->result();
   if(!empty($data))
   {
     $data['title']="Tramite";
@@ -202,6 +208,7 @@ public function siguiente(){
  // $data['tramite_list']=$this->tramite_model->lista_tramite()->result();
 	$data['tramite'] = $this->tramite_model->siguiente($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+ 		$data['personas']= $this->persona_model->lista_personas()->result();
   $data['title']="Tramite";
 	$this->load->view('template/page_header');		
   $this->load->view('tramite_record',$data);
@@ -212,6 +219,7 @@ public function anterior(){
  // $data['tramite_list']=$this->tramite_model->lista_tramite()->result();
 	$data['tramite'] = $this->tramite_model->anterior($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+ 		$data['personas']= $this->persona_model->lista_personas()->result();
   $data['title']="Tramite";
 	$this->load->view('template/page_header');		
   $this->load->view('tramite_record',$data);
