@@ -201,6 +201,7 @@ public function elprimero()
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
 
   	$data['personas']= $this->persona_model->lista_personas()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
     $data['title']="Ubicaciontramite del departamento";
     $this->load->view('template/page_header');		
     $this->load->view('ubicaciontramite_record',$data);
