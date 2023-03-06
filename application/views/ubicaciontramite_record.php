@@ -60,15 +60,15 @@ echo form_input('iddepartamento',$options[$ubicaciontramite['iddepartamento']],a
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('articulo/actual/'.$ubicaciontramite['idarticulo'], 'El artículo:'); ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('tramite/actual/'.$ubicaciontramite['idtramite'], 'El artículo:'); ?> </label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
-foreach ($articulos as $row){
-	$options[$row->idarticulo]= $row->nombre;
+foreach ($tramites as $row){
+	$options[$row->idtramite]= $row->nombre;
 }
 
-echo form_input('idarticulo',$options[$ubicaciontramite['idarticulo']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+echo form_input('idtramite',$options[$ubicaciontramite['idtramite']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
