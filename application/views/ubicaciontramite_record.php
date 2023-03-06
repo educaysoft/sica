@@ -48,7 +48,7 @@ if(isset($ubicaciontramite))
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
-foreach ($departamentoes as $row){
+foreach ($departamentos as $row){
 	$options[$row->iddepartamento]= $row->nombre;
 }
 
