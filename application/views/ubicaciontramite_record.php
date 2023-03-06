@@ -44,15 +44,15 @@ if(isset($ubicaciontramite))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('unidad/actual/'.$ubicaciontramite['idunidad'], 'La unidad:'); ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('departamento/actual/'.$ubicaciontramite['iddepartamento'], 'La departamento:'); ?> </label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
-foreach ($unidades as $row){
-	$options[$row->idunidad]= $row->nombre;
+foreach ($departamentoes as $row){
+	$options[$row->iddepartamento]= $row->nombre;
 }
 
-echo form_input('idunidad',$options[$ubicaciontramite['idunidad']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+echo form_input('iddepartamento',$options[$ubicaciontramite['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
