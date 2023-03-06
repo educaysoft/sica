@@ -44,7 +44,7 @@ if(isset($ubicaciontramite))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('departamento/actual/'.$ubicaciontramite['iddepartamento'], 'La departamento:'); ?> </label>
+    <label class="col-md-2 col-form-label"> Ubicación: </label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
@@ -60,7 +60,7 @@ echo form_input('iddepartamento',$options[$ubicaciontramite['iddepartamento']],a
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('tramite/actual/'.$ubicaciontramite['idtramite'], 'El artículo:'); ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('tramite/actual/'.$ubicaciontramite['idtramite'], 'El tráamite:'); ?> </label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
@@ -76,7 +76,7 @@ echo form_input('idtramite',$options[$ubicaciontramite['idtramite']],array("disa
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">   <?php echo anchor('persona/actual/'.$ubicaciontramite['idpersona'],'La persona: '); ?></label>
+    <label class="col-md-2 col-form-label">   Responsable:</label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
@@ -102,7 +102,7 @@ echo form_input('idpersona',$options[$ubicaciontramite['idpersona']],array("disa
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha ubicación:</label>
+    <label class="col-md-2 col-form-label"> Fecha llegada:</label>
 	<div class="col-md-10">
 		<?php
       		 echo form_input('fecha',$ubicaciontramite['fecha'],array('type'=>'date',"disabled"=>"disabled", 'placeholder'=>'fecha','style'=>'width:500px;')) 
@@ -110,6 +110,14 @@ echo form_input('idpersona',$options[$ubicaciontramite['idpersona']],array("disa
 	</div> 
 </div>
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Hora llegada:</label>
+	<div class="col-md-10">
+		<?php
+      		 echo form_input('hora',$ubicaciontramite['hora'],array('type'=>'date',"disabled"=>"disabled", 'placeholder'=>'hora','style'=>'width:500px;')) 
+		?>
+	</div> 
+</div>
 
 
 
