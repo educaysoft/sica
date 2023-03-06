@@ -99,34 +99,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('prestamotramite/add', 'Prestamo'); ?>: </label>
-	<div class="col-md-10">
-	<div class="row justify-content-left">
-      	<!-- Page Heading -->
- 	<div class="row">
-  	<div class="col-12">
-	<table class="table table-striped table-bordered table-hover" id="mydatac">
-	 <thead>
-	 <tr>
-	 <th>idprestamotramite</th>
-	 <th>idtramite</th>
-	 <th>lapersona</th>
-	 <th>fechaprestamo.</th>
-	 <th>horaprestamo.</th>
-	 <th>fechadevolucion.</th>
-	 <th>horadevolucion.</th>
-	 <th style="text-align: right;">Actions</th>
-	 </tr>
-	 </thead>
-	 <tbody id="show_data">
-	 </tbody>
-	</table>
-	</div>
-	</div>
-	</div>
-	</div> 
-</div>
+
 
 
 
