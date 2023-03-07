@@ -23,14 +23,14 @@ class PDF extends PDF_Sector
 //		$i=base_url().'images/logo.jpg';
 		$i=base_url().'images/headutlvte.jpg';
 //		$j=base_url().'images/MTI-UTLVTE.jpg';
-		$this->Image($i,30,7,130);
+		$this->Image($i,30,7,200);
 //		$this->Image($j,170,5,20);
 		$this->SetFont('Arial','B',8);
 		$this->Cell(25);
 		$this->Cell(100,5,"",0,1,'C');
 //		$this->Cell(100,5,utf8_decode($this->institucion),0,1,'C');
 		$this->Cell(25);
-		$this->Cell(100,7,utf8_decode($this->unidad),0,1,'C');
+		$this->Cell(150,7,utf8_decode($this->unidad),0,1,'C');
 		$this->Cell(25);
 		$this->Cell(100,5,utf8_decode($this->departamento),0,1,'C');
 		$this->Cell(25);
