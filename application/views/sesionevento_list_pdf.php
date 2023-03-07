@@ -39,7 +39,7 @@
 	$pdf->Cell(15,5,'Conect',1,0,'C',1);
 	$pdf->Cell(15,5,'NoConect',1,0,'C',1);
 	$pdf->Cell(120,5,'Tema',1,0,'C',1);
-	$pdf->Cell(15,5,'Control',1,1,'C',1);
+	$pdf->Cell(18,5,'Control',1,1,'C',1);
  
 	 
 
@@ -102,7 +102,7 @@ $cell_height=10;    //define cell height
 			$current_y = $pdf->GetY()-5;
 			$current_y2 = $pdf->GetY();
 			$pdf->SetXY($current_x, $current_y);   
-			$cell_width=15;
+			$cell_width=18;
 		    $pdf->MultiCell($cell_width,5,"X SISTEMA",1);
 	 	 	$current_x=$current_x2;
 
