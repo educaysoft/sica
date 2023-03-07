@@ -38,7 +38,7 @@
 	$pdf->Cell(15,5,'Termino',1,0,'C',1);
 	$pdf->Cell(15,5,'Conect',1,0,'C',1);
 	$pdf->Cell(15,5,'NoConect',1,0,'C',1);
-	$pdf->Cell(90,5,'Tema',1,0,'C',1);
+	$pdf->Cell(120,5,'Tema',1,0,'C',1);
 	$pdf->Cell(15,5,'Control',1,1,'C',1);
  
 	 
@@ -92,7 +92,7 @@ $cell_height=10;    //define cell height
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->numalum-$row->numeasis),1);
 	 	 	$current_x+=$cell_width;
 			$pdf->SetXY($current_x, $current_y);   
-			$cell_width=90;
+			$cell_width=120;
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->tema),1);
 	 	 	$current_x+=$cell_width;
 			$current_y2 = $pdf->GetY();
