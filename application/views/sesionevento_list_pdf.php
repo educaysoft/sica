@@ -103,7 +103,7 @@ $cell_height=10;    //define cell height
 			$current_y2 = $pdf->GetY();
 			$pdf->SetXY($current_x, $current_y);   
 			$cell_width=15;
-		    $pdf->MultiCell($cell_width,5,"SISTEMA",1);
+		    $pdf->MultiCell($cell_width,5,"X SISTEMA",1);
 	 	 	$current_x=$current_x2;
 
     }
