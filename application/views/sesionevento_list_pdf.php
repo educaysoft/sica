@@ -35,7 +35,7 @@
 	$pdf->Cell(15,5,'Termino',1,0,'C',1);
 	$pdf->Cell(15,5,'Conect',1,0,'C',1);
 	$pdf->Cell(15,5,'NoConect',1,0,'C',1);
-	$pdf->Cell(90,5,'Tema',1,1,'C',1);
+	$pdf->Cell(90,5,'Tema',1,0,'C',1);
 	$pdf->Cell(15,5,'Control',1,1,'C',1);
  
 	 
