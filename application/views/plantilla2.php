@@ -32,18 +32,19 @@ class PDF extends PDF_Sector
 		$this->Cell(100,5,"",0,1,'C');
 //		$this->Cell(100,5,utf8_decode($this->institucion),0,1,'C');
 		$this->Cell(25);
-		$this->Cell(180,15,utf8_decode($this->unidad),0,1,'C');
+		$this->Cell(180,18,utf8_decode($this->unidad),0,1,'C');
+		$this->SetFont('Arial','B',8);
 		$this->Cell(25);
-		$this->Cell(180,5,utf8_decode($this->departamento),0,1,'C');
+		$this->Cell(180,3,utf8_decode($this->departamento),0,1,'C');
 		$this->Cell(25);
 		$this->Cell(180,5,utf8_decode($this->titulo),0,1,'C');
 
 		$this->Cell(25);
-		$this->Cell(180,5,utf8_decode($this->asignatura),0,1,'L');
+		$this->Cell(10,5,utf8_decode($this->asignatura),0,1,'L');
 		$this->Cell(25);
-		$this->Cell(180,5,utf8_decode($this->docente),0,1,'L');
+		$this->Cell(10,5,utf8_decode($this->docente),0,1,'L');
 
-		$this->Ln(8);
+		$this->Ln(1);
 //		$this->Cell(40,5,utf8_decode('CÁTEDRA:'),0,0,'L');
 //		$this->Cell(40,5,utf8_decode($evento->titulo),0,1,'L');
 //		$this->Cell(40,5,utf8_decode('PARALELO:'),0,0,'L');
