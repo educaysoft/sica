@@ -46,6 +46,7 @@
 
 $current_y2 = $pdf->GetY();
 $current_x2 = $pdf->GetX();
+$current_x = $pdf->GetX();
 	$id=0;
 	$persona="";
 	$i=0;
