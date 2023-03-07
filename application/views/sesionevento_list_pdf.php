@@ -72,9 +72,11 @@ $cell_height=10;    //define cell height
 
 		    $pdf->MultiCell($cell_width,5,utf8_decode($dia),1);
 	 	 	$current_x+=$cell_width;
+			$current_y = $pdf->GetY();
 			$pdf->SetXY($current_x, $current_y);   
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->fecha),1);
 	 	 	$current_x+=$cell_width;
+			$current_y = $pdf->GetY();
 			$pdf->SetXY($current_x, $current_y);   
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->horainicio),1);
 	 	 	$current_x+=$cell_width;
