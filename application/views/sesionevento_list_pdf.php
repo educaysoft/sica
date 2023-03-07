@@ -8,6 +8,7 @@
         
 	$pdf = new PDF();
 	$pdf->SetMargins(23, 10, 11.7);
+	$pdf->SetAutoPageBreak(true,22); //page created doesn't have template attached
 
 
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
