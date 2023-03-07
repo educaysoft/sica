@@ -44,16 +44,19 @@
 	$pdf->SetFont('Arial','',7);
 
 
+$current_y2 = $pdf->GetY();
+$current_x = $pdf->GetX();
 	$id=0;
 	$persona="";
 	$i=0;
 	foreach ($sesioneventos as $row){  //Recorre todas la participaciones realiadas por los participantes
 	       
+$current_y = $current_y2;
+	$pdf->SetXY($current_x, $current_y);   
 		    $i=$i+1;
 		    $pdf->Cell(10,5,$row->numerosesion,1,0,'R',0); 
 
 $start_x=$pdf->GetX(); //initial x (start of column position)
-$current_y = $pdf->GetY();
 $current_x = $pdf->GetX();
 $cell_width = 15;  //define cell width
 $cell_height=10;    //define cell height
@@ -86,6 +89,7 @@ $cell_height=10;    //define cell height
 			$cell_width=90;
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->tema),1);
 	 	 	$current_x+=$cell_width;
+			$current_y2 = $pdf->GetY();
 			$pdf->SetXY($current_x, $current_y);   
 			$cell_width=15;
 		    $pdf->MultiCell($cell_width,5,"SISTEMA",1);
