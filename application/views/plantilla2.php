@@ -35,7 +35,7 @@ class PDF extends PDF_Sector
 		$this->Cell(180,18,utf8_decode($this->unidad),0,1,'C');
 		$this->SetFont('Arial','B',8);
 		$this->Cell(25);
-		$this->Cell(180,22utf8_decode($this->departamento),0,1,'C');
+		$this->Cell(180,3,utf8_decode($this->departamento),0,1,'C');
 		$this->Cell(25);
 		$this->Cell(180,5,utf8_decode($this->titulo),0,1,'C');
 
