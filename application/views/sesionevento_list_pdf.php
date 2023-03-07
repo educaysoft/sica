@@ -29,12 +29,14 @@
 
 
 	$pdf->Cell(10,5,'#sesion',1,0,'C',1);
-	$pdf->Cell(15,5,'dia',1,0,'C',1);
-	$pdf->Cell(15,5,'fecha',1,0,'C',1);
+	$pdf->Cell(15,5,'Dia',1,0,'C',1);
+	$pdf->Cell(15,5,'Fecha',1,0,'C',1);
 	$pdf->Cell(15,5,'inicio',1,0,'C',1);
-	$pdf->Cell(15,5,'fin',1,0,'C',1);
-	$pdf->Cell(15,5,'nasis',1,0,'C',1);
-	$pdf->Cell(90,5,'tema',1,1,'C',1);
+	$pdf->Cell(15,5,'Termino',1,0,'C',1);
+	$pdf->Cell(15,5,'Conect',1,0,'C',1);
+	$pdf->Cell(15,5,'NoConect',1,0,'C',1);
+	$pdf->Cell(90,5,'Tema',1,1,'C',1);
+	$pdf->Cell(15,5,'Control',1,1,'C',1);
  
 	 
 
@@ -78,10 +80,17 @@ $cell_height=10;    //define cell height
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->numeasis),1);
 	 	 	$current_x+=$cell_width;
 			$pdf->SetXY($current_x, $current_y);   
-
+		    $pdf->MultiCell($cell_width,5,utf8_decode($row->numeasis),1);
+	 	 	$current_x+=$cell_width;
+			$pdf->SetXY($current_x, $current_y);   
 			$cell_width=90;
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->tema),1);
 	 	 	$current_x+=$cell_width;
+			$pdf->SetXY($current_x, $current_y);   
+			$cell_width=15;
+		    $pdf->MultiCell($cell_width,5,"SISTEMA",1);
+	 	 	$current_x+=$cell_width;
+
     }
 
     
