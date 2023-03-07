@@ -1,7 +1,7 @@
 <?php
 
 
-	include 'plantilla.php';
+	include 'plantilla2.php';
 
 
 
@@ -16,14 +16,16 @@
 	$pdf->departamento='PERIODO: 2022-2S';
 	$pdf->titulo="CONTROL ACADÉMICO - LECCIONARIO";
 	
+    	$pdf->asignatura="Evento(Clase):  ".$sesioneventos[0]->elevento; 
+    	$pdf->docente="Docente:  ".$instructor[0]->nombres; 
 
 
 	$pdf->AliasNbPages();
 	$pdf->AddPage('L');
 
 
-    	$pdf->Text(20,40,"Evento(Clase):  ".$sesioneventos[0]->elevento); 
-    	$pdf->Text(20,45,"Docente:  ".$instructor[0]->nombres); 
+  //  	$pdf->Text(20,40,"Evento(Clase):  ".$sesioneventos[0]->elevento); 
+  //  	$pdf->Text(20,45,"Docente:  ".$instructor[0]->nombres); 
 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
