@@ -53,7 +53,7 @@ $current_x = $pdf->GetX();
 	$i=0;
 	foreach ($sesioneventos as $row){  //Recorre todas la participaciones realiadas por los participantes
 	       
-$current_y = $current_y2;
+	$current_y = $current_y2;
 	$pdf->SetXY($current_x, $current_y);   
 		    $i=$i+1;
 		    $pdf->Cell(10,5,$row->numerosesion,1,0,'R',0); 
@@ -72,11 +72,9 @@ $cell_height=10;    //define cell height
 
 		    $pdf->MultiCell($cell_width,5,utf8_decode($dia),1);
 	 	 	$current_x+=$cell_width;
-			$current_y = $pdf->GetY();
 			$pdf->SetXY($current_x, $current_y);   
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->fecha),1);
 	 	 	$current_x+=$cell_width;
-			$current_y = $pdf->GetY();
 			$pdf->SetXY($current_x, $current_y);   
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->horainicio),1);
 	 	 	$current_x+=$cell_width;
