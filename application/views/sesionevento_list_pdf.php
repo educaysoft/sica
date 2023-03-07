@@ -45,7 +45,7 @@
 
 
 $current_y2 = $pdf->GetY();
-$current_x = $pdf->GetX();
+$current_x2 = $pdf->GetX();
 	$id=0;
 	$persona="";
 	$i=0;
@@ -93,7 +93,7 @@ $cell_height=10;    //define cell height
 			$pdf->SetXY($current_x, $current_y);   
 			$cell_width=15;
 		    $pdf->MultiCell($cell_width,5,"SISTEMA",1);
-	 	 	$current_x+=$cell_width;
+	 	 	$current_x=$current_x2;
 
     }
 
