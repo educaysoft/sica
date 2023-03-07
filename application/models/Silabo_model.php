@@ -72,6 +72,20 @@ class Silabo_model extends CI_model {
 
 
 
+		   }else{
+			   $this->db->trans_rollback();
+			   $idsilabo=0;
+		//	return false;
+		   }
+		}else{
+			$idsilabo=$query->result()[0]->idsilabo;
+			$this->db->trans_rollback();
+			//return false;
+ 	}
+
+
+	if($idsilabo>0){
+
 		$condition1 = "idperiodoacademico =" . $array['idperiodoacademico'] ;
 		$this->db->select('*');
 		$this->db->from('periodoacademico');
@@ -85,10 +99,6 @@ class Silabo_model extends CI_model {
 			$fechainicio="";
 			$fechafin="";
 		}
-
-
-
-
 
 
 		$condition1 = "idperiodoacademico =" . $array['idperiodoacademico'] ;
@@ -147,21 +157,18 @@ class Silabo_model extends CI_model {
 
 			$this->db->trans_commit();
 	//	return $query->first_row('array');
-		$data = array("idsilabo"=>$idsilabo,"idcalendarioacademico"=>$idcalendarioacademico,"idasignaturadocente"=>$idasignaturadocente,"fechainicio"=>$fechainicio,"fechafin"=>$fechafin);
+		$data = array("idsilabo"=>$idsilabo,"idcalendarioacademico"=>$idcalendarioacademico,"idasignaturadocente"=>$idasignaturadocente,"fechainicio"=>$fechainicio,"fechafin"=>$fechafin,"successfull"=>true);
+
+	}else{
+
+		$data = array("successfull"=>false);
+
+	}
+
 
 		return $data;
 
-//,"idcalendarioacademico"=>$idcalendarioacademico,"idasignaturadocente"=>$idasignaturadocente);	
-	//		return array("idsilabo"=>1,"idcalendarioacademico"=>1,"idasignaturadocente"=>1);	
-		//	return true;
-		   }else{
-			$this->db->trans_rollback();
-			return false;
-		   }
-		}else{
-			$this->db->trans_rollback();
-			return false;
- 	}
+
  	}
 
 
