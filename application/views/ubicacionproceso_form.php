@@ -51,6 +51,7 @@ foreach ($departamentos as $row){
 
 
 
+
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Fecha de ubicación:</label>
 <div class="col-md-10">
@@ -68,6 +69,32 @@ foreach ($departamentos as $row){
 ?>
 </div>
 </div>
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Hora de ubicación:</label>
+<div class="col-md-10">
+<?php
+     $eys_arrinput=array('name'=>'hora','id'=>'hora',"type"=>"time",'value'=>$horai, "style"=>"width:500px");
+     echo form_input($eys_arrinput); 
+
+?>
+</div>
+</div>
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Detalle:</label>
+<div class="col-md-10">
+<?php
+  
+$textarea_options = array("name"="detalle","id"=>"detalle",'class' => 'form-control','rows' => '4','cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle","value"=>"");    
+echo form_textarea($textarea_options ); 
+
+?>
+</div>
+</div>
+
 
 
 

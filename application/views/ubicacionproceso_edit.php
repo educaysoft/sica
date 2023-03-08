@@ -72,7 +72,7 @@ foreach ($personas as $row){
 <td><?php
 $options= array('--Select--');
 foreach ($estadoprocesos as $row){
-	$options[$row->idestadoproceso]=$row->apellidos."  ".$row->nombres;
+	$options[$row->idestadoproceso]=$row->nombre;
 }
 
  echo form_dropdown("idestadoproceso",$options, $ubicacionproceso['idestadoproceso']);  ?></td>
