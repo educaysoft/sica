@@ -3,7 +3,7 @@
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open("ubicaciontramite/save") ?>
+<?php echo form_open("ubicacionproceso/save") ?>
 
 
 <div class="form-group row">
@@ -11,11 +11,11 @@
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
-foreach ($tramites as $row){
-	$options[$row->idtramite]= $row->nombre;
+foreach ($procesos as $row){
+	$options[$row->idproceso]= $row->nombre;
 }
 
- echo form_dropdown("idtramite",$options, set_select('--Select--','default_value'),array('id'=>'idtramite'));  
+ echo form_dropdown("idproceso",$options, set_select('--Select--','default_value'),array('id'=>'idproceso'));  
 ?>
 </div>
 </div>
@@ -71,11 +71,25 @@ foreach ($departamentos as $row){
 
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">estadoproceso:</label>
+<div class="col-md-10">
+<?php
+$options= array('--Select--');
+foreach ($estadoprocesos as $row){
+	$options[$row->idestadoproceso]=$row->apellidos." - ".$row->nombres;
+}
+ echo form_dropdown("idestadoproceso",$options,set_select('--Select--','default_value'), array('id'=>'idestadoproceso'));  
+?>
+</div>
+</div>
+
+
 
 
 <table>
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("ubicaciontramite","Atrás") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("ubicacionproceso","Atrás") ?> </td>
 </tr>
 
 </table>
@@ -84,9 +98,9 @@ foreach ($departamentos as $row){
 <script>
 
 	$(document).ready(()=>{
-	  var idtramite= <?php echo $idtramite; ?>;
-	  if(idtramite>0){
-		    $('#idtramite option[value="'+idtramite+'"]').attr('selected','selected');
+	  var idproceso= <?php echo $idproceso; ?>;
+	  if(idproceso>0){
+		    $('#idproceso option[value="'+idproceso+'"]').attr('selected','selected');
 		    get_participantes();
 	  }
 	});     

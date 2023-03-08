@@ -206,4 +206,21 @@ alter table persona add column horacreacion time;*/
 /* alter table modulo add column funcion varchar(100) default '';*/
 
 
-alter table evento change codigoclassroom codigoclassroom varchar(200);
+/*alter table evento change codigoclassroom codigoclassroom varchar(200);*/
+
+
+
+rename table tramite to proceso; 
+alter table proceso modify column idtramite int(11);
+alter table proceso drop primary key; 
+alter table proceso change idtramite idproceso int(11) not null auto_increment primary key; 
+
+rename table ubicaciontramite to ubicacionproceso; 
+alter table ubicacionproceso modify column idubicaciontramite int(11);
+alter table ubicacionproceso drop primary key; 
+alter table ubicacionproceso change idubicaciontramite idubicacionproceso int(11) not null auto_increment primary key; 
+
+alter table ubicacionproceso change idtramite idproceso int(11);
+alter table ubicacionproceso add column idestadoproceso int(11) default 1;
+
+

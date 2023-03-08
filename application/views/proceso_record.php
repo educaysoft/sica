@@ -2,23 +2,23 @@
     <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
     <ul>
 <?php
-if(isset($tramite))
+if(isset($proceso))
 {
 ?>
-        <li> <?php echo anchor('tramite/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('tramite/siguiente/'.$tramite['idtramite'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('tramite/anterior/'.$tramite['idtramite'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('tramite/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('tramite/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('tramite/edit/'.$tramite['idtramite'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('tramite/delete/'.$tramite['idtramite'],'Delete'); ?></li>
-        <li> <?php echo anchor('tramite/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('proceso/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('proceso/siguiente/'.$proceso['idproceso'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('proceso/anterior/'.$proceso['idproceso'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('proceso/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('proceso/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('proceso/edit/'.$proceso['idproceso'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('proceso/delete/'.$proceso['idproceso'],'Delete'); ?></li>
+        <li> <?php echo anchor('proceso/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('tramite/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('proceso/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -28,7 +28,7 @@ if(isset($tramite))
 <br>
 
 
-<?php echo form_hidden('idtramite',$tramite['idtramite']) ?>
+<?php echo form_hidden('idproceso',$proceso['idproceso']) ?>
 
 
  <div class="form-group row">
@@ -36,7 +36,7 @@ if(isset($tramite))
 	<div class="col-md-10">
      <?php
 
-  $eys_arrctl=array("id"=>"idtramite",  "name"=>'idtramite','value'=>$tramite['idtramite'],"disabled"=>"disabled",'placeholder'=>'Idtramites','style'=>'width:500px;');
+  $eys_arrctl=array("id"=>"idproceso",  "name"=>'idproceso','value'=>$proceso['idproceso'],"disabled"=>"disabled",'placeholder'=>'Idprocesos','style'=>'width:500px;');
  echo form_input($eys_arrctl);
 		?>
 	</div> 
@@ -48,7 +48,7 @@ if(isset($tramite))
 	<div class="col-md-10">
      <?php
 
-  $eys_arrctl=array("name"=>'nombre','value'=>$tramite['nombre'],"disabled"=>"disabled",'placeholder'=>'Inombre','style'=>'width:500px;');
+  $eys_arrctl=array("name"=>'nombre','value'=>$proceso['nombre'],"disabled"=>"disabled",'placeholder'=>'Inombre','style'=>'width:500px;');
  echo form_input($eys_arrctl);
 		?>
 	</div> 
@@ -64,7 +64,7 @@ foreach ($personas as $row){
 	$options[$row->idpersona]=$row->apellidos."  ".$row->nombres;
 }
 
-echo form_input('idpersona',$options[$tramite['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+echo form_input('idpersona',$options[$proceso['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
@@ -78,7 +78,7 @@ echo form_input('idpersona',$options[$tramite['idpersona']],array("disabled"=>"d
      <?php
     
 $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'disabled',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('detalle',$tramite['detalle'],$textarea_options); 
+ echo form_textarea('detalle',$proceso['detalle'],$textarea_options); 
 		?>
 	</div> 
 </div>
@@ -94,10 +94,10 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <b>Seguimiento al tramite: </b>
+            <b>Seguimiento al proceso: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('ubicaciontramite/add/') ?>">Nueva ubicación</a><a class="btn btn-danger" href="<?php echo base_url('tramite/reportepdf/'.$tramite['idtramite']) ?>">Reporte</a>
+            <a class="btn btn-success" href="<?php echo base_url('ubicacionproceso/add/') ?>">Nueva ubicación</a><a class="btn btn-danger" href="<?php echo base_url('proceso/reportepdf/'.$proceso['idproceso']) ?>">Reporte</a>
         </div>
     </div>
 </div>
@@ -108,7 +108,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 	 <thead>
 	 <tr>
 	 <th>idubica</th>
-	 <th>idtramite</th>
+	 <th>idproceso</th>
 	 <th>ubicacion</th>
 	 <th>Responsable</th>
 	 <th>fecha</th>
@@ -142,15 +142,15 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var idtramite=document.getElementById("idtramite").value;
+	var idproceso=document.getElementById("idproceso").value;
 
-	var mytablaf= $('#mydatau').DataTable({"ajax": {url: '<?php echo site_url('tramite/ubicacion_data')?>', type: 'GET',data:{idtramite:idtramite}},});
+	var mytablaf= $('#mydatau').DataTable({"ajax": {url: '<?php echo site_url('proceso/ubicacion_data')?>', type: 'GET',data:{idproceso:idproceso}},});
 
 
 });
 
 $('#show_datau').on('click','.item_ver',function(){
-var id= $(this).data('idubicaciontramite');
+var id= $(this).data('idubicacionproceso');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
@@ -160,7 +160,7 @@ window.location.href = retorno+'/'+id;
 
 
 $('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idprestamotramite');
+var id= $(this).data('idprestamoproceso');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });

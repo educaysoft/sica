@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("tramite/save") ?>
-<?php echo form_hidden("idtramite")  ?>
+<?php echo form_open("proceso/save") ?>
+<?php echo form_hidden("idproceso")  ?>
 
 
 
@@ -69,7 +69,7 @@ echo form_textarea("detalle","", $textarea_options);
 
 <table>
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("tramite","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("proceso","Atras") ?> </td>
 </tr>
 
 

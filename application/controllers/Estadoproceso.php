@@ -1,18 +1,18 @@
 <?php
 
-class Tipoevento extends CI_Controller{
+class Estadoproceso extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('tipoevento_model');
+      $this->load->model('estadoproceso_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['tipoevento']=$this->tipoevento_model->tipoevento(1)->row_array();
-		$data['title']="Lista de tipoeventoes";
+		$data['estadoproceso']=$this->estadoproceso_model->estadoproceso(1)->row_array();
+		$data['title']="Lista de estadoprocesoes";
 		$this->load->view('template/page_header');
-		$this->load->view('tipoevento_record',$data);
+		$this->load->view('estadoproceso_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva tipoevento";
+		$data['title']="Nueva estadoproceso";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('tipoevento_form',$data);
+	 	$this->load->view('estadoproceso_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,21 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idtipoevento' => $this->input->post('idtipoevento'),
+	 	'idestadoproceso' => $this->input->post('idestadoproceso'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->tipoevento_model->save($array_item);
-	 	redirect('tipoevento');
+	 	$this->estadoproceso_model->save($array_item);
+	 	redirect('estadoproceso');
  	}
 
 
 
 public function edit()
 {
-	 	$data['tipoevento'] = $this->tipoevento_model->tipoevento($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar tipoevento";
+	 	$data['estadoproceso'] = $this->estadoproceso_model->estadoproceso($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar estadoproceso";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('tipoevento_edit',$data);
+ 	 	$this->load->view('estadoproceso_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +56,22 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idtipoevento');
+		$id=$this->input->post('idestadoproceso');
 	 	$array_item=array(
 		 	
-		 	'idtipoevento' => $this->input->post('idtipoevento'),
+		 	'idestadoproceso' => $this->input->post('idestadoproceso'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->tipoevento_model->update($id,$array_item);
-	 	redirect('tipoevento');
+	 	$this->estadoproceso_model->update($id,$array_item);
+	 	redirect('estadoproceso');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->tipoevento_model->delete($this->uri->segment(3));
+ 		$data=$this->estadoproceso_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('tipoevento/elprimero');
+	 	redirect('estadoproceso/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -79,26 +79,26 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Tipoevento";
+  $data['title']="Estadoproceso";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipoevento_list',$data);
+  $this->load->view('estadoproceso_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function tipoevento_data()
+function estadoproceso_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->tipoevento_model->lista_tipoeventos();
+	 	$data0 = $this->estadoproceso_model->lista_estadoprocesos();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idtipoevento,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipoevento="'.$r->idtipoevento.'">Ver</a>');
+			$data[]=array($r->idestadoproceso,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idestadoproceso="'.$r->idestadoproceso.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -121,12 +121,12 @@ function tipoevento_data()
 
 public function elprimero()
 {
-	$data['tipoevento'] = $this->tipoevento_model->elprimero();
+	$data['estadoproceso'] = $this->estadoproceso_model->elprimero();
   if(!empty($data))
   {
-    $data['title']="Tipoevento";
+    $data['title']="Estadoproceso";
     $this->load->view('template/page_header');		
-    $this->load->view('tipoevento_record',$data);
+    $this->load->view('estadoproceso_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +137,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['tipoevento'] = $this->tipoevento_model->elultimo();
+	$data['estadoproceso'] = $this->estadoproceso_model->elultimo();
   if(!empty($data))
   {
-    $data['title']="Tipoevento";
+    $data['title']="Estadoproceso";
   
     $this->load->view('template/page_header');		
-    $this->load->view('tipoevento_record',$data);
+    $this->load->view('estadoproceso_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,20 +154,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
-	$data['tipoevento'] = $this->tipoevento_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Tipoevento";
+ // $data['estadoproceso_list']=$this->estadoproceso_model->lista_estadoproceso()->result();
+	$data['estadoproceso'] = $this->estadoproceso_model->siguiente($this->uri->segment(3))->row_array();
+  $data['title']="Estadoproceso";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipoevento_record',$data);
+  $this->load->view('estadoproceso_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
-	$data['tipoevento'] = $this->tipoevento_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Tipoevento";
+ // $data['estadoproceso_list']=$this->estadoproceso_model->lista_estadoproceso()->result();
+	$data['estadoproceso'] = $this->estadoproceso_model->anterior($this->uri->segment(3))->row_array();
+  $data['title']="Estadoproceso";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipoevento_record',$data);
+  $this->load->view('estadoproceso_record',$data);
 	$this->load->view('template/page_footer');
 }
 
