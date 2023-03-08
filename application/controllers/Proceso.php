@@ -99,10 +99,10 @@ function proceso_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->proceso_model->lista_procesos();
+	 	$data0 = $this->proceso_model->lista_procesosA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idproceso,$r->nombre,$r->detalle,
+			$data[]=array($r->idproceso,$r->elproceso,$r->estado,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('proceso/actual').'"  data-idproceso="'.$r->idproceso.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
