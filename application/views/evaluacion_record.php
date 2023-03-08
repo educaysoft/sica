@@ -118,7 +118,7 @@ echo form_input('idevento',$options[$evaluacion['idevento']],array("disabled"=>"
             <b>Respuestas: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('respuesta/add/'.$evaluacion['idevaluacion']) ?>">Nueva peregunta</a><a class="btn btn-danger" href="<?php echo base_url('pregunta/reportepdf/'.$evento['idevaluacion']) ?>">Reporte</a>
+            <a class="btn btn-success" href="<?php echo base_url('respuesta/add/'.$evaluacion['idevaluacion']) ?>">Nueva peregunta</a><a class="btn btn-danger" href="<?php echo base_url('pregunta/reportepdf/'.$evaluacion['idevaluacion']) ?>">Reporte</a>
         </div>
     </div>
 </div>
