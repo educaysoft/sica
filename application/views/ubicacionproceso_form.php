@@ -77,7 +77,7 @@ foreach ($departamentos as $row){
 <?php
 $options= array('--Select--');
 foreach ($estadoprocesos as $row){
-	$options[$row->idestadoproceso]=$row->apellidos." - ".$row->nombres;
+	$options[$row->idestadoproceso]=$row->nombre;
 }
  echo form_dropdown("idestadoproceso",$options,set_select('--Select--','default_value'), array('id'=>'idestadoproceso'));  
 ?>
