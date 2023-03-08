@@ -33,7 +33,6 @@ if(isset($evaluacion))
 
 <?php echo form_open('evaluacion/save_edit') ?>
 <?php echo form_hidden('idevaluacion',$evaluacion['idevaluacion']) ?>
-<table>
 
 
 <div class="form-group row">
