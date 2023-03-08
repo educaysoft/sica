@@ -88,7 +88,7 @@ foreach ($departamentos as $row){
 <div class="col-md-10">
 <?php
   
-$textarea_options = array("name"="detalle","id"=>"detalle",'class' => 'form-control','rows' => '4','cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle","value"=>"");    
+$textarea_options = array("name"=>"detalle","id"=>"detalle",'class' => 'form-control','rows' => '4','cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle","value"=>"");    
 echo form_textarea($textarea_options ); 
 
 ?>
