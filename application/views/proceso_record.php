@@ -36,7 +36,7 @@ if(isset($proceso))
 	<div class="col-md-10">
      <?php
 
-  $eys_arrctl=array("id"=>"idproceso",  "name"=>'idproceso','value'=>$proceso['idproceso'],"disabled"=>"disabled",'placeholder'=>'Idprocesos','style'=>'width:500px;');
+  $eys_arrctl=array("id"=>"idproceso",  "name"=>'idproceso','value'=>$proceso['idproceso'],'placeholder'=>'Idprocesos','style'=>'width:500px;');
  echo form_input($eys_arrctl);
 		?>
 	</div> 
