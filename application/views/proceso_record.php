@@ -144,7 +144,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 
 $(document).ready(unction(){
 	var idproceso=document.getElementById("idproceso").value;
-
+ alert(idproceso);
 	var mytablaf= $('#mydatau').DataTable({"ajax": {url: '<?php echo site_url('proceso/ubicacion_data')?>', type: 'GET',data:{idproceso:idproceso}},});
 
 
