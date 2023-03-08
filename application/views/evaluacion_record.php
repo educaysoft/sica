@@ -1,5 +1,5 @@
 <div id="eys-nav-i">
-    <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idevaluacion"><?php echo $evaluacion['idevaluacion']; ?></idem></div>
     <ul>
 <?php
 if(isset($evaluacion))
@@ -103,12 +103,66 @@ echo form_input('idevento',$options[$evaluacion['idevento']],array("disabled"=>"
 </div>
 
 
-   
+
+
+<div class="form-group row">
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12" style="border:solid;">
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Respuestas: </b>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-success" href="<?php echo base_url('respuesta/add/'.$evaluacion['idevaluacion']) ?>">Nueva peregunta</a><a class="btn btn-danger" href="<?php echo base_url('pregunta/reportepdf/'.$evento['idevaluacion']) ?>">Reporte</a>
+        </div>
+    </div>
+</div>
+
+	<table class="table table-striped table-bordered table-hover" id="mydatac">
+	 <thead>
+	 <tr>
+	 <th>idevaluacion</th>
+	 <th>idpregunta</th>
+	 <th>pregunta</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
    
 
 <?php echo form_close(); ?>
 
+<script type="text/javascript">
 
+$(document).ready(function(){
+	var idevaluacion=document.getElementById("idevaluacion").innerHTML;
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evaluacion/evaluacion_pregunta')?>', type: 'GET',data:{idevaluacion:idevaluacion}},});
+});
+
+$('#show_data').on('click','.item_ver',function(){
+var id= $(this).data('idsesionevento');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+
+});
+
+
+
+</script>
 
 
 

@@ -112,6 +112,41 @@ function evaluacion_data()
 }
 
 
+
+
+
+
+function evaluacion_pregunta()
+{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+
+
+		$idevaluacion=$this->input->get('idevaluacion');
+	 	$data0 = $this->pregunta_model->preguntaxevaluacion($idevaluacion);
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->idevaluacion,$r->idpregunta,$r->pregunta,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idpregunta="'.$r->idpregunta.'">Ver</a>');
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+		echo json_encode($output);
+		exit();
+}
+
+
+
+
+
+
+
+
+
 public function elprimero()
 {
 	$data['evaluacion'] = $this->evaluacion_model->elprimero();
