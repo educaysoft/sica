@@ -1,5 +1,5 @@
 <?php
-class Tramite_model extends CI_model {
+class Proceso_model extends CI_model {
 
 	function lista_procesos(){
 		 $proceso= $this->db->get('proceso');
