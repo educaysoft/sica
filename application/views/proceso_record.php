@@ -114,6 +114,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 	 <th>fecha</th>
 	 <th>hora</th>
 	 <th>detalle</th>
+	 <th>estado</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
@@ -141,7 +142,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 
 <script type="text/javascript">
 
-$(document).ready(function(){
+$(document).ready(unction(){
 	var idproceso=document.getElementById("idproceso").value;
 
 	var mytablaf= $('#mydatau').DataTable({"ajax": {url: '<?php echo site_url('proceso/ubicacion_data')?>', type: 'GET',data:{idproceso:idproceso}},});

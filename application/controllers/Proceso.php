@@ -127,7 +127,7 @@ function proceso_data()
 			$data0 =$this->ubicacionproceso_model->ubicacionprocesosA($idproceso);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idubicacionproceso,$r->idproceso,$r->eldepartamento,$r->lapersona,$r->fecha,$r->hora,$r->detalle,
+				$data[]=array($r->idubicacionproceso,$r->idproceso,$r->eldepartamento,$r->lapersona,$r->fecha,$r->hora,$r->detalle,$r->estado,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('ubicacionproceso/actual').'"    data-idubicacionproceso="'.$r->idubicacionproceso.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('ubicacionproceso/edit').'"    data-idubicacionproceso="'.$r->idubicacionproceso.'">edit</a>');
 			}	
 			$output=array( "draw"=>$draw,
