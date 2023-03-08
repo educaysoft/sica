@@ -124,7 +124,7 @@ function evaluacion_pregunta()
 
 
 		$idevaluacion=$this->input->get('idevaluacion');
-	 	$data0 = $this->pregunta_model->preguntaxevaluacion($idevaluacion);
+	 	$data0 = $this->pregunta_model->preguntasxevaluacion($idevaluacion);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idevaluacion,$r->idpregunta,$r->pregunta,
