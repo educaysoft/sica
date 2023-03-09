@@ -130,7 +130,7 @@ public function new_user_registration() {
 
           // se suma un partipacipante
           $dataparticipante=array();
-          $dataparticipante+=['idevento'=>$this->input->post("idevento"),'idpersona'=>0];
+          $dataparticipante+=['idevento'=>$this->input->post("idevento"),'idpersona'=>0,'idparticipanteestado'=>1];
           //telefono
           $datatelefono=array('idpersona'=>0,'numero'=>$this->input->post('telefono'),'idoperadora'=>1,'idtelefono_estado'=>1);
 
