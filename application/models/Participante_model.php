@@ -127,39 +127,37 @@ return $participante;
 		$query = $this->db->get();
 		if ($query->num_rows() != 0) {
 	 		$idpersona=$query->result()[0]->idpersona;
-		  $condition = "idpersona =" . $idpersona ;
-		  $this->db->select('*');
-		  $this->db->from('usuario');
-		  $this->db->where($condition);
-		  $this->db->limit(1);
-		  $query = $this->db->get();
-		  if ($query->num_rows() != 0) {
-	 		  $idusuario=$query->result()[0]->idusuario;
- 		    $this->db->where('idusuario',$idusuario);
- 		    $this->db->where('idevento',$ide);
- 		    $this->db->where('onoff',1);
-		    $this->db->delete('password');
-
-	 		  $this->db->where('idparticipante',$idp);
-		    $this->db->delete('participante');
-        if($this->db->affected_rows()==1)
-        {
-            $this->db->trans_complete();
-			      $result=true;
-        }else{
-            $this->db->trans_complete();
+		  	$condition = "idpersona =" . $idpersona ;
+		  	$this->db->select('*');
+		  	$this->db->from('usuario');
+		  	$this->db->where($condition);
+		  	$this->db->limit(1);
+		  	$query = $this->db->get();
+		  	if ($query->num_rows() != 0) {
+	 			$idusuario=$query->result()[0]->idusuario;
+ 		    		$this->db->where('idusuario',$idusuario);
+ 		    		$this->db->where('idevento',$ide);
+ 		    		$this->db->where('onoff',1);
+		    		$this->db->delete('password');
+	 		  	$this->db->where('idparticipante',$idp);
+		    		$this->db->delete('participante');
+        			if($this->db->affected_rows()==1)
+        			{
+           				 $this->db->trans_complete();
+			      		$result=true;
+        			}else{
+            				$this->db->trans_complete();
+			      		$result=false;
+        			}
+    			 }else{	
+            			$this->db->trans_complete();
 			      $result=false;
-        }
-     }else{	
-            $this->db->trans_complete();
-			      $result=false;
-     }
-   
-      }else{	
+     			}
+      	}else{	
 
             $this->db->trans_complete();
 			      $result=false;
-   }
+   	}
 
 	return $result;
  	}
