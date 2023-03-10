@@ -12,7 +12,7 @@ class Pregunta_model extends CI_model {
  	}
 
  	function preguntasxevaluacion( $id){
- 		$pregunta = $this->db->query('select * from pregunta where idevaluacion="'. $id.'"');
+ 		$pregunta = $this->db->query('select * from pregunta where idreactivo="'. $id.'"');
  		return $pregunta;
  	}
 
