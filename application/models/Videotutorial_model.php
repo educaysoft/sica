@@ -12,6 +12,12 @@ class Videotutorial_model extends CI_model {
 		 return $videotutorial;
 	}
 
+	function videotutorial1($idvideotutorial){
+		 $this->db->where(array('idvideotutorial'=>$idvideotutorial));
+		 $videotutorial= $this->db->get('videotutorial');
+		 return $videotutorial;
+	}
+
 
 
 
