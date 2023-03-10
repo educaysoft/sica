@@ -115,10 +115,15 @@ class Sesionevento_model extends CI_model {
 
  	function update($id,$array_item)
  	{
+   		date_default_timezone_set('America/Guayaquil');
+    		$fecha = date("Y-m-d");
+    		$hora= date("H:i:s");
+
  		$this->db->where('idsesionevento',$id);
  		$this->db->update('sesionevento',$array_item);
 		if($this->db->affected_rows()>0)
 		{
+		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fecha,"hora"=>$hora,"tabla"=>"sesionevento","accion"=>"se modifico la sesion evento con id=".$array['idsesionevento'],"url"=>$_SERVER['REQUEST_URI']));
 			return true;
 		}else{
 			return false;
