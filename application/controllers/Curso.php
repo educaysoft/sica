@@ -167,6 +167,7 @@ public function evaluar()
 	$data['silabo'] = $this->silabo_model->silabo($_GET['idsilabo'])->row_array();
 	$data['unidadsilabo'] = $this->unidadsilabo_model->lista_unidades($_GET['idsilabo'])->result();
 	$data['tema'] = $this->tema_model->tema1($_GET['idtema'])->row_array();
+	print_r($data['tema']);
 	$data['preguntas']=$this->pregunta_model->preguntasxevaluacion($data['tema']['idevaluacion'])->result();
 	$data['respuestas']=$this->respuesta_model->respuestasxevaluacion($data['tema']['idevaluacion'])->result();
   	$data['title']="Curso";
