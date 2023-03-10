@@ -160,7 +160,7 @@ body {
 <body>
 <?php
 $seccion="Instrucción a los Fundamentos de Programación";
-$idevaluacion=$tema['idevaluacion'];
+$idreactivo=$tema['idreactivo'];
 $idpregunta=array(5,6,7);
 $idrespueta=array(array(7,8,9),array(10,11,12));
 ?>
@@ -182,7 +182,7 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 		foreach($videotutorial as $row){
 	?>	
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onClick="show_unidad('<?php echo $row->nombre; ?>','<?php echo $row->enlace; ?>','<?php echo $row->idevaluacion; ?>')"/>   
+				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onClick="show_unidad('<?php echo $row->nombre; ?>','<?php echo $row->enlace; ?>','<?php echo $row->idreactivo; ?>')"/>   
 				<label class="form-check-label" for="inlineCheckbox1">Unidad-<?php echo $row->idvideotutorial;?></label>
 			</div>
 
@@ -207,7 +207,7 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 
 	<div id="learn1" style="width: 100%; margin:auto; display:flex; display:none; ">
 		<div id="evaluar" style="padding:10px; width:20%; ">
-			<?php echo '<button id="evaluar" onclick="get_certificado('.$idevaluacion.','.$evento["idevento"].');">Evaluar</button>'; ?> 
+			<?php echo '<button id="evaluar" onclick="get_certificado('.$idreactivo.','.$evento["idevento"].');">Evaluar</button>'; ?> 
 
 		</div>
 		<div style="padding:10px; width:70%; ">
@@ -346,7 +346,7 @@ function get_certificado(idpersona, idevento)
 
 
 
-	function show_unidad(tunidad,lvideo,idevaluacion)
+	function show_unidad(tunidad,lvideo,idreactivo)
 	{
 		document.getElementById('unidad').innerHTML=tunidad;
 		document.getElementById('unidad').style.display='block';
@@ -354,19 +354,19 @@ function get_certificado(idpersona, idevento)
 		xx.setAttribute("src",lvideo);
 		document.getElementById('mvideo').style.display='block';
 		document.getElementById('learn1').style.display='block';
-		document.getElementById('evaluar').innerHTML='<button id="evaluar" onclick="get_evaluacion('+idevaluacion+');">Evaluar-'+idevaluacion+'</button>' 
-               get_evaluacion(idevaluacion);
+		document.getElementById('evaluar').innerHTML='<button id="evaluar" onclick="get_evaluacion('+idreactivo+');">Evaluar-'+idreactivo+'</button>' 
+               get_evaluacion(idreactivo);
 	}
 
 
 
-function get_evaluacion(idevaluacion) {
+function get_evaluacion(idreactivo) {
 	 btn=document.getElementById('learn2');
 	 btn.style.display="block";
 	//
     $.ajax({
         url: "<?php echo site_url('evaluacion/get_evaluacion') ?>",
-        data: {idevaluacion: idevaluacion},
+        data: {idreactivo: idractivo},
         method: 'POST',
         async : false,
         dataType : 'json',
@@ -387,7 +387,7 @@ function get_evaluacion(idevaluacion) {
 
     $.ajax({
         url: "<?php echo site_url('pregunta/get_preguntas') ?>",
-        data: {idevaluacion: idevaluacion},
+        data: {idreactivo: idreactivo},
         method: 'POST',
         async : false,
         dataType : 'json',
