@@ -6,10 +6,10 @@ class Tema_model extends CI_model {
 		 return $tema;
 	}
 
-	function lista_tema1($idtema){
+	function tema1($idtema){
 
 		$this->db->where('idtema='.$idtema);
-		 $tema= $this->db->get('tema');
+		 $tema= $this->db->get('tema1');
 		 return $tema;
 	}
 
