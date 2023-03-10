@@ -1,19 +1,39 @@
 <?php
 class Evaluacion_model extends CI_model {
 
-	function lista_evaluaciones(){
+	function lista_evaluacions(){
 		 $evaluacion= $this->db->get('evaluacion');
 		 return $evaluacion;
 	}
+
+
+	function lista_evaluacionsA(){
+		 $evaluacion= $this->db->get('evaluacion1');
+		 return $evaluacion;
+	}
+
+
 
  	function evaluacion( $id){
  		$evaluacion = $this->db->query('select * from evaluacion where idevaluacion="'. $id.'"');
  		return $evaluacion;
  	}
 
+
+ 	function evaluacionspersona( $id){
+ 		$evaluacion = $this->db->query('select * from evaluacion where idpersona="'. $id.'"');
+ 		return $evaluacion;
+ 	}
+
+
+
  	function save($array)
  	{
 		$this->db->insert("evaluacion", $array);
+		if($this->db->affected_rows>0)
+			return true;
+		else
+			return false;
  	}
 
  	function update($id,$array_item)
@@ -21,13 +41,14 @@ class Evaluacion_model extends CI_model {
  		$this->db->where('idevaluacion',$id);
  		$this->db->update('evaluacion',$array_item);
 	}
+ 
 
 
  	public function delete($id)
 	{
  		$this->db->where('idevaluacion',$id);
 		$this->db->delete('evaluacion');
-    if($this->db->affected_rows()==1)
+    		if($this->db->affected_rows()==1)
 			$result=true;
 		else
 			$result=false;
@@ -99,7 +120,5 @@ class Evaluacion_model extends CI_model {
 
 
 
-
- 
 
 }

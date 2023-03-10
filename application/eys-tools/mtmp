@@ -1,33 +1,53 @@
 <?php
-class Tipoevento_model extends CI_model {
+class Evaluado_model extends CI_model {
 
-	function lista_tipoeventos(){
-		 $tipoevento= $this->db->get('tipoevento');
-		 return $tipoevento;
+	function lista_evaluados(){
+		 $evaluado= $this->db->get('evaluado');
+		 return $evaluado;
 	}
 
- 	function tipoevento( $id){
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
- 		return $tipoevento;
+
+	function lista_evaluadosA(){
+		 $evaluado= $this->db->get('evaluado1');
+		 return $evaluado;
+	}
+
+
+
+ 	function evaluado( $id){
+ 		$evaluado = $this->db->query('select * from evaluado where idevaluado="'. $id.'"');
+ 		return $evaluado;
  	}
+
+
+ 	function evaluadospersona( $id){
+ 		$evaluado = $this->db->query('select * from evaluado where idpersona="'. $id.'"');
+ 		return $evaluado;
+ 	}
+
+
 
  	function save($array)
  	{
-		$this->db->insert("tipoevento", $array);
+		$this->db->insert("evaluado", $array);
+		if($this->db->affected_rows>0)
+			return true;
+		else
+			return false;
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idtipoevento',$id);
- 		$this->db->update('tipoevento',$array_item);
+ 		$this->db->where('idevaluado',$id);
+ 		$this->db->update('evaluado',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idtipoevento',$id);
-		$this->db->delete('tipoevento');
+ 		$this->db->where('idevaluado',$id);
+		$this->db->delete('evaluado');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -38,7 +58,7 @@ class Tipoevento_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
+		$query=$this->db->order_by("idevaluado")->get('evaluado');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -51,7 +71,7 @@ class Tipoevento_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
+		$query=$this->db->order_by("idevaluado")->get('evaluado');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -63,37 +83,37 @@ class Tipoevento_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
-		$arr=array("idtipoevento"=>$id);
-		$clave=array_search($arr,$tipoevento);
-	   if(array_key_exists($clave+1,$tipoevento))
+ 		$evaluado = $this->db->select("idevaluado")->order_by("idevaluado")->get('evaluado')->result_array();
+		$arr=array("idevaluado"=>$id);
+		$clave=array_search($arr,$evaluado);
+	   if(array_key_exists($clave+1,$evaluado))
 		 {
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave+1]["idtipoevento"].'"');
+ 		$evaluado = $this->db->query('select * from evaluado where idevaluado="'. $evaluado[$clave+1]["idevaluado"].'"');
 		 }else{
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
+ 		$evaluado = $this->db->query('select * from evaluado where idevaluado="'. $id.'"');
 		 }
 		 	
- 		return $tipoevento;
+ 		return $evaluado;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
-		$arr=array("idtipoevento"=>$id);
-		$clave=array_search($arr,$tipoevento);
-	   if(array_key_exists($clave-1,$tipoevento))
+ 		$evaluado = $this->db->select("idevaluado")->order_by("idevaluado")->get('evaluado')->result_array();
+		$arr=array("idevaluado"=>$id);
+		$clave=array_search($arr,$evaluado);
+	   if(array_key_exists($clave-1,$evaluado))
 		 {
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave-1]["idtipoevento"].'"');
+ 		$evaluado = $this->db->query('select * from evaluado where idevaluado="'. $evaluado[$clave-1]["idevaluado"].'"');
 		 }else{
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
+ 		$evaluado = $this->db->query('select * from evaluado where idevaluado="'. $id.'"');
 		 }
 		 	
- 		return $tipoevento;
+ 		return $evaluado;
  	}
 
 

@@ -1,2 +1,3 @@
 use educayso_facae;
-create view evaluado1 as select evaluado.idevaluado,concat(persona.apellidos," ", persona.nombres) as persona from evaluado,persona where evaluado.idpersona=persona.idpersona;
+drop view tema1;
+create view evaluado1 as select  eval.idevaluacion, evdo.idpersona, (select count(idpregunta) from pregunta where preg.idevaluacion=eval.idevaluacion ) as totapreg, (select count(idpreguntas) from evaluado where evdo.idevaluacion=eval.idevaluacion and evdo.acierto=1) as totaacie; 

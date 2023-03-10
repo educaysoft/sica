@@ -209,7 +209,7 @@ alter table persona add column horacreacion time;*/
 /*alter table evento change codigoclassroom codigoclassroom varchar(200);*/
 
 
-
+/*
 rename table tramite to proceso; 
 alter table proceso modify column idtramite int(11);
 alter table proceso drop primary key; 
@@ -222,5 +222,21 @@ alter table ubicacionproceso change idubicaciontramite idubicacionproceso int(11
 
 alter table ubicacionproceso change idtramite idproceso int(11);
 alter table ubicacionproceso add column idestadoproceso int(11) default 1;
+*/
 
+
+
+/*rename table evaluacion to reactivo; 
+alter table reactivo modify column idevaluacion int(11);
+alter table reactivo drop primary key; 
+alter table reactivo change idevaluacion idreactivo int(11) not null auto_increment primary key; 
+
+rename table evaluado to evaluacion; 
+alter table evaluacion change idevaluacion idreactivo int(11);*/
+alter table evaluacion modify column idevaluado int(11);
+alter table evaluacion drop primary key;
+alter table evaluacion change idevaluado idevaluacion int(11) not null auto_increment primary key; 
+
+
+alter table evaluacion change idpersona idevaluacionpersona int(11);
 

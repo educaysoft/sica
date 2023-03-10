@@ -1,54 +1,83 @@
 <?php
 
-class Estadoproceso extends CI_Controller{
+class Evaluacion extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('tipoevento_model');
+      $this->load->model('evaluado_model');
+  	  $this->load->model('persona_model');
+  	  $this->load->model('pregunta_model');
+  	  $this->load->model('respuesta_model');
 }
 
 public function index(){
-	if(isset($this->session->userdata['logged_in'])){
-		$data['tipoevento']=$this->tipoevento_model->tipoevento(1)->row_array();
-		$data['title']="Lista de tipoeventoes";
+
+  	if(isset($this->session->userdata['logged_in'])){
+			
+  	$data['evaluado']=$this->evaluado_model->lista_evaluados()->row_array();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
+  	$data['respuestas']= $this->respuesta_model->lista_respuesta()->result();
+			
+		$data['title']="Lista de evaluados";
 		$this->load->view('template/page_header');
-		$this->load->view('tipoevento_record',$data);
+		$this->load->view('evaluado_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
 		$this->load->view('login_form');
 	 	$this->load->view('template/page_footer.php');
 	}
-}
+
+ }
 
 
 public function add()
 {
-		$data['title']="Nueva tipoevento";
+		$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['preguntaes']= $this->pregunta_model->lista_preguntaes()->result();
+		$data['title']="Nueva Evaluacion";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('tipoevento_form',$data);
+	 	$this->load->view('evaluado_form',$data);
 	 	$this->load->view('template/page_footer');
+
+
 }
 
 
-public function  save()
+	public function  save()
 	{
 	 	$array_item=array(
-	 	'idtipoevento' => $this->input->post('idtipoevento'),
-	 	'nombre' => $this->input->post('nombre'),
+		 	
+			'idpersona' => $this->input->post('idpersona'),
+			'idpregunta' => $this->input->post('idpregunta'),
+			'acierto' => $this->input->post('acierto'),
 	 	);
-	 	$this->tipoevento_model->save($array_item);
-	 	redirect('tipoevento');
+	 	$this->evaluado_model->save($array_item);
+	 	redirect('evaluado');
+ 	}
+
+	public function  save2()
+	{
+	 	$array_item=array(
+		 	
+			'idpersona' => $this->input->post('idpersona'),
+			'idpregunta' => $this->input->post('idpregunta'),
+			'idrespuesta' => $this->input->post('idrespuesta'),
+			'acierto' => $this->input->post('acierto'),
+	 	);
+	 	$result =$this->evaluado_model->save($array_item);
+		echo $result;
  	}
 
 
 
 public function edit()
 {
-	 	$data['tipoevento'] = $this->tipoevento_model->tipoevento($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar tipoevento";
+	 	$data['evaluado'] = $this->evaluado_model->evaluado($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar Evaluacion";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('tipoevento_edit',$data);
+ 	 	$this->load->view('evaluado_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +85,22 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idtipoevento');
+		$id=$this->input->post('idevaluado');
 	 	$array_item=array(
 		 	
-		 	'idtipoevento' => $this->input->post('idtipoevento'),
+		 	'idevaluado' => $this->input->post('idevaluado'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->tipoevento_model->update($id,$array_item);
-	 	redirect('tipoevento');
+	 	$this->evaluado_model->update($id,$array_item);
+	 	redirect('evaluado');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->tipoevento_model->delete($this->uri->segment(3));
+ 		$data=$this->evaluado_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('tipoevento/elprimero');
+	 	redirect('evaluado/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -79,26 +108,26 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Estadoproceso";
+  $data['title']="Evaluacions";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipoevento_list',$data);
+  $this->load->view('evaluado_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function tipoevento_data()
+function evaluado_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->tipoevento_model->lista_tipoeventos();
+	 	$data0 = $this->evaluado_model->lista_evaluadosA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idtipoevento,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipoevento="'.$r->idtipoevento.'">Ver</a>');
+			$data[]=array($r->idevaluado,$r->lapersona,$r->elevaluado,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idevaluado="'.$r->idevaluado.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -121,12 +150,15 @@ function tipoevento_data()
 
 public function elprimero()
 {
-	$data['tipoevento'] = $this->tipoevento_model->elprimero();
+	$data['evaluado'] = $this->evaluado_model->elprimero();
+  	$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
   if(!empty($data))
   {
-    $data['title']="Estadoproceso";
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['respuestas']= $this->respuesta_model->lista_respuesta()->result();
+    $data['title']="Evaluacion";
     $this->load->view('template/page_header');		
-    $this->load->view('tipoevento_record',$data);
+    $this->load->view('evaluado_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +169,16 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['tipoevento'] = $this->tipoevento_model->elultimo();
+	$data['evaluado'] = $this->evaluado_model->elultimo();
   if(!empty($data))
   {
-    $data['title']="Estadoproceso";
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
+  	$data['respuestas']= $this->respuesta_model->lista_respuesta()->result();
+    $data['title']="Evaluacion";
   
     $this->load->view('template/page_header');		
-    $this->load->view('tipoevento_record',$data);
+    $this->load->view('evaluado_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,21 +189,41 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
-	$data['tipoevento'] = $this->tipoevento_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Estadoproceso";
+ // $data['evaluado_list']=$this->evaluado_model->lista_evaluado()->result();
+	$data['evaluado'] = $this->evaluado_model->siguiente($this->uri->segment(3))->row_array();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
+  	$data['respuestas']= $this->respuesta_model->lista_respuesta()->result();
+  $data['title']="Evaluacion";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipoevento_record',$data);
+  $this->load->view('evaluado_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
-	$data['tipoevento'] = $this->tipoevento_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Estadoproceso";
+ // $data['evaluado_list']=$this->evaluado_model->lista_evaluado()->result();
+	$data['evaluado'] = $this->evaluado_model->anterior($this->uri->segment(3))->row_array();
+ 	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
+  	$data['respuestas']= $this->respuesta_model->lista_respuesta()->result();
+  $data['title']="Evaluacion";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipoevento_record',$data);
+  $this->load->view('evaluado_record',$data);
 	$this->load->view('template/page_footer');
 }
+
+public function get_evaluado() {
+    $this->load->database();
+    $this->load->helper('form');
+        $this->db->select('*');
+        $this->db->where(array('idpregunta' => $this->input->post('idpregunta'),'idpersona' =>$this->input->post('idpersona')));
+        $query = $this->db->get('evaluado');
+	$data=$query->result();
+	echo json_encode($data);
+
+}
+
+
+
 
 }
