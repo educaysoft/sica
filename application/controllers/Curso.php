@@ -9,6 +9,7 @@ class Curso extends CI_Controller{
       $this->load->model('cursodocumento_model');
       $this->load->model('documento_model');
       $this->load->model('tema_model');
+      $this->load->model('pregunta_model');
 }
 
 //=========================================================
