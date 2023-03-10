@@ -6,6 +6,15 @@ class Tema_model extends CI_model {
 		 return $tema;
 	}
 
+	function lista_tema1($idtema){
+
+		$this->db->where('idtema='.$idtema);
+		 $tema= $this->db->get('tema');
+		 return $tema;
+	}
+
+
+
 
 function lista_temas1($idunidadsilabo){
 	if($idunidadsilabo>0)
