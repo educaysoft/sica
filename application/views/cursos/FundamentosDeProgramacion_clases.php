@@ -160,7 +160,7 @@ body {
 <body>
 <?php
 $seccion="Instrucción a los Fundamentos de Programación";
-$idevaluacion=3;
+$idevaluacion=tema['idevaluacion'];
 $idpregunta=array(5,6,7);
 $idrespueta=array(array(7,8,9),array(10,11,12));
 ?>
@@ -179,10 +179,10 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 <div class="dbgOuter" style="border: 2px solid blue; width: 80%;">
 
 	<?php
-		foreach ($unidadsilabo as $row){
+		foreach($unidadsilabo as $row){
 	?>	
 			<div class="form-check form-check-inline">
-		<!---		<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onClick="show_unidad('<?php echo $row->nombre; ?>','<?php echo $row->enlace; ?>','<?php echo $row->idevaluacion; ?>')"/>   ---> 
+				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onClick="show_unidad('<?php echo $row->nombre; ?>','<?php echo $row->enlace; ?>','<?php echo $row->idevaluacion; ?>')"/>   
 				<label class="form-check-label" for="inlineCheckbox1">Unidad-<?php echo $row->unidad;?></label>
 			</div>
 
@@ -225,9 +225,21 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 
 	</div>
 
-
 	<div id="preguntas" style="padding:10px; width:100%; margin:auto;">
-		<div class="form-check form-check-inline">
+
+<?php 
+$i=1;
+foreach($preguntas as $row)
+{
+	echo '<div class="form-check form-check-inline">';
+	echo '<input class="form-check-input" type="checkbox" id="inlineCheckbox'.$i.'" value="option'.$i.'" onclick="get_pregunta('.$row->idpregunta.')">'; 
+	echo '<p class="form-check-label" for="inlineCheckbox'.$i.'">'.$i.'</label>';
+	echo '</div>';
+$i=$i+1;
+
+}
+?>
+<!------
 <?php echo '<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onclick="get_pregunta('.$idpregunta[0].')">'; ?>
 		  <p class="form-check-label" for="inlineCheckbox1">1</label>
 		</div>
@@ -239,7 +251,7 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 <?php echo '<input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"   onclick="get_pregunta('.$idpregunta[2].')">'; ?>
 		  <label class="form-check-label" for="inlineCheckbox3">3 </label>
 		</div>
-
+--->
 	</div>
 
 	<div id="pregunta" style="padding:10px; width:80%; margin:auto;">
