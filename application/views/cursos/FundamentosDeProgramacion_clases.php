@@ -160,7 +160,7 @@ body {
 <body>
 <?php
 $seccion="Instrucción a los Fundamentos de Programación";
-$idevaluacion=tema['idevaluacion'];
+$idevaluacion=$tema['idevaluacion'];
 $idpregunta=array(5,6,7);
 $idrespueta=array(array(7,8,9),array(10,11,12));
 ?>
