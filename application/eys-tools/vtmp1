@@ -1,91 +1,101 @@
 <div id="eys-nav-i">
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($evaluado))
+if(isset($emisor))
 {
 ?>
-        <li> <?php echo anchor('evaluado/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('evaluado/anterior/'.$evaluado['idevaluado'], 'anterior'); ?></li>
-        <li> <?php echo anchor('evaluado/siguiente/'.$evaluado['idevaluado'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('evaluado/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('evaluado/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('evaluado/edit/'.$evaluado['idevaluado'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('evaluado/delete/'.$evaluado['idevaluado'],'Delete'); ?></li>
-        <li> <?php echo anchor('evaluado/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('emisor/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('emisor/anterior/'.$emisor['idemisor'], 'anterior'); ?></li>
+        <li> <?php echo anchor('emisor/siguiente/'.$emisor['idemisor'], 'siguiente'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('emisor/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('emisor/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('emisor/edit/'.$emisor['idemisor'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('emisor/delete/'.$emisor['idemisor'],'Delete'); ?></li>
+        <li> <?php echo anchor('emisor/listar/','Listar'); ?></li>
+
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('evaluado/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('emisor/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
+ 
+
 
     </ul>
 </div>
 <br>
 <br>
 
-
-<?php echo form_open('evaluado/save_edit') ?>
-<?php echo form_hidden('idevaluado',$evaluado['idevaluado']) ?>
+<?php echo form_open('emisor/save_edit') ?>
+<?php echo form_hidden('iddocumento',$emisor['iddocumento']) ?>
 <table>
-  <tr>
-     <td>Id Evaluado:</td>
-     <td><?php echo form_input('idevaluado',$evaluado['idevaluado'],array("disabled"=>"disabled",'placeholder'=>'Idevaluados')) ?></td>
-  </tr>
- 
- 
-<tr>
-     <td>Persona:</td>
-     <td><?php 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id emisor:</label>
+	<div class="col-md-10">
+	<?php
+      echo form_input('idemisor',$emisor['idemisor'],array("disabled"=>"disabled",'placeholder'=>'Idemisors'));
+	?>
+	</div> 
+</div> 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id documento:</label>
+	<div class="col-md-10">
+	<?php
+      echo form_input('iddocumento',$emisor['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos'));
+	?>
+	</div> 
+</div> 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('documento/actual/'.$emisor['iddocumento'], 'Documento:'); ?></label>
+	<div class="col-md-10">
+	<?php
+$options= array("NADA");
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->asunto;
+}
+echo form_input('iddocumento',$options[$emisor['iddocumento']],array("disabled"=>"disabled"));
+	?>
+	</div> 
+</div> 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id persona:</label>
+	<div class="col-md-10">
+	<?php
+     	 echo form_input('idpersona',$emisor['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Idemisores'));
+	?>
+	</div> 
+</div> 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Persona:</label>
+	<div class="col-md-10">
+	<?php
 $options= array("NADA");
 foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
+echo form_input('idpersona',$options[$emisor['idpersona']],array("disabled"=>"disabled"));
+	?>
+	</div> 
+</div> 
 
-echo form_input('idpersona',$options[$evaluado['idpersona']],array("disabled"=>"disabled")) ?></td>
-  </tr>
- 
-
-<tr>
-     <td>Pregunta:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($preguntas as $row){
-	$options[$row->idpregunta]= $row->pregunta;
-}
-
-echo form_input('idpregunta',$options[$evaluado['idpregunta']],array("disabled"=>"disabled")) ?></td>
-  </tr>
-
-<tr>
-     <td>Respuesta:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($respuestas as $row){
-	$options[$row->idrespuesta]= $row->respuesta;
-}
-
-echo form_input('idrespuesta',$options[$evaluado['idrespuesta']],array("disabled"=>"disabled")) ?></td>
-  </tr>
-
-
-  <tr>
-     <td>Acierto:</td>
-     <td><?php echo form_input('acierto',$evaluado['acierto'],array("disabled"=>"disabled",'placeholder'=>'acierto')) ?></td>
-  </tr>
-
-
-
-
-
-
-
-
-</table>
 <?php echo form_close(); ?>
 
 

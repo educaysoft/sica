@@ -1,10 +1,10 @@
 <?php
 
-class Emisor extends CI_Controller{
+class Evaluacionpersona extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('emisor_model');
+      $this->load->model('evaluacionpersona_model');
       $this->load->model('persona_model');
       $this->load->model('documento_model');
 }
@@ -12,12 +12,12 @@ class Emisor extends CI_Controller{
 	public function index(){
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
- 		// $data['emisor']=$this->emisor_model->emisor(1)->row_array();
-		$data['emisor'] = $this->emisor_model->elprimero();
+ 		// $data['evaluacionpersona']=$this->evaluacionpersona_model->evaluacionpersona(1)->row_array();
+		$data['evaluacionpersona'] = $this->evaluacionpersona_model->elprimero();
  		// print_r($data['usuario_list']);
-  		$data['title']="Lista de Emisores";
+  		$data['title']="Lista de Evaluacionpersonaes";
 		$this->load->view('template/page_header');		
-  		$this->load->view('emisor_record',$data);
+  		$this->load->view('evaluacionpersona_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
@@ -26,9 +26,9 @@ class Emisor extends CI_Controller{
 	{
 		$data['personas']= $this->persona_model->lista_personasA()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
-		$data['title']="Nuevo Emisor";
+		$data['title']="Nuevo Evaluacionpersona";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('emisor_form',$data);
+	 	$this->load->view('evaluacionpersona_form',$data);
 	 	$this->load->view('template/page_footer');
 	}
 
@@ -39,8 +39,8 @@ class Emisor extends CI_Controller{
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
-	 	$this->emisor_model->save($array_item);
-	 	redirect('emisor');
+	 	$this->evaluacionpersona_model->save($array_item);
+	 	redirect('evaluacionpersona');
  	}
 
 
@@ -48,12 +48,12 @@ class Emisor extends CI_Controller{
 public function edit()
 {
 
-	 	$data['emisor'] = $this->emisor_model->emisor($this->uri->segment(3))->row_array();
+	 	$data['evaluacionpersona'] = $this->evaluacionpersona_model->evaluacionpersona($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personasA()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Persona";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('emisor_edit',$data);
+ 	 	$this->load->view('evaluacionpersona_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -61,7 +61,7 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idemisor');
+		$id=$this->input->post('idevaluacionpersona');
 	 	$array_item=array(
 
 		 	'idpersona' => $this->input->post('idpersona'),
@@ -74,9 +74,9 @@ public function edit()
 
  	public function delete()
  	{
- 		$data=$this->emisor_model->delete($this->uri->segment(3));
+ 		$data=$this->evaluacionpersona_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('emisor/elprimero');
+	 	redirect('evaluacionpersona/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -88,13 +88,13 @@ public function edit()
 public function elprimero()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->elprimero();
+	$data['evaluacionpersona'] = $this->evaluacionpersona_model->elprimero();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Emisor del documento";
+    $data['title']="Evaluacionpersona del documento";
     $this->load->view('template/page_header');		
-    $this->load->view('emisor_record',$data);
+    $this->load->view('evaluacionpersona_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -106,14 +106,14 @@ public function elprimero()
 public function elultimo()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->elultimo();
+	$data['evaluacionpersona'] = $this->evaluacionpersona_model->elultimo();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Emisor del documento";
+    $data['title']="Evaluacionpersona del documento";
   
     $this->load->view('template/page_header');		
-    $this->load->view('emisor_record',$data);
+    $this->load->view('evaluacionpersona_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -124,26 +124,26 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['emisor_list']=$this->emisor_model->lista_emisor()->result();
+ // $data['evaluacionpersona_list']=$this->evaluacionpersona_model->lista_evaluacionpersona()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->siguiente($this->uri->segment(3))->row_array();
+	$data['evaluacionpersona'] = $this->evaluacionpersona_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Emisor del documento";
+    $data['title']="Evaluacionpersona del documento";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
-  $this->load->view('emisor_record',$data);
+  $this->load->view('evaluacionpersona_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['emisor_list']=$this->emisor_model->lista_emisor()->result();
+ // $data['evaluacionpersona_list']=$this->evaluacionpersona_model->lista_evaluacionpersona()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->anterior($this->uri->segment(3))->row_array();
+	$data['evaluacionpersona'] = $this->evaluacionpersona_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
  // $data['title']="Correo";
-    $data['title']="Emisor del documento";
+    $data['title']="Evaluacionpersona del documento";
 	$this->load->view('template/page_header');		
-  $this->load->view('emisor_record',$data);
+  $this->load->view('evaluacionpersona_record',$data);
 	$this->load->view('template/page_footer');
 }
 

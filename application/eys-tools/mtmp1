@@ -1,53 +1,39 @@
 <?php
-class Evaluacion_model extends CI_model {
+class Evaluacionpersona_model extends CI_model {
 
-	function lista_evaluados(){
-		 $evaluado= $this->db->get('evaluado');
-		 return $evaluado;
+	function listar_emisor(){
+		 $emisor= $this->db->get('emisor');
+		 return $emisor;
+	}
+
+	function listar_emisor1(){
+		 $emisor= $this->db->get('emisor1');
+		 return $emisor;
 	}
 
 
-	function lista_evaluadosA(){
-		 $evaluado= $this->db->get('evaluado1');
-		 return $evaluado;
-	}
 
-
-
- 	function evaluado( $id){
- 		$evaluado = $this->db->query('select * from evaluado where idevaluado="'. $id.'"');
- 		return $evaluado;
+ 	function emisor( $id){
+ 		$emisor = $this->db->query('select * from emisor where idemisor="'. $id.'"');
+ 		return $emisor;
  	}
-
-
- 	function evaluadospersona( $id){
- 		$evaluado = $this->db->query('select * from evaluado where idpersona="'. $id.'"');
- 		return $evaluado;
- 	}
-
-
 
  	function save($array)
  	{
-		$this->db->insert("evaluado", $array);
-		if($this->db->affected_rows>0)
-			return true;
-		else
-			return false;
+		$this->db->insert("emisor", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idevaluado',$id);
- 		$this->db->update('evaluado',$array_item);
+ 		$this->db->where('idusuario',$id);
+ 		$this->db->update('usuario',$array_item);
 	}
  
 
-
- 	public function delete($id)
+  public function delete($id)
 	{
- 		$this->db->where('idevaluado',$id);
-		$this->db->delete('evaluado');
+ 		$this->db->where('idemisor',$id);
+		$this->db->delete('emisor');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -58,7 +44,7 @@ class Evaluacion_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idevaluado")->get('evaluado');
+		$query=$this->db->order_by("idemisor")->get('emisor');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -71,7 +57,7 @@ class Evaluacion_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idevaluado")->get('evaluado');
+		$query=$this->db->order_by("idemisor")->get('emisor');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -83,42 +69,38 @@ class Evaluacion_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$evaluado = $this->db->select("idevaluado")->order_by("idevaluado")->get('evaluado')->result_array();
-		$arr=array("idevaluado"=>$id);
-		$clave=array_search($arr,$evaluado);
-	   if(array_key_exists($clave+1,$evaluado))
+ 		$emisor = $this->db->select("idemisor")->order_by("idemisor")->get('emisor')->result_array();
+		$arr=array("idemisor"=>$id);
+		$clave=array_search($arr,$emisor);
+	   if(array_key_exists($clave+1,$emisor))
 		 {
 
- 		$evaluado = $this->db->query('select * from evaluado where idevaluado="'. $evaluado[$clave+1]["idevaluado"].'"');
+ 		$emisor = $this->db->query('select * from emisor where idemisor="'. $emisor[$clave+1]["idemisor"].'"');
 		 }else{
 
- 		$evaluado = $this->db->query('select * from evaluado where idevaluado="'. $id.'"');
+ 		$emisor = $this->db->query('select * from emisor where idemisor="'. $id.'"');
 		 }
 		 	
- 		return $evaluado;
+ 		return $emisor;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$evaluado = $this->db->select("idevaluado")->order_by("idevaluado")->get('evaluado')->result_array();
-		$arr=array("idevaluado"=>$id);
-		$clave=array_search($arr,$evaluado);
-	   if(array_key_exists($clave-1,$evaluado))
+ 		$emisor = $this->db->select("idemisor")->order_by("idemisor")->get('emisor')->result_array();
+		$arr=array("idemisor"=>$id);
+		$clave=array_search($arr,$emisor);
+	   if(array_key_exists($clave-1,$emisor))
 		 {
 
- 		$evaluado = $this->db->query('select * from evaluado where idevaluado="'. $evaluado[$clave-1]["idevaluado"].'"');
+ 		$emisor = $this->db->query('select * from emisor where idemisor="'. $emisor[$clave-1]["idemisor"].'"');
 		 }else{
 
- 		$evaluado = $this->db->query('select * from evaluado where idevaluado="'. $id.'"');
+ 		$emisor = $this->db->query('select * from emisor where idemisor="'. $id.'"');
 		 }
 		 	
- 		return $evaluado;
+ 		return $emisor;
  	}
-
-
-
-
 
 
 }
