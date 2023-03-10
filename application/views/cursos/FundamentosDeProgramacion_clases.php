@@ -183,7 +183,7 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 	?>	
 			<div class="form-check form-check-inline">
 				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onClick="show_unidad('<?php echo $row->nombre; ?>','<?php echo $row->enlace; ?>','<?php echo $row->idevaluacion; ?>')"/>   
-				<label class="form-check-label" for="inlineCheckbox1">Unidad-<?php echo $row->unidad;?></label>
+				<label class="form-check-label" for="inlineCheckbox1">Unidad-<?php echo $row->idvideotutorial;?></label>
 			</div>
 
 	<?php } ?>
