@@ -46,6 +46,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 		foreach ($temas as $row){
 			$options[$row->idunidadsilabo]= $row->elsilabo;
 		}
+		print_r($options);
 	?>
 
 	<div class="col-md-10">
