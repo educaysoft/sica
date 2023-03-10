@@ -10,6 +10,7 @@ class Curso extends CI_Controller{
       $this->load->model('documento_model');
       $this->load->model('tema_model');
       $this->load->model('pregunta_model');
+      $this->load->model('respuesta_model');
 }
 
 //=========================================================
@@ -167,7 +168,6 @@ public function evaluar()
 	$data['silabo'] = $this->silabo_model->silabo($_GET['idsilabo'])->row_array();
 	$data['unidadsilabo'] = $this->unidadsilabo_model->lista_unidades($_GET['idsilabo'])->result();
 	$data['tema'] = $this->tema_model->tema1($_GET['idtema'])->row_array();
-	print_r($data['tema']);
 	$data['preguntas']=$this->pregunta_model->preguntasxevaluacion($data['tema']['idevaluacion'])->result();
 	$data['respuestas']=$this->respuesta_model->respuestasxevaluacion($data['tema']['idevaluacion'])->result();
   	$data['title']="Curso";
