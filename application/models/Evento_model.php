@@ -184,13 +184,13 @@ class Evento_model extends CI_model {
  	}
 
 	// Para actualiza un registro
- 	function update($id,$array_item)
+ 	function update($idevento,$array_item)
  	{
    		date_default_timezone_set('America/Guayaquil');
     		$fecha = date("Y-m-d");
     		$hora= date("H:i:s");
 
- 		$this->db->where('idevento',$id);
+ 		$this->db->where('idevento',$idevento);
 		$this->db->update('evento',$array_item);
 
 		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fecha,"hora"=>$hora,"tabla"=>"evento","accion"=>"se modifico el  evento con id=".$idevento,"url"=>$_SERVER['REQUEST_URI']));
