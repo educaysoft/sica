@@ -51,16 +51,16 @@ public function  save()
 
 
 
-public function edit()
-{
-	 	$data['evaluacion'] = $this->evaluacion_model->evaluacion($this->uri->segment(3))->row_array();
-  		$data['eventos']= $this->evento_model->lista_eventos()->result();
- 	 	$data['title'] = "Actualizar Evaluacion";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('evaluacion_edit',$data);
-	 	$this->load->view('template/page_footer');
- 
-}
+	public function edit()
+	{
+			$data['evaluacion'] = $this->evaluacion_model->evaluacion($this->uri->segment(3))->row_array();
+			$data['eventos']= $this->evento_model->lista_eventos()->result();
+			$data['title'] = "Actualizar Evaluacion";
+			$this->load->view('template/page_header');		
+			$this->load->view('evaluacion_edit',$data);
+			$this->load->view('template/page_footer');
+	 
+	}
 
 
 	public function  save_edit()
@@ -78,7 +78,6 @@ public function edit()
  	}
 
 
-
 public function listar()
 {
 	
@@ -88,6 +87,7 @@ public function listar()
   $this->load->view('evaluacion_list',$data);
 	$this->load->view('template/page_footer');
 }
+
 
 function evaluacion_data()
 {
@@ -138,6 +138,31 @@ function evaluacion_pregunta()
 		echo json_encode($output);
 		exit();
 }
+
+
+
+
+function evaluacion_respuesta()
+{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+		$idevaluacion=$this->input->get('idevaluacion');
+	 	$data0 = $this->respuesta_model->respuestasxevaluacion($idevaluacion);
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->idevaluacion,$r->idpregunta,$r->idrespuesta,$r->respuesta,$r->acierto,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idrespuesta="'.$r->idrespuesta.'">Ver</a>');
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+		echo json_encode($output);
+		exit();
+}
+
 
 
 

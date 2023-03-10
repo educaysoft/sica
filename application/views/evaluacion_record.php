@@ -114,7 +114,7 @@ echo form_input('idevento',$options[$evaluacion['idevento']],array("disabled"=>"
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <b>Respuestas: </b>
+            <b>Preguntas: </b>
         </div>
         <div class="pull-right">
             <a class="btn btn-success" href="<?php echo base_url('pregunta/add/'.$evaluacion['idevaluacion']) ?>">Nueva peregunta</a><a class="btn btn-danger" href="<?php echo base_url('pregunta/reportepdf/'.$evaluacion['idevaluacion']) ?>">Reporte</a>
@@ -122,7 +122,7 @@ echo form_input('idevento',$options[$evaluacion['idevento']],array("disabled"=>"
     </div>
 </div>
 
-	<table class="table table-striped table-bordered table-hover" id="mydatac">
+	<table class="table table-striped table-bordered table-hover" id="mydatap">
 	 <thead>
 	 <tr>
 	 <th>idevaluacion</th>
@@ -141,7 +141,56 @@ echo form_input('idevento',$options[$evaluacion['idevento']],array("disabled"=>"
 </div>
 
 
-   
+
+
+
+
+<div class="form-group row">
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12" style="border:solid;">
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Respuestas: </b>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-success" href="<?php echo base_url('respuesta/add/'.$evaluacion['idevaluacion']) ?>">Nueva respuesta</a><a class="btn btn-danger" href="<?php echo base_url('pregunta/reportepdf/'.$evaluacion['idevaluacion']) ?>">Reporte</a>
+        </div>
+    </div>
+</div>
+
+	<table class="table table-striped table-bordered table-hover" id="mydatar">
+	 <thead>
+	 <tr>
+	 <th>idpregunta</th>
+	 <th>idrespuesta</th>
+	 <th>respuesta</th>
+	 <th>acieto</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
+
+
+
+
+
+
+
 
 <?php echo form_close(); ?>
 
@@ -149,7 +198,12 @@ echo form_input('idevento',$options[$evaluacion['idevento']],array("disabled"=>"
 
 $(document).ready(function(){
 	var idevaluacion=document.getElementById("idevaluacion").innerHTML;
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evaluacion/evaluacion_pregunta')?>', type: 'GET',data:{idevaluacion:idevaluacion}},});
+	var mytablaf= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('evaluacion/evaluacion_pregunta')?>', type: 'GET',data:{idevaluacion:idevaluacion}},});
+
+	var mytablaf= $('#mydatar').DataTable({"ajax": {url: '<?php echo site_url('evaluacion/evaluacion_respuesta')?>', type: 'GET',data:{idevaluacion:idevaluacion}},});
+
+
+
 });
 
 $('#show_data').on('click','.item_ver',function(){
