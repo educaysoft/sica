@@ -44,6 +44,7 @@ public function  save()
 	 	'nombre' => $this->input->post('nombre'),
 	 	'detalle' => $this->input->post('detalle'),
 		'idevento' => $this->input->post('idevento'),
+		'fecha' => $this->input->post('fecha'),
 	 	);
 	 	$this->reactivo_model->save($array_item);
 	 	redirect('reactivo');
@@ -72,6 +73,7 @@ public function  save()
 		 	'nombre' => $this->input->post('nombre'),
 		 	'detalle' => $this->input->post('detalle'),
 			'idevento' => $this->input->post('idevento'),
+			'fecha' => $this->input->post('fecha'),
 	 	);
 	 	$this->reactivo_model->update($id,$array_item);
 	 	redirect('reactivo');
