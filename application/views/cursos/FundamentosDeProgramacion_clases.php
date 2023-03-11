@@ -527,6 +527,7 @@ function get_pregunta(idpregunta) {
 function evaluado(acierto,idpregunta,idpersona,idrespuesta)
 {
 //	alert(acierto+' '+idpregunta+' '+idpersona);
+	fecha=new Date();
  $.ajax({
         url: "<?php echo site_url('evaluado/save2') ?>",
         data: {acierto:acierto,idpregunta:idpregunta,idpersona:idpersona,idrespuesta:idrespuesta,fecha:fecha},
