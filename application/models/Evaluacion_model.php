@@ -29,8 +29,8 @@ class Evaluacion_model extends CI_model {
 
  	function save($arraevalpers,$arraeval)
  	{
-		$this->db->where(array('idpersona'=>$arraevalpers('idpersona'));
-		$this->db->where(array('fecha'=>$arraevalpers('fecha'));
+		$this->db->where(array('idpersona'=>$arraevalpers('idpersona')));
+		$this->db->where(array('fecha'=>$arraevalpers('fecha')));
 		$query=$this->db->get('evaluacionpersona');
 		if($query->num_rows()==0){
 			$this->db->insert("evaluacionpersona", $arraevalpers);
