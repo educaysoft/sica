@@ -106,17 +106,7 @@ echo form_input('idevento',$options[$reactivo['idevento']],array("disabled"=>"di
 </div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha:</label>
-	<div class="col-md-10">
-		<?php
 
-  $eys_arrctl=array("name"=>'fecha','value'=>$reactivo['fecha'],"disabled"=>"disabled",'placeholder'=>'Inombre','style'=>'width:500px;');
- echo form_input($eys_arrctl); 
-
-		?>
-	</div> 
-</div>
 
 
 
