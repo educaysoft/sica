@@ -354,18 +354,18 @@ function get_certificado(idpersona, idevento)
 		xx.setAttribute("src",lvideo);
 		document.getElementById('mvideo').style.display='block';
 		document.getElementById('learn1').style.display='block';
-		document.getElementById('evaluar').innerHTML='<button id="evaluar" onclick="get_evaluacion('+idreactivo+');">Evaluar-'+idreactivo+'</button>' 
-               get_evaluacion(idreactivo);
+		document.getElementById('evaluar').innerHTML='<button id="evaluar" onclick="get_reactivo('+idreactivo+');">Evaluar-'+idreactivo+'</button>' 
+               get_reactivo(idreactivo);
 	}
 
 
 
-function get_evaluacion(idreactivo) {
+function get_reactivo(idreactivo) {
 	 btn=document.getElementById('learn2');
 	 btn.style.display="block";
 	//
     $.ajax({
-        url: "<?php echo site_url('evaluacion/get_evaluacion') ?>",
+        url: "<?php echo site_url('evaluacion/get_reactivo') ?>",
         data: {idreactivo: idractivo},
         method: 'POST',
         async : false,

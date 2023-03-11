@@ -26,6 +26,12 @@ foreach ($eventos as $row){
 </tr>
 
 
+<tr>
+      <td>Fecha:</td>
+      <td><?php echo form_input('fecha',$reactivo['fecha'],array('type'=>'date'.'placeholder'=>'fecha')) ?></td>
+  </tr>
+
+
 
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('reactivo','Atras') ?></td>

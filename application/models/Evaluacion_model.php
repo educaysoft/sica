@@ -27,13 +27,39 @@ class Evaluacion_model extends CI_model {
 
 
 
- 	function save($array)
+ 	function save($arraevalpers,$arraeval)
  	{
-		$this->db->insert("evaluacion", $array);
-		if($this->db->affected_rows>0)
-			return true;
-		else
-			return false;
+		$this->db->where(array('idpersona'=>$arraevalpers('idpersona'));
+		$this->db->where(array('fecha'=>$arraevalpers('fecha'));
+		$query=$this->db->get('evaluacionpersona');
+		if($query->num_rows()==0){
+			$this->db->insert("evaluacionpersona", $arraevalpers);
+			if($this->db->affected_rows>0){
+				$id=$this->db->insert_id();
+			
+			}else{
+				return false;
+			}
+		}else{
+			$id=$query->result()[0]->idevaluacionpersona;
+		}
+
+	
+				$arraeval['idevaluacionpersona']=$id;
+				$this->db->where(array('idevaluacionpersona'=>$idevaluacionpersona));
+				$this->db->where(array('idreactivo'=>$arraevalpers('idreactivo'));
+				$this->db->where(array('idpregunta'=>$arraevalpers('idpregunta'));
+				if($query->num_rows()==0){
+					$this->db->insert("evaluacion", $arraeval);
+					if($this->db->affected_rows>0){
+						return true;
+					}else{
+						return false;
+					}
+				}else{
+					return false;
+				}
+
  	}
 
  	function update($id,$array_item)
