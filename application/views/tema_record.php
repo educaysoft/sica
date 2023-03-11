@@ -71,7 +71,7 @@ if(isset($tema))
      	<?php 
 	$options=array();
   	foreach ($unidadsilabos as $row){
-		$options[$row->idunidadsilabo]=$row->nombre;
+		$options[$row->idunidadsilabo]=$row->nombre." - ".$row->launidad;
 	}
 	?>
 		<?php
