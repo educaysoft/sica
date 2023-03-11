@@ -6,11 +6,11 @@
  
  <tr>
       <td>Nombre:</td>
-      <td><?php echo form_input('nombre',$reactivo['nombre'],array('placeholder'=>'Nombre Institucion')) ?></td>
+      <td><?php echo form_input('nombre',$reactivo['nombre'],array('placeholder'=>'Nombre Institucion','style'=>'width:500px;')) ?></td>
   </tr>
  <tr>
       <td>Detalle:</td>
-      <td><?php echo form_input('detalle',$reactivo['detalle'],array('placeholder'=>'Detalle de la Reactivo')) ?></td>
+      <td><?php echo form_input('detalle',$reactivo['detalle'],array('placeholder'=>'Detalle de la Reactivo','style'=>'width:500px;')) ?></td>
   </tr>
  
 
@@ -28,7 +28,7 @@ foreach ($eventos as $row){
 
 <tr>
       <td>Fecha:</td>
-      <td><?php echo form_input('fecha',$reactivo['fecha'],array('type'=>'date','placeholder'=>'fecha')) ?></td>
+      <td><?php echo form_input(array('name'=>'fecha',"id"=>'fecha',"value"=>$reactivo['fecha'],'type'=>'date','placeholder'=>'fecha')) ?></td>
   </tr>
 
 
