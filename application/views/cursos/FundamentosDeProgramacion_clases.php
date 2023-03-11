@@ -365,7 +365,7 @@ function get_reactivo(idreactivo,idpersona) {
 	 btn.style.display="block";
 	//
     $.ajax({
-        url: "<?php echo site_url('reactivon/get_reactivo') ?>",
+        url: "<?php echo site_url('reactivo/get_reactivo') ?>",
         data: {idreactivo:idreactivo,idpersona:idpersona},
         method: 'GET',
         async : false,
@@ -524,7 +524,7 @@ function get_pregunta(idpregunta) {
 
 }
 
-function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
+function evaluado(idreactivoeacierto,idpregunta,idpersona,idrespuesta)
 {
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 	fecha=new Date();
