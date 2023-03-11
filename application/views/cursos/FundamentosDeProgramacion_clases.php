@@ -479,7 +479,7 @@ function get_pregunta(idpregunta) {
     $.ajax({
         url: "<?php echo site_url('respuesta/get_respuesta') ?>",
         data: {idpregunta:idpregunta},
-        method: 'GE',
+        method: 'GET',
         async : false,
         dataType : 'json',
         success: function(data){
