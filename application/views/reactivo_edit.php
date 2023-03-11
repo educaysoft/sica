@@ -28,7 +28,7 @@ foreach ($eventos as $row){
 
 <tr>
       <td>Fecha:</td>
-      <td><?php echo form_input('fecha',$reactivo['fecha'],array('type'=>'date'.'placeholder'=>'fecha')) ?></td>
+      <td><?php echo form_input('fecha',$reactivo['fecha'],array('type'=>'date','placeholder'=>'fecha')) ?></td>
   </tr>
 
 
