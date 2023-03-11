@@ -365,8 +365,8 @@ function get_reactivo(idreactivo,idpersona) {
 	 btn.style.display="block";
 	//
     $.ajax({
-        url: "<?php echo site_url('evaluacion/get_evaluacion') ?>",
-        data: {idreactivo: idreactivo,idpersona:idpersona},
+        url: "<?php echo site_url('reactivon/get_reactivo') ?>",
+        data: {idreactivo:idreactivo,idpersona:idpersona},
         method: 'GET',
         async : false,
         dataType : 'json',
@@ -491,7 +491,7 @@ function get_pregunta(idpregunta) {
 		if(data[i].idrespuesta==idrespuesta && acierto==0)
 		{
 		html += '<div>';
-		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="h'+data[i].respuesta+'" onclick="evaluado('+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')">';
+		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="h'+data[i].respuesta+'" onclick="evaluado('+data[i].reactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')">';
 		html += '  <label for="huey" style="color:red">'+data[i].respuesta+'</label>';
 		html += '</div>';
 		}
@@ -530,7 +530,7 @@ function evaluado(acierto,idpregunta,idpersona,idrespuesta)
 	fecha=new Date();
  $.ajax({
         url: "<?php echo site_url('evaluacion/save2') ?>",
-        data: {acierto:acierto,idpregunta:idpregunta,idpersona:idpersona,idrespuesta:idrespuesta,fecha:fecha},
+        data: {acierto:acierto,idreactivo:idreactivo,idpregunta:idpregunta,idpersona:idpersona,idrespuesta:idrespuesta,fecha:fecha},
         method: 'POST',
         async : false,
         success: function(data){
