@@ -182,7 +182,7 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 		foreach($videotutorial as $row){
 	?>	
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onClick="show_unidad('<?php echo $row->nombre; ?>','<?php echo $row->enlace; ?>','<?php echo $row->idreactivo; ?>')"/>   
+				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onClick="show_unidad('<?php echo $row->nombre; ?>','<?php echo $row->enlace; ?>','<?php echo $row->idreactivo; ?>','<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>')"/>   
 				<label class="form-check-label" for="inlineCheckbox1">Unidad-<?php echo $row->idvideotutorial;?></label>
 			</div>
 
@@ -346,7 +346,7 @@ function get_certificado(idpersona, idevento)
 
 
 
-	function show_unidad(tunidad,lvideo,idreactivo)
+	function show_unidad(tunidad,lvideo,idreactivo,idpersona)
 	{
 		document.getElementById('unidad').innerHTML=tunidad;
 		document.getElementById('unidad').style.display='block';
@@ -360,13 +360,13 @@ function get_certificado(idpersona, idevento)
 
 
 
-function get_reactivo(idreactivo) {
+function get_reactivo(idreactivo,idpersona) {
 	 btn=document.getElementById('learn2');
 	 btn.style.display="block";
 	//
     $.ajax({
         url: "<?php echo site_url('evaluacion/get_evaluacion') ?>",
-        data: {idreactivo: idreactivo},
+        data: {idreactivo: idreactivo,idpersona:idpersona},
         method: 'GET',
         async : false,
         dataType : 'json',
