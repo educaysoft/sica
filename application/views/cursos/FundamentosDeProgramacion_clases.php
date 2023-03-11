@@ -491,7 +491,7 @@ function get_pregunta(idpregunta) {
 		if(data[i].idrespuesta==idrespuesta && acierto==0)
 		{
 		html += '<div>';
-		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="h'+data[i].respuesta+'" onclick="evaluado('+data[i].reactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')">';
+		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="h'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')">';
 		html += '  <label for="huey" style="color:red">'+data[i].respuesta+'</label>';
 		html += '</div>';
 		}
@@ -524,7 +524,7 @@ function get_pregunta(idpregunta) {
 
 }
 
-function evaluado(acierto,idpregunta,idpersona,idrespuesta)
+function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
 {
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 	fecha=new Date();
