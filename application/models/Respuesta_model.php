@@ -16,7 +16,7 @@ class Respuesta_model extends CI_model {
  		return $respuesta;
  	}
 
-	function respuestasxevaluacion( $idreactivo){
+	function respuestasxreactivo( $idreactivo){
  		$respuesta = $this->db->query('select * from respuesta1 where idreactivo="'. $idreactivo.'"');
  		return $respuesta;
  	}
