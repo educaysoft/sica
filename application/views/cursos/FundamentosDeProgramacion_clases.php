@@ -449,7 +449,7 @@ function get_pregunta(idpregunta) {
 	var idrespuesta=0;
 	var acierto=0;
     $.ajax({
-        url: "<?php echo site_url('evaluado/get_evaluado') ?>",
+        url: "<?php echo site_url('evaluacion/get_evaluacion') ?>",
         data: {idpersona:idpersona,idpregunta:idpregunta},
         method: 'POST',
         async : false,
