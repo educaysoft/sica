@@ -365,9 +365,9 @@ function get_reactivo(idreactivo) {
 	 btn.style.display="block";
 	//
     $.ajax({
-        url: "<?php echo site_url('evaluacion/get_reactivo') ?>",
+        url: "<?php echo site_url('evaluacion/get_evaluacion') ?>",
         data: {idreactivo: idreactivo},
-        method: 'POST',
+        method: 'GET',
         async : false,
         dataType : 'json',
         success: function(data){
