@@ -248,9 +248,9 @@ public function anterior(){
 public function get_reactivo() {
     $this->load->database();
     $this->load->helper('form');
-    if($this->input->post('idreactivo')) {
+    if($this->input->get('idreactivo')) {
         $this->db->select('*');
-        $this->db->where(array('idreactivo' => $this->input->post('idreactivo')));
+        $this->db->where(array('idreactivo' => $this->input->get('idreactivo')));
         $query = $this->db->get('reactivo');
 	$data=$query->result();
 	echo json_encode($data);
