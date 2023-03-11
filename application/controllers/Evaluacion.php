@@ -64,18 +64,18 @@ public function add()
     		$fecha = date("Y-m-d");
     		$hora= date("H:i:s");
 
-	 	$arr1=array(
+	 	$arra=array(
 			'idpersona' => $this->input->post('idpersona'),
 			'fecha'=>$fecha
-		)
-	 	$arr2=array(
+		);
+	 	$arrb=array(
 			'idevaluacionpersona' => 0,
 			'idreactivo' => $this->input->post('idreactivo'),
 			'idpregunta' => $this->input->post('idpregunta'),
 			'idrespuesta' => $this->input->post('idrespuesta'),
-			'acierto' => $this->input->post('acierto'),
+			'acierto' => $this->input->post('acierto')
 	 	);
-	 	$result =$this->evaluacion_model->save($arr1,$arr2);
+	 	$result =$this->evaluacion_model->save($arra,$arrb);
 		echo $result;
  	}
 
