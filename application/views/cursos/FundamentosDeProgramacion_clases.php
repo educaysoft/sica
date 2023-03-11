@@ -524,7 +524,7 @@ function get_pregunta(idpregunta) {
 
 }
 
-function evaluado(idreactivoeacierto,idpregunta,idpersona,idrespuesta)
+function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
 {
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 	fecha=new Date();
