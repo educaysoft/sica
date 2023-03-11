@@ -169,7 +169,7 @@ public function evaluar()
 	$data['silabo'] = $this->silabo_model->silabo($_GET['idsilabo'])->row_array();
 	$data['unidadsilabo'] = $this->unidadsilabo_model->lista_unidades($_GET['idsilabo'])->result();
 	$data['tema'] = $this->tema_model->tema1($_GET['idtema'])->row_array();
-	$data['videotutorial'] = $this->videotutorial_model->videotutorial1($data['tema']['idreactivo'])->result();
+	$data['videotutorial'] = $this->videotutorial_model->videotutorial1($data['tema']['idvideotutorial'])->result();
 	$data['preguntas']=$this->pregunta_model->preguntasxreactivo($data['tema']['idreactivo'])->result();
 	$data['respuestas']=$this->respuesta_model->respuestasxreactivo($data['tema']['idreactivo'])->result();
   	$data['title']="Curso";

@@ -529,7 +529,7 @@ function evaluado(acierto,idpregunta,idpersona,idrespuesta)
 //	alert(acierto+' '+idpregunta+' '+idpersona);
  $.ajax({
         url: "<?php echo site_url('evaluado/save2') ?>",
-        data: {acierto:acierto,idpregunta:idpregunta,idpersona:idpersona,idrespuesta:idrespuesta},
+        data: {acierto:acierto,idpregunta:idpregunta,idpersona:idpersona,idrespuesta:idrespuesta,fecha:fecha},
         method: 'POST',
         async : false,
         success: function(data){
