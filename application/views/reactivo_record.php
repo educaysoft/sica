@@ -1,4 +1,32 @@
+<div id="eys-nav-i">
+<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idreactivo"><?php echo $reactivo['idreactivo']; ?></idem></div>
+    <ul>
+<?php
+if(isset($reactivo))
+{
+?>
+        <li> <?php echo anchor('reactivo/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('reactivo/siguiente/'.$reactivo['idreactivo'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('reactivo/anterior/'.$reactivo['idreactivo'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('reactivo/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('reactivo/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('reactivo/edit/'.$reactivo['idreactivo'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('reactivo/delete/'.$reactivo['idreactivo'],'Delete'); ?></li>
+        <li> <?php echo anchor('reactivo/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('pregunta/','Pregunas'); ?></li>
+        <li> <?php echo anchor('respuesta/','Respuestas'); ?></li>
+        <li> <?php echo anchor('reactivo/imprimir/'.$reactivo['idreactivo'],'Imprimir'); ?></li>
 
+<?php 
+}else{
+?>
+
+        <li> <?php echo anchor('reactivo/add', 'Nuevo'); ?></li>
+<?php
+}
+?>
+    </ul>
+</div>
 <br>
 <br>
 
