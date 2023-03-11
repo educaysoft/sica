@@ -366,7 +366,7 @@ function get_reactivo(idreactivo) {
 	//
     $.ajax({
         url: "<?php echo site_url('evaluacion/get_reactivo') ?>",
-        data: {idreactivo: idractivo},
+        data: {idreactivo: idreactivo},
         method: 'POST',
         async : false,
         dataType : 'json',
@@ -388,7 +388,7 @@ function get_reactivo(idreactivo) {
     $.ajax({
         url: "<?php echo site_url('pregunta/get_preguntas') ?>",
         data: {idreactivo: idreactivo},
-        method: 'POST',
+        method: 'GET',
         async : false,
         dataType : 'json',
         success: function(data){
@@ -479,7 +479,7 @@ function get_pregunta(idpregunta) {
     $.ajax({
         url: "<?php echo site_url('respuesta/get_respuesta') ?>",
         data: {idpregunta:idpregunta},
-        method: 'GET',
+        method: 'GE',
         async : false,
         dataType : 'json',
         success: function(data){
