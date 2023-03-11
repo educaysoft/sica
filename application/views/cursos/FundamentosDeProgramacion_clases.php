@@ -428,7 +428,7 @@ function get_pregunta(idpregunta) {
 	$.ajax({
         url: "<?php echo site_url('pregunta/get_pregunta') ?>",
         data: {idpregunta:idpregunta},
-        method: 'POST',
+        method: 'GET',
         async : false,
         dataType : 'json',
         success: function(data){
@@ -451,7 +451,7 @@ function get_pregunta(idpregunta) {
     $.ajax({
         url: "<?php echo site_url('evaluacion/get_evaluacion') ?>",
         data: {idpersona:idpersona,idpregunta:idpregunta},
-        method: 'POST',
+        method: 'GET',
         async : false,
         dataType : 'json',
         success: function(data){
@@ -479,7 +479,7 @@ function get_pregunta(idpregunta) {
     $.ajax({
         url: "<?php echo site_url('respuesta/get_respuesta') ?>",
         data: {idpregunta:idpregunta},
-        method: 'POST',
+        method: 'GET',
         async : false,
         dataType : 'json',
         success: function(data){

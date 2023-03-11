@@ -225,7 +225,7 @@ public function get_evaluacion() {
     $this->load->database();
     $this->load->helper('form');
         $this->db->select('*');
-        $this->db->where(array('idpregunta' => $this->input->post('idpregunta'),'idpersona' =>$this->input->post('idpersona')));
+        $this->db->where(array('idpregunta' => $this->input->get('idpregunta'),'idpersona' =>$this->input->get('idpersona')));
         $query = $this->db->get('evaluacion1');
 	$data=$query->result();
 	echo json_encode($data);

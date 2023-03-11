@@ -164,9 +164,9 @@ public function anterior(){
 public function get_respuesta() {
     $this->load->database();
     $this->load->helper('form');
-    if($this->input->post('idpregunta')) {
+    if($this->input->get('idpregunta')) {
         $this->db->select('*');
-        $this->db->where(array('idpregunta' => $this->input->post('idpregunta')));
+        $this->db->where(array('idpregunta' => $this->input->get('idpregunta')));
         $query = $this->db->get('respuesta');
 	$data=$query->result();
 	echo json_encode($data);
