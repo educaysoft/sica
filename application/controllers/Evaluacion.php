@@ -70,10 +70,10 @@ public function add()
 		);
 	 	$arrb=array(
 			'idevaluacionpersona' => 0,
-			'idreactivo' => $this->input->post('idreactivo'),
-			'idpregunta' => $this->input->post('idpregunta'),
-			'idrespuesta' => $this->input->post('idrespuesta'),
-			'acierto' => $this->input->post('acierto')
+			'idreactivo' => $this->input->get('idreactivo'),
+			'idpregunta' => $this->input->get('idpregunta'),
+			'idrespuesta' => $this->input->get('idrespuesta'),
+			'acierto' => $this->input->get('acierto')
 	 	);
 	 	$result =$this->evaluacion_model->save($arra,$arrb);
 		echo $result;

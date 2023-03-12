@@ -532,7 +532,7 @@ function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
  $.ajax({
         url: "<?php echo site_url('evaluacion/save2') ?>",
         data: {acierto:acierto,idreactivo:idreactivo,idpregunta:idpregunta,idpersona:idpersona,idrespuesta:idrespuesta,fecha:fecha},
-        method: 'POST',
+        method: 'GET',
         async : false,
         success: function(data){
 	alert("Evaluacion realizada");

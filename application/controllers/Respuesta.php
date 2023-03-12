@@ -167,7 +167,7 @@ public function get_respuesta() {
     if($this->input->get('idpregunta')) {
         $this->db->select('*');
         $this->db->where(array('idpregunta' => $this->input->get('idpregunta')));
-        $query = $this->db->get('respuesta');
+        $query = $this->db->get('respuesta1');
 	$data=$query->result();
 	header('Content-Type: application/json');
 	echo json_encode($data);
