@@ -89,10 +89,10 @@ echo form_input('idinstructor',$options[$videotutorial['idinstructor']],array("d
 	<div class="col-md-10">
 	<?php
 	$options= array("NADA");
-	foreach ($evaluaciones as $row){
-		$options[$row->idevaluacion]= $row->nombre;
+	foreach ($reactivos as $row){
+		$options[$row->idreactivo]= $row->nombre;
 	}
-	echo form_input('idevaluacion',$options[$videotutorial['idevaluacion']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+	echo form_input('idreactivo',$options[$videotutorial['idreactivo']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 
