@@ -65,7 +65,7 @@ public function add()
     		$hora= date("H:i:s");
 
 	 	$arra=array(
-			'idpersona' => $this->input->post('idpersona'),
+			'idpersona' => $this->input->get('idpersona'),
 			'fecha'=>$fecha
 		);
 	 	$arrb=array(
