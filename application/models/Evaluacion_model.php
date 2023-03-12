@@ -1,7 +1,7 @@
 <?php
 class Evaluacion_model extends CI_model {
 
-	function lista_evaluacions(){
+	function lista_evaluaciones(){
 		 $evaluacion= $this->db->get('evaluacion');
 		 return $evaluacion;
 	}
