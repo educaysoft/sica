@@ -232,11 +232,15 @@ alter table reactivo drop primary key;
 alter table reactivo change idevaluacion idreactivo int(11) not null auto_increment primary key; 
 
 rename table evaluado to evaluacion; 
-alter table evaluacion change idevaluacion idreactivo int(11);*/
+alter table evaluacion change idevaluacion idreactivo int(11);
 alter table evaluacion modify column idevaluado int(11);
 alter table evaluacion drop primary key;
 alter table evaluacion change idevaluado idevaluacion int(11) not null auto_increment primary key; 
 
 
 alter table evaluacion change idpersona idevaluacionpersona int(11);
+*/
 
+
+alter table evaluacionpersona add column idreactivo int(11);
+alter table evaluacion drop column idreactivo;

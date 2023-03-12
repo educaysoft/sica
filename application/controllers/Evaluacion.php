@@ -66,11 +66,11 @@ public function add()
 
 	 	$arra=array(
 			'idpersona' => $this->input->get('idpersona'),
-			'fecha'=>$fecha
+			'fecha'=>$fecha,
+			'idreactivo' => $this->input->get('idreactivo')
 		);
 	 	$arrb=array(
 			'idevaluacionpersona' => 0,
-			'idreactivo' => $this->input->get('idreactivo'),
 			'idpregunta' => $this->input->get('idpregunta'),
 			'idrespuesta' => $this->input->get('idrespuesta'),
 			'acierto' => $this->input->get('acierto')
