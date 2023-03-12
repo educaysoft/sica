@@ -5,13 +5,13 @@ class Pregunta extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('pregunta_model');
-  	$this->load->model('evaluacion_model');
+  	$this->load->model('reactivo_model');
 }
 
 public function index(){
 
   	$data['pregunta']=$this->pregunta_model->elultimo();
-  	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+  	$data['reactivoes']= $this->reactivo_model->lista_reactivoes()->result();
   
  // print_r($data['usuario_list']);
  	 $data['title']="Lista de Preguntaes";
@@ -23,7 +23,7 @@ public function index(){
 
 public function add()
 {
-		$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+		$data['reactivoes']= $this->reactivo_model->lista_reactivoes()->result();
 		$data['title']="Nueva Pregunta";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('pregunta_form',$data);
@@ -38,7 +38,7 @@ public function add()
 	 	$array_item=array(
 		 	
 		 	'pregunta' => $this->input->post('pregunta'),
-			'idevaluacion' => $this->input->post('idevaluacion'),
+			'idreactivo' => $this->input->post('idreactivo'),
 	 	);
 	 	$this->pregunta_model->save($array_item);
 	 	redirect('pregunta');
@@ -49,7 +49,7 @@ public function add()
 	public function edit()
 	{
 		$data['pregunta'] = $this->pregunta_model->pregunta($this->uri->segment(3))->row_array();
-		$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+		$data['reactivoes']= $this->reactivo_model->lista_reactivoes()->result();
 		$data['title'] = "Actualizar Pregunta";
 		$this->load->view('template/page_header');		
 		$this->load->view('pregunta_edit',$data);
@@ -65,7 +65,7 @@ public function add()
 		 	
 		 	'idpregunta' => $this->input->post('idpregunta'),
 		 	'pregunta' => $this->input->post('pregunta'),
-			'idevaluacion' => $this->input->post('idevaluacion'),
+			'idreactivo' => $this->input->post('idreactivo'),
 	 	);
 	 	$this->pregunta_model->update($id,$array_item);
 	 	redirect('pregunta/actual/'.$id);
@@ -90,7 +90,7 @@ function pregunta_data()
 	 	$data0 = $this->pregunta_model->lista_pregunta();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idpregunta,$r->pregunta, $r->idevaluacion,
+			$data[]=array($r->idpregunta,$r->pregunta, $r->idreactivo,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idpregunta="'.$r->idpregunta.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -110,7 +110,7 @@ function pregunta_data()
 
 	 // $data['documento_list']=$this->documento_model->lista_documento()->result();
 	  	$data['pregunta'] = $this->pregunta_model->pregunta( $this->uri->segment(3))->row_array();
-  		$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+  		$data['reactivoes']= $this->reactivo_model->lista_reactivoes()->result();
 
 
 	  $data['title']="Preguntas:";
@@ -126,7 +126,7 @@ function pregunta_data()
 public function elprimero()
 {
 	$data['pregunta'] = $this->pregunta_model->elprimero();
-  	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+  	$data['reactivoes']= $this->reactivo_model->lista_reactivoes()->result();
   if(!empty($data))
   {
     $data['title']="Pregunta";
@@ -143,7 +143,7 @@ public function elprimero()
 public function elultimo()
 {
 	$data['pregunta'] = $this->pregunta_model->elultimo();
-  	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+  	$data['reactivoes']= $this->reactivo_model->lista_reactivoes()->result();
   if(!empty($data))
   {
     $data['title']="Pregunta";
@@ -162,7 +162,7 @@ public function elultimo()
 public function siguiente(){
  // $data['pregunta_list']=$this->pregunta_model->lista_pregunta()->result();
 	$data['pregunta'] = $this->pregunta_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+  	$data['reactivoes']= $this->reactivo_model->lista_reactivoes()->result();
   $data['title']="Pregunta";
 	$this->load->view('template/page_header');		
   $this->load->view('pregunta_record',$data);
@@ -172,7 +172,7 @@ public function siguiente(){
 public function anterior(){
  // $data['pregunta_list']=$this->pregunta_model->lista_pregunta()->result();
 	$data['pregunta'] = $this->pregunta_model->anterior($this->uri->segment(3))->row_array();
-  	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+  	$data['reactivoes']= $this->reactivo_model->lista_reactivoes()->result();
   $data['title']="Pregunta";
 	$this->load->view('template/page_header');		
   $this->load->view('pregunta_record',$data);
@@ -199,9 +199,9 @@ public function get_pregunta() {
 public function get_preguntas() {
     $this->load->database();
     $this->load->helper('form');
-    if($this->input->post('idevaluacion')) {
+    if($this->input->post('idreactivo')) {
         $this->db->select('*');
-        $this->db->where(array('idevaluacion' => $this->input->post('idevaluacion') ));
+        $this->db->where(array('idreactivo' => $this->input->post('idreactivo') ));
         $query = $this->db->get('pregunta');
 	$data=$query->result();
 	echo json_encode($data);
