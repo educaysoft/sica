@@ -199,9 +199,9 @@ public function get_pregunta() {
 public function get_preguntas() {
     $this->load->database();
     $this->load->helper('form');
-    if($this->input->post('idreactivo')) {
+    if($this->input->get('idreactivo')) {
         $this->db->select('*');
-        $this->db->where(array('idreactivo' => $this->input->post('idreactivo') ));
+        $this->db->where(array('idreactivo' => $this->input->get('idreactivo') ));
         $query = $this->db->get('pregunta');
 	$data=$query->result();
 	header('Content-Type: application/json');
