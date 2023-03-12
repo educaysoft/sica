@@ -358,8 +358,8 @@ function get_certificado(idpersona, idevento)
 		xx.setAttribute("src",lvideo);
 		document.getElementById('mvideo').style.display='block';
 		document.getElementById('learn1').style.display='block';
-		document.getElementById('evaluar').innerHTML='<button id="evaluar" onclick="get_reactivo('+idreactivo+');">Evaluar-'+idreactivo+'</button>' 
-               get_reactivo(idreactivo);
+		document.getElementById('evaluar').innerHTML='<button id="evaluar" onclick="get_reactivo('+idreactivo+','+idpersona+');">Evaluar-'+idreactivo+'</button>' 
+               get_reactivo(idreactivo,idpersona);
 	}
 
 
