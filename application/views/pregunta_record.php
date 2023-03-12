@@ -42,11 +42,11 @@ if(isset($pregunta))
 	<div class="col-md-10">
 		<?php
 $options= array("NADA");
-foreach ($evaluaciones as $row){
-	$options[$row->idevaluacion]= $row->nombre;
+foreach ($reactivos as $row){
+	$options[$row->idreactivo]= $row->nombre;
 }
 
-echo form_input('idevaluacion',$options[$pregunta['idevaluacion']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+echo form_input('idreactivo',$options[$pregunta['idreactivo']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div> 
