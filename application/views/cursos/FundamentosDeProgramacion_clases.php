@@ -417,6 +417,7 @@ function get_reactivo(idreactivo,idpersona) {
 
 
 function get_pregunta(idpregunta) {
+	alert("idpregunta");
 	$.ajax({
         url: "<?php echo site_url('pregunta/get_pregunta') ?>",
         data: {idpregunta:idpregunta},
