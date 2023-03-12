@@ -376,8 +376,8 @@ function get_reactivo(idreactivo,idpersona) {
         async : false,
         dataType : 'json',
         success: function(data){
-        var html1 = data[0].nombre;
-        var html2= data[0].detalle;
+        var html1 = data.nombre;
+        var html2= data.detalle;
         $('#evaluacion').html(html1);
         $('#detalle').html(html2);
 
