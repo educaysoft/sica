@@ -23,7 +23,7 @@ public function index(){
 
 public function add()
 {
-		$data['reactivoes']= $this->reactivo_model->lista_reactivoes()->result();
+		$data['reactivos']= $this->reactivo_model->lista_reactivos()->result();
 		$data['title']="Nueva Pregunta";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('pregunta_form',$data);

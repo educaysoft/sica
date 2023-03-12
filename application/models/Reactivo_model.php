@@ -1,7 +1,7 @@
 <?php
 class Reactivo_model extends CI_model {
 
-	function lista_reactivoes(){
+	function lista_reactivos(){
 		 $reactivo= $this->db->get('reactivo');
 		 return $reactivo;
 	}
