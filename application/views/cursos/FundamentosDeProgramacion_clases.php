@@ -520,7 +520,7 @@ function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
 {
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 
-	var fecha = moment().format("DD/MM/YYYY");
+	var fecha = "03-08-2023"; // ;/moment().format("DD/MM/YYYY");
 	alert(fecha);
 	alert(idreactivo);
 	alert(acierto);
