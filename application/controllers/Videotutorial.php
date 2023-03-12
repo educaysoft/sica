@@ -6,13 +6,13 @@ class Videotutorial extends CI_Controller{
       parent::__construct();
       $this->load->model('videotutorial_model');
       $this->load->model('instructor_model');
-      $this->load->model('evaluacion_model');
+      $this->load->model('reactivo_model');
 }
 
 public function index(){
   	$data['videotutorial']=$this->videotutorial_model->elultimo();
 	$data['instructores']= $this->instructor_model->lista_instructorA()->result();
-	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+	$data['reactivos']= $this->reactivo_model->lista_reactivos()->result();
  // print_r($data['usuario_list']);
   	$data['title']="Lista de videotutorials";
 	$this->load->view('template/page_header');		
@@ -28,7 +28,7 @@ public function index(){
 public function add()
 {
 		$data['instructores']= $this->instructor_model->lista_instructorA()->result();
-		$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+		$data['reactivos']= $this->reactivo_model->lista_reactivos()->result();
 		$data['title']="Nuevo videotutorial";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('videotutorial_form',$data);
@@ -45,7 +45,7 @@ public function add()
 		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
 		 	'nombre' => $this->input->post('nombre'),
 			'idinstructor' => $this->input->post('idinstructor'),
-			'idevaluacion' => $this->input->post('idevaluacion'),
+			'idreactivo' => $this->input->post('idreactivo'),
 			'enlace' => $this->input->post('enlace'),
 			'duracion' => $this->input->post('duracion'),
 	 	);
@@ -59,7 +59,7 @@ public function add()
 	{
 		$data['videotutorial'] = $this->videotutorial_model->videotutorial($this->uri->segment(3))->row_array();
 		$data['instructores']= $this->instructor_model->lista_instructorA()->result();
-		$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+		$data['reactivos']= $this->reactivo_model->lista_reactivos()->result();
 		$data['title'] = "Actualizar videotutorial";
 		$this->load->view('template/page_header');		
 		$this->load->view('videotutorial_edit',$data);
@@ -76,7 +76,7 @@ public function add()
 		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
 		 	'nombre' => $this->input->post('nombre'),
 			'idinstructor' => $this->input->post('idinstructor'),
-			'idevaluacion' => $this->input->post('idevaluacion'),
+			'idreactivo' => $this->input->post('idreactivo'),
 			'enlace' => $this->input->post('enlace'),
 			'duracion' => $this->input->post('duracion'),
 	 	);
@@ -145,7 +145,7 @@ public function elprimero()
   if(!empty($data))
   {
 	$data['instructores']= $this->instructor_model->lista_instructorA()->result();
-	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+	$data['reactivos']= $this->reactivo_model->lista_reactivos()->result();
     	$data['title']="Videotutorial";
     	$this->load->view('template/page_header');		
     	$this->load->view('videotutorial_record',$data);
@@ -164,7 +164,7 @@ public function elultimo()
   if(!empty($data))
   {
 	$data['instructores']= $this->instructor_model->lista_instructorA()->result();
-	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+	$data['reactivos']= $this->reactivo_model->lista_reactivos()->result();
     	$data['title']="Videotutorial";
     	$this->load->view('template/page_header');		
     	$this->load->view('videotutorial_record',$data);
@@ -184,7 +184,7 @@ public function siguiente(){
  // $data['videotutorial_list']=$this->videotutorial_model->lista_videotutorial()->result();
 	$data['videotutorial'] = $this->videotutorial_model->siguiente($this->uri->segment(3))->row_array();
 	$data['instructores']= $this->instructor_model->lista_instructorA()->result();
-	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+	$data['reactivos']= $this->reactivo_model->lista_reactivos()->result();
   $data['title']="Documento";
 	$this->load->view('template/page_header');		
   $this->load->view('videotutorial_record',$data);
@@ -196,7 +196,7 @@ public function anterior(){
  // $data['videotutorial_list']=$this->videotutorial_model->lista_videotutorial()->result();
 	$data['videotutorial'] = $this->videotutorial_model->anterior($this->uri->segment(3))->row_array();
 	$data['instructores']= $this->instructor_model->lista_instructorA()->result();
-	$data['evaluaciones']= $this->evaluacion_model->lista_evaluaciones()->result();
+	$data['reactivos']= $this->reactivo_model->lista_reactivos()->result();
   $data['title']="Documento";
 	$this->load->view('template/page_header');		
   $this->load->view('videotutorial_record',$data);
