@@ -31,6 +31,7 @@ class Evaluacion_model extends CI_model {
  	{
 		$this->db->where(array('idpersona'=>$arraevalpers['idpersona']));
 		$this->db->where(array('fecha'=>$arraevalpers['fecha']));
+		$this->db->where(array('idreactivo'=>$arraevalpers['idreactivo']));
 		$query=$this->db->get('evaluacionpersona');
 		if($query->num_rows()==0){
 			$this->db->insert("evaluacionpersona", $arraevalpers);
@@ -47,7 +48,7 @@ class Evaluacion_model extends CI_model {
 	
 				$arraeval['idevaluacionpersona']=$id;
 				$this->db->where(array('idevaluacionpersona'=>$arraeval['idevaluacionpersona']));
-				$this->db->where(array('idreactivo'=>$arraeval['idreactivo']));
+				$this->db->where(array('idrespuesta'=>$arraeval['idrespuesta']));
 				$this->db->where(array('idpregunta'=>$arraeval['idpregunta']));
 				$query=$this->db->get('evaluacion');
 				if($query->num_rows()==0){
