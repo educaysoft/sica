@@ -169,6 +169,7 @@ public function get_respuesta() {
         $this->db->where(array('idpregunta' => $this->input->get('idpregunta')));
         $query = $this->db->get('respuesta');
 	$data=$query->result();
+	header('Content-Type: application/json');
 	echo json_encode($data);
 	}
 
