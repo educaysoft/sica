@@ -523,6 +523,14 @@ function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
 {
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 	fecha=new Date();
+	alert(fecha);
+	alert(idreactivo);
+	alert(acierto);
+	alert(idpregunta);
+	alert(idpersona);
+	alert(idrespuesta);
+
+
  $.ajax({
         url: "<?php echo site_url('evaluacion/save2') ?>",
         data: {acierto:acierto,idreactivo:idreactivo,idpregunta:idpregunta,idpersona:idpersona,idrespuesta:idrespuesta,fecha:fecha},
