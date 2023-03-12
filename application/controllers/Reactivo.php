@@ -253,6 +253,7 @@ public function get_reactivo() {
         $this->db->where(array('idreactivo' => $this->input->get('idreactivo')));
         $query = $this->db->get('reactivo');
 	$data=$query->result();
+	header('Content-Type: application/json');
 	echo json_encode($data);
 	}
 
