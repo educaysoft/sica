@@ -278,7 +278,7 @@ foreach ($pagoevento as $row){
         <div style="display: flex; flex-direction: row;" >
           <div class="col-md-auto">
 		<?php if($row->idmodoevaluacion!=1) { ?>
-<a href= "<?php echo base_url(); ?>curso/evaluar/?idpersona=<?echo $this->session->userdata['logged_in']['idpersona']; ?>$idsilabo=<?php echo $evento['idsilabo']; ?>&idtema= <?php echo $row->tema; ?> "   ><i class='fa fa-check'></i></a>
+<a href= "<?php echo base_url(); ?>curso/evaluar?idpersona=<?echo $this->session->userdata['logged_in']['idpersona']; ?>$idsilabo=<?php echo $evento['idsilabo']; ?>&idtema= <?php echo $row->idtema; ?> "   ><i class='fa fa-check'></i></a>
 		<?php }else{ ?>
 		  <i class='fa fa-folder-o'></i>
 		<?php } ?>
