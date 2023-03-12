@@ -179,8 +179,6 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 <div class="dbgOuter" style="border: 2px solid blue; width: 80%;">
 
 	<?php
-		print_r($videotutorial);
-		die();
 		foreach($videotutorial as $row){
 	?>	
 			<div class="form-check form-check-inline">
