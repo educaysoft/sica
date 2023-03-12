@@ -52,7 +52,7 @@ class Evaluacion_model extends CI_model {
 				$query=$this->db->get('evaluacion');
 				if($query->num_rows()==0){
 					$this->db->insert("evaluacion", $arraeval);
-					if($this->db->affected_rows>0){
+					if($this->db->affected_rows()>0){
 						return true;
 					}else{
 						return false;
