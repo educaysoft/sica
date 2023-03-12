@@ -347,10 +347,6 @@ function get_certificado(idpersona, idevento)
 
 	function show_unidad(tunidad,lvideo,idreactivo,idpersona)
 	{
-		alert(tunidad);
-		alert(lvideo);
-		alert(idreactivo);
-		alert(idpersona);
 
 		document.getElementById('unidad').innerHTML=tunidad;
 		document.getElementById('unidad').style.display='block';
@@ -470,7 +466,7 @@ function get_pregunta(idpregunta) {
 
 
 
-
+   alert("conseige repsueas");
 
     $.ajax({
         url: "<?php echo site_url('respuesta/get_respuesta') ?>",
