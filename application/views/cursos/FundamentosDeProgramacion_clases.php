@@ -182,6 +182,7 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 		foreach($videotutorial as $row){
 	?>	
 			<div class="form-check form-check-inline">
+
 				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onClick="show_unidad('<?php echo $row->nombre; ?>','<?php echo $row->enlace; ?>','<?php echo $row->idreactivo; ?>','<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>')"/>   
 				<label class="form-check-label" for="inlineCheckbox1">Unidad-<?php echo $row->idvideotutorial;?></label>
 			</div>
@@ -339,8 +340,6 @@ function get_certificado(idpersona, idevento)
       }
 
     })
-
-
 }
 
 
@@ -348,6 +347,11 @@ function get_certificado(idpersona, idevento)
 
 	function show_unidad(tunidad,lvideo,idreactivo,idpersona)
 	{
+		alert(tunidad);
+		alert(lvideo);
+		alert(idreactivo);
+		alert(idpersona);
+
 		document.getElementById('unidad').innerHTML=tunidad;
 		document.getElementById('unidad').style.display='block';
 		let xx=document.getElementById('video');
@@ -412,19 +416,10 @@ function get_reactivo(idreactivo,idpersona) {
 
     })
 
-
-
-
-
-
-
-
-
 }
 
 
 function get_pregunta(idpregunta) {
-	
 	$.ajax({
         url: "<?php echo site_url('pregunta/get_pregunta') ?>",
         data: {idpregunta:idpregunta},
