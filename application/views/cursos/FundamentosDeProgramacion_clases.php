@@ -522,7 +522,8 @@ function get_pregunta(idpregunta) {
 function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
 {
 //	alert(acierto+' '+idpregunta+' '+idpersona);
-	fecha=new Date();
+
+	var fecha = moment().format("DD/MM/YYYY");
 	alert(fecha);
 	alert(idreactivo);
 	alert(acierto);
