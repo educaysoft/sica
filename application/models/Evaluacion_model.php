@@ -34,7 +34,7 @@ class Evaluacion_model extends CI_model {
 		$query=$this->db->get('evaluacionpersona');
 		if($query->num_rows()==0){
 			$this->db->insert("evaluacionpersona", $arraevalpers);
-			if($this->db->affected_rows>0){
+			if($this->db->affected_rows()>0){
 				$id=$this->db->insert_id();
 			
 			}else{
