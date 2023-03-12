@@ -204,6 +204,7 @@ public function get_preguntas() {
         $this->db->where(array('idreactivo' => $this->input->post('idreactivo') ));
         $query = $this->db->get('pregunta');
 	$data=$query->result();
+	header('Content-Type: application/json');
 	echo json_encode($data);
 	}
 
