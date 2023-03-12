@@ -228,6 +228,7 @@ public function get_evaluacion() {
         $this->db->where(array('idpregunta' => $this->input->get('idpregunta'),'idpersona' =>$this->input->get('idpersona')));
         $query = $this->db->get('evaluacion1');
 	$data=$query->result();
+	header('Content-Type: application/json');
 	echo json_encode($data);
 
 }
