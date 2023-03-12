@@ -277,7 +277,11 @@ foreach ($pagoevento as $row){
       <div class="container" style="font-size: 15px; width:100%; background: yellow; padding:5px;">
         <div style="display: flex; flex-direction: row;" >
           <div class="col-md-auto">
+		<?php if($row->idmodoevaluacion!=1) { ?>
+<a href= "<?php echo base_url(); ?>curso/evaluar/?idpersona=<?echo $this->session->userdata['logged_in']['idpersona']; ?>$idsilabo=<?php echo $evento['idsilabo']; ?>&idtema= <?php echo $row->tema; ?> "   ><i class='fa fa-check'></i></a>
+		<?php }else{ ?>
 		  <i class='fa fa-folder-o'></i>
+		<?php } ?>
           </div>
 
           <div class="col-sm-4">
