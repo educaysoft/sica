@@ -398,7 +398,7 @@ function get_reactivo(idreactivo,idpersona) {
         for(i=0; i<data.length; i++){
 		j=i+1;
 		html += '<div class="form-check form-check-inline">';
-		html += '<input class="form-check-input" type="checkbox" id="inlineCheckbox'+j+'" value="option1" onclick="get_pregunta('+data[i].idpregunta+',"'+fecha+'")">'; 
+		html += '<input class="form-check-input" type="checkbox" id="inlineCheckbox'+j+'" value="option1" onclick="get_pregunta('+data[i].idpregunta+','+fecha+')">'; 
 		html += '<label class="form-check-label" for="inlineCheckbox'+j+'">Pregunta-'+j+'</label>';
 		html += '</div>';
 	}
@@ -482,21 +482,21 @@ function get_pregunta(idpregunta,fecha) {
 		if(data[i].idrespuesta==idrespuesta && acierto==0)
 		{
 		html += '<div>';
-		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+',"'+fecha+'")">';
+		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+','+fecha+')">';
 		html += '  <label for="huey" style="color:red">'+data[i].respuesta+'</label>';
 		html += '</div>';
 		}
 		else if(data[i].idrespuesta==idrespuesta && acierto==1)
 		{
 		html += '<div>';
-		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+',"'+fecha+'")">';
+		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+','+fecha+')">';
 		html += '  <label for="huey" style="color:green">'+data[i].respuesta+'</label>';
 		html += '</div>';
 		}
 		else
 		{
 		html += '<div>';
-		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+',"'+fecha+'")">';
+		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+','+fecha+')">';
 		html += '  <label for="huey" >'+data[i].respuesta+'</label>';
 		html += '</div>';
 		}
