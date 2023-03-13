@@ -78,19 +78,19 @@ public function add()
 			'acierto' => $this->input->get('acierto')
 	 	);
 	 	$result =$this->evaluacion_model->save($arra,$arrb);
-//		if($result["idevaluacionpersona"]>0)
-//		{
+		if($result["idevaluacionpersona"]>0)
+		{
 	 	$array_item=array(
 		 	'idpersona' => $this->input->get('idpersona'),
 		 	'idevento' => $this->input->get('idevento'),
-		 	'fecha' => $this->input->get('fecha'),
-		 	'porcentaje' => 10,   // $result['porcentaje'],
+		 	'fecha' => $fecha,
+		 	'porcentaje' =>  $result['porcentaje'],
 		 	'ayuda' => 0,
 		 	'comentario' => "toma de evaluacion",
 	 	);
 
 	 	$result2=$this->participacion_model->save($array_item);
-	//	}
+		}
 		echo $result;
  	}
 
