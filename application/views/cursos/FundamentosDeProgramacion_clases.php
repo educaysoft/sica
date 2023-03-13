@@ -277,7 +277,6 @@ $i=$i+1;
 <script>
 
 
-var fecha="";
 
 
 function get_certificado(idpersona, idevento)
@@ -398,7 +397,7 @@ function get_reactivo(idreactivo,idpersona) {
         for(i=0; i<data.length; i++){
 		j=i+1;
 		html += '<div class="form-check form-check-inline">';
-		html += '<input class="form-check-input" type="checkbox" id="inlineCheckbox'+j+'" value="option1" onclick="get_pregunta('+data[i].idpregunta+','+fecha+')">'; 
+		html += '<input class="form-check-input" type="checkbox" id="inlineCheckbox'+j+'" value="option1" onclick="get_pregunta('+data[i].idpregunta+')">'; 
 		html += '<label class="form-check-label" for="inlineCheckbox'+j+'">Pregunta-'+j+'</label>';
 		html += '</div>';
 	}
