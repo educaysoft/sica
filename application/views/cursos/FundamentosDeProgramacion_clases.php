@@ -465,7 +465,6 @@ function get_pregunta(idpregunta,fecha) {
     })
 
 
-      alert("paso2");
 
 
     $.ajax({
@@ -521,7 +520,7 @@ function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta,fecha)
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 
 
-
+  alert(fecha);
  $.ajax({
         url: "<?php echo site_url('evaluacion/save2') ?>",
         data: {acierto:acierto,idreactivo:idreactivo,idpregunta:idpregunta,idpersona:idpersona,idrespuesta:idrespuesta,fecha:fecha},

@@ -68,7 +68,7 @@ public function add()
 
 	 	$arra=array(
 			'idpersona' => $this->input->get('idpersona'),
-			'fecha'=>$fecha,
+			'fecha'=> $this->input->get('fecha'),
 			'idreactivo' => $this->input->get('idreactivo')
 		);
 	 	$arrb=array(
