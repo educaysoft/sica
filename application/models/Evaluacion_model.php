@@ -56,7 +56,7 @@ class Evaluacion_model extends CI_model {
 					if($this->db->affected_rows()>0){
 
 						$this->db->where(array('idevaluacionpersona'=>$id));
-						$query=$this->db->get('evaluado');
+						$query=$this->db->get('evaluado1');
 						if($query->num_rows()!=0){
 							if($query->result()[0]->totapreg==$query->result()[0]->totapreg2)
 							{
