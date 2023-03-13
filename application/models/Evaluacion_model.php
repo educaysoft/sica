@@ -71,6 +71,9 @@ class Evaluacion_model extends CI_model {
 				}else{
 						return array("idevaluacionpersona"=>0);;
 				}
+				}else{
+						return array("idevaluacionpersona"=>0);;
+				}
 
  	}
 
