@@ -101,7 +101,7 @@ foreach ($sesioneventos as $row){
  
  <tr>
       <td>Fecha :</td>
-      <td><?php echo form_input( array("name"=>'fecha',"id"=>'fecha',"readonly"=>"true","value"=>$sesionevento['fecha'],'type'=>'date','placeholder'=>'fecha')); echo $eldia;  ?></td>
+      <td><?php echo form_input( array("name"=>'fecha',"id"=>'fecha',"readonly"=>"true","value"=>$sesionevento['fecha'],'type'=>'date','placeholder'=>'fecha')); echo $eldia." (sesión # ".$sesionactual.")";  ?></td>
   </tr>
  
 
