@@ -436,10 +436,10 @@ function get_pregunta(idpregunta,fecha) {
 
     })
 
-      alert("paso1");
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
 	var idrespuesta=0;
 	var acierto=0;
+      alert("paso1");
     $.ajax({
         url: "<?php echo site_url('evaluacion/get_evaluacion') ?>",
         data: {idpersona:idpersona,idpregunta:idpregunta},
