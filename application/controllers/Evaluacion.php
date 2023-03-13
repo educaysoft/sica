@@ -48,8 +48,8 @@ public function add()
 
 
 	public function  save()
+	{
 	 	$array_item=array(
-		 	
 			'idpersona' => $this->input->post('idpersona'),
 			'idpregunta' => $this->input->post('idpregunta'),
 			'acierto' => $this->input->post('acierto'),

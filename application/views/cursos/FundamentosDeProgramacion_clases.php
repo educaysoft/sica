@@ -434,7 +434,6 @@ function get_pregunta(idpregunta) {
       }
 
     })
- alert("hla");
 	    
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
 	var idrespuesta=0;
@@ -465,7 +464,6 @@ function get_pregunta(idpregunta) {
 
 
 
- alert("hlaaaa");
 
     $.ajax({
         url: "<?php echo site_url('respuesta/get_respuesta') ?>",
