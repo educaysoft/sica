@@ -172,6 +172,7 @@ public function evaluar()
 	$data['videotutorial'] = $this->videotutorial_model->videotutorial1($data['tema']['idvideotutorial'])->result();
 	$data['preguntas']=$this->pregunta_model->preguntasxreactivo($data['tema']['idreactivo'])->result();
 	$data['respuestas']=$this->respuesta_model->respuestasxreactivo($data['tema']['idreactivo'])->result();
+	$data['fecha']=$_GET['fecha'];
   	$data['title']="Curso";
 	$this->load->view('template/page_header');		
  	$this->load->view('cursos/FundamentosDeProgramacion_clases',$data);

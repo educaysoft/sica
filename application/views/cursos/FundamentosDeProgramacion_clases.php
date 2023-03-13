@@ -362,6 +362,7 @@ function get_certificado(idpersona, idevento)
 
 
 function get_reactivo(idreactivo,idpersona) {
+	 var fecha=<?php echo $fecha; ?>
 	 btn=document.getElementById('learn2');
 	 btn.style.display="block";
     $.ajax({
@@ -373,9 +374,6 @@ function get_reactivo(idreactivo,idpersona) {
         success: function(data){
         var html1 = data.nombre;
         var html2= data.detalle;
-	fecha=data.fecha;
-	alert("real");
-	alert(fecha);
         $('#evaluacion').html(html1);
         $('#detalle').html(html2);
 
@@ -521,6 +519,7 @@ function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta,fecha)
 {
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 
+ var fecha=<?php echo $fecha; ?>
 
   alert("aqui");
   alert(fecha);
