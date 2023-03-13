@@ -362,7 +362,7 @@ function get_certificado(idpersona, idevento)
 
 
 function get_reactivo(idreactivo,idpersona) {
-	 var fecha=<?php echo $fecha; ?>
+	 var fecha=<?php echo $fecha; ?>;
 	 btn=document.getElementById('learn2');
 	 btn.style.display="block";
     $.ajax({
@@ -519,7 +519,7 @@ function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta,fecha)
 {
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 
- var fecha=<?php echo $fecha; ?>
+ var fecha=<?php echo $fecha; ?>;
 
   alert("aqui");
   alert(fecha);
