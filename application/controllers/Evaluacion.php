@@ -48,7 +48,6 @@ public function add()
 
 
 	public function  save()
-	{
 	 	$array_item=array(
 		 	
 			'idpersona' => $this->input->post('idpersona'),

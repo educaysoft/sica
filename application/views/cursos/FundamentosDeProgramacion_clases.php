@@ -518,10 +518,13 @@ function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 
  var fecha='<?php echo $fecha; ?>';
+ var idtipoparticipacion='<?php echo $idtipoparticipacion; ?>';
+ var idevento='<?php echo $evento['idevento']; ?>';
 
- $.ajax({
+
+$.ajax({
         url: "<?php echo site_url('evaluacion/save2') ?>",
-        data: {acierto:acierto,idreactivo:idreactivo,idpregunta:idpregunta,idpersona:idpersona,idrespuesta:idrespuesta,fecha:fecha},
+        data: {acierto:acierto,idreactivo:idreactivo,idpregunta:idpregunta,idpersona:idpersona,idrespuesta:idrespuesta,fecha:fecha,idevento:idevento},
         method: 'GET',
         async : false,
         success: function(data){
