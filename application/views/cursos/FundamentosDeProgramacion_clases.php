@@ -435,6 +435,7 @@ function get_pregunta(idpregunta) {
 
     })
 
+	    
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
 	var idrespuesta=0;
 	var acierto=0;
@@ -518,7 +519,7 @@ function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 
  var fecha='<?php echo $fecha; ?>';
- var idevento=<?php echo $evento["idevento"]; ?>;
+ var idevento= 0; //<?php echo $evento["idevento"]; ?>;
 
 
 $.ajax({
