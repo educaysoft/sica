@@ -416,21 +416,20 @@ function get_reactivo(idreactivo,idpersona) {
 }
 
 
-function get_pregunta(idpregunta,fecha) {
-	alert(fecha);
+feunction get_pregunta(idpregunta) {
 	$.ajax({
         url: "<?php echo site_url('pregunta/get_pregunta') ?>",
         data: {idpregunta:idpregunta},
-        method: 'GET',
+        method: 'get',
         async : false,
-        dataType : 'json',
+        datatype : 'json',
         success: function(data){
         var html1 = data[0].pregunta;
         $('#pregunta').html(html1);
 
 
         },
-      error: function (xhr, ajaxOptions, thrownError) {
+      error: function (xhr, ajaxoptions, thrownerror) {
         alert(xhr.status);
         alert(thrownError);
       }
