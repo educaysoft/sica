@@ -398,7 +398,7 @@ function get_reactivo(idreactivo,idpersona) {
         for(i=0; i<data.length; i++){
 		j=i+1;
 		html += '<div class="form-check form-check-inline">';
-		html += '<input class="form-check-input" type="checkbox" id="inlineCheckbox'+j+'" value="option1" onclick="get_pregunta('+data[i].idpregunta+')">'; 
+		html += '<input class="form-check-input" type="checkbox" id="inlineCheckbox'+j+'" value="option1" onclick="get_pregunta('+data[i].idpregunta+','+fecha+')">'; 
 		html += '<label class="form-check-label" for="inlineCheckbox'+j+'">Pregunta-'+j+'</label>';
 		html += '</div>';
 	}
@@ -416,7 +416,7 @@ function get_reactivo(idreactivo,idpersona) {
 }
 
 
-function get_pregunta(idpregunta) {
+function get_pregunta(idpregunta,fecha) {
 	$.ajax({
         url: "<?php echo site_url('pregunta/get_pregunta') ?>",
         data: {idpregunta:idpregunta},
@@ -436,7 +436,7 @@ function get_pregunta(idpregunta) {
 
     })
 
-
+      alert("paso1");
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
 	var idrespuesta=0;
 	var acierto=0;
@@ -465,6 +465,7 @@ function get_pregunta(idpregunta) {
     })
 
 
+      alert("paso2");
 
 
     $.ajax({
