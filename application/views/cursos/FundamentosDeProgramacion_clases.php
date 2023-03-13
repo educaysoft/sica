@@ -434,7 +434,7 @@ function get_pregunta(idpregunta) {
       }
 
     })
-
+ alert("hla");
 	    
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
 	var idrespuesta=0;
@@ -465,6 +465,7 @@ function get_pregunta(idpregunta) {
 
 
 
+ alert("hlaaaa");
 
     $.ajax({
         url: "<?php echo site_url('respuesta/get_respuesta') ?>",
@@ -519,7 +520,7 @@ function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 
  var fecha='<?php echo $fecha; ?>';
- var idevento= 0; //<?php echo $evento["idevento"]; ?>;
+ var idevento=<?php echo $evento["idevento"]; ?>;
 
 
 $.ajax({
