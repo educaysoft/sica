@@ -122,9 +122,10 @@ foreach ($temas as $row){
   <td><?php 
   
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"tema","id" =>"temacorto");    
-echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); ?></td>
+echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); ?><div id="textarea_feedback"></div>
+</td>
+
  </tr>
-<div id="textarea_feedback"></div>
 
 
 <tr>
