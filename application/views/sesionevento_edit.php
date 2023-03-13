@@ -124,7 +124,7 @@ foreach ($temas as $row){
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"tema","id" =>"temacorto");    
 echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); ?></td>
  </tr>
-
+<div id="textarea_feedback"></div>
 
 
 <tr>
@@ -189,3 +189,17 @@ foreach ($modoevaluacions as $row){
  </tr>
 </table>
 <?php echo form_close(); ?>
+
+<script>
+$(document).ready(function() {
+    var text_max = 99;
+    $('#textarea_feedback').html('Quedan ' + text_max + ' caracteres');
+
+    $('#temacorto').keyup(function() {
+        var text_length = $('#temacorto').val().length;
+        var text_remaining = text_max - text_length;
+
+        $('#textarea_feedback').html('Quedan ' + text_remaining + ' caracteres');
+    });
+});
+</script>
