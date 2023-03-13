@@ -58,9 +58,9 @@ class Evaluacion_model extends CI_model {
 						$this->db->where(array('idevaluacionpersona'=>$id));
 						$query=$this->db->get('evaluado');
 						if($query->num_rows()!=0){
-							if($query->db->result()[0]->totapreg==$query->db->result()[0]->totapreg2)
+							if($query->result()[0]->totapreg==$query->result()[0]->totapreg2)
 							{
-								$porcentaje=round(($query->db->result()[0]->totaacie/$query->db->result()[0]->totapreg)*100,0);
+								$porcentaje=round(($query->result()[0]->totaacie/$query->result()[0]->totapreg)*100,0);
 								return array("idevaluacionpersona"=>$id,"porcentaje"=>$porcentaje);
 							}else{
 								return array("idevaluacionpersona"=>0);;
