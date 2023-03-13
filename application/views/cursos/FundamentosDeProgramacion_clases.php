@@ -518,8 +518,7 @@ function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 
  var fecha='<?php echo $fecha; ?>';
- var idtipoparticipacion='<?php echo $idtipoparticipacion; ?>';
- var idevento='<?php echo $evento['idevento']; ?>';
+ var idevento='<?php echo $evento["idevento"]; ?>';
 
 
 $.ajax({
