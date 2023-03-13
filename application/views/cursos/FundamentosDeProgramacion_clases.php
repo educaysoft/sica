@@ -489,14 +489,14 @@ function get_pregunta(idpregunta,fecha) {
 		else if(data[i].idrespuesta==idrespuesta && acierto==1)
 		{
 		html += '<div>';
-		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+',')">';
+		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')">';
 		html += '  <label for="huey" style="color:green">'+data[i].respuesta+'</label>';
 		html += '</div>';
 		}
 		else
 		{
 		html += '<div>';
-		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+',')">';
+		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')">';
 		html += '  <label for="huey" >'+data[i].respuesta+'</label>';
 		html += '</div>';
 		}
