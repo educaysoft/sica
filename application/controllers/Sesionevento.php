@@ -165,8 +165,8 @@ class Sesionevento extends CI_Controller{
 	{
 		$idevento=$this->uri->segment(3);
 	 //	$data['sesionevento'] = $this->sesionevento_model->sesionevento($this->uri->segment(3))->row_array();
-		$data['sesionevento'] = $this->sesionevento_model->sesionevento_sesiones($idevento)->result();
-		$data['evento'] = $this->evento_model->evento($data['sesionevento']->idevento)->row_array();
+		$data['sesionevento'] = $this->sesionevento_model->sesionevento_sesiones($idevento)->row_array();
+		$data['evento'] = $this->evento_model->evento($data['sesionevento']['idevento'])->row_array();
 
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
