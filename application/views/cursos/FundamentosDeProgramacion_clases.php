@@ -363,8 +363,7 @@ function get_certificado(idpersona, idevento)
 function get_reactivo(idreactivo,idpersona) {
 	 btn=document.getElementById('learn2');
 	 btn.style.display="block";
-	 alert('ger_reactivo');
-	alert(idreactivo);
+	 fecha="";
     $.ajax({
         url: "<?php echo site_url('reactivo/get_reactivo') ?>",
         data: {idreactivo:idreactivo,idpersona:idpersona},
@@ -374,6 +373,7 @@ function get_reactivo(idreactivo,idpersona) {
         success: function(data){
         var html1 = data.nombre;
         var html2= data.detalle;
+	fecha=data.fecha;
         $('#evaluacion').html(html1);
         $('#detalle').html(html2);
 
@@ -417,7 +417,6 @@ function get_reactivo(idreactivo,idpersona) {
 
 
 function get_pregunta(idpregunta) {
-	alert(idpregunta);
 	$.ajax({
         url: "<?php echo site_url('pregunta/get_pregunta') ?>",
         data: {idpregunta:idpregunta},
@@ -467,7 +466,6 @@ function get_pregunta(idpregunta) {
 
 
 
-   alert("conseige repsueas");
 
     $.ajax({
         url: "<?php echo site_url('respuesta/get_respuesta') ?>",
@@ -484,21 +482,21 @@ function get_pregunta(idpregunta) {
 		if(data[i].idrespuesta==idrespuesta && acierto==0)
 		{
 		html += '<div>';
-		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')">';
+		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+','+fecha+')">';
 		html += '  <label for="huey" style="color:red">'+data[i].respuesta+'</label>';
 		html += '</div>';
 		}
 		else if(data[i].idrespuesta==idrespuesta && acierto==1)
 		{
 		html += '<div>';
-		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')">';
+		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+','+fecha+')">';
 		html += '  <label for="huey" style="color:green">'+data[i].respuesta+'</label>';
 		html += '</div>';
 		}
 		else
 		{
 		html += '<div>';
-		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')">';
+		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+','+fecha+')">';
 		html += '  <label for="huey" >'+data[i].respuesta+'</label>';
 		html += '</div>';
 		}
@@ -517,17 +515,10 @@ function get_pregunta(idpregunta) {
 
 }
 
-function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
+function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta,fecha)
 {
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 
-	var fecha = "03-08-2023"; // ;/moment().format("DD/MM/YYYY");
-	alert(fecha);
-	alert(idreactivo);
-	alert(acierto);
-	alert(idpregunta);
-	alert(idpersona);
-	alert(idrespuesta);
 
 
  $.ajax({

@@ -39,7 +39,7 @@ class Evaluacion_model extends CI_model {
 				$id=$this->db->insert_id();
 			
 			}else{
-				return false;
+				return array("idevaluacionpersona"=>0);;
 			}
 		}else{
 			$id=$query->result()[0]->idevaluacionpersona;
@@ -54,12 +54,22 @@ class Evaluacion_model extends CI_model {
 				if($query->num_rows()==0){
 					$this->db->insert("evaluacion", $arraeval);
 					if($this->db->affected_rows()>0){
-						return true;
+
+						$this->db->where(array('idevaluacionpersona'=>$id));
+						$query=$this->db->get('evaluado');
+						if($query->num_rows()!=0){
+							if($query->db->result()[0]->totapreg==$query->db->result()[0]->totapreg2)
+							{
+								$porcentaje=round(($query->db->result()[0]->totaaci/$query->db->result()[0]->totapreg)*100,0);
+								return array("idevaluacionpersona"=>$id,"porcentaje"=>$porcentaje);
+							}else{
+								return array("idevaluacionpersona"=>0);;
+							}
 					}else{
-						return false;
+						return array("idevaluacionpersona"=>0);;
 					}
 				}else{
-					return false;
+						return array("idevaluacionpersona"=>0);;
 				}
 
  	}
