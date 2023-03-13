@@ -517,7 +517,7 @@ function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
 {
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 
- var fecha=<?php echo $fecha; ?>;
+ var fecha='<?php echo $fecha; ?>';
 
   alert("aqui");
   alert(fecha);
