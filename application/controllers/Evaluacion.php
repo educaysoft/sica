@@ -8,6 +8,8 @@ class Evaluacion extends CI_Controller{
   	  $this->load->model('persona_model');
   	  $this->load->model('pregunta_model');
   	  $this->load->model('respuesta_model');
+  	  $this->load->model('participacion_model');
+
 }
 
 public function index(){
