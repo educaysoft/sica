@@ -374,6 +374,8 @@ function get_reactivo(idreactivo,idpersona) {
         var html1 = data.nombre;
         var html2= data.detalle;
 	fecha=data.fecha;
+	alert("real");
+	alert(fecha);
         $('#evaluacion').html(html1);
         $('#detalle').html(html2);
 
@@ -520,7 +522,9 @@ function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta,fecha)
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 
 
+  alert("aqui");
   alert(fecha);
+  alert("aca");
  $.ajax({
         url: "<?php echo site_url('evaluacion/save2') ?>",
         data: {acierto:acierto,idreactivo:idreactivo,idpregunta:idpregunta,idpersona:idpersona,idrespuesta:idrespuesta,fecha:fecha},
