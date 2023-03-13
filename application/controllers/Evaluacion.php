@@ -79,7 +79,7 @@ public function add()
 		if($result["idevaluacionpersona"]>0)
 		{
 	 	$array_item=array(
-		 	'idpersona' => $this->input->get'idpersona'),
+		 	'idpersona' => $this->input->get('idpersona'),
 		 	'idevento' => $this->input->get('idevento'),
 		 	'fecha' => $this->input->get('fecha'),
 		 	'porcentaje' => $result['porcentaje'],
