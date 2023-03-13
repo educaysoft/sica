@@ -34,8 +34,8 @@ foreach ($eventos as $row){
 
 
 $sesiondictada= array();
-foreach ($sesionevento as $row){
-	$sesiondictada[$row[fecha]]= $row->idsesionevento;
+foreach ($sesioneventos as $row){
+	$sesiondictada[$row->fecha]= $row->idsesionevento;
 }
 
 
