@@ -519,9 +519,6 @@ function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
 
  var fecha='<?php echo $fecha; ?>';
 
-  alert("aqui");
-  alert(fecha);
-  alert("aca");
  $.ajax({
         url: "<?php echo site_url('evaluacion/save2') ?>",
         data: {acierto:acierto,idreactivo:idreactivo,idpregunta:idpregunta,idpersona:idpersona,idrespuesta:idrespuesta,fecha:fecha},
