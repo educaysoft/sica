@@ -54,11 +54,11 @@ foreach ($sesioneventos as $row){
 			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
 			$lahoraf=date("H:i:s",$lahoraf);
 			array_push($sesiones,array("sesion"=>$i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
-			if($sesionactual==0){
-			if(!isset($sesiondictada[$fechasesion]))
-			{
-				$fecha=$fechasesion;
-			}}
+		//	if($sesionactual==0){
+		//	if(!isset($sesiondictada[$fechasesion]))
+		//	{
+		//		$fecha=$fechasesion;
+		//	}}
 			
 			if(strtotime($fechasesion)==strtotime($fecha)){
 				$sesionactual=$i;
