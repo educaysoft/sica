@@ -32,7 +32,7 @@ function lista_temass($idsilabo){
 	{
 	$this->db->where('idsilabo='.$idsilabo);
 	}
-	$query=$this->db->order_by("idsilabo","unidad asc","numerosesion asc")->get('tema1');
+	$query=$this->db->order_by("unidad asc","numerosesion asc")->get('tema1');
 	 return $query;
 	}
 
