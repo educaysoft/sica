@@ -38,8 +38,6 @@ foreach ($sesionevento as $row){
 }
 
 
-
-
 	$sesionactual=0;
 	$sesiontotal=0;
 
@@ -74,16 +72,9 @@ foreach ($sesionevento as $row){
     }while(strtotime($fechasesion)<=strtotime($calendarioacademico[0]->fechahasta));
 
 
-   // print_r($sesiones);
-   // echo $fecha;
-  //die(); 
 	$eldia="No encontrado";	
     	$lahorai="00:00:00";
     	$lahoraf="00:00:00";
-
-
-
-
 
 	foreach ($jornadadocente as $row){
     		$dia = $dias[date('w', strtotime($fecha))];

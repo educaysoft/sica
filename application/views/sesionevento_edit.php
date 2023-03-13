@@ -25,10 +25,83 @@ foreach ($eventos as $row){
  echo form_dropdown("idevento",$options, $sesionevento['idevento']);  ?></td>
 </tr>
 
+<?php
+
+ $dias = array('Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado');
+   date_default_timezone_set('America/Guayaquil');
+    $fecha = $sesionevento['fecha']; // date("Y-m-d");
+    $horai=  $sesionevento['horainicio']; //  date("H:i:s");
+
+
+$sesiondictada= array();
+foreach ($sesionevento as $row){
+	$sesiondictada[$row->fecha]= $row->idsesionevento;
+}
+
+
+	$sesionactual=0;
+	$sesiontotal=0;
+
+ $fechasesion=$calendarioacademico[0]->fechadesde;
+ $sesiones=array();
+     $i=1;
+    do {
+	
+	foreach ($jornadadocente as $row){
+    		$dia = $dias[date('w', strtotime($fechasesion))];
+		if($row->nombre==$dia ){    //verifica si la fecha esta en el horario.
+			$lahorai=$row->horainicio;
+			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
+			$lahoraf=date("H:i:s",$lahoraf);
+			array_push($sesiones,array("sesion"=>$i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
+			if($sesionactual==0){
+			if(!isset($sesiondictada[$fechasesion]))
+			{
+				$fecha=$fechasesion;
+			}}
+			
+			if(strtotime($fechasesion)==strtotime($fecha)){
+				$sesionactual=$i;
+			}
+			
+			$sesiontotal=$sesiontotal+1;
+			$i=$i+1;
+		}
+	}
+		$fechasesion=date("Y-m-d",strtotime($fechasesion."+ 1 days")); 
+
+    }while(strtotime($fechasesion)<=strtotime($calendarioacademico[0]->fechahasta));
+
+
+	$eldia="No encontrado";	
+    	$lahorai="00:00:00";
+    	$lahoraf="00:00:00";
+
+	foreach ($jornadadocente as $row){
+    		$dia = $dias[date('w', strtotime($fecha))];
+		//$echo $dia. " = ".$row->nombre."\n";
+		if($row->nombre==$dia ){
+			$eldia=$dia;
+			$lahorai=$row->horainicio;
+			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
+			$lahoraf=date("H:i:s",$lahoraf);
+		}
+	}
+	//die();
+
+    	$horaf= date("H:i:s",strtotime(' + 2 hours'));
+
+
+
+?>
+
+
+
+
  
  <tr>
       <td>Fecha :</td>
-      <td><?php echo form_input( array("name"=>'fecha',"id"=>'fecha',"readonly"=>"true","value"=>$sesionevento['fecha'],'type'=>'date','placeholder'=>'fecha')); ?></td>
+      <td><?php echo form_input( array("name"=>'fecha',"id"=>'fecha',"readonly"=>"true","value"=>$sesionevento['fecha'],'type'=>'date','placeholder'=>'fecha')); echo $eldia;  ?></td>
   </tr>
  
 
@@ -73,7 +146,7 @@ echo form_textarea('tema',$sesionevento['tema'],$textarea_options ); ?></td>
      <td>Hora inicio:</td>
      <td><?php 
      $eys_arrinput=array('name'=>'horainicio','id'=>'horainicio',"type"=>"time","step"=>1,"min"=>"07:00:00","max"=>"19:00:00",'value'=>$sesionevento['horainicio'], "style"=>"width:500px");
-     echo form_input($eys_arrinput); ?></td>
+     echo form_input($eys_arrinput); echo $lahorai; ?></td>
 </tr>
 
 <tr>
@@ -89,7 +162,7 @@ echo form_textarea('tema',$sesionevento['tema'],$textarea_options ); ?></td>
     		$sesionevento['horafin']= date("H:i:s");
      }
      $eys_arrinput=array('name'=>'horafin','id'=>'horafin',"type"=>"time","step"=>1,"min"=>"07:00:00","max"=>"19:00:00",'value'=>$sesionevento['horafin'], "style"=>"width:500px");
-     echo form_input($eys_arrinput); ?></td>
+     echo form_input($eys_arrinput); echo $lahoraf; ?></td>
 </tr>
 
 
