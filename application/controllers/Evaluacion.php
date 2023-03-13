@@ -83,7 +83,7 @@ public function add()
 	 	$array_item=array(
 		 	'idpersona' => $this->input->get('idpersona'),
 		 	'idevento' => $this->input->get('idevento'),
-		 	'fecha' => $fecha,
+		 	'fecha' => $this->input->get('fecha'),
 		 	'porcentaje' =>  $result['porcentaje'],
 		 	'ayuda' => 0,
 		 	'comentario' => "toma de evaluacion",
