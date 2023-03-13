@@ -277,6 +277,7 @@ $i=$i+1;
 <script>
 
 
+var fecha="";
 
 
 function get_certificado(idpersona, idevento)
@@ -363,7 +364,6 @@ function get_certificado(idpersona, idevento)
 function get_reactivo(idreactivo,idpersona) {
 	 btn=document.getElementById('learn2');
 	 btn.style.display="block";
-	 fecha="";
     $.ajax({
         url: "<?php echo site_url('reactivo/get_reactivo') ?>",
         data: {idreactivo:idreactivo,idpersona:idpersona},
