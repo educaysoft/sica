@@ -82,7 +82,7 @@ class Evaluacion_model extends CI_model {
  
 
 
- 	public function delete($id)
+ 	function delete($id)
 	{
  		$this->db->where('idevaluacion',$id);
 		$this->db->delete('evaluacion');
