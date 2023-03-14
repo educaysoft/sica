@@ -40,7 +40,7 @@ foreach ($departamentos as $row){
 
 
 <tr>
-<td> Persona:</td>
+<td> Estado del proceso:</td>
 <td><?php
 $options= array('--Select--');
 foreach ($personas as $row){
