@@ -17,7 +17,7 @@ class Ubicacionproceso extends CI_Controller{
 		$data['ubicacionproceso'] = $this->ubicacionproceso_model->elultimo();
 		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['estasoproceso']= $this->estadoproceso_model->lista_estadoprocesos()->result();
+  		$data['estadoprocesos']= $this->estadoproceso_model->lista_estadoprocesos()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 
  		// print_r($data['ubicacionproceso_list']);
