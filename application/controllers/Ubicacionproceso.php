@@ -224,17 +224,17 @@ public function elprimero()
 
 public function elultimo()
 {
-  $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  		$data['temas']= $this->tema_model->lista_temas()->result();
-	$data['ubicacionproceso'] = $this->ubicacionproceso_model->elultimo();
-		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+
   if(!empty($data))
   {
-  		$data['eventos']= $this->evento_model->lista_eventos()->result();
+
+	$data['ubicacionproceso'] = $this->ubicacionproceso_model->elultimo();
+	$data['procesos']= $this->proceso_model->lista_procesos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['estadoprocesos']= $this->estadoproceso_model->lista_estadoprocesos()->result();
+  	$data['estasoproceso']= $this->estadoproceso_model->lista_estadoprocesos()->result();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-    $data['title']="Ubicacionproceso del departamento";
+
+    $data['title']="Ubicacionproceso del proceso";
   
     $this->load->view('template/page_header');		
     $this->load->view('ubicacionproceso_record',$data);
