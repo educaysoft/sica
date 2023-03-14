@@ -234,7 +234,7 @@ public function elultimo()
 
 	$data['procesos']= $this->proceso_model->lista_procesos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['estasoproceso']= $this->estadoproceso_model->lista_estadoprocesos()->result();
+  	$data['estadoprocesos']= $this->estadoproceso_model->lista_estadoprocesos()->result();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 
     $data['title']="Ubicacionproceso del proceso";
@@ -252,14 +252,13 @@ public function elultimo()
 
 public function siguiente(){
  // $data['ubicacionproceso_list']=$this->ubicacionproceso_model->lista_ubicacionproceso()->result();
-	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  		$data['temas']= $this->tema_model->lista_temas()->result();
-		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 	$data['ubicacionproceso'] = $this->ubicacionproceso_model->siguiente($this->uri->segment(3))->row_array();
+
+	$data['procesos']= $this->proceso_model->lista_procesos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['estadoprocesos']= $this->estadoproceso_model->lista_estadoprocesos()->result();
-  	$data['eventos']= $this->evento_model->lista_eventos()->result();
+  	$data['estadoprocesos']= $this->estadoproceso_model->lista_estadoprocesos()->result();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+
     $data['title']="Ubicacionproceso del departamento";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
@@ -271,10 +270,13 @@ public function anterior(){
  // $data['ubicacionproceso_list']=$this->ubicacionproceso_model->lista_ubicacionproceso()->result();
   $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['ubicacionproceso'] = $this->ubicacionproceso_model->anterior($this->uri->segment(3))->row_array();
-	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
- 	$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['estadoprocesos']= $this->estadoproceso_model->lista_estadoprocesos()->result();
-  	$data['eventos']= $this->evento_model->lista_eventos()->result();
+
+
+	$data['procesos']= $this->proceso_model->lista_procesos()->result();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['estadoprocesos']= $this->estadoproceso_model->lista_estadoprocesos()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
  // $data['title']="Correo";
     $data['title']="Ubicacionproceso del departamento";
