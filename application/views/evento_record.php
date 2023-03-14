@@ -350,11 +350,11 @@ echo form_input($arrdatos) ?>
 	<table class="table table-striped table-bordered table-hover" id="mydatac">
 	 <thead>
 	 <tr>
+	 <th>sesion</th>
 	 <th>id</th>
 	 <th>fecha</th>
 	 <th>inicio</th>
 	 <th>termino</th>
-	 <th>sesion</th>
 	 <th>tema tratado</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
