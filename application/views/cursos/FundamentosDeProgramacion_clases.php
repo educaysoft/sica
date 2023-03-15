@@ -496,6 +496,7 @@ function get_pregunta(idpregunta,idx) {
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
         var html = '';
         var i;
+	html+="<fieldset id='group"+idx+"'>";
         for(i=0; i<data.length; i++){
 		j=i+1;
 		if(data[i].idrespuesta==idrespuesta && acierto==0)
@@ -521,6 +522,7 @@ function get_pregunta(idpregunta,idx) {
 		}
 
         }
+	html+="<fieldset>";
 	idx1='#respuesta'+idx;
         $(idx1).html(html);
         },
