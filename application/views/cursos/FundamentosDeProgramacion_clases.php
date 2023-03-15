@@ -416,6 +416,14 @@ function get_reactivo(idreactivo,idpersona) {
 
         $('#preguntas').html(html);
 
+
+        for(i=0; i<data.length; i++){
+		j=i+1;
+
+		get_pregunta(data[i].idpregunta,j); 
+	}
+
+
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
