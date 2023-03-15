@@ -102,7 +102,7 @@ function reactivo_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idreactivo,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idreactivo="'.$r->idreactivo.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('pregunta/actual').'"   data-idreactivo="'.$r->idreactivo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -130,7 +130,7 @@ function reactivo_pregunta()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idreactivo,$r->idpregunta,$r->pregunta,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idpregunta="'.$r->idpregunta.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('pregunta/actual').'"   data-idpregunta="'.$r->idpregunta.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),

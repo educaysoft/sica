@@ -220,7 +220,7 @@ $(document).ready(function(){
 });
 
 $('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idsesionevento');
+var id= $(this).data('idpregunta');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 
