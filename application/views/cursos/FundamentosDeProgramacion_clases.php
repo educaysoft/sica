@@ -407,9 +407,9 @@ function get_reactivo(idreactivo,idpersona) {
 		html += '<div class="form-check">';
 		html += '<input class="form-check-input" type="checkbox" id="inlineCheckbox'+j+'" value="option1" onclick="get_pregunta('+data[i].idpregunta+','+j+')">'; 
 		html += '<label class="form-check-label" for="inlineCheckbox'+j+'">Pregunta-'+j+'</label>';
-		html+='<div id="pregunta"'+j+' style="padding:10px; width:80%; margin:auto;">';
+		html+='<div id="pregunta'+j+'" style="padding:10px; width:80%; margin:auto;">';
 		html+='</div>';
-		html+='<div id="respuesta"'+j+'  style="padding:10px; width:80%; margin:auto;">';
+		html+='<div id="respuesta'+j+'"  style="padding:10px; width:80%; margin:auto;">';
 		html+='</div>';
 		html += '</div>';
 	}
