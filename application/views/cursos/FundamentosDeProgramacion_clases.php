@@ -403,9 +403,14 @@ function get_reactivo(idreactivo,idpersona) {
         var i;
         for(i=0; i<data.length; i++){
 		j=i+1;
-		html += '<div class="form-check form-check-inline">';
-		html += '<input class="form-check-input" type="checkbox" id="inlineCheckbox'+j+'" value="option1" onclick="get_pregunta('+data[i].idpregunta+')">'; 
+		//html += '<div class="form-check form-check-inline">';
+		html += '<div class="form-check">';
+		html += '<input class="form-check-input" type="checkbox" id="inlineCheckbox'+j+'" value="option1" onclick="get_pregunta('+data[i].idpregunta+','+j+')">'; 
 		html += '<label class="form-check-label" for="inlineCheckbox'+j+'">Pregunta-'+j+'</label>';
+		html+='<div id="pregunta"'+j+' style="padding:10px; width:80%; margin:auto;">';
+		html+='</div>';
+		html+='<div id="respuesta"'+j+'  style="padding:10px; width:80%; margin:auto;">';
+		html+='</div>';
 		html += '</div>';
 	}
 
@@ -422,7 +427,7 @@ function get_reactivo(idreactivo,idpersona) {
 }
 
 
-function get_pregunta(idpregunta) {
+function get_pregunta(idpregunta,idx) {
 	$.ajax({
         url: "<?php echo site_url('pregunta/get_pregunta') ?>",
         data: {idpregunta:idpregunta},
@@ -431,7 +436,8 @@ function get_pregunta(idpregunta) {
         datatype : 'json',
         success: function(data){
         var html1 = data[0].pregunta;
-        $('#pregunta').html(html1);
+	var idx1="#pregunta"+idx;
+        $(idx1).html(html1);
 
 
         },
@@ -507,7 +513,8 @@ function get_pregunta(idpregunta) {
 		}
 
         }
-        $('#respuesta').html(html);
+	idx1='#respuesta'+idx;
+        $(idx1).html(html);
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
