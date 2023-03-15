@@ -163,6 +163,9 @@ $seccion="Instrucción a los Fundamentos de Programación";
 $idreactivo=$tema['idreactivo'];
 $idpregunta=array(5,6,7);
 $idrespueta=array(array(7,8,9),array(10,11,12));
+
+$elvideo="";
+
 ?>
 
 
@@ -180,11 +183,14 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 
 	<?php
 		foreach($videotutorial as $row){
+			$elvideo=$row->enlace;
 	?>	
 			<div class="form-check form-check-inline">
 
+			
+
 				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onClick="show_unidad('<?php echo $row->nombre; ?>','<?php echo $row->enlace; ?>','<?php echo $row->idreactivo; ?>','<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>')"/>   
-				<label class="form-check-label" for="inlineCheckbox1">Unidad-<?php echo $row->idvideotutorial;?></label>
+				<label class="form-check-label" for="inlineCheckbox1">Videotutorila-<?php echo $row->idvideotutorial;?></label>
 			</div>
 
 	<?php } ?>
@@ -200,7 +206,8 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 	</div>
 
 	<div id="mvideo" style="padding:10px; width:100%;  height:500px; display:none;">
-		<iframe id="video"  src="https://www.youtube.com/embed/ABGl0PhDemI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:0; width:100%; height:100% ;"></iframe>  
+<!---	<div id="mvideo" style="padding:10px; width:100%;  height:500px; display:none;"> --->
+	<iframe id="video"  src=<?php echo "'".$elvideo."'"; ?>  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:0; width:100%; height:100% ;"></iframe>  
 		</div>
 	</div>
 
