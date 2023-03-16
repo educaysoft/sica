@@ -38,7 +38,7 @@ foreach ($instructores as $row){
 <td> Reactivo:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($reactivoes as $row){
+foreach ($reactivos as $row){
 	$options[$row->idreactivo]= $row->nombre;
 }
 
