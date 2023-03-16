@@ -496,9 +496,9 @@ function get_pregunta(idpregunta,idx) {
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
         var html = '';
         var i;
-	html+="<div";
+	html+="<div style="border:1px solid red";
 	html+="<form>";
-	html+="<fieldset id='group"+idx+"' style=' margin-left:0; display:flex; flex-direction:column;'>";
+	html+="<fieldset id='group"+idx+"' style='margin-left:0; display:flex; flex-direction:column;'>";
         for(i=0; i<data.length; i++){
 		j=i+1;
 		if(data[i].idrespuesta==idrespuesta && acierto==0)
