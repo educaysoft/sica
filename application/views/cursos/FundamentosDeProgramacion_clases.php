@@ -290,7 +290,7 @@ $i=$i+1;
 
 
 
-//show_unidad(<?php echo $titulovideo; ?>,<?php echo $linkvideo; ?>,<?php echo  $idreactivo; ?>,<?php echo $idpersona; ?>);
+show_unidad('<?php echo $titulovideo; ?>','<?php echo $linkvideo; ?>','<?php echo  $idreactivo; ?>','<?php echo $idpersona; ?>');
 
 
 function get_certificado(idpersona, idevento)
