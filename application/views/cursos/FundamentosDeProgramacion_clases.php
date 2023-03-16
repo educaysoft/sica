@@ -503,7 +503,7 @@ function get_pregunta(idpregunta,idx) {
 		j=i+1;
 		if(data[i].idrespuesta==idrespuesta && acierto==0)
 		{
-		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')"  checked>'+data[i].respuesta+'</input>'';
+		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')"  checked>'+data[i].respuesta+'</input>';
 		}
 		else if(data[i].idrespuesta==idrespuesta && acierto==1)
 		{
