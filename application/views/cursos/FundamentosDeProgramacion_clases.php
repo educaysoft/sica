@@ -522,7 +522,7 @@ function get_pregunta(idpregunta,idx) {
 		}
 
         }
-	html+="<fieldset>";
+	html+="</fieldset>";
 	idx1='#respuesta'+idx;
         $(idx1).html(html);
         },
