@@ -48,7 +48,6 @@ class Evaluacion_model extends CI_model {
 	
 				$arraeval['idevaluacionpersona']=$id;
 				$this->db->where(array('idevaluacionpersona'=>$arraeval['idevaluacionpersona']));
-				$this->db->where(array('idrespuesta'=>$arraeval['idrespuesta']));
 				$this->db->where(array('idpregunta'=>$arraeval['idpregunta']));
 				$query=$this->db->get('evaluacion');
 				if($query->num_rows()==0){
