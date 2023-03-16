@@ -497,8 +497,8 @@ function get_pregunta(idpregunta,idx) {
         var html = '';
         var i;
 	html+="<div style='border:1px solid red;'>";
-	html+="<form style='width:100%; padding-left:0; margin-left:0px;'>";
-	html+="<fieldset id='group"+idx+"' style='width:100%; margin-left:0; display:flex; flex-direction:column;'>";
+	html+="<form style='border:1px solid blue;  width:100%; padding-left:0; margin-left:0px;'>";
+	html+="<fieldset id='group"+idx+"' style='border:1px solid black; width:100%; margin-left:0; display:flex; flex-direction:column;'>";
         for(i=0; i<data.length; i++){
 		j=i+1;
 		if(data[i].idrespuesta==idrespuesta && acierto==0)
