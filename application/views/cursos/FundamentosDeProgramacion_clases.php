@@ -496,33 +496,29 @@ function get_pregunta(idpregunta,idx) {
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
         var html = '';
         var i;
+	html+="<form>";
 	html+="<fieldset id='group"+idx+"'>";
         for(i=0; i<data.length; i++){
 		j=i+1;
 		if(data[i].idrespuesta==idrespuesta && acierto==0)
 		{
-		html += '<div>';
 		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')"  checked>';
 		html += '  <label for="huey" style="color:red">'+data[i].respuesta+'</label>';
-		html += '</div>';
 		}
 		else if(data[i].idrespuesta==idrespuesta && acierto==1)
 		{
-		html += '<div>';
 		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+'  )"  checked>';
 		html += '  <label for="huey" style="color:green">'+data[i].respuesta+'</label>';
-		html += '</div>';
 		}
 		else
 		{
-		html += '<div>';
 		html += '  <input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')">';
 		html += '  <label for="huey" >'+data[i].respuesta+'</label>';
-		html += '</div>';
 		}
 
         }
 	html+="</fieldset>";
+	html+="</form>";
 	idx1='#respuesta'+idx;
         $(idx1).html(html);
         },
