@@ -497,14 +497,14 @@ function get_pregunta(idpregunta,idx) {
         var html = '';
         var i;
 	html+="<div style='border:1px solid red;'>";
-	html+="<form style='border:1px solid blue;  width:100%; padding-left:0; margin-left:0px;'>";
-	html+="<fieldset id='group"+idx+"' style='border:1px solid black; width:100%; margin-left:0px !important; display:flex; flex-direction:column;'>";
+	html+="<form style=' width:100%; padding-left:0; margin-left:0px;'>";
+	html+="<fieldset id='group"+idx+"' style=' width:100%; margin-left:0px !important; display:flex; flex-direction:column;'>";
         for(i=0; i<data.length; i++){
 		j=i+1;
 		if(data[i].idrespuesta==idrespuesta && acierto==0)
 		{
 		html+="<div>";
-		html += '<input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')"  checked ><span  style="font-size:15px;  color:red">'+data[i].respuesta+'</span></input>';
+		html += '<input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')"  checked >';
 		html+="</div>";
 		}
 		else if(data[i].idrespuesta==idrespuesta && acierto==1)
