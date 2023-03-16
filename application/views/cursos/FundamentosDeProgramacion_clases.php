@@ -496,7 +496,7 @@ function get_pregunta(idpregunta,idx) {
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
         var html = '';
         var i;
-	html+="<div style="border:1px solid red";
+	html+="<div style='border:1px solid red;'>";
 	html+="<form>";
 	html+="<fieldset id='group"+idx+"' style='margin-left:0; display:flex; flex-direction:column;'>";
         for(i=0; i<data.length; i++){
