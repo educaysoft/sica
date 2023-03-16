@@ -498,7 +498,7 @@ function get_pregunta(idpregunta,idx) {
         var i;
 	html+="<div";
 	html+="<form>";
-	html+="<fieldset id='group"+idx+"' style='width:550px;'>";
+	html+="<fieldset id='group"+idx+"' style='display: flex; flex-direction: column;'>";
         for(i=0; i<data.length; i++){
 		j=i+1;
 		if(data[i].idrespuesta==idrespuesta && acierto==0)
