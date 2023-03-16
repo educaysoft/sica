@@ -4,14 +4,14 @@
 <hr />
 <table>
  <tr>
-<td> Evaluacion:</td>
+<td> Reactivo:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($evaluaciones as $row){
-	$options[$row->idevaluacion]= $row->nombre;
+foreach ($reactivoes as $row){
+	$options[$row->idreactivo]= $row->nombre;
 }
 
- echo form_dropdown("idevaluacion",$options, $pregunta['idevaluacion']);  ?></td>
+ echo form_dropdown("idreactivo",$options, $pregunta['idreactivo']);  ?></td>
 </tr>
 
 
