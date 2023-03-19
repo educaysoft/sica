@@ -151,20 +151,7 @@ foreach ($sesioneventos as $row){
 					</div>
 
 
-					<div class="form-group row">
-					<label class="col-md-2 col-form-label">Tipo participacion:</label>
-					<div class="col-md-10">
-					<?php
-					//print_r($tipoparticipacions);
-					$options= array('--Select--');
-					foreach ($tipoparticipacion as $row){
-						$options[$row->idtipoparticipacion]= $row->nombre;
-					}
-					 echo form_dropdown("idtipoparticipacion_edit",$options, set_select('--Select--','default_value'),array('id'=>'idtipoparticipacion_edit'));  
-
-					?>
-					</div>
-					</div>
+					
 
 
 				</div>
@@ -372,13 +359,12 @@ $("#btn_update").on("click", function(){
 	var porcentaje=document.getElementById("porcentaje_edit").value;
 	var comentario=document.getElementById("comentario_edit").value;
 	var ayuda=document.getElementById("ayuda_edit").value;
-	var idtipoparticipacion=document.getElementById("idtipoparticipacion_edit").value;
 	//var idpersona= $('select[name=idpersona]').val();
 	var idpersona = document.getElementById("idpersona_edit").value;
        // var idpersona=p.options[p.selectedIndex].value;
     $.ajax({
         url: "<?php echo site_url('participacion/save_nota') ?>",
-        data: {idevento:idevento, fecha:fecha,porcentaje:porcentaje,comentario:comentario,idpersona:idpersona,idtipoparticipacion:idtipoparticipacion, ayuda:ayuda},
+        data: {idevento:idevento, fecha:fecha,porcentaje:porcentaje,comentario:comentario,idpersona:idpersona, ayuda:ayuda},
         method: 'POST',
         async : false,
         dataType : 'json',
@@ -438,7 +424,6 @@ function get_participacion_xx() {
           $('[name="porcentaje_edit"]').val("");
           $('[name="comentario_edit"]').val("");
           $('[name="ayuda_edit"]').val("");
-          $('[name="idtipoparticipacion_edit"]').val("");
         }else{
           $('[name="idparticipacion_edit"]').val(data[0].idparticipacion);
           $('[name="idevento_edit"]').val(data[0].idevento);
@@ -448,7 +433,6 @@ function get_participacion_xx() {
           $('[name="comentario_edit"]').val(data[0].comentario);
           $('[name="porcentaje_edit"]').val(data[0].porcentaje);
           $('[name="ayuda_edit"]').val(data[0].ayuda);
-          $('[name="idtipoparticipacion__edit"]').val(data[0].idtipoparticipacion);
         }
         },
       error: function (xhr, ajaxOptions, thrownError) {
