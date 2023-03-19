@@ -49,7 +49,9 @@
 		$pdf->Cell(8,5,$row->temacorto,1,0,'C',1);
 	}
 	$pdf->Cell(10,5,'P1',1,0,'C',1);
+	$pdf->Cell(10,5,'Asi1',1,0,'C',1);
 	$pdf->Cell(10,5,'P2',1,0,'C',1);
+	$pdf->Cell(10,5,'Asi2',1,0,'C',1);
 	$pdf->Cell(10,5,'Prom',1,0,'C',1);
 	$pdf->Cell(10,5,'Asis',1,1,'C',1);
  
@@ -74,6 +76,22 @@
 	$id=0;
 	$persona="";
 	$i=0;
+
+	$arrasistencia=array();
+	foreach ($asistencias as $row){  //Recorre todas las asistencias
+		$salir=0;
+		foreach($fechacorte as $p=>$fc)
+		{
+	      		if($row->fecha<=$fc)
+			{
+				$arrasistencia[$row->idpersona][$p]=$arrasistencia[$row->idpersona][$p]+1;
+					$salir=1;
+			 }
+			      if($salir==1){ break;}
+		}
+
+ 	}
+
 	foreach ($participacion as $row){  //Recorre todas la participaciones realizadas por los participantes
 	       
 	  if($idparticipanteestado==$row->idparticipanteestado || $idparticipanteestado==0){ // En caso de que solo quiere un estado de aprticipancion    
@@ -81,6 +99,11 @@
 	  if($id!=$row->idpersona)
 	  {
 	   if($id>0){    //Antes de comenzar a imprimir primero debe llenar registro
+
+		   
+
+
+
 		    $i=$i+1;
 		    $pdf->Cell(5,5,$i,1,0,'R',0); 
 		    $pdf->Cell(55,5,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
@@ -137,6 +160,7 @@
 		$sum=$sum+round($sp,0);
     		$pdf->Cell(10,5,round($sp,0),1,0,'R',0);
 		$k=$k+1;
+    		$pdf->Cell(10,5,$arrasistencia[$id][$k],1,0,'R',0);
 	       }else{
 		 if($sp>0){
 			$sum=$sum+round($sp,0);

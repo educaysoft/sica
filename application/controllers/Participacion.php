@@ -214,6 +214,7 @@ public function reportepdf()
 	$data['evento'] = $this->evento_model->evento($idevento)->row_array();
 	$data['sesioneventos'] =$this->sesionevento_model->sesionevento_activo($idevento)->result();
   	$data['participacion'] = $this->participacion_model->listar_participacion1($idevento)->result();
+  	$data['asistencias'] = $this->asistencia_model->listar_asistencia_reporte($idevento)->result();
   	$data['title']="Certificado";
 	$data['fechacorte']=array();
 	$fechas= $this->calendarioacademico_model->fechasdecorte($data['evento']['idsilabo'])->result_array();
