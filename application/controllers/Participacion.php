@@ -219,6 +219,7 @@ public function reportepdf()
   	$data['asistencias'] = $this->asistencia_model->listar_asistencia_reporte($idevento)->result();
 
 	$data['jornadadocente']= $this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente'])->result();
+	$data['calendarioacademico'] = $this->calendarioacademico_model->lista_calendarioacademicosA($data['evento']['idcalendarioacademico'])->result();
 
   	$data['title']="Certificado";
 	$data['fechacorte']=array();
