@@ -95,8 +95,6 @@
 		}
 
  	}
-	print_r($arrasistencia);
-	die();
 
 	foreach ($participacion as $row){  //Recorre todas la participaciones realizadas por los participantes
 	       
@@ -165,8 +163,8 @@
 	       if($nnotas[$k]>=1){
 		$sum=$sum+round($sp,0);
     		$pdf->Cell(10,5,round($sp,0),1,0,'R',0);
-		$k=$k+1;
     		$pdf->Cell(10,5,$arrasistencia[$id][$k],1,0,'R',0);
+		$k=$k+1;
 	       }else{
 		 if($sp>0){
 			$sum=$sum+round($sp,0);
