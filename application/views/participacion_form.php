@@ -403,6 +403,9 @@ function get_participacion_xx() {
 	var idevento=document.getElementById("idevento").value;
 	var idpersona= $('select[name=idpersona]').val();
 //	var idpersona=document.getElementById("idpersona").value;
+var options = document.getElementById('idpersona').selectedOptions;
+var values = array.from(options).map(({ value }) => value);
+alert(values);
 	idpersona=parseInt(idpersona);
     $.ajax({
         url: "<?php echo site_url('participacion/get_participacion') ?>",
@@ -419,9 +422,6 @@ function get_participacion_xx() {
           $('[name="idparticipacion_edit"]').val(0);
           $('[name="idevento_edit"]').val(idevento);
           $('[name="fecha_edit"]').val(fecha);
-var options = document.getElementById('idpersona').selectedOptions;
-var values = array.from(options).map(({ value }) => value);
-alert(values);
 
           $('[name="lapersona_edit"]').val(values);
           $('[name="idpersona_edit"]').val(idpersona);
