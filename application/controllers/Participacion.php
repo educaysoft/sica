@@ -8,6 +8,7 @@ class Participacion extends CI_Controller{
       		$this->load->model('persona_model');
       		$this->load->model('calendarioacademico_model');
       		$this->load->model('evento_model');
+      		$this->load->model('asistencia_model');
          	$this->load->model('sesionevento_model');
       		$this->load->model('tipoparticipacion_model');
 	}
