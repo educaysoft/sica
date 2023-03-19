@@ -127,8 +127,8 @@
 			if(strtotime($fechasesion)==strtotime($fecha)){
 				$sesionactual=$i;
 			}
-			if(isset($sesiontotal[$sp])){
-				$sesiontotal=$sesiontotal+1;
+			if(isset($sesiontotal[$p])){
+				$sesiontotal[$p]=$sesiontotal[$p]+1;
 			}else{
 				$sesiontotal=1;
 			}
