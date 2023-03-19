@@ -81,8 +81,6 @@
 	  if($id!=$row->idpersona)
 	  {
 	   if($id>0){    //Antes de comenzar a imprimir primero debe llenar registro
-		    print_r($arrparticipacion);
-		    die();
 		    $i=$i+1;
 		    $pdf->Cell(5,5,$i,1,0,'R',0); 
 		    $pdf->Cell(55,5,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
@@ -254,7 +252,6 @@
 
       }else{
          $pdf->Cell(8,5,'0',1,0,'R',0);
-
 
 	foreach($fechacorte as $p=>$fc)
 	{
