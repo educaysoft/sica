@@ -78,22 +78,23 @@
 	$i=0;
 
 	$arrasistencia=array();
-	print_r($fechacorte);
 	foreach ($asistencias as $row){  //Recorre todas las asistencias
 		$salir=0;
 		foreach($fechacorte as $p=>$fc)
 		{
 	      		if($row->fecha<=$fc)
 			{
-				$arrasistencia[$row->idpersona][$p]=$arrasistencia[$row->idpersona][$p]+1;
+				if(issue($arrasistencia[$row->idpersona][$p])){
+				   $arrasistencia[$row->idpersona][$p]=$arrasistencia[$row->idpersona][$p]+1;
+				  }else{
+				   $arrasistencia[$row->idpersona][$p]=1;
+				  }
 					$salir=1;
 			 }
 			      if($salir==1){ break;}
 		}
 
  	}
-	print_r($arrasistencia);
-	die();
 
 	foreach ($participacion as $row){  //Recorre todas la participaciones realizadas por los participantes
 	       
