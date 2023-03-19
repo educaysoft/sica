@@ -183,7 +183,7 @@
 echo "\n";
 
 	   print_r($arrparticipacion);
-//	   die();
+	   die();
 
     	if($nivelrpt==2){	
 	    $arrayuda[$row->fecha]=0;
