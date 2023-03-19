@@ -87,7 +87,7 @@
 		    $pdf->Cell(5,5,utf8_decode($arrgenero1[$id]),1,0,'L',0);
 		    $pdf->Cell(5,5,utf8_decode($arrcolegio1[$id]),1,0,'L',0);
 		    foreach ($sesioneventos as $row1){     //Recorre todas las fecha programadas en el evento
-			    print_r($row1);
+			  //  print_r($row1);
 			  //  die();
 		      if(isset($arrparticipacion[$row1->fecha])){    //Si el participante tuvo participacion en esa fecha
 			      if($nivelrpt==2 || $nivelrpt==1)
@@ -95,7 +95,6 @@
 				   $ponderacion=1;
 			      }else{
 				   $ponderacion=$row1->ponderacion;
-				   $ponderacion=1;
 			      }
 			      if($arrayuda[$row1->fecha]>0){
 				$pdf->SetTextColor(3,18,249);
@@ -172,7 +171,7 @@
 		$nparcial=0;
 		$sum=0;
    }
-	  print_r($row);
+	  //print_r($row);
 
 	$arrparticipacion=array(); 	$arrgenero1=array(); 	$arrgenero2=array(); 	$arrcolegio1=array(); 	$arrcolegio2=array(); 	$arrayuda=array();
 	$id=$row->idpersona;
@@ -183,9 +182,9 @@
 	$arrcolegio2[$row->idpersona]=$row->colegio; 
 	$arrparticipacion[$row->fecha]=$row->porcentaje;
 
-echo "\n";
+// echo "\n";
 
-	   print_r($arrparticipacion);
+//	   print_r($arrparticipacion);
 
     	if($nivelrpt==2){	
 	    $arrayuda[$row->fecha]=0;
