@@ -421,7 +421,7 @@ function get_participacion_xx() {
           $('[name="fecha_edit"]').val(fecha);
 var options = document.getElementById('idpersona').selectedOptions;
 var values = array.from(options).map(({ value }) => value);
-
+alert(values);
 
           $('[name="lapersona_edit"]').val(values);
           $('[name="idpersona_edit"]').val(idpersona);
