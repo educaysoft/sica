@@ -74,7 +74,7 @@
 	$id=0;
 	$persona="";
 	$i=0;
-	foreach ($participacion as $row){  //Recorre todas la participaciones realiadas por los participantes
+	foreach ($participacion as $row){  //Recorre todas la participaciones realizadas por los participantes
 	       
 	  if($idparticipanteestado==$row->idparticipanteestado || $idparticipanteestado==0){ // En caso de que solo quiere un estado de aprticipancion    
 	  if($idpersona==$row->idpersona || $idpersona==0){ // En caso de que solo quiere el de un estudiante    
@@ -121,7 +121,7 @@
 			{
 			      if($row1->fecha<=$fc)
 				{
-					$parcial[$p]=$parcial[$p]+ 0; 	$nnotas[$p]=$nnotas[$p]+1; $nparcial=$p;
+				$parcial[$p]=$parcial[$p]+ 0; 	$nnotas[$p]=$nnotas[$p]+1; $nparcial=$p;
 					break;
 			      }
 			}  
@@ -169,6 +169,9 @@
 		$nparcial=0;
 		$sum=0;
    }
+	   print_r($row);
+	   die();
+
 	$arrparticipacion=array(); 	$arrgenero1=array(); 	$arrgenero2=array(); 	$arrcolegio1=array(); 	$arrcolegio2=array(); 	$arrayuda=array();
 	$id=$row->idpersona;
 	$arrparticipacion[$row->idpersona]=$row->nombres;
