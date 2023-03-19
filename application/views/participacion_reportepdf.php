@@ -141,11 +141,11 @@
 		$pdf->Cell(8,5,$row->temacorto,1,0,'C',1);
 	}
 	$pdf->Cell(10,5,'P1',1,0,'C',1);
-	$pdf->Cell(10,10,'As1('.$sesiontotal[0].')',0,'C',1);
+	$pdf->Cell(11,5,'As1('.$sesiontotal[0].')',0,'C',1);
 	$pdf->Cell(10,5,'P2',1,0,'C',1);
-	$pdf->Cell(10,10,'As2('.$sesiontotal[1].')',0,'C',1);
+	$pdf->Cell(11,5,'As2('.$sesiontotal[1].')',0,'C',1);
 	$pdf->Cell(10,5,'Prom',1,0,'C',1);
-	$pdf->Cell(10,10,'Asis',1,1,'C',1);
+	$pdf->Cell(11,5,'Asis',1,1,'C',1);
  
 
 
@@ -220,7 +220,7 @@
 	       if($nnotas[$k]>=1){
 		$sum=$sum+round($sp,0);
     		$pdf->Cell(10,5,round($sp,0),1,0,'R',0);
-    		$pdf->Cell(10,10,round((100*$arrasistencia[$id][$k]/$sesiontotal[$k]),0).'%',1,0,'R',0);
+    		$pdf->Cell(11,5,round((100*$arrasistencia[$id][$k]/$sesiontotal[$k]),0).'%',1,0,'R',0);
 		$k=$k+1;
 	       }else{
 		 if($sp>0){
@@ -233,7 +233,7 @@
 		if($k=1){
 
     		$pdf->Cell(10,5,0,1,0,'R',0);
-    		$pdf->Cell(10,10,round((100*$arrasistencia[$id][$k]/$sesiontotal[$k]),0).'%',1,0,'R',0);
+    		$pdf->Cell(11,5,round((100*$arrasistencia[$id][$k]/$sesiontotal[$k]),0).'%',1,0,'R',0);
 
 
 		}
@@ -257,7 +257,7 @@
 			$aprobados=$aprobados+1;
 		}
 		//--Imprime la asistencia
-		$pdf->Cell(10,7,round(100*(($arrasistencia[0]+$arrasistencia[1])/($sesiontotal[0]+$sesiontotal[1])),0),1,1,'R',0);
+		$pdf->Cell(11,5,round(100*(($arrasistencia[0]+$arrasistencia[1])/($sesiontotal[0]+$sesiontotal[1])),0),1,1,'R',0);
 		//--INicializa para el proximo participante
 		foreach($fechacorte as $p=>$fc)
 		{
