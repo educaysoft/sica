@@ -78,6 +78,7 @@
 	$i=0;
 
 	$arrasistencia=array();
+	print_r($fecchacorte);
 	foreach ($asistencias as $row){  //Recorre todas las asistencias
 		$salir=0;
 		foreach($fechacorte as $p=>$fc)
