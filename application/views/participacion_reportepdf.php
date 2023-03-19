@@ -170,7 +170,6 @@
 		$sum=0;
    }
 	   print_r($row);
-	   die();
 
 	$arrparticipacion=array(); 	$arrgenero1=array(); 	$arrgenero2=array(); 	$arrcolegio1=array(); 	$arrcolegio2=array(); 	$arrayuda=array();
 	$id=$row->idpersona;
@@ -180,6 +179,11 @@
 	$arrcolegio1[$row->idpersona]=$row->idinstitucion; 
 	$arrcolegio2[$row->idpersona]=$row->colegio; 
 	$arrparticipacion[$row->fecha]=$row->porcentaje;
+
+echo "\n";
+
+	   print_r($arrparticipacion);
+	   die();
 
     	if($nivelrpt==2){	
 	    $arrayuda[$row->fecha]=0;
