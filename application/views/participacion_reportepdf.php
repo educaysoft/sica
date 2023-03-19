@@ -37,24 +37,6 @@
 	$pdf->AliasNbPages();
 	$pdf->AddPage();
 	
-	$pdf->SetFillColor(232,232,232);
-	$pdf->SetFont('Arial','B',8);
-
-
-	$pdf->Cell(5,5,'#',1,0,'C',1);
-	$pdf->Cell(55,5,'Participante',1,0,'C',1);
-	$pdf->Cell(5,5,'GE',1,0,'C',1);
-	$pdf->Cell(5,5,'CO',1,0,'C',1);
-	foreach ($sesioneventos as $row){
-		$pdf->Cell(8,5,$row->temacorto,1,0,'C',1);
-	}
-	$pdf->Cell(10,5,'P1',1,0,'C',1);
-	$pdf->Cell(10,5,'Asi1',1,0,'C',1);
-	$pdf->Cell(10,5,'P2',1,0,'C',1);
-	$pdf->Cell(10,5,'Asi2',1,0,'C',1);
-	$pdf->Cell(10,5,'Prom',1,0,'C',1);
-	$pdf->Cell(10,5,'Asis',1,1,'C',1);
- 
 	$aprobados=0;
 	$reprobados=0;
 	$desertores=0;
@@ -139,9 +121,35 @@
 		$fechasesion=date("Y-m-d",strtotime($fechasesion."+ 1 days")); 
     }while(strtotime($fechasesion)<=strtotime($fc));
     }
+			if(!isset($sesiontotal[1])){
+				$sesiontotal[1]=0;
+			}
 
   //   print_r($sesiontotal);
    //  die();
+
+
+	$pdf->SetFillColor(232,232,232);
+	$pdf->SetFont('Arial','B',8);
+
+
+	$pdf->Cell(5,5,'#',1,0,'C',1);
+	$pdf->Cell(55,5,'Participante',1,0,'C',1);
+	$pdf->Cell(5,5,'GE',1,0,'C',1);
+	$pdf->Cell(5,5,'CO',1,0,'C',1);
+	foreach ($sesioneventos as $row){
+		$pdf->Cell(8,5,$row->temacorto,1,0,'C',1);
+	}
+	$pdf->Cell(10,5,'P1',1,0,'C',1);
+	$pdf->Cell(10,5,'As1('.$sesiontotal[0].')',0,'C',1);
+	$pdf->Cell(10,5,'P2',1,0,'C',1);
+	$pdf->Cell(10,5,'As2('.$sesiontotal[1].')',0,'C',1);
+	$pdf->Cell(10,5,'Prom',1,0,'C',1);
+	$pdf->Cell(10,5,'Asis',1,1,'C',1);
+ 
+
+
+
 
 
 
@@ -212,7 +220,7 @@
 	       if($nnotas[$k]>=1){
 		$sum=$sum+round($sp,0);
     		$pdf->Cell(10,5,round($sp,0),1,0,'R',0);
-    		$pdf->Cell(10,5,round(($sesiontotal[$k]),0),1,0,'R',0);
+    		$pdf->Cell(10,5,round((100*$arrasistencia[$id][$k]/$sesiontotal[$k]),0).'%',1,0,'R',0);
 		$k=$k+1;
 	       }else{
 		 if($sp>0){
