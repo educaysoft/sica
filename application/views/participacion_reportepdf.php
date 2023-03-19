@@ -140,8 +140,8 @@
     }while(strtotime($fechasesion)<=strtotime($fc));
     }
 
-   //  print_r($sesiontotal);
-   //  die();
+     print_r($sesiontotal);
+     die();
 
 
 
