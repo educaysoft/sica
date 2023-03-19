@@ -298,7 +298,7 @@ echo form_input($arrdatos) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"><a href= "<?php echo base_url(); ?>silabo/actual/<?php echo $evento['idsilabo']; ?> "   >Silabo: &#x1F448;</a>            <?php echo anchor('silabo/actual/'.$evento['idsilabo'], 'Silabo:') ?> </label>
+    <label class="col-md-2 col-form-label"><a href= "<?php echo base_url(); ?>silabo/actual/<?php echo $evento['idsilabo']; ?> "   >Silabo: &#x1F448;</a>    </label>
      <?php 
     $options= array("NADA");
     foreach ($silabos as $row){
