@@ -84,7 +84,7 @@
 		{
 	      		if($row->fecha<=$fc)
 			{
-				if(issue($arrasistencia[$row->idpersona][$p])){
+				if(isset($arrasistencia[$row->idpersona][$p])){
 				   $arrasistencia[$row->idpersona][$p]=$arrasistencia[$row->idpersona][$p]+1;
 				  }else{
 				   $arrasistencia[$row->idpersona][$p]=1;
