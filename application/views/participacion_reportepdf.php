@@ -101,6 +101,7 @@
 // Calcular la cantidad de sesionea hasta la fecha
 
 
+	$sesionactual=0;
 	$sesiontotal=array();
 
 		foreach($fechacorte as $p=>$fc)
