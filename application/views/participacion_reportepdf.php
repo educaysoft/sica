@@ -130,7 +130,7 @@
 			if(isset($sesiontotal[$p])){
 				$sesiontotal[$p]=$sesiontotal[$p]+1;
 			}else{
-				$sesiontotal=1;
+				$sesiontotal[$p]=1;
 			}
 
 			$i=$i+1;
@@ -140,8 +140,8 @@
     }while(strtotime($fechasesion)<=strtotime($fc));
     }
 
-     print_r($sesiontotal);
-     die();
+  //   print_r($sesiontotal);
+   //  die();
 
 
 
