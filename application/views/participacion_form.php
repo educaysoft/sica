@@ -39,7 +39,7 @@ foreach ($eventos as $row){
 
 $options= array('--Select--');
 foreach ($sesioneventos as $row){
-	$options[$row->idsesionevento]= $row->fecha." - ".$row->tema;
+	$options[$row->idsesionevento]= $row->vecha." - ".$row->tema;
 }
  echo form_dropdown("idsesionevento",$options, set_select('--Select--','default_value'),array('id'=>'idsesionevento','onchange'=>'get_participantes2()'));  
 
@@ -419,7 +419,11 @@ function get_participacion_xx() {
           $('[name="idparticipacion_edit"]').val(0);
           $('[name="idevento_edit"]').val(idevento);
           $('[name="fecha_edit"]').val(fecha);
-          $('[name="lapersona_edit"]').val("");
+var options = document.getElementById('idpersona').selectedOptions;
+var values = array.from(options).map(({ value }) => value);
+
+
+          $('[name="lapersona_edit"]').val(values);
           $('[name="idpersona_edit"]').val(idpersona);
           $('[name="porcentaje_edit"]').val("");
           $('[name="comentario_edit"]').val("");
