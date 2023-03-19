@@ -169,21 +169,21 @@
 		$nparcial=0;
 		$sum=0;
    }
-	   print_r($row);
+	 //  print_r($row);
 
 	$arrparticipacion=array(); 	$arrgenero1=array(); 	$arrgenero2=array(); 	$arrcolegio1=array(); 	$arrcolegio2=array(); 	$arrayuda=array();
 	$id=$row->idpersona;
 	$arrparticipacion[$row->idpersona]=$row->nombres;
-	$arrgenero1[$row->idpersona]=$row->idgenero; 
-	$arrgenero2[$row->idpersona]=$row->genero; 
+	$arrgenero1[$row->idpersona]=$row->idsexo; 
+	$arrgenero2[$row->idpersona]=$row->sexo; 
 	$arrcolegio1[$row->idpersona]=$row->idinstitucion; 
 	$arrcolegio2[$row->idpersona]=$row->colegio; 
 	$arrparticipacion[$row->fecha]=$row->porcentaje;
 
-echo "\n";
+//echo "\n";
 
-	   print_r($arrparticipacion);
-	   die();
+//	   print_r($arrparticipacion);
+//	   die();
 
     	if($nivelrpt==2){	
 	    $arrayuda[$row->fecha]=0;
