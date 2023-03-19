@@ -97,6 +97,7 @@
  	}
 
    
+ $dias = array('Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado');
 // Calcular la cantidad de sesionea hasta la fecha
 
 
