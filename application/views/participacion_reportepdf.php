@@ -74,6 +74,9 @@
 	$id=0;
 	$persona="";
 	$i=0;
+	print_r($participacion);
+	die();
+
 	foreach ($participacion as $row){  //Recorre todas la participaciones realiadas por los participantes
 	       
 	  if($idparticipanteestado==$row->idparticipanteestado || $idparticipanteestado==0){ // En caso de que solo quiere un estado de aprticipancion    
