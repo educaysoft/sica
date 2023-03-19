@@ -141,11 +141,11 @@
 		$pdf->Cell(8,5,$row->temacorto,1,0,'C',1);
 	}
 	$pdf->Cell(10,5,'P1',1,0,'C',1);
-	$pdf->Cell(10,5,'As1('.$sesiontotal[0].')',0,'C',1);
+	$pdf->Cell(10,6,'As1('.$sesiontotal[0].')',0,'C',1);
 	$pdf->Cell(10,5,'P2',1,0,'C',1);
-	$pdf->Cell(10,5,'As2('.$sesiontotal[1].')',0,'C',1);
+	$pdf->Cell(10,6,'As2('.$sesiontotal[1].')',0,'C',1);
 	$pdf->Cell(10,5,'Prom',1,0,'C',1);
-	$pdf->Cell(10,5,'Asis',1,1,'C',1);
+	$pdf->Cell(10,6,'Asis',1,1,'C',1);
  
 
 
@@ -220,7 +220,7 @@
 	       if($nnotas[$k]>=1){
 		$sum=$sum+round($sp,0);
     		$pdf->Cell(10,5,round($sp,0),1,0,'R',0);
-    		$pdf->Cell(10,5,round((100*$arrasistencia[$id][$k]/$sesiontotal[$k]),0).'%',1,0,'R',0);
+    		$pdf->Cell(10,6,round((100*$arrasistencia[$id][$k]/$sesiontotal[$k]),0).'%',1,0,'R',0);
 		$k=$k+1;
 	       }else{
 		 if($sp>0){
