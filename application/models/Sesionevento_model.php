@@ -36,7 +36,7 @@ class Sesionevento_model extends CI_model {
 
 	function sesionevento_activo($id){
  		//$sesionevento = $this->db->query('select * from sesionevento where idevento='. $id.' and idmodoevaluacion>1 and fecha in (select fecha from participacion p where  p.idevento='.$id.' and p.idtipoparticipacion=1) order by fecha');
- 		$sesionevento = $this->db->query('select * from sesionevento where idevento='. $id.' and idmodoevaluacion>1 and fecha in (select fecha from participacion p where  p.idevento='.$id.') order by fecha');
+ 		$sesionevento = $this->db->query('select * from sesionevento1 where idevento='. $id.' and idmodoevaluacion>1 and fecha in (select fecha from participacion p where  p.idevento='.$id.') order by fecha');
  		return $sesionevento;
  	}
 
