@@ -74,8 +74,6 @@
 	$id=0;
 	$persona="";
 	$i=0;
-	print_r($participacion);
-	die();
 
 	foreach ($participacion as $row){  //Recorre todas la participaciones realiadas por los participantes
 	       
@@ -83,6 +81,7 @@
 	  if($idpersona==$row->idpersona || $idpersona==0){ // En caso de que solo quiere el de un estudiante    
 	  if($id!=$row->idpersona)
 	  {
+
 	   if($id>0){    //Antes de comenzar a imprimir primero debe llenar registro
 		    $i=$i+1;
 		    $pdf->Cell(5,5,$i,1,0,'R',0); 
@@ -91,6 +90,8 @@
 		    $pdf->Cell(5,5,utf8_decode($arrcolegio1[$id]),1,0,'L',0);
 		    foreach ($sesioneventos as $row1){     //Recorre todas las fecha programadas en el evento
 		      if(isset($arrparticipacion[$row1->fecha])){    //Si el participante tuvo participacion en esa fecha
+			      print_r($arrparticipacion);
+			      die();
 			      if($nivelrpt==2 || $nivelrpt==1)
 			      { 
 				   $ponderacion=1;
