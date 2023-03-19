@@ -95,6 +95,8 @@
 		}
 
  	}
+	print_r($arrasistencia);
+	die();
 
 	foreach ($participacion as $row){  //Recorre todas la participaciones realizadas por los participantes
 	       
