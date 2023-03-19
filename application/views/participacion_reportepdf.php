@@ -230,6 +230,17 @@
 			 }
 	       }
 	    } 
+		if($k=1){
+
+    		$pdf->Cell(10,5,0,1,0,'R',0);
+    		$pdf->Cell(10,7,round((100*$arrasistencia[$id][$k]/$sesiontotal[$k]),0).'%',1,0,'R',0);
+
+
+		}
+
+
+
+
 		//-- Imprime los promedios llenado de color seguon el rango
 
 		$resu=round($sum/$k,0);
