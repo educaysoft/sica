@@ -10,6 +10,7 @@ class Participacion extends CI_Controller{
       		$this->load->model('evento_model');
       		$this->load->model('asistencia_model');
          	$this->load->model('sesionevento_model');
+      		$this->load->model('jornadadocente_model');
       		$this->load->model('tipoparticipacion_model');
 	}
 
@@ -216,6 +217,9 @@ public function reportepdf()
 	$data['sesioneventos'] =$this->sesionevento_model->sesionevento_activo($idevento)->result();
   	$data['participacion'] = $this->participacion_model->listar_participacion1($idevento)->result();
   	$data['asistencias'] = $this->asistencia_model->listar_asistencia_reporte($idevento)->result();
+
+	$data['jornadadocente']= $this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente'])->result();
+
   	$data['title']="Certificado";
 	$data['fechacorte']=array();
 	$fechas= $this->calendarioacademico_model->fechasdecorte($data['evento']['idsilabo'])->result_array();

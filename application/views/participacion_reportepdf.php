@@ -96,6 +96,53 @@
 
  	}
 
+   
+// Calcular la cantidad de sesionea hasta la fecha
+
+
+	$sesiontotal=array();
+
+		foreach($fechacorte as $p=>$fc)
+		{
+ 	$fechasesion=$calendarioacademico[0]->fechadesde;
+ 	$sesiones=array();
+     $i=1;
+    do{
+	
+	foreach ($jornadadocente as $row){
+    		$dia = $dias[date('w', strtotime($fechasesion))];
+		if($row->nombre==$dia ){    //verifica si la fecha esta en el horario.
+			$lahorai=$row->horainicio;
+			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
+			$lahoraf=date("H:i:s",$lahoraf);
+			array_push($sesiones,array("sesion"=>$i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
+			if($sesionactual==0){
+			if(!isset($sesiondictada[$fechasesion]))
+			{
+				$fecha=$fechasesion;
+			}}
+			
+			if(strtotime($fechasesion)==strtotime($fecha)){
+				$sesionactual=$i;
+			}
+			if(isset($sesiontotal[$sp]){
+				$sesiontotal=$sesiontotal+1;
+			}else{
+				$sesiontotal=1;
+			}
+
+			$i=$i+1;
+		}
+	}
+		$fechasesion=date("Y-m-d",strtotime($fechasesion."+ 1 days")); 
+    }while(strtotime($fechasesion)<=strtotime($fc));
+    }
+
+     print_r($sesiontotal);
+     die();
+
+
+
 	foreach ($participacion as $row){  //Recorre todas la participaciones realizadas por los participantes
 	       
 	  if($idparticipanteestado==$row->idparticipanteestado || $idparticipanteestado==0){ // En caso de que solo quiere un estado de aprticipancion    
