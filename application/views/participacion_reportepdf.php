@@ -246,7 +246,7 @@
 			$aprobados=$aprobados+1;
 		}
 		//--Imprime la asistencia
-		$pdf->Cell(10,7,round(100*(($arrasistencia[0]+$arrasistencia[1])/($sesiontotal[0]+$sesiontotal[1]),0)),1,1,'R',0);
+		$pdf->Cell(10,7,round(100*(($arrasistencia[0]+$arrasistencia[1])/($sesiontotal[0]+$sesiontotal[1])),0),1,1,'R',0);
 		//--INicializa para el proximo participante
 		foreach($fechacorte as $p=>$fc)
 		{
