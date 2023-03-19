@@ -140,8 +140,8 @@
     }while(strtotime($fechasesion)<=strtotime($fc));
     }
 
-     print_r($sesiontotal);
-     die();
+   //  print_r($sesiontotal);
+   //  die();
 
 
 
@@ -212,7 +212,7 @@
 	       if($nnotas[$k]>=1){
 		$sum=$sum+round($sp,0);
     		$pdf->Cell(10,5,round($sp,0),1,0,'R',0);
-    		$pdf->Cell(10,5,$arrasistencia[$id][$k],1,0,'R',0);
+    		$pdf->Cell(10,5,round((100*$arrasistencia[$id][$k]/$sesiontotal[$k]),0),1,0,'R',0);
 		$k=$k+1;
 	       }else{
 		 if($sp>0){
