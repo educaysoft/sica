@@ -35,7 +35,7 @@
 
 
 	$pdf->AliasNbPages();
-	$pdf->AddPage();
+	$pdf->AddPage('L');
 	
 	$aprobados=0;
 	$reprobados=0;
@@ -192,10 +192,10 @@
 			{
 			      if($row1->fecha<=$fc)
 				{
-					$parcial[$p]=$parcial[$p]+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2);
-					$nnotas[$p]=$nnotas[$p]+1;
-					$nparcial=$p;
-					$salir=1;
+				$parcial[$p]=$parcial[$p]+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2);
+				$nnotas[$p]=$nnotas[$p]+1;
+				$nparcial=$p;
+				$salir=1;
 			      }
 			      if($salir==1){ break;}
 
