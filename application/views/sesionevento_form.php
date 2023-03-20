@@ -146,7 +146,7 @@ foreach ($unidadsilabos as $row){
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;',"maxlength"=>200, "placeholder"=>"Descripción corta del tema" );    
  echo form_textarea("temacorto","", $textarea_options);  
 
-?>
+?><div id="textarea_feedback"></div>
 </div>
 </div>
 
@@ -236,6 +236,17 @@ foreach ($modoevaluacions as $row){
 	  }
 	});     
 
+$(document).ready(function() {
+    var text_max = 20;
+    $('#textarea_feedback').html('Quedan ' + text_max + ' caracteres');
+
+    $('#temacorto').keyup(function() {
+        var text_length = $('#temacorto').val().length;
+        var text_remaining = text_max - text_length;
+
+        $('#textarea_feedback').html('Quedan ' + text_remaining + ' caracteres');
+    });
+});
 
 
 </script>
