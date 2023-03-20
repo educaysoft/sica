@@ -23,7 +23,12 @@ public function index(){
 
 	public function add()
 	{
-			$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
+		$idpregunta=0;
+		if(isset($this->uri->segment(3)){
+			$idpregunta=$this->uri->segment(3);
+		}
+
+			$data['preguntas']= $this->pregunta_model->pregunta($idpregunta)->result();
 			$data['title']="Nueva Respuesta";
 			$this->load->view('template/page_header');		
 			$this->load->view('respuesta_form',$data);
