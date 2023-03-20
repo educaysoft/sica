@@ -3,7 +3,7 @@ class Participacion_model extends CI_model {
 
 
 	function participacionx($idevento,$idpersona){
-		 $this->db->order_by("idtipoparticipacion asc,fecha asc");
+		 $this->db->order_by("fecha asc");
  		$this->db->where('idevento',$idevento);
  		$this->db->where('idpersona',$idpersona);
 		 $participacion= $this->db->get('participacion');
