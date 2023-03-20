@@ -24,7 +24,7 @@ public function index(){
 	public function add()
 	{
 		$idpregunta=0;
-		if(isset($this->uri->segment(3)){
+		if(isset($this->uri->segment(3))){
 			$idpregunta=$this->uri->segment(3);
 		}
 
