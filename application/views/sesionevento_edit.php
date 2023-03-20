@@ -106,7 +106,7 @@ foreach ($sesioneventos as $row){
  
 
 <tr>
-<td> Tema:</td>
+<td><?php echo anchor('tema/actual/'.$sesionevento['idtema'], 'Tema:'); ?>  </td>
 <td><?php
 $options= array('--Select--');
 foreach ($temas as $row){
