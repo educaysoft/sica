@@ -124,7 +124,7 @@ class Sesionevento_model extends CI_model {
  		$this->db->update('sesionevento',$array_item);
 		if($this->db->affected_rows()>0)
 		{
-		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fecha,"hora"=>$hora,"tabla"=>"sesionevento","accion"=>"se modifico la sesion evento con id=".$array_item['idsesionevento'],"url"=>$_SERVER['REQUEST_URI']));
+		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fecha,"hora"=>$hora,"tabla"=>"sesionevento","accion"=>"se modifico la sesion evento con id=".$id,"url"=>$_SERVER['REQUEST_URI']));
 			return true;
 		}else{
 			return false;
