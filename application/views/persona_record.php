@@ -195,17 +195,75 @@ if(isset($persona))
 
 
 
-
-
-
-<div class="form-group row" style="border:solid; padding:1cm;">
-    <label class="col-md-2 col-form-label"> Documentos del persona: </label>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('estudio/add/'.$docente['idpersona'], 'Estudios realizados:') ?> </label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
  	<div class="row">
-  	<div class="col-12">
+  	<div class="col-12" style="border:solid;">
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Estudios realizados: </b>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-success" href="<?php echo base_url('estudio/add/'.$persona['idpersona']) ?>">Nueva estudio</a><a class="btn btn-danger" href="<?php echo base_url('docente/reportepdf/'.$persona['idpersona']) ?>">Reporte</a>
+        </div>
+    </div>
+</div>
+
+
+
+	<table class="table table-striped table-bordered table-hover" id="mydatae">
+	 <thead>
+	 <tr>
+	 <th>idpersona</th>
+	 <th>idestudio</th>
+	 <th>intitucion</th>
+	 <th>nivel</th>
+	 <th>titulo</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_datae">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
+
+
+
+<div class="form-group row" >
+
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12" style="border:solid;">
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Documentos subidos: </b>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 	<table class="table table-striped table-bordered table-hover" id="mydatac">
 	 <thead>
 	 <tr>
@@ -238,6 +296,7 @@ if(isset($persona))
 $(document).ready(function(){
 	var idpersona=document.getElementById("idpersona").innerHTML;
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('persona/documento_data')?>', type: 'GET',data:{idpersona:idpersona}},});
+	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('docente/estudio_data')?>', type: 'GET',data:{idpersona:idpersona}},});
 });
 
 
@@ -246,6 +305,16 @@ var id= $(this).data('iddocumento');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
+
+
+$('#show_datae').on('click','.item_vere',function(){
+var id= $(this).data('idestudio');
+var retorno= $(this).data('retornoe');
+window.location.href = retorno+'/'+id;
+});
+
+
+
 
 
 </script>
