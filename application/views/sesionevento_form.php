@@ -143,7 +143,7 @@ foreach ($unidadsilabos as $row){
 <div class="col-md-10">
 <?php
     
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;',"maxlength"=>200, "placeholder"=>"Descripción corta del tema" );    
+$textarea_options = array('class' => 'form-control','rows' => '4','maxlength'=> '20',   'cols' => '20', 'style'=> 'width:50%;height:100px;',"maxlength"=>200, "placeholder"=>"Descripción corta del tema","id"=>"temacorto" );    
  echo form_textarea("temacorto","", $textarea_options);  
 
 ?><div id="textarea_feedback"></div>
