@@ -44,8 +44,16 @@ public function index(){
 			'idpregunta' => $this->input->post('idpregunta'),
 			'acierto' => $this->input->post('acierto'),
 	 	);
-	 	$this->respuesta_model->save($array_item);
-	 	redirect('respuesta');
+	 	$result=$$this->respuesta_model->save($array_item);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Respusta ya existe'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+
+
  	}
 
 
