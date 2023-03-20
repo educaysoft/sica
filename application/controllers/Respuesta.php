@@ -44,7 +44,7 @@ public function index(){
 			'idpregunta' => $this->input->post('idpregunta'),
 			'acierto' => $this->input->post('acierto'),
 	 	);
-	 	$result=$$this->respuesta_model->save($array_item);
+	 	$result=$this->respuesta_model->save($array_item);
 	 	if($result == FALSE)
 		{
 			echo "<script language='JavaScript'> alert('Respusta ya existe'); </script>";
