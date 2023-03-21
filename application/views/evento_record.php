@@ -355,6 +355,7 @@ echo form_input($arrdatos) ?>
 	 <th>fecha</th>
 	 <th>inicio</th>
 	 <th>termino</th>
+	 <th>Eval</th>
 	 <th>tema tratado</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
