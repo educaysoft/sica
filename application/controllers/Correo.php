@@ -151,7 +151,7 @@ function correo_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idcorreo,$r->lapersona,$r->elcorreo,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcorreo="'.$r->idcorreo.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('correo/actual').'"  data-idcorreo="'.$r->idcorreo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),

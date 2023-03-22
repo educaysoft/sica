@@ -81,7 +81,8 @@ $(document).ready(function(){
 $('#show_data').on('click','.item_ver',function(){
 
 var id=$(this).data('idcorreo');
-window.location.href = "http://localhost/facae/index.php/correo/actual/"+id;
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
 
 });
 
