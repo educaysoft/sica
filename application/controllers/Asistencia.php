@@ -35,7 +35,7 @@ class Asistencia extends CI_Controller{
 
 
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['eventos']= $this->evento_model->lista_eventos_open($idevento)->result();
   		$data['tipoasistencias']= $this->tipoasistencia_model->lista_tipoasistencias()->result();
 		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($idevento)->result();
 		$data['title']="Nuevo Asistencia";
