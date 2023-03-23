@@ -179,7 +179,7 @@ public function actual(){
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}
-_}
+}
 
 
 
