@@ -175,9 +175,10 @@ public function actual(){
 	 	if($result == FALSE)
 		{
 			echo "<script language='JavaScript'> alert('No se eliminio'); </script>";
-			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		//	echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
-			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+			echo "<script language='JavaScript'> alert('Se quito con existo este participante'); </script>";
+		//		echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}
 }
 

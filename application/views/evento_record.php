@@ -719,7 +719,10 @@ window.location.href = retorno+'/'+id;
 $('#show_data1').on('click','.item_quitar',function(){
 var id= $(this).data('idparticipante');
 var retorno= $(this).data('retorno');
-window.location.href = retorno+'/'+id;
+if( confirm('Los datos se eliminaran ¿esta seguro?'))
+{
+	window.location.href = retorno+'/'+id;
+}
 });
 
 
