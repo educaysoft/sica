@@ -45,6 +45,31 @@ class Asistencia extends CI_Controller{
 	}
 
 
+	public function add1()
+	{
+	    $idevento=$this->uri->segment(3);
+	    if(!isset($idevento)){
+	      $idevento=0;
+	    }else{
+	     $data["idevento"]=$idevento;
+	    }
+
+
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['eventos']= $this->evento_model->lista_eventos_open($idevento)->result();
+  		$data['tipoasistencias']= $this->tipoasistencia_model->lista_tipoasistencias()->result();
+		$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($idevento)->result();
+		$data['title']="Nuevo Asistencia";
+	 	$this->load->view('template/page_header');		
+	 	$this->load->view('asistencia_form1',$data);
+	 	$this->load->view('template/page_footer');
+	}
+
+
+
+
+
+
 	public function evento()
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
