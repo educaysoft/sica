@@ -126,14 +126,18 @@ return $participante;
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() != 0) {
+
+			$js="<script> 
+			 alert('Los datos se eliminaran ¿esta seguro?');
+			</script>";
+
+
+			echo $js;
+
+
 			echo $idp;
 			die();
 
-			$js="<script> 
-			window.confirm('Los datos se eliminaran ¿esta seguro?');
-			</script>";
-
-			echo $js;
 			if($js==true)
 			{
 
@@ -143,7 +147,7 @@ return $participante;
            				 $this->db->trans_complete();
 			      		$result=true;
 			}
-            			$this->db->trans_complete();
+            		$this->db->trans_complete();
 			      $result=false;
 
       	}else{	
