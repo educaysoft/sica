@@ -126,28 +126,11 @@ return $participante;
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() != 0) {
-
-			$js="<script> 
-			 confirm('Los datos se eliminaran ¿esta seguro?');
-			</script>";
-
-
-			echo $js;
-
-			die();
-
-			if($js==true)
-			{
-
 	 		  	$this->db->where('idparticipante',$idp);
 				$this->db->update('participante', array('eliminado'=>1));
 		    		//$this->db->delete('participante');
            				 $this->db->trans_complete();
 			      		$result=true;
-			}
-            		$this->db->trans_complete();
-			      $result=false;
-
       	}else{	
 
             $this->db->trans_complete();

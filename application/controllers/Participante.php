@@ -171,11 +171,18 @@ public function actual(){
    		 $idparticipante= $this->uri->segment(3);  
 		}
 
- 		$data=$this->participante_model->quitar($idparticipante);
- 		echo json_encode($data);
-	 	redirect('participante/elprimero');
-	//	$db['default']['db_debug']=FALSE
- 	}
+ 		$result=$this->participante_model->quitar($idparticipante);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('No se eliminio'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+_}
+
+
+
 
 
 
