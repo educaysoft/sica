@@ -128,7 +128,7 @@ return $participante;
 		if ($query->num_rows() != 0) {
 
 			$js="<script> 
-			confirm(\"Los datos se eliminaran ¿esta seguro?\"+$idp)
+			confirm(\"Los datos se eliminaran ¿esta seguro?\")
 			</script>";
 
 
