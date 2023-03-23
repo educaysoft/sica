@@ -135,14 +135,12 @@ return $participante;
 			echo $js;
 
 
-			echo $idp;
-			die();
 
 			if($js==true)
 			{
 
 	 		  	$this->db->where('idparticipante',$idp);
-			//	$this->db->update('participante', array('eliminado'=>1));
+				$this->db->update('participante', array('eliminado'=>1));
 		    		//$this->db->delete('participante');
            				 $this->db->trans_complete();
 			      		$result=true;
