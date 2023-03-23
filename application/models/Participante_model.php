@@ -134,7 +134,7 @@ return $participante;
 
 			echo $js;
 
-
+			die();
 
 			if($js==true)
 			{
