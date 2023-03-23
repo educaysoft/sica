@@ -163,6 +163,22 @@ public function actual(){
  	}
 
 
+ 	public function quitar()
+ 	{
+		
+		if($this->uri->segment(3))
+		{
+   		 $idparticipante= $this->uri->segment(3);  
+		}
+
+ 		$data=$this->participante_model->quitar($idparticipante);
+ 		echo json_encode($data);
+	 	redirect('participante/elprimero');
+	//	$db['default']['db_debug']=FALSE
+ 	}
+
+
+
 
 
 public function listar()

@@ -116,47 +116,35 @@ return $participante;
 
 
 
-  public function delete($idp,$ide)
+  public function quitar($idp)
 	{
 		$this->db->trans_start();
 		$condition = "idparticipante =" . $idp ;
 		$this->db->select('*');
-		$this->db->from('participante');
+		$this->db->from('participante0');
 		$this->db->where($condition);
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() != 0) {
+
+			$js="<script> 
+			confirm(\"Los datos se eliminaran ¿esta seguro?\".$idp)
+			</script>";
+
+
+			echo"$js";
+			if($js==true)
+			{
+
 	 		  	$this->db->where('idparticipante',$idp);
-		    		$this->db->delete('participante');
+			//	$this->db->update('participante', array('eliminado'=>1));
+		    		//$this->db->delete('participante');
            				 $this->db->trans_complete();
 			      		$result=true;
-	 //		$idpersona=$query->result()[0]->idpersona;
-	//	  	$condition = "idpersona =" . $idpersona ;
-	//	  	$this->db->select('*');
-	//	  	$this->db->from('usuario');
-	//	  	$this->db->where($condition);
-	//	  	$this->db->limit(1);
-	//	  	$query = $this->db->get();
-	//	  	if ($query->num_rows() != 0) {
-	 //			$idusuario=$query->result()[0]->idusuario;
- 	//	    		$this->db->where('idusuario',$idusuario);
- 	//	    		$this->db->where('idevento',$ide);
- 	//	    		$this->db->where('onoff',1);
-	//	    		$this->db->delete('password');
-	 //		  	$this->db->where('idparticipante',$idp);
-	///	    		$this->db->delete('participante');
-        //			if($this->db->affected_rows()==1)
-        //			{
-          // 				 $this->db->trans_complete();
-	//		      		$result=true;
-        //			}else{
-          //  				$this->db->trans_complete();
-	//		      		$result=false;
-        //			}
-    	//		 }else{	
-          //  			$this->db->trans_complete();
-	//		      $result=false;
-     	//		}
+			}
+            			$this->db->trans_complete();
+			      $result=false;
+
       	}else{	
 
             $this->db->trans_complete();
@@ -169,7 +157,7 @@ return $participante;
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idparticipante")->get('participante');
+		$query=$this->db->order_by("idparticipante")->get('participante0');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -182,7 +170,7 @@ return $participante;
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idparticipante")->get('participante');
+		$query=$this->db->order_by("idparticipante")->get('participante0');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -194,16 +182,16 @@ return $participante;
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$participante = $this->db->select("idparticipante")->order_by("idparticipante")->get('participante')->result_array();
+ 		$participante = $this->db->select("idparticipante")->order_by("idparticipante")->get('participante0')->result_array();
 		$arr=array("idparticipante"=>$id);
 		$clave=array_search($arr,$participante);
 	   if(array_key_exists($clave+1,$participante))
 		 {
 
- 		$participante = $this->db->query('select * from participante where idparticipante="'. $participante[$clave+1]["idparticipante"].'"');
+ 		$participante = $this->db->query('select * from participante0 where idparticipante="'. $participante[$clave+1]["idparticipante"].'"');
 		 }else{
 
- 		$participante = $this->db->query('select * from participante where idparticipante="'. $id.'"');
+ 		$participante = $this->db->query('select * from participante0 where idparticipante="'. $id.'"');
 		 }
 		 	
  		return $participante;
@@ -212,16 +200,16 @@ return $participante;
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$participante = $this->db->select("idparticipante")->order_by("idparticipante")->get('participante')->result_array();
+ 		$participante = $this->db->select("idparticipante")->order_by("idparticipante")->get('participante0')->result_array();
 		$arr=array("idparticipante"=>$id);
 		$clave=array_search($arr,$participante);
 	   if(array_key_exists($clave-1,$participante))
 		 {
 
- 		$participante = $this->db->query('select * from participante where idparticipante="'. $participante[$clave-1]["idparticipante"].'"');
+ 		$participante = $this->db->query('select * from participante0 where idparticipante="'. $participante[$clave-1]["idparticipante"].'"');
 		 }else{
 
- 		$participante = $this->db->query('select * from participante where idparticipante="'. $id.'"');
+ 		$participante = $this->db->query('select * from participante0 where idparticipante="'. $id.'"');
 		 }
 		 	
  		return $participante;

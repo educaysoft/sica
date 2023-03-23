@@ -406,6 +406,7 @@ echo form_input($arrdatos) ?>
  <th>Participante</th>
  <th>certificado</th>
  <th>grupo</th>
+ <th>quitar</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
@@ -714,6 +715,16 @@ var id= $(this).data('idparticipante');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
+
+$('#show_data1').on('click','.item_quitar',function(){
+var id= $(this).data('idparticipante');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+
+
 
 $('#show_data1').on('click','.item_grupo',function(){
 var id= $(this).data('idparticipante');
