@@ -128,11 +128,10 @@ return $participante;
 		if ($query->num_rows() != 0) {
 
 			$js="<script> 
-			confirm(\"Los datos se eliminaran ¿esta seguro?\")
+			confirm('Los datos se eliminaran ¿esta seguro?');
 			</script>";
 
-
-			echo"$js";
+			echo $js;
 			if($js==true)
 			{
 

@@ -165,7 +165,7 @@ public function actual(){
 
  	public function quitar()
  	{
-		
+	       $idparticipante=0;	
 		if($this->uri->segment(3))
 		{
    		 $idparticipante= $this->uri->segment(3);  
