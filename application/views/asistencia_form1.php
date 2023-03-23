@@ -54,7 +54,7 @@ foreach ($sesioneventos as $row){
             <b>Los participantes: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('participante/add/'.$evento['idevento']) ?>">Agregar participante</a><a class="btn btn-danger" href="<?php echo base_url('asistencia/add/'.$evento['idevento']) ?>">Tomar Asistencia</a>
+            <a class="btn btn-success" href="<?php echo base_url('participante/add/'.$idevento) ?>">Agregar participante</a><a class="btn btn-danger" href="<?php echo base_url('asistencia/add/'.$idevento) ?>">Tomar Asistencia</a>
         </div>
     </div>
 </div>
