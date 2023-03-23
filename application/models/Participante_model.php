@@ -126,6 +126,8 @@ return $participante;
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() != 0) {
+			echo $idp;
+			die();
 
 			$js="<script> 
 			window.confirm('Los datos se eliminaran ¿esta seguro?');
