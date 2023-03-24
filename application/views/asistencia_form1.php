@@ -171,10 +171,11 @@ $(document).ready(function(){
 	      alert("debe seleccionar una fecha");
 	   }else{
 
+	 $('#mydatap').DataTable().fnDestroy();
 	var mytablap= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_asistencia2')?>', type: 'GET',data:{idevento:ideventoi,fecha:fecha}},});
-	mytablap.ajax.reload( function ( json ) {
-    $('#mydatap').val( json.lastInput );
-} );
+//	mytablap.ajax.reload( function ( json ) {
+//    $('#mydatap').val( json.lastInput );
+//} );
 	   }
 	}
 
