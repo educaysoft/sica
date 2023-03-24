@@ -147,6 +147,23 @@ if(isset($persona))
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('nacionalidadpersona/add', 'Nacionalidad :'); ?>:</label>
+	<div class="col-md-10">
+	<?php
+ 	$options = array();
+  	foreach ($nacionalidadpersonas as $row){
+		$options[$row->idnacionalidadpersona]=$row->elpais;
+	}
+ echo form_multiselect('nacionalidadpersona[]',$options,(array)set_value('idnacionalidadpersona', ''), array('style'=>'width:500px')); 
+
+	?>
+	</div> 
+</div>
+
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('paispersona/add', 'Pais resicencia:'); ?>:</label>
 	<div class="col-md-10">
 	<?php
