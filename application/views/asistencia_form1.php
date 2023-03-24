@@ -38,6 +38,20 @@ foreach ($sesioneventos as $row){
 </div>
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label"> Comentario:</label>
+<div class="col-md-10">
+<?php
+
+
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"comentario",'id'=>'comentario' );
+echo form_textarea("comentario","",$textarea_options);
+
+?>
+</div>
+</div>
+
+
 
 <div class="form-group row">
 	<div class="col-md-10">
@@ -94,42 +108,11 @@ foreach ($sesioneventos as $row){
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> Tipo de asistencia:</label>
-<div class="col-md-10">
-<?php
-
-
-$options= array('--Select--');
-foreach ($tipoasistencias as $row){
-	$options[$row->idtipoasistencia]= $row->nombre;
-}
-
-echo '<table><tr><td>';
-echo form_dropdown("idtipoasistencia",$options, set_select('--Select--','default_value'),array("id"=>"idtipoasistencia"));  
-
-
-echo '</td><td><a class="btn"  onclick="save_asistencia()"><i class="fa fa-female"></i>Guardar asistencia.</a></td></tr></table>';
-
-?>
-
-</div>
-</div>
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> Comentario:</label>
-<div class="col-md-10">
-<?php
 
 
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"comentario",'id'=>'comentario' );
-echo form_textarea("comentario","",$textarea_options);
-
-?>
-</div>
-</div>
 
 
 
