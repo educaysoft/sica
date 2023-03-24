@@ -140,7 +140,7 @@ class Asistencia_model extends CI_model {
 
 
 
-  public function delete($id)
+   function delete($id)
 	{
  		$this->db->where('idasistencia',$id);
 		$this->db->delete('asistencia');
