@@ -78,7 +78,7 @@ public function add()
 public function listar()
 {
 	
-  $data['nacionalidad_list'] = $this->nacionalidad_model->lista_nacionalidadsA()->result();
+  $data['nacionalidad_list'] = $this->nacionalidad_model->lista_nacionalidades()->result();
   $data['title']="Tipo documento";
 	$this->load->view('template/page_header');		
   $this->load->view('nacionalidad_list',$data);
