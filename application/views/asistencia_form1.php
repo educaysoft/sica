@@ -335,8 +335,11 @@ $(document).ready(function(){
 
 
 $('#show_data').on('click','.item_asit',function(){
-		var iditipoasistencia= $(this).data('idtipoasistencia');
+		var idtipoasistencia= $(this).data('idtipoasistencia');
 		var idpersona= $(this).data('idpersona');
+		alert(idtipoasistencia);
+		alert(idpersona);
+
 		var f = document.getElementById("idsesionevento");
 		var arrtmp=f.options[f.selectedIndex].text;
 		const x=arrtmp.split(" - ");
