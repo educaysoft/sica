@@ -173,7 +173,7 @@ $(document).ready(function(){
 
 	var mytablap= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_asistencia2')?>', type: 'GET',data:{idevento:ideventoi,fecha:fecha}},});
 	mytablap.ajax.reload( function ( json ) {
-    $('#myInput').val( json.lastInput );
+    $('#mydatap').val( json.lastInput );
 } );
 	   }
 	}
