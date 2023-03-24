@@ -380,15 +380,14 @@ public function get_participantes2() {
       $sql=$sql.'select p1.*, (select idtipoasistencia from asistencia p2 where p2.idpersona=p1.idpersona and p2.fecha="'.$this->input->post('fecha').'"  and p2.idevento='.$this->input->post('idevento'). ') as idtipoasistencia from participante1 p1 where p1.idevento='.$this->input->post('idevento').' and p1.idpersona in (select p2.idpersona from asistencia p2 where p2.idevento=p1.idevento and p2.fecha="'.$this->input->post('fecha').'"  and p2.idevento='.$this->input->post('idevento').')';
 $sql=$sql." union "; 
     $sql=$sql.'select p1.*, " " as idtipoasistencia from participante1 p1 where idevento='.$this->input->post('idevento').' and p1.idpersona not in (select p2.idpersona from asistencia p2 where p2.idevento=p1.idevento and p2.fecha="'.$this->input->post('fecha').'" and p2.idevento='.$this->input->post('idevento').') order by nombres ;';
-
-
-
    $query= $this->db->query($sql);
-
 	$data=$query->result();
 	echo json_encode($data);
 	}
 }
+
+
+
 
 public function get_asistencia() {
     $this->load->database();

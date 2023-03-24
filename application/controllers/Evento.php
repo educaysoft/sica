@@ -581,7 +581,7 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 			foreach($data0->result() as $r){
 				$data[]=array($r->idparticipante,$r->nombres,$r->idtipoasistencia,
 
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('participante/actual').'"    data-idparticipante="'.$r->idparticipante.'">Ver</a><a href="javascript:void(0);" class="btn btn-success btn-sm item_ver"  data-retorno="'.site_url('persona/actual').'"    data-idparticipante="'.$r->idpersona.'">per</a><a href="javascript:void(0);" class="btn btn-primary btn-sm item_ver"  data-retorno="'.site_url('portafolio/listar').'"    data-idparticipante="'.$r->idpersona.'">port</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('participante/actual').'"    data-idparticipante="'.$r->idparticipante.'">PU</a><a href="javascript:void(0);" class="btn btn-success btn-sm item_ver"  data-retorno="'.site_url('persona/actual').'"    data-idparticipante="'.$r->idpersona.'">AT</a><a href="javascript:void(0);" class="btn btn-primary btn-sm item_ver"  data-retorno="'.site_url('portafolio/listar').'"    data-idparticipante="'.$r->idpersona.'">FJ</a><a href="javascript:void(0);" class="btn btn-primary btn-sm item_ver"  data-retorno="'.site_url('portafolio/listar').'"    data-idparticipante="'.$r->idpersona.'">FI</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),

@@ -70,11 +70,14 @@ class Participante_model extends CI_model {
 
 	function asistencias($idevento,$fecha)
 	{
+
       $sql="";
       $sql=$sql.'select p1.*, (select idtipoasistencia from asistencia p2 where p2.idpersona=p1.idpersona and p2.fecha="'.$fecha.'"  and p2.idevento='.$idevento. ') as idtipoasistencia from participante1 p1 where p1.idevento='.$idevento.' and p1.idpersona in (select p2.idpersona from asistencia p2 where p2.idevento=p1.idevento and p2.fecha="'.$fecha.'"  and p2.idevento='.$idevento.')';
 $sql=$sql." union "; 
     $sql=$sql.'select p1.*, " " as idtipoasistencia from participante1 p1 where idevento='.$idevento.' and p1.idpersona not in (select p2.idpersona from asistencia p2 where p2.idevento=p1.idevento and p2.fecha="'.$fecha.'" and p2.idevento='.$idevento.') order by nombres ;';
    $query= $this->db->query($sql);
+
+
 
 	return $query;
 

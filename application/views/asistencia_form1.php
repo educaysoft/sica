@@ -155,7 +155,9 @@ echo form_textarea("comentario","",$textarea_options);
 
 $(document).ready(function(){
 	var idevento= <?php echo $idevento; ?>;
-	var mytablap= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_asistencia')?>', type: 'GET',data:{idevento:idevento}},});
+	var fecha="";
+//	var mytablap= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_asistencia')?>', type: 'GET',data:{idevento:idevento}},});
+	var mytablap= $('#mydatap').DataTable({destroy:true,"ajax": {url: '<?php echo site_url('evento/evento_asistencia2')?>', type: 'GET',data:{idevento:idevento,fecha:fecha}},});
 });
 
 
@@ -171,12 +173,7 @@ $(document).ready(function(){
 	      alert("debe seleccionar una fecha");
 	   }else{
 
-//	 $('#mydatap').dataTable().fnDestroy();
 	var mytablap= $('#mydatap').DataTable({destroy:true,"ajax": {url: '<?php echo site_url('evento/evento_asistencia2')?>', type: 'GET',data:{idevento:idevento,fecha:fecha}},});
-//	mytablap.ajax.reload( function ( json ) {
-//    $('#mydatap').val( json.lastInput );
-//} );
-	 alert("algo");
 	   }
 	}
 
