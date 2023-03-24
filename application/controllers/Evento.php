@@ -549,10 +549,8 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 			$data0 =$this->participante_model->participantes($id);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idparticipante,$r->nombres,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary  item_grupo"  data-retorno="'.site_url('participante/edit').'"    data-idparticipante="'.$r->idparticipante.'">'.$r->grupoletra.'</a>',
+				$data[]=array($r->idparticipante,$r->nombres,$r->idparticipante,
 
-$r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary  item_quitar"  data-retorno="'.site_url('participante/quitar').'"    data-idparticipante="'.$r->idparticipante.'">Quitar</a>',
 
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('participante/actual').'"    data-idparticipante="'.$r->idparticipante.'">Ver</a><a href="javascript:void(0);" class="btn btn-success btn-sm item_ver"  data-retorno="'.site_url('persona/actual').'"    data-idparticipante="'.$r->idpersona.'">per</a><a href="javascript:void(0);" class="btn btn-primary btn-sm item_ver"  data-retorno="'.site_url('portafolio/listar').'"    data-idparticipante="'.$r->idpersona.'">port</a>');
 			}	
