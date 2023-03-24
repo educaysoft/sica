@@ -112,7 +112,7 @@ class Asistencia_model extends CI_model {
 		}
  	}
 
-
+	}
 
 
 
