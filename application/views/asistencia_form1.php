@@ -54,7 +54,7 @@ foreach ($sesioneventos as $row){
             <b>Los participantes: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('participante/add/'.$idevento) ?>">Agregar participante</a><a class="btn btn-danger" href="<?php echo base_url('asistencia/add/'.$idevento) ?>">Tomar Asistencia</a>
+            <a class="btn btn-success" onclick="save_asistencia()"> Asistencias a TODOS</a><a class="btn btn-danger" href="<?php echo base_url('asistencia/reporte/'.$idevento) ?>">Reporte</a>
         </div>
     </div>
 </div>
@@ -89,17 +89,7 @@ foreach ($sesioneventos as $row){
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Participantes:</label>
-<div class="col-md-10">
 
-
-         <select class="form-control" id="idpersona" name="idpersona" multiple required size="30" style="height: 100%;"   onChange='get_asistencia()'>
-                 <option>No Selected</option>
-          </select>
-    </div>
-
-</div>
 
 
 
@@ -167,7 +157,6 @@ $(document).ready(function(){
 		var arrtmp=f.options[f.selectedIndex].text;
 		const x=arrtmp.split(" - ");
 		var fecha=x[0];
-		alert(fecha);
 	    if(fecha=="--Select--"){
 	      alert("debe seleccionar una fecha");
 	   }else{
@@ -380,14 +369,14 @@ $('#show_data1').on('click','.item_asit',function(){
 		const x=arrtmp.split(" - ");
 		var fecha=x[0];
 		var idevento=document.getElementById("idevento").value;
-		var idtipoasistencia=document.getElementById("idtipoasistencia").value;
+		var idtipoasistencia=1;  //document.getElementById("idtipoasistencia").value;
 		var comentario=document.getElementById("comentario").value;
-		var idpersona= $('select[name=idpersona]').val();
-		var p = document.getElementById("idpersona");
-		var idpersona=p.options[p.selectedIndex].value;
+	//	var idpersona= $('select[name=idpersona]').val();
+	//	var p = document.getElementById("idpersona");
+		var idpersona=0 ;  //p.options[p.selectedIndex].value;
 
 	    $.ajax({
-		url: "<?php echo site_url('asistencia/save_asistencia') ?>",
+		url: "<?php echo site_url('asistencia/save_allasistencia') ?>",
 		data: {idevento:idevento, fecha:fecha,idtipoasistencia:idtipoasistencia,comentario:comentario,idpersona:idpersona},
 		method: 'POST',
 		async : false,
@@ -395,8 +384,7 @@ $('#show_data1').on('click','.item_asit',function(){
 		success: function(data){
 		var html = '';
 		var i;
-		get_participantes2();
-		alert("Se guardo con exito");
+		get_participantes2x();
 		},
 	      error: function (xhr, ajaxOptions, thrownError) {
 		alert(xhr.status);

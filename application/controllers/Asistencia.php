@@ -122,6 +122,29 @@ class Asistencia extends CI_Controller{
   	}	
 
 
+	public function  save_allasistencia()
+	{
+	 		$array_item=array(
+		 	'idpersona' => $this->input->post('idpersona'),
+		 	'idevento' => $this->input->post('idevento'),
+		 	'fecha' => $this->input->post('fecha'),
+		 	'idtipoasistencia' => $this->input->post('idtipoasistencia'),
+		 	'comentario' => $this->input->post('comentario'),
+	 	);
+	 	$result=$this->asistencia_model->saveall($array_item);
+	 	if($result == FALSE)
+		{
+			$data=array('resultado'=>"FALSE");
+		}else{
+			$data=array('resultado'=>"TRUE");
+		}
+		echo json_encode($data);
+  	}	
+
+
+
+
+
 
 
 	public function edit()

@@ -88,6 +88,49 @@ class Asistencia_model extends CI_model {
 		}
  	}
 
+
+
+ 	function saveall($array_item)
+ 	{
+		$this->db->where('idevento',$array_item['idevento']);
+		$participante=$this->db->get('participante');
+	
+		if($participante->num_rows()>0){
+		foreach($participante-result() as $row){
+
+ 		$this->db->where('idevento',$array_item['idevento']);
+ 		$this->db->where('idpersona',$row->idpersona);
+ 		$this->db->where('fecha',$array_item['fecha']);
+		$query=$this->db->get('asistencia');
+		if($query->num_rows()==0){
+			$this->db->insert("asistencia", $array_item);
+			if( $this->db->affected_rows()>0) {
+				$idasistencia=$this->db->insert_id();
+			}	
+			
+		}
+		}
+ 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  	function update($id,$array_item)
  	{
  		$this->db->where('idasistencia',$id);
