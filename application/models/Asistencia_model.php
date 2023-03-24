@@ -96,7 +96,7 @@ class Asistencia_model extends CI_model {
 		$participante=$this->db->get('participante');
 	
 		if($participante->num_rows()>0){
-		foreach($participante-result() as $row){
+		foreach($participante->result() as $row){
 
  		$this->db->where('idevento',$array_item['idevento']);
  		$this->db->where('idpersona',$row->idpersona);
