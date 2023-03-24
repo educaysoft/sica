@@ -172,8 +172,7 @@ $(document).ready(function(){
 	   }else{
 
 //	 $('#mydatap').dataTable().fnDestroy();
-	 $('#mydatap').dataTable().fnClearTable();
-	var mytablap= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_asistencia')?>', type: 'GET',data:{idevento:idevento,fecha:fecha}},});
+	var mytablap= $('#mydatap').DataTable({destroy:true,"ajax": {url: '<?php echo site_url('evento/evento_asistencia2')?>', type: 'GET',data:{idevento:idevento,fecha:fecha}},});
 //	mytablap.ajax.reload( function ( json ) {
 //    $('#mydatap').val( json.lastInput );
 //} );
