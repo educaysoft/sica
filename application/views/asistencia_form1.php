@@ -166,6 +166,7 @@ $(document).ready(function(){
 		var arrtmp=f.options[f.selectedIndex].text;
 		const x=arrtmp.split(" - ");
 		var fecha=x[0];
+		alert(fecha);
 	    if(fecha=="--Select--"){
 	      alert("debe seleccionar una fecha");
 	   }else{
