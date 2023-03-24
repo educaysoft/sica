@@ -581,7 +581,7 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 			foreach($data0->result() as $r){
 				$data[]=array($r->idparticipante,$r->nombres,$r->eltipoasistencia,
 
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_asit" date-idpersona="'.$idpersona.'"   data-idtipoasistencia="'.'1'.'">PU</a><a href="javascript:void(0);" class="btn btn-success btn-sm item_ver"  date-idpersona="'.$idpersona.'" data-idtipoasistencia="'.'2'.'">AT</a><a href="javascript:void(0);" class="btn btn-primary btn-sm item_asit"  date-idpersona="'.$idpersona.'"  data-idtipoasistencia="'.'3'.'">FJ</a><a href="javascript:void(0);" class="btn btn-primary btn-sm item_asit" date-idpersona="'.$idpersona.'"  data-idtipoasistencia="'.'4'.'">FI</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_asit" data-idpersona="'.$idpersona.'"   data-idtipoasistencia="'.'1'.'">PU</a><a href="javascript:void(0);" class="btn btn-success btn-sm item_ver"  data-idpersona="'.$idpersona.'" data-idtipoasistencia="'.'2'.'">AT</a><a href="javascript:void(0);" class="btn btn-primary btn-sm item_asit"  data-idpersona="'.$idpersona.'"  data-idtipoasistencia="'.'3'.'">FJ</a><a href="javascript:void(0);" class="btn btn-primary btn-sm item_asit" data-idpersona="'.$idpersona.'"  data-idtipoasistencia="'.'4'.'">FI</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
