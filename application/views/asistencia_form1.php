@@ -119,7 +119,6 @@ echo '<table><tr><td>';
 echo form_dropdown("idtipoasistencia",$options, set_select('--Select--','default_value'),array("id"=>"idtipoasistencia"));  
 
 
-//echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_asistencia()">Guardar asistencia.</span></td></tr></table>';
 echo '</td><td><a class="btn"  onclick="save_asistencia()"><i class="fa fa-female"></i>Guardar asistencia.</a></td></tr></table>';
 
 ?>
@@ -334,6 +333,45 @@ $(document).ready(function(){
 	    })
 	}
 
+
+$('#show_data').on('click','.item_asit',function(){
+	var iditipoasistencia= $(this).data('idtipoasistencia');
+	var idpersona= $(this).data('idpersona');
+
+		var f = document.getElementById("idsesionevento");
+		var arrtmp=f.options[f.selectedIndex].text;
+		const x=arrtmp.split(" - ");
+		var fecha=x[0];
+		var idevento=document.getElementById("idevento").value;
+	//	var idtipoasistencia=document.getElementById("idtipoasistencia").value;
+		var comentario=document.getElementById("comentario").value;
+//		var idpersona= $('select[name=idpersona]').val();
+//		var p = document.getElementById("idpersona");
+//		var idpersona=p.options[p.selectedIndex].value;
+
+	    $.ajax({
+		url: "<?php echo site_url('asistencia/save_asistencia') ?>",
+		data: {idevento:idevento, fecha:fecha,idtipoasistencia:idtipoasistencia,comentario:comentario,idpersona:idpersona},
+		method: 'POST',
+		async : false,
+		dataType : 'json',
+		success: function(data){
+		var html = '';
+		var i;
+	//	get_participantes2();
+		 get_participantes2x() {
+		},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+	    })
+
+
+
+
+
+});
 
 
 
