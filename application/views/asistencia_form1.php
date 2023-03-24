@@ -334,7 +334,7 @@ $(document).ready(function(){
 	}
 
 
-$('#show_data').on('click','.item_asit',function(){
+$('#show_data1').on('click','.item_asit',function(){
 		var idtipoasistencia= $(this).data('idtipoasistencia');
 		var idpersona= $(this).data('idpersona');
 		alert(idtipoasistencia);
