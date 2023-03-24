@@ -374,7 +374,8 @@ $('#show_data1').on('click','.item_asit',function(){
 	//	var idpersona= $('select[name=idpersona]').val();
 	//	var p = document.getElementById("idpersona");
 		var idpersona=0 ;  //p.options[p.selectedIndex].value;
-
+ 
+		alert("aqu");
 	    $.ajax({
 		url: "<?php echo site_url('asistencia/save_allasistencia') ?>",
 		data: {idevento:idevento, fecha:fecha,idtipoasistencia:idtipoasistencia,comentario:comentario,idpersona:idpersona},
