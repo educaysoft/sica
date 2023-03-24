@@ -159,6 +159,20 @@ $(document).ready(function(){
 });
 
 
+	function get_participantes2x() {
+
+		var idevento = $('select[name=idevento]').val();
+		var f = document.getElementById("idsesionevento");
+		var arrtmp=f.options[f.selectedIndex].text;
+		const x=arrtmp.split(" - ");
+		var fecha=x[0];
+	    if(fecha=="--Select--"){
+	      alert("debe seleccionar una fecha");
+	   }else{
+
+	var mytablap= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_asistencia2')?>', type: 'GET',data:{idevento:ideventoi,fecha:fecha}},});
+	   }
+	}
 
 	$(document).ready(()=>{
 		var idevento= <?php echo $idevento; ?>;
