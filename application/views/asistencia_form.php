@@ -23,7 +23,7 @@ foreach ($eventos as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Fecha evaluacion:</label>
+<label class="col-md-2 col-form-label">Fecha de asistencia:</label>
 <div class="col-md-10">
 <?php
 
@@ -31,52 +31,11 @@ $options= array('--Select--');
 foreach ($sesioneventos as $row){
 	$options[$row->idsesionevento]= $row->fecha." - ".$row->temacorto;
 }
- echo form_dropdown("idsesionevento",$options, set_select('--Select--','default_value'),array('id'=>'idsesionevento','onchange'=>'get_participantes2()'));  
+ echo form_dropdown("idsesionevento",$options, set_select('--Select--','default_value'),array('id'=>'idsesionevento','onchange'=>'get_participantes2x()'));  
 
 ?>
 </div>
 </div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Participantes:</label>
-<div class="col-md-10">
-
-
-         <select class="form-control" id="idpersona" name="idpersona" multiple required size="30" style="height: 100%;"   onChange='get_asistencia()'>
-                 <option>No Selected</option>
-          </select>
-    </div>
-
-</div>
-
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> Tipo de asistencia:</label>
-<div class="col-md-10">
-<?php
-
-
-$options= array('--Select--');
-foreach ($tipoasistencias as $row){
-	$options[$row->idtipoasistencia]= $row->nombre;
-}
-
-echo '<table><tr><td>';
-echo form_dropdown("idtipoasistencia",$options, set_select('--Select--','default_value'),array("id"=>"idtipoasistencia"));  
-
-
-//echo '</td><td><span style="font-size:20px;" id="demo" onclick="save_asistencia()">Guardar asistencia.</span></td></tr></table>';
-echo '</td><td><a class="btn"  onclick="save_asistencia()"><i class="fa fa-female"></i>Guardar asistencia.</a></td></tr></table>';
-
-?>
-
-</div>
-</div>
-
 
 
 <div class="form-group row">
@@ -94,6 +53,69 @@ echo form_textarea("comentario","",$textarea_options);
 
 
 
+<div class="form-group row">
+	<div class="col-md-10">
+ 
+<div class="row justify-content-left">
+      <!-- Page Heading -->
+ <div class="row">
+
+  	<div class="col-12" style="border:solid;">
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Los participantes: </b>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-success" onclick="save_asistencia()"> Asistencias a TODOS</a><a class="btn btn-danger" href="<?php echo base_url('asistencia/reporte/'.$idevento) ?>">Reporte</a>
+        </div>
+    </div>
+</div>
+
+
+<table class="table table-striped table-bordered table-hover" id="mydatap">
+ <thead>
+ <tr>
+ <th>id</th>
+ <th>Participante</th>
+ <th>Asistencia</th>
+ <th style="text-align: right;">Actions</th>
+ </tr>
+ </thead>
+
+ <tbody id="show_data1">
+
+ </tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+	</div> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <?php echo form_close();?>
@@ -102,6 +124,29 @@ echo form_textarea("comentario","",$textarea_options);
 
 <script>
 
+
+$(document).ready(function(){
+	var idevento= <?php echo $idevento; ?>;
+	var fecha="";
+//	var mytablap= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_asistencia')?>', type: 'GET',data:{idevento:idevento}},});
+	var mytablap= $('#mydatap').DataTable({pageLength:50,destroy:true,"ajax": {url: '<?php echo site_url('evento/evento_asistencia2')?>', type: 'GET',data:{idevento:idevento,fecha:fecha}},});
+});
+
+
+	function get_participantes2x() {
+
+		var idevento = $('select[name=idevento]').val();
+		var f = document.getElementById("idsesionevento");
+		var arrtmp=f.options[f.selectedIndex].text;
+		const x=arrtmp.split(" - ");
+		var fecha=x[0];
+	    if(fecha=="--Select--"){
+	      alert("debe seleccionar una fecha");
+	   }else{
+
+	var mytablap= $('#mydatap').DataTable({pageLength:50,destroy:true,"ajax": {url: '<?php echo site_url('evento/evento_asistencia2')?>', type: 'GET',data:{idevento:idevento,fecha:fecha}},});
+	   }
+	}
 
 	$(document).ready(()=>{
 		var idevento= <?php echo $idevento; ?>;
@@ -261,21 +306,22 @@ echo form_textarea("comentario","",$textarea_options);
 	}
 
 
+$('#show_data1').on('click','.item_asit',function(){
+		var idtipoasistencia= $(this).data('idtipoasistencia');
+		var idpersona= $(this).data('idpersona');
+		alert(idtipoasistencia);
+		alert(idpersona);
 
-
-
-
-	function save_asistencia() {
 		var f = document.getElementById("idsesionevento");
 		var arrtmp=f.options[f.selectedIndex].text;
 		const x=arrtmp.split(" - ");
 		var fecha=x[0];
 		var idevento=document.getElementById("idevento").value;
-		var idtipoasistencia=document.getElementById("idtipoasistencia").value;
+	//	var idtipoasistencia=document.getElementById("idtipoasistencia").value;
 		var comentario=document.getElementById("comentario").value;
-		var idpersona= $('select[name=idpersona]').val();
-		var p = document.getElementById("idpersona");
-		var idpersona=p.options[p.selectedIndex].value;
+//		var idpersona= $('select[name=idpersona]').val();
+//		var p = document.getElementById("idpersona");
+//		var idpersona=p.options[p.selectedIndex].value;
 
 	    $.ajax({
 		url: "<?php echo site_url('asistencia/save_asistencia') ?>",
@@ -286,8 +332,43 @@ echo form_textarea("comentario","",$textarea_options);
 		success: function(data){
 		var html = '';
 		var i;
-		get_participantes2();
-		alert("Se guardo con exito");
+	//	get_participantes2();
+		 get_participantes2x(); 
+		},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+	    })
+});
+
+
+
+
+
+	function save_asistencia() {
+		var f = document.getElementById("idsesionevento");
+		var arrtmp=f.options[f.selectedIndex].text;
+		const x=arrtmp.split(" - ");
+		var fecha=x[0];
+		var idevento=document.getElementById("idevento").value;
+		var idtipoasistencia=1;  //document.getElementById("idtipoasistencia").value;
+		var comentario=document.getElementById("comentario").value;
+	//	var idpersona= $('select[name=idpersona]').val();
+	//	var p = document.getElementById("idpersona");
+		var idpersona=0 ;  //p.options[p.selectedIndex].value;
+ 
+		alert("aqu");
+	    $.ajax({
+		url: "<?php echo site_url('asistencia/save_allasistencia') ?>",
+		data: {idevento:idevento, fecha:fecha,idtipoasistencia:idtipoasistencia,comentario:comentario,idpersona:idpersona},
+		method: 'POST',
+		async : false,
+		dataType : 'json',
+		success: function(data){
+		var html = '';
+		var i;
+		get_participantes2x();
 		},
 	      error: function (xhr, ajaxOptions, thrownError) {
 		alert(xhr.status);
