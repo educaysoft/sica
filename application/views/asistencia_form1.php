@@ -171,7 +171,8 @@ $(document).ready(function(){
 	      alert("debe seleccionar una fecha");
 	   }else{
 
-	 $('#mydatap').dataTable().fnDestroy();
+//	 $('#mydatap').dataTable().fnDestroy();
+	 $('#mydatap').dataTable().fnClearTable();
 	var mytablap= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_asistencia2')?>', type: 'GET',data:{idevento:ideventoi,fecha:fecha}},});
 //	mytablap.ajax.reload( function ( json ) {
 //    $('#mydatap').val( json.lastInput );
