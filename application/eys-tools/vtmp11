@@ -1,57 +1,44 @@
 <div id="eys-nav-i">
-	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($emisor))
+if(isset($acceso))
 {
 ?>
-        <li> <?php echo anchor('emisor/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('emisor/anterior/'.$emisor['idemisor'], 'anterior'); ?></li>
-        <li> <?php echo anchor('emisor/siguiente/'.$emisor['idemisor'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('emisor/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('emisor/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('emisor/edit/'.$emisor['idemisor'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('emisor/delete/'.$emisor['idemisor'],'Delete'); ?></li>
-        <li> <?php echo anchor('emisor/listar/','Listar'); ?></li>
-
+        <li> <?php echo anchor('acceso/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('acceso/anterior/'.$acceso['idacceso'], 'anterior'); ?></li>
+        <li> <?php echo anchor('acceso/siguiente/'.$acceso['idacceso'], 'siguiente'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('acceso/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('acceso/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('acceso/edit/'.$acceso['idacceso'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('acceso/delete/'.$acceso['idacceso'],'Delete'); ?></li>
+        <li> <?php echo anchor('acceso/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('emisor/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('acceso/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
- 
-
 
     </ul>
 </div>
 <br>
 <br>
 
-<?php echo form_open('emisor/save_edit') ?>
-<?php echo form_hidden('iddocumento',$emisor['iddocumento']) ?>
-<table>
 
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id emisor:</label>
-	<div class="col-md-10">
-	<?php
-      echo form_input('idemisor',$emisor['idemisor'],array("disabled"=>"disabled",'placeholder'=>'Idemisors'));
-	?>
-	</div> 
-</div> 
+<?php echo form_open('acceso/save_edit') ?>
+<?php echo form_hidden('idacceso',$acceso['idacceso']) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id documento:</label>
+    <label class="col-md-2 col-form-label"> Password Id:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('iddocumento',$emisor['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos'));
+
+      echo form_input('idacceso',$acceso['idacceso'],array("disabled"=>"disabled",'placeholder'=>'Idaccesos','style'=>'width:500px')); 
 	?>
 	</div> 
 </div> 
@@ -59,24 +46,33 @@ if(isset($emisor))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('documento/actual/'.$emisor['iddocumento'], 'Documento:'); ?></label>
+    <label class="col-md-2 col-form-label"> Usuario:</label>
+	<div class="col-md-10">
+	<?php
+ 
+$options= array("NADA");
+foreach ($usuarios as $row){
+	$options[$row->idusuario]= $row->elusuario."-".$row->email;
+}
+
+echo form_input('idusuario',$options[$acceso['idusuario']],array("disabled"=>"disabled",'style'=>'width:500px')); 
+	?>
+	</div> 
+</div> 
+ 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"><?php echo anchor('modulo/actual/'.$acceso['idmodulo'], 'Modulo:'); ?> </label>
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
+foreach ($modulos as $row){
+	$options[$row->idmodulo]= $row->nombre;
 }
-echo form_input('iddocumento',$options[$emisor['iddocumento']],array("disabled"=>"disabled"));
-	?>
-	</div> 
-</div> 
 
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id persona:</label>
-	<div class="col-md-10">
-	<?php
-     	 echo form_input('idpersona',$emisor['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Idemisores'));
+echo form_input('idmodulo',$options[$acceso['idmodulo']],array("disabled"=>"disabled",'style'=>'width:500px')); 
 	?>
 	</div> 
 </div> 
@@ -84,17 +80,22 @@ echo form_input('iddocumento',$options[$emisor['iddocumento']],array("disabled"=
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Persona:</label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('nivelacceso/actual/'.$acceso['idnivelacceso'], 'Nivel de acceso:'); ?></label>
 	<div class="col-md-10">
 	<?php
+
 $options= array("NADA");
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+foreach ($nivelaccesos as $row){
+	$options[$row->idnivelacceso]= $row->nombre;
 }
-echo form_input('idpersona',$options[$emisor['idpersona']],array("disabled"=>"disabled"));
+
+echo form_input('idnivelacceso',$options[$acceso['idnivelacceso']],array("disabled"=>"disabled",'style'=>'width:500px'));
 	?>
 	</div> 
 </div> 
+
+
+
 
 <?php echo form_close(); ?>
 

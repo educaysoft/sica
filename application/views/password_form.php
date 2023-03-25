@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("acceso/save") ?>
-<?php echo form_hidden("idacceso")  ?>
+<?php echo form_open("password/save") ?>
+<?php echo form_hidden("idpassword")  ?>
 <table>
 
 
@@ -34,21 +34,21 @@ foreach ($modulos as $row){
 
 
 <tr>
-<td> Nivelacceso: </td>
+<td> Nivelpassword: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($nivelaccesos as $row){
-	$options[$row->idnivelacceso]= $row->nombre;
+foreach ($nivelpasswords as $row){
+	$options[$row->idnivelpassword]= $row->nombre;
 }
 
- echo form_dropdown("idnivelacceso",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idnivelpassword",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("acceso","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("password","Atras") ?> </td>
 </tr>
 
 </table>

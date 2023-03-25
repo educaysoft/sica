@@ -32,7 +32,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Lista de accesos 
+                 <h3>Lista de passwords 
                   <div class="float-right">
 
 <div class="form-group row">
@@ -61,7 +61,7 @@ foreach ($usuarios as $row){
 
 <div id="eys-nav-i">
 	<ul>
-		<li> <?php echo anchor('acceso', 'Home'); ?></li>
+		<li> <?php echo anchor('password', 'Home'); ?></li>
 	</ul>
 </div>
 
@@ -72,7 +72,7 @@ foreach ($usuarios as $row){
  <th>ID</th>
  <th>usuario</th>
  <th>modulo</th>
- <th>NivelAcceso</th>
+ <th>NivelPassword</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
@@ -104,13 +104,13 @@ foreach ($usuarios as $row){
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('acceso/acceso_data')?>', type: 'GET',data:{idusuario:idusuario}},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('password/password_data')?>', type: 'GET',data:{idusuario:idusuario}},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('idacceso');
+var id= $(this).data('idpassword');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 
@@ -122,7 +122,7 @@ function filtra_usuario()
 {
 
 idusuario = $('select[name=idusuario]').val();
-var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('acceso/acceso_data')?>', type: 'GET',data:{idusuario:idusuario}},});
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('password/password_data')?>', type: 'GET',data:{idusuario:idusuario}},});
 }
 
 

@@ -1,59 +1,98 @@
 <?php
 
-class Evaluacionpersona extends CI_Controller{
+class Password extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('emisor_model');
-      $this->load->model('persona_model');
-      $this->load->model('documento_model');
+      $this->load->model('acceso_model');
+  	  $this->load->model('persona_model');
+  	  $this->load->model('usuario_model');
+  	  $this->load->model('modulo_model');
+  	  $this->load->model('nivelacceso_model');
 }
 
-	public function index(){
-  		$data['documentos']= $this->documento_model->lista_documentos()->result();
-  		$data['personas']= $this->persona_model->lista_personas()->result();
- 		// $data['emisor']=$this->emisor_model->emisor(1)->row_array();
-		$data['emisor'] = $this->emisor_model->elprimero();
- 		// print_r($data['usuario_list']);
-  		$data['title']="Lista de Evaluacionpersonaes";
-		$this->load->view('template/page_header');		
-  		$this->load->view('emisor_record',$data);
+public function index(){
+
+  	if(isset($this->session->userdata['logged_in'])){
+			
+  	$data['acceso']=$this->acceso_model->lista_accesos()->row_array();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
+  	$data['modulos']= $this->modulo_model->lista_modulos()->result();
+  	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
+			
+		$data['title']="Lista de accesos";
+		$this->load->view('template/page_header');
+		$this->load->view('acceso_record',$data);
 		$this->load->view('template/page_footer');
+	}else{
+	 	$this->load->view('template/page_header.php');
+		$this->load->view('login_form');
+	 	$this->load->view('template/page_footer.php');
 	}
 
+ }
 
-	public function add()
-	{
-		$data['personas']= $this->persona_model->lista_personasA()->result();
-		$data['documentos']= $this->documento_model->lista_documentos()->result();
-		$data['title']="Nuevo Evaluacionpersona";
+
+
+public function actual(){
+ if(isset($this->session->userdata['logged_in'])){
+	$data['acceso']=$this->acceso_model->acceso($this->uri->segment(3))->row_array();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
+  	$data['modulos']= $this->modulo_model->lista_modulos()->result();
+  	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
+	$data['title']="Modulo de acceso";
+	$this->load->view('template/page_header');		
+	$this->load->view('acceso_record',$data);
+	$this->load->view('template/page_footer');
+   }else{
+	$this->load->view('template/page_header.php');
+	$this->load->view('login_form');
+	$this->load->view('template/page_footer.php');
+   }
+}
+
+
+
+public function add()
+{
+	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
+  	$data['modulos']= $this->modulo_model->lista_modulos()->result();
+  	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
+		$data['title']="Nueva Password";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('emisor_form',$data);
+	 	$this->load->view('acceso_form',$data);
 	 	$this->load->view('template/page_footer');
-	}
+
+
+}
 
 
 	public function  save()
 	{
 	 	$array_item=array(
-		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
+			'idusuario' => $this->input->post('idusuario'),
+			'idmodulo' => $this->input->post('idmodulo'),
+			'idnivelacceso' => $this->input->post('idnivelacceso'),
 	 	);
-	 	$this->emisor_model->save($array_item);
-	 	redirect('emisor');
+	 	$this->acceso_model->save($array_item);
+	 	redirect('acceso');
  	}
 
 
 
 public function edit()
 {
-
-	 	$data['emisor'] = $this->emisor_model->emisor($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_personasA()->result();
-		$data['documentos']= $this->documento_model->lista_documentos()->result();
- 	 	$data['title'] = "Actualizar Persona";
+	 	$data['acceso'] = $this->acceso_model->acceso($this->uri->segment(3))->row_array();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+  		$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
+  		$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
+  		$data['modulos']= $this->modulo_model->lista_modulos()->result();
+ 	 	$data['title'] = "Actualizar Password";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('emisor_edit',$data);
+ 	 	$this->load->view('acceso_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -61,24 +100,66 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idemisor');
+		$id=$this->input->post('idacceso');
 	 	$array_item=array(
-
-		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	
+		 	'idacceso' => $this->input->post('idacceso'),
+			'idusuario' => $this->input->post('idusuario'),
+			'idmodulo' => $this->input->post('idmodulo'),
+			'idnivelacceso' => $this->input->post('idnivelacceso'),
 	 	);
-	 	$this->usuario_model->update($id,$array_item);
-	 	redirect('usuario');
+	 	$this->acceso_model->update($id,$array_item);
+	 	redirect('acceso');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->emisor_model->delete($this->uri->segment(3));
+ 		$data=$this->acceso_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('emisor/elprimero');
+	 	redirect('acceso/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
+
+
+	public function listar()
+	{
+	
+  		$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
+  		$data['title']="Passwords";
+		$this->load->view('template/page_header');		
+  		$this->load->view('acceso_list',$data);
+		$this->load->view('template/page_footer');
+	}
+
+
+
+function acceso_data()
+{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+		$id=$this->input->get('idusuario');
+
+	 	$data0 = $this->acceso_model->lista_accesosA($id);
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->idacceso,$r->elusuario,$r->elmodulo,$r->elnivelacceso,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('acceso/actual').'"  data-idacceso="'.$r->idacceso.'">Ver</a>');
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+		echo json_encode($output);
+		exit();
+	
+			
+
+}
+
+
 
 
 
@@ -87,14 +168,22 @@ public function edit()
 
 public function elprimero()
 {
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->elprimero();
+	$data['acceso'] = $this->acceso_model->elprimero();
+
+
   if(!empty($data))
   {
+ 	$data['acceso']=$this->acceso_model->lista_accesos()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Evaluacionpersona del documento";
+  	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
+  	$data['modulos']= $this->modulo_model->lista_modulos()->result();
+  	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
+	
+
+
+    $data['title']="Password";
     $this->load->view('template/page_header');		
-    $this->load->view('emisor_record',$data);
+    $this->load->view('acceso_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -105,15 +194,22 @@ public function elprimero()
 
 public function elultimo()
 {
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->elultimo();
+	$data['acceso'] = $this->acceso_model->elultimo();
   if(!empty($data))
   {
+	$data['acceso'] = $this->acceso_model->elultimo();
+ //	$data['acceso']=$this->acceso_model->lista_accesos()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Evaluacionpersona del documento";
+  	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
+  	$data['modulos']= $this->modulo_model->lista_modulos()->result();
+  	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
+	
+
+
+    $data['title']="Password";
   
     $this->load->view('template/page_header');		
-    $this->load->view('emisor_record',$data);
+    $this->load->view('acceso_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -124,30 +220,36 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['emisor_list']=$this->emisor_model->lista_emisor()->result();
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->siguiente($this->uri->segment(3))->row_array();
+ 
+
+	$data['acceso'] = $this->acceso_model->siguiente($this->uri->segment(3))->row_array();
+
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Evaluacionpersona del documento";
- // $data['title']="Correo";
+  	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
+  	$data['modulos']= $this->modulo_model->lista_modulos()->result();
+  	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
+	
+
+
+ 	$data['title']="Password";
 	$this->load->view('template/page_header');		
-  $this->load->view('emisor_record',$data);
+  	$this->load->view('acceso_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['emisor_list']=$this->emisor_model->lista_emisor()->result();
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->anterior($this->uri->segment(3))->row_array();
- 	$data['personas']= $this->persona_model->lista_personas()->result();
- // $data['title']="Correo";
-    $data['title']="Evaluacionpersona del documento";
+	$data['acceso'] = $this->acceso_model->siguiente($this->uri->segment(3))->row_array();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
+  	$data['modulos']= $this->modulo_model->lista_modulos()->result();
+  	$data['nivelaccesos']= $this->nivelacceso_model->lista_nivelaccesos()->result();
+	 
+ 
+  $data['title']="Password";
 	$this->load->view('template/page_header');		
-  $this->load->view('emisor_record',$data);
+  $this->load->view('acceso_record',$data);
 	$this->load->view('template/page_footer');
 }
-
-
 
 
 
