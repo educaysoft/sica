@@ -6,6 +6,7 @@ class Password extends CI_Controller{
       parent::__construct();
       $this->load->model('password_model');
   	  $this->load->model('usuario_model');
+  	  $this->load->model('persona_model');
   	  $this->load->model('modulo_model');
   	  $this->load->model('evento_model');
 }
