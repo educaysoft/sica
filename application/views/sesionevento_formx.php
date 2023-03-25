@@ -41,8 +41,18 @@ foreach ($sesionevento as $row){
 	$sesionactual=0;
 	$sesiontotal=0;
 
+$f = strtotime($evento['fechainicia']);
+
+    $d = date( "j", $f);
+    $m = date("n", $f);
+    $a = date("Y", $f);
+
+if(checkdate($m,$d,$a)){
+ $fechasesion= $evento['fechainicia'];
+}else{
 
  $fechasesion=$calendarioacademico[0]->fechadesde;
+}
  $sesiones=array();
      $i=1;
     do {

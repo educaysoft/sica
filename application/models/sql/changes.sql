@@ -242,5 +242,9 @@ alter table evaluacion change idpersona idevaluacionpersona int(11);
 */
 
 
-alter table evaluacionpersona add column idreactivo int(11);
-alter table evaluacion drop column idreactivo;
+/* alter table evaluacionpersona add column idreactivo int(11); */
+/* alter table evaluacion drop column idreactivo;  */
+
+
+
+alter table institucion change nombre nombre varchar(100);
