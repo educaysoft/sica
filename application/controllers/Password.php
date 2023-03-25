@@ -19,6 +19,7 @@ public function index(){
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
+  	$data['eventos']= $this->evento_model->lista_eventos()->result();
 			
 		$data['title']="Lista de passwords";
 		$this->load->view('template/page_header');
@@ -40,6 +41,7 @@ public function actual(){
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
+  	$data['eventos']= $this->evento_model->lista_eventos()->result();
 	$data['title']="Modulo de password";
 	$this->load->view('template/page_header');		
 	$this->load->view('password_record',$data);
@@ -138,7 +140,7 @@ function password_data()
 	 	$data0 = $this->password_model->lista_passwordsA($id);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idpassword,$r->elusuario,$r->elmodulo,$r->elnivelpassword,
+			$data[]=array($r->idpassword,$r->elusuario,$r->elevento,$r->password,$r->onoff,$r->fechaon,$r->fechaoff,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('password/actual').'"  data-idpassword="'.$r->idpassword.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -171,6 +173,7 @@ public function elprimero()
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
+  	$data['eventos']= $this->evento_model->lista_eventos()->result();
 	
 
 
@@ -196,6 +199,7 @@ public function elultimo()
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
 	
+  	$data['eventos']= $this->evento_model->lista_eventos()->result();
 
 
     $data['title']="Password";
@@ -219,6 +223,7 @@ public function siguiente(){
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
+  	$data['eventos']= $this->evento_model->lista_eventos()->result();
 	
 
 
@@ -233,6 +238,7 @@ public function anterior(){
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
+  	$data['eventos']= $this->evento_model->lista_eventos()->result();
 	 
  
   $data['title']="Password";

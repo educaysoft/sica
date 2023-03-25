@@ -71,8 +71,11 @@ foreach ($usuarios as $row){
  <tr>
  <th>ID</th>
  <th>usuario</th>
- <th>modulo</th>
- <th>NivelPassword</th>
+ <th>elevento</th>
+ <th>password</th>
+ <th>onoff</th>
+ <th>fechaon</th>
+ <th>fechaoff</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
