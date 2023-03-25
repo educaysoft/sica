@@ -19,7 +19,6 @@ public function index(){
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
-  	$data['nivelpasswords']= $this->nivelpassword_model->lista_nivelpasswords()->result();
 			
 		$data['title']="Lista de passwords";
 		$this->load->view('template/page_header');
@@ -41,7 +40,6 @@ public function actual(){
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
-  	$data['nivelpasswords']= $this->nivelpassword_model->lista_nivelpasswords()->result();
 	$data['title']="Modulo de password";
 	$this->load->view('template/page_header');		
 	$this->load->view('password_record',$data);
@@ -60,7 +58,6 @@ public function add()
 	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
-  	$data['nivelpasswords']= $this->nivelpassword_model->lista_nivelpasswords()->result();
 		$data['title']="Nueva Password";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('password_form',$data);
@@ -75,7 +72,6 @@ public function add()
 	 	$array_item=array(
 			'idusuario' => $this->input->post('idusuario'),
 			'idmodulo' => $this->input->post('idmodulo'),
-			'idnivelpassword' => $this->input->post('idnivelpassword'),
 	 	);
 	 	$this->password_model->save($array_item);
 	 	redirect('password');
@@ -88,7 +84,6 @@ public function edit()
 	 	$data['password'] = $this->password_model->password($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
-  		$data['nivelpasswords']= $this->nivelpassword_model->lista_nivelpasswords()->result();
   		$data['modulos']= $this->modulo_model->lista_modulos()->result();
  	 	$data['title'] = "Actualizar Password";
  	 	$this->load->view('template/page_header');		
@@ -106,7 +101,6 @@ public function edit()
 		 	'idpassword' => $this->input->post('idpassword'),
 			'idusuario' => $this->input->post('idusuario'),
 			'idmodulo' => $this->input->post('idmodulo'),
-			'idnivelpassword' => $this->input->post('idnivelpassword'),
 	 	);
 	 	$this->password_model->update($id,$array_item);
 	 	redirect('password');
@@ -177,7 +171,6 @@ public function elprimero()
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
-  	$data['nivelpasswords']= $this->nivelpassword_model->lista_nivelpasswords()->result();
 	
 
 
@@ -202,7 +195,6 @@ public function elultimo()
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
-  	$data['nivelpasswords']= $this->nivelpassword_model->lista_nivelpasswords()->result();
 	
 
 
@@ -227,7 +219,6 @@ public function siguiente(){
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
-  	$data['nivelpasswords']= $this->nivelpassword_model->lista_nivelpasswords()->result();
 	
 
 
@@ -242,7 +233,6 @@ public function anterior(){
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
-  	$data['nivelpasswords']= $this->nivelpassword_model->lista_nivelpasswords()->result();
 	 
  
   $data['title']="Password";
