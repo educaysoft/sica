@@ -76,7 +76,7 @@ echo form_input($eys_arrinput);
     <label class="col-md-2 col-form-label"> Fecha On:</label>
 	<div class="col-md-10">
 	<?php
-       echo form_input( array("name"=>'fechaon',"id"=>'fechaon',"value"=>$password['fechaon'],'type'=>'date','placeholder'=>'fechanaon')); 
+       echo form_input( array("name"=>'fechaon',"id"=>'fechaon',"value"=>$password['fechaon'],'type'=>'datetime-local','placeholder'=>'fechanaon')); 
 	?>
 	</div> 
 </div>
@@ -85,7 +85,7 @@ echo form_input($eys_arrinput);
     <label class="col-md-2 col-form-label"> Fecha Off:</label>
 	<div class="col-md-10">
 	<?php
-       echo form_input( array("name"=>'fechaoff',"id"=>'fechaoff',"value"=>$password['fechaoff'],'type'=>'date','placeholder'=>'fechanaon')); 
+       echo form_input( array("name"=>'fechaoff',"id"=>'fechaoff',"value"=>$password['fechaoff'],'type'=>'datetime-local','placeholder'=>'fechanaon')); 
 	?>
 	</div> 
 </div>
