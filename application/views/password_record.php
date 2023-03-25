@@ -89,7 +89,7 @@ echo form_input('idevento',$options[$password['idevento']],array("disabled"=>"di
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Password:</label>
+    <label class="col-md-2 col-form-label"> OnOff:</label>
 	<div class="col-md-10">
 	<?php
       echo form_input('onoff',$password['onoff'],array("disabled"=>"disabled",'placeholder'=>'onoff')); 
