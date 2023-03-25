@@ -111,7 +111,7 @@ echo form_input('idevento',$options[$password['idevento']],array("disabled"=>"di
     <label class="col-md-2 col-form-label">Fecha off:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('fechaoff',$persona['fechaoff'],array("disabled"=>"disabled",'placeholder'=>'onoff')); 
+      echo form_input('fechaoff',$password['fechaoff'],array("disabled"=>"disabled",'placeholder'=>'onoff')); 
 	?>
 	</div> 
 </div>
