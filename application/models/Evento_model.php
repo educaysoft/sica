@@ -33,7 +33,7 @@ class Evento_model extends CI_model {
 		{
 
 
-	$evento = $this->db->query('select * from evento1 where EXISTS (select idevento from participante where participante.idevento=evento1.idevento and participante.idpersona= "'.$idpersona.'") order by idevento');
+	$evento = $this->db->query('select * from evento1 where EXISTS (select idevento from  where participante0.idevento=evento1.idevento and participante0.idpersona= "'.$idpersona.'") order by idevento');
 
 		}
 
@@ -48,7 +48,7 @@ class Evento_model extends CI_model {
 
 		$this->db->where("idevento_estado=2 or idevento_estado=3");  //SOLO ESTADO INSCRIPCION OR EN EJECUCION
 
-	$evento = $this->db->query('select * from evento1 where idevento_estado in (2,3) and  EXISTS (select idevento from participante where participante.idevento=evento1.idevento and participante.idpersona= "'.$idpersona.'") order by idevento');
+	$evento = $this->db->query('select * from evento1 where idevento_estado in (2,3) and  EXISTS (select idevento from  where participante0.idevento=evento1.idevento and participante0.idpersona= "'.$idpersona.'") order by idevento');
 
 
 		 return $evento;	
@@ -141,7 +141,7 @@ class Evento_model extends CI_model {
 //		$this->db->where("idevento_estado=2 or idevento_estado=3");  //SOLO ESTADO INSCRIPCION OR EN EJECUCION
 		$this->db->where("idevento",$id); 
 
-		$evento=$this->db->order_by("elparticipante")->get('eventoP');
+		$evento=$this->db->order_by("el")->get('eventoP');
  		return $evento;
  	}
 
@@ -299,12 +299,12 @@ class Evento_model extends CI_model {
 
 
 	// Para moverse presentar  los emisores 
-	function participantes( $ideven)
+	function s( $ideven)
 	{
  		$this->db->select('idpersona,nombres');
 		$this->db->where('idevento="'.$ideven.'"');
-		$emisores=$this->db->get('participante1');
-		$emisores=$this->db->query('select idpersona,nombres from participante1 where idevento="'. $ideven.'"');
+		$emisores=$this->db->get('1');
+		$emisores=$this->db->query('select idpersona,nombres from 1 where idevento="'. $ideven.'"');
 		return $emisores;
 	}
 
