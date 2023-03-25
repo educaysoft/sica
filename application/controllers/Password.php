@@ -40,7 +40,6 @@ public function actual(){
 	$data['password']=$this->password_model->password($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
-  	$data['modulos']= $this->modulo_model->lista_modulos()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
 	$data['title']="Modulo de password";
 	$this->load->view('template/page_header');		
@@ -86,7 +85,7 @@ public function edit()
 	 	$data['password'] = $this->password_model->password($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
-  		$data['modulos']= $this->modulo_model->lista_modulos()->result();
+  		$data['eventos']= $this->evento_model->lista_eventos()->result();
  	 	$data['title'] = "Actualizar Password";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('password_edit',$data);
@@ -101,8 +100,12 @@ public function edit()
 	 	$array_item=array(
 		 	
 		 	'idpassword' => $this->input->post('idpassword'),
+		 	'password' => $this->input->post('password'),
 			'idusuario' => $this->input->post('idusuario'),
-			'idmodulo' => $this->input->post('idmodulo'),
+			'idevento' => $this->input->post('idevento'),
+			'onoff' => $this->input->post('onoff'),
+			'fechaon' => $this->input->post('fechaon'),
+			'fechaoff' => $this->input->post('fechaff'),
 	 	);
 	 	$this->password_model->update($id,$array_item);
 	 	redirect('password');
