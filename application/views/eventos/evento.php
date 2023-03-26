@@ -427,7 +427,7 @@ echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="curre
 
 <div style='position:fixed; left:0; bottom:0; width:100%; text-align:center; background-color:red;font-size:40px;' >
        
-<a href= "<?php echo base_url(); ?>curso/evaluar?idpersona=<?echo $this->session->userdata['logged_in']['idpersona']; ?>&idsilabo=<?php echo $evento['idsilabo']; ?>&idevento=<?php echo $evento['idevento']; ?>&idtema=<?php echo $sesioneventos[sizeof($sesioneventos)-1]->idtema; ?>&fecha=<?php echo $sesioneventos[sizeof($sesioneventos)-1]->fecha; ?> " ><span sytle="color:white;">Evaluar e imprimir certificado</span></a>
+<a href= "<?php echo base_url(); ?>curso/evaluar?idpersona=<?echo $this->session->userdata['logged_in']['idpersona']; ?>&idsilabo=<?php echo $evento['idsilabo']; ?>&idevento=<?php echo $evento['idevento']; ?>&idtema=<?php echo $sesioneventos[sizeof($sesioneventos)-1]->idtema; ?>&fecha=<?php echo $sesioneventos[sizeof($sesioneventos)-1]->fecha; ?> " ><span style="color:white;">Evaluar e imprimir certificado</span></a>
 
 </div>
 </body>
