@@ -6,6 +6,7 @@
 $(document).ready(function (){
 const img =document.getElementById('foto');
 const src=img.getAttribute('src');
+alter(src);
 if(!src) {
  img.style.visibility='hidden';
 
