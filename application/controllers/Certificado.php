@@ -204,6 +204,29 @@ function certificado_data()
 }
 
 
+public function actual()
+{
+	$data['certificado'] = $this->certificado_model->certificado($this->uri->segment(3))->row_array();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
+  if(!empty($data))
+  {
+    $data['title']="Certificado";
+    $this->load->view('template/page_header');		
+    $this->load->view('certificado_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
+
 public function elprimero()
 {
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
