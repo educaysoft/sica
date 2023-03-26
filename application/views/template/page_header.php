@@ -618,7 +618,7 @@ span a {
 
       <div class="btn-group">
         	  <button class="btn btn-success">
-		            <img id="foto" src= "<?php echo base_url().$this->session->userdata['logged_in']['foto']; ?>" height="100%" class="avatar" onerror="javascript: noimagen();>
+		            <img id="foto" src= "<?php echo base_url().$this->session->userdata['logged_in']['foto']; ?>" height="100%" class="avatar" onerror="javascript: noimagen()">
 	          </button>
 
             <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
