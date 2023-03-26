@@ -5,9 +5,10 @@
 
 $(document).ready(function (){
 const img =document.getElementById('foto');
-const src=img.getAttribute('src');
+var src=img.getAttribute('src');
 if(!src) {
- img.setAttribute('src',"fotos/perfil.jpg");	
+	src="<?php echo base_url().'fotos/perfil.jpg'; ?>";
+ img.setAttribute('src',src);	
 // img.style.visibility='hidden';
 
 }
