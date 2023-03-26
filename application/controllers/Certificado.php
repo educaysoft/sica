@@ -192,7 +192,7 @@ function certificado_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idcertificado,$r->propietario,$r->archivo,$r->eldocumento,$r->elevento,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcertificado="'.$r->idcertificado.'"  data-ubicacion="'.$r->ubicacion.'"  data-archivo="'.$r->archivo.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcertificado="'.$r->idcertificado.'"  data-ubicacion="'.$r->ubicacion.'"  data-archivo="'.$r->archivo.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ir" data-retorno="'.site_url('certificado/actual').'"    data-idcertificado="'.$r->idcertificado.'">ir</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),

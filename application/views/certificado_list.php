@@ -86,6 +86,13 @@ window.location.href = certi;
 
 });
 
+$('#show_data').on('click','.item_ir',function(){
+var id= $(this).data('idpersona');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+
+});
+
 
 </script>
 
