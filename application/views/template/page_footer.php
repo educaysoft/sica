@@ -4,16 +4,7 @@
 <script>
 
 
-function noimagen(){
-alert("asi fuer");
-const img =document.getElementById('foto');
 
-const src="'"+"<?php echo base_url().'fotos/perfil.jpg'; ?>"+"'";
-alert(src);
-img.setAttribute('src',src);	
-
-
-}
 
 function openForm1() {
   document.getElementById("myForm1").style.display = "block";
