@@ -174,7 +174,7 @@ foreach ($unidadsilabos as $row){
 <div class="col-md-10">
 <?php
     
-$textarea_options = array('class' => 'form-control','rows' => '4','maxlength'=> '20',   'cols' => '20', 'style'=> 'width:50%;height:100px;',"maxlength"=>200, "placeholder"=>"Descripción corta del tema","id"=>"temacorto" );    
+$textarea_options = array('class' => 'form-control','rows' => '4','maxlength'=> '50',   'cols' => '20', 'style'=> 'width:50%;height:100px;',"maxlength"=>200, "placeholder"=>"Descripción corta del tema","id"=>"temacorto" );    
  echo form_textarea("temacorto","", $textarea_options);  
 
 ?><div id="textarea_feedback"></div>
@@ -268,7 +268,7 @@ foreach ($modoevaluacions as $row){
 	});     
 
 $(document).ready(function() {
-    var text_max = 20;
+    var text_max = 50;
     $('#textarea_feedback').html('Quedan ' + text_max + ' caracteres');
 
     $('#temacorto').keyup(function() {
