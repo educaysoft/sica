@@ -188,7 +188,7 @@ function certificado_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->certificado_model->lista_certificadoes();
+	 	$data0 = $this->certificado_model->lista_certificados1();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idcertificado,$r->propietario,$r->archivo,$r->eldocumento,$r->elevento,
