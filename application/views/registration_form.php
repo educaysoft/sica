@@ -78,7 +78,7 @@
 							}
 
 				echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('class'=>'form-control'));  
-							}
+?>
 					</div>
 
 -->
