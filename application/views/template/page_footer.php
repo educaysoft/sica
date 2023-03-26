@@ -6,8 +6,10 @@
 $(document).ready(function (){
 const img =document.getElementById('foto');
 var src=img.getAttribute('src');
+alert(src);
 if(!src) {
 	src="<?php echo base_url().'fotos/perfil.jpg'; ?>";
+alert(src);
  img.setAttribute('src',src);	
 // img.style.visibility='hidden';
 
