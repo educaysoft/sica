@@ -71,9 +71,6 @@
 					<div  class="w3-container" style="text-align:left; font-size: 70%;">
 
 						<?php 
-						echo sizeof($eventos);
-						die();
-if(sizeof($eventos)>1){
 						echo "<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: </label>";
 							$options= array('--Select--');
 							foreach ($eventos as $row){
@@ -81,6 +78,24 @@ if(sizeof($eventos)>1){
 							}
 
 							echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('class'=>'form-control'));  
+					</div>
+
+-->
+
+<div  class="w3-container" style="text-align:left; font-size: 70%;">
+
+						<?php 
+if(sizeof($eventos)>1){
+
+						echo "<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: </label>";
+							$options= array('--Select--');
+							foreach ($eventos as $row){
+								$options[$row->idevento]= $row->titulo;
+							}
+
+						 echo form_dropdown($name="idevento",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idevento','onchange'=>'show_detalle()'));  
+
+
 }else{
 
     $arrdatos=array('name'=>'idevento','value'=>$eventos[0]->idevento,"type"=>"hidden", "style"=>"width:600px");
@@ -91,21 +106,9 @@ if(sizeof($eventos)>1){
 }
 ?>
 
-					</div>
 
--->
 
-<div  class="w3-container" style="text-align:left; font-size: 70%;">
 
-						<?php 
-
-						echo "<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: </label>";
-							$options= array('--Select--');
-							foreach ($eventos as $row){
-								$options[$row->idevento]= $row->titulo;
-							}
-
-						 echo form_dropdown($name="idevento",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idevento','onchange'=>'show_detalle()'));  ?>
 
 					</div>
 
