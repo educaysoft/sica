@@ -248,7 +248,8 @@ alter table evaluacion change idpersona idevaluacionpersona int(11);
 
 
 /*alter table institucion change nombre nombre varchar(100);*/
-alter table sesionevento change temacorto temacorto varchar(500);
+/* alter table sesionevento change temacorto temacorto varchar(500); */
+alter table evento change costo costo varchar(50);
 
 
 
