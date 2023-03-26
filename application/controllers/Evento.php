@@ -322,7 +322,8 @@ public function index(){
 		$id=$this->input->get('idpersona');
 
 
-		$result = $this->docente_model->esdocente($id);
+		//$result = $this->docente_model->esdocente($id);
+		$result = $this->participante_model->esinstructor($id);
 		if($result)
 		{
 
