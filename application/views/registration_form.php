@@ -72,6 +72,7 @@
 
 						<?php 
 						echo sizeof($eventos);
+						die();
 if(sizeof($eventos)>1){
 						echo "<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: </label>";
 							$options= array('--Select--');
