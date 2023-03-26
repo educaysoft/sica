@@ -208,8 +208,8 @@ foreach ($pagoevento as $row){
 	      </div>
 
 
-	      <div style="width:100%; padding-top:5px;">
-		  <p style="font-size:25px;"><b>Estudiante :</b> <?php echo $this->session->userdata['logged_in']['elusuario'] ." -- (". $this->session->userdata['logged_in']['email'].")";?></p>
+	      <div style="width:95%; padding-top:5px; margin: auto; ">
+		  <p style="font-size:20px;"><b>Participante :</b> <?php echo $this->session->userdata['logged_in']['elusuario'] ." -- (". $this->session->userdata['logged_in']['email'].")";?></p>
 	      </div>
 
 
