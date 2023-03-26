@@ -7,9 +7,10 @@ $(document).ready(function (){
 const img =document.getElementById('foto');
 var src=img.getAttribute('src');
 if(!src) {
-	src="'"+"<?php echo base_url().'fotos/perfil.jpg'; ?>"+"'";
+//	src="'"+"<?php echo base_url().'fotos/perfil.jpg'; ?>"+"'";
+src="hola";
 alert(src);
- img.setAttribute('src',src);	
+// img.setAttribute('src',src);	
 // img.style.visibility='hidden';
 
 }
