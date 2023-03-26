@@ -78,7 +78,8 @@ if(checkdate($m,$d,$a)){
     		$dia = $dias[date('w', strtotime($fechasesion))];
 		if($row->nombre==$dia ){    //verifica si la fecha esta en el horario.
 			$lahorai=$row->horainicio;
-			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
+			$duracionminutos=$row->duracionminutos;
+			$lahoraf=strtotime(' +'.$duracionminutos.' minute',strtotime($lahorai));
 			$lahoraf=date("H:i:s",$lahoraf);
 			array_push($sesiones,array("sesion"=>$i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
 			if($sesionactual==0){
