@@ -191,7 +191,7 @@ function certificado_data()
 	 	$data0 = $this->certificado_model->lista_certificadoes();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idcertificado,$r->propietario,$r->archivo,
+			$data[]=array($r->idcertificado,$r->propietario,$r->archivo,$r->eldocumento,$r->elevento,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcertificado="'.$r->idcertificado.'"  data-ubicacion="'.$r->ubicacion.'"  data-archivo="'.$r->archivo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,

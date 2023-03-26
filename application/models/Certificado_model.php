@@ -1,10 +1,19 @@
 <?php
 class Certificado_model extends CI_model {
 
-	function lista_certificadoes(){
+	function lista_certificados(){
 		 $certificado= $this->db->get('certificado');
 		 return $certificado;
 	}
+
+	function lista_certificados1(){
+		 $certificado= $this->db->get('certificado1');
+		 return $certificado;
+	}
+
+
+
+
 
  	function certificado( $id){
  		$certificado = $this->db->query('select * from certificado where idcertificado="'. $id.'"');

@@ -46,6 +46,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <th>ID</th>
  <th>Propietario</th>
  <th>archivo</th>
+ <th>documento</th>
+ <th>evento</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
