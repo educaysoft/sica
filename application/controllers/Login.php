@@ -155,6 +155,7 @@ public function new_user_registration() {
             		$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
             		$data['message_display'] = 'Username already exist!';
             		//$data['programa_list'] = $this->programa_model->list_programa()->result();
+  			$data["sexos"]= $this->sexo_model->lista_sexos()->result();
             		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
             		$data['eventos']= $this->evento_model->lista_eventos()->result();
              		$this->load->view('template/page_header.php');
