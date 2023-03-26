@@ -5,7 +5,7 @@
 		<div style="width: 50%;  padding:5px;   display: inline-flex; " >
 			<div   style="width:100%; height:700px; ">
 				<header class="w3-container">
-				<div> <img src="<?php echo base_url(); ?>images/CentroEducacionContinua.png" style="height: 80px;" alt="Formget logo"></a>   </div>
+				<div >i<center> <img src="<?php echo base_url(); ?>images/CentroEducacionContinua.png" style="height: 80px;" alt="Centro de Educación Continua UTLVTE"></img></center>   </div>
 					<p id="titulo" style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:30px; text-align:center;">Sistema de registro para eventos académicos <br>  UTELVT</p>
 				</header>
 				<div id="detalle" class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
