@@ -99,10 +99,11 @@ if(sizeof($eventos)>1){
 
 }else{
 
+						echo "<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: </label>";
     $arrdatos=array('name'=>'idevento','value'=>$eventos[0]->idevento,"type"=>"hidden", "style"=>"width:600px");
 				echo form_input($arrdatos) ;
 
-	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '10',"disabled"=>"disabled", 'style'=> 'width:250px;height:80px;');    
+	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '10',"disabled"=>"disabled", 'style'=> 'width:200px;height:80px;');    
 							echo form_textarea('titulo',$eventos[0]->titulo,$textarea_options);
 }
 ?>
