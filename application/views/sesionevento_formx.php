@@ -49,9 +49,26 @@ $f = strtotime($evento['fechainicia']);
 
 if(checkdate($m,$d,$a)){
  $fechasesion= $evento['fechainicia'];
-}else{
+
+	$f = strtotime($evento['fechafinaliza']);   //Chequendo que la fecha de finalizacion estes ingresada
+
+    $d = date( "j", $f);
+    $m = date("n", $f);
+    $a = date("Y", $f);
+
+	if(checkdate($m,$d,$a)){
+		 $fechahasta= $evento['fechafinaliza'];
+	}else{
+
+		 $fechahasta= $calendarioacademico[0]->fechahasta; // sin no esta la fecha de fin en el evento se toma del calendario
+	}
+
+
+
+}else{   // sin no estan ingresadas las fecha en el evento se toma del calendario asignado
 
  $fechasesion=$calendarioacademico[0]->fechadesde;
+ $fechahasta=$calendarioacademico[0]->fechahasta;
 }
  $sesiones=array();
      $i=1;
@@ -80,7 +97,7 @@ if(checkdate($m,$d,$a)){
 	}
 		$fechasesion=date("Y-m-d",strtotime($fechasesion."+ 1 days")); 
 
-    }while(strtotime($fechasesion)<=strtotime($calendarioacademico[0]->fechahasta));
+    }while(strtotime($fechasesion)<=strtotime($fechahasta));
 
 
 	$eldia="No encontrado";	
