@@ -314,7 +314,7 @@ class Evento_model extends CI_model {
 	// Para moverse presentar  los emisores 
 	function certificados($ideven)
 	{
- 		$this->db->select('idcertificado,asunto');
+ 		$this->db->select('idcertificado,eldocumento');
 		$this->db->where('idevento="'.$ideven.'"');
 		$certificados=$this->db->get('certificado1');
 		return $certificados;
