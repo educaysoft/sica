@@ -3,21 +3,15 @@
 </div>
 <script>
 
-$(document).ready(function (){
+
+function noimagen(){
 const img =document.getElementById('foto');
-var src=img.getAttribute('src');
+const src="'"+"<?php echo base_url().'fotos/perfil.jpg'; ?>"+"'";
 alert(src);
-if(!src) {
-//	src="'"+"<?php echo base_url().'fotos/perfil.jpg'; ?>"+"'";
-src="hola";
-alert(src);
-// img.setAttribute('src',src);	
-// img.style.visibility='hidden';
+img.setAttribute('src',src);	
+
 
 }
-});
-
-
 
 function openForm1() {
   document.getElementById("myForm1").style.display = "block";
