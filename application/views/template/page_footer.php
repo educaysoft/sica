@@ -2,6 +2,18 @@
 </div>
 </div>
 <script>
+
+$(document).ready(function (){
+const img =document.getElementById('foto');
+const src=img.getAttribute('src');
+if(!src) {
+ img.style.visibility='hidden';
+
+}
+});
+
+
+
 function openForm1() {
   document.getElementById("myForm1").style.display = "block";
 }
