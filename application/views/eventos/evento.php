@@ -32,7 +32,6 @@ body,html {
   padding: 60px;
   text-align: center;
   background: #1abc9c;
-  color: text-align: center; text-transform: uppercase; color: #4CAF50;">objetivos</h1>white;
   font-size: 30px;
 }
 
