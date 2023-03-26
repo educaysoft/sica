@@ -40,7 +40,7 @@ body,html {
 .content {padding:20px;}
 
     .blue-color {
-        color:blue;
+        color:white;
     }
     .green-color {
         color:green;
@@ -142,7 +142,8 @@ foreach ($pagoevento as $row){
 <div style="width:100%; margin:auto; padding:10px;" >
       <div style="border:2px solid green; width:80%; margin:auto; padding:10px; " >
 	      <div style="width:100%">
-		  <p><?php echo $evento["detalle"];?></p>
+		 <h1 style="text-align: center; text-transform: uppercase; color: #4CAF50;">objetivos</h1>
+		  <p style="text-indent: 50px; text-align: justify; letter-spacing:2px;"><?php echo $evento["detalle"];?></p>
 	      </div>
 
 
