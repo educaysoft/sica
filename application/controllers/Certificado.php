@@ -174,7 +174,7 @@ public function edit()
 public function listar()
 {
 	
-  $data['certificado'] = $this->certificado_model->lista_certificadoes()->result();
+  $data['certificado'] = $this->certificado_model->lista_certificados1()->result();
   $data['title']="Certificado";
 	$this->load->view('template/page_header');		
   $this->load->view('certificado_list',$data);
