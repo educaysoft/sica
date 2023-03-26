@@ -202,8 +202,8 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 
 <div style="margin: auto; width: 100%; border:5px solid red;">
 	<div class="header">
-	  <h1 style="font-size:25px"><?php echo "Evento # :".$evento["idevento"]; ?></h1>
-	  <p><?php echo $evento["titulo"]; ?></p>
+	  <h1 style="font-size:25px"><?php echo "Silabo # :".$silabo["idsilabo"]; ?></h1>
+	  <p><?php echo $silabo["nombre"]; ?></p>
 	</div>
 
 
