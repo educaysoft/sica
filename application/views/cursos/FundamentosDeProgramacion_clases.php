@@ -202,8 +202,8 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 
 <div style="margin: auto; width: 100%; border:5px solid red;">
 	<div class="header">
-	  <h1><?php echo "Curso :".$silabo["idsilabo"]; ?></h1>
-	  <p><?php echo $silabo["nombre"]; ?></p>
+	  <h1 style="font-size:25px"><?php echo "Evento # :".$evento["idevento"]; ?></h1>
+	  <p><?php echo $evento["titulo"]; ?></p>
 	</div>
 
 
@@ -223,7 +223,7 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 			
 
 				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onClick="show_unidad('<?php echo $row->nombre; ?>','<?php echo $row->enlace; ?>','<?php echo $row->idreactivo; ?>','<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>')"/>   
-				<label class="form-check-label" for="inlineCheckbox1">Videotutorila-<?php echo $row->idvideotutorial;?></label>
+				<label class="form-check-label" for="inlineCheckbox1">Videotutorial-# :<?php echo $row->idvideotutorial;?></label>
 			</div>
 
 	<?php } ?>
