@@ -7,7 +7,8 @@ $(document).ready(function (){
 const img =document.getElementById('foto');
 const src=img.getAttribute('src');
 if(!src) {
- img.style.visibility='hidden';
+ img.src="fotos/perfil.jpg"	
+// img.style.visibility='hidden';
 
 }
 });
