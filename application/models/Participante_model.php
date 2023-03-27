@@ -21,7 +21,7 @@ class Participante_model extends CI_model {
 			return true;  
 		}
 
- 		$query = $this->db->query('select * from participante where idpersona="'. $id.'" and idnivelparticiopante=1');
+ 		$query = $this->db->query('select * from participante where idpersona="'. $id.'" and idnivelparticipante=1');
 		if ($query->num_rows() == 0) //SI NO ES UN INSTRUCTOR DE LA CLASES. 
 		{
 			return false;
