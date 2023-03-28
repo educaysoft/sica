@@ -15,13 +15,13 @@ class Participante_model extends CI_model {
 		 return $participacion;
 	}
 
- 	function esinstructor( $id){
+ 	function esinstructor( $id,$idevento){
 		if($id==8)  //Si es STALIN FRANCIS
 		{
 			return true;  
 		}
 
- 		$query = $this->db->query('select * from participante where idpersona="'. $id.'" and idnivelparticipante=2');
+ 		$query = $this->db->query('select * from participante where idevento="'.$idevento.'" and  idpersona="'. $id.'" and idnivelparticipante=2');
 		if ($query->num_rows() == 0) //SI NO ES UN INSTRUCTOR DE LA CLASES. 
 		{
 			return false;

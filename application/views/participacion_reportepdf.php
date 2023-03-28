@@ -427,7 +427,7 @@
 	$sum=0;
 	$can=0;
 
-       $pdf->addPage();
+       $pdf->AddPage('L');
 
 	$data=array('Aprobados'=>$aprobados, "Reprobados"=>$reprobados, "Desertores"=>$desertores);
 

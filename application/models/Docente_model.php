@@ -2,7 +2,7 @@
 class Docente_model extends CI_model {
 
 	function lista_docentes(){
-		 $docente= $this->db->get('docente');
+		 $docente= $this->db->get('docente0');
 		 return $docente;
 	}
 
@@ -21,7 +21,7 @@ class Docente_model extends CI_model {
 
 
  	function docente( $id){
- 		$docente = $this->db->query('select * from docente where iddocente="'. $id.'"');
+ 		$docente = $this->db->query('select * from docente0 where iddocente="'. $id.'"');
  		return $docente;
  	}
 
@@ -34,14 +34,14 @@ class Docente_model extends CI_model {
 
 
  	function docentespersona( $id){
- 		$docente = $this->db->query('select * from docente where idpersona="'. $id.'"');
+ 		$docente = $this->db->query('select * from docente0 where idpersona="'. $id.'"');
  		return $docente;
  	}
 
 
 
  	function esdocente( $id){
- 		$query = $this->db->query('select * from docente where idpersona="'. $id.'"');
+ 		$query = $this->db->query('select * from docente0 where idpersona="'. $id.'"');
 		if ($query->num_rows() == 0) {
 			return false;
 		   }else{
@@ -56,7 +56,7 @@ class Docente_model extends CI_model {
 		$condition1 = "iddepartamento =" . "'" . $array['iddepartamento'] . "'";
 		$condition2 = "idpersona =" . "'" . $array['idpersona'] . "'";
 		$this->db->select('*');
-		$this->db->from('docente');
+		$this->db->from('docente0');
 		$this->db->where($condition1);
 		$this->db->where($condition2);
 		$this->db->limit(1);
@@ -76,26 +76,34 @@ class Docente_model extends CI_model {
  	function update($id,$array_item)
  	{
  		$this->db->where('iddocente',$id);
- 		$this->db->update('docente',$array_item);
+ 		$this->db->update('docente0',$array_item);
 	}
  
 
 
- 	public function delete($id)
+ 	public function delete($iddocente)
 	{
- 		$this->db->where('iddocente',$id);
-		$this->db->delete('docente');
-    		if($this->db->affected_rows()==1)
+
+		$condition = "iddocente =" . $iddocente ;
+		$this->db->select('*');
+		$this->db->from('docente');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() != 0) {
+	 		  	$this->db->where('iddocente',$idp);
+				$this->db->update('docente', array('eliminado'=>1));
 			$result=true;
-		else
+		}else{
 			$result=false;
+		}
 		return $result;
  	}
 
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("iddocente")->get('docente');
+		$query=$this->db->order_by("iddocente")->get('docente0');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -108,7 +116,7 @@ class Docente_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("iddocente")->get('docente');
+		$query=$this->db->order_by("iddocente")->get('docente0');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -120,16 +128,16 @@ class Docente_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$docente = $this->db->select("iddocente")->order_by("iddocente")->get('docente')->result_array();
+ 		$docente = $this->db->select("iddocente")->order_by("iddocente")->get('docente0')->result_array();
 		$arr=array("iddocente"=>$id);
 		$clave=array_search($arr,$docente);
 	   if(array_key_exists($clave+1,$docente))
 		 {
 
- 		$docente = $this->db->query('select * from docente where iddocente="'. $docente[$clave+1]["iddocente"].'"');
+ 		$docente = $this->db->query('select * from docente0 where iddocente="'. $docente[$clave+1]["iddocente"].'"');
 		 }else{
 
- 		$docente = $this->db->query('select * from docente where iddocente="'. $id.'"');
+ 		$docente = $this->db->query('select * from docente0 where iddocente="'. $id.'"');
 		 }
 		 	
  		return $docente;
@@ -138,16 +146,16 @@ class Docente_model extends CI_model {
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$docente = $this->db->select("iddocente")->order_by("iddocente")->get('docente')->result_array();
+ 		$docente = $this->db->select("iddocente")->order_by("iddocente")->get('docente0')->result_array();
 		$arr=array("iddocente"=>$id);
 		$clave=array_search($arr,$docente);
 	   if(array_key_exists($clave-1,$docente))
 		 {
 
- 		$docente = $this->db->query('select * from docente where iddocente="'. $docente[$clave-1]["iddocente"].'"');
+ 		$docente = $this->db->query('select * from docente0 where iddocente="'. $docente[$clave-1]["iddocente"].'"');
 		 }else{
 
- 		$docente = $this->db->query('select * from docente where iddocente="'. $id.'"');
+ 		$docente = $this->db->query('select * from docente0 where iddocente="'. $id.'"');
 		 }
 		 	
  		return $docente;

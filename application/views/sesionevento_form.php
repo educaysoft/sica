@@ -41,8 +41,35 @@ foreach ($sesionevento as $row){
 	$sesionactual=0;
 	$sesiontotal=0;
 
+$f = strtotime($evento['fechainicia']);
+
+    $d = date( "j", $f);
+    $m = date("n", $f);
+    $a = date("Y", $f);
+
+if(checkdate($m,$d,$a)){
+ $fechasesion= $evento['fechainicia'];
+
+	$f = strtotime($evento['fechafinaliza']);   //Chequendo que la fecha de finalizacion estes ingresada
+
+    $d = date( "j", $f);
+    $m = date("n", $f);
+    $a = date("Y", $f);
+
+	if(checkdate($m,$d,$a)){
+		 $fechahasta= $evento['fechafinaliza'];
+	}else{
+
+		 $fechahasta= $calendarioacademico[0]->fechahasta; // sin no esta la fecha de fin en el evento se toma del calendario
+	}
+
+
+
+}else{   // sin no estan ingresadas las fecha en el evento se toma del calendario asignado
 
  $fechasesion=$calendarioacademico[0]->fechadesde;
+ $fechahasta=$calendarioacademico[0]->fechahasta;
+}
  $sesiones=array();
      $i=1;
     do {
@@ -51,7 +78,8 @@ foreach ($sesionevento as $row){
     		$dia = $dias[date('w', strtotime($fechasesion))];
 		if($row->nombre==$dia ){    //verifica si la fecha esta en el horario.
 			$lahorai=$row->horainicio;
-			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
+			$duracionminutos=$row->duracionminutos;
+			$lahoraf=strtotime(' +'.$duracionminutos.' minute',strtotime($lahorai));
 			$lahoraf=date("H:i:s",$lahoraf);
 			array_push($sesiones,array("sesion"=>$i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
 			if($sesionactual==0){
@@ -70,7 +98,7 @@ foreach ($sesionevento as $row){
 	}
 		$fechasesion=date("Y-m-d",strtotime($fechasesion."+ 1 days")); 
 
-    }while(strtotime($fechasesion)<=strtotime($calendarioacademico[0]->fechahasta));
+    }while(strtotime($fechasesion)<=strtotime($fechahasta));
 
 
 	$eldia="No encontrado";	
@@ -83,7 +111,9 @@ foreach ($sesionevento as $row){
 		if($row->nombre==$dia ){
 			$eldia=$dia;
 			$lahorai=$row->horainicio;
-			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
+			$duracionminutos=$row->duracionminutos;
+			$lahoraf=strtotime(' +'.$duracionminutos.' minute',strtotime($lahorai));
+			//$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
 			$lahoraf=date("H:i:s",$lahoraf);
 		}
 	}
@@ -144,7 +174,7 @@ foreach ($unidadsilabos as $row){
 <div class="col-md-10">
 <?php
     
-$textarea_options = array('class' => 'form-control','rows' => '4','maxlength'=> '20',   'cols' => '20', 'style'=> 'width:50%;height:100px;',"maxlength"=>200, "placeholder"=>"Descripción corta del tema","id"=>"temacorto" );    
+$textarea_options = array('class' => 'form-control','rows' => '4','maxlength'=> '50',   'cols' => '20', 'style'=> 'width:50%;height:100px;',"maxlength"=>200, "placeholder"=>"Descripción corta del tema","id"=>"temacorto" );    
  echo form_textarea("temacorto","", $textarea_options);  
 
 ?><div id="textarea_feedback"></div>
@@ -238,7 +268,7 @@ foreach ($modoevaluacions as $row){
 	});     
 
 $(document).ready(function() {
-    var text_max = 20;
+    var text_max = 50;
     $('#textarea_feedback').html('Quedan ' + text_max + ' caracteres');
 
     $('#temacorto').keyup(function() {
