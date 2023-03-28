@@ -15,12 +15,12 @@ if (isset($this->session->userdata['logged_in'])) {
 	<meta name="description" content="División de tecnología en apoyo a los procesos tecológicos de la Universidad Técnica Luis Vargas Torres" />
 	<meta property="og:locale" content="es_EC" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Universidad Técnica Luis Vargas Torres, Tecnología de la Información y la Comunicación" />
-	<meta property="og:description" content="División de tecnología en apoyo a los procesos tecológicos de la Universidad Técnica Luis Vargas Torres" />
+	<meta property="og:title" content="Universidad Técnica Luis Vargas Torres de Esmeraldas" />
+	<meta property="og:description" content="Centro de Educación Continua" />
 	<meta property="og:url" content="https://www.educaysoft.org/" />
 	<meta property="og:site_name" content="EDUCAYSOFT" />
 	<meta property="article:modified_time" content="2021-12-14T21:51:01+00:00" />
-	<meta property="og:image" content="https://educaysoft.org/images/utlvtetic.png" />
+	<meta property="og:image" content="https://educaysoft.org/images/CentroEducacionContinua.png" />
 	<meta property="og:image:width" content="800" />
 	<meta property="og:image:height" content="600" />
 	<!-- / Yoast SEO plugin. -->
