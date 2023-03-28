@@ -326,7 +326,7 @@ public function index(){
 			$data=array();
 			foreach($data0->result() as $r){
 			
-		$result = $this->participante_model->esinstructor($id);
+		$result = $this->participante_model->esinstructor($id,$r->idevento);
 		if($result)
 		{
 			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
