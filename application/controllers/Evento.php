@@ -346,7 +346,7 @@ public function index(){
 				"data"=>$data
 			);
 
-		}	
+		
 			echo json_encode($output);
 			exit();
 
