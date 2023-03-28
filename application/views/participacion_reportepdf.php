@@ -486,7 +486,7 @@
        $pdf->AddPage('L');
 
 	$pdf->SetFont("Arial", "BIU",12);
-	$pdf->Cell(0,5,'Estadisticas de Colegio',0,1);
+	$pdf->Cell(0,5,'Estadisticas de Colegios',0,1);
 	$pdf->Ln(8);
 
 
