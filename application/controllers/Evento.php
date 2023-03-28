@@ -337,7 +337,6 @@ public function index(){
 			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->estado,$r->lainstitucion,
 					$r->href='<a href="javascript:void(0);"  class="btn btn-info btn-sm item_ver2"  data-retorno2="'.site_url('evento/detalle').'"    data-idevento2="'.$r->idevento.'">Ver</a>');
 			}	
-			}
 
 	
 			$output=array( "draw"=>$draw,
