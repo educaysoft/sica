@@ -240,6 +240,7 @@ public function reporte()
 	$idevento=$this->uri->segment(3);
 	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 	$data['sesioneventos'] =$this->sesionevento_model->sesionevento_asistencia($this->uri->segment(3))->result();
+		$data['sesionevento'] = $this->sesionevento_model->sesionevento_sesiones($idevento)->result();
 	$data['asistencia'] = $this->asistencia_model->listar_asistencia_reporte($this->uri->segment(3))->result();
 
 
