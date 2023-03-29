@@ -44,7 +44,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <th>Participante</th>
 <?php
 foreach ($sesioneventos as $row){
-  echo "<th>". $row->fecha."<br>" . $row->temacorto." </th>";
+  echo "<th>". $row->fecha."<br> Sesión #:" . $row->numerosesion." </th>";
 }
   echo "<th> % </th>";
 $asi=0;
