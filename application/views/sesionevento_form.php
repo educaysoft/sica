@@ -31,17 +31,15 @@ foreach ($eventos as $row){
     $fecha = date("Y-m-d");
     $horai= date("H:i:s");
 
-
-$sesiondictada= array();
-foreach ($sesionevento as $row){
-	$sesiondictada[$row->fecha]= $row->idsesionevento;
-}
-
+	$sesiondictada= array();
+	foreach ($sesionevento as $row){
+		$sesiondictada[$row->fecha]= $row->idsesionevento;
+	}
 
 	$sesionactual=0;
 	$sesiontotal=0;
 
-$f = strtotime($evento['fechainicia']);
+	$f = strtotime($evento['fechainicia']);
 
     $d = date( "j", $f);
     $m = date("n", $f);

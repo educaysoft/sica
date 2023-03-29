@@ -72,7 +72,6 @@ if(checkdate($m,$d,$a)){
  $sesiones=array();
      $i=1;
     do {
-	
 	foreach ($jornadadocente as $row){
     		$dia = $dias[date('w', strtotime($fechasesion))];
 		if($row->nombre==$dia ){    //verifica si la fecha esta en el horario.
@@ -125,9 +124,15 @@ if(checkdate($m,$d,$a)){
  <th># </th>
  <th>Participante</th>
 <?php
-foreach ($sesioneventos as $row){
+
+foreach ($sesiones as $row){
   echo "<th>". $row->fecha."<br> Sesión #:" . $row->numerosesion." </th>";
 }
+
+//foreach ($sesioneventos as $row){
+//  echo "<th>". $row->fecha."<br> Sesión #:" . $row->numerosesion." </th>";
+//}
+
   echo "<th>".$sesiontotal." = 100% </th>";
 $asi=0;
 $aus=0;
@@ -149,7 +154,7 @@ foreach ($asistencia as $row){
     $i=$i+1;
     echo "<tr><td>". $i."</td>";
     echo "<td>". $arrasistencia[$id]."</td>";
-    foreach ($sesioneventos as $row1){
+    foreach ($sesiones as $row1){
       if(isset($arrasistencia[$row1->fecha])){
 	      $x=255;
 	      $k=255;
