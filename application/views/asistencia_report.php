@@ -118,6 +118,10 @@ if(checkdate($m,$d,$a)){
                  <h3>Reporte de asistencia </h3>
        	     </div>
 
+<?php
+print_r($sesiones);
+?>
+
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
