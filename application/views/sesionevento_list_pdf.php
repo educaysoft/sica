@@ -58,8 +58,8 @@ $current_x = $pdf->GetX();
 	$persona="";
 	$i=0;
 	foreach ($sesioneventos as $row){  //Recorre todas la participaciones realiadas por los participantes
-		nmes=date('m'.strtotime($row->fecha));
-		if(nmes==mesnumero || mesnumero==0){
+		$nmes=date('m'.strtotime($row->fecha));
+		if($nmes==$mesnumero || $mesnumero==0){
 
 $current_y = $current_y2;
 	$pdf->SetXY($current_x, $current_y);   
