@@ -178,8 +178,8 @@ echo "<td style='color:black;"." background-color:rgb(".$x.",".$k.", 255); '>". 
 	  $aus=$aus+1;
       }
     }
-      $resu=round(($asi/($asi+$aus))*100,2);
-      echo "<td>".$resu."</td>";
+      $resu=round(($asi/($sesiontotal))*100,2);
+      echo "<td>".$asi." = ".$resu."%</td>";
       echo "</tr>";
 $asi=0;
 $aus=0;
