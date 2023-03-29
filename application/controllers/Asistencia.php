@@ -8,6 +8,8 @@ class Asistencia extends CI_Controller{
       		$this->load->model('evento_model');
       		$this->load->model('tipoasistencia_model');
          	$this->load->model('sesionevento_model');
+         	$this->load->model('jornadadocente_model');
+         	$this->load->model('calendarioacademico_model');
 	}
 
 	public function index(){
