@@ -207,7 +207,7 @@ $j=0;
 	  $aus=$aus+1;
       }
     } 
-      $resu=round(($asi/($totalsesion))*100,2);
+    $resu=round(($asi/($sesiontotal))*100,2);
       echo "<td>".$asi." = ".$resu."%</td>";
       echo "</tr>";
 $j=0;
