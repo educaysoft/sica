@@ -168,7 +168,7 @@ foreach ($unidadsilabos as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Tema nombre(corto):</label>
+<label class="col-md-2 col-form-label">Tema :</label>
 <div class="col-md-10">
 <?php
     
@@ -182,7 +182,8 @@ $textarea_options = array('class' => 'form-control','rows' => '4','maxlength'=> 
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Tema descripción:</label>
+<label class="col-md-2 col-form-label">Detalle:</label>
+
 <div class="col-md-10">
 <?php
     
