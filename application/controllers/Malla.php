@@ -106,7 +106,7 @@ public function edit()
 	 	$data0 = $this->malla_model->lista_mallas1();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idmalla,$r->lamalla,
+			$data[]=array($r->idmalla,$r->eldepartamento,$r->lamalla,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('malla/actual').'"  data-idmalla="'.$r->idmalla.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
