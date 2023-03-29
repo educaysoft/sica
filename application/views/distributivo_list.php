@@ -50,6 +50,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <tr>
  <th>iddistributivo</th>
  <th>Periodo</th>
+ <th>Departamento/Carrera</th>
  <th>distributivo</th>
  <th style="text-align: right;">Actions</th>
  </tr>
