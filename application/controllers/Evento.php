@@ -502,7 +502,7 @@ public function index(){
 			$data0 =$this->participante_model->participantes($id);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idparticipante,$r->nombres,$r->archivopdf,
+				$data[]=array($r->nombres,$r->archivopdf,
 					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary  item_grupo"  data-retorno="'.site_url('participante/edit').'"    data-idparticipante="'.$r->idparticipante.'">'.$r->grupoletra.'</a>',
 
 $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary  item_quitar"  data-retorno="'.site_url('participante/quitar').'"    data-idparticipante="'.$r->idparticipante.'">Quitar</a>',
