@@ -103,7 +103,7 @@ public function edit()
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
-	 	$data0 = $this->malla_model->lista_mallas();
+	 	$data0 = $this->malla_model->lista_mallas1();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idmalla,$r->nombrecorto,

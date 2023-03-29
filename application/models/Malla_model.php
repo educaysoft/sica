@@ -6,6 +6,14 @@ class Malla_model extends CI_model {
 		 return $malla;
 	}
 
+	function lista_mallas1(){
+		 $malla= $this->db->get('malla1');
+		 return $malla;
+	}
+
+
+
+
  	function malla( $id){
  		$malla = $this->db->query('select * from malla where idmalla="'. $id.'"');
 		 
