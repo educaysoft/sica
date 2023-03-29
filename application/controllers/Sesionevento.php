@@ -331,8 +331,8 @@ function sesionevento_data()
         	}
 
 
-	 	$data['sesioneventos']= $this->sesionevento_model->sesioneventosA($this->uri->segment(3))->result();
-		$data['instructor']=$this->participante_model->instructor($this->uri->segment(3))->result();
+	 	$data['sesioneventos']= $this->sesionevento_model->sesioneventosA($idevento)->result();
+		$data['instructor']=$this->participante_model->instructor($idevento)->result();
 		$data['mesnumero']=$mesnumero;
 		$datea['mesletra'] = array(1 => 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
 		$data['title']="Evento";
