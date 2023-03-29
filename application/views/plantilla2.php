@@ -12,6 +12,7 @@ class PDF extends PDF_Sector
 	public $titulo="";
 	public $asignatura="";
 	public $docente="";
+	public $mes="";
 
 	var $legends;
 	var $wLegend;
@@ -43,6 +44,8 @@ class PDF extends PDF_Sector
 		$this->Cell(10,5,utf8_decode($this->asignatura),0,1,'L');
 		$this->Cell(10);
 		$this->Cell(10,5,utf8_decode($this->docente),0,1,'L');
+		$this->Cell(10);
+		$this->Cell(10,5,utf8_decode($this->mes),0,1,'L');
 
 		$this->Ln(1);
 //		$this->Cell(40,5,utf8_decode('CÁTEDRA:'),0,0,'L');

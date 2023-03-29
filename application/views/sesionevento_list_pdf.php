@@ -18,6 +18,10 @@
 	
     	$pdf->asignatura="Evento(Clase):  ".$sesioneventos[0]->elevento; 
     	$pdf->docente="Docente:  ".$instructor[0]->nombres; 
+	if($mesnumero>0){
+    	$pdf->docente="Mes:  ".$mesletra[$mesnumero]; 
+	}
+
 
 
 	$pdf->AliasNbPages();

@@ -320,8 +320,21 @@ function sesionevento_data()
 
 	public function reportepdf()
 	{
+
+		$tmp=explode("-",$this->uri->segment(3));
+        	$idevento=$tmp[0];
+        	if(isset($tmp[1]))
+        	{
+        		$mesnumero=$tmp[1];
+        	}else{
+        		$mesnumero=0;
+        	}
+
+
 	 	$data['sesioneventos']= $this->sesionevento_model->sesioneventosA($this->uri->segment(3))->result();
 		$data['instructor']=$this->participante_model->instructor($this->uri->segment(3))->result();
+		$data['mesnumero']=$mesnumero;
+		$datea['mesletra'] = array(1 => 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
 		$data['title']="Evento";
 	//	$this->load->view('template/page_header');		
 		$this->load->view('sesionevento_list_pdf',$data);
