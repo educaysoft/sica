@@ -58,7 +58,9 @@ $current_x = $pdf->GetX();
 	$persona="";
 	$i=0;
 	foreach ($sesioneventos as $row){  //Recorre todas la participaciones realiadas por los participantes
-	       
+		nmes=date('m'.strtotime($row->fecha));
+		if(nmes==mesnumero || mesnumero==0){
+
 $current_y = $current_y2;
 	$pdf->SetXY($current_x, $current_y);   
 		    $i=$i+1;
@@ -109,7 +111,7 @@ $cell_height=10;    //define cell height
 			$cell_width=18;
 		    $pdf->MultiCell($cell_width,5,"X SISTEMA",1);
 	 	 	$current_x=$current_x2;
-
+		}
     }
 
     
