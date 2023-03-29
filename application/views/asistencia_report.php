@@ -126,7 +126,7 @@ if(checkdate($m,$d,$a)){
 <?php
 
 foreach ($sesiones as $row){
-  echo "<th>". $row->fecha."<br> Sesión #:" . $row->numerosesion." </th>";
+  echo "<th>". $row['fecha']."<br> Sesión #:" . $row['sesion']." </th>";
 }
 
 //foreach ($sesioneventos as $row){
