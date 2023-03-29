@@ -42,6 +42,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
+ <th>eldepartamento</th>
  <th>nombre</th>
  <th style="text-align: right;">Actions</th>
  </tr>
