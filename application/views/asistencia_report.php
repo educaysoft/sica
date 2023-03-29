@@ -173,6 +173,18 @@ echo "<td style='color:black;"." background-color:rgb(".$x.",".$k.", 255); '>". 
 		}
 
 
+     if($arrasistencia[$row1['fecha']][0]==3)  
+     {
+         echo "<td style='color:black'>". "FA-IN"."</td>";
+     }
+
+
+     if($arrasistencia[$row1['fecha']][0]==4)  
+     {
+         echo "<td style='color:black'>". "FA-JU"."</td>";
+     }
+
+
 
 
 
@@ -222,13 +234,13 @@ echo "<td style='color:black;"." background-color:rgb(".$x.",".$k.", 255); '>". 
 		}
 
 
-     if($arrasistencia[$row1['fecha']][0]==3)   //atraseo
+     if($arrasistencia[$row1['fecha']][0]==3)  
      {
          echo "<td style='color:black'>". "FA-IN"."</td>";
      }
 
 
-     if($arrasistencia[$row1['fecha']][0]==4)   //atraseo
+     if($arrasistencia[$row1['fecha']][0]==4)  
      {
          echo "<td style='color:black'>". "FA-JU"."</td>";
      }
