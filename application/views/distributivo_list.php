@@ -39,21 +39,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 
-<div class="form-group row">
-    	<label class="col-md-2 col-form-label"> Silabo:</label>
-	<?php
-		$options= array('--Select--');
-		foreach ($distributivos as $row){
-			$options[$row->idperiodoacademico]= $row->elperiodoacademico;
-		}
-	?>
 
-	<div class="col-md-10">
-		<?php
-     			echo form_dropdown("idperiodoacademico",$options[$filtro], set_select('--Select--','default_value'),array('onchange'=>'filtra_periodoacademico'));  
-		?>
-	</div>
-	</div>
 
 
 
