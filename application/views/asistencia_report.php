@@ -69,10 +69,8 @@ foreach ($asistencia as $row){
     echo "<td>". $arrasistencia[$id]."</td>";
     foreach ($sesioneventos as $row1){
       if(isset($arrasistencia[$row1->fecha])){
-	      $x=$j*10;
-	      $k=$j+150;
-	     // echo "<td style='color:green;"." background-color:rgb(".$x.",".$k.", 66); '>". $arrasistencia[$row1->fecha]."</td>";
-	  //    echo "<td style='color:green;"." background-color:rgb(".$x.",".$k.", 66); '>". $arrasistencia[$row1->fecha]."</td>";
+	      $x=0;
+	      $k=0;
 
       if($arrasistencia[$row1->fecha][0]==1)   //puntual
 		{
