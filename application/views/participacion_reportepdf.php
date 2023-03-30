@@ -290,10 +290,10 @@
 
 
 
-	if(isset($datag[$row->genero])){
-		$datag[$row->genero]=$datag[$row->genero]+1;
+	if(isset($datag[$row->sexo])){
+		$datag[$row->sexo]=$datag[$row->sexo]+1;
 	}else{
-		$datag[$row->genero]=1;
+		$datag[$row->sexo]=1;
 	}
 
 	if(isset($datac[$row->colegio])){
