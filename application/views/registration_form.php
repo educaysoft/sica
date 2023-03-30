@@ -9,7 +9,7 @@
 					<p id="titulo" style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:30px; text-align:center;">Sistema de registro para eventos académicos <br>  UTELVT</p>
 				</header>
 				<div id="detalle" class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
-<center> <img src="<?php echo base_url(); ?>images/eventos/transformaciondigital.jpg" id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img></center>
+<center> <img src="<?php echo base_url(); ?>images/eventos/eventosacademicos.png" id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img></center>
 			<p>Para poder unirte a este evento sigue las  instrucciones: </p><br>
 			<ol>
 			<li> Escoge el evento académico.  </li>
