@@ -290,7 +290,7 @@ foreach ($pagoevento as $row){
 		<?php } ?>
           </div>
 
-          <div class="col-sm-1">
+          <div class="col-md-auto">	
             <span><?php   echo $row->numerosesion; ?></span> 
           </div>
 
