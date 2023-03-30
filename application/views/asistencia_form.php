@@ -77,7 +77,6 @@ echo form_textarea("comentario","",$textarea_options);
 <table class="table table-striped table-bordered table-hover" id="mydatap">
  <thead>
  <tr>
- <th>id</th>
  <th>Participante</th>
  <th>Asistencia</th>
  <th style="text-align: right;">Actions</th>

@@ -563,7 +563,7 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 			$data0 =$this->participante_model->asistencias($id,$fecha);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idparticipante,$r->nombres,$r->eltipoasistencia,
+				$data[]=array($r->nombres,$r->eltipoasistencia,
 
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_asit" data-idpersona="'.$r->idpersona.'"   data-idtipoasistencia="'.'1'.'">PU</a><a href="javascript:void(0);" class="btn btn-success btn-sm item_asit"  data-idpersona="'.$r->idpersona.'" data-idtipoasistencia="'.'2'.'">AT</a><a href="javascript:void(0);" class="btn btn-primary btn-sm item_asit"  data-idpersona="'.$r->idpersona.'"  data-idtipoasistencia="'.'3'.'">FJ</a><a href="javascript:void(0);" class="btn btn-primary btn-sm item_asit" data-idpersona="'.$r->idpersona.'"  data-idtipoasistencia="'.'4'.'">FI</a>');
 			}	
