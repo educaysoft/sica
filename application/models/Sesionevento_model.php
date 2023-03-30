@@ -24,6 +24,13 @@ class Sesionevento_model extends CI_model {
  	}
 
 
+
+ 	function sesioneventos1( $id){
+ 		$sesionevento = $this->db->query('select * from sesionevento1 where idevento="'. $id.'" order by fecha');
+ 		return $sesionevento;
+ 	}
+
+
  	function sesioneventosA( $id){
 		$condition="idevento=".$id;
 		$this->db->where($condition);

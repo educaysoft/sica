@@ -704,7 +704,7 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 	public function detalle()
 	{
 		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
-		$data['sesioneventos'] = $this->sesionevento_model->sesioneventos($this->uri->segment(3))->result();
+		$data['sesioneventos'] = $this->sesionevento_model->sesioneventos1($this->uri->segment(3))->result();
 		$data['asistencia'] = $this->asistencia_model->asistenciax( $data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
 		$data['participacion'] = $this->participacion_model->participacionx($data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
 		$data['pagoevento'] = $this->pagoevento_model->pagoeventox($data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
