@@ -448,7 +448,7 @@ public function index(){
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->numerosesion,$r->idsesionevento,$r->fecha,$r->horainicio,$r->horafin,$r->idmodoevaluacion,$r->tema, 
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('sesionevento/edit').'"    data-idsesionevento="'.$r->idsesionevento.'">Cerrar</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('sesionevento/edit').'"    data-idsesionevento="'.$r->idsesionevento.'">Modificar</a>');
 		//		$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('sesionevento/actual').'"    data-idsesionevento="'.$r->idsesionevento.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_edit"  data-idsesionevento="'.$r->idsesionevento.'"  data-idevento="'.$r->idevento.'">edit</a>');
 			}	
 			$output=array( "draw"=>$draw,
