@@ -221,8 +221,14 @@ foreach ($pagoevento as $row){
               <i class='fa fa-bars'></i>
           </div>
 
+          <div class="col-md-auto">	
+            <span>#</span> 
+          </div>
+
+
+
           <div class="col-sm-4">	
-            <span>EVENTO</span> 
+            <span>Tema(Sesión)</span> 
           </div>
 
           <div class="col-sm-3">
@@ -285,7 +291,11 @@ foreach ($pagoevento as $row){
           </div>
 
           <div class="col-sm-4">
-            <span><?php   echo $row->tema; ?></span> 
+            <span><?php   echo $row->numerosesion; ?></span> 
+          </div>
+
+          <div class="col-sm-4">
+            <span><?php   echo $row->temacorto; ?></span> 
           </div>
           <div class="col-sm-3">
             <span><?php   echo $row->fecha; ?></span>
