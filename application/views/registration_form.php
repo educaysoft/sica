@@ -11,7 +11,7 @@
 				<div id="detalle" class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
 <center> <img src="<?php echo base_url(); ?>images/eventos/transformaciondigital.jpg" id="imagenevento" style="height: 80px;" alt="Imagen del evento"></img></center>
 			<p>Conviertete en parte de nuestra comunidad universitaria, registrate en nuestra plataforma y beneficiate de todos los eventos académicos que se organizan en el Alma Mater.</p><br>
-			<p>Para poder hacerlo sigue las siguientes instrucciones: </p><br>
+			<p>Para poder unirte a este evento sigue las  instrucciones: </p><br>
 			<ol>
 			<li> Escoge el evento académico.  </li>
 			<li> Ingresa tus datos de contacto  que se solicita.  </li>
