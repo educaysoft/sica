@@ -9,7 +9,7 @@
 					<p id="titulo" style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:30px; text-align:center;">Sistema de registro para eventos académicos <br>  UTELVT</p>
 				</header>
 				<div id="detalle" class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
-
+<center> <img src="<?php echo base_url(); ?>images/transformaciondigital.jpg" id="imagenevento" style="height: 80px;" alt="Imagen del evento"></img></center>
 			<p>Conviertete en parte de nuestra comunidad universitaria, registrate en nuestra plataforma y beneficiate de todos los eventos académicos que se organizan en el Alma Mater.</p><br>
 			<p>Para poder hacerlo sigue las siguientes instrucciones: </p><br>
 			<ol>
@@ -241,7 +241,7 @@ if(sizeof($eventos)>1){
 <script>
 
 $(document).ready(()=>{
-  var idinstitucion= <?php echo $idinstitucion; ?>;
+  var idinstitucion= <?php echo $imagenevento; ?>;
   var idevento= <?php echo $idevento; ?>;
 
   if(idinstitucion>0){
