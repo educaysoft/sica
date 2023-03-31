@@ -357,10 +357,10 @@ public function get_estado() {
     $this->load->helper('form');
     if($this->input->post('idparalelo')) {
         $this->db->select('*');
-        $this->db->where(array('iddistributivodocente' => $this->input->post('iddistributivodocente')));
+      //  $this->db->where(array('iddistributivodocente' => $this->input->post('iddistributivodocente')));
         $this->db->where(array('idasignatura' => $this->input->post('idasignatura')));
         $this->db->where(array('idparalelo' => $this->input->post('idparalelo')));
-        $query = $this->db->get('asignaturadocente');
+        $query = $this->db->get('asignaturadocente1');
 	$data=$query->result();
 	echo json_encode($data);
 	}

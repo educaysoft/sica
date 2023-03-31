@@ -201,7 +201,7 @@ function get_estado() {
 	alert(idparalelo);
     $.ajax({
         url: "<?php echo site_url('asignaturadocente/get_estado') ?>",
-        data: {iddistributivodocente:iddistributivodocente,idasignatura:idasignatura,idparalelo:idparalelo},
+        data: {idasignatura:idasignatura,idparalelo:idparalelo},
         method: 'POST',
 	async : true,
         dataType : 'json',
