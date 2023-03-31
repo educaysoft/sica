@@ -91,7 +91,7 @@ foreach ($paralelos as $row){
 	$options[$row->idparalelo]= $row->nombre;
 }
 
-echo form_dropdown("idparalelo",$options, set_select('--Select--','default_value')); 
+echo form_dropdown("idparalelo",$options, set_select('--Select--','default_value'),array('id'=>'idparalelo','onchange'=>'get_estado()')); 
 
 ?>
     </div>
