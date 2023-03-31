@@ -98,23 +98,26 @@ echo form_dropdown("idparalelo",$options, set_select('--Select--','default_value
 </div>
 </div>
 
+
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Estado:</label>
 <div class="col-md-10">
     <div class="form-group">
-<?php 
 
-$options= array('--Select--');
-foreach ($estadoasignaturadocentes as $row){
-	$options[$row->idestadoasignaturadocente]= $row->nombre;
-}
 
-echo form_dropdown("idestadoasignaturadocente",$options, set_select('--Select--','default_value')); 
-
-?>
+   <select class="form-control" id="idestadoasignaturadocente" name="idestadoasignaturadocente" required>
+                 <option>No Selected</option>
+          </select>
     </div>
 </div>
 </div>
+
+
+
+
+
+
+
 
 
 
@@ -194,9 +197,11 @@ function get_estado() {
 	var idasignatura = $('select[name=idasignatura]').val();
 	var idparalelo = $('select[name=idparalelo]').val();
 	alert(iddistributivodocente);
+	alert(idasignatura);
+	alert(idparalelo);
     $.ajax({
         url: "<?php echo site_url('asignaturadocente/get_estado') ?>",
-        data: {iddistributivodocente: iddistributivodocente,idasignatura:idasignatura,idparalelo:idparalelo},
+        data: {iddistributivodocente:iddistributivodocente,idasignatura:idasignatura,idparalelo:idparalelo},
         method: 'POST',
 	async : true,
         dataType : 'json',
