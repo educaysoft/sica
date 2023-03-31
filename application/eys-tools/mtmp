@@ -1,57 +1,33 @@
 <?php
-class Acceso_model extends CI_model {
+class Estadoproceso_model extends CI_model {
 
-	function lista_accesos(){
-		 $acceso= $this->db->get('acceso');
-		 return $acceso;
+	function lista_estadoprocesos(){
+		 $estadoproceso= $this->db->get('estadoproceso');
+		 return $estadoproceso;
 	}
 
-
-	function lista_accesosA($id){
-		 if($id>0){
-		 $this->db->where('idusuario',$id);
-		 }
-		 $acceso= $this->db->get('acceso1');
-		 return $acceso;
-	}
-
-
-
- 	function acceso( $id){
- 		$acceso = $this->db->query('select * from acceso where idacceso="'. $id.'"');
- 		return $acceso;
+ 	function estadoproceso( $id){
+ 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $id.'"');
+ 		return $estadoproceso;
  	}
-
-
- 	function usuario($id){
- 		$acceso = $this->db->where('idusuario',$id)->get('acceso');
- 		return $acceso;
- 	}
-
-
- 	function get_usuario($id){
- 		$acceso = $this->db->where('idusuario',$id)->get('acceso');
- 		return $acceso->result();
- 	}
-
 
  	function save($array)
  	{
-		$this->db->insert("acceso", $array);
+		$this->db->insert("estadoproceso", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idacceso',$id);
- 		$this->db->update('acceso',$array_item);
+ 		$this->db->where('idestadoproceso',$id);
+ 		$this->db->update('estadoproceso',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idacceso',$id);
-		$this->db->delete('acceso');
+ 		$this->db->where('idestadoproceso',$id);
+		$this->db->delete('estadoproceso');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -62,7 +38,7 @@ class Acceso_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idacceso")->get('acceso');
+		$query=$this->db->order_by("idestadoproceso")->get('estadoproceso');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -75,7 +51,7 @@ class Acceso_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idacceso")->get('acceso');
+		$query=$this->db->order_by("idestadoproceso")->get('estadoproceso');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -87,37 +63,37 @@ class Acceso_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$acceso = $this->db->select("idacceso")->order_by("idacceso")->get('acceso')->result_array();
-		$arr=array("idacceso"=>$id);
-		$clave=array_search($arr,$acceso);
-	   if(array_key_exists($clave+1,$acceso))
+ 		$estadoproceso = $this->db->select("idestadoproceso")->order_by("idestadoproceso")->get('estadoproceso')->result_array();
+		$arr=array("idestadoproceso"=>$id);
+		$clave=array_search($arr,$estadoproceso);
+	   if(array_key_exists($clave+1,$estadoproceso))
 		 {
 
- 		$acceso = $this->db->query('select * from acceso where idacceso="'. $acceso[$clave+1]["idacceso"].'"');
+ 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $estadoproceso[$clave+1]["idestadoproceso"].'"');
 		 }else{
 
- 		$acceso = $this->db->query('select * from acceso where idacceso="'. $id.'"');
+ 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $id.'"');
 		 }
 		 	
- 		return $acceso;
+ 		return $estadoproceso;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$acceso = $this->db->select("idacceso")->order_by("idacceso")->get('acceso')->result_array();
-		$arr=array("idacceso"=>$id);
-		$clave=array_search($arr,$acceso);
-	   if(array_key_exists($clave-1,$acceso))
+ 		$estadoproceso = $this->db->select("idestadoproceso")->order_by("idestadoproceso")->get('estadoproceso')->result_array();
+		$arr=array("idestadoproceso"=>$id);
+		$clave=array_search($arr,$estadoproceso);
+	   if(array_key_exists($clave-1,$estadoproceso))
 		 {
 
- 		$acceso = $this->db->query('select * from acceso where idacceso="'. $acceso[$clave-1]["idacceso"].'"');
+ 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $estadoproceso[$clave-1]["idestadoproceso"].'"');
 		 }else{
 
- 		$acceso = $this->db->query('select * from acceso where idacceso="'. $id.'"');
+ 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $id.'"');
 		 }
 		 	
- 		return $acceso;
+ 		return $estadoproceso;
  	}
 
 

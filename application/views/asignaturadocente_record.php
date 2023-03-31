@@ -94,6 +94,23 @@ echo form_input('iddistributivodocente',$options[$asignaturadocente['iddistribut
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Estado:</label>
+	<div class="col-md-10">
+	<?php
+    $options= array("NADA");
+    foreach ($asignaturadocentes as $row){
+	      $options[$row->idasignaturadocente]= $row->nombre;
+    }
+    echo form_input('idasignaturadocente',$options[$asignaturadocente['idasignaturadocente']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+
+		?>
+	</div> 
+</div>
+
+
+
+
+<div class="form-group row">
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">

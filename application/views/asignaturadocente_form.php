@@ -98,6 +98,28 @@ echo form_dropdown("idparalelo",$options, set_select('--Select--','default_value
 </div>
 </div>
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Estado:</label>
+<div class="col-md-10">
+    <div class="form-group">
+<?php 
+
+$options= array('--Select--');
+foreach ($asignaturadocentes as $row){
+	$options[$row->idasignaturadocente]= $row->nombre;
+}
+
+echo form_dropdown("idasignaturadocente",$options, set_select('--Select--','default_value')); 
+
+?>
+    </div>
+</div>
+</div>
+
+
+
+
+
 <table>
 <tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("asignaturadocente","Atras") ?> </td>
