@@ -123,7 +123,7 @@ public function edit()
 			'idestadoasignaturadocente' => $this->input->post('idestadoasignaturadocente'),
 	 	);
 	 	$this->asignaturadocente_model->update($id,$array_item);
-	 	redirect('asignaturadocente');
+	 	redirect('asignaturadocente/actual/'.$id);
  	}
 
 
