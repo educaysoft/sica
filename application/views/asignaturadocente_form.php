@@ -217,6 +217,7 @@ function get_estado() {
 
         html += '<option value=1>'+'VACANTE'+'</option>';
 	}
+	alert(html);
         $('#idestadoasignaturadocente').html(html);
 
 
