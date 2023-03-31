@@ -55,11 +55,11 @@ foreach ($paralelos as $row){
 <td> Estado:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($asignaturadocentes as $row){
-	$options[$row->idasignaturadocente]= $row->nombre;
+foreach ($estadoasignaturadocentes as $row){
+	$options[$row->idestadoasignaturadocente]= $row->nombre;
 }
 
- echo form_dropdown("idasignaturadocente",$options, $asignaturadocente['idasignaturadocente']);  ?></td>
+ echo form_dropdown("idestadoasignaturadocente",$options, $asignaturadocente['idestadoasignaturadocente']);  ?></td>
 </tr>
 
 

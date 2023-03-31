@@ -60,6 +60,7 @@ public function add()
 	$data['mallas']= $this->malla_model->lista_mallas()->result();
 	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
   	$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 	$data['title']="Nueva Asignaturadocente";
  	$this->load->view('template/page_header');		
@@ -98,6 +99,7 @@ public function edit()
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
   		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
   		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
  	 	$data['title'] = "Actualizar Asignaturadocente";
@@ -207,6 +209,7 @@ public function actual()
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
 	  if(!empty($data))
@@ -238,6 +241,7 @@ public function elprimero()
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 	$data['asignaturadocente'] = $this->asignaturadocente_model->elprimero();
   		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 	  if(!empty($data))
@@ -260,6 +264,7 @@ public function elultimo()
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   if(!empty($data))
@@ -283,6 +288,7 @@ public function siguiente(){
 	$data['asignaturadocente'] = $this->asignaturadocente_model->siguiente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
@@ -300,6 +306,7 @@ public function anterior(){
  	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   $data['title']="Asignaturadocente";
