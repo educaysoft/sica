@@ -212,12 +212,11 @@ function get_estado() {
         for(i=0; i<data.length; i++){
         html += '<option value='+data[i].idestadoasignaturadocente+'>'+data[i].nombre+'</option>';
         }
-	if($i==0)
+	if(i==0)
 	{
 
         html += '<option value=1>'+'VACANTE'+'</option>';
 	}
-	alert(html);
         $('#idestadoasignaturadocente').html(html);
 
 
