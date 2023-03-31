@@ -189,6 +189,41 @@ function get_asignaturas() {
 
 
 
+function get_estado() {
+	var iddistributivodocente = $('select[name=iddistributivodocente]').val();
+	var idasignatura = $('select[name=idasignatura]').val();
+	var idparalelo = $('select[name=idparalelo]').val();
+    $.ajax({
+        url: "<?php echo site_url('asignaturadocente/get_estado') ?>",
+        data: {iddistributivodocente: iddistributivodocente,idasignatura:idasignatura,idparalelo:idparalelo},
+        method: 'POST',
+	async : true,
+        dataType : 'json',
+        success: function(data){
+		console.log(data);
+        var html = '';
+        var i=0;
+        for(i=0; i<data.length; i++){
+        html += '<option value='+data[i].idestadoasignaturadocente+'>'+data[i].nombre+'</option>';
+        }
+	if($i==0)
+	{
+
+        html += '<option value=1>'+'VACANTE'+'</option>';
+	}
+        $('#idestadoasignaturadocente').html(html);
+
+
+        },
+      error: function (xhr, ajaxoptions, thrownerror) {
+        alert(xhr.status);
+        alert(thrownerror);
+      }
+    })
+
+}
+
+
 
 
 
