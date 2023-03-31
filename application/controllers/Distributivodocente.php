@@ -161,7 +161,7 @@ function distributivodocente_data()
 		$data0 =$this->asignaturadocente_model->lista_asignaturadocentesA($iddistributivodocente);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->iddistributivodocente,$r->idasignaturadocente,$r->nivel,$r->laasignatura,$r->paralelo,$r->horas,
+			$data[]=array($r->iddistributivodocente,$r->idasignaturadocente,$r->nivel,$r->laasignatura,$r->paralelo,$r->horas,$r->estado,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('asignaturadocente/actual').'"    data-idasignaturadocente="'.$r->idasignaturadocente.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_gesi"  data-retorno="'.site_url('silabo/save').'"     data-paralelo="'.$r->paralelo.'"  data-laasignatura="'.$r->laasignatura.'"   data-elperiodoacademico="'.$r->elperiodoacademico.'"  data-idperiodoacademico="'.$r->idperiodoacademico.'"  data-iddocente="'.$r->iddocente.'" data-idasignatura="'.$r->idasignatura.'">GeSi</a>');
 			}	
 		$output=array( "draw"=>$draw,

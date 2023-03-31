@@ -115,6 +115,7 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
 	 <th>Asignatura</th>
 	 <th>Paralelo</th>
 	 <th>horas</th>
+	 <th>Estado</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
