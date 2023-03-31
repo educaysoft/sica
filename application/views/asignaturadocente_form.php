@@ -196,9 +196,6 @@ function get_estado() {
 	var iddistributivodocente = $('select[name=iddistributivodocente]').val();
 	var idasignatura = $('select[name=idasignatura]').val();
 	var idparalelo = $('select[name=idparalelo]').val();
-	alert(iddistributivodocente);
-	alert(idasignatura);
-	alert(idparalelo);
     $.ajax({
         url: "<?php echo site_url('asignaturadocente/get_estado') ?>",
         data: {iddistributivodocente:iddistributivodocente,idasignatura:idasignatura,idparalelo:idparalelo},

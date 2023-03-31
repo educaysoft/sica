@@ -78,7 +78,7 @@ public function add()
 			'iddistributivodocente' => $this->input->post('iddistributivodocente'),
 			'idasignatura' => $this->input->post('idasignatura'),
 			'idparalelo' => $this->input->post('idparalelo'),
-			'idestadoasignaturadocente' => $this->input->post('idestadoasignaturadocente'),
+			'idestadoasignaturadocente' => 1,
 	 	);
 	 	$result=$this->asignaturadocente_model->save($array_item);
 
