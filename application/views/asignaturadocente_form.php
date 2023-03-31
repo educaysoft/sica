@@ -105,11 +105,11 @@ echo form_dropdown("idparalelo",$options, set_select('--Select--','default_value
 <?php 
 
 $options= array('--Select--');
-foreach ($asignaturadocentes as $row){
-	$options[$row->idasignaturadocente]= $row->nombre;
+foreach ($estadoasignaturadocentes as $row){
+	$options[$row->idestadoasignaturadocente]= $row->nombre;
 }
 
-echo form_dropdown("idasignaturadocente",$options, set_select('--Select--','default_value')); 
+echo form_dropdown("idestadoasignaturadocente",$options, set_select('--Select--','default_value')); 
 
 ?>
     </div>
