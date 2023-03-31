@@ -9,6 +9,7 @@ class Asignaturadocente extends CI_Controller{
   	  $this->load->model('asignatura_model');
   	  $this->load->model('periodoacademico_model');
   	  $this->load->model('asignaturadocente_model');
+  	  $this->load->model('estadoasignaturadocente_model');
   	  $this->load->model('distributivo_model');
   	  $this->load->model('distributivodocente_model');
   	  $this->load->model('paralelo_model');
@@ -23,6 +24,7 @@ public function index(){
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
 			

@@ -98,10 +98,10 @@ echo form_input('iddistributivodocente',$options[$asignaturadocente['iddistribut
 	<div class="col-md-10">
 	<?php
     $options= array("NADA");
-    foreach ($asignaturadocentes as $row){
-	      $options[$row->idasignaturadocente]= $row->nombre;
+    foreach ($estadoasignaturadocentes as $row){
+	      $options[$row->idestadoasignaturadocente]= $row->nombre;
     }
-    echo form_input('idasignaturadocente',$options[$asignaturadocente['idasignaturadocente']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+    echo form_input('idestadoasignaturadocente',$options[$estadoasignaturadocente['idestadoasignaturadocente']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 
 		?>
 	</div> 
