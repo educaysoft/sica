@@ -196,6 +196,9 @@ function get_estado() {
 	var iddistributivodocente = $('select[name=iddistributivodocente]').val();
 	var idasignatura = $('select[name=idasignatura]').val();
 	var idparalelo = $('select[name=idparalelo]').val();
+	alert(iddistributivodocente);
+	alert(idasignatura);
+	alert(idparalelo);
     $.ajax({
         url: "<?php echo site_url('asignaturadocente/get_estado') ?>",
         data: {iddistributivodocente:iddistributivodocente,idasignatura:idasignatura,idparalelo:idparalelo},
@@ -207,7 +210,7 @@ function get_estado() {
         var html = '';
         var i=0;
         for(i=0; i<data.length; i++){
-        html += '<option value='+data[i].idestadoasignaturadocente+'>'+data[i].nombre+'</option>';
+        html += '<option value='+data[i].idestadoasignaturadocente+'>'+data[i].estado+'</option>';
         }
 	if(i==0)
 	{
