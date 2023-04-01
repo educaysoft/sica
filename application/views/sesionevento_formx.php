@@ -135,7 +135,7 @@ if(checkdate($m,$d,$a)){
 $options= array('--Select--');
 foreach ($temas as $row){
 //	$options[$row->idtema]="Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto;
-	echo "<option value='".$row->idtema."'>"."Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto."</option>;
+	echo "<option value='".$row->idtema."'>"."Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto."</option>";
 }
 // echo form_dropdown("idtema",$options,$fecha, array('id'=>'idtema'));  
 ?>
