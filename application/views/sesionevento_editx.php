@@ -203,6 +203,7 @@ foreach ($modoevaluacions as $row){
 
 <script>
   var idtema=<?php echo $sesionevento['idtema']; ?>;
+	idtema=90;
   alert(idtema);
  $("#idtema option[value='" + idtema + "']").prop("selected", true);
 
