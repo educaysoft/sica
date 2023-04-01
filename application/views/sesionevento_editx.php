@@ -2,28 +2,38 @@
 <?php echo form_hidden('idsesionevento',$sesionevento['idsesionevento']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
-<table>
- 
-   <tr>
-     <td>Id sesionevento</td>
-     <td><?php 
 
 
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Id sesionevento:</label>
+<div class="col-md-10">
+<?php
 $eys_arrinput=array('name'=>'idsesionevento','value'=>$sesionevento['idsesionevento'],'readonly'=>'true', "style"=>"width:500px");
-echo form_input($eys_arrinput); ?></td>
-  </tr> 
+echo form_input($eys_arrinput);
+
+?>
+</div>
+</div>
 
 
-<tr>
-<td> Evento:</td>
-<td><?php
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Evento:</label>
+<div class="col-md-10">
+<?php
+
 $options= array('--Select--');
 foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
 }
 
- echo form_dropdown("idevento",$options, $sesionevento['idevento']);  ?></td>
-</tr>
+echo form_dropdown("idevento",$options, $sesionevento['idevento']); 
+
+?>
+</div>
+</div>
+
 
 <?php
 
@@ -99,21 +109,27 @@ foreach ($sesioneventos as $row){
 
 
 
-
- 
- <tr>
-      <td>Fecha :</td>
-      <td><?php echo form_input( array("name"=>'fecha',"id"=>'fecha',"readonly"=>"true","value"=>$sesionevento['fecha'],'type'=>'date','placeholder'=>'fecha')); echo $eldia." (sesión # ".$sesionactual.")";  ?></td>
-  </tr>
- 
-
-<tr>
-<td><?php echo anchor('tema/actual/'.$sesionevento['idtema'], 'Temas tratados:'); ?>  </td>
-<td>
-
-<select class="form-control" id="idtema" name="idtema" multiple="multiple" required  size="8" style="height:100%,">
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Fecha:</label>
+<div class="col-md-10">
 <?php
 
+	echo form_input( array("name"=>'fecha',"id"=>'fecha',"readonly"=>"true","value"=>$sesionevento['fecha'],'type'=>'date','placeholder'=>'fecha')); echo $eldia." (sesión # ".$sesionactual.")";
+
+?>
+</div>
+</div>
+
+ 
+
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label"><?php echo anchor('tema/actual/'.$sesionevento['idtema'], 'Temas tratados:'); ?>:</label>
+<div class="col-md-10">
+<select class="form-control" id="idtema" name="idtema" multiple="multiple" required  size="8" style="height:100%,">
+<?php
 
 $options= array('--Select--');
 foreach ($temas as $row){
@@ -122,50 +138,74 @@ foreach ($temas as $row){
 ?>
 </select>
 
+</div>
+</div>
 
-</td>
-</tr>
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Tema:</label>
+<div class="col-md-10">
+<?php
 
-<tr>
-  <td>Tema:</td>
-  <td><?php 
   
 $textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20','maxlength'=>'50','style'=> 'width:50%;height:100px;', "placeholder"=>"tema","id" =>"temacorto");    
-echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); ?><div id="textarea_feedback"></div>
-</td>
+echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); 
+?><div id="textarea_feedback"></div>
+</div>
+</div>
 
- </tr>
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Unidad:</label>
+<div class="col-md-10">
+<?php
+$options= array();
+foreach ($unidadsilabos as $row){
+	$options[$row->idunidadsilabo]="Unidad: ".$row->unidad;
+}
+ $primero= reset($options);
+ 
+ echo form_dropdown("idunidadsilabo",$options,$primero, array('id'=>'idunidadsilabo'));  
+?>
+</div>
+</div>
 
 
-<tr>
-  <td>Detalle:</td>
-  <td><?php 
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Detalle:</label>
+<div class="col-md-10">
+<?php
   
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"tema","id" =>"tema");    
-echo form_textarea('tema',$sesionevento['tema'],$textarea_options ); ?></td>
- </tr>
+echo form_textarea('tema',$sesionevento['tema'],$textarea_options ); 
+
+?>
+</div>
+</div>
 
 
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Hora inicio:</label>
+<div class="col-md-10">
+<?php
 
-
-
-
-<tr>
-     <td>Hora inicio:</td>
-     <td><?php 
      $eys_arrinput=array('name'=>'horainicio','id'=>'horainicio',"type"=>"time","step"=>1,"min"=>"07:00:00","max"=>"19:00:00",'value'=>$sesionevento['horainicio'], "style"=>"width:500px");
-     echo form_input($eys_arrinput); echo $lahorai; ?></td>
-</tr>
+echo form_input($eys_arrinput); echo $lahorai;
 
-<tr>
-     <td>Hora fin:</td>
-     <td><?php 
-	    
-	//     echo $sesionevento['horafin'];
-     //	die();
+?>
+</div>
+</div>
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Hora fin:</label>
+<div class="col-md-10">
+<?php
 
 	if($sesionevento['horafin']=="00:00:00"){
    		date_default_timezone_set('America/Guayaquil');
@@ -173,28 +213,36 @@ echo form_textarea('tema',$sesionevento['tema'],$textarea_options ); ?></td>
     		$sesionevento['horafin']= date("H:i:s");
      }
      $eys_arrinput=array('name'=>'horafin','id'=>'horafin',"type"=>"time","step"=>1,"min"=>"07:00:00","max"=>"19:00:00",'value'=>$sesionevento['horafin'], "style"=>"width:500px");
-     echo form_input($eys_arrinput); echo $lahoraf; ?></td>
-</tr>
+     echo form_input($eys_arrinput); echo $lahoraf;
+
+
+?>
+</div>
+</div>
 
 
 
-<tr>
-<td> Modo de evaluacion:</td>
-<td><?php
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Modo de evaluacion:</label>
+<div class="col-md-10">
+<?php
+
+     
 $options= array('--Select--');
 foreach ($modoevaluacions as $row){
 	$options[$row->idmodoevaluacion]= $row->nombre;
 }
 
- echo form_dropdown("idmodoevaluacion",$options, $sesionevento['idmodoevaluacion']);  ?></td>
-</tr>
+echo form_dropdown("idmodoevaluacion",$options, $sesionevento['idmodoevaluacion']);
+
+?>
+</div>
+</div>
 
 
 
 
-
-
-
+<table>
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <input type="button" onclick="history.back()" name="volver atrás" value="volver atrás">  </td>
  </tr>
@@ -203,7 +251,6 @@ foreach ($modoevaluacions as $row){
 
 <script>
   var idtema=<?php echo $sesionevento['idtema']; ?>;
-  alert(idtema);
  $("#idtema option[value='" + idtema + "']").prop("selected", true);
 
 $(document).ready(function() {
