@@ -134,6 +134,8 @@ foreach ($sesioneventos as $row){
 $options= array('--Select--');
 foreach ($temas as $row){
 	echo "<option value='".$row->idtema."'>"."Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto."</option>";
+	if($row->idtema==$sesionevento['idtema'])
+		$unidad=$row->unidad;
 }
 ?>
 </select>
@@ -165,7 +167,7 @@ foreach ($unidadsilabos as $row){
 }
  $primero= reset($options);
  
- echo form_dropdown("idunidadsilabo",$options,$primero, array('id'=>'idunidadsilabo'));  
+ echo form_dropdown("idunidadsilabo",$options,$unidad, array('id'=>'idunidadsilabo'));  
 ?>
 </div>
 </div>
