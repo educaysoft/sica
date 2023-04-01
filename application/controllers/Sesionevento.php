@@ -218,6 +218,32 @@ class Sesionevento extends CI_Controller{
 
 
 
+	public function editx()
+	{
+		$idevento=$this->uri->segment(3);
+	 	$data['sesioneventos'] = $this->sesionevento_model->sesionevento($this->uri->segment(3))->result();
+		$data['sesionevento'] = $this->sesionevento_model->sesionevento($idevento)->row_array();
+		$data['evento'] = $this->evento_model->evento($data['sesionevento']['idevento'])->row_array();
+		$data['jornadadocente']= $this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente'])->result();
+
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
+  		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+		$data['calendarioacademico'] = $this->calendarioacademico_model->lista_calendarioacademicosA($data['evento']['idcalendarioacademico'])->result();
+  		$data['documentos']= $this->documento_model->lista_documentos()->result();
+ 	 	$data['title'] = "Actualizar Sesionevento";
+ 	 	$this->load->view('template/page_header');		
+ 	 	$this->load->view('sesionevento_editx',$data);
+	 	$this->load->view('template/page_footer');
+	}
+
+
+
+
+
+
+
 	public function edit()
 	{
 		$idevento=$this->uri->segment(3);
