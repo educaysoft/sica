@@ -174,7 +174,6 @@ class Sesionevento extends CI_Controller{
 
 	public function  save()
 	{
-
    			date_default_timezone_set('America/Guayaquil');
     			$fecha = date("Y-m-d");
     			$hora= date("H:i:s");
@@ -220,9 +219,9 @@ class Sesionevento extends CI_Controller{
 
 	public function editx()
 	{
-		$idevento=$this->uri->segment(3);
+		$idsesionevento=$this->uri->segment(3);
 	 	$data['sesioneventos'] = $this->sesionevento_model->sesionevento($this->uri->segment(3))->result();
-		$data['sesionevento'] = $this->sesionevento_model->sesionevento($idevento)->row_array();
+		$data['sesionevento'] = $this->sesionevento_model->sesionevento($idsesionevento)->row_array();
 		$data['evento'] = $this->evento_model->evento($data['sesionevento']['idevento'])->row_array();
   		$data['unidadsilabos']= $this->unidadsilabo_model->unidadsilaboss($data['evento']['idsilabo'])->result();
 		$data['jornadadocente']= $this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente'])->result();
