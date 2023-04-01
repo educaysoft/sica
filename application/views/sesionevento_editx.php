@@ -111,7 +111,7 @@ foreach ($sesioneventos as $row){
 <td><?php echo anchor('tema/actual/'.$sesionevento['idtema'], 'Temas tratados:'); ?>  </td>
 <td>
 
-<select class="form-control" id="idtema" id="idtema" multiple="multiple" required  size="8" style="height:100%,">
+<select class="form-control" id="idtema" name="idtema" multiple="multiple" required  size="8" style="height:100%,">
 <?php
 
 
@@ -202,8 +202,7 @@ foreach ($modoevaluacions as $row){
 <?php echo form_close(); ?>
 
 <script>
- idtema=<?php echo $sesionevento['idtema']; ?>;
-alert(idtema);
+  var idtema=<?php echo $sesionevento['idtema']; ?>;
  $("#idtema option[value='" + idtema + "']").prop("selected", true);
 
 $(document).ready(function() {
