@@ -130,18 +130,34 @@ foreach ($sesioneventos as $row){
 <div class="col-md-10">
 <select class="form-control" id="idtema" name="idtema" multiple="multiple" required  size="8" style="height:100%,">
 <?php
-
+$idunidadsilabo=0;
+$numerosesion=0;
 $options= array('--Select--');
 foreach ($temas as $row){
 	echo "<option value='".$row->idtema."'>"."Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto."</option>";
 	if($row->idtema==$sesionevento['idtema'])
 		$idunidadsilabo=$row->idunidadsilabo;
+		$numerosesion=$row->numerosesion;
 }
 ?>
 </select>
 
 </div>
 </div>
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Número de sesión:</label>
+<div class="col-md-10">
+<?php
+$eys_arrinput=array('name'=>'numerosesion','value'=>$numerosesion, "style"=>"width:500px");
+echo form_input($eys_arrinput);
+
+?>
+</div>
+</div>
+
+
 
 
 <div class="form-group row">
