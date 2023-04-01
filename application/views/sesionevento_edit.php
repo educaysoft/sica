@@ -51,7 +51,9 @@ foreach ($sesioneventos as $row){
     		$dia = $dias[date('w', strtotime($fechasesion))];
 		if($row->nombre==$dia ){    //verifica si la fecha esta en el horario.
 			$lahorai=$row->horainicio;
-			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
+			$duracionminutos=$row->duracionminutos;
+			$lahoraf=strtotime(' +'.$duracionminutos.' minute',strtotime($lahorai));
+			//$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
 			$lahoraf=date("H:i:s",$lahoraf);
 			array_push($sesiones,array("sesion"=>$i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
 		//	if($sesionactual==0){
@@ -118,7 +120,7 @@ foreach ($temas as $row){
 
 
 <tr>
-  <td>Tema a tratar(nombre corto):</td>
+  <td>Tema:</td>
   <td><?php 
   
 $textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20','maxlength'=>'50','style'=> 'width:50%;height:100px;', "placeholder"=>"tema","id" =>"temacorto");    
@@ -129,7 +131,7 @@ echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); ?
 
 
 <tr>
-  <td>Tema a tratar(nombre largo):</td>
+  <td>Detalle:</td>
   <td><?php 
   
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"tema","id" =>"tema");    
