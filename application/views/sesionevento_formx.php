@@ -128,7 +128,7 @@ if(checkdate($m,$d,$a)){
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Tema dictados:</label>
 <div class="col-md-10">
-<select class="form-control" id="idtema" id="idtema" multiple="multiple" required  size="30" style="height: 30%,">
+<select class="form-control" id="idtema" id="idtema" multiple="multiple" required  size="8" style="height:100%,">
 <?php
 
 
