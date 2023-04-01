@@ -202,6 +202,10 @@ foreach ($modoevaluacions as $row){
 <?php echo form_close(); ?>
 
 <script>
+ idtema=<?php echo $sesionevento['idtema']; ?>;
+alert(idtema);
+ $("#idtema option[value='" + idtema + "']").prop("selected", true);
+
 $(document).ready(function() {
     var text_max = 50;
     $('#textarea_feedback').html('Quedan ' + text_max + ' caracteres');
