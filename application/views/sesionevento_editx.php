@@ -1,4 +1,4 @@
-<?php echo form_open('sesionevento/save_edit') ?>
+<?php echo form_open('sesionevento/save_editx') ?>
 <?php echo form_hidden('idsesionevento',$sesionevento['idsesionevento']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
