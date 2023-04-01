@@ -304,7 +304,6 @@ class Sesionevento extends CI_Controller{
 	 		'nombrecorto' => $this->input->post('temacorto'),
 	 		'nombrelargo' => $this->input->post('tema'),
 	 		'idunidadsilabo' => $this->input->post('idunidadsilabo'),
-		 	'numerosesion' => $this->input->post('numerosesion'),
 	 	);
 	 	$idtema =$this->tema_model->update($idtema,$array_tema);
 
