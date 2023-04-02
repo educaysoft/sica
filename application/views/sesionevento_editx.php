@@ -143,6 +143,8 @@ foreach ($temas as $row){
 		$numerosesion=$row->numerosesion;
 	}	
 }
+
+<?php echo form_input('idtema',$sesionevento['idtema']) ?>
 ?>
 
 <div class="form-group row">
@@ -290,6 +292,7 @@ echo form_dropdown("idmodoevaluacion",$options, $sesionevento['idmodoevaluacion'
 	 <tr>
 	 <th>Sesion</th>
 	 <th>Unidad</th>
+	 <th>idtema</th>
 	 <th>tema</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>

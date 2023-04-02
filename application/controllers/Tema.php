@@ -157,7 +157,7 @@ function tema_silabo()
 	 	$data0 = $this->tema_model->lista_temass($idsilabo);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->numerosesion,$r->unidad,$r->nombrecorto,
+			$data[]=array($r->numerosesion,$r->unidad,$r->idtema,$r->nombrecorto,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('tema/actual').'"    data-idtema="'.$r->idtema.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
