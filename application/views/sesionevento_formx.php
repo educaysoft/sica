@@ -311,7 +311,7 @@ foreach ($modoevaluacions as $row){
 
 
 <script>
-  var idtema=<?php echo $sesionevento['idtema']; ?>;
+  var idtema=<?php echo $idtema; ?>;
 
 $(document).ready(function(){
   	var idsilabo=<?php echo $evento['idsilabo']; ?>;
