@@ -1,6 +1,6 @@
 <div id="eys-nav-i">
 	<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idsesionevento"><?php echo $sesionevento['idsesionevento']; ?></idem></div>
-<?php echo form_open('sesionevento/save_editx',array('id'=>'eys-form')); ?>
+<?php echo form_open('sesionevento/save_edit',array('id'=>'eys-form')); ?>
   <ul>
 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
         <li>  <a href="javascript:{}"  onclick="history.back()" > volver atrás</a></li>
