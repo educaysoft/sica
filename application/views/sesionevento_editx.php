@@ -343,6 +343,7 @@ $(document).ready(function() {
         $(document).ready( function () {
         $('#mydatac').DataTable({
 'rowCallback': function(row, data, index){
+	alert(data{3});
     if(data[3]> 90){
         $(row).find('td:eq(3)').css('color', 'red');
     }
