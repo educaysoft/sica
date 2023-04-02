@@ -318,7 +318,6 @@ echo form_dropdown("idmodoevaluacion",$options, $sesionevento['idmodoevaluacion'
 
 <script>
   var idtema=<?php echo $sesionevento['idtema']; ?>;
- $("#idtema option[value='" + idtema + "']").prop("selected", true);
 
 $(document).ready(function(){
   	var idsilabo=<?php echo $evento['idsilabo']; ?>;
@@ -326,6 +325,13 @@ $(document).ready(function(){
 });
 
 
+$('#mydatac').dataTable( {
+  "rowCallback": function( row, data ) {
+    if ( data.idtema == idtema ) {
+      $('td:eq(4)', row).html( '<b>'+idtema.+'</b>' );
+    }
+  }
+} );
 
 $(document).ready(function() {
     var text_max = 50;
