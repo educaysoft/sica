@@ -266,36 +266,10 @@ class Sesionevento extends CI_Controller{
 	}
 
 
+
+
+
 	public function  save_edit()
-	{
-		$id=$this->input->post('idsesionevento');
-
-
-
-
-	 	$array_item=array(
-		 	'idevento' => $this->input->post('idevento'),
-		 	'fecha' => $this->input->post('fecha'),
-		 	'idtema' => $this->input->post('idtema'),
-		 	'tema' => $this->input->post('tema'),
-		 	'temacorto' => $this->input->post('temacorto'),
-		 	'horainicio' => $this->input->post('horainicio'),
-		 	'horafin' => $this->input->post('horafin'),
-		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
-	 	);
-	 	$result=$this->sesionevento_model->update($id,$array_item);
-	 	if(!$result)
-		{
-			echo "<script language='JavaScript'> alert('sesion no se pudo modificar'); </script>";
-			echo "<script language='JavaScript'> window.history.go(-2);</script>";
-		}else{
-			echo "<script language='JavaScript'> window.history.go(-2);</script>";
-		}
- 	}
-
-
-
-	public function  save_editx()
 	{
 		$id=$this->input->post('idsesionevento');
 		$idtema=$this->input->post('idtema');
