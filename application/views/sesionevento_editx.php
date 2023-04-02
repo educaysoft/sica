@@ -140,9 +140,10 @@ foreach ($temas as $row){
 	}	
 }
 
-$eys_arrinput=array('name'=>'idtema','value'=>$sesionevento['idtema'], "style"=>"width:50px");
-$eys_arrinput=array('name'=>'eltema','value'=>$eltema, "style"=>"width:450px");
+$eys_arrinput=array('name'=>'idtema','value'=>$sesionevento['idtema'],"readonly"=>"true", "style"=>"width:50px");
+$eys_arrinput2=array('name'=>'eltema','value'=>$eltema,"readonly"=>"true", "style"=>"width:450px");
 echo form_input($eys_arrinput);
+echo form_input($eys_arrinput2);
 ?>
 </div>
 </div>
