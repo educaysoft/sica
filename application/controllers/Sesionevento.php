@@ -300,6 +300,9 @@ class Sesionevento extends CI_Controller{
 		$id=$this->input->post('idsesionevento');
 		$idtema=$this->input->post('idtema');
 
+
+	if($this->input->post('temasilabo')==1)
+	{
 		$array_tema=array(
 	 		'nombrecorto' => $this->input->post('temacorto'),
 	 		'nombrelargo' => $this->input->post('tema'),
@@ -307,9 +310,6 @@ class Sesionevento extends CI_Controller{
 		 	'numerosesion' => $this->input->post('numerosesion'),
 	 	);
 	 	$idtema =$this->tema_model->update($idtema,$array_tema);
-
-
-
 
 	 	$array_item=array(
 		 	'idevento' => $this->input->post('idevento'),
@@ -322,6 +322,22 @@ class Sesionevento extends CI_Controller{
 		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
 	 	);
 	 	$result=$this->sesionevento_model->update($id,$array_item);
+	}else{
+
+	 	$array_item=array(
+		 	'idevento' => $this->input->post('idevento'),
+		 	'fecha' => $this->input->post('fecha'),
+		 	'idtema' => $this->input->post('idtema'),
+		 	'temacorto' => $this->input->post('temacorto'),
+		 	'horainicio' => $this->input->post('horainicio'),
+		 	'horafin' => $this->input->post('horafin'),
+		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
+	 	);
+	 	$result=$this->sesionevento_model->update($id,$array_item);
+
+
+
+	}
 	 	if(!$result)
 		{
 			echo "<script language='JavaScript'> alert('sesion no se pudo modificar'); </script>";

@@ -141,7 +141,7 @@ foreach ($temas as $row){
 }
 
 $eys_arrinput=array('name'=>'idtema','value'=>$sesionevento['idtema'],"readonly"=>"true", "style"=>"width:50px");
-$eys_arrinput2=array('name'=>'eltema','value'=>$eltema,"readonly"=>"true", "style"=>"width:450px");
+$eys_arrinput2=array('name'=>'eltema','value'=>$eltema,"readonly"=>"true","readonly"=>"true", "style"=>"width:450px");
 echo form_input($eys_arrinput);
 echo form_input($eys_arrinput2);
 ?>
@@ -263,7 +263,16 @@ echo form_dropdown("idmodoevaluacion",$options, $sesionevento['idmodoevaluacion'
 </div>
 </div>
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Actualizar silabo:</label>
+<div class="col-md-10">
+<?php
+$eys_arrinput=array('name'=>'temasilabo','value'=>0, "style"=>"width:50px");
+echo form_input($eys_arrinput); echo "1=SI / 0=NO";
 
+?>
+</div>
+</div>
 
 
 
