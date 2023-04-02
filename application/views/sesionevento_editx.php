@@ -321,15 +321,14 @@ echo form_dropdown("idmodoevaluacion",$options, $sesionevento['idmodoevaluacion'
 
 $(document).ready(function(){
   	var idsilabo=<?php echo $evento['idsilabo']; ?>;
-	var mytablat= $('#mydatac').DataTable({pageLength:50,"ajax": {url: '<?php echo site_url('tema/tema_silabo')?>', type: 'GET',data:{idsilabo:idsilabo}},"rowCallback":function( row, data, index ) {
+	var mytablat= $('#mydatac').DataTable(pageLength:50,"ajax":,url: '<?php echo site_url('tema/tema_silabo')?>', type: 'GET',data:{idsilabo:idsilabo}
+);
+
+$('mydatac').dataTable("rowCallback":function( row, data, index ) {
 	 if (data[2]== idtema) {
 		 $('td:eq(0)', row).css('background-color', 'blue');
 }
 });
-
-
-
-}});
 
 
 
