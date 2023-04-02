@@ -326,7 +326,7 @@ $(document).ready(function(){
 $('#mydatac').dataTable( {
         "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
             /* Append the grade to the default row class name */
-		$('td:eq(0)', nRow).css('color', 'blue');
+//		$('td:eq(0)', nRow).css('color', 'blue');
 
           //      $('td:eq(4)', nRow).html( '<b>A</b>' );
         },
