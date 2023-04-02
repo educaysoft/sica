@@ -329,6 +329,21 @@ $(document).ready(function(){
     
 
 	});	
+
+
+
+   var text_max = 50;
+    $('#textarea_feedback').html('Quedan ' + text_max + ' caracteres');
+
+    $('#temacorto').keyup(function() {
+        var text_length = $('#temacorto').val().length;
+        var text_remaining = text_max - text_length;
+
+        $('#textarea_feedback').html('Quedan ' + text_remaining + ' caracteres');
+    });
+
+
+
 		
 });
 
@@ -343,17 +358,6 @@ $(document).ready(function(){
 	  }
 	});     
 
-$(document).ready(function() {
-    var text_max = 50;
-    $('#textarea_feedback').html('Quedan ' + text_max + ' caracteres');
-
-    $('#temacorto').keyup(function() {
-        var text_length = $('#temacorto').val().length;
-        var text_remaining = text_max - text_length;
-
-        $('#textarea_feedback').html('Quedan ' + text_remaining + ' caracteres');
-    });
-});
 
 
 </script>
