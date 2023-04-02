@@ -136,7 +136,7 @@ foreach ($temas as $row){
 	if($row->idtema==$sesionevento['idtema']){
 		$idunidadsilabo=$row->idunidadsilabo;
 		$numerosesion=$row->numerosesion;
-		$eltema=$row->temacorto;
+		$eltema=$row->nombrecorto;
 	}	
 }
 
