@@ -300,7 +300,6 @@ echo form_dropdown("idmodoevaluacion",$options, $sesionevento['idmodoevaluacion'
 	 <th>Unidad</th>
 	 <th>idtema</th>
 	 <th>tema</th>
-	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
 	 <tbody id="show_data">
