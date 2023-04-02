@@ -324,9 +324,10 @@ $(document).ready(function(){
 	var mytablat= $('#mydatac').DataTable({pageLength:50,"ajax":{url: '<?php echo site_url('tema/tema_silabo')?>', type: 'GET',data:{idsilabo:idsilabo}}});
 
 $('#mydatac').dataTable( {
-        "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
+        "fnRowCallback": function( row, data, index ) {
             /* Append the grade to the default row class name */
-                $('td:eq(4)', nRow).html( '<b>A</b>' );
+		$('td:eq(0)', row).css('color', 'blue');
+
         },
         "aoColumnDefs": [ {
                 "sClass": "center",
