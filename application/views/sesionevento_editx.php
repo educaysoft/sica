@@ -330,10 +330,6 @@ $('#mydatac').dataTable( {
 
           //      $('td:eq(4)', nRow).html( '<b>A</b>' );
         },
-        "aoColumnDefs": [ {
-                "sClass": "center",
-                "aTargets": [ -1, -2 ]
-        } ]
     } );
 
 
