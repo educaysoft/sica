@@ -149,8 +149,8 @@ foreach ($temas as $row){
 //	}	
 }
 
-$eys_arrinput=array('name'=>'idtema','value'=>$idtema, "style"=>"width:50px");
-$eys_arrinput2=array('name'=>'eltema','value'=>$eltema, "style"=>"width:500px");
+$eys_arrinput=array('name'=>'idtema','value'=>$idtema,array("readonly"=>"true", "style"=>"width:50px");
+$eys_arrinput2=array('name'=>'eltema','value'=>$eltema,array("readonly"=>"true", "style"=>"width:500px");
 echo form_input($eys_arrinput);  
 echo form_input($eys_arrinput2);  
 ?>
@@ -160,6 +160,21 @@ echo form_input($eys_arrinput2);
 
 
 
+
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Número de sesión:</label>
+<div class="col-md-10">
+<?php
+ //print_r($sesionevento);
+ //echo form_input("numerosesion",$sesionevento[0]->nsesion+1, array("readonly"=>"true","placeholder"=>"Numero de sesion"));
+ echo form_input("numerosesion",$sesionactual, array("readonly"=>"true","placeholder"=>"Numero de sesion")); echo "/".$sesiontotal;
+
+?>
+</div>
+</div>
 
 
 <div class="form-group row">
@@ -173,18 +188,6 @@ foreach ($unidadsilabos as $row){
  $primero= reset($options);
  
  echo form_dropdown("idunidadsilabo",$options,$primero, array('id'=>'idunidadsilabo'));  
-?>
-</div>
-</div>
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Número de sesión:</label>
-<div class="col-md-10">
-<?php
- //print_r($sesionevento);
- //echo form_input("numerosesion",$sesionevento[0]->nsesion+1, array("readonly"=>"true","placeholder"=>"Numero de sesion"));
- echo form_input("numerosesion",$sesionactual, array("readonly"=>"true","placeholder"=>"Numero de sesion")); echo "/".$sesiontotal;
-
 ?>
 </div>
 </div>
