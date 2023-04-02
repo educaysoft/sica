@@ -6,7 +6,7 @@
         <li>  <a href="javascript:{}"  onclick="history.back()" > volver atrás</a></li>
     </ul>
 </div>
-
+<br>
 <?php echo form_hidden('idsesionevento',$sesionevento['idsesionevento']) ?>
 
 
@@ -133,26 +133,7 @@ foreach ($sesioneventos as $row){
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label"><?php echo anchor('tema/actual/'.$sesionevento['idtema'], 'Temas tratados:'); ?>:</label>
-<div class="col-md-10">
-<select class="form-control" id="idtema" name="idtema" multiple="multiple" required  size="8" style="height:100%,">
-<?php
-$idunidadsilabo=0;
-$numerosesion=0;
-$options= array('--Select--');
-foreach ($temas as $row){
-	echo "<option value='".$row->idtema."'>"."id:".$row->idtema." - Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto."</option>";
-	if($row->idtema==$sesionevento['idtema']){
-		$idunidadsilabo=$row->idunidadsilabo;
-		$numerosesion=$row->numerosesion;
-	}	
-}
-?>
-</select>
 
-</div>
-</div>
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Unidad:</label>
