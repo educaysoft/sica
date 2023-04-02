@@ -324,9 +324,11 @@ $(document).ready(function(){
 	var mytablat= $('#mydatac').DataTable({pageLength:50,"ajax": {url: '<?php echo site_url('tema/tema_silabo')?>', type: 'GET',data:{idsilabo:idsilabo}},});
 $('#mydatac').dataTable( {
   "rowCallback": function( row, data ) {
-    if ( data.idtema == idtema ) {
-    }
-  }
+	 if (data.idtema == idtema) {
+$('td:eq(0)', row).css('background-color', ' rgba(255, 153, 0, 0.7)',';color', '#ffffff !important');
+}
+
+
 } );
 
 
