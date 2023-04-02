@@ -308,6 +308,7 @@ echo form_input($eys_arrinput); echo "1=SI / 0=NO";
 	 <th>Unidad</th>
 	 <th>idtema</th>
 	 <th>tema</th>
+	 <th>Detalle</th>
 	 </tr>
 	 </thead>
 	 <tbody id="show_data">
