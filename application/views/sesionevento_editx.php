@@ -135,9 +135,10 @@ $numerosesion=0;
 $options= array('--Select--');
 foreach ($temas as $row){
 	echo "<option value='".$row->idtema."'>"."id:".$row->idtema." - Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto."</option>";
-	if($row->idtema==$sesionevento['idtema'])
+	if($row->idtema==$sesionevento['idtema']){
 		$idunidadsilabo=$row->idunidadsilabo;
 		$numerosesion=$row->numerosesion;
+	}	
 }
 ?>
 </select>
@@ -233,7 +234,7 @@ echo form_input($eys_arrinput); echo $lahorai;
     		$date = date("Y-m-d");
     		$sesionevento['horafin']= date("H:i:s");
      }
-     $eys_arrinput=array('name'=>'horafin','id'=>'horafin',"type"=>"time","step"=>1,"min"=>"07:00:00","max"=>"23:00:00",'value'=>$sesionevento['horafin'], "style"=>"width:500px");
+     $eys_arrinput=array('name'=>'horafin','id'=>'horafin',"type"=>"time","step"=>1,"min"=>"07:00:00","max"=>"22:00:00",'value'=>$sesionevento['horafin'], "style"=>"width:500px");
      echo form_input($eys_arrinput); echo $lahoraf;
 
 
