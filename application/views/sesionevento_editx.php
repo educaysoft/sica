@@ -703,9 +703,9 @@ $(document).ready(function() {
  <script>
  var table = $('#example').DataTable({
        "rowCallback": function(row, data, index){
-if (data[3] == 100) {
-        console.log('data[3] == 100');
-        $("td:eq(12)", row).css('background-color','#99ff9c')
+if (data[3] == 50) {
+        console.log('data[3] == 50');
+        $("td:eq(3)", row).css('background-color','#99ff9c')
     }
 
 
