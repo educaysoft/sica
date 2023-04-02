@@ -174,7 +174,7 @@ foreach ($unidadsilabos as $row){
 <label class="col-md-2 col-form-label">Número de sesión:</label>
 <div class="col-md-10">
 <?php
-$eys_arrinput=array('name'=>'numerosesion','value'=>$numerosesion,'readonly'=>'true', "style"=>"width:500px");
+$eys_arrinput=array('name'=>'numerosesion','value'=>$numerosesion, "style"=>"width:500px");
 echo form_input($eys_arrinput);
 
 ?>
