@@ -325,7 +325,6 @@ $(document).ready(function(){
 $('#mydatac').dataTable( {
   "rowCallback": function( row, data ) {
     if ( data.idtema == idtema ) {
-      $('td:eq(4)', row).html( '<b>'+idtema.+'</b>' );
     }
   }
 } );
