@@ -705,7 +705,7 @@ $(document).ready(function() {
        "rowCallback": function(row, data, index){
 if (data[3] == 66) {
         console.log('data[3] ==66');
-        $("td:eq(3)", row).css('background-color','#99ff9c')
+        $("td:eq(0)", row).css('background-color','#99ff9c')
     }
 
 
