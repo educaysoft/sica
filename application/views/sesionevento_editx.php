@@ -325,7 +325,7 @@ $(document).ready(function(){
 
 $('#mydatac').dataTable({"rowCallback": function( row, data ) {
 	 if (data.idtema == idtema) {
-//$('td:eq(0)', row).css('background-color', ' rgba(255, 153, 0, 0.7)',';color', '#ffffff !important');
+$('td:eq(0)', row).css('background-color', ' rgba(255, 153, 0, 0.7)',';color', '#ffffff !important');
 }
 
 
