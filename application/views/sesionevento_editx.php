@@ -148,6 +148,19 @@ echo form_input($eys_arrinput2);
 </div>
 </div>
 
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Número de sesión:</label>
+<div class="col-md-10">
+<?php
+$eys_arrinput=array('name'=>'numerosesion','value'=>$numerosesion,"readonly"=>"true", "style"=>"width:500px");
+echo form_input($eys_arrinput);
+
+?>
+</div>
+</div>
+
+
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Unidad:</label>
 <div class="col-md-10">
@@ -165,16 +178,7 @@ foreach ($unidadsilabos as $row){
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Número de sesión:</label>
-<div class="col-md-10">
-<?php
-$eys_arrinput=array('name'=>'numerosesion','value'=>$numerosesion, "style"=>"width:500px");
-echo form_input($eys_arrinput);
 
-?>
-</div>
-</div>
 
 
 
