@@ -342,12 +342,10 @@ $(document).ready(function() {
  <script>
         $(document).ready( function () {
         $('#mydatac').DataTable({
-            "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
-		    alert(aData{2});
-                if ( aData[2] == 90 )
-                {
-                    $(nRow).css('color', 'red')
-                }
+'rowCallback': function(row, data, index){
+    if(data[3]> 90){
+        $(row).find('td:eq(3)').css('color', 'red');
+    }
             }
         });
     </script>
