@@ -1,9 +1,14 @@
-
-<div style="margin-top:5cm;">
-<h2> <?php echo $title; ?> </h2>
+<div id="eys-nav-i">
+<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+<?php echo form_open('sesionevento/save',array('id'=>'eys-form')); ?>
+  <ul>
+	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
+        <li>  <a href="javascript:{}"  onclick="history.back()" > volver atrás</a></li>
+    </ul>
 </div>
-<hr/>
-<?php echo form_open("sesionevento/save") ?>
+<br>
+
+
 
 
 <div class="form-group row">
@@ -253,13 +258,47 @@ foreach ($modoevaluacions as $row){
 
 
 
-<table>
-<tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?> <input type="button" onclick="history.back()" name="volver atrás" value="volver atrás"></td>
-</tr>
 
-</table>
 <?php echo form_close();?>
+
+<div class="form-group row">
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12" style="border:solid;">
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Temas dictados: </b>
+        </div>
+        <div class="pull-right">
+            
+        </div>
+    </div>
+</div>
+
+	<table class="table table-striped table-bordered table-hover" id="mydatac">
+	 <thead>
+	 <tr>
+	 <th>Sesion</th>
+	 <th>Unidad</th>
+	 <th>idtema</th>
+	 <th>tema</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
 
 <script>
 
