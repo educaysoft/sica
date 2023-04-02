@@ -3,7 +3,7 @@
 <?php echo form_open('sesionevento/save_editx',array('id'=>'eys-form')); ?>
   <ul>
 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
-        <li>  <input type="button" onclick="history.back()" name="volver atrás" value="volver atrás"> </li>
+        <li>  <a href="javascript:{}"  onclick="history.back()" > volver atrás</a></li>
     </ul>
 </div>
 
