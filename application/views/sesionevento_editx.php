@@ -124,21 +124,24 @@ foreach ($sesioneventos as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">idtema:</label>
+<label class="col-md-2 col-form-label">Tema en silabo:</label>
 <div class="col-md-10">
 
 <?php
 $idunidadsilabo=0;
 $numerosesion=0;
+$eltema="";
 $options= array('--Select--');
 foreach ($temas as $row){
 	if($row->idtema==$sesionevento['idtema']){
 		$idunidadsilabo=$row->idunidadsilabo;
 		$numerosesion=$row->numerosesion;
+		$eltema=$row->temacorto;
 	}	
 }
 
-$eys_arrinput=array('name'=>'idtema','value'=>$sesionevento['idtema'], "style"=>"width:500px");
+$eys_arrinput=array('name'=>'idtema','value'=>$sesionevento['idtema'], "style"=>"width:50px");
+$eys_arrinput=array('name'=>'eltema','value'=>$eltema, "style"=>"width:450px");
 echo form_input($eys_arrinput);
 ?>
 </div>
