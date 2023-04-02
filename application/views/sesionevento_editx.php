@@ -1,5 +1,5 @@
 <div id="eys-nav-i">
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idsesionevento"><?php echo $sesionevento['idsesionevento']; ?></idem></div>
 <?php echo form_open('sesionevento/save_editx',array('id'=>'eys-form')); ?>
   <ul>
 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
@@ -13,21 +13,12 @@
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Id sesionevento:</label>
-<div class="col-md-10">
-<?php
-$eys_arrinput=array('name'=>'idsesionevento','value'=>$sesionevento['idsesionevento'],'readonly'=>'true', "style"=>"width:500px");
-echo form_input($eys_arrinput);
 
-?>
-</div>
-</div>
 
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Evento:</label>
+<label class="col-md-2 col-form-label">Evento (clase):</label>
 <div class="col-md-10">
 <?php
 
