@@ -271,9 +271,58 @@ echo form_dropdown("idmodoevaluacion",$options, $sesionevento['idmodoevaluacion'
 </table>
 <?php echo form_close(); ?>
 
+
+<div class="form-group row">
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12" style="border:solid;">
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Temas dictados: </b>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-success" href="<?php echo base_url('sesionevento/add/'.$evento['idevento']) ?>">Nueva sesion</a><a class="btn btn-danger" href="<?php echo base_url('sesionevento/reportepdf/'.$evento['idevento']) ?>">Reporte</a>
+        </div>
+    </div>
+</div>
+
+	<table class="table table-striped table-bordered table-hover" id="mydatac">
+	 <thead>
+	 <tr>
+	 <th>Sesion</th>
+	 <th>Unidad</th>
+	 <th>tema</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
+
+
+
 <script>
   var idtema=<?php echo $sesionevento['idtema']; ?>;
  $("#idtema option[value='" + idtema + "']").prop("selected", true);
+
+$(document).ready(function(){
+  	var idsilabo=<?php echo $evento['idsilabo']; ?>;
+	var mytablat= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('tema/tema_silabo')?>', type: 'GET',data:{idsilabo:idsilabo}},});
+});
+
+
 
 $(document).ready(function() {
     var text_max = 50;
