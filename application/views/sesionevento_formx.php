@@ -331,6 +331,7 @@ $(document).ready(function(){
         	$("td:eq(1)", row).css('background-color','#99ff9c')
         	$("td:eq(2)", row).css('background-color','#99ff9c')
         	$("td:eq(3)", row).css('background-color','#99ff9c')
+        	$("td:eq(4)", row).css('background-color','#99ff9c')
     	}
        }
     
