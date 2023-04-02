@@ -233,7 +233,7 @@ echo form_input($eys_arrinput); echo $lahorai;
     		$date = date("Y-m-d");
     		$sesionevento['horafin']= date("H:i:s");
      }
-     $eys_arrinput=array('name'=>'horafin','id'=>'horafin',"type"=>"time","step"=>1,"min"=>"07:00:00","max"=>"19:00:00",'value'=>$sesionevento['horafin'], "style"=>"width:500px");
+     $eys_arrinput=array('name'=>'horafin','id'=>'horafin',"type"=>"time","step"=>1,"min"=>"07:00:00","max"=>"23:00:00",'value'=>$sesionevento['horafin'], "style"=>"width:500px");
      echo form_input($eys_arrinput); echo $lahoraf;
 
 
