@@ -147,7 +147,7 @@ foreach ($temas as $row){
 	}	
 }
 
-$eys_arrinput=array('name'=>'idtema','value'=>$sesionevento['idtema'],'readonly'=>'true', "style"=>"width:500px");
+$eys_arrinput=array('name'=>'idtema','value'=>$sesionevento['idtema'], "style"=>"width:500px");
 echo form_input($eys_arrinput);
 ?>
 </div>
