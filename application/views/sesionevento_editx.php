@@ -684,16 +684,6 @@ $(document).ready(function(){
 		
 
 
- var table = $('#mydatac').DataTable({
-       "rowCallback": function(row, data, index){
-	      alert("2");
-         // if (data[2] >90) {
-          //   $(row).addClass('selected');
-        //  }
-       }
-    });
-
-
 		
 });
 
