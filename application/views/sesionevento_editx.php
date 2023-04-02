@@ -323,6 +323,17 @@ $(document).ready(function(){
   	var idsilabo=<?php echo $evento['idsilabo']; ?>;
 	var mytablat= $('#mydatac').DataTable({pageLength:50,"ajax":{url: '<?php echo site_url('tema/tema_silabo')?>', type: 'GET',data:{idsilabo:idsilabo}}});
 
+$('#mydatac').dataTable( {
+        "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
+            /* Append the grade to the default row class name */
+                $('td:eq(4)', nRow).html( '<b>A</b>' );
+        },
+        "aoColumnDefs": [ {
+                "sClass": "center",
+                "aTargets": [ -1, -2 ]
+        } ]
+    } );
+
 
 
 });
