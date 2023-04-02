@@ -305,7 +305,7 @@ class Sesionevento extends CI_Controller{
 	 	$array_item=array(
 		 	'idevento' => $this->input->post('idevento'),
 		 	'fecha' => $this->input->post('fecha'),
-		 	'idtema' => $this->input->post('idtema'),
+		 	'tema' => $this->input->post('tema'),
 		 	'temacorto' => $this->input->post('temacorto'),
 		 	'horainicio' => $this->input->post('horainicio'),
 		 	'horafin' => $this->input->post('horafin'),
