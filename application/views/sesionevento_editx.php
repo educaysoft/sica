@@ -343,6 +343,7 @@ $(document).ready(function() {
         $(document).ready( function () {
         $('#mydatac').DataTable({
             "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+		    alert(aData{2});
                 if ( aData[2] == 90 )
                 {
                     $(nRow).css('color', 'red')
