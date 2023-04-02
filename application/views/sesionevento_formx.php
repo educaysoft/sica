@@ -131,25 +131,28 @@ if(checkdate($m,$d,$a)){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">idtema:</label>
+<label class="col-md-2 col-form-label">Último tema sílabo:</label>
 <div class="col-md-10">
 
 <?php
 $idunidadsilabo=0;
 $numerosesion=0;
 $idtema=0;
-$elultimotema="Este fue el último tema creado";
+$eltema="";
 $options= array('--Select--');
 foreach ($temas as $row){
 //	if($row->idtema==$sesionevento['idtema']){
 		$idunidadsilabo=$row->idunidadsilabo;
 		$idtema=$row->idtema;
+		$eltema=$row->nombrecorto;
 		$numerosesion=$row->numerosesion;
 //	}	
 }
 
 $eys_arrinput=array('name'=>'idtema','value'=>$idtema, "style"=>"width:500px");
-echo form_input($eys_arrinput); echo $elultimotema; 
+$eys_arrinput2=array('name'=>'eltema','value'=>$eltema, "style"=>"width:500px");
+echo form_input($eys_arrinput);  
+echo form_input($eys_arrinput2);  
 ?>
 </div>
 </div>
