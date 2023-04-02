@@ -138,7 +138,6 @@ $idunidadsilabo=0;
 $numerosesion=0;
 $options= array('--Select--');
 foreach ($temas as $row){
-	echo "<option value='".$row->idtema."'>"."id:".$row->idtema." - Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto."</option>";
 	if($row->idtema==$sesionevento['idtema']){
 		$idunidadsilabo=$row->idunidadsilabo;
 		$numerosesion=$row->numerosesion;
