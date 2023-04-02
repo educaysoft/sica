@@ -681,8 +681,11 @@ $(document).ready(function(){
 	var mytablat= $('#mydatac').DataTable({pageLength:50,"ajax":{url: '<?php echo site_url('tema/tema_silabo')?>', type: 'GET',data:{idsilabo:idsilabo}},
 
        "rowCallback": function(row, data, index){
-if (data[2] == 90) {
+if (data[2] == idtema) {
         $("td:eq(0)", row).css('background-color','#99ff9c')
+        $("td:eq(1)", row).css('background-color','#99ff9c')
+        $("td:eq(2)", row).css('background-color','#99ff9c')
+        $("td:eq(3)", row).css('background-color','#99ff9c')
     }
 
 
