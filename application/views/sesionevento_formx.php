@@ -131,22 +131,29 @@ if(checkdate($m,$d,$a)){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Tema dictados:</label>
+<label class="col-md-2 col-form-label">idtema:</label>
 <div class="col-md-10">
-<select class="form-control" id="idtema" id="idtema" multiple="multiple" required  size="8" style="height:100%,">
+
 <?php
-
-
+$idunidadsilabo=0;
+$numerosesion=0;
 $options= array('--Select--');
 foreach ($temas as $row){
-//	$options[$row->idtema]="Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto;
-	echo "<option value='".$row->idtema."'>"."Unidad: ".$row->unidad." - Sesion: ".$row->numerosesion." - ".$row->nombrecorto."</option>";
+//	if($row->idtema==$sesionevento['idtema']){
+		$idunidadsilabo=$row->idunidadsilabo;
+		$numerosesion=$row->numerosesion;
+//	}	
 }
-// echo form_dropdown("idtema",$options,$fecha, array('id'=>'idtema'));  
+
+$eys_arrinput=array('name'=>'idtema','value'=>$sesionevento['idtema'], "style"=>"width:500px");
+echo form_input($eys_arrinput);
 ?>
-</select>
 </div>
 </div>
+
+
+
+
 
 
 <div class="form-group row">
@@ -301,6 +308,29 @@ foreach ($modoevaluacions as $row){
 
 
 <script>
+  var idtema=<?php echo $sesionevento['idtema']; ?>;
+
+$(document).ready(function(){
+  	var idsilabo=<?php echo $evento['idsilabo']; ?>;
+
+	var mytablat= $('#mydatac').DataTable({pageLength:50,"ajax":{url: '<?php echo site_url('tema/tema_silabo')?>', type: 'GET',data:{idsilabo:idsilabo}},
+
+       "rowCallback": function(row, data, index){
+	if (data[2] == idtema) {
+        	$("td:eq(0)", row).css('background-color','#99ff9c')
+        	$("td:eq(1)", row).css('background-color','#99ff9c')
+        	$("td:eq(2)", row).css('background-color','#99ff9c')
+        	$("td:eq(3)", row).css('background-color','#99ff9c')
+    	}
+       }
+    
+
+	});	
+		
+});
+
+
+
 
 	$(document).ready(()=>{
 	  var idevento= <?php echo $idevento; ?>;
