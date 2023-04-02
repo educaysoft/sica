@@ -154,7 +154,7 @@ function tema_silabo()
 
 		$idsilabo=$this->input->get('idsilabo');
 
-	 	$data0 = $this->tema_model->temass($idsilabo);
+	 	$data0 = $this->tema_model->lista_temass($idsilabo);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->numerosesion,$r->unidad,$r->nombrecorto,
