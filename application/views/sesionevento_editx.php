@@ -323,16 +323,21 @@ $(document).ready(function(){
   	var idsilabo=<?php echo $evento['idsilabo']; ?>;
 
 	var mytablat= $('#mydatac').DataTable({pageLength:50,"ajax":{url: '<?php echo site_url('tema/tema_silabo')?>', type: 'GET',data:{idsilabo:idsilabo}},
-  var table = $('#mydatac').DataTable(
-{towCallback: function (row, data, index) {
-    console.log( data[3] );
-    if (data[3] > 90) {
-        $("td:eq(3)", row).css('background-color','#99ff9c')
-    }	
-}
 
 	});	
 		
+
+
+ var table = $('#mydatac').DataTable({
+       "rowCallback": function(row, data, index){
+          if (data[2] >90) {
+             $(row).addClass('selected');
+          }
+       }
+    });
+});
+
+
 		
 });
 
