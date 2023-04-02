@@ -330,9 +330,10 @@ $(document).ready(function(){
 
  var table = $('#mydatac').DataTable({
        "rowCallback": function(row, data, index){
-          if (data[2] >90) {
-             $(row).addClass('selected');
-          }
+	      alert("2");
+         // if (data[2] >90) {
+          //   $(row).addClass('selected');
+        //  }
        }
     });
 
