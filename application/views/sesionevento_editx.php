@@ -1,7 +1,15 @@
-<?php echo form_open('sesionevento/save_editx') ?>
+<div id="eys-nav-i">
+<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+<?php echo form_open('sesionevento/save_editx',array('id'=>'eys-form')); ?>
+  <ul>
+	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
+        <li>  <input type="button" onclick="history.back()" name="volver atrás" value="volver atrás"> </li>
+    </ul>
+</div>
+
 <?php echo form_hidden('idsesionevento',$sesionevento['idsesionevento']) ?>
-<h2> <?php echo $title; ?></h2>
-<hr />
+
+
 
 
 
@@ -264,11 +272,7 @@ echo form_dropdown("idmodoevaluacion",$options, $sesionevento['idmodoevaluacion'
 
 
 
-<table>
- <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <input type="button" onclick="history.back()" name="volver atrás" value="volver atrás">  </td>
- </tr>
-</table>
+
 <?php echo form_close(); ?>
 
 
