@@ -132,6 +132,9 @@ foreach ($sesioneventos as $row){
 
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Unidad:</label>
+<div class="col-md-10">
 
 <?php
 $idunidadsilabo=0;
@@ -146,6 +149,8 @@ foreach ($temas as $row){
 
 <?php echo form_input('idtema',$sesionevento['idtema']) ?>
 ?>
+</div>
+</div>
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Unidad:</label>
