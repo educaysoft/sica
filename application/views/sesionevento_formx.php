@@ -287,7 +287,7 @@ foreach ($modoevaluacions as $row){
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <b>Temas dictados: </b>
+            <b>Temas programados(silabo): </b>
         </div>
         <div class="pull-right">
             
