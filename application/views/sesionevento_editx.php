@@ -324,9 +324,6 @@ $(document).ready(function(){
 	var mytablat= $('#mydatac').DataTable({pageLength:50,"ajax":{url: '<?php echo site_url('tema/tema_silabo')?>', type: 'GET',data:{idsilabo:idsilabo}},
 'rowCallback': function(row, data, index){
 	alert(data{3});
-    if(data[3]> 90){
-        $(row).find('td:eq(3)').css('color', 'red');
-    }
             }
         
 
