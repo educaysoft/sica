@@ -539,21 +539,21 @@ function get_pregunta(idpregunta,idx) {
 		if(data[i].idrespuesta==idrespuesta && acierto==0)
 		{
 		html+="<div>";
-		html += '<input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+','+'x'+')"  checked >';
+		html += '<input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')"  checked >';
 		html += '  <label for="huey" style="color:red">'+data[i].respuesta+'</label>';
 		html+="</div>";
 		}
 		else if(data[i].idrespuesta==idrespuesta && acierto==1)
 		{
 		html+="<div>";
-		html += '<input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+','+'x'+'  )"  checked>';
+		html += '<input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')"  checked>';
 		html += '  <label for="huey" style="color:green">'+data[i].respuesta+'</label>';
 		html+="</div>";
 		}
 		else
 		{
 		html+="<div>";
-		html += '<input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+','+'x'+')">';
+		html += '<input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')">';
 		html += '  <label for="huey" >'+data[i].respuesta+'</label>';
 		html+="</div>";
 		}
@@ -576,14 +576,14 @@ function get_pregunta(idpregunta,idx) {
 
 }
 
-function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta,respuesta)
+function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
 {
 //	alert(acierto+' '+idpregunta+' '+idpersona);
 
  var fecha='<?php echo $fecha; ?>';
  var idevento=<?php echo $evento["idevento"]; ?>;
 
- if(confirm(respuesta))
+ if(confirm("Esta seguro de su respuesta"))
  {
 
 $.ajax({
