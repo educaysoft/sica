@@ -494,7 +494,7 @@
 	$valX=$pdf->GetX();
 	$valY=$pdf->GetY();
 
-	$pdf->BarDiagram(190,95,$datac, '%l : %v (%p)', array(255,175,100));
+	$pdf->BarDiagram(200,100,$datac, '%l : %v (%p)', array(255,175,100));
 	$pdf->SetXY($valX, $valY +80);
 
 
