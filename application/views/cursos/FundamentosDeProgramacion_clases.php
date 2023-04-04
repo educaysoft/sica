@@ -583,6 +583,8 @@ function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta)
  var fecha='<?php echo $fecha; ?>';
  var idevento=<?php echo $evento["idevento"]; ?>;
 
+ if(confirm("presiona un boton"))
+ {
 
 $.ajax({
         url: "<?php echo site_url('evaluacion/save2') ?>",
@@ -601,7 +603,7 @@ $.ajax({
 
     })
 
-
+ }
 }
 
 
