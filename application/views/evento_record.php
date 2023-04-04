@@ -803,7 +803,12 @@ function reportepdf(){
 let mes = prompt("Ingrese el número del mes", 1);
 var href="<?php echo base_url('sesionevento/reportepdf/'.$evento['idevento']) ?>";
 if (mes == null || mes == "") {
+
+  href=href+"";
+}else{
+
   href=href+"-"+mes;
+
 }
 
 
