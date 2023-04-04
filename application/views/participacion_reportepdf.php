@@ -485,8 +485,8 @@
 
        $pdf->AddPage('L');
 
-	$pdf->SetFont("Arial", "BIU",8);
-	$pdf->Cell(0,5,'Estadisticas de Colegios',0,1);
+	$pdf->SetFont("Courier", "BIU",8);
+	$pdf->Cell(0,5,'Estadísticas de Colegios',0,1);
 	$pdf->Ln(8);
 
 
@@ -494,7 +494,7 @@
 	$valX=$pdf->GetX();
 	$valY=$pdf->GetY();
 
-	$pdf->BarDiagram(190,75,$datac, '%l : %v (%p)', array(255,175,100));
+	$pdf->BarDiagram(190,85,$datac, '%l : %v (%p)', array(255,175,100));
 	$pdf->SetXY($valX, $valY +80);
 
 
