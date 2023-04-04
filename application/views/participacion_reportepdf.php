@@ -431,7 +431,7 @@
 
 	$data=array('Aprobados'=>$aprobados, "Reprobados"=>$reprobados, "Desertores"=>$desertores);
 
-	$pdf->SetFont("Arial", "BIU",12);
+	$pdf->SetFont("Arial", "",12);
 	$pdf->Cell(0,5,'Estadisticas de promovidos y no promovidos',0,1);
 	$pdf->Ln(8);
 
