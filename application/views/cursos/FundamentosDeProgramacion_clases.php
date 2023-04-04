@@ -578,12 +578,11 @@ function get_pregunta(idpregunta,idx) {
 
 function evaluado(idreactivo,acierto,idpregunta,idpersona,idrespuesta,larespuesta)
 {
-	alert(acierto+' '+idpregunta+' '+idpersona);
 
  var fecha='<?php echo $fecha; ?>';
  var idevento=<?php echo $evento["idevento"]; ?>;
 
-if (confirm(larespuesta+" -----> Esta seguro")) {
+if(confirm(larespuesta+" -----> Esta seguro")) {
 
 
 
