@@ -316,7 +316,7 @@ class Sesionevento extends CI_Controller{
 
 
 	}
-	 	if(!$result)
+	 	if($result==false)
 		{
 			echo "<script language='JavaScript'> alert('sesion no se pudo modificar'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
