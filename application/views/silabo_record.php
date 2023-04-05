@@ -144,7 +144,6 @@ if(isset($silabo))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Unidades : ( <?php echo anchor('unidadsilabo/add/'.$silabo['idsilabo'], 'New'); ?>):</label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
@@ -157,9 +156,7 @@ if(isset($silabo))
         <div class="pull-left">
             <b>Unidades : ( <?php echo anchor('unidadsilabo/add/'.$silabo['idsilabo'], 'New'); ?>):  </b>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('sesionevento/add/'.$evento['idevento']) ?>">Nueva sesion</a><a class="btn btn-danger" onclick='reportepdf()' >Reporte</a>
-        </div>
+        
     </div>
 </div>
 
