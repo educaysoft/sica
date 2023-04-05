@@ -184,7 +184,6 @@ if(isset($silabo))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Eventos dictados: ( <?php echo anchor('evento/add', 'New'); ?>):</label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
