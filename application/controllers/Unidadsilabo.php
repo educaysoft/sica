@@ -25,7 +25,7 @@ class Unidadsilabo extends CI_Controller{
 	public function add()
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['silabos']= $this->silabo_model->silabos($this->uri->segment(3))->result();
+		$data['silabos']= $this->silabo_model->silabo($this->uri->segment(3))->result();
 		$data['unidadsilabo'] = $this->unidadsilabo_model->unidadsilaboss($this->uri->segment(3));
 		$data['title']="Nueva unidades del silabo";
 	 	$this->load->view('template/page_header');		
