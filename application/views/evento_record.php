@@ -403,6 +403,7 @@ echo form_input($arrdatos) ?>
  <thead>
  <tr>
  <th>Participante</th>
+ <th>Cédula</th>
  <th>certificado</th>
  <th>grupo</th>
  <th>quitar</th>

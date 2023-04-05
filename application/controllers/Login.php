@@ -81,6 +81,7 @@ public function registrate() {
 public function new_user_registration() {
  
           // Check validation for user input in SignUp form
+          $this->form_validation->set_rules('cedula', 'Cedula', 'trim|required|regex_match[/^[0-9]{10}$/]|xss_clean');
           $this->form_validation->set_rules('apellidos', 'Apellidos', 'trim|required|xss_clean');
           $this->form_validation->set_rules('nombres', 'Nombres', 'trim|required|xss_clean');
           $this->form_validation->set_rules('idevento', 'Evento', 'trim|required|xss_clean');
@@ -88,10 +89,8 @@ public function new_user_registration() {
           $this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');
           $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
           if ($this->form_validation->run() == FALSE) {
-           //	$data['programa_list'] = $this->programa_model->list_programa()->result();
             $data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data["sexos"]= $this->sexo_model->lista_sexos()->result();
-            $data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  	    $data["sexos"]= $this->sexo_model->lista_sexos()->result();
             $this->load->view('template/page_header.php');
             $this->load->view('registration_form',$data);
             $this->load->view('template/page_footer.php');
