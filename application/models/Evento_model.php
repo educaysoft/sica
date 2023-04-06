@@ -48,7 +48,7 @@ class Evento_model extends CI_model {
 
 		$this->db->where("idevento_estado=2 or idevento_estado=3");  //SOLO ESTADO INSCRIPCION OR EN EJECUCION
 
-	$evento = $this->db->query('select * from evento1 where idevento_estado in (2,3) and  EXISTS (select idevento from participante0 where participante0.idevento=evento1.idevento and participante0.idpersona= "'.$idpersona.'") order by idevento');
+	$evento = $this->db->query('select eve1.*, (select par1.nombres from participante1 par1 where par1.idevento=eve1.idevento and par1.idnivelparticipante=2 limit 1) as eltutor from evento1  eve1 where eve1.idevento_estado in (2,3) and  EXISTS (select par0.idevento from participante0 par0 where par0.idevento=eve1.idevento and par0.idpersona= "'.$idpersona.'") order by eve1.idevento');
 
 
 		 return $evento;	

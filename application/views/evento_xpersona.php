@@ -34,10 +34,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
 
-             <div class="col-md-12">
-	     <b>Lista de eventos(cursos) de:  <?php echo $persona[0]->apellidos; ?> <?php echo "  "; ?>  <?php echo $persona[0]->nombres; ?>    	</b>
-       	     </div>
 
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+	     <b>Lista de eventos(cursos) de:  <?php echo $persona[0]->apellidos; ?> <?php echo "  "; ?>  <?php echo $persona[0]->nombres; ?>    	</b>
+        </div>
+        
+    </div>
+</div>
 
 
 
@@ -46,11 +51,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>IDevento</th>
- <th>Nombre</th>
- <th>Fecha</th>
- <th>Estado</th>
- <th>Institucion</th>
+ <th>ID</th>
+ <th>Evento - Curso</th>
+ <th>Inicio</th>
+ <th>Fin</th>
+ <th>Tutor</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
