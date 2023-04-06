@@ -89,7 +89,16 @@ public function index(){
 			'idasignaturadocente' => $this->input->post('idasignaturadocente'),
 			'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
 	 	);	 
-	 	$this->evento_model->save($array_item);
+
+
+	 	$array_participante1=array(
+			'idpersona' => $this->input->post('idpersona'),
+			'idparticipanteestado' => 1,
+			'idnivelparticipante' => 2,     //Instructura,
+			'grupoletra' => "Docente",
+		);
+
+	 	$this->evento_model->save($array_item,$array_participante1);
 	 	redirect('evento');
  	}
 

@@ -154,7 +154,7 @@ class Evento_model extends CI_model {
 
 
   // Para guardar un registro nuevo
-	function save($array)
+	function save($array,$array2)
  	{
 
    		date_default_timezone_set('America/Guayaquil');
@@ -165,12 +165,15 @@ class Evento_model extends CI_model {
 		$this->db->insert("evento", $array);
 		if($this->db->affected_rows()>0){
 			$idevento=$this->db->insert_id();
+			array2['idevento']=$idevento;
+			$this->db->insert("participante", $array2);
+
 			$namefile1="evento-".sprintf("%d",$idevento) ;
 			$namefile2="evento/detalle/".sprintf("%d",$idevento) ;
 			$this->db->insert("pagina", array("nombre"=>$namefile1,"ruta"=>$namefile2));
 			if($this->db->affected_rows()>0){
 						$this->db->where('idevento',$idevento);
-						$this->db->update('evento',array('idpagina'=>$this->db->insert_id()));
+_		$this->db->update('evento',array('idpagina'=>$this->db->insert_id()));
 				}
 
 		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fecha,"hora"=>$hora,"tabla"=>"evento","accion"=>"se creo un nuevo evento con id=".$idevento,"url"=>$_SERVER['REQUEST_URI']));
@@ -178,7 +181,7 @@ class Evento_model extends CI_model {
 				return true;
 		}else{
 			$this->db->trans_rollback();
-			die("No de pudo grabar" );
+			die("No se pudo grabar" );
 			return false;
 		}
  	}

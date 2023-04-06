@@ -251,6 +251,7 @@ var titulo= $(this).data('elperiodoacademico')+" - P"+$(this).data('paralelo')+"
 var descripcion= $(this).data('elperiodoacademico')+" - "+$(this).data('laasignatura') ;
 var idperiodoacademico= $(this).data('idperiodoacademico');
 var iddocente= $(this).data('iddocente');
+var idpersona= $(this).data('idpersona');
 var idasignatura= $(this).data('idasignatura');
 var duracion= "4 meses";
 var linkdetalle= "";
@@ -266,7 +267,6 @@ $.ajax({url: '<?php echo site_url('silabo/save')?>',
 	async : false,
 	dataType: 'json',
 	success: function(data){
-		alert(data);
 	 idsilabo=data.idsilabo;
 	 idasignaturadocente=data.idasignaturadocente;	
 	 idcalendarioacademico=data.idcalendarioacademico;
@@ -295,7 +295,7 @@ $.ajax({url: '<?php echo site_url('silabo/save')?>',
 
 $.ajax({url: '<?php echo site_url('evento/save')?>',
 	method: 'POST',
-	data:{idtipoevento:idtipoevento,idevento_estado:idevento_estado,idinstitucion:idinstitucion,titulo:titulo,fechainicia:fechainicia,fechafinaliza:fechafinaliza,detalle:detalle,idusuario:idusuario,fecha:fecha,duracion:duracion,costo:costo,idsilabo:idsilabo,codigoclassroom:codigoclassroom,idasignaturadocente:idasignaturadocente,idcalendarioacademico:idcalendarioacademico},
+	data:{idtipoevento:idtipoevento,idevento_estado:idevento_estado,idinstitucion:idinstitucion,titulo:titulo,fechainicia:fechainicia,fechafinaliza:fechafinaliza,detalle:detalle,idusuario:idusuario,fecha:fecha,duracion:duracion,costo:costo,idsilabo:idsilabo,codigoclassroom:codigoclassroom,idasignaturadocente:idasignaturadocente,idcalendarioacademico:idcalendarioacademico,idpersona:idpersona},
 	async : true,
 	success: function(data){
 	
