@@ -240,19 +240,18 @@ if(sizeof($eventos)>1){
 <script>
 
 $(document).ready(()=>{
-  var idinstitucion= <?php echo $imagenevento; ?>;
-  var idevento= <?php echo $idevento; ?>;
+var inputField = document.querySelector('#cedula');
 
-  if(idinstitucion>0){
-  $('#idinstitucion option[value="'+idinstitucion+'"]').attr('selected','selected');
-    document.getElementById("idinstitucion").disabled=true;
-    get_evento();
-  //  document.getElementById("ln-registrar").style.display="none";
+inputField.onkeydown = function(event) {
+  // Only allow if the e.key value is a number or if it's 'Backspace'
+  if(isNaN(event.key) && event.key !== 'Backspace') {
+    event.preventDefault();
   }
-  if(idevento>0){
-            $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
-            document.getElementById("idevento").disabled=true;
-  }
+};
+
+
+
+
 
 
   });     
@@ -339,16 +338,6 @@ function show_detalle()
 
 }
 
-
-
-var inputField = document.querySelector('#cedula');
-
-inputField.onkeydown = function(event) {
-  // Only allow if the e.key value is a number or if it's 'Backspace'
-  if(isNaN(event.key) && event.key !== 'Backspace') {
-    event.preventDefault();
-  }
-};
 
 
 
