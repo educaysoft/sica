@@ -123,7 +123,7 @@ if(sizeof($eventos)>1){
 					<div  class="w3-container" style="text-align:left; font-size: 70%;">
 						<?php
 						echo "<label  style='text-align:left; font-size: 100%;' for='cedula'> Cédula: </label>";
-						echo form_input(array('id'=>'cedula','name'=>'cedula', 'class'=>'form-control'));
+						echo form_input(array('id'=>'cedula','name'=>'cedula','pattern=>'^[0-9]*$','class'=>'form-control'));
 						echo "<div class='error_msg'>";
 						if (isset($message_display)) {
 							echo $message_display;
