@@ -173,7 +173,7 @@ class Evento_model extends CI_model {
 			$this->db->insert("pagina", array("nombre"=>$namefile1,"ruta"=>$namefile2));
 			if($this->db->affected_rows()>0){
 						$this->db->where('idevento',$idevento);
-_		$this->db->update('evento',array('idpagina'=>$this->db->insert_id()));
+		$this->db->update('evento',array('idpagina'=>$this->db->insert_id()));
 				}
 
 		$this->db->insert("vitacora", array("idusuario"=>$this->session->userdata['logged_in']['idusuario'],"fecha"=>$fecha,"hora"=>$hora,"tabla"=>"evento","accion"=>"se creo un nuevo evento con id=".$idevento,"url"=>$_SERVER['REQUEST_URI']));
