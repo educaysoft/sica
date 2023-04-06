@@ -165,7 +165,7 @@ class Evento_model extends CI_model {
 		$this->db->insert("evento", $array);
 		if($this->db->affected_rows()>0){
 			$idevento=$this->db->insert_id();
-			array2['idevento']=$idevento;
+			$array2['idevento']=$idevento;
 			$this->db->insert("participante", $array2);
 
 			$namefile1="evento-".sprintf("%d",$idevento) ;
