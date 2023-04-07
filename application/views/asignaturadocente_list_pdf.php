@@ -71,9 +71,9 @@ $cell_height=10;    //define cell height
 		    $pdf->Cell(15,5,utf8_decode($row->eldistributivodocente),1,0,'L',0);
 		    $pdf->Cell(15,5,utf8_decode($row->laasignatura),1,0,'L',0);
 		    $pdf->Cell(15,5,utf8_decode($row->nivel),1,0,'L',0);
-		    $pdf->Cell(90,5,utf8_decode($row->paralelo),1,0,'L',0);
-		    $pdf->Cell(90,5,utf8_decode($row->horas),1,0,'L',0);
-		    $pdf->Cell(90,5,utf8_decode($row->estado),1,1,'L',0);
+		    $pdf->Cell(15,5,utf8_decode($row->paralelo),1,0,'L',0);
+		    $pdf->Cell(15,5,utf8_decode($row->horas),1,0,'L',0);
+		    $pdf->Cell(15,5,utf8_decode($row->estado),1,1,'L',0);
 		    
     }
 
