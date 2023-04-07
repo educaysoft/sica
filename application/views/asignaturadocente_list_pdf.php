@@ -59,15 +59,8 @@ $current_x = $pdf->GetX();
 	$i=0;
 	foreach ($asignaturadocentes as $row){  //Recorre todas la participaciones realiadas por los participantes
 
-$current_y = $current_y2;
-	$pdf->SetXY($current_x, $current_y);   
 		    $i=$i+1;
 		    $pdf->Cell(10,5,$i,1,0,'R',0); 
-
-$start_x=$pdf->GetX(); //initial x (start of column position)
-$current_x = $pdf->GetX();
-$cell_width = 15;  //define cell width
-$cell_height=10;    //define cell height
 		    $pdf->Cell(15,5,utf8_decode($row->eldistributivodocente),1,0,'L',0);
 		    $pdf->Cell(15,5,utf8_decode($row->laasignatura),1,0,'L',0);
 		    $pdf->Cell(15,5,utf8_decode($row->nivel),1,0,'L',0);
