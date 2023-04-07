@@ -56,7 +56,19 @@ if(isset($tiempodedicacion))
 	?>
 	</div> 
 </div> 
-   
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Inicial:</label>
+	<div class="col-md-10">
+     <?php
+       echo form_input('inicial',$tiempodedicacion['inicial'],array('placeholder'=>'inicial del tiempodedicacion')); 
+
+	?>
+	</div> 
+</div>
+
+
    
 <?php echo form_close(); ?>
 

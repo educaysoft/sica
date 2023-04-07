@@ -14,6 +14,13 @@
 </tr>
 
 <tr>
+<td> Inicial </td>
+<td><?php echo form_input("inicial","", array("placeholder"=>"incial de tiempodedicacion"))  ?></td>
+</tr>
+
+
+
+<tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("tiempodedicacion","Atras") ?> </td>
 </tr>
 

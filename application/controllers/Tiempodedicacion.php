@@ -36,6 +36,7 @@ public function  save()
 	 	$array_item=array(
 	 	'idtiempodedicacion' => $this->input->post('idtiempodedicacion'),
 	 	'nombre' => $this->input->post('nombre'),
+	 	'inicial' => $this->input->post('inicial'),
 	 	);
 	 	$this->tiempodedicacion_model->save($array_item);
 	 	redirect('tiempodedicacion');
@@ -61,6 +62,7 @@ public function edit()
 		 	
 		 	'idtiempodedicacion' => $this->input->post('idtiempodedicacion'),
 		 	'nombre' => $this->input->post('nombre'),
+		 	'inicial' => $this->input->post('inicial'),
 	 	);
 	 	$this->tiempodedicacion_model->update($id,$array_item);
 	 	redirect('tiempodedicacion');

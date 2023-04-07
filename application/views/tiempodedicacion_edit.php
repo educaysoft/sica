@@ -23,7 +23,12 @@ $eys_arrinput=array('name'=>'nombre','value'=>$tiempodedicacion['nombre'], "styl
  echo form_input($eys_arrinput); ?></td>
   </tr>
 
-
+<tr>
+      <td>Inicial:</td>
+      <td><?php
+$eys_arrinput=array('name'=>'inicial','value'=>$tiempodedicacion['inicial'], "style"=>"width:500px");
+ echo form_input($eys_arrinput); ?></td>
+  </tr>
 
 
 
