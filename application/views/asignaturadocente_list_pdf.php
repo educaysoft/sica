@@ -35,11 +35,11 @@
 	$pdf->SetFont('Arial','B',8);
 
 
-	$pdf->Cell(10,5,'#sesion',1,0,'C',1);
+	$pdf->Cell(5,5,'#',1,0,'C',1);
 	$pdf->Cell(45,5,'Docente',1,0,'C',1);
-	$pdf->Cell(15,5,'Cedula',1,0,'C',1);
-	$pdf->Cell(35,5,'Correo',1,0,'C',1);
-	$pdf->Cell(5,5,'Tempo',1,0,'C',1);
+	$pdf->Cell(17,5,'Cedula',1,0,'C',1);
+	$pdf->Cell(40,5,'Correo',1,0,'C',1);
+	$pdf->Cell(10,5,'Tempo',1,0,'C',1);
 	$pdf->Cell(35,5,'Area',1,0,'C',1);
 	$pdf->Cell(60,5,'Asignatura',1,0,'C',1);
 	$pdf->Cell(15,5,'Paralelo',1,0,'C',1);
@@ -62,18 +62,17 @@ $current_x = $pdf->GetX();
 	foreach ($asignaturadocentes as $row){  //Recorre todas la participaciones realiadas por los participantes
 
 		    $i=$i+1;
-		    $pdf->Cell(10,5,$i,1,0,'R',0); 
+		    $pdf->Cell(5,5,$i,1,0,'R',0); 
 		    $pdf->Cell(45,5,utf8_decode($row->eldocente),1,0,'L',0);
-		    $pdf->Cell(15,5,utf8_decode($row->cedula),1,0,'L',0);
-		    $pdf->Cell(35,5,utf8_decode($row->correo),1,0,'L',0);
-		    $pdf->Cell(5,5,utf8_decode($row->dedicacion),1,0,'L',0);
+		    $pdf->Cell(17,5,utf8_decode($row->cedula),1,0,'L',0);
+		    $pdf->Cell(40,5,utf8_decode($row->correo),1,0,'L',0);
+		    $pdf->Cell(10,5,utf8_decode($row->dedicacion),1,0,'L',0);
 		    $pdf->Cell(35,5,utf8_decode($row->area),1,0,'L',0);
 		    $pdf->Cell(60,5,utf8_decode($row->laasignatura),1,0,'L',0);
 		    $pdf->Cell(15,5,utf8_decode($row->nivel." - ".$row->paralelo),1,0,'L',0);
 		    $pdf->Cell(10,5,utf8_decode($row->horas),1,0,'L',0);
 		    $pdf->Cell(15,5,utf8_decode($row->estado),1,0,'L',0);
 		    $pdf->Cell(15,5,utf8_decode($row->nsesion),1,1,'L',0);
-		    
     }
 
     
