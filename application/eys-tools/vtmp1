@@ -2,23 +2,23 @@
 	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($estadoproceso))
+if(isset($paralelo))
 {
 ?>
-        <li> <?php echo anchor('estadoproceso/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('estadoproceso/siguiente/'.$estadoproceso['idestadoproceso'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('estadoproceso/anterior/'.$estadoproceso['idestadoproceso'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('estadoproceso/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('estadoproceso/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('estadoproceso/edit/'.$estadoproceso['idestadoproceso'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('estadoproceso/delete/'.$estadoproceso['idestadoproceso'],'Delete'); ?></li>
-        <li> <?php echo anchor('estadoproceso/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('paralelo/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('paralelo/siguiente/'.$paralelo['idparalelo'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('paralelo/anterior/'.$paralelo['idparalelo'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('paralelo/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('paralelo/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('paralelo/edit/'.$paralelo['idparalelo'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('paralelo/delete/'.$paralelo['idparalelo'],'Delete'); ?></li>
+        <li> <?php echo anchor('paralelo/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('estadoproceso/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('paralelo/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -28,24 +28,30 @@ if(isset($estadoproceso))
 <br>
 
 
-<?php echo form_open('estadoproceso/save_edit') ?>
-<?php echo form_hidden('idestadoproceso',$estadoproceso['idestadoproceso']) ?>
+<?php echo form_open('paralelo/save_edit') ?>
+<?php echo form_hidden('idparalelo',$paralelo['idparalelo']) ?>
 
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
      <?php
-	echo form_input('idestadoproceso',$estadoproceso['idestadoproceso'],array("disabled"=>"disabled",'placeholder'=>'Idestadoprocesos'));
+	echo form_input('idparalelo',$paralelo['idparalelo'],array("disabled"=>"disabled",'placeholder'=>'Idparalelos'));
 	?>
 	</div> 
 </div> 
- 
+
+
+
+
+
+
+
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Nombre:</label>
 	<div class="col-md-10">
      <?php
-       echo form_input('nombre',$estadoproceso['nombre'],array('placeholder'=>'Nombre del estadoproceso')); 
+       echo form_input('nombre',$paralelo['nombre'],array('placeholder'=>'Nombre del paralelo')); 
 
 	?>
 	</div> 

@@ -256,4 +256,8 @@ alter table evaluacion change idpersona idevaluacionpersona int(11);
 /* alter table docente add column eliminado tinyint default 0;*/
 
 /* alter table asignaturadocente add column idestadoasignaturadocente int(11) default 1; */
-alter table participante change iddocumento iddocumento int(11) default 0;
+/* alter table participante change iddocumento iddocumento int(11) default 0; */
+
+
+alter table distributivodocente add column idtiempodedicacion int(11);
+

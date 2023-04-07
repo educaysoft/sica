@@ -1,33 +1,33 @@
 <?php
-class Estadoasignaturadocente_model extends CI_model {
+class Tiempodedicacion_model extends CI_model {
 
-	function lista_estadoprocesos(){
-		 $estadoproceso= $this->db->get('estadoproceso');
-		 return $estadoproceso;
+	function lista_paralelos(){
+		 $paralelo= $this->db->get('paralelo');
+		 return $paralelo;
 	}
 
- 	function estadoproceso( $id){
- 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $id.'"');
- 		return $estadoproceso;
+ 	function paralelo( $id){
+ 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $id.'"');
+ 		return $paralelo;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("estadoproceso", $array);
+		$this->db->insert("paralelo", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idestadoproceso',$id);
- 		$this->db->update('estadoproceso',$array_item);
+ 		$this->db->where('idparalelo',$id);
+ 		$this->db->update('paralelo',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idestadoproceso',$id);
-		$this->db->delete('estadoproceso');
+ 		$this->db->where('idparalelo',$id);
+		$this->db->delete('paralelo');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -38,7 +38,7 @@ class Estadoasignaturadocente_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idestadoproceso")->get('estadoproceso');
+		$query=$this->db->order_by("idparalelo")->get('paralelo');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -51,7 +51,7 @@ class Estadoasignaturadocente_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idestadoproceso")->get('estadoproceso');
+		$query=$this->db->order_by("idparalelo")->get('paralelo');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -63,37 +63,37 @@ class Estadoasignaturadocente_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$estadoproceso = $this->db->select("idestadoproceso")->order_by("idestadoproceso")->get('estadoproceso')->result_array();
-		$arr=array("idestadoproceso"=>$id);
-		$clave=array_search($arr,$estadoproceso);
-	   if(array_key_exists($clave+1,$estadoproceso))
+ 		$paralelo = $this->db->select("idparalelo")->order_by("idparalelo")->get('paralelo')->result_array();
+		$arr=array("idparalelo"=>$id);
+		$clave=array_search($arr,$paralelo);
+	   if(array_key_exists($clave+1,$paralelo))
 		 {
 
- 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $estadoproceso[$clave+1]["idestadoproceso"].'"');
+ 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $paralelo[$clave+1]["idparalelo"].'"');
 		 }else{
 
- 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $id.'"');
+ 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $id.'"');
 		 }
 		 	
- 		return $estadoproceso;
+ 		return $paralelo;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$estadoproceso = $this->db->select("idestadoproceso")->order_by("idestadoproceso")->get('estadoproceso')->result_array();
-		$arr=array("idestadoproceso"=>$id);
-		$clave=array_search($arr,$estadoproceso);
-	   if(array_key_exists($clave-1,$estadoproceso))
+ 		$paralelo = $this->db->select("idparalelo")->order_by("idparalelo")->get('paralelo')->result_array();
+		$arr=array("idparalelo"=>$id);
+		$clave=array_search($arr,$paralelo);
+	   if(array_key_exists($clave-1,$paralelo))
 		 {
 
- 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $estadoproceso[$clave-1]["idestadoproceso"].'"');
+ 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $paralelo[$clave-1]["idparalelo"].'"');
 		 }else{
 
- 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $id.'"');
+ 		$paralelo = $this->db->query('select * from paralelo where idparalelo="'. $id.'"');
 		 }
 		 	
- 		return $estadoproceso;
+ 		return $paralelo;
  	}
 
 

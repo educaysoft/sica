@@ -39,7 +39,16 @@ foreach ($distributivos as $row){
 </tr>
 
 
+<tr>
+<td> Tiempo dedicación:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($tiempodedicacions as $row){
+	$options[$row->idtiempodedicacion]= $row->nombre;
+}
 
+ echo form_dropdown("idtiempodedicacion",$options, $distributivodocente['idtiempodedicacion']);  ?></td>
+</tr>
 
 
 

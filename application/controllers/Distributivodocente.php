@@ -11,6 +11,7 @@ class Distributivodocente extends CI_Controller{
   	  $this->load->model('departamento_model');
   	  $this->load->model('evento_model');
   	  $this->load->model('jornadadocente_model');
+  	  $this->load->model('tiempodedicacion_model');
 }
 
 public function index(){
@@ -19,6 +20,7 @@ public function index(){
 			
   	$data['distributivodocente']=$this->distributivodocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
   	$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			
@@ -46,6 +48,7 @@ public function add()
   		$data['distributivos']= $this->distributivo_model->distributivo1($iddistributivo)->result();
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
 		$data['title']="Nueva Distributivodocente";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('distributivodocente_form',$data);
@@ -82,6 +85,7 @@ public function edit()
 	 	$data['distributivodocente'] = $this->distributivodocente_model->distributivodocente($this->uri->segment(3))->row_array();
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   		$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
+  		$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
  	 	$data['title'] = "Actualizar Distributivodocente";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('distributivodocente_edit',$data);

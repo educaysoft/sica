@@ -73,13 +73,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('paralelo/paralelo_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('tiempodedicacion/tiempodedicacion_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('idparalelo');
+var id= $(this).data('idtiempodedicacion');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 
