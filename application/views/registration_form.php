@@ -1,3 +1,11 @@
+<?php
+/*
+ * Archivo registration_form.php
+ * Author: Ing. Stalin Francis Quinde.
+ * Objetivo: Registro de usuario
+ */
+
+?>
 <section id="presentacion">
     
 <div class="w3-container" id="eys-registro">
@@ -250,7 +258,11 @@ inputField.onkeydown = function(event) {
 };
 
 
+if(inputField.value.length==10)
+{
+alert('10 caracteres');
 
+}
 
 
 
