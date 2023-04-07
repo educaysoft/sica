@@ -41,7 +41,7 @@
 	$pdf->Cell(15,5,'Correo',1,0,'C',1);
 	$pdf->Cell(15,5,'Dedicacion',1,0,'C',1);
 	$pdf->Cell(15,5,'Area',1,0,'C',1);
-	$pdf->Cell(45,5,'Asignatura',1,0,'C',1);
+	$pdf->Cell(60,5,'Asignatura',1,0,'C',1);
 	$pdf->Cell(15,5,'Paralelo',1,0,'C',1);
 	$pdf->Cell(15,5,'Horas',1,0,'C',1);
 	$pdf->Cell(15,5,'Estado',1,1,'C',1);
@@ -67,7 +67,7 @@ $current_x = $pdf->GetX();
 		    $pdf->Cell(15,5,utf8_decode("sin@correo"),1,0,'L',0);
 		    $pdf->Cell(15,5,"",1,0,'L',0);
 		    $pdf->Cell(15,5,"",1,0,'L',0);
-		    $pdf->Cell(45,5,utf8_decode($row->laasignatura),1,0,'L',0);
+		    $pdf->Cell(60,5,utf8_decode($row->laasignatura),1,0,'L',0);
 		    $pdf->Cell(15,5,utf8_decode($row->nivel." - ".$row->paralelo),1,0,'L',0);
 		    $pdf->Cell(15,5,utf8_decode($row->horas),1,0,'L',0);
 		    $pdf->Cell(15,5,utf8_decode($row->estado),1,1,'L',0);
