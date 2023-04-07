@@ -88,12 +88,11 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
      	<?php 
 $options= array("NADA");
 foreach ($tiempodedicacions as $row){
-	$options[$row->idtiempodedicacion]= $row->eltiempodedicacion;
+	$options[$row->idtiempodedicacion]= $row->nombre;
 }
 
-echo form_input('eltiempodedicacion',$options[$distributivodocente['idtiempodedicacion']],array("id"=>"eltiempodedicacion","disabled"=>"disabled",'style'=>'width:500px;')); 
+echo form_input('idtiempodedicacion',$options[$distributivodocente['idtiempodedicacion']],array("id"=>"idtiempodedicacion","disabled"=>"disabled",'style'=>'width:500px;')); 
 
-echo form_input(array('name'=>'idtiempodedicacion',"type"=>"hidden","value"=>$distributivodocente['idtiempodedicacion'],"id"=>"idtiempodedicacion")); 
 		?>
 	</div> 
 </div>
