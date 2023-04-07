@@ -36,7 +36,7 @@
 
 
 	$pdf->Cell(10,5,'#sesion',1,0,'C',1);
-	$pdf->Cell(15,5,'Docente',1,0,'C',1);
+	$pdf->Cell(45,5,'Docente',1,0,'C',1);
 	$pdf->Cell(15,5,'Cedula',1,0,'C',1);
 	$pdf->Cell(15,5,'Correo',1,0,'C',1);
 	$pdf->Cell(15,5,'Dedicacion',1,0,'C',1);
@@ -61,7 +61,7 @@ $current_x = $pdf->GetX();
 
 		    $i=$i+1;
 		    $pdf->Cell(10,5,$i,1,0,'R',0); 
-		    $pdf->Cell(15,5,utf8_decode($row->eldistributivodocente),1,0,'L',0);
+		    $pdf->Cell(45,5,utf8_decode($row->eldistributivodocente),1,0,'L',0);
 		    $pdf->Cell(15,5,utf8_decode($row->laasignatura),1,0,'L',0);
 		    $pdf->Cell(15,5,utf8_decode($row->nivel),1,0,'L',0);
 		    $pdf->Cell(15,5,utf8_decode($row->paralelo),1,0,'L',0);
