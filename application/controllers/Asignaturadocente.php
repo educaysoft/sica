@@ -205,6 +205,28 @@ function asignaturadocente_data()
 
 
 
+	public function reportepdf()
+	{
+
+		$iddistributivo=$this->uri->segment(3);
+
+
+	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo($iddistributivo)->result();
+		$data['distributivo']=$this->distributivo_model->distributivo1($iddistributivo)->result();
+		$data['title']="Evento";
+	//	$this->load->view('template/page_header');		
+		$this->load->view('asignaturadocente_list_pdf',$data);
+//		$this->load->view('template/page_footer');
+	}
+
+
+
+
+
+
+
+
+
 public function actual()
 {
 	$data['asignaturadocente'] = $this->asignaturadocente_model->asignaturadocente($this->uri->segment(3))->row_array();
