@@ -40,7 +40,7 @@ class Asignaturadocente_model extends CI_model {
  	function asignaturadocentexdistributivo( $id){
 		if($id>0){
 
- 		$asignaturadocente = $this->db->query('select * from asignaturadocente2 where iddistributivo="'. $id.'"');
+ 		$asignaturadocente = $this->db->query('select * from asignaturadocente2 where iddistributivo="'. $id.'" order by eldocente');
 		}else{
 
  		$asignaturadocente = $this->db->query('select * from asignaturadocente2');
