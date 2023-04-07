@@ -203,8 +203,6 @@ function asignaturadocente_data()
 
 
 
-
-
 	public function reportepdf()
 	{
 
