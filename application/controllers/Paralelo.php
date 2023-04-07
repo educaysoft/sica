@@ -97,7 +97,7 @@ function paralelo_data()
 	 	$data0 = $this->paralelo_model->lista_paralelos();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idparalelo,$r->numero,$r->nombre,
+			$data[]=array($r->idparalelo,$r->nombre,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('paralelo/actual').'"     data-idparalelo="'.$r->idparalelo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
