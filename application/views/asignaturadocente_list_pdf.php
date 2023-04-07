@@ -17,7 +17,7 @@
 	$pdf->titulo="CONTROL ACADÉMICO - LECCIONARIO";
 	
  //   	$pdf->asignatura="Evento(Clase):  ".$sesioneventos[0]->elevento; 
-    	$pdf->docente="Docente:  ".$distributivo[0]->eldistributivo; 
+    	$pdf->docente="Distributivo:  ".$distributivo[0]->eldistributivo; 
 //	if($mesnumero>0){
   //  	$pdf->mes="Mes:  ".$mesletra[$mesnumero]; 
 //	}
@@ -68,45 +68,13 @@ $start_x=$pdf->GetX(); //initial x (start of column position)
 $current_x = $pdf->GetX();
 $cell_width = 15;  //define cell width
 $cell_height=10;    //define cell height
-		    //$pdf->Cell(15,5,utf8_decode($row->fecha),1,0,'L',0);
-		    //$pdf->Cell(15,5,utf8_decode($row->horainicio),1,0,'L',0);
-		    //$pdf->Cell(15,5,utf8_decode($row->horafin),1,0,'L',0);
-		   // $pdf->Cell(90,5,utf8_decode($row->tema),1,1,'L',0);
-
-
-		    $pdf->MultiCell($cell_width,5,utf8_decode($row->eldistributivodocente),1);
-	 	 	$current_x+=$cell_width;
-			$current_y = $pdf->GetY()-5;
-			$pdf->SetXY($current_x, $current_y);   
-		    $pdf->MultiCell($cell_width,5,utf8_decode($row->laasignatura),1);
-	 	 	$current_x+=$cell_width;
-			$current_y = $pdf->GetY()-5;
-			$pdf->SetXY($current_x, $current_y);   
-		    $pdf->MultiCell($cell_width,5,utf8_decode($row->nivel),1);
-	 	 	$current_x+=$cell_width;
-			$current_y = $pdf->GetY()-5;
-			$pdf->SetXY($current_x, $current_y);   
-		    $pdf->MultiCell($cell_width,5,utf8_decode($row->paralelo),1);
-	 	 	$current_x+=$cell_width;
-			$current_y = $pdf->GetY()-5;
-			$pdf->SetXY($current_x, $current_y);   
-		    $pdf->MultiCell($cell_width,5,utf8_decode($row->horas),1);
-	 	 	$current_x+=$cell_width;
-			$current_y = $pdf->GetY()-5;
-			$pdf->SetXY($current_x, $current_y);   
-		    $pdf->MultiCell($cell_width,5,utf8_decode($row->estado),1);
-	 	 	$current_x+=$cell_width;
-			$current_y = $pdf->GetY()-5;
-			$pdf->SetXY($current_x, $current_y);   
-			$cell_width=120;
-		    $pdf->MultiCell($cell_width,5,utf8_decode($row->elperiodo),1);
-	 	 	$current_x+=$cell_width;
-			$current_y = $pdf->GetY()-5;
-			$current_y2 = $pdf->GetY();
-			$pdf->SetXY($current_x, $current_y);   
-			$cell_width=18;
-		    $pdf->MultiCell($cell_width,5,"X SISTEMA",1);
-	 	 	$current_x=$current_x2;
+		    $pdf->Cell(15,5,utf8_decode($row->eldistributivodocente),1,0,'L',0);
+		    $pdf->Cell(15,5,utf8_decode($row->laasignatura),1,0,'L',0);
+		    $pdf->Cell(15,5,utf8_decode($row->nivel),1,0,'L',0);
+		    $pdf->Cell(90,5,utf8_decode($row->paralelo),1,0,'L',0);
+		    $pdf->Cell(90,5,utf8_decode($row->horas),1,0,'L',0);
+		    $pdf->Cell(90,5,utf8_decode($row->estado),1,1,'L',0);
+		    
     }
 
     
