@@ -64,6 +64,7 @@ public function add()
 		 	
 			'iddocente' => $this->input->post('iddocente'),
 			'iddistributivo' => $this->input->post('iddistributivo'),
+			'idtiempodedicacion' => $this->input->post('idtiempodedicacion'),
 	 	);
 	 	$result=$this->distributivodocente_model->save($array_item);
 	 	if($result == false)
@@ -80,18 +81,18 @@ public function add()
 
 
 
-public function edit()
-{
-	 	$data['distributivodocente'] = $this->distributivodocente_model->distributivodocente($this->uri->segment(3))->row_array();
-		$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  		$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
-  		$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
- 	 	$data['title'] = "Actualizar Distributivodocente";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('distributivodocente_edit',$data);
-	 	$this->load->view('template/page_footer');
- 
-}
+	public function edit()
+	{
+			$data['distributivodocente'] = $this->distributivodocente_model->distributivodocente($this->uri->segment(3))->row_array();
+			$data['docentes']= $this->docente_model->lista_docentesA()->result();
+			$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
+			$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
+			$data['title'] = "Actualizar Distributivodocente";
+			$this->load->view('template/page_header');		
+			$this->load->view('distributivodocente_edit',$data);
+			$this->load->view('template/page_footer');
+	 
+	}
 
 
 	public function  save_edit()
@@ -102,6 +103,7 @@ public function edit()
 		 	'iddistributivodocente' => $this->input->post('iddistributivodocente'),
 			'iddocente' => $this->input->post('iddocente'),
 			'iddistributivo' => $this->input->post('iddistributivo'),
+			'idtiempodedicacion' => $this->input->post('idtiempodedicacion'),
 	 	);
 	 	$this->distributivodocente_model->update($id,$array_item);
 	 	redirect('distributivodocente');
