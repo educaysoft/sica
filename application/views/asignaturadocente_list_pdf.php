@@ -62,7 +62,9 @@ $current_x = $pdf->GetX();
 	foreach ($asignaturadocentes as $row){  //Recorre todas la participaciones realiadas por los participantes
 
 		if($row->estado=='Asignada'){
-			$pdf->SetTextColor(0,255,0);
+			$pdf->SetTextColor(0,0,0);
+		}else{
+			$pdf->SetTextColor(0,0,255);
 		}
 
 		    $i=$i+1;
