@@ -50,7 +50,7 @@
 				sizedWindowWidth = sizedWindowWidth - 50;
 			 
 			 $("#canvas").width(sizedWindowWidth);
-			 $("#canvas").height(200);
+			 $("#canvas").height(100);
 			 $("#canvas").css("border","1px solid #000");
 			
 			 var canvas = $("#canvas").get(0);
