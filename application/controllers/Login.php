@@ -36,8 +36,6 @@ public function user_registration_show() {
         if($this->input->get('idevento') ){
 		$data['eventos']= $this->evento_model->lista_eventos_open($this->input->get('idevento'))->result();
 	}else{	
- 	//$data['programa_list'] = $this->programa_model->list_programa()->result();
-//		$data['instituciones']= $this->institucion_model->lista_instituciones_con_inscripciones()->result();
 		$data['eventos']= $this->evento_model->lista_eventos(54)->result();
 	}
   	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
