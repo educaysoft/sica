@@ -35,48 +35,30 @@ foreach ($personas as $row){
 
 
 
-<div class="form-group row">
-  <label class="col-md-2 col-form-label">Estado de participacion (<?php echo anchor('visitanteestado/add', 'Nuevo'); ?>):</label>
-	<div class="col-md-10">
-		<?php
-
-$options= array('--Select--');
-foreach ($visitanteestado as $row){
-	$options[$row->idvisitanteestado]= $row->nombre;
-}
- echo form_dropdown("idvisitanteestado",$options, set_select('--Select--','default_value')); 
-		?>
-	</div> 
-</div> 
+ 
 
 
 
-<div class="form-group row">
-  <label class="col-md-2 col-form-label">Nivel de participacion (<?php echo anchor('nivelvisitante/add', 'Nuevo'); ?>):</label>
-	<div class="col-md-10">
-		<?php
-$options= array('--Select--');
-foreach ($nivelvisitante as $row){
-	$options[$row->idnivelvisitante]= $row->nombre;
-}
-
- echo form_dropdown("idnivelvisitante",$options,set_select('--Select--','default_value'));  
-
-		?>
-	</div> 
-</div> 
+ 
 
 
 
 <div class="form-group row">
   <label class="col-md-2 col-form-label">Grupo</label>
 	<div class="col-md-10">
-		<?php
-	$eys_arrinput=array('name'=>'grupoletra','value'=>'A', "style"=>"width:500px");
-	echo form_input($eys_arrinput); 
-		?>
+<div>
+    <canvas id="signature" width="300" height="100"></canvas>
+  </div>
+  <div>
+    <input type="hidden" name="signature" />
+  </div>
+
+
 	</div> 
 </div> 
+
+
+
 
 
 
@@ -95,4 +77,65 @@ foreach ($nivelvisitante as $row){
 
 
 
+<script>
+
+var canvas = document.getElementById('signature');
+var ctx = canvas.getContext("2d");
+var drawing = false;
+var prevX, prevY;
+var currX, currY;
+var signature = document.getElementsByName('signature')[0];
+
+canvas.addEventListener("mousemove", draw);
+canvas.addEventListener("mouseup", stop);
+canvas.addEventListener("mousedown", start);
+
+function start(e) {
+  drawing = true;
+}
+
+function stop() {
+  drawing = false;
+  prevX = prevY = null;
+  signature.value = canvas.toDataURL();
+}
+
+function draw(e) {
+  if (!drawing) {
+    return;
+  }
+  // Test for touchmove event, this requires another property.
+  var clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+  var clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
+  currX = clientX - canvas.offsetLeft;
+  currY = clientY - canvas.offsetTop;
+  if (!prevX && !prevY) {
+    prevX = currX;
+    prevY = currY;
+  }
+
+  ctx.beginPath();
+  ctx.moveTo(prevX, prevY);
+  ctx.lineTo(currX, currY);
+  ctx.strokeStyle = 'black';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+  ctx.closePath();
+
+  prevX = currX;
+  prevY = currY;
+}
+
+function onSubmit(e) {
+  console.log({
+    'name': document.getElementsByName('name')[0].value,
+    'signature': signature.value,
+  });
+  return false;
+}
+
+
+
+
+</scrip>
 
