@@ -195,7 +195,7 @@ foreach ($personas as $row){
 
 
 
-	<div class="col-md-10" style="height:150px">
+	<div class="col-md-10" style="height:400px">
  <div data-role="page" id="2">
 			<div data-role="header">
 				<h1>Signature Pad - HTML5 - jQuery Mobile</h1>
