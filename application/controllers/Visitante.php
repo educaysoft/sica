@@ -55,9 +55,9 @@ public function actual(){
 	{
 
 		if($this->uri->segment(3)){
-			$data['departamentos']= $this->departamento_model->lista_departamentos_open($this->uri->segment(3))->result();
+			$data['departamentos']= $this->departamento_model->lista_departamentos($this->uri->segment(3))->result();
 		}else{
-			$data['departamentos']= $this->departamento_model->lista_departamentos_open(0)->result();
+			$data['departamentos']= $this->departamento_model->lista_departamentos(0)->result();
 		}
 
 
