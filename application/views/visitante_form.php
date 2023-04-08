@@ -1,3 +1,13 @@
+<style>
+canvas#signature {
+  border: 2px solid black;
+}
+
+form>* {
+  margin: 10px;
+}
+
+</style>
 
 <div style="margin-top:5cm;">
 <h2> <?php echo $title; ?> </h2>
