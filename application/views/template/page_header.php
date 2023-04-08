@@ -11,7 +11,6 @@ if (isset($this->session->userdata['logged_in'])) {
 	<title>Utlvte Tecnología de la Informción</title>
 	<link href="<?php echo base_url(); ?>images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1"> 
 
 	<meta name="description" content="División de tecnología en apoyo a los procesos tecológicos de la Universidad Técnica Luis Vargas Torres" />
 	<meta property="og:locale" content="es_EC" />
@@ -35,16 +34,6 @@ if (isset($this->session->userdata['logged_in'])) {
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
-	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-	<style type="text/css">
-		#div_signcontract{ width: 99%; }
-		.popupHeader{ margin: 10px; }
-	</style>
-
-
 
 
 <!---- Para manejar el datatable -->
