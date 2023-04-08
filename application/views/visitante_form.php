@@ -61,7 +61,7 @@ foreach ($personas as $row){
 
   <div id="page" data-role="content">
 
-<a href="#divPopUpSignContract" data-rel="<a href="https://www.jqueryscript.net/tags.php?/popup/">popup</a>" data-position-to="window" data-role="button" data-inline="true">Open</a>
+<a href="#divPopUpSignContract" data-rel="<a href='https://www.jqueryscript.net/tags.php?/popup/'>popup</a>" data-position-to="window" data-role="button" data-inline="true">Open</a>
 
 </div>
 
