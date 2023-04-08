@@ -11,10 +11,10 @@
 
 
 <div id="eys-nav-i">
-	<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idparticipante"><?php echo $participante['idparticipante']; ?></idem></div>
+	<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idvisitante"><?php echo $visitante['idvisitante']; ?></idem></div>
 
 <?php
-if(isset($participante))
+if(isset($visitante))
 {
 
 	$permitir=0;
@@ -39,21 +39,21 @@ if(isset($participante))
  
 <?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['navegar']){ ?>
 <ul>
-        <li> <?php echo anchor('participante/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('participante/anterior/'.$participante['idparticipante'], 'anterior'); ?></li>
-        <li> <?php echo anchor('participante/siguiente/'.$participante['idparticipante'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('participante/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('participante/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('participante/edit/'.$participante['idparticipante'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('participante/delete?idparticipante='.$participante['idparticipante'].'&idevento='.$participante['idevento'],'Delete'); ?></li>
-        <li> <?php echo anchor('participante/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('visitante/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('visitante/anterior/'.$visitante['idvisitante'], 'anterior'); ?></li>
+        <li> <?php echo anchor('visitante/siguiente/'.$visitante['idvisitante'], 'siguiente'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('visitante/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('visitante/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('visitante/edit/'.$visitante['idvisitante'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('visitante/delete?idvisitante='.$visitante['idvisitante'].'&idevento='.$visitante['idevento'],'Delete'); ?></li>
+        <li> <?php echo anchor('visitante/listar/','Listar'); ?></li>
 
 	<?php } ?>
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('participante/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('visitante/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -64,28 +64,28 @@ if(isset($participante))
 <br>
 
 
-<?php echo form_open('participante/save_edit') ?>
-<?php echo form_hidden('idevento',$participante['idevento']) ?>
+<?php echo form_open('visitante/save_edit') ?>
+<?php echo form_hidden('idevento',$visitante['idevento']) ?>
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label">Id evento:</label>
 	<div class="col-md-10">
 		<?php
-    echo form_input('idevento',$participante['idevento'],array("id"=>"idevento","disabled"=>"disabled",'placeholder'=>'Ideventos'));
+    echo form_input('idevento',$visitante['idevento'],array("id"=>"idevento","disabled"=>"disabled",'placeholder'=>'Ideventos'));
 		?>
 	</div> 
 </div> 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"><?php echo anchor('evento/actual/'.$participante['idevento'], 'Evento  '); ?>&#x1F448;</label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('evento/actual/'.$visitante['idevento'], 'Evento  '); ?>&#x1F448;</label>
 	<div class="col-md-10">
 		<?php
 $options= array("NADA");
 foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
 }
-echo form_input('idevento',$options[$participante['idevento']],array("disabled"=>"disabled","style"=>"width:500px"));
+echo form_input('idevento',$options[$visitante['idevento']],array("disabled"=>"disabled","style"=>"width:500px"));
 		?>
 	</div> 
 </div> 
@@ -95,7 +95,7 @@ echo form_input('idevento',$options[$participante['idevento']],array("disabled"=
     <label class="col-md-2 col-form-label">Id persona:</label>
 	<div class="col-md-10">
 		<?php
-     echo form_input('idpersona',$participante['idpersona'],array("id"=>"idpersona","disabled"=>"disabled",'placeholder'=>'Idparticipantees',"style"=>"width:500px")); 
+     echo form_input('idpersona',$visitante['idpersona'],array("id"=>"idpersona","disabled"=>"disabled",'placeholder'=>'Idvisitantees',"style"=>"width:500px")); 
 		?>
 	</div> 
 </div> 
@@ -111,8 +111,8 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
 
-$elparticipante=$options[$participante['idpersona']];
-echo form_input('nombre',$options[$participante['idpersona']],array("id"=>"nombre","disabled"=>"disabled","style"=>"width:500px"));
+$elvisitante=$options[$visitante['idpersona']];
+echo form_input('nombre',$options[$visitante['idpersona']],array("id"=>"nombre","disabled"=>"disabled","style"=>"width:500px"));
 		?>
 	</div> 
 </div> 
@@ -123,7 +123,7 @@ echo form_input('nombre',$options[$participante['idpersona']],array("id"=>"nombr
     <label class="col-md-2 col-form-label">Id documento:</label>
 	<div class="col-md-10">
 		<?php
-     echo form_input('iddocumento',$participante['iddocumento'],array("id"=>"iddocumento","disabled"=>"disabled",'placeholder'=>'Iddocumento',"style"=>"width:500px")); 
+     echo form_input('iddocumento',$visitante['iddocumento'],array("id"=>"iddocumento","disabled"=>"disabled",'placeholder'=>'Iddocumento',"style"=>"width:500px")); 
 		?>
 	</div> 
 </div> 
@@ -140,10 +140,10 @@ $options= array("NADA");
 foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
-if(!isset($participante['iddocumento'])){
+if(!isset($visitante['iddocumento'])){
 echo form_input('nmdocumento',"",array("id"=>"nmdocumento","disabled"=>"disabled","style"=>"width:500px")) ;
 }else{
-echo form_input('nmdocumento',$options[$participante['iddocumento']],array("id"=>"nmdocumento","disabled"=>"disabled","style"=>"width:500px"));
+echo form_input('nmdocumento',$options[$visitante['iddocumento']],array("id"=>"nmdocumento","disabled"=>"disabled","style"=>"width:500px"));
 }
 		?>
 	</div> 
@@ -155,24 +155,24 @@ echo form_input('nmdocumento',$options[$participante['iddocumento']],array("id"=
 	<div class="col-md-10">
 		<?php
 $options= array("NADA");
-foreach ($participanteestado as $row){
-	$options[$row->idparticipanteestado]= $row->nombre;
+foreach ($visitanteestado as $row){
+	$options[$row->idvisitanteestado]= $row->nombre;
 }
-echo form_input('idparticipanteestado',$options[$participante['idparticipanteestado']],array("disabled"=>"disabled","style"=>"width:500px"));
+echo form_input('idvisitanteestado',$options[$visitante['idvisitanteestado']],array("disabled"=>"disabled","style"=>"width:500px"));
 		?>
 	</div> 
 </div>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Nivel del participante:</label>
+    <label class="col-md-2 col-form-label">Nivel del visitante:</label>
 	<div class="col-md-10">
 		<?php
 $options= array("NADA");
-foreach ($nivelparticipante as $row){
-	$options[$row->idnivelparticipante]= $row->nombre;
+foreach ($nivelvisitante as $row){
+	$options[$row->idnivelvisitante]= $row->nombre;
 }
-echo form_input('idnivelparticipante',$options[$participante['idnivelparticipante']],array("disabled"=>"disabled","style"=>"width:500px"));
+echo form_input('idnivelvisitante',$options[$visitante['idnivelvisitante']],array("disabled"=>"disabled","style"=>"width:500px"));
 		?>
 	</div> 
 </div>
@@ -185,7 +185,7 @@ echo form_input('idnivelparticipante',$options[$participante['idnivelparticipant
     <label class="col-md-2 col-form-label">Grupo letra:</label>
 	<div class="col-md-10">
 		<?php
-     echo form_input('grupoletra',$participante['grupoletra'],array("id"=>"grupoletra","disabled"=>"disabled",'placeholder'=>'Grupo',"style"=>"width:500px")); 
+     echo form_input('grupoletra',$visitante['grupoletra'],array("id"=>"grupoletra","disabled"=>"disabled",'placeholder'=>'Grupo',"style"=>"width:500px")); 
 		?>
 	</div> 
 </div>
@@ -202,7 +202,7 @@ echo form_input('idnivelparticipante',$options[$participante['idnivelparticipant
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-	<b>Sesioner recibidas y Calificaciones obtenidas por :<?php echo $elparticipante ?> </b>
+	<b>Sesioner recibidas y Calificaciones obtenidas por :<?php echo $elvisitante ?> </b>
         </div>
         
     </div>

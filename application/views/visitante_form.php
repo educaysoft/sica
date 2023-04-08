@@ -3,7 +3,7 @@
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open("participante/save",array('id'=>'eys-form')) ?>
+<?php echo form_open("visitante/save",array('id'=>'eys-form')) ?>
 
 <div class="form-group row">
   <label class="col-md-2 col-form-label"> Evento:</label>
@@ -36,15 +36,15 @@ foreach ($personas as $row){
 
 
 <div class="form-group row">
-  <label class="col-md-2 col-form-label">Estado de participacion (<?php echo anchor('participanteestado/add', 'Nuevo'); ?>):</label>
+  <label class="col-md-2 col-form-label">Estado de participacion (<?php echo anchor('visitanteestado/add', 'Nuevo'); ?>):</label>
 	<div class="col-md-10">
 		<?php
 
 $options= array('--Select--');
-foreach ($participanteestado as $row){
-	$options[$row->idparticipanteestado]= $row->nombre;
+foreach ($visitanteestado as $row){
+	$options[$row->idvisitanteestado]= $row->nombre;
 }
- echo form_dropdown("idparticipanteestado",$options, set_select('--Select--','default_value')); 
+ echo form_dropdown("idvisitanteestado",$options, set_select('--Select--','default_value')); 
 		?>
 	</div> 
 </div> 
@@ -52,15 +52,15 @@ foreach ($participanteestado as $row){
 
 
 <div class="form-group row">
-  <label class="col-md-2 col-form-label">Nivel de participacion (<?php echo anchor('nivelparticipante/add', 'Nuevo'); ?>):</label>
+  <label class="col-md-2 col-form-label">Nivel de participacion (<?php echo anchor('nivelvisitante/add', 'Nuevo'); ?>):</label>
 	<div class="col-md-10">
 		<?php
 $options= array('--Select--');
-foreach ($nivelparticipante as $row){
-	$options[$row->idnivelparticipante]= $row->nombre;
+foreach ($nivelvisitante as $row){
+	$options[$row->idnivelvisitante]= $row->nombre;
 }
 
- echo form_dropdown("idnivelparticipante",$options,set_select('--Select--','default_value'));  
+ echo form_dropdown("idnivelvisitante",$options,set_select('--Select--','default_value'));  
 
 		?>
 	</div> 
@@ -84,7 +84,7 @@ foreach ($nivelparticipante as $row){
 
 	<ul>
    	 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
-    		<li> <?php echo anchor('participante', 'Cancelar'); ?></li>
+    		<li> <?php echo anchor('visitante', 'Cancelar'); ?></li>
 	</ul>
 </div> 
 

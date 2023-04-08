@@ -48,7 +48,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 	<div class="col-md-10">
 		<?php
-     			echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_participante()'));  
+     			echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_visitante()'));  
 		?>
 	</div>
 	</div>
@@ -57,9 +57,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>idparticipante</th>
+ <th>idvisitante</th>
  <th>evento</th>
- <th>participante</th>
+ <th>visitante</th>
  <th>grupo</th>
  <th style="text-align: right;">Actions</th>
  </tr>
@@ -90,13 +90,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <script type="text/javascript">
 
 var idevento=0;
-function filtra_participante()
+function filtra_visitante()
 {
 
 idevento = $('select[name=idevento]').val();
 
 
-var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('participante/participante_dataxevento')?>', type: 'GET',data:{idevento:idevento}},});
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('visitante/visitante_dataxevento')?>', type: 'GET',data:{idevento:idevento}},});
 }
 
 
@@ -104,12 +104,12 @@ var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo si
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('participante/participante_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('visitante/visitante_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idparticipante');
+var id= $(this).data('idvisitante');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 
