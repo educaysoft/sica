@@ -7,14 +7,12 @@ class Visitante extends CI_Controller{
       		$this->load->model('documento_model');
       		$this->load->model('persona_model');
       		$this->load->model('departamento_model');
-      		$this->load->model('nivelvisitante_model');
       		$this->load->model('tipoparticipacion_model');
 	}
 
 	public function index(){
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   		$data['visitanteestado']= $this->visitanteestado_model->lista_visitanteestados()->result();
-  		$data['nivelvisitante']= $this->nivelvisitante_model->lista_nivelvisitantes()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['visitante'] = $this->visitante_model->elultimo();
@@ -36,7 +34,6 @@ public function actual(){
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['tipoparticipacion']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
   	$data['visitanteestado']= $this->visitanteestado_model->lista_visitanteestados()->result();
-  	$data['nivelvisitante']= $this->nivelvisitante_model->lista_nivelvisitantes()->result();
 	$data['personas']= $this->persona_model->lista_personas()->result();
  
  
@@ -69,7 +66,6 @@ public function actual(){
 
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['visitanteestado']= $this->visitanteestado_model->lista_visitanteestados()->result();
-  		$data['nivelvisitante']= $this->nivelvisitante_model->lista_nivelvisitantes()->result();
 		$data['title']="Nuevo Visitante";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('visitante_form',$data);
@@ -83,7 +79,6 @@ public function actual(){
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
 		 	'idvisitanteestado' => $this->input->post('idvisitanteestado'),
-			'idnivelvisitante'=>$this->input->post('idnivelvisitante'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
 		 	'grupoletra' => $this->input->post('grupoletra'),
 	 	);
@@ -103,7 +98,6 @@ public function actual(){
 	{
 	 	$data['visitante'] = $this->visitante_model->visitante($this->uri->segment(3))->row_array();
   		$data['visitanteestado']= $this->visitanteestado_model->lista_visitanteestados()->result();
-  		$data['nivelvisitante']= $this->nivelvisitante_model->lista_nivelvisitantes()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
@@ -121,7 +115,6 @@ public function actual(){
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'idvisitanteestado' => $this->input->post('idvisitanteestado'),
-			'idnivelvisitante'=>$this->input->post('idnivelvisitante'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
 		 	'grupoletra' => $this->input->post('grupoletra'),
 	 	);
@@ -283,7 +276,6 @@ public function elprimero()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['visitanteestado']= $this->visitanteestado_model->lista_visitanteestados()->result();
-  		$data['nivelvisitante']= $this->nivelvisitante_model->lista_nivelvisitantes()->result();
 	$data['visitante'] = $this->visitante_model->elprimero();
 	$data['departamento'] = $this->departamento_model->departamento($data['visitante']['iddepartamento'])->row_array();
   if(!empty($data))
@@ -306,7 +298,6 @@ public function elultimo()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['visitanteestado']= $this->visitanteestado_model->lista_visitanteestados()->result();
-  		$data['nivelvisitante']= $this->nivelvisitante_model->lista_nivelvisitantes()->result();
 	$data['visitante'] = $this->visitante_model->elultimo();
 	$data['departamento'] = $this->departamento_model->departamento($data['visitante']['iddepartamento'])->row_array();
   if(!empty($data))
@@ -330,7 +321,6 @@ public function siguiente(){
  // $data['visitante_list']=$this->visitante_model->lista_visitante()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['visitanteestado']= $this->visitanteestado_model->lista_visitanteestados()->result();
-  		$data['nivelvisitante']= $this->nivelvisitante_model->lista_nivelvisitantes()->result();
 	$data['visitante'] = $this->visitante_model->siguiente($this->uri->segment(3))->row_array();
 	$data['departamento'] = $this->departamento_model->departamento($data['visitante']['iddepartamento'])->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
@@ -346,7 +336,6 @@ public function anterior(){
  // $data['visitante_list']=$this->visitante_model->lista_visitante()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['visitanteestado']= $this->visitanteestado_model->lista_visitanteestados()->result();
-  		$data['nivelvisitante']= $this->nivelvisitante_model->lista_nivelvisitantes()->result();
 	$data['visitante'] = $this->visitante_model->anterior($this->uri->segment(3))->row_array();
 	$data['departamento'] = $this->departamento_model->departamento($data['visitante']['iddepartamento'])->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
