@@ -65,7 +65,7 @@
 				 canvasContext.fillStyle = "#fff";
 				 canvasContext.fillRect(0,0,sizedWindowWidth,200);
 				 
-				 canvasContext.moveTo(50,100);
+				 canvasContext.moveTo(50,150);
 				 canvasContext.lineTo(sizedWindowWidth-50,150);
 				 canvasContext.stroke();
 				
