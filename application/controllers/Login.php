@@ -36,7 +36,7 @@ public function user_registration_show() {
         if($this->input->get('idevento') ){
 		$data['eventos']= $this->evento_model->lista_eventos_open($this->input->get('idevento'))->result();
 	}else{	
-		$data['eventos']= $this->evento_model->lista_eventos(54)->result();
+		$data['eventos']= $this->evento_model->lista_eventos_open(54)->result();
 	}
   	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
