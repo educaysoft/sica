@@ -258,11 +258,10 @@ inputField.onkeydown = function(event) {
   }
 };
 
-if(document.getElementById("cedula").value.length==10)
-{
-alert('10 caracteres');
 
-}
+alert(inputField.value);
+
+
 
 
 
