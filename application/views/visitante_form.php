@@ -73,9 +73,6 @@ foreach ($personas as $row){
 
 
 
-<div class="form-group row">
-  <label class="col-md-2 col-form-label">Grupo</label>
-	<div class="col-md-10">
 
  <div>
     <canvas id="signature" width="300" height="100"></canvas>
@@ -90,9 +87,6 @@ foreach ($personas as $row){
 
 
 
-
-	</div> 
-</div> 
 
 
 
