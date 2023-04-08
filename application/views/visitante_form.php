@@ -194,6 +194,9 @@ foreach ($personas as $row){
 
 
 
+<div class="form-group row">
+  <label class="col-md-2 col-form-label">Visitante (<?php echo anchor('persona/add', 'Nuevo'); ?>):</label>
+	<div class="col-md-10">
 
  <div data-role="page">
 			<div data-role="header">
@@ -221,6 +224,8 @@ foreach ($personas as $row){
 
  
 
+	</div> 
+</div> 
 
 
 
