@@ -11,6 +11,7 @@ if (isset($this->session->userdata['logged_in'])) {
 	<title>Utlvte Tecnología de la Informción</title>
 	<link href="<?php echo base_url(); ?>images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
 
 	<meta name="description" content="División de tecnología en apoyo a los procesos tecológicos de la Universidad Técnica Luis Vargas Torres" />
 	<meta property="og:locale" content="es_EC" />
