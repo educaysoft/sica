@@ -194,9 +194,8 @@ foreach ($personas as $row){
 
 
 
-<div class="form-group row">
 
- <div data-role="page">
+ <div  style="height:50%">
 			<div data-role="header">
 				<h1>Signature Pad - HTML5 - jQuery Mobile</h1>
 			</div><!-- /header -->
@@ -222,7 +221,6 @@ foreach ($personas as $row){
 
  
 
-</div> 
 
 
 
