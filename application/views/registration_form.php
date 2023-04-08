@@ -256,10 +256,10 @@ inputField.onkeydown = function(event) {
   if(isNaN(event.key) && event.key !== 'Backspace') {
     event.preventDefault();
   }
+alert(inputField.value);
 };
 
 
-alert(inputField.value);
 
 
 
