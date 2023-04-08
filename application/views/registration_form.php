@@ -2,6 +2,7 @@
 /*
  * Archivo registration_form.php
  * Author: Ing. Stalin Francis Quinde.
+ * Institución: Universidad Técnica Luis Vargas Torres de Esmeraldas
  * Objetivo: Registro de usuario
  */
 
@@ -10,13 +11,13 @@
     
 <div class="w3-container" id="eys-registro">
 	
-		<div style="width: 50%;  padding:5px;   display: inline-flex; " >
-			<div   style="width:100%; height:700px; ">
-				<header class="w3-container">
-				<div ><center> <img src="<?php echo base_url(); ?>images/CentroEducacionContinua.png" style="width: 100%;" alt="Centro de Educación Continua UTLVTE"></img></center>   </div>
-					<p id="titulo" style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:30px; text-align:center;">Sistema de registro para eventos académicos <br>  UTELVT</p>
-				</header>
-				<div id="detalle" class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
+	<div style="width: 50%;  padding:5px;   display: inline-flex; " >
+		<div   style="width:100%; height:700px; ">
+			<header class="w3-container">
+			<div ><center> <img src="<?php echo base_url(); ?>images/CentroEducacionContinua.png" style="width: 100%;" alt="Centro de Educación Continua UTLVTE"></img></center>   </div>
+			<p id="titulo" style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:30px; text-align:center;">Sistema de registro para eventos académicos <br>  UTELVT</p>
+			</header>
+			<div id="detalle" class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
 <center> <img src="<?php echo base_url(); ?>images/eventos/eventosacademicos.png" id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img></center>
 			<p>Para poder unirte a este evento sigue las  instrucciones: </p><br>
 			<ol>
@@ -128,17 +129,17 @@ if(sizeof($eventos)>1){
 
 
 
-					<div  class="w3-container" style="text-align:left; font-size: 70%;">
-						<?php
-						echo "<label  style='text-align:left; font-size: 100%;' for='cedula'> Cédula: </label>";
-						echo form_input(array('id'=>'cedula','name'=>'cedula','maxlength'=>'10','class'=>'form-control'));
-						echo "<div class='error_msg'>";
-						if (isset($message_display)) {
-							echo $message_display;
-						}
-						echo "</div>";
-						?>
-					</div>
+	<div  class="w3-container" style="text-align:left; font-size: 70%;">
+	<?php
+	echo "<label  style='text-align:left; font-size: 100%;' for='cedula'> Cédula: </label>";
+	echo form_input(array('id'=>'cedula','name'=>'cedula','maxlength'=>'10','class'=>'form-control'));
+	echo "<div class='error_msg'>";
+	if (isset($message_display)) {
+		echo $message_display;
+	}
+		echo "</div>";
+		?>
+	</div>
 
 
 					<div class="w3-container" style="text-align:left; font-size: 70%;">
@@ -257,8 +258,7 @@ inputField.onkeydown = function(event) {
   }
 };
 
-
-if(inputField.value.length==10)
+if(document.getElementById("cedula").value.length==10)
 {
 alert('10 caracteres');
 
