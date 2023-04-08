@@ -159,7 +159,7 @@ return $visitante;
 		$this->db->trans_start();
 		$condition = "idvisitante =" . $idp ;
 		$this->db->select('*');
-		$this->db->from('visitante0');
+		$this->db->from('visitante');
 		$this->db->where($condition);
 		$this->db->limit(1);
 		$query = $this->db->get();
@@ -181,7 +181,7 @@ return $visitante;
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idvisitante")->get('visitante0');
+		$query=$this->db->order_by("idvisitante")->get('visitante');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -194,7 +194,7 @@ return $visitante;
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idvisitante")->get('visitante0');
+		$query=$this->db->order_by("idvisitante")->get('visitante');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -206,16 +206,16 @@ return $visitante;
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$visitante = $this->db->select("idvisitante")->order_by("idvisitante")->get('visitante0')->result_array();
+ 		$visitante = $this->db->select("idvisitante")->order_by("idvisitante")->get('visitante')->result_array();
 		$arr=array("idvisitante"=>$id);
 		$clave=array_search($arr,$visitante);
 	   if(array_key_exists($clave+1,$visitante))
 		 {
 
- 		$visitante = $this->db->query('select * from visitante0 where idvisitante="'. $visitante[$clave+1]["idvisitante"].'"');
+ 		$visitante = $this->db->query('select * from visitante where idvisitante="'. $visitante[$clave+1]["idvisitante"].'"');
 		 }else{
 
- 		$visitante = $this->db->query('select * from visitante0 where idvisitante="'. $id.'"');
+ 		$visitante = $this->db->query('select * from visitante where idvisitante="'. $id.'"');
 		 }
 		 	
  		return $visitante;
@@ -224,16 +224,16 @@ return $visitante;
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$visitante = $this->db->select("idvisitante")->order_by("idvisitante")->get('visitante0')->result_array();
+ 		$visitante = $this->db->select("idvisitante")->order_by("idvisitante")->get('visitante')->result_array();
 		$arr=array("idvisitante"=>$id);
 		$clave=array_search($arr,$visitante);
 	   if(array_key_exists($clave-1,$visitante))
 		 {
 
- 		$visitante = $this->db->query('select * from visitante0 where idvisitante="'. $visitante[$clave-1]["idvisitante"].'"');
+ 		$visitante = $this->db->query('select * from visitante where idvisitante="'. $visitante[$clave-1]["idvisitante"].'"');
 		 }else{
 
- 		$visitante = $this->db->query('select * from visitante0 where idvisitante="'. $id.'"');
+ 		$visitante = $this->db->query('select * from visitante where idvisitante="'. $id.'"');
 		 }
 		 	
  		return $visitante;
