@@ -132,7 +132,7 @@ if(sizeof($eventos)>1){
 	<div  class="w3-container" style="text-align:left; font-size: 70%;">
 	<?php
 	echo "<label  style='text-align:left; font-size: 100%;' for='cedula'> Cédula: </label>";
-	echo form_input(array('id'=>'cedula','name'=>'cedula','maxlength'=>'10','class'=>'form-control'));
+	echo form_input(array('id'=>'cedula','name'=>'cedula','maxlength'=>'10','onfocusout'="validacedula()",  'class'=>'form-control'));
 	echo "<div class='error_msg'>";
 	if (isset($message_display)) {
 		echo $message_display;
@@ -256,17 +256,20 @@ inputField.onkeydown = function(event) {
   if(isNaN(event.key) && event.key !== 'Backspace') {
     event.preventDefault();
   }
-alert(inputField.value);
 };
-
-
-
-
 
 
 
   });     
 
+						
+						function validacedula()
+						{
+
+var inputField = document.querySelector('#cedula');
+alert(inputField.value);
+						}						
+						
 function showpassword(){
 	var x=document.getElementById("password");
 	var y=document.getElementById("password2");
