@@ -50,7 +50,7 @@
 				sizedWindowWidth = sizedWindowWidth - 50;
 			 
 			 $("#canvas").width(sizedWindowWidth);
-			 $("#canvas").height(100);
+			 $("#canvas").height(200);
 			 $("#canvas").css("border","1px solid #000");
 			
 			 var canvas = $("#canvas").get(0);
@@ -60,13 +60,13 @@
 			 if(canvasContext)
 			 {
 				 canvasContext.canvas.width  = sizedWindowWidth;
-				 canvasContext.canvas.height = 100;
+				 canvasContext.canvas.height = 200;
 
 				 canvasContext.fillStyle = "#fff";
-				 canvasContext.fillRect(0,0,sizedWindowWidth,100);
+				 canvasContext.fillRect(0,0,sizedWindowWidth,200);
 				 
 				 canvasContext.moveTo(50,100);
-				 canvasContext.lineTo(sizedWindowWidth-50,100);
+				 canvasContext.lineTo(sizedWindowWidth-50,150);
 				 canvasContext.stroke();
 				
 				 canvasContext.fillStyle = "#000";
