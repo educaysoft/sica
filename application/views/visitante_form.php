@@ -41,7 +41,7 @@
 			leftMButtonDown = false;
 			
 			//Set Canvas width
-			var sizedWindowWidth = $(window).width();
+			var sizedWindowWidth = $(window).width()/2;
 			if(sizedWindowWidth > 700)
 				sizedWindowWidth = $(window).width() / 2;
 			else if(sizedWindowWidth > 400)
@@ -65,8 +65,8 @@
 				 canvasContext.fillStyle = "#fff";
 				 canvasContext.fillRect(0,0,sizedWindowWidth,100);
 				 
-				 canvasContext.moveTo(50,150);
-				 canvasContext.lineTo(sizedWindowWidth-50,150);
+				 canvasContext.moveTo(50,100);
+				 canvasContext.lineTo(sizedWindowWidth-50,100);
 				 canvasContext.stroke();
 				
 				 canvasContext.fillStyle = "#000";
