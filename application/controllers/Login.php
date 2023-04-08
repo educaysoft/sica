@@ -38,7 +38,7 @@ public function user_registration_show() {
 	}else{	
  	//$data['programa_list'] = $this->programa_model->list_programa()->result();
 //		$data['instituciones']= $this->institucion_model->lista_instituciones_con_inscripciones()->result();
-		$data['eventos']=array("No hay registro"); // $this->evento_model->lista_eventos()->result();
+		$data['eventos']=array("1"=>"No hay registro"); // $this->evento_model->lista_eventos()->result();
 	}
   	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
