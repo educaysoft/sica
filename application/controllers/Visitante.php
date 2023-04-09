@@ -75,8 +75,9 @@ public function actual(){
 	 	$array_item=array(
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
-		 	'grupoletra' => $this->input->post('grupoletra'),
+		 	'fecha' => $this->input->post('fecha'),
+		 	'hora' => $this->input->post('hora'),
+		 	'motivo' => $this->input->post('motivo'),
 	 	);
 	 	$result=$this->visitante_model->save($array_item);
 	 	if(!$result)
