@@ -88,7 +88,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
   <label class="col-md-2 col-form-label"> Firma :</label>
 	<div class="col-md-10">
 
-<img scr="https://repositorioutlvte.org/Repositorio/firmas/6283d98adb149b69e19a1dfc7d76c93f.png"/>
+<img src="https://repositorioutlvte.org/Repositorio/firmas/6283d98adb149b69e19a1dfc7d76c93f.png"/>
 
 
 
