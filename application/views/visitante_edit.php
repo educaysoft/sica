@@ -79,7 +79,7 @@ foreach ($personas as $row){
 <div class="col-md-10">
 <?php
     
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Motivo de la visita",'value'=>$visitante['motivo']);    
+$textarea_options = array('class' => 'form-control','rows' => '4','name'=>'motivo','id'=>'motivo','cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Motivo de la visita",'value'=>$visitante['motivo']);    
  echo form_textarea("motivo", $textarea_options);  
 
 ?>
