@@ -45,9 +45,9 @@ foreach ($personas as $row){
 
    date_default_timezone_set('America/Guayaquil');
     $fecha = date("Y-m-d");
-    $horai= date("H:i:s");
+    $hora= date("H:i:s");
 
-	echo form_input(array("name"=>"fecha","id"=>"fecha","readonly"=>"true",  "type"=>"date","value"=>$fecha)); echo $eldia; 
+	echo form_input(array("name"=>"fecha","id"=>"fecha","readonly"=>"true",  "type"=>"date","value"=>$fecha));  
 	 
 ?>
 </div>
