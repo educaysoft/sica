@@ -146,7 +146,7 @@ return $visitante;
 				$idvisitante=$this->db->insert_id();
 
 		   	$this->db->insert("vitacora", array("idusuario"=>$idusuario,"hora"=>$hora,"fecha"=>$fecha,"tabla"=>"visitante","accion"=>"se creo una visita con id=".$idvisitante,"url"=>$_SERVER['REQUEST_URI']));
-			I	$this->db->trans_commit();
+				$this->db->trans_commit();
 				$result=true;
       			}else{
 				$this->db->trans_rollback();
