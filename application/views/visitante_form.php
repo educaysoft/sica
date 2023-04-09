@@ -10,7 +10,7 @@
 <?php echo form_open("visitante/save",array('id'=>'eys-form')) ?>
 
 <div class="form-group row">
-  <label class="col-md-2 col-form-label"> Departamento/Oficina:</label>
+  <label class="col-md-2 col-form-label"> Oficina:</label>
 	<div class="col-md-10">
 		<?php
 
@@ -81,7 +81,6 @@ foreach ($personas as $row){
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Motivo de visita:</label>
-
 <div class="col-md-10">
 <?php
     
