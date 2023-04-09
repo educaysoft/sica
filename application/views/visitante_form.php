@@ -91,7 +91,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <img scr="https://repositorioutlvte.org/Repositorio/firmas/6283d98adb149b69e19a1dfc7d76c93f.png"/>
 
 
-?>
+
 </div>
 </div>
 
