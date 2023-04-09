@@ -2,17 +2,16 @@
 <?php echo form_hidden('idvisitante',$visitante['idvisitante']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
-<table>
  
- <tr>
-     <td>Id visitante</td>
-     <td>
-        <?php 
+<div class="form-group row">
+  <label class="col-md-2 col-form-label">Id Visita :</label>
+	<div class="col-md-10">
+		<?php
 	$eys_arrinput=array('name'=>'idvisitante','value'=>$visitante['idvisitante'],'readonly'=>'true', "style"=>"width:500px");
-echo form_input($eys_arrinput); ?>
-     </td>
-  </tr> 
-
+echo form_input($eys_arrinput); 
+		?>
+	</div> 
+</div>
 
 <div class="form-group row">
   <label class="col-md-2 col-form-label"> Oficina:</label>
@@ -94,7 +93,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','id'=>'motivo'
 <div class="col-md-10">
 <?php
 
- echo form_input(array("name"=>"rutafirma","id"=>"rutafirma","type"=>"text",'value'=>$visitante['rutafirma']));   
+ echo form_input(array("name"=>"rutafirma","id"=>"rutafirma","type"=>"text",'value'=>$visitante['rutafirma'],"style"=>"width:500px"));   
 
 ?>
 </div>
