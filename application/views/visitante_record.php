@@ -181,54 +181,17 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label">Grupo letra:</label>
-	<div class="col-md-10">
+	<div class="col-md-10" style="border:1px solid blue">
 		<?php
-     echo form_input('grupoletra',$visitante['grupoletra'],array("id"=>"grupoletra","disabled"=>"disabled",'placeholder'=>'Grupo',"style"=>"width:500px")); 
+
+ echo '<img src="'.$visitante['rutafirma'].'"/>';
 		?>
 	</div> 
 </div>
 
 
 
-<div class="form-group row">
-	<div class="col-md-10">
-	<div class="row justify-content-left">
-      	<!-- Page Heading -->
- 	<div class="row">
-  	<div class="col-12" style="border:solid;">
 
-<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-	<b>Sesioner recibidas y Calificaciones obtenidas por :<?php echo $elvisitante ?> </b>
-        </div>
-        
-    </div>
-</div>
-
-
-	<table class="table table-striped table-bordered table-hover" id="mydatac">
-	 <thead>
-	 <tr>
-	 <th>idevento</th>
-	 <th>fecha</th>
-	 <th>tema</th>
-	 <th>Asis</th>
-	 <th>Long</th>
-	 <th>Lati</th>
-	 <th>Parti</th>
-	 <th>Pagos</th>
-	 <th style="text-align: right;">Actions</th>
-	 </tr>
-	 </thead>
-	 <tbody id="show_data">
-	 </tbody>
-	</table>
-	</div>
-	</div>
-	</div>
-	</div> 
-</div>
 
 
 
