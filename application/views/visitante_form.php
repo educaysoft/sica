@@ -1,5 +1,5 @@
 	<div id="eys-nav-i">
-	<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idvisitante"><?php echo $visitante['idvisitante']; ?></idem></div>
+	<div style="text-align: left; font-size:large"> <?php echo $title  ?></div>
 <?php echo form_open('visitante/save',array('id'=>'eys-form')); ?>
   <ul>
 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
