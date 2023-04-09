@@ -117,65 +117,63 @@ echo form_input('nombre',$options[$visitante['idpersona']],array("id"=>"nombre",
 	</div> 
 </div> 
  
-
-
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Id documento:</label>
+    <label class="col-md-2 col-form-label">Fecha:</label>
 	<div class="col-md-10">
 		<?php
-     echo form_input('iddocumento',$visitante['iddocumento'],array("id"=>"iddocumento","disabled"=>"disabled",'placeholder'=>'Iddocumento',"style"=>"width:500px")); 
-		?>
-	</div> 
-</div> 
-
-
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">  Certificado (<?php echo "<a onclick='verpdf()'>Ver</a>" ?>) :</label>
-	<div class="col-md-10">
-		<?php
-$options= array("NADA");
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
-}
-if(!isset($visitante['iddocumento'])){
-echo form_input('nmdocumento',"",array("id"=>"nmdocumento","disabled"=>"disabled","style"=>"width:500px")) ;
-}else{
-echo form_input('nmdocumento',$options[$visitante['iddocumento']],array("id"=>"nmdocumento","disabled"=>"disabled","style"=>"width:500px"));
-}
+    echo form_input('fecha',$visitante['fecha'],array("id"=>"fecha","disabled"=>"disabled",'placeholder'=>'fecha'));
 		?>
 	</div> 
 </div> 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Estado de la participacion:</label>
+    <label class="col-md-2 col-form-label">Hora:</label>
 	<div class="col-md-10">
 		<?php
-$options= array("NADA");
-foreach ($visitanteestado as $row){
-	$options[$row->idvisitanteestado]= $row->nombre;
-}
-echo form_input('idvisitanteestado',$options[$visitante['idvisitanteestado']],array("disabled"=>"disabled","style"=>"width:500px"));
+    echo form_input('hora',$visitante['hora'],array("id"=>"hora","disabled"=>"disabled",'placeholder'=>'hora'));
 		?>
 	</div> 
 </div>
+
+
+
+
+
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Nivel del visitante:</label>
+    <label class="col-md-2 col-form-label">Ruta firma:</label>
 	<div class="col-md-10">
 		<?php
-$options= array("NADA");
-foreach ($nivelvisitante as $row){
-	$options[$row->idnivelvisitante]= $row->nombre;
-}
-echo form_input('idnivelvisitante',$options[$visitante['idnivelvisitante']],array("disabled"=>"disabled","style"=>"width:500px"));
+    echo form_input('rutafirma',$visitante['rutafirma'],array("id"=>"rutafirma","disabled"=>"disabled",'placeholder'=>'rutafirma'));
 		?>
 	</div> 
 </div>
+ 
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Motivo de visita:</label>
+
+<div class="col-md-10">
+<?php
+    
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Motivo de la visita",'value'=>$visitante['motivo'] );    
+ echo form_textarea("motivo","", $textarea_options);  
+
+?>
+</div>
+</div>
+
+
+
+ 
+
+
+
+
+
+
 
 
 
