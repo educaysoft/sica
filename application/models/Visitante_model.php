@@ -135,7 +135,7 @@ return $visitante;
 
 		$this->db->select('*');
 		$this->db->from('visitante');
-		$this->db->where('hora',$array['hora');
+		$this->db->where('hora',$array['hora']);
 		$this->db->where('fecha',$array['fecha']);
 		$this->db->where('idpersona',$array['idpersona']);
 		$this->db->limit(1);
