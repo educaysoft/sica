@@ -1,13 +1,14 @@
-	
-
-
-
-
-<div style="margin-top:5cm;">
-<h2> <?php echo $title; ?> </h2>
+	<div id="eys-nav-i">
+	<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idvisitante"><?php echo $visitante['idvisitante']; ?></idem></div>
+<?php echo form_open('visitante/save',array('id'=>'eys-form')); ?>
+  <ul>
+	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
+        <li>  <a href="javascript:{}"  onclick="history.back()" > volver atrás</a></li>
+    </ul>
 </div>
-<hr/>
-<?php echo form_open("visitante/save",array('id'=>'eys-form')) ?>
+
+
+
 
 <div class="form-group row">
   <label class="col-md-2 col-form-label"> Oficina:</label>
@@ -66,16 +67,7 @@ foreach ($personas as $row){
 </div>
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label"><a href="https://repositorioutlvte.org/firmadigital.php">Ruta firma :</a></label>
-<div class="col-md-10">
-<?php
 
- echo form_input(array("name"=>"rutafirma","id"=>"rutafirma","type"=>"text"));   
-
-?>
-</div>
-</div>
 
 
 
@@ -92,32 +84,32 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 </div>
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label"><a href="https://repositorioutlvte.org/firmadigital.php">Ruta firma :</a></label>
+<div class="col-md-10">
+<?php
+
+ echo form_input(array("name"=>"rutafirma","id"=>"rutafirma","type"=>"text"));   
+
+?>
+</div>
+</div>
 
 
-
-
+<!----
 <div class="form-group row">
   <label class="col-md-2 col-form-label"> Firma :</label>
 	<div class="col-md-10">
-
 <img src="https://repositorioutlvte.org/Repositorio/firmas/6283d98adb149b69e19a1dfc7d76c93f.png"/>
 
-
-
 </div>
 </div>
 
+--->
 
 
 
-
-<div id="eys-nav-i">
-
-	<ul>
-   	 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
-    		<li> <?php echo anchor('visitante', 'Cancelar'); ?></li>
-	</ul>
-</div> 
+ 
 
 
 
