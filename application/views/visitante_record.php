@@ -45,7 +45,7 @@ if(isset($visitante))
         <li style="border-right:1px solid green"><?php echo anchor('visitante/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('visitante/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('visitante/edit/'.$visitante['idvisitante'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('visitante/delete?idvisitante='.$visitante['idvisitante'].'&idevento='.$visitante['idevento'],'Delete'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('visitante/delete?idvisitante='.$visitante['idvisitante'],'Delete'); ?></li>
         <li> <?php echo anchor('visitante/listar/','Listar'); ?></li>
 
 	<?php } ?>
@@ -65,27 +65,27 @@ if(isset($visitante))
 
 
 <?php echo form_open('visitante/save_edit') ?>
-<?php echo form_hidden('idevento',$visitante['idevento']) ?>
+<?php echo form_hidden('idvisitante',$visitante['idvisitante']) ?>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Id evento:</label>
+    <label class="col-md-2 col-form-label">Id visitante:</label>
 	<div class="col-md-10">
 		<?php
-    echo form_input('idevento',$visitante['idevento'],array("id"=>"idevento","disabled"=>"disabled",'placeholder'=>'Ideventos'));
+    echo form_input('idvisitante',$visitante['idvisitante'],array("id"=>"idvisitante","disabled"=>"disabled",'placeholder'=>'Idvisitante'));
 		?>
 	</div> 
 </div> 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"><?php echo anchor('evento/actual/'.$visitante['idevento'], 'Evento  '); ?>&#x1F448;</label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('departamento/actual/'.$visitante['iddepartamento'], 'Departamento/oficina:  '); ?>&#x1F448;</label>
 	<div class="col-md-10">
 		<?php
 $options= array("NADA");
-foreach ($eventos as $row){
-	$options[$row->idevento]= $row->titulo;
+foreach ($departamentos as $row){
+	$options[$row->iddepartamento]= $row->nombre;
 }
-echo form_input('idevento',$options[$visitante['idevento']],array("disabled"=>"disabled","style"=>"width:500px"));
+echo form_input('iddepartamento',$options[$visitante['iddepartamento']],array("disabled"=>"disabled","style"=>"width:500px"));
 		?>
 	</div> 
 </div> 
