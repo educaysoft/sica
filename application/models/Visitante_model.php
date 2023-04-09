@@ -123,19 +123,33 @@ return $visitante;
 
 
  	function save($array)
- 	{
+	{
+	
+		date_default_timezone_set('America/Guayaquil');
+    			$fecha = date("Y-m-d");
+    			$hora= date("H:i:s");
+			$idusuario=$this->session->userdata['logged_in']['idusuario'];
+
+
+	   $this->db->trans_begin();
 
 		$this->db->select('*');
 		$this->db->from('visitante');
-		$this->db->where('idevento',$array['idevento']);
+		$this->db->where('hora',$array['hora');
+		$this->db->where('fecha',$array['fecha']);
 		$this->db->where('idpersona',$array['idpersona']);
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if($query->num_rows() == 0) {
 		    	$this->db->insert("visitante", $array);
 			if($this->db->affected_rows()>0){
+				$idvisitante=$this->db->insert_id();
+
+		   	$this->db->insert("vitacora", array("idusuario"=>$idusuario,"hora"=>$hora,"fecha"=>$array_persona['fechacreacion'],"tabla"=>"visitante","accion"=>"se creo una visita con id=".$idvisitante,"url"=>$_SERVER['REQUEST_URI']));
+			I	$this->db->trans_commit();
 				$result=true;
       			}else{
+				$this->db->trans_rollback();
 				$result=false;
       			}
     		}else{

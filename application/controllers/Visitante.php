@@ -72,12 +72,23 @@ public function actual(){
 
 	public function  save()
 	{
+
+
+   			date_default_timezone_set('America/Guayaquil');
+    			$fecha = date("Y-m-d");
+    			$hora= date("H:i:s");
+			$idusuario=$this->session->userdata['logged_in']['idusuario'];
+
 	 	$array_item=array(
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
 		 	'fecha' => $this->input->post('fecha'),
 		 	'hora' => $this->input->post('hora'),
 		 	'motivo' => $this->input->post('motivo'),
+		 	'rutafirma' => $this->input->post('rutafirma'),
+	                'idusuario'=>$idusuario,
+			'fechacreacion'=>$fecha,
+			'horacreacion'=>$hora
 	 	);
 	 	$result=$this->visitante_model->save($array_item);
 	 	if(!$result)
