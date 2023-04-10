@@ -32,7 +32,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Lista de eventos 
+                 <h3>Lista de personas 
 			  
         	</h3>
        	     </div>
@@ -41,8 +41,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
     	<label class="col-md-2 col-form-label"> Evento:</label>
 	<?php
 		$options= array('--Select--');
-		foreach ($eventos as $row){
-			$options[$row->idpersona]= $row->titulo;
+		foreach ($personas as $row){
+			$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 		}
 	?>
 
