@@ -41,7 +41,7 @@ foreach ($personas as $row){
 	$options["'".$row->idpersona.":". $row->apellidos." ".$row->nombres."'"]= $row->apellidos." ".$row->nombres;
 	if($row->idpersona==$visitante['idpersona'])
 	{
-		$indice=["'".$row->idpersona.":". $row->apellidos." ".$row->nombres."'";
+		$indice="'".$row->idpersona.":". $row->apellidos." ".$row->nombres."'";
 	}
 }
 
