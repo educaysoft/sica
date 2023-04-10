@@ -114,12 +114,24 @@ public function actual(){
 	 	$this->load->view('template/page_footer');
 	}
 
+	public function firmar()
+	{
+
+		$idvisitante=$this->input->get('idvisitante');
+			$idpersona = $this->input->post('rutafirma'),
+		 	$motivo = $this->input->post('motivo'),
+		 	$fecha = $this->input->post('fecha'),
+	 	);
+	
+		header ("Location: https://repositorioutlvte.org/firmadigital.php?idpersona=".$idpersona."&motivo='".$motivo."'&fecha='".$fecha."'&idvisitante=".$idvisitante);
+
+	}
 
 	public function  save_edit()
 	{
 		$id=$this->input->get('idvisitante');
 	 	$array_item=array(
-		 	'rutafirma' => $this->input->get('rutafirma'),
+		 	'rutafirma' => $this->input->post('rutafirma'),
 		 	'motivo' => $this->input->post('motivo'),
 	 	);
 	 	$result=$this->visitante_model->update($id,$array_item);

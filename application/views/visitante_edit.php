@@ -1,4 +1,4 @@
-<?php echo form_open('https://repositorioutlvte.org/firmadigital.php'); ?>
+<?php echo form_open('visitante/firmar'); ?>
 <?php echo form_hidden('idvisitante',$visitante['idvisitante']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
@@ -119,7 +119,10 @@ $textarea_options = array('class' => 'form-control','rows' => '4','id'=>'motivo'
 <?php echo form_close(); ?>
 
 
- <script>
+ <script>_
+
+
+
 
 
  function  firmar()

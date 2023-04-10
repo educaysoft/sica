@@ -182,7 +182,6 @@ function uploadFiles(url1) {
     		var xhttp = new XMLHttpRequest();
 		var e =document.getElementById('idordenador');
 		var url2 = "https://"+e.options[e.selectedIndex].text;
-
 		if(url2.slice(-1) == '/'){
 			url2 = url2+"cargafile.php";
 		}else{
@@ -191,7 +190,6 @@ function uploadFiles(url1) {
                 alert("Se va a ejecutar "+ url2);	
     		// Set POST method and ajax file path
     		xhttp.open("POST", url2, true);
-
     		// call on request changes state
     		xhttp.onreadystatechange = function() {
  		if(xhttp.readyState === XMLHttpRequest.DONE) {
