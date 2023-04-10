@@ -7,7 +7,7 @@
   <label class="col-md-2 col-form-label">Id Visita :</label>
 	<div class="col-md-10">
 		<?php
-	$eys_arrinput=array('name'=>'idvisitante','value'=>$visitante['idvisitante'],'readonly'=>'true', "style"=>"width:500px");
+	$eys_arrinput=array('name'=>'idvisitante2','value'=>$visitante['idvisitante'],'readonly'=>'true', "style"=>"width:500px");
 echo form_input($eys_arrinput); 
 		?>
 	</div> 
@@ -38,10 +38,10 @@ foreach ($departamentos as $row){
  
 $options= array('--Select--');
 foreach ($personas as $row){
-	$options["'".$row->idpersona.":". $row->apellidos." ".$row->nombres."'"]= $row->apellidos." ".$row->nombres;
+	$options[$row->idpersona.":". $row->apellidos." ".$row->nombres]= $row->apellidos." ".$row->nombres;
 	if($row->idpersona==$visitante['idpersona'])
 	{
-		$indice="'".$row->idpersona.":". $row->apellidos." ".$row->nombres."'";
+		$indice=$row->idpersona.":". $row->apellidos." ".$row->nombres;
 	}
 }
 
