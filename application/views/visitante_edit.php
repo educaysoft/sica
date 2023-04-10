@@ -1,4 +1,4 @@
-<?php echo form_open('visitante/save_edit') ?>
+<?php echo form_open('https://repositorioutlvte.org/firmadigital.php') ?>
 <?php echo form_hidden('idvisitante',$visitante['idvisitante']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
