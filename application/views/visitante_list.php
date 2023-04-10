@@ -32,13 +32,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Lista de personas 
+                 <h3>Lista de visitas 
 			  
         	</h3>
        	     </div>
 
 <div class="form-group row">
-    	<label class="col-md-2 col-form-label"> Evento:</label>
+    	<label class="col-md-2 col-form-label"> Por Persona:</label>
 	<?php
 		$options= array('--Select--');
 		foreach ($personas as $row){
@@ -97,7 +97,7 @@ function filtra_visitante()
 idpersona = $('select[name=idpersona]').val();
 
 
-var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('visitante/visitante_dataxevento')?>', type: 'GET',data:{idpersona:idpersona}},});
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('visitante/visitante_dataxpersona')?>', type: 'GET',data:{idpersona:idpersona}},});
 }
 
 
