@@ -221,7 +221,7 @@ function visitante_data()
 	 	$data0 = $this->visitante_model->listar_visitante1();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idvisitante,$r->eldepartamento,$r->motivo,$r->fecha,$r->hora,
+			$data[]=array($r->idvisitante,$r->eldepartamento,$r->lapersona,$r->motivo,$r->fecha,$r->hora,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('visitante/actual').'"    data-idvisitante="'.$r->idvisitante.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
