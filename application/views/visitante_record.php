@@ -151,8 +151,8 @@ echo form_input('nombre',$options[$visitante['idpersona']],array("id"=>"nombre",
 <div class="col-md-10">
 <?php
     
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Motivo de la visita",'value'=>$visitante['motivo'] );    
- echo form_textarea("motivo","", $textarea_options);  
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Motivo de la visita" );    
+ echo form_textarea("motivo",$visitante['motivo'] , $textarea_options);  
 
 ?>
 </div>
