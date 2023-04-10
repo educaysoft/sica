@@ -42,13 +42,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	<?php
 		$options= array('--Select--');
 		foreach ($eventos as $row){
-			$options[$row->idevento]= $row->titulo;
+			$options[$row->idpersona]= $row->titulo;
 		}
 	?>
 
 	<div class="col-md-10">
 		<?php
-     			echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_visitante()'));  
+     			echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_visitante()'));  
 		?>
 	</div>
 	</div>
@@ -90,14 +90,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <script type="text/javascript">
 
-var idevento=0;
 function filtra_visitante()
 {
 
-idevento = $('select[name=idevento]').val();
+idpersona = $('select[name=idpersona]').val();
 
 
-var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('visitante/visitante_dataxevento')?>', type: 'GET',data:{idevento:idevento}},});
+var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('visitante/visitante_dataxevento')?>', type: 'GET',data:{idpersona:idpersona}},});
 }
 
 
