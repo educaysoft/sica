@@ -89,7 +89,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','id'=>'motivo'
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label"><a href="https://repositorioutlvte.org/firmadigital.php">Ruta firma :</a></label>
+<label class="col-md-2 col-form-label"><button onclick="firmar()">Ruta firma </button></label>
 <div class="col-md-10">
 <?php
 
@@ -113,3 +113,20 @@ $textarea_options = array('class' => 'form-control','rows' => '4','id'=>'motivo'
  </tr>
 </table>
 <?php echo form_close(); ?>
+
+
+ <script>
+
+
+ function  firmar()
+ {
+   idvisitante=documento.getElementById('idvisitante');
+   motivo =document.getElementById('motivo');   
+
+window.location.href="https://repositorioutlvte.org/firmadigital.php?idvisitante="+idvisitante+"&motivo='"+motivo+"'";
+
+ }
+
+
+
+</script>

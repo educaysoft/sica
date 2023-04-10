@@ -142,14 +142,7 @@ echo form_input('nombre',$options[$visitante['idpersona']],array("id"=>"nombre",
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">Ruta firma:</label>
-	<div class="col-md-10">
-		<?php
-    echo form_input('rutafirma',$visitante['rutafirma'],array("id"=>"rutafirma","disabled"=>"disabled",'placeholder'=>'rutafirma'));
-		?>
-	</div> 
-</div>
+
  
 
 <div class="form-group row">
@@ -166,7 +159,14 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 </div>
 
 
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Ruta firma:</label>
+	<div class="col-md-10">
+		<?php
+    echo form_input('rutafirma',$visitante['rutafirma'],array("id"=>"rutafirma","disabled"=>"disabled",'placeholder'=>'rutafirma'));
+		?>
+	</div> 
+</div>
  
 
 
@@ -181,7 +181,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label">Grupo letra:</label>
-	<div class="col-md-10" style="border:1px solid blue">
+	<div class="col-md-10" style="border:1px solid blue; width=50%">
 		<?php
 
  echo '<img src="'.$visitante['rutafirma'].'"/>';
