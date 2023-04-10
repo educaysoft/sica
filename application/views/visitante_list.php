@@ -59,6 +59,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <tr>
  <th>idvisitante</th>
  <th>Oficina</th>
+ <th>persona</th>
  <th>motivo</th>
  <th>fecha</th>
  <th>hora</th>

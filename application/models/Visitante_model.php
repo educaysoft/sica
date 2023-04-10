@@ -47,10 +47,10 @@ class Visitante_model extends CI_model {
 
 
 
-	function listar_visitanteB($idevento){
+	function listar_visitanteP($idpersona){
 		 if($idevento>0)
                 {
-                $this->db->where('idevento='.$idevento);
+                $this->db->where('idpersona='.$idpersona);
                 }
 
 		 $visitante= $this->db->get('visitante1');

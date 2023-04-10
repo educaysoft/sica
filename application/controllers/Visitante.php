@@ -254,18 +254,18 @@ public function listarxdepartamento()
 
 
 
-function visitante_dataxdepartamento()
+function visitante_dataxpersona()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
-		$id=$this->input->get('iddepartamento');
+		$id=$this->input->get('idpersona');
 
 
-	 	$data0 = $this->visitante_model->listar_visitanteB($id);
+	 	$data0 = $this->visitante_model->listar_visitanteP($id);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idvisitante,$r->eldepartamento,$r->nombres,$r->grupoletra,
+			$data[]=array($r->idvisitante,$r->eldepartamento,$r->lapersona,$r->nombres,$r->grupoletra,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('visitante/actual').'"    data-idvisitante="'.$r->idvisitante.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
