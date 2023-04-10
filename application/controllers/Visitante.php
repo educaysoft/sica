@@ -131,8 +131,8 @@ public function actual(){
 	{
 		$id=$this->input->get('idvisitante');
 	 	$array_item=array(
-		 	'rutafirma' => $this->input->post('rutafirma'),
-		 	'motivo' => $this->input->post('motivo'),
+		 	'rutafirma' => $this->input->get('rutafirma'),
+		 	'motivo' => $this->input->get('motivo'),
 	 	);
 	 	$result=$this->visitante_model->update($id,$array_item);
 	 	if($result == FALSE)
