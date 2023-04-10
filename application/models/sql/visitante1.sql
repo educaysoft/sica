@@ -1,7 +1,5 @@
+
 use educayso_facae;
 
-create view visitante1 as select visi.idvisitante,visi.idpersona,depa.iddepartamento,depa.nombre as eldepartamento,concat(pe.apellidos," ",pe.nombres) as lapersona,pers.cedula,visi.firma,visi.motivo  from visitante visi,departamento depa,persona pers where visi.idpersona=pers.idpersona and visi.iddepartamento=depa.iddepartamento;
 
-
-
-
+create view visitante1 as select visitante.idvisitante,visitante.idpersona, concat(persona.apellidos,"  ",persona.nombres) as lapersona,visitante.iddepartamento, departamento.nombre as eldepartamento,visitante.motivo,visitante.rutafirma,visitante.fecha,visitante.hora from visitante,persona,departamento  where visitante.idpersona=persona.idpersona and visitante.iddepartamento=departamento.iddepartamento ;

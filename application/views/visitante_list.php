@@ -58,9 +58,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>idvisitante</th>
- <th>evento</th>
- <th>visitante</th>
- <th>grupo</th>
+ <th>Oficina</th>
+ <th>motivo</th>
+ <th>fecha</th>
+ <th>hora</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
