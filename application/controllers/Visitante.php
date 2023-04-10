@@ -118,12 +118,12 @@ public function actual(){
 	{
 
 		$idvisitante=$this->input->get('idvisitante');
-			$idpersona = $this->input->post('rutafirma');
+			$idpersona = $this->input->post('idpersona');
 		 	$motivo = $this->input->post('motivo');
 		 	$fecha = $this->input->post('fecha');
 	 	
 	
-		header ("Location: https://repositorioutlvte.org/firmadigital.php?idpersona=".$idpersona."&motivo='".$motivo."'&fecha='".$fecha."'&idvisitante=".$idvisitante);
+		header ("Location: https://repositorioutlvte.org/firmadigital.php?idpersona=".$idpersona."&motivo=".$motivo."&fecha=".$fecha."&idvisitante=".$idvisitante);
 
 	}
 
