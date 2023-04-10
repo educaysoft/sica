@@ -78,7 +78,7 @@ if(isset($visitante))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"><?php echo anchor('departamento/actual/'.$visitante['iddepartamento'], 'Departamento/oficina:  '); ?>&#x1F448;</label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('departamento/actual/'.$visitante['iddepartamento'], 'Oficina:  '); ?>&#x1F448;</label>
 	<div class="col-md-10">
 		<?php
 $options= array("NADA");
