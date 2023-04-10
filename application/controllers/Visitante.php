@@ -203,6 +203,7 @@ public function listar()
   $data['visitante'] = $this->visitante_model->listar_visitante1()->result();
   $data['title']="visitantes";
   $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  $data['personas']= $this->persona_model->lista_personas()->result();
 	$this->load->view('template/page_header');		
   $this->load->view('visitante_list',$data);
 	$this->load->view('template/page_footer');
