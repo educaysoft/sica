@@ -123,7 +123,7 @@ public function actual(){
 		 	$fecha = $this->input->post('fecha');
 	 	
 	
-		header ("Location: https://repositorioutlvte.org/firmadigital.php?idpersona=".$idpersona."&motivo=".$motivo.&fecha=".$fecha."&idvisitante=".$idvisitante);
+		header ("Location: https://repositorioutlvte.org/firmadigital.php?idpersona=".$idpersona."&motivo=".$motivo."&fecha=".$fecha."&idvisitante=".$idvisitante);
 
 	}
 
