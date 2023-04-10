@@ -38,7 +38,7 @@ foreach ($departamentos as $row){
  
 $options= array('--Select--');
 foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+	$options["'".$row->idpersona.":". $row->apellidos." ".$row->nombres."'"]= $row->apellidos." ".$row->nombres;
 }
 
  echo form_dropdown("idpersona",$options, $visitante['idpersona']);  
