@@ -117,7 +117,7 @@ public function actual(){
 	public function firmar()
 	{
 
-		$idvisitante=$this->input->get('idvisitante');
+		$idvisitante=$this->input->post('idvisitante');
 			$idpersona = $this->input->post('idpersona');
 		 	$motivo = $this->input->post('motivo');
 		 	$fecha = $this->input->post('fecha');
