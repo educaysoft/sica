@@ -1,4 +1,4 @@
-<?php echo form_open('https://repositorioutlvte.org/firmadigital.php',array('method'=>'post')); ?>
+<?php echo form_open('https://repositorioutlvte.org/firmadigital.php',array('method'=>'GET')); ?>
 <?php echo form_hidden('idvisitante',$visitante['idvisitante']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
