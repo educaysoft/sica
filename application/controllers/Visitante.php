@@ -117,12 +117,10 @@ public function actual(){
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idvisitante');
+		$id=$this->input->get('idvisitante');
 	 	$array_item=array(
-		 	'iddepartamento' => $this->input->post('iddepartamento'),
-		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
-		 	'grupoletra' => $this->input->post('grupoletra'),
+		 	'rutafirma' => $this->input->get('rutafirma'),
+		 	'motivo' => $this->input->post('motivo'),
 	 	);
 	 	$result=$this->visitante_model->update($id,$array_item);
 	 	if($result == FALSE)
