@@ -781,6 +781,15 @@ if( confirm('Los datos se eliminaran ¿esta seguro?'))
 });
 
 
+$('#show_data2').on('click','.item_retornar',function(){
+var id= $(this).data('idparticipante');
+var retorno= $(this).data('retorno');
+if( confirm('Los datos se eliminaran ¿esta seguro?'))
+{
+	window.location.href = retorno+'/'+id;
+}
+});
+
 
 
 
