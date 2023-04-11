@@ -180,8 +180,30 @@ public function actual(){
 			echo "<script language='JavaScript'> alert('Se quito con existo este participante'); </script>";
 				echo "<script language='JavaScript'> window.history.go(-1);</script>";
 		}
-}
+	}
 
+
+
+
+
+ 	public function retornar()
+ 	{
+	       $idparticipante=0;	
+		if($this->uri->segment(3))
+		{
+   		 $idparticipante= $this->uri->segment(3);  
+		}
+
+ 		$result=$this->participante_model->retornar($idparticipante);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('No se pudo retornar'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-1);</script>";
+		}else{
+			echo "<script language='JavaScript'> alert('Se retorno al  participante'); </script>";
+				echo "<script language='JavaScript'> window.history.go(-1);</script>";
+		}
+	}
 
 
 
