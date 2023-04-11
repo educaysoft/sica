@@ -554,8 +554,7 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 			foreach($data0->result() as $r){
 				$data[]=array($r->nombres,$r->cedula,
 
-$r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary  item_quitar"  data-retorno="'.site_url('participante/retornar').'"    data-idparticipante="'.$r->idparticipante.'">retornar</a>',
-
+$r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary  item_quitar"  data-retorno="'.site_url('participante/quitar').'"    data-idparticipante="'.$r->idparticipante.'">retornar</a>'	);
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
