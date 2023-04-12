@@ -1,6 +1,6 @@
 <div id="eys-nav-i">
 <div style="display:flex;flex-direction:row">
-<span style="text-align: left; font-size:large;"> <?php echo $title;  ?></span><span style="font-size:large" id="idpersona"><?php echo $persona['idpersona']; ?></span></span> <?php echo ($persona['eliminado']==1)? '<span style="font-size:large">ELIMINADO</span>':'<span style="font-size:large">ACTIVO</span>'; ?>
+<span style="text-align: left; font-size:large;"> <?php echo $title;  ?></span><span style="font-size:large" id="idpersona"><?php echo $persona['idpersona']; ?></span></span> <?php echo ($persona['eliminado']==1)? '<span style="font-size:large"> - ELIMINADO</span>':'<span style="font-size:large"> - ACTIVO</span>'; ?>
 </div>
 <?php
 if(isset($persona))
