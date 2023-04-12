@@ -1,5 +1,5 @@
 <div id="eys-nav-i">
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?><idem style="font-size:large" id="idpersona"><?php echo $persona['idpersona']; ?></idem> <?php echo ($persona['eliminado']==1)? '<span>ELIMINADO</span>':'<span>ACTIVO</span>'; ?></span></h3>
+<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?><idem style="font-size:large" id="idpersona"><?php echo $persona['idpersona']; ?></idem> <?php echo ($persona['eliminado']==1)? '<span>ELIMINADO</span>':'<span>ACTIVO</span>'; ?></h3>
 <?php
 if(isset($persona))
 {
