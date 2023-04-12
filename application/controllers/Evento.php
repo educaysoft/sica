@@ -532,6 +532,59 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 
 
 
+
+
+
+
+
+
+
+
+
+
+	function evento_noparticipantes()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$id=$this->input->get('idevento');
+			$data0 =$this->participante_model->noparticipantes($id);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->nombres,$r->cedula,
+
+$r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary  item_retornar"  data-retorno="'.site_url('participante/retornar').'"    data-idparticipante="'.$r->idparticipante.'">retornar</a>'	);
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	function evento_asistencia()
 	{
 			$draw= intval($this->input->get("draw"));

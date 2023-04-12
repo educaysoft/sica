@@ -1,5 +1,7 @@
 <div id="eys-nav-i">
-	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?><idem style="font-size:large" id="idpersona"><?php echo $persona['idpersona']; ?></idem></h3>
+<div style="display:flex;flex-direction:row">
+<span style="text-align: left; font-size:large;"> <?php echo $title;  ?></span><span style="font-size:large" id="idpersona"><?php echo $persona['idpersona']; ?></span></span> <?php echo ($persona['eliminado']==1)? '<span style="font-size:large"> - ELIMINADO</span>':'<span style="font-size:large"> - ACTIVO</span>'; ?>
+</div>
 <?php
 if(isset($persona))
 {
@@ -34,7 +36,7 @@ if(isset($persona))
         <li style="border-right:1px solid green"><?php echo anchor('persona/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('persona/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('persona/edit/'.$persona['idpersona'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('persona/delete/'.$persona['idpersona'],'Delete'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('persona/quitar/'.$persona['idpersona'],'Quitar'); ?></li>
         <li> <?php echo anchor('persona/listar/','Listar'); ?></li>
 
 	<?php } ?>

@@ -393,12 +393,6 @@ echo form_input($arrdatos) ?>
         </div>
     </div>
 </div>
-
-
-
-
-
-
 <table class="table table-striped table-bordered table-hover" id="mydatap">
  <thead>
  <tr>
@@ -419,10 +413,70 @@ echo form_input($arrdatos) ?>
 </div>
 </div>
 
+	</div> 
+</div>
 
+
+
+
+<div class="form-group row">
+	<div class="col-md-10">
+ 
+<div class="row justify-content-left">
+      <!-- Page Heading -->
+ <div class="row">
+
+  	<div class="col-12" style="border:solid;">
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Participantes quitados: </b>
+        </div>
+        
+    </div>
+</div>
+<table class="table table-striped table-bordered table-hover" id="mydataq">
+ <thead>
+ <tr>
+ <th>Participante</th>
+ <th>Cédula</th>
+ <th style="text-align: right;">Actions</th>
+ </tr>
+ </thead>
+
+ <tbody id="show_data2">
+
+ </tbody>
+</table>
+</div>
+</div>
+</div>
 
 	</div> 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -700,6 +754,7 @@ $(document).ready(function(){
 	var idevento=document.getElementById("idevento").innerHTML;
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET',data:{idevento:idevento}},});
 	var mytablap= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_participantes')?>', type: 'GET',data:{idevento:idevento}},});
+	var mytablaq= $('#mydataq').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_noparticipantes')?>', type: 'GET',data:{idevento:idevento}},});
 });
 
 $('#show_data').on('click','.item_ver',function(){
@@ -725,6 +780,15 @@ if( confirm('Los datos se eliminaran ¿esta seguro?'))
 }
 });
 
+
+$('#show_data2').on('click','.item_retornar',function(){
+var id= $(this).data('idparticipante');
+var retorno= $(this).data('retorno');
+if( confirm('El participante retornará ¿esta seguro?'))
+{
+	window.location.href = retorno+'/'+id;
+}
+});
 
 
 

@@ -106,7 +106,7 @@ public function add()
 			'idtiempodedicacion' => $this->input->post('idtiempodedicacion'),
 	 	);
 	 	$this->distributivodocente_model->update($id,$array_item);
-	 	redirect('distributivodocente');
+	 	redirect('distributivodocente/actual/'.$id);
  	}
 
 

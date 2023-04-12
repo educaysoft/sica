@@ -11,12 +11,6 @@
 
 
 
-
-
-
-
-
-
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Evento (clase):</label>
 <div class="col-md-10">
@@ -94,7 +88,9 @@ foreach ($sesioneventos as $row){
 		if($row->nombre==$dia ){
 			$eldia=$dia;
 			$lahorai=$row->horainicio;
-			$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
+			$duracionminutos=$row->duracionminutos;
+			$lahoraf=strtotime(' +'.$duracionminutos.' minute',strtotime($lahorai));
+			//$lahoraf=strtotime(' + 2 hours',strtotime($lahorai));
 			$lahoraf=date("H:i:s",$lahoraf);
 		}
 	}

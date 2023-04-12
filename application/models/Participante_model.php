@@ -87,6 +87,14 @@ class Participante_model extends CI_model {
  		return $participante;
  	}
 
+	function noparticipantes( $id){
+ 		$participante = $this->db->query('select * from participante2 where idevento="'. $id.'" and eliminado=1 order by nombres asc');
+ 		return $participante;
+ 	}
+
+
+
+
 	function asistencias($idevento,$fecha)
 	{
 
@@ -177,6 +185,57 @@ return $participante;
 
 	return $result;
  	}
+
+
+
+
+
+
+
+
+
+
+  public function retornar($idp)
+	{
+		$this->db->trans_start();
+		$condition = "idparticipante =" . $idp ;
+		$condition = "eliminado =1";
+		$this->db->select('*');
+		$this->db->from('participante');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() != 0) {
+	 		  	$this->db->where('idparticipante',$idp);
+				$this->db->update('participante', array('eliminado'=>0));
+		    		//$this->db->delete('participante');
+           				 $this->db->trans_complete();
+			      		$result=true;
+      	}else{	
+
+            $this->db->trans_complete();
+			      $result=false;
+   	}
+
+	return $result;
+ 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	function elprimero()

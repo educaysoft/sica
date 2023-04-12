@@ -261,7 +261,7 @@ alter table evaluacion change idpersona idevaluacionpersona int(11);
 
 /* alter table distributivodocente add column idtiempodedicacion int(11);*/
 
-alter table tiempodedicacion change nombre nombre varchar(50);
-alter table tiempodedicacion add column inicial varchar(5);
+/* alter table tiempodedicacion change nombre nombre varchar(50);*/
+/* alter table tiempodedicacion add column inicial varchar(5); */
 
-
+alter table persona add column eliminado tinyint default 0;
