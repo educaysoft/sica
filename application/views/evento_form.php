@@ -67,7 +67,7 @@
 
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;',"maxlength"=>100, "placeholder"=>"Titulo del evento","id"=>"titulo" );    
  echo form_textarea("titulo","", $textarea_options);  
-		?>
+?><div id="textarea_feedback"></div>
 	</div> 
 </div> 
 
@@ -223,7 +223,28 @@ foreach ($asignaturadocentes as $row){
 <?php echo form_close();?>
     
      <script>
-    async function cargaarchivo(url)
+    
+
+$(document).ready(function(){
+   var text_max = 100;
+    $('#textarea_feedback').html('Quedan ' + text_max + ' caracteres');
+
+    $('#temacorto').keyup(function() {
+        var text_length = $('#temacorto').val().length;
+        var text_remaining = text_max - text_length;
+
+        $('#textarea_feedback').html('Quedan ' + text_remaining + ' caracteres');
+    });
+
+
+
+		
+});
+
+
+
+
+	async function cargaarchivo(url)
 {
 
     let formData = new FormData(); 
@@ -232,4 +253,11 @@ foreach ($asignaturadocentes as $row){
   alert('The file has been uploaded successfully.');
 
 };
+
+
+
+
+
+
+
 </script>
