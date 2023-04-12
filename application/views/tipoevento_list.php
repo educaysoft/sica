@@ -27,7 +27,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 <div id="eys-nav-i">
 	<ul>
-		<li> <?php echo anchor('persona', 'Home'); ?></li>
+		<li> <?php echo anchor('tipoevento', 'Home'); ?></li>
 	</ul>
 </div>
 
