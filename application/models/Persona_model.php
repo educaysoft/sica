@@ -124,7 +124,7 @@ class Persona_model extends CI_model {
 		$query = $this->db->get();
 		if ($query->num_rows() != 0) {
 	 		  	$this->db->where('idpersona',$id);
-				$this->db->update('participante', array('eliminado'=>1));
+				$this->db->update('persona', array('eliminado'=>1));
 		    		//$this->db->delete('participante');
            				 $this->db->trans_complete();
 			      		$result=true;
