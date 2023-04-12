@@ -65,7 +65,8 @@
 	<div class="col-md-10">
 	<?php
 
- echo form_input("titulo","", array("placeholder"=>"Título del evento",'style'=>'width:500px;')); 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;',"maxlength"=>100, "placeholder"=>"Titulo del evento","id"=>"titulo" );    
+ echo form_textarea("titulo","", $textarea_options);  
 		?>
 	</div> 
 </div> 
@@ -94,7 +95,7 @@
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Detalle del evento:</label>
+    <label class="col-md-2 col-form-label"> Objetivo del evento:</label>
 	<div class="col-md-10">
 	<?php
     
@@ -104,6 +105,20 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 		?>
 	</div> 
 </div> 
+
+
+<div class="form-group row">
+  <label class="col-md-2 col-form-label">Participante (<?php echo anchor('persona/add', 'Nuevo'); ?>):</label>
+	<div class="col-md-10">
+		<?php
+$options= array('--Select--');
+foreach ($personas as $row){
+	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+}
+ echo form_dropdown("idpersona",$options, set_select('--Select--','default_value')); 
+		?>
+	</div> 
+</div>
 
 
 

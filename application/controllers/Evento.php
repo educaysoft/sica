@@ -61,6 +61,7 @@ public function index(){
 	$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['personas']= $this->persona_model->lista_personas()->result();
 	$data['paginas']= $this->pagina_model->lista_paginas()->result();
 	$this->load->view('template/page_header');		
 	$this->load->view('evento_form',$data);
