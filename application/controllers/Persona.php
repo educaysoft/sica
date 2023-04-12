@@ -150,9 +150,9 @@ public function add()
  	}
 
 
- 	public function delete()
+ 	public function quitar()
  	{
- 		$result=$this->persona_model->delete($this->uri->segment(3));
+ 		$result=$this->persona_model->quitar($this->uri->segment(3));
 	 	if(!$result)
 		{
 			echo "<script language='JavaScript'> alert('La persona no pudo eliminarse revise permisos'); </script>";

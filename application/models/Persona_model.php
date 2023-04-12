@@ -113,8 +113,39 @@ class Persona_model extends CI_model {
 
 
 
+ public function quitar($id)
+	{
+		$this->db->trans_start();
+		$condition = "idpersona =" . $id ;
+		$this->db->select('*');
+		$this->db->from('persona0');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() != 0) {
+	 		  	$this->db->where('idpersona',$idp);
+				$this->db->update('participante', array('eliminado'=>1));
+		    		//$this->db->delete('participante');
+           				 $this->db->trans_complete();
+			      		$result=true;
+      	}else{	
 
- 	public function delete($id)
+            $this->db->trans_complete();
+			      $result=false;
+   	}
+
+	return $result;
+ 	}
+
+
+
+
+
+
+
+
+
+ 	public function borrar($id)
 	{
 		$idusuario=$this->session->userdata['logged_in']['idusuario'];
 		if($idusuario==413) //SOLO PUEDE STALIN FRANCIS educaysoft@hotmail.com
