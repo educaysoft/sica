@@ -244,19 +244,6 @@ $(document).ready(function(){
 
 
 
-	async function cargaarchivo(url)
-{
-
-    let formData = new FormData(); 
-    formData.append("file", archivopdf.files[0]);
-    await fetch(url, {method: "POST", body: formData}); 
-  alert('The file has been uploaded successfully.');
-
-};
-
-
-
-
 
 
 
