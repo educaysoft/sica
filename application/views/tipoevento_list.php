@@ -25,7 +25,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 </style>
-
+<div id="eys-nav-i">
+	<ul>
+		<li> <?php echo anchor('persona', 'Home'); ?></li>
+	</ul>
+</div>
 
 <div class="row justify-content-center">
       <!-- Page Heading -->
