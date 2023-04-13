@@ -262,7 +262,7 @@
     <p class="float-end mb-1">
       <a href="#">Back to top</a>
     </p>
-    <p class="mb-1">Congresos UTLVTE fue creado por &copy; Educación Continua, como parte de un proyecto de desarrollo de software universitario</p>
+    <p class="mb-1">Cursos de Educación Continua UTLVTE fue creado por &copy; EDUCAYSOFT, como parte de un proyecto de desarrollo de software universitario</p>
     <p class="mb-0">Lo nuevo de Educación Continua? <a href="https://educaysoft.org/">Visit the homepage</a> cursos gratis para desarrolladores <a href="https://educaysoft.org/cursos">Cursos gratis</a>.</p>
   </div>
 </footer>

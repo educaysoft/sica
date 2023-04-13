@@ -85,7 +85,7 @@ public function actual(){
 		 	'idevento' => $this->input->post('idevento'),
 		 	'idparticipanteestado' => $this->input->post('idparticipanteestado'),
 			'idnivelparticipante'=>$this->input->post('idnivelparticipante'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'iddocumento' =>0,
 		 	'grupoletra' => $this->input->post('grupoletra'),
 	 	);
 	 	$result=$this->participante_model->save($array_item);
