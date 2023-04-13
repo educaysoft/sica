@@ -16,7 +16,7 @@
 
 <!--<link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
-<script  type="text/javascript" src="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css"></script>
+<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css" />
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
