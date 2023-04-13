@@ -130,7 +130,7 @@ foreach ($pagoevento as $row){
 
     <div class="hero-image">
     <div class="hero-text">
- <center><img src="http://educaysoft.org/sica/images/LogoEducCont.png" style='width:25%' alt="Italian Trulli"></center>
+ <center><img src="http://educaysoft.org/sica/images/LogoEducCont.png" style='max-width:20%' alt="Italian Trulli"></center>
       <h1><?php  echo $evento['titulo'];?></h1>
 
   <!---  <button><a href="http://educaysoft.org/sica/MTI/doc/_build/html/admision.html"> Mas información</a></button> -->
