@@ -161,7 +161,7 @@
 	      <p><b>Hora:</b>  18:00 - 20:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/index.php/login/user_registration_show?idevento=332'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/index.php/login/user_registration_show?idevento=333'"  >Inscribete</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login'">Ingresa</button>
                 </div>
                 <small class="text-muted"><b>Modalidad:</b>On-line</small>
@@ -184,7 +184,7 @@
 	      <p><b>Hora:</b>  18:00 - 20:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/index.php/login/user_registration_show?idevento=332'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/index.php/login/user_registration_show?idevento=334'"  >Inscribete</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login'">Ingresa</button>
                 </div>
                 <small class="text-muted"><b>Modalidad:</b>On-line</small>
@@ -201,7 +201,7 @@
 
             <div class="card-body">
               <p class="card-text">Metodologíá de la Educación Superior.</p>
-	      <p>Instructora: <a href="http://www.utelvt.edu.ec/sitioweb/index.php/decano-ciencias-de-la-educacion">Licda. Rosa Pozzo,PhD.</a></p>
+	      <p>Instructora: <a href="http://www.utelvt.edu.ec/sitioweb/index.php/decano-ciencias-de-la-educacion">Licda. Rosa Posso,PhD.</a></p>
 
 
 <p><b>Fechas:</b>  27-abril al 26-mayo del 2023.</a></p>
@@ -209,7 +209,7 @@
 	      <p><b>Hora:</b>  18:00 - 20:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/index.php/login/user_registration_show?idevento=332'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/index.php/login/user_registration_show?idevento=335'"  >Inscribete</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login'">Ingresa</button>
                 </div>
                 <small class="text-muted"><b>Modalidad:</b>On-line</small>
@@ -236,7 +236,7 @@
 	      <p><b>Hora:</b>  18:00 - 20:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/index.php/login/user_registration_show?idevento=332'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/index.php/login/user_registration_show?idevento=336'"  >Inscribete</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login'">Ingresa</button>
                 </div>
                 <small class="text-muted"><b>Modalidad:</b>On-line</small>
