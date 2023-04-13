@@ -129,7 +129,7 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-		  <a  href='https://congresoutlvte.org/faci/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="./images/didactica.jpg" height="100%" width="100%"/>  </svg></a>
+		  <a  href='https://congresoutlvte.org/faci/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="<?php echo base_url(); ?>images/cursos/didactica.jpg" height="100%" width="100%"/>  </svg></a>
 
 
             <div class="card-body">
@@ -150,7 +150,7 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-		  <a  href='https://congresoutlvte.org/facped/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="./images/investigacion.jpg" height="100%" width="100%"/> </svg></a>
+		  <a  href='https://congresoutlvte.org/facped/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/investigacion.jpg" height="100%" width="100%"/> </svg></a>
 
             <div class="card-body">
               <p class="card-text">Investigación Científica y Metodología de la Investigación en Educación Superior".</p>
@@ -173,7 +173,7 @@
         
 <div class="col">
           <div class="card shadow-sm">
-		  <a  href='https://congresoutlvte.org/facped/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="./images/estadistica.jpg" height="100%" width="100%"/> </svg></a>
+		  <a  href='https://congresoutlvte.org/facped/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/estadistica.jpg" height="100%" width="100%"/> </svg></a>
 
             <div class="card-body">
               <p class="card-text">Estadística Aplicada y Análisis Estadístico.</p>
@@ -197,7 +197,7 @@
         
  <div class="col">
           <div class="card shadow-sm">
-		  <a  href='https://congresoutlvte.org/facped/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="./images/metodologia.jpg" height="100%" width="100%"/> </svg></a>
+		  <a  href='https://congresoutlvte.org/facped/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/metodologia.jpg" height="100%" width="100%"/> </svg></a>
 
             <div class="card-body">
               <p class="card-text">Metodologíá de la Educación Superior.</p>
@@ -224,7 +224,7 @@
         
 <div class="col">
           <div class="card shadow-sm">
-		  <a  href='https://congresoutlvte.org/facped/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="./images/etica.jpg" height="100%" width="100%"/> </svg></a>
+		  <a  href='https://congresoutlvte.org/facped/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/etica.jpg" height="100%" width="100%"/> </svg></a>
 
             <div class="card-body">
               <p class="card-text">Ética.</p>
