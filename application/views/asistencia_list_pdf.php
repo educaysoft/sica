@@ -11,10 +11,10 @@
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='UNIDAD DE NIVELACION';
 	$pdf->departamento='PERIODO: 2022-2S';
-	$pdf->titulo="CONTROL ACADÉMICO - LECCIONARIO";
+	$pdf->titulo="CONTROL ASISTENCIA";
 	
  //   	$pdf->asignatura="Evento(Clase):  ".$sesioneventos[0]->elevento; 
-    	$pdf->docente="Distributivo:  ".$distributivo[0]->eldistributivo; 
+    	$pdf->docente="Asistencia:  ".$distributivo[0]->eldistributivo; 
 //	if($mesnumero>0){
   //  	$pdf->mes="Mes:  ".$mesletra[$mesnumero]; 
 //	}
@@ -115,7 +115,7 @@ foreach ($sesiones as $row){
 
 }
 
-  $pdf->Cell(4,5,$sesiontotal,1,1,'L',1);
+  $pdf->Cell(10,5,$sesiontotali."=100%",1,1,'L',1);
  
 	 
 
@@ -182,7 +182,7 @@ foreach ($asistencia as $row){
 	  $aus=$aus+1;
       }
     }
-      $resu=round(($asi/($sesiontotal))*100,2);
+      $resu=round(($asi/($sesiontotal))*100,0);
      $pdf->Cell(10,5,$asi." = ".$resu."%",1,1,'L',0);
 $asi=0;
 $aus=0;
@@ -220,12 +220,14 @@ $pdf->Cell(4,5,"AT",1,0,'L',0);
 
      if($arrasistencia[$row1['fecha']][0]==3)  
      {
+	$pdf->SetFillColor(255,0,0);
      $pdf->Cell(4,5,"FJ",1,0,'L',0);
      }
 
 
      if($arrasistencia[$row1['fecha']][0]==4)  
      {
+	$pdf->SetFillColor(255,0,0);
       $pdf->Cell(4,5,"FI"."</td>",1,0,'L',0);
      }
 
@@ -239,7 +241,7 @@ $pdf->Cell(4,5,"AT",1,0,'L',0);
 	  $aus=$aus+1;
       }
     } 
-    $resu=round(($asi/($sesiontotal))*100,2);
+    $resu=round(($asi/($sesiontotal))*100,0);
      $pdf->Cell(10,5,$asi." = ".$resu."%",1,1,'L',0);
 
 
