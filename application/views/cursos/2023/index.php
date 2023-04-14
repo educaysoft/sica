@@ -6,6 +6,10 @@
     <meta name="description" content="">
     <meta name="author" content="Stalin Francis Quinde">
     <meta name="generator" content="Hugo 0.101.0">
+	<meta property="og:site_name" content="Educación Continua-UTLVTE" />
+	<meta property="og:image" content="https://educaysoft.org/sica/images/LogoEducacionContinua.png" />
+	<meta property="og:image:width" content="800" />
+	<meta property="og:image:height" content="600" />
     <title>Cursos de Perfeccionamiento Académico y Ética</title>
 
     <link rel="educaysoft" href="https://congresoutlvte.org/faci/">
