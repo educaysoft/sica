@@ -20,6 +20,82 @@
 //	}
 
 
+ $dias = array('Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado');
+   date_default_timezone_set('America/Guayaquil');
+    $fecha = date("Y-m-d");
+    $horai= date("H:i:s");
+
+	$sesiondictada= array();
+	foreach ($sesionevento as $row){
+		$sesiondictada[$row->fecha]= $row->idsesionevento;
+	}
+
+	$sesionactual=0;
+	$sesiontotal=0;
+
+	$f = strtotime($evento['fechainicia']);
+
+    $d = date( "j", $f);
+    $m = date("n", $f);
+    $a = date("Y", $f);
+
+if(checkdate($m,$d,$a)){
+ $fechasesion= $evento['fechainicia'];
+
+	$f = strtotime($evento['fechafinaliza']);   //Chequendo que la fecha de finalizacion estes ingresada
+
+    $d = date( "j", $f);
+    $m = date("n", $f);
+    $a = date("Y", $f);
+
+	if(checkdate($m,$d,$a)){
+		 $fechahasta= $evento['fechafinaliza'];
+	}else{
+
+		 $fechahasta= $calendarioacademico[0]->fechahasta; // sin no esta la fecha de fin en el evento se toma del calendario
+	}
+
+
+
+}else{   // sin no estan ingresadas las fecha en el evento se toma del calendario asignado
+
+ $fechasesion=$calendarioacademico[0]->fechadesde;
+ $fechahasta=$calendarioacademico[0]->fechahasta;
+}
+ $sesiones=array();
+     $i=1;
+    do {
+	foreach ($jornadadocente as $row){
+    		$dia = $dias[date('w', strtotime($fechasesion))];
+		if($row->nombre==$dia ){    //verifica si la fecha esta en el horario.
+			$lahorai=$row->horainicio;
+			$duracionminutos=$row->duracionminutos;
+			$lahoraf=strtotime(' +'.$duracionminutos.' minute',strtotime($lahorai));
+			$lahoraf=date("H:i:s",$lahoraf);
+			array_push($sesiones,array("sesion"=>$i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
+			if($sesionactual==0){
+			if(!isset($sesiondictada[$fechasesion]))
+			{
+				$fecha=$fechasesion;
+			}}
+			
+			if(strtotime($fechasesion)==strtotime($fecha)){
+				$sesionactual=$i;
+			}
+			
+			$sesiontotal=$sesiontotal+1;
+			$i=$i+1;
+		}
+	}
+		$fechasesion=date("Y-m-d",strtotime($fechasesion."+ 1 days")); 
+
+    }while(strtotime($fechasesion)<=strtotime($fechahasta));
+
+
+
+
+
+
 
 	$pdf->AliasNbPages();
 	$pdf->AddPage('L');
