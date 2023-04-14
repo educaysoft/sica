@@ -14,7 +14,7 @@
 	$pdf->titulo="CONTROL ASISTENCIA";
 	
  //   	$pdf->asignatura="Evento(Clase):  ".$sesioneventos[0]->elevento; 
-    	$pdf->docente="Asistencia:  ".$distributivo[0]->eldistributivo; 
+    	$pdf->docente="Curso:  ".$evento['titulo']; 
 //	if($mesnumero>0){
   //  	$pdf->mes="Mes:  ".$mesletra[$mesnumero]; 
 //	}
