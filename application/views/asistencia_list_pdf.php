@@ -111,7 +111,7 @@ if(checkdate($m,$d,$a)){
 	$pdf->Cell(5,5,'#',1,0,'C',1);
 	$pdf->Cell(45,5,'Participante',1,0,'C',1);
 foreach ($sesiones as $row){
-	$pdf->TextWithRotation(10,5,$row['fecha'],90,-90);
+	$pdf->Cell(5,5,"S".$row['sesion'],1,0,"C",1);
 
 }
 
@@ -146,24 +146,24 @@ foreach ($asistencia as $row){
 
       if($arrasistencia[$row1['fecha']][0]==1)   //puntual
 		{
-    $pdf->Cell(10,5,"PU",1,0,'L',0);
+    pdf->Cell(5,5,"PU",1,0,'L',0);
 		}
 
      if($arrasistencia[$row1['fecha']][0]==2)   //atraseo
 		{
-  $pdf->Cell(10,5,"AT",1,0,'C',0);
+  $pdf->Cell(5,5,"AT",1,0,'C',0);
 		}
 
 
      if($arrasistencia[$row1['fecha']][0]==3)  
      {
-   $pdf->Cell(10,5,"FJ",1,0,'L',0);
+   $pdf->Cell(5,5,"FJ",1,0,'L',0);
      }
 
 
      if($arrasistencia[$row1['fecha']][0]==4)  
      {
-    $pdf->Cell(10,5,"FI",1,0,'L',0);
+    $pdf->Cell(5,5,"FI",1,0,'L',0);
      }
 
 
@@ -181,7 +181,7 @@ foreach ($asistencia as $row){
       }
     }
       $resu=round(($asi/($sesiontotal))*100,2);
-      $pdf->Cell(10,5,$resu,1,1,'L',0);
+      $pdf->Cell(5,5,$resu,1,1,'L',0);
 $asi=0;
 $aus=0;
 $j=0;
@@ -207,24 +207,24 @@ $j=0;
 
       if($arrasistencia[$row1['fecha']][0]==1)   //puntual
 		{
-$pdf->Cell(10,5,"PU",1,0,'L',0);
+$pdf->Cell(5,5,"PU",1,0,'L',0);
 		}
 
      if($arrasistencia[$row1['fecha']][0]==2)   //atraseo
 		{
-$pdf->Cell(10,5,"AT",1,0,'L',0);
+$pdf->Cell(5,5,"AT",1,0,'L',0);
 		}
 
 
      if($arrasistencia[$row1['fecha']][0]==3)  
      {
-     $pdf->Cell(10,5,"FJ",1,0,'L',0);
+     $pdf->Cell(5,5,"FJ",1,0,'L',0);
      }
 
 
      if($arrasistencia[$row1['fecha']][0]==4)  
      {
-      $pdf->Cell(10,5,"FI"."</td>",1,0,'L',0);
+      $pdf->Cell(5,5,"FI"."</td>",1,0,'L',0);
      }
 
 
@@ -233,12 +233,12 @@ $pdf->Cell(10,5,"AT",1,0,'L',0);
 	  $asi=$asi+1;
       }else{
 
-       $pdf->Cell(10,5,"xx",1,0,'L',0);
+       $pdf->Cell(5,5,"xx",1,0,'L',0);
 	  $aus=$aus+1;
       }
     } 
     $resu=round(($asi/($sesiontotal))*100,2);
-     $pdf->Cell(10,5,$asi." = ".$resu."%",1,1,'L',0);
+     $pdf->Cell(7,5,$asi." = ".$resu."%",1,1,'L',0);
 
 
 
