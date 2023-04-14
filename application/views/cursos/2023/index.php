@@ -193,7 +193,7 @@ overflow:hidden;
 
             <div class="card-body">
               <p class="card-text">Investigación Científica y Metodología de la Investigación en Educación Superior".</p>
-	      <p>Instructora: <a href="http://www.utelvt.edu.ec/sitioweb/index.php/decano-ciencias-de-la-educacion">Lic. Nayade Reyes P. PhD.</a></p>
+	      <p><b>Instructora:</b> Lic. Nayade Reyes P. PhD.</p>
 
 <p><b>Fechas:</b>  12 al 26 de abril del 2023.</a></p>
 	      <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
@@ -220,7 +220,7 @@ overflow:hidden;
 
             <div class="card-body">
               <p class="card-text">Estadística Aplicada y Análisis Estadístico.</p>
-	      <p>Instructor: <a href="http://www.utelvt.edu.ec/sitioweb/index.php/decano-ciencias-de-la-educacion">Licdo. Raul Camacho</a></p>
+	      <p><b>Instructor:</b>Licdo. Raul Camacho</p>
 
 <p><b>Fechas:</b>  27-abril al 12-mayo del 2023.</a></p>
 	      <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
@@ -244,7 +244,7 @@ overflow:hidden;
 
             <div class="card-body">
               <p class="card-text">Metodologíá de la Educación Superior.</p>
-	      <p>Instructora: <a href="http://www.utelvt.edu.ec/sitioweb/index.php/decano-ciencias-de-la-educacion">Licda. Rosa Posso,PhD.</a></p>
+	      <p><b>Instructora:</b> Licda. Rosa Posso,PhD.</p>
 
 
 <p><b>Fechas:</b>  27-abril al 26-mayo del 2023.</a></p>
@@ -271,7 +271,7 @@ overflow:hidden;
 
             <div class="card-body">
               <p class="card-text">Ética.</p>
-	      <p>Instructora: <a href="http://www.utelvt.edu.ec/sitioweb/index.php/decano-ciencias-de-la-educacion">Ing. Rugina Quiñonez, PhD</a></p>
+	      <p><b>Instructora:</b> Ing. Rugina Quiñonez, PhD</p>
 
 
 <p><b>Fechas:</b>  27-abril al 12-mayo del 2023.</a></p>
