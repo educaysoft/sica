@@ -227,9 +227,11 @@ if(sizeof($eventos)>1){
 
 					</div>
 					<div class="w3-container" style="padding-top:10px;">
+					<?php
 					if($eventos[0]->idevento_estado==2)
 					{
-					<?php 	$data=array('type'=>'submit','value'=>'Guardar datos','name'=>'submit','style'=>'background-color: #4CAF50;
+
+					 	$data=array('type'=>'submit','value'=>'Guardar datos','name'=>'submit','style'=>'background-color: #4CAF50;
 						border: 0;
 						border-radius: 10px;
 						cursor: pointer;
@@ -240,9 +242,9 @@ if(sizeof($eventos)>1){
 						padding: 10px;
 						width: 100%;');
 						echo form_submit($data);
-						echo form_close();?>
+						echo form_close();
 					}else{
-					<?php 	$data=array('type'=>'submit','value'=>'Guardar datos','name'=>'submit','disabled'=>'disabled','style'=>'background-color: #4CAF50;
+					 	$data=array('type'=>'submit','value'=>'Guardar datos','name'=>'submit','disabled'=>'disabled','style'=>'background-color: #4CAF50;
 						border: 0;
 						border-radius: 10px;
 						cursor: pointer;
