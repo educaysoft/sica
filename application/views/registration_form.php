@@ -21,7 +21,7 @@
 <center> <img src="<?php echo base_url(); ?>images/eventos/eventosacademicos.png" id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img></center>
 			<p>Para poder unirte a este evento sigue las  instrucciones: </p><br>
 			<ol>
-			<li> Escoge el evento académico.  </li>
+			<li> Verifica si el evento esta en etapa de Inscripción.  </li>
 			<li> Ingresa tus datos de contacto  que se solicita.  </li>
 			<li> No te olvides de registrar un correo electrónico válido.  </li>
 			<li> No te olvides registrar una contraseña que puedas recordar.  </li>
@@ -41,17 +41,6 @@
 				</header>
 				<div class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
 					<?php
-         //   $idinstitucion=0;
-         //   $idevento=0;
-         //   if(isset($_GET['idinstitucion']))
-         //   {
-         //     $idinstitucion=$_GET['idinstitucion'];
-         //   }
-
-          //  if(isset($_GET['idevento']))
-          //  {
-          //    $idevento=$_GET['idevento'];
-          //  }
 
 
 						echo form_open('login/new_user_registration');
@@ -106,8 +95,14 @@ if(sizeof($eventos)>1){
 
 
 }else{
+	if($eventos[0]->idevento_estado==1)
+	{
+		echo "<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: INSCRIPCIONES ABIERTAS </label>";
+	}else{
 
-						echo "<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: </label>";
+		echo "<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: INSCRIPCIONES CERRADAS </label>";
+	}
+
     $arrdatos=array('name'=>'idevento','value'=>$eventos[0]->idevento,"type"=>"hidden", "style"=>"width:600px");
 				echo form_input($arrdatos) ;
 
@@ -188,7 +183,7 @@ if(sizeof($eventos)>1){
 								$options[$row->idsexo]= $row->nombre;
 							}
 
-						 echo form_dropdown($name="idsexo",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idsexo','onchange'=>'get_evento()'));  ?>
+						 echo form_dropdown($name="idsexo",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idsexo'));  ?>
 
 					</div>
 
