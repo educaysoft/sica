@@ -146,7 +146,7 @@ foreach ($asistencia as $row){
 
       if($arrasistencia[$row1['fecha']][0]==1)   //puntual
 		{
-    pdf->Cell(5,5,"PU",1,0,'L',0);
+    $pdf->Cell(5,5,"PU",1,0,'L',0);
 		}
 
      if($arrasistencia[$row1['fecha']][0]==2)   //atraseo
