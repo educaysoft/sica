@@ -105,13 +105,13 @@ if(checkdate($m,$d,$a)){
   //  	$pdf->Text(20,45,"Docente:  ".$instructor[0]->nombres); 
 
 	$pdf->SetFillColor(232,232,232);
-	$pdf->SetFont('Arial','B',8);
+	$pdf->SetFont('Arial','B',6);
 
 
 	$pdf->Cell(5,5,'#',1,0,'C',1);
 	$pdf->Cell(45,5,'Participante',1,0,'C',1);
 foreach ($sesiones as $row){
-	$pdf->Cell(5,5,"S".$row['sesion'],1,0,"C",1);
+	$pdf->Cell(5,5,$row['sesion'],1,0,"C",1);
 
 }
 
@@ -120,7 +120,7 @@ foreach ($sesiones as $row){
 	 
 
 
-	$pdf->SetFont('Arial','',7);
+	$pdf->SetFont('Arial','',6);
 
 
 $current_y2 = $pdf->GetY();
