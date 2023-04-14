@@ -159,12 +159,14 @@ foreach ($asistencia as $row){
 
      if($arrasistencia[$row1['fecha']][0]==3)  
      {
+	$pdf->SetFillColor(255,0,0);
    $pdf->Cell(4,5,"FJ",1,0,'L',0);
      }
 
 
      if($arrasistencia[$row1['fecha']][0]==4)  
      {
+	$pdf->SetFillColor(255,0,0);
     $pdf->Cell(4,5,"FI",1,0,'L',0);
      }
 
