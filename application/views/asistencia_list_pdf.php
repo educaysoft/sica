@@ -115,6 +115,7 @@ foreach ($sesiones as $row){
 
 }
 
+  $pdf->Cell(5,5,$sesiontotal,1,1,'L',1);
  
 	 
 
@@ -145,24 +146,24 @@ foreach ($asistencia as $row){
 
       if($arrasistencia[$row1['fecha']][0]==1)   //puntual
 		{
-    $pdf->Cell(10,5,"<td style='color:black;"." background-color:rgb(".$x.",".$k.", 255); '>". '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16"> <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/><path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/></svg>'.$arrasistencia[$row1['fecha']][1]."</td>",1,0,'L',0);
+    $pdf->Cell(10,5,"PU",1,0,'L',0);
 		}
 
      if($arrasistencia[$row1['fecha']][0]==2)   //atraseo
 		{
-  $pdf->Cell(10,5,"<td style='color:black;"." background-color:rgb(".$x.",".$k.", 255); '>". '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/><path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>'.$arrasistencia[$row1['fecha']][1]."</td>",1,0,'C',0);
+  $pdf->Cell(10,5,"AT",1,0,'C',0);
 		}
 
 
      if($arrasistencia[$row1['fecha']][0]==3)  
      {
-   $pdf->Cell(10,5,"<td style='color:black'>". "FJ"."</td>",1,0,'L',0);
+   $pdf->Cell(10,5,"FJ",1,0,'L',0);
      }
 
 
      if($arrasistencia[$row1['fecha']][0]==4)  
      {
-    $pdf->Cell(10,5,"<td style='color:black'>". "FI"."</td>",1,0,'L',0);
+    $pdf->Cell(10,5,"FI",1,0,'L',0);
      }
 
 
@@ -174,13 +175,13 @@ foreach ($asistencia as $row){
       }else{
 	      $x=$j*10;
 	      $k=$j+150;
-     $pdf->Cell(10,5,"<td style='color:red;"." background-color:rgb(".$x.",".$k.",66); '>XX</td>",1,0,'L',0);
+     $pdf->Cell(10,5,"XX",1,0,'L',0);
 	      $j=$j+5;
 	  $aus=$aus+1;
       }
     }
       $resu=round(($asi/($sesiontotal))*100,2);
-      $pdf->Cell(10,5,"<td>".$asi." = ".$resu."%</td>",1,1,'L',0);
+      $pdf->Cell(10,5,$resu,1,1,'L',0);
 $asi=0;
 $aus=0;
 $j=0;
@@ -206,24 +207,24 @@ $j=0;
 
       if($arrasistencia[$row1['fecha']][0]==1)   //puntual
 		{
-$pdf->Cell(10,5,"<td style='color:black;"." background-color:rgb(".$x.",".$k.", 255); '>". '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16"> <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/><path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/></svg>'.$arrasistencia[$row1['fecha']][1]."</td>",1,0,'L',0);
+$pdf->Cell(10,5,"PU",1,0,'L',0);
 		}
 
      if($arrasistencia[$row1['fecha']][0]==2)   //atraseo
 		{
-$pdf->Cell(10,5,"<td style='color:black;"." background-color:rgb(".$x.",".$k.", 255); '>". '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/><path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>'.$arrasistencia[$row1['fecha']][1]."</td>",1,0,'L',0);
+$pdf->Cell(10,5,"AT",1,0,'L',0);
 		}
 
 
      if($arrasistencia[$row1['fecha']][0]==3)  
      {
-     $pdf->Cell(10,5,"<td style='color:black'>". "FJ"."</td>",1,0,'L',0);
+     $pdf->Cell(10,5,"FJ",1,0,'L',0);
      }
 
 
      if($arrasistencia[$row1['fecha']][0]==4)  
      {
-      $pdf->Cell(10,5,"<td style='color:black'>". "FA-IN"."</td>",1,0,'L',0);
+      $pdf->Cell(10,5,"FI"."</td>",1,0,'L',0);
      }
 
 
@@ -232,12 +233,12 @@ $pdf->Cell(10,5,"<td style='color:black;"." background-color:rgb(".$x.",".$k.", 
 	  $asi=$asi+1;
       }else{
 
-       $pdf->Cell(10,5,"<td style='color:red'>xx</td>",1,0,'L',0);
+       $pdf->Cell(10,5,"xx",1,0,'L',0);
 	  $aus=$aus+1;
       }
     } 
     $resu=round(($asi/($sesiontotal))*100,2);
-       $pdf->Cell(10,5,"<td>".$asi." = ".$resu."%</td>",1,1,'L',0);
+       $pdf->Cell(10,5,.$asi." = ".$resu."%",1,1,'L',0);
 
 
 
