@@ -238,7 +238,7 @@ $pdf->Cell(10,5,"AT",1,0,'L',0);
       }
     } 
     $resu=round(($asi/($sesiontotal))*100,2);
-       $pdf->Cell(10,5,.$asi." = ".$resu."%",1,1,'L',0);
+     $pdf->Cell(10,5,$asi." = ".$resu."%",1,1,'L',0);
 
 
 
