@@ -14,7 +14,7 @@
 	$pdf->titulo="CONTROL ASISTENCIA";
 	
  //   	$pdf->asignatura="Evento(Clase):  ".$sesioneventos[0]->elevento; 
-    	$pdf->docente="Curso:  ".$evento['titulo']; 
+    	$pdf->docente="Asistencia:  ".$distributivo[0]->eldistributivo; 
 //	if($mesnumero>0){
   //  	$pdf->mes="Mes:  ".$mesletra[$mesnumero]; 
 //	}
@@ -160,8 +160,8 @@ foreach ($asistencia as $row){
 
      if($arrasistencia[$row1['fecha']][0]==3)  
      {
-	$pdf->SetFillColor(240,57,77);
-   $pdf->Cell(4,5,"FJ",1,0,'L',0);
+	     $pdf->SetFillColor(240,57,77); 
+	     $pdf->Cell(4,5,"FJ",1,0,'L',1);
      }
 
 
@@ -226,7 +226,7 @@ $pdf->Cell(4,5,"AT",1,0,'L',0);
      if($arrasistencia[$row1['fecha']][0]==3)  
      {
 	$pdf->SetFillColor(240,57,77);
-     $pdf->Cell(4,5,"FJ",1,0,'L',0);
+     $pdf->Cell(4,5,"FJ",1,0,'L',1);
      }
 
 
