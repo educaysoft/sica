@@ -175,7 +175,7 @@ foreach ($asistencia as $row){
       }else{
 	      $x=$j*10;
 	      $k=$j+150;
-     $pdf->Cell(5,5,"XX",1,0,'L',0);
+     $pdf->Cell(4,5,"XX",1,0,'L',0);
 	      $j=$j+5;
 	  $aus=$aus+1;
       }
