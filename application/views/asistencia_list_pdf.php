@@ -105,7 +105,7 @@ if(checkdate($m,$d,$a)){
   //  	$pdf->Text(20,45,"Docente:  ".$instructor[0]->nombres); 
 
 	$pdf->SetFillColor(232,232,232);
-	$pdf->SetFont('Arial','B',6);
+	$pdf->SetFont('Arial','B',5);
 
 
 	$pdf->Cell(4,5,'#',1,0,'C',1);
@@ -120,7 +120,7 @@ foreach ($sesiones as $row){
 	 
 
 
-	$pdf->SetFont('Arial','',6);
+	$pdf->SetFont('Arial','',5);
 
 
 $current_y2 = $pdf->GetY();
@@ -146,6 +146,8 @@ foreach ($asistencia as $row){
 
       if($arrasistencia[$row1['fecha']][0]==1)   //puntual
 		{
+   $pdf->SetFillColor(230,230,230);
+
     $pdf->Cell(4,5,"PU",1,0,'L',0);
 		}
 
@@ -175,13 +177,13 @@ foreach ($asistencia as $row){
       }else{
 	      $x=$j*10;
 	      $k=$j+150;
-     $pdf->Cell(4,5,"XX",1,0,'L',0);
+     $pdf->Cell(4,5," ",1,0,'L',0);
 	      $j=$j+5;
 	  $aus=$aus+1;
       }
     }
       $resu=round(($asi/($sesiontotal))*100,2);
-      $pdf->Cell(4,5,$resu,1,1,'L',0);
+     $pdf->Cell(10,5,$asi." = ".$resu."%",1,1,'L',0);
 $asi=0;
 $aus=0;
 $j=0;
@@ -233,12 +235,12 @@ $pdf->Cell(4,5,"AT",1,0,'L',0);
 	  $asi=$asi+1;
       }else{
 
-       $pdf->Cell(4,5,"xx",1,0,'L',0);
+       $pdf->Cell(4,5," ",1,0,'L',0);
 	  $aus=$aus+1;
       }
     } 
     $resu=round(($asi/($sesiontotal))*100,2);
-     $pdf->Cell(7,5,$asi." = ".$resu."%",1,1,'L',0);
+     $pdf->Cell(10,5,$asi." = ".$resu."%",1,1,'L',0);
 
 
 
