@@ -255,7 +255,9 @@ if(sizeof($eventos)>1){
 						padding: 10px;
 						width: 100%;');
 						echo form_submit($data);
-						echo form_close();?>
+						echo form_close();
+					}
+					?>
 	
 }
 					</div>
