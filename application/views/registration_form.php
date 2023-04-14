@@ -127,7 +127,12 @@ if(sizeof($eventos)>1){
 	<div  class="w3-container" style="text-align:left; font-size: 70%;">
 	<?php
 	echo "<label  style='text-align:left; font-size: 100%;' for='cedula'> Cédula: </label>";
+
+	if($eventos[0]->idevento_estado==2)
 	echo form_input(array('id'=>'cedula','name'=>'cedula','maxlength'=>'10',  'class'=>'form-control'));
+	else
+	echo form_input(array('id'=>'cedula','name'=>'cedula','maxlength'=>'10', 'disabled'=>'disabled', 'class'=>'form-control'));
+
 	echo "<div class='error_msg'>";
 	if (isset($message_display)) {
 		echo $message_display;
@@ -140,7 +145,11 @@ if(sizeof($eventos)>1){
 					<div class="w3-container" style="text-align:left; font-size: 70%;">
 						<?php
 						echo "<label style='text-align:left; font-size: 100%;'  for='apellidos'> Apellidos: </label>";
+						if($eventos[0]->idevento_estado==2)
 						echo form_input(array('id'=>'apellidos', 'name'=>'apellidos' , 'class'=>'form-control'));
+						else
+						echo form_input(array('id'=>'apellidos', 'name'=>'apellidos' ,'disabled'=>'disabled', 'class'=>'form-control'));
+
 						echo "<div class='error_msg'>";
 						if (isset($message_display)) {
 							echo $message_display;
@@ -218,6 +227,8 @@ if(sizeof($eventos)>1){
 
 					</div>
 					<div class="w3-container" style="padding-top:10px;">
+					if($eventos[0]->idevento_estado==2)
+					{
 					<?php 	$data=array('type'=>'submit','value'=>'Guardar datos','name'=>'submit','style'=>'background-color: #4CAF50;
 						border: 0;
 						border-radius: 10px;
@@ -230,6 +241,21 @@ if(sizeof($eventos)>1){
 						width: 100%;');
 						echo form_submit($data);
 						echo form_close();?>
+					}else{
+					<?php 	$data=array('type'=>'submit','value'=>'Guardar datos','name'=>'submit','disabled'=>'disabled','style'=>'background-color: #4CAF50;
+						border: 0;
+						border-radius: 10px;
+						cursor: pointer;
+						color: #fff;
+						font-size:16px;
+						font-weight: bold;
+						line-height: 1.4;
+						padding: 10px;
+						width: 100%;');
+						echo form_submit($data);
+						echo form_close();?>
+	
+}
 					</div>
 				</div>
 
