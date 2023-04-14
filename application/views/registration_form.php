@@ -259,7 +259,7 @@ if(sizeof($eventos)>1){
 					}
 					?>
 	
-}
+
 					</div>
 				</div>
 
