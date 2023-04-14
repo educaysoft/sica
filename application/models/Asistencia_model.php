@@ -93,7 +93,7 @@ class Asistencia_model extends CI_model {
  	function saveall($array_item)
  	{
 		$this->db->where('idevento',$array_item['idevento']);
-		$participante=$this->db->get('participante');
+		$participante=$this->db->get('participante0');
 	
 		if($participante->num_rows()>0){
 		foreach($participante->result() as $row){
