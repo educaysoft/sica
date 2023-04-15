@@ -204,7 +204,7 @@ if(sizeof($eventos)>1){
 					<div class="w3-container"  style="text-align:left; font-size: 70%;" >
 					<?php
 						echo "<label style='text-align:left; font-size: 100%;'  for='email'> Fecha de nacimiento: </label>";
-						$data = array('id'=>'fechanacimiento', 'type' => 'email','date' => 'fechanacimiento','class'=>'form-control');
+						$data = array('id'=>'fechanacimiento', 'type' => 'date','name' => 'fechanacimiento','class'=>'form-control');
 						echo form_input($data);
 					?>
 					</div>
