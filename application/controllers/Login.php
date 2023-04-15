@@ -139,7 +139,7 @@ public function new_user_registration() {
           $datatelefono=array('idpersona'=>0,'numero'=>$this->input->post('telefono'),'idoperadora'=>1,'idtelefono_estado'=>1);
 
           //paispersona
-          $datapaispersona=array('idpersona'=>0,'idpais'=>$this->input->get('idpais'),'fechadesde'=>$this->input->get('fechanacimiento'));
+          $datapaispersona=array('idpersona'=>0,'idpais'=>$this->input->post('idpais'),'fechadesde'=>$this->input->get('fechanacimiento'));
 
           //correo
           $datacorreo=array('idpersona'=>0,'nombre'=>$this->input->post('email'),'idcorreo_estado'=>1);
