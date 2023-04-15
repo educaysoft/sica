@@ -20,7 +20,7 @@
 			<div id="detalle" class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
     <?php
     $x='https://repositorioutlvte.org/Repositorio/eventos/'. $eventos[0]->idevento.'.png';
-if(file_exists($x){ ?>
+if(file_exists($x)){ ?>
 <center> <img src="<?php echo $x; ?>"  id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img></center>
    <?php }else{ ?>
 
