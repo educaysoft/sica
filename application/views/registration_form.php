@@ -18,9 +18,9 @@
 			<p id="titulo" style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:30px; text-align:center;">Sistema de registro para eventos académicos <br>  UTELVT</p>
 			</header>
 			<div id="detalle" class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
-    <?php if(file_exists('https://repositorioutlvte.org/Repositorio/eventos/'.$evento['idevento'].'.png'))
+    <?php if(file_exists('https://repositorioutlvte.org/Repositorio/eventos/'.$evento['idevento'].'.png')){ ?>
 <center> <img src="https://repositorioutlvte.org/Repositorio/eventos/<?php echo $evento['idevento']; ?>.png"  id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img></center>
-   <?php else ?>
+   <?php }else{ ?>
 
 <center> <img src="https://repositorioutlvte.org/Repositorio/eventos/sinimagen.png"  id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img></center>
 <?php } ?>
