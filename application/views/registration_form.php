@@ -201,6 +201,15 @@ if(sizeof($eventos)>1){
 					</div>
 
 
+					<div class="w3-container"  style="text-align:left; font-size: 70%;" >
+					<?php
+						echo "<label style='text-align:left; font-size: 100%;'  for='email'> Fecha de nacimiento: </label>";
+						$data = array('id'=>'fechanacimiento', 'type' => 'email','date' => 'fechanacimiento','class'=>'form-control');
+						echo form_input($data);
+					?>
+					</div>
+
+
 
 					<div class="w3-container"  style="text-align:left; font-size: 70%;" >
 					<?php
@@ -209,6 +218,24 @@ if(sizeof($eventos)>1){
 						echo form_input($data);
 					?>
 					</div>
+
+
+<div  class="w3-container" style="text-align:left; font-size: 70%;">
+
+						<?php 
+
+						echo "<label  style='text-align:left; font-size: 100%;' for='sexo'> Pais: </label>";
+							$options= array('--Select--');
+							foreach ($pais as $row){
+								$options[$row->idpais]= $row->nombre;
+							}
+
+						 echo form_dropdown($name="idpaispersona",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idpaispersona'));  ?>
+
+					</div>
+
+
+
 
 
 

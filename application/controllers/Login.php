@@ -15,6 +15,7 @@ parent::__construct();
 	$this->load->model('nivelacceso_model');
 	$this->load->model('institucion_model');
       $this->load->model('sexo_model');
+      $this->load->model('pais_model');
       	$this->load->model('evento_model');
       	$this->load->model('pagina_model');
       	$this->load->model('asistencia_model');
@@ -39,6 +40,7 @@ public function user_registration_show() {
 		$data['eventos']= $this->evento_model->lista_eventos_open(54)->result();
 	}
   	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
+  	$data["paises"]= $this->pais_model->lista_paises()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
 	$this->load->view('template/page_header.php');
 	//$this->load->view('registration_form',$data);
@@ -84,11 +86,14 @@ public function new_user_registration() {
           $this->form_validation->set_rules('nombres', 'Nombres', 'trim|required|xss_clean');
           $this->form_validation->set_rules('idevento', 'Evento', 'trim|required|xss_clean');
           $this->form_validation->set_rules('idsexo', 'Sexo', 'trim|required|xss_clean');
+          $this->form_validation->set_rules('idpaispersona', 'Pais', 'trim|required|xss_clean');
           $this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');
+          $this->form_validation->set_rules('fechanacimiento', 'Fechanacimiento', 'trim|required|xss_clean');
           $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
           if ($this->form_validation->run() == FALSE) {
             $data['eventos']= $this->evento_model->lista_eventos()->result();
   	    $data["sexos"]= $this->sexo_model->lista_sexos()->result();
+  	    $data["paises"]= $this->pais_model->lista_paises()->result();
             $this->load->view('template/page_header.php');
             $this->load->view('registration_form',$data);
             $this->load->view('template/page_footer.php');
@@ -121,7 +126,8 @@ public function new_user_registration() {
           $datapersona = array('cedula'=>$this->input->post('cedula'),'nombres'=>$this->input->post('nombres'),'apellidos'=>$this->input->post('apellidos'));
           $datapersona+=['foto'=>"fotos/".$this->input->post('cedula').".png"];
           $datapersona+=['pdf'=>"pdfs/".$this->input->post('cedula').".pdf"];
-          $datapersona+=["idsexo"=>1];
+          $datapersona+=["idsexo"=>$this->input->post('idsexo')];
+          $datapersona+=["fechanacimiento"=>$this->input->post('fechanacimiento')];
           $datapersona+=["idestadocivil"=>1];
           $datapersona+=["idtiposangre"=>1];
           $datapersona+=["idnacionalidad"=>1];
@@ -132,11 +138,14 @@ public function new_user_registration() {
           //telefono
           $datatelefono=array('idpersona'=>0,'numero'=>$this->input->post('telefono'),'idoperadora'=>1,'idtelefono_estado'=>1);
 
+          //paispersona
+          $datapaispersona=array('idpersona'=>0,'idpais'=>$this->input->get('idpais'),'fechadesde'=>$this->input->get('fechanacimiento'));
+
           //correo
           $datacorreo=array('idpersona'=>0,'nombre'=>$this->input->post('email'),'idcorreo_estado'=>1);
 
 	 $data['eventos']= $this->evento_model->lista_eventos_open(0)->result();
-          $result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono);
+          $result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono,$datapaispersona);
           if ($result == TRUE) {
 		if($fuente==0)  
 		{
@@ -154,6 +163,7 @@ public function new_user_registration() {
             		$data['message_display'] = 'Username already exist!';
             		//$data['programa_list'] = $this->programa_model->list_programa()->result();
   			$data["sexos"]= $this->sexo_model->lista_sexos()->result();
+  			$data["paises"]= $this->pais_model->lista_paises()->result();
             		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
             		$data['eventos']= $this->evento_model->lista_eventos()->result();
              		$this->load->view('template/page_header.php');
@@ -193,7 +203,8 @@ public function carga_masiva_save() {
           $datapersona = array('cedula'=>$this->input->get('cedula'),'nombres'=>$this->input->get('nombres'),'apellidos'=>$this->input->get('apellidos'));
           $datapersona+=['foto'=>"fotos/".$this->input->get('cedula').".png"];
           $datapersona+=['pdf'=>"pdfs/".$this->input->get('cedula').".pdf"];
-          $datapersona+=["idsexo"=>1];
+          $datapersona+=["idsexo"=>$this->input->get('idsexo')];
+          $datapersona+=["fechanacimiento"=>$this->input->get('fechanacimiento')];
           $datapersona+=["idestadocivil"=>1];
           $datapersona+=["idtiposangre"=>1];
           $datapersona+=["idnacionalidad"=>1];
@@ -204,11 +215,14 @@ public function carga_masiva_save() {
           //telefono
           $datatelefono=array('idpersona'=>0,'numero'=>$this->input->get('telefono'),'idoperadora'=>1,'idtelefono_estado'=>1);
 
+          //paispersona
+          $datapaispersona=array('idpersona'=>0,'idpais'=>$this->input->get('idpais'),'fechadesde'=>$this->input->get('fechanacimiento'));
+
           //correo
           $datacorreo=array('idpersona'=>0,'nombre'=>$this->input->get('email'),'idcorreo_estado'=>1);
 
 	 $data['eventos']= $this->evento_model->lista_eventos_open()->result();
-          $result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono);
+          $result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono,$datapaispersona);
           if ($result == TRUE) {
 		echo json_encode(array('resultado'=>'TRUE'));
           } else {

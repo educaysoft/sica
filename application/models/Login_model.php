@@ -51,9 +51,31 @@ Class Login_model extends CI_Model {
 
 	}
 
+	public function nuevo_paispersona($data)
+	{
+
+		$condition = "idpersona =" .  $data['idpersona']." and pais = ". $data['pais'];
+		$this->db->select('*');
+		$this->db->from('paispersona');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+
+		if ($query->num_rows() == 0) {
+
+			$this->db->insert('paispersona', $data);
+		}
+
+	}
+
+
+
+
+
+
 	// Insert registration data in database
 	// varible fuente para saber de donde fue llamada 0 =php   1=javascrip
-public function registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono) {
+public function registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono,$datapaispersona) {
 
 		$this->db->trans_start();
 // Query to check whether username already exist or not
@@ -79,9 +101,11 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 								$dataparticipante["idpersona"]=$idpersona;
 								$datacorreo["idpersona"]=$idpersona;
 								$datatelefono["idpersona"]=$idpersona;
+								$datapaispersona["idpersona"]=$idpersona;
 								$this->db->insert('participante', $dataparticipante);
 								$this->db->insert('correo', $datacorreo);
 								$this->db->insert('telefono', $datatelefono);
+								$this->db->insert('paispersona', $datapaispersona);
 								$this->db->insert('usuario', $datausuario);
 								if ($this->db->affected_rows() > 0) {
 								    $idusuario=$this->db->insert_id();
@@ -105,9 +129,11 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 						$dataparticipante["idpersona"]=$idpersona;
 						$datacorreo["idpersona"]=$idpersona;
 						$datatelefono["idpersona"]=$idpersona;
+						$datapaispersona["idpersona"]=$idpersona;
 						$this->nuevo_participante($dataparticipante);
 						$this->nuevo_correo($datacorreo);
 						$this->nuevo_telefono($datatelefono);
+						$this->nuevo_paispersona($datapaispersona);
 						$this->db->insert('usuario', $datausuario);
 						if ($this->db->affected_rows() > 0) {
 							    $idusuario=$this->db->insert_id();
