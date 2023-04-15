@@ -20,10 +20,8 @@
 			<div id="detalle" class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
     <?php
     $x='https://repositorioutlvte.org/Repositorio/eventos/'. $eventos[0]->idevento.'.png';
-     echo $x;
-die();
-if(file_exists('https://repositorioutlvte.org/Repositorio/eventos/'. $eventos[0]->idevento.'.png')){ ?>
-<center> <img src="https://repositorioutlvte.org/Repositorio/eventos/<?php echo $eventos[0]->idevento; ?>.png"  id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img></center>
+if(file_exists($x){ ?>
+<center> <img src="<?php echo $x; ?>"  id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img></center>
    <?php }else{ ?>
 
 <center> <img src="https://repositorioutlvte.org/Repositorio/eventos/sinimagen.png"  id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img></center>
