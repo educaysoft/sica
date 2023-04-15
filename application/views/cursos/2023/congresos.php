@@ -169,7 +169,7 @@ overflow:hidden;
 </div>
 
             <div class="card-body">
-              <p class="card-text">Ornanización del IV Congreso Internacional Ciencias Administrativas y Económicas.</p>
+              <p class="card-text">Organización del IV Congreso Internacional Ciencias Administrativas y Económicas.</p>
 	      <p><b>Cordinadora:</b>  Ing. Mariuxi Guijarro Cagua. PhD.</p>
 	      <p><b>Fechas:</b>  01 de Abril al 6 de Septiembre del 2023.</a></p>
 	      <p><b>Dias reuniones:</b>  Lunes,  Miercoles,  Viernes </p>
