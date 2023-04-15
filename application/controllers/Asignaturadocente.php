@@ -23,10 +23,10 @@ public function index(){
   	$data['asignaturadocente']=$this->asignaturadocente_model->lista_asignaturadocentes()->row_array();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
-  		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
+  	$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  	$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
-		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
+	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
 			
 		$data['title']="Lista de asignaturadocentes";
 		$this->load->view('template/page_header');
@@ -78,6 +78,7 @@ public function add()
 			'iddistributivodocente' => $this->input->post('iddistributivodocente'),
 			'idasignatura' => $this->input->post('idasignatura'),
 			'idparalelo' => $this->input->post('idparalelo'),
+			'idsilabo' => 0,
 			'idestadoasignaturadocente' => 1,
 	 	);
 	 	$result=$this->asignaturadocente_model->save($array_item);
@@ -285,10 +286,10 @@ public function elultimo()
 	$data['asignaturadocente'] = $this->asignaturadocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
-  		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
-  		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
+  	$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  	$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
-		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
   if(!empty($data))
   {
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
