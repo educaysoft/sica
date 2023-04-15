@@ -196,7 +196,7 @@ overflow:hidden;
 
             <div class="card-body">
               <p class="card-text">IV Congreso Internacional Ciencias Administrativas y Económicas.</p>
-	      <p><b>Cordinadora:</b>  Abg. Felix Rosales. Msc..</p>
+	      <p><b>Cordinador:</b>  Abg. Felix Rosales. Msc..</p>
 	      <p><b>Fechas:</b>  04 al 06 de Septiembre del 2023.</a></p>
 	      <p><b>Dias reuniones:</b>  Lunes, Martes, Miercoles </p>
 	      <p><b>Hora:</b>  08:00 - 16:00 </p>
