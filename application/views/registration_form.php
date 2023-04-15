@@ -12,7 +12,7 @@
 <div class="w3-container" id="eys-registro">
 	
 	<div style="width: 50%;  padding:5px;   display: inline-flex; " >
-		<div   style="width:100%; height:700px; ">
+		<div   style="width:100%; height:800px; ">
 			<header class="w3-container">
 			<div ><center> <img src="<?php echo base_url(); ?>images/CentroEducacionContinua.png" style="width: 100%;" alt="Centro de Educación Continua UTLVTE"></img></center>   </div>
 			<p id="titulo" style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:30px; text-align:center;">Sistema de registro para eventos académicos <br>  UTELVT</p>
@@ -97,10 +97,10 @@ if(sizeof($eventos)>1){
 }else{
 	if($eventos[0]->idevento_estado==2)
 	{
-		echo "<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: <estado style='font-size:20px; color:green;'> ---INSCRIPCIONES ABIERTAS</estado> </label>";
+		echo "<label  style='text-align:left; font-size: 100%;' for='evento'>  <estado style='font-size:20px; color:green;'> INSCRIPCIONES ABIERTAS</estado> </label>";
 	}else{
 
-			echo "<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: <estado style='font-size:20px; color:red;'>INSCRIPCIONES CERRADAS</estado> </label>";
+			echo "<label  style='text-align:left; font-size: 100%;' for='evento'> <estado style='font-size:20px; color:red;'>INSCRIPCIONES CERRADAS</estado> </label>";
 	}
 
     $arrdatos=array('name'=>'idevento','value'=>$eventos[0]->idevento,"type"=>"hidden", "style"=>"width:600px");
