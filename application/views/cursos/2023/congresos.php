@@ -163,7 +163,7 @@ overflow:hidden;
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-		  <a  href='https://congresoutlvte.org/faci/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="https://repositorioutlvte.org/Repositorio/eventos/337.jpg" height="100%" width="100%"/>  </svg></a>
+		  <a  href='https://congresoutlvte.org/faci/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="https://repositorioutlvte.org/Repositorio/eventos/337.png" height="100%" width="100%"/>  </svg></a>
 <div class='img-contenedor w3-card-4' style='position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;'>
 <img src='https://repositorioutlvte.org/Repositorio/fotos/0802157867.png' width='100%' height='100%' style='border-radius:50px;'>
 </div>
@@ -189,13 +189,13 @@ overflow:hidden;
 
         <div class="col">
           <div class="card shadow-sm">
-		  <a  href='https://congresoutlvte.org/faci/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="https://repositorioutlvte.org/Repositorio/eventos/338.jpg" height="100%" width="100%"/>  </svg></a>
+		  <a  href='https://congresoutlvte.org/faci/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="https://repositorioutlvte.org/Repositorio/eventos/338.png" height="100%" width="100%"/>  </svg></a>
 <div class='img-contenedor w3-card-4' style='position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;'>
 <img src='https://repositorioutlvte.org/Repositorio/fotos/0800797797.png' width='100%' height='100%' style='border-radius:50px;'>
 </div>
 
             <div class="card-body">
-              <p class="card-text">Ornanización del IV Congreso Internacional Ciencias Administrativas y Económicas.</p>
+              <p class="card-text">IV Congreso Internacional Ciencias Administrativas y Económicas.</p>
 	      <p><b>Cordinadora:</b>  Abg. Felix Rosales. Msc..</p>
 	      <p><b>Fechas:</b>  04 al 06 de Septiembre del 2023.</a></p>
 	      <p><b>Dias reuniones:</b>  Lunes, Martes, Miercoles </p>
