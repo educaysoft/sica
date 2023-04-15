@@ -226,7 +226,7 @@ if(sizeof($eventos)>1){
 
 						echo "<label  style='text-align:left; font-size: 100%;' for='sexo'> Pais: </label>";
 							$options= array('--Select--');
-							foreach ($pais as $row){
+							foreach ($paises as $row){
 								$options[$row->idpais]= $row->nombre;
 							}
 
