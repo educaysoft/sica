@@ -169,7 +169,13 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 						$query = $this->db->get();
 						if ($query->num_rows()== 0) {
 							$dataparticipante["idpersona"]=$idpersona;
+							$datacorreo["idpersona"]=$idpersona;
+							$datatelefono["idpersona"]=$idpersona;
+							$datapaispersona["idpersona"]=$idpersona;
 							$this->nuevo_participante($dataparticipante);
+							$this->nuevo_correo($datacorreo);
+							$this->nuevo_telefono($datatelefono);
+							$this->nuevo_paispersona($datapaispersona);
 							$condition = "idusuario =" . "'" . $idusuario . "'";
 							$condition = $condition. " and onoff = 1";
 							$this->db->select('*');

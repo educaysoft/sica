@@ -238,7 +238,7 @@ if(sizeof($eventos)>1){
 								$options[$row->idpais]= $row->nombre;
 							}
 
-						 echo form_dropdown($name="idpaispersona",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idpaispersona'));  ?>
+						 echo form_dropdown($name="idpais",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idpais'));  ?>
 
 					</div>
 

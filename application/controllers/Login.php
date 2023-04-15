@@ -86,7 +86,7 @@ public function new_user_registration() {
           $this->form_validation->set_rules('nombres', 'Nombres', 'trim|required|xss_clean');
           $this->form_validation->set_rules('idevento', 'Evento', 'trim|required|xss_clean');
           $this->form_validation->set_rules('idsexo', 'Sexo', 'trim|required|xss_clean');
-          $this->form_validation->set_rules('idpaispersona', 'Pais', 'trim|required|xss_clean');
+          $this->form_validation->set_rules('idpais', 'Pais', 'trim|required|xss_clean');
           $this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');
           $this->form_validation->set_rules('fechanacimiento', 'Fechanacimiento', 'trim|required|xss_clean');
           $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
