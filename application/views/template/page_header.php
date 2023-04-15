@@ -691,6 +691,7 @@ if(isset($this->session->userdata['acceso'])){
 
 
  	</div>
+<main>
   <div id="eys-contenido-g"  style="margin-top: 5vh; ">
    
 <div id="eys-principal"  style="height:100%; width:90%;   vertical-align:top; padding-bottom:2.5em; margin:10vh 0 auto; ">

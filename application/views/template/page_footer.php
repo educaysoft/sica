@@ -1,6 +1,47 @@
 
 </div>
 </div>
+</main>
+
+
+   	<?php if(!isset($this->session->userdata['logged_in']) ){ ?>
+
+<!-- Footer -->
+<footer class="text-muted py-5">
+<div id="eys-footer"    >
+  <div style="margin-top:10px; height: 100%; width: 30%; display: flex; flex-direction:column;  ">
+    <div >      
+        <p style="color: black;font-size:20px;font-weight:bold;">Contactanos:</p>
+    </div>
+    <main style="color: black;font-size:20px;">
+      <p style="font-size: 1vw;">Dirección: Ciudadela Nuevos Horizontes:</p>
+      <p style="font-size: 1vw;">Correo: maestria.ti@utelvt.edu.ec</p>
+</main>   
+ </div>
+ <div style="  height:100%; width:30%; display:flex; justify-content: center; flex-direction: column; ">
+     <div style="width: 100%;  height: 100%; ">
+     <center><a href="https://utelvt.edu.ec/sitioweb/"> <img src="<?php echo base_url(); ?>images/logo.png" style="height: 100%;"></a></center>
+    </div>
+<div style="width: 100%;">
+<center>Visitas:<br> <script src="<?php echo base_url(); ?>misvisitas.php"></script> </center>
+</div>
+ </div>
+
+<div style="color: black; height: 100%; width: 30%; display:flex; justify-content: center;  ">
+    <ul style="margin:0; padding:0;" class="icons">
+    <li><a href="https://educaysoft.org/sica/MTI/doc/_build/html/">Maestría en Tecnología de la Información</a></li>
+    </ul>
+</div>
+
+
+
+
+</div>
+</footer>
+<!-- Footer -->
+
+   	<?php } ?>
+
 <script>
 
 
@@ -91,43 +132,7 @@ function ocultar() {
 document.getElementById("eys-principal").style.width="95%";
 </script>
 
-   	<?php if(!isset($this->session->userdata['logged_in']) ){ ?>
 
-<!-- Footer -->
-<footer class="text-muted py-5">
-<div id="eys-footer"    >
-  <div style="margin-top:10px; height: 100%; width: 30%; display: flex; flex-direction:column;  ">
-    <div >      
-        <p style="color: black;font-size:20px;font-weight:bold;">Contactanos:</p>
-    </div>
-    <main style="color: black;font-size:20px;">
-      <p style="font-size: 1vw;">Dirección: Ciudadela Nuevos Horizontes:</p>
-      <p style="font-size: 1vw;">Correo: maestria.ti@utelvt.edu.ec</p>
-</main>   
- </div>
- <div style="  height:100%; width:30%; display:flex; justify-content: center; flex-direction: column; ">
-     <div style="width: 100%;  height: 100%; ">
-     <center><a href="https://utelvt.edu.ec/sitioweb/"> <img src="<?php echo base_url(); ?>images/logo.png" style="height: 100%;"></a></center>
-    </div>
-<div style="width: 100%;">
-<center>Visitas:<br> <script src="<?php echo base_url(); ?>misvisitas.php"></script> </center>
-</div>
- </div>
-
-<div style="color: black; height: 100%; width: 30%; display:flex; justify-content: center;  ">
-    <ul style="margin:0; padding:0;" class="icons">
-    <li><a href="https://educaysoft.org/sica/MTI/doc/_build/html/">Maestría en Tecnología de la Información</a></li>
-    </ul>
-</div>
-
-
-
-
-</div>
-</footer>
-<!-- Footer -->
-
-   	<?php } ?>
 </body>
 
 </html>
