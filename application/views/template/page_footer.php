@@ -94,6 +94,7 @@ document.getElementById("eys-principal").style.width="95%";
    	<?php if(!isset($this->session->userdata['logged_in']) ){ ?>
 
 <!-- Footer -->
+<footer class="text-muted py-5">
 <div id="eys-footer"    >
   <div style="margin-top:10px; height: 100%; width: 30%; display: flex; flex-direction:column;  ">
     <div >      
@@ -123,6 +124,7 @@ document.getElementById("eys-principal").style.width="95%";
 
 
 </div>
+</footer>
 <!-- Footer -->
 
    	<?php } ?>
