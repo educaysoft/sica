@@ -294,7 +294,7 @@ if(sizeof($eventos)>1){
 					</div>
 				</div>
 
-				<footer align="right"  class='w3-container' style="font-size:25px; padding: 10px;">
+				<footer align="right"  class='w3-container' style="font-size:25px; padding-top:0px; padding: 10px;">
 					<center> ¿Ya creastes tu cuenta? <br> <a style="color:red;"  href="<?php echo base_url() ?>index.php/login" role="button">Ingresar al sistema</a></center>
 				</footer>
 			</div>
