@@ -54,7 +54,7 @@ Class Login_model extends CI_Model {
 	public function nuevo_paispersona($data)
 	{
 
-		$condition = "idpersona =" .  $data['idpersona']." and pais = ". $data['pais'];
+		$condition = "idpersona =" .  $data['idpersona']." and idpais = ". $data['idpais'];
 		$this->db->select('*');
 		$this->db->from('paispersona');
 		$this->db->where($condition);
