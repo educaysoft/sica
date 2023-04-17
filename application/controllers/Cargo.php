@@ -1,18 +1,18 @@
 <?php
 
-class Ordenador extends CI_Controller{
+class Cargo extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('ordenador_model');
+      $this->load->model('cargo_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['ordenador']=$this->ordenador_model->ordenador(1)->row_array();
-		$data['title']="Lista de ordenadores";
+		$data['cargo']=$this->cargo_model->cargo(1)->row_array();
+		$data['title']="Lista de cargoes";
 		$this->load->view('template/page_header');
-		$this->load->view('ordenador_record',$data);
+		$this->load->view('cargo_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva ordenador";
+		$data['title']="Nueva cargo";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('ordenador_form',$data);
+	 	$this->load->view('cargo_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,21 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idordenador' => $this->input->post('idordenador'),
+	 	'idcargo' => $this->input->post('idcargo'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->ordenador_model->save($array_item);
-	 	redirect('ordenador');
+	 	$this->cargo_model->save($array_item);
+	 	redirect('cargo');
  	}
 
 
 
 public function edit()
 {
-	 	$data['ordenador'] = $this->ordenador_model->ordenador($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar ordenador";
+	 	$data['cargo'] = $this->cargo_model->cargo($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar cargo";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('ordenador_edit',$data);
+ 	 	$this->load->view('cargo_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +56,22 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idordenador');
+		$id=$this->input->post('idcargo');
 	 	$array_item=array(
 		 	
-		 	'idordenador' => $this->input->post('idordenador'),
+		 	'idcargo' => $this->input->post('idcargo'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->ordenador_model->update($id,$array_item);
-	 	redirect('ordenador');
+	 	$this->cargo_model->update($id,$array_item);
+	 	redirect('cargo');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->ordenador_model->delete($this->uri->segment(3));
+ 		$data=$this->cargo_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('ordenador/elprimero');
+	 	redirect('cargo/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -79,26 +79,26 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Ordenador";
+  $data['title']="Cargo";
 	$this->load->view('template/page_header');		
-  $this->load->view('ordenador_list',$data);
+  $this->load->view('cargo_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function ordenador_data()
+function cargo_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->ordenador_model->lista_ordenadores();
+	 	$data0 = $this->cargo_model->lista_cargoes();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idordenador,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idordenador="'.$r->idordenador.'">Ver</a>');
+			$data[]=array($r->idcargo,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcargo="'.$r->idcargo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -121,12 +121,12 @@ function ordenador_data()
 
 public function elprimero()
 {
-	$data['ordenador'] = $this->ordenador_model->elprimero();
+	$data['cargo'] = $this->cargo_model->elprimero();
   if(!empty($data))
   {
-    $data['title']="Ordenador";
+    $data['title']="Cargo";
     $this->load->view('template/page_header');		
-    $this->load->view('ordenador_record',$data);
+    $this->load->view('cargo_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +137,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['ordenador'] = $this->ordenador_model->elultimo();
+	$data['cargo'] = $this->cargo_model->elultimo();
   if(!empty($data))
   {
-    $data['title']="Ordenador";
+    $data['title']="Cargo";
   
     $this->load->view('template/page_header');		
-    $this->load->view('ordenador_record',$data);
+    $this->load->view('cargo_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,20 +154,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['ordenador_list']=$this->ordenador_model->lista_ordenador()->result();
-	$data['ordenador'] = $this->ordenador_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Ordenador";
+ // $data['cargo_list']=$this->cargo_model->lista_cargo()->result();
+	$data['cargo'] = $this->cargo_model->siguiente($this->uri->segment(3))->row_array();
+  $data['title']="Cargo";
 	$this->load->view('template/page_header');		
-  $this->load->view('ordenador_record',$data);
+  $this->load->view('cargo_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['ordenador_list']=$this->ordenador_model->lista_ordenador()->result();
-	$data['ordenador'] = $this->ordenador_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Ordenador";
+ // $data['cargo_list']=$this->cargo_model->lista_cargo()->result();
+	$data['cargo'] = $this->cargo_model->anterior($this->uri->segment(3))->row_array();
+  $data['title']="Cargo";
 	$this->load->view('template/page_header');		
-  $this->load->view('ordenador_record',$data);
+  $this->load->view('cargo_record',$data);
 	$this->load->view('template/page_footer');
 }
 
