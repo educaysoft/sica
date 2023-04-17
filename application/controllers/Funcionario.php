@@ -6,6 +6,7 @@ class Funcionario extends CI_Controller{
       parent::__construct();
   	  $this->load->model('persona_model');
   	  $this->load->model('departamento_model');
+  	  $this->load->model('cargo_model');
   	  $this->load->model('funcionario_model');
   	  $this->load->model('estudio_model');
   	  $this->load->model('silabo_model');
@@ -18,6 +19,7 @@ public function index(){
 		$data['funcionario']=$this->funcionario_model->elultimo();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['cargos']= $this->cargo_model->lista_cargos()->result();
 		$data['estudios']= $this->estudio_model->estudios($data['funcionario']['idpersona'])->result();
 			
 		$data['title']="Lista de funcionarios";
@@ -77,6 +79,7 @@ public function actual(){
 	{
 			$data['personas']= $this->persona_model->lista_personas()->result();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+			$data['cargos']= $this->cargo_model->lista_cargos()->result();
 			$data['title']="Nueva Funcionario";
 			$this->load->view('template/page_header');		
 			$this->load->view('funcionario_form',$data);
