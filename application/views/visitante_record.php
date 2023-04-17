@@ -100,7 +100,7 @@ foreach ($funcionarios as $row){
 	$options[$row->idfuncionario]= $row->elfuncionario;
 }
 
-echo form_input(array('name'=>'idfuncionario',"type"=>"hidden","value"=>$visitante['idfuncionario'],"id"=>"idfuncionario")); 
+echo form_input(array('name'=>'idfuncionario',"type"=>"text","value"=>$visitante['idfuncionario'],"id"=>"idfuncionario")); 
 		?>
 	</div> 
 </div>
