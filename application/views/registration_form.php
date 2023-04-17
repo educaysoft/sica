@@ -198,7 +198,7 @@ if(sizeof($eventos)>1){
 
 						<?php 
 
-						echo "<label  style='text-align:left; font-size: 100%;' for='sexo'> Sexo: </label>";
+						echo "<label  style='text-align:left; font-size: 100%;' for='idsexo'> Sexo: </label>";
 							$options= array('--Select--');
 							foreach ($sexos as $row){
 								$options[$row->idsexo]= $row->nombre;
@@ -211,7 +211,7 @@ if(sizeof($eventos)>1){
 
 					<div class="w3-container"  style="text-align:left; font-size: 70%;" >
 					<?php
-						echo "<label style='text-align:left; font-size: 100%;'  for='email'> Fecha de nacimiento: </label>";
+						echo "<label style='text-align:left; font-size: 100%;'  for='fechanacimiento'> Fecha de nacimiento: </label>";
 						$data = array('id'=>'fechanacimiento', 'type' => 'date','name' => 'fechanacimiento','class'=>'form-control');
 						echo form_input($data);
 					?>
@@ -221,7 +221,7 @@ if(sizeof($eventos)>1){
 
 					<div class="w3-container"  style="text-align:left; font-size: 70%;" >
 					<?php
-						echo "<label style='text-align:left; font-size: 100%;'  for='email'> Teléfono: </label>";
+						echo "<label style='text-align:left; font-size: 100%;'  for='telefono'> Teléfono: </label>";
 						$data = array('id'=>'telefono', 'type' => 'text','name' => 'telefono','class'=>'form-control');
 						echo form_input($data);
 					?>
@@ -232,7 +232,7 @@ if(sizeof($eventos)>1){
 
 						<?php 
 
-						echo "<label  style='text-align:left; font-size: 100%;' for='sexo'> Pais: </label>";
+						echo "<label  style='text-align:left; font-size: 100%;' for='idpais'> Pais: </label>";
 							$options= array('--Select--');
 							foreach ($paises as $row){
 								$options[$row->idpais]= $row->nombre;
