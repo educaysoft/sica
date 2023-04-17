@@ -1,7 +1,7 @@
 <?php
 class Cargo_model extends CI_model {
 
-	function lista_cargoes(){
+	function lista_cargos(){
 		 $cargo= $this->db->get('cargo');
 		 return $cargo;
 	}
