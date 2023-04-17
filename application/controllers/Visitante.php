@@ -6,6 +6,7 @@ class Visitante extends CI_Controller{
       		$this->load->model('visitante_model');
       		$this->load->model('documento_model');
       		$this->load->model('persona_model');
+      		$this->load->model('funcionario_model');
       		$this->load->model('departamento_model');
       		$this->load->model('tipoparticipacion_model');
 	}
@@ -14,11 +15,10 @@ class Visitante extends CI_Controller{
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
+  		$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
 		$data['visitante'] = $this->visitante_model->elultimo();
 		$data['departamento'] = $this->departamento_model->departamento($data['visitante']['iddepartamento'])->row_array();
   		$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
-
- 		// print_r($data['visitante_list']);
   		$data['title']="Lista de Visitantees";
 		$this->load->view('template/page_header');		
   		$this->load->view('visitante_record',$data);
@@ -32,6 +32,7 @@ public function actual(){
    	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['tipoparticipacion']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+  	$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
 	$data['personas']= $this->persona_model->lista_personas()->result();
  
  
