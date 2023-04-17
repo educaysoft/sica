@@ -57,6 +57,7 @@ public function actual(){
 
 	$data['personas']= $this->persona_model->lista_personas()->result();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['cargos']= $this->cargo_model->lista_cargos()->result();
 	$data['funcionario']=$this->funcionario_model->funcionario($this->uri->segment(3))->row_array();
 	$data['estudios']= $this->estudio_model->estudios($data['funcionario']['idpersona'])->result();
 
@@ -94,6 +95,9 @@ public function actual(){
 		 	'idfuncionario' => $this->input->post('idfuncionario'),
 			'idpersona' => $this->input->post('idpersona'),
 			'iddepartamento' => $this->input->post('iddepartamento'),
+			'idcargo' => $this->input->post('idcargo'),
+			'fechaingreso' => $this->input->post('fechaingreso'),
+			'fechasalida' => $this->input->post('fechasalida'),
 	 	);
 	 	$result=$this->funcionario_model->save($array_item);
 	 	if($result == FALSE)
