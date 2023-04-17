@@ -1,5 +1,4 @@
 use educayso_facae;
-drop table ubicacionfuncionario;
 CREATE TABLE `ubicacionfuncionario` (
   `idubicacionfuncionario` int(11) NOT NULL auto_increment primary key,
   `idfuncionario` int(11) DEFAULT 0,
