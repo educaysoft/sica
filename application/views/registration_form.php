@@ -76,13 +76,13 @@ if(@getimagesize($x)){ ?>
 					<div  class="w3-container" style="text-align:left; font-size: 70%;">
 
 						<?php 
-						echo "<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: </label>";
+						echo "<label  style='text-align:left; font-size: 100%;' for='idevento'> Evento: </label>";
 							$options= array('--Select--');
 							foreach ($eventos as $row){
 								$options[$row->idevento]= $row->titulo;
 							}
 
-				echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('class'=>'form-control'));  
+				echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idevento'));  
 ?>
 					</div>
 

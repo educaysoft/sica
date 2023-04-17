@@ -22,8 +22,8 @@
      <div style="width: 100%;  height: 100%; ">
      <center><a href="https://utelvt.edu.ec/sitioweb/"> <img src="<?php echo base_url(); ?>images/logo.png" style="height: 100%;"></a></center>
     </div>
-<div style="width: 100%;">
-<center>Visitas:<br> <script src="<?php echo base_url(); ?>misvisitas.php"></script> </center>
+<div style="width: 100%;text-align:center;">
+Visitas:<br> <script src="<?php echo base_url(); ?>misvisitas.php"></script> 
 </div>
  </div>
 
