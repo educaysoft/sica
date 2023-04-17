@@ -92,6 +92,22 @@ echo form_input('iddepartamento',$options[$visitante['iddepartamento']],array("d
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"><?php echo anchor('funcionario/actual/'.$visitante['idfuncionario'], 'Funcionario:'); ?>  </label>
+	<div class="col-md-10">
+     	<?php 
+$options= array("NADA");
+foreach ($funcionarios as $row){
+	$options[$row->idfuncionario]= $row->elfuncionario;
+}
+
+echo form_input(array('name'=>'idfuncionario',"type"=>"hidden","value"=>$visitante['idfuncionario'],"id"=>"idfuncionario")); 
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label">Id persona:</label>
 	<div class="col-md-10">
 		<?php
