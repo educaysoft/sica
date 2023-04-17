@@ -2,24 +2,24 @@
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($docente))
+if(isset($funcionario))
 {
 ?>
-        <li> <?php echo anchor('docente/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('docente/anterior/'.$docente['iddocente'], 'anterior'); ?></li>
-        <li> <?php echo anchor('docente/siguiente/'.$docente['iddocente'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('docente/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('docente/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('docente/edit/'.$docente['iddocente'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('docente/delete/'.$docente['iddocente'],'Delete'); ?></li>
-        <li> <?php echo anchor('docente/listar/','Listar'); ?></li>
-        <li> <?php echo anchor('docente/reportepdf/'.$docente['idpersona'],'reportepdf'); ?></li>
+        <li> <?php echo anchor('funcionario/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('funcionario/anterior/'.$funcionario['idfuncionario'], 'anterior'); ?></li>
+        <li> <?php echo anchor('funcionario/siguiente/'.$funcionario['idfuncionario'], 'siguiente'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('funcionario/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('funcionario/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('funcionario/edit/'.$funcionario['idfuncionario'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('funcionario/delete/'.$funcionario['idfuncionario'],'Delete'); ?></li>
+        <li> <?php echo anchor('funcionario/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('funcionario/reportepdf/'.$funcionario['idpersona'],'reportepdf'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('docente/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('funcionario/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -30,15 +30,15 @@ if(isset($docente))
 <br>
 
 
-<?php echo form_open('docente/save_edit') ?>
-<?php echo form_hidden('iddocente',$docente['iddocente']) ?>
+<?php echo form_open('funcionario/save_edit') ?>
+<?php echo form_hidden('idfuncionario',$funcionario['idfuncionario']) ?>
 
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label">id persona: </label>
 	<div class="col-md-10">
      	<?php 
-      echo form_input('idpersona',$docente['idpersona'],array("id"=>"idpersona","disabled"=>"disabled",'placeholder'=>'Iddocentes')); 
+      echo form_input('idpersona',$funcionario['idpersona'],array("id"=>"idpersona","disabled"=>"disabled",'placeholder'=>'Idfuncionarios')); 
 		?>
 	</div> 
 </div>
@@ -47,10 +47,10 @@ if(isset($docente))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">id Docente: </label>
+    <label class="col-md-2 col-form-label">id Funcionario: </label>
 	<div class="col-md-10">
      	<?php 
-      echo form_input('iddocente',$docente['iddocente'],array("id"=>"iddocente","disabled"=>"disabled",'placeholder'=>'Iddocentes')); 
+      echo form_input('idfuncionario',$funcionario['idfuncionario'],array("id"=>"idfuncionario","disabled"=>"disabled",'placeholder'=>'Idfuncionarios')); 
 		?>
 	</div> 
 </div>
@@ -62,7 +62,7 @@ if(isset($docente))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Docente: </label>
+    <label class="col-md-2 col-form-label"> Funcionario: </label>
 	<div class="col-md-10">
      	<?php 
  
@@ -71,7 +71,7 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
 
-echo form_input('idpersona',$options[$docente['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('idpersona',$options[$funcionario['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
@@ -88,7 +88,7 @@ foreach ($departamentos as $row){
 	$options[$row->iddepartamento]= $row->nombre;
 }
 
-echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('iddepartamento',$options[$funcionario['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
@@ -98,7 +98,7 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('estudio/add/'.$docente['idpersona'], 'Estudios realizados:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('estudio/add/'.$funcionario['idpersona'], 'Estudios realizados:') ?> </label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
@@ -142,7 +142,7 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 	<table class="table table-striped table-bordered table-hover" id="mydatas">
 	 <thead>
 	 <tr>
-	 <th>iddocente</th>
+	 <th>idfuncionario</th>
 	 <th>idsilabo</th>
 	 <th>elsilabo</th>
 	 <th>periodo</th>
@@ -168,10 +168,10 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var iddocente=document.getElementById("iddocente").value;
+	var idfuncionario=document.getElementById("idfuncionario").value;
 	var idpersona=document.getElementById("idpersona").value;
-	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('docente/silabo_data')?>', type: 'GET',data:{iddocente:iddocente}},});
-	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('docente/estudio_data')?>', type: 'GET',data:{idpersona:idpersona}},});
+	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('funcionario/silabo_data')?>', type: 'GET',data:{idfuncionario:idfuncionario}},});
+	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('funcionario/estudio_data')?>', type: 'GET',data:{idpersona:idpersona}},});
 
 
 });

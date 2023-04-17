@@ -1,51 +1,67 @@
 <?php
-class Participante extends CI_Controller{
 
-	public function __construct(){
-      		parent::__construct();
-      		$this->load->model('participante_model');
-      		$this->load->model('documento_model');
-      		$this->load->model('persona_model');
-      		$this->load->model('evento_model');
-      		$this->load->model('participanteestado_model');
-      		$this->load->model('nivelparticipante_model');
-      		$this->load->model('tipoparticipacion_model');
-	}
+class Docente extends CI_Controller{
 
-	public function index(){
-  		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
-  		$data['nivelparticipante']= $this->nivelparticipante_model->lista_nivelparticipantes()->result();
-  		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['documentos']= $this->documento_model->lista_documentos()->result();
-		$data['participante'] = $this->participante_model->elultimo();
-		$data['evento'] = $this->evento_model->evento($data['participante']['idevento'])->row_array();
-  		$data['tipoparticipacions']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
+  public function __construct(){
+      parent::__construct();
+  	  $this->load->model('persona_model');
+  	  $this->load->model('departamento_model');
+  	  $this->load->model('docente_model');
+  	  $this->load->model('estudio_model');
+  	  $this->load->model('silabo_model');
+}
 
- 		// print_r($data['participante_list']);
-  		$data['title']="Lista de Participantees";
-		$this->load->view('template/page_header');		
-  		$this->load->view('participante_record',$data);
+public function index(){
+
+  	if(isset($this->session->userdata['logged_in'])){
+			
+		$data['docente']=$this->docente_model->elultimo();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['estudios']= $this->estudio_model->estudios($data['docente']['idpersona'])->result();
+			
+		$data['title']="Lista de docentes";
+		$this->load->view('template/page_header');
+		$this->load->view('docente_record',$data);
 		$this->load->view('template/page_footer');
+	}else{
+	 	$this->load->view('template/page_header.php');
+		$this->load->view('login_form');
+	 	$this->load->view('template/page_footer.php');
 	}
+
+ }
+
+
+
+
+
+	public function reportepdf()
+	{
+		$idpersona=$this->uri->segment(3);
+	 	$data['estudios']= $this->estudio_model->lista_estudios1($idpersona)->result();
+		$data['title']="Evento";
+		$this->load->view('docente_list_pdf',$data);
+	}
+
+
+
+
+
 
 
 public function actual(){
  if(isset($this->session->userdata['logged_in'])){
- 
-   	$data['documentos']= $this->documento_model->lista_documentos()->result();
-  	$data['eventos']= $this->evento_model->lista_eventos()->result();
-	$data['tipoparticipacion']= $this->tipoparticipacion_model->lista_tipoparticipacions()->result();
-  	$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
-  	$data['nivelparticipante']= $this->nivelparticipante_model->lista_nivelparticipantes()->result();
+
 	$data['personas']= $this->persona_model->lista_personas()->result();
- 
- 
-   	$data['participante']=$this->participante_model->participante($this->uri->segment(3))->row_array();
-	$data['evento'] = $this->evento_model->evento($data['participante']['idevento'])->row_array();
-	$data['title']="Esta viendo el Participante # :";
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['docente']=$this->docente_model->docente($this->uri->segment(3))->row_array();
+	$data['estudios']= $this->estudio_model->estudios($data['docente']['idpersona'])->result();
+
+
+	$data['title']="Modulo de Estudiane";
 	$this->load->view('template/page_header');		
-	$this->load->view('participante_record',$data);
+	$this->load->view('docente_record',$data);
 	$this->load->view('template/page_footer');
    }else{
 	$this->load->view('template/page_header.php');
@@ -59,41 +75,29 @@ public function actual(){
 
 	public function add()
 	{
-
-		if($this->uri->segment(3)){
-			$data['eventos']= $this->evento_model->lista_eventos_open($this->uri->segment(3))->result();
-		}else{
-			$data['eventos']= $this->evento_model->lista_eventos_open(0)->result();
-		}
-
-
-
-		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
-  		$data['nivelparticipante']= $this->nivelparticipante_model->lista_nivelparticipantes()->result();
-		$data['title']="Nuevo Participante";
-	 	$this->load->view('template/page_header');		
-	 	$this->load->view('participante_form',$data);
-	 	$this->load->view('template/page_footer');
+			$data['personas']= $this->persona_model->lista_personas()->result();
+			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+			$data['title']="Nueva Docente";
+			$this->load->view('template/page_header');		
+			$this->load->view('docente_form',$data);
+			$this->load->view('template/page_footer');
 	}
 
 
 	public function  save()
 	{
 	 	$array_item=array(
-		 	'idpersona' => $this->input->post('idpersona'),
-		 	'idevento' => $this->input->post('idevento'),
-		 	'idparticipanteestado' => $this->input->post('idparticipanteestado'),
-			'idnivelparticipante'=>$this->input->post('idnivelparticipante'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
-		 	'grupoletra' => $this->input->post('grupoletra'),
+		 	
+		 	'iddocente' => $this->input->post('iddocente'),
+			'idpersona' => $this->input->post('idpersona'),
+			'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
-	 	$result=$this->participante_model->save($array_item);
-	 	if(!$result)
+	 	$result=$this->docente_model->save($array_item);
+	 	if($result == FALSE)
 		{
+			echo "<script language='JavaScript'> alert('Docente ya existe'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
-			echo "<script language='JavaScript'> alert('Participante ya existe'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}
  	}
@@ -102,278 +106,122 @@ public function actual(){
 
 	public function edit()
 	{
-	 	$data['participante'] = $this->participante_model->participante($this->uri->segment(3))->row_array();
-  		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
-  		$data['nivelparticipante']= $this->nivelparticipante_model->lista_nivelparticipantes()->result();
-		$data['eventos']= $this->evento_model->lista_eventos()->result();
-		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['documentos']= $this->documento_model->lista_documentos()->result();
- 	 	$data['title'] = "Actualizar Participante";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('participante_edit',$data);
-	 	$this->load->view('template/page_footer');
+			$data['docente'] = $this->docente_model->docente($this->uri->segment(3))->row_array();
+			$data['personas']= $this->persona_model->lista_personas()->result();
+			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+			$data['title'] = "Actualizar Docente";
+			$this->load->view('template/page_header');		
+			$this->load->view('docente_edit',$data);
+			$this->load->view('template/page_footer');
+	 
 	}
 
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idparticipante');
+		$id=$this->input->post('iddocente');
 	 	$array_item=array(
-		 	'idevento' => $this->input->post('idevento'),
-		 	'idpersona' => $this->input->post('idpersona'),
-		 	'idparticipanteestado' => $this->input->post('idparticipanteestado'),
-			'idnivelparticipante'=>$this->input->post('idnivelparticipante'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
-		 	'grupoletra' => $this->input->post('grupoletra'),
+		 	
+		 	'iddocente' => $this->input->post('iddocente'),
+			'idpersona' => $this->input->post('idpersona'),
+			'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
-	 	$result=$this->participante_model->update($id,$array_item);
-	 	if($result == FALSE)
-		{
-			echo "<script language='JavaScript'> alert('Persona ya existe'); </script>";
-			echo "<script language='JavaScript'> window.history.go(-2);</script>";
-		}else{
-			echo "<script language='JavaScript'> window.history.go(-2);</script>";
-		}
-
+	 	$this->docente_model->update($id,$array_item);
+	 	redirect('docente');
  	}
-
-	public function  save_edit2()
-	{
-		$id=$this->input->post('idparticipante');
-	 	$array_item=array(
-		 	'idevento' => $this->input->post('idevento'),
-		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
-		 	'grupoletra' => $this->input->post('grupoletra'),
-	 	);
-	 	echo $this->participante_model->update($id,$array_item);
- 	}
-
 
 
  	public function delete()
  	{
-    $idparticipante=$_GET['idparticipante'];
-    $idevento=$_GET['idevento'];
-
- 		$data=$this->participante_model->delete($idparticipante,$idevento);
+ 		$data=$this->docente_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('participante/elprimero');
+	 	redirect('docente/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
 
- 	public function quitar()
- 	{
-	       $idparticipante=0;	
-		if($this->uri->segment(3))
-		{
-   		 $idparticipante= $this->uri->segment(3);  
-		}
-
- 		$result=$this->participante_model->quitar($idparticipante);
-	 	if($result == FALSE)
-		{
-			echo "<script language='JavaScript'> alert('No se eliminio'); </script>";
-			echo "<script language='JavaScript'> window.history.go(-1);</script>";
-		}else{
-			echo "<script language='JavaScript'> alert('Se quito con existo este participante'); </script>";
-				echo "<script language='JavaScript'> window.history.go(-1);</script>";
-		}
-}
-
-
-
-
-
-
-
-
-public function listar()
-{
-	
-  $data['participante'] = $this->participante_model->listar_participante1()->result();
-  $data['title']="participantes";
-  $data['eventos']= $this->evento_model->lista_eventos()->result();
-	$this->load->view('template/page_header');		
-  $this->load->view('participante_list',$data);
-	$this->load->view('template/page_footer');
-}
-
-
-
-function participante_data()
-{
-		$draw= intval($this->input->get("draw"));
-		$draw= intval($this->input->get("start"));
-		$draw= intval($this->input->get("length"));
-
-
-	 	$data0 = $this->participante_model->listar_participante1();
-		$data=array();
-		foreach($data0->result() as $r){
-			$data[]=array($r->idparticipante,$r->elevento,$r->nombres,$r->grupoletra,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('participante/actual').'"    data-idparticipante="'.$r->idparticipante.'">Ver</a>');
-		}	
-		$output=array( "draw"=>$draw,
-			"recordsTotal"=> $data0->num_rows(),
-			"recordsFiltered"=> $data0->num_rows(),
-			"data"=>$data
-		);
-		echo json_encode($output);
-		exit();
-	
-			
-
-}
-
-
-
-
-
-public function listarxevento()
-{
-	
-  $data['participante'] = $this->participante_model->listar_participante1()->result();
-  $data['eventos']= $this->evento_model->lista_eventos()->result();
-  $data['title']="participantes";
-   $data['filtro']= $this->uri->segment(3);
-	$this->load->view('template/page_header');		
-  $this->load->view('participante_listxevento',$data);
-	$this->load->view('template/page_footer');
-}
-
-
-
-function participante_dataxevento()
-{
-		$draw= intval($this->input->get("draw"));
-		$draw= intval($this->input->get("start"));
-		$draw= intval($this->input->get("length"));
-		$id=$this->input->get('idevento');
-
-
-	 	$data0 = $this->participante_model->listar_participanteB($id);
-		$data=array();
-		foreach($data0->result() as $r){
-			$data[]=array($r->idparticipante,$r->elevento,$r->nombres,$r->grupoletra,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('participante/actual').'"    data-idparticipante="'.$r->idparticipante.'">Ver</a>');
-		}	
-		$output=array( "draw"=>$draw,
-			"recordsTotal"=> $data0->num_rows(),
-			"recordsFiltered"=> $data0->num_rows(),
-			"data"=>$data
-		);
-		echo json_encode($output);
-		exit();
-	
-			
-
-}
-
-
-
-
-
-
-
-
-
-
-public function elprimero()
-{
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
-  		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
-  		$data['nivelparticipante']= $this->nivelparticipante_model->lista_nivelparticipantes()->result();
-	$data['participante'] = $this->participante_model->elprimero();
-	$data['evento'] = $this->evento_model->evento($data['participante']['idevento'])->row_array();
-  if(!empty($data))
-  {
-  		$data['eventos']= $this->evento_model->lista_eventos()->result();
-
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Participante del documento";
-    $this->load->view('template/page_header');		
-    $this->load->view('participante_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
- }
-
-public function elultimo()
-{
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
-  		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
-  		$data['nivelparticipante']= $this->nivelparticipante_model->lista_nivelparticipantes()->result();
-	$data['participante'] = $this->participante_model->elultimo();
-	$data['evento'] = $this->evento_model->evento($data['participante']['idevento'])->row_array();
-  if(!empty($data))
-  {
-  		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Participante del documento";
-  
-    $this->load->view('template/page_header');		
-    $this->load->view('participante_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
-
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
-}
-
-public function siguiente(){
- // $data['participante_list']=$this->participante_model->lista_participante()->result();
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
-  		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
-  		$data['nivelparticipante']= $this->nivelparticipante_model->lista_nivelparticipantes()->result();
-	$data['participante'] = $this->participante_model->siguiente($this->uri->segment(3))->row_array();
-	$data['evento'] = $this->evento_model->evento($data['participante']['idevento'])->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['eventos']= $this->evento_model->lista_eventos()->result();
-    $data['title']="Participante del documento";
- // $data['title']="Correo";
-	$this->load->view('template/page_header');		
-  $this->load->view('participante_record',$data);
-	$this->load->view('template/page_footer');
-}
-
-public function anterior(){
- // $data['participante_list']=$this->participante_model->lista_participante()->result();
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
-  		$data['participanteestado']= $this->participanteestado_model->lista_participanteestados()->result();
-  		$data['nivelparticipante']= $this->nivelparticipante_model->lista_nivelparticipantes()->result();
-	$data['participante'] = $this->participante_model->anterior($this->uri->segment(3))->row_array();
-	$data['evento'] = $this->evento_model->evento($data['participante']['idevento'])->row_array();
- 	$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['eventos']= $this->evento_model->lista_eventos()->result();
- // $data['title']="Correo";
-    $data['title']="Participante del documento";
-	$this->load->view('template/page_header');		
-  $this->load->view('participante_record',$data);
-	$this->load->view('template/page_footer');
-}
-
-
-
-
-public function get_participante() {
-    $this->load->database();
-    $this->load->helper('form');
-    if($this->input->post('idpersona')) {
-        $this->db->select('*');
-        $this->db->where('idpersona',  $this->input->post('idpersona'));
-        $this->db->where('idevento', $this->input->post('idevento'));
-        $query = $this->db->get('participante');
-	$data=$query->result();
-	echo json_encode($data);
+	public function listar()
+	{
+		$data['title']="Docentes";
+		$this->load->view('template/page_header');		
+		$this->load->view('docente_list',$data);
+		$this->load->view('template/page_footer');
 	}
-}
+
+
+
+	function docente_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+
+			$data0 = $this->docente_model->lista_docentesB();
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->iddocente,$r->eldocente,
+					$r->href='<a href="javascript:void(0);" class="item_ver" data-doctos="'.$r->idpersona.'">'.$r->cantidad.'</a>',
+					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('docente/actual').'"  data-iddocente="'.$r->iddocente.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+	function silabo_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$iddocente=$this->input->get('iddocente');
+			$data0 =$this->silabo_model->silaboss($iddocente);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->iddocente,$r->idsilabo,$r->elsilabo,$r->elperiodo,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retornos="'.site_url('silabo/actual').'"    data-idsilabo="'.$r->idsilabo.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+	function estudio_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idpersona=$this->input->get('idpersona');
+			$data0 =$this->estudio_model->estudios($idpersona);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idpersona,$r->idestudio,$r->lainstitucion,$r->nivel,$r->titulo,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_vere"  data-retornoe="'.site_url('estudio/actual').'"    data-idestudio="'.$r->idestudio.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
 
 
 
@@ -382,6 +230,71 @@ public function get_participante() {
 
 
 
+	public function elprimero()
+	{
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['docente'] = $this->docente_model->elprimero();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['estudios']= $this->estudio_model->estudios($data['docente']['idpersona'])->result();
+
+		  if(!empty($data))
+		  {
+			$data['personas']= $this->persona_model->lista_personas()->result();
+		    $data['title']="Docente";
+		    $this->load->view('template/page_header');		
+		    $this->load->view('docente_record',$data);
+		    $this->load->view('template/page_footer');
+		  }else{
+		    $this->load->view('template/page_header');		
+		    $this->load->view('registro_vacio');
+		    $this->load->view('template/page_footer');
+		  }
+	 }
+
+	public function elultimo()
+	{
+		$data['docente'] = $this->docente_model->elultimo();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['estudios']= $this->estudio_model->estudios($data['docente']['idpersona'])->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		  if(!empty($data))
+		  {
+			$data['personas']= $this->persona_model->lista_personas()->result();
+		    $data['title']="Docente";
+		  
+		    $this->load->view('template/page_header');		
+		    $this->load->view('docente_record',$data);
+		    $this->load->view('template/page_footer');
+		  }else{
+
+		    $this->load->view('template/page_header');		
+		    $this->load->view('registro_vacio');
+		    $this->load->view('template/page_footer');
+		  }
+	}
+
+	public function siguiente(){
+		$data['docente'] = $this->docente_model->siguiente($this->uri->segment(3))->row_array();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['estudios']= $this->estudio_model->estudios($data['docente']['idpersona'])->result();
+
+		$data['title']="Docente";
+		$this->load->view('template/page_header');		
+		$this->load->view('docente_record',$data);
+		$this->load->view('template/page_footer');
+	}
+
+	public function anterior(){
+		$data['docente'] = $this->docente_model->anterior($this->uri->segment(3))->row_array();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['estudios']= $this->estudio_model->estudios($data['docente']['idpersona'])->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['title']="Docente";
+		$this->load->view('template/page_header');		
+		$this->load->view('docente_record',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
 
