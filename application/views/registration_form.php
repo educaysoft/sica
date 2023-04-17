@@ -280,8 +280,6 @@ if(sizeof($eventos)>1){
 						line-height: 1.4;
 						padding: 10px;
 						width: 100%;');
-						echo form_submit($data);
-						echo form_close();
 					}else{
 					 	$data=array('type'=>'submit','value'=>'Guardar datos','name'=>'submit','disabled'=>'disabled','style'=>'background-color: #4CAF50;
 						border: 0;
@@ -293,13 +291,14 @@ if(sizeof($eventos)>1){
 						line-height: 1.4;
 						padding: 10px;
 						width: 100%;');
-						echo form_submit($data);
-						echo form_close();
 					}
 					?>
-	
-
 					</div>
+					<?php                          
+						echo form_submit($data);
+						echo form_close();
+					?>
+
 <footer align="right"  class='w3-container' style="font-size:25px; padding-top:0px; padding: 0px;">
 					<center> ¿Ya creastes tu cuenta? <br> <a style="color:red;"  href="<?php echo base_url() ?>index.php/login" role="button">Ingresar al sistema</a></center>
 				</footer>
