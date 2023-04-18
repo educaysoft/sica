@@ -12,7 +12,7 @@ if (isset($message_display)) {
 	echo "</div>";
 }
 ?>
-	<div id="eys-login" class="w3-container" >
+	<div id="eys-login" class="w3-container" style="height:1500px;" >
 <div id="eys-login2"  class="w3-card-4"  >
 <header id="eys_header"  class="w3-container" >
                <p>SISTEMA UTLVTE</p>
@@ -28,24 +28,6 @@ if (isset($message_display)) {
 </header>
 <main class="w3-container" style=" font-size:50%; padding:30px;">
 
-
-<!------
-<div >
-    <label class="form-label" for="idevento">Evento:</label>
-
-    <div class="form-group">
-         <select class="form-control" id="idevento" name="idevento" required >
-                 <option>No Selected</option>
-		<?php
-		foreach ($eventos as $row){
-			echo '<option value='.$row->idevento.'>'.$row->titulo.'</option>';
-		}
-		?>
-          </select>
-    </div>
-
-</div>
------->
 
 
  <div >
@@ -75,15 +57,12 @@ if (isset($message_display)) {
 		</div>
 	</main>
 	<footer class="w3-container" style="font-size:25px; padding: 10px;">
-<!--        
- 	<p>Para imprimir tu certificado ingresa con:</p>
- 	<p>Usuario: admin</p>
- 	<p>Contraseña: admin</p>
--->
+
 <!--- <center><p>¿Usted aun no tiene un cuenta? <br> <a style="color:red;" href="<?php echo base_url() ?>index.php/login/user_registration_show" role="button">Creela ahora</a></p></center> -->
 	</footer>
 
    <?php echo form_close(); ?>
+</div>
 </div>
 </div>
 
