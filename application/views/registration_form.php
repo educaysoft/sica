@@ -41,8 +41,8 @@ if(@getimagesize($x)){ ?>
 
 
 
-		<div style="width: 40%;  padding:5px;   display: inline-flex; " >
-			<div class="w3-card-2"  style="width:100%; height:1500px; ">
+		<div style="width: 40%;  padding:5px;   display: inline-flex; height:1500px;" >
+			<div class="w3-card-2"  style="width:100%; height:1200px; ">
 				<header class="w3-container" style="background-color:#4CAF50;">
 					<p style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:25px; color:white;
                							 text-align:center;">Registrate Aquí </p>
@@ -56,37 +56,6 @@ if(@getimagesize($x)){ ?>
 
 					
 
-
-<!-----
-
-	<div  class="w3-container" style="text-align:left; font-size: 70%;">
-
-	<label  style='text-align:left; font-size: 100%;' for='evento'> Evento: </label>
-
-    <div class="form-group">
-         <select class="form-control" id="idevento" name="idevento" required onchange='show_detalle()'>
-                 <option>No Selected</option>
-          </select>
-    </div>
-					</div>
-
----->
-
-<!----
-					<div  class="w3-container" style="text-align:left; font-size: 70%;">
-
-						<?php 
-						echo "<label  style='text-align:left; font-size: 100%;' for='idevento'> Evento: </label>";
-							$options= array('--Select--');
-							foreach ($eventos as $row){
-								$options[$row->idevento]= $row->titulo;
-							}
-
-				echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('class'=>'form-control','id'=>'idevento'));  
-?>
-					</div>
-
--->
 
 <div  class="w3-container" style="text-align:left; font-size: 70%;">
 
