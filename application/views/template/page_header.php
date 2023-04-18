@@ -669,7 +669,7 @@ if(isset($this->session->userdata['acceso'])){
 	    <?php }else { ?>
   
 		<div class="media-left">
-			<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo.jpg" wide="80" height="80" alt="Formget logo"></a>  
+			<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo.jpg"  style="wide:80px;height:80px:" alt="Formget logo"></a>  
 		</div>    
 		<div class="media-left" style=" display:table-cell; vertical-align:middle;"  >
 			<h4 > UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS</h4>
