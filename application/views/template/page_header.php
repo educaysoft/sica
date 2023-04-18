@@ -12,7 +12,6 @@ if (isset($this->session->userdata['logged_in'])) {
 	<link href="<?php echo base_url(); ?>images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 
-	<meta name="description" content="División de tecnología en apoyo a los procesos tecológicos de la Universidad Técnica Luis Vargas Torres" />
 	<meta property="og:locale" content="es_EC" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Universidad Técnica Luis Vargas Torres de Esmeraldas" />
@@ -658,7 +657,7 @@ if(isset($this->session->userdata['acceso'])){
 		$modulo=$row["modulo"]["modulo"];
 		$funcion=$row["modulo"]["funcion"];
 
-      echo '<li><a id="'.$id.'" style="font-size:80%; color:orange;" href="'.base_url().'index.php/'.$modulo.'/'. (empty($funcion) ? '': $funcion.$this->session->userdata['logged_in']['idpersona']).'"><img src="'.base_url().'assets/iconos/'.$icono.'.png" wide="49" height="50" alt="Formget logo"></a></li>';
+      echo '<li><a id="'.$id.'" style="font-size:80%; color:orange;" href="'.base_url().'index.php/'.$modulo.'/'. (empty($funcion) ? '': $funcion.$this->session->userdata['logged_in']['idpersona']).'"><img src="'.base_url().'assets/iconos/'.$icono.'.png"  style="width:50px;height:50px:"  alt="Formget logo"></a></li>';
 	    } 
 }
         ?>
@@ -669,7 +668,7 @@ if(isset($this->session->userdata['acceso'])){
 	    <?php }else { ?>
   
 		<div class="media-left">
-			<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo.jpg"  style="wide:50px;height:50px:" alt="Formget logo"></a>  
+			<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo.jpg"  style="width:50px;height:50px:" alt="Formget logo"></a>  
 		</div>    
 		<div class="media-left" style=" display:table-cell; vertical-align:middle;"  >
 			<h4 > UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS</h4>
