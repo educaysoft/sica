@@ -42,6 +42,22 @@ if (isset($this->session->userdata['logged_in'])) {
 
 <style>
 
+body{
+margin:0;
+background-color: #fafafa;
+min-height:100vh;
+margin-bottom:0;
+padding-top:0;
+padding-bottom:0;
+display:flex;
+flex-direction:column;
+}
+
+
+
+
+
+
 
 /* Set a background color */
 .mytime {
