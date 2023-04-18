@@ -27,20 +27,19 @@ if (isset($this->session->userdata['logged_in'])) {
 
 	<meta name="author" content="Stalin Francis">
 	<meta name="copyright" content="educaysoft" >
-	<meta name="description" content="División de Tecnología en apoyo a los procesos tecnológicos de la UTLVTE" />
-	<meta name="keywords" content="utlvte  tic   Esmeraldas Ecuador"/>
+	<meta name="description" content="División de Tecnología en apoyo a los procesos tecnológicos de la UTLVTE">
+	<meta name="keywords" content="utlvte  tic   Esmeraldas Ecuador">
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 
-<!---- Para manejar el datatable -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.css"/>
+<!--- Para manejar el datatable -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.css">
  
 <script  src="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.js"></script>
 
-<!----Para la linea de tiempl --->
 <style>
 
 
@@ -266,9 +265,9 @@ function myFunction(id) {
 
 
 
-<script  type="text/javascript" src="<?php echo base_url(); ?>assets/jquery.js"></script>
-<script  type="text/javascript" src="<?php echo base_url(); ?>assets/jquery.min.js"></script>
-<script  type="text/javascript" src="<?php echo base_url(); ?>assets/tinymce/js/tinymce/tinymce.min.js"></script> 
+<script  src="<?php echo base_url(); ?>assets/jquery.js"></script>
+<script  src="<?php echo base_url(); ?>assets/jquery.min.js"></script>
+<script  src="<?php echo base_url(); ?>assets/tinymce/js/tinymce/tinymce.min.js"></script> 
 
 
 
@@ -284,8 +283,8 @@ function myFunction(id) {
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/eys.css" />   
 <!---- <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/assets/css/eys.css" />  ----> 
 
-<script  type="text/javascript" src="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/js/bootstrap.js" ></script>
-<script  type="text/javascript" src="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/js/bootstrap.min.js" ></script>
+<script   src="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/js/bootstrap.js" ></script>
+<script   src="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/js/bootstrap.min.js" ></script>
 
 
 
@@ -294,8 +293,8 @@ function myFunction(id) {
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/DataTables-1.10.21/css/dataTables.bootstrap4.css" />
 
 
-<script  type="text/javascript" src="<?php echo base_url(); ?>assets/DataTables-1.10.21/js/jquery.dataTables.min.js" ></script>
-<script  type="text/javascript" src="<?php echo base_url(); ?>assets/DataTables-1.10.21/js/jquery.dataTables.js" ></script>
+<script  src="<?php echo base_url(); ?>assets/DataTables-1.10.21/js/jquery.dataTables.min.js" ></script>
+<script  src="<?php echo base_url(); ?>assets/DataTables-1.10.21/js/jquery.dataTables.js" ></script>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/DataTables-1.10.21/css/jquery.dataTables.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/DataTables-1.10.21/css/jquery.dataTables.css" />
