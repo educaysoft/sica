@@ -289,23 +289,23 @@ function myFunction(id) {
 
 
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/DataTables-1.10.21/css/dataTables.bootstrap4.min.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/DataTables-1.10.21/css/dataTables.bootstrap4.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/DataTables-1.10.21/css/dataTables.bootstrap4.min.css" >
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/DataTables-1.10.21/css/dataTables.bootstrap4.css" >
 
 
 <script  src="<?php echo base_url(); ?>assets/DataTables-1.10.21/js/jquery.dataTables.min.js" ></script>
 <script  src="<?php echo base_url(); ?>assets/DataTables-1.10.21/js/jquery.dataTables.js" ></script>
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/DataTables-1.10.21/css/jquery.dataTables.min.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/DataTables-1.10.21/css/jquery.dataTables.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/DataTables-1.10.21/css/jquery.dataTables.min.css" >
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/DataTables-1.10.21/css/jquery.dataTables.css" >
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/stylechat.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/stylechat.css" >
 
 <!---para cargar pdf---->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.228/pdf.min.js"></script>
