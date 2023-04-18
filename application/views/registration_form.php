@@ -105,10 +105,10 @@ if(sizeof($eventos)>1){
 }else{
 	if($eventos[0]->idevento_estado==2)
 	{
-		echo "<label  style='text-align:left; font-size: 100%;' for='titulo'>  <estado style='font-size:20px; color:green;'> INSCRIPCIONES ABIERTAS</estado> </label>";
+		echo "<label  style='text-align:left; font-size: 20px; color:green;' for='titulo'>   INSCRIPCIONES ABIERTAS </label>";
 	}else{
 
-		echo "<label  style='text-align:left; font-size: 100%;' for='titulo'> <estado style='font-size:20px; color:red;'>INSCRIPCIONES CERRADAS</estado> </label>";
+		echo "<label  style='text-align:left; font-size: 20px; color:red;' for='titulo'> INSCRIPCIONES CERRADAS </label>";
 	}
 
     $arrdatos=array('name'=>'idevento','value'=>$eventos[0]->idevento,"type"=>"hidden", "style"=>"width:600px");
