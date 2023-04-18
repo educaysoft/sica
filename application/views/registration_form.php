@@ -299,7 +299,7 @@ if(sizeof($eventos)>1){
 						echo form_close();
 					?>
 
-<footer align="right"  class='w3-container' style="font-size:25px; padding-top:0px; padding: 0px; text-align:center; ">
+<footer   class='w3-container' style="font-size:25px; padding-top:0px; padding: 0px; text-align:center; ">
 					 ¿Ya creastes tu cuenta? <br> <a style="color:red;"  href="<?php echo base_url() ?>index.php/login" role="button">Ingresar al sistema</a>
 				</footer>
 				</div>
