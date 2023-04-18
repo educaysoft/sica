@@ -9,7 +9,7 @@ if (isset($this->session->userdata['logged_in'])) {
 ?>
 <head>
 	<title>Utlvte Tecnología de la Informción</title>
-	<link href="<?php echo base_url(); ?>images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<link href="<?php echo base_url(); ?>images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
 
 	<meta property="og:locale" content="es_EC" />
