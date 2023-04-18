@@ -55,6 +55,16 @@ flex-direction:column;
 
 
 
+eys-footer{
+height: 200px;
+width:100%;
+background-color: lightgray;
+bottom:0;
+margin-bottom:0 px;
+padding:20px 0;
+display: flex;
+flex-direction:row;
+}
 
 
 
