@@ -19,8 +19,8 @@
 </main>   
  </div>
  <div style="  height:100%; width:30%; display:flex; justify-content: center; flex-direction: column; ">
-     <div style="width: 100%;  height: 100%; ">
-     <center><a href="https://utelvt.edu.ec/sitioweb/"> <img src="<?php echo base_url(); ?>images/logo.png" style="height: 100%;"></a></center>
+     <div style="width: 100%;  height: 100%;text-align:center; ">
+     <a href="https://utelvt.edu.ec/sitioweb/"> <img src="<?php echo base_url(); ?>images/logo.png" alt="logo utelvt" style="height: 100%;"></a>
     </div>
 <div style="width: 100%;text-align:center;">
 Visitas:<br> <script src="<?php echo base_url(); ?>misvisitas.php"></script> 
