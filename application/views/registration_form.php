@@ -114,7 +114,7 @@ if(sizeof($eventos)>1){
     $arrdatos=array('name'=>'idevento','value'=>$eventos[0]->idevento,"type"=>"hidden", "style"=>"width:600px");
 				echo form_input($arrdatos) ;
 
-	$textarea_options = array('class' => 'form-control','rows' => '3',   'cols' => '8',"disabled"=>"disabled", 'style'=>"height:100px !important;",'id'=>'titulo');    
+	$textarea_options = array('class' => 'form-control',"disabled"=>"disabled", 'style'=>"height:100px !important;",'id'=>'titulo');    
 							echo form_textarea('titulo',$eventos[0]->titulo,$textarea_options);
 }
 ?>
