@@ -271,17 +271,14 @@ function myFunction(id) {
 
 
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/css/bootstrap.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/css/bootstrap.min.css">
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/css/bootstrap-theme.min.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/css/bootstrap-theme.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/css/bootstrap-theme.css">
 
-<!------ <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/educaysoft/eys-css/main/eys-style.css"/> --->
-<!------<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/eys-style.css" /> --->  
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/eys.css" />   
-<!---- <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/assets/css/eys.css" />  ----> 
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/eys.css" >   
 
 <script   src="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/js/bootstrap.js" ></script>
 <script   src="<?php echo base_url(); ?>assets/bootstrap-3.4.1-dist/js/bootstrap.min.js" ></script>
