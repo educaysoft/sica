@@ -45,7 +45,7 @@ if (isset($this->session->userdata['logged_in'])) {
 body{
 margin:0;
 background-color: #fafafa;
-min-height:100vh;
+height:100%;
 margin-bottom:0;
 padding-top:0;
 padding-bottom:0;
