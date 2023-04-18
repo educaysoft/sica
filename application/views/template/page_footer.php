@@ -14,7 +14,7 @@
     </div>
     <div style="color: black;font-size:20px;width: 100%;">
       <p style="font-size: 1vw;">Dirección: Ciudadela Nuevos Horizontes:</p>
-      <p style="font-size: 1vw;">Correo: maestria.ti@utelvt.edu.ec</p>
+      <p style="font-size: 1vw;">Correo: educacioncontinua@utelvt.edu.ec</p>
 </div>   
  </div>
  <div style="  height:100%; width:30%; display:flex; justify-content: center; flex-direction: column; ">

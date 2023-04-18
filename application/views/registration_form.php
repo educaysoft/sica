@@ -30,9 +30,7 @@ if(@getimagesize($x)){ ?>
 			<p>Para poder unirte a este evento sigue las  instrucciones: </p><br>
 			<ol>
 			<li> Verifica si el evento esta en etapa de Inscripción.  </li>
-			<li> Ingresa tus datos de contacto  que se solicita.  </li>
-			<li> No te olvides de registrar un correo electrónico válido.  </li>
-			<li> No te olvides registrar una contraseña que puedas recordar.  </li>
+			<li> Ingresa tus datos personales y de contacto solicitados.  </li>
 			<li> Finalmente guarda los datos y estas listo para ingresar a nuestra plaforma.  </li>
 			</ol>
 			</div>
