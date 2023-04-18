@@ -17,14 +17,14 @@
 			<div ><center> <img src="<?php echo base_url(); ?>images/LogoEducacionContinua.png" style="width: 30%;" alt="Centro de Educación Continua UTLVTE"></img></center>   </div>
 			<p id="titulo1" style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:30px; text-align:center;">Sistema de registro para eventos académicos <br>  UTELVT</p>
 			</header>
-			<div id="detalle" class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
+			<div id="detalle" class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;margin:auto;	">
     <?php
     $x='https://repositorioutlvte.org/Repositorio/eventos/'. $eventos[0]->idevento.'.png';
 if(@getimagesize($x)){ ?>
-<center> <img src="<?php echo $x; ?>"  id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img></center>
+<img src="<?php echo $x; ?>"  id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img>
    <?php }else{ ?>
 
-<center> <img src="https://repositorioutlvte.org/Repositorio/eventos/sinimagen.png"  id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img></center>
+ <img src="https://repositorioutlvte.org/Repositorio/eventos/sinimagen.png"  id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img>
 <?php } ?>
 
 			<p>Para poder unirte a este evento sigue las  instrucciones: </p><br>
