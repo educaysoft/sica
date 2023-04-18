@@ -14,7 +14,7 @@ if (isset($message_display)) {
 ?>
 	<div id="eys-login" class="w3-container" style="height:1500px;" >
 <div id="eys-login2"  class="w3-card-4"  >
-<header id="eys_header"  class="w3-container" >
+	<header class="w3-container" style="background-color:#4CAF50;">
                <p>SISTEMA UTLVTE</p>
             <?php echo form_open('login/user_login_process'); ?>
              <?php
