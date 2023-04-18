@@ -16,7 +16,6 @@ if (isset($message_display)) {
 <div id="eys-login2"  class="w3-card-4"  >
 	<header class="w3-container" style="background-color:#4CAF50;">
 					<p style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:25px; color:white; text-align:center;">Educación Continua </p>
-               <p>SISTEMA UTLVTE</p>
             <?php echo form_open('login/user_login_process'); ?>
              <?php
                 echo "<div class='error_msg'>";
