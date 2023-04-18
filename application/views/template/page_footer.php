@@ -13,10 +13,10 @@
     <div >      
         <p style="color: black;font-size:20px;font-weight:bold;">Contactanos:</p>
     </div>
-    <main style="color: black;font-size:20px;">
+    <div style="color: black;font-size:20px;">
       <p style="font-size: 1vw;">Dirección: Ciudadela Nuevos Horizontes:</p>
       <p style="font-size: 1vw;">Correo: maestria.ti@utelvt.edu.ec</p>
-</main>   
+</div>   
  </div>
  <div style="  height:100%; width:30%; display:flex; justify-content: center; flex-direction: column; ">
      <div style="width: 100%;  height: 100%;text-align:center; ">
