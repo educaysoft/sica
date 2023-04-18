@@ -55,7 +55,7 @@ flex-direction:column;
 
 
 
-eys-footer{
+#eys-footer{
 height: 200px;
 width:100%;
 background-color: lightgray;
@@ -65,6 +65,26 @@ padding:20px 0;
 display: flex;
 flex-direction:row;
 }
+
+
+ footer { min-height: 130px; }
+
+    @media (min-height: 480px) {
+      footer {
+        position: -webkit-sticky;
+        position: sticky;
+        bottom: 0;
+      }
+    }
+
+    @media (min-device-width: 576px) and (max-device-width: 1024px) and (orientation: landscape)  {
+      footer {
+        position: static;
+      }
+    }
+
+
+
 
 
 
