@@ -14,7 +14,7 @@
 	<div style="width: 50%;  padding:5px;   display: inline-flex; " >
 		<div   style="width:100%; height:800px; ">
 			<header class="w3-container">
-			<div style="align-items:center"> <img src="<?php echo base_url(); ?>images/LogoEducacionContinua.png" style="width: 30%;" alt="Centro de Educación Continua UTLVTE"></img>  </div>
+			<div style="display:flex; align-items:centeri;"> <img src="<?php echo base_url(); ?>images/LogoEducacionContinua.png" style="width: 30%;" alt="Centro de Educación Continua UTLVTE"></img>  </div>
 			<p id="titulo1" style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:30px; text-align:center;">Sistema de registro para eventos académicos <br>  UTELVT</p>
 			</header>
 			<div id="detalle" class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;margin:auto;	">
