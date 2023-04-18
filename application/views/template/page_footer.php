@@ -7,7 +7,7 @@
    	<?php if(!isset($this->session->userdata['logged_in']) ){ ?>
 
 <!-- Footer -->
-<div id="eys-footer"    >
+<footer id="eys-footer"    >
   <div style="margin-top:10px; height: 100%; width: 30%; display: flex; flex-direction:column;  ">
     <div >      
         <p style="color: black;font-size:20px;font-weight:bold;">Contactanos:</p>
@@ -35,7 +35,7 @@ Visitas:<br> <script src="<?php echo base_url(); ?>misvisitas.php"></script>
 
 
 
-</div>
+</footer>
 <!-- Footer -->
 
    	<?php } ?>
