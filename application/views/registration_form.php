@@ -9,7 +9,7 @@
 ?>
 <section id="presentacion">
     
-<div class="w3-container" id="eys-registro" style="width: 100%;  >
+<div class="w3-container" id="eys-registro" style="width: 100%;"  >
 	
 	<div style="width: 50%;  padding:5px;   display: inline-flex; " >
 		<div   style="width:100%; height:800px; ">
