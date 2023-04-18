@@ -39,7 +39,7 @@ if(@getimagesize($x)){ ?>
 		 </div>
 		</div>
 
-		<div style="width: 50%;  padding:5px;   display: inline-flex; height:1500px;" >
+		<div style="width: 45%;  padding:5px;   display: inline-flex; height:1500px;" >
 			<div class="w3-card-2"  style="width:100%; height:1200px; ">
 				<header class="w3-container" style="background-color:#4CAF50;">
 					<p style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:25px; color:white; text-align:center;">Registrate Aquí </p>
