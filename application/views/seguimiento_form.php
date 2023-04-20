@@ -422,7 +422,7 @@ $("#btn_update").on("click", function(){
 
 	function enviar_correo(){
 		 var email="educacioncontinua@utelvt.edu.ec";
-		 var nome= document.getElementById("lapersona_edit").value; 		
+		 var nome= 'Stalin Francis Q."; // document.getElementById("lapersona_edit").value; 		
                  var msg=tinyMCE.activeEditor.getContent({format:'text'});
 		 var mailto=document.getElementById("correo_edit").value; //   "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
