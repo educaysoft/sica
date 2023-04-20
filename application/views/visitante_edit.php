@@ -29,6 +29,26 @@ foreach ($departamentos as $row){
 
 
 
+<div class="form-group row">
+  <label class="col-md-2 col-form-label"> Funcionario :</label>
+	<div class="col-md-10">
+		<?php
+
+ 
+$options= array('--Select--');
+foreach ($funcionario as $row){
+	$options[$row->idfuncionario]= $row->elfuncionario;
+}
+
+ echo form_dropdown("idfuncionario",$options, $visitante['idfunciario']);  
+
+
+?>
+</div>
+</div>
+
+
+
 
 <div class="form-group row">
   <label class="col-md-2 col-form-label"> Persona :</label>

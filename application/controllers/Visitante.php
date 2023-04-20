@@ -108,6 +108,7 @@ public function actual(){
 	 	$data['visitante'] = $this->visitante_model->visitante($this->uri->segment(3))->row_array();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
+  		$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Visitante";
  	 	$this->load->view('template/page_header');		

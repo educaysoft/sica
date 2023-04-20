@@ -179,7 +179,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
     <label class="col-md-2 col-form-label">Ruta firma:</label>
 	<div class="col-md-10">
 		<?php
-    echo form_input('rutafirma',$visitante['rutafirma'],array("id"=>"rutafirma","disabled"=>"disabled",'placeholder'=>'rutafirma'));
+    echo form_input('rutafirma',$visitante['rutafirma'],array("id"=>"rutafirma","disabled"=>"disabled",'placeholder'=>'rutafirma',"style"=>"width:500px"));
 		?>
 	</div> 
 </div>
