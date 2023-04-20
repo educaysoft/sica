@@ -40,7 +40,7 @@ foreach ($funcionarios as $row){
 	$options[$row->idfuncionario]= $row->elfuncionario;
 }
 
- echo form_dropdown("idfuncionario",$options, $visitante['idfunciario']);  
+ echo form_dropdown("idfuncionario",$options, $visitante['idfuncionario']);  
 
 
 ?>
