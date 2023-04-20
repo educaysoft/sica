@@ -2,23 +2,23 @@
 	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($ordenador))
+if(isset($tipoevento))
 {
 ?>
-        <li> <?php echo anchor('ordenador/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('ordenador/siguiente/'.$ordenador['idordenador'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('ordenador/anterior/'.$ordenador['idordenador'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('ordenador/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('ordenador/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('ordenador/edit/'.$ordenador['idordenador'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('ordenador/delete/'.$ordenador['idordenador'],'Delete'); ?></li>
-        <li> <?php echo anchor('ordenador/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('tipoevento/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('tipoevento/siguiente/'.$tipoevento['idtipoevento'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('tipoevento/anterior/'.$tipoevento['idtipoevento'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('tipoevento/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('tipoevento/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('tipoevento/edit/'.$tipoevento['idtipoevento'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('tipoevento/delete/'.$tipoevento['idtipoevento'],'Delete'); ?></li>
+        <li> <?php echo anchor('tipoevento/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('ordenador/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('tipoevento/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -28,25 +28,30 @@ if(isset($ordenador))
 <br>
 
 
-<?php echo form_open('ordenador/save_edit') ?>
-<?php echo form_hidden('idordenador',$ordenador['idordenador']) ?>
-<table>
+<?php echo form_open('tipoevento/save_edit') ?>
+<?php echo form_hidden('idtipoevento',$tipoevento['idtipoevento']) ?>
 
 
-  <tr>
-     <td>idordenador:</td>
-     <td><?php echo form_input('idordenador',$ordenador['idordenador'],array("disabled"=>"disabled",'placeholder'=>'Idordenadors')) ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id:</label>
+	<div class="col-md-10">
+     <?php
+	echo form_input('idtipoevento',$tipoevento['idtipoevento'],array("disabled"=>"disabled",'placeholder'=>'Idtipoeventos'));
+	?>
+	</div> 
+</div> 
  
- <tr>
-      <td>Nombres:</td>
-      <td><?php echo form_input('nombre',$ordenador['nombre'],array('placeholder'=>'Nombre del ordenador')) ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+     <?php
+       echo form_input('nombre',$tipoevento['nombre'],array('placeholder'=>'Nombre del tipoevento')); 
 
+	?>
+	</div> 
+</div> 
    
    
-
-</table>
 <?php echo form_close(); ?>
 
 

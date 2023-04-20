@@ -1,33 +1,33 @@
 <?php
-class Ordenador_model extends CI_model {
+class Tipoevento_model extends CI_model {
 
-	function lista_ordenadores(){
-		 $ordenador= $this->db->get('ordenador');
-		 return $ordenador;
+	function lista_tipoeventos(){
+		 $tipoevento= $this->db->get('tipoevento');
+		 return $tipoevento;
 	}
 
- 	function ordenador( $id){
- 		$ordenador = $this->db->query('select * from ordenador where idordenador="'. $id.'"');
- 		return $ordenador;
+ 	function tipoevento( $id){
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
+ 		return $tipoevento;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("ordenador", $array);
+		$this->db->insert("tipoevento", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idordenador',$id);
- 		$this->db->update('ordenador',$array_item);
+ 		$this->db->where('idtipoevento',$id);
+ 		$this->db->update('tipoevento',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idordenador',$id);
-		$this->db->delete('ordenador');
+ 		$this->db->where('idtipoevento',$id);
+		$this->db->delete('tipoevento');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -38,7 +38,7 @@ class Ordenador_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idordenador")->get('ordenador');
+		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -51,7 +51,7 @@ class Ordenador_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idordenador")->get('ordenador');
+		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -63,37 +63,37 @@ class Ordenador_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$ordenador = $this->db->select("idordenador")->order_by("idordenador")->get('ordenador')->result_array();
-		$arr=array("idordenador"=>$id);
-		$clave=array_search($arr,$ordenador);
-	   if(array_key_exists($clave+1,$ordenador))
+ 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
+		$arr=array("idtipoevento"=>$id);
+		$clave=array_search($arr,$tipoevento);
+	   if(array_key_exists($clave+1,$tipoevento))
 		 {
 
- 		$ordenador = $this->db->query('select * from ordenador where idordenador="'. $ordenador[$clave+1]["idordenador"].'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave+1]["idtipoevento"].'"');
 		 }else{
 
- 		$ordenador = $this->db->query('select * from ordenador where idordenador="'. $id.'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
 		 }
 		 	
- 		return $ordenador;
+ 		return $tipoevento;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$ordenador = $this->db->select("idordenador")->order_by("idordenador")->get('ordenador')->result_array();
-		$arr=array("idordenador"=>$id);
-		$clave=array_search($arr,$ordenador);
-	   if(array_key_exists($clave-1,$ordenador))
+ 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
+		$arr=array("idtipoevento"=>$id);
+		$clave=array_search($arr,$tipoevento);
+	   if(array_key_exists($clave-1,$tipoevento))
 		 {
 
- 		$ordenador = $this->db->query('select * from ordenador where idordenador="'. $ordenador[$clave-1]["idordenador"].'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave-1]["idtipoevento"].'"');
 		 }else{
 
- 		$ordenador = $this->db->query('select * from ordenador where idordenador="'. $id.'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
 		 }
 		 	
- 		return $ordenador;
+ 		return $tipoevento;
  	}
 
 

@@ -217,7 +217,7 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
     $fechaimp= $dia.', '.$num.' de '.$mes.' del '.$anno;
 
 
-		$pdf->Text($realposix,$posi_fecha_y,$fechaimp);
+		$pdf->Text($realposix,$posi_fecha_y,utf8_decode($fechaimp));
 	}
 
 	
