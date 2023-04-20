@@ -484,7 +484,7 @@ public function send()
 	{
 		$this->email->subject($this->input->post('asunto'));
 	}else{
-		$this->email->subject('UTLVTE - MAESTRÍA EN TECNOLOGÍA DE LA INFORMACIÓN');
+		$this->email->subject('UTLVTE - EDUCACIÓN CONTINUA');
 	}	
 
 	$this->email->message($msg);
