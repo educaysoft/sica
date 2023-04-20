@@ -36,7 +36,7 @@ foreach ($departamentos as $row){
 
  
 $options= array('--Select--');
-foreach ($funcionario as $row){
+foreach ($funcionarios as $row){
 	$options[$row->idfuncionario]= $row->elfuncionario;
 }
 
