@@ -1,7 +1,7 @@
 <?php
 class Correo_estado_model extends CI_model {
 
-	function lista_correo_estados(){
+	function lista_correo_estado(){
 		 $correo_estado= $this->db->get('correo_estado');
 		 return $correo_estado;
 	}
