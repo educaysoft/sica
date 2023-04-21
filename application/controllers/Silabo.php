@@ -271,7 +271,7 @@ public function actual()
         	}
 
 
-	 	$data['temas']= $this->tema_model->temass($idsilabo)->result();
+	 	$data['temas']= $this->tema_model->lista_temass($idsilabo)->result();
 		$data['title']="Silabo";
 	//	$this->load->view('template/page_header');		
 		$this->load->view('silabo_list_pdf',$data);
