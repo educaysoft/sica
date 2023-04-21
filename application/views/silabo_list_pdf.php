@@ -51,12 +51,10 @@ $current_x = $pdf->GetX();
 	$persona="";
 	$i=0;
 	foreach ($temas as $row){  //Recorre todas la participaciones realiadas por los participantes
-
 		$current_y = $current_y2;
 		$pdf->SetXY($current_x, $current_y);   
 		$i=$i+1;
 		$pdf->Cell(10,5,$row->idtema,1,0,'R',0); 
-
 		$start_x=$pdf->GetX(); //initial x (start of column position)
 		$current_x = $pdf->GetX();
 		$cell_width = 15;  //define cell width
