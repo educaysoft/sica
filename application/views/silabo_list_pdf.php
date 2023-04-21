@@ -35,7 +35,6 @@
 	$pdf->Cell(10,5,'#tema',1,0,'C',1);
 	$pdf->Cell(15,5,'unidad',1,0,'C',1);
 	$pdf->Cell(15,5,'numerosesion',1,0,'C',1);
-	$pdf->Cell(15,5,'NoConect',1,0,'C',1);
 	$pdf->Cell(50,5,'Tema',1,0,'C',1);
 	$pdf->Cell(100,5,'Detalle',1,1,'C',1);
  
@@ -71,6 +70,7 @@ $current_x = $pdf->GetX();
 	 	 	$current_x+=$cell_width;
 			$current_y = $pdf->GetY()-5;
 			$pdf->SetXY($current_x, $current_y);   
+			$cell_width=50;
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->temacorto),1);
 	 	 	$current_x+=$cell_width;
 			$current_y = $pdf->GetY()-5;
