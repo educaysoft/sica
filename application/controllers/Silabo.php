@@ -288,11 +288,11 @@ public function actual()
 public function elprimero()
 {
 	$data['silabo'] = $this->silabo_model->elprimero();
-			$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
+	$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
-  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   if(!empty($data))
   {
     $data['title']="Silabo";
