@@ -118,20 +118,33 @@ $pdf->Ln(20);
 			$pdf->SetXY($current_x, $current_y);   
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->numerosesion),1);
 	 	 	$current_x+=$cell_width;
-			$current_y = $pdf->GetY()-5;
+			if($current_y==$pdf->GetY()-5){
+				$current_y = $pdf->GetY()-5;
+			}else{
+				$current_y = $pdf->GetY()-10;
+			}
+
 			$pdf->SetXY($current_x, $current_y);   
 			$cell_width=50;
 			$l=strlen($row->nombrecorto);
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->nombrecorto)." - ".$l,1);
 	 	 	$current_x+=$cell_width;
-			$current_y = $pdf->GetY()-5;
+			if($current_y==$pdf->GetY()-5){
+				$current_y = $pdf->GetY()-5;
+			}else{
+				$current_y = $pdf->GetY()-10;
+			}
 			$current_y2 = $pdf->GetY();
 			$pdf->SetXY($current_x, $current_y);   
 			$cell_width=100;
 			$l=strlen($row->nombrelargo);
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->nombrelargo)." - ".$l,1);
 	 	 	$current_x+=$cell_width;
-			$current_y = $pdf->GetY()-5;
+			if($current_y==$pdf->GetY()-5){
+				$current_y = $pdf->GetY()-5;
+			}else{
+				$current_y = $pdf->GetY()-10;
+			}
 			$current_y2 = $pdf->GetY();
 			$pdf->SetXY($current_x, $current_y);   
 			$cell_width=100;
