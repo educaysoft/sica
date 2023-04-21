@@ -44,7 +44,7 @@
 	foreach ($unidadsilabo as $row){  //Recorre todas la participaciones realiadas por los participantes
 		$pdf->Cell(10,5,$row->idunidadsilabo,1,0,'R',0); 
 		$pdf->Cell(15,5,$row->unidad,1,0,'R',0); 
-		$pdf->Cell(100,5,$row->nombre,1,1,'R',0); 
+		$pdf->Cell(100,5,utf8_decode($row->nombre),1,1,'L',0); 
 
     }
 
