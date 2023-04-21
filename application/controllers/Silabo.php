@@ -273,7 +273,7 @@ public function actual()
 	 	$data['sesioneventos']= $this->sesionevento_model->sesioneventosA($idevento)->result();
 	 	$data['temas']= $this->tema_model->temas1($idevento)->result();
 		$data['instructor']=$this->participante_model->instructor($idevento)->result();
-		$data['title']="Silabo;
+		$data['title']="Silabo";
 	//	$this->load->view('template/page_header');		
 		$this->load->view('silabo_list_pdf',$data);
 //		$this->load->view('template/page_footer');
