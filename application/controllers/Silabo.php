@@ -257,6 +257,33 @@ public function actual()
 
 
 
+	public function reportepdf()
+	{
+
+		$tmp=explode("-",$this->uri->segment(3));
+        	$idsilabo=$tmp[0];
+        	if(isset($tmp[1]))
+        	{
+        		$mesnumero=$tmp[1];
+        	}else{
+        		$mesnumero=0;
+        	}
+
+
+	 	$data['sesioneventos']= $this->sesionevento_model->sesioneventosA($idevento)->result();
+	 	$data['temas']= $this->tema_model->temas1($idevento)->result();
+		$data['instructor']=$this->participante_model->instructor($idevento)->result();
+		$data['title']="Silabo;
+	//	$this->load->view('template/page_header');		
+		$this->load->view('silabo_list_pdf',$data);
+//		$this->load->view('template/page_footer');
+	}
+
+
+
+
+
+
 
 public function elprimero()
 {

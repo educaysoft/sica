@@ -68,7 +68,7 @@ class Unidadsilabo extends CI_Controller{
 		 	'idsilabo' => $this->input->post('idsilabo'),
 	 	);
 	 	$this->unidadsilabo_model->update($id,$array_item);
-	 	redirect('unidadsilabo');
+	 	redirect('unidadsilabo/actual/'.$id);
  	}
 
 	public function  save_edit2()

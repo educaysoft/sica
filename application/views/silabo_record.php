@@ -14,7 +14,7 @@ if(isset($silabo))
         <li style="border-right:1px solid green"> <?php echo anchor('silabo/delete/'.$silabo['idsilabo'],'Delete'); ?></li>
         <li> <?php echo anchor('silabo/listar/','Listar'); ?></li>
         <li> <?php echo anchor('silabounidad/','Unidades'); ?></li>
-        <li> <?php echo anchor('silabo/panel/','Panel'); ?></li>
+        <li> <?php echo anchor('silabo/reportepdf/'.$silabo['idsilabo'],'Reportepdf'); ?></li>
 
 <?php 
 }else{
