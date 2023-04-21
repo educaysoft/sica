@@ -5,7 +5,7 @@ class Silabo extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('silabo_model');
-      $this->load->model('unidadsilabo_model');
+      $this->load->model('tema_model');
       $this->load->model('documentosilabo_model');
       $this->load->model('documento_model');
   	$this->load->model('asignatura_model');
