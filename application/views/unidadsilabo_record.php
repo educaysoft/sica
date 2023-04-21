@@ -79,14 +79,7 @@ echo form_input('idsilabo',$options[$unidadsilabo['idsilabo']],array("disabled"=
 	</div> 
 </div> 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre:</label>
-	<div class="col-md-10">
-	<?php
-      echo form_input('nombre',$unidadsilabo['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre','style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
+
 
 
 <div class="form-group row">
@@ -97,16 +90,41 @@ echo form_input('idsilabo',$options[$unidadsilabo['idsilabo']],array("disabled"=
 		?>
 	</div> 
 </div>
- 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('tema/add', 'Tema:'); ?> </label>
+    <label class="col-md-2 col-form-label"> Nombre Unidad:</label>
+	<div class="col-md-10">
+	<?php
+
+
+$textarea_options = array("disabled"=>"disabled",'class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('nombre',$unidadsilabo['nombre'],$textarea_options); 
+
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
  	<div class="row">
-  	<div class="col-12">
+  	<div class="col-12" style="border:solid;">
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Temas de la Unidad: </b>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-success" href="<?php echo base_url('tema/add'.$unidadsilabo['idunidadsilabo']); ?>">Nuevo tema</a><a class="btn btn-danger" onclick='reportepdf()' >Reporte</a>
+        </div>
+    </div>
+</div>
+
+
 	<table class="table table-striped table-bordered table-hover" id="mydatac">
 	 <thead>
 	 <tr>
