@@ -270,8 +270,7 @@ public function actual()
         	}
 
 
-	 	$data['temas']= $this->tema_model->temas1($idevento)->result();
-		$data['instructor']=$this->participante_model->instructor($idevento)->result();
+	 	$data['temas']= $this->tema_model->temas1($idsilabo)->result();
 		$data['title']="Silabo";
 	//	$this->load->view('template/page_header');		
 		$this->load->view('silabo_list_pdf',$data);
