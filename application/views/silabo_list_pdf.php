@@ -17,7 +17,7 @@
 	$pdf->titulo="CONTROL ACADÉMICO - LECCIONARIO";
 	
     	$pdf->asignatura="Evento(Clase):  ".$temas[0]->elsilabo; 
-    	$pdf->docente="Docente:  ".$temas[0]->launidadsilabo;\ 
+    	$pdf->docente="unidad:  ".$temas[0]->launidadsilabo; 
 
 
 
