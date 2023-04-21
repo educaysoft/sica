@@ -129,23 +129,26 @@ $pdf->Ln(20);
 			$l=strlen($row->nombrecorto);
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->nombrecorto)." - ".$l,1);
 	 	 	$current_x+=$cell_width;
+			$current_y2 = $pdf->GetY();
 			if($current_y==$pdf->GetY()-5){
 				$current_y = $pdf->GetY()-5;
 			}else{
 				$current_y = $pdf->GetY()-10;
 			}
-			$current_y2 = $pdf->GetY();
 			$pdf->SetXY($current_x, $current_y);   
 			$cell_width=100;
 			$l=strlen($row->nombrelargo);
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->nombrelargo)." - ".$l,1);
 	 	 	$current_x+=$cell_width;
+			if($current_y2< $pdf->GetY()){
+				$current_y2 = $pdf->GetY();
+			}
 			if($current_y==$pdf->GetY()-5){
 				$current_y = $pdf->GetY()-5;
 			}else{
+				$current_y2 = $pdf->GetY();
 				$current_y = $pdf->GetY()-10;
 			}
-			$current_y2 = $pdf->GetY();
 			$pdf->SetXY($current_x, $current_y);   
 			$cell_width=100;
 	 	 	$current_x=$current_x2;
