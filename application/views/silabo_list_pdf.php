@@ -25,11 +25,68 @@
 	$pdf->AddPage('L');
 
 
-  //  	$pdf->Text(20,40,"Evento(Clase):  ".$sesioneventos[0]->elevento); 
-  //  	$pdf->Text(20,45,"Docente:  ".$instructor[0]->nombres); 
 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
+
+
+
+
+
+	$pdf->Cell(10,5,'#id',1,0,'C',1);
+	$pdf->Cell(15,5,'unidad',1,0,'C',1);
+	$pdf->Cell(100,5,'nombre',1,1,'C',1);
+
+
+	$pdf->SetFont('Arial','',7);
+
+
+	$current_y2 = $pdf->GetY();
+	$current_x2 = $pdf->GetX();
+	$current_x = $pdf->GetX();
+	$id=0;
+	$persona="";
+	$i=0;
+	foreach ($unidadsilabo as $row){  //Recorre todas la participaciones realiadas por los participantes
+		$current_y = $current_y2;
+		$pdf->SetXY($current_x, $current_y);   
+		$i=$i+1;
+		$pdf->Cell(10,5,$row->idunidadsilabo,1,0,'R',0); 
+		$pdf->Cell(10,5,$row->unidad,1,0,'R',0); 
+		$pdf->Cell(10,5,$row->nombre,1,1,'R',0); 
+
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	$pdf->Cell(10,5,'#tema',1,0,'C',1);
@@ -37,16 +94,14 @@
 	$pdf->Cell(15,5,'numerosesion',1,0,'C',1);
 	$pdf->Cell(50,5,'Tema',1,0,'C',1);
 	$pdf->Cell(100,5,'Detalle',1,1,'C',1);
- 
-	 
 
 
 	$pdf->SetFont('Arial','',7);
 
 
-$current_y2 = $pdf->GetY();
-$current_x2 = $pdf->GetX();
-$current_x = $pdf->GetX();
+	$current_y2 = $pdf->GetY();
+	$current_x2 = $pdf->GetX();
+	$current_x = $pdf->GetX();
 	$id=0;
 	$persona="";
 	$i=0;

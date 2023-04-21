@@ -271,6 +271,7 @@ public function actual()
         	}
 
 
+		$data['unidadsilabo'] =$this->unidadsilabo_model->unidadsilaboss($idsilabo)->result();
 	 	$data['temas']= $this->tema_model->lista_temass($idsilabo)->result();
 		$data['title']="Silabo";
 	//	$this->load->view('template/page_header');		
