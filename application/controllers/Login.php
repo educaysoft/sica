@@ -48,6 +48,25 @@ public function user_registration_show() {
 	$this->load->view('template/page_footer.php');
 }
 
+public function valicarcorreo()
+{
+        if($this->input->get('idevento') ){
+		$data['eventos']= $this->evento_model->lista_eventos_open($this->input->get('idevento'))->result();
+	}else{	
+		$data['eventos']= $this->evento_model->lista_eventos_open(54)->result();
+	}
+	$this->load->view('template/page_header.php');
+	//$this->load->view('registration_form',$data);
+	$this->load->view('validarcorreo_form',$data);
+	$this->load->view('template/page_footer.php');
+}
+
+
+
+}
+
+
+
 
 // Show registration page
 public function registro_postulacion_MTI() {

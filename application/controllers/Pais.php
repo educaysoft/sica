@@ -78,7 +78,7 @@ public function add()
 public function listar()
 {
 	
-  $data['pais_list'] = $this->pais_model->lista_paissA()->result();
+  $data['pais_list'] = $this->pais_model->lista_paisesA()->result();
   $data['title']="Tipo documento";
 	$this->load->view('template/page_header');		
   $this->load->view('pais_list',$data);
