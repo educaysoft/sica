@@ -209,7 +209,7 @@ $(document).ready(function(){
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('asignaturadocente/jornadadocente_data')?>', type: 'GET',data:{idasignaturadocente:idasignaturadocente}},});
 
 
-//	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/evento_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
+	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/evento_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
 
 
 });
