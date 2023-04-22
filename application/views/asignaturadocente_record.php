@@ -55,7 +55,7 @@ if(isset($asignaturadocente))
 	}
 
 echo form_input('eldistributivodocente',$options[$asignaturadocente['iddistributivodocente']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-echo form_input('iddistributivodocente',$asignaturadocente['iddistributivodocente'],array('style'=>'display:none; width:500px;'));
+echo form_input('iddistributivodocente',$asignaturadocente['iddistributivodocente'],array('id'=>'iddistributivodocente','style'=>'display:none; width:500px;'));
 
 		?>
 	</div> 
