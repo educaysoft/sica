@@ -21,7 +21,7 @@
 
 <td> <?php echo $list->idpais ?></td>
 <td> <?php echo $list->nombre?></td>
-<td> <?php echo anchor('documento/listarxpais/'.$list->idpais,'ver') ?> || <?php echo anchor('documento/add/'.$list->idpais,'Nuevo') ?></td>
+<td> <?php echo anchor('documento/listarxpais/'.$list->idpais,'ver') ?> || <?php echo anchor('pais/add/','Nuevo') ?></td>
  </tr>
 
 
