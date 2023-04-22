@@ -222,6 +222,17 @@ window.location.href = retorno+'/'+id;
 });
 
 
+$('#show_data1').on('click','.item_ver',function(){
+var id= $(this).data('idevento');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+
+
+
+
 </script>
 
 
