@@ -56,7 +56,8 @@ public function valicarcorreo()
 		$data['eventos']= $this->evento_model->lista_eventos_open(54)->result();
 	}
 	$this->load->view('template/page_header.php');
-	$this->load->view('validarcorreo_form',$data);
+	$this->load->view('registration_form',$data);
+	//$this->load->view('validarcorreo_form',$data);
 	$this->load->view('template/page_footer.php');
 
 }
