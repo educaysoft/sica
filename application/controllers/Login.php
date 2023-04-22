@@ -43,23 +43,20 @@ public function user_registration_show() {
   	$data["paises"]= $this->pais_model->lista_paises()->result();
 	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
 	$this->load->view('template/page_header.php');
+	//$this->load->view('registration_form',$data);
 	$this->load->view('registration_form',$data);
 	$this->load->view('template/page_footer.php');
 }
 
-public function valicarcorreo()
+public function validarcorreo()
 {
         if($this->input->get('idevento') ){
 		$data['eventos']= $this->evento_model->lista_eventos_open($this->input->get('idevento'))->result();
 	}else{	
 		$data['eventos']= $this->evento_model->lista_eventos_open(54)->result();
 	}
-  	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
-  	$data["paises"]= $this->pais_model->lista_paises()->result();
-	$data['perfiles']= $this->perfil_model->lista_perfiles()->result();
-
 	$this->load->view('template/page_header.php');
-	$this->load->view('registration_form',$data);
+	$this->load->view('validarcorreo_form',$data);
 	$this->load->view('template/page_footer.php');
 
 }
