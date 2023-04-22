@@ -204,12 +204,12 @@ echo form_input('iddistributivodocente',$asignaturadocente['iddistributivodocent
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var iddistributivodocente=document.getElementById("iddistributivodocente").value;
+//	var iddistributivodocente=document.getElementById("iddistributivodocente").value;
 	var idasignaturadocente=document.getElementById("idasignaturadocente").value;
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('asignaturadocente/jornadadocente_data')?>', type: 'GET',data:{idasignaturadocente:idasignaturadocente}},});
 
 
-	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/evento_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
+//	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/evento_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
 
 
 });
