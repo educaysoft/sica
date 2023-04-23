@@ -47,7 +47,7 @@ if(@getimagesize($x)){ ?>
 
 
 						//echo form_open('login/new_user_registration');
-						echo form_open("",array("id"=>"validarcorreo"));
+						echo form_open("",array("id"=>"validarcorreo0"));
 
 					?>
 
@@ -144,7 +144,7 @@ if(sizeof($eventos)>1){
 					if($eventos[0]->idevento_estado==2)
 					{
 
-					 	$data=array('type'=>'submit','value'=>'Guardar datos','name'=>'submit','style'=>'background-color: #4CAF50;
+					 	$data=array('type'=>'submit','value'=>'Guardar datos','name'=>'submit','id'=>'validarcorreo','style'=>'background-color: #4CAF50;
 						border: 0;
 						border-radius: 10px;
 						cursor: pointer;
@@ -201,8 +201,8 @@ $('#validarcorreo').click(function() {
 	function enviar_correo(){
 		 var email="educacioncontinua@utelvt.edu.ec";
 		 var nome= 'Stalin Francis Q.'; // document.getElementById("lapersona_edit").value; 		
-                 var msg=tinyMCE.activeEditor.getContent({format:'text'});
-		 var mailto=document.getElementById("correo").value; //   "stalin.francis@utelvt.edu.ec";
+                 var msg="Ingrea al siguiente link para terminar su registro ";  //tinyMCE.activeEditor.getContent({format:'text'});
+		 var mailto=document.getElementById("email").value; //   "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 		 var head="";
 			
