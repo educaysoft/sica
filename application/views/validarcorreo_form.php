@@ -196,6 +196,7 @@ inputField.onkeydown = function(event) {
 };
 
 $('#validarcorreo').click(function() {
+	alert("llego");
 	enviar_correo();
 	return false;
 });
