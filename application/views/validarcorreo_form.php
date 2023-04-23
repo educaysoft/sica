@@ -185,7 +185,7 @@ if(sizeof($eventos)>1){
 </section>
 
 <script>
-$(document).ready(()=>{
+$(document).ready(function(){
 
 $('#validarcorreo').click(function() {
 	alert("llego");
