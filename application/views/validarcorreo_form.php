@@ -46,7 +46,9 @@ if(@getimagesize($x)){ ?>
 					<?php
 
 
-						echo form_open('login/new_user_registration');
+						//echo form_open('login/new_user_registration');
+						echo form_open("",array("id"=>"validarcorreo"));
+
 					?>
 
 					
@@ -183,7 +185,6 @@ if(sizeof($eventos)>1){
 </section>
 
 <script>
-
 $(document).ready(()=>{
 var inputField = document.querySelector('#cedula');
 
@@ -194,9 +195,54 @@ inputField.onkeydown = function(event) {
   }
 };
 
+$('#validarcorreo').click(function() {
+	enviar_correo();
+	return false;
+});
+
+
 
 
   });     
+
+	function enviar_correo(){
+		 var email="educacioncontinua@utelvt.edu.ec";
+		 var nome= 'Stalin Francis Q.'; // document.getElementById("lapersona_edit").value; 		
+                 var msg=tinyMCE.activeEditor.getContent({format:'text'});
+		 var mailto=document.getElementById("correo").value; //   "stalin.francis@utelvt.edu.ec";
+		 var secure="siteform";
+		 var head="";
+			
+		var foot0="<br><div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres esta ejecutando los siguientes programas de capacitación para el perfeccionamiento de nuestros docentes.<br><br> <a href='https://educaysoft.org/sica/curso/CursosEducacionContinua2023'>Cursos de Educación Continua</a><br><br></div>" ;
+		 var foot=" <div style='text-align:center; background-color:lightgrey; font-size:12px;'> Este correo ha sido enviado a "+mailto+ ", de acuerdo a la Ley Orgánica de Protección de datos, usted tiene el derecho a solicitar a la Universidad Técnica Luis Vargas Torres, la actualización, inclusión, supresión y/o tratamiento de los datos personales incluidos en sus bases de datos, con este correo electrónico usted acepta recibir información de las actividades académicas que realiza el Alma Mater así como nuestra propuestas académicas <br><br> Este correo fue generado y enviado automáticamente desde el sistema cloud elaborado de la Maestría en Tecnología de la Información</div> ";
+
+		msg=head+msg+foot0+foot;
+
+	    $.ajax({
+		url: "<?php echo site_url('seguimiento/send') ?>",
+		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure},
+		method: 'POST',
+		async : false,
+		success: function(data){
+		var html = '';
+		var i;
+	//	get_participantes2();
+		alert(data);
+		},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+	    })
+
+
+
+       }
+
+
+
+
+
 
 						
 						function validacedula()
