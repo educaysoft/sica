@@ -221,7 +221,7 @@ $('#validarcorreo').click(function() {
 		var html = '';
 		const div = document.getElementById('panel2');
 	//	get_participantes2();
-		div.innerHTML ='<span style="background-color: lime">Revise su correo electrónico</span>';
+		div.innerHTML ='<span style="font-size:20px; ">Un mensaje a sido enviado al correo<br><br>'+mailto+'<br><br> Revisa la bandeja de entrada y da click en el enlace para continuar con el registro</span>';
 		alert(data);
 		},
 	      error: function (xhr, ajaxOptions, thrownError) {
