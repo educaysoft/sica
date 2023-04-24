@@ -42,7 +42,7 @@ if(@getimagesize($x)){ ?>
 				<header class="w3-container" style="background-color:#4CAF50;">
 					<p style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:25px; color:white; text-align:center;">Registrate Aquí </p>
 				</header>
-				<div class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
+				<div id='panel2' class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;">
 					<?php
 
 
@@ -219,8 +219,9 @@ $('#validarcorreo').click(function() {
 		async : false,
 		success: function(data){
 		var html = '';
-		var i;
+		const div = document.getElementById('panel2');
 	//	get_participantes2();
+		div.innerHTML ='<span style="background-color: lime">Revise su correo electrónico</span>';
 		alert(data);
 		},
 	      error: function (xhr, ajaxOptions, thrownError) {
