@@ -188,7 +188,6 @@ if(sizeof($eventos)>1){
 $(document).ready(function(){
 
 $('#validarcorreo').click(function() {
-	alert("llego");
 	enviar_correo();
 	return false;
 });
