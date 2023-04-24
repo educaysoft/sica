@@ -29,9 +29,9 @@ if(@getimagesize($x)){ ?>
 
 			<p>Para poder unirte a este evento sigue las  instrucciones: </p><br>
 			<ol>
-			<li> Verifica si el evento esta en etapa de Inscripción.  </li>
-			<li> Ingresa tus datos personales y de contacto solicitados.  </li>
-			<li> Finalmente guarda los datos y estas listo para ingresar a nuestra plaforma.  </li>
+			<li> Ingresa un correo electrónica válido.  </li>
+			<li> Presiona el boton Enviar mensaje.  </li>
+			<li> Verifica si te llego un mensaje y continua con el registro.  </li>
 			</ol>
 			</div>
 		 </div>
@@ -155,7 +155,7 @@ if(sizeof($eventos)>1){
 						padding: 10px;
 						width: 100%;');
 					}else{
-					 	$data=array('type'=>'submit','value'=>'Guardar datos','name'=>'submit','disabled'=>'disabled','style'=>'background-color: #4CAF50;
+					 	$data=array('type'=>'submit','value'=>'Enviar mensaje','name'=>'submit','disabled'=>'disabled','style'=>'background-color: #4CAF50;
 						border: 0;
 						border-radius: 10px;
 						cursor: pointer;
@@ -174,7 +174,7 @@ if(sizeof($eventos)>1){
 					?>
 
 <footer   class='w3-container' style="font-size:25px; padding-top:0px; padding: 0px; text-align:center; ">
-					 ¿Ya creastes tu cuenta? <br> <a style="color:red;"  href="<?php echo base_url() ?>index.php/login" role="button">Ingresar al sistema</a>
+					 ¿Si ya creastes tu cuenta? <br> <a style="color:red;"  href="<?php echo base_url() ?>index.php/login" role="button">Ingresar al sistema</a>
 				</footer>
 				</div>
 
