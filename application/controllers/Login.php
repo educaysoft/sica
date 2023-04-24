@@ -32,7 +32,7 @@ public function index() {
 }
 
 // Show registration page
-public function user_registration_show() {
+public function registro() {
 
         if($this->input->get('idevento') ){
 		$data['eventos']= $this->evento_model->lista_eventos_open($this->input->get('idevento'))->result();
@@ -48,12 +48,17 @@ public function user_registration_show() {
 	$this->load->view('template/page_footer.php');
 }
 
+
+
 public function validarcorreo()
 {
         if($this->input->get('idevento') ){
 		$data['eventos']= $this->evento_model->lista_eventos_open($this->input->get('idevento'))->result();
+		$data['idevento']=$this->input->get('idevento'); 
 	}else{	
 		$data['eventos']= $this->evento_model->lista_eventos_open(54)->result();
+		$data['idevento']=54; 
+
 	}
 	$this->load->view('template/page_header.php');
 	$this->load->view('validarcorreo_form',$data);

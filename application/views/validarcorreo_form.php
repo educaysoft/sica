@@ -199,9 +199,10 @@ $('#validarcorreo').click(function() {
   });     
 
 	function enviar_correo(){
+		 var idevento=<?php echo $idevento ?>;
 		 var email="educacioncontinua@utelvt.edu.ec";
 		 var nome= 'Stalin Francis Q.'; // document.getElementById("lapersona_edit").value; 		
-                 var msg="Ingrese al siguiente link para terminar su registro <br><br><a href='https://educaysoft.org/sica/index.php/login/user_registration_show' style='text-align:center;'>Registrate aqui</a><br><br>";  //tinyMCE.activeEditor.getContent({format:'text'});
+                 var msg="Ingrese al siguiente link para terminar su registro <br><br><a href='https://educaysoft.org/sica/index.php/login/registro?idevento="+idevento+"' style='text-align:center;'>Registrate aqui</a><br><br>";  //tinyMCE.activeEditor.getContent({format:'text'});
 		 var mailto=document.getElementById("email").value; //   "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 		 var head="";

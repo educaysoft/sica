@@ -84,7 +84,6 @@ class Documento_model extends CI_model {
 				$this->db->update("participante",$arr);	
 			}	
 
-
 			$this->db->where("iddocumento",$id);
 		    	$query=$this->db->get('emisor');
 			if($query->num_rows()>0)
@@ -93,16 +92,11 @@ class Documento_model extends CI_model {
 				$this->db->delete("emisor");	
 			}	
 
-
-
 			$this->db->where('iddocumento',$id);
-			$this->db->delete('documento');
+			$this->db->update('documento',array('eliminado'=>1));
 			if($this->db->affected_rows()==1)
 			{
-				//Se elimina el id de la  tabla participante
-
 				$this->db->trans_complete();
-
 				$result=true;
 			}else{
 				$result=false;
@@ -121,7 +115,7 @@ class Documento_model extends CI_model {
 	}
 
 
-  //Retorna solamente un registro de el id pasado como parame
+  	//Retorna solamente un registro de el id pasado como parame
  	function documento($id){
  		$documento = $this->db->query('select * from documento where iddocumento="'. $id.'" order by iddocumento');
  		return $documento;
