@@ -6,7 +6,7 @@
 
 
 <tr>
-<td> Docente: </td>
+<td> Persona: </td>
 <td><?php 
 
 $options= array('--Select--');
