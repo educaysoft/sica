@@ -59,7 +59,17 @@ public function actual(){
 
 	public function add()
 	{
+
+	if($this->uri->segment(3))
+	{
+		$data['personas']= $this->persona_model->persona($this->uri->segment(3))->result();
+
+	}else{
+
 		$data['personas']= $this->persona_model->lista_personas()->result();
+	}
+
+
   		$data['operadoras']= $this->operadora_model->lista_operadoras()->result();
   		$data['telefono_estados']= $this->telefono_estado_model->lista_telefono_estado()->result();
 		$data['title']="Nueva Telefono";
