@@ -126,15 +126,14 @@ if(isset($persona))
   	foreach ($correos as $row){
 		$options[$row->idcorreo]=$row->nombre;
 	}
- echo form_multiselect('correo[]',$options,(array)set_value('idcorreo', ''), array('style'=>'width:500px')); 
-
+ 	echo form_multiselect('correo[]',$options,(array)set_value('idcorreo', ''), array('style'=>'width:500px')); 
 	?>
 	</div> 
 </div> 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('telefono/add', 'Teléfono:'); ?>:</label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('telefono/add/'.$persona['idpersona'], 'Teléfono:'); ?>:</label>
 	<div class="col-md-10">
 	<?php
 
