@@ -351,7 +351,7 @@ echo form_input($arrdatos) ?>
 	 <thead>
 	 <tr>
 	 <th>sesion</th>
-	 <th>id</th>
+	 <th>unidad</th>
 	 <th>fecha</th>
 	 <th>inicio</th>
 	 <th>termino</th>

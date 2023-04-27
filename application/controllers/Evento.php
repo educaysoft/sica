@@ -454,10 +454,10 @@ public function index(){
 
 			$idevento=$this->input->get('idevento');
 			$idpersona=$this->input->get('idpersona');
-			$data0 =$this->sesionevento_model->sesioneventosA($idevento);
+			$data0 =$this->sesionevento_model->sesioneventosB($idevento);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->numerosesion,$r->idsesionevento,$r->fecha,$r->horainicio,$r->horafin,$r->idmodoevaluacion,$r->tema, 
+				$data[]=array($r->numerosesion,$r->unidad,$r->fecha,$r->horainicio,$r->horafin,$r->idmodoevaluacion,$r->tema, 
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('sesionevento/edit').'"    data-idsesionevento="'.$r->idsesionevento.'">Modificar</a>');
 		//		$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('sesionevento/actual').'"    data-idsesionevento="'.$r->idsesionevento.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_edit"  data-idsesionevento="'.$r->idsesionevento.'"  data-idevento="'.$r->idevento.'">edit</a>');
 			}	
