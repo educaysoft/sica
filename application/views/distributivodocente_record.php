@@ -11,7 +11,7 @@ if(isset($distributivodocente))
    <li style="border-right:1px solid green"><?php echo anchor('distributivodocente/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('distributivodocente/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('distributivodocente/edit/'.$distributivodocente['iddistributivodocente'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('distributivodocente/delete/'.$distributivodocente['iddistributivodocente'],'Delete'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('distributivodocente/quitar/'.$distributivodocente['iddistributivodocente'],'Quitar'); ?></li>
         <li> <?php echo anchor('distributivodocente/listar/','Listar'); ?></li>
         <li> <?php echo anchor('distributivodocente/reportepdf/'.$distributivodocente['iddistributivodocente'],'reportepdf'); ?></li>
 

@@ -110,11 +110,18 @@ public function add()
  	}
 
 
- 	public function delete()
+ 	public function quitar()
  	{
- 		$data=$this->distributivodocente_model->delete($this->uri->segment(3));
- 		echo json_encode($data);
-	 	redirect('distributivodocente/elprimero');
+ 		$data=$this->distributivodocente_model->quitar($this->uri->segment(3));
+	 	if(!$result)
+		{
+			echo "<script language='JavaScript'> alert('Este docente no ha podida salir de este distributivo'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+ //		echo json_encode($data);
+//	 	redirect('distributivodocente/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 

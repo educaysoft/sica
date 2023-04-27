@@ -73,14 +73,27 @@ class Distributivodocente_model extends CI_model {
  
 
 
- 	public function delete($id)
+ 	public function quitar($id)
 	{
- 		$this->db->where('iddistributivodocente',$id);
-		$this->db->delete('distributivodocente');
-    		if($this->db->affected_rows()==1)
-			$result=true;
-		else
-			$result=false;
+		$condition = "iddistributivodocente =" . $id ;
+		$this->db->select('*');
+		$this->db->from('distributivodocente0');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() != 0) {
+	
+
+ 			$this->db->where('iddistributivodocente',$id);
+			$this->db->update('distributivodocente',array('eliminado'=>1));
+    			if($this->db->affected_rows()==1)
+				$result=true;
+			else
+				$result=false;
+		}else{	
+			      $result=false;
+   		}
+
 		return $result;
  	}
 
