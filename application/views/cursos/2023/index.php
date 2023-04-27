@@ -175,7 +175,7 @@ overflow:hidden;
 	      <p><b>Hora:</b>  18:00 - 20:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/index.php/login/user_registration_show?idevento=332'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcedula?idevento=332'"  >Inscribete</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login'">Ingresa</button>
                 </div>
                 <small class="text-muted"><b>Modalidad:</b>On-line</small>
@@ -202,7 +202,7 @@ overflow:hidden;
 	      <p><b>Hora:</b>  18:00 - 20:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/index.php/login/user_registration_show?idevento=333'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcedula?idevento=333'"  >Inscribete</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login'">Ingresa</button>
                 </div>
                 <small class="text-muted"><b>Modalidad:</b>On-line</small>
@@ -229,7 +229,7 @@ overflow:hidden;
 	      <p><b>Hora:</b>  18:00 - 20:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/index.php/login/user_registration_show?idevento=334'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcedula?idevento=334'"  >Inscribete</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login'">Ingresa</button>
                 </div>
                 <small class="text-muted"><b>Modalidad:</b>On-line</small>
@@ -254,7 +254,7 @@ overflow:hidden;
 	      <p><b>Hora:</b>  18:00 - 20:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/index.php/login/user_registration_show?idevento=335'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcedula?idevento=335'"  >Inscribete</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login'">Ingresa</button>
                 </div>
                 <small class="text-muted"><b>Modalidad:</b>On-line</small>
@@ -283,7 +283,7 @@ overflow:hidden;
 	      <p><b>Hora:</b>  18:00 - 20:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/index.php/login/user_registration_show?idevento=336'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcedula?idevento=336'"  >Inscribete</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login'">Ingresa</button>
                 </div>
                 <small class="text-muted"><b>Modalidad:</b>On-line</small>
