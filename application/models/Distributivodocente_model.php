@@ -2,7 +2,7 @@
 class Distributivodocente_model extends CI_model {
 
 	function lista_distributivodocentes(){
-		 $distributivodocente= $this->db->get('distributivodocente');
+		 $distributivodocente= $this->db->get('distributivodocente0');
 		 return $distributivodocente;
 	}
 
@@ -15,7 +15,7 @@ class Distributivodocente_model extends CI_model {
 
 
  	function distributivodocente( $id){
- 		$distributivodocente = $this->db->query('select * from distributivodocente where iddistributivodocente="'. $id.'"');
+ 		$distributivodocente = $this->db->query('select * from distributivodocente0 where iddistributivodocente="'. $id.'"');
  		return $distributivodocente;
 	}
 
@@ -41,7 +41,7 @@ class Distributivodocente_model extends CI_model {
 
 
  	function distributivodocentespersona( $id){
- 		$distributivodocente = $this->db->query('select * from distributivodocente where idpersona="'. $id.'"');
+ 		$distributivodocente = $this->db->query('select * from distributivodocente0 where idpersona="'. $id.'"');
  		return $distributivodocente;
  	}
 
@@ -50,7 +50,7 @@ class Distributivodocente_model extends CI_model {
  	function save($array)
  	{
 		$this->db->select('*');
-		$this->db->from('distributivodocente');
+		$this->db->from('distributivodocente0');
 		$condition = "iddocente =" .  $array['iddocente'] ;
 		$this->db->where($condition);
 		$condition = "iddistributivo =" . $array['iddistributivo'];
@@ -68,7 +68,7 @@ class Distributivodocente_model extends CI_model {
  	function update($id,$array_item)
  	{
  		$this->db->where('iddistributivodocente',$id);
- 		$this->db->update('distributivodocente',$array_item);
+ 		$this->db->update('distributivodocente0',$array_item);
 	}
  
 
@@ -100,7 +100,7 @@ class Distributivodocente_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("iddistributivodocente")->get('distributivodocente');
+		$query=$this->db->order_by("iddistributivodocente")->get('distributivodocente0');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -113,7 +113,7 @@ class Distributivodocente_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("iddistributivodocente")->get('distributivodocente');
+		$query=$this->db->order_by("iddistributivodocente")->get('distributivodocente0');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -125,16 +125,16 @@ class Distributivodocente_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$distributivodocente = $this->db->select("iddistributivodocente")->order_by("iddistributivodocente")->get('distributivodocente')->result_array();
+ 		$distributivodocente = $this->db->select("iddistributivodocente")->order_by("iddistributivodocente")->get('distributivodocente0')->result_array();
 		$arr=array("iddistributivodocente"=>$id);
 		$clave=array_search($arr,$distributivodocente);
 	   if(array_key_exists($clave+1,$distributivodocente))
 		 {
 
- 		$distributivodocente = $this->db->query('select * from distributivodocente where iddistributivodocente="'. $distributivodocente[$clave+1]["iddistributivodocente"].'"');
+ 		$distributivodocente = $this->db->query('select * from distributivodocente0 where iddistributivodocente="'. $distributivodocente[$clave+1]["iddistributivodocente"].'"');
 		 }else{
 
- 		$distributivodocente = $this->db->query('select * from distributivodocente where iddistributivodocente="'. $id.'"');
+ 		$distributivodocente = $this->db->query('select * from distributivodocente0 where iddistributivodocente="'. $id.'"');
 		 }
 		 	
  		return $distributivodocente;
@@ -143,16 +143,16 @@ class Distributivodocente_model extends CI_model {
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$distributivodocente = $this->db->select("iddistributivodocente")->order_by("iddistributivodocente")->get('distributivodocente')->result_array();
+ 		$distributivodocente = $this->db->select("iddistributivodocente")->order_by("iddistributivodocente")->get('distributivodocente0')->result_array();
 		$arr=array("iddistributivodocente"=>$id);
 		$clave=array_search($arr,$distributivodocente);
 	   if(array_key_exists($clave-1,$distributivodocente))
 		 {
 
- 		$distributivodocente = $this->db->query('select * from distributivodocente where iddistributivodocente="'. $distributivodocente[$clave-1]["iddistributivodocente"].'"');
+ 		$distributivodocente = $this->db->query('select * from distributivodocente0 where iddistributivodocente="'. $distributivodocente[$clave-1]["iddistributivodocente"].'"');
 		 }else{
 
- 		$distributivodocente = $this->db->query('select * from distributivodocente where iddistributivodocente="'. $id.'"');
+ 		$distributivodocente = $this->db->query('select * from distributivodocente0 where iddistributivodocente="'. $id.'"');
 		 }
 		 	
  		return $distributivodocente;
