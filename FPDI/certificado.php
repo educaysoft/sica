@@ -103,7 +103,7 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	$mid_x=148;
 
 	//write the code of de certificaod
-	$pdf->SetFont('Helvetica','B',15);
+	$pdf->SetFont('Helvetica','',12);
 	if($posi_codigo_x==0 )
 	{
 		$pdf->SetTextColor(0, 0,0);
@@ -148,7 +148,7 @@ for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 
 	//write the date of de certificaod
 //	$pdf->SetFont('Helvetica','B',15);
-	$pdf->SetFont('Arial','B',15);
+	$pdf->SetFont('Arial','B',12);
 	if($posi_codigo_x==0)
 	{
 		$pdf->SetTextColor(0, 0,0);

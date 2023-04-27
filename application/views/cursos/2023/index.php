@@ -270,7 +270,9 @@ overflow:hidden;
 <div class="col">
           <div class="card shadow-sm">
 		  <a  href='https://congresoutlvte.org/facped/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/etica.jpg" height="100%" width="100%"/> </svg></a>
-
+<div class='img-contenedor w3-card-4' style='position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;'>
+<img src='https://repositorioutlvte.org/Repositorio/fotos/0801201765.jpg' width='100%' height='100%' style='border-radius:50px;'>
+</div>
             <div class="card-body">
               <p class="card-text">Ética.</p>
 	      <p><b>Instructora:</b> Ing. Rugina Quiñonez, PhD</p>
