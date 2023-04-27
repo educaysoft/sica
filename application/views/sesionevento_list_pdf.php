@@ -94,16 +94,27 @@ $cell_height=10;    //define cell height
 	 	 	$current_x+=$cell_width;
 			$current_y = $pdf->GetY()-5;
 			$pdf->SetXY($current_x, $current_y);   
-		    $pdf->MultiCell($cell_width,5,utf8_decode($row->numeasis),1);
+			if($row->numeasis>0)
+			{
+		    		$pdf->MultiCell($cell_width,5,utf8_decode($row->numeasis),1);
+			}else{
+		    		$pdf->MultiCell($cell_width,5," ",1);
+			}
 	 	 	$current_x+=$cell_width;
 			$current_y = $pdf->GetY()-5;
 			$pdf->SetXY($current_x, $current_y);   
+			if($row->numeasis>0)
+			{
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->numalum-$row->numeasis),1);
+			}else{
+		    		$pdf->MultiCell($cell_width,5," ",1);
+			}
+
 	 	 	$current_x+=$cell_width;
 			$current_y = $pdf->GetY()-5;
 			$pdf->SetXY($current_x, $current_y);   
 			$cell_width=120;
-		    $pdf->MultiCell($cell_width,5,utf8_decode($row->temacorto),1);
+		    $pdf->MultiCell($cell_width,5,utf8_decode(preg_replace("[\n|\r|\n\r]","",$row->temacorto)),1);  //se eliminan salto de line
 	 	 	$current_x+=$cell_width;
 			$current_y = $pdf->GetY()-5;
 			$current_y2 = $pdf->GetY();
