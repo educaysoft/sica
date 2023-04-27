@@ -26,14 +26,14 @@ class Persona_model extends CI_model {
 
 
 	function persona( $id){
-		$persona = $this->db->query('select * from persona where idpersona="'. $id.'"');
+		$persona = $this->db->query('select * from persona0 where idpersona="'. $id.'"');
 		return $persona;
 	}
 
 	function existe( $cedula){
 		$condition = "cedula =" . "'" . $cedula . "'";
 		$this->db->select('*');
-		$this->db->from('persona');
+		$this->db->from('persona0');
 		$this->db->where($condition);
 		$this->db->limit(1);
 		$query = $this->db->get();
@@ -59,7 +59,7 @@ class Persona_model extends CI_model {
 	   $this->db->trans_begin();
 		$condition = "cedula =" . "'" . $array_persona['cedula'] . "'";
 		$this->db->select('*');
-		$this->db->from('persona');
+		$this->db->from('persona0');
 		$this->db->where($condition);
 		$this->db->limit(1);
 		$query = $this->db->get();
@@ -184,7 +184,7 @@ class Persona_model extends CI_model {
 
 		$condition = "idpersona =" . "'" . $id . "'";
 		$this->db->select('*');
-		$this->db->from('persona');
+		$this->db->from('persona0');
 		$this->db->where($condition);
 		$this->db->limit(1);
 		$query = $this->db->get();
@@ -247,10 +247,10 @@ class Persona_model extends CI_model {
 	   if(array_key_exists($clave+1,$persona))
 		 {
 
- 		$persona = $this->db->query('select * from persona where idpersona="'. $persona[$clave+1]["idpersona"].'"');
+ 		$persona = $this->db->query('select * from persona0 where idpersona="'. $persona[$clave+1]["idpersona"].'"');
 		 }else{
 
- 		$persona = $this->db->query('select * from persona where idpersona="'. $id.'"');
+ 		$persona = $this->db->query('select * from persona0 where idpersona="'. $id.'"');
 		 }
 		 	
  		return $persona;
@@ -259,16 +259,16 @@ class Persona_model extends CI_model {
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$persona = $this->db->select("idpersona")->order_by("idpersona")->get('persona')->result_array();
+ 		$persona = $this->db->select("idpersona")->order_by("idpersona")->get('persona0')->result_array();
 		$arr=array("idpersona"=>$id);
 		$clave=array_search($arr,$persona);
 	   if(array_key_exists($clave-1,$persona))
 		 {
 
- 		$persona = $this->db->query('select * from persona where idpersona="'. $persona[$clave-1]["idpersona"].'"');
+ 		$persona = $this->db->query('select * from persona0 where idpersona="'. $persona[$clave-1]["idpersona"].'"');
 		 }else{
 
- 		$persona = $this->db->query('select * from persona where idpersona="'. $id.'"');
+ 		$persona = $this->db->query('select * from persona0 where idpersona="'. $id.'"');
 		 }
 		 	
  		return $persona;
