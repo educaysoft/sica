@@ -316,7 +316,6 @@ function showpassword(){
 
 function get_datos(){
 	var cedula=document.getElementById("cedula").value;
-	alert(cedula);
     if(cedula.length==10){
     $.ajax({
         url: "<?php echo site_url('persona/get_datos'); ?>",
