@@ -149,7 +149,7 @@ echo form_input($eys_arrinput2);
 <label class="col-md-2 col-form-label">Número de sesión:</label>
 <div class="col-md-10">
 <?php
-if($numerosesion>0){
+if($numerosesion>0 && $numerosesion==$sesionactual){
 	$eys_arrinput=array('name'=>'numerosesion','value'=>$numerosesion,"readonly"=>"true", "style"=>"width:500px");
 }else{
 	$eys_arrinput=array('name'=>'numerosesion','value'=>$sesionactual,"readonly"=>"true", "style"=>"width:500px");
