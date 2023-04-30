@@ -99,6 +99,7 @@ function lista_temass($idsilabo){
  	{
  		$this->db->where('idtema',$id);
  		$this->db->update('tema',$array_item);
+		return $id;
 	}
  
 

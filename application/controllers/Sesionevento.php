@@ -281,6 +281,8 @@ class Sesionevento extends CI_Controller{
 
 	if($this->input->post('temasilabo')==1)
 	{
+
+		if($idtema>0){
 		$array_tema=array(
 	 		'nombrecorto' => $this->input->post('temacorto'),
 	 		'nombrelargo' => $this->input->post('tema'),
@@ -288,11 +290,24 @@ class Sesionevento extends CI_Controller{
 		 	'numerosesion' => $this->input->post('numerosesion'),
 	 	);
 	 	$idtema =$this->tema_model->update($idtema,$array_tema);
+		}else{
+	 	$array_item2=array(
+	 		'nombrecorto' => $this->input->post('temacorto'),
+			'idvideotutorial' => 0,
+	 		'nombrelargo' => $this->input->post('tema'),
+	 		'idunidadsilabo' => $this->input->post('idunidadsilabo'),
+	 		'duracionminutos' => 120,
+		 	'numerosesion' => $this->input->post('numerosesion'),
+	 	);
+	 	$idtema =$this->tema_model->save($array_item2);
+		}
+
+
 
 	 	$array_item=array(
 		 	'idevento' => $this->input->post('idevento'),
 		 	'fecha' => $this->input->post('fecha'),
-		 	'idtema' => $this->input->post('idtema'),
+		 	'idtema' => $idtema,
 		 	'tema' => $this->input->post('tema'),
 		 	'temacorto' => $this->input->post('temacorto'),
 		 	'horainicio' => $this->input->post('horainicio'),
