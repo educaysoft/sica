@@ -326,9 +326,9 @@ function get_datos(){
         success: function(data){
 		document.getElementById("nombres").value =data[0].nombres;
 		document.getElementById("apellidos").value =data[0].apellidos;
-		document.getElementById("fechanacimiento").value =data[0].fechanacimeintos;
+		document.getElementById("fechanacimiento").value =data[0].fechanacimiento;
 		document.getElementById("email").value =data[0].correo;
-		document.getElementById("fechanacimiento").value =data[0].telefono;
+		document.getElementById("telefono").value =data[0].telefono;
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
