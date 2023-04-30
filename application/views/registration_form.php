@@ -315,7 +315,7 @@ function showpassword(){
 
 
 function get_datos(){
-	var cedula=document.getElementById("cedula");
+	var cedula=document.getElementById("cedula").value;
 	alert(cedula);
     if(cedula.length==10){
     $.ajax({
