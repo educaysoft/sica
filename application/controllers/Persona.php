@@ -342,7 +342,7 @@ public function anterior(){
 	    if($this->input->post('cedula')) {
 		$this->db->select('*');
 		$this->db->where(array('cedula' => $this->input->post('cedula')));
-		$query = $this->db->get('persona0');
+		$query = $this->db->get('persona2');
 		$data=$query->result();
 		echo json_encode($data);
 		}

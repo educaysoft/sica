@@ -324,7 +324,11 @@ function get_datos(){
 	 async : false,
         dataType : 'json',
         success: function(data){
-		document.getElementById("nombres").value =data[0].nombres
+		document.getElementById("nombres").value =data[0].nombres;
+		document.getElementById("apellidos").value =data[0].apellidos;
+		document.getElementById("fechanacimiento").value =data[0].fechanacimeintos;
+		document.getElementById("email").value =data[0].correo;
+		document.getElementById("fechanacimiento").value =data[0].telefono;
         },
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
