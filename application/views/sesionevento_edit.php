@@ -136,8 +136,16 @@ foreach ($temas as $row){
 	}	
 }
 
-$eys_arrinput=array('name'=>'idtema','value'=>$sesionevento['idtema'], "style"=>"width:50px");
+if($numerosesion>0 && $numerosesion==$sesionactual){
+$eys_arrinput=array('name'=>'idtema','value'=>$sesionevento['idtema'],"readonly"=>"true", "style"=>"width:50px");
 $eys_arrinput2=array('name'=>'eltema','value'=>$eltema,"readonly"=>"true","readonly"=>"true", "style"=>"width:450px");
+}else{
+$eys_arrinput=array('name'=>'idtema','value'=>0,"readonly"=>"true", "style"=>"width:50px");
+$eys_arrinput2=array('name'=>'eltema','value'=>$sesionevento['idtema'].' - '.$eltema,"readonly"=>"true","readonly"=>"true", "style"=>"color:red;width:450px");
+
+}
+
+
 echo form_input($eys_arrinput);
 echo form_input($eys_arrinput2);
 ?>
@@ -152,7 +160,7 @@ echo form_input($eys_arrinput2);
 if($numerosesion>0 && $numerosesion==$sesionactual){
 	$eys_arrinput=array('name'=>'numerosesion','value'=>$numerosesion,"readonly"=>"true", "style"=>"width:500px");
 }else{
-	$eys_arrinput=array('name'=>'numerosesion','value'=>$sesionactual,"readonly"=>"true", "style"=>"width:500px");
+	$eys_arrinput=array('name'=>'numerosesion','value'=>$sesionactual,"readonly"=>"true", "style"=>"color:red; width:500px");
 }
 echo form_input($eys_arrinput);
 
@@ -271,7 +279,13 @@ echo form_dropdown("idmodoevaluacion",$options, $sesionevento['idmodoevaluacion'
 <label class="col-md-2 col-form-label">Actualizar silabo:</label>
 <div class="col-md-10">
 <?php
+
+if($numerosesion>0 && $numerosesion==$sesionactual){
 $eys_arrinput=array('name'=>'temasilabo','value'=>0, "style"=>"width:50px");
+}else{
+
+$eys_arrinput=array('name'=>'temasilabo','value'=>1, "style"=>"width:50px");
+}
 echo form_input($eys_arrinput); echo "1=SI / 0=NO";
 
 ?>
