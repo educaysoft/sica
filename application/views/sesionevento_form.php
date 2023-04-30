@@ -66,8 +66,6 @@ if(checkdate($m,$d,$a)){
 		 $fechahasta= $calendarioacademico[0]->fechahasta; // sin no esta la fecha de fin en el evento se toma del calendario
 	}
 
-
-
 }else{   // sin no estan ingresadas las fecha en el evento se toma del calendario asignado
 
  $fechasesion=$calendarioacademico[0]->fechadesde;
