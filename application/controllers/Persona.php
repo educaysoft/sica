@@ -336,6 +336,21 @@ public function anterior(){
 
 
 
+	public function get_datos() {
+	    $this->load->database();
+	    $this->load->helper('form');
+	    if($this->input->post('cedula')) {
+		$this->db->select('*');
+		$this->db->where(array('cedula' => $this->input->post('cedula')));
+		$query = $this->db->get('persona0');
+		$data=$query->result();
+		echo json_encode($data);
+		}
+	}
+
+
+
+
 
 
 
