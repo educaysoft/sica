@@ -89,11 +89,11 @@
 		foreach($fechacorte as $p=>$fc)
 		{
  	$fechasesion=$calendarioacademico[0]->fechadesde;
- 	$sesiones=array();
+ 	$sesiones=array();  //Arreglo para guardar las fechas de cada sesion
      $i=1;
     do{
 	
-	foreach ($jornadadocente as $row){
+	foreach ($jornadadocente as $row){   
     		$dia = $dias[date('w', strtotime($fechasesion))];
 		if($row->nombre==$dia ){    //verifica si la fecha esta en el horario.
 			$lahorai=$row->horainicio;
@@ -125,8 +125,6 @@
 				$sesiontotal[1]=0;
 			}
 
-  //   print_r($sesiontotal);
-   //  die();
 
 
 	$pdf->SetFillColor(232,232,232);
@@ -160,9 +158,6 @@
 	  if($id!=$row->idpersona)
 	  {
 	   if($id>0){    //Antes de comenzar a imprimir primero debe llenar registro
-
-		   
-
 
 
 		    $i=$i+1;
