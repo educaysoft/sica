@@ -356,6 +356,30 @@ class Sesionevento extends CI_Controller{
 
 
 
+
+ 	public function quitar()
+ 	{
+	       $idsesionevento=0;	
+		if($this->uri->segment(3))
+		{
+   		 $idsesionevento= $this->uri->segment(3);  
+		}
+
+ 		$result=$this->sesionevento_model->quitar($idsesionevento);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('No se quito'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-1);</script>";
+		}else{
+			echo "<script language='JavaScript'> alert('Se quito con existo esta sesionvento'); </script>";
+				echo "<script language='JavaScript'> window.history.go(-1);</script>";
+		}
+	}
+
+
+
+
+
 public function listar()
 {
 	
