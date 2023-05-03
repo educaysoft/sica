@@ -230,7 +230,7 @@ if(checkdate($m,$d,$a)){
 			      }
 			      if($arrayuda[$row1->fecha]>0){
 				$pdf->SetTextColor(3,18,249);
-				$xparti=(100-($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]))*$spar1/$capar1
+				$xparti=(100-($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]))*$vp/$cmp;
 				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 			      }else{
 				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
