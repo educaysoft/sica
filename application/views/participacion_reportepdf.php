@@ -205,12 +205,12 @@ if(checkdate($m,$d,$a)){
 		    foreach ($sesioneventos as $row1){     //Recorre todas las fecha programadas en el evento
 		      if(isset($arrparticipacion[$row1->fecha])){    //Si el participante tuvo participacion en esa fecha
 			$fecha2=$row1->fecha;
-			$q1=$this->db->query("select idpersona, count(porcentaje) as cantidad from participacion where idevento=".$row1->idevento." and (fecha between '". $fecha1 "' and '". $fecha2."')  group by idpersona order by cantidad desc limit 1");
+			$q1=$this->db->query("select idpersona, count(porcentaje) as cantidad from participacion where idevento=".$row1->idevento." and (fecha between '". $fecha1. "' and '". $fecha2."')  group by idpersona order by cantidad desc limit 1");
 			if($q1->num_rows()>0){
 			 $cmp=$q1->result()[0]->cantidad;
 		      }else{
 			$cmp=1;}
-			$q2=$this->db->query("select idpersona, sum(porcentaje) as total from participacion where idpersona= ".$id. "   idevento=".$row1->idevento." and (fecha between '". $fecha1 "' and '". $fecha2."') group by idpersona limit 1");
+			$q2=$this->db->query("select idpersona, sum(porcentaje) as total from participacion where idpersona= ".$id. "   idevento=".$row1->idevento." and (fecha between '". $fecha1. "' and '". $fecha2."') group by idpersona limit 1");
 
 			if($q2->num_rows()>0){
 			 $vp=$q1->result()[0]->total;
