@@ -5,6 +5,8 @@
 //	$query = "SELECT e.estado, m.id_municipio, m.municipio FROM t_municipio AS m INNER JOIN t_estado AS e ON m.id_estado=e.id_estado";
 //	$resultado = $mysqli->query($query);
 
+	    $this->load->database();
+	    $this->load->helper('form');
 
 
 	if(isset($_GET["idparticipanteestado"]))
@@ -81,14 +83,50 @@
    
  $dias = array('Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado');
 // Calcular la cantidad de sesionea hasta la fecha
-
+   date_default_timezone_set('America/Guayaquil');
+    $fecha = date("Y-m-d");
+    $horai= date("H:i:s");
 
 	$sesionactual=0;
 	$sesiontotal=array();
 
+	$f = strtotime($evento['fechainicia']);
+
+    $d = date( "j", $f);
+    $m = date("n", $f);
+    $a = date("Y", $f);
+
+if(checkdate($m,$d,$a)){
+ $fechasesion= $evento['fechainicia'];
+
+	$f = strtotime($evento['fechafinaliza']);   //Chequendo que la fecha de finalizacion estes ingresada
+
+    	$d = date( "j", $f);
+    	$m = date("n", $f);
+    	$a = date("Y", $f);
+
+	if(checkdate($m,$d,$a)){
+		 $fechahasta= $evento['fechafinaliza'];
+	}else{
+
+		 $fechahasta= $calendarioacademico[0]->fechahasta; // sin no esta la fecha de fin en el evento se toma del calendario
+	}
+
+	}else{   // sin no estan ingresadas las fecha en el evento se toma del calendario asignado
+ 		$fechasesion=$calendarioacademico[0]->fechadesde;
+ 		$fechahasta=$calendarioacademico[0]->fechahasta;
+}
+
+
+	$fecha1=$fechasesion;
+    	$fecha2=$fechasesion;
+
+
+
+
 		foreach($fechacorte as $p=>$fc)
 		{
- 	$fechasesion=$calendarioacademico[0]->fechadesde;
+		
  	$sesiones=array();  //Arreglo para guardar las fechas de cada sesion
      $i=1;
     do{
@@ -159,16 +197,31 @@
 	  {
 	   if($id>0){    //Antes de comenzar a imprimir primero debe llenar registro
 
-
 		    $i=$i+1;
 		    $pdf->Cell(5,5,$i,1,0,'R',0); 
 		    $pdf->Cell(55,5,utf8_decode($arrparticipacion[$id]),1,0,'L',0);
 		    $pdf->Cell(5,5,utf8_decode($arrgenero1[$id]),1,0,'L',0);
 		    $pdf->Cell(5,5,utf8_decode($arrcolegio1[$id]),1,0,'L',0);
 		    foreach ($sesioneventos as $row1){     //Recorre todas las fecha programadas en el evento
-			  //  print_r($row1);
-			  //  die();
 		      if(isset($arrparticipacion[$row1->fecha])){    //Si el participante tuvo participacion en esa fecha
+			$fecha2=$row1->fecha;
+			$q1=$this->db->query("select idpersona, count(porcentaje) as cantidad from participacion where idevento=".$row1->idevento." and (fecha between '". $fecha1 "' and '". $fecha2."')  group by idpersona order by cantidad desc limit 1");
+			if($q1->num_rows()>0){
+			 $cmp=$q1->result()[0]->cantidad;
+		      }else{
+			$cmp=1;}
+			$q2=$this->db->query("select idpersona, sum(porcentaje) as total from participacion where idpersona= ".$id. "   idevento=".$row1->idevento." and (fecha between '". $fecha1 "' and '". $fecha2."') group by idpersona limit 1");
+
+			if($q2->num_rows()>0){
+			 $vp=$q1->result()[0]->total;
+		      }else{
+			$vp=0;}
+
+
+		  echo $fecha1."             ".$fecha2."          ".$cmp."        ". $vp;
+			die();
+
+
 			      if($nivelrpt==2 || $nivelrpt==1)
 			      { 
 				   $ponderacion=1;
@@ -177,10 +230,15 @@
 			      }
 			      if($arrayuda[$row1->fecha]>0){
 				$pdf->SetTextColor(3,18,249);
+				$xparti=(100-($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]))*$spar1/$capar1
 				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 			      }else{
 				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 			      }
+			       $fecha1=$row1->fecha;	
+
+
+
 			$pdf->SetTextColor(0,0,0);
 			$salir=0;
 			foreach($fechacorte as $p=>$fc)
