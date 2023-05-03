@@ -213,7 +213,7 @@ if(checkdate($m,$d,$a)){
 			$q2=$this->db->query("select idpersona, sum(porcentaje) as total from participacion where idpersona=".$id. "  and  idevento=".$row1->idevento." and (fecha between '". $fecha1. "' and '". $fecha2."') group by idpersona limit 1");
 
 			if($q2->num_rows()>0){
-			 $vp=$q1->result()[0]->total;
+			 $vp=$q2->result()[0]->total;
 		      }else{
 			$vp=0;}
 
