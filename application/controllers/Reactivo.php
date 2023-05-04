@@ -8,6 +8,7 @@ class Reactivo extends CI_Controller{
       $this->load->model('pregunta_model');
       $this->load->model('respuesta_model');
       $this->load->model('evento_model');
+      $this->load->model('silabo_model');
 }
 
 public function index(){
