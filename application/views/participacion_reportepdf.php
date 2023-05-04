@@ -182,7 +182,7 @@ if(checkdate($m,$d,$a)){
 	$pdf->Cell(12,5,'As2('.$sesiontotal[1].')',0,'C',1);
 	$pdf->Cell(10,5,'Prom',1,0,'C',1);
 	$asT=$sesiontotal[0]+$sesiontotal[1];
-	$pdf->Cell(12,5,'AsT('.$AsT.')',1,1,'C',1);
+	$pdf->Cell(12,5,'AsT('.$asT.')',1,1,'C',1);
  
 
 
@@ -286,7 +286,6 @@ if(checkdate($m,$d,$a)){
 	       }
 	    } 
 		if($k==1){
-
     		$pdf->Cell(10,5,0,1,0,'R',0);
     		$pdf->Cell(12,5,round((100*$arrasistencia[$id][$k]/$sesiontotal[$k]),0).'%',1,0,'R',0);
 
@@ -312,7 +311,7 @@ if(checkdate($m,$d,$a)){
 			$aprobados=$aprobados+1;
 		}
 		//--Imprime la asistencia
-		$pdf->Cell(12,5,round(100*(($arrasistencia[$id][0]+$arrasistencia[$id][1])/($sesiontotal[0]+$sesiontotal[1])),0),1,1,'R',0);
+		$pdf->Cell(12,5,round(100*(($arrasistencia[$id][0]+$arrasistencia[$id][1])/($sesiontotal[0]+$sesiontotal[1])),0).'%',1,1,'R',0);
 		//--INicializa para el proximo participante
 		foreach($fechacorte as $p=>$fc)
 		{
