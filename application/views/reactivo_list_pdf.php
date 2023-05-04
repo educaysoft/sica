@@ -26,10 +26,10 @@
 	$pdf->SetFont('Arial','B',8);
 
 
-	$pdf->Cell(10,5,'idestu',1,0,'C',1);
-	$pdf->Cell(60,5,'institucion',1,0,'C',1);
-	$pdf->Cell(10,5,'nivel',1,0,'C',1);
-	$pdf->Cell(70,5,'titulo',1,1,'C',1);
+//	$pdf->Cell(10,5,'idestu',1,0,'C',1);
+//	$pdf->Cell(60,5,'institucion',1,0,'C',1);
+//	$pdf->Cell(10,5,'nivel',1,0,'C',1);
+//	$pdf->Cell(70,5,'titulo',1,1,'C',1);
  
 
 	$checkbox1=base_url().'images/checkbox1.png';
@@ -41,12 +41,12 @@
 	       
 		    $i=$i+1;
 		    $pdf->Cell(10,5,$i,1,0,'R',0); 
-		    $pdf->Cell(60,5,utf8_decode($row->pregunta),1,1,'L',0);
+		    $pdf->Cell(100,5,utf8_decode($row->pregunta),1,1,'L',0);
 
 		foreach ($respuestas as $row1){  //Recorre todas la participaciones realiadas por los participantes
-			$pdf->Cell( 10, 5, $pdf->Image($checkbox1, $pdf->GetX(), $pdf->GetY(), 4), 0, 0, 'L', false );
+			$pdf->Cell( 10, 5, $pdf->Image($checkbox1, $pdf->GetX(), $pdf->GetY(), 4), 0, 0, 'R', false );
 	
-		    	$pdf->Cell(60,5,utf8_decode($row1->respuesta),1,1,'L',0);
+		    	$pdf->Cell(100,5,utf8_decode($row1->respuesta),1,1,'L',0);
 		}
 
     }
