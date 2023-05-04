@@ -172,10 +172,10 @@ function reactivo_respuesta()
 	{
 	 	$data['reactivo'] = $this->reactivo_model->reactivo($this->uri->segment(3))->row_array();
 	 	$data['reactivos'] = $this->reactivo_model->reactivo($this->uri->segment(3))->result();
-	 	$data['pregunta'] = $this->pregunta_model->preguntaxreactivo($data['reactivo']['idreactivo'])->row_array();
-	 	$data['preguntas'] = $this->pregunta_model->preguntaxreactivo($data['reactivo']['idreactivo'])->result();
-	 	$data['respuesta'] = $this->respuesta_model->respuestaxpregunta($data['pregunta']['idpregunta'])->row_array();
-	 	$data['respuestas'] = $this->respuesta_model->respuestaxpregunta($data['pregunta']['idpregunta'])->result();
+	 	$data['pregunta'] = $this->pregunta_model->preguntasxreactivo($data['reactivo']['idreactivo'])->row_array();
+	 	$data['preguntas'] = $this->pregunta_model->preguntasxreactivo($data['reactivo']['idreactivo'])->result();
+	 	$data['respuesta'] = $this->respuesta_model->respuestasxpregunta($data['pregunta']['idpregunta'])->row_array();
+	 	$data['respuestas'] = $this->respuesta_model->respuestasxpregunta($data['pregunta']['idpregunta'])->result();
 		$data['title']="Reactivo";
 		$this->load->view('reactivo_list_pdf',$data);
 	}
