@@ -48,11 +48,6 @@ public function registro() {
 	$this->load->view('template/page_footer.php');
 }
 
-public function user_registration_show()
-{
- validarcorreo();
-}
-
 
 
 public function validarcorreo()
@@ -71,6 +66,11 @@ public function validarcorreo()
 
 }
 
+
+public function user_registration_show()
+{
+ validarcorreo();
+}
 
 
 
