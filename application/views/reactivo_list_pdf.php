@@ -3,7 +3,7 @@
 	include 'plantilla.php';
         
 	$pdf = new PDF();
-	$pdf->SetMargins(20, 10, 15);
+	$pdf->SetMargins(20, 10, 10);
 
 
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
