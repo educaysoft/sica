@@ -13,8 +13,6 @@
 	
 
 
-	$pdf->AliasNbPages();
-	$pdf->AddPage();
 
 
 
@@ -33,6 +31,8 @@
 	
     $pdf->Ln();
 
+	$pdf->AliasNbPages();
+	$pdf->AddPage();
 //	$pdf->Cell(10,5,'idestu',1,0,'C',1);
 //	$pdf->Cell(60,5,'institucion',1,0,'C',1);
 //	$pdf->Cell(10,5,'nivel',1,0,'C',1);
