@@ -10,8 +10,9 @@
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
 	$pdf->titulo="Reactivo";
-	
-
+        $pdf->laasignatura=$silabo[0]->laasignatura;
+        $pdf->eldocente=$silabo[0]->eldocente;
+	$pdf->detalle=$reactivos[0]->detalle;
 
 	$pdf->AliasNbPages();
 	$pdf->AddPage();
