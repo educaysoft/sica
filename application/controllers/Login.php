@@ -69,7 +69,7 @@ public function validarcorreo()
 
 public function user_registration_show()
 {
- validarcorreo();
+ $this->validarcorreo();
 }
 
 
