@@ -41,7 +41,7 @@
 	       
 		    $i=$i+1;
 		    $pdf->Cell(10,5,$i,1,0,'R',0); 
-		    $pdf->Cell(100,5,utf8_decode($row->pregunta),1,1,'L',0);
+		    $pdf->Cell(150,5,utf8_decode($row->pregunta),1,1,'L',0);
 
 		foreach ($respuestas as $row1){  //Recorre todas la participaciones realiadas por los participantes
 
