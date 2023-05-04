@@ -31,14 +31,13 @@ class PDF extends PDF_Sector
 		$this->Cell(180,15,utf8_decode($this->unidad),0,1,'C');
 		$this->Cell(180,2,utf8_decode($this->departamento),0,1,'C');
 		$this->Cell(180,5,utf8_decode($this->titulo),0,1,'C');
-		$this->Ln(8);
+		$this->Ln(5);
 //		$this->Cell(40,5,utf8_decode('CÁTEDRA:'),0,0,'L');
 //		$this->Cell(40,5,utf8_decode($evento->titulo),0,1,'L');
 //		$this->Cell(40,5,utf8_decode('PARALELO:'),0,0,'L');
 //		$this->Cell(40,5,utf8_decode('B'),0,1,'L');
 //		$this->Cell(40,5,utf8_decode('DOCENTE:'),0,0,'L');
 //		$this->Cell(40,5,utf8_decode('Ing. Stalin Francis Q. M.Sc.'),0,1,'L');
-		$this->Ln(1);
 	}
 	function Footer()
 	{
