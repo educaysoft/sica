@@ -38,7 +38,7 @@ class PDF extends PDF_Sector
 //		$this->Cell(40,5,utf8_decode('B'),0,1,'L');
 //		$this->Cell(40,5,utf8_decode('DOCENTE:'),0,0,'L');
 //		$this->Cell(40,5,utf8_decode('Ing. Stalin Francis Q. M.Sc.'),0,1,'L');
-		$this->Ln(5);
+		$this->Ln(1);
 	}
 	function Footer()
 	{
