@@ -23,7 +23,7 @@
     	$pdf->Text(20,40,$reactivos[0]->nombre); 
 
 
-    	$pdf->Text(20,45,"Instrucciones : ");   $pdf->MultiCell(80,5,utf8_decode($reactivos[0]->detalle),0);
+    	$pdf->Cell(0,5,"Instrucciones : a",1,0,'R',0);   $pdf->MultiCell(80,5,utf8_decode($reactivos[0]->detalle),0);
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
 
