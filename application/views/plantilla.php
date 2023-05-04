@@ -47,9 +47,9 @@ class PDF extends PDF_Sector
 
 		$this->SetFont('Arial','I',8);
 		$this->Cell(0,5,'--------------------------------',0,1,'L');
-		$this->Cell(0,5,'Firma docente',0,0,'L');
+		$this->Cell(0,5,'--------------------------------',0,0,'R');
+		$this->Cell(0,5,'Firma docente',0,1,'L');
 
-		$this->Cell(0,5,'--------------------------------',0,1,'R');
 		$this->Cell(0,5,'Firma Jefe Unidad de Académica',0,0,'R');
 
 
