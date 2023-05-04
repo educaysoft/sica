@@ -22,9 +22,8 @@
 	$pdf->SetTextColor(0, 0,0);
     	$pdf->Text(20,40,$reactivos[0]->nombre); 
 
-    $pdf->Ln();
 
-    	$pdf->Text(20,40,$reactivos[0]->detalle); 
+    	$pdf->Text(20,50,$reactivos[0]->detalle); 
 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
