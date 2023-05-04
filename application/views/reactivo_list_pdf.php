@@ -3,7 +3,7 @@
 	include 'plantilla.php';
         
 	$pdf = new PDF();
-	$pdf->SetMargins(20, 10, 11.7);
+	$pdf->SetMargins(20, 10, 15);
 
 
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
@@ -25,7 +25,7 @@
 
     $pdf->Ln();
 
-    	$pdf->Cell(30,5,"Instrucciones : a",1,0,'L',0);   $pdf->MultiCell(100,5,utf8_decode($reactivos[0]->detalle),0);
+    	$pdf->Cell(30,5,"Instrucciones : ",1,0,'L',0);   $pdf->MultiCell(100,5,utf8_decode($reactivos[0]->detalle),0);
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
 	
