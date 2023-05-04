@@ -21,10 +21,10 @@
 	$pdf->SetFont('Arial','',10);
 	$pdf->SetTextColor(0, 0,0);
 	$pdf->Cell(30,5,"Asignatura: ",1,0,'L',0);
-       	$pdf->Cell(120,5,$silabo[0]->laasignatura,1,1,'L',0); 
+       	$pdf->Cell(120,5,utf8_decode($silabo[0]->laasignatura),1,1,'L',0); 
 
 	$pdf->Cell(30,5,"Docente: ",1,0,'L',0);
-       	$pdf->Cell(120,5,$silabo[0]->eldocente,1,1,'L',0); 
+       	$pdf->Cell(120,5,utf8_decode($silabo[0]->eldocente),1,1,'L',0); 
     $pdf->Ln();
 
     	$pdf->Cell(30,5,"Instrucciones : ",1,0,'L',0);   $pdf->MultiCell(100,5,utf8_decode($reactivos[0]->detalle),0);
