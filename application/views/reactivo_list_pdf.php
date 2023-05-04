@@ -22,6 +22,7 @@
 	$pdf->SetTextColor(0, 0,0);
     	$pdf->Text(20,40,$reactivos[0]->nombre); 
 
+    $pdf->Ln();
 
     	$pdf->Text(20,40,$reactivos[0]->detalle); 
 
