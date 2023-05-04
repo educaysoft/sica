@@ -3,8 +3,8 @@
 	include 'plantilla.php';
         
 	$pdf = new PDF();
-	$pdf->SetMargins(20, 10, 10);
-
+	$pdf->SetMargins(20, 7, 10);
+	$pdf->SetAutoPageBreak(true,40); //page created doesn't have template attached
 
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
