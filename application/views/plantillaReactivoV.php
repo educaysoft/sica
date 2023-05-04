@@ -10,6 +10,8 @@ class PDF extends PDF_Sector
 	public $unidad  = "";
 	public $departamento ="";
 	public $titulo="";
+	public $laasignatura="";
+	public $eldocente="";
 
 	var $legends;
 	var $wLegend;
@@ -35,10 +37,10 @@ class PDF extends PDF_Sector
 	$this->SetFont('Arial','',10);
 	$this->SetTextColor(0, 0,0);
 	$this->Cell(30,5,"Asignatura: ",1,0,'L',0);
-       	$this->Cell(120,5,utf8_decode($silabo[0]->laasignatura),1,1,'L',0); 
+       	$this->Cell(120,5,utf8_decode($this->laasignatura),1,1,'L',0); 
 
 	$this->Cell(30,5,"Docente: ",1,0,'L',0);
-       	$this->Cell(120,5,utf8_decode($silabo[0]->eldocente),1,1,'L',0); 
+       	$this->Cell(120,5,utf8_decode($this->eldocente),1,1,'L',0); 
     $this->Ln();
 
     	$this->Cell(30,5,"Instrucciones : ",1,0,'L',0);   $pdf->MultiCell(100,5,utf8_decode($reactivos[0]->detalle),0);
