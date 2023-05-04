@@ -44,7 +44,7 @@
 		    $pdf->Cell(60,5,utf8_decode($row->pregunta),1,1,'L',0);
 
 		foreach ($respuestas as $row1){  //Recorre todas la participaciones realiadas por los participantes
-			$pdf->Cell( 10, 5, $pdf->Image($checkbox1, $pdf->GetX(), $pdf->GetY(), 33.78), 0, 0, 'L', false );
+			$pdf->Cell( 10, 5, $pdf->Image($checkbox1, $pdf->GetX(), $pdf->GetY(), 10), 0, 0, 'L', false );
 	
 		    	$pdf->Cell(60,5,utf8_decode($row1->respuesta),1,1,'L',0);
 		}
