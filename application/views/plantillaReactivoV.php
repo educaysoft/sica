@@ -32,20 +32,20 @@ class PDF extends PDF_Sector
 		$this->Cell(180,2,utf8_decode($this->departamento),0,1,'C');
 		$this->Cell(180,5,utf8_decode($this->titulo),0,1,'C');
 		$this->Ln(5);
-	$pdf->SetFont('Arial','',10);
-	$pdf->SetTextColor(0, 0,0);
-	$pdf->Cell(30,5,"Asignatura: ",1,0,'L',0);
-       	$pdf->Cell(120,5,utf8_decode($silabo[0]->laasignatura),1,1,'L',0); 
+	$this->SetFont('Arial','',10);
+	$this->SetTextColor(0, 0,0);
+	$this->Cell(30,5,"Asignatura: ",1,0,'L',0);
+       	$this->Cell(120,5,utf8_decode($silabo[0]->laasignatura),1,1,'L',0); 
 
-	$pdf->Cell(30,5,"Docente: ",1,0,'L',0);
-       	$pdf->Cell(120,5,utf8_decode($silabo[0]->eldocente),1,1,'L',0); 
-    $pdf->Ln();
+	$this->Cell(30,5,"Docente: ",1,0,'L',0);
+       	$this->Cell(120,5,utf8_decode($silabo[0]->eldocente),1,1,'L',0); 
+    $this->Ln();
 
-    	$pdf->Cell(30,5,"Instrucciones : ",1,0,'L',0);   $pdf->MultiCell(100,5,utf8_decode($reactivos[0]->detalle),0);
-	$pdf->SetFillColor(232,232,232);
-	$pdf->SetFont('Arial','B',8);
+    	$this->Cell(30,5,"Instrucciones : ",1,0,'L',0);   $pdf->MultiCell(100,5,utf8_decode($reactivos[0]->detalle),0);
+	$this->SetFillColor(232,232,232);
+	$this->SetFont('Arial','B',8);
 	
-    $pdf->Ln();
+    $this->Ln();
 
 	}
 	function Footer()
