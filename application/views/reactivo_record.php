@@ -15,7 +15,7 @@ if(isset($reactivo))
         <li> <?php echo anchor('reactivo/listar/','Listar'); ?></li>
         <li> <?php echo anchor('pregunta/','Pregunas'); ?></li>
         <li> <?php echo anchor('respuesta/','Respuestas'); ?></li>
-        <li> <?php echo anchor('reactivo/imprimir/'.$reactivo['idreactivo'],'Imprimir'); ?></li>
+        <li> <?php echo anchor('reactivo/reportepdf/'.$reactivo['idreactivo'],'Reportepdf'); ?></li>
 
 <?php 
 }else{
