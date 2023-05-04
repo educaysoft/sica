@@ -35,7 +35,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 		<?php
 		$options= array('--Select--');
 		foreach ($eventos as $row){
-			$options[$row->idevento]= $row->titulo;
+			$options[$row->idevento]= $row->idevento." - ".$row->titulo;
 		}
 
  echo form_dropdown("idevento",$options, set_select('--Select--','default_value'));
