@@ -32,6 +32,7 @@
 	$pdf->Cell(70,5,'titulo',1,1,'C',1);
  
 
+	$checkbox1=base_url().'images/checkbox1.png';
 	$pdf->SetFont('Arial','',7);
 	$id=0;
 	$persona="";
@@ -43,8 +44,9 @@
 		    $pdf->Cell(60,5,utf8_decode($row->pregunta),1,1,'L',0);
 
 		foreach ($respuestas as $row1){  //Recorre todas la participaciones realiadas por los participantes
-
-		    $pdf->Cell(60,5,utf8_decode($row1->respuesta),1,1,'L',0);
+			$this->Cell( 10, 5, $pdf->Image($checkbox1, $pdf->GetX(), $pdf->GetY(), 33.78), 0, 0, 'L', false );
+	
+		    	$pdf->Cell(60,5,utf8_decode($row1->respuesta),1,1,'L',0);
 		}
 
     }
