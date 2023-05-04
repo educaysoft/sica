@@ -29,7 +29,7 @@ class PDF extends PDF_Sector
 		$this->Cell(100,5,"",0,1,'C');
 //		$this->Cell(100,5,utf8_decode($this->institucion),0,1,'C');
 		$this->Cell(180,15,utf8_decode($this->unidad),0,1,'C');
-		$this->Cell(180,4,utf8_decode($this->departamento),0,1,'C');
+		$this->Cell(180,2,utf8_decode($this->departamento),0,1,'C');
 		$this->Cell(180,5,utf8_decode($this->titulo),0,1,'C');
 		$this->Ln(8);
 //		$this->Cell(40,5,utf8_decode('CÁTEDRA:'),0,0,'L');
