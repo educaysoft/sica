@@ -174,6 +174,7 @@ function reactivo_respuesta()
 	 	$data['reactivo'] = $this->reactivo_model->reactivo($this->uri->segment(3))->row_array();
 	 	$data['reactivos'] = $this->reactivo_model->reactivo($this->uri->segment(3))->result();
 		$data['evento'] = $this->evento_model->evento($data['reactivo']['idevento'])->row_array();
+		$data['silabo']=$this->silabo_model->silabo1($data['evento']['idsilabo'])->row_array();
 	 	$data['pregunta'] = $this->pregunta_model->preguntasxreactivo($data['reactivo']['idreactivo'])->row_array();
 	 	$data['preguntas'] = $this->pregunta_model->preguntasxreactivo($data['reactivo']['idreactivo'])->result();
 	 	$data['respuesta'] = $this->respuesta_model->respuestasxpregunta($data['pregunta']['idpregunta'])->row_array();
