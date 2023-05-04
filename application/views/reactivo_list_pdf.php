@@ -20,10 +20,10 @@
 
 	$pdf->SetFont('Arial','',10);
 	$pdf->SetTextColor(0, 0,0);
-    	$pdf->Text(20,40,$reactivos[0]->nombre); 
+    	$pdf->Cell(20,5,"Asignatura: ",1,0,'L',0); $pdf->Cell(20,40,$reactivos[0]->nombre,1,0,'L',1); 
 
 
-    	$pdf->Cell(10,5,"Instrucciones : a",1,0,'R',0);   $pdf->MultiCell(80,5,utf8_decode($reactivos[0]->detalle),0);
+    	$pdf->Cell(20,5,"Instrucciones : a",1,0,'L',0);   $pdf->MultiCell(80,5,utf8_decode($reactivos[0]->detalle),0);
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
 
