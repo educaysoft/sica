@@ -50,6 +50,8 @@
 	
 		    	$pdf->Cell(100,5,utf8_decode($row1->respuesta),1,1,'L',0);
 		}
+		    $pdf->Ln();
+
 
     }
 
