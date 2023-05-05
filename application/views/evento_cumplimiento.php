@@ -27,7 +27,7 @@
 
 
 
-<div style="display:flex; flex-direction:row; padding:10px; border:2px red solid;">
+<div style="display:flex; flex-direction:row; padding:10px; border:2px red solid;justify-content: space-around;">
 
 
 <div style="padding:20px;">
@@ -77,7 +77,7 @@
 
 
 </div>
-<div>
+<div >
 
 
 
