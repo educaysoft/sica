@@ -60,7 +60,7 @@ foreach ($preguntas as $row){
      <?php 
 
 	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
-	echo form_textarea('idrespuesta',$options[$respuesta['idrespuesta']],$textarea_options);
+	echo form_textarea('idrespuesta',$respuesta['idrespuesta'],$textarea_options);
 		?>
 	</div> 
 </div> 
