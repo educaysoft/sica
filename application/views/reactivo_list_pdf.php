@@ -33,7 +33,7 @@
 	$i=0;
 	$resp=array();
 	foreach ($respuestas as $row1){  //Recorre todas la participaciones realiadas por los participantes
-			$resp[row1->idpregunta]=row1->respuesta;
+			$resp[$row1->idpregunta]=$row1->respuesta;
 	}
 
 	foreach ($preguntas as $row){  //Recorre todas la participaciones realiadas por los participantes
