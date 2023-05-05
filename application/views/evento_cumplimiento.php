@@ -27,7 +27,7 @@
 
 
 
-<div style="display:flex; flex-direction:row;">
+<div style="display:flex; flex-direction:row; padding:50px;">
 
 
 <div>
