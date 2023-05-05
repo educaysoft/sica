@@ -31,10 +31,6 @@
 	$id=0;
 	$persona="";
 	$i=0;
-	$resp=array();
-	foreach ($respuestas as $row1){  //Recorre todas la participaciones realiadas por los participantes
-			$resp[$row1->idpregunta]=$row1->respuesta;
-	}
 
 	foreach ($preguntas as $row){  //Recorre todas la participaciones realiadas por los participantes
 	       
@@ -45,12 +41,14 @@
 		  //  $pdf->Cell(150,5,utf8_decode($row->pregunta),1,1,'L',0);
 		    $pdf->Ln();
 
-		foreach ($resp[$row->idpregunta] as $row1){  //Recorre todas la participaciones realiadas por los participantes
-
+		foreach ($respuestas as $row1){  //Recorre todas la participaciones realiadas por los participantes
+	            if($respuestas->idreactivo==$preguntas->idreactivo)
+		    {
 		    $pdf->Cell(5,5,"",0,0,'R',0); 
 			$pdf->Cell( 5, 5, $pdf->Image($checkbox1, $pdf->GetX(), $pdf->GetY(), 4), 0, 0, 'R', false );
 	
 		    	$pdf->Cell(150,5,utf8_decode($row1->respuesta),1,1,'L',0);
+		    }
 		}
 		    $pdf->Ln();
 
