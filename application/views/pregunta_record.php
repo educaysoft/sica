@@ -122,7 +122,7 @@ echo form_input('idreactivo',$options[$pregunta['idreactivo']],array("disabled"=
 
 $(document).ready(function(){
 	var idpregunta=document.getElementById("idpregunta").innerHTML;
-
+alert(idpregunta);
 	var mytablaf= $('#mydatar').DataTable({"ajax": {url: '<?php echo site_url('reactivo/reactivo_respuesta2')?>', type: 'GET',data:{idpregunta:idpregunta}},});
 
 
