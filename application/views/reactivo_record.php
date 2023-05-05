@@ -187,7 +187,7 @@ echo form_input('idevento',$options[$reactivo['idevento']],array("disabled"=>"di
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
-	 <tbody id="show_data">
+	 <tbody id="show_data1">
 	 </tbody>
 	</table>
 	</div>
@@ -227,7 +227,7 @@ window.location.href = retorno+'/'+id;
 
 });
 
-$('#show_data').on('click','.item_ver2',function(){
+$('#show_data1').on('click','.item_ver2',function(){
 var id= $(this).data('idrespuesta');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
