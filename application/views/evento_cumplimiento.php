@@ -207,60 +207,6 @@ $(document).ready(function(){
 	});
 });
 
-$('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idsesionevento');
-var retorno= $(this).data('retorno');
-window.location.href = retorno+'/'+id;
-
-});
-
-
-$('#show_data1').on('click','.item_ver',function(){
-var id= $(this).data('idparticipante');
-var retorno= $(this).data('retorno');
-window.location.href = retorno+'/'+id;
-});
-
-$('#show_data1').on('click','.item_quitar',function(){
-var id= $(this).data('idparticipante');
-var retorno= $(this).data('retorno');
-if( confirm('Los datos se eliminaran ¿esta seguro?'))
-{
-	window.location.href = retorno+'/'+id;
-}
-});
-
-
-$('#show_data2').on('click','.item_retornar',function(){
-var id= $(this).data('idparticipante');
-var retorno= $(this).data('retorno');
-if( confirm('El participante retornará ¿esta seguro?'))
-{
-	window.location.href = retorno+'/'+id;
-}
-});
-
-
-
-
-$('#show_data1').on('click','.item_grupo',function(){
-var id= $(this).data('idparticipante');
-var retorno= $(this).data('retorno');
-window.location.href = retorno+'/'+id;
-});
-
-
-
-
-
-
-$('#show_data').on('click','.item_edit',function(){
-var idsesionevento= $(this).data('idsesionevento');
-var idevento= $(this).data('idevento');
-
-get_sesionevento(idsesionevento,idevento);
-
-});
 
 
 
@@ -268,22 +214,8 @@ get_sesionevento(idsesionevento,idevento);
 
 
 
-function reportepdf(){
-let mes = prompt("Ingrese el número del mes", 1);
-var href="<?php echo base_url('sesionevento/reportepdf/'.$evento['idevento']) ?>";
-if (mes == null || mes == "") {
-
-  href=href+"";
-}else{
-
-  href=href+"-"+mes;
-
-}
 
 
-window.location.href = href;
-
-}
 
 
 
