@@ -42,7 +42,7 @@
 		    $pdf->Ln();
 
 		foreach ($respuestas as $row1){  //Recorre todas la participaciones realiadas por los participantes
-	            if($respuestas->idreactivo==$preguntas->idreactivo)
+	            if($respuestas->idreactivo==$preguntas->idreactivo && $respuestas->idpregunta==$preguntas->idpregunta)
 		    {
 		    $pdf->Cell(5,5,"",0,0,'R',0); 
 			$pdf->Cell( 5, 5, $pdf->Image($checkbox1, $pdf->GetX(), $pdf->GetY(), 4), 0, 0, 'R', false );
