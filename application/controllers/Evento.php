@@ -48,6 +48,36 @@ public function index(){
    }
 }
 
+
+
+public function cumplimiento(){
+ if(isset($this->session->userdata['logged_in'])){
+	$data['evento'] = $this->evento_model->elultimo();
+	$data['eventos']= $this->evento_model->lista_eventos()->result();
+	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
+	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+	$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
+	$data['silabos']= $this->silabo_model->lista_silabos()->result();
+	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+	$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
+  	$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
+	$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
+	$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
+	$data['title']="Usted esta visualizando el Eventos  #";
+	$this->load->view('template/page_header');		
+	$this->load->view('evento_cumplimiento',$data);
+	$this->load->view('template/page_footer');
+   }else{
+	$this->load->view('template/page_header.php');
+	$this->load->view('login_form');
+	$this->load->view('template/page_footer.php');
+   }
+}
+
+
+
+
+
 //==============================================
 // Llamar al formulario para un nuevo evento.
 // ==============================================
