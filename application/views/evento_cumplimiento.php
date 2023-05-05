@@ -27,7 +27,7 @@
 
 
 
-<div style="display:flex,flex-direction:column">
+<div style="display:flex,flex-direction:row">
 
 
 <div>
