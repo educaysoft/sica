@@ -27,10 +27,10 @@
 
 
 
-<div style="display:flex; flex-direction:row; padding:50px;">
+<div style="display:flex; flex-direction:row; padding:10px;">
 
 
-<div>
+<div style="padding:10px;">
 
 
 
