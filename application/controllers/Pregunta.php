@@ -114,17 +114,12 @@ function pregunta_data()
 
 
 	public function actual(){
-
-
-
 	 // $data['documento_list']=$this->documento_model->lista_documento()->result();
 	  	$data['pregunta'] = $this->pregunta_model->pregunta( $this->uri->segment(3))->row_array();
   		$data['reactivos']= $this->reactivo_model->lista_reactivos()->result();
-
-
-	  $data['title']="Preguntas:";
+	  	$data['title']="Preguntas:";
 		$this->load->view('template/page_header');		
-	  $this->load->view('pregunta_record',$data);
+	  	$this->load->view('pregunta_record',$data);
 		$this->load->view('template/page_footer');
 	}
 

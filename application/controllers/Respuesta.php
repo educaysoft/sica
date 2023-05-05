@@ -116,6 +116,21 @@ function respuesta_data()
 }
 
 
+
+	public function actual(){
+	  	$data['respuesta'] = $this->respuesta_model->respuesta($this->uri->segment(3))->row_array();
+		$data['preguntas']= $this->pregunta_model->lista_pregunta()->result();
+
+	  	$data['title']="Respuestas:";
+		$this->load->view('template/page_header');		
+	  	$this->load->view('respuesta_record',$data);
+		$this->load->view('template/page_footer');
+	}
+
+
+
+
+
 public function elprimero()
 {
 	$data['respuesta'] = $this->respuesta_model->elprimero();
