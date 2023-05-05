@@ -70,7 +70,7 @@ echo form_input('idreactivo',$options[$pregunta['idreactivo']],array("disabled"=
 		<?php
 
 
-  $eys_arrctl=array("name"=>'pregunta','value'=>$pregunta['pregunta'],"disabled"=>"disabled",'placeholder'=>'Detalle','style'=>'width:500px;');
+  $eys_arrctl=array("name"=>'pregunta','value'=>$pregunta['pregunta'],'rows' => '4',   'cols' => '20',"disabled"=>"disabled",'placeholder'=>'Detalle','style'=>'width:600px;');
  echo form_textarea($eys_arrctl);
 
 
