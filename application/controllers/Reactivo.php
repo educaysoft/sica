@@ -178,8 +178,8 @@ function reactivo_respuesta()
 		$data['silabo']=$this->silabo_model->silabo1($data['evento']['idsilabo'])->result();
 	 	$data['pregunta'] = $this->pregunta_model->preguntasxreactivo($data['reactivo']['idreactivo'])->row_array();
 	 	$data['preguntas'] = $this->pregunta_model->preguntasxreactivo($data['reactivo']['idreactivo'])->result();
-	 	$data['respuesta'] = $this->respuesta_model->respuestasxpregunta($data['pregunta']['idpregunta'])->row_array();
-	 	$data['respuestas'] = $this->respuesta_model->respuestasxpregunta($data['pregunta']['idpregunta'])->result();
+	 	$data['respuesta'] = $this->respuesta_model->respuestasxreactivo($data['reactivo']['idreactivo'])->row_array();
+	 	$data['respuestas'] = $this->respuesta_model->respuestasxreactivo($data['reactivo']['idreactivo'])->result();
 		$data['title']="Reactivo";
 		$this->load->view('reactivo_list_pdf',$data);
 	}
