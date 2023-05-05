@@ -87,7 +87,7 @@ echo form_input('idreactivo',$options[$pregunta['idreactivo']],array("disabled"=
             <b>Respuestas: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('respuesta/add/'.$reactivo['idreactivo']) ?>">Nueva respuesta</a><a class="btn btn-danger" href="<?php echo base_url('pregunta/reportepdf/'.$reactivo['idreactivo']) ?>">Reporte</a>
+            <a class="btn btn-success" href="<?php echo base_url('respuesta/add/'.$reactivo['idreactivo']) ?>">Nueva respuesta</a>
         </div>
     </div>
 </div>
