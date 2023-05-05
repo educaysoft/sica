@@ -168,6 +168,36 @@ function reactivo_respuesta()
 
 
 
+function reactivo_respuesta2()
+{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+		$idpregunta=$this->input->get('idpregunta');
+	 	$data0 = $this->respuesta_model->respuestasxpregunta($idpregunta);
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->idreactivo,$r->idpregunta,$r->idrespuesta,$r->respuesta,$r->acierto,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver2" data-retorno="'.site_url('respuesta/actual').'"  data-idrespuesta="'.$r->idrespuesta.'">Ver</a>');
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+		echo json_encode($output);
+		exit();
+}
+
+
+
+
+
+
+
+
+
+
 
 	public function reportepdf()
 	{
