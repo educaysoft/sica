@@ -30,7 +30,7 @@
 <div style="display:flex; flex-direction:row; padding:10px;">
 
 
-<div style="padding:10px;">
+<div style="padding:20px;">
 
 
 
