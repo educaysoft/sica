@@ -45,7 +45,10 @@ foreach ($preguntas as $row){
 	$options[$row->idpregunta]= $row->pregunta;
 }
 
-echo form_input('idpregunta',$options[$respuesta['idpregunta']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+
+	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
+	echo form_textarea('idpregunta',$options[$respuesta['idpregunta']],$textarea_options);
+
 		?>
 	</div> 
 </div> 
