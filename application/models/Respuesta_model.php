@@ -12,7 +12,7 @@ class Respuesta_model extends CI_model {
  	}
 
 	function respuestasxpregunta( $id){
- 		$respuesta = $this->db->query('select * from respuesta where idpregunta="'. $id.'"');
+ 		$respuesta = $this->db->query('select * from respuesta1 where idpregunta="'. $id.'"');
  		return $respuesta;
  	}
 
