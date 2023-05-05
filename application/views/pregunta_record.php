@@ -33,7 +33,7 @@ if(isset($pregunta))
 <br>
 
 
-<?php echo form_hidden('idpregunta',$pregunta['idpregunta'],array('id'=>"idpregunta")) ?>
+<?php echo form_hidden('idpregunta',$pregunta['idpregunta']) ?>
 
 
 
@@ -57,7 +57,7 @@ echo form_input('idreactivo',$options[$pregunta['idreactivo']],array("disabled"=
 	<div class="col-md-10">
 		<?php
 
-     echo form_input('idpregunta',$pregunta['idpregunta'],array("disabled"=>"disabled",'placeholder'=>'Idpreguntas','style'=>'width:500px;')); 
+     echo form_input('idpregunta',$pregunta['idpregunta'],array("id"=>"idpregunta","disabled"=>"disabled",'placeholder'=>'Idpreguntas','style'=>'width:500px;')); 
 		?>
 	</div> 
 </div> 
