@@ -53,7 +53,7 @@
     </div>
 </div>
 
-	<table class="table table-striped table-bordered table-hover" id="mydatac">
+	<table class="table table-striped table-bordered table-hover" id="mydatat">
 	 <thead>
 	 <tr>
 	 <th>Sesion</th>
@@ -99,7 +99,7 @@
     </div>
 </div>
 
-	<table class="table table-striped table-bordered table-hover" id="mydatac">
+	<table class="table table-striped table-bordered table-hover" id="mydatal">
 	 <thead>
 	 <tr>
 	 <th>sesion</th>
