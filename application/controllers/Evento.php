@@ -52,7 +52,8 @@ public function index(){
 
 public function cumplimiento(){
  if(isset($this->session->userdata['logged_in'])){
-	$data['evento'] = $this->evento_model->elultimo();
+
+	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 	$data['eventos']= $this->evento_model->lista_eventos()->result();
 	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();

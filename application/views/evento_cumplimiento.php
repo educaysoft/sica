@@ -182,8 +182,8 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var idevento=document.getElementById("idevento").innerHTML;
-  	var idsilabo=<?php echo $evento['idsilabo']; ?>;
+	var idevento=56;  //document.getElementById("idevento").innerHTML;
+  	var idsilabo=24; //<?php echo $evento['idsilabo']; ?>;
 
 	var mytablat= $('#mydatat').DataTable({pageLength:50,"ajax":{url: '<?php echo site_url('tema/tema_silabo')?>', type: 'GET',data:{idsilabo:idsilabo}},
 
