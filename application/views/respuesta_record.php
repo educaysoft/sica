@@ -59,8 +59,8 @@ foreach ($preguntas as $row){
 	<div class="col-md-10">
      <?php 
 
-	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
-	echo form_textarea('idrespuesta',$respuesta['idrespuesta'],$textarea_options);
+
+    echo form_input('idrespuesta',$respuesta['idrespuesta'],array("disabled"=>"disabled",'placeholder'=>'Idrespuestas','style'=>'width:500px;')); 
 		?>
 	</div> 
 </div> 
@@ -70,7 +70,9 @@ foreach ($preguntas as $row){
     <label class="col-md-2 col-form-label">La respuesta:</label>
 	<div class="col-md-10">
      <?php 
-     echo form_input('respuesta',$respuesta['respuesta'],array("disabled"=>"disabled",'placeholder'=>'Pregunta','style'=>'width:500px;')); 
+
+	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
+	echo form_textarea('respuesta',$respuesta['respuesta'],$textarea_options);
 
 		?>
 	</div> 
