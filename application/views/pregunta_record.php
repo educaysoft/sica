@@ -33,7 +33,7 @@ if(isset($pregunta))
 <br>
 
 
-<?php echo form_hidden('idpregunta',$pregunta['idpregunta']) ?>
+<?php echo form_hidden('idpregunta',$pregunta['idpregunta'],array('id'="idpregunta")) ?>
 
 
 
