@@ -68,7 +68,12 @@ echo form_input('idreactivo',$options[$pregunta['idreactivo']],array("disabled"=
     <label class="col-md-2 col-form-label"> Id de la pregunta:</label>
 	<div class="col-md-10">
 		<?php
-      echo form_input('pregunta',$pregunta['pregunta'],array("disabled"=>"disabled",'placeholder'=>'Pregunta','style'=>'width:500px;')); 
+
+
+  $eys_arrctl=array("name"=>'pregunta','value'=>$pregunta['pregunta'],"disabled"=>"disabled",'placeholder'=>'Detalle','style'=>'width:500px;');
+ echo form_textarea($eys_arrctl);
+
+
 		?>
 	</div> 
 </div> 
