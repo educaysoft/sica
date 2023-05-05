@@ -155,7 +155,7 @@ function reactivo_respuesta()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idreactivo,$r->idpregunta,$r->idrespuesta,$r->respuesta,$r->acierto,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idrespuesta="'.$r->idrespuesta.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver2" data-retorno="'.site_url('respuesta/actual').'"  data-idrespuesta="'.$r->idrespuesta.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
