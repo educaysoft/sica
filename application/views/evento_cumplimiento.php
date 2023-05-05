@@ -188,7 +188,7 @@ $(document).ready(function(){
 	alert(idevento);
 	var mytablat= $('#mydatat').DataTable({pageLength:50,"ajax":{url: '<?php echo site_url('tema/tema_silabo')?>', type: 'GET',data:{idsilabo:idsilabo}},});
 
-	var mytablaf= $('#mydatal').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET',data:{idevento:idevento}},
+	var mytablaf= $('#mydatal').DataTable({pageLength:50,"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET',data:{idevento:idevento}},
 
 	
        "rowCallback": function(row, data, index){
