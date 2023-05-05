@@ -179,6 +179,7 @@ echo form_input('idevento',$options[$reactivo['idevento']],array("disabled"=>"di
 	<table class="table table-striped table-bordered table-hover" id="mydatar">
 	 <thead>
 	 <tr>
+	 <th>idreactivo</th>
 	 <th>idpregunta</th>
 	 <th>idrespuesta</th>
 	 <th>respuesta</th>
