@@ -18,7 +18,12 @@ foreach ($reactivos as $row){
   
   <tr>
       <td>Pregunta:</td>
-      <td><?php echo form_input('pregunta',$pregunta['pregunta'],array('placeholder'=>'Pregunta')) ?></td>
+      <td><?php 
+	 
+  $eys_arrctl=array("name"=>'pregunta','value'=>$pregunta['pregunta'],'rows' => '4',   'cols' => '20','placeholder'=>'Detalle','style'=>'width:600px;');
+ echo form_textarea($eys_arrctl);
+	 
+ ?></td>
   </tr>
  
  <tr>
