@@ -130,7 +130,7 @@ echo form_input('idevento',$options[$reactivo['idevento']],array("disabled"=>"di
             <b>Preguntas: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('pregunta/add/'.$reactivo['idreactivo']) ?>">Nueva peregunta</a><a class="btn btn-danger" href="<?php echo base_url('pregunta/reportepdf/'.$reactivo['idreactivo']) ?>">Reporte</a>
+            <a class="btn btn-success" href="<?php echo base_url('pregunta/add/'.$reactivo['idreactivo']) ?>">Nueva pregunta</a><a class="btn btn-danger" href="<?php echo base_url('pregunta/reportepdf/'.$reactivo['idreactivo']) ?>">Reporte</a>
         </div>
     </div>
 </div>

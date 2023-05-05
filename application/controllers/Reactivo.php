@@ -15,7 +15,7 @@ public function index(){
 	if(isset($this->session->userdata['logged_in'])){
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
 	  	$data['reactivo']=$this->reactivo_model->elultimo();
-  		$data['title']="Evaluación";
+  		$data['title']="Reactivo # :";
 			$this->load->view('template/page_header');		
   		$this->load->view('reactivo_record',$data);
 			$this->load->view('template/page_footer');
@@ -31,7 +31,7 @@ public function add()
 {
 
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
-		$data['title']="Nueva Evaluación:";
+		$data['title']="Nuevo Reactivo :";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('reactivo_form',$data);
 	 	$this->load->view('template/page_footer');
