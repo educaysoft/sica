@@ -507,7 +507,7 @@ function get_pregunta(idpregunta,idx) {
 	cache: false,
         dataType : 'json',
         success: function(data){
-        if(!data){
+        if(!data[0]){
 //	if(typeof data !== 'undefined' && data !== null){
 		idrespuesta = 0;
 		acierto=0;
