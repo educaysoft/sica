@@ -501,7 +501,7 @@ function get_pregunta(idpregunta,idx) {
         async : false,
         dataType : 'json',
         success: function(data){
-	if(typeof data[0].idrespuesta !== 'undefined'){
+	if(typeof data !== 'undefined'){
 		idrespuesta = data[0].idrespuesta;
 		acierto = data[0].acierto;
 	}else{
