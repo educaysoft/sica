@@ -329,6 +329,7 @@ function get_certificado(idpersona, idevento)
         data: {idpersona:idpersona,idevento:idevento},
         method: 'POST',
         async : false,
+	cache: false,
         dataType : 'json',
         success: function(data){
         var iddocumento = data[0].iddocumento;
@@ -340,6 +341,7 @@ function get_certificado(idpersona, idevento)
         data: {iddocumento: iddocumento},
         method: 'POST',
 	async : false,
+	cache: false,
         dataType : 'json',
         success: function(data){
         var html = '';
@@ -432,6 +434,8 @@ function get_reactivo(idreactivo,idpersona) {
         data: {idreactivo: idreactivo},
         method: 'GET',
         async : false,
+	cache: false;
+	cache: false;
         dataType : 'json',
         success: function(data){
         var html = '';
@@ -476,6 +480,7 @@ function get_pregunta(idpregunta,idx) {
         data: {idpregunta:idpregunta},
         method: 'get',
         async : false,
+	cache: false,
         datatype : 'json',
         success: function(data){
         var html1 = data[0].pregunta;
@@ -494,12 +499,13 @@ function get_pregunta(idpregunta,idx) {
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
 	var idrespuesta=0;
 	var acierto=0;
-	alert(idpersona+" - "+idpregunta);
+	//alert(idpersona+" - "+idpregunta);
     $.ajax({
         url: "<?php echo site_url('evaluacion/get_evaluacion') ?>",
         data: {idpersona:idpersona,idpregunta:idpregunta},
         method: 'GET',
         async : false,
+	cache: false,
         dataType : 'json',
         success: function(data){
         if(!data){
@@ -527,6 +533,7 @@ function get_pregunta(idpregunta,idx) {
         data: {idpregunta:idpregunta},
         method: 'GET',
         async : false,
+	cache: false,
         dataType : 'json',
         success: function(data){
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
@@ -594,6 +601,7 @@ $.ajax({
         data: {acierto:acierto,idreactivo:idreactivo,idpregunta:idpregunta,idpersona:idpersona,idrespuesta:idrespuesta,fecha:fecha,idevento:idevento},
         method: 'GET',
         async : false,
+	cache: false,
         success: function(data){
 	alert("Evaluacion realizada");
 
