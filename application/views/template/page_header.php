@@ -60,7 +60,7 @@ height: 200px;
 width:100%;
 background-color: lightgray;
 bottom:0;
-margin-bottom:0 px;
+margin-bottom:0px;
 padding:20px 0;
 display: flex;
 flex-direction:row;
@@ -649,33 +649,31 @@ span a {
 </div>
 
 
-    		<div class="pull-right">
+    	<div class="pull-right">
 		<div style="display: flex; flex-direction: row;">
-		  <div style="line-height:10px; display:flex; align-items: center; flex-direction: column; margin-top: 10px;">
-		    <?php
-			    echo "<p>". $this->session->userdata['logged_in']['elusuario']."</p><p>". $this->session->userdata['logged_in']['email']. "</p></p>";
-		    ?>
-		  </div>       
+			<div style="line-height:10px; display:flex; align-items: center; flex-direction: column; margin-top: 10px;">
+				<?php
+			   		 echo "<p>". $this->session->userdata['logged_in']['elusuario']."</p><p>". $this->session->userdata['logged_in']['email']. "</p></p>";
+		    		?>
+			</div>       
 
-      <div class="btn-group">
-        	  <button class="btn btn-success">
-		            <img id="foto" src= "<?php echo base_url().$this->session->userdata['logged_in']['foto']; ?>" height="100%" class="avatar" onerror="this.onerror=null; this.src='<?php echo base_url().'fotos/perfil.jpg'; ?>'">
-	          </button>
-
-            <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                            <span class="caret"></span>
-           </button>
-                        <ul class="dropdown-menu pull-right">
-                            <li><a href="<?php echo base_url();?>index.php/upfoto">Subir foto</a></li>
-                            <li><a href="<?php echo base_url(); ?>index.php/portafolio">Tu portafolio</a></li>
-                            <li><a href="<?php echo base_url(); ?>index.php/login/logout">Salir</a></li>
-                        </ul>
-      </div>
-      </div>
+      			<div class="btn-group">
+        	 		 <button class="btn btn-success">
+		            		<img id="foto" src= "<?php echo base_url().$this->session->userdata['logged_in']['foto']; ?>" height="100%" class="avatar" onerror="this.onerror=null; this.src='<?php echo base_url().'fotos/perfil.jpg'; ?>'">
+	          		</button>
+            			<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                            		<span class="caret"></span>
+           			</button>
+                        	<ul class="dropdown-menu pull-right">
+                            		<li><a href="<?php echo base_url();?>index.php/upfoto">Subir foto</a></li>
+                            		<li><a href="<?php echo base_url(); ?>index.php/portafolio">Tu portafolio</a></li>
+                            		<li><a href="<?php echo base_url(); ?>index.php/login/logout">Salir</a></li>
+                        	</ul>
+      			</div>
+      		</div>
    	</div>
- 
 
- 	</div>
+	</div>
 
 
 

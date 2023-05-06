@@ -1,7 +1,5 @@
 
 
-
-
 <style>
 /* Style the body */
 body {
@@ -188,11 +186,7 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 			$idpersona=$this->session->userdata['logged_in']['idpersona'];
 	?>	
 			<div class="form-check form-check-inline">
-
-			
-
-				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onClick="show_unidad('<?php echo $row->nombre; ?>','<?php echo $row->enlace; ?>','<?php echo $row->idreactivo; ?>','<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>')"/>   
-				<label class="form-check-label" for="inlineCheckbox1">Videotutorial-# :<?php echo $row->idvideotutorial;?></label>
+				<label class="form-check-label" >Videotutorial-# :<?php echo $row->idvideotutorial;?></label>
 			</div>
 
 	<?php } ?>
@@ -249,20 +243,8 @@ $i=$i+1;
 
 }
 ?>
-<!------
-<?php echo '<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" onclick="get_pregunta('.$idpregunta[0].')">'; ?>
-		  <p class="form-check-label" for="inlineCheckbox1">1</label>
-		</div>
-		<div class="form-check form-check-inline">
-<?php echo '<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" onclick="get_pregunta('.$idpregunta[1].')">'; ?>
-		  <label class="form-check-label" for="inlineCheckbox2">2</label>
-		</div>
-		<div class="form-check form-check-inline">
-<?php echo '<input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"   onclick="get_pregunta('.$idpregunta[2].')">'; ?>
-		  <label class="form-check-label" for="inlineCheckbox3">3 </label>
-		</div>
---->
-	</div>
+
+</div>
 
 	<div id="pregunta" style="padding:10px; width:80%; margin:auto;">
 
@@ -275,8 +257,7 @@ $i=$i+1;
 
 </div>
 	<div id="certificado" style="padding:10px; width:80%; margin:auto; border:1px solid blue; text-align: center;">
-<!---			<?php echo '<button id="evaluar" onclick="get_certificado(\''.site_url('evento/listar_participantes').'\','.$evento["idevento"].');" >En hora buena! Ya puedes imprimir tu certificado</button>'; ?> 
--->			<?php echo '<button id="evaluar" onclick="get_certificado('.$_GET["idpersona"].','.$evento["idevento"].');" >En hora buena! Ya puedes imprimir tu certificado</button>'; ?> 
+		<?php echo '<button id="evaluar" onclick="get_certificado('.$_GET["idpersona"].','.$evento["idevento"].');" >En hora buena! Ya puedes imprimir tu certificado</button>'; ?> 
 	</div>
 </div>
 
