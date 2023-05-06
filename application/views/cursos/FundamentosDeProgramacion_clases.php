@@ -494,7 +494,7 @@ function get_pregunta(idpregunta,idx) {
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
 	var idrespuesta=0;
 	var acierto=0;
-	alert(idpregunta);
+//	alert(idpregunta);
     $.ajax({
         url: "<?php echo site_url('evaluacion/get_evaluacion') ?>",
         data: {idpersona:idpersona,idpregunta:idpregunta},
