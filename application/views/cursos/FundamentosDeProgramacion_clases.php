@@ -501,7 +501,7 @@ function get_pregunta(idpregunta,idx) {
         async : false,
         dataType : 'json',
         success: function(data){
-        if(jQuery.trim(data) === "SQLSuccess"){
+        if(!$.trim(data)){
 //	if(typeof data !== 'undefined' && data !== null){
 		idrespuesta = data[0].idrespuesta;
 		acierto = data[0].acierto;
