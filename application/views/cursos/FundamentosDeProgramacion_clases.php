@@ -434,8 +434,7 @@ function get_reactivo(idreactivo,idpersona) {
         data: {idreactivo: idreactivo},
         method: 'GET',
         async : false,
-	cache: false;
-	cache: false;
+	cache: false,
         dataType : 'json',
         success: function(data){
         var html = '';
