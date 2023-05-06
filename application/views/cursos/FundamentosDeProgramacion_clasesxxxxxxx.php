@@ -1,3 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Utlvte Tecnología de la Informción</title>
+	<link href="<?php echo base_url(); ?>images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<meta name="description" content="División de tecnología en apoyo a los procesos tecológicos de la Universidad Técnica Luis Vargas Torres" />
+	<meta property="og:locale" content="es_EC" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Universidad Técnica Luis Vargas Torres, Tecnología de la Información y la Comunicación" />
+	<meta property="og:description" content="División de tecnología en apoyo a los procesos tecológicos de la Universidad Técnica Luis Vargas Torres" />
+	<meta property="og:url" content="https://www.educaysoft.org/" />
+	<meta property="og:site_name" content="EDUCAYSOFT" />
+	<meta property="article:modified_time" content="2021-12-14T21:51:01+00:00" />
+	<meta property="og:image" content="https://educaysoft.org/images/utlvtetic.png" />
+	<meta property="og:image:width" content="800" />
+	<meta property="og:image:height" content="600" />
+	<!-- / Yoast SEO plugin. -->
+
+
+	<meta name="author" content="Stalin Francis" />
+	<meta name="copyright" content="educaysoft" />
+	<meta name="description" content="División de Tecnología en apoyo a los procesos tecnológicos de la UTLVTE" />
+	<meta name="keywords" content="utlvte  tic   Esmeraldas Ecuador"/>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<
+
+
 
 
 
