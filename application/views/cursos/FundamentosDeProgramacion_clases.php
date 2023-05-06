@@ -503,13 +503,12 @@ function get_pregunta(idpregunta,idx) {
         success: function(data){
         if(!data){
 //	if(typeof data !== 'undefined' && data !== null){
-		idrespuesta = data[0].idrespuesta;
-		acierto = data[0].acierto;
-	}else{
-
-		alert("no encontro evaluado ");
 		idrespuesta = 0;
 		acierto=0;
+	}else{
+
+		idrespuesta = data[0].idrespuesta;
+		acierto = data[0].acierto;
 	}
         },
       error: function (xhr, ajaxOptions, thrownError) {
