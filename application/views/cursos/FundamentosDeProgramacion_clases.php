@@ -429,9 +429,9 @@ function get_pregunta(idpregunta,idx) {
         method: 'get',
         async : false,
 	cache: false,
+	timeout:3000,
         datatype : 'json',
         success: function(data){
-		alert(idx+" -  "+ data[0].pregunta);
         var html1 = data[0].pregunta;
 	var idx1="#pregunta"+idx;
         $(idx1).html(html1);
