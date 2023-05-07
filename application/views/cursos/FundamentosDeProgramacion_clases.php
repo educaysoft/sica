@@ -467,6 +467,7 @@ function get_pregunta(idpregunta,idx) {
 	}
         },
       error: function (xhr, ajaxOptions, thrownError) {
+	      alert('en respeutas');
         alert(xhr.status);
         alert(thrownError);
       }
