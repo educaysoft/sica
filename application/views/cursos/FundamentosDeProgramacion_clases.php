@@ -430,8 +430,6 @@ function get_pregunta(idpregunta,idx) {
         method: 'POST',
         async : false,
         dataType : 'json',
-	contentType: 'json',
-	 headers: { 'Content-Type':'application/json' },
         success: function(data){
         },
       error: function (xhr, ajaxoptions, thrownerror) {
