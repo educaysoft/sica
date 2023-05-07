@@ -454,6 +454,7 @@ function get_respuestas(idreactivo)
 	idx=1;
 	do{
 	k=0;
+	html='';
 	html+="<div style='border:1px solid red;'>";
 	html+="<form style=' width:100%; padding-left:0; margin-left:0px;'>";
 	html+="<fieldset id='group"+idx+"' style=' width:100%; margin-left:0px !important; display:flex; flex-direction:column;'>";
