@@ -429,7 +429,7 @@ function get_pregunta(idpregunta,idx) {
         data: {idpregunta:idpregunta},
         method: 'get',
        // async : false,
-//	timeout:9000,
+	timeout:3000,
         datatype : 'json',
         success: function(data){
         var html1 = data[0].pregunta;
