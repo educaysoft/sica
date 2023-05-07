@@ -485,6 +485,10 @@ function get_respuestas(idreactivo)
 		}
 		i=i+1;
 		k=k+1;
+		if(i==data.length)
+		{
+			break;
+		}
         }while(data[i].idpregunta==tmpidpregunta);
 	html+="</fieldset>";
 	html+="</form>";
