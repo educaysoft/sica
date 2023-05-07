@@ -477,7 +477,6 @@ function get_respuestas(idreactivo,idpersona)
 	var i=0;
 	var idx;
 	tmpidpregunta=data[i].idpregunta;
-	alert("imprimer respuesta pregunta="+tmpidpregunta);
 	idx=1;
 	do{
 	k=0;
