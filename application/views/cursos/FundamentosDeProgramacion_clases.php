@@ -369,7 +369,6 @@ function get_reactivo(idreactivo,idpersona) {
         var html2= data.detalle;
         $('#evaluacion').html(html1);
         $('#detalle').html(html2);
-	alert(data.nombre);
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
@@ -378,7 +377,7 @@ function get_reactivo(idreactivo,idpersona) {
       }
 
     })
-
+	alert("Passeo 2");
     $.ajax({
         url: "<?php echo site_url('pregunta/get_preguntas') ?>",
         data: {idreactivo: idreactivo},
@@ -391,6 +390,7 @@ function get_reactivo(idreactivo,idpersona) {
         var i;
         for(i=0; i<data.length; i++){
 		j=i+1;
+		alert(data[j].idpregunta);
 		//html += '<div class="form-check form-check-inline">';
 		html += '<div class="form-check">';
 		html += '<label class="form-check-label" for="inlineCheckbox'+j+'">Pregunta-'+j+'</label>';
