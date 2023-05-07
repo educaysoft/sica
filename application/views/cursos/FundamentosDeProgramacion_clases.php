@@ -348,6 +348,7 @@ function get_certificado(idpersona, idevento)
 		document.getElementById('mvideo').style.display='block';
 		document.getElementById('learn1').style.display='block';
 		document.getElementById('evaluar').innerHTML='<button id="evaluar" onclick="get_reactivo('+idreactivo+','+idpersona+');">Evaluar-'+idreactivo+'</button>' 
+			alart("paso 1");
                get_reactivo(idreactivo,idpersona);
 	}
 
@@ -372,6 +373,7 @@ function get_reactivo(idreactivo,idpersona) {
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
+	      alert("paso 2");
         alert(xhr.status);
         alert(thrownError);
       }
@@ -412,7 +414,6 @@ function get_reactivo(idreactivo,idpersona) {
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
-	    //  alert("pasa algo");
         alert(xhr.status);
         alert(thrownError);
       }
