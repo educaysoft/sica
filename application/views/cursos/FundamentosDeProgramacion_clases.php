@@ -373,7 +373,6 @@ function get_reactivo(idreactivo,idpersona) {
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
-	      alert("paso 2");
         alert(xhr.status);
         alert(thrownError);
       }
@@ -414,6 +413,7 @@ function get_reactivo(idreactivo,idpersona) {
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
+	      alert("paso 2");
         alert(xhr.status);
         alert(thrownError);
       }
