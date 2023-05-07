@@ -453,7 +453,7 @@ function get_pregunta(idpregunta,idx) {
         data: {idpersona:idpersona,idpregunta:idpregunta},
         method: 'GET',
         async : false,
-	cache: false,
+	timeout: 3000,
         dataType : 'json',
         success: function(data){
         if(!data[0]){
