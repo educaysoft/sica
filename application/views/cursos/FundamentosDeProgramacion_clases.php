@@ -348,7 +348,7 @@ function get_certificado(idpersona, idevento)
 		document.getElementById('mvideo').style.display='block';
 		document.getElementById('learn1').style.display='block';
 		document.getElementById('evaluar').innerHTML='<button id="evaluar" onclick="get_reactivo('+idreactivo+','+idpersona+');">Evaluar-'+idreactivo+'</button>' 
-			alart("paso 1");
+		alert("paso 1");
                get_reactivo(idreactivo,idpersona);
 	}
 
