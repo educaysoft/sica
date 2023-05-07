@@ -218,7 +218,6 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 		</div> 
 	</div>
 
-<!--- <div id="learn2" style="width: 100%; margin:auto; display:none";> --->
 <div id="learn2" style="width: 100%; margin:auto; ";>
 	<div id="evaluacion" style="padding:10px; width:80%; margin:auto;">
 
@@ -407,13 +406,15 @@ function get_reactivo(idreactivo,idpersona) {
         for(i=0; i<data.length; i++){
 		j=i+1;
 
+        	var html1 = data[i].pregunta;
+		var idx1="#pregunta"+j;
+        	$(idx1).html(html1);
 		get_pregunta(data[i].idpregunta,j); 
 	}
 
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
-	 //     alert("paso 2");
         alert(xhr.status);
         alert(thrownError);
       }
@@ -424,26 +425,6 @@ function get_reactivo(idreactivo,idpersona) {
 
 
 function get_pregunta(idpregunta,idx) {
-	$.when($.ajax({
-        url: "<?php echo site_url('pregunta/get_pregunta') ?>",
-        data: {idpregunta:idpregunta},
-        method: 'POST',
-        async : false,
-        dataType : 'json',
-        success: function(data){
-        },
-      error: function (xhr, ajaxoptions, thrownerror) {
-	      alert('en respeutas 1'+" - "+idpregunta);
-        alert(xhr.status);
-        alert(thrownError);
-      }
-
-})).done(function(data){
-        var html1 = data[0].pregunta;
-	var idx1="#pregunta"+idx;
-        $(idx1).html(html1);
-
-});
 	    
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
 	var idrespuesta=0;
