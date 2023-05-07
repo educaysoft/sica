@@ -212,6 +212,8 @@ public function get_respuestas() {
     if($this->input->get('idreactivo')) {
         $this->db->select('*');
         $this->db->where(array('idreactivo' => $this->input->get('idreactivo')));
+	$this->db->order_by('idpregunta','asc');
+	$this->db->order_by('idrespuesta','asc');
         $query = $this->db->get('respuesta1');
 	$data=$query->result();
 	header('Content-Type: application/json');
