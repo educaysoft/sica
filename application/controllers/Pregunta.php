@@ -188,9 +188,9 @@ public function anterior(){
 public function get_pregunta() {
     $this->load->database();
     $this->load->helper('form');
-    if($this->input->get('idpregunta')) {
+    if($this->input->post('idpregunta')) {
         $this->db->select('*');
-        $this->db->where(array('idpregunta' => $this->input->get('idpregunta') ));
+        $this->db->where(array('idpregunta' => $this->input->post('idpregunta') ));
         $query = $this->db->get('pregunta');
 	$data=$query->result();
 	header('Content-Type: application/json');

@@ -427,7 +427,7 @@ function get_pregunta(idpregunta,idx) {
 	$.when($.ajax({
         url: "<?php echo site_url('pregunta/get_pregunta') ?>",
         data: {idpregunta:idpregunta},
-        method: 'get',
+        method: 'POST',
         async : false,
         datatype : 'json',
         success: function(data){
