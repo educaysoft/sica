@@ -213,16 +213,10 @@ if(checkdate($m,$d,$a)){
 		      }else{
 			$cmp=1;}
 			$q2=$this->db->query("select idpersona, sum(porcentaje) as total from participacion2 where idpersona=".$id. " and idmodoevaluacion=1  and  idevento=".$row1->idevento." and (fecha between '". $fecha1. "' and '". $fecha2."') group by idpersona limit 1");
-
 			if($q2->num_rows()>0){
 			 $vp=$q2->result()[0]->total;
 		      }else{
 			$vp=0;}
-
-
-		//  echo $fecha1."             ".$fecha2."          ".$cmp."        ". $vp;
-		//	die();
-
 
 			      if($nivelrpt==2 || $nivelrpt==1)
 			      { 
@@ -239,9 +233,6 @@ if(checkdate($m,$d,$a)){
 				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti)*$ponderacion,2),1,0,'R',0);
 			      }
 			       $fecha1=$row1->fecha;	
-
-
-
 			$pdf->SetTextColor(0,0,0);
 			$salir=0;
 			foreach($fechacorte as $p=>$fc)
@@ -254,7 +245,6 @@ if(checkdate($m,$d,$a)){
 				$salir=1;
 			      }
 			      if($salir==1){ break;}
-
 			}  
 		      }else{     //Si no tuvo participacion en esa fecha
 
@@ -378,6 +368,17 @@ if(checkdate($m,$d,$a)){
     foreach ($sesioneventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
 
+			$fecha2=$row1->fecha;
+			$q1=$this->db->query("select idpersona, count(porcentaje) as cantidad from participacion2 where idevento=".$row1->idevento." and idmodoevaluacion=1 and (fecha between '". $fecha1. "' and '". $fecha2."')  group by idpersona order by cantidad desc limit 1");
+			if($q1->num_rows()>0){
+			 $cmp=$q1->result()[0]->cantidad;
+		      }else{
+			$cmp=1;}
+			$q2=$this->db->query("select idpersona, sum(porcentaje) as total from participacion2 where idpersona=".$id. " and idmodoevaluacion=1  and  idevento=".$row1->idevento." and (fecha between '". $fecha1. "' and '". $fecha2."') group by idpersona limit 1");
+			if($q2->num_rows()>0){
+			 $vp=$q2->result()[0]->total;
+		      }else{
+			$vp=0;}
 	      if($nivelrpt==2 || $nivelrpt==1)
 	      { 
 		      $ponderacion=1;
@@ -387,14 +388,16 @@ if(checkdate($m,$d,$a)){
 	     }
 
 
-	      if($arrayuda[$row1->fecha]>0){
-		$pdf->SetTextColor(3,18,249);
-         	$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
-	      }else{
-         	$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2),1,0,'R',0);
-
-	      }
-		$pdf->SetTextColor(0,0,0);
+			      if($arrayuda[$row1->fecha]>0){
+				$pdf->SetTextColor(3,18,249);
+				$xparti=(100-($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]))*($vp/(100*$cmp));
+				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti)*$ponderacion,2),1,0,'R',0);
+			      }else{
+				$xparti=(100-($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]))*($vp/(100*$cmp));
+				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti)*$ponderacion,2),1,0,'R',0);
+			      }
+			       $fecha1=$row1->fecha;	
+	$pdf->SetTextColor(0,0,0);
 
 	$salir=0;
 	foreach($fechacorte as $p=>$fc)
