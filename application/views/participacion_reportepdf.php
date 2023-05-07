@@ -431,8 +431,6 @@ if(checkdate($m,$d,$a)){
 
     $k=0;
     $sum=0;
- //	print_r($parcial);
-  //  	die();
 
 
     foreach($parcial as $sp)
@@ -479,9 +477,10 @@ if(checkdate($m,$d,$a)){
     }
  
 
+		//--Imprime la asistencia
+		$pdf->Cell(12,5,round(100*(($arrasistencia[$id][0]+$arrasistencia[$id][1])/($sesiontotal[0]+$sesiontotal[1])),0).'%',1,1,'R',0);
 
 
-      $pdf->Cell(10,5,8,1,1,'R',0);
 	foreach($fechacorte as $p=>$fc)
 	{
 	$parcial[$p]=0;
