@@ -433,6 +433,7 @@ function get_pregunta(idpregunta,idx) {
         success: function(data){
         },
       error: function (xhr, ajaxoptions, thrownerror) {
+	      alert('en respeutas 1'+" - "+idpregunta);
         alert(xhr.status);
         alert(thrownError);
       }
