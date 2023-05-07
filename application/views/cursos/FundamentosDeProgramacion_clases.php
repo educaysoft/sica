@@ -450,7 +450,7 @@ function get_respuestas(idreactivo)
 	var i=0;
 	var idxp;
 	tmpidpregunta=data[i].idpregunta;
-	alert(tmpidpregunta);
+	alert("imprimer respuesta pregunta="+tmpidpregunta);
 	do{
 	k=0;
 	html+="<div style='border:1px solid red;'>";
