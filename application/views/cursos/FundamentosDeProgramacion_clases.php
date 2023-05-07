@@ -424,26 +424,25 @@ function get_reactivo(idreactivo,idpersona) {
 
 
 function get_pregunta(idpregunta,idx) {
-	$.ajax({
+	$.when($.ajax({
         url: "<?php echo site_url('pregunta/get_pregunta') ?>",
         data: {idpregunta:idpregunta},
         method: 'get',
-       // async : false,
-	timeout:3000,
+        async : false,
         datatype : 'json',
         success: function(data){
-        var html1 = data[0].pregunta;
-	var idx1="#pregunta"+idx;
-        $(idx1).html(html1);
-
-
         },
       error: function (xhr, ajaxoptions, thrownerror) {
         alert(xhr.status);
         alert(thrownError);
       }
 
-    })
+})).done(function(data){
+        var html1 = data[0].pregunta;
+	var idx1="#pregunta"+idx;
+        $(idx1).html(html1);
+
+});
 	    
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
 	var idrespuesta=0;
