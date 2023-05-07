@@ -392,7 +392,6 @@ function get_reactivo(idreactivo,idpersona) {
 		j=i+1;
 		//html += '<div class="form-check form-check-inline">';
 		html += '<div class="form-check">';
-		html += '<input class="form-check-input" type="checkbox" id="inlineCheckbox'+j+'" value="option1" onclick="get_pregunta('+data[i].idpregunta+','+j+')">'; 
 		html += '<label class="form-check-label" for="inlineCheckbox'+j+'">Pregunta-'+j+'</label>';
 		html+='<div id="pregunta'+j+'" style="padding:10px; width:80%; margin:auto;">';
 		html+='</div>';
@@ -413,6 +412,7 @@ function get_reactivo(idreactivo,idpersona) {
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
+	    //  alert("pasa algo");
         alert(xhr.status);
         alert(thrownError);
       }
