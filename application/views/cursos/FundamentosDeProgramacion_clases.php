@@ -430,6 +430,11 @@ function get_pregunta(idpregunta,idx) {
         method: 'POST',
         async : false,
         datatype : 'json',
+	contentType: 'json',
+	 headers: {
+    'api-key':'myKey',
+    'Content-Type':'application/json'
+  },
         success: function(data){
         },
       error: function (xhr, ajaxoptions, thrownerror) {
