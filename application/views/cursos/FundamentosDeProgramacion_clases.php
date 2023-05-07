@@ -413,7 +413,10 @@ function get_reactivo(idreactivo,idpersona) {
 		//get_pregunta(data[i].idpregunta,j); 
 	}
 
-		get_respuestas(idreactivo); 
+
+
+
+		get_respuestas(idreactivo,idpersona); 
 
 
 
@@ -433,10 +436,34 @@ function get_reactivo(idreactivo,idpersona) {
 }
 
 
-function get_respuestas(idreactivo)
+
+
+
+function get_respuestas(idreactivo,idpersona)
 {
-	idrespuesta=0;
-	acierto=0;
+
+	var evaluacion={};
+
+    $.ajax({
+        url: "<?php echo site_url('evaluacion/get_evaluacion') ?>",
+        data: {idpersona:idpersona,idreactivo:idreactivo},
+        method: 'GET',
+        async : false,
+        dataType : 'json',
+        success: function(data){
+        if(data){
+        for(i=0; i<data.length; i++){
+			evaluacion[data[i].idrespuesta]=data[i].acierto;
+		}
+	}
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
     $.ajax({
         url: "<?php echo site_url('respuesta/get_respuestas') ?>",
         data: {idreactivo:idreactivo},
@@ -460,6 +487,17 @@ function get_respuestas(idreactivo)
 	html+="<fieldset id='group"+idx+"' style=' width:100%; margin-left:0px !important; display:flex; flex-direction:column;'>";
         do{
 		j=k+1;
+
+		if(evaluacion[data[i].idrespuesta]){
+				idrespuesta=data[i].idrespuesta;
+				acierto= evaluacion[data[i].idrespuesta];
+		}else{
+				idrespuesta=0;
+				acierto=0;
+
+		}
+
+
 		if(data[i].idrespuesta==idrespuesta && acierto==0)
 		{
 		html+="<div>";

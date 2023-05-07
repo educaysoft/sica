@@ -239,7 +239,7 @@ public function get_evaluacion() {
     $this->load->database();
     $this->load->helper('form');
         $this->db->select('*');
-        $this->db->where(array('idpregunta' => $this->input->get('idpregunta'),'idpersona' =>$this->input->get('idpersona')));
+        $this->db->where(array('idreactivo' => $this->input->get('idreactivo'),'idpersona' =>$this->input->get('idpersona')));
         $query = $this->db->get('evaluacion1');
 	$data=$query->result();
 	header('Content-Type: application/json');
