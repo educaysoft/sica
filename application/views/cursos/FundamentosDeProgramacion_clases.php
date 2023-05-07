@@ -390,7 +390,7 @@ function get_reactivo(idreactivo,idpersona) {
         var i;
         for(i=0; i<data.length; i++){
 		j=i+1;
-		alert(data[i].idpregunta);
+	//	alert(data[i].idpregunta);
 		//html += '<div class="form-check form-check-inline">';
 		html += '<div class="form-check">';
 		html += '<label class="form-check-label" for="inlineCheckbox'+j+'">Pregunta-'+j+'</label>';
@@ -413,7 +413,7 @@ function get_reactivo(idreactivo,idpersona) {
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
-	      alert("paso 2");
+	 //     alert("paso 2");
         alert(xhr.status);
         alert(thrownError);
       }
@@ -428,8 +428,8 @@ function get_pregunta(idpregunta,idx) {
         url: "<?php echo site_url('pregunta/get_pregunta') ?>",
         data: {idpregunta:idpregunta},
         method: 'get',
-        async : false,
-	timeout:9000,
+       // async : false,
+//	timeout:9000,
         datatype : 'json',
         success: function(data){
         var html1 = data[0].pregunta;
