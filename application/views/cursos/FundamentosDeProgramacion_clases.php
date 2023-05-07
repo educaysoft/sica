@@ -369,7 +369,7 @@ function get_reactivo(idreactivo,idpersona) {
         var html2= data.detalle;
         $('#evaluacion').html(html1);
         $('#detalle').html(html2);
-
+	alert(data.nombre);
 
         },
       error: function (xhr, ajaxOptions, thrownError) {
