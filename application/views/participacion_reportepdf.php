@@ -440,6 +440,7 @@ if(checkdate($m,$d,$a)){
 	       if($nnotas[$k]>=1){
 		$sum=$sum+round($sp,0);
     		$pdf->Cell(10,5,round($sp,0),1,0,'R',0);
+    		$pdf->Cell(12,5,round((100*$arrasistencia[$id][$k]/$sesiontotal[$k]),0).'%',1,0,'R',0);
 		$k=$k+1;
 	       }else{
 		 if($sp>0){
@@ -449,6 +450,13 @@ if(checkdate($m,$d,$a)){
 			 }
 	       }
     }
+		if($k==1){
+    		$pdf->Cell(10,5,0,1,0,'R',0);
+    		$pdf->Cell(12,5,round((100*$arrasistencia[$id][$k]/$sesiontotal[$k]),0).'%',1,0,'R',0);
+
+
+		}
+
 
 
     $resu=round($sum/$k,0);
