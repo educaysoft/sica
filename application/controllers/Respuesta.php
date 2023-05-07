@@ -206,5 +206,25 @@ public function get_respuesta() {
 
 
 
+public function get_respuestas() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->get('idreactivo')) {
+        $this->db->select('*');
+        $this->db->where(array('idreactivo' => $this->input->get('idreactivo')));
+        $query = $this->db->get('respuesta1');
+	$data=$query->result();
+	header('Content-Type: application/json');
+	echo json_encode($data);
+	}
+
+}
+
+
+
+
+
+
+
 
 }

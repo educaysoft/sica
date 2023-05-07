@@ -376,7 +376,9 @@ function get_reactivo(idreactivo,idpersona) {
       }
 
     })
-	alert("Passeo 2");
+
+
+
     $.ajax({
         url: "<?php echo site_url('pregunta/get_preguntas') ?>",
         data: {idreactivo: idreactivo},
@@ -409,8 +411,16 @@ function get_reactivo(idreactivo,idpersona) {
         	var html1 = data[i].pregunta;
 		var idx1="#pregunta"+j;
         	$(idx1).html(html1);
-		get_pregunta(data[i].idpregunta,j); 
+		//get_pregunta(data[i].idpregunta,j); 
 	}
+
+		get_respuestas(idreactivo,j); 
+
+
+
+
+
+
 
 
         },
@@ -422,6 +432,82 @@ function get_reactivo(idreactivo,idpersona) {
     })
 
 }
+
+
+function get_respuestas(idreactivo)
+{
+	idrespuesta=0;
+	acierto=0;
+    $.ajax({
+        url: "<?php echo site_url('respuesta/get_respuestas') ?>",
+        data: {idreactivo:idreactivo},
+        method: 'GET',
+        async : false,
+	cache: false,
+        dataType : 'json',
+        success: function(data){
+	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
+        var html = '';
+	var i=0;
+	var idxp;
+	tmpidpregunta=data[i].idpregunta;
+	do{
+	k=0;
+	html+="<div style='border:1px solid red;'>";
+	html+="<form style=' width:100%; padding-left:0; margin-left:0px;'>";
+	html+="<fieldset id='group"+idx+"' style=' width:100%; margin-left:0px !important; display:flex; flex-direction:column;'>";
+        do{
+		j=k+1;
+		if(data[i].idrespuesta==idrespuesta && acierto==0)
+		{
+		html+="<div>";
+		html += '<input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')"  checked >';
+		//html += '  <label for="huey" style="color:red">'+data[i].respuesta+'</label>';
+		html += '  <label for="huey" style="color:black">'+data[i].respuesta+'</label>';
+		html+="</div>";
+		}
+		else if(data[i].idrespuesta==idrespuesta && acierto==1)
+		{
+		html+="<div>";
+		html += '<input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')"  checked>';
+		//html += '  <label for="huey" style="color:green">'+data[i].respuesta+'</label>';
+		html += '  <label for="huey" style="color:black">'+data[i].respuesta+'</label>';
+		html+="</div>";
+		}
+		else
+		{
+		html+="<div>";
+		html += '<input type="radio" id="'+j+'" name="respuesta" id="'+i+'" value="'+data[i].respuesta+'" onclick="evaluado('+data[i].idreactivo+','+data[i].acierto+','+data[i].idpregunta+','+idpersona+','+data[i].idrespuesta+')">';
+		html += '  <label for="huey" >'+data[i].respuesta+'</label>';
+		html+="</div>";
+		}
+		i=i+1;
+		k=k+1;
+        }while(data[i].idpregunta==tmpidpregunta);
+	html+="</fieldset>";
+	html+="</form>";
+	html+="</div";
+	idx1='#respuesta'+idx;
+        $(idx1).html(html);
+	tmpidpregunta=data[i].idpregunta;
+	
+	}while(i<data.length);
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+
+
+
+
+
+}
+
 
 
 function get_pregunta(idpregunta,idx) {
