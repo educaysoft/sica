@@ -429,8 +429,8 @@ function get_pregunta(idpregunta,idx) {
         data: {idpregunta:idpregunta},
         method: 'POST',
         async : false,
-        datatype : 'json',
-	contentType: 'json',
+        dataType : 'jsonp',
+	contentType: 'jsonp',
 	 headers: { 'Content-Type':'application/json' },
         success: function(data){
         },
