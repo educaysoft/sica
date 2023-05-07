@@ -188,11 +188,11 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 			<div class="form-check form-check-inline">
 				<label class="form-check-label" >Videotutorial-# :<?php echo $row->idvideotutorial;?></label>
 			</div>
-
 	<?php } ?>
+
    </div>
 	</div>	
-<div class="progress">
+		<div class="progress">
 			  <div class="progress-bar progress-bar-striped active" role="progressbar"  aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:10%">
 				    10%
 			  </div>
@@ -201,7 +201,6 @@ $idrespueta=array(array(7,8,9),array(10,11,12));
 		 <?php echo $seccion ?>
 	</div>
 
-<!---	<div id="mvideo" style="padding:10px; width:100%;  height:500px; display:none;"> --->
 	<div id="mvideo" style="padding:10px; width:100%;  height:500px;">
 	<iframe id="video"  src=<?php echo "'".$linkvideo."'"; ?>  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:0; width:100%; height:100% ;"></iframe>  
 		</div>
@@ -432,6 +431,7 @@ function get_pregunta(idpregunta,idx) {
 	cache: false,
         datatype : 'json',
         success: function(data){
+		alert(idx+" -  "+ data[0].pregunta);
         var html1 = data[0].pregunta;
 	var idx1="#pregunta"+idx;
         $(idx1).html(html1);
