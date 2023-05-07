@@ -451,9 +451,9 @@ function get_respuestas(idreactivo)
 	var idx;
 	tmpidpregunta=data[i].idpregunta;
 	alert("imprimer respuesta pregunta="+tmpidpregunta);
+	idx=1;
 	do{
 	k=0;
-	idx=k+1;
 	html+="<div style='border:1px solid red;'>";
 	html+="<form style=' width:100%; padding-left:0; margin-left:0px;'>";
 	html+="<fieldset id='group"+idx+"' style=' width:100%; margin-left:0px !important; display:flex; flex-direction:column;'>";
@@ -491,7 +491,7 @@ function get_respuestas(idreactivo)
 	idx1='#respuesta'+idx;
         $(idx1).html(html);
 	tmpidpregunta=data[i].idpregunta;
-	
+	idx=idx+1;	
 	}while(i<data.length);
 
         },
