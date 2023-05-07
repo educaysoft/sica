@@ -448,11 +448,12 @@ function get_respuestas(idreactivo)
 	var idpersona=<?php echo  $this->session->userdata['logged_in']['idpersona']; ?>;
         var html = '';
 	var i=0;
-	var idxp;
+	var idx;
 	tmpidpregunta=data[i].idpregunta;
 	alert("imprimer respuesta pregunta="+tmpidpregunta);
 	do{
 	k=0;
+	idx=k+1;
 	html+="<div style='border:1px solid red;'>";
 	html+="<form style=' width:100%; padding-left:0; margin-left:0px;'>";
 	html+="<fieldset id='group"+idx+"' style=' width:100%; margin-left:0px !important; display:flex; flex-direction:column;'>";
