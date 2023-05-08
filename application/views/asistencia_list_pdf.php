@@ -10,13 +10,13 @@
 
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad= $departamento[0]->nombre;
-	$pdf->departamento='PERIODO: 2022-2S';
-	$pdf->titulo="CONTROL ASISTENCIA";
+	$pdf->departamento='CONTROL DE ASISTENCIA';
+	//$pdf->titulo="ONTROL ASISTENCIA";
 	
     	$pdf->asignatura="Asignatura: ".$asignatura[0]->nombre; 
-    	$pdf->docente="Asistencia:  ".$distributivo[0]->eldistributivo; 
+    	$pdf->docente="Docente:  ".$distributivodocente[0]->eldocente; 
 //	if($mesnumero>0){
-  //  	$pdf->mes="Mes:  ".$mesletra[$mesnumero]; 
+    	$pdf->mes="Periodo:  ".$calendarioacademico[0]->nombre; 
 //	}
 
 
