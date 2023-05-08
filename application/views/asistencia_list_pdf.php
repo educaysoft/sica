@@ -138,7 +138,7 @@ foreach ($asistencia as $row){
 
     $pdf->Cell(4,5,$i,1,0,'R',0); 
     $pdf->Cell(35,5,utf8_decode($arrasistencia[$id]),1,0,'L',0);
-
+    $asistencia=0;
     foreach ($sesiones as $row1){
       if(isset($arrasistencia[$row1['fecha']])){
 	      $x=255;
@@ -149,12 +149,14 @@ foreach ($asistencia as $row){
    $pdf->SetFillColor(144,238,144);
 
     $pdf->Cell(4,5,"PU",1,0,'L',1);
+    $asistencia=$asistencia+1;
 		}
 
      if($arrasistencia[$row1['fecha']][0]==2)   //atraseo
 		{
    $pdf->SetFillColor(144,238,144);
   $pdf->Cell(4,5,"AT",1,0,'C',0);
+    $asistencia=$asistencia+0.75;
 		}
 
 
@@ -162,6 +164,7 @@ foreach ($asistencia as $row){
      {
 	     $pdf->SetFillColor(240,57,77); 
 	     $pdf->Cell(4,5,"FJ",1,0,'L',1);
+    $asistencia=$asistencia+0.50;
      }
 
 
@@ -169,6 +172,7 @@ foreach ($asistencia as $row){
      {
 	$pdf->SetFillColor(240,57,77);
     $pdf->Cell(4,5,"FI",1,0,'L',1);
+    $asistencia=$asistencia+0;
      }
 
 
@@ -185,8 +189,9 @@ foreach ($asistencia as $row){
 	  $aus=$aus+1;
       }
     }
-      $resu=round(($asi/($sesiontotal))*100,0);
-     $pdf->Cell(10,5,$asi." = ".$resu."%",1,1,'L',0);
+      //$resu=round(($asi/($sesiontotal))*100,0);
+      $resu=round(($asistencia/($sesiontotal))*100,0);
+     $pdf->Cell(10,5,$asistencia." = ".$resu."%",1,1,'L',0);
 $asi=0;
 $aus=0;
 $j=0;
@@ -205,6 +210,8 @@ $j=0;
 
     $pdf->Cell(4,5,$i,1,0,'R',0); 
     $pdf->Cell(35,5,utf8_decode($arrasistencia[$id]),1,0,'L',0);
+
+    $asistencia=0;
     foreach ($sesiones as $row1){
       if(isset($arrasistencia[$row1['fecha']])){
 //          echo "<td style='color:black'>". $arrasistencia[$row1->fecha][0]."</td>";
@@ -214,12 +221,14 @@ $j=0;
 		{
    $pdf->SetFillColor(144,238,144);
 $pdf->Cell(4,5,"PU",1,0,'L',0);
+    $asistencia=$asistencia+1;
 		}
 
      if($arrasistencia[$row1['fecha']][0]==2)   //atraseo
 		{
    $pdf->SetFillColor(144,238,144);
 $pdf->Cell(4,5,"AT",1,0,'L',0);
+    $asistencia=$asistencia+0.75;
 		}
 
 
@@ -227,6 +236,7 @@ $pdf->Cell(4,5,"AT",1,0,'L',0);
      {
 	$pdf->SetFillColor(240,57,77);
      $pdf->Cell(4,5,"FJ",1,0,'L',1);
+    $asistencia=$asistencia+0.5;
      }
 
 
@@ -234,6 +244,7 @@ $pdf->Cell(4,5,"AT",1,0,'L',0);
      {
 	$pdf->SetFillColor(240,57,77);
       $pdf->Cell(4,5,"FI"."</td>",1,0,'L',0);
+    $asistencia=$asistencia+0;
      }
 
 
@@ -246,8 +257,9 @@ $pdf->Cell(4,5,"AT",1,0,'L',0);
 	  $aus=$aus+1;
       }
     } 
-    $resu=round(($asi/($sesiontotal))*100,0);
-     $pdf->Cell(10,5,$asi." = ".$resu."%",1,1,'L',0);
+    //$resu=round(($asi/($sesiontotal))*100,0);
+    $resu=round(($asistencia/($sesiontotal))*100,0);
+     $pdf->Cell(10,5,$asistencia." = ".$resu."%",1,1,'L',0);
 
 
 
