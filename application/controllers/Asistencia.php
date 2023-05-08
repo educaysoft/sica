@@ -243,12 +243,13 @@ class Asistencia extends CI_Controller{
 	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 	$data['sesioneventos'] =$this->sesionevento_model->sesionevento_asistencia($this->uri->segment(3))->result();
 	$data['sesionevento'] = $this->sesionevento_model->sesionevento_sesiones($idevento)->result();
+	$data['asistencia'] = $this->asistencia_model->listar_asistencia_reporte($this->uri->segment(3))->result();
 
 
 	$data['jornadadocente']= $this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente'])->result();
 	$data['calendarioacademico'] = $this->calendarioacademico_model->lista_calendarioacademicosA($data['evento']['idcalendarioacademico'])->result();
-//	$data['distributivodocente']=$this->distributivodocente_model->distributivodocentes1($data['jornadadocente'][0]->iddistributivodocente)->row_array();
-//	$data['departamento']=$this->departamento_model->departamento($data['distributivodocente'][0]->iddepartamento)->result();
+	$data['distributivodocente']=$this->distributivodocente_model->distributivodocente($data['jornadadocente'][0]->iddistributivodocente)->row_array();
+	$data['departamento']=$this->departamento_model->departamento($data['distributivodocente'][0]->iddepartamento)-result();
 
   	$data['title']="Certificado";
 
