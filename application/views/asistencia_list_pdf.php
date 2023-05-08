@@ -9,7 +9,7 @@
 
 
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
-	$pdf->unidad=$departamento[0]->nombre;
+	$pdf->unidad='sadsd'; $departamento[0]->nombre;
 	$pdf->departamento='PERIODO: 2022-2S';
 	$pdf->titulo="CONTROL ASISTENCIA";
 	
