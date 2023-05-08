@@ -12,6 +12,8 @@ class Asistencia extends CI_Controller{
          	$this->load->model('distributivodocente_model');
          	$this->load->model('departamento_model');
          	$this->load->model('calendarioacademico_model');
+         	$this->load->model('asignaturadocente_model');
+         	$this->load->model('asignatura_model');
 	}
 
 	public function index(){
