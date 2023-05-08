@@ -105,10 +105,10 @@ if(checkdate($m,$d,$a)){
   //  	$pdf->Text(20,45,"Docente:  ".$instructor[0]->nombres); 
 
 	$pdf->SetFillColor(232,232,232);
-	$pdf->SetFont('Arial','B',10);
+	$pdf->SetFont('Arial','B',8);
 
 
-	$pdf->Cell(4,5,'Valoración : Puntualidad(PU)=1     Atraso(AT)=0.75       Falta Justificada(FJ)=0.5       Falta Injustificada(FI) =0.25 ',0,1,'L',0);
+	$pdf->Cell(4,5,utf8_decode('Valoración :').' Puntualidad(PU)=1     Atraso(AT)=0.75       Falta Justificada(FJ)=0.5       Falta Injustificada(FI) =0.25 ',0,1,'L',0);
 	$pdf->SetFont('Arial','B',5);
 	$pdf->Cell(4,5,'#',1,0,'C',1);
 	$pdf->Cell(35,5,'Participante',1,0,'C',1);
