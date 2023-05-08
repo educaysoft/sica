@@ -11,7 +11,7 @@
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad= $departamento[0]->nombre;
 	$pdf->departamento='CONTROL DE ASISTENCIA';
-	//$pdf->titulo="ONTROL ASISTENCIA";
+	$pdf->titulo=$evento['titulo'];
 	
     	$pdf->asignatura="Asignatura: ".$asignatura[0]->nombre; 
     	$pdf->docente="Docente:  ".$distributivodocente[0]->eldocente; 
