@@ -13,7 +13,7 @@
 	$pdf->departamento='PERIODO: 2022-2S';
 	$pdf->titulo="CONTROL ASISTENCIA";
 	
- //   	$pdf->asignatura="Evento(Clase):  ".$sesioneventos[0]->elevento; 
+    	$pdf->asignatura="Asignatura: ".$asignatura[0]->nombre; 
     	$pdf->docente="Asistencia:  ".$distributivo[0]->eldistributivo; 
 //	if($mesnumero>0){
   //  	$pdf->mes="Mes:  ".$mesletra[$mesnumero]; 

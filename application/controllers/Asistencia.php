@@ -247,6 +247,8 @@ class Asistencia extends CI_Controller{
 
 
 	$data['jornadadocente']= $this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente'])->result();
+	$data['asignaturadocente']=$this->asignaturadocente_model->asignaturadocente($data['evento']['idasignaturadocente'])->result();
+	$data['asignatura']=$this->asignatura_model->asignatura($data['asignaturadocente'][0]->idasignatura)->result();
 	$data['calendarioacademico'] = $this->calendarioacademico_model->lista_calendarioacademicosA($data['evento']['idcalendarioacademico'])->result();
 	$data['distributivodocente']=$this->distributivodocente_model->distributivodocentes2($data['jornadadocente'][0]->iddistributivodocente)->result();
 	$data['departamento']=$this->departamento_model->departamento($data['distributivodocente'][0]->iddepartamento)->result();
