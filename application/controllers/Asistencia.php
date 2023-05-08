@@ -9,6 +9,8 @@ class Asistencia extends CI_Controller{
       		$this->load->model('tipoasistencia_model');
          	$this->load->model('sesionevento_model');
          	$this->load->model('jornadadocente_model');
+         	$this->load->model('distributivodocente_model');
+         	$this->load->model('departamento_model');
          	$this->load->model('calendarioacademico_model');
 	}
 
@@ -241,7 +243,6 @@ class Asistencia extends CI_Controller{
 	$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 	$data['sesioneventos'] =$this->sesionevento_model->sesionevento_asistencia($this->uri->segment(3))->result();
 	$data['sesionevento'] = $this->sesionevento_model->sesionevento_sesiones($idevento)->result();
-	$data['asistencia'] = $this->asistencia_model->listar_asistencia_reporte($this->uri->segment(3))->result();
 
 
 	$data['jornadadocente']= $this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente'])->result();
