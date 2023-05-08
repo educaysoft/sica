@@ -29,7 +29,7 @@ foreach ($eventos as $row){
 
 $options= array('--Select--');
 foreach ($sesioneventos as $row){
-	$options[$row->idsesionevento]= $row->fecha." - ".$row->temacorto;
+	$options[$row->idsesionevento]=$row->numerosesion." - ". $row->fecha." - ".$row->temacorto;
 }
  echo form_dropdown("idsesionevento",$options, set_select('--Select--','default_value'),array('id'=>'idsesionevento','onchange'=>'get_participantes2x()'));  
 
