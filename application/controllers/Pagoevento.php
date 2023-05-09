@@ -289,21 +289,22 @@ echo $table;
 public function actual()
 {
 
+ if(isset($this->session->userdata['logged_in'])){
 
-  	$data['eventos']= $this->evento_model->lista_eventos()->result();
+ 	$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
 	$data['pagoevento'] = $this->pagoevento_model->pagoevento($this->uri->segment(3))->row_array();
-  if(!empty($data))
-  {
     $data['title']="Pagoevento del documento";
     $this->load->view('template/page_header');		
     $this->load->view('pagoevento_record',$data);
     $this->load->view('template/page_footer');
-  }else{
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
+
+   }else{
+	$this->load->view('template/page_header.php');
+	$this->load->view('login_form');
+	$this->load->view('template/page_footer.php');
+   }
+
  }
 
 
