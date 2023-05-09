@@ -47,7 +47,7 @@ public function  save()
 public function edit()
 {
 	 	$data['nivelparticipante'] = $this->nivelparticipante_model->nivelparticipante($this->uri->segment(3))->row_array();
-	 	$data['tipoevento'] = $this->tipoevento_model->lista_tipoeventos()->result;
+	 	$data['tipoeventos'] = $this->tipoevento_model->lista_tipoeventos()->result;
  	 	$data['title'] = "Actualizar nivelparticipante";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('nivelparticipante_edit',$data);
