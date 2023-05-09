@@ -53,12 +53,18 @@ public function add()
 	public function  save()
 	{
 	 	$array_item=array(
-		 	
 			'iddocumento' => $this->input->post('iddocumento'),
 			'idportafolio' => $this->input->post('idportafolio'),
 	 	);
-	 	$this->documentoportafolio_model->save($array_item);
-	 	redirect('documentoportafolio');
+	 	$result=$this->documentoportafolio_model->save($array_item);
+
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Documento ya existe en este portafolio'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
  	}
 
 

@@ -29,7 +29,41 @@ class Documentoportafolio_model extends CI_model {
 
  	function save($array)
  	{
-		$this->db->insert("documentoportafolio", $array);
+			date_default_timezone_set('America/Guayaquil');
+    			$fecha = date("Y-m-d");
+    			$hora= date("H:i:s");
+			$idusuario=$this->session->userdata['logged_in']['idusuario'];
+	   $this->db->trans_begin();
+		$condition1 = "iddocumento =" . "'" . $array['iddocumento'] . "'";
+		$condition2 = "idportafolio =" . "'" . $array['idportafolio'] . "'";
+		$this->db->select('*');
+		$this->db->from('documentoportafolio');
+		$this->db->where($condition1);
+		$this->db->where($condition2);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+			$this->db->insert("documentoportafolio", $array);
+		   if( $this->db->affected_rows()>0){
+			$iddocumentoportafolio=$this->db->insert_id();
+		   	$this->db->insert("vitacora", array("idusuario"=>$idusuario,"hora"=>$hora,"fecha"=>$fecha,"tabla"=>"documentoportafolio","accion"=>"se sumo un documento con id=".$iddocumentoportafolio,"url"=>$_SERVER['REQUEST_URI']));
+
+
+
+
+			$this->db->trans_commit();
+			return true;
+		   }else{
+			$this->db->trans_rollback();
+			return false;
+		   }
+		 }else{
+			$this->db->trans_rollback();
+			return false;
+	   }
+	
+
+
  	}
 
  	function update($id,$array_item)
