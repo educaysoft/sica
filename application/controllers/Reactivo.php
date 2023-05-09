@@ -219,7 +219,7 @@ function reactivo_respuesta2()
 public function actual()
 {
  if(isset($this->session->userdata['logged_in'])){
-	$data['reactivo'] = $this->reactivo_model->reactivo($this->uri-segment(3))->row_array();
+	$data['reactivo'] = $this->reactivo_model->reactivo($this->uri->segment(3))->row_array();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
     $data['title']="Reactivo";
     $this->load->view('template/page_header');		
