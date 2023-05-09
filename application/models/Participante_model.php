@@ -174,13 +174,11 @@ return $participante;
 		if ($query->num_rows() != 0) {
 	 		  	$this->db->where('idparticipante',$idp);
 				$this->db->update('participante', array('eliminado'=>1));
-		    		//$this->db->delete('participante');
            				 $this->db->trans_complete();
 			      		$result=true;
       	}else{	
-
             $this->db->trans_complete();
-			      $result=false;
+	      $result=false;
    	}
 
 	return $result;

@@ -137,6 +137,7 @@ class Asistencia extends CI_Controller{
 		 	'idtipoasistencia' => $this->input->post('idtipoasistencia'),
 		 	'comentario' => $this->input->post('comentario'),
 	 	);
+	 	$result=$this->asistencia_model->restaurar($array_item);
 	 	$result=$this->asistencia_model->saveall($array_item);
 	 	if($result == FALSE)
 		{
@@ -146,6 +147,27 @@ class Asistencia extends CI_Controller{
 		}
 		echo json_encode($data);
   	}	
+
+
+
+
+
+	public function  quitar_asistencia()
+	{
+	 		$array_item=array(
+		 	'idevento' => $this->input->post('idevento'),
+		 	'fecha' => $this->input->post('fecha'),
+	 	);
+	 	$result=$this->asistencia_model->quitar($array_item);
+	 	if($result == FALSE)
+		{
+			$data=array('resultado'=>"FALSE");
+		}else{
+			$data=array('resultado'=>"TRUE");
+		}
+		echo json_encode($data);
+  	}	
+
 
 
 

@@ -13,7 +13,7 @@ class Asistencia_model extends CI_model {
 
 
 	function listar_asistencia(){
-		 $asistencia= $this->db->get('asistencia');
+		 $asistencia= $this->db->get('asistencia0');
 		 return $asistencia;
 	}
 
@@ -47,7 +47,7 @@ class Asistencia_model extends CI_model {
 
 
  	function asistencia( $id){
-	$asistencia = $this->db->query('select * from asistencia where idasistencia="'. $id.'"');
+	$asistencia = $this->db->query('select * from asistencia0 where idasistencia="'. $id.'"');
  		return $asistencia;
  	}
 
@@ -63,7 +63,7 @@ class Asistencia_model extends CI_model {
  		$this->db->where('idevento',$array_item['idevento']);
  		$this->db->where('idpersona',$array_item['idpersona']);
  		$this->db->where('fecha',$array_item['fecha']);
-		$query=$this->db->get('asistencia');
+		$query=$this->db->get('asistencia0');
 		if($query->num_rows()==0){
 			$this->db->insert("asistencia", $array_item);
 			if( $this->db->affected_rows()>0) {
@@ -101,7 +101,7 @@ class Asistencia_model extends CI_model {
  		$this->db->where('idevento',$array_item['idevento']);
  		$this->db->where('idpersona',$row->idpersona);
  		$this->db->where('fecha',$array_item['fecha']);
-		$query=$this->db->get('asistencia');
+		$query=$this->db->get('asistencia0');
 		if($query->num_rows()==0){
 			$array_item['idpersona']=$row->idpersona;
 			$this->db->insert("asistencia", $array_item);
@@ -116,9 +116,61 @@ class Asistencia_model extends CI_model {
 	}
 
 
+	function restaurar($array_item)
+ 	{
+		$this->db->trans_start();
+	
+ 		$this->db->where('idevento',$array_item['idevento']);
+ 		$this->db->where('fecha',$array_item['fecha']);
+ 		$this->db->where('eliminado',1);
+		$query=$this->db->get('asistencia');
+		if($query->num_rows()>0){
+
+			$this->db->where('idevento',$array_item['idevento']);
+ 			$this->db->where('fecha',$array_item['fecha']);
+ 			$this->db->where('eliminado',1);
+			$this->db->update('asistencia', array('eliminado'=>0));
+           	 	$this->db->trans_complete();
+		   	$result=true;
+		}else{
+            		$this->db->trans_complete();
+	      		$result=false;
+		}	
+		return $result;			
+ 	}
 
 
 
+
+
+
+
+
+
+ 	function quitar($array_item)
+ 	{
+		$this->db->trans_start();
+	
+ 		$this->db->where('idevento',$array_item['idevento']);
+ 		$this->db->where('fecha',$array_item['fecha']);
+ 		$this->db->where('eliminado',0);
+		$query=$this->db->get('asistencia0');
+		if($query->num_rows()>0){
+
+			$this->db->where('idevento',$array_item['idevento']);
+ 			$this->db->where('fecha',$array_item['fecha']);
+ 			$this->db->where('eliminado',0);
+			$this->db->update('asistencia', array('eliminado'=>1));
+           	 	$this->db->trans_complete();
+		   	$result=true;
+		}else{
+            		$this->db->trans_complete();
+	      		$result=false;
+		}	
+		return $result;			
+ 	}
+
+	
 
 
 
@@ -155,7 +207,7 @@ class Asistencia_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idasistencia")->get('asistencia');
+		$query=$this->db->order_by("idasistencia")->get('asistencia0');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -168,7 +220,7 @@ class Asistencia_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idasistencia")->get('asistencia');
+		$query=$this->db->order_by("idasistencia")->get('asistencia0');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -180,16 +232,16 @@ class Asistencia_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$asistencia = $this->db->select("idasistencia")->order_by("idasistencia")->get('asistencia')->result_array();
+ 		$asistencia = $this->db->select("idasistencia")->order_by("idasistencia")->get('asistencia0')->result_array();
 		$arr=array("idasistencia"=>$id);
 		$clave=array_search($arr,$asistencia);
 	   if(array_key_exists($clave+1,$asistencia))
 		 {
 
- 		$asistencia = $this->db->query('select * from asistencia where idasistencia="'. $asistencia[$clave+1]["idasistencia"].'"');
+ 		$asistencia = $this->db->query('select * from asistencia0 where idasistencia="'. $asistencia[$clave+1]["idasistencia"].'"');
 		 }else{
 
- 		$asistencia = $this->db->query('select * from asistencia where idasistencia="'. $id.'"');
+ 		$asistencia = $this->db->query('select * from asistencia0 where idasistencia="'. $id.'"');
 		 }
 		 	
  		return $asistencia;
@@ -198,16 +250,16 @@ class Asistencia_model extends CI_model {
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$asistencia = $this->db->select("idasistencia")->order_by("idasistencia")->get('asistencia')->result_array();
+ 		$asistencia = $this->db->select("idasistencia")->order_by("idasistencia")->get('asistencia0')->result_array();
 		$arr=array("idasistencia"=>$id);
 		$clave=array_search($arr,$asistencia);
 	   if(array_key_exists($clave-1,$asistencia))
 		 {
 
- 		$asistencia = $this->db->query('select * from asistencia where idasistencia="'. $asistencia[$clave-1]["idasistencia"].'"');
+ 		$asistencia = $this->db->query('select * from asistencia0 where idasistencia="'. $asistencia[$clave-1]["idasistencia"].'"');
 		 }else{
 
- 		$asistencia = $this->db->query('select * from asistencia where idasistencia="'. $id.'"');
+ 		$asistencia = $this->db->query('select * from asistencia0 where idasistencia="'. $id.'"');
 		 }
 		 	
  		return $asistencia;

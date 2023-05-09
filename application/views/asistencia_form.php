@@ -68,7 +68,7 @@ echo form_textarea("comentario","",$textarea_options);
             <b>Los participantes: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" onclick="save_asistencia()"> Asistencias a TODOS</a><a class="btn btn-danger" href="<?php echo base_url('asistencia/reporte/'.$idevento) ?>">Reporte</a>
+            <a class="btn btn-success" onclick="save_asistencia()"> Asistencias a TODOS</a><a class="btn btn-danger" href="<?php echo base_url('asistencia/reporte/'.$idevento) ?>">Reporte</a><a class="btn btn-success" onclick="quitar_asistencia()"> Quitar Asistencias</a>
         </div>
     </div>
 </div>
@@ -372,6 +372,44 @@ $('#show_data1').on('click','.item_asit',function(){
 	      }
 	    })
 	}
+
+
+
+
+	function quitar_asistencia() {
+		var f = document.getElementById("idsesionevento");
+		var arrtmp=f.options[f.selectedIndex].text;
+		const x=arrtmp.split(" - ");
+		var fecha=x[0];
+		var idevento=document.getElementById("idevento").value;
+		var idpersona=0 ;  //p.options[p.selectedIndex].value;
+
+if( confirm('¿Esta seguro de querer quitar estas asistencias?'))
+{
+
+if( confirm('Esta acción quitar todas las asistencias de esta fecha ¿Esta bien seguro?'))
+{
+	    $.ajax({
+		url: "<?php echo site_url('asistencia/quitar_asistencia') ?>",
+		data: {idevento:idevento, fecha:fecha},
+		method: 'POST',
+		async : false,
+		dataType : 'json',
+		success: function(data){
+		var html = '';
+		var i;
+		get_participantes2x();
+		},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+	    })
+	}
+  }
+}
+
+
 
 
 </script>
