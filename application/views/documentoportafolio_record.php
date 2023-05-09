@@ -63,7 +63,7 @@ echo form_input('iddocumento',$options[$documentoportafolio['iddocumento']],arra
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Id portafolio:</label>
+    <label class="col-md-2 col-form-label"><a href= "<?php echo base_url(); ?>silabo/actual/<?php echo $documentoportafolio['idportafolio']; ?> "   >Portafolio: &#x1F448;</a>  </label>
 	<div class="col-md-10">
   
      <?php 
