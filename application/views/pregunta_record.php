@@ -38,7 +38,7 @@ if(isset($pregunta))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Reactivo:</label>
+    <label class="col-md-2 col-form-label"> <a href= "<?php echo base_url(); ?>reactivo/actual/<?php echo $pregunta['idreactivo']; ?> "   >Reactivo: &#x1F448;</a> </label>
 	<div class="col-md-10">
 		<?php
 $options= array("NADA");

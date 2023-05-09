@@ -4,7 +4,16 @@
 <?php echo form_hidden("idnivelparticipante")  ?>
 <table>
 
+<tr>
+<td> Tipo de evento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($tipoeventos as $row){
+	$options[$row->idtipoevento]= $row->nombre;
+}
 
+ echo form_dropdown("idtipoevento",$options, set_select('--Select--',"default_value"));  ?></td>
+</tr>
 
 
 
