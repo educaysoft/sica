@@ -3,7 +3,19 @@
 <h2> <?php echo $title; ?></h2>
 <hr />
 <table>
- 
+
+<tr>
+<td> Tipo de evento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($tipoeventos as $row){
+	$options[$row->idtipoevento]= $row->nombre;
+}
+
+ echo form_dropdown("idtipoevento",$options, $nivelparticipante['idtipoevento']);  ?></td>
+</tr>
+
+
    <tr>
      <td>Id nivelparticipante</td>
      <td><?php 
