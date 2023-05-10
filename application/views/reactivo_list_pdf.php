@@ -7,7 +7,7 @@
 	$pdf->SetAutoPageBreak(true,40); //page created doesn't have template attached
 
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
-	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
+	$pdf->unidad=$departamento[0]->nombre;
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
 	$pdf->titulo="Reactivo";
         $pdf->laasignatura=$silabo[0]->laasignatura;

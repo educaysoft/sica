@@ -269,7 +269,6 @@ class Asistencia extends CI_Controller{
 	$data['sesionevento'] = $this->sesionevento_model->sesionevento_sesiones($idevento)->result();
 	$data['asistencia'] = $this->asistencia_model->listar_asistencia_reporte($this->uri->segment(3))->result();
 
-
 	$data['jornadadocente']= $this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente'])->result();
 	$data['asignaturadocente']=$this->asignaturadocente_model->asignaturadocente($data['evento']['idasignaturadocente'])->result();
 	$data['asignatura']=$this->asignatura_model->asignatura($data['asignaturadocente'][0]->idasignatura)->result();
