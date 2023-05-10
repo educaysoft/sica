@@ -8,8 +8,8 @@
 
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad=$departamento[0]->nombre;
-	$pdf->departamento=$evento['titulo']; 
-	$pdf->titulo="Reactivo";
+	$pdf->departamento=$reactivo['nombre']; 
+	$pdf->titulo="RECTIVO";
         $pdf->laasignatura=$silabo[0]->laasignatura;
         $pdf->eldocente=$silabo[0]->eldocente;
 	$pdf->detalle=$reactivos[0]->detalle;
