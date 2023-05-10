@@ -32,7 +32,7 @@ if(isset($evaluacionpersona))
 <br>
 
 <?php echo form_open('evaluacionpersona/save_edit') ?>
-<?php echo form_hidden('iddocumento',$evaluacionpersona['iddocumento']) ?>
+<?php echo form_hidden('idevaluacionpersona',$evaluacionpersona['idevaluacionpersona']) ?>
 <table>
 
 
