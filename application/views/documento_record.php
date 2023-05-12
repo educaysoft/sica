@@ -22,8 +22,6 @@ if(isset($documento))
 		redirect('login/logout');
 	}
 
-//	print_r($this->session->userdata['acceso']);
-//	die();
 
 ?>
 
@@ -101,6 +99,16 @@ if(isset($documento))
 	<div class="col-md-10">
 		<?php
       		 echo form_input('fechaelaboracion',$documento['fechaelaboracion'],array('type'=>'date','placeholder'=>'fechaelaboracion','style'=>'width:500px;')) 
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha de subida:</label>
+	<div class="col-md-10">
+		<?php
+      		 echo form_input('fechasubida',$documento['fechasubida'],array('type'=>'date','placeholder'=>'fecha de carga','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>

@@ -15,7 +15,17 @@
  				echo form_input(array("name"=>"fechaelaboracion","id"=>"fechaelaboracion","type"=>"date"));  
 			?>
 		</div>
-	</div>
+</div>
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">Fecha subida:</label>
+		<div class="col-md-10">
+			<?php
+ 				echo form_input(array("name"=>"fechasubida","id"=>"fechasubida","type"=>"date"));  
+			?>
+		</div>
+</div>
+
 
 
 <div class="form-group row">

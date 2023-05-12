@@ -36,7 +36,10 @@ foreach ($tipodocus as $row){
       <td><?php echo form_input( array("name"=>'fechaelaboracion',"id"=>'fechaelaboracion',"value"=>$documento['fechaelaboracion'],'type'=>'date','placeholder'=>'fechaelaboracion')); ?></td>
   </tr>
 
-  
+  <tr>
+      <td>Fecha subida:</td>
+      <td><?php echo form_input( array("name"=>'fechasubida',"id"=>'fechasubida',"value"=>$documento['fechasubida'],'type'=>'date','placeholder'=>'fecha de subida')); ?></td>
+  </tr>
 
   <tr>
       <td>Emisor/es:</td>

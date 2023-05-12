@@ -267,4 +267,8 @@ alter table evaluacion change idpersona idevaluacionpersona int(11);
 /* alter table persona add column eliminado tinyint default 0; */
 
 
-alter table documento add column eliminado tinyint default 0;
+/*alter table documento add column eliminado tinyint default 0; */
+
+alter table documento add column fechasubida date;
+
+
