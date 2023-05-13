@@ -269,6 +269,9 @@ alter table evaluacion change idpersona idevaluacionpersona int(11);
 
 /*alter table documento add column eliminado tinyint default 0; */
 
-alter table documento add column fechasubida date;
+/* alter table documento add column fechasubida date; */
 
+/*alter table documento add column  descripcion text not null; */
+
+alter table documento change asunto asunto varchar(200) not null;
 

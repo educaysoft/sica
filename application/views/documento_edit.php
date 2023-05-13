@@ -64,6 +64,14 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 echo form_textarea('asunto',$documento['asunto'],$textarea_options ); ?></td>
 </tr>
 
+<tr>
+  <td>Descripción:</td>
+  <td><?php 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"descripcion","id" =>"descripcion");    
+echo form_textarea('descripcion',$documento['descripcion'],$textarea_options ); ?></td>
+</tr>
+
+
 
   <tr>
      <td>Archivo_Pdf</td>

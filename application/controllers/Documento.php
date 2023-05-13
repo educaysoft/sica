@@ -62,6 +62,7 @@ class Documento extends CI_Controller{
 		 	'idtipodocu' => $this->input->post('idtipodocu'),
 		 	'archivopdf' => $this->input->post('archivopdf'),
 		 	'asunto' => $this->input->post('asunto'),
+		 	'descripcion' => $this->input->post('descripcion'),
 			'fechaelaboracion' => $this->input->post('fechaelaboracion'),
 			'fechasubida' => $this->input->post('fechasubida'),
 			'idordenador' => $this->input->post('idordenador'),
@@ -357,6 +358,14 @@ public function anterior(){
 		{
 			$array_item['asunto'] = $this->input->post('asunto');
 		}
+
+
+
+		if(null!==$this->input->post('descripcion'))
+		{
+			$array_item['descripcion'] = $this->input->post('descripcion');
+		}
+
 
 		if(null!==$this->input->post('fechaelaboracion'))
 		{

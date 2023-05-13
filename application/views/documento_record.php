@@ -155,12 +155,22 @@ if(isset($documento))
     <label class="col-md-2 col-form-label"> Asunto:</label>
 	<div class="col-md-10">
 		<?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+$textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
  echo form_textarea('asunto',$documento['asunto'],$textarea_options); 
 		?>
 	</div> 
 </div>
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Descripción:</label>
+	<div class="col-md-10">
+		<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('descripcion',$documento['descripcion'],$textarea_options); 
+		?>
+	</div> 
+</div>
 
 
 
