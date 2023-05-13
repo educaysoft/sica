@@ -48,9 +48,9 @@
 <label class="col-md-2 col-form-label">Asunto/título:</label>
 <div class="col-md-10">
 <?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"asunto",'id'=>'asunto' );    
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'maxlength'=>'200', 'style'=> 'width:50%;height:100px;', "placeholder"=>"asunto",'id'=>'asunto' );    
  echo form_textarea("asunto","", $textarea_options); 
-?>
+?><div id="textarea_feedback"></div>
 </div>
 </div>
 
@@ -149,6 +149,26 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <?php echo form_close();?>
     
   <script>
+
+			$(document).ready(function(){
+
+   var text_max = 200;
+    $('#textarea_feedback').html('Quedan ' + text_max + ' caracteres');
+
+    $('#temacorto').keyup(function() {
+        var text_length = $('#temacorto').val().length;
+        var text_remaining = text_max - text_length;
+
+        $('#textarea_feedback').html('Quedan ' + text_remaining + ' caracteres');
+    });
+		
+});
+
+
+
+
+
+
 
 
 //=====================
