@@ -113,7 +113,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
         _CANVAS;
 
 
-
         function checkFileExist(urlToFile) {
             var xhr = new XMLHttpRequest();
             xhr.open('HEAD', urlToFile, false);
@@ -130,17 +129,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
 var idtipodocu=0;
 function filtra_documento()
 {
-
-idtipodocu = $('select[name=idtipodocu]').val();
-
-
-var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('documento/documento_dataxtipodocu')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
+	idtipodocu = $('select[name=idtipodocu]').val();
+	var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('documento/documento_dataxtipodocu')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
 }
 
 
 $(document).ready(function(){
 
-var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET',data:{iddocumento:iddocumento}},});
+var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
 //	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET'},});
 
 
