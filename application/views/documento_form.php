@@ -137,6 +137,31 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Estado del documento:</label>
+<div class="col-md-10">
+
+
+
+<div style="display: inline-block";>
+<div style="float: left;">
+<?php
+$options= array('--Select--');
+foreach ($documento_estados as $row){
+	$options[$row->iddocumento_estado]= $row->nombre;
+}
+
+echo form_dropdown("iddocumento_estado",$options, set_select('--Select--','default_value'),array('id'=>"iddocumento_estado")); 
+
+?>
+		</div> 
+	</div>
+</div>
+</div>
+
+
+
+
 
 
 <div id="eys-nav-i">
