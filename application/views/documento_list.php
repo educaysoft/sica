@@ -155,6 +155,7 @@ if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
 }
 var archivo = $(this).data('archivo');
 var certi= ubicacion.trim()+archivo.trim();
+alert(certi);
 window.location.href = certi;
 
 });
