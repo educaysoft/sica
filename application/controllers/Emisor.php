@@ -67,8 +67,14 @@ public function edit()
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
-	 	$this->emisor_model->update($id,$array_item);
-	 	redirect('usuario');
+	 	$result=$this->emisor_model->update($id,$array_item);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Emisor no  existe'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
  	}
 
 

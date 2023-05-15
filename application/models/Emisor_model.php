@@ -25,8 +25,17 @@ class Emisor_model extends CI_model {
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idemisor',$id);
- 		$this->db->update('emisor',$array_item);
+ 		$query = $this->db->query('select * from emisor where idemisor="'. $id.'"');
+
+		if($query->num_rows()>0)
+		{
+ 			$this->db->where('idemisor',$id);
+ 			$this->db->update('emisor',$array_item);
+			return true;
+		}else{
+	        	return false;
+		}
+
 	}
  
 
