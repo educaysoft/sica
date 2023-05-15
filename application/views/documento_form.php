@@ -210,6 +210,7 @@ function uploadFiles(url1) {
     var iddocumento = 0;
     var idtipodocu = document.getElementById('idtipodocu').value;
     var asunto =  document.getElementById('asunto').value;
+    var descripcion =  document.getElementById('descripcion').value;
     var fechaelaboracion = document.getElementById('fechaelaboracion').value;
     var idordenador =  document.getElementById('idordenador').value;
     var iddirectorio = document.getElementById('iddirectorio').value;
@@ -220,6 +221,7 @@ function uploadFiles(url1) {
     formData.append("iddocumento", 0);
     formData.append("idtipodocu", idtipodocu);
     formData.append("asunto", asunto);
+    formData.append("descripcion", descripcion);
     formData.append("fechaelaboracion", fechaelaboracion);
     formData.append("idordenador", idordenador);
     formData.append("iddirectorio", iddirectorio);
@@ -229,7 +231,7 @@ function uploadFiles(url1) {
     var xhttp1 = new XMLHttpRequest();
 
 
-    xhttp1.open("POST", url1, false);
+    xhttp1.open("POST", url1, true);
     xhttp1.send(formData);
 
     xhttp1.onreadystatechange = function() {
