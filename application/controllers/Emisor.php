@@ -67,7 +67,7 @@ public function edit()
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
-	 	$this->usuario_model->update($id,$array_item);
+	 	$this->emisor_model->update($id,$array_item);
 	 	redirect('usuario');
  	}
 
