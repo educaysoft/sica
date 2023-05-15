@@ -229,7 +229,7 @@ function uploadFiles(url1) {
     var xhttp1 = new XMLHttpRequest();
 
 
-    xhttp1.open("POST", url1, true);
+    xhttp1.open("POST", url1, false);
     xhttp1.send(formData);
 
     xhttp1.onreadystatechange = function() {
