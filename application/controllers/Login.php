@@ -184,7 +184,7 @@ public function new_user_registration() {
 			{
 				$data['title']="Su registro se realiza de forma exitosa";
 				$data['idasistencia']= $idasistencia;
-				$data['retornar']= (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+				$data['retornar']= $_SERVER['HTTP_REFERER'];  //(empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 
 				 $this->load->view('template/page_header.php');

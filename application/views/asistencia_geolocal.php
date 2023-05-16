@@ -2,7 +2,6 @@
 <?php echo  $title; ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<p>Click the button to get your coordinates.</p>
 <a href='<?php echo $retornar; ?>'>Otro registro</a>
 
 <script>
