@@ -114,14 +114,14 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
                     
 								    if ($this->db->affected_rows() > 0) {
 								      	$this->db->trans_complete();
-									return true;
+									return $idpersona;
 								    }else{
 								        $this->db->trans_complete();
-									return false;
+									return 0;
 								    }
                 						}	
 						}else {
-									return false;
+									return 0;
 						}
 				}else{
 						$idpersona=$query->result()[0]->idpersona;
@@ -143,10 +143,10 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 							    $this->db->insert('acceso',array('idusuario'=>$idusuario,'idmodulo'=>25,'idnivelacceso'=>2));
 							    if ($this->db->affected_rows() > 0) {
 							      $this->db->trans_complete();
-										return true;
+										return $idpersona;
 							    }else{
 							      $this->db->trans_complete();
-										return false;
+										return 0;
 							    }
             					}
 				}
@@ -196,10 +196,10 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 							 }
 							if ($this->db->affected_rows() > 0) {
 								$this->db->trans_complete();
-								return true;
+								return $idpersona;
 							}else{
 								$this->db->trans_complete();
-								return false;
+								return 0;
 							}
 					    }else {
 						$condition = "idusuario =" .  $idusuario ;
@@ -213,7 +213,7 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 						if ($query->num_rows()== 0) {
 						      $date = date('d-m-y h:i:s');
 						      $this->db->insert('password', array('idusuario'=>$idusuario,'idevento'=>$dataparticipante['idevento'],'password'=>$datausuario['password'],'onoff'=>1,'fechaon'=>$date,'fechaoff'=>''));
-							return true;
+							return $idpersona;
 						  }
 					
 					    }
