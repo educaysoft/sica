@@ -182,8 +182,10 @@ public function new_user_registration() {
     			$idasistencia=$this->asistencia_model->save($asistencia);
 			if($idasistencia !=1 && $idasistencia !=0 && $idasistencia >1)
 			{
-				$data['title']="Uste esta visualizando Documentos por registro";
+				$data['title']="Su registro se realiza de forma exitosa";
 				$data['idasistencia']= $idasistencia;
+				$data['retornar']= (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
 
 				 $this->load->view('template/page_header.php');
 				$this->load->view('asistencia_geolocal',$data);
@@ -193,10 +195,10 @@ public function new_user_registration() {
 
 
 
-            		$data['message_display'] = 'Registration Successfully !';
-             		$this->load->view('template/page_header.php');
-              		$this->load->view('login_form', $data);
-             		$this->load->view('template/page_footer.php');
+//            		$data['message_display'] = 'Registration Successfully !';
+  //           		$this->load->view('template/page_header.php');
+    //          		$this->load->view('login_form', $data);
+      //       		$this->load->view('template/page_footer.php');
 		}else{
 			echo json_encode(array('resultado'=>$result));
 		}
