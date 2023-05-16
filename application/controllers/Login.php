@@ -174,6 +174,25 @@ public function new_user_registration() {
           if ($result == TRUE) {
 		if($fuente==0)  
 		{
+
+  			date_default_timezone_set('America/Guayaquil');
+    			$date = date("Y-m-d");
+    			$hora= date("H:i:s");
+    			$asistencia=array('idpersona'=>$datapersona['idpersona'],'fecha'=>$date,'hora'=>$hora,'idtipoasistencia'=>1,'comentario'=>"INGRESO AL SISTEMA",'idevento'=>$dataparticipante['idevento']);
+    			$idasistencia=$this->asistencia_model->save($asistencia);
+			if($idasistencia !=1 && $idasistencia !=0 && $idasistencia >1)
+			{
+				$data['title']="Uste esta visualizando Documentos por registro";
+				$data['idasistencia']= $idasistencia;
+
+				 $this->load->view('template/page_header.php');
+				$this->load->view('asistencia_geolocal',$data);
+				$this->load->view('template/page_footer.php');
+			}
+
+
+
+
             		$data['message_display'] = 'Registration Successfully !';
              		$this->load->view('template/page_header.php');
               		$this->load->view('login_form', $data);
@@ -399,8 +418,6 @@ if ($result == TRUE) {
     			$hora= date("H:i:s");
     			$asistencia=array('idpersona'=>$result[0]->idpersona,'fecha'=>$date,'hora'=>$hora,'idtipoasistencia'=>1,'comentario'=>"INGRESO AL SISTEMA");
     			$idasistencia=$this->asistencia_model->save($asistencia);
-    		//	print_r($asistencia);
-    		//	echo $idasistencia;
 			if($idasistencia !=1 && $idasistencia !=0 && $idasistencia >1)
 			{
 				$data['title']="Uste esta visualizando Documentos por registro";

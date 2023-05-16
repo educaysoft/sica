@@ -68,7 +68,7 @@ public function edit()
 		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$result=$this->emisor_model->update($id,$array_item);
-	 	if($result == FALSE)
+	 	if($result == false)
 		{
 			echo "<script language='JavaScript'> alert('Emisor no  existe'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
