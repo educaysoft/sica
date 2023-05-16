@@ -174,11 +174,11 @@ public function new_user_registration() {
           if ($result >0) {
 		if($fuente==0)  
 		{
-
+			$idpersona=$result;
   			date_default_timezone_set('America/Guayaquil');
     			$date = date("Y-m-d");
     			$hora= date("H:i:s");
-    			$asistencia=array('idpersona'=>$datapersona['idpersona'],'fecha'=>$date,'hora'=>$hora,'idtipoasistencia'=>1,'comentario'=>"INGRESO AL SISTEMA",'idevento'=>$dataparticipante['idevento']);
+    			$asistencia=array('idpersona'=>$idpersona,'fecha'=>$date,'hora'=>$hora,'idtipoasistencia'=>1,'comentario'=>"INGRESO AL SISTEMA",'idevento'=>$dataparticipante['idevento']);
     			$idasistencia=$this->asistencia_model->save($asistencia);
 			if($idasistencia !=1 && $idasistencia !=0 && $idasistencia >1)
 			{
