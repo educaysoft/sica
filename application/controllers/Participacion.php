@@ -13,6 +13,7 @@ class Participacion extends CI_Controller{
       		$this->load->model('jornadadocente_model');
       		$this->load->model('tipoparticipacion_model');
          	$this->load->model('distributivodocente_model');
+         	$this->load->model('departamento_model');
 	}
 
 	public function index(){
