@@ -444,7 +444,9 @@ $("#btn_update").on("click", function(){
 		data.idpersona=idpersona;
 
 	$("#Modal_Edit").modal("hide"); 
-	mytablaf.ajax.reload(null,false);
+
+	var mytablaf= $('#mydatac').DataTable({pageLength:50,destroy:true,"ajax": {url: '<?php echo site_url('evento/evento_fechasAsisPartPago')?>', type: 'GET',data:function(d){d.idevento=idevento; d.idpersona=idpersona}},});
+	//mytablaf.ajax.reload(null,false);
 	},
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
