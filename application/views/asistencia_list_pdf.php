@@ -15,9 +15,7 @@
 	
     	$pdf->asignatura="Asignatura: ".$asignatura[0]->nombre; 
     	$pdf->docente="Docente:  ".$distributivodocente[0]->eldocente; 
-//	if($mesnumero>0){
     	$pdf->mes="Periodo:  ".$calendarioacademico[0]->nombre; 
-//	}
 
 
  $dias = array('Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado');

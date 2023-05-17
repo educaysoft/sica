@@ -221,6 +221,10 @@ public function reportepdf()
 	$data['jornadadocente']= $this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente'])->result();
 	$data['calendarioacademico'] = $this->calendarioacademico_model->lista_calendarioacademicosA($data['evento']['idcalendarioacademico'])->result();
 
+	$data['distributivodocente']=$this->distributivodocente_model->distributivodocentes2($data['jornadadocente'][0]->iddistributivodocente)->result();
+
+	$data['departamento']=$this->departamento_model->departamento($data['distributivodocente'][0]->iddepartamento)->result();
+
   	$data['title']="Certificado";
 	$data['fechacorte']=array();
 	$fechas= $this->calendarioacademico_model->fechasdecorte($data['evento']['idsilabo'])->result_array();
