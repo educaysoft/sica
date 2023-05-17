@@ -14,6 +14,8 @@ class Participacion extends CI_Controller{
       		$this->load->model('tipoparticipacion_model');
          	$this->load->model('distributivodocente_model');
          	$this->load->model('departamento_model');
+         	$this->load->model('asignaturadocente_model');
+         	$this->load->model('asignatura_model');
 	}
 
 	public function index(){
@@ -221,6 +223,8 @@ public function reportepdf()
   	$data['asistencias'] = $this->asistencia_model->listar_asistencia_reporte($idevento)->result();
 
 	$data['jornadadocente']= $this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente'])->result();
+	$data['asignaturadocente']=$this->asignaturadocente_model->asignaturadocente($data['evento']['idasignaturadocente'])->result();
+	$data['asignatura']=$this->asignatura_model->asignatura($data['asignaturadocente'][0]->idasignatura)->result();
 	$data['calendarioacademico'] = $this->calendarioacademico_model->lista_calendarioacademicosA($data['evento']['idcalendarioacademico'])->result();
 
 	$data['distributivodocente']=$this->distributivodocente_model->distributivodocentes2($data['jornadadocente'][0]->iddistributivodocente)->result();
