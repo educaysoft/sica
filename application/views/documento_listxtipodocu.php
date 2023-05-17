@@ -127,7 +127,7 @@ $(document).ready(function(){
 	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_dataxtipodocu')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
 
 
-$('#show_data').on('click','.item_ver',function(){
+$('#show_data').on('click','.docu_ver',function(){
 
 var ordenador = "https://"+$(this).data('ordenador');
 var ubicacion=$(this).data('ubicacion');
@@ -139,11 +139,6 @@ if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
 var archivo = $(this).data('archivo');
 var certi= ubicacion.trim()+archivo.trim();
 window.location.href = certi;
-
-
-
-
-
 });
 
 
