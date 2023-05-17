@@ -1,5 +1,5 @@
 <?php
-	include 'plantilla.php';
+	include 'plantilla2.php';
 //	require 'conexion.php';
 	
 //	$query = "SELECT e.estado, m.id_municipio, m.municipio FROM t_municipio AS m INNER JOIN t_estado AS e ON m.id_estado=e.id_estado";
@@ -35,6 +35,12 @@
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
 	$pdf->titulo=$evento['titulo'];
 	
+
+    	$pdf->asignatura="Asignatura: ".$asignatura[0]->nombre; 
+    	$pdf->docente="Docente:  ".$distributivodocente[0]->eldocente; 
+    	$pdf->mes="Periodo:  ".$calendarioacademico[0]->nombre; 
+
+
 
 
 	$pdf->AliasNbPages();
