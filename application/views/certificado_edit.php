@@ -23,7 +23,7 @@ echo form_input($eys_arrinput); ?></td>
 <td><?php
 $options= array('--Select--');
 foreach ($eventos as $row){
-	$options[$row->idevento]= $row->titulo;
+	$options[$row->idevento]=$row->idevento." - ".$row->titulo;
 }
 
  echo form_dropdown("idevento",$options, $certificado['idevento']);  ?></td>
