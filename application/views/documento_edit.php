@@ -212,7 +212,7 @@ function uploadFiles(url1) {
     alert(2);
     var archivopdf = document.getElementById('archivopdf').value;
     alert(3);
-    var asunto =  document.getElementById('asunto').value;
+    var descripcion =  document.getElementById('descripcion').value;
     alert(4);
     var fechaelaboracion = document.getElementById('fechaelaboracion').value;
     alert(5);
@@ -382,7 +382,7 @@ formData.append("archivopdf",document.getElementById('archivopdf').value);
 function generar_documento()
 {
 	var iddocumento=document.getElementById("iddocumento").value;
-	var asunto=document.getElementById("asunto").value;
+	var descripcion=document.getElementById("descripcion").value;
    $.ajax({
         url: "<?php echo site_url('documento/get_parametros'); ?>",
         data: {iddocumento:iddocumento},
@@ -450,7 +450,7 @@ var filename="";
 	
   	var formData = new FormData();
 	var modelo=archivopdf;
-	formData.append("asunto", asunto);
+	formData.append("descripcion", descripcion);
 	formData.append("elparticipante", elparticipante);
     	formData.append("archivopdf", archivopdf);
     	formData.append("archivopdf2", archivopdf2);
@@ -482,7 +482,7 @@ var filename="";
 
 	
     	//formData.append("texto1", texto1);
-    	formData.append("texto1", asunto);
+    	formData.append("texto1", descripcion);
     	formData.append("posi_texto1_x", posi_texto1_x);
     	formData.append("posi_texto1_y", posi_texto1_y);
     	formData.append("ancho_texto1", ancho_texto1);
