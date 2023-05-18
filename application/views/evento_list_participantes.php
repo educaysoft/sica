@@ -255,6 +255,7 @@ var firma3_y=$(this).data('firma3_y');
 
 
 var texto1=$(this).data('texto1');
+var descripcion=$(this).data('texto1');
 var posi_texto1_x=$(this).data('posi_texto1_x');
 var posi_texto1_y=$(this).data('posi_texto1_y');
 var ancho_texto1=$(this).data('ancho_texto1');
@@ -277,7 +278,7 @@ if(iddocumento2==0)
 //	if(confirmar){
    $.ajax({
         url: "<?php echo site_url('documento/save') ?>",
-        data: {iddocumento:iddocumento,idtipodocu:idtipodocu,archivopdf:archivopdf,asunto:asunto,fechaelaboracion:fechaelaboracion,idordenador:idordenador,iddirectorio:iddirectorio,iddocumento_estado:iddocumento_estado,idpersona:idpersona},
+        data: {iddocumento:iddocumento,idtipodocu:idtipodocu,archivopdf:archivopdf,asunto:asunto,descripcion:descripcion,fechaelaboracion:fechaelaboracion,idordenador:idordenador,iddirectorio:iddirectorio,iddocumento_estado:iddocumento_estado,idpersona:idpersona},
         method: 'POST',
 	async : false,
         dataType : 'json',
@@ -293,7 +294,7 @@ if(iddocumento2==0)
 	var participante=elparticipante;
 	
 	
-	formData.append("asunto", asunto);
+	formData.append("descripcion", descripcion);
 	formData.append("elparticipante", participante);
     	formData.append("archivopdf", archivopdf);
     	formData.append("archivopdf2", archivopdf2);

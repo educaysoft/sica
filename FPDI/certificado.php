@@ -16,7 +16,7 @@ use setasign\Fpdi\Fpdi;
 require_once('vendor/autoload.php');
 echo "cargando variables";
 $participante=$_POST["elparticipante"]; 
-$detalle=$_POST["asunto"]; 
+$detalle=$_POST["descripcion"]; 
 $modelo=$_POST["archivopdf"];  //Modelo de certificado 
 $archivopdf2=$_POST["archivopdf2"];  //Nombre del archivo generado 
 $codigo=substr($archivopdf2,0,strlen($archivopdf2)-4);
