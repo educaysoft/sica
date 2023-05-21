@@ -64,7 +64,8 @@ class Tema extends CI_Controller{
 	{
 			$data['tema'] = $this->tema_model->tema($this->uri->segment(3))->row_array();
   			$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
-			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo()->result();
+			$data['unidadsilabo'] = $this->unidadsilabo_model->unidadsilabo($data['tema']->idunidadsilabo)->result();
+			$data['unidadsilabos'] = $this->unidadsilabo_model->unidadsilaboss($data['unidadsilabo']->idsilabo)->result();
 			$data['title'] = "Actualizar tema";
 			$this->load->view('template/page_header');		
 			$this->load->view('tema_edit',$data);
