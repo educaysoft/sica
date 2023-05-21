@@ -18,8 +18,9 @@ $eys_arrinput=array('name'=>'nombrecorto','value'=>$tema['nombrecorto'], "style"
     <label class="col-md-2 col-form-label"> Nombre largo:</label>
 	<div class="col-md-10">
 		<?php
-$eys_arrinput=array('name'=>'nombrelargo','value'=>$tema['nombrelargo'], "style"=>"width:500px");
- echo form_input($eys_arrinput);
+	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Título" );    
+	echo form_textarea('nombrelargo',$tema['nombrelargo'],$textarea_options ); 
+
 		?>
 	</div> 
 </div>

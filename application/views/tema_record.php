@@ -46,6 +46,8 @@ if(isset($tema))
     <label class="col-md-2 col-form-label"> Nombre corto:</label>
 	<div class="col-md-10">
 		<?php
+
+
        echo form_input('nombrecorto',$tema['nombrecorto'],array('placeholder'=>'Nombre del tema','style'=>'width:500px;'));
 		?>
 	</div> 
@@ -56,7 +58,8 @@ if(isset($tema))
     <label class="col-md-2 col-form-label"> Nombre largo:</label>
 	<div class="col-md-10">
 		<?php
-       echo form_input('nombrelargo',$tema['nombrelargo'],array('placeholder'=>'Descripción del tema','style'=>'width:500px;'));
+	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
+	echo form_textarea('nombrelargo',$tema['nombrelargo'],$textarea_options);
 		?>
 	</div> 
 </div>
@@ -76,7 +79,7 @@ if(isset($tema))
 	?>
 		<?php
 
-    echo form_input('idunidadsilabo',$options[$tema['idunidadsilabo']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+    echo form_input('idunidadsilabo',$options[$tema['idunidadsilabo']],array("disabled"=>"disabled",'style'=>'width:600px;')); 
 		?>
 	</div> 
 </div>
