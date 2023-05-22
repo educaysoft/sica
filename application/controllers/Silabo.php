@@ -272,7 +272,7 @@ public function actual()
 
 
 		$data['unidadsilabo'] =$this->unidadsilabo_model->unidadsilaboss($idsilabo)->result();
-		$data['silabo'] =$this->silabo_model->silaboss($idsilabo)->result();
+		$data['silabo'] =$this->silabo_model->silabo1($idsilabo)->result();
 	 	$data['temas']= $this->tema_model->lista_temass($idsilabo)->result();
 
 		$data['asignatura']=$this->asignatura_model->asignatura($data['silabo'][0]->idasignatura)->result();
