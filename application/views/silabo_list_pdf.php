@@ -88,7 +88,13 @@ $pdf->Ln(20);
 		$pdf->SetXY($current_x, $current_y);   
 		$i=$i+1;
 		$pdf->setFillColor(230,230,230);
-		$pdf->Cell(10,5,$row->idtema,1,0,'R',0); 
+		if($row->idmodoevaluacion>0)
+		{
+		$fill=1;
+		}else{
+		$fill=0;
+		}
+		$pdf->Cell(10,5,$row->idtema,1,0,'R',$fill); 
 		$start_x=$pdf->GetX(); //initial x (start of column position)
 		$current_x = $pdf->GetX();
 		$cell_width = 15;  //define cell width
