@@ -89,8 +89,8 @@ $pdf->Ln(20);
 	$pdf->Cell(10,5,'#tema',1,0,'C',1);
 	$pdf->Cell(15,5,'unidad',1,0,'C',1);
 	$pdf->Cell(15,5,'numerosesion',1,0,'C',1);
-	$pdf->Cell(50,5,'Tema',1,0,'C',1);
-	$pdf->Cell(100,5,'Detalle',1,1,'C',1);
+	$pdf->Cell(70,5,'Tema',1,0,'C',1);
+	$pdf->Cell(150,5,'Detalle',1,1,'C',1);
 
 
 	$pdf->SetFont('Arial','',7);
@@ -125,7 +125,7 @@ $pdf->Ln(20);
 			}
 
 			$pdf->SetXY($current_x, $current_y);   
-			$cell_width=50;
+			$cell_width=70;
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->nombrecorto),1);
 	 	 	$current_x+=$cell_width;
 			$current_y2 = $pdf->GetY();
@@ -135,7 +135,7 @@ $pdf->Ln(20);
 				$current_y = $pdf->GetY()-10;
 			}
 			$pdf->SetXY($current_x, $current_y);   
-			$cell_width=100;
+			$cell_width=150;
 			$l=strlen($row->nombrelargo);
 		    $pdf->MultiCell($cell_width,5,utf8_decode($row->nombrelargo),1);
 	 	 	$current_x+=$cell_width;
