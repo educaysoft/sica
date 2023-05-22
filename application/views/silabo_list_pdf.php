@@ -102,11 +102,11 @@ $pdf->Ln(20);
 		$cell_width = 15;  //define cell width
 		$cell_height=10;    //define cell height
 
-		    $pdf->MultiCell($cell_width,5,utf8_decode($row->unidad),1,$fill);
+		    $pdf->MultiCell($cell_width,5,utf8_decode($row->unidad),1,'L',$fill);
 	 	 	$current_x+=$cell_width;
 			$current_y = $pdf->GetY()-5;
 			$pdf->SetXY($current_x, $current_y);   
-		    $pdf->MultiCell($cell_width,5,utf8_decode($row->numerosesion),1,$fill);
+		    $pdf->MultiCell($cell_width,5,utf8_decode($row->numerosesion),1,'L',$fill);
 	 	 	$current_x+=$cell_width;
 			if($current_y==$pdf->GetY()-5){
 				$current_y = $pdf->GetY()-5;
