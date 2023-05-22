@@ -11,6 +11,7 @@ class Nivelparticipante extends CI_Controller{
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 		$data['nivelparticipante']=$this->nivelparticipante_model->nivelparticipante(1)->row_array();
+		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 		$data['title']="Lista de nivelparticipantees";
 		$this->load->view('template/page_header');
 		$this->load->view('nivelparticipante_record',$data);
@@ -26,6 +27,7 @@ public function index(){
 public function add()
 {
 		$data['title']="Nueva nivelparticipante";
+		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('nivelparticipante_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -36,6 +38,7 @@ public function  save()
 	{
 	 	$array_item=array(
 	 	'idnivelparticipante' => $this->input->post('idnivelparticipante'),
+		'idtipoevento' => $this->input->post('idtipoevento'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
 	 	$this->nivelparticipante_model->save($array_item);
@@ -62,6 +65,7 @@ public function edit()
 	 	$array_item=array(
 		 	
 		 	'idnivelparticipante' => $this->input->post('idnivelparticipante'),
+		 	'idtipoevento' => $this->input->post('idtipoevento'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
 	 	$this->nivelparticipante_model->update($id,$array_item);
@@ -126,6 +130,7 @@ public function elprimero()
 	$data['nivelparticipante'] = $this->nivelparticipante_model->elprimero();
   if(!empty($data))
   {
+	$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
     $data['title']="Nivelparticipante";
     $this->load->view('template/page_header');		
     $this->load->view('nivelparticipante_record',$data);
@@ -143,7 +148,8 @@ public function elultimo()
   if(!empty($data))
   {
     $data['title']="Nivelparticipante";
-  
+  	
+	$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
     $this->load->view('template/page_header');		
     $this->load->view('nivelparticipante_record',$data);
     $this->load->view('template/page_footer');
@@ -158,6 +164,7 @@ public function elultimo()
 public function siguiente(){
  // $data['nivelparticipante_list']=$this->nivelparticipante_model->lista_nivelparticipante()->result();
 	$data['nivelparticipante'] = $this->nivelparticipante_model->siguiente($this->uri->segment(3))->row_array();
+	$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
   $data['title']="Nivelparticipante";
 	$this->load->view('template/page_header');		
   $this->load->view('nivelparticipante_record',$data);
@@ -167,6 +174,7 @@ public function siguiente(){
 public function anterior(){
  // $data['nivelparticipante_list']=$this->nivelparticipante_model->lista_nivelparticipante()->result();
 	$data['nivelparticipante'] = $this->nivelparticipante_model->anterior($this->uri->segment(3))->row_array();
+	$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
   $data['title']="Nivelparticipante";
 	$this->load->view('template/page_header');		
   $this->load->view('nivelparticipante_record',$data);

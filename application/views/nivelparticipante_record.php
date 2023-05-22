@@ -31,6 +31,23 @@ if(isset($nivelparticipante))
 <?php echo form_open('nivelparticipante/save_edit') ?>
 <?php echo form_hidden('idnivelparticipante',$nivelparticipante['idnivelparticipante']) ?>
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('tipoevento/add', 'Tipo evento:') ?> </label>
+     <?php 
+    $options= array("NADA");
+    foreach ($tipoeventos as $row){
+	      $options[$row->idtipoevento]= $row->nombre;
+    }
+	?>
+	<div class="col-md-10">
+		<?php
+    $arrdatos=array('name'=>'idtipoevento','value'=>$options[$nivelparticipante['idtipoevento']],"disabled"=>"disabled", "style"=>"width:600px");
+echo form_input($arrdatos) ?>
+
+	</div> 
+</div>
+
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id:</label>

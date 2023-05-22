@@ -287,8 +287,6 @@ public function actual()
 		$data['calendarioacademico'] = $this->calendarioacademico_model->lista_calendarioacademico2($data['silabo'][0]->idperiodoacademico,$data['malla'][0]->iddepartamento)->result();
 
 
-
-
 		$data['title']="Silabo";
 	//	$this->load->view('template/page_header');		
 		$this->load->view('silabo_list_pdf',$data);
