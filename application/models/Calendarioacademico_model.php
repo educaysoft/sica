@@ -17,6 +17,16 @@ class Calendarioacademico_model extends CI_model {
 	}
 
 
+	function lista_calendarioacademico2($idperiodoacademico,$iddepartamento){
+ 		$this->db->where('idperiodoacademico',$idperiodoacademico);
+ 		$this->db->where('iddepartamento',$iddepartamento);
+		 $calendarioacademico= $this->db->get('calendarioacademico1');
+		 return $calendarioacademico;
+	}
+
+
+
+
 
 
 function lista_calendarioacademicos1($idperiodoacademico){

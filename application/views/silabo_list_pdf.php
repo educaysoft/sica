@@ -12,12 +12,13 @@
 
 
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
-	$pdf->unidad='UNIDAD DE NIVELACION';
-	$pdf->departamento='PERIODO: 2022-2S';
-	$pdf->titulo="CONTROL ACADÉMICO - LECCIONARIO";
+	$pdf->unidad= $departamento[0]->nombre;
+	$pdf->departamento='SILABO';
+//	$pdf->titulo="CONTROL ACADÉMICO - LECCIONARIO";
 	
     	$pdf->asignatura="Evento(Clase):  ".$temas[0]->elsilabo; 
-    	$pdf->docente="unidad:  ".$temas[0]->launidadsilabo; 
+    	$pdf->mes="Periodo:  ".$calendarioacademico[0]->nombre; 
+    	//$pdf->docente="unidad:  ".$temas[0]->launidadsilabo; 
 
 
 

@@ -272,7 +272,20 @@ public function actual()
 
 
 		$data['unidadsilabo'] =$this->unidadsilabo_model->unidadsilaboss($idsilabo)->result();
+		$data['silabo'] =$this->silabo_model->silaboss($idsilabo)->result();
 	 	$data['temas']= $this->tema_model->lista_temass($idsilabo)->result();
+
+		$data['asignatura']=$this->asignatura_model->asignatura($data['silabo'][0]->idasignatura)->result();
+
+		$data['malla']=$this->malla_model->malla($data['asignatura'][0]->idmalla)->result();
+
+		$data['departamento']=$this->departamento_model->departamento($data['malla'][0]->iddepartamento)->result();
+
+		$data['calendarioacademico'] = $this->calendarioacademico_model->lista_calendarioacademico2($data['silabo'][0]->idperiodoacademico,$data['malla'][0]->iddepartamento)->result();
+
+
+
+
 		$data['title']="Silabo";
 	//	$this->load->view('template/page_header');		
 		$this->load->view('silabo_list_pdf',$data);
