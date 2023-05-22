@@ -67,25 +67,6 @@ $pdf->Ln(20);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	$pdf->Cell(10,5,'#tema',1,0,'C',1);
 	$pdf->Cell(15,5,'unidad',1,0,'C',1);
 	$pdf->Cell(15,5,'numerosesion',1,0,'C',1);
@@ -106,6 +87,7 @@ $pdf->Ln(20);
 		$current_y = $current_y2;
 		$pdf->SetXY($current_x, $current_y);   
 		$i=$i+1;
+		$pdf->setFillColor(230,230,230);
 		$pdf->Cell(10,5,$row->idtema,1,0,'R',0); 
 		$start_x=$pdf->GetX(); //initial x (start of column position)
 		$current_x = $pdf->GetX();
