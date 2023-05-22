@@ -88,7 +88,7 @@ $pdf->Ln(20);
 		$pdf->SetXY($current_x, $current_y);   
 		$i=$i+1;
 		$pdf->setFillColor(230,230,230);
-		if($row->idmodoevaluacion>0)
+		if($row->idmodoevaluacion>1)
 		{
 		$fill=1;
 		}else{
