@@ -15,7 +15,7 @@ public function index(){
 			
   	$data['departamentofuncionario']=$this->departamentofuncionario_model->lista_departamentofuncionarios()->row_array();
   	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-  	$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   	$data['departamentofuncionarios']= $this->departamentofuncionario_model->lista_departamentofuncionarios()->result();
 			
 		$data['title']="Lista de departamentofuncionarios";
@@ -34,7 +34,7 @@ public function index(){
 	public function add()
 	{
 			$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-			$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			$data['title']="Nueva Departamentofuncionario";
 			$this->load->view('template/page_header');		
 			$this->load->view('departamentofuncionario_form',$data);
@@ -61,7 +61,7 @@ public function index(){
 	{
 			$data['departamentofuncionario'] = $this->departamentofuncionario_model->departamentofuncionario($this->uri->segment(3))->row_array();
 			$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-			$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			$data['title'] = "Actualizar Departamentofuncionario";
 			$this->load->view('template/page_header');		
 			$this->load->view('departamentofuncionario_edit',$data);
@@ -137,7 +137,7 @@ public function actual()
 
 
   	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-  	$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 
 
 	$data['departamentofuncionario'] = $this->departamentofuncionario_model->departamentofuncionario($this->uri->segment(3))->row_array();
@@ -169,7 +169,7 @@ public function elprimero()
 
 
   	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-  	$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 
 
 	$data['departamentofuncionario'] = $this->departamentofuncionario_model->elprimero();
@@ -191,7 +191,7 @@ public function elultimo()
 {
 	$data['departamentofuncionario'] = $this->departamentofuncionario_model->elultimo();
   	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-  	$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   if(!empty($data))
   {
   	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
@@ -212,7 +212,7 @@ public function siguiente(){
  // $data['departamentofuncionario_list']=$this->departamentofuncionario_model->lista_departamentofuncionario()->result();
 	$data['departamentofuncionario'] = $this->departamentofuncionario_model->siguiente($this->uri->segment(3))->row_array();
   	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-  	$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   
 
 $data['title']="Departamentofuncionario";
@@ -225,7 +225,7 @@ public function anterior(){
  // $data['departamentofuncionario_list']=$this->departamentofuncionario_model->lista_departamentofuncionario()->result();
 	$data['departamentofuncionario'] = $this->departamentofuncionario_model->anterior($this->uri->segment(3))->row_array();
  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-  	$data['departamentoes']= $this->departamento_model->lista_departamentoes()->result();
+  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   $data['title']="Departamentofuncionario";
 	$this->load->view('template/page_header');		
   $this->load->view('departamentofuncionario_record',$data);
