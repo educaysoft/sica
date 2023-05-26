@@ -42,11 +42,11 @@ if(isset($departamentofuncionario))
      <td>Persona:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+foreach ($funcionarios as $row){
+	$options[$row->idfuncionario]= $row->elfuncionario;
 }
 
-echo form_input('idpersona',$options[$departamentofuncionario['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+echo form_input('idfuncionario',$options[$departamentofuncionario['idfuncionario']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
   </tr>
  
 
@@ -54,10 +54,10 @@ echo form_input('idpersona',$options[$departamentofuncionario['idpersona']],arra
      <td>Pais residencia:</td>
      <td><?php 
     $options= array("NADA");
-    foreach ($paises as $row){
-	      $options[$row->idpais]= $row->nombre;
+    foreach ($departamentos as $row){
+	      $options[$row->iddepartamento]= $row->nombre;
     }
-    echo form_input('idpais',$options[$departamentofuncionario['idpais']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+    echo form_input('iddepartamento',$options[$departamentofuncionario['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
   
 

@@ -5,28 +5,28 @@
 
 <?php
 
-if(isset($_GET["idpersona"]))
+if(isset($_GET["idfuncionario"]))
 {
-	$idpersona=$_GET["idpersona"];
+	$idfuncionario=$_GET["idfuncionario"];
 }
 ?>
 <table>
 
 
 <tr>
-<td> Persona: </td>
+<td> Funcionario: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+foreach ($funcionarios as $row){
+	$options[$row->idfuncionario]= $row->apellidos." ".$row->nombres;
 }
- if(isset($idpersona))
+ if(isset($idfuncionario))
  {
- echo form_dropdown("idpersona",$options,$idpersona );
+ echo form_dropdown("idfuncionario",$options,$idfuncionario );
  }else{
 
- echo form_dropdown("idpersona",$options,set_select('--Select--','default_value'));
+ echo form_dropdown("idfuncionario",$options,set_select('--Select--','default_value'));
 
  }
 
@@ -37,15 +37,15 @@ foreach ($personas as $row){
 
 
 <tr>
-<td> Nacionalidad: </td>
+<td> Departamento: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($paises as $row){
-	$options[$row->idpais]= $row->nombre;
+foreach ($departamentos as $row){
+	$options[$row->iddepartamento]= $row->nombre;
 }
 
- echo form_dropdown("idpais",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("iddepartamento",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
