@@ -14,7 +14,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   	$data['departamentofuncionario']=$this->departamentofuncionario_model->lista_departamentofuncionarios()->row_array();
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
+  	$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   	$data['departamentofuncionarios']= $this->departamentofuncionario_model->lista_departamentofuncionarios()->result();
 			
