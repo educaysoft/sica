@@ -33,13 +33,13 @@ if(isset($departamentofuncionario))
 <?php echo form_hidden('iddepartamentofuncionario',$departamentofuncionario['iddepartamentofuncionario']) ?>
 <table>
   <tr>
-     <td>Id Correo:</td>
+     <td>Id DepartamenteoFuncioanrio:</td>
      <td><?php echo form_input('iddepartamentofuncionario',$departamentofuncionario['iddepartamentofuncionario'],array("disabled"=>"disabled",'placeholder'=>'Iddepartamentofuncionarios')) ?></td>
   </tr>
  
  
 <tr>
-     <td>Persona:</td>
+     <td>Funcionario:</td>
      <td><?php 
 $options= array("NADA");
 foreach ($funcionarios as $row){
@@ -51,7 +51,7 @@ echo form_input('idfuncionario',$options[$departamentofuncionario['idfuncionario
  
 
  <tr>
-     <td>Pais residencia:</td>
+     <td>Departamento:</td>
      <td><?php 
     $options= array("NADA");
     foreach ($departamentos as $row){

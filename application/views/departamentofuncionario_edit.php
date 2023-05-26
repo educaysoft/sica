@@ -20,22 +20,22 @@ echo form_input($eys_arrinput); ?></td>
 <td> Persona:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+foreach ($funcionarios as $row){
+	$options[$row->idfuncionario]= $row->elfuncionario;
 }
 
- echo form_dropdown("idpersona",$options, $departamentofuncionario['idpersona']);  ?></td>
+ echo form_dropdown("idfuncionario",$options, $departamentofuncionario['idfuncionario']);  ?></td>
 </tr>
 
 <tr>
 <td> Tipo documento:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($paises as $row){
-	$options[$row->idpais]= $row->nombre;
+foreach ($departamentoes as $row){
+	$options[$row->iddepartamento]= $row->nombre;
 }
 
- echo form_dropdown("idpais",$options, $departamentofuncionario['idpais']);  ?></td>
+ echo form_dropdown("iddepartamento",$options, $departamentofuncionario['iddepartamento']);  ?></td>
 </tr>
 
 <tr>

@@ -60,7 +60,7 @@ public function index(){
 	public function edit()
 	{
 			$data['departamentofuncionario'] = $this->departamentofuncionario_model->departamentofuncionario($this->uri->segment(3))->row_array();
-			$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
+			$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			$data['title'] = "Actualizar Departamentofuncionario";
 			$this->load->view('template/page_header');		
