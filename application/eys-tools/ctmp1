@@ -1,104 +1,122 @@
 <?php
 
-class Correo_estado extends CI_Controller{
+class Departamentofuncionario extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('tipoevento_model');
+  	  $this->load->model('persona_model');
+  	  $this->load->model('pais_model');
+  	  $this->load->model('paispersona_model');
 }
 
 public function index(){
-	if(isset($this->session->userdata['logged_in'])){
-		$data['tipoevento']=$this->tipoevento_model->tipoevento(1)->row_array();
-		$data['title']="Lista de tipoeventoes";
+
+  	if(isset($this->session->userdata['logged_in'])){
+			
+  	$data['paispersona']=$this->paispersona_model->lista_paispersonas()->row_array();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['paises']= $this->pais_model->lista_paises()->result();
+  	$data['paispersonas']= $this->paispersona_model->lista_paispersonas()->result();
+			
+		$data['title']="Lista de paispersonas";
 		$this->load->view('template/page_header');
-		$this->load->view('tipoevento_record',$data);
+		$this->load->view('paispersona_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
 		$this->load->view('login_form');
 	 	$this->load->view('template/page_footer.php');
 	}
-}
+
+ }
 
 
-public function add()
-{
-		$data['title']="Nueva tipoevento";
-	 	$this->load->view('template/page_header');		
-	 	$this->load->view('tipoevento_form',$data);
-	 	$this->load->view('template/page_footer');
-}
+	public function add()
+	{
+			$data['personas']= $this->persona_model->lista_personas()->result();
+			$data['paises']= $this->pais_model->lista_paises()->result();
+			$data['title']="Nueva Departamentofuncionario";
+			$this->load->view('template/page_header');		
+			$this->load->view('paispersona_form',$data);
+			$this->load->view('template/page_footer');
+	}
 
 
-public function  save()
+	public function  save()
 	{
 	 	$array_item=array(
-	 	'idtipoevento' => $this->input->post('idtipoevento'),
-	 	'nombre' => $this->input->post('nombre'),
+		 	
+		'idpaispersona' => $this->input->post('idpaispersona'),
+		'idpersona' => $this->input->post('idpersona'),
+		'idpais' => $this->input->post('idpais'),
+		'fechadesde' => $this->input->post('fechadesde'),
 	 	);
-	 	$this->tipoevento_model->save($array_item);
-	 	redirect('tipoevento');
+	 	$this->paispersona_model->save($array_item);
+	 	redirect('paispersona');
  	}
 
 
 
-public function edit()
-{
-	 	$data['tipoevento'] = $this->tipoevento_model->tipoevento($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar tipoevento";
- 	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('tipoevento_edit',$data);
-	 	$this->load->view('template/page_footer');
- 
-}
+	public function edit()
+	{
+			$data['paispersona'] = $this->paispersona_model->paispersona($this->uri->segment(3))->row_array();
+			$data['personas']= $this->persona_model->lista_personas()->result();
+			$data['paises']= $this->pais_model->lista_paises()->result();
+			$data['title'] = "Actualizar Departamentofuncionario";
+			$this->load->view('template/page_header');		
+			$this->load->view('paispersona_edit',$data);
+			$this->load->view('template/page_footer');
+	 
+	}
 
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idtipoevento');
+		$id=$this->input->post('idpaispersona');
 	 	$array_item=array(
 		 	
-		 	'idtipoevento' => $this->input->post('idtipoevento'),
-		 	'nombre' => $this->input->post('nombre'),
+		 	'idpaispersona' => $this->input->post('idpaispersona'),
+			'idpersona' => $this->input->post('idpersona'),
+			'idpais' => $this->input->post('idpais'),
+			'fechadesde' => $this->input->post('fechadesde'),
 	 	);
-	 	$this->tipoevento_model->update($id,$array_item);
-	 	redirect('tipoevento');
+	 	$this->paispersona_model->update($id,$array_item);
+	 	redirect('paispersona');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->tipoevento_model->delete($this->uri->segment(3));
+ 		$data=$this->paispersona_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('tipoevento/elprimero');
+	 	redirect('paispersona/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
 
-public function listar()
-{
-	
-  $data['title']="Correo_estado";
-	$this->load->view('template/page_header');		
-  $this->load->view('tipoevento_list',$data);
-	$this->load->view('template/page_footer');
-}
+	public function listar()
+	{
+		
+		$data['title']="Departamentofuncionarios";
+		$this->load->view('template/page_header');		
+		$this->load->view('paispersona_list',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
 
-function tipoevento_data()
+function paispersona_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->tipoevento_model->lista_tipoeventos();
+	 	$data0 = $this->paispersona_model->lista_paispersonasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idtipoevento,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipoevento="'.$r->idtipoevento.'">Ver</a>');
+			$data[]=array($r->idpaispersona,$r->lapersona,$r->lapais,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('paispersona/actual').'"   data-idpaispersona="'.$r->idpaispersona.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -114,6 +132,33 @@ function tipoevento_data()
 
 
 
+public function actual()
+{
+
+
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['paises']= $this->pais_model->lista_paises()->result();
+
+
+	$data['paispersona'] = $this->paispersona_model->paispersona($this->uri->segment(3))->row_array();
+  if(!empty($data))
+  {
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+    $data['title']="Departamentofuncionario";
+    $this->load->view('template/page_header');		
+    $this->load->view('paispersona_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
+
 
 
 
@@ -121,12 +166,19 @@ function tipoevento_data()
 
 public function elprimero()
 {
-	$data['tipoevento'] = $this->tipoevento_model->elprimero();
+
+
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['paises']= $this->pais_model->lista_paises()->result();
+
+
+	$data['paispersona'] = $this->paispersona_model->elprimero();
   if(!empty($data))
   {
-    $data['title']="Correo_estado";
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+    $data['title']="Departamentofuncionario";
     $this->load->view('template/page_header');		
-    $this->load->view('tipoevento_record',$data);
+    $this->load->view('paispersona_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +189,16 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['tipoevento'] = $this->tipoevento_model->elultimo();
+	$data['paispersona'] = $this->paispersona_model->elultimo();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['paises']= $this->pais_model->lista_paises()->result();
   if(!empty($data))
   {
-    $data['title']="Correo_estado";
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+    $data['title']="Departamentofuncionario";
   
     $this->load->view('template/page_header');		
-    $this->load->view('tipoevento_record',$data);
+    $this->load->view('paispersona_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,21 +209,30 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
-	$data['tipoevento'] = $this->tipoevento_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Correo_estado";
+ // $data['paispersona_list']=$this->paispersona_model->lista_paispersona()->result();
+	$data['paispersona'] = $this->paispersona_model->siguiente($this->uri->segment(3))->row_array();
+  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['paises']= $this->pais_model->lista_paises()->result();
+  
+
+$data['title']="Departamentofuncionario";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipoevento_record',$data);
+  $this->load->view('paispersona_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
-	$data['tipoevento'] = $this->tipoevento_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Correo_estado";
+ // $data['paispersona_list']=$this->paispersona_model->lista_paispersona()->result();
+	$data['paispersona'] = $this->paispersona_model->anterior($this->uri->segment(3))->row_array();
+ 	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['paises']= $this->pais_model->lista_paises()->result();
+  $data['title']="Departamentofuncionario";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipoevento_record',$data);
+  $this->load->view('paispersona_record',$data);
 	$this->load->view('template/page_footer');
 }
+
+
+
 
 }

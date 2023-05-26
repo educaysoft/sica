@@ -1,33 +1,66 @@
 <?php
-class Tipoevento_model extends CI_model {
+class Paispersona_model extends CI_model {
 
-	function lista_tipoeventos(){
-		 $tipoevento= $this->db->get('tipoevento');
-		 return $tipoevento;
+	function lista_paispersonas(){
+		 $paispersona= $this->db->get('paispersona');
+		 return $paispersona;
 	}
 
- 	function tipoevento( $id){
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
- 		return $tipoevento;
+
+	function lista_paispersonas1($idpersona){
+
+ 		$this->db->where('idpersona',$idpersona);
+		 $paispersona= $this->db->get('paispersona1');
+		 return $paispersona;
+	}
+
+
+
+
+	function lista_paispersonasA(){
+		 $paispersona= $this->db->get('paispersona1');
+		 return $paispersona;
+	}
+
+
+
+ 	function paispersona( $id){
+ 		$paispersona = $this->db->query('select * from paispersona where idpaispersona="'. $id.'"');
+ 		return $paispersona;
  	}
+
+
+
+ 	function paispersonas( $idpersona){
+ 		$paispersona = $this->db->query('select * from paispersona1 where idpersona="'. $idpersona.'"');
+ 		return $paispersona;
+ 	}
+
+
+ 	function paispersonaspersona( $id){
+ 		$paispersona = $this->db->query('select * from paispersona where idpersona="'. $id.'"');
+ 		return $paispersona;
+ 	}
+
+
 
  	function save($array)
  	{
-		$this->db->insert("tipoevento", $array);
+		$this->db->insert("paispersona", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idtipoevento',$id);
- 		$this->db->update('tipoevento',$array_item);
+ 		$this->db->where('idpaispersona',$id);
+ 		$this->db->update('paispersona',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idtipoevento',$id);
-		$this->db->delete('tipoevento');
+ 		$this->db->where('idpaispersona',$id);
+		$this->db->delete('paispersona');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -38,7 +71,7 @@ class Tipoevento_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
+		$query=$this->db->order_by("idpaispersona")->get('paispersona');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -51,7 +84,7 @@ class Tipoevento_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
+		$query=$this->db->order_by("idpaispersona")->get('paispersona');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -63,37 +96,37 @@ class Tipoevento_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
-		$arr=array("idtipoevento"=>$id);
-		$clave=array_search($arr,$tipoevento);
-	   if(array_key_exists($clave+1,$tipoevento))
+ 		$paispersona = $this->db->select("idpaispersona")->order_by("idpaispersona")->get('paispersona')->result_array();
+		$arr=array("idpaispersona"=>$id);
+		$clave=array_search($arr,$paispersona);
+	   if(array_key_exists($clave+1,$paispersona))
 		 {
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave+1]["idtipoevento"].'"');
+ 		$paispersona = $this->db->query('select * from paispersona where idpaispersona="'. $paispersona[$clave+1]["idpaispersona"].'"');
 		 }else{
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
+ 		$paispersona = $this->db->query('select * from paispersona where idpaispersona="'. $id.'"');
 		 }
 		 	
- 		return $tipoevento;
+ 		return $paispersona;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
-		$arr=array("idtipoevento"=>$id);
-		$clave=array_search($arr,$tipoevento);
-	   if(array_key_exists($clave-1,$tipoevento))
+ 		$paispersona = $this->db->select("idpaispersona")->order_by("idpaispersona")->get('paispersona')->result_array();
+		$arr=array("idpaispersona"=>$id);
+		$clave=array_search($arr,$paispersona);
+	   if(array_key_exists($clave-1,$paispersona))
 		 {
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave-1]["idtipoevento"].'"');
+ 		$paispersona = $this->db->query('select * from paispersona where idpaispersona="'. $paispersona[$clave-1]["idpaispersona"].'"');
 		 }else{
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
+ 		$paispersona = $this->db->query('select * from paispersona where idpaispersona="'. $id.'"');
 		 }
 		 	
- 		return $tipoevento;
+ 		return $paispersona;
  	}
 
 

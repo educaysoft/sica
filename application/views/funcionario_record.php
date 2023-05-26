@@ -79,16 +79,16 @@ echo form_input('idpersona',$options[$funcionario['idpersona']],array("disabled"
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label"> Depart-Carrera: </label>
+<label class="col-md-2 col-form-label"> Cargo: </label>
 	<div class="col-md-10">
      	<?php 
 
 $options= array("NADA");
-foreach ($departamentos as $row){
-	$options[$row->iddepartamento]= $row->nombre;
+foreach ($cargos as $row){
+	$options[$row->idcargo]= $row->nombre;
 }
 
-echo form_input('iddepartamento',$options[$funcionario['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('idcargo',$options[$funcionario['idcargo']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
@@ -98,7 +98,7 @@ echo form_input('iddepartamento',$options[$funcionario['iddepartamento']],array(
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('estudio/add/'.$funcionario['idpersona'], 'Estudios realizados:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('estudio/add/'.$funcionario['idpersona'], 'Departamento funcionario:') ?> </label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
@@ -108,11 +108,10 @@ echo form_input('iddepartamento',$options[$funcionario['iddepartamento']],array(
 	<table class="table table-striped table-bordered table-hover" id="mydatae">
 	 <thead>
 	 <tr>
-	 <th>idpersona</th>
-	 <th>idestudio</th>
-	 <th>intitucion</th>
-	 <th>nivel</th>
-	 <th>titulo</th>
+	 <th>idfuncionario</th>
+	 <th>departamento</th>
+	 <th>fechadesde</th>
+	 <th>fechahasta</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
@@ -131,32 +130,7 @@ echo form_input('iddepartamento',$options[$funcionario['iddepartamento']],array(
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Silabos presentados: </label>
 
-	<div class="col-md-10">
-	<div class="row justify-content-left">
-      	<!-- Page Heading -->
- 	<div class="row">
-  	<div class="col-12">
-	<table class="table table-striped table-bordered table-hover" id="mydatas">
-	 <thead>
-	 <tr>
-	 <th>idfuncionario</th>
-	 <th>idsilabo</th>
-	 <th>elsilabo</th>
-	 <th>periodo</th>
-	 <th style="text-align: right;">Actions</th>
-	 </tr>
-	 </thead>
-	 <tbody id="show_datas">
-	 </tbody>
-	</table>
-	</div>
-	</div>
-	</div>
-	</div> 
-</div>
 
 
 
@@ -170,7 +144,6 @@ echo form_input('iddepartamento',$options[$funcionario['iddepartamento']],array(
 $(document).ready(function(){
 	var idfuncionario=document.getElementById("idfuncionario").value;
 	var idpersona=document.getElementById("idpersona").value;
-	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('funcionario/silabo_data')?>', type: 'GET',data:{idfuncionario:idfuncionario}},});
 	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('funcionario/estudio_data')?>', type: 'GET',data:{idpersona:idpersona}},});
 
 
