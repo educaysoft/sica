@@ -33,7 +33,7 @@ public function index(){
 
 	public function add()
 	{
-			$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
+			$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			$data['title']="Nueva Departamentofuncionario";
 			$this->load->view('template/page_header');		
