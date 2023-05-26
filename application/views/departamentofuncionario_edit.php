@@ -28,10 +28,10 @@ foreach ($funcionarios as $row){
 </tr>
 
 <tr>
-<td> Tipo documento:</td>
+<td> Departamento:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($departamentoes as $row){
+foreach ($departamentos as $row){
 	$options[$row->iddepartamento]= $row->nombre;
 }
 
@@ -39,7 +39,7 @@ foreach ($departamentoes as $row){
 </tr>
 
 <tr>
-      <td>Fecha de Inscripcion:</td>
+      <td>Fecha desde:</td>
       <td><?php echo form_input( array("name"=>'fechadesde',"id"=>'fechadesde',"value"=>$departamentofuncionario['fechadesde'],'placeholder'=>'fechadesde',"type"=>"date")); ?></td>
   </tr>
 
