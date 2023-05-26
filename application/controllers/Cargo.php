@@ -94,7 +94,7 @@ function cargo_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->cargo_model->lista_cargoes();
+	 	$data0 = $this->cargo_model->lista_cargos();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idcargo,$r->nombre,
