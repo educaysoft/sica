@@ -166,8 +166,7 @@ public function actual(){
 			$data0 = $this->departamentofuncionario_model->lista_departamentofuncionarios1($idfuncionario);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idfuncionario,$r->iddepartamento,$r->elfuncionario,$r->fechadesde,
-					$r->href='<a href="javascript:void(0);" class="item_ver" data-doctos="'.$r->idfuncionario.'">'.$r->iddepartamento.'</a>',
+				$data[]=array($r->idfuncionario,$r->iddepartamento,$r->eldepartamento,$r->fechadesde,
 					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('funcionario/actual').'"  data-idfuncionario="'.$r->idfuncionario.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
