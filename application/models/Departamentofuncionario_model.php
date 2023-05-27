@@ -7,9 +7,9 @@ class Departamentofuncionario_model extends CI_model {
 	}
 
 
-	function lista_departamentofuncionarios1($idpersona){
+	function lista_departamentofuncionarios1($idfuncionario){
 
- 		$this->db->where('idpersona',$idpersona);
+ 		$this->db->where('idfuncionario',$idfuncionario);
 		 $departamentofuncionario= $this->db->get('departamentofuncionario1');
 		 return $departamentofuncionario;
 	}

@@ -163,7 +163,8 @@ public function actual(){
 			$draw= intval($this->input->get("length"));
 
 
-			$data0 = $this->departamentofuncionario_model->lista_departamentofuncionarios1();
+			$idfuncionario=$this->input->get('idfuncionario');
+			$data0 = $this->departamentofuncionario_model->lista_departamentofuncionarios1($idfuncionario);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idfuncionario,$r->iddepartamento,$r->elfuncionario,$r->fechadesde,
