@@ -39,7 +39,6 @@ public function index(){
 	public function reportepdf()
 	{
 		$idpersona=$this->uri->segment(3);
-	 	$data['estudios']= $this->estudio_model->lista_estudios1($idpersona)->result();
 		$data['title']="Evento";
 		$this->load->view('funcionario_list_pdf',$data);
 	}
@@ -57,7 +56,6 @@ public function actual(){
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['cargos']= $this->cargo_model->lista_cargos()->result();
 	$data['funcionario']=$this->funcionario_model->funcionario($this->uri->segment(3))->row_array();
-	$data['estudios']= $this->estudio_model->estudios($data['funcionario']['idpersona'])->result();
 
 
 	$data['title']="Modulo de Estudiane";
@@ -196,7 +194,6 @@ public function actual(){
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['funcionario'] = $this->funcionario_model->elprimero();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['funcionario']['idpersona'])->result();
 
 		  if(!empty($data))
 		  {
@@ -216,7 +213,6 @@ public function actual(){
 	{
 		$data['funcionario'] = $this->funcionario_model->elultimo();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['funcionario']['idpersona'])->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		  if(!empty($data))
 		  {
@@ -238,7 +234,6 @@ public function actual(){
 		$data['funcionario'] = $this->funcionario_model->siguiente($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['funcionario']['idpersona'])->result();
 
 		$data['title']="Funcionario";
 		$this->load->view('template/page_header');		
@@ -249,7 +244,6 @@ public function actual(){
 	public function anterior(){
 		$data['funcionario'] = $this->funcionario_model->anterior($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['funcionario']['idpersona'])->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['title']="Funcionario";
 		$this->load->view('template/page_header');		
