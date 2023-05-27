@@ -194,6 +194,7 @@ public function actual(){
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['funcionario'] = $this->funcionario_model->elprimero();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['cargos']= $this->cargo_model->lista_cargos()->result();
 
 		  if(!empty($data))
 		  {
@@ -213,6 +214,7 @@ public function actual(){
 	{
 		$data['funcionario'] = $this->funcionario_model->elultimo();
 		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['cargos']= $this->cargo_model->lista_cargos()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		  if(!empty($data))
 		  {
@@ -234,6 +236,7 @@ public function actual(){
 		$data['funcionario'] = $this->funcionario_model->siguiente($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['cargos']= $this->cargo_model->lista_cargos()->result();
 
 		$data['title']="Funcionario";
 		$this->load->view('template/page_header');		
@@ -244,6 +247,7 @@ public function actual(){
 	public function anterior(){
 		$data['funcionario'] = $this->funcionario_model->anterior($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['cargos']= $this->cargo_model->lista_cargos()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['title']="Funcionario";
 		$this->load->view('template/page_header');		
