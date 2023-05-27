@@ -109,9 +109,9 @@ echo form_input('idcargo',$options[$funcionario['idcargo']],array("disabled"=>"d
 	 <thead>
 	 <tr>
 	 <th>idfuncionario</th>
+	 <th>iddepartamento</th>
 	 <th>departamento</th>
 	 <th>fechadesde</th>
-	 <th>fechahasta</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
@@ -143,8 +143,7 @@ echo form_input('idcargo',$options[$funcionario['idcargo']],array("disabled"=>"d
 
 $(document).ready(function(){
 	var idfuncionario=document.getElementById("idfuncionario").value;
-	var idpersona=document.getElementById("idpersona").value;
-	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('funcionario/estudio_data')?>', type: 'GET',data:{idpersona:idpersona}},});
+	var mytablaf= $('#mydatad').DataTable({"ajax": {url: '<?php echo site_url('funcionario/departamento_data')?>', type: 'GET',data:{idfuncionario:idfuncionario}},});
 
 
 });
