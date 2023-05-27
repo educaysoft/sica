@@ -19,7 +19,6 @@ public function index(){
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['cargos']= $this->cargo_model->lista_cargos()->result();
-		$data['estudios']= $this->estudio_model->estudios($data['funcionario']['idpersona'])->result();
 			
 		$data['title']="Lista de funcionarios";
 		$this->load->view('template/page_header');
