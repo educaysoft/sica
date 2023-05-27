@@ -105,7 +105,7 @@ echo form_input('idcargo',$options[$funcionario['idcargo']],array("disabled"=>"d
       	<!-- Page Heading -->
  	<div class="row">
   	<div class="col-12">
-	<table class="table table-striped table-bordered table-hover" id="mydatae">
+	<table class="table table-striped table-bordered table-hover" id="mydatad">
 	 <thead>
 	 <tr>
 	 <th>idfuncionario</th>
