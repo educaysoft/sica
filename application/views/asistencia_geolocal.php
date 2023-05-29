@@ -14,10 +14,10 @@
 $(document).ready(function(){
 
 alert('llago'); 
-var email=<?php echo  $elcorreo; ?>;
-var mensaje=<?php echo  $elmensaje; ?>;
- alert(email);
- alert(mensaje);
+//var email=<?php echo  $elcorreo; ?>;
+//var mensaje=<?php echo  $elmensaje; ?>;
+// alert(email);
+// alert(mensaje);
 
 //	enviar_correo(email,mensaje);
 
