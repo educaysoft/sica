@@ -9,8 +9,8 @@
 <script>
 
 
-var email=<?php echo  $paracorreo['correo']; ?>;
-var mensaje=<?php echo  $paracorreo['mensaje']; ?>;
+var email=<?php echo  $elcorreo ?>;
+var mensaje=<?php echo  $elmensaje ?>;
  alert(email);
  alert(mensaje);
 
@@ -64,11 +64,11 @@ $(document).ready(function(){
 
 	var y = document.getElementById("msn");
 		 var idevento=<?php echo $idevento ?>;
-		 var titulo=mensaje;  document.getElementById("titulo").value; //   "stalin.francis@utelvt.edu.ec";
+		 var titulo=mensaje; // document.getElementById("titulo").value; //   "stalin.francis@utelvt.edu.ec";
 		 var email="educacioncontinua@utelvt.edu.ec";
 		 var nome= 'Stalin Francis Q.'; // document.getElementById("lapersona_edit").value; 		
                  var msg="Ingresa al siguiente link para terminar tu registro y poder recibir tu certificado al culminar el evento <br><br><a href='https://educaysoft.org/sica/index.php/login/registro?idevento="+idevento+"' style='text-align:center;'><b>Evento :</b>"+titulo+"</a><br><br>";  //tinyMCE.activeEditor.getContent({format:'text'});
-		 var mailto=email; document.getElementById("email").value; //   "stalin.francis@utelvt.edu.ec";
+		 var mailto=email;// document.getElementById("email").value; //   "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 		 var head="";
 			

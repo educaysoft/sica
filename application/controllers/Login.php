@@ -180,6 +180,8 @@ public function new_user_registration() {
     			$hora= date("H:i:s");
     			$asistencia=array('idpersona'=>$idpersona,'fecha'=>$date,'hora'=>$hora,'idtipoasistencia'=>1,'comentario'=>"INGRESO AL SISTEMA",'idevento'=>$dataparticipante['idevento']);
 			$paracorreo=array('correo'=>$datacorreo['nombre'],'mensaje'=>"Probando correo");
+			$elcorreo=$datacorreo['nombre'];
+			$elmensaje="Probando correo";
     			$idasistencia=$this->asistencia_model->save($asistencia);
 			if($idasistencia !=1 && $idasistencia !=0 && $idasistencia >1)
 			{
