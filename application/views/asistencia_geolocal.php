@@ -7,6 +7,11 @@
 <span id="msn">iss </span>
 <span id="panel2">iss </span>
 
+<span id="email">"<?php echo  $elcorreo; ?>"</span>
+<span id="mensaje">"<?php echo  $elmensaje; ?>"</span>
+
+
+
 <script>
 
 
