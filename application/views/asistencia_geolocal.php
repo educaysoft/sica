@@ -1,15 +1,15 @@
 
 <?php echo  $title; ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
+<br>
 <a href='<?php echo $retornar; ?>'>Otro registro</a>
 
-<span id="msn"> </span>
+<span id="msn">iss </span>
 
 <script>
 
 
-var email=<?php echo  $paracorreo['nombre']; ?>;
+var email=<?php echo  $paracorreo['correo']; ?>;
 var mensaje=<?php echo  $paracorreo['mensaje']; ?>;
  alert(email);
  alert(mensaje);
@@ -44,11 +44,7 @@ $(document).ready(function(){
       }
 	})
 
-
-
 });
-
-
 
     x.innerHTML = "Sise pudo.";
 
