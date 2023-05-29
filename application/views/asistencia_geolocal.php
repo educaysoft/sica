@@ -8,9 +8,9 @@
 
 <script>
 
-
-var email=<?php echo  $elcorreo ?>;
-var mensaje=<?php echo  $elmensaje ?>;
+alert('llago'); 
+var email=<?php echo  $elcorreo; ?>;
+var mensaje=<?php echo  $elmensaje; ?>;
  alert(email);
  alert(mensaje);
 
