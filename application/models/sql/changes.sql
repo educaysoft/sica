@@ -275,8 +275,10 @@ alter table evaluacion change idpersona idevaluacionpersona int(11);
 
 /* alter table documento change asunto asunto varchar(200) not null; */
 
-alter table tema change nombrecorto nombrecorto varchar(100) not null;
-alter table tema change nombrelargo nombrelargo text not null;
+/* alter table tema change nombrecorto nombrecorto varchar(100) not null;*/
+/* alter table tema change nombrelargo nombrelargo text not null; */
+
+alter table evento add column mensajeregistro text not null;
 
 
 
