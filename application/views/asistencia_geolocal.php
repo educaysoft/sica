@@ -8,16 +8,20 @@
 
 <script>
 
+
+//var x = document.getElementById("demo");
+$(document).ready(function(){
+
 alert('llago'); 
 var email=<?php echo  $elcorreo; ?>;
 var mensaje=<?php echo  $elmensaje; ?>;
  alert(email);
  alert(mensaje);
 
-
 	enviar_correo(email,mensaje);
-//var x = document.getElementById("demo");
-$(document).ready(function(){
+
+
+
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position)
