@@ -5,6 +5,7 @@
 <a href='<?php echo $retornar; ?>'>Otro registro</a>
 
 <span id="msn">iss </span>
+<span id="panel2">iss </span>
 
 <script>
 

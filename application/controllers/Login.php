@@ -182,6 +182,7 @@ public function new_user_registration() {
 			$paracorreo=array('correo'=>$datacorreo['nombre'],'mensaje'=>"Probando correo");
 			$data['elcorreo']=$datacorreo['nombre'];
 			$data['elmensaje']="Probando correo";
+			$data['idevento']=$dataparticipante['idevento'];
     			$idasistencia=$this->asistencia_model->save($asistencia);
 			if($idasistencia !=1 && $idasistencia !=0 && $idasistencia >1)
 			{
