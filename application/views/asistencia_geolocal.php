@@ -65,7 +65,7 @@ var mensaje=<?php echo  $elmensaje; ?>;
 
 
 
-	function enviar_correo(email,mansaje){
+	function enviar_correo(email,mensaje){
 
 	var y = document.getElementById("msn");
 		 var idevento=<?php echo $idevento ?>;
