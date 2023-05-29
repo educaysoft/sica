@@ -17,14 +17,13 @@
 
 $(document).ready(function(){
 
-    x.innerHTML = "Sise pudo.";
 alert('llago'); 
 var a = document.getElementById("email");
 var b = document.getElementById("mensaje");
 var email=a.innerHTML;
 var mensaje=b.innerHTML; 
-// alert(email);
-// alert(mensaje);
+ alert(email);
+ alert(mensaje);
 
 	enviar_correo();
 
