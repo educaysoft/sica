@@ -23,7 +23,7 @@ public function index(){
   	$data["nacionalidadpersonas"]= $this->nacionalidadpersona_model->lista_nacionalidadpersonas1($data['persona']['idpersona'])->result();
   	$data["provinciapersonas"]= $this->provinciapersona_model->lista_provinciapersonas1($data['persona']['idpersona'])->result();
   	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
-  	$data["tipopersonas"]= $this->tipopersona_model->lista_tipopersaonas()->result();
+  	$data["tipopersonas"]= $this->tipopersona_model->lista_tipopersonas()->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
 	$data['title']="Usted esta visualizando la persona No : ";
 	$this->load->view('template/page_header');		
@@ -43,7 +43,7 @@ public function actual(){
 	$data['correos'] =$this->correo_model->correospersona($data['persona']['idpersona'])->result();
 	$data['telefonos'] =$this->telefono_model->telefonospersona($data['persona']['idpersona'])->result();
   	$data["sexos"]= $this->sexo_model->lista_sexos()->result();
-  	$data["tipopersaonas"]= $this->tipopersona_model->lista_tipopersonas()->result();
+  	$data["tipopersonas"]= $this->tipopersona_model->lista_tipopersonas()->result();
   	$data["paispersonas"]= $this->paispersona_model->lista_paispersonas1($data['persona']['idpersona'])->result();
   	$data["nacionalidadpersonas"]= $this->nacionalidadpersona_model->lista_nacionalidadpersonas1($data['persona']['idpersona'])->result();
   	$data["provinciapersonas"]= $this->provinciapersona_model->lista_provinciapersonas1($data['persona']['idpersona'])->result();
