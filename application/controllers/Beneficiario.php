@@ -37,7 +37,6 @@ class Beneficiario extends CI_Controller{
 	{
 	 	$array_item=array(
 		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$this->beneficiario_model->save($array_item);
 	 	redirect('beneficiario');
@@ -65,7 +64,6 @@ public function edit()
 	 	$array_item=array(
 
 		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$result=$this->beneficiario_model->update($id,$array_item);
 	 	if($result == false)

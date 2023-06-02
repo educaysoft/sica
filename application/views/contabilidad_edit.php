@@ -28,14 +28,14 @@ foreach ($beneficiarios as $row){
 </tr>
 
 <tr>
-<td> Operadora:</td>
+<td> Pagador:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($operadoras as $row){
-	$options[$row->idoperadora]= $row->nombre;
+foreach ($pagadores as $row){
+	$options[$row->idpagador]= $row->nombre;
 }
 
- echo form_dropdown("idoperadora",$options, $contabilidad['idoperadora']);  ?></td>
+ echo form_dropdown("idpagadora",$options, $contabilidad['idpagadora']);  ?></td>
 </tr>
 
 <tr>
