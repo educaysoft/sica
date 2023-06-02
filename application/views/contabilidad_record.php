@@ -39,7 +39,7 @@ if(isset($contabilidad))
  
  
 <tr>
-     <td>Persona:</td>
+     <td>Beneficiario:</td>
      <td><?php 
 $options= array("NADA");
 foreach ($beneficiarios as $row){
@@ -64,14 +64,14 @@ echo form_input('idbeneficiario',$options[$contabilidad['idbeneficiario']],array
 
   
 <tr>
-     <td>Institucion:</td>
+     <td>Pagador:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($pagodores as $row){
-	$options[$row->idpagodor]= $row->nombre;
+foreach ($pagadores as $row){
+	$options[$row->idpagador]= $row->nombre;
 }
 
-echo form_input('idpagodor',$options[$contabilidad['idpagodor']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idpagador',$options[$contabilidad['idpagador']],array("disabled"=>"disabled")) ?></td>
   </tr>
 
 
