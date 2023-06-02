@@ -1,27 +1,27 @@
 <?php
 
-class Ingregre extends CI_Controller{
+class Contabilidad extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('ingregre_model');
+      $this->load->model('contabilidad_model');
   	  $this->load->model('persona_model');
   	  $this->load->model('institucion_model');
-  	  $this->load->model('tipoingregre_model');
+  	  $this->load->model('tipocontabilidad_model');
 }
 
 public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-		$data['ingregre'] = $this->ingregre_model->elprimero();
+		$data['contabilidad'] = $this->contabilidad_model->elprimero();
   		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  		$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
+  		$data['tipocontabilidads']= $this->tipocontabilidad_model->lista_tipocontabilidad()->result();
 			
-		$data['title']="Lista de ingregrees";
+		$data['title']="Lista de contabilidades";
 		$this->load->view('template/page_header');
-		$this->load->view('ingregre_record',$data);
+		$this->load->view('contabilidad_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -37,13 +37,13 @@ public function index(){
 public function actual(){
  if(isset($this->session->userdata['logged_in'])){
 
-	$data['ingregre'] = $this->ingregre_model->ingregre($this->uri->segment(3))->row_array();
+	$data['contabilidad'] = $this->contabilidad_model->contabilidad($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
-	$data['title']="Modulo de Ingregres";
+  	$data['tipocontabilidads']= $this->tipocontabilidad_model->lista_tipocontabilidad()->result();
+	$data['title']="Modulo de Contabilidads";
 	$this->load->view('template/page_header');		
-	$this->load->view('ingregre_record',$data);
+	$this->load->view('contabilidad_record',$data);
 	$this->load->view('template/page_footer');
    }else{
 	$this->load->view('template/page_header.php');
@@ -61,10 +61,10 @@ public function actual(){
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  		$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
-		$data['title']="Nueva Ingregre";
+  		$data['tipocontabilidads']= $this->tipocontabilidad_model->lista_tipocontabilidad()->result();
+		$data['title']="Nueva Contabilidad";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('ingregre_form',$data);
+	 	$this->load->view('contabilidad_form',$data);
 	 	$this->load->view('template/page_footer');
 	}
 
@@ -73,15 +73,15 @@ public function actual(){
 	{
 	 	$array_item=array(
 		 	
-		 	'fechaingregre' => $this->input->post('fechaingregre'),
+		 	'fechacontabilidad' => $this->input->post('fechacontabilidad'),
 		 	'valor' => $this->input->post('valor'),
 		 	'detalle' => $this->input->post('detalle'),
 			'idpersona' => $this->input->post('idpersona'),
 			'idinstitucion' => $this->input->post('idinstitucion'),
-			'idtipoingregre' => $this->input->post('idtipoingregre'),
+			'idtipocontabilidad' => $this->input->post('idtipocontabilidad'),
 	 	);
-	 	$this->ingregre_model->save($array_item);
-	 //	redirect('ingregre');
+	 	$this->contabilidad_model->save($array_item);
+	 //	redirect('contabilidad');
 	//	redirect($_SERVER['HTTP_REFERER']);
 		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
  	}
@@ -90,13 +90,13 @@ public function actual(){
 
 public function edit()
 {
-	 	$data['ingregre'] = $this->ingregre_model->ingregre($this->uri->segment(3))->row_array();
+	 	$data['contabilidad'] = $this->contabilidad_model->contabilidad($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  		$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
- 	 	$data['title'] = "Actualizar Ingregre";
+  		$data['tipocontabilidads']= $this->tipocontabilidad_model->lista_tipocontabilidad()->result();
+ 	 	$data['title'] = "Actualizar Contabilidad";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('ingregre_edit',$data);
+ 	 	$this->load->view('contabilidad_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -104,29 +104,29 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idingregre');
+		$id=$this->input->post('idcontabilidad');
 	 	$array_item=array(
 		 	
-		 	'idingregre' => $this->input->post('idingregre'),
+		 	'idcontabilidad' => $this->input->post('idcontabilidad'),
 			
-		 	'fechaingregre' => $this->input->post('fechaingregre'),
+		 	'fechacontabilidad' => $this->input->post('fechacontabilidad'),
 		 	'valor' => $this->input->post('valor'),
 		 	'detalle' => $this->input->post('detalle'),
 			'idpersona' => $this->input->post('idpersona'),
 			'idinstitucion' => $this->input->post('idinstitucion'),
-			'idtipoingregre' => $this->input->post('idtipoingregre'),
+			'idtipocontabilidad' => $this->input->post('idtipocontabilidad'),
 	 	);
-	 	$this->ingregre_model->update($id,$array_item);
-	 	//redirect('ingregre');
+	 	$this->contabilidad_model->update($id,$array_item);
+	 	//redirect('contabilidad');
 		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->ingregre_model->delete($this->uri->segment(3));
+ 		$data=$this->contabilidad_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('ingregre/elprimero');
+	 	redirect('contabilidad/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -134,26 +134,26 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Ingregres";
+  $data['title']="Contabilidads";
 	$this->load->view('template/page_header');		
-  $this->load->view('ingregre_list',$data);
+  $this->load->view('contabilidad_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function ingregre_data()
+function contabilidad_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->ingregre_model->lista_ingregresA();
+	 	$data0 = $this->contabilidad_model->lista_contabilidadsA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idingregre,$r->lapersona,$r->numero,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idingregre="'.$r->idingregre.'">Ver</a>');
+			$data[]=array($r->idcontabilidad,$r->lapersona,$r->numero,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcontabilidad="'.$r->idcontabilidad.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -174,15 +174,15 @@ function ingregre_data()
 
 public function elprimero()
 {
-	$data['ingregre'] = $this->ingregre_model->elprimero();
+	$data['contabilidad'] = $this->contabilidad_model->elprimero();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
-    $data['title']="Ingregre";
+  	$data['tipocontabilidads']= $this->tipocontabilidad_model->lista_tipocontabilidad()->result();
+    $data['title']="Contabilidad";
     $this->load->view('template/page_header');		
-    $this->load->view('ingregre_record',$data);
+    $this->load->view('contabilidad_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -193,16 +193,16 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['ingregre'] = $this->ingregre_model->elultimo();
+	$data['contabilidad'] = $this->contabilidad_model->elultimo();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
-    $data['title']="Ingregre";
+  	$data['tipocontabilidads']= $this->tipocontabilidad_model->lista_tipocontabilidad()->result();
+    $data['title']="Contabilidad";
   
     $this->load->view('template/page_header');		
-    $this->load->view('ingregre_record',$data);
+    $this->load->view('contabilidad_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -213,26 +213,26 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['ingregre_list']=$this->ingregre_model->lista_ingregre()->result();
-	$data['ingregre'] = $this->ingregre_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['contabilidad_list']=$this->contabilidad_model->lista_contabilidad()->result();
+	$data['contabilidad'] = $this->contabilidad_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
-  $data['title']="Ingregre";
+  	$data['tipocontabilidads']= $this->tipocontabilidad_model->lista_tipocontabilidad()->result();
+  $data['title']="Contabilidad";
 	$this->load->view('template/page_header');		
-  $this->load->view('ingregre_record',$data);
+  $this->load->view('contabilidad_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['ingregre_list']=$this->ingregre_model->lista_ingregre()->result();
-	$data['ingregre'] = $this->ingregre_model->anterior($this->uri->segment(3))->row_array();
+ // $data['contabilidad_list']=$this->contabilidad_model->lista_contabilidad()->result();
+	$data['contabilidad'] = $this->contabilidad_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['tipoingregres']= $this->tipoingregre_model->lista_tipoingregre()->result();
-  $data['title']="Ingregre";
+  	$data['tipocontabilidads']= $this->tipocontabilidad_model->lista_tipocontabilidad()->result();
+  $data['title']="Contabilidad";
 	$this->load->view('template/page_header');		
-  $this->load->view('ingregre_record',$data);
+  $this->load->view('contabilidad_record',$data);
 	$this->load->view('template/page_footer');
 }
 

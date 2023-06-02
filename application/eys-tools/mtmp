@@ -1,41 +1,49 @@
 <?php
-class Tipodocu_model extends CI_model {
+class Ingregre_model extends CI_model {
 
-	function lista_tipodocu(){
-		 $tipodocu= $this->db->get('tipodocu');
-		 return $tipodocu;
-	}
-
-	function lista_tipodocusA(){
-		 $tipodocu= $this->db->get('tipodocu1');
-		 return $tipodocu;
+	function lista_ingregres(){
+		 $ingregre= $this->db->get('ingregre');
+		 return $ingregre;
 	}
 
 
+	function lista_ingregresA(){
+		 $ingregre= $this->db->get('ingregre1');
+		 return $ingregre;
+	}
 
 
- 	function tipodocu( $id){
- 		$tipodocu = $this->db->query('select * from tipodocu where idtipodocu="'. $id.'"');
- 		return $tipodocu;
+
+ 	function ingregre( $id){
+ 		$ingregre = $this->db->query('select * from ingregre where idingregre="'. $id.'"');
+ 		return $ingregre;
  	}
+
+
+ 	function ingregrespersona( $id){
+ 		$ingregre = $this->db->query('select * from ingregre where idpersona="'. $id.'"');
+ 		return $ingregre;
+ 	}
+
+
 
  	function save($array)
  	{
-		$this->db->insert("tipodocu", $array);
+		$this->db->insert("ingregre", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idtipodocu',$id);
- 		$this->db->update('tipodocu',$array_item);
+ 		$this->db->where('idingregre',$id);
+ 		$this->db->update('ingregre',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idtipodocu',$id);
-		$this->db->delete('tipodocu');
+ 		$this->db->where('idingregre',$id);
+		$this->db->delete('ingregre');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -46,7 +54,7 @@ class Tipodocu_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idtipodocu")->get('tipodocu');
+		$query=$this->db->order_by("idingregre")->get('ingregre');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -59,7 +67,7 @@ class Tipodocu_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idtipodocu")->get('tipodocu');
+		$query=$this->db->order_by("idingregre")->get('ingregre');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -71,40 +79,38 @@ class Tipodocu_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$tipodocu = $this->db->select("idtipodocu")->order_by("idtipodocu")->get('tipodocu')->result_array();
-		$arr=array("idtipodocu"=>$id);
-		$clave=array_search($arr,$tipodocu);
-	   if(array_key_exists($clave+1,$tipodocu))
+ 		$ingregre = $this->db->select("idingregre")->order_by("idingregre")->get('ingregre')->result_array();
+		$arr=array("idingregre"=>$id);
+		$clave=array_search($arr,$ingregre);
+	   if(array_key_exists($clave+1,$ingregre))
 		 {
 
- 		$tipodocu = $this->db->query('select * from tipodocu where idtipodocu="'. $tipodocu[$clave+1]["idtipodocu"].'"');
+ 		$ingregre = $this->db->query('select * from ingregre where idingregre="'. $ingregre[$clave+1]["idingregre"].'"');
 		 }else{
 
- 		$tipodocu = $this->db->query('select * from tipodocu where idtipodocu="'. $id.'"');
+ 		$ingregre = $this->db->query('select * from ingregre where idingregre="'. $id.'"');
 		 }
 		 	
- 		return $tipodocu;
+ 		return $ingregre;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$tipodocu = $this->db->select("idtipodocu")->order_by("idtipodocu")->get('tipodocu')->result_array();
-		$arr=array("idtipodocu"=>$id);
-		$clave=array_search($arr,$tipodocu);
-	   if(array_key_exists($clave-1,$tipodocu))
+ 		$ingregre = $this->db->select("idingregre")->order_by("idingregre")->get('ingregre')->result_array();
+		$arr=array("idingregre"=>$id);
+		$clave=array_search($arr,$ingregre);
+	   if(array_key_exists($clave-1,$ingregre))
 		 {
 
- 		$tipodocu = $this->db->query('select * from tipodocu where idtipodocu="'. $tipodocu[$clave-1]["idtipodocu"].'"');
+ 		$ingregre = $this->db->query('select * from ingregre where idingregre="'. $ingregre[$clave-1]["idingregre"].'"');
 		 }else{
 
- 		$tipodocu = $this->db->query('select * from tipodocu where idtipodocu="'. $id.'"');
+ 		$ingregre = $this->db->query('select * from ingregre where idingregre="'. $id.'"');
 		 }
 		 	
- 		return $tipodocu;
+ 		return $ingregre;
  	}
-
-
 
 
 

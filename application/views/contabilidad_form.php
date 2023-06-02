@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("ingregre/save") ?>
-<?php echo form_hidden("idingregre")  ?>
+<?php echo form_open("contabilidad/save") ?>
+<?php echo form_hidden("idcontabilidad")  ?>
 <table>
 
 
@@ -20,13 +20,13 @@ foreach ($personas as $row){
 
 <tr>
 <td> Fecha: </td>
-<td><?php echo form_input(array("name"=>"fechaingregre","id"=>"fechaingregre","type"=>"date","placeholder"=>"fecha del ingregre"));  ?></td>
+<td><?php echo form_input(array("name"=>"fechacontabilidad","id"=>"fechacontabilidad","type"=>"date","placeholder"=>"fecha del contabilidad"));  ?></td>
 </tr>
 
 
 <tr>
 <td> valor: </td>
-<td><?php echo form_input("valor","", array("placeholder"=>"valor del ingregre"))  ?></td>
+<td><?php echo form_input("valor","", array("placeholder"=>"valor del contabilidad"))  ?></td>
 </tr>
 
 <tr>
@@ -46,11 +46,11 @@ foreach ($instituciones as $row){
 <td><?php 
 
 $options= array('--Select--');
-foreach ($tipoingregres as $row){
-	$options[$row->idtipoingregre]= $row->nombre;
+foreach ($tipocontabilidads as $row){
+	$options[$row->idtipocontabilidad]= $row->nombre;
 }
 
- echo form_dropdown("idtipoingregre",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idtipocontabilidad",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
@@ -69,7 +69,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("ingregre","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("contabilidad","Atras") ?> </td>
 </tr>
 
 </table>

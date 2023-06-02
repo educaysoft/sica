@@ -280,9 +280,17 @@ alter table evaluacion change idpersona idevaluacionpersona int(11);
 
 /* alter table evento add column mensajeregistro text not null; */
 
-alter table persona add column idtipopersona int(11) default 1;
+/* alter table persona add column idtipopersona int(11) default 1; */
 
 
 
+
+rename table ingregre to contabilidad; 
+alter table contabilidad change idingregre idcontabilidad int(11);
+alter table contabilidad modify column idcontabilidad int(11);
+alter table contabilidad drop primary key;
+alter table contabilidad change idcontabilidad idcontabilidad int(11) not null auto_increment primary key; 
+alter table contabilidad add column idpagador int(11);
+alter table contabilidad add column idbeneficiario int(11);
 
 
