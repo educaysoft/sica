@@ -42,11 +42,11 @@ if(isset($contabilidad))
      <td>Persona:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+foreach ($beneficiarios as $row){
+	$options[$row->idbeneficiario]= $row->apellidos." ".$row->nombres;
 }
 
-echo form_input('idpersona',$options[$contabilidad['idpersona']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idbeneficiario',$options[$contabilidad['idbeneficiario']],array("disabled"=>"disabled")) ?></td>
   </tr>
 
 
@@ -67,11 +67,11 @@ echo form_input('idpersona',$options[$contabilidad['idpersona']],array("disabled
      <td>Institucion:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
+foreach ($pagodores as $row){
+	$options[$row->idpagodor]= $row->nombre;
 }
 
-echo form_input('idinstitucion',$options[$contabilidad['idinstitucion']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idpagodor',$options[$contabilidad['idpagodor']],array("disabled"=>"disabled")) ?></td>
   </tr>
 
 
