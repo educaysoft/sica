@@ -1,7 +1,7 @@
 <?php
 class Pagador_model extends CI_model {
 
-	function listar_pagador(){
+	function listar_pagadores(){
 		 $pagador= $this->db->get('pagador');
 		 return $pagador;
 	}
