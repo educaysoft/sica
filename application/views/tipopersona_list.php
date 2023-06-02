@@ -5,7 +5,7 @@
 
 <h2> <?php echo $title;  ?></h2>
 <hr/>
-<?php echo anchor('tipodocu/add', 'NUEVO ORDENADOR'); ?>
+<?php echo anchor('tipopersona/add', 'NUEVO ORDENADOR'); ?>
 <br>
 <br>
 
@@ -16,13 +16,13 @@
 <th> cantidad</th>
 </tr>
 <tbody>
-<?php  foreach($tipodocu_list as $list) { ?>
+<?php  foreach($tipopersona_list as $list) { ?>
 <tr>
 
-<td> <?php echo $list->idtipodocu ?></td>
+<td> <?php echo $list->idtipopersona ?></td>
 <td> <?php echo $list->descripcion?></td>
 <td> <?php echo $list->cantidad?></td>
-<td> <?php echo anchor('documento/listarxtipodocu/'.$list->idtipodocu,'ver') ?> || <?php echo anchor('documento/add/'.$list->idtipodocu,'Nuevo') ?></td>
+<td> <?php echo anchor('documento/listarxtipopersona/'.$list->idtipopersona,'ver') ?> || <?php echo anchor('documento/add/'.$list->idtipopersona,'Nuevo') ?></td>
  </tr>
 
 

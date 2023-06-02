@@ -59,7 +59,18 @@ if(isset($persona))
 <?php echo form_hidden('idpersona',$persona['idpersona']) ?>
 
 
- 
+ <div class="form-group row">
+<label class="col-md-2 col-form-label"> Sexo: </label>
+	<div class="col-md-10">
+     	<?php 
+	$options= array("NADA");
+	foreach ($tipopersonas as $row){
+		$options[$row->idtipopersona]= $row->nombre;
+	}
+	echo form_input('idtipopersona',$options[$persona['idtipopersona']],array("disabled"=>"disabled",'style'=>'width:600px;'));
+	?>
+	</div> 
+</div>
 
 
 <div class="form-group row">

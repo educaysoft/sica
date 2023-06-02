@@ -5,6 +5,20 @@
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Genero:</label>
+	<div class="col-md-10">
+		<?php
+		$options= array('--Select--');
+		foreach ($tipopersonas as $row){
+		$options[$row->idtipopersona]= $row->nombre;
+		}
+ 		echo form_dropdown("idtipopersona",$options, set_select('--Select--','default_value'));  
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Cédula:</label>
 	<div class="col-md-10">
 		<?php

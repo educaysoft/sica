@@ -1,18 +1,18 @@
 <?php
 
-class Tipodocu extends CI_Controller{
+class Tipopersona extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('tipodocu_model');
+      $this->load->model('tipopersona_model');
 }
 
 public function index(){
-  	$data['tipodocu']=$this->tipodocu_model->tipodocu(1)->row_array();
+  	$data['tipopersona']=$this->tipopersona_model->tipopersona(1)->row_array();
  
   	$data['title']="Tipos de documentos";
 	$this->load->view('template/page_header');		
-  	$this->load->view('tipodocu_record',$data);
+  	$this->load->view('tipopersona_record',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -21,7 +21,7 @@ public function add()
 {
 		$data['title']="Nueva Tipo de documento";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('tipodocu_form',$data);
+	 	$this->load->view('tipopersona_form',$data);
 	 	$this->load->view('template/page_footer');
 
 
@@ -32,21 +32,21 @@ public function add()
 	{
 	 	$array_item=array(
 		 	
-		 	'idtipodocu' => $this->input->post('idtipodocu'),
+		 	'idtipopersona' => $this->input->post('idtipopersona'),
 		 	'descripcion' => $this->input->post('descripcion'),
 	 	);
-	 	$this->tipodocu_model->save($array_item);
-	 	redirect('tipodocu');
+	 	$this->tipopersona_model->save($array_item);
+	 	redirect('tipopersona');
  	}
 
 
 
 	public function edit()
 	{
-	 	$data['tipodocu'] = $this->tipodocu_model->tipodocu($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar tipodocu";
+	 	$data['tipopersona'] = $this->tipopersona_model->tipopersona($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar tipopersona";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('tipodocu_edit',$data);
+ 	 	$this->load->view('tipopersona_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 	}
@@ -54,23 +54,23 @@ public function add()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idtipodocu');
+		$id=$this->input->post('idtipopersona');
 	 	$array_item=array(
 		 	
-		 	'idtipodocu' => $this->input->post('idtipodocu'),
+		 	'idtipopersona' => $this->input->post('idtipopersona'),
 		 	'descripcion' => $this->input->post('descripcion'),
 	 	);
-	 	$this->tipodocu_model->update($id,$array_item);
-	 	redirect('tipodocu');
+	 	$this->tipopersona_model->update($id,$array_item);
+	 	redirect('tipopersona');
  	}
 
 
 
  	public function delete()
  	{
- 		$data=$this->tipodocu_model->delete($this->uri->segment(3));
+ 		$data=$this->tipopersona_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('tipodocu/elprimero');
+	 	redirect('tipopersona/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -78,27 +78,27 @@ public function add()
 public function listar()
 {
 	
-  $data['tipodocu_list'] = $this->tipodocu_model->lista_tipodocusA()->result();
+  $data['tipopersona_list'] = $this->tipopersona_model->lista_tipopersonasA()->result();
   $data['title']="Tipo documento";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipodocu_list',$data);
+  $this->load->view('tipopersona_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function tipodocu_data()
+function tipopersona_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->tipodocu_model->lista_tipodocusA();
+	 	$data0 = $this->tipopersona_model->lista_tipopersonasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idtipodocu,$r->descripcion,$r->cantidad,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipodocu="'.$r->idtipodocu.'">Ver</a>');
+			$data[]=array($r->idtipopersona,$r->descripcion,$r->cantidad,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipopersona="'.$r->idtipopersona.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -121,12 +121,12 @@ function tipodocu_data()
 
 public function elprimero()
 {
-	$data['tipodocu'] = $this->tipodocu_model->elprimero();
+	$data['tipopersona'] = $this->tipopersona_model->elprimero();
   if(!empty($data))
   {
     $data['title']="Tipo documento";
     $this->load->view('template/page_header');		
-    $this->load->view('tipodocu_record',$data);
+    $this->load->view('tipopersona_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +137,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['tipodocu'] = $this->tipodocu_model->elultimo();
+	$data['tipopersona'] = $this->tipopersona_model->elultimo();
   if(!empty($data))
   {
     $data['title']="Tipo documento";
   
     $this->load->view('template/page_header');		
-    $this->load->view('tipodocu_record',$data);
+    $this->load->view('tipopersona_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,31 +154,31 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['tipodocu_list']=$this->tipodocu_model->lista_tipodocu()->result();
-	$data['tipodocu'] = $this->tipodocu_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['tipopersona_list']=$this->tipopersona_model->lista_tipopersona()->result();
+	$data['tipopersona'] = $this->tipopersona_model->siguiente($this->uri->segment(3))->row_array();
   $data['title']="Tipo documento";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipodocu_record',$data);
+  $this->load->view('tipopersona_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['tipodocu_list']=$this->tipodocu_model->lista_tipodocu()->result();
-	$data['tipodocu'] = $this->tipodocu_model->anterior($this->uri->segment(3))->row_array();
+ // $data['tipopersona_list']=$this->tipopersona_model->lista_tipopersona()->result();
+	$data['tipopersona'] = $this->tipopersona_model->anterior($this->uri->segment(3))->row_array();
   $data['title']="Tipo documento";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipodocu_record',$data);
+  $this->load->view('tipopersona_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-public function get_tipodocu() {
+public function get_tipopersona() {
     $this->load->database();
     $this->load->helper('form');
-    if($this->input->post('idtipodocu')) {
+    if($this->input->post('idtipopersona')) {
         $this->db->select('*');
-        $this->db->where(array('idtipodocu' => $this->input->post('idtipodocu')));
+        $this->db->where(array('idtipopersona' => $this->input->post('idtipopersona')));
         $query = $this->db->get('documento');
 	$data=$query->result();
 	echo json_encode($data);

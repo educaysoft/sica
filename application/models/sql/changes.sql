@@ -278,9 +278,9 @@ alter table evaluacion change idpersona idevaluacionpersona int(11);
 /* alter table tema change nombrecorto nombrecorto varchar(100) not null;*/
 /* alter table tema change nombrelargo nombrelargo text not null; */
 
-alter table evento add column mensajeregistro text not null;
+/* alter table evento add column mensajeregistro text not null; */
 
-
+alter table persona add column idtipopersona int(11) default 1;
 
 
 
