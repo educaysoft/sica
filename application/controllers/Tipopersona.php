@@ -33,7 +33,7 @@ public function add()
 	 	$array_item=array(
 		 	
 		 	'idtipopersona' => $this->input->post('idtipopersona'),
-		 	'descripcion' => $this->input->post('descripcion'),
+		 	'nombre' => $this->input->post('nombre'),
 	 	);
 	 	$this->tipopersona_model->save($array_item);
 	 	redirect('tipopersona');
@@ -58,7 +58,7 @@ public function add()
 	 	$array_item=array(
 		 	
 		 	'idtipopersona' => $this->input->post('idtipopersona'),
-		 	'descripcion' => $this->input->post('descripcion'),
+		 	'nombre' => $this->input->post('nombre'),
 	 	);
 	 	$this->tipopersona_model->update($id,$array_item);
 	 	redirect('tipopersona');
@@ -97,7 +97,7 @@ function tipopersona_data()
 	 	$data0 = $this->tipopersona_model->lista_tipopersonasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idtipopersona,$r->descripcion,$r->cantidad,
+			$data[]=array($r->idtipopersona,$r->nombre,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipopersona="'.$r->idtipopersona.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
