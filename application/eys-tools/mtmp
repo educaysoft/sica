@@ -1,49 +1,48 @@
 <?php
-class Ingregre_model extends CI_model {
+class Emisor_model extends CI_model {
 
-	function lista_ingregres(){
-		 $ingregre= $this->db->get('ingregre');
-		 return $ingregre;
+	function listar_emisor(){
+		 $emisor= $this->db->get('emisor');
+		 return $emisor;
+	}
+
+	function listar_emisor1(){
+		 $emisor= $this->db->get('emisor1');
+		 return $emisor;
 	}
 
 
-	function lista_ingregresA(){
-		 $ingregre= $this->db->get('ingregre1');
-		 return $ingregre;
-	}
 
-
-
- 	function ingregre( $id){
- 		$ingregre = $this->db->query('select * from ingregre where idingregre="'. $id.'"');
- 		return $ingregre;
+ 	function emisor( $id){
+ 		$emisor = $this->db->query('select * from emisor where idemisor="'. $id.'"');
+ 		return $emisor;
  	}
-
-
- 	function ingregrespersona( $id){
- 		$ingregre = $this->db->query('select * from ingregre where idpersona="'. $id.'"');
- 		return $ingregre;
- 	}
-
-
 
  	function save($array)
  	{
-		$this->db->insert("ingregre", $array);
+		$this->db->insert("emisor", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idingregre',$id);
- 		$this->db->update('ingregre',$array_item);
+ 		$this->db->where('idemisor',$id);
+		 $query= $this->db->get('emisor');
+		if($query->num_rows()>0)
+		{
+ 			$this->db->where('idemisor',$id);
+ 			$this->db->update('emisor',$array_item);
+			return true;
+		}else{
+	        	return false;
+		}
+
 	}
  
 
-
- 	public function delete($id)
+  public function delete($id)
 	{
- 		$this->db->where('idingregre',$id);
-		$this->db->delete('ingregre');
+ 		$this->db->where('idemisor',$id);
+		$this->db->delete('emisor');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -54,7 +53,7 @@ class Ingregre_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idingregre")->get('ingregre');
+		$query=$this->db->order_by("idemisor")->get('emisor');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -67,7 +66,7 @@ class Ingregre_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idingregre")->get('ingregre');
+		$query=$this->db->order_by("idemisor")->get('emisor');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -79,42 +78,38 @@ class Ingregre_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$ingregre = $this->db->select("idingregre")->order_by("idingregre")->get('ingregre')->result_array();
-		$arr=array("idingregre"=>$id);
-		$clave=array_search($arr,$ingregre);
-	   if(array_key_exists($clave+1,$ingregre))
+ 		$emisor = $this->db->select("idemisor")->order_by("idemisor")->get('emisor')->result_array();
+		$arr=array("idemisor"=>$id);
+		$clave=array_search($arr,$emisor);
+	   if(array_key_exists($clave+1,$emisor))
 		 {
 
- 		$ingregre = $this->db->query('select * from ingregre where idingregre="'. $ingregre[$clave+1]["idingregre"].'"');
+ 		$emisor = $this->db->query('select * from emisor where idemisor="'. $emisor[$clave+1]["idemisor"].'"');
 		 }else{
 
- 		$ingregre = $this->db->query('select * from ingregre where idingregre="'. $id.'"');
+ 		$emisor = $this->db->query('select * from emisor where idemisor="'. $id.'"');
 		 }
 		 	
- 		return $ingregre;
+ 		return $emisor;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$ingregre = $this->db->select("idingregre")->order_by("idingregre")->get('ingregre')->result_array();
-		$arr=array("idingregre"=>$id);
-		$clave=array_search($arr,$ingregre);
-	   if(array_key_exists($clave-1,$ingregre))
+ 		$emisor = $this->db->select("idemisor")->order_by("idemisor")->get('emisor')->result_array();
+		$arr=array("idemisor"=>$id);
+		$clave=array_search($arr,$emisor);
+	   if(array_key_exists($clave-1,$emisor))
 		 {
 
- 		$ingregre = $this->db->query('select * from ingregre where idingregre="'. $ingregre[$clave-1]["idingregre"].'"');
+ 		$emisor = $this->db->query('select * from emisor where idemisor="'. $emisor[$clave-1]["idemisor"].'"');
 		 }else{
 
- 		$ingregre = $this->db->query('select * from ingregre where idingregre="'. $id.'"');
+ 		$emisor = $this->db->query('select * from emisor where idemisor="'. $id.'"');
 		 }
 		 	
- 		return $ingregre;
+ 		return $emisor;
  	}
-
-
-
-
 
 
 }

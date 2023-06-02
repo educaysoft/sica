@@ -5,7 +5,7 @@
 
 <h2> <?php echo $title;  ?></h2>
 <hr/>
-<?php echo anchor('emisor/add', 'NUEVA EMISOR'); ?>
+<?php echo anchor('pagador/add', 'NUEVA EMISOR'); ?>
 <br>
 <br>
 
@@ -13,17 +13,17 @@
 <tr>
 <th> iddocumento</th>
 <th> asunto</th>
-<th> idemisor</th>
-<th> emisor</th>
+<th> idpagador</th>
+<th> pagador</th>
 </tr>
 <tbody>
-<?php  foreach($emisor_list as $list) { ?>
+<?php  foreach($pagador_list as $list) { ?>
 <tr>
 <td> <?php echo $list->iddocumento ?></td>
 <td> <?php echo $list->asunto ?></td>
 <td> <?php echo $list->idpersona ?></td>
 <td> <?php echo $list->nombres ?></td>
-<td> <?php echo anchor('emisor/edit/'.$list->iddocumento,'Edit') ?> || <?php echo anchor('emisor/delete/'.$list->iddocumento,'Delete') ?></td>
+<td> <?php echo anchor('pagador/edit/'.$list->iddocumento,'Edit') ?> || <?php echo anchor('pagador/delete/'.$list->iddocumento,'Delete') ?></td>
  </tr>
 
 

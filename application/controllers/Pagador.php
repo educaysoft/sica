@@ -1,10 +1,10 @@
 <?php
 
-class Beneficiario extends CI_Controller{
+class Pagador extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('emisor_model');
+      $this->load->model('pagador_model');
       $this->load->model('persona_model');
       $this->load->model('documento_model');
 }
@@ -12,12 +12,12 @@ class Beneficiario extends CI_Controller{
 	public function index(){
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
- 		// $data['emisor']=$this->emisor_model->emisor(1)->row_array();
-		$data['emisor'] = $this->emisor_model->elprimero();
+ 		// $data['pagador']=$this->pagador_model->pagador(1)->row_array();
+		$data['pagador'] = $this->pagador_model->elprimero();
  		// print_r($data['usuario_list']);
-  		$data['title']="Lista de Beneficiarioes";
+  		$data['title']="Lista de Pagadores";
 		$this->load->view('template/page_header');		
-  		$this->load->view('emisor_record',$data);
+  		$this->load->view('pagador_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
@@ -26,9 +26,9 @@ class Beneficiario extends CI_Controller{
 	{
 		$data['personas']= $this->persona_model->lista_personasA()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
-		$data['title']="Nuevo Beneficiario";
+		$data['title']="Nuevo Pagador";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('emisor_form',$data);
+	 	$this->load->view('pagador_form',$data);
 	 	$this->load->view('template/page_footer');
 	}
 
@@ -39,8 +39,8 @@ class Beneficiario extends CI_Controller{
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
-	 	$this->emisor_model->save($array_item);
-	 	redirect('emisor');
+	 	$this->pagador_model->save($array_item);
+	 	redirect('pagador');
  	}
 
 
@@ -48,12 +48,12 @@ class Beneficiario extends CI_Controller{
 public function edit()
 {
 
-	 	$data['emisor'] = $this->emisor_model->emisor($this->uri->segment(3))->row_array();
+	 	$data['pagador'] = $this->pagador_model->pagador($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personasA()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Persona";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('emisor_edit',$data);
+ 	 	$this->load->view('pagador_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -61,16 +61,16 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idemisor');
+		$id=$this->input->post('idpagador');
 	 	$array_item=array(
 
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
-	 	$result=$this->emisor_model->update($id,$array_item);
+	 	$result=$this->pagador_model->update($id,$array_item);
 	 	if($result == false)
 		{
-			echo "<script language='JavaScript'> alert('Beneficiario no  existe'); </script>";
+			echo "<script language='JavaScript'> alert('Pagador no  existe'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
@@ -80,9 +80,9 @@ public function edit()
 
  	public function delete()
  	{
- 		$data=$this->emisor_model->delete($this->uri->segment(3));
+ 		$data=$this->pagador_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('emisor/elprimero');
+	 	redirect('pagador/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -94,13 +94,13 @@ public function edit()
 public function elprimero()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->elprimero();
+	$data['pagador'] = $this->pagador_model->elprimero();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Beneficiario del documento";
+    $data['title']="Pagador del documento";
     $this->load->view('template/page_header');		
-    $this->load->view('emisor_record',$data);
+    $this->load->view('pagador_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -112,14 +112,14 @@ public function elprimero()
 public function elultimo()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->elultimo();
+	$data['pagador'] = $this->pagador_model->elultimo();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Beneficiario del documento";
+    $data['title']="Pagador del documento";
   
     $this->load->view('template/page_header');		
-    $this->load->view('emisor_record',$data);
+    $this->load->view('pagador_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -130,26 +130,26 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['emisor_list']=$this->emisor_model->lista_emisor()->result();
+ // $data['pagador_list']=$this->pagador_model->lista_pagador()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->siguiente($this->uri->segment(3))->row_array();
+	$data['pagador'] = $this->pagador_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Beneficiario del documento";
+    $data['title']="Pagador del documento";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
-  $this->load->view('emisor_record',$data);
+  $this->load->view('pagador_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['emisor_list']=$this->emisor_model->lista_emisor()->result();
+ // $data['pagador_list']=$this->pagador_model->lista_pagador()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->anterior($this->uri->segment(3))->row_array();
+	$data['pagador'] = $this->pagador_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
  // $data['title']="Correo";
-    $data['title']="Beneficiario del documento";
+    $data['title']="Pagador del documento";
 	$this->load->view('template/page_header');		
-  $this->load->view('emisor_record',$data);
+  $this->load->view('pagador_record',$data);
 	$this->load->view('template/page_footer');
 }
 

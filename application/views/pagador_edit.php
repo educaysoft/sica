@@ -3,7 +3,7 @@
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open("emisor/save") ?>
+<?php echo form_open("pagador/save_edit") ?>
 <table>
 
 
@@ -16,7 +16,7 @@ foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
 
- echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("iddocumento",$options, $pagador['iddocumento']);  ?></td>
 </tr>
 
 
@@ -29,13 +29,12 @@ $options= array('--Select--');
 foreach ($personas as $row){
 	$options[$row->idpersona]= $row->lapersona;
 }
-
- echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idpersona",$options,$pagador['idpersona']);  ?></td>
 </tr>
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("emisor","Atrás") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("pagador","Atrás") ?> </td>
 </tr>
 
 </table>
