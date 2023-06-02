@@ -6,6 +6,13 @@ class Tipopersona_model extends CI_model {
 		 return $tipopersona;
 	}
 
+
+	function lista_tipopersonas(){
+		 $tipopersona= $this->db->get('tipopersona');
+		 return $tipopersona;
+	}
+
+
 	function lista_tipopersonasA(){
 		 $tipopersona= $this->db->get('tipopersona1');
 		 return $tipopersona;
