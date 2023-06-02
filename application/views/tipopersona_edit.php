@@ -10,7 +10,7 @@
   </tr> 
   <tr>
       <td>Nombre:</td>
-      <td><?php echo form_input('descripcion',$tipopersona['descripcion'],array('placeholder'=>'Nombre tipopersona')) ?></td>
+      <td><?php echo form_input('nombre',$tipopersona['nombre'],array('placeholder'=>'Nombre tipopersona')) ?></td>
   </tr>
  
  <tr>
