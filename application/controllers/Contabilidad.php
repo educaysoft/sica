@@ -5,7 +5,7 @@ class Contabilidad extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('contabilidad_model');
-  	  $this->load->model('persona_model');
+  	  $this->load->model('beneficiario_model');
   	  $this->load->model('pagador_model');
 }
 
@@ -14,7 +14,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
 		$data['contabilidad'] = $this->contabilidad_model->elprimero();
-  		$data['personas']= $this->persona_model->lista_personas()->result();
+  		$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios()->result();
   		$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
 			
 		$data['title']="Lista de contabilidades";
@@ -36,7 +36,7 @@ public function actual(){
  if(isset($this->session->userdata['logged_in'])){
 
 	$data['contabilidad'] = $this->contabilidad_model->contabilidad($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios()->result();
   	$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
 	$data['title']="Modulo de Contabilidads";
 	$this->load->view('template/page_header');		
@@ -56,7 +56,7 @@ public function actual(){
 
 	public function add()
 	{
-		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios()->result();
   		$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
 		$data['title']="Nueva Contabilidad";
 	 	$this->load->view('template/page_header');		
@@ -72,7 +72,7 @@ public function actual(){
 		 	'fechacontabilidad' => $this->input->post('fechacontabilidad'),
 		 	'valor' => $this->input->post('valor'),
 		 	'detalle' => $this->input->post('detalle'),
-			'idpersona' => $this->input->post('idpersona'),
+			'idbeneficiario' => $this->input->post('idbeneficiario'),
 			'idpagador' => $this->input->post('idpagador'),
 	 	);
 	 	$this->contabilidad_model->save($array_item);
@@ -86,7 +86,7 @@ public function actual(){
 public function edit()
 {
 	 	$data['contabilidad'] = $this->contabilidad_model->contabilidad($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios()->result();
   		$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
  	 	$data['title'] = "Actualizar Contabilidad";
  	 	$this->load->view('template/page_header');		
@@ -106,7 +106,7 @@ public function edit()
 		 	'fechacontabilidad' => $this->input->post('fechacontabilidad'),
 		 	'valor' => $this->input->post('valor'),
 		 	'detalle' => $this->input->post('detalle'),
-			'idpersona' => $this->input->post('idpersona'),
+			'idbeneficiario' => $this->input->post('idbeneficiario'),
 			'idpagador' => $this->input->post('idpagador'),
 	 	);
 	 	$this->contabilidad_model->update($id,$array_item);
@@ -145,7 +145,7 @@ function contabilidad_data()
 	 	$data0 = $this->contabilidad_model->lista_contabilidadsA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idcontabilidad,$r->lapersona,$r->numero,
+			$data[]=array($r->idcontabilidad,$r->labeneficiario,$r->numero,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcontabilidad="'.$r->idcontabilidad.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -170,7 +170,7 @@ public function elprimero()
 	$data['contabilidad'] = $this->contabilidad_model->elprimero();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios()->result();
   	$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
     $data['title']="Contabilidad";
     $this->load->view('template/page_header');		
@@ -188,7 +188,7 @@ public function elultimo()
 	$data['contabilidad'] = $this->contabilidad_model->elultimo();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios()->result();
   	$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
     $data['title']="Contabilidad";
   
@@ -206,7 +206,7 @@ public function elultimo()
 public function siguiente(){
  // $data['contabilidad_list']=$this->contabilidad_model->lista_contabilidad()->result();
 	$data['contabilidad'] = $this->contabilidad_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
+  	$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios()->result();
   	$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
   $data['title']="Contabilidad";
 	$this->load->view('template/page_header');		
@@ -217,7 +217,7 @@ public function siguiente(){
 public function anterior(){
  // $data['contabilidad_list']=$this->contabilidad_model->lista_contabilidad()->result();
 	$data['contabilidad'] = $this->contabilidad_model->anterior($this->uri->segment(3))->row_array();
- 	$data['personas']= $this->persona_model->lista_personas()->result();
+ 	$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios()->result();
   	$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
   	$data['title']="Contabilidad";
 	$this->load->view('template/page_header');		
