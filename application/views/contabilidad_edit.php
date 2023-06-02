@@ -17,14 +17,14 @@ echo form_input($eys_arrinput); ?></td>
 
  
  <tr>
-<td> Persona:</td>
+<td> Beneficiario:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+foreach ($beneficiarios as $row){
+	$options[$row->idbeneficiario]= $row->apellidos." ".$row->nombres;
 }
 
- echo form_dropdown("idpersona",$options, $contabilidad['idpersona']);  ?></td>
+ echo form_dropdown("idbeneficiario",$options, $contabilidad['idbeneficiario']);  ?></td>
 </tr>
 
 <tr>
