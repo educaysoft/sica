@@ -6,7 +6,7 @@ class Beneficiario_model extends CI_model {
 		 return $beneficiario;
 	}
 
-	function listar_beneficiario1(){
+	function listar_beneficiarios1(){
 		 $beneficiario= $this->db->get('beneficiario1');
 		 return $beneficiario;
 	}
