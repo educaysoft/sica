@@ -15,7 +15,7 @@ public function index(){
 			
 		$data['contabilidad'] = $this->contabilidad_model->elprimero();
   		$data['beneficiarios']= $this->beneficiario_model->listar_beneficiarios1()->result();
-  		$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
+  		$data['pagadores']= $this->pagador_model->listar_pagadores1()->result();
 			
 		$data['title']="Lista de contabilidades";
 		$this->load->view('template/page_header');
