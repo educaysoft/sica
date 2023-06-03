@@ -32,10 +32,10 @@ foreach ($beneficiarios as $row){
 <td><?php
 $options= array('--Select--');
 foreach ($pagadores as $row){
-	$options[$row->idpagador]= $row->nombre;
+	$options[$row->idpagador]= $row->elpagador;
 }
 
- echo form_dropdown("idpagadora",$options, $contabilidad['idpagadora']);  ?></td>
+ echo form_dropdown("idpagador",$options, $contabilidad['idpagador']);  ?></td>
 </tr>
 
 <tr>
