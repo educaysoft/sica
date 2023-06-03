@@ -6,15 +6,15 @@
 
 
 <tr>
-<td> Persona: </td>
+<td> Beneficiario: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+foreach ($beneficiarios as $row){
+	$options[$row->idbeneficiario]= $row->elbeneficiario;
 }
 
- echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idbeneficiario",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
@@ -34,24 +34,14 @@ foreach ($personas as $row){
 <td><?php 
 
 $options= array('--Select--');
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
+foreach ($pagadores as $row){
+	$options[$row->idpagador]= $row->elpagador;
 }
 
- echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idpagador",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
-<tr>
-<td> Tipo Ingr-Egre: </td>
-<td><?php 
 
-$options= array('--Select--');
-foreach ($tipocontabilidads as $row){
-	$options[$row->idtipocontabilidad]= $row->nombre;
-}
-
- echo form_dropdown("idtipocontabilidad",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
 
 
 <tr>
