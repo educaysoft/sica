@@ -32,7 +32,7 @@ if(isset($beneficiario))
 <br>
 
 <?php echo form_open('beneficiario/save_edit') ?>
-<?php echo form_hidden('iddocumento',$beneficiario['iddocumento']) ?>
+<?php echo form_hidden('idbeneficiario',$beneficiario['idbeneficiario']) ?>
 <table>
 
 
@@ -47,29 +47,11 @@ if(isset($beneficiario))
 </div> 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id documento:</label>
-	<div class="col-md-10">
-	<?php
-      echo form_input('iddocumento',$beneficiario['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos'));
-	?>
-	</div> 
-</div> 
+ 
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('documento/actual/'.$beneficiario['iddocumento'], 'Documento:'); ?></label>
-	<div class="col-md-10">
-	<?php
-$options= array("NADA");
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
-}
-echo form_input('iddocumento',$options[$beneficiario['iddocumento']],array("disabled"=>"disabled"));
-	?>
-	</div> 
-</div> 
+ 
 
 
 <div class="form-group row">
