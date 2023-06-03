@@ -68,28 +68,23 @@ echo form_input('idbeneficiario',$options[$contabilidad['idbeneficiario']],array
      <td><?php 
 $options= array("NADA");
 foreach ($pagadores as $row){
-	$options[$row->idpagador]= $row->nombre;
+	$options[$row->idpagador]= $row->elpagador;
 }
 
 echo form_input('idpagador',$options[$contabilidad['idpagador']],array("disabled"=>"disabled")) ?></td>
   </tr>
 
 
-<tr>
-     <td>Tipo Ingr-Egres:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($tipocontabilidads as $row){
-	$options[$row->idtipocontabilidad]= $row->nombre;
-}
 
-echo form_input('idtipocontabilidad',$options[$contabilidad['idtipocontabilidad']],array("disabled"=>"disabled")) ?></td>
-  </tr>
 
 
 <tr>
      <td>Detalle:</td>
-     <td><?php echo form_input('detalle',$contabilidad['detalle'],array("disabled"=>"disabled",'placeholder'=>'Numero')) ?></td>
+<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('datelle',$contabilidad['detalle'],$textarea_options); 
+
+?>
   </tr>
 
 
