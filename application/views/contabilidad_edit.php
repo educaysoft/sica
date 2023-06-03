@@ -57,16 +57,7 @@ echo form_textarea('detalle',$contabilidad['detalle'],$textarea_options ); ?></t
 </tr>
 
 
-<tr>
-<td> Tipo documento:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($tipodocus as $row){
-	$options[$row->idtipodocu]= $row->descripcion;
-}
 
- echo form_dropdown("idtipodocu",$options, $contabilidad['idtipodocu']);  ?></td>
-</tr>
 
 
 

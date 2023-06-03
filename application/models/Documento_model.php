@@ -41,6 +41,24 @@ class Documento_model extends CI_model {
 	}
 
 
+	function lista_facturas($idtipodocumento){
+		
+		if($idtipodocumento==0)
+		{
+		$documento=$this->db->order_by("fechaelaboracion")->get('documento1');
+		}else{
+
+		$this->db->where('idtipodocu='.$idtipodocumento);
+		$documento=$this->db->order_by("fechaelaboracion")->get('documento1');
+		}
+		 return $documento;
+	}
+
+
+
+
+
+
 
 
 	//Retorna todos los registros como un objeto

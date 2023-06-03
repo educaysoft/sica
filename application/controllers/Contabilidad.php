@@ -91,8 +91,7 @@ public function edit()
 {
 	 	$data['contabilidad'] = $this->contabilidad_model->contabilidad($this->uri->segment(3))->row_array();
 		$data['beneficiarios']= $this->beneficiario_model->listar_beneficiarios1()->result();
-		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-		$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$data['documentos']= $this->documento_model->lista_facturas(20)->result();
   		$data['pagadores']= $this->pagador_model->listar_pagadores1()->result();
  	 	$data['title'] = "Actualizar Contabilidad";
  	 	$this->load->view('template/page_header');		
