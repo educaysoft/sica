@@ -86,7 +86,7 @@ public function actual(){
 public function edit()
 {
 	 	$data['contabilidad'] = $this->contabilidad_model->contabilidad($this->uri->segment(3))->row_array();
-		$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios()->result();
+		$data['beneficiarios']= $this->beneficiario_model->listar_beneficiarios1()->result();
   		$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
  	 	$data['title'] = "Actualizar Contabilidad";
  	 	$this->load->view('template/page_header');		
