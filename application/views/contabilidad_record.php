@@ -43,7 +43,7 @@ if(isset($contabilidad))
      <td><?php 
 $options= array("NADA");
 foreach ($beneficiarios as $row){
-	$options[$row->idbeneficiario]= $row->apellidos." ".$row->nombres;
+	$options[$row->idbeneficiario]= $row->elbeneficiario;
 }
 
 echo form_input('idbeneficiario',$options[$contabilidad['idbeneficiario']],array("disabled"=>"disabled")) ?></td>
