@@ -21,7 +21,7 @@ echo form_input($eys_arrinput); ?></td>
 <td><?php
 $options= array('--Select--');
 foreach ($beneficiarios as $row){
-	$options[$row->idbeneficiario]= $row->apellidos." ".$row->nombres;
+	$options[$row->idbeneficiario]= $row->elbeneficiario;
 }
 
  echo form_dropdown("idbeneficiario",$options, $contabilidad['idbeneficiario']);  ?></td>
