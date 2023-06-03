@@ -284,7 +284,7 @@ alter table evaluacion change idpersona idevaluacionpersona int(11);
 
 
 
-
+/*
 rename table ingregre to contabilidad; 
 alter table contabilidad change idingregre idcontabilidad int(11);
 alter table contabilidad modify column idcontabilidad int(11);
@@ -292,5 +292,7 @@ alter table contabilidad drop primary key;
 alter table contabilidad change idcontabilidad idcontabilidad int(11) not null auto_increment primary key; 
 alter table contabilidad add column idpagador int(11);
 alter table contabilidad add column idbeneficiario int(11);
+*/
 
+alter table contabilidad add column iddocumento int(11) default 0;
 

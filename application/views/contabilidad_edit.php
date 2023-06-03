@@ -57,6 +57,32 @@ echo form_textarea('detalle',$contabilidad['detalle'],$textarea_options ); ?></t
 </tr>
 
 
+<tr>
+<td> Tipo documento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($tipodocus as $row){
+	$options[$row->idtipodocu]= $row->descripcion;
+}
+
+ echo form_dropdown("idtipodocu",$options, $certificado['idtipodocu']);  ?></td>
+</tr>
+
+
+
+<tr>
+<td> Documento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->asunto;
+}
+
+ echo form_dropdown("iddocumento",$options, $certificado['iddocumento']);  ?></td>
+</tr>
+
+
+
 
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('contabilidad','Atras') ?></td>

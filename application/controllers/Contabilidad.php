@@ -5,7 +5,9 @@ class Contabilidad extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('contabilidad_model');
-  	  $this->load->model('beneficiario_model');
+    $this->load->model('beneficiario_model');
+      	$this->load->model('tipodocu_model');
+      	$this->load->model('documento_model');
   	  $this->load->model('pagador_model');
 }
 
@@ -16,6 +18,8 @@ public function index(){
 		$data['contabilidad'] = $this->contabilidad_model->elprimero();
   		$data['beneficiarios']= $this->beneficiario_model->listar_beneficiarios1()->result();
   		$data['pagadores']= $this->pagador_model->listar_pagadores1()->result();
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
 			
 		$data['title']="Lista de contabilidades";
 		$this->load->view('template/page_header');
@@ -87,6 +91,8 @@ public function edit()
 {
 	 	$data['contabilidad'] = $this->contabilidad_model->contabilidad($this->uri->segment(3))->row_array();
 		$data['beneficiarios']= $this->beneficiario_model->listar_beneficiarios1()->result();
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['pagadores']= $this->pagador_model->listar_pagadores1()->result();
  	 	$data['title'] = "Actualizar Contabilidad";
  	 	$this->load->view('template/page_header');		
