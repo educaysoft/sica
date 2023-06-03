@@ -14,7 +14,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
 		$data['contabilidad'] = $this->contabilidad_model->elprimero();
-  		$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios1()->result();
+  		$data['beneficiarios']= $this->beneficiario_model->listar_beneficiarios1()->result();
   		$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
 			
 		$data['title']="Lista de contabilidades";
