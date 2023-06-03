@@ -188,8 +188,8 @@ public function elultimo()
 	$data['contabilidad'] = $this->contabilidad_model->elultimo();
   if(!empty($data))
   {
-  	$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios()->result();
-  	$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
+  	$data['beneficiarios']= $this->beneficiario_model->listar_beneficiarios1()->result();
+  	$data['pagadores']= $this->pagador_model->listar_pagadores1()->result();
     $data['title']="Contabilidad";
   
     $this->load->view('template/page_header');		
