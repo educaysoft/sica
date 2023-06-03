@@ -206,8 +206,8 @@ public function elultimo()
 public function siguiente(){
  // $data['contabilidad_list']=$this->contabilidad_model->lista_contabilidad()->result();
 	$data['contabilidad'] = $this->contabilidad_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios()->result();
-  	$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
+  	$data['beneficiarios']= $this->beneficiario_model->listar_beneficiarios1()->result();
+  	$data['pagadores']= $this->pagador_model->lista1_pagadores1()->result();
   $data['title']="Contabilidad";
 	$this->load->view('template/page_header');		
   $this->load->view('contabilidad_record',$data);
@@ -217,8 +217,8 @@ public function siguiente(){
 public function anterior(){
  // $data['contabilidad_list']=$this->contabilidad_model->lista_contabilidad()->result();
 	$data['contabilidad'] = $this->contabilidad_model->anterior($this->uri->segment(3))->row_array();
- 	$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios()->result();
-  	$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
+ 	$data['beneficiarios']= $this->beneficiario_model->listar_beneficiarios1()->result();
+  	$data['pagadores']= $this->pagador_model->listar_pagadores1()->result();
   	$data['title']="Contabilidad";
 	$this->load->view('template/page_header');		
  	$this->load->view('contabilidad_record',$data);
