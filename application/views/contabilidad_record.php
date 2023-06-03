@@ -80,6 +80,7 @@ echo form_input('idpagador',$options[$contabilidad['idpagador']],array("disabled
 
 <tr>
      <td>Detalle:</td>
+<td>
 <?php
 $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
  echo form_textarea('detalle',$contabilidad['detalle'],$textarea_options); 
