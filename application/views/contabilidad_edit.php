@@ -65,7 +65,7 @@ foreach ($tipodocus as $row){
 	$options[$row->idtipodocu]= $row->descripcion;
 }
 
- echo form_dropdown("idtipodocu",$options, $certificado['idtipodocu']);  ?></td>
+ echo form_dropdown("idtipodocu",$options, $contabilidad['idtipodocu']);  ?></td>
 </tr>
 
 
