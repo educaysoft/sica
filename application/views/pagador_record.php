@@ -32,7 +32,8 @@ if(isset($pagador))
 <br>
 
 <?php echo form_open('pagador/save_edit') ?>
-<?php echo form_hidden('iddocumento',$pagador['iddocumento']) ?>
+<?php echo form_hidden('idpagador',$pagador['idpagador']) ?>
+
 <table>
 
 
@@ -47,29 +48,11 @@ if(isset($pagador))
 </div> 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id documento:</label>
-	<div class="col-md-10">
-	<?php
-      echo form_input('iddocumento',$pagador['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos'));
-	?>
-	</div> 
-</div> 
+ 
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('documento/actual/'.$pagador['iddocumento'], 'Documento:'); ?></label>
-	<div class="col-md-10">
-	<?php
-$options= array("NADA");
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
-}
-echo form_input('iddocumento',$options[$pagador['iddocumento']],array("disabled"=>"disabled"));
-	?>
-	</div> 
-</div> 
+ 
 
 
 <div class="form-group row">

@@ -6,11 +6,9 @@ class Pagador extends CI_Controller{
       parent::__construct();
       $this->load->model('pagador_model');
       $this->load->model('persona_model');
-      $this->load->model('documento_model');
 }
 
 	public function index(){
-  		$data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
  		// $data['pagador']=$this->pagador_model->pagador(1)->row_array();
 		$data['pagador'] = $this->pagador_model->elprimero();
@@ -25,7 +23,6 @@ class Pagador extends CI_Controller{
 	public function add()
 	{
 		$data['personas']= $this->persona_model->lista_personasA()->result();
-		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['title']="Nuevo Pagador";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('pagador_form',$data);
@@ -37,7 +34,6 @@ class Pagador extends CI_Controller{
 	{
 	 	$array_item=array(
 		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$this->pagador_model->save($array_item);
 	 	redirect('pagador');
@@ -50,7 +46,6 @@ public function edit()
 
 	 	$data['pagador'] = $this->pagador_model->pagador($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personasA()->result();
-		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Persona";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('pagador_edit',$data);
@@ -65,7 +60,6 @@ public function edit()
 	 	$array_item=array(
 
 		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$result=$this->pagador_model->update($id,$array_item);
 	 	if($result == false)
@@ -93,12 +87,11 @@ public function edit()
 
 public function elprimero()
 {
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['pagador'] = $this->pagador_model->elprimero();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Pagador del documento";
+    $data['title']="Pagador ";
     $this->load->view('template/page_header');		
     $this->load->view('pagador_record',$data);
     $this->load->view('template/page_footer');
@@ -111,12 +104,11 @@ public function elprimero()
 
 public function elultimo()
 {
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['pagador'] = $this->pagador_model->elultimo();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Pagador del documento";
+    $data['title']="Pagador ";
   
     $this->load->view('template/page_header');		
     $this->load->view('pagador_record',$data);
@@ -131,10 +123,9 @@ public function elultimo()
 
 public function siguiente(){
  // $data['pagador_list']=$this->pagador_model->lista_pagador()->result();
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['pagador'] = $this->pagador_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Pagador del documento";
+    $data['title']="Pagador en contabilidad";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
   $this->load->view('pagador_record',$data);

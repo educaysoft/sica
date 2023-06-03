@@ -7,23 +7,13 @@
 <table>
 
 
-<tr>
-<td> Asunto: </td>
-<td><?php 
 
-$options= array('--Select--');
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
-}
-
- echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
 
 
 
 
 <tr>
-<td> Remitente: </td>
+<td> Pagador: </td>
 <td><?php
 $options= array('--Select--');
 foreach ($personas as $row){
