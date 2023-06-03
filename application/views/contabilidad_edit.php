@@ -39,21 +39,15 @@ foreach ($pagadores as $row){
 </tr>
 
 <tr>
-      <td>Número:</td>
-      <td><?php echo form_input( array("name"=>'numero',"id"=>'numero',"value"=>$contabilidad['numero'],'type'=>'text','placeholder'=>'numero')); ?></td>
+      <td>fecha contabilidad:</td>
+      <td><?php echo form_input( array("name"=>'fechacontabilidad',"id"=>'fechacontabilidad',"value"=>$contabilidad['fechacontabilidad'],'type'=>'date','placeholder'=>'fechacontabilidad')); ?></td>
   </tr>
 
-
 <tr>
-<td> Estado del contabilidad:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($contabilidad_estados as $row){
-	$options[$row->idcontabilidad_estado]= $row->nombre;
-}
+      <td>VAlor:</td>
+      <td><?php echo form_input( array("name"=>'valor',"id"=>'valor',"value"=>$contabilidad['valor'],'type'=>'text','placeholder'=>'fechacontabilidad')); ?></td>
+  </tr>
 
- echo form_dropdown("idcontabilidad_estado",$options, $contabilidad['idcontabilidad_estado']);  ?></td>
-</tr>
 
 
  <tr>
