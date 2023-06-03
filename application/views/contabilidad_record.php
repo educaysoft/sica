@@ -46,7 +46,7 @@ foreach ($beneficiarios as $row){
 	$options[$row->idbeneficiario]= $row->elbeneficiario;
 }
 
-echo form_input('idbeneficiario',$options[$contabilidad['idbeneficiario']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idbeneficiario',$options[$contabilidad['idbeneficiario']],array("disabled"=>"disabled",'style'=> 'width:500px;')) ?></td>
   </tr>
 
 
@@ -71,7 +71,7 @@ foreach ($pagadores as $row){
 	$options[$row->idpagador]= $row->elpagador;
 }
 
-echo form_input('idpagador',$options[$contabilidad['idpagador']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idpagador',$options[$contabilidad['idpagador']],array("disabled"=>"disabled",'style'=> 'width:500px;')) ?></td>
   </tr>
 
 
