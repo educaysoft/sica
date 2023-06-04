@@ -42,8 +42,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>IDcontabilidad</th>
- <th>La Persona</th>
- <th>El contabilidadma</th>
+ <th>beneficiario</th>
+ <th>pagador</th>
+ <th>datalle</th>
+ <th>fecha</th>
+ <th>valor</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>

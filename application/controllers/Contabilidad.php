@@ -152,7 +152,7 @@ function contabilidad_data()
 	 	$data0 = $this->contabilidad_model->lista_contabilidadsA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idcontabilidad,$r->labeneficiario,$r->numero,
+			$data[]=array($r->idcontabilidad,$r->elbeneficiario,$r->elpagador,$r->detalle,$r->fechacontabilidad,$r->valor,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcontabilidad="'.$r->idcontabilidad.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
