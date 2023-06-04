@@ -1,49 +1,41 @@
 <?php
-class Correo_model extends CI_model {
+class Sexo_model extends CI_model {
 
-	function lista_correos(){
-		 $correo= $this->db->get('correo');
-		 return $correo;
+	function lista_sexos(){
+		 $sexo= $this->db->get('sexo');
+		 return $sexo;
+	}
+
+	function lista_sexosA(){
+		 $sexo= $this->db->get('sexo1');
+		 return $sexo;
 	}
 
 
-	function lista_correosA(){
-		 $correo= $this->db->get('correo1');
-		 return $correo;
-	}
 
 
-
- 	function correo( $id){
- 		$correo = $this->db->query('select * from correo where idcorreo="'. $id.'"');
- 		return $correo;
+ 	function sexo( $id){
+ 		$sexo = $this->db->query('select * from sexo where idsexo="'. $id.'"');
+ 		return $sexo;
  	}
-
-
- 	function correospersona( $id){
- 		$correo = $this->db->query('select * from correo where idpersona="'. $id.'"');
- 		return $correo;
- 	}
-
-
 
  	function save($array)
  	{
-		$this->db->insert("correo", $array);
+		$this->db->insert("sexo", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idcorreo',$id);
- 		$this->db->update('correo',$array_item);
+ 		$this->db->where('idsexo',$id);
+ 		$this->db->update('sexo',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idcorreo',$id);
-		$this->db->delete('correo');
+ 		$this->db->where('idsexo',$id);
+		$this->db->delete('sexo');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -54,7 +46,7 @@ class Correo_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idcorreo")->get('correo');
+		$query=$this->db->order_by("idsexo")->get('sexo');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -67,7 +59,7 @@ class Correo_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idcorreo")->get('correo');
+		$query=$this->db->order_by("idsexo")->get('sexo');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -79,38 +71,40 @@ class Correo_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$correo = $this->db->select("idcorreo")->order_by("idcorreo")->get('correo')->result_array();
-		$arr=array("idcorreo"=>$id);
-		$clave=array_search($arr,$correo);
-	   if(array_key_exists($clave+1,$correo))
+ 		$sexo = $this->db->select("idsexo")->order_by("idsexo")->get('sexo')->result_array();
+		$arr=array("idsexo"=>$id);
+		$clave=array_search($arr,$sexo);
+	   if(array_key_exists($clave+1,$sexo))
 		 {
 
- 		$correo = $this->db->query('select * from correo where idcorreo="'. $correo[$clave+1]["idcorreo"].'"');
+ 		$sexo = $this->db->query('select * from sexo where idsexo="'. $sexo[$clave+1]["idsexo"].'"');
 		 }else{
 
- 		$correo = $this->db->query('select * from correo where idcorreo="'. $id.'"');
+ 		$sexo = $this->db->query('select * from sexo where idsexo="'. $id.'"');
 		 }
 		 	
- 		return $correo;
+ 		return $sexo;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$correo = $this->db->select("idcorreo")->order_by("idcorreo")->get('correo')->result_array();
-		$arr=array("idcorreo"=>$id);
-		$clave=array_search($arr,$correo);
-	   if(array_key_exists($clave-1,$correo))
+ 		$sexo = $this->db->select("idsexo")->order_by("idsexo")->get('sexo')->result_array();
+		$arr=array("idsexo"=>$id);
+		$clave=array_search($arr,$sexo);
+	   if(array_key_exists($clave-1,$sexo))
 		 {
 
- 		$correo = $this->db->query('select * from correo where idcorreo="'. $correo[$clave-1]["idcorreo"].'"');
+ 		$sexo = $this->db->query('select * from sexo where idsexo="'. $sexo[$clave-1]["idsexo"].'"');
 		 }else{
 
- 		$correo = $this->db->query('select * from correo where idcorreo="'. $id.'"');
+ 		$sexo = $this->db->query('select * from sexo where idsexo="'. $id.'"');
 		 }
 		 	
- 		return $correo;
+ 		return $sexo;
  	}
+
+
 
 
 
