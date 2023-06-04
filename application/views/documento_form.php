@@ -212,6 +212,7 @@ function uploadFiles(url1) {
     var asunto =  document.getElementById('asunto').value;
     var descripcion =  document.getElementById('descripcion').value;
     var fechaelaboracion = document.getElementById('fechaelaboracion').value;
+    var fechasubida = document.getElementById('fechasubida').value;
     var idordenador =  document.getElementById('idordenador').value;
     var iddirectorio = document.getElementById('iddirectorio').value;
     var idddocumento_estado = 1;
@@ -223,6 +224,7 @@ function uploadFiles(url1) {
     formData.append("asunto", asunto);
     formData.append("descripcion", descripcion);
     formData.append("fechaelaboracion", fechaelaboracion);
+    formData.append("fechasubida", fechasubida);
     formData.append("idordenador", idordenador);
     formData.append("iddirectorio", iddirectorio);
     formData.append("iddocumento_estado", 1);
