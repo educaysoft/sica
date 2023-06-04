@@ -68,7 +68,6 @@ $options= array('--Select--');
 foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
-			'idpagador' => $this->input->post('idpagador'),
 
  echo form_dropdown("iddocumento",$options, $contabilidad['iddocumento']);  ?></td>
 </tr>
