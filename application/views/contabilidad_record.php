@@ -156,9 +156,9 @@ function verpdf(){
         success: function(data){
         var html = '';
         var i;
-	alert(data[0].idordenador);
-	var orde=data[0].idordenador;
-	var dire=data[0].iddirectorio;
+	alert(data[0].elordenador);
+	var orde=data[0].elordenador;
+	var dire=data[0].ruta;
 	var ordenador = "https://"+orde;
 	var ubicacion=dire;
 	if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
