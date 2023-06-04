@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("correo/save") ?>
-<?php echo form_hidden("idcorreo")  ?>
+<?php echo form_open("direccion/save") ?>
+<?php echo form_hidden("iddireccion")  ?>
 <table>
 
 
@@ -19,7 +19,7 @@ foreach ($personas as $row){
 
 
 <tr>
-<td> Correo: </td>
+<td> Direccion: </td>
 <td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de Unidad"))  ?></td>
 </tr>
 
@@ -28,17 +28,17 @@ foreach ($personas as $row){
 <td><?php 
 
 $options= array('--Select--');
-foreach ($correo_estados as $row){
-	$options[$row->idcorreo_estado]= $row->nombre;
+foreach ($direccion_estados as $row){
+	$options[$row->iddireccion_estado]= $row->nombre;
 }
 
- echo form_dropdown("idcorreo_estado",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("iddireccion_estado",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("correo","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("direccion","Atras") ?> </td>
 </tr>
 
 </table>

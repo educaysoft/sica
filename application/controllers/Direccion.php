@@ -4,22 +4,22 @@ class Direccion extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('correo_model');
+      $this->load->model('direccion_model');
   	  $this->load->model('persona_model');
-  	  $this->load->model('correo_estado_model');
+  	  $this->load->model('direccion_estado_model');
 }
 
 public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['correo']=$this->correo_model->lista_correos()->row_array();
+  	$data['direccion']=$this->direccion_model->lista_direccions()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
+  	$data['direccion_estados']= $this->direccion_estado_model->lista_direccion_estado()->result();
 			
-		$data['title']="Lista de correos";
+		$data['title']="Lista de direccions";
 		$this->load->view('template/page_header');
-		$this->load->view('correo_record',$data);
+		$this->load->view('direccion_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -33,12 +33,12 @@ public function index(){
 public function actual(){
  if(isset($this->session->userdata['logged_in'])){
 
-	$data['correo'] = $this->correo_model->correo($this->uri->segment(3))->row_array();
+	$data['direccion'] = $this->direccion_model->direccion($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
+  	$data['direccion_estados']= $this->direccion_estado_model->lista_direccion_estado()->result();
 	$data['title']="Modulo de Telefonos";
 	$this->load->view('template/page_header');		
-	$this->load->view('correo_record',$data);
+	$this->load->view('direccion_record',$data);
 	$this->load->view('template/page_footer');
    }else{
 	$this->load->view('template/page_header.php');
@@ -65,10 +65,10 @@ public function add()
 	}
 
 
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
+  	$data['direccion_estados']= $this->direccion_estado_model->lista_direccion_estado()->result();
 		$data['title']="Nueva Direccion";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('correo_form',$data);
+	 	$this->load->view('direccion_form',$data);
 	 	$this->load->view('template/page_footer');
 
 
@@ -79,13 +79,13 @@ public function add()
 	{
 	 	$array_item=array(
 		 	
-		 	'idcorreo' => $this->input->post('idcorreo'),
+		 	'iddireccion' => $this->input->post('iddireccion'),
 		 	'nombre' => $this->input->post('nombre'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idcorreo_estado' => $this->input->post('idcorreo_estado'),
+			'iddireccion_estado' => $this->input->post('iddireccion_estado'),
 	 	);
-	 	$this->correo_model->save($array_item);
-	 	//redirect('correo');
+	 	$this->direccion_model->save($array_item);
+	 	//redirect('direccion');
 		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
  	}
 
@@ -93,12 +93,12 @@ public function add()
 
 public function edit()
 {
-	 	$data['correo'] = $this->correo_model->correo($this->uri->segment(3))->row_array();
+	 	$data['direccion'] = $this->direccion_model->direccion($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
+  		$data['direccion_estados']= $this->direccion_estado_model->lista_direccion_estado()->result();
  	 	$data['title'] = "Actualizar Direccion";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('correo_edit',$data);
+ 	 	$this->load->view('direccion_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -106,25 +106,25 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idcorreo');
+		$id=$this->input->post('iddireccion');
 	 	$array_item=array(
 		 	
-		 	'idcorreo' => $this->input->post('idcorreo'),
+		 	'iddireccion' => $this->input->post('iddireccion'),
 		 	'nombre' => $this->input->post('nombre'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idcorreo_estado' => $this->input->post('idcorreo_estado'),
+			'iddireccion_estado' => $this->input->post('iddireccion_estado'),
 	 	);
-	 	$this->correo_model->update($id,$array_item);
-	 	//redirect('correo');
+	 	$this->direccion_model->update($id,$array_item);
+	 	//redirect('direccion');
 		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->correo_model->delete($this->uri->segment(3));
+ 		$data=$this->direccion_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('correo/elprimero');
+	 	redirect('direccion/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -134,24 +134,24 @@ public function listar()
 	
   $data['title']="Direccions";
 	$this->load->view('template/page_header');		
-  $this->load->view('correo_list',$data);
+  $this->load->view('direccion_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function correo_data()
+function direccion_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->correo_model->lista_correosA();
+	 	$data0 = $this->direccion_model->lista_direccionsA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idcorreo,$r->lapersona,$r->elcorreo,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('correo/actual').'"  data-idcorreo="'.$r->idcorreo.'">Ver</a>');
+			$data[]=array($r->iddireccion,$r->lapersona,$r->eldireccion,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('direccion/actual').'"  data-iddireccion="'.$r->iddireccion.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -174,14 +174,14 @@ function correo_data()
 
 public function elprimero()
 {
-	$data['correo'] = $this->correo_model->elprimero();
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
+	$data['direccion'] = $this->direccion_model->elprimero();
+  	$data['direccion_estados']= $this->direccion_estado_model->lista_direccion_estado()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Direccion";
     $this->load->view('template/page_header');		
-    $this->load->view('correo_record',$data);
+    $this->load->view('direccion_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -192,15 +192,15 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['correo'] = $this->correo_model->elultimo();
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
+	$data['direccion'] = $this->direccion_model->elultimo();
+  	$data['direccion_estados']= $this->direccion_estado_model->lista_direccion_estado()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Direccion";
   
     $this->load->view('template/page_header');		
-    $this->load->view('correo_record',$data);
+    $this->load->view('direccion_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -211,24 +211,24 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['correo_list']=$this->correo_model->lista_correo()->result();
-	$data['correo'] = $this->correo_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['direccion_list']=$this->direccion_model->lista_direccion()->result();
+	$data['direccion'] = $this->direccion_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
+  	$data['direccion_estados']= $this->direccion_estado_model->lista_direccion_estado()->result();
   $data['title']="Direccion";
 	$this->load->view('template/page_header');		
-  $this->load->view('correo_record',$data);
+  $this->load->view('direccion_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['correo_list']=$this->correo_model->lista_correo()->result();
-	$data['correo'] = $this->correo_model->anterior($this->uri->segment(3))->row_array();
+ // $data['direccion_list']=$this->direccion_model->lista_direccion()->result();
+	$data['direccion'] = $this->direccion_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
+  	$data['direccion_estados']= $this->direccion_estado_model->lista_direccion_estado()->result();
   $data['title']="Direccion";
 	$this->load->view('template/page_header');		
-  $this->load->view('correo_record',$data);
+  $this->load->view('direccion_record',$data);
 	$this->load->view('template/page_footer');
 }
 
