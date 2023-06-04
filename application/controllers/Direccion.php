@@ -65,7 +65,7 @@ public function add()
 	}
 
 
-  	$data['codigopostals']= $this->codigopostal_model->lista_codigopostal()->result();
+  	$data['codigopostals']= $this->codigopostal_model->lista_codigopostales()->result();
 		$data['title']="Nueva Direccion";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('direccion_form',$data);
