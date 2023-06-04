@@ -31,62 +31,92 @@ if(isset($contabilidad))
 
 <?php echo form_open('contabilidad/save_edit') ?>
 <?php echo form_hidden('idcontabilidad',$contabilidad['idcontabilidad']) ?>
-<table>
-  <tr>
-     <td>Id contabilidad:</td>
-     <td><?php echo form_input('idcontabilidad',$contabilidad['idcontabilidad'],array("disabled"=>"disabled",'placeholder'=>'Idcontabilidads')) ?></td>
-  </tr>
- 
- 
-<tr>
-     <td>Beneficiario:</td>
-     <td><?php 
+
+
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">Id Contabilidad:</label>
+	<div class="col-md-10">
+		<?php
+echo form_input('idcontabilidad',$contabilidad['idcontabilidad'],array("disabled"=>"disabled",'placeholder'=>'Idcontabilidads'));
+		?>
+	</div>
+</div>
+
+
+
+
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">Beneficiario:</label>
+	<div class="col-md-10">
+		<?php
 $options= array("NADA");
 foreach ($beneficiarios as $row){
 	$options[$row->idbeneficiario]= $row->elbeneficiario;
 }
 
-echo form_input('idbeneficiario',$options[$contabilidad['idbeneficiario']],array("disabled"=>"disabled",'style'=> 'width:500px;')) ?></td>
-  </tr>
+echo form_input('idbeneficiario',$options[$contabilidad['idbeneficiario']],array("disabled"=>"disabled",'style'=> 'width:500px;'));
 
 
-<tr>
-     <td>Fecha:</td>
-     <td><?php echo form_input('fechacontabilidad',$contabilidad['fechacontabilidad'],array("disabled"=>"disabled",'placeholder'=>'Numero')) ?></td>
-  </tr>
+		?>
+	</div>
+</div>
 
+
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">Fecha:</label>
+	<div class="col-md-10">
+		<?php
+	echo form_input('fechacontabilidad',$contabilidad['fechacontabilidad'],array("disabled"=>"disabled",'placeholder'=>'Numero'));
+		?>
+	</div>
+</div>
+
+
+
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">Valor:</label>
+	<div class="col-md-10">
+		<?php
  
-  <tr>
-     <td>Valor:</td>
-     <td><?php echo form_input('valor',$contabilidad['valor'],array("disabled"=>"disabled",'placeholder'=>'Numero')) ?></td>
-  </tr>
+     echo form_input('valor',$contabilidad['valor'],array("disabled"=>"disabled",'placeholder'=>'Numero'));
+
+		?>
+	</div>
+</div>
+
 
 
   
-<tr>
-     <td>Pagador:</td>
-     <td><?php 
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">Pagador:</label>
+	<div class="col-md-10">
+		<?php
 $options= array("NADA");
 foreach ($pagadores as $row){
 	$options[$row->idpagador]= $row->elpagador;
 }
 
-echo form_input('idpagador',$options[$contabilidad['idpagador']],array("disabled"=>"disabled",'style'=> 'width:500px;')) ?></td>
-  </tr>
+echo form_input('idpagador',$options[$contabilidad['idpagador']],array("disabled"=>"disabled",'style'=> 'width:500px;'));
+		?>
+	</div>
+</div>
 
 
 
-
-
-<tr>
-     <td>Detalle:</td>
-<td>
-<?php
+<div class="form-group row">
+	<label class="col-md-2 col-form-label">Detalle:</label>
+	<div class="col-md-10">
+		<?php
 $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
  echo form_textarea('detalle',$contabilidad['detalle'],$textarea_options); 
 
-?></td>
-  </tr>
+		?>
+	</div>
+</div>
 
 
 
@@ -107,7 +137,6 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 
 
 
-</table>
 <?php echo form_close(); ?>
 
 
