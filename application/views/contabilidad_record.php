@@ -121,7 +121,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 
 
 <div class="form-group row">
-	<label class="col-md-2 col-form-label">Documento:</label>
+	<label class="col-md-2 col-form-label"> <a onclick='verpdf()'>Documento:</a></label>
 	<div class="col-md-10">
 		<?php
 		$options= array("NADA");
@@ -138,6 +138,61 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 
 
 <?php echo form_close(); ?>
+
+
+
+
+		<script>
+
+
+function verpdf(){
+
+	var iddocumento =<?php $contabilidad["iddocumento"]; ?>;
+    $.ajax({
+        url: "<?php echo site_url('documento/get_documentoA') ?>",
+        data: {iddocumento: iddocumento},
+        method: 'POST',
+	async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+
+	var orde=data[0].idordenador;
+	var dire=data[0].iddirectorio;
+	var ordenador = "https://"+orde;
+	var ubicacion=dire;
+	if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+        	ubicacion = ordenador+"/"+ubicacion;
+	}else{
+		ubicacion = ordenador+ubicacion;
+	}
+	var archi=data[0].archivopdf;
+	var archivo =archi;
+	var certi= ubicacion.trim()+archivo.trim();
+	window.location.href = certi;
+
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+
+
+
+
+
+
+
+}
+
+
+
+</script>
 
 
 
