@@ -29,7 +29,7 @@ if(isset($contabilidad))
 <br>
 
 
-<?php echo form_open('contabilidad/save_edit') ?>
+<?php echo form_open() ?>
 <?php echo form_hidden('idcontabilidad',$contabilidad['idcontabilidad']) ?>
 
 
