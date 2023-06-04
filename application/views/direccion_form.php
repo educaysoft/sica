@@ -24,15 +24,15 @@ foreach ($personas as $row){
 </tr>
 
 <tr>
-<td> Estado: </td>
+<td> Código postal: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($direccion_estados as $row){
-	$options[$row->iddireccion_estado]= $row->nombre;
+foreach ($codigopostals as $row){
+	$options[$row->idcodigopostal]= $row->nombre;
 }
 
- echo form_dropdown("iddireccion_estado",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idcodigopostal",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
