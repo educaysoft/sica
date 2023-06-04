@@ -40,6 +40,7 @@ public function actual(){
  if(isset($this->session->userdata['logged_in'])){
 
 	$data['contabilidad'] = $this->contabilidad_model->contabilidad($this->uri->segment(3))->row_array();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios()->result();
   	$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
 	$data['title']="Modulo de Contabilidads";
@@ -173,6 +174,7 @@ function contabilidad_data()
 public function elprimero()
 {
 	$data['contabilidad'] = $this->contabilidad_model->elprimero();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
   	$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios()->result();
@@ -191,6 +193,7 @@ public function elprimero()
 public function elultimo()
 {
 	$data['contabilidad'] = $this->contabilidad_model->elultimo();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
   	$data['beneficiarios']= $this->beneficiario_model->listar_beneficiarios1()->result();
@@ -211,6 +214,7 @@ public function elultimo()
 public function siguiente(){
  // $data['contabilidad_list']=$this->contabilidad_model->lista_contabilidad()->result();
 	$data['contabilidad'] = $this->contabilidad_model->siguiente($this->uri->segment(3))->row_array();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['beneficiarios']= $this->beneficiario_model->listar_beneficiarios1()->result();
   	$data['pagadores']= $this->pagador_model->listar_pagadores1()->result();
   $data['title']="Contabilidad";
@@ -222,6 +226,7 @@ public function siguiente(){
 public function anterior(){
  // $data['contabilidad_list']=$this->contabilidad_model->lista_contabilidad()->result();
 	$data['contabilidad'] = $this->contabilidad_model->anterior($this->uri->segment(3))->row_array();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	$data['beneficiarios']= $this->beneficiario_model->listar_beneficiarios1()->result();
   	$data['pagadores']= $this->pagador_model->listar_pagadores1()->result();
   	$data['title']="Contabilidad";
