@@ -145,7 +145,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 
 function verpdf(){
 	alert("hola");
-	var iddocumento =<?php $contabilidad["iddocumento"]; ?>;
+	var iddocumento =<?php echo $contabilidad["iddocumento"]; ?>;
     $.ajax({
         url: "<?php echo site_url('documento/get_documentoA') ?>",
         data: {iddocumento: iddocumento},
