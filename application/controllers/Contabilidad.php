@@ -40,7 +40,7 @@ public function actual(){
  if(isset($this->session->userdata['logged_in'])){
 
 	$data['contabilidad'] = $this->contabilidad_model->contabilidad($this->uri->segment(3))->row_array();
-		$data['documentos']= $this->documento_model->lista_documentos()->result();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['beneficiarios']= $this->beneficiario_model->lista_beneficiarios()->result();
   	$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
 	$data['title']="Modulo de Contabilidads";
@@ -114,6 +114,7 @@ public function edit()
 		 	'detalle' => $this->input->post('detalle'),
 			'idbeneficiario' => $this->input->post('idbeneficiario'),
 			'idpagador' => $this->input->post('idpagador'),
+			'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$this->contabilidad_model->update($id,$array_item);
 	 	//redirect('contabilidad');
