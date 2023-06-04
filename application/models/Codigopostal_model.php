@@ -1,7 +1,7 @@
 <?php
 class Codigopostal_model extends CI_model {
 
-	function lista_codigopostals(){
+	function lista_codigopostales(){
 		 $codigopostal= $this->db->get('codigopostal');
 		 return $codigopostal;
 	}
