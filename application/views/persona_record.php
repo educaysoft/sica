@@ -127,6 +127,20 @@ if(isset($persona))
 	</div> 
 </div>
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('direccion/add/'.$persona['idpersona'], 'Dirección:'); ?>:</label>
+	<div class="col-md-10">
+	<?php
+ 	$options = array();
+  	foreach ($direccions as $row){
+		$options[$row->iddireccion]=$row->nombre;
+	}
+ 	echo form_multiselect('direccion[]',$options,(array)set_value('iddireccion', ''), array('style'=>'width:500px')); 
+	?>
+	</div> 
+</div>
+
+
 
 
 <div class="form-group row">
