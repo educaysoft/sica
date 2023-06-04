@@ -29,7 +29,6 @@ if(isset($contabilidad))
 <br>
 
 
-<?php echo form_open() ?>
 <?php echo form_hidden('idcontabilidad',$contabilidad['idcontabilidad']) ?>
 
 
@@ -137,7 +136,6 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 
 
 
-<?php echo form_close(); ?>
 
 
 
