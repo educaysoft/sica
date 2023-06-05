@@ -162,7 +162,7 @@ if(isset($asignatura))
 	<?php
  	$options = array();
   	foreach ($horasasignaturas as $row){
-		$options[$row->idhorasasignatura]=$row->descripcion." (".$row->cantidad.")";
+		$options[$row->idhorasasignatura]=$row->tipo." (".$row->titulo.")";
 	}
  echo form_multiselect('horasasignatura[]',$options,(array)set_value('idhorasasignatura', ''), array('style'=>'width:500px')); 
 
