@@ -13,10 +13,18 @@ class Asignatura_model extends CI_model {
 	}
 
 
-
-
  	function asignatura( $id){
  		$asignatura = $this->db->query('select * from asignatura where idasignatura="'. $id.'"');
+ 		return $asignatura;
+ 	}
+
+
+
+
+
+
+ 	function asignaturas1( $id){
+ 		$asignatura = $this->db->query('select * from asignatura1 where idasignatura="'. $id.'"');
  		return $asignatura;
  	}
 

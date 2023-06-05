@@ -13,9 +13,9 @@ public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['horasasignatura']=$this->horasasignatura_model->lista_horasasignaturas()->row_array();
-  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
-  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignaturas()->result();
+  		$data['horasasignatura']=$this->horasasignatura_model->lista_horasasignaturas()->row_array();
+  		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  		$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignaturas()->result();
 			
 		$data['title']="Lista de horasasignaturas";
 		$this->load->view('template/page_header');
@@ -57,7 +57,7 @@ public function add()
 
 	if($this->uri->segment(3))
 	{
-		$data['asignaturas']= $this->asignatura_model->asignatura($this->uri->segment(3))->result();
+		$data['asignaturas']= $this->asignatura_model->asignaturas1($this->uri->segment(3))->result();
 
 	}else{
 
