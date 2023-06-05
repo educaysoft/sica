@@ -21,7 +21,7 @@ foreach ($asignaturas as $row){
 
 
 <tr>
-<td> Tipo de horas: </td>
+<td> Tipo de referencias: </td>
 <td><?php 
 
 $options= array('--Select--');
@@ -34,9 +34,15 @@ foreach ($tiporeferenciasasignaturas as $row){
 </tr>
 
 <tr>
-<td> Cantidad de horas: </td>
-<td><?php echo form_input("cantidad","", array("placeholder"=>"Cantidad de horas(float)"))  ?></td>
+<td> Titulo de la referencias: </td>
+<td><?php echo form_input("titulo","", array("placeholder"=>"Titulo de la referencia"))  ?></td>
 </tr>
+
+<tr>
+<td> url de la referencias: </td>
+<td><?php echo form_input("url","", array("placeholder"=>"direccion web de la referencia"))  ?></td>
+</tr>
+
 
 <tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("referenciasasignatura","Atras") ?> </td>
