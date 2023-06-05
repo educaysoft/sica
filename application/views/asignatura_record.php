@@ -162,7 +162,7 @@ if(isset($asignatura))
 	<?php
  	$options = array();
   	foreach ($horasasignaturas as $row){
-		$options[$row->idhorasasignatura]=$row->tipo." (".$row->titulo.")";
+		$options[$row->idhorasasignatura]=$row->descripcion." (".$row->cantidad.")";
 	}
  echo form_multiselect('horasasignatura[]',$options,(array)set_value('idhorasasignatura', ''), array('style'=>'width:500px')); 
 
@@ -177,7 +177,7 @@ if(isset($asignatura))
 	<?php
  	$options = array();
   	foreach ($referenciasasignaturas as $row){
-		$options[$row->idreferenciasasignatura]=$row->descripcion." (".$row->cantidad.")";
+		$options[$row->idreferenciasasignatura]=$row->tipo." (".$row->titulo.")";
 	}
  echo form_multiselect('referenciasasignatura[]',$options,(array)set_value('idreferenciasasignatura', ''), array('style'=>'width:500px')); 
 
