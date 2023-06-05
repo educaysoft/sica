@@ -171,7 +171,19 @@ if(isset($asignatura))
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('referenciasasignatura/add/'.$asignatura['idasignatura'], 'Referencias:'); ?>:</label>
+	<div class="col-md-10">
+	<?php
+ 	$options = array();
+  	foreach ($referenciasasignaturas as $row){
+		$options[$row->idreferenciasasignatura]=$row->descripcion." (".$row->cantidad.")";
+	}
+ echo form_multiselect('referenciasasignatura[]',$options,(array)set_value('idreferenciasasignatura', ''), array('style'=>'width:500px')); 
 
+	?>
+	</div> 
+</div>
 
 
 

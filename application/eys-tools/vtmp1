@@ -1,67 +1,58 @@
 <div id="eys-nav-i">
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	<ul>
+<?php
+if(isset($tipohorasasignatura))
+{
+?>
+        <li> <?php echo anchor('tipohorasasignatura/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('tipohorasasignatura/siguiente/'.$tipohorasasignatura['idtipohorasasignatura'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('tipohorasasignatura/anterior/'.$tipohorasasignatura['idtipohorasasignatura'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('tipohorasasignatura/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('tipohorasasignatura/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('tipohorasasignatura/edit/'.$tipohorasasignatura['idtipohorasasignatura'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('tipohorasasignatura/delete/'.$tipohorasasignatura['idtipohorasasignatura'],'Delete'); ?></li>
+        <li> <?php echo anchor('tipohorasasignatura/listar/','Listar'); ?></li>
 
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-<?php echo form_open('sexo/save_edit') ?>
-    <ul>
-        <li> <?php echo anchor('sexo/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('sexo/anterior/'.$sexo['idsexo'], 'anterior'); ?></li>
-        <li> <?php echo anchor('sexo/siguiente/'.$sexo['idsexo'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('sexo/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('sexo/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('sexo/edit/'.$sexo['idsexo'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('sexo/delete/'.$sexo['idsexo'],'Delete'); ?></li>
-        <li> <?php echo anchor('sexo/listar/','Listar'); ?></li>
+<?php 
+}else{
+?>
 
+        <li> <?php echo anchor('tipohorasasignatura/add', 'Nuevo'); ?></li>
+<?php
+}
+?>
     </ul>
 </div>
 <br>
+<br>
 
 
-<?php echo form_hidden('idsexo',$sexo['idsexo']) ?>
-<table>
+<?php echo form_open('tipohorasasignatura/save_edit') ?>
+<?php echo form_hidden('idtipohorasasignatura',$tipohorasasignatura['idtipohorasasignatura']) ?>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id:</label>
+	<div class="col-md-10">
+     <?php
+	echo form_input('idtipohorasasignatura',$tipohorasasignatura['idtipohorasasignatura'],array("disabled"=>"disabled",'placeholder'=>'Idtipohorasasignaturas'));
+	?>
+	</div> 
+</div> 
  
- 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+     <?php
+       echo form_input('nombre',$tipohorasasignatura['nombre'],array('placeholder'=>'Nombre del tipohorasasignatura')); 
 
-
-  <tr>
-     <td>Id Tipo Doc:</td>
-     <td><?php echo form_input('idsexo',$sexo['idsexo'],array("disabled"=>"disabled",'placeholder'=>'Idsexos')) ?></td>
-  </tr>
- 
- 
- 
-  <tr>
-     <td>Descripción:</td>
-     <td><?php echo form_input('nombre',$sexo['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?></td>
-  </tr>
-
-
-  
-
-
-
-
-
-
-
-
-</table>
+	?>
+	</div> 
+</div> 
+   
+   
 <?php echo form_close(); ?>
 
 
 
-
-
-</body>
-
-
-
-
-
-
-
-
-
-</html>
