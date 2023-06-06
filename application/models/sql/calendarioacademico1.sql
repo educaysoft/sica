@@ -1,7 +1,8 @@
 
 use educayso_facae;
-create view calendarioacademico1 as select calendarioacademico.idcalendarioacademico,calendarioacademico.nombre,calendarioacademico.fechadesde,calendarioacademico.fechahasta,calendarioacademico.idperiodoacademico,calendarioacademico.iddepartamento,concat(departamento.iniciales," - ",periodoacademico.nombrecorto) as elcalendarioacademico from calendarioacademico, periodoacademico,departamento where calendarioacademico.idperiodoacademico=periodoacademico.idperiodoacademico and calendarioacademico.iddepartamento=departamento.iddepartamento 
+drop view calendarioacademico1;
+create view calendarioacademico1 as select calendarioacademico.idcalendarioacademico,calendarioacademico.nombre,calendarioacademico.fechadesde,calendarioacademico.fechahasta,calendarioacademico.idperiodoacademico,calendarioacademico.idinstitucion,concat(institucion.iniciales," - ",periodoacademico.nombrecorto) as elcalendarioacademico from calendarioacademico, periodoacademico,institucion where calendarioacademico.idperiodoacademico=periodoacademico.idperiodoacademico and calendarioacademico.idinstitucion=institucion.idinstitucion 
 
 UNION
 
-select calendarioacademico.idcalendarioacademico,calendarioacademico.nombre,calendarioacademico.fechadesde,calendarioacademico.fechahasta,calendarioacademico.idperiodoacademico,calendarioacademico.iddepartamento,concat(" - ",periodoacademico.nombrecorto) as elcalendarioacademico from calendarioacademico, periodoacademico where calendarioacademico.idperiodoacademico=periodoacademico.idperiodoacademico and calendarioacademico.iddepartamento=0 ;
+select calendarioacademico.idcalendarioacademico,calendarioacademico.nombre,calendarioacademico.fechadesde,calendarioacademico.fechahasta,calendarioacademico.idperiodoacademico,calendarioacademico.idinstitucion,concat(" - ",periodoacademico.nombrecorto) as elcalendarioacademico from calendarioacademico, periodoacademico where calendarioacademico.idperiodoacademico=periodoacademico.idperiodoacademico and calendarioacademico.idinstitucion=0 ;

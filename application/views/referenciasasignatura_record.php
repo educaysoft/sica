@@ -51,7 +51,7 @@ echo form_input('idasignatura',$options[$referenciasasignatura['idasignatura']],
  
  
 <tr>
-     <td>Tipo de horas:</td>
+     <td>Tipo de referencias:</td>
      <td><?php 
 $options= array("NADA");
 foreach ($tiporeferenciasasignaturas as $row){
@@ -64,8 +64,8 @@ echo form_input('idtiporeferenciasasignatura',$options[$referenciasasignatura['i
 
  
   <tr>
-     <td>Cantidad de horas:</td>
-     <td><?php echo form_input('cantidad',$referenciasasignatura['cantidad'],array("disabled"=>"disabled",'placeholder'=>'Cantidad','style'=>'width:500px')) ?></td>
+     <td>Dirección url:</td>
+     <td><?php echo form_input('url',$referenciasasignatura['url'],array("disabled"=>"disabled",'placeholder'=>'Direccion web','style'=>'width:500px')) ?></td>
   </tr>
 
 
