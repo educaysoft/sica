@@ -49,7 +49,7 @@ if(isset($calendarioacademico))
 	<div class="col-md-10">
 	<?php
 	$options= array("NADA");
-	foreach ($institucions as $row){
+	foreach ($instituciones as $row){
 		$options[$row->idinstitucion]= $row->nombre;
 	}
 	echo form_input('',$options[$calendarioacademico['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;'));
