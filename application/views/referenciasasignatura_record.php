@@ -78,7 +78,7 @@ echo form_input('idtiporeferenciasasignatura',$options[$referenciasasignatura['i
 
  
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Dirección web:</label>
+<label class="col-md-2 col-form-label"><a href="<?php echo $referenciasasignatura['url']; ?>"> Dirección web:</a></label>
 	<div class="col-md-10">
 		<?php
 
