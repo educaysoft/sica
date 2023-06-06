@@ -7,7 +7,7 @@ class Calendarioacademico extends CI_Controller{
       $this->load->model('calendarioacademico_model');
       $this->load->model('fechacalendario_model');
       $this->load->model('periodoacademico_model');
-      $this->load->model('departamento_model');
+      $this->load->model('institucion_model');
 }
 
 //=========================================================
@@ -18,7 +18,7 @@ class Calendarioacademico extends CI_Controller{
 		if(isset($this->session->userdata['logged_in'])){
 			$data['calendarioacademico']=$this->calendarioacademico_model->elultimo();
 			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
-  			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  			$data['institucions']= $this->institucion_model->lista_institucions()->result();
 			$data['title']="Lista de calendarioacademicos";
 			$this->load->view('template/page_header');
 			$this->load->view('calendarioacademico_record',$data);
@@ -35,7 +35,7 @@ class Calendarioacademico extends CI_Controller{
 	{
 			$data['title']="Nueva calendarioacademico";
 			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
-  			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  			$data['institucions']= $this->institucion_model->lista_institucions()->result();
 			$this->load->view('template/page_header');		
 			$this->load->view('calendarioacademico_form',$data);
 			$this->load->view('template/page_footer');
@@ -45,7 +45,7 @@ class Calendarioacademico extends CI_Controller{
 	public function  save()
 	{
 	 	$array_item=array(
-		'iddepartamento' => $this->input->post('iddepartamento'),
+		'idinstitucion' => $this->input->post('idinstitucion'),
 	 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	'fechadesde' => $this->input->post('fechadesde'),
@@ -60,7 +60,7 @@ class Calendarioacademico extends CI_Controller{
 	public function edit()
 	{
 			$data['calendarioacademico'] = $this->calendarioacademico_model->calendarioacademico($this->uri->segment(3))->row_array();
-  			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  			$data['institucions']= $this->institucion_model->lista_institucions()->result();
 			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
 			$data['title'] = "Actualizar calendarioacademico";
 			$this->load->view('template/page_header');		
@@ -77,7 +77,7 @@ class Calendarioacademico extends CI_Controller{
 		 	
 		 	'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
 	 		'idperiodoacademico' => $this->input->post('idperiodoacademico'),
-		 	'iddepartamento' => $this->input->post('iddepartamento'),
+		 	'idinstitucion' => $this->input->post('idinstitucion'),
 	 		'nombre' => $this->input->post('nombre'),
 	 		'fechadesde' => $this->input->post('fechadesde'),
 	 		'fechahasta' => $this->input->post('fechahasta'),
@@ -128,7 +128,7 @@ function calendarioacademico_data()
 	 	$data0 = $this->calendarioacademico_model->lista_calendarioacademicos1(0);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idcalendarioacademico,$r->iddepartamento,$r->idperiodoacademico,$r->elcalendarioacademico,
+			$data[]=array($r->idcalendarioacademico,$r->idinstitucion,$r->idperiodoacademico,$r->elcalendarioacademico,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('calendarioacademico/actual').'"    data-idcalendarioacademico="'.$r->idcalendarioacademico.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -210,7 +210,7 @@ public function iniciar()
 public function actual()
 {
 	$data['calendarioacademico'] = $this->calendarioacademico_model->calendarioacademico($this->uri->segment(3))->row_array();
-	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['institucions']= $this->institucion_model->lista_institucions()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
@@ -231,7 +231,7 @@ public function actual()
 public function elprimero()
 {
 	$data['calendarioacademico'] = $this->calendarioacademico_model->elprimero();
-	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['institucions']= $this->institucion_model->lista_institucions()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
@@ -249,7 +249,7 @@ public function elprimero()
 public function elultimo()
 {
 		$data['calendarioacademico'] = $this->calendarioacademico_model->elultimo();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['institucions']= $this->institucion_model->lista_institucions()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
   if(!empty($data))
   {
@@ -269,7 +269,7 @@ public function elultimo()
 public function siguiente(){
  // $data['calendarioacademico_list']=$this->calendarioacademico_model->lista_calendarioacademico()->result();
 	$data['calendarioacademico'] = $this->calendarioacademico_model->siguiente($this->uri->segment(3))->row_array();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['institucions']= $this->institucion_model->lista_institucions()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['title']="Calendarioacademico";
 	$this->load->view('template/page_header');		
@@ -280,7 +280,7 @@ public function siguiente(){
 public function anterior(){
  // $data['calendarioacademico_list']=$this->calendarioacademico_model->lista_calendarioacademico()->result();
 	$data['calendarioacademico'] = $this->calendarioacademico_model->anterior($this->uri->segment(3))->row_array();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['institucions']= $this->institucion_model->lista_institucions()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['title']="Calendarioacademico";
 	$this->load->view('template/page_header');		

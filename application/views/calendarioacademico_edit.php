@@ -12,11 +12,11 @@
 		<?php
 
 $options= array('--Select--');
-foreach ($departamentos as $row){
-	$options[$row->iddepartamento]= $row->nombre;
+foreach ($institucions as $row){
+	$options[$row->idinstitucion]= $row->nombre;
 }
 
- echo form_dropdown("iddepartamento",$options, $calendarioacademico['iddepartamento']);  
+ echo form_dropdown("idinstitucion",$options, $calendarioacademico['idinstitucion']);  
 		?>
 	</div> 
 </div>

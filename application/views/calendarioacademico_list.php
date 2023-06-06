@@ -63,7 +63,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>idcalendarioacademico</th>
- <th>iddepartamento</th>
+ <th>idinstitucion</th>
  <th>idperiodoacademico</th>
  <th>calendarioacademico</th>
  <th style="text-align: right;">Actions</th>

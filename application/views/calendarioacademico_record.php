@@ -45,14 +45,14 @@ if(isset($calendarioacademico))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"><?php echo anchor('departamento/actual/'.$calendarioacademico['iddepartamento'], 'Departamento'); ?>:</label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('institucion/actual/'.$calendarioacademico['idinstitucion'], 'Institución'); ?>:</label>
 	<div class="col-md-10">
 	<?php
 	$options= array("NADA");
-	foreach ($departamentos as $row){
-		$options[$row->iddepartamento]= $row->nombre;
+	foreach ($institucions as $row){
+		$options[$row->idinstitucion]= $row->nombre;
 	}
-	echo form_input('',$options[$calendarioacademico['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+	echo form_input('',$options[$calendarioacademico['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 	?>
 	</div> 
 </div>
