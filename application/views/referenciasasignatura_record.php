@@ -31,54 +31,68 @@ if(isset($referenciasasignatura))
 
 <?php echo form_open('referenciasasignatura/save_edit') ?>
 <?php echo form_hidden('idreferenciasasignatura',$referenciasasignatura['idreferenciasasignatura']) ?>
-<table>
-  <tr>
-     <td>Id Referenciasasignatura:</td>
-     <td><?php echo form_input('idreferenciasasignatura',$referenciasasignatura['idreferenciasasignatura'],array("disabled"=>"disabled",'placeholder'=>'Idreferenciasasignaturas')) ?></td>
-  </tr>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Id Referenciasasigantura:</label>
+	<div class="col-md-10">
+     <?php 
+
+     echo form_input('idreferenciasasignatura',$referenciasasignatura['idreferenciasasignatura'],array("disabled"=>"disabled",'placeholder'=>'Idreferenciasasignaturas'));
+		?>
+	</div> 
+</div>
  
- 
-<tr>
-     <td>Asignatura:</td>
-     <td><?php 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Asignatura:</label>
+	<div class="col-md-10">
+     <?php 
 $options= array("NADA");
 foreach ($asignaturas as $row){
 	$options[$row->idasignatura]= $row->nombre;
 }
 
-echo form_input('idasignatura',$options[$referenciasasignatura['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
-  </tr>
- 
- 
-<tr>
-     <td>Tipo de referencias:</td>
-     <td><?php 
+echo form_input('idasignatura',$options[$referenciasasignatura['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px'));
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Tipo de referencias:</label>
+	<div class="col-md-10">
+		<?php
 $options= array("NADA");
 foreach ($tiporeferenciasasignaturas as $row){
 	$options[$row->idtiporeferenciasasignatura]= $row->nombre;
 }
 
-echo form_input('idtiporeferenciasasignatura',$options[$referenciasasignatura['idtiporeferenciasasignatura']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
-  </tr>
+echo form_input('idtiporeferenciasasignatura',$options[$referenciasasignatura['idtiporeferenciasasignatura']],array("disabled"=>"disabled",'style'=>'width:500px'));
+
+		?>
+	</div> 
+</div>
 
 
  
-  <tr>
-     <td>Dirección url:</td>
-     <td><?php echo form_input('url',$referenciasasignatura['url'],array("disabled"=>"disabled",'placeholder'=>'Direccion web','style'=>'width:500px')) ?></td>
-  </tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Dirección web:</label>
+	<div class="col-md-10">
+		<?php
+
+$textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+
+     echo form_textarea('url',$referenciasasignatura['url'],$textarea_options);
+
+		?>
+	</div> 
+</div>
 
 
-  
 
 
-
-
-
-
-
-
-</table>
 <?php echo form_close(); ?>
 
 
