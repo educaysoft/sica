@@ -24,8 +24,15 @@ class Emisor extends CI_Controller{
 
 	public function add()
 	{
+
+	if($this->uri->segment(3)){
+		$data['documentos']= $this->documento_model->lista_documentosA($this->uri->segment(3))->result();
+	}else{
+		$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
+	}
+
+
 		$data['personas']= $this->persona_model->lista_personasA()->result();
-		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['title']="Nuevo Emisor";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('emisor_form',$data);

@@ -116,7 +116,7 @@ if(isset($documento))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('emisor/add', 'Emisor/emisores:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('emisor/add/'.$documento['iddocumento'], 'Emisor/emisores:') ?> </label>
      	<?php 
 
 	$options = array();
