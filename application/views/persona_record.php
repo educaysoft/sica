@@ -387,7 +387,7 @@ $(document).ready(function(){
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('persona/documento_data')?>', type: 'GET',data:{idpersona:idpersona}},});
 	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('docente/estudio_data')?>', type: 'GET',data:{idpersona:idpersona}},});
 
-	var mytablaf= $('#mydatadr').DataTable({"ajax": {url: '<?php echo site_url('docente/documento_recibido')?>', type: 'GET',data:{idpersona:idpersona}},});
+	var mytablaf= $('#mydatadr').DataTable({"ajax": {url: '<?php echo site_url('persona/documento_recibido')?>', type: 'GET',data:{idpersona:idpersona}},});
 
 });
 
