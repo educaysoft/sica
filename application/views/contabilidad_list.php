@@ -27,6 +27,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 
 
+<div id="eys-nav-i">
+	<ul>
+		<li> <?php echo anchor('contabilidad', 'Home'); ?></li>
+	</ul>
+</div>
+
+
 <div class="row justify-content-center">
       <!-- Page Heading -->
  <div class="row">
@@ -81,11 +88,16 @@ $(document).ready(function(){
 
 });
 
+
 $('#show_data').on('click','.item_ver',function(){
-var id=$(this).data('idcontabilidad');
-window.location.href = "http://localhost/facae/index.php/contabilidad/actual/"+id;
+var id= $(this).data('idpersona');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
 
 });
+
+
+
 
 
 </script>
