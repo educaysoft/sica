@@ -21,7 +21,7 @@ echo form_input($eys_arrinput); ?></td>
 <td><?php
 $options= array('--Select--');
 foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->eldocumento;
+	$options[$row->iddocumento]= $row->autor." - ". $row->asunto;
 }
 
  echo form_dropdown("iddocumento",$options, $documentoportafolio['iddocumento']);  ?></td>
