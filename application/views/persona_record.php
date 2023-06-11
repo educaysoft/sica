@@ -341,7 +341,7 @@ if(isset($persona))
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <b>Documentos subidos: </b>
+            <b>Documentos recibidos: </b>
 
         </div>
     </div>
@@ -363,7 +363,7 @@ if(isset($persona))
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
-	 <tbody id="show_data">
+	 <tbody id="show_datadr">
 	 </tbody>
 	</table>
 	</div>
@@ -411,6 +411,25 @@ window.location.href = certi;
 });
 
 
+$('#show_datadr').on('click','.docu_ver',function(){
+
+var ordenador = "https://"+$(this).data('ordenador');
+var ubicacion=$(this).data('ubicacion');
+if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+        ubicacion = ordenador+"/"+ubicacion;
+}else{
+        ubicacion = ordenador+ubicacion;
+}
+var archivo = $(this).data('archivo');
+var certi= ubicacion.trim()+archivo.trim();
+window.location.href = certi;
+
+
+});
+
+
+
+
 
 
 $('#show_data').on('click','.item_ver',function(){
@@ -418,6 +437,16 @@ var id= $(this).data('iddocumento');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
+
+
+
+$('#show_datadr').on('click','.item_ver',function(){
+var id= $(this).data('iddocumento');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
 
 
 $('#show_datae').on('click','.item_vere',function(){
