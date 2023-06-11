@@ -63,6 +63,11 @@ function lista_temass($idsilabo){
  		$tema = $this->db->query('select * from tema1 where idunidadsilabo="'. $idunidadsilabo.'" order by numerosesion');
  		return $tema;
  	}
+ 	function temas2( $idunidadsilabo){
+ 		$tema = $this->db->query('select * from tema2 where idunidadsilabo="'. $idunidadsilabo.'" order by numerosesion');
+ 		return $tema;
+ 	}
+
 
 
 
