@@ -17,25 +17,25 @@ echo form_input($eys_arrinput); ?></td>
 
  
  <tr>
-<td> Persona:</td>
+<td> Documentos:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->eldocente;
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->eldocumento;
 }
 
- echo form_dropdown("iddocente",$options, $documentoportafolio['iddocente']);  ?></td>
+ echo form_dropdown("iddocumento",$options, $documentoportafolio['iddocumento']);  ?></td>
 </tr>
 
 <tr>
-<td> Periodo académico:</td>
+<td> Portafolio:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($periodoacademicos as $row){
-	$options[$row->idperiodoacademico]= $row->nombrecorto;
+foreach ($portafolios as $row){
+	$options[$row->idportafolio]= $row->lapersona." - ".$row->elperiodo;
 }
 
- echo form_dropdown("idperiodoacademico",$options, $documentoportafolio['idperiodoacademico']);  ?></td>
+ echo form_dropdown("idportafolio",$options, $documentoportafolio['idportafolio']);  ?></td>
 </tr>
 
 
