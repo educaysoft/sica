@@ -26,6 +26,19 @@ function lista_temas1($idunidadsilabo){
 	}
 
 
+function lista_temas2($idunidadsilabo){
+	if($idunidadsilabo>0)
+	{
+	$this->db->where('idunidadsilabo='.$idunidadsilabo);
+	}
+	$query=$this->db->order_by("idsilabo","idunidadsilabo","idtema")->get('tema2');
+	 return $query;
+	}
+
+
+
+
+
 
 function lista_temass($idsilabo){
 	if($idsilabo>0)

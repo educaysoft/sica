@@ -135,7 +135,7 @@ class Unidadsilabo extends CI_Controller{
 			$draw= intval($this->input->get("length"));
 
 			$idunidadsilabo=$this->input->get('idunidadsilabo');
-			$data0 =$this->tema_model->temas1($idunidadsilabo);
+			$data0 =$this->tema_model->temas2($idunidadsilabo);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idunidadsilabo,$r->idtema,$r->unidad,$r->numerosesion,$r->nombrecorto,$r->duracionminutos,$r->idvideotutorial,
