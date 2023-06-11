@@ -119,7 +119,7 @@ $textarea_options = array("disabled"=>"disabled",'class' => 'form-control','rows
             <b>Temas de la Unidad: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('tema/add'.$unidadsilabo['idunidadsilabo']); ?>">Nuevo tema</a><a class="btn btn-danger" onclick='reportepdf()' >Reporte</a>
+            <a class="btn btn-success" href="<?php echo base_url('tema/add/'.$unidadsilabo['idunidadsilabo']); ?>">Nuevo tema</a><a class="btn btn-danger" onclick='reportepdf()' >Reporte</a>
         </div>
     </div>
 </div>

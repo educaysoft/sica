@@ -330,6 +330,53 @@ if(isset($persona))
 
 
 
+<div class="form-group row" >
+
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12" style="border:solid;">
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Documentos subidos: </b>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+	<table class="table table-striped table-bordered table-hover" id="mydatadr">
+	 <thead>
+	 <tr>
+	 <th>iddocu</th>
+	 <th>idpersona</th>
+	 <th>titulo</th>
+	 <th>elabor.</th>
+	 <th>archvo.</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
+
+
+
 
 <?php echo form_close(); ?>
 
@@ -339,6 +386,9 @@ $(document).ready(function(){
 	var idpersona=document.getElementById("idpersona").innerHTML;
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('persona/documento_data')?>', type: 'GET',data:{idpersona:idpersona}},});
 	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('docente/estudio_data')?>', type: 'GET',data:{idpersona:idpersona}},});
+
+	var mytablaf= $('#mydatadr').DataTable({"ajax": {url: '<?php echo site_url('docente/documento_recibido')?>', type: 'GET',data:{idpersona:idpersona}},});
+
 });
 
 
