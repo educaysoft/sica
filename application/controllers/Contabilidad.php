@@ -42,7 +42,7 @@ public function actual(){
 	$data['contabilidad'] = $this->contabilidad_model->contabilidad($this->uri->segment(3))->row_array();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['beneficiarios']= $this->beneficiario_model->listar_beneficiarios1()->result();
-  	$data['pagadores']= $this->pagador_model->lista_pagadores()->result();
+  	$data['pagadores']= $this->pagador_model->listar_pagadores1()->result();
 	$data['title']="Modulo de Contabilidads";
 	$this->load->view('template/page_header');		
 	$this->load->view('contabilidad_record',$data);
