@@ -72,7 +72,11 @@ public function add()
 public function edit()
 {
 	 	$data['documentoportafolio'] = $this->documentoportafolio_model->documentoportafolio($this->uri->segment(3))->row_array();
-		$data['documentos']= $this->documento_model->lista_documentos()->result();
+
+		$tipodocumento=17;  //portafolio
+		$data['documentos']= $this->documento_model->lista_documentosxtipo($tipodocumento)->result();
+
+
   		$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
  	 	$data['title'] = "Actualizar Documentoportafolio";
  	 	$this->load->view('template/page_header');		
