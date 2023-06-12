@@ -61,7 +61,7 @@ public function edit()
 {
 	 	$data['proceso'] = $this->proceso_model->proceso($this->uri->segment(3))->row_array();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['documentos']= $this->documento_model->lista_facturas(20)->result();
+		$data['documentos']= $this->documento_model->lista_facturas(17)->result();
  		$data['personas']= $this->persona_model->lista_personas()->result();
  	 	$data['title'] = "Actualizar Proceso";
  	 	$this->load->view('template/page_header');		
