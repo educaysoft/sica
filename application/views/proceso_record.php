@@ -182,6 +182,47 @@ window.location.href = retorno+'/'+id;
 });
 
 
+
+function verpdf(){
+	var iddocumento =<?php echo $contabilidad["iddocumento"]; ?>;
+
+    $.ajax({
+        url: "<?php echo site_url('documento/get_documentoA') ?>",
+        data: {iddocumento: iddocumento},
+        method: 'POST',
+	async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+	var orde=data[0].elordenador;
+	var dire=data[0].ruta;
+	var ordenador = "https://"+orde;
+	var ubicacion=dire;
+	if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+        	ubicacion = ordenador+"/"+ubicacion;
+	}else{
+		ubicacion = ordenador+ubicacion;
+	}
+	var archi=data[0].archivopdf;
+	var archivo =archi;
+	var certi= ubicacion.trim()+archivo.trim();
+	window.location.href = certi;
+
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+}
+
+
+
+
+
 </script>
 
 
