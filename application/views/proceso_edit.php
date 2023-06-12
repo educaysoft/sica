@@ -39,6 +39,17 @@ foreach ($personas as $row){
 </tr>
 
 
+<tr>
+<td> Documento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->asunto;
+}
+
+ echo form_dropdown("iddocumento",$options, $contabilidad['iddocumento']);  ?></td>
+</tr>
+
 
 
  <tr>

@@ -7,6 +7,8 @@ class Proceso extends CI_Controller{
       $this->load->model('proceso_model');
   	  $this->load->model('institucion_model');
   	  $this->load->model('ubicacionproceso_model');
+      	$this->load->model('tipodocu_model');
+      	$this->load->model('documento_model');
   	  $this->load->model('persona_model');
 }
 
@@ -14,6 +16,8 @@ public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 	  	$data['proceso']=$this->proceso_model->elultimo();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
  		$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['title']="Lista de Artiulos";
 		$this->load->view('template/page_header');		
@@ -57,6 +61,7 @@ public function edit()
 {
 	 	$data['proceso'] = $this->proceso_model->proceso($this->uri->segment(3))->row_array();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['documentos']= $this->documento_model->lista_facturas(20)->result();
  		$data['personas']= $this->persona_model->lista_personas()->result();
  	 	$data['title'] = "Actualizar Proceso";
  	 	$this->load->view('template/page_header');		
@@ -76,6 +81,7 @@ public function edit()
 		 	'detalle' => $this->input->post('detalle'),
 	 		'idinstitucion' => $this->input->post('idinstitucion'),
 	 		'idpersona' => $this->input->post('idpersona'),
+			'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$this->proceso_model->update($id,$array_item);
 	 	redirect('proceso');
@@ -146,6 +152,7 @@ function proceso_data()
 public function actual()
 {
 	$data['proceso'] = $this->proceso_model->proceso($this->uri->segment(3))->row_array();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
  		$data['personas']= $this->persona_model->lista_personas()->result();
   if(!empty($data))
@@ -171,7 +178,8 @@ public function elprimero()
 {
 	$data['proceso'] = $this->proceso_model->elprimero();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
- 		$data['personas']= $this->persona_model->lista_personas()->result();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
+ 	$data['personas']= $this->persona_model->lista_personas()->result();
   if(!empty($data))
   {
     $data['title']="Proceso";
@@ -189,6 +197,7 @@ public function elultimo()
 {
 	  $data['proceso'] = $this->proceso_model->elultimo();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
  		$data['personas']= $this->persona_model->lista_personas()->result();
   if(!empty($data))
   {
@@ -209,6 +218,7 @@ public function siguiente(){
  // $data['proceso_list']=$this->proceso_model->lista_proceso()->result();
 	$data['proceso'] = $this->proceso_model->siguiente($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
  		$data['personas']= $this->persona_model->lista_personas()->result();
   $data['title']="Proceso";
 	$this->load->view('template/page_header');		
@@ -220,6 +230,7 @@ public function anterior(){
  // $data['proceso_list']=$this->proceso_model->lista_proceso()->result();
 	$data['proceso'] = $this->proceso_model->anterior($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
  		$data['personas']= $this->persona_model->lista_personas()->result();
   $data['title']="Proceso";
 	$this->load->view('template/page_header');		

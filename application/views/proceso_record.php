@@ -82,7 +82,23 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 		?>
 	</div> 
 </div>
-  
+
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label"> <button onclick='verpdf()'>Documento-:</button></label>
+	<div class="col-md-10">
+		<?php
+		$options= array("NADA");
+		foreach ($documentos as $row){
+			$options[$row->iddocumento]= $row->asunto;
+		}
+
+		echo form_input('iddocumento',$options[$contabilidad['iddocumento']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div>
+</div>
+
+
 
 <div class="form-group row">
 	<div class="col-md-10">
