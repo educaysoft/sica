@@ -47,7 +47,7 @@ foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
 
- echo form_dropdown("iddocumento",$options, $contabilidad['iddocumento']);  ?></td>
+ echo form_dropdown("iddocumento",$options, $proceso['iddocumento']);  ?></td>
 </tr>
 
 
