@@ -183,7 +183,7 @@ window.location.href = retorno+'/'+id;
 
 
 function verpdf(){
-	var iddocumento =<?php echo $contabilidad["iddocumento"]; ?>;
+	var iddocumento =<?php echo $proceso["iddocumento"]; ?>;
 
     $.ajax({
         url: "<?php echo site_url('documento/get_documentoA') ?>",
