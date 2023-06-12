@@ -153,7 +153,6 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 
 
 
-<?php echo form_close(); ?>
 
 
 <script type="text/javascript">
