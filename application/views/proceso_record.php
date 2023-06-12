@@ -93,7 +93,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 			$options[$row->iddocumento]= $row->asunto;
 		}
 
-		echo form_input('iddocumento',$options[$contabilidad['iddocumento']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		echo form_input('iddocumento',$options[$proceso['iddocumento']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div>
 </div>
