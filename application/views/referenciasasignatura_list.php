@@ -42,8 +42,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>IDreferenciasasignatura</th>
- <th>La Persona</th>
- <th>El referenciasasignatura</th>
+ <th>Asignatura</th>
+ <th>titulo</th>
+ <th>tipo</th>
+ <th>url</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>

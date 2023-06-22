@@ -152,7 +152,7 @@ function referenciasasignatura_data()
 	 	$data0 = $this->referenciasasignatura_model->lista_referenciasasignaturasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idreferenciasasignatura,$r->laasignatura,$r->elreferenciasasignatura,
+			$data[]=array($r->idreferenciasasignatura,$r->laasignatura,$r->titulo,$r->tipo,$r->url,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idreferenciasasignatura="'.$r->idreferenciasasignatura.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
