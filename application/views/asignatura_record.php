@@ -256,7 +256,9 @@ window.location.href = retorno+'/'+id;
 function mostrarref()
 {
 
-	  var idreferenciasasignatura= $('select[name=idreferenciasasignatura]').val();
+	var options = document.getElementById('idreferenciasasignatura').selectedOptions;
+	  var idreferenciasasignatura = Array.from(options).map(({ value }) => value);
+//	  var idreferenciasasignatura= $('select[name=idreferenciasasignatura]').val();
 //	  var idreferenciasasignatura=2;
 	alert(idreferenciasasignatura);
 
