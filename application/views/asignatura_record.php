@@ -179,7 +179,7 @@ if(isset($asignatura))
   	foreach ($referenciasasignaturas as $row){
 		$options[$row->idreferenciasasignatura]=$row->tipo." (".$row->titulo.")";
 	}
- echo form_multiselect('referenciasasignatura[]',$options,(array)set_value('idreferenciasasignatura', ''), array('style'=>'width:500px','onChange'=>'mostrar()')); 
+ echo form_multiselect('referenciasasignatura[]',$options,(array)set_value('idreferenciasasignatura', ''), array('style'=>'width:500px','onChange'=>'mostrarref()')); 
 
 	?>
 	</div> 
@@ -253,11 +253,11 @@ var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
 
-function mostrar()
+function mostrarref()
 {
 
-//	var idreferenciasasignatura= $('select[name=idreferenciasasignatura]').val();
-	  var idreferenciasasignatura=2;
+	var idreferenciasasignatura= $('select[name=idreferenciasasignatura]').val();
+//	  var idreferenciasasignatura=2;
 	alert(idreferenciasasignatura);
 
 
