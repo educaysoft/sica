@@ -264,7 +264,7 @@ function mostrarref()
 //	  var idreferenciasasignatura=2;
 	alert(idreferenciasasignatura);
 
-	window.location.href = <?php echo $arrurl[4]; ?>;
+	window.location.href = '<?php echo $arrurl[4]; ?>';
 
 
 }
