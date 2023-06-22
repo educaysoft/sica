@@ -262,9 +262,9 @@ function mostrarref()
 	  var idreferenciasasignatura = Array.from(options).map(({ value }) => value);
 //	  var idreferenciasasignatura= $('select[name=idreferenciasasignatura]').val();
 //	  var idreferenciasasignatura=2;
-	alert(idreferenciasasignatura);
-
-	window.location.href = '<?php echo $arrurl[4]; ?>';
+       var refe = JSON.parse('<?= json_encode($arrurl); ?>');
+	console.log(refe[idreferenciasasignatura]);
+	//window.location.href = refeArray'<?php echo $arrurl[4]; ?>';
 
 
 }
