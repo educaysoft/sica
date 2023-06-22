@@ -40,10 +40,16 @@ foreach ($tiporeferenciasasignaturas as $row){
 
 <tr>
       <td>Titulo:</td>
-      <td><?php echo form_input( array("name"=>'titulo',"id"=>'titulo',"value"=>$referenciasasignatura['titulo'],'type'=>'text','placeholder'=>'titulo')); ?></td>
+<?php $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;'); ?>    
+      <td><?php echo form_textarea('titulo',$referenciasasignatura['titulo'],$textarea_options);    ?></td>
   </tr>
 
+<tr>
+      <td>Dirección web:</td>
 
+<?php $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;'); ?>    
+      <td><?php echo form_texarea("name"=>'url',"id"=>'url',"value"=>$referenciasasignatura['url'],$textarea_options); ?></td>
+  </tr>
 
 
 
