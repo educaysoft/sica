@@ -264,7 +264,7 @@ function mostrarref()
 //	  var idreferenciasasignatura=2;
        var refe = JSON.parse('<?= json_encode($arrurl); ?>');
 	console.log(refe[idreferenciasasignatura]);
-	/window.location.href = refe[idreferenciasasignatura];
+	window.location.href = refe[idreferenciasasignatura];
 
 
 }
