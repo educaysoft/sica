@@ -47,8 +47,8 @@ foreach ($tiporeferenciasasignaturas as $row){
 <tr>
       <td>Dirección web:</td>
 
-<?php $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;'); ?>    
-      <td><?php echo form_texarea("name"=>'url',"id"=>'url',"value"=>$referenciasasignatura['url'],$textarea_options); ?></td>
+<?php $textarea_options = array('class' => 'form-control','rows' => '4', 'cols' => '20', 'style'=> 'width:500px;height:100px;',"name"=>'url',"id"=>'url',"value"=>$referenciasasignatura['url'],); ?>    
+      <td><?php echo form_texarea($textarea_options); ?></td>
   </tr>
 
 
