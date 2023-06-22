@@ -39,8 +39,8 @@ foreach ($tiporeferenciasasignaturas as $row){
 </tr>
 
 <tr>
-      <td>Cantidad:</td>
-      <td><?php echo form_input( array("name"=>'cantidad',"id"=>'cantidad',"value"=>$referenciasasignatura['cantidad'],'type'=>'text','placeholder'=>'cantidad')); ?></td>
+      <td>Titulo:</td>
+      <td><?php echo form_input( array("name"=>'titulo',"id"=>'titulo',"value"=>$referenciasasignatura['titulo'],'type'=>'text','placeholder'=>'titulo')); ?></td>
   </tr>
 
 

@@ -41,7 +41,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>IDreferenciasasignatura</th>
+ <th>ID</th>
  <th>Asignatura</th>
  <th>titulo</th>
  <th>tipo</th>

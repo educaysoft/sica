@@ -76,6 +76,21 @@ echo form_input('idtiporeferenciasasignatura',$options[$referenciasasignatura['i
 </div>
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Titulo</label>
+	<div class="col-md-10">
+		<?php
+
+$textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+
+     echo form_textarea('titulo',$referenciasasignatura['titulo'],$textarea_options);
+
+		?>
+	</div> 
+</div>
+
+
+
  
 <div class="form-group row">
 <label class="col-md-2 col-form-label"><a href="<?php echo $referenciasasignatura['url']; ?>"> Dirección web:</a></label>
