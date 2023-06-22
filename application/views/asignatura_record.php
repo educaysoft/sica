@@ -256,7 +256,8 @@ window.location.href = retorno+'/'+id;
 function mostrar()
 {
 
-	var idreferenciasasignatura= $('select[name=idreferenciasasignatura]').val();
+//	var idreferenciasasignatura= $('select[name=idreferenciasasignatura]').val();
+	  var idreferenciasasignatura=2;
 	alert(idreferenciasasignatura);
 
 
