@@ -176,8 +176,10 @@ if(isset($asignatura))
 	<div class="col-md-10">
 	<?php
  	$options = array();
+ 	$arrurl = array();
   	foreach ($referenciasasignaturas as $row){
 		$options[$row->idreferenciasasignatura]=$row->tipo." (".$row->titulo.")";
+		$arrurl[$row->idreferenciasasignatura]=$row->url;
 	}
  echo form_multiselect('referenciasasignatura[]',$options,(array)set_value('idreferenciasasignatura', ''), array('style'=>'width:500px','name'=>'idreferenciasasignatura','id'=>'idreferenciasasignatura','onChange'=>'mostrarref()')); 
 
@@ -261,6 +263,8 @@ function mostrarref()
 //	  var idreferenciasasignatura= $('select[name=idreferenciasasignatura]').val();
 //	  var idreferenciasasignatura=2;
 	alert(idreferenciasasignatura);
+
+	window.location.href = <?php echo $arrurl[4]; ?>;
 
 
 }
