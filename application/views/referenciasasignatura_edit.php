@@ -40,7 +40,7 @@ foreach ($tiporeferenciasasignaturas as $row){
 
 <tr>
       <td>Titulo:</td>
-<?php $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;'); ?>    
+<?php $textarea_options = array('class' => 'form-control','rows' => '4', 'cols' => '20', 'style'=> 'width:500px;height:100px;'); ?>    
       <td><?php echo form_textarea('titulo',$referenciasasignatura['titulo'],$textarea_options);    ?></td>
   </tr>
 
