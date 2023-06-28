@@ -60,7 +60,7 @@ if(isset($persona))
 
 
  <div class="form-group row">
-<label class="col-md-2 col-form-label"> Sexo: </label>
+<label class="col-md-2 col-form-label"> Tipo de persona: </label>
 	<div class="col-md-10">
      	<?php 
 	$options= array("NADA");
@@ -77,7 +77,7 @@ if(isset($persona))
     <label class="col-md-2 col-form-label"> Cédula:</label>
 	<div class="col-md-10">
 	<?php
-      		echo form_input('cedula',$persona['cedula'],array("disabled"=>"disabled",'placeholder'=>'cedula')); 
+      		echo form_input('cedula',$persona['cedula'],array("disabled"=>"disabled",'placeholder'=>'cedula','style'=>'width:600px;')); 
 	?>
 	</div> 
 </div> 
@@ -85,20 +85,20 @@ if(isset($persona))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Apellido:</label>
+    <label class="col-md-2 col-form-label"> Apellidos:</label>
 	<div class="col-md-10">
 	<?php
-     		 echo form_input('apellidos',$persona['apellidos'],array("disabled"=>"disabled",'placeholder'=>'apellidos')); 
+     		 echo form_input('apellidos',$persona['apellidos'],array("disabled"=>"disabled",'placeholder'=>'apellidos','style'=>'width:600px;')); 
 	?>
 	</div> 
 </div> 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre:</label>
+    <label class="col-md-2 col-form-label"> Nombres:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('nombres',$persona['nombres'],array("disabled"=>"disabled",'placeholder'=>'nombres')); 
+      echo form_input('nombres',$persona['nombres'],array("disabled"=>"disabled",'placeholder'=>'nombres','style'=>'width:600px;')); 
 	?>
 	</div> 
 </div> 
@@ -108,7 +108,7 @@ if(isset($persona))
     <label class="col-md-2 col-form-label"> Fecha de nacimiento:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('fechanacimiento',$persona['fechanacimiento'],array("disabled"=>"disabled",'placeholder'=>'Fechanacimiento')) ;
+      echo form_input('fechanacimiento',$persona['fechanacimiento'],array("disabled"=>"disabled",'placeholder'=>'Fechanacimiento','style'=>'width:600px;')) ;
 
 	?>
 	</div> 
@@ -135,7 +135,7 @@ if(isset($persona))
   	foreach ($direccions as $row){
 		$options[$row->iddireccion]=$row->nombre;
 	}
- 	echo form_multiselect('direccion[]',$options,(array)set_value('iddireccion', ''), array('style'=>'width:500px')); 
+ 	echo form_multiselect('direccion[]',$options,(array)set_value('iddireccion', ''), array('style'=>'width:600px')); 
 	?>
 	</div> 
 </div>
@@ -151,7 +151,7 @@ if(isset($persona))
   	foreach ($correos as $row){
 		$options[$row->idcorreo]=$row->nombre;
 	}
- 	echo form_multiselect('correo[]',$options,(array)set_value('idcorreo', ''), array('style'=>'width:500px')); 
+ 	echo form_multiselect('correo[]',$options,(array)set_value('idcorreo', ''), array('style'=>'width:600px')); 
 	?>
 	</div> 
 </div> 
@@ -166,7 +166,7 @@ if(isset($persona))
   	foreach ($telefonos as $row){
 		$options[$row->idtelefono]=$row->numero;
 	}
- echo form_multiselect('telefono[]',$options,(array)set_value('idtelefono', ''), array('style'=>'width:500px')); 
+ echo form_multiselect('telefono[]',$options,(array)set_value('idtelefono', ''), array('style'=>'width:600px')); 
 	?>
 	</div> 
 </div> 
@@ -180,7 +180,7 @@ if(isset($persona))
   	foreach ($nacionalidadpersonas as $row){
 		$options[$row->idnacionalidadpersona]=$row->lanacionalidad;
 	}
- echo form_multiselect('nacionalidadpersona[]',$options,(array)set_value('idnacionalidadpersona', ''), array('style'=>'width:500px')); 
+ echo form_multiselect('nacionalidadpersona[]',$options,(array)set_value('idnacionalidadpersona', ''), array('style'=>'width:600px')); 
 
 	?>
 	</div> 
@@ -197,7 +197,7 @@ if(isset($persona))
   	foreach ($paispersonas as $row){
 		$options[$row->idpaispersona]=$row->elpais;
 	}
- echo form_multiselect('paispersona[]',$options,(array)set_value('idpaispersona', ''), array('style'=>'width:500px')); 
+ echo form_multiselect('paispersona[]',$options,(array)set_value('idpaispersona', ''), array('style'=>'width:600px')); 
 
 	?>
 	</div> 
@@ -213,7 +213,7 @@ if(isset($persona))
   	foreach ($provinciapersonas as $row){
 		$options[$row->idprovinciapersona]=$row->laprovincia;
 	}
- echo form_multiselect('provinciapersona[]',$options,(array)set_value('idprovinciapersona', ''), array('style'=>'width:500px')); 
+ echo form_multiselect('provinciapersona[]',$options,(array)set_value('idprovinciapersona', ''), array('style'=>'width:600px')); 
 
 	?>
 	</div> 
@@ -229,8 +229,7 @@ if(isset($persona))
     <label class="col-md-2 col-form-label"> Fofo:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('foto',$persona['foto'],array("disabled"=>"disabled",'placeholder'=>'foto'));
-
+      echo form_input('foto',$persona['foto'],array("disabled"=>"disabled",'placeholder'=>'foto','style'=>'width:600px'));
 	?>
 	</div> 
 </div> 
