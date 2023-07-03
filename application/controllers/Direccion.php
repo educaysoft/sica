@@ -15,7 +15,7 @@ public function index(){
 			
   	$data['direccion']=$this->direccion_model->lista_direccions()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['codigopostals']= $this->codigopostal_model->lista_codigopostal()->result();
+  	$data['codigopostals']= $this->codigopostal_model->lista_codigopostales()->result();
 			
 		$data['title']="Lista de direccions";
 		$this->load->view('template/page_header');
