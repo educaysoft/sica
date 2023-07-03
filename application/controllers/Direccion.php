@@ -15,7 +15,7 @@ public function index(){
 			
   	$data['direccion']=$this->direccion_model->lista_direccions()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['codigopostals']= $this->codigopostal_model->lista_codigopostales()->result();
+  	$data['codigopostales']= $this->codigopostal_model->lista_codigopostales()->result();
 			
 		$data['title']="Lista de direccions";
 		$this->load->view('template/page_header');
@@ -35,7 +35,7 @@ public function actual(){
 
 	$data['direccion'] = $this->direccion_model->direccion($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['codigopostals']= $this->codigopostal_model->lista_codigopostal()->result();
+  	$data['codigopostales']= $this->codigopostal_model->lista_codigopostal()->result();
 	$data['title']="Modulo de Telefonos";
 	$this->load->view('template/page_header');		
 	$this->load->view('direccion_record',$data);
@@ -65,7 +65,7 @@ public function add()
 	}
 
 
-  	$data['codigopostals']= $this->codigopostal_model->lista_codigopostales()->result();
+  	$data['codigopostales']= $this->codigopostal_model->lista_codigopostales()->result();
 		$data['title']="Nueva Direccion";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('direccion_form',$data);
@@ -95,7 +95,7 @@ public function edit()
 {
 	 	$data['direccion'] = $this->direccion_model->direccion($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['codigopostals']= $this->codigopostal_model->lista_codigopostal()->result();
+  		$data['codigopostales']= $this->codigopostal_model->lista_codigopostal()->result();
  	 	$data['title'] = "Actualizar Direccion";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('direccion_edit',$data);
@@ -175,7 +175,7 @@ function direccion_data()
 public function elprimero()
 {
 	$data['direccion'] = $this->direccion_model->elprimero();
-  	$data['codigopostals']= $this->codigopostal_model->lista_codigopostal()->result();
+  	$data['codigopostales']= $this->codigopostal_model->lista_codigopostal()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
@@ -193,7 +193,7 @@ public function elprimero()
 public function elultimo()
 {
 	$data['direccion'] = $this->direccion_model->elultimo();
-  	$data['codigopostals']= $this->codigopostal_model->lista_codigopostal()->result();
+  	$data['codigopostales']= $this->codigopostal_model->lista_codigopostal()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
@@ -214,7 +214,7 @@ public function siguiente(){
  // $data['direccion_list']=$this->direccion_model->lista_direccion()->result();
 	$data['direccion'] = $this->direccion_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['codigopostals']= $this->codigopostal_model->lista_codigopostal()->result();
+  	$data['codigopostales']= $this->codigopostal_model->lista_codigopostal()->result();
   $data['title']="Direccion";
 	$this->load->view('template/page_header');		
   $this->load->view('direccion_record',$data);
@@ -225,7 +225,7 @@ public function anterior(){
  // $data['direccion_list']=$this->direccion_model->lista_direccion()->result();
 	$data['direccion'] = $this->direccion_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['codigopostals']= $this->codigopostal_model->lista_codigopostal()->result();
+  	$data['codigopostales']= $this->codigopostal_model->lista_codigopostal()->result();
   $data['title']="Direccion";
 	$this->load->view('template/page_header');		
   $this->load->view('direccion_record',$data);
