@@ -65,11 +65,11 @@ echo form_input('idpersona',$options[$direccion['idpersona']],array("disabled"=>
      <td>Estado del Direccion:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($direccion_estados as $row){
-	$options[$row->iddireccion_estado]= $row->nombre;
+foreach ($codigopostales as $row){
+	$options[$row->idcodigopostal]= $row->nombre;
 }
 
-echo form_input('iddireccion_estado',$options[$direccion['iddireccion_estado']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idcodigopostal',$options[$direccion['idcodigopostal']],array("disabled"=>"disabled")) ?></td>
   </tr>
 
 
