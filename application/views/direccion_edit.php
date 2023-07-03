@@ -39,11 +39,11 @@ foreach ($personas as $row){
 <td> Estado del direccion:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($direccion_estados as $row){
-	$options[$row->iddireccion_estado]= $row->nombre;
+foreach ($codigopostales as $row){
+	$options[$row->idcodigopostal]= $row->nombre;
 }
 
- echo form_dropdown("iddireccion_estado",$options, $direccion['iddireccion_estado']);  ?></td>
+ echo form_dropdown("idcodigopostal",$options, $direccion['idcodigopostal']);  ?></td>
 </tr>
 
 
