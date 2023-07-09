@@ -4,16 +4,12 @@ class Departamentoperiodoacademico extends CI_Controller{
 	public function __construct(){
       		parent::__construct();
       		$this->load->model('departamentoperiodoacademico_model');
-      		$this->load->model('docente_model');
-      		$this->load->model('persona_model');
-      		$this->load->model('asignatura_model');
+      		$this->load->model('departamento_model');
       		$this->load->model('periodoacademico_model');
 	}
 
 	public function index(){
-  		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
-  		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  		$data['departamentos']= $this->departamento_model->lista_departamentosA()->result();
 		$data['departamentoperiodoacademico'] = $this->departamentoperiodoacademico_model->elultimo();
 		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 
@@ -27,12 +23,10 @@ class Departamentoperiodoacademico extends CI_Controller{
 
 	public function add()
 	{
-		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
-		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentosA()->result();
 		$data['departamentoperiodoacademico'] = $this->departamentoperiodoacademico_model->elultimo();
 		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
-		$data['title']="Nuevo docente para el asignatura";
+		$data['title']="Nuevo departamento para el periodoacademico";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('departamentoperiodoacademico_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -42,8 +36,7 @@ class Departamentoperiodoacademico extends CI_Controller{
 	public function  save()
 	{
 	 	$array_item=array(
-		 	'iddocente' => $this->input->post('iddocente'),
-		 	'idasignatura' => $this->input->post('idasignatura'),
+		 	'iddepartamento' => $this->input->post('iddepartamento'),
 		 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
 	 	$this->departamentoperiodoacademico_model->save($array_item);
@@ -55,9 +48,7 @@ class Departamentoperiodoacademico extends CI_Controller{
 	public function edit()
 	{
 	 	$data['departamentoperiodoacademico'] = $this->departamentoperiodoacademico_model->departamentoperiodoacademico($this->uri->segment(3))->row_array();
-		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
-		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['docentes']= $this->docente_model->lista_docentes()->result();
+  		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
  	 	$data['title'] = "Actualizar Departamentoperiodoacademico";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('departamentoperiodoacademico_edit',$data);
@@ -69,8 +60,7 @@ class Departamentoperiodoacademico extends CI_Controller{
 	{
 		$id=$this->input->post('iddepartamentoperiodoacademico');
 	 	$array_item=array(
-		 	'idasignatura' => $this->input->post('idasignatura'),
-		 	'iddocente' => $this->input->post('iddocente'),
+		 	'iddepartamento' => $this->input->post('iddepartamento'),
 		 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
 	 	$this->departamentoperiodoacademico_model->update($id,$array_item);
@@ -81,9 +71,7 @@ class Departamentoperiodoacademico extends CI_Controller{
 	{
 		$id=$this->input->post('iddepartamentoperiodoacademico');
 	 	$array_item=array(
-		 	'idasignatura' => $this->input->post('idasignatura'),
-		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocente' => $this->input->post('iddocente'),
+		 	'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
 	 	echo $this->departamentoperiodoacademico_model->update($id,$array_item);
  	}
@@ -120,7 +108,7 @@ class Departamentoperiodoacademico extends CI_Controller{
 			$data0 = $this->departamentoperiodoacademico_model->listar_departamentoperiodoacademico1();
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->iddepartamentoperiodoacademico,$r->idasignatura,$r->unidad,$r->launidad,$r->elvideo,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idasignatura="'.$r->iddepartamentoperiodoacademico.'">Ver</a>');
+				$data[]=array($r->iddepartamentoperiodoacademico,$r->unidad,$r->launidad,$r->elvideo,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idasignatura="'.$r->iddepartamentoperiodoacademico.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -140,10 +128,8 @@ class Departamentoperiodoacademico extends CI_Controller{
 		$data['departamentoperiodoacademico'] = $this->departamentoperiodoacademico_model->elprimero();
 	  if(!empty($data))
 	  {
-		    $data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
-		    $data['docentes']= $this->docente_model->lista_docentes()->result();
-		    $data['personas']= $this->persona_model->lista_personas()->result();
-		    $data['title']="Departamentoperiodoacademico del docente";
+		    $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		    $data['title']="Departamentoperiodoacademico del departamento";
 		    $this->load->view('template/page_header');		
 		    $this->load->view('departamentoperiodoacademico_record',$data);
 		    $this->load->view('template/page_footer');
@@ -159,10 +145,8 @@ class Departamentoperiodoacademico extends CI_Controller{
 		$data['departamentoperiodoacademico'] = $this->departamentoperiodoacademico_model->elultimo();
 	  if(!empty($data))
 	  {
-			$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
-		$data['docentes']= $this->docente_model->lista_docentes()->result();
-		$data['personas']= $this->persona_model->lista_personas()->result();
-	    $data['title']="Departamentoperiodoacademico del docente";
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	    $data['title']="Departamentoperiodoacademico del departamento";
 	  
 	    $this->load->view('template/page_header');		
 	    $this->load->view('departamentoperiodoacademico_record',$data);
@@ -177,11 +161,10 @@ class Departamentoperiodoacademico extends CI_Controller{
 
 	public function siguiente(){
 	 // $data['departamentoperiodoacademico_list']=$this->departamentoperiodoacademico_model->lista_departamentoperiodoacademico()->result();
-		$data['docentee']= $this->docente_model->lista_docentes()->result();
+		$data['departamentoe']= $this->departamento_model->lista_departamentos()->result();
 		$data['departamentoperiodoacademico'] = $this->departamentoperiodoacademico_model->siguiente($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
-	    $data['title']="Departamentoperiodoacademico del docente";
+	    $data['title']="Departamentoperiodoacademico del departamento";
 	 // $data['title']="Correo";
 		$this->load->view('template/page_header');		
 	  $this->load->view('departamentoperiodoacademico_record',$data);
@@ -190,12 +173,10 @@ class Departamentoperiodoacademico extends CI_Controller{
 
 	public function anterior(){
 	 // $data['departamentoperiodoacademico_list']=$this->departamentoperiodoacademico_model->lista_departamentoperiodoacademico()->result();
-		$data['docentes']= $this->docente_model->lista_docentes()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['departamentoperiodoacademico'] = $this->departamentoperiodoacademico_model->anterior($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 	 // $data['title']="Correo";
-	    $data['title']="Departamentoperiodoacademico del docente";
+	    $data['title']="Departamentoperiodoacademico del departamento";
 		$this->load->view('template/page_header');		
 	  $this->load->view('departamentoperiodoacademico_record',$data);
 		$this->load->view('template/page_footer');

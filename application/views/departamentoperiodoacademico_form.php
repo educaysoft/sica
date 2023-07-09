@@ -6,31 +6,19 @@
 <?php echo form_open("departamentoperiodoacademico/save") ?>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Asignatura:</label>
-	<div class="col-md-10">
-		<?php
-	$options= array('--Select--');
-	foreach ($asignaturas as $row){
-		$options[$row->idasignatura]= $row->nombre;
-	}
-
-	 echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));  
-		?>
-	</div> 
-</div> 
+ 
 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Docente:</label>
+    <label class="col-md-2 col-form-label"> Departamento:</label>
 	<div class="col-md-10">
 	<?php
 	$options= array('--Select--');
-	foreach ($docentes as $row){
-		$options[$row->iddocente]= $row->eldocente;
+	foreach ($departamentos as $row){
+		$options[$row->iddepartamento]= $row->eldepartamento;
 	}
-	 echo form_dropdown("iddocente",$options, set_select('--Select--','default_value')); 
+	 echo form_dropdown("iddepartamento",$options, set_select('--Select--','default_value')); 
 		?>
 	</div> 
 </div> 
