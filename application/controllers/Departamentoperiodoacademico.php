@@ -161,9 +161,8 @@ class Departamentoperiodoacademico extends CI_Controller{
 
 	public function siguiente(){
 	 // $data['departamentoperiodoacademico_list']=$this->departamentoperiodoacademico_model->lista_departamentoperiodoacademico()->result();
-		$data['departamentoe']= $this->departamento_model->lista_departamentos()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['departamentoperiodoacademico'] = $this->departamentoperiodoacademico_model->siguiente($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_personas()->result();
 	    $data['title']="Departamentoperiodoacademico del departamento";
 	 // $data['title']="Correo";
 		$this->load->view('template/page_header');		
