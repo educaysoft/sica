@@ -41,7 +41,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>Iddocenteasignatura</th>
+ <th>Iddepartamentoperiodoacademico</th>
  <th>idcurso</th>
  <th>unidad</th>
  <th>launidad</th>
@@ -76,14 +76,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('docenteasignatura/docenteasignatura_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('departamentoperiodoacademico/departamentoperiodoacademico_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('iddocenteasignatura');
-window.location.href = "http://localhost/facae/index.php/docenteasignatura/actual/"+id;
+var id= $(this).data('iddepartamentoperiodoacademico');
+window.location.href = "http://localhost/facae/index.php/departamentoperiodoacademico/actual/"+id;
 
 });
 
