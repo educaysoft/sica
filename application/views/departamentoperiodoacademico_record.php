@@ -63,12 +63,12 @@ if(isset($departamentoperiodoacademico))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Docente:</label>
+    <label class="col-md-2 col-form-label">Departamento:</label>
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
 foreach ($departamentos as $row){
-	$options[$row->iddepartamento]= $row->eldepartamento;
+	$options[$row->iddepartamento]= $row->nombre;
 }
 echo form_input('nombre',$options[$departamentoperiodoacademico['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
