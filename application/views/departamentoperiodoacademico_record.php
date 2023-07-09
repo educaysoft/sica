@@ -37,7 +37,6 @@ if(isset($departamentoperiodoacademico))
 <br>
 
 
-<?php echo form_hidden('idasignatura',$departamentoperiodoacademico['idasignatura']) ?>
 
 
  
@@ -45,36 +44,18 @@ if(isset($departamentoperiodoacademico))
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id asignatura:</label>
-	<div class="col-md-10">
-	<?php
-      echo form_input('idasignatura',$departamentoperiodoacademico['idasignatura'],array("disabled"=>"disabled",'placeholder'=>'Idasignaturas','style'=>'width:500px;'));
-		?>
-	</div> 
-</div> 
+ 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre del asignatura:</label>
-	<div class="col-md-10">
-	<?php
-$options= array("NADA");
-foreach ($asignaturas as $row){
-	$options[$row->idasignatura]= $row->nombre;
-}
-echo form_input('idasignatura',$options[$departamentoperiodoacademico['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-		?>
-	</div> 
-</div> 
+ 
 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id docente:</label>
+    <label class="col-md-2 col-form-label"> Id departamento:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('iddocente',$departamentoperiodoacademico['iddocente'],array("disabled"=>"disabled",'placeholder'=>'Iddepartamentoperiodoacademicoes','style'=>'width:500px;'));
+      echo form_input('iddepartamento',$departamentoperiodoacademico['iddepartamento'],array("disabled"=>"disabled",'placeholder'=>'Iddepartamentoperiodoacademicoes','style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 
@@ -86,10 +67,10 @@ echo form_input('idasignatura',$options[$departamentoperiodoacademico['idasignat
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
-foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->eldocente;
+foreach ($departamentos as $row){
+	$options[$row->iddepartamento]= $row->eldepartamento;
 }
-echo form_input('nombre',$options[$departamentoperiodoacademico['iddocente']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('nombre',$options[$departamentoperiodoacademico['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 
