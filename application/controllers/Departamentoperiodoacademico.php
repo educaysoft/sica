@@ -9,7 +9,7 @@ class Departamentoperiodoacademico extends CI_Controller{
 	}
 
 	public function index(){
-  		$data['departamentos']= $this->departamento_model->lista_departamentosA()->result();
+  		$data['departamentos']= $this->departamento_model->lista_departamentoA()->result();
 		$data['departamentoperiodoacademico'] = $this->departamentoperiodoacademico_model->elultimo();
 		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 
