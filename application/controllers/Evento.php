@@ -818,8 +818,17 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 		}
 
 
-
+		if(isset($this->session->userdata['logged_in']['idpersona']))
+		{
 		$data['pagoevento'] = $this->pagoevento_model->pagoeventox($data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
+
+		}else{
+			$idpersona=4086; //Anomino
+			$data['pagoevento'] = $this->pagoevento_model->pagoeventox($data['evento']['idevento'] , $idpersona)->result();
+		}
+
+
+
 		$data['silabo']=$this->silabo_model->silabo($data['evento']['idsilabo'])->row_array();
 	
 //		$this->load->view('template/page_header');		
