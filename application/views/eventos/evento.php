@@ -209,7 +209,20 @@ foreach ($pagoevento as $row){
 
 
 	      <div style="width:95%; padding-top:5px; margin: auto; ">
+		<?php
+		if(isset($this->session->userdata['logged_in']['idpersona']))
+		{
+		?>
+
 		  <p style="font-size:20px;"><b>Participante :</b> <?php echo $this->session->userdata['logged_in']['elusuario'] ." -- (". $this->session->userdata['logged_in']['email'].")";?></p>
+		<?php
+		}else{
+		?>
+
+		  <p style="font-size:20px;"><b>Participante :</b> <?php echo "Anonimo" ." -- (". "Sin correo".")";?></p>
+
+		<?php } ?>
+
 	      </div>
 
 
