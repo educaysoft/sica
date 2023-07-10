@@ -110,10 +110,10 @@ class Curso extends CI_Controller{
 	}
 
 
-	public function Congresos2023()
+	public function perfeccionamientodocente()
 	{
 
-	  $this->load->view('cursos/2023/congresos');
+	  $this->load->view('cursos/2023/docente');
 
 	}
 
