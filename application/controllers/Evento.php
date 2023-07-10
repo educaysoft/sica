@@ -804,10 +804,21 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 		$data['asistencia'] = $this->asistencia_model->asistenciax( $data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
 		}else{
 			$idpersona=4086; //Anomino
-		$data['asistencia'] = $this->asistencia_model->asistenciax( $data['evento']['idevento'] , $idpersona)->result();
+			$data['asistencia'] = $this->asistencia_model->asistenciax( $data['evento']['idevento'] , $idpersona)->result();
 		}
 
+
+		if(isset($this->session->userdata['logged_in']['idpersona']))
+		{
 		$data['participacion'] = $this->participacion_model->participacionx($data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
+
+		}else{
+			$idpersona=4086; //Anomino
+		$data['participacion'] = $this->participacion_model->participacionx($data['evento']['idevento'] , $idpersona)->result();
+		}
+
+
+
 		$data['pagoevento'] = $this->pagoevento_model->pagoeventox($data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
 		$data['silabo']=$this->silabo_model->silabo($data['evento']['idsilabo'])->row_array();
 	
