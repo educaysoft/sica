@@ -32,22 +32,7 @@ if(isset($periodoacademico))
 <?php echo form_open('periodoacademico/save_edit') ?>
 <?php echo form_hidden('idperiodoacademico',$periodoacademico['idperiodoacademico']) ?>
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> Depart-Carrera: </label>
-     	<?php 
 
-$options= array("NADA");
-foreach ($departamentos as $row){
-	$options[$row->iddepartamento]= $row->nombre;
-}
-
-	?>
-	<div class="col-md-10">
-		<?php
-echo form_input('iddepartamento',$options[$periodoacademico['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
 
 
 <div class="form-group row">
