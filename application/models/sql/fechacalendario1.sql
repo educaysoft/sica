@@ -1,5 +1,5 @@
-
 use educayso_facae;
+drop view fechacalendario1;
 create view fechacalendario1 as 
 select fechacalendario.idfechacalendario,
 fechacalendario.fechacalendario,
@@ -7,8 +7,7 @@ fechacalendario.actividad,
 fechacalendario.hito ,
 periodoacademico.idperiodoacademico,
 periodoacademico.nombrecorto as elperiodoacademico,
-departamento.iddepartamento 
+calendarioacademico.idcalendarioacademico 
 from fechacalendario,calendarioacademico, periodoacademico,departamento,departamentoperiodoacademico 
 where fechacalendario.idcalendarioacademico=calendarioacademico.idcalendarioacademico 
-and calendarioacademico.idperiodoacademico=periodoacademico.idperiodoacademico 
-and periodoacademico.idperiodoacademico=departamentoperiodoacademico.idperiodoacademico ;
+and calendarioacademico.idperiodoacademico=periodoacademico.idperiodoacademico; 

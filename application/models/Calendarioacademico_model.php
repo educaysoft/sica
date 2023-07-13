@@ -39,23 +39,23 @@ function lista_calendarioacademicos1($idperiodoacademico){
 	}
 
 
-	function fechasdecorte($idsilabo)
+	function fechasdecorte($idcalendarioacademico)
 	{
 
 		$fechadecorte=array();
-				$condition = "idsilabo =" . $idsilabo ;
-				$this->db->select('*');
-				$this->db->from('silabo');
-				$this->db->where($condition);
-				$this->db->limit(1);
-				$query = $this->db->get();
-				if ($query->num_rows() > 0) {
-						$idperiodoacademico=$query->result()[0]->idperiodoacademico;
-	
-		echo $idperiodoacademico;
+//				$condition = "idsilabo =" . $idsilabo ;
+//				$this->db->select('*');
+///				$this->db->from('silabo');
+//				$this->db->where($condition);
+//				$this->db->limit(1);
+//				$query = $this->db->get();
+//				if ($query->num_rows() > 0) {
+//						$idperiodoacademico=$query->result()[0]->idperiodoacademico;
+//	
+//		echo $idperiodoacademico;
 
- 		//$fechasdecorte = $this->db->query('select fechacalendario from fechacalendario1 where idperiodoacademico='.$idperiodoacademico.' and  actividad like '."'%SUMATORIA%'".'   order by fechacalendario');
- 		$fechasdecorte = $this->db->query('select fechacalendario from fechacalendario1 where idperiodoacademico='.$idperiodoacademico.' and hito=1   order by fechacalendario');
+ 	//	$fechasdecorte = $this->db->query('select fechacalendario from fechacalendario1 where idperiodoacademico='.$idperiodoacademico.' and hito=1   order by fechacalendario');
+ 		$fechasdecorte = $this->db->query('select fechacalendario from fechacalendario1 where idcalendarioacademico='.$idcalendarioacademico.' and hito=1   order by fechacalendario');
 				}
  		return $fechasdecorte;
 		

@@ -233,7 +233,8 @@ public function reportepdf()
 
   	$data['title']="Certificado";
 	$data['fechacorte']=array();
-	$fechas= $this->calendarioacademico_model->fechasdecorte($data['evento']['idsilabo'])->result_array();
+	//$fechas= $this->calendarioacademico_model->fechasdecorte($data['evento']['idsilabo'])->result_array();
+	$fechas= $this->calendarioacademico_model->fechasdecorte($data['evento']['idcalendarioacademico'])->result_array();
 	foreach($fechas as $k=>$v)
 	{
 	      array_push($data['fechacorte'],$v['fechacalendario']);
