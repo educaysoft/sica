@@ -8,6 +8,6 @@ fechacalendario.hito ,
 periodoacademico.idperiodoacademico,
 periodoacademico.nombrecorto as elperiodoacademico,
 calendarioacademico.idcalendarioacademico 
-from fechacalendario,calendarioacademico, periodoacademico,departamento,departamentoperiodoacademico 
+from fechacalendario,calendarioacademico,periodoacademico 
 where fechacalendario.idcalendarioacademico=calendarioacademico.idcalendarioacademico 
 and calendarioacademico.idperiodoacademico=periodoacademico.idperiodoacademico; 
