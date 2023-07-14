@@ -180,22 +180,22 @@ overflow:hidden;
         </div>
         <div class="col">
           <div class="card shadow-sm">
-		  <a  href='https://educaysoft.org/sica/evento/detalle/333'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/investigacion.jpg" height="100%" width="100%"/> </svg></a>
+		  <a  href='https://educaysoft.org/sica/evento/detalle/333'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/inteligenciaartificial.jpg" height="100%" width="100%"/> </svg></a>
 
 <div class='img-contenedor w3-card-4' style='position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;'>
-<img src='https://repositorioutlvte.org/Repositorio/fotos/0964617179.jpg' width='100%' height='100%' style='border-radius:50px;'>
+<img src='https://repositorioutlvte.org/Repositorio/fotos/1714184429.jpg' width='100%' height='100%' style='border-radius:50px;'>
 </div>
 
             <div class="card-body">
-              <p class="card-text">Investigación Científica y Metodología de la Investigación en Educación Superior".</p>
-	      <p><b>Instructora:</b> Lic. Nayade Reyes P. PhD.</p>
+              <p class="card-text">Inteligencia Artificial".</p>
+	      <p><b>Instructor:</b> Ing.Solano Gutierrez Alfredo MsC.</p>
 
-<p><b>Fechas:</b>  12 al 26 de abril del 2023.</a></p>
+<p><b>Fechas:</b>  10 al 21 de julio del 2023.</a></p>
 	      <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
-	      <p><b>Hora:</b>  18:00 - 20:00 </p>
+	      <p><b>Hora:</b>  17:00 - 19:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcorreo?idevento=333'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcorreo?idevento=354'"  >Inscribete</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login'">Ingresa</button>
                 </div>
                 <small class="text-muted"><b>Modalidad:</b>On-line</small>
