@@ -139,8 +139,8 @@ overflow:hidden;
 <main>
 
   <section class="py-5 text-center container">
-    <div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: cente" >
-<div>
+    <div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: center;" >
+<div style=" flex-basis: 40%"  >
 <img src="https://repositorioutlvte.org/Repositorio/qr/cupado2023_2.png" height="80px">
 </div>
       <div class="col-lg-6 col-md-8 mx-auto">
