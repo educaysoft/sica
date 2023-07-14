@@ -139,9 +139,11 @@ overflow:hidden;
 <main>
 
   <section class="py-5 text-center container">
-    <div class="row py-lg-5">
+    <div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: cente" >
+<div>
+<img src="https://repositorioutlvte.org/Repositorio/qr/cupado2023_2.png" height="80px">
+</div>
       <div class="col-lg-6 col-md-8 mx-auto">
-<img src="https://repositorioutlvte.org/Repositorio/qr/cupado2023_2.png" height="50px">
         <h1 class="fw-light">Perfeccionamiento Docente  
         <p class="lead text-muted">Segunda Temporada 2023.</p>
       <!---  <p>
