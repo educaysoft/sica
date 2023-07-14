@@ -140,7 +140,7 @@ overflow:hidden;
 
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
-<img src="https://repositorioutlvte.org/Repositorio/qr/cupado2023_2.jpg" style="float: left">
+<img src="https://repositorioutlvte.org/Repositorio/qr/cupado2023_2.png" style="float: left">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Cursos de Perfeccionamiento Académico y Ética</h1>
         <p class="lead text-muted">Inscribete y da seguimiento al  curso  .</p>
