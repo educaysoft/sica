@@ -140,6 +140,7 @@ overflow:hidden;
 
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
+<img src="otra_imagen.gif" style="float: left">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Cursos de Perfeccionamiento Académico y Ética</h1>
         <p class="lead text-muted">Inscribete y da seguimiento al  curso  .</p>
@@ -230,8 +231,31 @@ overflow:hidden;
   </div>
 </footer>
 
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
+></script>
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+
+$(".submenu").click(function(){
+  $(this).children("ul").slideToggle();
+})
+
+$("ul").click(function(ev){
+  ev.stopPropagation();
+})
+
+
+function cargarVideo(url){
+        document.getElementById('slider').src=url;
+}
+
+
+</script>
+    <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+
 
       
   </body>
