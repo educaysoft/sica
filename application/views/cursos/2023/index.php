@@ -239,6 +239,7 @@ overflow:hidden;
 
 <div class='img-contenedor w3-card-4' style='position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;'>
 <img src='https://repositorioutlvte.org/Repositorio/fotos/1714184429.jpg' width='100%' height='100%' style='border-radius:50px;'>
+</div>
             <div class="card-body">
               <p class="card-text">Metodologíá de la Educación Superior.</p>
 	      <p><b>Instructora:</b> Licda. Rosa Posso,PhD.</p>
