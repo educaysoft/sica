@@ -157,7 +157,7 @@ overflow:hidden;
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-		<a  href='https://educaysoft.org/sica/evento/detalle/332'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="<?php echo base_url(); ?>images/cursos/didactica.jpg" height="100%" width="100%"/>  </svg></a>
+		<a  href='https://educaysoft.org/sica/evento/detalle/353'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="<?php echo base_url(); ?>images/cursos/didactica.jpg" height="100%" width="100%"/>  </svg></a>
 <div class='img-contenedor w3-card-4' style='position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;'>
 <img src='https://repositorioutlvte.org/Repositorio/fotos/0801215328.jpg' width='100%' height='100%' style='border-radius:50px;'>
 </div>
@@ -180,7 +180,7 @@ overflow:hidden;
         </div>
         <div class="col">
           <div class="card shadow-sm">
-		  <a  href='https://educaysoft.org/sica/evento/detalle/333'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/inteligenciaartificial.jpg" height="100%" width="100%"/> </svg></a>
+		  <a  href='https://educaysoft.org/sica/evento/detalle/354'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/inteligenciaartificial.jpg" height="100%" width="100%"/> </svg></a>
 
 <div class='img-contenedor w3-card-4' style='position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;'>
 <img src='https://repositorioutlvte.org/Repositorio/fotos/1714184429.jpg' width='100%' height='100%' style='border-radius:50px;'>
@@ -205,88 +205,11 @@ overflow:hidden;
           </div>
         </div>
         
-<div class="col">
-          <div class="card shadow-sm">
-		  <a  href='https://educaysoft.org/sica/evento/detalle/334'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/estadistica.jpg" height="100%" width="100%"/> </svg></a>
 
-<div class='img-contenedor w3-card-4' style='position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;'>
-<img src='https://repositorioutlvte.org/Repositorio/fotos/0960576361.jpg' width='100%' height='100%' style='border-radius:50px;'>
-</div>
-
-            <div class="card-body">
-              <p class="card-text">Estadística Aplicada y Análisis Estadístico.</p>
-	      <p><b>Instructor:</b>Licdo. Raul Camacho</p>
-
-<p><b>Fechas:</b>  27-abril al 12-mayo del 2023.</a></p>
-	      <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
-	      <p><b>Hora:</b>  18:00 - 20:00 </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcorreo?idevento=334'"  >Inscribete</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login'">Ingresa</button>
-                </div>
-                <small class="text-muted"><b>Modalidad:</b>On-line</small>
-
-
-              </div>
-            </div>
-          </div>
-        </div>
         
- <div class="col">
-          <div class="card shadow-sm">
-		  <a  href='https://educaysoft.org/sica/evento/detalle/335'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/metodologia.jpg" height="100%" width="100%"/> </svg></a>
-
-            <div class="card-body">
-              <p class="card-text">Metodologíá de la Educación Superior.</p>
-	      <p><b>Instructora:</b> Licda. Rosa Posso,PhD.</p>
-
-
-<p><b>Fechas:</b>  27-abril al 26-mayo del 2023.</a></p>
-	      <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
-	      <p><b>Hora:</b>  18:00 - 20:00 </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcorreo?idevento=335'"  >Inscribete</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login'">Ingresa</button>
-                </div>
-                <small class="text-muted"><b>Modalidad:</b>On-line</small>
-
-
-
-
-              </div>
-            </div>
-          </div>
-        </div>       
         
-<div class="col">
-          <div class="card shadow-sm">
-		  <a  href='https://educaysoft.org/sica/evento/detalle/336'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/etica.jpg" height="100%" width="100%"/> </svg></a>
-<div class='img-contenedor w3-card-4' style='position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;'>
-<img src='https://repositorioutlvte.org/Repositorio/fotos/0801201765.jpg' width='100%' height='100%' style='border-radius:50px;'>
-</div>
-            <div class="card-body">
-              <p class="card-text">Ética.</p>
-	      <p><b>Instructora:</b> Ing. Rugina Quiñonez, PhD</p>
+        
 
-
-<p><b>Fechas:</b>  27-abril al 12-mayo del 2023.</a></p>
-	      <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
-	      <p><b>Hora:</b>  18:00 - 20:00 </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcorreo?idevento=336'"  >Inscribete</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login'">Ingresa</button>
-                </div>
-                <small class="text-muted"><b>Modalidad:</b>On-line</small>
-
-
-
-              </div>
-            </div>
-          </div>
-        </div>
         
 
         
