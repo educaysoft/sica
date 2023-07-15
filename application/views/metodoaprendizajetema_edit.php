@@ -21,7 +21,7 @@ echo form_input($eys_arrinput); ?></td>
 <td><?php
 $options= array('--Select--');
 foreach ($temas as $row){
-	$options[$row->idtema]=$row->malla." - ".$row->area." - ".$row->nombre;
+	$options[$row->idtema]=$row->nombrecorto;
 }
 
  echo form_dropdown("idtema",$options, $metodoaprendizajetema['idtema']);  ?></td>
