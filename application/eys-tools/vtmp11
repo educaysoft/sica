@@ -1,98 +1,58 @@
 <div id="eys-nav-i">
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($horasasignatura))
+if(isset($tipohorasasignatura))
 {
 ?>
-        <li> <?php echo anchor('horasasignatura/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('horasasignatura/anterior/'.$horasasignatura['idhorasasignatura'], 'anterior'); ?></li>
-        <li> <?php echo anchor('horasasignatura/siguiente/'.$horasasignatura['idhorasasignatura'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('horasasignatura/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('horasasignatura/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('horasasignatura/edit/'.$horasasignatura['idhorasasignatura'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('horasasignatura/delete/'.$horasasignatura['idhorasasignatura'],'Delete'); ?></li>
-        <li> <?php echo anchor('horasasignatura/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('tipohorasasignatura/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('tipohorasasignatura/siguiente/'.$tipohorasasignatura['idtipohorasasignatura'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('tipohorasasignatura/anterior/'.$tipohorasasignatura['idtipohorasasignatura'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('tipohorasasignatura/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('tipohorasasignatura/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('tipohorasasignatura/edit/'.$tipohorasasignatura['idtipohorasasignatura'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('tipohorasasignatura/delete/'.$tipohorasasignatura['idtipohorasasignatura'],'Delete'); ?></li>
+        <li> <?php echo anchor('tipohorasasignatura/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('horasasignatura/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('tipohorasasignatura/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
-
     </ul>
 </div>
 <br>
 <br>
 
 
-<?php echo form_open('horasasignatura/save_edit') ?>
-<?php echo form_hidden('idhorasasignatura',$horasasignatura['idhorasasignatura']) ?>
-<table>
-  <tr>
-     <td>Id Metodologiastema:</td>
-     <td><?php echo form_input('idhorasasignatura',$horasasignatura['idhorasasignatura'],array("disabled"=>"disabled",'placeholder'=>'Idhorasasignaturas')) ?></td>
-  </tr>
+<?php echo form_open('tipohorasasignatura/save_edit') ?>
+<?php echo form_hidden('idtipohorasasignatura',$tipohorasasignatura['idtipohorasasignatura']) ?>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id:</label>
+	<div class="col-md-10">
+     <?php
+	echo form_input('idtipohorasasignatura',$tipohorasasignatura['idtipohorasasignatura'],array("disabled"=>"disabled",'placeholder'=>'Idtipohorasasignaturas'));
+	?>
+	</div> 
+</div> 
  
- 
-<tr>
-     <td>Asignatura:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($asignaturas as $row){
-	$options[$row->idasignatura]= $row->nombre;
-}
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+     <?php
+       echo form_input('nombre',$tipohorasasignatura['nombre'],array('placeholder'=>'Nombre del tipohorasasignatura')); 
 
-echo form_input('idasignatura',$options[$horasasignatura['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
-  </tr>
- 
- 
-<tr>
-     <td>Tipo de horas:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($tipohorasasignaturas as $row){
-	$options[$row->idtipohorasasignatura]= $row->nombre;
-}
-
-echo form_input('idtipohorasasignatura',$options[$horasasignatura['idtipohorasasignatura']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
-  </tr>
-
-
- 
-  <tr>
-     <td>Cantidad de horas:</td>
-     <td><?php echo form_input('cantidad',$horasasignatura['cantidad'],array("disabled"=>"disabled",'placeholder'=>'Cantidad','style'=>'width:500px')) ?></td>
-  </tr>
-
-
-  
-
-
-
-
-
-
-
-
-</table>
+	?>
+	</div> 
+</div> 
+   
+   
 <?php echo form_close(); ?>
 
 
 
-
-
-</body>
-
-
-
-
-
-
-
-
-
-</html>

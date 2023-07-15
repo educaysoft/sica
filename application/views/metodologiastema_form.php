@@ -6,22 +6,22 @@
 
 
 <tr>
-<td> Asignatura: </td>
+<td> Tema: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($asignaturas as $row){
-	$options[$row->idasignatura]=$row->malla." - ".$row->area." - ".$row->nombre;
+foreach ($temas as $row){
+	$options[$row->idtema]=$row->malla." - ".$row->area." - ".$row->nombre;
 }
 
- echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idtema",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
 
 
 <tr>
-<td> Tipo de horas: </td>
+<td> Tipo de metodología: </td>
 <td><?php 
 
 $options= array('--Select--');
@@ -34,8 +34,8 @@ foreach ($tipometodologiastemas as $row){
 </tr>
 
 <tr>
-<td> Cantidad de horas: </td>
-<td><?php echo form_input("cantidad","", array("placeholder"=>"Cantidad de horas(float)"))  ?></td>
+<td> Actividades: </td>
+<td><?php echo form_input("actividades","", array("placeholder"=>"Actividades para aplicar la tecnica del metodo"))  ?></td>
 </tr>
 
 <tr>

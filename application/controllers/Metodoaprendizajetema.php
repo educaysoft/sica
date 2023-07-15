@@ -1,0 +1,238 @@
+<?php
+
+class Metodoaprendizajetema extends CI_Controller{
+
+  public function __construct(){
+      parent::__construct();
+      $this->load->model('metodoaprendizajetema_model');
+  	  $this->load->model('asignatura_model');
+  	  $this->load->model('tipometodoaprendizajetema_model');
+}
+
+public function index(){
+
+  	if(isset($this->session->userdata['logged_in'])){
+			
+  		$data['metodoaprendizajetema']=$this->metodoaprendizajetema_model->lista_metodoaprendizajetemas()->row_array();
+  		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  		$data['tipometodoaprendizajetemas']= $this->tipometodoaprendizajetema_model->lista_tipometodoaprendizajetemas()->result();
+			
+		$data['title']="Lista de metodoaprendizajetemas";
+		$this->load->view('template/page_header');
+		$this->load->view('metodoaprendizajetema_record',$data);
+		$this->load->view('template/page_footer');
+	}else{
+	 	$this->load->view('template/page_header.php');
+		$this->load->view('login_form');
+	 	$this->load->view('template/page_footer.php');
+	}
+
+ }
+
+
+public function actual(){
+ if(isset($this->session->userdata['logged_in'])){
+
+	$data['metodoaprendizajetema'] = $this->metodoaprendizajetema_model->metodoaprendizajetema($this->uri->segment(3))->row_array();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['tipometodoaprendizajetemas']= $this->tipometodoaprendizajetema_model->lista_tipometodoaprendizajetemas()->result();
+	$data['title']="Modulo de Telefonos";
+	$this->load->view('template/page_header');		
+	$this->load->view('metodoaprendizajetema_record',$data);
+	$this->load->view('template/page_footer');
+   }else{
+	$this->load->view('template/page_header.php');
+	$this->load->view('login_form');
+	$this->load->view('template/page_footer.php');
+   }
+}
+
+
+
+
+
+
+public function add()
+{
+
+	if($this->uri->segment(3))
+	{
+		$data['asignaturas']= $this->asignatura_model->asignaturas1($this->uri->segment(3))->result();
+
+	}else{
+
+		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
+	}
+
+
+  	$data['tipometodoaprendizajetemas']= $this->tipometodoaprendizajetema_model->lista_tipometodoaprendizajetemas()->result();
+		$data['title']="Nueva Metodoaprendizajetema";
+	 	$this->load->view('template/page_header');		
+	 	$this->load->view('metodoaprendizajetema_form',$data);
+	 	$this->load->view('template/page_footer');
+
+
+}
+
+
+	public function  save()
+	{
+	 	$array_item=array(
+		 	
+		 	'idmetodoaprendizajetema' => $this->input->post('idmetodoaprendizajetema'),
+		 	'cantidad' => $this->input->post('cantidad'),
+			'idasignatura' => $this->input->post('idasignatura'),
+			'idtipometodoaprendizajetema' => $this->input->post('idtipometodoaprendizajetema'),
+	 	);
+	 	$this->metodoaprendizajetema_model->save($array_item);
+	 	//redirect('metodoaprendizajetema');
+		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
+ 	}
+
+
+
+public function edit()
+{
+	 	$data['metodoaprendizajetema'] = $this->metodoaprendizajetema_model->metodoaprendizajetema($this->uri->segment(3))->row_array();
+		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA(0)->result();
+  		$data['tipometodoaprendizajetemas']= $this->tipometodoaprendizajetema_model->lista_tipometodoaprendizajetemas()->result();
+ 	 	$data['title'] = "Actualizar Metodoaprendizajetema";
+ 	 	$this->load->view('template/page_header');		
+ 	 	$this->load->view('metodoaprendizajetema_edit',$data);
+	 	$this->load->view('template/page_footer');
+ 
+}
+
+
+	public function  save_edit()
+	{
+		$id=$this->input->post('idmetodoaprendizajetema');
+	 	$array_item=array(
+		 	
+		 	'idmetodoaprendizajetema' => $this->input->post('idmetodoaprendizajetema'),
+		 	'cantidad' => $this->input->post('cantidad'),
+			'idasignatura' => $this->input->post('idasignatura'),
+			'idtipometodoaprendizajetema' => $this->input->post('idtipometodoaprendizajetema'),
+	 	);
+	 	$this->metodoaprendizajetema_model->update($id,$array_item);
+	 	//redirect('metodoaprendizajetema');
+		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
+ 	}
+
+
+ 	public function delete()
+ 	{
+ 		$data=$this->metodoaprendizajetema_model->delete($this->uri->segment(3));
+ 		echo json_encode($data);
+	 	redirect('metodoaprendizajetema/elprimero');
+	//	$db['default']['db_debug']=FALSE
+ 	}
+
+
+public function listar()
+{
+	
+  $data['title']="Metodoaprendizajetemas";
+	$this->load->view('template/page_header');		
+  $this->load->view('metodoaprendizajetema_list',$data);
+	$this->load->view('template/page_footer');
+}
+
+
+
+function metodoaprendizajetema_data()
+{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+
+
+	 	$data0 = $this->metodoaprendizajetema_model->lista_metodoaprendizajetemasA();
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->idmetodoaprendizajetema,$r->laasignatura,$r->elmetodoaprendizajetema,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idmetodoaprendizajetema="'.$r->idmetodoaprendizajetema.'">Ver</a>');
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+		echo json_encode($output);
+		exit();
+	
+			
+
+}
+
+
+
+
+
+
+
+
+public function elprimero()
+{
+	$data['metodoaprendizajetema'] = $this->metodoaprendizajetema_model->elprimero();
+  	$data['tipometodoaprendizajetemas']= $this->tipometodoaprendizajetema_model->lista_tipometodoaprendizajetemas()->result();
+  if(!empty($data))
+  {
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+    $data['title']="Metodoaprendizajetema";
+    $this->load->view('template/page_header');		
+    $this->load->view('metodoaprendizajetema_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+public function elultimo()
+{
+	$data['metodoaprendizajetema'] = $this->metodoaprendizajetema_model->elultimo();
+  	$data['tipometodoaprendizajetemas']= $this->tipometodoaprendizajetema_model->lista_tipometodoaprendizajetemas()->result();
+  if(!empty($data))
+  {
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+    $data['title']="Metodoaprendizajetema";
+  
+    $this->load->view('template/page_header');		
+    $this->load->view('metodoaprendizajetema_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+}
+
+public function siguiente(){
+ // $data['metodoaprendizajetema_list']=$this->metodoaprendizajetema_model->lista_metodoaprendizajetema()->result();
+	$data['metodoaprendizajetema'] = $this->metodoaprendizajetema_model->siguiente($this->uri->segment(3))->row_array();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['tipometodoaprendizajetemas']= $this->tipometodoaprendizajetema_model->lista_tipometodoaprendizajetemas()->result();
+  $data['title']="Metodoaprendizajetema";
+	$this->load->view('template/page_header');		
+  $this->load->view('metodoaprendizajetema_record',$data);
+	$this->load->view('template/page_footer');
+}
+
+public function anterior(){
+ // $data['metodoaprendizajetema_list']=$this->metodoaprendizajetema_model->lista_metodoaprendizajetema()->result();
+	$data['metodoaprendizajetema'] = $this->metodoaprendizajetema_model->anterior($this->uri->segment(3))->row_array();
+ 	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['tipometodoaprendizajetemas']= $this->tipometodoaprendizajetema_model->lista_tipometodoaprendizajetemas()->result();
+  $data['title']="Metodoaprendizajetema";
+	$this->load->view('template/page_header');		
+  $this->load->view('metodoaprendizajetema_record',$data);
+	$this->load->view('template/page_footer');
+}
+
+
+
+
+}

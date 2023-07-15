@@ -27,21 +27,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 
 
-<div id="eys-nav-i">
-	<ul>
-		<li> <?php echo anchor('tipohorasasignatura', 'Home'); ?></li>
-	</ul>
-</div>
-
-
-
-
 <div class="row justify-content-center">
       <!-- Page Heading -->
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Documento_estado - Listar 
+                 <h3>Lista de metodoaprendizajetemas 
                  <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
 			  
         	</h3>
@@ -50,8 +41,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>ID</th>
- <th>nombre</th>
+ <th>IDmetodoaprendizajetema</th>
+ <th>La Persona</th>
+ <th>El metodoaprendizajetema</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
@@ -82,13 +74,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('tipohorasasignatura/tipohorasasignatura_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('metodoaprendizajetema/metodoaprendizajetema_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-window.location.href = "http://localhost/facae/index.php/tipohorasasignatura";
+var id=$(this).data('idmetodoaprendizajetema');
+window.location.href = "http://localhost/facae/index.php/metodoaprendizajetema/actual/"+id;
 
 });
 

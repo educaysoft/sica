@@ -4,15 +4,15 @@ class Tecnicaaprendizaje extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('tipohorasasignatura_model');
+      $this->load->model('tecnicaaprendizaje_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['tipohorasasignatura']=$this->tipohorasasignatura_model->tipohorasasignatura(1)->row_array();
-		$data['title']="Lista de tipohorasasignaturaes";
+		$data['tecnicaaprendizaje']=$this->tecnicaaprendizaje_model->tecnicaaprendizaje(1)->row_array();
+		$data['title']="Lista de tecnicaaprendizajees";
 		$this->load->view('template/page_header');
-		$this->load->view('tipohorasasignatura_record',$data);
+		$this->load->view('tecnicaaprendizaje_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva tipohorasasignatura";
+		$data['title']="Nueva tecnicaaprendizaje";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('tipohorasasignatura_form',$data);
+	 	$this->load->view('tecnicaaprendizaje_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,21 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idtipohorasasignatura' => $this->input->post('idtipohorasasignatura'),
+	 	'idtecnicaaprendizaje' => $this->input->post('idtecnicaaprendizaje'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->tipohorasasignatura_model->save($array_item);
-	 	redirect('tipohorasasignatura');
+	 	$this->tecnicaaprendizaje_model->save($array_item);
+	 	redirect('tecnicaaprendizaje');
  	}
 
 
 
 public function edit()
 {
-	 	$data['tipohorasasignatura'] = $this->tipohorasasignatura_model->tipohorasasignatura($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar tipohorasasignatura";
+	 	$data['tecnicaaprendizaje'] = $this->tecnicaaprendizaje_model->tecnicaaprendizaje($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar tecnicaaprendizaje";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('tipohorasasignatura_edit',$data);
+ 	 	$this->load->view('tecnicaaprendizaje_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +56,22 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idtipohorasasignatura');
+		$id=$this->input->post('idtecnicaaprendizaje');
 	 	$array_item=array(
 		 	
-		 	'idtipohorasasignatura' => $this->input->post('idtipohorasasignatura'),
+		 	'idtecnicaaprendizaje' => $this->input->post('idtecnicaaprendizaje'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->tipohorasasignatura_model->update($id,$array_item);
-	 	redirect('tipohorasasignatura');
+	 	$this->tecnicaaprendizaje_model->update($id,$array_item);
+	 	redirect('tecnicaaprendizaje');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->tipohorasasignatura_model->delete($this->uri->segment(3));
+ 		$data=$this->tecnicaaprendizaje_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('tipohorasasignatura/elprimero');
+	 	redirect('tecnicaaprendizaje/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -81,24 +81,24 @@ public function listar()
 	
   $data['title']="Tecnicaaprendizaje";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipohorasasignatura_list',$data);
+  $this->load->view('tecnicaaprendizaje_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function tipohorasasignatura_data()
+function tecnicaaprendizaje_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->tipohorasasignatura_model->lista_tipohorasasignaturas();
+	 	$data0 = $this->tecnicaaprendizaje_model->lista_tecnicaaprendizajes();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idtipohorasasignatura,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipohorasasignatura="'.$r->idtipohorasasignatura.'">Ver</a>');
+			$data[]=array($r->idtecnicaaprendizaje,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtecnicaaprendizaje="'.$r->idtecnicaaprendizaje.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -121,12 +121,12 @@ function tipohorasasignatura_data()
 
 public function elprimero()
 {
-	$data['tipohorasasignatura'] = $this->tipohorasasignatura_model->elprimero();
+	$data['tecnicaaprendizaje'] = $this->tecnicaaprendizaje_model->elprimero();
   if(!empty($data))
   {
     $data['title']="Tecnicaaprendizaje";
     $this->load->view('template/page_header');		
-    $this->load->view('tipohorasasignatura_record',$data);
+    $this->load->view('tecnicaaprendizaje_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +137,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['tipohorasasignatura'] = $this->tipohorasasignatura_model->elultimo();
+	$data['tecnicaaprendizaje'] = $this->tecnicaaprendizaje_model->elultimo();
   if(!empty($data))
   {
     $data['title']="Tecnicaaprendizaje";
   
     $this->load->view('template/page_header');		
-    $this->load->view('tipohorasasignatura_record',$data);
+    $this->load->view('tecnicaaprendizaje_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,20 +154,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['tipohorasasignatura_list']=$this->tipohorasasignatura_model->lista_tipohorasasignatura()->result();
-	$data['tipohorasasignatura'] = $this->tipohorasasignatura_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['tecnicaaprendizaje_list']=$this->tecnicaaprendizaje_model->lista_tecnicaaprendizaje()->result();
+	$data['tecnicaaprendizaje'] = $this->tecnicaaprendizaje_model->siguiente($this->uri->segment(3))->row_array();
   $data['title']="Tecnicaaprendizaje";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipohorasasignatura_record',$data);
+  $this->load->view('tecnicaaprendizaje_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['tipohorasasignatura_list']=$this->tipohorasasignatura_model->lista_tipohorasasignatura()->result();
-	$data['tipohorasasignatura'] = $this->tipohorasasignatura_model->anterior($this->uri->segment(3))->row_array();
+ // $data['tecnicaaprendizaje_list']=$this->tecnicaaprendizaje_model->lista_tecnicaaprendizaje()->result();
+	$data['tecnicaaprendizaje'] = $this->tecnicaaprendizaje_model->anterior($this->uri->segment(3))->row_array();
   $data['title']="Tecnicaaprendizaje";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipohorasasignatura_record',$data);
+  $this->load->view('tecnicaaprendizaje_record',$data);
 	$this->load->view('template/page_footer');
 }
 
