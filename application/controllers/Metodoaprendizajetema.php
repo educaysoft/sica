@@ -57,10 +57,8 @@ public function add()
 
 	if($this->uri->segment(3))
 	{
-		echo $this->uri->segment(3);
-		die();
 
-		$data['temas']= $this->tema_model->temas1($this->uri->segment(3))->result();
+		$data['temas']= $this->tema_model->tema1($this->uri->segment(3))->result();
 
 	}else{
 
