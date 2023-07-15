@@ -43,7 +43,7 @@ if(isset($metodoaprendizajetema))
      <td><?php 
 $options= array("NADA");
 foreach ($temas as $row){
-	$options[$row->idtema]= $row->nombre;
+	$options[$row->idtema]= $row->nombrecorto;
 }
 
 echo form_input('idtema',$options[$metodoaprendizajetema['idtema']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
@@ -51,22 +51,19 @@ echo form_input('idtema',$options[$metodoaprendizajetema['idtema']],array("disab
  
  
 <tr>
-     <td>Tipo de horas:</td>
+     <td>Metodo:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($tipometodoaprendizajetemas as $row){
-	$options[$row->idtipometodoaprendizajetema]= $row->nombre;
+foreach ($metodoaprendizajetemas as $row){
+	$options[$row->idmetodoaprendizajetema]= $row->elmetodo;
 }
 
-echo form_input('idtipometodoaprendizajetema',$options[$metodoaprendizajetema['idtipometodoaprendizajetema']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
+echo form_input('idmetodoaprendizaje',$options[$metodoaprendizajetema['idmetodoaprendizaje']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
   </tr>
 
 
  
-  <tr>
-     <td>Cantidad de horas:</td>
-     <td><?php echo form_input('cantidad',$metodoaprendizajetema['cantidad'],array("disabled"=>"disabled",'placeholder'=>'Cantidad','style'=>'width:500px')) ?></td>
-  </tr>
+  
 
 
   
