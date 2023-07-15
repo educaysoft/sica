@@ -250,6 +250,7 @@ public function elultimo()
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
 		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+  	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->lista_metodoaprendizajetemas1()->result();
   if(!empty($data))
   {
     $data['title']="Tema";
