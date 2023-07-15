@@ -26,7 +26,7 @@ foreach ($temas as $row){
 
 $options= array('--Select--');
 foreach ($metodoaprendizajes as $row){
-	$options[$row->idmetodoaprendizajetema]=$row->nombre;
+	$options[$row->idmetodoaprendizaje]=$row->nombre;
 
 }
 
