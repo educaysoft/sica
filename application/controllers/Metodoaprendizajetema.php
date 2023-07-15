@@ -4,7 +4,7 @@ class Metodoaprendizajetema extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('metodoaprendizajetema_model');
+      	  $this->load->model('metodoaprendizajetema_model');
   	  $this->load->model('tema_model');
   	  $this->load->model('metodoaprendizaje_model');
 }
