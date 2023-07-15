@@ -42,11 +42,11 @@ if(isset($metodoaprendizajetema))
      <td>Asignatura:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($asignaturas as $row){
-	$options[$row->idasignatura]= $row->nombre;
+foreach ($temas as $row){
+	$options[$row->idtema]= $row->nombre;
 }
 
-echo form_input('idasignatura',$options[$metodoaprendizajetema['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
+echo form_input('idtema',$options[$metodoaprendizajetema['idtema']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
   </tr>
  
  
