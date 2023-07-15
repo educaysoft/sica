@@ -36,6 +36,7 @@ public function  save()
 	 	$array_item=array(
 	 	'idmetodoaprendizaje' => $this->input->post('idmetodoaprendizaje'),
 	 	'nombre' => $this->input->post('nombre'),
+	 	'descripcion' => $this->input->post('descripcion'),
 	 	);
 	 	$this->metodoaprendizaje_model->save($array_item);
 	 	redirect('metodoaprendizaje');
@@ -61,6 +62,7 @@ public function edit()
 		 	
 		 	'idmetodoaprendizaje' => $this->input->post('idmetodoaprendizaje'),
 		 	'nombre' => $this->input->post('nombre'),
+	 		'descripcion' => $this->input->post('descripcion'),
 	 	);
 	 	$this->metodoaprendizaje_model->update($id,$array_item);
 	 	redirect('metodoaprendizaje');

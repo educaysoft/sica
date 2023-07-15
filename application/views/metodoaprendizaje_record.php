@@ -51,7 +51,18 @@ if(isset($metodoaprendizaje))
 	</div> 
 </div> 
    
-   
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Descripcion del método:</label>
+	<div class="col-md-10">
+		<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('descripcion',$metodoaprendizaje['descripcion'],$textarea_options); 
+		?>
+	</div> 
+</div>
+
+
 <?php echo form_close(); ?>
 
 

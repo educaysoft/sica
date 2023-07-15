@@ -19,7 +19,17 @@ echo form_input($eys_arrinput); ?></td>
 $eys_arrinput=array('name'=>'nombre','value'=>$metodoaprendizaje['nombre'], "style"=>"width:500px");
  echo form_input($eys_arrinput); ?></td>
   </tr>
- 
+
+<tr>
+  <td>Descripcion:</td>
+  <td><?php 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"descripcion","id" =>"descripcion");    
+echo form_textarea('descripcion',$metodoaprendizaje['descripcion'],$textarea_options ); ?></td>
+</tr>
+
+
+
+
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('metodoaprendizaje','Atras') ?></td>
  </tr>

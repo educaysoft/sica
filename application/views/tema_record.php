@@ -105,6 +105,22 @@ if(isset($tema))
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('metodoaprendizajetema/add/'.$tema['idtema'], 'Metodo:'); ?>:</label>
+	<div class="col-md-10">
+	<?php
+ 	$options = array();
+  	foreach ($metodoaprendizajetemas as $row){
+		$options[$row->idmetodoaprendizajetema]=$row->elmetodo;
+	}
+ echo form_multiselect('metodoaprendizajetema[]',$options,(array)set_value('idmetodoaprendizajetema', ''), array('style'=>'width:500px')); 
+
+	?>
+	</div> 
+</div>
+
+
+
 
 
 
