@@ -1,5 +1,5 @@
 <?php
-class Tipometodologiasasignatura_model extends CI_model {
+class Tipometodologiastema_model extends CI_model {
 
 	function lista_tipohorasasignaturas(){
 		 $tipohorasasignatura= $this->db->get('tipohorasasignatura');
