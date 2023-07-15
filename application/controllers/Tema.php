@@ -208,6 +208,7 @@ public function actual()
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
+  	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->lista_metodoaprendizajetemas()->result();
   if(!empty($data))
   {
     $data['title']="Tema";
