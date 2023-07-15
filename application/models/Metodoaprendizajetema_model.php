@@ -7,7 +7,7 @@ class Metodoaprendizajetema_model extends CI_model {
 	}
 
 
-	function lista_metodoaprendizajetemasA(){
+	function lista_metodoaprendizajetemas1(){
 		 $metodoaprendizajetema= $this->db->get('metodoaprendizajetema1');
 		 return $metodoaprendizajetema;
 	}
