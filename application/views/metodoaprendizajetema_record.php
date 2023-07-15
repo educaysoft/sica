@@ -55,7 +55,7 @@ echo form_input('idtema',$options[$metodoaprendizajetema['idtema']],array("disab
      <td><?php 
 $options= array("NADA");
 foreach ($metodoaprendizajes as $row){
-	$options[$row->idmetodoaprendizaje]= $row->elmetodo;
+	$options[$row->idmetodoaprendizaje]= $row->nombre;
 }
 
 echo form_input('idmetodoaprendizaje',$options[$metodoaprendizajetema['idmetodoaprendizaje']],array("disabled"=>"disabled",'style'=>'width:500px')) ?></td>
