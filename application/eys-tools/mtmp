@@ -1,33 +1,49 @@
 <?php
-class Tipohorasasignatura_model extends CI_model {
+class Horasasignatura_model extends CI_model {
 
-	function lista_tipohorasasignaturas(){
-		 $tipohorasasignatura= $this->db->get('tipohorasasignatura');
-		 return $tipohorasasignatura;
+	function lista_horasasignaturas(){
+		 $horasasignatura= $this->db->get('horasasignatura');
+		 return $horasasignatura;
 	}
 
- 	function tipohorasasignatura( $id){
- 		$tipohorasasignatura = $this->db->query('select * from tipohorasasignatura where idtipohorasasignatura="'. $id.'"');
- 		return $tipohorasasignatura;
+
+	function lista_horasasignaturasA(){
+		 $horasasignatura= $this->db->get('horasasignatura1');
+		 return $horasasignatura;
+	}
+
+
+
+ 	function horasasignatura( $id){
+ 		$horasasignatura = $this->db->query('select * from horasasignatura where idhorasasignatura="'. $id.'"');
+ 		return $horasasignatura;
  	}
+
+
+ 	function horasasignaturasA( $idasignatura){
+ 		$horasasignatura = $this->db->query('select * from horasasignatura1 where idasignatura="'. $idasignatura.'"');
+ 		return $horasasignatura;
+ 	}
+
+
 
  	function save($array)
  	{
-		$this->db->insert("tipohorasasignatura", $array);
+		$this->db->insert("horasasignatura", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idtipohorasasignatura',$id);
- 		$this->db->update('tipohorasasignatura',$array_item);
+ 		$this->db->where('idhorasasignatura',$id);
+ 		$this->db->update('horasasignatura',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idtipohorasasignatura',$id);
-		$this->db->delete('tipohorasasignatura');
+ 		$this->db->where('idhorasasignatura',$id);
+		$this->db->delete('horasasignatura');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -38,7 +54,7 @@ class Tipohorasasignatura_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idtipohorasasignatura")->get('tipohorasasignatura');
+		$query=$this->db->order_by("idhorasasignatura")->get('horasasignatura');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -51,7 +67,7 @@ class Tipohorasasignatura_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idtipohorasasignatura")->get('tipohorasasignatura');
+		$query=$this->db->order_by("idhorasasignatura")->get('horasasignatura');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -63,37 +79,37 @@ class Tipohorasasignatura_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$tipohorasasignatura = $this->db->select("idtipohorasasignatura")->order_by("idtipohorasasignatura")->get('tipohorasasignatura')->result_array();
-		$arr=array("idtipohorasasignatura"=>$id);
-		$clave=array_search($arr,$tipohorasasignatura);
-	   if(array_key_exists($clave+1,$tipohorasasignatura))
+ 		$horasasignatura = $this->db->select("idhorasasignatura")->order_by("idhorasasignatura")->get('horasasignatura')->result_array();
+		$arr=array("idhorasasignatura"=>$id);
+		$clave=array_search($arr,$horasasignatura);
+	   if(array_key_exists($clave+1,$horasasignatura))
 		 {
 
- 		$tipohorasasignatura = $this->db->query('select * from tipohorasasignatura where idtipohorasasignatura="'. $tipohorasasignatura[$clave+1]["idtipohorasasignatura"].'"');
+ 		$horasasignatura = $this->db->query('select * from horasasignatura where idhorasasignatura="'. $horasasignatura[$clave+1]["idhorasasignatura"].'"');
 		 }else{
 
- 		$tipohorasasignatura = $this->db->query('select * from tipohorasasignatura where idtipohorasasignatura="'. $id.'"');
+ 		$horasasignatura = $this->db->query('select * from horasasignatura where idhorasasignatura="'. $id.'"');
 		 }
 		 	
- 		return $tipohorasasignatura;
+ 		return $horasasignatura;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$tipohorasasignatura = $this->db->select("idtipohorasasignatura")->order_by("idtipohorasasignatura")->get('tipohorasasignatura')->result_array();
-		$arr=array("idtipohorasasignatura"=>$id);
-		$clave=array_search($arr,$tipohorasasignatura);
-	   if(array_key_exists($clave-1,$tipohorasasignatura))
+ 		$horasasignatura = $this->db->select("idhorasasignatura")->order_by("idhorasasignatura")->get('horasasignatura')->result_array();
+		$arr=array("idhorasasignatura"=>$id);
+		$clave=array_search($arr,$horasasignatura);
+	   if(array_key_exists($clave-1,$horasasignatura))
 		 {
 
- 		$tipohorasasignatura = $this->db->query('select * from tipohorasasignatura where idtipohorasasignatura="'. $tipohorasasignatura[$clave-1]["idtipohorasasignatura"].'"');
+ 		$horasasignatura = $this->db->query('select * from horasasignatura where idhorasasignatura="'. $horasasignatura[$clave-1]["idhorasasignatura"].'"');
 		 }else{
 
- 		$tipohorasasignatura = $this->db->query('select * from tipohorasasignatura where idtipohorasasignatura="'. $id.'"');
+ 		$horasasignatura = $this->db->query('select * from horasasignatura where idhorasasignatura="'. $id.'"');
 		 }
 		 	
- 		return $tipohorasasignatura;
+ 		return $horasasignatura;
  	}
 
 

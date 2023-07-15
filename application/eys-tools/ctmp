@@ -1,54 +1,104 @@
 <?php
 
-class Tipohorasasignatura extends CI_Controller{
+class Horasasignatura extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('tipohorasasignatura_model');
+      $this->load->model('horasasignatura_model');
+  	  $this->load->model('asignatura_model');
+  	  $this->load->model('tipohorasasignatura_model');
 }
 
 public function index(){
-	if(isset($this->session->userdata['logged_in'])){
-		$data['tipohorasasignatura']=$this->tipohorasasignatura_model->tipohorasasignatura(1)->row_array();
-		$data['title']="Lista de tipohorasasignaturaes";
+
+  	if(isset($this->session->userdata['logged_in'])){
+			
+  		$data['horasasignatura']=$this->horasasignatura_model->lista_horasasignaturas()->row_array();
+  		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  		$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignaturas()->result();
+			
+		$data['title']="Lista de horasasignaturas";
 		$this->load->view('template/page_header');
-		$this->load->view('tipohorasasignatura_record',$data);
+		$this->load->view('horasasignatura_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
 		$this->load->view('login_form');
 	 	$this->load->view('template/page_footer.php');
 	}
+
+ }
+
+
+public function actual(){
+ if(isset($this->session->userdata['logged_in'])){
+
+	$data['horasasignatura'] = $this->horasasignatura_model->horasasignatura($this->uri->segment(3))->row_array();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignaturas()->result();
+	$data['title']="Modulo de Telefonos";
+	$this->load->view('template/page_header');		
+	$this->load->view('horasasignatura_record',$data);
+	$this->load->view('template/page_footer');
+   }else{
+	$this->load->view('template/page_header.php');
+	$this->load->view('login_form');
+	$this->load->view('template/page_footer.php');
+   }
 }
+
+
+
+
 
 
 public function add()
 {
-		$data['title']="Nueva tipohorasasignatura";
+
+	if($this->uri->segment(3))
+	{
+		$data['asignaturas']= $this->asignatura_model->asignaturas1($this->uri->segment(3))->result();
+
+	}else{
+
+		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
+	}
+
+
+  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignaturas()->result();
+		$data['title']="Nueva Horasasignatura";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('tipohorasasignatura_form',$data);
+	 	$this->load->view('horasasignatura_form',$data);
 	 	$this->load->view('template/page_footer');
+
+
 }
 
 
-public function  save()
+	public function  save()
 	{
 	 	$array_item=array(
-	 	'idtipohorasasignatura' => $this->input->post('idtipohorasasignatura'),
-	 	'nombre' => $this->input->post('nombre'),
+		 	
+		 	'idhorasasignatura' => $this->input->post('idhorasasignatura'),
+		 	'cantidad' => $this->input->post('cantidad'),
+			'idasignatura' => $this->input->post('idasignatura'),
+			'idtipohorasasignatura' => $this->input->post('idtipohorasasignatura'),
 	 	);
-	 	$this->tipohorasasignatura_model->save($array_item);
-	 	redirect('tipohorasasignatura');
+	 	$this->horasasignatura_model->save($array_item);
+	 	//redirect('horasasignatura');
+		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
  	}
 
 
 
 public function edit()
 {
-	 	$data['tipohorasasignatura'] = $this->tipohorasasignatura_model->tipohorasasignatura($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar tipohorasasignatura";
+	 	$data['horasasignatura'] = $this->horasasignatura_model->horasasignatura($this->uri->segment(3))->row_array();
+		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA(0)->result();
+  		$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignaturas()->result();
+ 	 	$data['title'] = "Actualizar Horasasignatura";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('tipohorasasignatura_edit',$data);
+ 	 	$this->load->view('horasasignatura_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +106,25 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idtipohorasasignatura');
+		$id=$this->input->post('idhorasasignatura');
 	 	$array_item=array(
 		 	
-		 	'idtipohorasasignatura' => $this->input->post('idtipohorasasignatura'),
-		 	'nombre' => $this->input->post('nombre'),
+		 	'idhorasasignatura' => $this->input->post('idhorasasignatura'),
+		 	'cantidad' => $this->input->post('cantidad'),
+			'idasignatura' => $this->input->post('idasignatura'),
+			'idtipohorasasignatura' => $this->input->post('idtipohorasasignatura'),
 	 	);
-	 	$this->tipohorasasignatura_model->update($id,$array_item);
-	 	redirect('tipohorasasignatura');
+	 	$this->horasasignatura_model->update($id,$array_item);
+	 	//redirect('horasasignatura');
+		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->tipohorasasignatura_model->delete($this->uri->segment(3));
+ 		$data=$this->horasasignatura_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('tipohorasasignatura/elprimero');
+	 	redirect('horasasignatura/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -79,26 +132,26 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Tipohorasasignatura";
+  $data['title']="Horasasignaturas";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipohorasasignatura_list',$data);
+  $this->load->view('horasasignatura_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function tipohorasasignatura_data()
+function horasasignatura_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->tipohorasasignatura_model->lista_tipohorasasignaturas();
+	 	$data0 = $this->horasasignatura_model->lista_horasasignaturasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idtipohorasasignatura,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipohorasasignatura="'.$r->idtipohorasasignatura.'">Ver</a>');
+			$data[]=array($r->idhorasasignatura,$r->laasignatura,$r->elhorasasignatura,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idhorasasignatura="'.$r->idhorasasignatura.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -121,12 +174,14 @@ function tipohorasasignatura_data()
 
 public function elprimero()
 {
-	$data['tipohorasasignatura'] = $this->tipohorasasignatura_model->elprimero();
+	$data['horasasignatura'] = $this->horasasignatura_model->elprimero();
+  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignaturas()->result();
   if(!empty($data))
   {
-    $data['title']="Tipohorasasignatura";
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+    $data['title']="Horasasignatura";
     $this->load->view('template/page_header');		
-    $this->load->view('tipohorasasignatura_record',$data);
+    $this->load->view('horasasignatura_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +192,15 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['tipohorasasignatura'] = $this->tipohorasasignatura_model->elultimo();
+	$data['horasasignatura'] = $this->horasasignatura_model->elultimo();
+  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignaturas()->result();
   if(!empty($data))
   {
-    $data['title']="Tipohorasasignatura";
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+    $data['title']="Horasasignatura";
   
     $this->load->view('template/page_header');		
-    $this->load->view('tipohorasasignatura_record',$data);
+    $this->load->view('horasasignatura_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,21 +211,28 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['tipohorasasignatura_list']=$this->tipohorasasignatura_model->lista_tipohorasasignatura()->result();
-	$data['tipohorasasignatura'] = $this->tipohorasasignatura_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Tipohorasasignatura";
+ // $data['horasasignatura_list']=$this->horasasignatura_model->lista_horasasignatura()->result();
+	$data['horasasignatura'] = $this->horasasignatura_model->siguiente($this->uri->segment(3))->row_array();
+  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignaturas()->result();
+  $data['title']="Horasasignatura";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipohorasasignatura_record',$data);
+  $this->load->view('horasasignatura_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['tipohorasasignatura_list']=$this->tipohorasasignatura_model->lista_tipohorasasignatura()->result();
-	$data['tipohorasasignatura'] = $this->tipohorasasignatura_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Tipohorasasignatura";
+ // $data['horasasignatura_list']=$this->horasasignatura_model->lista_horasasignatura()->result();
+	$data['horasasignatura'] = $this->horasasignatura_model->anterior($this->uri->segment(3))->row_array();
+ 	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignaturas()->result();
+  $data['title']="Horasasignatura";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipohorasasignatura_record',$data);
+  $this->load->view('horasasignatura_record',$data);
 	$this->load->view('template/page_footer');
 }
+
+
+
 
 }
