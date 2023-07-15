@@ -20,28 +20,25 @@ echo form_input($eys_arrinput); ?></td>
 <td> Asignatura:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($asignaturas as $row){
-	$options[$row->idasignatura]=$row->malla." - ".$row->area." - ".$row->nombre;
+foreach ($temas as $row){
+	$options[$row->idtema]=$row->malla." - ".$row->area." - ".$row->nombre;
 }
 
- echo form_dropdown("idasignatura",$options, $metodoaprendizajetema['idasignatura']);  ?></td>
+ echo form_dropdown("idtema",$options, $metodoaprendizajetema['idtema']);  ?></td>
 </tr>
 
 <tr>
 <td> Topo de horas:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($tipometodoaprendizajetemas as $row){
-	$options[$row->idtipometodoaprendizajetema]= $row->nombre;
+foreach ($metodoaprendizajetemas as $row){
+	$options[$row->idmetodoaprendizaje]= $row->nombre;
 }
 
- echo form_dropdown("idtipometodoaprendizajetema",$options, $metodoaprendizajetema['idtipometodoaprendizajetema']);  ?></td>
+ echo form_dropdown("idmetodoaprendizaje",$options, $metodoaprendizajetema['idmetodoaprendizaje']);  ?></td>
 </tr>
 
-<tr>
-      <td>Cantidad:</td>
-      <td><?php echo form_input( array("name"=>'cantidad',"id"=>'cantidad',"value"=>$metodoaprendizajetema['cantidad'],'type'=>'text','placeholder'=>'cantidad')); ?></td>
-  </tr>
+
 
 
 
