@@ -209,17 +209,17 @@ public function actual()
 	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->lista_metodoaprendizajetemas()->result();
-  if(!empty($data))
-  {
-    $data['title']="Tema";
-    $this->load->view('template/page_header');		
-    $this->load->view('tema_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
+  	if(!empty($data))
+  	{
+    		$data['title']="Tema";
+    		$this->load->view('template/page_header');		
+    		$this->load->view('tema_record',$data);
+    		$this->load->view('template/page_footer');
+  	}else{
+    		$this->load->view('template/page_header');		
+    		$this->load->view('registro_vacio');
+    		$this->load->view('template/page_footer');
+  	}
  }
 
 

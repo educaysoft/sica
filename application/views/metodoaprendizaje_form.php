@@ -20,7 +20,7 @@ echo form_input("nombre","", array("placeholder"=>"Nombre de metodoaprendizaje")
 <label class="col-md-2 col-form-label">Descripción:</label>
 <div class="col-md-10">
 <?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'maxlength'=>'200', 'style'=> 'width:50%;height:100px;', "placeholder"=>"asunto",'id'=>'asunto' );    
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'maxlength'=>'500', 'style'=> 'width:50%;height:100px;', "placeholder"=>"asunto",'id'=>'asunto' );    
  echo form_textarea("descripcion","", $textarea_options); 
 ?><div id="textarea_feedback"></div>
 </div>

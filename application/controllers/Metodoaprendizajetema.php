@@ -81,7 +81,6 @@ public function add()
 	 	$array_item=array(
 		 	
 		 	'idmetodoaprendizajetema' => $this->input->post('idmetodoaprendizajetema'),
-		 	'cantidad' => $this->input->post('cantidad'),
 			'idtema' => $this->input->post('idtema'),
 			'idmetodoaprendizaje' => $this->input->post('idmetodoaprendizaje'),
 	 	);
@@ -111,7 +110,6 @@ public function edit()
 	 	$array_item=array(
 		 	
 		 	'idmetodoaprendizajetema' => $this->input->post('idmetodoaprendizajetema'),
-		 	'cantidad' => $this->input->post('cantidad'),
 			'idtema' => $this->input->post('idtema'),
 			'idmetodoaprendizaje' => $this->input->post('idmetodoaprendizaje'),
 	 	);
