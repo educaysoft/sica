@@ -6,7 +6,7 @@ class Metodoaprendizajetema extends CI_Controller{
       parent::__construct();
       $this->load->model('metodoaprendizajetema_model');
   	  $this->load->model('tema_model');
-  	  $this->load->model('metodoaprendizajetema_model');
+  	  $this->load->model('metodoaprendizaje_model');
 }
 
 public function index(){
@@ -15,7 +15,7 @@ public function index(){
 			
   		$data['metodoaprendizajetema']=$this->metodoaprendizajetema_model->lista_metodoaprendizajetemas()->row_array();
   		$data['temas']= $this->tema_model->lista_temas()->result();
-  		$data['metodoaprendizajetemas']= $this->metodoaprendizajetema_model->lista_metodoaprendizajetemas()->result();
+  		$data['metodoaprendizajes']= $this->metodoaprendizaje_model->lista_metodoaprendizajes()->result();
 			
 		$data['title']="Lista de metodoaprendizajetemas";
 		$this->load->view('template/page_header');
@@ -35,7 +35,7 @@ public function actual(){
 
 	$data['metodoaprendizajetema'] = $this->metodoaprendizajetema_model->metodoaprendizajetema($this->uri->segment(3))->row_array();
   	$data['temas']= $this->tema_model->lista_temas()->result();
-  	$data['metodoaprendizajetemas']= $this->metodoaprendizajetema_model->lista_metodoaprendizajetemas()->result();
+  	$data['metodoaprendizajes']= $this->metodoaprendizaje_model->lista_metodoaprendizajes()->result();
 	$data['title']="Modulo de Telefonos";
 	$this->load->view('template/page_header');		
 	$this->load->view('metodoaprendizajetema_record',$data);
@@ -65,7 +65,7 @@ public function add()
 	}
 
 
-  	$data['metodoaprendizajetemas']= $this->metodoaprendizajetema_model->lista_metodoaprendizajetemas()->result();
+  	$data['metodoaprendizajes']= $this->metodoaprendizaje_model->lista_metodoaprendizajes()->result();
 		$data['title']="Nueva Metodoaprendizajetema";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('metodoaprendizajetema_form',$data);
@@ -82,7 +82,7 @@ public function add()
 		 	'idmetodoaprendizajetema' => $this->input->post('idmetodoaprendizajetema'),
 		 	'cantidad' => $this->input->post('cantidad'),
 			'idtema' => $this->input->post('idtema'),
-			'idmetodoaprendizajetema' => $this->input->post('idmetodoaprendizajetema'),
+			'idmetodoaprendizaje' => $this->input->post('idmetodoaprendizaje'),
 	 	);
 	 	$this->metodoaprendizajetema_model->save($array_item);
 	 	//redirect('metodoaprendizajetema');
@@ -95,7 +95,7 @@ public function edit()
 {
 	 	$data['metodoaprendizajetema'] = $this->metodoaprendizajetema_model->metodoaprendizajetema($this->uri->segment(3))->row_array();
 		$data['temas']= $this->tema_model->lista_temas1(0)->result();
-  		$data['metodoaprendizajetemas']= $this->metodoaprendizajetema_model->lista_metodoaprendizajetemas()->result();
+  		$data['metodoaprendizajes']= $this->metodoaprendizaje_model->lista_metodoaprendizajes()->result();
  	 	$data['title'] = "Actualizar Metodoaprendizajetema";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('metodoaprendizajetema_edit',$data);
@@ -112,7 +112,7 @@ public function edit()
 		 	'idmetodoaprendizajetema' => $this->input->post('idmetodoaprendizajetema'),
 		 	'cantidad' => $this->input->post('cantidad'),
 			'idtema' => $this->input->post('idtema'),
-			'idmetodoaprendizajetema' => $this->input->post('idmetodoaprendizajetema'),
+			'idmetodoaprendizaje' => $this->input->post('idmetodoaprendizaje'),
 	 	);
 	 	$this->metodoaprendizajetema_model->update($id,$array_item);
 	 	//redirect('metodoaprendizajetema');
@@ -175,7 +175,7 @@ function metodoaprendizajetema_data()
 public function elprimero()
 {
 	$data['metodoaprendizajetema'] = $this->metodoaprendizajetema_model->elprimero();
-  	$data['metodoaprendizajetemas']= $this->metodoaprendizajetema_model->lista_metodoaprendizajetemas()->result();
+  	$data['metodoaprendizajes']= $this->metodoaprendizaje_model->lista_metodoaprendizajes()->result();
   if(!empty($data))
   {
   	$data['temas']= $this->tema_model->lista_temas()->result();
@@ -193,7 +193,7 @@ public function elprimero()
 public function elultimo()
 {
 	$data['metodoaprendizajetema'] = $this->metodoaprendizajetema_model->elultimo();
-  	$data['metodoaprendizajetemas']= $this->metodoaprendizajetema_model->lista_metodoaprendizajetemas()->result();
+  	$data['metodoaprendizajes']= $this->metodoaprendizaje_model->lista_metodoaprendizajes()->result();
   if(!empty($data))
   {
   	$data['temas']= $this->tema_model->lista_temas()->result();
@@ -211,10 +211,9 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['metodoaprendizajetema_list']=$this->metodoaprendizajetema_model->lista_metodoaprendizajetema()->result();
 	$data['metodoaprendizajetema'] = $this->metodoaprendizajetema_model->siguiente($this->uri->segment(3))->row_array();
   	$data['temas']= $this->tema_model->lista_temas()->result();
-  	$data['metodoaprendizajetemas']= $this->metodoaprendizajetema_model->lista_metodoaprendizajetemas()->result();
+  	$data['metodoaprendizajes']= $this->metodoaprendizaje_model->lista_metodoaprendizajes()->result();
   $data['title']="Metodoaprendizajetema";
 	$this->load->view('template/page_header');		
   $this->load->view('metodoaprendizajetema_record',$data);
@@ -222,10 +221,9 @@ public function siguiente(){
 }
 
 public function anterior(){
- // $data['metodoaprendizajetema_list']=$this->metodoaprendizajetema_model->lista_metodoaprendizajetema()->result();
 	$data['metodoaprendizajetema'] = $this->metodoaprendizajetema_model->anterior($this->uri->segment(3))->row_array();
  	$data['temas']= $this->tema_model->lista_temas()->result();
-  	$data['metodoaprendizajetemas']= $this->metodoaprendizajetema_model->lista_metodoaprendizajetemas()->result();
+  	$data['metodoaprendizajes']= $this->metodoaprendizaje_model->lista_metodoaprendizajes()->result();
   $data['title']="Metodoaprendizajetema";
 	$this->load->view('template/page_header');		
   $this->load->view('metodoaprendizajetema_record',$data);
