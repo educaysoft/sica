@@ -61,7 +61,7 @@ public function add()
 
 	}else{
 
-		$data['temas']= $this->tema_model->lista_temasA()->result();
+		$data['temas']= $this->tema_model->lista_temas1(0)->result();
 	}
 
 
@@ -94,7 +94,7 @@ public function add()
 public function edit()
 {
 	 	$data['metodoaprendizajetema'] = $this->metodoaprendizajetema_model->metodoaprendizajetema($this->uri->segment(3))->row_array();
-		$data['temas']= $this->tema_model->lista_temasA(0)->result();
+		$data['temas']= $this->tema_model->lista_temas1(0)->result();
   		$data['metodoaprendizajetemas']= $this->metodoaprendizajetema_model->lista_metodoaprendizajetemas()->result();
  	 	$data['title'] = "Actualizar Metodoaprendizajetema";
  	 	$this->load->view('template/page_header');		
