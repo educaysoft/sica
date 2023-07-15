@@ -29,7 +29,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <div id="eys-nav-i">
 	<ul>
-		<li> <?php echo anchor('tipohorasasignatura', 'Home'); ?></li>
+		<li> <?php echo anchor('tipometodologiasasignatura', 'Home'); ?></li>
 	</ul>
 </div>
 
@@ -82,13 +82,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('tipohorasasignatura/tipohorasasignatura_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('tipometodologiasasignatura/tipometodologiasasignatura_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-window.location.href = "http://localhost/facae/index.php/tipohorasasignatura";
+window.location.href = "http://localhost/facae/index.php/tipometodologiasasignatura";
 
 });
 
