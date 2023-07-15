@@ -31,7 +31,7 @@ foreach ($temas as $row){
 <td> Topo de horas:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($metodoaprendizajetemas as $row){
+foreach ($metodoaprendizajes as $row){
 	$options[$row->idmetodoaprendizaje]= $row->nombre;
 }
 
