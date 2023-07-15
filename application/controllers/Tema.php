@@ -9,6 +9,7 @@ class Tema extends CI_Controller{
       $this->load->model('silabo_model');
       $this->load->model('videotutorial_model');
       $this->load->model('documento_model');
+      $this->load->model('metodoaprendizajetema_model');
 }
 
 //=========================================================
@@ -18,6 +19,7 @@ class Tema extends CI_Controller{
 	public function index(){
 		if(isset($this->session->userdata['logged_in'])){
 			$data['tema']=$this->tema_model->elultimo();
+  			$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->lista_metodoaprendizajetemas()->result();
 			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
   			$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 			$data['title']="Lista de temaes";
