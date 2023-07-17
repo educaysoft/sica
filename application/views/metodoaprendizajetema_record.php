@@ -39,7 +39,7 @@ if(isset($metodoaprendizajetema))
  
  
 <tr>
-     <td>Asignatura:</td>
+     <td>Tema:</td>
      <td><?php 
 $options= array("NADA");
 foreach ($temas as $row){

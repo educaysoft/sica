@@ -19,7 +19,7 @@ class Tema extends CI_Controller{
 	public function index(){
 		if(isset($this->session->userdata['logged_in'])){
 			$data['tema']=$this->tema_model->elultimo();
-  			$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->lista_metodoaprendizajetemas()->result();
+  			$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
 			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
   			$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 			$data['title']="Lista de temaes";
@@ -208,7 +208,7 @@ public function actual()
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
-  	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->lista_metodoaprendizajetemas1()->result();
+  	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
   	if(!empty($data))
   	{
     		$data['title']="Tema";
@@ -231,6 +231,7 @@ public function elprimero()
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
 	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+  	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
   if(!empty($data))
   {
     $data['title']="Tema";
@@ -250,7 +251,7 @@ public function elultimo()
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
 		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
-  	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->lista_metodoaprendizajetemas1()->result();
+  	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
   if(!empty($data))
   {
     $data['title']="Tema";
@@ -271,6 +272,7 @@ public function siguiente(){
 	$data['tema'] = $this->tema_model->siguiente($this->uri->segment(3))->row_array();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
+  	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
 	
 	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   	$data['title']="Tema";
@@ -285,6 +287,7 @@ public function anterior(){
 		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
   	$data['title']="Tema";
 	$this->load->view('template/page_header');		
   	$this->load->view('tema_record',$data);
