@@ -832,7 +832,7 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 
 
 		$data['silabo']=$this->silabo_model->silabo($data['evento']['idsilabo'])->row_array();
-		$data['asignatura']=$this->asignatura_model->asignatura($data['silabo']['idasignatura'])->result();
+		$data['asignatura']=$this->asignatura_model->asignatura($data['silabo']['idasignatura'])->row_array();
 //		$this->load->view('template/page_header');		
 //		unset($this->session->userdata['logged_in']);
 		$this->load->view('eventos/evento',$data);
