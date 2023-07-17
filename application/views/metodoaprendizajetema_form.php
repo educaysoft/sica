@@ -30,7 +30,7 @@ foreach ($metodoaprendizajes as $row){
 
 }
 
- echo form_dropdown("idmetodoaprendiza",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idmetodoaprendizaje",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
