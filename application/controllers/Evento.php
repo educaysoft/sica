@@ -799,6 +799,7 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 	{
 		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 		$data['sesioneventos'] = $this->sesionevento_model->sesioneventos1($this->uri->segment(3))->result();
+
 		if(isset($this->session->userdata['logged_in']['idpersona']))
 		{
 		$data['asistencia'] = $this->asistencia_model->asistenciax( $data['evento']['idevento'] , $this->session->userdata['logged_in']['idpersona'])->result();
@@ -830,7 +831,7 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 
 
 		$data['silabo']=$this->silabo_model->silabo($data['evento']['idsilabo'])->row_array();
-	
+		$data['asignatura']=$this->asignatura_model->asignatura($data['silabo'][0]->idasignatura)->result();
 //		$this->load->view('template/page_header');		
 //		unset($this->session->userdata['logged_in']);
 		$this->load->view('eventos/evento',$data);
