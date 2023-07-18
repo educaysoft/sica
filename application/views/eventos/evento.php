@@ -316,7 +316,7 @@ foreach ($pagoevento as $row){
             <span><?php   echo $row->nombrecorto; ?></span> 
           </div>
           <div class="col-sm-3">
-            <span><?php   echo $fecha[$row->numerosesion]; ?></span>
+            <span><?php  if(isset($fecha[$row->numerosesion])){ echo $fecha[$row->numerosesion];}else{ echo "";} ?></span>
           </div>
 
           <div class="col-sm-1">

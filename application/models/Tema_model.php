@@ -6,7 +6,9 @@ class Tema_model extends CI_model {
 		 return $tema;
 	}
 
+
 	function tema1($idtema){
+
 
 		$this->db->where('idtema='.$idtema);
 		 $tema= $this->db->get('tema1');
@@ -44,10 +46,18 @@ function lista_temass($idsilabo){
 	if($idsilabo>0)
 	{
 	$this->db->where('idsilabo='.$idsilabo);
+
 	}
 	$query=$this->db->order_by("numerosesion asc","unidad asc")->get('tema1');
 	 return $query;
 	}
+
+ 	function temase( $idevento){
+ 		$tema = $this->db->query('select tema1.*,evento.idevento from tema1,evento where tema1.idsilabo=evento.idsilabo and evento.idevento="'. $idevento.'" order by numerosesion');
+ 		return $tema;
+ 	}
+
+
 
 
 
