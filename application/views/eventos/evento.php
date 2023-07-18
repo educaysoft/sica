@@ -313,7 +313,7 @@ foreach ($pagoevento as $row){
           </div>
 
           <div class="col-sm-4">
-            <span><?php   echo $row->temacorto; ?></span> 
+            <span><?php   echo $row->nombrecorto; ?></span> 
           </div>
           <div class="col-sm-3">
             <span><?php   echo $fecha[$row->numerosesion]; ?></span>
