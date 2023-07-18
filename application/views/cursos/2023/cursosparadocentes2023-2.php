@@ -226,7 +226,7 @@ overflow:hidden;
 	      <p><b>Hora:</b>  17:00 - 19:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcorreo?idevento=354'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcorreo?idevento=355'"  >Inscribete</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login'">Ingresa</button>
                 </div>
                 <small class="text-muted"><b>Modalidad:</b>On-line</small>
