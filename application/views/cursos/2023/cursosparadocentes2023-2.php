@@ -218,11 +218,12 @@ overflow:hidden;
 </div>
 
             <div class="card-body">
-              <p class="card-text">Busqueda de revistas científicas".</p>
+              <p class="card-text">Recursos y estrategias de búsqueda para investigación cientifica:Revistas y buscadores bibliográficos".</p>
 	      <p><b>Instructor:</b> Ing.Byron Chere MsC.</p>
 
-<p><b>Fechas:</b>  10 al 21 de julio del 2023.</a></p>
+<p><b>Fechas:</b>  17 al 28 de julio del 2023.</a></p>
 	      <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
+	      <p><b>Hora:</b>  14:00 - 16:00 </p>
 	      <p><b>Hora:</b>  17:00 - 19:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
