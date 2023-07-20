@@ -55,6 +55,8 @@ class Tema extends CI_Controller{
 	 	'idunidadsilabo' => $this->input->post('idunidadsilabo'),
 	 	'duracionminutos' => $this->input->post('duracionminutos'),
 	 	'objetivoaprendizaje' => $this->input->post('objetivoaprendizaje'),
+	 	'experiencia' => $this->input->post('experiencia'),
+	 	'reflexion' => $this->input->post('reflexion'),
 	 	'secuencia' => $this->input->post('secuencia'),
 		 	'numerosesion' => $this->input->post('numerosesion'),
 	 	);
@@ -90,6 +92,8 @@ class Tema extends CI_Controller{
 	 		'duracionminutos' => $this->input->post('duracionminutos'),
 		 	'idvideotutorial' => $this->input->post('idvideotutorial'),
 	 		'objetivoaprendizaje' => $this->input->post('objetivoaprendizaje'),
+	 		'experiencia' => $this->input->post('experiencia'),
+	 		'reflexion' => $this->input->post('reflexion'),
 	 		'secuencia' => $this->input->post('secuencia'),
 		 	'numerosesion' => $this->input->post('numerosesion'),
 	 	);

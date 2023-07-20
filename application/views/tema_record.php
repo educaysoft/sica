@@ -75,6 +75,31 @@ if(isset($tema))
 </div>
 
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Experiencia(conocimiento previo):</label>
+	<div class="col-md-10">
+		<?php
+	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
+	echo form_textarea('experiencia',$tema['experiencia'],$textarea_options);
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Reflexión(arranque):</label>
+	<div class="col-md-10">
+		<?php
+	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
+	echo form_textarea('reflexion',$tema['reflexion'],$textarea_options);
+		?>
+	</div> 
+</div>
+
+
+
+
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Secuencia contenidos:</label>
 	<div class="col-md-10">

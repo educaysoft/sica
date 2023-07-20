@@ -39,6 +39,37 @@ $eys_arrinput=array('name'=>'nombrecorto','value'=>$tema['nombrecorto'], "style"
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label">Experiencia(conocimiento previo):</label>
+	<div class="col-md-10">
+		<?php
+	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Título" );    
+	echo form_textarea('experiencia',$tema['experiencia'],$textarea_options ); 
+
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Reflexion(Arranque):</label>
+	<div class="col-md-10">
+		<?php
+	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Título" );    
+	echo form_textarea('reflexion',$tema['reflexion'],$textarea_options ); 
+
+		?>
+	</div> 
+</div>
+
+
+
+
+
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Secuencia contenido:</label>
 	<div class="col-md-10">
 		<?php
