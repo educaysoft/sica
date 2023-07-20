@@ -166,9 +166,9 @@ overflow:hidden;
 </div>
 
             <div class="card-body">
-              <p class="card-text">Didáctica y Pedagogía.</p>
-	      <p><b>Instructor:</b>  Lcda Rosa Posso Martinez. PhD.</p>
-	      <p><b>Fechas:</b>  10 al 21 de julio del 2023.</a></p>
+              <p class="card-text">Curso de Álgebra Avanzada.</p>
+	      <p><b>Instructor:</b> Ing. Nakira Valencia. MSc.</p>
+	      <p><b>Fechas:</b>  17 al 28 de julio del 2023.</a></p>
 	      <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
 	      <p><b>Hora:</b>  10:00 - 12:00 </p>
               <div class="d-flex justify-content-between align-items-center">
