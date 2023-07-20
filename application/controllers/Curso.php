@@ -117,6 +117,13 @@ class Curso extends CI_Controller{
 
 	}
 
+	public function cursosparaestudiante2023_2()
+	{
+
+	  $this->load->view('cursos/2023/cursosparaestudiantes2023-2');
+
+	}
+
 
 
 
