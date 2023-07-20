@@ -26,6 +26,31 @@ $eys_arrinput=array('name'=>'nombrecorto','value'=>$tema['nombrecorto'], "style"
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Objetivo aprendizaje:</label>
+	<div class="col-md-10">
+		<?php
+	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Título" );    
+	echo form_textarea('objetivoaprendizaje',$tema['objetivoaprendizaje'],$textarea_options ); 
+
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Secuencia contenido:</label>
+	<div class="col-md-10">
+		<?php
+	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Título" );    
+	echo form_textarea('secuencia',$tema['secuencia'],$textarea_options ); 
+
+		?>
+	</div> 
+</div>
+
+
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Unidad silabo:</label>

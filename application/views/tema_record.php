@@ -64,6 +64,42 @@ if(isset($tema))
 	</div> 
 </div>
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Objetivo aprendizaje:</label>
+	<div class="col-md-10">
+		<?php
+	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
+	echo form_textarea('objetivoaprendizaje',$tema['objetivoaprendizaje'],$textarea_options);
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Secuencia contenidos:</label>
+	<div class="col-md-10">
+		<?php
+	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
+	echo form_textarea('secuencia',$tema['secuencia'],$textarea_options);
+		?>
+	</div> 
+</div>
+
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre largo:</label>
+	<div class="col-md-10">
+		<?php
+	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
+	echo form_textarea('nombrelargo',$tema['nombrelargo'],$textarea_options);
+		?>
+	</div> 
+</div>
+
+
 
 
    
