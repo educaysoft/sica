@@ -71,14 +71,57 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="modal fade" id="Modal_pdf" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: 800px;">
 
 
-
-
-
  <div class="modal-footer">
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 </div>
 
  </div>
+
+
+
+
+
+<div class="row justify-content-center">
+      <!-- Page Heading -->
+ <div class="row">
+  <div class="col-12">
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+	     <b>Lista de eventos(cursos) de:  <?php echo $persona[0]->apellidos; ?> <?php echo "  "; ?>  <?php echo $persona[0]->nombres; ?>    	</b>
+        </div>
+        
+    </div>
+</div>
+
+<div id="filtro" style="display:none"><?php echo $filtro; ?></div>
+<table class="table table-striped table-bordered table-hover" id="mydatac">
+ <thead>
+ <tr>
+ <th>ID</th>
+ <th>Evento - Curso</th>
+ <th>Inicio</th>
+ <th>Fin</th>
+ <th>Tutor</th>
+ <th style="text-align: right;">Actions</th>
+ </tr>
+ </thead>
+
+ <tbody id="show_data_e">
+
+ </tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -88,6 +131,7 @@ $(document).ready(function(){
 	var idpersona = document.getElementById("filtro").innerHTML;
 
 	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/persona_data')?>', type: 'GET',data:{idpersona:idpersona}},});
+	var mytabla_e= $('#mydatac_e').DataTable({"ajax": {url: '<?php echo site_url('evento/persona_data_e')?>', type: 'GET',data:{idpersona:idpersona}},});
 
 });
 
