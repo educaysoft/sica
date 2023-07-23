@@ -364,7 +364,8 @@ public function cumplimiento(){
 		$data0 = $this->evento_model->lista_eventosP($id);
 		$data=array();
 		foreach($data0->result() as $r){
-			
+		if($r->idevento_estado!=4)  // SOLO LOS EVENTOS ACTIVOS
+		{
 		$result = $this->participante_model->esinstructor($id,$r->idevento);
 		if($result)
 		{
@@ -375,6 +376,7 @@ public function cumplimiento(){
 
 			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->fechafinaliza,$r->eltutor,
 			$r->href='<a href="javascript:void(0);"  class="btn btn-info btn-sm item_ver2"  data-retorno2="'.site_url('evento/detalle').'"    data-idevento2="'.$r->idevento.'">Ver</a>');
+			}	
 			}	
 			}
 			$output=array( "draw"=>$draw,
@@ -402,12 +404,15 @@ public function cumplimiento(){
 		$data=array();
 		foreach($data0->result() as $r){
 			
+		if($r->idevento_estado!=4)  // SOLO LOS EVENTOS ACTIVOS
+		{
 		$result = $this->participante_model->esinstructor($id,$r->idevento);
 		if(!$result)
 		{
 			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->fechafinaliza,$r->eltutor,
 			$r->href='<a href="javascript:void(0);"  class="btn btn-info btn-sm item_ver2"  data-retorno2="'.site_url('evento/detalle').'"    data-idevento2="'.$r->idevento.'">Ver</a>');
 		}	
+		}
 		}
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
