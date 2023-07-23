@@ -423,6 +423,50 @@ public function cumplimiento(){
 
 
 
+	function persona_data_t()
+	{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+
+		$id=$this->input->get('idpersona');
+		$data0 = $this->evento_model->lista_eventosP($id);
+		$data=array();
+		foreach($data0->result() as $r){
+			
+		$result = $this->participante_model->esinstructor($id,$r->idevento);
+
+		if($r->idevento_estado==4)  // SOLO LOS EVENTOS TERMINADOS
+		if($result)
+		{
+
+			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->fechafinaliza,$r->eltutor,
+			$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/actual').'"    data-idevento="'.$r->idevento.'">Edit</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver2"  data-retorno2="'.site_url('evento/detalle').'"    data-idevento2="'.$r->idevento.'">Ver</a>');
+				
+			}else{
+
+			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->fechafinaliza,$r->eltutor,
+			$r->href='<a href="javascript:void(0);"  class="btn btn-info btn-sm item_ver2"  data-retorno2="'.site_url('evento/detalle').'"    data-idevento2="'.$r->idevento.'">Ver</a>');
+			}	
+		}	
+
+
+		}
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
+
+
 
 
 
