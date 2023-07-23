@@ -135,7 +135,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </div>
 
 <div id="filtro" style="display:none"><?php echo $filtro; ?></div>
-<table class="table table-striped table-bordered table-hover" id="mydatac_e">
+<table class="table table-striped table-bordered table-hover" id="mydatac_t">
  <thead>
  <tr>
  <th>ID</th>
