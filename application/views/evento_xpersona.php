@@ -38,7 +38,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-	     <b>Lista de eventos(cursos) de:  <?php echo $persona[0]->apellidos; ?> <?php echo "  "; ?>  <?php echo $persona[0]->nombres; ?>    	</b>
+	     <b>Lista de eventos activos dictados por:  <?php echo $persona[0]->apellidos; ?> <?php echo "  "; ?>  <?php echo $persona[0]->nombres; ?>    	</b>
         </div>
         
     </div>
@@ -88,7 +88,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-	     <b>Lista de eventos(cursos) de:  <?php echo $persona[0]->apellidos; ?> <?php echo "  "; ?>  <?php echo $persona[0]->nombres; ?>    	</b>
+	     <b>Lista de eventos recibios por:  <?php echo $persona[0]->apellidos; ?> <?php echo "  "; ?>  <?php echo $persona[0]->nombres; ?>    	</b>
         </div>
         
     </div>
@@ -128,7 +128,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-	     <b>Lista de eventos(cursos) de:  <?php echo $persona[0]->apellidos; ?> <?php echo "  "; ?>  <?php echo $persona[0]->nombres; ?>    	</b>
+	     <b>Lista de eventos recibidos y ditados ya terminados  :  <?php echo $persona[0]->apellidos; ?> <?php echo "  "; ?>  <?php echo $persona[0]->nombres; ?>    	</b>
         </div>
         
     </div>
