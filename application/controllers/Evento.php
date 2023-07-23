@@ -437,6 +437,7 @@ public function cumplimiento(){
 		$result = $this->participante_model->esinstructor($id,$r->idevento);
 
 		if($r->idevento_estado==4)  // SOLO LOS EVENTOS TERMINADOS
+		{
 		if($result)
 		{
 
