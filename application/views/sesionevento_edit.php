@@ -228,7 +228,7 @@ foreach ($unidadsilabos as $row){
 <?php
 
   
-$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20','maxlength'=>'50','style'=> 'width:50%;height:100px;', "placeholder"=>"tema","id" =>"temacorto");    
+$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20','maxlength'=>'100','style'=> 'width:50%;height:100px;', "placeholder"=>"tema","id" =>"temacorto");    
 echo form_textarea('temacorto',$sesionevento['temacorto'],$textarea_options ); 
 ?><div id="textarea_feedback"></div>
 </div>
@@ -392,7 +392,7 @@ $(document).ready(function(){
 
 
 $(document).ready(function() {
-    var text_max = 50;
+    var text_max = 100;
     $('#textarea_feedback').html('Quedan ' + text_max + ' caracteres');
 
     $('#temacorto').keyup(function() {
