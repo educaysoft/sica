@@ -16,6 +16,30 @@ function lista_distributivos1($idperiodoacademico){
 	 return $query;
 	}
 
+function lista_distributivos1_open($idperiodoacademico){
+	if($idperiodoacademico>0)
+	{
+	$this->db->where('idperiodoacademico='.$idperiodoacademico);
+	}
+	$this->db->where('idestadodistributivoo=1');
+	$query=$this->db->order_by("idperiodoacademico","iddistributivo")->get('distributivo1');
+	 return $query;
+	}
+
+function lista_distributivos1_close($idperiodoacademico){
+	if($idperiodoacademico>0)
+	{
+	$this->db->where('idperiodoacademico='.$idperiodoacademico);
+	}
+	$this->db->where('idestadodistributivoo=2');
+	$query=$this->db->order_by("idperiodoacademico","iddistributivo")->get('distributivo1');
+	 return $query;
+	}
+
+
+
+
+
 
 
  	function distributivos( $idperiodoacademico){

@@ -135,7 +135,7 @@ class Distributivo extends CI_Controller{
 
 
 
-function distributivo_data()
+function distributivo_data_open()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
@@ -143,7 +143,31 @@ function distributivo_data()
 
 		$idperiodoacademico=$this->input->get('idperiodoacademico');
 
-	 	$data0 = $this->distributivo_model->lista_distributivos1($idperiodoacademico);
+	 	$data0 = $this->distributivo_model->lista_distributivos1_open($idperiodoacademico);
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->iddistributivo,$r->elperiodoacademico,$r->eldepartamento,$r->eldistributivo,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('distributivo/actual').'"    data-iddistributivo="'.$r->iddistributivo.'">Ver</a>');
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+		echo json_encode($output);
+		exit();
+
+}
+
+function distributivo_data_close()
+{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+
+		$idperiodoacademico=$this->input->get('idperiodoacademico');
+
+	 	$data0 = $this->distributivo_model->lista_distributivos1_close($idperiodoacademico);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->iddistributivo,$r->elperiodoacademico,$r->eldepartamento,$r->eldistributivo,
@@ -160,6 +184,12 @@ function distributivo_data()
 			
 
 }
+
+
+
+
+
+
 
 
 
