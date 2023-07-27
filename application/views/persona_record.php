@@ -238,7 +238,6 @@ if(isset($persona))
 
 
 <div class="form-group row">
-
 	<div class="col-md-10">
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
