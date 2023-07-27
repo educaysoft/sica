@@ -21,7 +21,7 @@ function lista_distributivos1_open($idperiodoacademico){
 	{
 	$this->db->where('idperiodoacademico='.$idperiodoacademico);
 	}
-	$this->db->where('idestadodistributivoo=1');
+	$this->db->where('idestadodistributivo=1');
 	$query=$this->db->order_by("idperiodoacademico","iddistributivo")->get('distributivo1');
 	 return $query;
 	}
@@ -31,7 +31,7 @@ function lista_distributivos1_close($idperiodoacademico){
 	{
 	$this->db->where('idperiodoacademico='.$idperiodoacademico);
 	}
-	$this->db->where('idestadodistributivoo=2');
+	$this->db->where('idestadodistributivo=2');
 	$query=$this->db->order_by("idperiodoacademico","iddistributivo")->get('distributivo1');
 	 return $query;
 	}
