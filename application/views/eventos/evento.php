@@ -321,7 +321,7 @@ foreach ($pagoevento as $row){
 
           <div class="col-sm-1">
 		<?php
-	      if(isset($miasistencia[$fecha[$row->numerosesion]]))				
+	      if(!empty($miasistencia[$fecha[$row->numerosesion]]))				
 	 	{
 
 	        if($miasistencia[$fecha[$row->numerosesion]]==1)   //puntual
