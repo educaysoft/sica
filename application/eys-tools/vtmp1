@@ -2,23 +2,23 @@
 	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($tipohorasasignatura))
+if(isset($estadoproceso))
 {
 ?>
-        <li> <?php echo anchor('tipohorasasignatura/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('tipohorasasignatura/siguiente/'.$tipohorasasignatura['idtipohorasasignatura'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('tipohorasasignatura/anterior/'.$tipohorasasignatura['idtipohorasasignatura'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('tipohorasasignatura/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('tipohorasasignatura/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('tipohorasasignatura/edit/'.$tipohorasasignatura['idtipohorasasignatura'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('tipohorasasignatura/delete/'.$tipohorasasignatura['idtipohorasasignatura'],'Delete'); ?></li>
-        <li> <?php echo anchor('tipohorasasignatura/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('estadoproceso/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('estadoproceso/siguiente/'.$estadoproceso['idestadoproceso'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('estadoproceso/anterior/'.$estadoproceso['idestadoproceso'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('estadoproceso/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('estadoproceso/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('estadoproceso/edit/'.$estadoproceso['idestadoproceso'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('estadoproceso/delete/'.$estadoproceso['idestadoproceso'],'Delete'); ?></li>
+        <li> <?php echo anchor('estadoproceso/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('tipohorasasignatura/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('estadoproceso/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -28,15 +28,15 @@ if(isset($tipohorasasignatura))
 <br>
 
 
-<?php echo form_open('tipohorasasignatura/save_edit') ?>
-<?php echo form_hidden('idtipohorasasignatura',$tipohorasasignatura['idtipohorasasignatura']) ?>
+<?php echo form_open('estadoproceso/save_edit') ?>
+<?php echo form_hidden('idestadoproceso',$estadoproceso['idestadoproceso']) ?>
 
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
      <?php
-	echo form_input('idtipohorasasignatura',$tipohorasasignatura['idtipohorasasignatura'],array("disabled"=>"disabled",'placeholder'=>'Idtipohorasasignaturas'));
+	echo form_input('idestadoproceso',$estadoproceso['idestadoproceso'],array("disabled"=>"disabled",'placeholder'=>'Idestadoprocesos'));
 	?>
 	</div> 
 </div> 
@@ -45,7 +45,7 @@ if(isset($tipohorasasignatura))
     <label class="col-md-2 col-form-label"> Nombre:</label>
 	<div class="col-md-10">
      <?php
-       echo form_input('nombre',$tipohorasasignatura['nombre'],array('placeholder'=>'Nombre del tipohorasasignatura')); 
+       echo form_input('nombre',$estadoproceso['nombre'],array('placeholder'=>'Nombre del estadoproceso')); 
 
 	?>
 	</div> 
