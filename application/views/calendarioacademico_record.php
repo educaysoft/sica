@@ -67,10 +67,9 @@ if(isset($calendarioacademico))
 		$options[$row->idperiodoacademico]=$row->nombrecorto;
 	}
 	?>
-		<?php
-
-    echo form_input('idperiodoacademico',$options[$calendarioacademico['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
-		?>
+	<?php
+    		echo form_input('idperiodoacademico',$options[$calendarioacademico['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+	?>
 	</div> 
 </div>
 
@@ -79,7 +78,7 @@ if(isset($calendarioacademico))
     <label class="col-md-2 col-form-label"> Nombre: </label>
 	<div class="col-md-10">
      	<?php 
-      echo form_input('nombre',$calendarioacademico['nombre'],array('placeholder'=>'Nombre corto del periodoacademico'));
+      echo form_input('nombre',$calendarioacademico['nombre'],array('placeholder'=>'Nombre corto del periodoacademico',"disabled"=>"disabled","style"=>"width:500px;"));
 
 	?>
 	</div> 
@@ -95,7 +94,7 @@ if(isset($calendarioacademico))
 	<div class="col-md-10">
      	<?php 
 
-       echo form_input('fechadesde',$calendarioacademico['fechadesde'],array('placeholder'=>'Fecha en que inicia el calendario')); 
+       echo form_input('fechadesde',$calendarioacademico['fechadesde'],array('placeholder'=>'Fecha en que inicia el calendario',"disabled"=>"disabled","style"=>"width:500px;")); 
 
 ?>
 	</div> 
@@ -107,7 +106,7 @@ if(isset($calendarioacademico))
 	<div class="col-md-10">
      	<?php 
 
-       echo form_input('fechahasta',$calendarioacademico['fechahasta'],array('placeholder'=>'Fecha en que inicia el calendario')); 
+       echo form_input('fechahasta',$calendarioacademico['fechahasta'],array('placeholder'=>'Fecha en que finaliza el calendario',"disabled"=>"disabled","style"=>"width:500px;")); 
 
 ?>
 	</div> 
