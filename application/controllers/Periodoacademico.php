@@ -106,7 +106,7 @@ public function edit()
 	 	$data0 = $this->periodoacademico_model->lista_periodoacademicos();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idperiodoacademico,$r->nombrecorto,
+			$data[]=array($r->idperiodoacademico,$r->nombrecorto,fechainicio,fechafin,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('periodoacademico/actual').'"  data-idperiodoacademico="'.$r->idperiodoacademico.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
