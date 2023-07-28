@@ -24,16 +24,14 @@
 
 	$pdf->SetFont('Arial','',12);
 	$pdf->SetTextColor(0, 0,0);
-    	$pdf->Text(20,40,"Tema:  ".$tema[0]->nombrecorto); 
+    	$pdf->Text(20,40,"Tema:  ".$tema[0]->nombrelargo); 
 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
 
 
-	$pdf->Cell(10,5,'idestu',1,0,'C',1);
-	$pdf->Cell(60,5,'institucion',1,0,'C',1);
-	$pdf->Cell(10,5,'nivel',1,0,'C',1);
-	$pdf->Cell(70,5,'titulo',1,1,'C',1);
+	$pdf->Cell(10,5,'Objetivo de Aprendizaje',1,0,'C',1);
+	$pdf->Cell(50,5,$tema[0]->objetivoaprendizaje,1,1,'C',1);
  
 /*	 
 
