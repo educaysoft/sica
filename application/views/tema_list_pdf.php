@@ -24,12 +24,27 @@
 
 	$pdf->SetFont('Arial','',12);
 	$pdf->SetTextColor(0, 0,0);
-    	$pdf->Text(20,40,"Tema:  ".$tema[0]->nombrelargo); 
+    	$pdf->Text(20,40,"  "); 
 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
 
+	$pdf->Cell(50,5,'Silabo:',2,0,'L',1);
+	$pdf->MultiCell(120,5,utf8_decode($tema[0]->elsilabo),1,L,0);
+
+
+	$pdf->Cell(50,5,'Unidad:',2,0,'L',1);
+	$pdf->MultiCell(120,5,$tema[0].unidad."  -  ".utf8_decode($tema[0]->launidadsilabo),1,L,0);
+
+
+	$pdf->Cell(50,5,utf8_decode('Número de Sesión:'),2,0,'L',1);
+	$pdf->MultiCell(120,5,$tema[0].numerosesion,1,L,0);
+
 	$pdf->Cell(50,5,'Tema',2,0,'L',1);
+	$pdf->MultiCell(120,5,utf8_decode($tema[0]->nombrelargo),1,L,0);
+
+
+	$pdf->Cell(50,5,utf8_decode('Duración'),2,0,'L',1);
 	$pdf->MultiCell(120,5,utf8_decode($tema[0]->nombrelargo),1,L,0);
 
 	$pdf->Cell(50,5,'Objetivo de Aprendizaje',2,0,'L',1);
