@@ -3,9 +3,6 @@
 <?php echo form_open("asignaturadocente/save") ?>
 <?php echo form_hidden("idasignaturadocente")  ?>
 
-
-
-
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Distributivo:</label>
 <div class="col-md-10">
@@ -116,13 +113,6 @@ echo form_dropdown("idparalelo",$options, set_select('--Select--','default_value
 
 
 
-
-
-
-
-
-
-
 <table>
 <tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("asignaturadocente","Atras") ?> </td>
@@ -201,7 +191,7 @@ function get_estado() {
 	alert(idparalelo);
     $.ajax({
         url: "<?php echo site_url('asignaturadocente/get_estado') ?>",
-        data: {idasignatura:idasignatura,idparalelo:idparalelo},
+        data: {iddistributivodocente:iddistributivodocente,idasignatura:idasignatura,idparalelo:idparalelo},
         method: 'POST',
 	async : true,
         dataType : 'json',
