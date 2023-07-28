@@ -34,7 +34,17 @@
 
 	$pdf->Cell(50,5,'Objetivo de Aprendizaje',2,0,'L',1);
 	$pdf->MultiCell(120,5,utf8_decode($tema[0]->objetivoaprendizaje),1,L,0);
- 
+
+
+	$pdf->Cell(50,5,'Experiencia:',2,0,'L',1);
+	$pdf->MultiCell(120,5,utf8_decode($tema[0]->experiencia),1,L,0);
+
+
+	$pdf->Cell(50,5,'Reflexión:',2,0,'L',1);
+	$pdf->MultiCell(120,5,utf8_decode($tema[0]->reflexion),1,L,0);
+
+
+
 /*	 
 
 
