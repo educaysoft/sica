@@ -8,6 +8,7 @@ class Distributivo extends CI_Controller{
       $this->load->model('distributivodocente_model');
       $this->load->model('periodoacademico_model');
       $this->load->model('departamento_model');
+      $this->load->model('estadodistributivo_model');
       $this->load->model('fechacalendario_model');
 }
 
@@ -20,6 +21,7 @@ class Distributivo extends CI_Controller{
 			$data['distributivo']=$this->distributivo_model->elultimo();
 			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
   			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  			$data['estadodistributivos']= $this->estadodistributivo_model->lista_estadodistributivos()->result();
 			$data['title']="Lista de distributivoes";
 			$this->load->view('template/page_header');
 			$this->load->view('distributivo_record',$data);
@@ -37,6 +39,7 @@ class Distributivo extends CI_Controller{
 			$data['title']="Nueva distributivo";
 			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
   			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  			$data['estadodistributivos']= $this->estadodistributivo_model->lista_estadodistributivos()->result();
 			$this->load->view('template/page_header');		
 			$this->load->view('distributivo_form',$data);
 			$this->load->view('template/page_footer');
@@ -54,6 +57,7 @@ class Distributivo extends CI_Controller{
 
 	 	$array_item=array(
 		'iddepartamento' => $this->input->post('iddepartamento'),
+		'idestadodistributivo' => $this->input->post('idestadodistributivo'),
 	 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	        'idusuario'=>$idusuario,
 		'fechacreacion'=>$fecha,
@@ -75,6 +79,7 @@ class Distributivo extends CI_Controller{
 	{
 			$data['distributivo'] = $this->distributivo_model->distributivo($this->uri->segment(3))->row_array();
   			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  			$data['estadodistributivos']= $this->estadodistributivo_model->lista_estadodistributivos()->result();
 			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
 			$data['title'] = "Actualizar distributivo";
 			$this->load->view('template/page_header');		
@@ -92,6 +97,7 @@ class Distributivo extends CI_Controller{
 		 	'iddistributivo' => $this->input->post('iddistributivo'),
 	 		'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
+		 	'idestadodistributivo' => $this->input->post('idestadodistributivo'),
 	 	);
 	 	$this->distributivo_model->update($id,$array_item);
 	 	redirect('distributivo/actual/'.$id);
@@ -261,6 +267,7 @@ public function actual()
 {
 	$data['distributivo'] = $this->distributivo_model->distributivo($this->uri->segment(3))->row_array();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['estadodistributivos']= $this->estadodistributivo_model->lista_estadodistributivos()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
   if(!empty($data))
   {
@@ -282,6 +289,7 @@ public function elprimero()
 {
 	$data['distributivo'] = $this->distributivo_model->elprimero();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['estadodistributivos']= $this->estadodistributivo_model->lista_estadodistributivos()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
   if(!empty($data))
   {
@@ -300,6 +308,7 @@ public function elultimo()
 {
 		$data['distributivo'] = $this->distributivo_model->elultimo();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['estadodistributivos']= $this->estadodistributivo_model->lista_estadodistributivos()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
   if(!empty($data))
   {
@@ -319,7 +328,8 @@ public function elultimo()
 public function siguiente(){
  // $data['distributivo_list']=$this->distributivo_model->lista_distributivo()->result();
 	$data['distributivo'] = $this->distributivo_model->siguiente($this->uri->segment(3))->row_array();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['estadodistributivos']= $this->estadodistributivo_model->lista_estadodistributivos()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
   	$data['title']="Distributivo";
 	$this->load->view('template/page_header');		
@@ -331,6 +341,7 @@ public function anterior(){
  // $data['distributivo_list']=$this->distributivo_model->lista_distributivo()->result();
 	$data['distributivo'] = $this->distributivo_model->anterior($this->uri->segment(3))->row_array();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['estadodistributivos']= $this->estadodistributivo_model->lista_estadodistributivos()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
   	$data['title']="Distributivo";
 	$this->load->view('template/page_header');		

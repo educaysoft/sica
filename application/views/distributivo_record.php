@@ -43,22 +43,7 @@ if(isset($distributivo))
 </div> 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> <?php echo anchor('departamento/actual/'.$distributivo['iddepartamento'], 'Departamento - carrera'); ?>: </label>
-     	<?php 
 
-$options= array("NADA");
-foreach ($departamentos as $row){
-	$options[$row->iddepartamento]= $row->nombre;
-}
-
-	?>
-	<div class="col-md-10">
-		<?php
-echo form_input('iddepartamento',$options[$distributivo['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
 
 
 
@@ -78,6 +63,46 @@ echo form_input('iddepartamento',$options[$distributivo['iddepartamento']],array
 		?>
 	</div> 
 </div>
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label"> <?php echo anchor('departamento/actual/'.$distributivo['iddepartamento'], 'Departamento - carrera'); ?>: </label>
+     	<?php 
+
+$options= array("NADA");
+foreach ($departamentos as $row){
+	$options[$row->iddepartamento]= $row->nombre;
+}
+
+	?>
+	<div class="col-md-10">
+		<?php
+echo form_input('iddepartamento',$options[$distributivo['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label"> <?php echo anchor('estadodistributivo/actual/'.$distributivo['idestadodistributivo'], 'Estado'); ?>: </label>
+     	<?php 
+
+$options= array("NADA");
+foreach ($estadodistributivos as $row){
+	$options[$row->idestadodistributivo]= $row->nombre;
+}
+
+	?>
+	<div class="col-md-10">
+		<?php
+echo form_input('idestadodistributivo',$options[$distributivo['idestadodistributivo']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
+
+
+
 
 
 
