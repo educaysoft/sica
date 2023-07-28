@@ -38,7 +38,6 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'iddepartamento' => $this->input->post('iddepartamento'),
 	 	'nombrecorto' => $this->input->post('nombrecorto'),
 	 	'nombrelargo' => $this->input->post('nombrelargo'),
 	 	'fechainicio' => $this->input->post('fechainicio'),
@@ -68,7 +67,6 @@ public function edit()
 	 	$array_item=array(
 		 	
 			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
-			'iddepartamento' => $this->input->post('iddepartamento'),
 			'nombrecorto' => $this->input->post('nombrecorto'),
 			'nombrelargo' => $this->input->post('nombrelargo'),
 			'fechainicio' => $this->input->post('fechainicio'),

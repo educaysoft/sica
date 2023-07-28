@@ -39,16 +39,7 @@ $eys_arrinput=array('name'=>'nombrecorto','value'=>$periodoacademico['nombrecort
 
 
 
-<tr>
-<td> Depart/carrara:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($departamentos as $row){
-	$options[$row->iddepartamento]= $row->nombre;
-}
 
- echo form_dropdown("iddepartamento",$options, $periodoacademico['iddepartamento']);  ?></td>
-</tr>
 
 
 
