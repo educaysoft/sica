@@ -30,42 +30,42 @@
 	$pdf->SetFont('Arial','B',8);
 
 	$pdf->Cell(50,5,'Silabo:',2,0,'L',1);
-	$pdf->MultiCell(120,5,utf8_decode($tema[0]->elsilabo),1,L,0);
+	$pdf->MultiCell(120,5,utf8_decode($tema[0]->elsilabo),1,"L",0);
 
 
 	$pdf->Cell(50,5,'Unidad:',2,0,'L',1);
-	$pdf->MultiCell(120,5,$tema[0].unidad."  -  ".utf8_decode($tema[0]->launidadsilabo),1,L,0);
+	$pdf->MultiCell(120,5,$tema[0].unidad."  -  ".utf8_decode($tema[0]->launidadsilabo),1,"L",0);
 
 
 	$pdf->Cell(50,5,utf8_decode('Número de Sesión:'),2,0,'L',1);
 	$pdf->MultiCell(120,5,$tema[0].numerosesion,1,L,0);
 
 	$pdf->Cell(50,5,'Tema',2,0,'L',1);
-	$pdf->MultiCell(120,5,utf8_decode($tema[0]->nombrelargo),1,L,0);
+	$pdf->MultiCell(120,5,utf8_decode($tema[0]->nombrelargo),1,"L",0);
 
 
 	$pdf->Cell(50,5,utf8_decode('Duración'),2,0,'L',1);
-	$pdf->MultiCell(120,5,utf8_decode($tema[0]->nombrelargo),1,L,0);
+	$pdf->MultiCell(120,5,utf8_decode($tema[0]->nombrelargo),1,"L",0);
 
 	$pdf->Cell(50,5,'Objetivo de Aprendizaje',2,0,'L',1);
-	$pdf->MultiCell(120,5,utf8_decode($tema[0]->objetivoaprendizaje),1,L,0);
+	$pdf->MultiCell(120,5,utf8_decode($tema[0]->objetivoaprendizaje),1,"L",0);
 
 
 	$pdf->Cell(50,5,'Experiencia:',2,0,'L',1);
-	$pdf->MultiCell(120,5,utf8_decode($tema[0]->experiencia),1,L,0);
+	$pdf->MultiCell(120,5,utf8_decode($tema[0]->experiencia),1,"L",0);
 
 
 	$pdf->Cell(50,5,utf8_decode('Reflexión:'),2,0,'L',1);
-	$pdf->MultiCell(120,5,utf8_decode($tema[0]->reflexion),1,L,0);
+	$pdf->MultiCell(120,5,utf8_decode($tema[0]->reflexion),1,"L",0);
 
 
 
 	$pdf->Cell(50,5,'Secuencia:',2,0,'L',1);
-	$pdf->MultiCell(120,5,utf8_decode($tema[0]->secuencia),1,L,0);
+	$pdf->MultiCell(120,5,utf8_decode($tema[0]->secuencia),1,"L",0);
 
 
 	$pdf->Cell(50,5,utf8_decode('Aprendizaje autónomo:'),2,0,'L',1);
-	$pdf->MultiCell(120,5,utf8_decode($tema[0]->apendizajeautonomo),1,L,0);
+	$pdf->MultiCell(120,5,utf8_decode($tema[0]->apendizajeautonomo),1,"L",0);
 
 
 
