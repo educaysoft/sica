@@ -215,7 +215,7 @@ public function iniciar()
 		$idtema=$this->uri->segment(3);
 	 	$data['temas']= $this->tema_model->tema1($idtema)->result();
 		$data['title']="Evento";
-		$this->load->view('docente_list_pdf',$data);
+		$this->load->view('tema_list_pdf',$data);
 	}
 
 
