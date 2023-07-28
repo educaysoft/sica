@@ -40,8 +40,18 @@
 	$pdf->MultiCell(120,5,utf8_decode($tema[0]->experiencia),1,L,0);
 
 
-	$pdf->Cell(50,5,'Reflexión:',2,0,'L',1);
+	$pdf->Cell(50,5,utf8_decode('Reflexión:'),2,0,'L',1);
 	$pdf->MultiCell(120,5,utf8_decode($tema[0]->reflexion),1,L,0);
+
+
+
+	$pdf->Cell(50,5,'Secuencia:',2,0,'L',1);
+	$pdf->MultiCell(120,5,utf8_decode($tema[0]->secuencia),1,L,0);
+
+
+	$pdf->Cell(50,5,utf8_decode('Aprendizaje autónomo:'),2,0,'L',1);
+	$pdf->MultiCell(120,5,utf8_decode($tema[0]->apendizajeautonomo),1,L,0);
+
 
 
 
