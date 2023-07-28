@@ -34,7 +34,7 @@
 
 
 	$pdf->Cell(50,5,'Unidad:',2,0,'L',1);
-	$pdf->MultiCell(120,5,$tema[0].unidad."  -  ".utf8_decode($tema[0]->launidadsilabo),1,"L",0);
+	$pdf->MultiCell(120,5,$tema[0]->unidad."  -  ".utf8_decode($tema[0]->launidadsilabo),1,"L",0);
 
 
 	$pdf->Cell(50,5,utf8_decode('Número de Sesión:'),2,0,'L',1);
