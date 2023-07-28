@@ -53,7 +53,20 @@ foreach ($periodoacademicos as $row){
 </div>
 
 
- 
+ <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Departamento o carrera:</label>
+	<div class="col-md-10">
+		<?php
+
+$options= array('--Select--');
+foreach ($estadodistributivos as $row){
+	$options[$row->idestadodistributivo]= $row->nombre;
+}
+
+ echo form_dropdown("idestadodistributivo",$options, $distributivo['idestadodistributivo']);  
+		?>
+	</div> 
+</div>
 
 
 
