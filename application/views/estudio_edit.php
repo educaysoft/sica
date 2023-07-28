@@ -40,7 +40,16 @@ foreach ($instituciones as $row){
 
 <tr>
       <td>NIvel:</td>
-      <td><?php echo form_input( array("name"=>'nivel',"id"=>'nivel',"value"=>$estudio['nivel'],'type'=>'text','placeholder'=>'nivel')); ?></td>
+
+
+
+      <td><?php
+	$options= array('--Select--');
+foreach ($nivelestudios as $row){
+	$options[$row->idnivelestudio]= $row->nombre;
+}
+	
+ echo form_dropdown("idnivelestudio",$options, $estudio['idnivelestudio']);  ?></td>
   </tr>
 
 
