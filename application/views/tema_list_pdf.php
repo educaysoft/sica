@@ -27,7 +27,7 @@
     	$pdf->Text(20,40,"  "); 
 
 	$pdf->SetFillColor(232,232,232);
-	$pdf->SetFont('Arial','B',8);
+	$pdf->SetFont('Arial','B',12);
 
 	$pdf->Cell(50,5,'Silabo:',2,0,'L',1);
 	$pdf->MultiCell(120,5,utf8_decode($tema[0]->elsilabo),1,"L",0);
