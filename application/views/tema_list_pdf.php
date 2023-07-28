@@ -22,7 +22,7 @@
 
 
 
-	$pdf->SetFont('Arial','',12);
+	$pdf->SetFont('Arial','',14);
 	$pdf->SetTextColor(0, 0,0);
     	$pdf->Text(20,40,"  "); 
 
