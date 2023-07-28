@@ -30,8 +30,8 @@
 	$pdf->SetFont('Arial','B',8);
 
 
-	$pdf->Cell(10,5,'Objetivo de Aprendizaje',1,0,'C',1);
-	$pdf->Cell(50,5,$tema[0]->objetivoaprendizaje,1,1,'C',1);
+	$pdf->Cell(50,5,'Objetivo de Aprendizaje',1,0,'C',1);
+	$pdf->Cell(150,5,$tema[0]->objetivoaprendizaje,1,1,'C',1);
  
 /*	 
 
