@@ -13,7 +13,7 @@
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
-	$pdf->titulo="Registro del docente";
+	$pdf->titulo="Plan de clase";
 	
 
 

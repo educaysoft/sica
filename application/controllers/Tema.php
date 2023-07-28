@@ -213,7 +213,7 @@ public function iniciar()
 	public function reportepdf()
 	{
 		$idtema=$this->uri->segment(3);
-	 	$data['temas']= $this->tema_model->tema1($idtema)->result();
+	 	$data['tema']= $this->tema_model->tema1($idtema)->result();
 		$data['title']="Evento";
 		$this->load->view('tema_list_pdf',$data);
 	}
