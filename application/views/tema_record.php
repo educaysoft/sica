@@ -15,6 +15,7 @@ if(isset($tema))
         <li> <?php echo anchor('tema/listar/'.$tema['idunidadsilabo'],'Listar'); ?></li>
         <li> <?php echo anchor('temaunidad/','Unidades'); ?></li>
         <li> <?php echo anchor('tema/panel/','Panel'); ?></li>
+        <li> <?php echo anchor('tema/reportepdf/'.$tema['idtema'],'reportepdf'); ?></li>
 
 <?php 
 }else{
