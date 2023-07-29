@@ -58,6 +58,7 @@ class Tema extends CI_Controller{
 	 	'experiencia' => $this->input->post('experiencia'),
 	 	'reflexion' => $this->input->post('reflexion'),
 	 	'secuencia' => $this->input->post('secuencia'),
+	 	'aprendizajeautonomo' => $this->input->post('aprendizajeautonomo'),
 		 	'numerosesion' => $this->input->post('numerosesion'),
 	 	);
 	 	$this->tema_model->save($array_item);
@@ -95,6 +96,7 @@ class Tema extends CI_Controller{
 	 		'experiencia' => $this->input->post('experiencia'),
 	 		'reflexion' => $this->input->post('reflexion'),
 	 		'secuencia' => $this->input->post('secuencia'),
+	 		'aprendizajeautonomo' => $this->input->post('aprendizajeautonomo'),
 		 	'numerosesion' => $this->input->post('numerosesion'),
 	 	);
 	 	$this->tema_model->update($id,$array_item);

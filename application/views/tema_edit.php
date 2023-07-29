@@ -80,6 +80,17 @@ $eys_arrinput=array('name'=>'nombrecorto','value'=>$tema['nombrecorto'], "style"
 	</div> 
 </div>
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Apendizaje autónomo:</label>
+	<div class="col-md-10">
+		<?php
+	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Título" );    
+	echo form_textarea('aprendizajeautonomo',$tema['aprendizajeautonomo'],$textarea_options ); 
+
+		?>
+	</div> 
+</div>
+
 
 
 
