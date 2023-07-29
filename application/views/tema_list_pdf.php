@@ -65,7 +65,7 @@
 
 
 	$pdf->Cell(50,5,utf8_decode('Aprendizaje autónomo:'),2,0,'L',1);
-	$pdf->MultiCell(120,5,utf8_decode($tema[0]->apendizajeautonomo),1,"L",0);
+	$pdf->MultiCell(120,5,utf8_decode($tema[0]->aprendizajeautonomo),1,"L",0);
 
 
 
