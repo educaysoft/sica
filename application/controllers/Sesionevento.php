@@ -100,7 +100,7 @@ class Sesionevento extends CI_Controller{
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   		$data['silabo']= $this->silabo_model->silabo($data['evento']['idsilabo'])->first_row('array');
   		$data['silabos']= $this->silabo_model->silabo($data['silabo']['idasignatura'])->result_array();
-		echo $data['silabos']['count(*)'];
+		echo count($data['silabos']);
 		die();
 
 		$data['distributivodocente']=$this->distributivodocente_model->distributivodocente_pado($data['silabo']['idperiodoacademico'],$data['silabo']['iddocente'])->first_row('array');	
