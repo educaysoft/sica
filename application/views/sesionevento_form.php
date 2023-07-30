@@ -237,7 +237,7 @@ $textarea_options = array('name'=>'tema','class' => 'form-control','rows' => '4'
 <div class="col-md-10">
 <?php
     
-$textarea_options = array('name'=>'secuencia','class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;','value'=>$secuenciatema, "placeholder"=>"Descripción larga del tema" );    
+$textarea_options = array('name'=>'secuencia','class' => 'form-control','rows' => '8',   'cols' => '20', 'style'=> 'width:50%;height:100px;','value'=>$secuenciatema, "placeholder"=>"Descripción larga del tema" );    
  echo form_textarea( $textarea_options);  
 
 ?>
