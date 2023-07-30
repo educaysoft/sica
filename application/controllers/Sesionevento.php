@@ -101,7 +101,7 @@ class Sesionevento extends CI_Controller{
   		$data['silabo']= $this->silabo_model->silabo($data['evento']['idsilabo'])->first_row('array');
   		$data['silabos']= $this->silabo_model->silabosa($data['silabo']['idasignatura'])->result_array();
 		if(count($data['silabos'])>1){
-			$pidx=count($data['silabos']-2;
+			$pidx=count($data['silabos'])-2;
   			$data['temasprevios']= $this->tema_model->lista_temass($data['silabos'][$pdix]['idsilabo'])->result();
 		}
 
