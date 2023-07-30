@@ -200,11 +200,20 @@ foreach ($unidadsilabos as $row){
 <div class="col-md-10">
 <?php
  if(isset($temasprevios)){
-	$nombrecortotema=$nombrecortotema[$sesionactual];
-	$nombrelargotema=$nombrelargotema[$sesionactual];
-	$secuenciatema=$secuenciatema[$sesionactual];
+ 	if(isset($nombrecortotema[$sesionactual])){
+		$nombrecortotema=$nombrecortotema[$sesionactual];
+		$nombrelargotema=$nombrelargotema[$sesionactual];
+		$secuenciatema=$secuenciatema[$sesionactual];
+	}else{
+		$nombrecortotema="";
+		$nombrelargotema="";
+		$secuenciatema="";
+
+	}
  }else{
-	$temacorto="";
+		$nombrecortotema="";
+		$nombrelargotema="";
+		$secuenciatema="";
  }
 
 
