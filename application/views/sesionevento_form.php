@@ -16,7 +16,7 @@ if(isset($temasprevios))
 	
 $pretemas= array();
 foreach ($temasprevios as $row){
-	$pretemas[$row->numerosesion]=$row->temacorto;
+	$pretemas[$row->numerosesion]=$row->nombrecorto;
 }
 }
 

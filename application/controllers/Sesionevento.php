@@ -102,7 +102,7 @@ class Sesionevento extends CI_Controller{
   		$data['silabos']= $this->silabo_model->silabosa($data['silabo']['idasignatura'])->result_array();
 		if(count($data['silabos'])>1){
 			$pidx=count($data['silabos'])-2;
-  			$data['temasprevios']= $this->tema_model->lista_temass($data['silabos'][$pidx]['idsilabo'])->first_row('array');
+  			$data['temasprevios']= $this->tema_model->lista_temass($data['silabos'][$pidx]['idsilabo'])->result();
 		}
 
 		$data['distributivodocente']=$this->distributivodocente_model->distributivodocente_pado($data['silabo']['idperiodoacademico'],$data['silabo']['iddocente'])->first_row('array');	
