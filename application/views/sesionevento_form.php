@@ -206,8 +206,8 @@ foreach ($unidadsilabos as $row){
  }
 
 
-$textarea_options = array('class' => 'form-control','rows' => '4','maxlength'=> '100',   'cols' => '20', 'style'=> 'width:50%;height:100px;','value'=>$temacorto,  "placeholder"=>"Descripción corta del tema","id"=>"temacorto" );    
- echo form_textarea("temacorto", $textarea_options);  
+$textarea_options = array('name'=>'temacorto','class' => 'form-control','rows' => '4','maxlength'=> '100',   'cols' => '20', 'style'=> 'width:50%;height:100px;','value'=>$temacorto,  "placeholder"=>"Descripción corta del tema","id"=>"temacorto" );    
+ echo form_textarea($textarea_options);  
 
 ?><div id="textarea_feedback"></div>
 </div>
