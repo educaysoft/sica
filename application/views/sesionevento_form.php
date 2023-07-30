@@ -15,7 +15,9 @@ if(isset($temasprevios))
 	
 $pretemas= array();
 foreach ($temasprevios as $row){
-	$pretemas[$row->numerosesion]=$row->nombrecorto;
+	$nombrecortetema[$row->numerosesion]=$row->nombrecorto;
+	$nombrelargotema[$row->numerosesion]=$row->nombrelargo;
+	$secuenciatema[$row->numerosesion]=$row->secuencia;
 }
 }
 
@@ -162,10 +164,6 @@ echo form_input($eys_arrinput2);
 
 
 
-
-
-
-
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Número de sesión:</label>
 <div class="col-md-10">
@@ -200,13 +198,15 @@ foreach ($unidadsilabos as $row){
 <div class="col-md-10">
 <?php
  if(isset($temasprevios)){
-	$temacorto=$pretemas[$sesionactual];
+	$nombrecortotema=$nombrecortotema[$sesionactual];
+	$nombrelargotema=$nombrelargotema[$sesionactual];
+	$secuenciatema=$secuenciatema[$sesionactual];
  }else{
 	$temacorto="";
  }
 
 
-$textarea_options = array('name'=>'temacorto','class' => 'form-control','rows' => '4','maxlength'=> '100',   'cols' => '20', 'style'=> 'width:50%;height:100px;','value'=>$temacorto,  "placeholder"=>"Descripción corta del tema","id"=>"temacorto" );    
+$textarea_options = array('name'=>'temacorto','class' => 'form-control','rows' => '4','maxlength'=> '100',   'cols' => '20', 'style'=> 'width:50%;height:100px;','value'=>$nombrecortotema,  "placeholder"=>"Descripción corta del tema","id"=>"temacorto" );    
  echo form_textarea($textarea_options);  
 
 ?><div id="textarea_feedback"></div>
@@ -221,12 +221,30 @@ $textarea_options = array('name'=>'temacorto','class' => 'form-control','rows' =
 <div class="col-md-10">
 <?php
     
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Descripción larga del tema" );    
- echo form_textarea("tema","", $textarea_options);  
+$textarea_options = array('name'=>'tema','class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;','value'=>$nombrelargotema,, "placeholder"=>"Descripción larga del tema" );    
+ echo form_textarea( $textarea_options);  
 
 ?>
 </div>
 </div>
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Secuencia:</label>
+
+<div class="col-md-10">
+<?php
+    
+$textarea_options = array('name'=>'secuencia','class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;','value'=>$secuenciatema,, "placeholder"=>"Descripción larga del tema" );    
+ echo form_textarea( $textarea_options);  
+
+?>
+</div>
+</div>
+
+
+
+
 
 
 
