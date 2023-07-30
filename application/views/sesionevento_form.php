@@ -8,6 +8,19 @@
 </div>
 <br>
 
+<?php
+
+if(isset($temasprevios))
+{
+$pretemas= array();
+foreach ($temasprevios as $row){
+	$pretemas[$row->numerosesion]=$row->temacorto;
+}
+}
+
+
+?>
+
 
 
 
@@ -185,8 +198,13 @@ foreach ($unidadsilabos as $row){
 <label class="col-md-2 col-form-label">Tema :</label>
 <div class="col-md-10">
 <?php
-    
-$textarea_options = array('class' => 'form-control','rows' => '4','maxlength'=> '100',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Descripción corta del tema","id"=>"temacorto" );    
+ if(isset($temasprevios)){
+	$temacorto=$pretemas[$sesionactual]->temacorto;
+ }else{
+	$temacorto="";
+ }
+
+$textarea_options = array('class' => 'form-control','rows' => '4','maxlength'=> '100',   'cols' => '20', 'style'=> 'width:50%;height:100px;','value'=>$temacorto,  "placeholder"=>"Descripción corta del tema","id"=>"temacorto" );    
  echo form_textarea("temacorto","", $textarea_options);  
 
 ?><div id="textarea_feedback"></div>
