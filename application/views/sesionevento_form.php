@@ -12,6 +12,8 @@
 
 if(isset($temasprevios))
 {
+	print_r($temasprevios);
+	
 $pretemas= array();
 foreach ($temasprevios as $row){
 	$pretemas[$row->numerosesion]=$row->temacorto;
