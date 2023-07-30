@@ -201,7 +201,7 @@ foreach ($unidadsilabos as $row){
 <div class="col-md-10">
 <?php
  if(isset($temasprevios)){
-	$temacorto=$pretemas[$sesionactual]->nombrecorto;
+	$temacorto=$pretemas[$sesionactual];
  }else{
 	$temacorto="";
  }
