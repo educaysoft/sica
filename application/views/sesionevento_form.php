@@ -12,7 +12,6 @@
 
 if(isset($temasprevios))
 {
-	print_r($temasprevios);
 	
 $pretemas= array();
 foreach ($temasprevios as $row){
@@ -206,11 +205,9 @@ foreach ($unidadsilabos as $row){
 	$temacorto="";
  }
 
- echo $temacorto;
- die();
 
 $textarea_options = array('class' => 'form-control','rows' => '4','maxlength'=> '100',   'cols' => '20', 'style'=> 'width:50%;height:100px;','value'=>$temacorto,  "placeholder"=>"Descripción corta del tema","id"=>"temacorto" );    
- echo form_textarea("temacorto","", $textarea_options);  
+ echo form_textarea("temacorto", $textarea_options);  
 
 ?><div id="textarea_feedback"></div>
 </div>
