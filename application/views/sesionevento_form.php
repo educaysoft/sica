@@ -14,14 +14,13 @@
 <div class="form-group row">
 <label class="col-md-2 col-form-label"><?php echo anchor('evento/actual/'.$idevento, 'Evento:'); ?> </label>
 <div class="col-md-10">
-<?php
-$options= array('--Select--');
-foreach ($eventos as $row){
-	$options[$row->idevento]= $row->titulo;
-}
-
- echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('id'=>'idevento'));  
-?>
+	<?php
+	$options= array('--Select--');
+	foreach ($eventos as $row){
+		$options[$row->idevento]= $row->titulo;
+	}
+ 	echo form_dropdown("idevento",$options, set_select('--Select--','default_value'),array('id'=>'idevento'));  
+	?>
 </div>
 </div>
 
@@ -30,42 +29,34 @@ foreach ($eventos as $row){
 <label class="col-md-2 col-form-label">Fecha de la sesión:</label>
 <div class="col-md-10">
 <?php
-
- $dias = array('Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado');
-   date_default_timezone_set('America/Guayaquil');
-    $fecha = date("Y-m-d");
-    $horai= date("H:i:s");
-
+	$dias = array('Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado');
+	date_default_timezone_set('America/Guayaquil');
+	$fecha = date("Y-m-d");
+	$horai= date("H:i:s");
 	$sesiondictada= array();
 	foreach ($sesionevento as $row){
 		$sesiondictada[$row->fecha]= $row->idsesionevento;
 	}
-
 	$sesionactual=0;
 	$sesiontotal=0;
-
 	$f = strtotime($evento['fechainicia']);
-
-    $d = date( "j", $f);
-    $m = date("n", $f);
-    $a = date("Y", $f);
+	$d = date("j", $f);
+	$m = date("n", $f);
+	$a = date("Y", $f);
 
 if(checkdate($m,$d,$a)){
- $fechasesion= $evento['fechainicia'];
-
-	$f = strtotime($evento['fechafinaliza']);   //Chequendo que la fecha de finalizacion estes ingresada
-
-    $d = date( "j", $f);
-    $m = date("n", $f);
-    $a = date("Y", $f);
-
+ 	$fechasesion= $evento['fechainicia'];
+	//Chequeando que la fecha de finalizacion este ingresada
+	$f = strtotime($evento['fechafinaliza']);   
+    	$d = date( "j", $f);
+    	$m = date("n", $f);
+    	$a = date("Y", $f);
 	if(checkdate($m,$d,$a)){
 		 $fechahasta= $evento['fechafinaliza'];
 	}else{
-
-		 $fechahasta= $calendarioacademico[0]->fechahasta; // sin no esta la fecha de fin en el evento se toma del calendario
+		// sin no esta la fecha de fin en el evento se toma del calendario
+		$fechahasta= $calendarioacademico[0]->fechahasta; 	
 	}
-
 }else{   // sin no estan ingresadas las fecha en el evento se toma del calendario asignado
 
  $fechasesion=$calendarioacademico[0]->fechadesde;
@@ -118,7 +109,6 @@ if(checkdate($m,$d,$a)){
 			$lahoraf=date("H:i:s",$lahoraf);
 		}
 	}
-	//die();
 
     	$horaf= date("H:i:s",strtotime(' + 2 hours'));
  	echo form_input(array("name"=>"fecha","id"=>"fecha","readonly"=>"true",  "type"=>"date","value"=>$fecha)); echo $eldia; 
@@ -217,12 +207,6 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 ?>
 </div>
 </div>
-
-
-
-
-
-
 
 
 
