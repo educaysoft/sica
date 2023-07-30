@@ -17,7 +17,7 @@ $nombrecortotema= array();
 $nombrelargotema= array();
 $secuenciatema= array();
 foreach ($temasprevios as $row){
-	$nombrecortetema[$row->numerosesion]=$row->nombrecorto;
+	$nombrecortotema[$row->numerosesion]=$row->nombrecorto;
 	$nombrelargotema[$row->numerosesion]=$row->nombrelargo;
 	$secuenciatema[$row->numerosesion]=$row->secuencia;
 }
