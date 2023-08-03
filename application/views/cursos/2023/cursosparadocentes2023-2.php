@@ -209,6 +209,36 @@ overflow:hidden;
         </div>
         
 
+<div class="col">
+          <div class="card shadow-sm">
+		  <a  href='https://educaysoft.org/sica/evento/detalle/355'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/busquedarevistascientificas.jpg" height="100%" width="100%"/> </svg></a>
+
+<div class='img-contenedor w3-card-4' style='position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;'>
+<img src='https://repositorioutlvte.org/Repositorio/fotos/0803188077.jpg' width='100%' height='100%' style='border-radius:50px;'>
+</div>
+
+            <div class="card-body">
+              <p class="card-text">Recursos y estrategias de búsqueda para investigación cientifica:Revistas y buscadores bibliográficos - Paralelo A".</p>
+	      <p><b>Instructor:</b> Ing.Byron Chere MsC.</p>
+
+<p><b>Fechas:</b>  17 al 28 de julio del 2023.</a></p>
+	      <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
+	      <p><b>Hora:</b>  17:00 - 19:00 </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcorreo?idevento=355'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login'">Ingresa</button>
+                </div>
+                <small class="text-muted"><b>Modalidad:</b>On-line</small>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
         <div class="col">
           <div class="card shadow-sm">
 		  <a  href='https://educaysoft.org/sica/evento/detalle/355'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/busquedarevistascientificas.jpg" height="100%" width="100%"/> </svg></a>
@@ -218,13 +248,12 @@ overflow:hidden;
 </div>
 
             <div class="card-body">
-              <p class="card-text">Recursos y estrategias de búsqueda para investigación cientifica:Revistas y buscadores bibliográficos".</p>
+              <p class="card-text">Recursos y estrategias de búsqueda para investigación cientifica:Revistas y buscadores bibliográficosi - Paralelo B".</p>
 	      <p><b>Instructor:</b> Ing.Byron Chere MsC.</p>
 
 <p><b>Fechas:</b>  17 al 28 de julio del 2023.</a></p>
 	      <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
 	      <p><b>Hora:</b>  14:00 - 16:00 </p>
-	      <p><b>Hora:</b>  17:00 - 19:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcorreo?idevento=355'"  >Inscribete</button>
