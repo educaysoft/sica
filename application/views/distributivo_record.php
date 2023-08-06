@@ -121,7 +121,9 @@ echo form_input('idestadodistributivo',$options[$distributivo['idestadodistribut
         </div>
         <div class="pull-right">
             <a class="btn btn-success" href="<?php echo base_url('distributivodocente/add/'.$distributivo['iddistributivo']) ?>">Agregar docente</a>
+<a class="btn btn-danger" href="<?php echo base_url('distributivodocente/add/'.$distributivo['iddistributivo']) ?>">Generar pagina</a>
         </div>
+
     </div>
 </div>
 
