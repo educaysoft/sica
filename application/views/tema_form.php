@@ -94,6 +94,22 @@ foreach ($silabos as $row){
 </div>
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Modo de evaluación:</label>
+<div class="col-md-10">
+<?php
+$options= array();
+foreach ($modoevaluacions as $row){
+	$options[$row->idmodoevaluacion]= $row->nombre."(Porderación=".$row->ponderacion.")";
+}
+
+ $primero= reset($options);
+ echo form_dropdown("idmodoevaluacion",$options,$primero,array('id'=>'idmodoevaluacion'));  
+?>
+</div>
+</div>
+
+
 <table>
 
 

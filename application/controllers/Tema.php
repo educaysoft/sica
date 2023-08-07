@@ -8,6 +8,7 @@ class Tema extends CI_Controller{
       $this->load->model('unidadsilabo_model');
       $this->load->model('silabo_model');
       $this->load->model('videotutorial_model');
+      $this->load->model('modoevaluacion_model');
       $this->load->model('documento_model');
       $this->load->model('metodoaprendizajetema_model');
 }
@@ -21,6 +22,7 @@ class Tema extends CI_Controller{
 			$data['tema']=$this->tema_model->elultimo();
   			$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
 			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
+			$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   			$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 			$data['title']="Lista de temaes";
 			$this->load->view('template/page_header');
@@ -59,6 +61,7 @@ class Tema extends CI_Controller{
 	 	'reflexion' => $this->input->post('reflexion'),
 	 	'secuencia' => $this->input->post('secuencia'),
 	 	'aprendizajeautonomo' => $this->input->post('aprendizajeautonomo'),
+		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
 		 	'numerosesion' => $this->input->post('numerosesion'),
 	 	);
 	 	$this->tema_model->save($array_item);
@@ -96,6 +99,7 @@ class Tema extends CI_Controller{
 	 		'experiencia' => $this->input->post('experiencia'),
 	 		'reflexion' => $this->input->post('reflexion'),
 	 		'secuencia' => $this->input->post('secuencia'),
+		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
 	 		'aprendizajeautonomo' => $this->input->post('aprendizajeautonomo'),
 		 	'numerosesion' => $this->input->post('numerosesion'),
 	 	);
@@ -233,6 +237,7 @@ public function actual()
 	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
+	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   	if(!empty($data))
   	{
     		$data['title']="Tema";
@@ -256,6 +261,7 @@ public function elprimero()
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
 	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   if(!empty($data))
   {
     $data['title']="Tema";
@@ -276,6 +282,7 @@ public function elultimo()
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
 		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   if(!empty($data))
   {
     $data['title']="Tema";
@@ -297,6 +304,7 @@ public function siguiente(){
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 	
 	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   	$data['title']="Tema";
@@ -312,6 +320,7 @@ public function anterior(){
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   	$data['title']="Tema";
 	$this->load->view('template/page_header');		
   	$this->load->view('tema_record',$data);
