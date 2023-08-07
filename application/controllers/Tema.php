@@ -42,6 +42,7 @@ class Tema extends CI_Controller{
 			$data['silabos'] = $this->silabo_model->lista_silabos()->result();
 			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo()->result();
   		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 			$this->load->view('template/page_header');		
 			$this->load->view('tema_form',$data);
 			$this->load->view('template/page_footer');
@@ -76,7 +77,7 @@ class Tema extends CI_Controller{
   			$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 			$data['unidadsilabo'] = $this->unidadsilabo_model->unidadsilabo($data['tema']['idunidadsilabo'])->result();
 			$data['unidadsilabos'] = $this->unidadsilabo_model->unidadsilaboss($data['unidadsilabo'][0]->idsilabo)->result();
-  			$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 			$data['title'] = "Actualizar tema";
 			$this->load->view('template/page_header');		
 			$this->load->view('tema_edit',$data);
