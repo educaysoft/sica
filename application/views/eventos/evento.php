@@ -360,9 +360,13 @@ echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="curre
 
           <div class="col-sm-1">
 	 <?php
+	if(isset($fecha[$row->numerosesion])){
 	      if(isset($miparticipacion[$fecha[$row->numerosesion]]))				
 	 	{
                echo "<span>".$miparticipacion[$fecha[$row->numerosesion]]."</span>";
+	      }else{
+               echo "<span>"." "."</span>";
+	      }
 	      }else{
                echo "<span>"." "."</span>";
 	      }
@@ -370,9 +374,13 @@ echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="curre
           </div>
 	<div class="col-sm-1">
 	 <?php
+	if(isset($fecha[$row->numerosesion])){
 	      if(isset($miayuda[$fecha[$row->numerosesion]]))				
 	 	{
                echo "<span>".$miayuda[$fecha[$row->numerosesion]]."</span>";
+	      }else{
+               echo "<span>"." "."</span>";
+	      }
 	      }else{
                echo "<span>"." "."</span>";
 	      }
@@ -381,9 +389,13 @@ echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="curre
 
 <div class="col-sm-1">
 	 <?php
+	if(isset($fecha[$row->numerosesion])){
 	      if(isset($mipago[$fecha[$row->numerosesion]]))				
 	 	{
                echo "<span>".$mipago[$fecha[$row->numerosesion]]."</span>";
+	      }else{
+               echo "<span>"." "."</span>";
+	      }
 	      }else{
                echo "<span>"." "."</span>";
 	      }
