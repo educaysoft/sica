@@ -321,7 +321,8 @@ foreach ($pagoevento as $row){
 
           <div class="col-sm-1">
 		<?php
-	      if(!empty($miasistencia[$fecha[$row->numerosesion]]))				
+	if(isset($fecha[$row->numerosesion])){
+	      if(!empty($miasistencia[$fecha[$row->numerosesion]]))			
 	 	{
 
 	        if($miasistencia[$fecha[$row->numerosesion]]==1)   //puntual
@@ -348,6 +349,9 @@ echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="curre
 		}
 
 	    //  echo "<i class='".$miasistencia[$row->fecha]."'></i>";
+	      }else{
+               echo "<span>"." "."</span>";
+	      }
 	      }else{
                echo "<span>"." "."</span>";
 	      }
