@@ -205,10 +205,9 @@ $('#show_data_e').on('click','.item_ver',function(){
 
 });
 
-$('#show_data_t').on('click','.item_ver',function(){
-
-	var id= $(this).data('idevento');
-	var retorno= $(this).data('retorno');
+$('#show_data_t').on('click','.item_ver3',function(){
+	var id= $(this).data('idevento3');
+	var retorno= $(this).data('retorno3');
 	window.location.href = retorno+'/'+id;
 
 });
