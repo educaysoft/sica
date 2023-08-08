@@ -93,6 +93,16 @@ foreach ($silabos as $row){
 	</div> 
 </div>
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Link presentación:</label>
+	<div class="col-md-10">
+	<?php
+ echo form_input("linkpresentacion","", array("placeholder"=>"Link presentación",'style'=>'width:500px;'));
+	?>
+	</div> 
+</div>
+
+
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Modo de evaluación:</label>

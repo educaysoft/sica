@@ -215,6 +215,19 @@ echo form_input('nombre',$options[$tema['idvideotutorial']],array("disabled"=>"d
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Link presentación:</label>
+	<div class="col-md-10">
+		<?php
+	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
+	echo form_textarea('linkpresentacion',$tema['linkpresentacion'],$textarea_options);
+		?>
+	</div> 
+</div>
+
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Modo de evaluación: </label>
 	<div class="col-md-10">
      <?php 

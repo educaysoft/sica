@@ -168,9 +168,9 @@ overflow:hidden;
             <div class="card-body">
               <p class="card-text">2023-1S-PA-Ingenieria de Software I.</p>
 	      <p><b>Instructor:</b> Ing. Stalin Francis Q. MSc.</p>
-	      <p><b>Fechas:</b>  10 de Agosto al 1 de Diciembre del 2023.</a></p>
-	      <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
-	      <p><b>Hora:</b>  10:00 - 12:00 </p>
+	      <p><b>Fechas:</b>  1 de Agosto al 27 de Noviembre del 2023.</a></p>
+	      <p><b>Dias:</b>  Martes, Miercoles, Jueves </p>
+	      <p><b>Hora:</b>  13:00-15:00;15:00-16:00;15:00-17:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcorreo?idevento=356'"  >Inscribete</button>
@@ -194,9 +194,9 @@ overflow:hidden;
             <div class="card-body">
               <p class="card-text">2023-1S-PB-Ingenieria de Software I.</p>
 	      <p><b>Instructor:</b> Ing. Stalin Francis Q. MSc.</p>
-	      <p><b>Fechas:</b>  10 de Agosto al 1 de Diciembre del 2023.</a></p>
-	      <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
-	      <p><b>Hora:</b>  10:00 - 12:00 </p>
+	      <p><b>Fechas:</b>  01 de Agosto al 27 de Noviembre del 2023.</a></p>
+	      <p><b>Dias:</b>  Lunes, Martes,Viernes </p>
+	      <p><b>Hora:</b>  17:00-19:00;18:00-19:00;13:00-15:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcorreo?idevento=357'"  >Inscribete</button>
@@ -224,9 +224,9 @@ overflow:hidden;
             <div class="card-body">
               <p class="card-text">2023-1S-PA-Base de Datos I.</p>
 	      <p><b>Instructor:</b> Ing. Stalin Francis Q. MSc.</p>
-	      <p><b>Fechas:</b>  10 de Agosto al 1 de Diciembre del 2023.</a></p>
-	      <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
-	      <p><b>Hora:</b>  10:00 - 12:00 </p>
+	      <p><b>Fechas:</b>  01 de Agosto al 27 de Noviembre del 2023.</a></p>
+	      <p><b>Dias:</b>   Miercoles, Jueves, Viernes </p>
+	      <p><b>Hora:</b>  09:00-11:00;07:00-09:00;11:00-13:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://educaysoft.org/sica/login/validarcorreo?idevento=350'"  >Inscribete</button>

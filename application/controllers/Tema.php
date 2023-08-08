@@ -62,8 +62,9 @@ class Tema extends CI_Controller{
 	 	'reflexion' => $this->input->post('reflexion'),
 	 	'secuencia' => $this->input->post('secuencia'),
 	 	'aprendizajeautonomo' => $this->input->post('aprendizajeautonomo'),
-		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
-		 	'numerosesion' => $this->input->post('numerosesion'),
+	 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
+	 	'numerosesion' => $this->input->post('numerosesion'),
+		'linkpresentacion' => $this->input->post('linkpresentacion'),
 	 	);
 	 	$this->tema_model->save($array_item);
 	 	redirect('tema');
@@ -104,6 +105,7 @@ class Tema extends CI_Controller{
 		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
 	 		'aprendizajeautonomo' => $this->input->post('aprendizajeautonomo'),
 		 	'numerosesion' => $this->input->post('numerosesion'),
+		 	'linkpresentacion' => $this->input->post('linkpresentacion'),
 	 	);
 	 	$this->tema_model->update($id,$array_item);
 	 	redirect('tema/actual/'.$id);

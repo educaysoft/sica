@@ -155,6 +155,18 @@ foreach ($videotutoriales as $row){
 	</div> 
 </div>
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Link presentación:</label>
+	<div class="col-md-10">
+	<?php
+	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Link presentacion" );    
+	echo form_textarea('linkpresentacion',$tema['linkpresentacion'],$textarea_options ); 
+	?>
+	</div> 
+</div>
+
+
+
 
  
 <div class="form-group row">
