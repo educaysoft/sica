@@ -314,7 +314,12 @@ foreach ($pagoevento as $row){
           </div>
 
           <div class="col-sm-4">
+		<?php if( $row->linkpresentacion!=''){ ?>
+
+            <span><a href="<?php   echo $row->linkpresentacion; ?>"><?php   echo $row->nombrecorto; ?></a></span> 
+		<?php }else{ ?>
             <span><?php   echo $row->nombrecorto; ?></span> 
+		<?php } ?>
           </div>
           <div class="col-sm-3">
             <span><?php  if(isset($fecha[$row->numerosesion])){ echo $fecha[$row->numerosesion];}else{ echo "";} ?></span>
