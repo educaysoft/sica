@@ -222,7 +222,7 @@ overflow:hidden;
 </div>
 
             <div class="card-body">
-              <p class="card-text">2023-1S-PA-Base de Datos I.</p>
+              <p class="card-text">2023-1S-PB-Base de Datos I.</p>
 	      <p><b>Instructor:</b> Ing. Stalin Francis Q. MSc.</p>
 	      <p><b>Fechas:</b>  01 de Agosto al 27 de Noviembre del 2023.</a></p>
 	      <p><b>Dias:</b>   Miercoles, Jueves, Viernes </p>
