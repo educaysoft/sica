@@ -448,7 +448,7 @@ public function cumplimiento(){
 			}else{
 
 			$data[]=array($r->idevento,$r->titulo,$r->fechainicia,$r->fechafinaliza,$r->eltutor,
-			$r->href='<a href="javascript:void(0);"  class="btn btn-info btn-sm item_ver2"  data-retorno2="'.site_url('evento/detalle').'"    data-idevento2="'.$r->idevento.'">Ver</a>');
+			$r->href='<a href="javascript:void(0);"  class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('evento/detalle').'"    data-idevento="'.$r->idevento.'">Ver</a>');
 			}	
 		}	
 
