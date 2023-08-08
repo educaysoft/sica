@@ -314,7 +314,7 @@ foreach ($pagoevento as $row){
           </div>
 
           <div class="col-sm-4">
-		<?php if( $row->linkpresentacion!=''){ ?>
+		<?php if( trim($row->linkpresentacion)!=''){ ?>
 
             <span><a href="<?php   echo $row->linkpresentacion; ?>"><?php   echo $row->nombrecorto; ?></a></span> 
 		<?php }else{ ?>
