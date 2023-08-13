@@ -3,8 +3,7 @@
 $this->load->helper('file');
 
 
-$data =`
-<!doctype html>
+$data ='<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -135,15 +134,13 @@ overflow:hidden;
   </div>
 </header>
 
-\n`;
+\n';
 
 
 
 
 
-$data=$data.`
-
-<footer class="text-muted py-5">
+$data=$data.'<footer class="text-muted py-5">
   <div class="container">
     <p class="float-end mb-1">
       <a href="#">Back to top</a>
@@ -170,7 +167,7 @@ $("ul").click(function(ev){
 })
 
 function cargarVideo(url){
-        document.getElementById('slider').src=url;
+        document.getElementById("slider").src=url;
 }
 
 </script>
@@ -179,7 +176,7 @@ function cargarVideo(url){
   </body>
 </html>
                                    
-\n`;
+\n';
 
 
 if ( !write_file('2023-1S.txt', $data)){
