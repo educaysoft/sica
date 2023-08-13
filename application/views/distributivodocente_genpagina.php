@@ -4,7 +4,6 @@ $this->load->helper('file');
 
 
 
-$myfile = fopen("application/views/cursos/2023-1S.txt", "w") or die("Unable to open file!");
 $data =`
 
 <!doctype html>
