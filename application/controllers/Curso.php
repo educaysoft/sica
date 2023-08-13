@@ -132,6 +132,16 @@ class Curso extends CI_Controller{
 	}
 
 
+	public function nivelacion_2023_1S()
+	{
+
+	  $this->load->view('cursos/2023-1S');
+
+	}
+
+
+
+
 
 
 
