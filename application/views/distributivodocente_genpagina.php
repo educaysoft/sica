@@ -1,6 +1,6 @@
 <?php
 
-$myfile = fopen("application/view/cursos/2023-1S.txt", "w") or die("Unable to open file!");
+$myfile = fopen("application/views/cursos/2023-1S.txt", "w") or die("Unable to open file!");
 $txt =`
 
 <!doctype html>
