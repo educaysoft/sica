@@ -179,7 +179,7 @@ function cargarVideo(url){
 \n';
 
 
-if ( !write_file('2023-1S.txt', $data)){
+if ( !write_file('application/views/cursos/2023-1S.txt', $data)){
      echo 'Unable to write the file';
 }else{
     echo 'file written';
