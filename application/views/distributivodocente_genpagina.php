@@ -3,9 +3,7 @@
 $this->load->helper('file');
 
 
-
 $data =`
-
 <!doctype html>
 <html lang="en">
   <head>
