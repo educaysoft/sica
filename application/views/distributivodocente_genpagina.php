@@ -1,7 +1,11 @@
 <?php
 
+$this->load->helper('file');
+
+
+
 $myfile = fopen("application/views/cursos/2023-1S.txt", "w") or die("Unable to open file!");
-$txt =`
+$data =`
 
 <!doctype html>
 <html lang="en">
@@ -140,8 +144,7 @@ overflow:hidden;
 
 
 
-fwrite($myfile, $txt);
-$txt = `
+$data=$data.`
 
 <footer class="text-muted py-5">
   <div class="container">
@@ -182,9 +185,16 @@ function cargarVideo(url){
 \n`;
 
 
+if ( !write_file('2023-1S.txt', $data)){
+     echo 'Unable to write the file';
+}else{
+    echo 'file written';
+}
 
-fwrite($myfile, $txt);
-fclose($myfile);
+
+
+
+
 
 echo "archivo generado";
 die();
