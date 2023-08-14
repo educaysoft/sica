@@ -138,15 +138,11 @@ overflow:hidden;
   <section class="py-5 text-center container">
     <div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: center;" >
 <div style=" flex-basis: 40%"  >
-<img src="https://repositorioutlvte.org/Repositorio/qr/cupado2023_2.png" height="80px">
+<img src="https://repositorioutlvte.org/Repositorio/qr/cupado2023_2.png" height="100px">
 </div>
-      <div class="col-lg-6 col-md-8 mx-auto">
+      <div class="col-lg-6 col-md-8">
         <h1 class="fw-light">Unidad de Nivelación</h1>  
         <p class="lead text-muted">Periodo: 2023-1S.</p>
-      <!---  <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-      </p>   ---->
       </div>
     </div>
   </section>
