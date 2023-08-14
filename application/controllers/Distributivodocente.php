@@ -228,7 +228,7 @@ function distributivodocente_data()
 public function genpagina()
 {
 	$iddistributivo=0;
-	$ordenrpt=0;
+	$ordenrpt=1;
 	if($this->uri->segment(3))
 	{
 		$iddistributivo=$this->uri->segment(3);

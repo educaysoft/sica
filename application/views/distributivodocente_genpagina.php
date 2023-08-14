@@ -169,14 +169,14 @@ $data=$data.'<div class="col">
 
 
 // Remote file url
-$remoteFile = "https://repositorioutlvte.org/Repositorio/evento/'.$row->idevento.'.jpg";
+$remoteFile = "https://repositorioutlvte.org/Repositorio/eventos/'.$row->idevento.'.jpg";
 
 // Open file
 $handle = @fopen($remoteFile, 'r');
 
 // Check if file exists
 if(!$handle){
- $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/evento/sinimagen.png"  height="100%" width="100%"/> </svg></a>
+ $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/sinimagen.png"  height="100%" width="100%"/> </svg></a>
 
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
