@@ -133,14 +133,81 @@ overflow:hidden;
     </div>
   </div>
 </header>
+<main>
 
-\n';
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: center;" >
+<div style=" flex-basis: 40%"  >
+<img src="https://repositorioutlvte.org/Repositorio/qr/cupado2023_2.png" height="80px">
+</div>
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Perfeccionamiento Docente  
+        <p class="lead text-muted">Segunda Temporada 2023.</p>
+      <!---  <p>
+          <a href="#" class="btn btn-primary my-2">Main call to action</a>
+          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+      </p>   ---->
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+
+
+';
+
+foreach($distributivodocentes as $row){
+
+
+$data=$data.'<div class="col">
+          <div class="card shadow-sm">
+                  <a  href="https://educaysoft.org/sica/evento/detalle/388"><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/PortafolioDigital.jpg" height="100%" width="100%"/> </svg></a>
+
+<div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">
+<img src="https://repositorioutlvte.org/Repositorio/fotos/'.$row->cedula.'.jpg" width="100%" height="100%" style="border-radius:50px;">
+</div>
+
+            <div class="card-body">
+              <p class="card-text">Portafolio Digital - Paralelo A".</p>
+              <p><b>Instructor:</b>'.$row->eldocente.'.</p>
+
+<p><b>Fechas:</b>  10 al 21 de julio del 2023.</a></p>
+              <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
+              <p><b>Hora:</b>  17:00 - 19:00 </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login/validarcorreo?idevento=388\'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login\'">Ingresa</button>
+                </div>
+                <small class="text-muted"><b>Modalidad:</b>On-line</small>
+
+              </div>
+            </div>
+          </div>
+        </div>
+';
+
+
+
+}
 
 
 
 
 
-$data=$data.'<footer class="text-muted py-5">
+
+
+$data=$data.'</div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="text-muted py-5">
   <div class="container">
     <p class="float-end mb-1">
       <a href="#">Back to top</a>
@@ -176,10 +243,10 @@ function cargarVideo(url){
   </body>
 </html>
                                    
-\n';
+';
 
 
-if ( !write_file('application/views/cursos/2023-1S.txt', $data)){
+if ( !write_file('application/views/cursos/2023-1S.php', $data)){
      echo 'Unable to write the file';
 }else{
     echo 'file written';

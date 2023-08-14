@@ -13,13 +13,7 @@
     <title>Cursos de Perfeccionamiento Académico y Ética</title>
 
     <link rel="educaysoft" href="https://congresoutlvte.org/faci/">
-
     
-
-    
-
-<!--<link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-
 <link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css" />
     <style>
 
@@ -44,8 +38,6 @@ transform:scale(1.25);
 /*height:180px;*/
 overflow:hidden;
 }
-
-
 
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -100,7 +92,8 @@ overflow:hidden;
     </style>
     
   </head>
-  <body>
+ 
+ <body>
     
 <header>
   <div class="collapse bg-secondary" id="navbarHeader">
@@ -359,16 +352,12 @@ $("ul").click(function(ev){
   ev.stopPropagation();
 })
 
-
 function cargarVideo(url){
         document.getElementById('slider').src=url;
 }
 
-
 </script>
     <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
-
-
       
   </body>
 </html>

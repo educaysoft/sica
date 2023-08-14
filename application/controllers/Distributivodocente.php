@@ -231,28 +231,14 @@ public function genpagina()
 	if($this->uri->segment(3))
 	{
 		$iddistributivo=$this->uri->segment(3);
-
-	$iddistributivodocente=$this->uri->segment(3);
+		$iddistributivodocente=$this->uri->segment(3);
 		$data['jornadadocente'] = $this->jornadadocente_model->jornadadocentexdido($iddistributivodocente)->result();
 		$data['distributivodocente']=$this->distributivodocente_model->distributivodocente($iddistributivodocente)->row_array();
 		$data['docente']=$this->docente_model->docente1($data['distributivodocente']['iddocente'])->result();
 		$data['title']="Evento";
 		$this->load->view('distributivodocente_genpagina',$data);
 
-$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
-$txt = "John Doe\n";
-fwrite($myfile, $txt);
-$txt = "Jane Doe\n";
-fwrite($myfile, $txt);
-fclose($myfile);
-
-
-
-
 	}
-
-
-
 }
 
 
