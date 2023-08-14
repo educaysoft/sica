@@ -160,7 +160,7 @@ overflow:hidden;
 
 ';
 
-foreach($distributivodocentes as $row){
+foreach($asignaturadocentes as $row){
 
 
 $data=$data.'<div class="col">
