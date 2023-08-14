@@ -218,7 +218,7 @@ function distributivodocente_data()
 	{
 		$iddistributivodocente=$this->uri->segment(3);
 		$data['jornadadocente'] = $this->jornadadocente_model->jornadadocentexdido($iddistributivodocente)->result();
-		$data['distributivodocentes'] =$this->distributivodocente_model->distributivodocentes1($iddistributivo)->result();
+		$data['distributivodocente']=$this->distributivodocente_model->distributivodocente($iddistributivodocente)->row_array();
 		$data['docente']=$this->docente_model->docente1($data['distributivodocente']['iddocente'])->result();
 		$data['title']="Evento";
 		$this->load->view('distributivodocente_list_pdf',$data);
@@ -233,7 +233,7 @@ public function genpagina()
 		$iddistributivo=$this->uri->segment(3);
 		$iddistributivodocente=$this->uri->segment(3);
 		$data['jornadadocente'] = $this->jornadadocente_model->jornadadocentexdido($iddistributivodocente)->result();
-		$data['distributivodocente']=$this->distributivodocente_model->distributivodocente($iddistributivodocente)->row_array();
+		$data['distributivodocentes'] =$this->distributivodocente_model->distributivodocentes1($iddistributivo)->result();
 		$data['docente']=$this->docente_model->docente1($data['distributivodocente']['iddocente'])->result();
 		$data['title']="Evento";
 		$this->load->view('distributivodocente_genpagina',$data);
