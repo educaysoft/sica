@@ -60,7 +60,7 @@ class Asignaturadocente_model extends CI_model {
 			if($orden==0){
  			$asignaturadocente = $this->db->query('select * from asignaturadocente3 where iddistributivo="'. $id.'" order by eldocente');
 		}else{
- 			$asignaturadocente = $this->db->query('select * from asignaturadocentei3 where iddistributivo="'. $id.'" order by area,nivel,paralelo,laasignatura');
+ 			$asignaturadocente = $this->db->query('select * from asignaturadocente3 where iddistributivo="'. $id.'" order by area,nivel,paralelo,laasignatura');
 
 			}
 		}else{
