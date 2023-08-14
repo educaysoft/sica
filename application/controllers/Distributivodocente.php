@@ -234,7 +234,7 @@ public function genpagina()
 		$iddistributivo=$this->uri->segment(3);
 		$iddistributivodocente=$this->uri->segment(3);
 		$data['jornadadocente'] = $this->jornadadocente_model->jornadadocentexdido($iddistributivodocente)->result();
-	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo($iddistributivo,$ordenrpt)->result();
+	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo2($iddistributivo,$ordenrpt)->result();
 		$data['title']="Evento";
 		$this->load->view('distributivodocente_genpagina',$data);
 
