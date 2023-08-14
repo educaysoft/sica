@@ -160,18 +160,73 @@ overflow:hidden;
 
 ';
 
-foreach($asignaturadocentes as $row){
+foreach($distributivodocentes as $row){
 
 
 $data=$data.'<div class="col">
           <div class="card shadow-sm">
-                  <a  href="https://educaysoft.org/sica/evento/detalle/'.$row->idevento.'"><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/PortafolioDigital.jpg" height="100%" width="100%"/> </svg></a>
+		  <a  href="https://educaysoft.org/sica/evento/detalle/'.$row->idevento.'"><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>';
 
-<div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">
-<img src="https://repositorioutlvte.org/Repositorio/fotos/'.$row->cedula.'.jpg" width="100%" height="100%" style="border-radius:50px;">
-</div>
+
+// Remote file url
+$remoteFile = "https://repositorioutlvte.org/Repositorio/evento/'.$row->idevento.'.jpg";
+
+// Open file
+$handle = @fopen($remoteFile, 'r');
+
+// Check if file exists
+if(!$handle){
+ $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/evento/sinimagen.png"  height="100%" width="100%"/> </svg></a>
+
+<div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
+
+
+
+
+}else{
+
+$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/evento/'.$row->idevento.'.jpg" height="100%" width="100%"/> </svg></a>
+
+<div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
+
+
+
+
+}
+
+
+
+
+
+ <image href="<?php echo base_url(); ?>images/cursos/PortafolioDigital.jpg" height="100%" width="100%"/> </svg></a>
+
+<div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
+
+
+// Remote file url
+$remoteFile = "https://repositorioutlvte.org/Repositorio/fotos/'.$row->cedula.'.jpg";
+
+// Open file
+$handle = @fopen($remoteFile, 'r');
+
+// Check if file exists
+if(!$handle){
+    echo 'File not found';
+	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
+
+}else{
+	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/'.$row->cedula.'.jpg" width="100%" height="100%" style="border-radius:50px;">';
+
+
+}
+
+
+
+
+$data=$data.'</div>
 
             <div class="card-body">
+              <p><b>Area:</b>'.$row->area.'.</p>
               <p class="card-text">'.$row->laasignatura.'- Paralelo '.$row->paralelo.'".</p>
               <p><b>Instructor:</b>'.$row->eldocente.'.</p>
 
