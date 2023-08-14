@@ -170,9 +170,12 @@ $data=$data.'<div class="col">
 // Remote file url
 $remoteFile = "https://repositorioutlvte.org/Repositorio/eventos/".trim($row->idevento).".jpg";
 
+$file_headers = @get_headers($remoteFile);
 
 // Check if file exists
-if(!file_exists($remoteFile)){
+//if(!file_exists($remoteFile)){
+
+if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
  $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/sinimagen.png"  height="100%" width="100%"/> </svg></a>
 
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
