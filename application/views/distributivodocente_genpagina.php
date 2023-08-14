@@ -171,17 +171,12 @@ $data=$data.'<div class="col">
 // Remote file url
 $remoteFile = "https://repositorioutlvte.org/Repositorio/eventos/'.trim($row->idevento).'.jpg";
 
-// Open file
-$handle = @fopen($remoteFile, 'r');
 
 // Check if file exists
-if(!$handle){
+if(!file_exists($remoteFile)){
  $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/sinimagen.png"  height="100%" width="100%"/> </svg></a>
 
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
-
-
-
 
 }else{
 
@@ -200,12 +195,10 @@ $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/evento/'.tri
 // Remote file url
 $remoteFile = "https://repositorioutlvte.org/Repositorio/fotos/'.trim($row->cedula).'.jpg";
 
-// Open file
-$handle = @fopen($remoteFile, 'r');
 
 // Check if file exists
-if(!$handle){
-    echo 'File not found';
+if(!file_exists($remoteFile)){
+  //  echo 'File not found';
 	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
 
 }else{
