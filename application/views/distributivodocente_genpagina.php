@@ -197,12 +197,6 @@ $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/evento/'.$ro
 
 
 
-
- <image href="<?php echo base_url(); ?>images/cursos/PortafolioDigital.jpg" height="100%" width="100%"/> </svg></a>
-
-<div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
-
-
 // Remote file url
 $remoteFile = "https://repositorioutlvte.org/Repositorio/fotos/'.$row->cedula.'.jpg";
 
