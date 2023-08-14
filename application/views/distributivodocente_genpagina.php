@@ -169,7 +169,7 @@ $data=$data.'<div class="col">
 
 
 // Remote file url
-$remoteFile = "https://repositorioutlvte.org/Repositorio/eventos/'.$row->idevento.'.jpg";
+$remoteFile = "https://repositorioutlvte.org/Repositorio/eventos/'.trim($row->idevento).'.jpg";
 
 // Open file
 $handle = @fopen($remoteFile, 'r');
@@ -185,7 +185,7 @@ if(!$handle){
 
 }else{
 
-$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/evento/'.$row->idevento.'.jpg" height="100%" width="100%"/> </svg></a>
+$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/evento/'.trim($row->idevento).'.jpg" height="100%" width="100%"/> </svg></a>
 
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
@@ -198,7 +198,7 @@ $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/evento/'.$ro
 
 
 // Remote file url
-$remoteFile = "https://repositorioutlvte.org/Repositorio/fotos/'.$row->cedula.'.jpg";
+$remoteFile = "https://repositorioutlvte.org/Repositorio/fotos/'.trim($row->cedula).'.jpg";
 
 // Open file
 $handle = @fopen($remoteFile, 'r');
@@ -209,7 +209,7 @@ if(!$handle){
 	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
 
 }else{
-	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/'.$row->cedula.'.jpg" width="100%" height="100%" style="border-radius:50px;">';
+	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/'.trim($row->cedula).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
 
 
 }
