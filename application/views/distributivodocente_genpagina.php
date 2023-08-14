@@ -141,8 +141,8 @@ overflow:hidden;
 <img src="https://repositorioutlvte.org/Repositorio/qr/cupado2023_2.png" height="80px">
 </div>
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Perfeccionamiento Docente  
-        <p class="lead text-muted">Segunda Temporada 2023.</p>
+        <h1 class="fw-light">Unidad de Nivelación</h1>  
+        <p class="lead text-muted">Periodo: 2023-1S.</p>
       <!---  <p>
           <a href="#" class="btn btn-primary my-2">Main call to action</a>
           <a href="#" class="btn btn-secondary my-2">Secondary action</a>
