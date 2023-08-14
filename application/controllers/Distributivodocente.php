@@ -228,12 +228,13 @@ function distributivodocente_data()
 public function genpagina()
 {
 	$iddistributivo=0;
+	$ordenpt=0;
 	if($this->uri->segment(3))
 	{
 		$iddistributivo=$this->uri->segment(3);
 		$iddistributivodocente=$this->uri->segment(3);
 		$data['jornadadocente'] = $this->jornadadocente_model->jornadadocentexdido($iddistributivodocente)->result();
-		$data['distributivodocentes'] =$this->distributivodocente_model->distributivodocentes1($iddistributivo)->result();
+	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo($iddistributivo,$ordenrpt)->result();
 		$data['title']="Evento";
 		$this->load->view('distributivodocente_genpagina',$data);
 

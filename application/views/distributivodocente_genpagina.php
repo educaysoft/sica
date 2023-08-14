@@ -160,19 +160,19 @@ overflow:hidden;
 
 ';
 
-foreach($distributivodocentes as $row){
+foreach($asignaturadocentes as $row){
 
 
 $data=$data.'<div class="col">
           <div class="card shadow-sm">
-                  <a  href="https://educaysoft.org/sica/evento/detalle/388"><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/PortafolioDigital.jpg" height="100%" width="100%"/> </svg></a>
+                  <a  href="https://educaysoft.org/sica/evento/detalle/'.$row->idevento.'"><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/> <image href="<?php echo base_url(); ?>images/cursos/PortafolioDigital.jpg" height="100%" width="100%"/> </svg></a>
 
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">
 <img src="https://repositorioutlvte.org/Repositorio/fotos/'.$row->cedula.'.jpg" width="100%" height="100%" style="border-radius:50px;">
 </div>
 
             <div class="card-body">
-              <p class="card-text">Portafolio Digital - Paralelo A".</p>
+              <p class="card-text">'.$row->laasignatura.'- Paralelo '.$row->paralelo.'".</p>
               <p><b>Instructor:</b>'.$row->eldocente.'.</p>
 
 <p><b>Fechas:</b>  10 al 21 de julio del 2023.</a></p>
@@ -180,7 +180,7 @@ $data=$data.'<div class="col">
               <p><b>Hora:</b>  17:00 - 19:00 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login/validarcorreo?idevento=388\'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login/validarcorreo?idevento='.$row->idevento.'\'"  >Inscribete</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login\'">Ingresa</button>
                 </div>
                 <small class="text-muted"><b>Modalidad:</b>On-line</small>
