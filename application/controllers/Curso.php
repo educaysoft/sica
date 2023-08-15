@@ -131,15 +131,116 @@ class Curso extends CI_Controller{
 
 	}
 
+//Cursos de las Araeas de nivelacions
 
-	public function nivelacion_2023_1S()
+	public function nivelacion_2023_1S_1()
 	{
-
-	  $this->load->view('cursos/2023-1S');
-
+	  $this->load->view('cursos/2023-1S-1');
 	}
 
 
+	public function nivelacion_2023_1S_2()
+	{
+	  $this->load->view('cursos/2023-1S-2');
+	}
+
+
+	public function nivelacion_2023_1S_3()
+	{
+	  $this->load->view('cursos/2023-1S-3');
+	}
+
+
+
+	public function nivelacion_2023_1S_4()
+	{
+	  $this->load->view('cursos/2023-1S-4');
+	}
+
+	public function nivelacion_2023_1S_5()
+	{
+	  $this->load->view('cursos/2023-1S-5');
+	}
+	public function nivelacion_2023_1S_6()
+	{
+	  $this->load->view('cursos/2023-1S-6');
+	}
+
+	public function nivelacion_2023_1S_7()
+	{
+	  $this->load->view('cursos/2023-1S-7');
+	}
+
+
+	public function nivelacion_2023_1S_8()
+	{
+	  $this->load->view('cursos/2023-1S-8');
+	}
+
+
+
+
+	public function nivelacion_2023_1S_9()
+	{
+	  $this->load->view('cursos/2023-1S-9');
+	}
+
+
+	public function nivelacion_2023_1S_10()
+	{
+	  $this->load->view('cursos/2023-1S-10');
+	}
+
+	public function nivelacion_2023_1S_11()
+	{
+	  $this->load->view('cursos/2023-1S-11');
+	}
+
+
+	public function nivelacion_2023_1S_12()
+	{
+	  $this->load->view('cursos/2023-1S-12');
+	}
+
+	public function nivelacion_2023_1S_13()
+	{
+	  $this->load->view('cursos/2023-1S-13');
+	}
+
+
+	public function nivelacion_2023_1S_14()
+	{
+	  $this->load->view('cursos/2023-1S-14');
+	}
+
+
+	public function nivelacion_2023_1S_15()
+	{
+	  $this->load->view('cursos/2023-1S-15');
+	}
+
+
+	public function nivelacion_2023_1S_16()
+	{
+	  $this->load->view('cursos/2023-1S-16');
+	}
+
+
+	public function nivelacion_2023_1S_17()
+	{
+	  $this->load->view('cursos/2023-1S-17');
+	}
+
+
+	public function nivelacion_2023_1S_18()
+	{
+	  $this->load->view('cursos/2023-1S-18');
+	}
+
+	public function nivelacion_2023_1S_25()
+	{
+	  $this->load->view('cursos/2023-1S-25');
+	}
 
 
 
