@@ -204,19 +204,13 @@ function cargarVideo(url){
 
 
 
-
-
-
-
-
 $idareaconocimiento=0;
 $inicio=1;
 
 foreach($asignaturadocentes as $row){
 
-
-
 if($row->idareaconocimiento != $idareaconocimiento and $inicio==0)
+{
 	 	$data=$data+$data1;
 		$file='application/views/cursos/2023-1S-'.$idareaconocimiento.'.php';
 		if ( !write_file($file, $data)){
