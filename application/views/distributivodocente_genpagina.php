@@ -3,24 +3,7 @@
 $this->load->helper('file');
 
 
-$data0 ='<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Stalin Francis Quinde">
-    <meta name="generator" content="Hugo 0.101.0">
-        <meta property="og:site_name" content="Educación Continua-UTLVTE" />
-        <meta property="og:image" content="https://educaysoft.org/sica/images/LogoEducacionContinua.png" />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="400" />
-    <title>Cursos de Perfeccionamiento Académico y Ética</title>
-
-    <link rel="educaysoft" href="https://congresoutlvte.org/faci/">
-    
-<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css" />
-    <style>
+$data0 ='    <style>
 
 .img-contenedor img {
 -webkit-transition:all .9s ease; /* Safari y Chrome */
@@ -148,7 +131,7 @@ $data1='</div>
     <p class="float-end mb-1">
       <a href="#">Back to top</a>
     </p>
-    <p class="mb-1">Cursos de Educación Continua UTLVTE fue creado por &copy; EDUCAYSOFT, como parte de un proyecto de desarrollo de software universitario</p>
+    <p class="mb-1">Unidad de Educación Continua UTLVTE fue creado por &copy; EDUCAYSOFT, como parte de un proyecto de desarrollo de software universitario</p>
     <p class="mb-0">Lo nuevo de Educación Continua? <a href="https://educaysoft.org/">Visit the homepage</a> cursos gratis para desarrolladores <a href="https://educaysoft.org/cursos">Cursos gratis</a>.</p>
   </div>
 </footer>
@@ -204,7 +187,30 @@ if($row->idareaconocimiento != $idareaconocimiento and $inicio==0)
 if($row->idareaconocimiento != $idareaconocimiento and $inicio==1)
 	{
 	 $idareaconocimiento=$row->idareaconocimiento;
-	 $data=$data0;
+
+$data='
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Stalin Francis Quinde">
+    <meta name="generator" content="Hugo 0.101.0">
+        <meta property="og:site_name" content="Educación Continua-UTLVTE" />
+        <meta property="og:image" content="https://educaysoft.org/sica/images/LogoEducacionContinua.png" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="400" />
+    <title> '.'Curos de Nivelación - Periodo 2023-1S  Area:'.$row->area . ' </title>
+
+    <link rel="educaysoft" href="https://congresoutlvte.org/faci/">
+    
+<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css" />
+
+';
+
+
+	 $data=$data.$data0;
 
 $data=$data.'
   <section class="py-5 text-center container">
