@@ -134,26 +134,6 @@ overflow:hidden;
   </div>
 </header>
 <main>
-
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: center;" >
-<div style=" flex-basis: 40%"  >
-<img src="https://repositorioutlvte.org/Repositorio/qr/cupado2023_2.png" height="100px">
-</div>
-      <div class="col-lg-6 col-md-8">
-        <h1 class="fw-light">Unidad de Nivelación</h1>  
-        <p class="lead text-muted">Periodo: 2023-1S.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-
-
 ';
 
 
@@ -225,6 +205,34 @@ if($row->idareaconocimiento != $idareaconocimiento and $inicio==1)
 	{
 	 $idareaconocimiento=$row->idareaconocimiento;
 	 $data=$data0;
+
+$data=$data.'
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: center;" >
+<div style=" flex-basis: 40%"  >
+<img src="https://repositorioutlvte.org/Repositorio/qr/2023_2_'.$idareaconocimiento.'.png" height="150px">
+</div>
+      <div >
+        <h1 class="fw-light">Unidad de Nivelación</h1>  
+        <p class="lead text-muted">Área:'.$row->area.'.</p>
+        <p class="lead text-muted">Periodo: 2023-1S.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+
+
+';
+
+
+
+
+
 	 $inicio=0;
 
 	}
