@@ -3,7 +3,7 @@
 $this->load->helper('file');
 
 
-$data ='<!doctype html>
+$data0 ='<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -156,94 +156,8 @@ overflow:hidden;
 
 ';
 
-foreach($asignaturadocentes as $row){
 
-
-$data=$data.'<div class="col">
-          <div class="card shadow-sm">
-		  <a  href="https://educaysoft.org/sica/evento/detalle/'.$row->idevento.'"><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>';
-
-// Remote file url
-$remoteFile = "https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/".trim($row->idareaconocimiento).".jpg";
-
-$file_headers = @get_headers($remoteFile);
-
-// Check if file exists
-//if(!file_exists($remoteFile)){
-
-if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
- $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/sinimagen.png"  height="100%" width="100%"/> </svg></a>
-
-<div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
-
-}else{
-
-$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/'.trim($row->idareaconocimiento).'.jpg" height="100%" width="100%"/> </svg></a>
-
-<div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
-
-
-
-
-}
-
-
-
-
-// Remote file url
-$remoteFile = "https://repositorioutlvte.org/Repositorio/fotos/".trim($row->cedula).".jpg";
-
-$file_headers = @get_headers($remoteFile);
-
-// Check if file exists
-//if(!file_exists($remoteFile)){
-if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
-  //  echo 'File not found';
-	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
-
-}else{
-	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/'.trim($row->cedula).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
-
-
-}
-
-
-
-
-$data=$data.'</div>
-
-            <div class="card-body">
-              <p><b>Area:</b>'.$row->area.'.</p>
-              <p class="card-text">'.$row->laasignatura.'- Paralelo '.$row->paralelo.'".</p>
-              <p><b>Instructor:</b>'.$row->eldocente.'.</p>
-
-<p><b>Fechas:</b>  10 al 21 de julio del 2023.</a></p>
-              <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
-              <p><b>Hora:</b>  17:00 - 19:00 </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login/validarcorreo?idevento='.$row->idevento.'\'"  >Inscribete</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login\'">Ingresa</button>
-                </div>
-                <small class="text-muted"><b>Modalidad:</b>On-line</small>
-
-              </div>
-            </div>
-          </div>
-        </div>
-';
-
-
-
-}
-
-
-
-
-
-
-
-$data=$data.'</div>
+$data1='</div>
     </div>
   </div>
 
@@ -288,14 +202,122 @@ function cargarVideo(url){
 ';
 
 
-if ( !write_file('application/views/cursos/2023-1S.php', $data)){
-     echo 'Unable to write the file';
+
+
+
+
+
+
+
+$idareaconocimiento=0
+$inicio=1;
+
+foreach($asignaturadocentes as $row){
+
+
+
+if($row->idareaconocimiento != $idareaconocimiento and $inicio==0)
+	 	$data=$data+$data1;
+		$file='application/views/cursos/2023-1S-'.$idareaconocimiento.'.php';
+		if ( !write_file($file, $data)){
+		     echo 'Unable to write the file';
+		}else{
+		    echo $file."\n";
+		}
+ 		$inicio=1;
+       }
+
+if($row->idareaconocimiento != $idareaconocimiento and $inicio==1)
+	{
+	 $idareaconocimiento=$row->idareaconocimiento;
+	 $data=$data0;
+	 $inicio=0;
+
+	}
+
+
+
+$data=$data.'<div class="col">
+          <div class="card shadow-sm">
+		  <a  href="https://educaysoft.org/sica/evento/detalle/'.$row->idevento.'"><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>';
+
+// Remote file url
+$remoteFile = "https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/".trim($row->idareaconocimiento).".jpg";
+
+$file_headers = @get_headers($remoteFile);
+
+// Check if file exists
+//if(!file_exists($remoteFile)){
+
+if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
+ $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/sinimagen.png"  height="100%" width="100%"/> </svg></a>
+
+<div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
+
 }else{
-    echo 'file written';
+
+$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/'.trim($row->idareaconocimiento).'.jpg" height="100%" width="100%"/> </svg></a>
+
+<div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
+
+
+
+
 }
 
 
+// Remote file url
+$remoteFile = "https://repositorioutlvte.org/Repositorio/fotos/".trim($row->cedula).".jpg";
 
+$file_headers = @get_headers($remoteFile);
+
+// Check if file exists
+//if(!file_exists($remoteFile)){
+if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
+  //  echo 'File not found';
+	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
+
+}else{
+	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/'.trim($row->cedula).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
+
+
+}
+
+$data=$data.'</div>
+
+            <div class="card-body">
+              <p><b>Area:</b>'.$row->area.'.</p>
+              <p class="card-text">'.$row->laasignatura.'- Paralelo '.$row->paralelo.'".</p>
+              <p><b>Instructor:</b>'.$row->eldocente.'.</p>
+
+<p><b>Fechas:</b>  10 al 21 de julio del 2023.</a></p>
+              <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
+              <p><b>Hora:</b>  17:00 - 19:00 </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login/validarcorreo?idevento='.$row->idevento.'\'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login\'">Ingresa</button>
+                </div>
+                <small class="text-muted"><b>Modalidad:</b>On-line</small>
+
+              </div>
+            </div>
+          </div>
+        </div>
+';
+
+
+}
+
+
+$data=$data+$data1;
+
+	$file='application/views/cursos/2023-1S-'.$idareaconocimiento.'.php';
+	if ( !write_file($file, $data)){
+	     echo 'Unable to write the file';
+	}else{
+	    echo $file."\n";
+	}
 
 
 
