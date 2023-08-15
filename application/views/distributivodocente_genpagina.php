@@ -281,7 +281,7 @@ $data=$data.'</div>
 
             <div class="card-body">
               <p><b>Area:</b>'.$row->area.'.</p>
-              <p><b>Asignatura : </b>'.$row->laasigngnatura.'.</p>
+              <p><b>Asignatura : </b>'.$row->laasignatura.'.</p>
               <p class="card-text"><b>Paralelo : </b> '.$row->paralelo.'".</p>
               <p><b>Docente : </b><span style="color:blue">'.$row->eldocente.'.</span></p>
 
