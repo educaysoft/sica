@@ -133,45 +133,50 @@ class Curso extends CI_Controller{
 
 //Cursos de las Araeas de nivelacions
 
+	//AGRONOMIA
 	public function nivelacion_2023_1S_1()
 	{
 	  $this->load->view('cursos/2023-1S-1');
 	}
 
-
+	// Administración de empresas
 	public function nivelacion_2023_1S_2()
 	{
 	  $this->load->view('cursos/2023-1S-2');
 	}
 
-
+	// Contabilidad y Auditoria
 	public function nivelacion_2023_1S_3()
 	{
 	  $this->load->view('cursos/2023-1S-3');
 	}
 
 
-
+	// Forestal
 	public function nivelacion_2023_1S_4()
 	{
 	  $this->load->view('cursos/2023-1S-4');
 	}
-
+	
+	// Química
 	public function nivelacion_2023_1S_5()
 	{
 	  $this->load->view('cursos/2023-1S-5');
 	}
+
+	// Electricidad.
 	public function nivelacion_2023_1S_6()
 	{
 	  $this->load->view('cursos/2023-1S-6');
 	}
 
+	// Zootecnia
 	public function nivelacion_2023_1S_7()
 	{
 	  $this->load->view('cursos/2023-1S-7');
 	}
 
-
+	// Tecnología de la Información
 	public function nivelacion_2023_1S_8()
 	{
 	  $this->load->view('cursos/2023-1S-8');
@@ -179,64 +184,67 @@ class Curso extends CI_Controller{
 
 
 
-
+	// Trabajo social
 	public function nivelacion_2023_1S_9()
 	{
 	  $this->load->view('cursos/2023-1S-9');
 	}
 
-
+	// Turismo
 	public function nivelacion_2023_1S_10()
 	{
 	  $this->load->view('cursos/2023-1S-10');
 	}
 
+	// Sociología
 	public function nivelacion_2023_1S_11()
 	{
 	  $this->load->view('cursos/2023-1S-11');
 	}
 
-
+	// Educación Básica
 	public function nivelacion_2023_1S_12()
 	{
 	  $this->load->view('cursos/2023-1S-12');
 	}
 
+	// Pedagogia de la Actividad Física
 	public function nivelacion_2023_1S_13()
 	{
 	  $this->load->view('cursos/2023-1S-13');
 	}
 
-
+	// Comercio
 	public function nivelacion_2023_1S_14()
 	{
 	  $this->load->view('cursos/2023-1S-14');
 	}
 
-
+	// Mecánica
 	public function nivelacion_2023_1S_15()
 	{
 	  $this->load->view('cursos/2023-1S-15');
 	}
 
-
+	// Pedagobia en lengua y literatura
 	public function nivelacion_2023_1S_16()
 	{
 	  $this->load->view('cursos/2023-1S-16');
 	}
 
-
+	// Pedagoria en Química y Biologia
 	public function nivelacion_2023_1S_17()
 	{
 	  $this->load->view('cursos/2023-1S-17');
 	}
 
-
+	// Educación Inicial
 	public function nivelacion_2023_1S_18()
 	{
 	  $this->load->view('cursos/2023-1S-18');
 	}
 
+	// Pedagogía de la física y la Mátematica
 	public function nivelacion_2023_1S_25()
 	{
 	  $this->load->view('cursos/2023-1S-25');

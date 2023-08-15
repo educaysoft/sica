@@ -281,12 +281,12 @@ $data=$data.'</div>
 
             <div class="card-body">
               <p><b>Area:</b>'.$row->area.'.</p>
-              <p class="card-text">'.$row->laasignatura.'- Paralelo '.$row->paralelo.'".</p>
-              <p><b>Instructor:</b>'.$row->eldocente.'.</p>
+              <p><b>Asignatura : </b>'.$row->laasigngnatura.'.</p>
+              <p class="card-text"><b>Paralelo : </b> '.$row->paralelo.'".</p>
+              <p><b>Docente : </b><span style="color:blue">'.$row->eldocente.'.</span></p>
 
-<p><b>Fechas:</b>  10 al 21 de julio del 2023.</a></p>
-              <p><b>Dias:</b>  Lunes, Martes, Miercoles, Jueves, Viernes </p>
-              <p><b>Hora:</b>  17:00 - 19:00 </p>
+              <p><b>Inicia : </b><span style="color:red">'.$row->fechainicia.'.</span></p>
+              <p><b>Finaliza : </b><span style="color:red">'.$row->fechafinaliza.'.</span></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login/validarcorreo?idevento='.$row->idevento.'\'"  >Inscribete</button>
