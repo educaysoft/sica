@@ -209,7 +209,7 @@ function cargarVideo(url){
 
 
 
-$idareaconocimiento=0
+$idareaconocimiento=0;
 $inicio=1;
 
 foreach($asignaturadocentes as $row){
