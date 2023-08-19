@@ -118,7 +118,8 @@ class Sesionevento extends CI_Controller{
 		$puede= $this->fechacalendario_model->existe($data['evento']['idsilabo'],$date);
 		$data['calendarioacademico'] = $this->calendarioacademico_model->lista_calendarioacademicosA($data['evento']['idcalendarioacademico'])->result();
 		$data['sesionevento'] = $this->sesionevento_model->sesionevento_sesiones($idevento)->result();
-		$data['title']="<div style='padding:30px; text-align:left; background:black; color:white; font-size:30px;'> <p style='font-size:40px; font-weight:bold; text-transform:uppercase;' >Nueva sesión del evento</p><p>En este formulario se ingresa el plan a seguir para este dia de sesión del evento</p> </div>";
+		$data['title']="<div style='padding:30px; text-align:left; background:black; color:white; font-size:30px;'> <p style='font-size:40px; font-weight:bold; text-transform:uppercase;' >Planificar una nueva sesión del evento</p>
+			<p>En este formulario se ingresa el plan a seguir para dar exito a la ejecución de esta nueva sesión del evento</p> </div>";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('sesionevento_form',$data);
 	 	$this->load->view('template/page_footer');

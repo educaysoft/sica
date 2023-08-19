@@ -147,12 +147,12 @@ $idtema=0;
 $eltema="";
 $options= array('--Select--');
 foreach ($temas as $row){
-//	if($row->idtema==$sesionevento['idtema']){
+	if($row->numerosesion==$sesionactual){
 		$idunidadsilabo=$row->idunidadsilabo;
 		$idtema=$row->idtema;
 		$eltema=$row->nombrecorto;
 		$numerosesion=$row->numerosesion;
-//	}	
+	}	
 }
 
 $eys_arrinput=array('name'=>'idtema','value'=>$idtema,"readonly"=>"true", "style"=>"width:50px");
