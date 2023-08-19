@@ -1,3 +1,4 @@
+<div>
 <div id="eys-nav-i">
 <?php echo $title;  ?>
 <?php echo form_open('sesionevento/save',array('id'=>'eys-form')); ?>
@@ -370,7 +371,7 @@ foreach ($modoevaluacions as $row){
 	</div> 
 </div>
 
-
+</div>
 
 
 <script>
