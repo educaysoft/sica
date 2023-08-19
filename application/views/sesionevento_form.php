@@ -1,5 +1,5 @@
-<?php echo $title;  ?>
 <div id="eys-nav-i">
+<?php echo $title;  ?>
 <?php echo form_open('sesionevento/save',array('id'=>'eys-form')); ?>
   <ul>
 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
