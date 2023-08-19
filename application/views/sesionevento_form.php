@@ -280,7 +280,7 @@ foreach ($modoevaluacions as $row){
 
 
 
-<div style="border:solid 1px red; padding:2px; margin:2px;">
+<div style="border:solid 1px red; padding:5px; margin:5px;">
 
 
 <div class="form-group row">
@@ -343,7 +343,7 @@ foreach ($modoevaluacions as $row){
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <b>Temas programados(silabo): </b>
+            <b>Temas programados en el silabo: </b>
         </div>
         <div class="pull-right">
             
