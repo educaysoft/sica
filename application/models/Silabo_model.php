@@ -43,8 +43,8 @@ class Silabo_model extends CI_model {
 
 
 
- 	function silabosa( $idasignatura){
- 		$silabo = $this->db->query('select * from silabo1 where idasignatura="'. $idasignatura.'"');
+ 	function silabosa( $idasignatura,$iddocente){
+ 		$silabo = $this->db->query('select * from silabo1 where idasignatura="'. $idasignatura.'" and iddocente='.$iddocente);
  		return $silabo;
  	}
 

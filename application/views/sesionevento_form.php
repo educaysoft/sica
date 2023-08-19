@@ -255,7 +255,7 @@ $textarea_options = array('name'=>'tema','class' => 'form-control','rows' => '4'
 <div class="col-md-10">
 <?php
     
-$textarea_options = array('name'=>'secuencia','class' => 'form-control','rows' => '8',   'cols' => '20', 'style'=> 'width:50%;height:200px;','value'=>$secuenciatema, "placeholder"=>"Descripción larga del tema" );    
+$textarea_options = array('name'=>'secuencia','class' => 'form-control','rows' => '8',   'cols' => '20', 'style'=> 'width:50%;height:200px;','value'=>$secuenciatema, "placeholder"=>"Lista de actividades que va a realizar en esta clases para lograr los objetivos de aprendizaje" );    
  echo form_textarea( $textarea_options);  
 
 ?>

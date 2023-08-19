@@ -99,7 +99,7 @@ class Sesionevento extends CI_Controller{
   		$data['unidadsilabos']= $this->unidadsilabo_model->unidadsilaboss($data['evento']['idsilabo'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   		$data['silabo']= $this->silabo_model->silabo($data['evento']['idsilabo'])->first_row('array');
-  		$data['silabos']= $this->silabo_model->silabosa($data['silabo']['idasignatura'])->result_array();
+  		$data['silabos']= $this->silabo_model->silabosa($data['silabo']['idasignatura'],$data['silabo']['iddocente'])->result_array();
 		if(count($data['silabos'])>1){  //sI existe un silabo de un ciclo anterior
 			$pidx=count($data['silabos'])-2;
   			$data['temasprevios']= $this->tema_model->lista_temass($data['silabos'][$pidx]['idsilabo'])->result();
