@@ -267,9 +267,13 @@ class Sesionevento extends CI_Controller{
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 		$data['calendarioacademico'] = $this->calendarioacademico_model->lista_calendarioacademicosA($data['evento']['idcalendarioacademico'])->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
- 
 
-	 	$data['title'] = "Actualizar Sesionevento";
+
+
+		$data['title']="<div style='padding:30px; text-align:left; background:black; color:white; font-size:30px;'> <p style='font-size:40px; font-weight:bold; text-transform:uppercase;' >Actualizar la sesión del evento # ". $data['sesionevento']['idevento']. "</p>
+
+			<p>En este formulario se puede hacer modificaciones a la planificación del evento</p> </div>";
+
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('sesionevento_edit',$data);
 	 	$this->load->view('template/page_footer');
