@@ -677,17 +677,6 @@ foreach ($modoevaluacions as $row){
 </div>
 </div>
 
-
-									
-
-									
-
-
-									
-
-									
-
-									
 									
 				
 
