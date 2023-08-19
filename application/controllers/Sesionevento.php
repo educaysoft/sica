@@ -270,7 +270,7 @@ class Sesionevento extends CI_Controller{
 
 
 
-		$data['title']="<div style='padding:30px; text-align:left; background:black; color:white; font-size:30px;'> <p style='font-size:40px; font-weight:bold; text-transform:uppercase;' >Actualizar la sesión del evento # ". $data['sesionevento']['idevento']. "</p>
+		$data['title']="<div style='padding:30px; text-align:left; background:black; color:white; font-size:30px;'> <p style='font-size:40px; font-weight:bold; text-transform:uppercase;' >Actualizar la sesión # ".$data['sesionevento']['idsesionevento']."  del evento # ". $data['sesionevento']['idevento']. "</p>
 
 			<p>En este formulario se puede hacer modificaciones a la planificación del evento</p> </div>";
 
