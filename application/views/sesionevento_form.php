@@ -136,12 +136,10 @@ if(checkdate($m,$d,$a)){
 </div>
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Último tema sílabo:</label>
-<div class="col-md-10">
 
 <?php
-$idunidadsilabo=0;
+//Buscar el tema si ya se planifico en el silabo	
+	$idunidadsilabo=0;
 $numerosesion=0;
 $idtema=0;
 $eltema="";
@@ -155,15 +153,7 @@ foreach ($temas as $row){
 	}	
 }
 
-$eys_arrinput=array('name'=>'idtema','value'=>$idtema,"readonly"=>"true", "style"=>"width:50px");
-$eys_arrinput2=array('name'=>'eltema','value'=>$eltema,"readonly"=>"true", "style"=>"width:500px");
-echo form_input($eys_arrinput);  
-echo form_input($eys_arrinput2);  
 ?>
-</div>
-</div>
-
-
 
 
 <div class="form-group row">
