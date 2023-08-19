@@ -280,7 +280,7 @@ foreach ($modoevaluacions as $row){
 
 
 
-<div style="border:solid 1px red;">
+<div style="border:solid 1px red; padding:2px; margin:2px;">
 
 
 <div class="form-group row">
