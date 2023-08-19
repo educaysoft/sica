@@ -334,7 +334,7 @@ foreach ($modoevaluacions as $row){
 
 <?php echo form_close();?>
 
-<div class="form-group row">
+<div class="form-group row" style="width:100%">
 	<div class="col-md-10">
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
