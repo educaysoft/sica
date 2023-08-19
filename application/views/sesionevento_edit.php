@@ -234,7 +234,7 @@ echo form_textarea('tema',$sesionevento['tema'],$textarea_options );
 <div class="col-md-10">
 <?php
     
-$textarea_options = array('name'=>'secuencia','class' => 'form-control','rows' => '8',   'cols' => '20', 'style'=> 'width:50%;height:200px;','value'=>$sesionevento['secuencia'], "placeholder"=>"Descripción larga del tema" );    
+$textarea_options = array('name'=>'secuencia','class' => 'form-control','rows' => '8',   'cols' => '20', 'style'=> 'width:50%;height:200px;','value'=>$sesionevento['secuencia'], "placeholder"=>"Actividades que va a realizar para cumplir los objetivos de aprendizaje" );    
  echo form_textarea( $textarea_options);  
 
 ?>
