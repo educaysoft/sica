@@ -1,5 +1,5 @@
 <div id="eys-nav-i">
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+<?php echo $title;  ?>
 <?php echo form_open('sesionevento/save',array('id'=>'eys-form')); ?>
   <ul>
 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
