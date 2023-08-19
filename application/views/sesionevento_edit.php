@@ -135,16 +135,7 @@ if(checkdate($m,$d,$a)){
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Fecha:</label>
-<div class="col-md-10">
-<?php
 
-	echo form_input( array("name"=>'fecha',"id"=>'fecha',"readonly"=>"true","value"=>$sesionevento['fecha'],'type'=>'date','placeholder'=>'fecha')); echo $eldia." (sesión # ".$sesionactual.")";
-
-?>
-</div>
-</div>
 
  
 
@@ -167,18 +158,7 @@ foreach ($temas as $row){
 	}	
 }
 
-if($numerosesion>0 && $numerosesion==$sesionactual){
-$eys_arrinput=array('name'=>'idtema','value'=>$sesionevento['idtema'],"readonly"=>"true", "style"=>"width:50px");
-$eys_arrinput2=array('name'=>'eltema','value'=>$eltema,"readonly"=>"true","readonly"=>"true", "style"=>"width:450px");
-}else{
-$eys_arrinput=array('name'=>'idtema','value'=>0,"readonly"=>"true", "style"=>"width:50px");
-$eys_arrinput2=array('name'=>'eltema','value'=>$sesionevento['idtema'].' - '.$eltema,"readonly"=>"true","readonly"=>"true", "style"=>"color:red;width:450px");
 
-}
-
-
-echo form_input($eys_arrinput);
-echo form_input($eys_arrinput2);
 ?>
 </div>
 </div>
@@ -253,6 +233,43 @@ echo form_textarea('tema',$sesionevento['tema'],$textarea_options );
 </div>
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Modo de evaluacion:</label>
+<div class="col-md-10">
+<?php
+
+     
+$options= array('--Select--');
+foreach ($modoevaluacions as $row){
+	$options[$row->idmodoevaluacion]= $row->nombre;
+}
+
+echo form_dropdown("idmodoevaluacion",$options, $sesionevento['idmodoevaluacion']);
+
+?>
+</div>
+</div>
+
+
+
+
+
+<div style="border:solid 1px red; padding:10px 5px 5px 20px; margin:5px 50px 5px -20px; background-color:#F0F8FF;">
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Fecha:</label>
+<div class="col-md-10">
+<?php
+
+	echo form_input( array("name"=>'fecha',"id"=>'fecha',"readonly"=>"true","value"=>$sesionevento['fecha'],'type'=>'date','placeholder'=>'fecha')); echo $eldia." (sesión # ".$sesionactual.")";
+
+?>
+</div>
+</div>
+
+
+
 
 
 <div class="form-group row">
@@ -289,22 +306,7 @@ echo form_input($eys_arrinput); echo $lahorai;
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Modo de evaluacion:</label>
-<div class="col-md-10">
-<?php
 
-     
-$options= array('--Select--');
-foreach ($modoevaluacions as $row){
-	$options[$row->idmodoevaluacion]= $row->nombre;
-}
-
-echo form_dropdown("idmodoevaluacion",$options, $sesionevento['idmodoevaluacion']);
-
-?>
-</div>
-</div>
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Actualizar silabo:</label>
@@ -324,6 +326,8 @@ echo form_input($eys_arrinput); echo "1=SI / 0=NO";
 </div>
 
 
+
+</div>
 
 <?php echo form_close(); ?>
 
