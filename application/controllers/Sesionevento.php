@@ -298,6 +298,7 @@ class Sesionevento extends CI_Controller{
 	 		'nombrelargo' => $this->input->post('tema'),
 	 		'idunidadsilabo' => $this->input->post('idunidadsilabo'),
 		 	'numerosesion' => $this->input->post('numerosesion'),
+		 	'secuencia' => $this->input->post('secuencia'),
 	 	);
 	 	$idtema =$this->tema_model->update($idtema,$array_tema);
 		}else{
@@ -308,6 +309,7 @@ class Sesionevento extends CI_Controller{
 	 		'idunidadsilabo' => $this->input->post('idunidadsilabo'),
 	 		'duracionminutos' => 120,
 		 	'numerosesion' => $this->input->post('numerosesion'),
+		 	'secuencia' => $this->input->post('secuencia'),
 	 	);
 	 	$idtema =$this->tema_model->save($array_item2);
 		}

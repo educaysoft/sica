@@ -1,5 +1,5 @@
 <div id="eys-nav-i">
-	<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idsesionevento"><?php echo $sesionevento['idsesionevento']; ?></idem></div>
+	<div style="text-align: left; font-size:large"> <?php echo $title  ?></div>
 <?php echo form_open('sesionevento/save_edit',array('id'=>'eys-form')); ?>
   <ul>
 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
@@ -226,6 +226,24 @@ echo form_textarea('tema',$sesionevento['tema'],$textarea_options );
 ?>
 </div>
 </div>
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Secuencia:</label>
+
+<div class="col-md-10">
+<?php
+    
+$textarea_options = array('name'=>'secuencia','class' => 'form-control','rows' => '8',   'cols' => '20', 'style'=> 'width:50%;height:200px;','value'=>$sesionevento['secuencia'], "placeholder"=>"Descripción larga del tema" );    
+ echo form_textarea( $textarea_options);  
+
+?>
+</div>
+</div>
+
+
+
+
 
 
 <div class="form-group row">
