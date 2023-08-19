@@ -1,4 +1,4 @@
-<div id="eys-nav-i">
+<div >
 <?php echo $title;  ?>
 <?php echo form_open('sesionevento/save',array('id'=>'eys-form')); ?>
   <ul>
