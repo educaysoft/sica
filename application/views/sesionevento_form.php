@@ -192,7 +192,7 @@ foreach ($temas as $row){
 <label class="col-md-2 col-form-label">Unidad:</label>
 <div class="col-md-10">
 <?php
-$options= array();
+$options= array('--Select--');
 foreach ($unidadsilabos as $row){
 	$options[$row->idunidadsilabo]="Unidad: ".$row->unidad;
 }
@@ -334,7 +334,7 @@ foreach ($modoevaluacions as $row){
 
 <?php echo form_close();?>
 
-<div class="form-group row" style="width:100%">
+<div class="form-group row" >
 	<div class="col-md-10">
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
@@ -422,6 +422,18 @@ $(document).ready(function(){
 		    get_participantes();
 	  }
 	});     
+
+	$(document).ready(()=>{
+	  var idunidadsilabo= <?php echo $idunidadsilabo; ?>;
+	  if(idunidadsilabo>0){
+		    $('#idunidadsilabo option[value="'+idunidadsilabo+'"]').attr('selected','selected');
+	  }
+	});     
+
+
+
+
+
 
 
 
