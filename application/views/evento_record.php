@@ -501,7 +501,6 @@ $(document).ready(function(){
 	var mytablaq= $('#mydataq').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_noparticipantes')?>', type: 'GET',data:{idevento:idevento}},});
 });
 
-alert("xx");
 
 $('#show_data').on('click','.item_ver',function(){
 var id= $(this).data('idsesionevento');
