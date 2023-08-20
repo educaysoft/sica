@@ -447,6 +447,7 @@ $(document).ready(function(){
 
 	$(document).ready(()=>{
 	  var idunidadsilabo= <?php echo $idunidadsilabo; ?>;
+	  alert(idunidadsilabo);
 	  if(idunidadsilabo>0){
 		    $('#idunidadsilabo option[value="'+idunidadsilabo+'"]').attr('selected','selected');
 	  }
