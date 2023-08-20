@@ -277,8 +277,7 @@ public function cumplimiento(){
 		$data['paginas']= $this->pagina_model->lista_paginas()->result();
 		$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
 		$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
-		$data['title']="xdads";
-		//	$data['title']="<div style='padding:30px; text-align:left; background:black; color:white; font-size:30px;'> <p style='font-size:40px; font-weight:bold; text-transform:uppercase;' >Detalle del evento # ". $data['evento']['idevento']."</p>
+		$data['title']="<div style='padding:30px; text-align:left; background:black; color:white; font-size:30px;'> <p style='font-size:40px; font-weight:bold; text-transform:uppercase;' >Detalle del evento # ". $data['evento']['idevento']."</p>
 	//		<p>En este formulario esta toda la información de evento que este dirigiendo</p> </div>";
 
 
