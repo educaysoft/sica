@@ -480,7 +480,7 @@ echo form_input($arrdatos) ?>
 
 $(document).ready(function(){
 //	var idevento=document.getElementById("idevento").innerHTML;
-	var idevento=<?php echo $evento[idevento]; ?>; 
+	var idevento=<?php echo $evento['idevento']; ?>; 
 	alert(idevento);
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET',data:{idevento:idevento}},
        "rowCallback": function(row, data, index){
