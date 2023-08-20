@@ -17,13 +17,13 @@ if(isset($temasprevios))
 $nombrecortotema= array();
 $nombrelargotema= array();
 $secuenciatema= array();
-$idunidadsilabo= array();
+$idunidadsilaboa= array();
 
 foreach ($temasprevios as $row){
 	$nombrecortotema[$row->numerosesion]=$row->nombrecorto;
 	$nombrelargotema[$row->numerosesion]=$row->nombrelargo;
 	$secuenciatema[$row->numerosesion]=$row->secuencia;
-	$idunidadsilabo[$row->numerosesion]=$row->idunidadsilabo;
+	$idunidadsilaboa[$row->numerosesion]=$row->idunidadsilabo;
 }
 }
 
@@ -233,7 +233,7 @@ foreach ($unidadsilabos as $row){
 			$nombrecortotema=$nombrecortotema[$sesionactual];
 			$nombrelargotema=$nombrelargotema[$sesionactual];
 			$secuenciatema=$secuenciatema[$sesionactual];
-			$idunidadsilabo=$idunidadsilabo[$sesionactual];
+			$idunidadsilabo=$idunidadsilaboa[$sesionactual];
 		}else{
 			$nombrecortotema="";
 			$nombrelargotema="";
