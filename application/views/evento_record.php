@@ -481,8 +481,6 @@ echo form_input($arrdatos) ?>
 $(document).ready(function(){
 	var idevento=document.getElementById("idevento").innerHTML;
 	alert(idevento);
-	var mytablap= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_participantes')?>', type: 'GET',data:{idevento:idevento}},});
-	var mytablaq= $('#mydataq').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_noparticipantes')?>', type: 'GET',data:{idevento:idevento}},});
 });
 
 
