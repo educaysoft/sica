@@ -326,6 +326,7 @@ class Sesionevento extends CI_Controller{
 		 	'temacorto' => $this->input->post('temacorto'),
 		 	'horainicio' => $this->input->post('horainicio'),
 		 	'horafin' => $this->input->post('horafin'),
+		 	'secuencia' => $this->input->post('secuencia'),
 		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
 	 	);
 	 	$result=$this->sesionevento_model->update($id,$array_item);
@@ -338,6 +339,7 @@ class Sesionevento extends CI_Controller{
 		 	'temacorto' => $this->input->post('temacorto'),
 		 	'horainicio' => $this->input->post('horainicio'),
 		 	'horafin' => $this->input->post('horafin'),
+		 	'secuencia' => $this->input->post('secuencia'),
 		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
 	 	);
 	 	$result=$this->sesionevento_model->update($id,$array_item);
