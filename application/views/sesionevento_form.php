@@ -17,6 +17,7 @@ if(isset($temasprevios))
 $nombrecortotema= array();
 $nombrelargotema= array();
 $secuenciatema= array();
+
 foreach ($temasprevios as $row){
 	$nombrecortotema[$row->numerosesion]=$row->nombrecorto;
 	$nombrelargotema[$row->numerosesion]=$row->nombrelargo;
@@ -158,26 +159,35 @@ if(checkdate($m,$d,$a)){
 
 <?php
 //Buscar el tema si ya se planifico en el silabo	
-	$idunidadsilabo=0;
+	$idunidadsilabo=1;
 $numerosesion=0;
 $idtema=0;
-$eltema="";
+$nombretema="";
 $options= array('--Select--');
 foreach ($temas as $row){
 	if($row->numerosesion==$sesionactual){
 		$idunidadsilabo=$row->idunidadsilabo;
 		$idtema=$row->idtema;
-		$eltema=$row->nombrecorto;
+		$nombretema=$row->nombrecorto;
+		$descripciontema=$row->nombrecorto;
+		$secuenciatema=$row->nombrecorto;
 		$numerosesion=$row->numerosesion;
 	}	
 }
+
+
+
+
+
+
+
 
 ?>
 
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Número de sesión:</label>
-<div class="col-md-10">
+<div class="col-md-10"tem>
 <?php
  //print_r($sesionevento);
  //echo form_input("numerosesion",$sesionevento[0]->nsesion+1, array("readonly"=>"true","placeholder"=>"Numero de sesion"));
@@ -208,23 +218,30 @@ foreach ($unidadsilabos as $row){
 <label class="col-md-2 col-form-label">Tema :</label>
 <div class="col-md-10">
 <?php
- if(isset($temasprevios)){
- 	if(isset($nombrecortotema[$sesionactual])){
-		$nombrecortotema=$nombrecortotema[$sesionactual];
-		$nombrelargotema=$nombrelargotema[$sesionactual];
-		$secuenciatema=$secuenciatema[$sesionactual];
-	}else{
-		$nombrecortotema="";
-		$nombrelargotema="";
-		$secuenciatema="";
 
-	}
+ if($idtema>0){
+
+		$nombrecortotema=$nombretema;
+		$nombrelargotema=$descripciontema;
+		$secuenciatema=$secuenciatema;
  }else{
+	 if(isset($temasprevios)){
+ 		if(isset($nombrecortotema[$sesionactual])){
+			$nombrecortotema=$nombrecortotema[$sesionactual];
+			$nombrelargotema=$nombrelargotema[$sesionactual];
+			$secuenciatema=$secuenciatema[$sesionactual];
+		}else{
+			$nombrecortotema="";
+			$nombrelargotema="";
+			$secuenciatema="";
+
+		}
+	 }else{
 		$nombrecortotema="";
 		$nombrelargotema="";
 		$secuenciatema="";
+	 }
  }
-
 
 $textarea_options = array('name'=>'temacorto','class' => 'form-control','rows' => '4','maxlength'=> '100',   'cols' => '20', 'style'=> 'width:50%;height:100px;','value'=>$nombrecortotema,  "placeholder"=>"Descripción corta del tema","id"=>"temacorto" );    
  echo form_textarea($textarea_options);  
