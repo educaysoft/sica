@@ -483,18 +483,7 @@ $(document).ready(function(){
 	alert(idevento);
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET',data:{idevento:idevento}},
 	
-       "rowCallback": function(row, data, index){
-	if (data[5] >1) {
-        	$("td:eq(0)", row).css('background-color','#99ff9c')
-        	$("td:eq(1)", row).css('background-color','#99ff9c')
-        	$("td:eq(2)", row).css('background-color','#99ff9c')
-        	$("td:eq(3)", row).css('background-color','#99ff9c')
-        	$("td:eq(4)", row).css('background-color','#99ff9c')
-        	$("td:eq(5)", row).css('background-color','#99ff9c')
-        	$("td:eq(6)", row).css('background-color','#99ff9c')
-    	}
-       }
-    
+   
 	
 	
 	});
