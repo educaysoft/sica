@@ -583,6 +583,12 @@ public function genpagina()
 }
 
 
+	public function participantes()
+	{
+
+	  $this->load->view('participantes/2023-1S-350');
+	}
+
 
 
 
