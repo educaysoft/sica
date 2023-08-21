@@ -562,6 +562,33 @@ public function cumplimiento(){
 
 
 
+public function genpagina()
+{
+	$iddistributivo=0;
+	$ordenrpt=1;
+	if($this->uri->segment(3))
+	{
+
+		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
+		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		
+		$data['participantes'] = $this->participante_model->participantes($data['evento']['idevento'])->result();
+
+
+		$data['title']="Evento";
+		$this->load->view('evento_genpagina',$data);
+
+	}
+}
+
+
+
+
+
+
+
+
 
 	function evento_fechas()
 	{
