@@ -586,7 +586,12 @@ public function genpagina()
 	public function participantes()
 	{
 
-	  $this->load->view('participantes/2023-1S-350');
+		if($this->uri->segment(3))
+		{
+			$idevento=$this->uri->segment(3);
+
+	  		$this->load->view('participantes/2023-1S-'.$idevento);
+		}
 	}
 
 
