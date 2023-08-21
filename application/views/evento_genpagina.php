@@ -279,14 +279,7 @@ $data=$data.'</div>
               <p><b>Cedula:</b>'.$row->cedula.'.</p>
               <p><b>Participante : </b>'.$row->nombres.'.</p>
               <p class="card-text"><b>Grupo : </b> '.$row->grupoletra.'".</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login/validarcorreo?idevento='.$row->idevento.'\'"  >Inscribete</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login\'">Ingresa</button>
-                </div>
-                <small class="text-muted"><b>Modalidad:</b>On-line</small>
-
-              </div>
+              
             </div>
           </div>
         </div>
