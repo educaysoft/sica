@@ -94,10 +94,11 @@ if(checkdate($m,$d,$a)){
 			if(strtotime($fechasesion)==strtotime($fecha)){
 				$sesionactual=$i;
 			}
-			
+			if(!isset($numerosesiondictada[$i])){
 			$sesiontotal=$sesiontotal+1;
 			$i=$i+1;
 			$entro=1;
+			}
 		}
 	}
 	if($entro==0){
