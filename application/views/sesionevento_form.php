@@ -48,8 +48,8 @@ foreach ($temasprevios as $row){
 		$numerosesiondictada[$k]= $row->idsesionevento;
 		$k=$k+1;
 	}
-
-
+print_r($sesiondictada);
+die();
 	$sesionactual=0;
 	$sesiontotal=0;
 	$f = strtotime($evento['fechainicia']);
