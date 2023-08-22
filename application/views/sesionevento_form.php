@@ -50,7 +50,6 @@ foreach ($temasprevios as $row){
 	}
 print_r($sesiondictada);
 
-die();
 	$sesionactual=0;
 	$sesiontotal=0;
 	$f = strtotime($evento['fechainicia']);
@@ -96,6 +95,7 @@ if(checkdate($m,$d,$a)){
 				echo '\n';
 				echo $i;
 
+die();
 				$fecha=$fechasesion; // La nueva fecha
 			}}
 			
