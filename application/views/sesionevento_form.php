@@ -10,10 +10,13 @@
 <br>
 
 <?php
-
+echo "EN MANTENIMIENTO, AGRADECEMOS SU COMPRENSION";
+	die();
 if(isset($temasprevios))
 {
-	
+
+
+
 $nombrecortotema= array();
 $nombrelargotema= array();
 $secuenciatema= array();
