@@ -76,10 +76,10 @@ if(checkdate($m,$d,$a)){
  $sesiones=array();
      $i=1;
     do {
-	
+        $entro=0;	
 	foreach ($jornadadocente as $row){
     		$dia = $dias[date('w', strtotime($fechasesion))];
-		if($row->nombre==$dia || isset($sesiondictada[$fechasesion])){    //verifica si la fecha esta en el horario.
+		if($row->nombre==$dia ){    //verifica si la fecha esta en el horario.
 			$lahorai=$row->horainicio;
 			$duracionminutos=$row->duracionminutos;
 			$lahoraf=strtotime(' +'.$duracionminutos.' minute',strtotime($lahorai));
@@ -97,8 +97,18 @@ if(checkdate($m,$d,$a)){
 			
 			$sesiontotal=$sesiontotal+1;
 			$i=$i+1;
+			$entro=1;
 		}
 	}
+	if($entro==0){
+		if(isset($sesiondictada[$fechasesion])){
+
+			$sesiontotal=$sesiontotal+1;
+			$i=$i+1;
+		}
+
+	}
+
 		$fechasesion=date("Y-m-d",strtotime($fechasesion."+ 1 days")); 
 
     }while(strtotime($fechasesion)<=strtotime($fechahasta));
