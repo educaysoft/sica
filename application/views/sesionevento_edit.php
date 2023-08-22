@@ -107,11 +107,16 @@ if(checkdate($m,$d,$a)){
 
 			if(isset($sesiondictada[$fechasesion]))
 			{
+
+			echo $fechasesion;
+			echo " -  "
+			echo $i; 
+			echo '\n';
+
+
 			$sesiontotal=$sesiontotal+1;
 			$i=$i+1;
         		$entro=1;	
-			echo $i ; 
-			echo '\n';
 			}
 		}
 	}
