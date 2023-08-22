@@ -109,7 +109,7 @@ if(checkdate($m,$d,$a)){
 			{
 
 			echo $fechasesion;
-			echo " -  "
+			echo " -  ";
 			echo $i; 
 			echo '\n';
 
