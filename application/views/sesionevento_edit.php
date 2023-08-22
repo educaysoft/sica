@@ -39,7 +39,7 @@ echo form_dropdown("idevento",$options, $sesionevento['idevento']);
 $sesiondictada= array();
 	$numerosesiondictada= array();
 	$k=1;
-foreach ($sesionevento as $row){
+foreach ($sesioneventos as $row){
 	$sesiondictada[$row->fecha]= $row->idsesionevento;
 	$numerosesiondictada[$k]= $row->idsesionevento;
 	$k=$k+1;
