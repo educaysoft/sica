@@ -44,7 +44,6 @@ foreach ($sesioneventos as $row){
 	$numerosesiondictada[$k]= $row->idsesionevento;
 	$k=$k+1;
 }
-print_r($sesiondictada);
 
 	$sesionactual=0;
 	$sesiontotal=0;
@@ -110,12 +109,6 @@ if(checkdate($m,$d,$a)){
 			if(isset($sesiondictada[$fechasesion]))
 			{
 
-			echo $fechasesion;
-			echo " -  ";
-			echo $i; 
-			echo '\n';
-
-
 			$sesiontotal=$sesiontotal+1;
 			$i=$i+1;
         		$entro=1;	
@@ -138,7 +131,6 @@ if(checkdate($m,$d,$a)){
 
     }while(strtotime($fechasesion)<=strtotime($fechahasta));
 
-die();
 
 	$eldia="No encontrado";	
     	$lahorai="00:00:00";
