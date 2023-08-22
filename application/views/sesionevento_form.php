@@ -89,8 +89,6 @@ if(checkdate($m,$d,$a)){
 			if(!isset($sesiondictada[$fechasesion]) && !isset($numerosesiondictada[$i]) )
 			{
 				$fecha=$fechasesion; // La nueva fecha
-				$sesiontotal=$sesiontotal+1;
-				$i=$i+1;
 			}}
 			
 			if(strtotime($fechasesion)==strtotime($fecha)){
