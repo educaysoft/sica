@@ -47,6 +47,7 @@ foreach ($temasprevios as $row){
 		$numerosesiondictada[$k]= $row->idsesionevento;
 		$k=$k+1;
 	}
+
 	$sesionactual=0;
 	$sesiontotal=0;
 	$f = strtotime($evento['fechainicia']);
@@ -78,7 +79,7 @@ if(checkdate($m,$d,$a)){
 	
 	foreach ($jornadadocente as $row){
     		$dia = $dias[date('w', strtotime($fechasesion))];
-		if($row->nombre==$dia ){    //verifica si la fecha esta en el horario.
+		if($row->nombre==$dia || isset($sesiondictada[$fechasesion]){    //verifica si la fecha esta en el horario.
 			$lahorai=$row->horainicio;
 			$duracionminutos=$row->duracionminutos;
 			$lahoraf=strtotime(' +'.$duracionminutos.' minute',strtotime($lahorai));
