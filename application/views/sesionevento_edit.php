@@ -84,8 +84,6 @@ if(checkdate($m,$d,$a)){
      $i=1;
     do {
 	
-			echo $fechasesion;
-			echo "\n";
         $entro=0;	
 	foreach ($jornadadocente as $row){
     		$dia = $dias[date('w', strtotime($fechasesion))];
