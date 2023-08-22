@@ -88,7 +88,9 @@ if(checkdate($m,$d,$a)){
 			if($sesionactual==0){
 			if(!isset($sesiondictada[$fechasesion]) && !isset($numerosesiondictada[$i]) )
 			{
-				$fecha=$fechasesion;
+				$fecha=$fechasesion; // La nueva fecha
+				$sesiontotal=$sesiontotal+1;
+				$i=$i+1;
 			}}
 			
 			if(strtotime($fechasesion)==strtotime($fecha)){
@@ -97,9 +99,9 @@ if(checkdate($m,$d,$a)){
 
 			if(isset($sesiondictada[$fechasesion]))
 			{
-			$sesiontotal=$sesiontotal+1;
-			$i=$i+1;
-			$entro=1;
+				$sesiontotal=$sesiontotal+1;
+				$i=$i+1;
+				$entro=1;
 			}
 		}
 	}
