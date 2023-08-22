@@ -49,9 +49,7 @@ foreach ($temasprevios as $row){
 		$k=$k+1;
 	}
 
-print_r($sesionevento);
 
-die();
 	$sesionactual=0;
 	$sesiontotal=0;
 	$f = strtotime($evento['fechainicia']);
