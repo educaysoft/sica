@@ -40,8 +40,10 @@ foreach ($temasprevios as $row){
 	$fecha = date("Y-m-d");
 	$horai= date("H:i:s");
 	$sesiondictada= array();
+	$numerosesiondictada= array();
 	foreach ($sesionevento as $row){
 		$sesiondictada[$row->fecha]= $row->idsesionevento;
+		$numerosesiondictada[$row->numerosesion]= $row->idsesionevento;
 	}
 	$sesionactual=0;
 	$sesiontotal=0;
@@ -81,7 +83,7 @@ if(checkdate($m,$d,$a)){
 			$lahoraf=date("H:i:s",$lahoraf);
 			array_push($sesiones,array("sesion"=>$i,"fecha"=>$fechasesion,"dia"=>$dia,"horainicio"=>$lahorai,"horafin"=>$lahoraf));
 			if($sesionactual==0){
-			if(!isset($sesiondictada[$fechasesion]))
+			if(!isset($sesiondictada[$fechasesion]) && !isset($numerosesiondictada[$i]) )
 			{
 				$fecha=$fechasesion;
 			}}
