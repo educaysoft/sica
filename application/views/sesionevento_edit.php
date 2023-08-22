@@ -37,8 +37,11 @@ echo form_dropdown("idevento",$options, $sesionevento['idevento']);
 
 
 $sesiondictada= array();
+	$numerosesiondictada= array();
 foreach ($sesioneventos as $row){
 	$sesiondictada[$row->fecha]= $row->idsesionevento;
+	$numerosesiondictada[$k]= $row->idsesionevento;
+	$k=$k+1;
 }
 
 
@@ -81,6 +84,7 @@ if(checkdate($m,$d,$a)){
      $i=1;
     do {
 	
+        $entro=0;	
 	foreach ($jornadadocente as $row){
     		$dia = $dias[date('w', strtotime($fechasesion))];
 		if($row->nombre==$dia ){    //verifica si la fecha esta en el horario.
@@ -99,11 +103,26 @@ if(checkdate($m,$d,$a)){
 			if(strtotime($fechasesion)==strtotime($fecha)){
 				$sesionactual=$i;
 			}
-			
+			if(!isset($numerosesiondictada[$i])){
+			$sesiontotal=$sesiontotal+1;
+			$i=$i+1;
+			$entro=1;
+			}
+	
+		}
+	}
+
+
+	if($entro==0){
+		if(isset($sesiondictada[$fechasesion])){
+
 			$sesiontotal=$sesiontotal+1;
 			$i=$i+1;
 		}
+
 	}
+
+
 		$fechasesion=date("Y-m-d",strtotime($fechasesion."+ 1 days")); 
 
     }while(strtotime($fechasesion)<=strtotime($fechahasta));
