@@ -49,6 +49,7 @@ foreach ($temasprevios as $row){
 		$k=$k+1;
 	}
 print_r($sesiondictada);
+
 die();
 	$sesionactual=0;
 	$sesiontotal=0;
@@ -90,6 +91,11 @@ if(checkdate($m,$d,$a)){
 			if($sesionactual==0){
 			if(!isset($sesiondictada[$fechasesion]) && !isset($numerosesiondictada[$i]) )
 			{
+				echo '\n';
+				echo $fechasesion;
+				echo '\n';
+				echo $i;
+
 				$fecha=$fechasesion; // La nueva fecha
 			}}
 			
