@@ -110,6 +110,8 @@ if(checkdate($m,$d,$a)){
 			$sesiontotal=$sesiontotal+1;
 			$i=$i+1;
         		$entro=1;	
+			echo $i ; 
+			echo '\n';
 			}
 		}
 	}
@@ -129,6 +131,7 @@ if(checkdate($m,$d,$a)){
 
     }while(strtotime($fechasesion)<=strtotime($fechahasta));
 
+die();
 
 	$eldia="No encontrado";	
     	$lahorai="00:00:00";
