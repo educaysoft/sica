@@ -44,7 +44,7 @@ foreach ($sesioneventos as $row){
 	$numerosesiondictada[$k]= $row->idsesionevento;
 	$k=$k+1;
 }
-
+print_r($sesiondictada);
 
 	$sesionactual=0;
 	$sesiontotal=0;
