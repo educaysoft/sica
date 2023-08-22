@@ -79,7 +79,7 @@ if(checkdate($m,$d,$a)){
 	
 	foreach ($jornadadocente as $row){
     		$dia = $dias[date('w', strtotime($fechasesion))];
-		if($row->nombre==$dia || isset($sesiondictada[$fechasesion]){    //verifica si la fecha esta en el horario.
+		if($row->nombre==$dia || isset($sesiondictada[$fechasesion])){    //verifica si la fecha esta en el horario.
 			$lahorai=$row->horainicio;
 			$duracionminutos=$row->duracionminutos;
 			$lahoraf=strtotime(' +'.$duracionminutos.' minute',strtotime($lahorai));
