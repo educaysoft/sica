@@ -82,7 +82,7 @@ class Sesionevento_model extends CI_model {
 
 
 	function sesionevento_sesiones($idevento){
-        $sesiones=$this->db->query('select * from sesionevento0 where idevento='.$idevento.' order fecha asc;');
+        $sesiones=$this->db->query('select * from sesionevento0 where idevento='.$idevento.' order by fecha asc;');
 
 	return $sesiones;
 }
