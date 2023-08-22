@@ -96,12 +96,15 @@ if(checkdate($m,$d,$a)){
 				$sesionactual=$i;
 			}
 
-	//		if(!(!isset($sesiondictada[$fechasesion])  && isset($numerosesiondictada[$i])) )
-	//		{
 				$sesiontotal=$sesiontotal+1;
 				$i=$i+1;
 				$entro=1;
-	//		}
+
+			if(!isset($sesiondictada[$fechasesion])  && isset($numerosesiondictada[$i]) )
+			{
+				$sesiontotal=$sesiontotal-1;
+				$i=$i-1;
+			}
 		}
 	}
 	if($entro==0){
