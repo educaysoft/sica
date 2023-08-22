@@ -109,8 +109,8 @@ if(checkdate($m,$d,$a)){
 			{
 			$sesiontotal=$sesiontotal+1;
 			$i=$i+1;
-			}
         		$entro=1;	
+			}
 		}
 	}
 
