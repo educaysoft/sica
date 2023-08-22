@@ -41,9 +41,11 @@ foreach ($temasprevios as $row){
 	$horai= date("H:i:s");
 	$sesiondictada= array();
 	$numerosesiondictada= array();
+	$k=1;
 	foreach ($sesionevento as $row){
 		$sesiondictada[$row->fecha]= $row->idsesionevento;
-		$numerosesiondictada[$row->numerosesion]= $row->idsesionevento;
+		$numerosesiondictada[$k]= $row->idsesionevento;
+		$k=$k+1;
 	}
 	$sesionactual=0;
 	$sesiontotal=0;
