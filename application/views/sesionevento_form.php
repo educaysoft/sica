@@ -230,7 +230,7 @@ foreach ($temas as $row){
 <label class="col-md-2 col-form-label">Unidad:</label>
 <div class="col-md-10">
 <?php
-$options= array('--Select--');
+$options= array();
 foreach ($unidadsilabos as $row){
 	$options[$row->idunidadsilabo]="Unidad: ".$row->unidad;
 }
