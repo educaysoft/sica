@@ -95,11 +95,19 @@ if(checkdate($m,$d,$a)){
 				echo '\n';
 				echo $i;
 
-die();
 				$fecha=$fechasesion; // La nueva fecha
 			}}
 			
 			if(strtotime($fechasesion)==strtotime($fecha)){
+
+				echo '\n';
+				echo $fechasesion;
+				echo '\n';
+				echo $i;
+
+die();
+
+
 				$sesionactual=$i;
 			}
 
