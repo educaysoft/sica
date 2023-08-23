@@ -75,7 +75,10 @@ if(checkdate($m,$d,$a)){
  $fechasesion=$calendarioacademico[0]->fechadesde;
  $fechahasta=$calendarioacademico[0]->fechahasta;
 }
- $sesiones=array();
+
+ $fecha=$fechahasta;
+       
+	$sesiones=array();
      $i=1;
     do {
         $entro=0;	
@@ -90,23 +93,10 @@ if(checkdate($m,$d,$a)){
 			if($sesionactual==0){
 			if(!isset($sesiondictada[$fechasesion]) && !isset($numerosesiondictada[$i]) )
 			{
-				echo '\n';
-				echo $fechasesion;
-				echo '\n';
-				echo $i;
-
 				$fecha=$fechasesion; // La nueva fecha
 			}}
 			
 			if(strtotime($fechasesion)==strtotime($fecha)){
-
-				echo '\n';
-				echo $fechasesion;
-				echo '\n';
-				echo $i;
-
-die();
-
 
 				$sesionactual=$i;
 			}
