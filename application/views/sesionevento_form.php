@@ -191,7 +191,7 @@ if(checkdate($m,$d,$a)){
 $numerosesion=0;
 $idtema=0;
 $nombretema="";
-$options= array('--Select--');
+$options= array();
 foreach ($temas as $row){
 	if($row->numerosesion==$sesionactual){
 		$idunidadsilabo=$row->idunidadsilabo;
