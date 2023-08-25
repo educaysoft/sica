@@ -44,7 +44,11 @@ class Silabo_model extends CI_model {
 
 
  	function silabosa( $idasignatura,$iddocente){
+		if($iddocente>0){
  		$silabo = $this->db->query('select * from silabo1 where idasignatura="'. $idasignatura.'" and iddocente='.$iddocente);
+		}else{
+ 		$silabo = $this->db->query('select * from silabo1 where idasignatura="'. $idasignatura);
+		}
  		return $silabo;
  	}
 
