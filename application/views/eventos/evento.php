@@ -303,7 +303,7 @@ foreach ($pagoevento as $row){
           <div class="col-md-auto">
 		<?php if($row->idvideotutorial>0 and isset($this->session->userdata['logged_in']['idpersona'])) { ?>
 
-<a href= "<?php echo base_url(); ?>curso/evaluar?idpersona=<?echo $this->session->userdata['logged_in']['idpersona']; ?>&idsilabo=<?php echo $evento['idsilabo']; ?>&idevento=<?php echo $evento['idevento']; ?>&idtema=<?php echo $row->idtema; ?>&fecha=<?php echo $fecha[$row->numerosesion]; ?> "   ><i class='fa fa-check'></i></a>
+<a href= "<?php echo base_url(); ?>curso/evaluar?idpersona=<?echo $this->session->userdata['logged_in']['idpersona']; ?>&idsilabo=<?php echo $evento['idsilabo']; ?>&idevento=<?php echo $evento['idevento']; ?>&idtema=<?php echo $row->idtema; ?>&fecha=<?php echo $fecha[$row->numerosesion]; ?> "   ><i class='fa fa-video-camera'></i></a>
 		<?php }else{ ?>
 		  <i class='fa fa-folder-o'></i>
 		<?php } ?>
