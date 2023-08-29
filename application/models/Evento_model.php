@@ -3,7 +3,7 @@ class Evento_model extends CI_model {
 
 	//Retorna todos los registros como un objeto
 	function lista_eventos(){
-		 $evento= $this->db->get('evento');
+		 $evento= $this->db->get('evento0');
 		 return $evento;
 	}
 
@@ -14,7 +14,7 @@ class Evento_model extends CI_model {
 		} else{
 		$this->db->where("idevento_estado=2 or idevento_estado=3");  //SOLO ESTADO INSCRIPCION OR EN EJECUCION
 		}
-		 $evento= $this->db->get('evento');
+		 $evento= $this->db->get('evento0');
 		 return $evento;
 	}
 
@@ -92,7 +92,7 @@ class Evento_model extends CI_model {
 			$idperiodoacademico=$query->result()[0]->idperiodoacademico;
 //		print_r($query);
 	//		die();
-				$evento = $this->db->query('select * from evento where idsilabo in (select idsilabo from silabo where iddocente="'. $iddocente.'" and idperiodoacademico="'.$idperiodoacademico.'") order by idevento');
+				$evento = $this->db->query('select * from evento0 where idsilabo in (select idsilabo from silabo where iddocente="'. $iddocente.'" and idperiodoacademico="'.$idperiodoacademico.'") order by idevento');
  				return $evento;
 			}else{
 				return $query;
@@ -105,7 +105,7 @@ class Evento_model extends CI_model {
 
   //Retorna solamente un registro de un silabo
  	function eventoss($idsilabo){
-	$evento = $this->db->query('select * from evento where idsilabo="'. $idsilabo.'" order by idevento');
+	$evento = $this->db->query('select * from evento0 where idsilabo="'. $idsilabo.'" order by idevento');
  		return $evento;
  	}
 
@@ -113,7 +113,7 @@ class Evento_model extends CI_model {
 
   //Retorna solamente un registro de el id pasado como parame
  	function evento($id){
-	$evento = $this->db->query('select * from evento where idevento="'. $id.'" order by idevento');
+	$evento = $this->db->query('select * from evento0 where idevento="'. $id.'" order by idevento');
  		return $evento;
  	}
 
@@ -203,32 +203,20 @@ class Evento_model extends CI_model {
 
 
 
- 	public function delete($id)
+ 	public function quitar($id)
 	{
 		$this->db->select('*');
-		$this->db->from('ascenso');
+		$this->db->from('participante0');
 		$this->db->where('idevento',$id);
 		$this->db->limit(1);
 		$query = $this->db->get();
 
 		if ($query->num_rows() > 0) {
-			$this->db->where('idevento',$id);
-			$this->db->delete('ascenso');
-			if($this->db->affected_rows()==1){
-				$this->db->where('idevento',$id);
-				$this->db->delete('evento');
-				if($this->db->affected_rows()==1)
-					$result=true;
-				else
-					$result=false;
-			}
-			else{
 				$result=false;
-			}
 		}else
 		{
 				$this->db->where('idevento',$id);
-				$this->db->delete('evento');
+				$this->db->update('evento',array('eliminado'=>1));
 				if($this->db->affected_rows()==1)
 					$result=true;
 				else
@@ -244,7 +232,7 @@ class Evento_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idevento")->get('evento');
+		$query=$this->db->order_by("idevento")->get('evento0');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -255,7 +243,7 @@ class Evento_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idevento")->get('evento');
+		$query=$this->db->order_by("idevento")->get('evento0');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -266,16 +254,16 @@ class Evento_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$evento = $this->db->select("idevento")->order_by("idevento")->get('evento')->result_array();
+ 		$evento = $this->db->select("idevento")->order_by("idevento")->get('evento0')->result_array();
 		$arr=array("idevento"=>$id);
 		$clave=array_search($arr,$evento);
 	   if(array_key_exists($clave+1,$evento))
 		 {
 
- 		$evento = $this->db->query('select * from evento where idevento="'. $evento[$clave+1]["idevento"].'"');
+ 		$evento = $this->db->query('select * from evento0 where idevento="'. $evento[$clave+1]["idevento"].'"');
 		 }else{
 
- 		$evento = $this->db->query('select * from evento where idevento="'. $id.'"');
+ 		$evento = $this->db->query('select * from evento0 where idevento="'. $id.'"');
 		 }
 		 	
  		return $evento;
@@ -284,16 +272,16 @@ class Evento_model extends CI_model {
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$evento = $this->db->select("idevento")->order_by("idevento")->get('evento')->result_array();
+ 		$evento = $this->db->select("idevento")->order_by("idevento")->get('evento0')->result_array();
 		$arr=array("idevento"=>$id);
 		$clave=array_search($arr,$evento);
 	   if(array_key_exists($clave-1,$evento))
 		 {
 
- 		$evento = $this->db->query('select * from evento where idevento="'. $evento[$clave-1]["idevento"].'"');
+ 		$evento = $this->db->query('select * from evento0 where idevento="'. $evento[$clave-1]["idevento"].'"');
 		 }else{
 
- 		$evento = $this->db->query('select * from evento where idevento="'. $id.'"');
+ 		$evento = $this->db->query('select * from evento0 where idevento="'. $id.'"');
 		 }
 		 	
  		return $evento;
