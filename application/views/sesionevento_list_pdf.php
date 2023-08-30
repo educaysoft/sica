@@ -13,7 +13,7 @@
 
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='UNIDAD DE NIVELACION';
-	$pdf->departamento='PERIODO: 2022-2S';
+	$pdf->departamento='PERIODO: 2023-1S';
 	$pdf->titulo="CONTROL ACADÉMICO - LECCIONARIO";
 	
     	$pdf->asignatura="Evento(Clase):  ".$sesioneventos[0]->elevento; 
