@@ -577,6 +577,8 @@ public function genpagina()
 		$data['asistencias'] = $this->asistencia_model->AsistenciaxPersona($data['evento']['idevento'])->result();
 		$data['participaciones'] = $this->participacion_model->ParticipacionxPersona($data['evento']['idevento'])->result();
 		$data['participacionA1'] = $this->participacion_model->ParticipacionxPersonaA1($data['evento']['idevento'])->result();
+		$data['participacionB1'] = $this->participacion_model->ParticipacionxPersonaB1($data['evento']['idevento'])->result();
+		$data['participacionC1'] = $this->participacion_model->ParticipacionxPersonaC1($data['evento']['idevento'])->result();
 
 
 

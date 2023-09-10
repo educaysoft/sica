@@ -184,6 +184,18 @@ foreach($participacionA1 as $row){
 }
 
 
+$B1=array();
+
+foreach($participacionB1 as $row){
+ $B1[$row->idpersona]=$row->porcentaje;
+}
+
+$C1=array();
+
+foreach($participacionC1 as $row){
+ $C1[$row->idpersona]=$row->porcentaje;
+}
+
 
 
 
@@ -312,6 +324,22 @@ if(isset($A1[$row->idpersona])){
 	$componenteA1=0;
 }
 
+if(isset($B1[$row->idpersona])){
+	$componenteB1=$B1[$row->idpersona];
+}else{
+	$componenteB1=0;
+}
+
+
+if(isset($C1[$row->idpersona])){
+	$componenteC1=$C1[$row->idpersona];
+}else{
+	$componenteC1=0;
+}
+
+
+
+
 
 
 
@@ -325,6 +353,8 @@ $data=$data.'</div>
               <b>Total Asistencias : </b> '.$tasistencia.'.<br>
               <b>Total participaciones : </b> '.$tparticipacion.'".<br>
               <b>Componente A1 : </b> '.$componenteA1.'.</p>
+              <b>Componente B1 : </b> '.$componenteB1.'.</p>
+              <b>Componente C1 : </b> '.$componenteC1.'.</p>
               
             </div>
           </div>
