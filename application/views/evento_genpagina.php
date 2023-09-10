@@ -306,11 +306,11 @@ if(isset($participacion[$row->idpersona])){
 $data=$data.'</div>
 
             <div class="card-body">
-              <p><b>Cedula:</b>'.$row->cedula.'.</p>
-              <p><b>Participante : </b>'.$row->nombres.'.</p>
-              <p><b>Grupo : </b> '.$row->grupoletra.'".</p>
-              <p><b>Total Asistencias : </b> '.$tasistencia.'".</p>
-              <p><b>Total participaciones : </b> '.$tparticipacion.'".</p>
+              <p><b>Cedula:</b>'.$row->cedula.'.<br>
+              <b>Participante : </b>'.$row->nombres.'.<br>
+              <b>Grupo : </b> '.$row->grupoletra.'".<br>
+              <b>Total Asistencias : </b> '.$tasistencia.'".<br>
+              <b>Total participaciones : </b> '.$tparticipacion.'".</p>
               
             </div>
           </div>
