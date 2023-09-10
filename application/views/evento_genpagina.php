@@ -165,6 +165,21 @@ function cargarVideo(url){
 ';
 
 
+$asistencia=array();
+
+foreach($asistencias as $row){
+ $asistencia[$row->idpersona]=$row->totalasistencias;
+}
+
+$participacion=array();
+
+foreach($participaciones as $row){
+ $participacion[$row->idpersona]=$row->totalparticipaciones;
+}
+
+
+
+
 
 
 $idevento=0;
@@ -272,13 +287,30 @@ $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/fotos/'.trim
 
 }
 
+if(isset($asistencia[$row->idpersona])){
+	$tasitencia=$asistencia[$row->idpersona];
+}else{
+	$tasitencia=0;
+}
+
+
+if(isset($participacion[$row->idpersona])){
+	$tparticipacion=$participacion[$row->idpersona];
+}else{
+	$tparticipacion=0;
+}
+
+
+
 
 $data=$data.'</div>
 
             <div class="card-body">
               <p><b>Cedula:</b>'.$row->cedula.'.</p>
               <p><b>Participante : </b>'.$row->nombres.'.</p>
-              <p class="card-text"><b>Grupo : </b> '.$row->grupoletra.'".</p>
+              <p><b>Grupo : </b> '.$row->grupoletra.'".</p>
+              <p><b>Total Asistencias : </b> '.$asistencia.'".</p>
+              <p><b>Total participaciones : </b> '.$tparticipacion.'".</p>
               
             </div>
           </div>

@@ -6,9 +6,23 @@ class Asistencia_model extends CI_model {
 	function asistenciax($idevento,$idpersona){
  		$this->db->where('idevento',$idevento);
  		$this->db->where('idpersona',$idpersona);
-		 $asistencia= $this->db->get('asistencia1');
+		$asistencia= $this->db->get('asistencia1');
 		 return $asistencia;
 	}
+
+
+	function AsistenciaxPersona($idevento){
+		$this->db->select(idpersona,count(fecha) as totalasistencias);
+		$this->db->where('idevento',$idevento);
+		$this->db->from('asistencia1');
+ 		$this->db->group_by('idpersona');
+		$asistencia= $this->db->get();
+		 return $asistencia;
+	}
+
+
+
+
 
 
 

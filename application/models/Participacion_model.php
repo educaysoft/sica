@@ -11,6 +11,20 @@ class Participacion_model extends CI_model {
 	}
 
 
+
+	function ParticipacionxPersona($idevento){
+		$this->db->select(idpersona,count(fecha) as totalparticipacion);
+		$this->db->where('idevento',$idevento);
+		$this->db->where('idmodoevaluacion',1);
+		$this->db->from('participacion2');
+ 		$this->db->group_by('idpersona');
+		$asistencia= $this->db->get();
+		 return $asistencia;
+	}
+
+
+
+
 	function listar_participacion(){
 		 $participacion= $this->db->get('participacion');
 		 return $participacion;

@@ -574,6 +574,10 @@ public function genpagina()
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		
 		$data['participantes'] = $this->participante_model->participantes($data['evento']['idevento'])->result();
+		$data['asistencias'] = $this->asistencia_model->AsistenciaxPersona($data['evento']['idevento'])->result();
+		$data['participaciones'] = $this->participacion_model->ParticipacionxPersona($data['evento']['idevento'])->result();
+
+
 
 
 		$data['title']="Evento";
