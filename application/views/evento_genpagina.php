@@ -352,8 +352,8 @@ $data=$data.'</div>
               <b>Grupo : </b> '.$row->grupoletra.'.<br>
               <b>Total Asistencias : </b> '.$tasistencia.'.<br>
               <b>Total participaciones : </b> '.$tparticipacion.'".<br>
-              <b>Componente A1 : </b> '.$componenteA1.'.</p>
-              <b>Componente B1 : </b> '.$componenteB1.'.</p>
+              <b>Componente A1 : </b> '.$componenteA1.'.<br>
+              <b>Componente B1 : </b> '.$componenteB1.'.<br>
               <b>Componente C1 : </b> '.$componenteC1.'.</p>
               
             </div>
