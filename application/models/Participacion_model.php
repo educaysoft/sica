@@ -13,7 +13,7 @@ class Participacion_model extends CI_model {
 
 
 	function ParticipacionxPersona($idevento){
-		$this->db->select(idpersona,count(fecha) as totalparticipacion);
+		$this->db->select("idpersona,count(fecha) AS 'totalparticipacion'");
 		$this->db->where('idevento',$idevento);
 		$this->db->where('idmodoevaluacion',1);
 		$this->db->from('participacion2');
