@@ -168,13 +168,13 @@ function cargarVideo(url){
 $asistencia=array();
 
 foreach($asistencias as $row){
- $asistencia[$row->idpersona]=$row->totalasistencias;
+ $asistencia[$row->idpersona]=$row->totalasistencia;
 }
 
 $participacion=array();
 
 foreach($participaciones as $row){
- $participacion[$row->idpersona]=$row->totalparticipaciones;
+ $participacion[$row->idpersona]=$row->totalparticipacion;
 }
 
 
