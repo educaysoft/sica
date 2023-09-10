@@ -288,9 +288,9 @@ $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/fotos/'.trim
 }
 
 if(isset($asistencia[$row->idpersona])){
-	$tasitencia=$asistencia[$row->idpersona];
+	$tasistencia=$asistencia[$row->idpersona];
 }else{
-	$tasitencia=0;
+	$tasistencia=0;
 }
 
 
