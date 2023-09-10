@@ -309,7 +309,7 @@ $data=$data.'</div>
               <p><b>Cedula:</b>'.$row->cedula.'.</p>
               <p><b>Participante : </b>'.$row->nombres.'.</p>
               <p><b>Grupo : </b> '.$row->grupoletra.'".</p>
-              <p><b>Total Asistencias : </b> '.$asistencia.'".</p>
+              <p><b>Total Asistencias : </b> '.$tasistencia.'".</p>
               <p><b>Total participaciones : </b> '.$tparticipacion.'".</p>
               
             </div>
