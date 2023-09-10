@@ -177,6 +177,12 @@ foreach($participaciones as $row){
  $participacion[$row->idpersona]=$row->totalparticipacion;
 }
 
+$A1=array();
+
+foreach($participacionA1 as $row){
+ $A1[$row->idpersona]=$row->porcentaje;
+}
+
 
 
 
@@ -300,6 +306,13 @@ if(isset($participacion[$row->idpersona])){
 	$tparticipacion=0;
 }
 
+if(isset($A1[$row->idpersona])){
+	$componenteA1=$A1[$row->idpersona];
+}else{
+	$componenteA1=0;
+}
+
+
 
 
 
@@ -308,9 +321,10 @@ $data=$data.'</div>
             <div class="card-body">
               <p><b>Cedula:</b>'.$row->cedula.'.<br>
               <b>Participante : </b>'.$row->nombres.'.<br>
-              <b>Grupo : </b> '.$row->grupoletra.'".<br>
-              <b>Total Asistencias : </b> '.$tasistencia.'".<br>
-              <b>Total participaciones : </b> '.$tparticipacion.'".</p>
+              <b>Grupo : </b> '.$row->grupoletra.'.<br>
+              <b>Total Asistencias : </b> '.$tasistencia.'.<br>
+              <b>Total participaciones : </b> '.$tparticipacion.'".<br>
+              <b>Componente A1 : </b> '.$componenteA1.'.</p>
               
             </div>
           </div>
