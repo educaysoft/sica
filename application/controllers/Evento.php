@@ -38,6 +38,7 @@ public function index(){
   	$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
 	$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
 	$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
+	$data['jornadadocente'] =$this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente']);
 	$data['title']="Usted esta visualizando el Eventos  #";
 
 

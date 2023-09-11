@@ -329,6 +329,22 @@ echo form_input($arrdatos) ?>
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('horasasignatura/add/'.$asignatura['idasignatura'], 'Harario:'); ?>:</label>
+	<div class="col-md-10">
+	<?php
+ 	$options = array();
+  	foreach ($jornadadocente as $row){
+		$options[$row->idjornadadocente]=$row->nombre." (".$row->horainicio.")"." (".$row->duracionminuto.")";
+	}
+ echo form_multiselect('jornadadocente[]',$options,(array)set_value('idjornadadocente', ''), array('style'=>'width:500px')); 
+
+	?>
+	</div> 
+</div>
+
+
+
 
 
 <div class="form-group row">
