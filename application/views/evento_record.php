@@ -335,7 +335,7 @@ echo form_input($arrdatos) ?>
 	<?php
  	$options = array();
   	foreach ($jornadadocente as $row){
-		$options[$row->idjornadadocente]=$row->nombre." (".$row->horainicio.")"." (".$row->duracionminuto.")";
+		$options[$row->idjornadadocente]=$row->nombre." (".$row->horainicio.")"." (".$row->duracionminutos.")";
 	}
  echo form_multiselect('jornadadocente[]',$options,(array)set_value('idjornadadocente', ''), array('style'=>'width:500px')); 
 
