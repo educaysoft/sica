@@ -46,7 +46,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 		foreach ($temas as $row){
 			$options[$row->idunidadsilabo]= $row->elsilabo;
 		}
-		print_r($options);
+		//print_r($options);
 	?>
 
 	<div class="col-md-10">
@@ -83,17 +83,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </div>
 
 <div class="modal fade" id="Modal_pdf" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: 800px;">
-
-
-
-
-
- <div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	</div>
 </div>
-
- </div>
-
 
 
 <script type="text/javascript">
