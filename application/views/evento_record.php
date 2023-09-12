@@ -97,7 +97,7 @@ if(isset($evento))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('institucion/add', 'Institucion:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('institucion/add', 'Institución:') ?> </label>
      <?php 
     $options= array("NADA");
     foreach ($instituciones as $row){
@@ -260,7 +260,7 @@ echo form_input($arrdatos) ?>
 --->
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('calendarioacademico/actual/'.$evento['idcalendarioacademico'], 'Calendario academico:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('calendarioacademico/actual/'.$evento['idcalendarioacademico'], 'Calendario académico:') ?> </label>
      <?php 
     $options= array("NADA");
     foreach ($calendarioacademicos as $row){
@@ -318,15 +318,7 @@ echo form_input($arrdatos) ?>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Registra a la clase:</label>
-	<div class="col-md-10">
-      <?php
-	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
-	echo form_textarea('codigoclassroom',$evento['codigoclassroom'],$textarea_options);
-	?>
-	</div> 
-</div>
+
 
 
 <div class="form-group row">
@@ -335,7 +327,7 @@ echo form_input($arrdatos) ?>
 	<?php
  	$options = array();
   	foreach ($jornadadocente as $row){
-		$options[$row->idjornadadocente]=$row->nombre." (".$row->horainicio.")"." (".$row->duracionminutos.")";
+		$options[$row->idjornadadocente]=$row->nombre." (Inicia::".$row->horainicio.")"." (Dura::".$row->duracionminutos." minutos.)";
 	}
  echo form_multiselect('jornadadocente[]',$options,(array)set_value('idjornadadocente', ''), array('style'=>'width:500px')); 
 

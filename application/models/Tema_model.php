@@ -127,14 +127,39 @@ function lista_temass($idsilabo){
  
 
 
- 	public function delete($id)
+ 	public function quitar($id)
 	{
- 		$this->db->where('idtema',$id);
-		$this->db->delete('tema');
-    		if($this->db->affected_rows()==1)
-			$result=true;
-		else
-			$result=false;
+ 	//	$this->db->where('idtema',$id);
+	//	$this->db->delete('tema');
+    	//	if($this->db->affected_rows()==1)
+	//		$result=true;
+	//	else
+	//		$result=false;
+
+
+		$this->db->trans_start();
+		$condition = "idtema =" . $id ;
+		$this->db->select('*');
+		$this->db->from('tema0');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() != 0) {
+	 		  	$this->db->where('idtema',$id);
+				$this->db->update('tema', array('eliminado'=>1));
+		    		//$this->db->delete('participante');
+           				 $this->db->trans_complete();
+			      		$result=true;
+      	}else{	
+
+            $this->db->trans_complete();
+			      $result=false;
+   	}
+
+
+
+
+
 		return $result;
  	}
 

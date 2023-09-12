@@ -112,9 +112,22 @@ class Tema extends CI_Controller{
  	}
 
 
- 	public function delete()
+ 	public function quitar()
  	{
- 		$this->tema_model->delete($this->uri->segment(3));
+
+
+// 		$this->tema_model->delete($this->uri->segment(3));
+ 		$this->tema_model->quitar($this->uri->segment(3));
+		if(!$result)
+		{
+			echo "<script language='JavaScript'> alert('El tema no pudo eliminarse revise permisos'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+
+
+
  //		echo json_encode($data);
 	 	redirect('tema/elultimo');
 	//	$db['default']['db_debug']=FALSE
