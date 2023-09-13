@@ -173,7 +173,6 @@ foreach ($videotutoriales as $row){
 <label class="col-md-2 col-form-label">Modo de evaluacion:</label>
 <div class="col-md-10">
 <?php
-
      
 $options= array('--Select--');
 foreach ($modoevaluacions as $row){
@@ -181,7 +180,6 @@ foreach ($modoevaluacions as $row){
 }
 
 echo form_dropdown("idmodoevaluacion",$options, $tema['idmodoevaluacion']);
-
 ?>
 </div>
 </div>
