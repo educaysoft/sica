@@ -167,7 +167,7 @@ function tema_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->elsilabo,$r->launidadsilabo,$r->idtema,$r->nombrecorto,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('tema/actual').'"    data-idtema="'.$r->idtema.'">Ver1</a>',$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_update"    data-idtema="'.$r->idtema.'">Update</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('tema/actual').'"    data-idtema="'.$r->idtema.'">Ver1</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_update"    data-idtema="'.$r->idtema.'">Update</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
