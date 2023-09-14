@@ -171,11 +171,22 @@ foreach($asistencias as $row){
  $asistencia[$row->idpersona]=$row->totalasistencia;
 }
 
-$participacion=array();
+$participacionp=array();
 
-foreach($participaciones as $row){
- $participacion[$row->idpersona]=$row->totalparticipacion;
+foreach($participacionesp as $row){
+ $participacionp[$row->idpersona]=$row->totalparticipacion;
 }
+
+$participacionn=array();
+
+foreach($participacionesn as $row){
+ $participacionn[$row->idpersona]=$row->totalparticipacion;
+}
+
+
+
+
+
 
 $A1=array();
 
@@ -312,11 +323,21 @@ if(isset($asistencia[$row->idpersona])){
 }
 
 
-if(isset($participacion[$row->idpersona])){
-	$tparticipacion=$participacion[$row->idpersona];
+if(isset($participacionp[$row->idpersona])){
+	$tparticipacionpositiva=$participacionp[$row->idpersona];
 }else{
-	$tparticipacion=0;
+	$tparticipacionpositiva=0;
 }
+
+if(isset($participacionn[$row->idpersona])){
+	$tparticipacionnegativa=$participacionn[$row->idpersona];
+}else{
+	$tparticipacionnegativa=0;
+}
+
+
+
+
 
 if(isset($A1[$row->idpersona])){
 	$componenteA1=$A1[$row->idpersona];
@@ -351,7 +372,8 @@ $data=$data.'</div>
               <b>Participante : </b>'.$row->nombres.'.<br>
               <b>Grupo : </b> '.$row->grupoletra.'.<br>
               <b>Total Asistencias : </b> '.$tasistencia.'.<br>
-              <b>Total participaciones : </b> '.$tparticipacion.'".<br>
+              <b>Total participaciones + : </b> '.$tparticipacionpositiva.'".<br>
+              <b>Total participaciones - : </b> '.$tparticipacionnegativa.'".<br>
               <b>Componente A1 : </b> '.$componenteA1.'.<br>
               <b>Componente B1 : </b> '.$componenteB1.'.<br>
               <b>Componente C1 : </b> '.$componenteC1.'.</p>
