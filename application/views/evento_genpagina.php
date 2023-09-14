@@ -183,7 +183,8 @@ foreach($participacionesn as $row){
  $participacionn[$row->idpersona]=$row->totalparticipacion;
 }
 
-
+print_r($participacionn);
+die();
 
 
 
