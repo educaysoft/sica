@@ -446,7 +446,7 @@ function get_seguimiento_xx() {
 	var options = document.getElementById('idpersona').selectedOptions;
 	var values = Array.from(options).map(({ text }) => text);
 	
-        var elcorreo= values[0];
+        var elcorreo= values[0].split(" - ")[2];;
 	idpersona=parseInt(idpersona);
     $.ajax({
         url: "<?php echo site_url('seguimiento/get_seguimientop') ?>",
