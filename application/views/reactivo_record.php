@@ -75,11 +75,11 @@ if(isset($reactivo))
   
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id evento:</label>
+    <label class="col-md-2 col-form-label"> Id asignatura:</label>
 	<div class="col-md-10">
 		<?php
 
-    echo form_input('idevento',$reactivo['idevento'],array("disabled"=>"disabled",'placeholder'=>'Ideventos')); 
+    echo form_input('idasignatura',$reactivo['idasignatura'],array("disabled"=>"disabled",'placeholder'=>'Idasignaturas')); 
 
 		?>
 	</div> 
@@ -87,16 +87,19 @@ if(isset($reactivo))
 
 
 
+
+
+
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Evento </label>
+    <label class="col-md-2 col-form-label"> Asignatura </label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
-foreach ($eventos as $row){
-	$options[$row->idevento]= $row->titulo;
+foreach ($asignaturas as $row){
+	$options[$row->idasignatura]= $row->nombre;
 }
 
-echo form_input('idevento',$options[$reactivo['idevento']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+echo form_input('idasignatura',$options[$reactivo['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>

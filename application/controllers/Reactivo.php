@@ -8,6 +8,7 @@ class Reactivo extends CI_Controller{
       $this->load->model('pregunta_model');
       $this->load->model('respuesta_model');
       $this->load->model('evento_model');
+      $this->load->model('asignatura_model');
       $this->load->model('silabo_model');
       $this->load->model('asignaturadocente_model');
       $this->load->model('distributivodocente_model');
@@ -48,6 +49,7 @@ public function  save()
 	 	'nombre' => $this->input->post('nombre'),
 	 	'detalle' => $this->input->post('detalle'),
 		'idevento' => $this->input->post('idevento'),
+		'idasignatura' => $this->input->post('idasignatura'),
 		'fecha' => $this->input->post('fecha'),
 	 	);
 	 	$this->reactivo_model->save($array_item);
@@ -77,6 +79,7 @@ public function  save()
 		 	'nombre' => $this->input->post('nombre'),
 		 	'detalle' => $this->input->post('detalle'),
 			'idevento' => $this->input->post('idevento'),
+			'idasignatura' => $this->input->post('idasignatura'),
 			'fecha' => $this->input->post('fecha'),
 	 	);
 	 	$this->reactivo_model->update($id,$array_item);
@@ -208,6 +211,7 @@ function reactivo_respuesta2()
 	 	$data['reactivo'] = $this->reactivo_model->reactivo($this->uri->segment(3))->row_array();
 	 	$data['reactivos'] = $this->reactivo_model->reactivo($this->uri->segment(3))->result();
 		$data['evento'] = $this->evento_model->evento($data['reactivo']['idevento'])->row_array();
+		$data['asignatura'] = $this->asignatura_model->asignatura($data['reactivo']['idasignatura'])->row_array();
 		$data['silabo']=$this->silabo_model->silabo1($data['evento']['idsilabo'])->result();
 	 	$data['pregunta'] = $this->pregunta_model->preguntasxreactivo($data['reactivo']['idreactivo'])->row_array();
 	 	$data['preguntas'] = $this->pregunta_model->preguntasxreactivo($data['reactivo']['idreactivo'])->result();

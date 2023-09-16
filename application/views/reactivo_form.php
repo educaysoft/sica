@@ -30,15 +30,15 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Evento:</label>
+    <label class="col-md-2 col-form-label"> Asignatura:</label>
 	<div class="col-md-10">
 		<?php
 		$options= array('--Select--');
-		foreach ($eventos as $row){
-			$options[$row->idevento]= $row->idevento." - ".$row->titulo;
+		foreach ($asignaturas as $row){
+			$options[$row->idasignatura]= $row->idasignatura." - ".$row->nombre;
 		}
 
- echo form_dropdown("idevento",$options, set_select('--Select--','default_value'));
+ echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));
 		?>
 	</div> 
 </div> 

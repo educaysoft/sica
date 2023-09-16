@@ -15,14 +15,14 @@
  
 
 <tr>
-<td> Evento:</td>
+<td> Asignatura:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($eventos as $row){
-	$options[$row->idevento]= $row->titulo;
+foreach ($asignaturas as $row){
+	$options[$row->idasignatura]= $row->nombre;
 }
 
- echo form_dropdown("idevento",$options, $reactivo['idevento']);  ?></td>
+ echo form_dropdown("idasignatura",$options, $reactivo['idasignatura']);  ?></td>
 </tr>
 
 

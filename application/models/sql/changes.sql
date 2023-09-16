@@ -297,6 +297,8 @@ alter table contabilidad add column idbeneficiario int(11);
 /*alter table contabilidad add column iddocumento int(11) default 0;*/
 
 
-alter table proceso add column iddocumento int(11) default 0;
+/* alter table proceso add column iddocumento int(11) default 0; */
+
+alter table reactivo add column idasignatura int(11) default 0;
 
 
