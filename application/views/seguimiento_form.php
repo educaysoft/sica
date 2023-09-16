@@ -446,7 +446,8 @@ function get_seguimiento_xx() {
 	var options = document.getElementById('idpersona').selectedOptions;
 	var values = Array.from(options).map(({ text }) => text);
 	
-        var elcorreo= values[0].split(" - ")[2];;
+        var elcorreo= values[0].split(" -")[2].trim();
+        var lapersona= values[0].split(" -")[1].trim();
 	idpersona=parseInt(idpersona);
     $.ajax({
         url: "<?php echo site_url('seguimiento/get_seguimientop') ?>",
@@ -466,7 +467,7 @@ function get_seguimiento_xx() {
           $('[name="idevento_edit"]').val(idevento);
           $('[name="fecha_edit"]').val(fecha);
           $('[name="correo_edit"]').val(elcorreo);
-          $('[name="lapersona_edit"]').val(values);
+          $('[name="lapersona_edit"]').val(lapersona);
           $('[name="idpersona_edit"]').val(idpersona);
           $('[name="comentario_edit"]').val("");
           tinyMCE.activeEditor.setContent(data[0].comentario);
