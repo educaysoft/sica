@@ -64,7 +64,7 @@ public function  save()
 	{
 			$data['reactivo'] = $this->reactivo_model->reactivo($this->uri->segment(3))->row_array();
 			$data['eventos']= $this->evento_model->lista_eventos()->result();
-  			$data['asignaturas']= $this->evento_model->lista_asignaturas()->result();
+  			$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 			$data['title'] = "Actualizar Reactivo";
 			$this->load->view('template/page_header');		
 			$this->load->view('reactivo_edit',$data);
