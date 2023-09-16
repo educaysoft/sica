@@ -402,7 +402,6 @@ function get_participacion_xx() {
 	var fecha=x[0];
 	var idevento=document.getElementById("idevento").value;
 	var idpersona= $('select[name=idpersona]').val();
-//	var idpersona=document.getElementById("idpersona").value;
 	var options = document.getElementById('idpersona').selectedOptions;
 	var values = Array.from(options).map(({ text }) => text);
 	idpersona=parseInt(idpersona);
