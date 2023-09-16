@@ -192,31 +192,9 @@ echo '<a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Envi
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
-
-
 	$(document).ready(()=>{
+
 		var idevento= <?php echo $idevento; ?>;
 		if(idevento>0){
 		    $('#idevento option[value="'+idevento+'"]').attr('selected','selected');
@@ -290,9 +268,9 @@ echo '<a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Envi
 //		document.getElementById('idpersona').setAttribute('size',"'"+l+"'");
 		for(i=0; i<data.length; i++){
 			if(data[i].idtiposeguimiento==" "){
-				html += '<option style="color:red;" value='+data[i].idpersona+'><i class="fa fa-female"></i>'+data[i].idpersona+' - '+data[i].nombres+' - '+data[i].idtiposeguimiento+'</option>';
+				html += '<option style="color:red;" value='+data[i].idpersona+'><i class="fa fa-female"></i>'+data[i].idpersona+' - '+data[i].nombres+' - '+data[i].correo+' - '+data[i].idtiposeguimiento+'</option>';
 			}else{
-				html += '<option style="color:green;"  value='+data[i].idpersona+'><i class="icon-female"></i> - '+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].idtiposeguimiento+'</option>';
+				html += '<option style="color:green;"  value='+data[i].idpersona+'><i class="icon-female"></i> - '+data[i].idpersona+'- '+data[i].nombres+' - '+data[i].correo+' - '+data[i].idtiposeguimiento+'</option>';
 			}
 		}
 		$('#idpersona').html(html);
@@ -463,8 +441,11 @@ function get_seguimiento_xx() {
 	const x=arrtmp.split(" - ");
 	var fecha=x[0];
 	var idevento=document.getElementById("idevento").value;
+
 	var idpersona= $('select[name=idpersona]').val();
-//	var idpersona=document.getElementById("idpersona").value;
+	var options = document.getElementById('idpersona').selectedOptions;
+	var values = Array.from(options).map(({ text }) => text);
+
 	idpersona=parseInt(idpersona);
     $.ajax({
         url: "<?php echo site_url('seguimiento/get_seguimientop') ?>",
