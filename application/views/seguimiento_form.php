@@ -207,10 +207,6 @@ echo '<a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Envi
 
 	});
  
-
-
-
-
 	});     
 
 
