@@ -7,11 +7,11 @@
 	$pdf->SetAutoPageBreak(true,40); //page created doesn't have template attached
 
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
-	$pdf->unidad=$departamento[0]->nombre;
+	$pdf->unidad="  ";  //$departamento[0]->nombre;
 	$pdf->departamento=$reactivo['nombre']; 
 	$pdf->titulo="RECTIVO";
-        $pdf->laasignatura=$silabo[0]->laasignatura;
-        $pdf->eldocente=$silabo[0]->eldocente;
+        $pdf->laasignatura=$asignatura[0]->nombre;
+        $pdf->eldocente="   "; //$silabo[0]->eldocente;
 	$pdf->detalle=$reactivos[0]->detalle;
 
 	$pdf->AliasNbPages();
