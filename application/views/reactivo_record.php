@@ -222,7 +222,8 @@ $(document).ready(function(){
 
 	 tinymce.init({
 		 selector:'#detalle',
-			 height:300,
+			 height :300,
+			 theme : "advanced",
 			 readonly :1
 
 	});
