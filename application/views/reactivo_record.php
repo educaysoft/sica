@@ -67,7 +67,7 @@ if(isset($reactivo))
 	<div class="col-md-10">
 		<?php
 
-  $eys_arrctl=array("name"=>'detalle','value'=>htmlentities($reactivo['detalle']),"disabled"=>"disabled",'placeholder'=>'Detalle','style'=>'width:500px;');
+  $eys_arrctl=array("name"=>'detalle',"id"=>'detalle','value'=>htmlentities($reactivo['detalle']),"disabled"=>"disabled",'placeholder'=>'Detalle','style'=>'width:500px;');
  echo form_textarea($eys_arrctl);
 		?>
 	</div> 
