@@ -3,14 +3,22 @@
 <h2> <?php echo $title; ?></h2>
 <hr />
 <table>
- 
+
+
+
+
  <tr>
       <td>Nombre:</td>
       <td><?php echo form_input('nombre',$reactivo['nombre'],array('placeholder'=>'Nombre Institucion','style'=>'width:500px;')) ?></td>
   </tr>
  <tr>
       <td>Detalle:</td>
-      <td><?php echo form_input('detalle',$reactivo['detalle'],array('placeholder'=>'Detalle de la Reactivo','style'=>'width:500px;')) ?></td>
+      <td><?php
+
+					$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:100%;height:100px;', "placeholder"=>"Detalle",'id'=>'detalle' );
+					echo form_textarea("detalle",$reactivo['detalle'],$textarea_options);
+
+
   </tr>
  
 
@@ -38,3 +46,20 @@ foreach ($asignaturas as $row){
  </tr>
 </table>
 <?php echo form_close(); ?>
+
+
+<script>
+	$(document).ready(()=>{
+
+
+	 tinymce.init({
+		 selector:'#detalle',
+		 height:300
+
+	});
+ 
+	});     
+
+</script>
+
+
