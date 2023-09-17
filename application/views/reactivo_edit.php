@@ -17,7 +17,7 @@
 
 					$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:100%;height:100px;', "placeholder"=>"Detalle",'id'=>'detalle' );
 					echo form_textarea("detalle",$reactivo['detalle'],$textarea_options);
-
+	?></td>
 
   </tr>
  
