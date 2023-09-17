@@ -93,7 +93,7 @@ public function  save()
 public function listar()
 {
 	
-  $data['reactivo'] = $this->reactivo_model->lista_reactivoes()->result();
+  $data['reactivo'] = $this->reactivo_model->lista_reactivos()->result();
   $data['title']="Reactivo";
 	$this->load->view('template/page_header');		
   $this->load->view('reactivo_list',$data);
