@@ -203,7 +203,6 @@ echo '<a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Envi
 
 	 tinymce.init({
 		 selector:'#comentario_edit',
-		 width:600,
 		 height:300
 
 	});
