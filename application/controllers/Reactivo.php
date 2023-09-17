@@ -108,11 +108,11 @@ function reactivo_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->reactivo_model->lista_reactivoes();
+	 	$data0 = $this->reactivo_model->lista_reactivos1();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idreactivo,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('pregunta/actual').'"   data-idreactivo="'.$r->idreactivo.'">Ver</a>');
+			$data[]=array($r->idreactivo,$r->laasignatura,$r->nombre,
+			$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('ractivo/actual').'"   data-idreactivo="'.$r->idreactivo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),

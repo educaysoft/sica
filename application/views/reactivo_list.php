@@ -42,6 +42,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
+ <th>asignatura</th>
  <th>nombre</th>
  <th style="text-align: right;">Actions</th>
  </tr>
@@ -73,13 +74,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('tipoevento/tipoevento_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('reactivo/reactivo_data')?>', type: 'GET'},});
 
 });
 
-$('#show_data').on('click','.item_ver',function(){
 
-window.location.href = "http://localhost/facae/index.php/tipoevento";
+$('#show_data').on('click','.item_ver',function(){
+var id= $(this).data('idreactivo');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
 
 });
 
