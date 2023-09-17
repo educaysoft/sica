@@ -6,6 +6,16 @@ class Reactivo_model extends CI_model {
 		 return $reactivo;
 	}
 
+
+
+	function lista_reactivos1(){
+		 $reactivo= $this->db->get('reactivo1');
+		 return $reactivo;
+	}
+
+
+
+
  	function reactivo( $id){
  		$reactivo = $this->db->query('select * from reactivo where idreactivo="'. $id.'"');
  		return $reactivo;
