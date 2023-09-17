@@ -36,7 +36,7 @@ public function add()
 {
 
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['asignaturas']= $this->evento_model->lista_asignaturas()->result();
+  		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 		$data['title']="Nuevo Reactivo :";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('reactivo_form',$data);
@@ -235,7 +235,7 @@ public function actual()
  if(isset($this->session->userdata['logged_in'])){
 	$data['reactivo'] = $this->reactivo_model->reactivo($this->uri->segment(3))->row_array();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['asignaturas']= $this->evento_model->lista_asignaturas()->result();
+  		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
     $data['title']="Reactivo";
     $this->load->view('template/page_header');		
     $this->load->view('reactivo_record',$data);
@@ -267,7 +267,7 @@ public function elprimero()
   if(!empty($data))
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['asignaturas']= $this->evento_model->lista_asignaturas()->result();
+  		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
     $data['title']="Reactivo";
     $this->load->view('template/page_header');		
     $this->load->view('reactivo_record',$data);
@@ -285,7 +285,7 @@ public function elultimo()
   if(!empty($data))
   {
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['asignaturas']= $this->evento_model->lista_asignaturas()->result();
+  		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
     $data['title']="Reactivo";
   
     $this->load->view('template/page_header');		
@@ -303,7 +303,7 @@ public function siguiente(){
  // $data['reactivo_list']=$this->reactivo_model->lista_reactivo()->result();
 	$data['reactivo'] = $this->reactivo_model->siguiente($this->uri->segment(3))->row_array();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['asignaturas']= $this->evento_model->lista_asignaturas()->result();
+  		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   $data['title']="Reactivo";
 	$this->load->view('template/page_header');		
   $this->load->view('reactivo_record',$data);
@@ -314,7 +314,7 @@ public function anterior(){
  // $data['reactivo_list']=$this->reactivo_model->lista_reactivo()->result();
 	$data['reactivo'] = $this->reactivo_model->anterior($this->uri->segment(3))->row_array();
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['asignaturas']= $this->evento_model->lista_asignaturas()->result();
+  		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   $data['title']="Reactivo";
 	$this->load->view('template/page_header');		
   $this->load->view('reactivo_record',$data);
