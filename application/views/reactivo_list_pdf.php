@@ -32,8 +32,8 @@
 	$persona="";
 	$i=0;
 
-	print_r($preguntas);
-	die();
+//	print_r($preguntas);
+//	die();
 
 
 	foreach ($preguntas as $row){  //Recorre todas la participaciones realiadas por los participantes
