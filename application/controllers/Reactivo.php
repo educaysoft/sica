@@ -215,15 +215,15 @@ function reactivo_respuesta2()
 	 	$data['reactivos'] = $this->reactivo_model->reactivo($this->uri->segment(3))->result();
 		$data['evento'] = $this->evento_model->evento($data['reactivo']['idevento'])->row_array();
 		$data['asignatura'] = $this->asignatura_model->asignatura($data['reactivo']['idasignatura'])->row_array();
-		$data['silabo']=$this->silabo_model->silabo1($data['evento']['idsilabo'])->result();
+	//	$data['silabo']=$this->silabo_model->silabo1($data['evento']['idsilabo'])->result();
 	 	$data['pregunta'] = $this->pregunta_model->preguntasxreactivo($data['reactivo']['idreactivo'])->row_array();
 	 	$data['preguntas'] = $this->pregunta_model->preguntasxreactivo($data['reactivo']['idreactivo'])->result();
 	 	$data['respuesta'] = $this->respuesta_model->respuestasxreactivo($data['reactivo']['idreactivo'])->row_array();
 	 	$data['respuestas'] = $this->respuesta_model->respuestasxreactivo($data['reactivo']['idreactivo'])->result();
 
-		$data['asignaturadocente']=$this->asignaturadocente_model->asignaturadocente($data['evento']['idasignaturadocente'])->result();
-		$data['distributivodocente']=$this->distributivodocente_model->distributivodocentes2($data['asignaturadocente'][0]->iddistributivodocente)->result();
-		$data['departamento']=$this->departamento_model->departamento($data['distributivodocente'][0]->iddepartamento)->result();
+	//	$data['asignaturadocente']=$this->asignaturadocente_model->asignaturadocente($data['evento']['idasignaturadocente'])->result();
+	//	$data['distributivodocente']=$this->distributivodocente_model->distributivodocentes2($data['asignaturadocente'][0]->iddistributivodocente)->result();
+	//	$data['departamento']=$this->departamento_model->departamento($data['distributivodocente'][0]->iddepartamento)->result();
 		$data['title']="Reactivo";
 		$this->load->view('reactivo_list_pdf',$data);
 	}
