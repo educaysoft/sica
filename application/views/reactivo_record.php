@@ -220,6 +220,13 @@ $(document).ready(function(){
 	var mytablaf= $('#mydatar').DataTable({"ajax": {url: '<?php echo site_url('reactivo/reactivo_respuesta')?>', type: 'GET',data:{idreactivo:idreactivo}},});
 
 
+	 tinymce.init({
+		 selector:'#detalle',
+		 height:300
+
+	});
+
+
 
 });
 
