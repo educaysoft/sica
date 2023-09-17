@@ -224,7 +224,7 @@ $(document).ready(function(){
 		 selector:'#detalle',
 			 height :300,
 			 theme : "advanced",
-			 readonly :1
+			 readonly : 1
 
 	});
 
