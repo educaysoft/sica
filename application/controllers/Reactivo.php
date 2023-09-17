@@ -86,7 +86,7 @@ public function  save()
 			'fecha' => $this->input->post('fecha'),
 	 	);
 	 	$this->reactivo_model->update($id,$array_item);
-	 	redirect('reactivo');
+	 	redirect('reactivo/actual/'.$id);
  	}
 
 
