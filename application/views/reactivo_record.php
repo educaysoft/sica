@@ -223,12 +223,10 @@ $(document).ready(function(){
 	 tinymce.init({
 		 selector:'#detalle',
 			 height :300,
-			 setup: function(ed) {
-        if ($('#'+ed.id).prop('readonly')) {
-            ed.settings.readonly = true;
-        }
-    }
-			
+			readonly: true,
+  toolbar: false,
+  menubar: false,
+  statusbar: false
 
 	});
 
