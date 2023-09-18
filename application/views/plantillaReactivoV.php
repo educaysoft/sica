@@ -51,7 +51,7 @@ function txtentities($html){
 class PDF extends PDF_Sector
 {
 
-/variables of html parser
+//variables of html parser
 protected $B;
 protected $I;
 protected $U;
