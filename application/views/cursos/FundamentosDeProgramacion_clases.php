@@ -412,7 +412,7 @@ function get_reactivo(idreactivo,idpersona) {
 		j=i+1;
 
         	var html1 = data[i].pregunta;
-        	var image1 = "<img src='"+data[i].linkimagen+"'>";
+        	var image1 = "<img src='"+data[i].linkimagen+"'  width= '"+data[i].ancho+"' height='"+data[i].alto+"' >";
 		var idx1="#pregunta"+j;
 		var idi1="#imagen"+j;
 
