@@ -121,10 +121,10 @@ function __construct($orientation='P', $unit='mm', $size='A4')
 	$this->SetFont('Arial','',10);
 	$this->SetTextColor(0, 0,0);
 	$this->Cell(30,5,"Asignatura: ",1,0,'L',0);
-       	$this->Cell(120,5,utf8_decode($this->laasignatura),1,1,'L',0); 
+       	$this->Cell(130,5,utf8_decode($this->laasignatura),0,1,'L',0); 
 
 	$this->Cell(30,5,"Docente: ",1,0,'L',0);
-       	$this->Cell(120,5,utf8_decode($this->eldocente),1,1,'L',0); 
+       	$this->Cell(130,5,utf8_decode($this->eldocente),0,1,'L',0); 
     $this->Ln();
 
     	$this->Cell(30,5,"Instrucciones : ",1,0,'L',0);   $this->WriteHTML($this->detalle);
