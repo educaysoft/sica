@@ -39,9 +39,9 @@
 	$pdf->SetFont('Arial','B',8);
 
 
-	$pdf->Cell(5,5,'#',1,0,'C',1);
-	$pdf->Cell(50,5,'Participante',1,0,'C',1);
-	$pdf->Cell(70,5,'Archivo PDF',1,1,'C',1);
+//	$pdf->Cell(5,5,'#',1,0,'C',1);
+//	$pdf->Cell(50,5,'Participante',1,0,'C',1);
+//	$pdf->Cell(70,5,'Archivo PDF',1,1,'C',1);
  
 	 
 
