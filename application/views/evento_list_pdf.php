@@ -50,25 +50,25 @@
 	$id=0;
 	$persona="";
 	$i=0;
-	foreach ($participantes as $row){  //Recorre todas la participaciones realiadas por los participantes
+//	foreach ($participantes as $row){  //Recorre todas la participaciones realiadas por los participantes
 	       
-		    $i=$i+1;
-		    $pdf->Cell(5,5,$i,1,0,'R',0); 
+//		    $i=$i+1;
+//		    $pdf->Cell(5,5,$i,1,0,'R',0); 
 		    //$pdf->Cell(60,5,utf8_decode($row->nombres),1,0,'L',0);
-		    $pdf->Cell(50,5," ",1,0,'L',0);
+//		    $pdf->Cell(50,5," ",1,0,'L',0);
 		   // if(isset($row->archivopdf)){
 		   //	 $pdf->Cell(90,5,"https://repositorioutlvte.org/Repositorio/".utf8_decode($row->archivopdf),1,1,'L',0);
 		   // }else{
-		    	$pdf->Cell(70,5,"---",1,1,'L',0);
+//		    	$pdf->Cell(70,5,"---",1,1,'L',0);
 		   // }
 
 
-    }
+  //  }
 
 
 
 
-	header('Content-type: application/pdf');
+//	header('Content-type: application/pdf');
 
 
 	$pdf->Output();
