@@ -121,10 +121,10 @@ function __construct($orientation='P', $unit='mm', $size='A4')
 	$this->SetFont('Arial','',10);
 	$this->SetTextColor(0, 0,0);
 	$this->Cell(30,5,"Asignatura: ",1,0,'L',0);
-       	$this->Cell(130,5,utf8_decode($this->laasignatura),1,1,'L',0); 
+       	$this->Cell(120,5,utf8_decode($this->laasignatura),1,1,'L',0); 
 
 	$this->Cell(30,5,"Docente: ",1,0,'L',0);
-       	$this->Cell(130,5,utf8_decode($this->eldocente),1,1,'L',0); 
+       	$this->Cell(120,5,utf8_decode($this->eldocente),1,1,'L',0); 
     $this->Ln();
 
     	$this->Cell(30,5,"Instrucciones : ",1,0,'L',0);   $this->WriteHTML($this->detalle);
@@ -285,7 +285,7 @@ function WriteHTML($html)
 {
     //HTML parser
     //$html=strip_tags($html,"<b><u><i><a><img><p><br><strong><em><font><tr><blockquote>"); //supprime tous les tags sauf ceux reconnus
-    $html=strip_tags($html); //supprime tous les tags sauf ceux reconnus
+    $html=strip_tags($html,"<b><u><i><a><img><p><br><strong><em><font><tr><blockquote>"); //supprime tous les tags sauf ceux reconnus
     $html=str_replace("\n",' ',$html); //remplace retour à la ligne par un espace
     $a=array(2=>$html); // preg_split('/<(.*)>/U',$html,-1,PREG_SPLIT_DELIM_CAPTURE); //éclate la chaîne avec les balises
     foreach($a as $i=>$e)
@@ -296,7 +296,7 @@ function WriteHTML($html)
             if($this->HREF)
                 $this->PutLink($this->HREF,$e);
             else
-		$this->MultiCell(130,5,utf8_decode(txtentities($e)),0);
+		$this->MultiCell(130,5,utf8_decode(txtentities($e)),1);
                // $this->Write(5,txtentities($e));
         }
         else
