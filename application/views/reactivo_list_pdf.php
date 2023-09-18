@@ -13,7 +13,7 @@
 	$pdf->titulo="RECTIVO";
         $pdf->laasignatura=$asignatura[0]->nombre;
         $pdf->eldocente="   "; //$silabo[0]->eldocente;
-	$pdf->detalle=$pdf->WriteHTML($reactivos[0]->detalle);
+	$pdf->detalle=$reactivos[0]->detalle;
 
 	$pdf->AliasNbPages();
 	$pdf->AddPage();

@@ -127,7 +127,7 @@ function __construct($orientation='P', $unit='mm', $size='A4')
        	$this->Cell(120,5,utf8_decode($this->eldocente),1,1,'L',0); 
     $this->Ln();
 
-    	$this->Cell(30,5,"Instrucciones : ",1,0,'L',0);   $this->MultiCell(100,5,utf8_decode($this->detalle),0);
+    	$this->Cell(30,5,"Instrucciones : ",1,0,'L',0); $this->WriteHTML($this->detalle);
 	$this->SetFillColor(232,232,232);
 	$this->SetFont('Arial','B',8);
 	
