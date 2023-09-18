@@ -1,7 +1,8 @@
 <?php
 
 	include 'plantillaReactivoV.php';
-        
+
+
 	$pdf = new PDF();
 	$pdf->SetMargins(20, 10, 10);
 	$pdf->SetAutoPageBreak(true,40); //page created doesn't have template attached
@@ -40,8 +41,8 @@
 	       
 		    $i=$i+1;
 		    $pdf->Cell(10,5,$i,1,0,'R',0); 
-			$pdf->MultiCell(150,5,utf8_decode($row->pregunta),1);
-
+		//	$pdf->MultiCell(150,5,utf8_decode($row->pregunta),1);
+$pdf->WriteHTML($row->pregunta);
 		  //  $pdf->Cell(150,5,utf8_decode($row->pregunta),1,1,'L',0);
 		    $pdf->Ln();
 
