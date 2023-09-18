@@ -46,7 +46,8 @@
 
 
 	$pdf->SetFont('Arial','',7);
-
+	echo "llego aqui";
+	die();
 
 	$id=0;
 	$persona="";
