@@ -555,8 +555,6 @@ public function cumplimiento(){
 		
 		$data['participantes'] = $this->participante_model->participantes($data['evento']['idevento'])->result();
 
-print_r($data['participantes']);
-die();
 		$data['title']="Evento";
 		$this->load->view('template/page_header');		
 		$this->load->view('evento_list_pdf',$data);
