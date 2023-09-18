@@ -295,7 +295,7 @@ function WriteHTML($html)
             if($this->HREF)
                 $this->PutLink($this->HREF,$e);
             else
-		$this->MultiCell(100,5,utf8_decode(txtentities($e)),0);
+		$this->MultiCell(150,5,utf8_decode(txtentities($e)),1);
                // $this->Write(5,txtentities($e));
         }
         else
