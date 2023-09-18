@@ -223,10 +223,7 @@ $(document).ready(function(){
 	 tinymce.init({
 		 selector:'#detalle',
 			 height :300,
-			readonly: 1,
-  toolbar: false,
-  menubar: false,
-  statusbar: false
+			readonly: true
 
 	});
 
