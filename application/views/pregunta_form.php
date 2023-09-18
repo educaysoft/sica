@@ -24,9 +24,29 @@ foreach ($reactivos as $row){
 	  $eys_arrctl=array("name"=>'pregunta','rows' => '4',   'cols' => '20','placeholder'=>'La pregunta','style'=>'width:600px;');
  echo form_textarea($eys_arrctl);
 ?></td>	
+</tr>
+
+
+
+<tr>
+<td> Link imagen </td>
+<td><?php
+	  $eys_arrctl=array("name"=>'linkimagen','rows' => '4',   'cols' => '20','placeholder'=>'link imagen','style'=>'width:600px;');
+ echo form_textarea($eys_arrctl);
+?></td>	
 	
 	
 </tr>
+
+
+
+
+
+
+
+
+
+
 
 <tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("pregunta","Atras") ?> </td>

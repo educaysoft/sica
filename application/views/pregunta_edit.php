@@ -25,7 +25,18 @@ foreach ($reactivos as $row){
 	 
  ?></td>
   </tr>
- 
+
+<tr>
+      <td>link imagen:</td>
+      <td><?php 
+	 
+  $eys_arrctl=array("name"=>'linkimagen','value'=>$pregunta['linkimagen'],'rows' => '4',   'cols' => '20','placeholder'=>'linkimagen','style'=>'width:600px;');
+ echo form_textarea($eys_arrctl);
+	 
+ ?></td>
+  </tr>
+
+
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('pregunta','Atras') ?></td>
  </tr>

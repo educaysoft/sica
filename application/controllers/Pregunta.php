@@ -39,6 +39,7 @@ public function add()
 		 	
 		 	'pregunta' => $this->input->post('pregunta'),
 			'idreactivo' => $this->input->post('idreactivo'),
+			'linkimagen' => $this->input->post('linkimagen'),
 	 	);
 	 	$result=$this->pregunta_model->save($array_item);
 	 	if($result == FALSE)
@@ -75,6 +76,7 @@ public function add()
 		 	'idpregunta' => $this->input->post('idpregunta'),
 		 	'pregunta' => $this->input->post('pregunta'),
 			'idreactivo' => $this->input->post('idreactivo'),
+			'linkimagen' => $this->input->post('linkimagen'),
 	 	);
 	 	$this->pregunta_model->update($id,$array_item);
 	 	redirect('pregunta/actual/'.$id);

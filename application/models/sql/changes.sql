@@ -304,7 +304,8 @@ alter table contabilidad add column idbeneficiario int(11);
 
 /* alter table pregunta modify column pregunta text not null; */
 
-alter table reactivo modify column detalle text not null;
+/* alter table reactivo modify column detalle text not null; */
 
 
 
+ alter table pregunta add column linkimagen varchar(500) not null;

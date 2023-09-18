@@ -65,18 +65,39 @@ echo form_input('idreactivo',$options[$pregunta['idreactivo']],array("disabled"=
  
  
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id de la pregunta:</label>
+    <label class="col-md-2 col-form-label"> Pregunta:</label>
 	<div class="col-md-10">
 		<?php
-
-
   $eys_arrctl=array("name"=>'pregunta','value'=>$pregunta['pregunta'],'rows' => '4',   'cols' => '20',"disabled"=>"disabled",'placeholder'=>'Detalle','style'=>'width:600px;');
  echo form_textarea($eys_arrctl);
-
-
 		?>
 	</div> 
 </div> 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> link imagen:</label>
+	<div class="col-md-10">
+		<?php
+  $eys_arrctl=array("name"=>'linkimagen','value'=>$pregunta['linkimagen'],'rows' => '4',   'cols' => '20',"disabled"=>"disabled",'placeholder'=>'Detalle','style'=>'width:600px;');
+ echo form_textarea($eys_arrctl);
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Imagen:</label>
+	<div class="col-md-10">
+		<?php
+ echo "<img src='".$pregunta['linkimagen']."'>";
+		?>
+	</div> 
+</div>
+
+
+
+
 
 
 <div class="form-group row">
