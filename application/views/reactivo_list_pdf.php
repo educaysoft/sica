@@ -46,7 +46,7 @@
 		$pdf->WriteHTML($row->pregunta);
 		  //  $pdf->Cell(150,5,utf8_decode($row->pregunta),1,1,'L',0);
 	    	$pdf->Ln();
-		$pdf->Cell( 5, 5, $pdf->Image($row->linkimagen, $pdf->GetX(), $pdf->GetY(), 4), 0, 0, 'R', false );
+		$pdf->Cell( 5, 5, $pdf->Image($row->linkimagen, $pdf->GetX(), $pdf->GetY(), 10), 0, 0, 'R', false );
 	    	$pdf->Ln();
 
 		foreach ($respuestas as $row1){  //Recorre todas la participaciones realiadas por los participantes
