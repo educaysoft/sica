@@ -5,7 +5,7 @@
 //	$query = "SELECT e.estado, m.id_municipio, m.municipio FROM t_municipio AS m INNER JOIN t_estado AS e ON m.id_estado=e.id_estado";
 //	$resultado = $mysqli->query($query);
 
-
+/*
 
 	if(isset($_GET["idparticipanteestado"]))
 	{
@@ -22,7 +22,7 @@
 	}else{
 		$idpersona=0;
 	}
-        
+ */      
 	$pdf = new PDF();
 	$pdf->SetMargins(23, 10, 11.7);
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
@@ -46,7 +46,7 @@
 	 
 
 
-	$pdf->SetFont('Arial','',7);
+//	$pdf->SetFont('Arial','',7);
 
 	$id=0;
 	$persona="";
