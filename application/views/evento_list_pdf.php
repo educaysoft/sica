@@ -1,4 +1,6 @@
 <?php
+ini_set ('error_reporting', E_ALL);
+
 	include 'plantilla.php';
 //	require 'conexion.php';
 	
