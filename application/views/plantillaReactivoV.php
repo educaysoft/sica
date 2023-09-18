@@ -58,7 +58,7 @@ protected $U;
 protected $HREF;
 protected $fontlist;
 protected $issetfont;
-protected $issetcolor
+protected $issetcolor;
 
 
 
