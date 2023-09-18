@@ -24,6 +24,7 @@
 	}
         
 	$pdf = new PDF();
+	$pdf->SetMargins(23, 10, 11.7);
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
