@@ -308,4 +308,10 @@ alter table contabilidad add column idbeneficiario int(11);
 
 
 
- alter table pregunta add column linkimagen varchar(500) not null;
+ /* alter table pregunta add column linkimagen varchar(500) not null; */
+ alter table pregunta add column ancho decimal(5,2) default 0;
+ alter table pregunta add column alto decimal(5,2) default 0;
+
+
+
+

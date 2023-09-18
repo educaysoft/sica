@@ -40,6 +40,8 @@ public function add()
 		 	'pregunta' => $this->input->post('pregunta'),
 			'idreactivo' => $this->input->post('idreactivo'),
 			'linkimagen' => $this->input->post('linkimagen'),
+			'ancho' => $this->input->post('ancho'),
+			'alto' => $this->input->post('alto'),
 	 	);
 	 	$result=$this->pregunta_model->save($array_item);
 	 	if($result == FALSE)
@@ -77,6 +79,8 @@ public function add()
 		 	'pregunta' => $this->input->post('pregunta'),
 			'idreactivo' => $this->input->post('idreactivo'),
 			'linkimagen' => $this->input->post('linkimagen'),
+			'ancho' => $this->input->post('ancho'),
+			'alto' => $this->input->post('alto'),
 	 	);
 	 	$this->pregunta_model->update($id,$array_item);
 	 	redirect('pregunta/actual/'.$id);

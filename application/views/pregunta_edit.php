@@ -36,6 +36,22 @@ foreach ($reactivos as $row){
  ?></td>
   </tr>
 
+<tr>
+     <td>Ancho(60)</td>
+     <td><?php 
+$eys_arrinput=array('name'=>'ancho','value'=>$pregunta['ancho'], "style"=>"width:500px");
+echo form_input($eys_arrinput); ?></td>
+  </tr>
+
+<tr>
+     <td>Ancho(60)</td>
+     <td><?php 
+$eys_arrinput=array('name'=>'alto','value'=>$pregunta['alto'], "style"=>"width:500px");
+echo form_input($eys_arrinput); ?></td>
+  </tr>
+
+
+
 
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('pregunta','Atras') ?></td>

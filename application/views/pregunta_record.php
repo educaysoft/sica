@@ -97,6 +97,27 @@ echo form_input('idreactivo',$options[$pregunta['idreactivo']],array("disabled"=
 
 
 
+<div class="form-group row">
+	<label class="col-md-2 col-form-label"> Ancho:</label>
+	<div class="col-md-10">
+		<?php
+		  $eys_arrctl=array("name"=>'ancho','value'=>$pregunta['ancho'],"disabled"=>"disabled",'placeholder'=>'Ancho del certificado','style'=>'width:600px;');
+		 echo form_input($eys_arrctl); 
+		?>
+	</div>
+</div>
+
+
+<div class="form-group row">
+	<label class="col-md-2 col-form-label"> Alto:</label>
+	<div class="col-md-10">
+		<?php
+		  $eys_arrctl=array("name"=>'alto','value'=>$pregunta['alto'],"disabled"=>"disabled",'placeholder'=>'Ancho del certificado','style'=>'width:600px;');
+		 echo form_input($eys_arrctl); 
+		?>
+	</div>
+</div>
+
 
 
 
