@@ -396,6 +396,10 @@ function get_reactivo(idreactivo,idpersona) {
 		html += '<label class="form-check-label" for="inlineCheckbox'+j+'">Pregunta-'+j+'</label>';
 		html+='<div id="pregunta'+j+'" style="padding:10px; width:80%; margin:auto;">';
 		html+='</div>';
+
+		html+='<div id="imagen'+j+'" style="padding:10px; width:80%; margin:auto;">';
+		html+='</div>';
+
 		html+='<div id="respuesta'+j+'"  style="padding:10px; width:80%; margin:auto;">';
 		html+='</div>';
 		html += '</div>';
@@ -408,8 +412,12 @@ function get_reactivo(idreactivo,idpersona) {
 		j=i+1;
 
         	var html1 = data[i].pregunta;
+        	var image1 = "<img src='".data[i].linkimagen."'>";
 		var idx1="#pregunta"+j;
+		var idi1="#imagen"+j;
+
         	$(idx1).html(html1);
+        	$(idi1).html(image1);
 		//get_pregunta(data[i].idpregunta,j); 
 	}
 
