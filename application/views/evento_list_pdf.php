@@ -55,36 +55,15 @@
 		    $i=$i+1;
 		    $pdf->Cell(5,5,$i,1,0,'R',0); 
 		    //$pdf->Cell(60,5,utf8_decode($row->nombres),1,0,'L',0);
-		    $pdf->Cell(60,5," ",1,0,'L',0);
+		    $pdf->Cell(50,5," ",1,0,'L',0);
 		   // if(isset($row->archivopdf)){
 		   //	 $pdf->Cell(90,5,"https://repositorioutlvte.org/Repositorio/".utf8_decode($row->archivopdf),1,1,'L',0);
 		   // }else{
-		    	$pdf->Cell(90,5,"---",1,1,'L',0);
+		    	$pdf->Cell(70,5,"---",1,1,'L',0);
 		   // }
 
 
     }
-
-    
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
