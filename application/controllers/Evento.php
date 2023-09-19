@@ -866,6 +866,10 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 			$data['sesioneventos'] =$this->sesionevento_model->sesioneventos($data['evento']['idevento'])->result();
 			$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   			$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
+		$data['paginas']= $this->pagina_model->lista_paginas()->result();
+		$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
+		$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
+		$data['jornadadocente'] =$this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente'])->result();
 			$data['title']="Evento";
 			$this->load->view('template/page_header');		
 			$this->load->view('evento_record',$data);
@@ -895,6 +899,10 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 		$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
 		$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
+		$data['paginas']= $this->pagina_model->lista_paginas()->result();
+		$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
+		$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
+		$data['jornadadocente'] =$this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente'])->result();
 	  	$data['title']="Evento";
 		$this->load->view('template/page_header');		
 	  	$this->load->view('evento_record',$data);
@@ -918,6 +926,10 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 		$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
 		$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
   		$data['temas']= $this->tema_model->lista_temass($data['evento']['idsilabo'])->result();
+		$data['paginas']= $this->pagina_model->lista_paginas()->result();
+		$data['asignaturadocentes'] = $this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
+		$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicosA(0)->result();
+		$data['jornadadocente'] =$this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente'])->result();
 		$data['title']="Evento";
 		$this->load->view('template/page_header');		
 		$this->load->view('evento_record',$data);
