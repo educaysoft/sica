@@ -1,5 +1,5 @@
 <style>
-th,td{font-size:8px;
+th,td{font-size:10px;
 }
 
 </style>
