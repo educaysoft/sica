@@ -43,7 +43,7 @@ th,td{font-size:12px;
 	 <th>Unidad</th>
 	 <th>idtema</th>
 	 <th>idieva</th>
-	 <th width="50%">tema a tratar</th>
+	 <th width="60%">tema a tratar</th>
 	 </tr>
 	 </thead>
 	 <tbody id="show_data">
@@ -82,7 +82,7 @@ th,td{font-size:12px;
 	 <tr>
 	 <th>sesion</th>
 	 <th>unidad</th>
-	 <th  width="80">fecha</th>
+	 <th  width="60">fecha</th>
 	 <th>inicio</th>
 	 <th>termino</th>
 	 <th>Eval</th>
