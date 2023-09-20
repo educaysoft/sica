@@ -48,9 +48,7 @@ th,td{font-size:10px;
         <div class="pull-left">
             <b>Temas programados(silabo): </b>
         </div>
-        <div class="pull-right">
-            
-        </div>
+        
     </div>
 </div>
 
