@@ -608,7 +608,6 @@ public function genpagina()
 
 
 
-
 	function evento_fechas()
 	{
 			$draw= intval($this->input->get("draw"));
@@ -632,6 +631,40 @@ public function genpagina()
 			echo json_encode($output);
 			exit();
 	}
+
+
+
+
+
+	function evento_fechas2()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idevento=$this->input->get('idevento');
+			$idpersona=$this->input->get('idpersona');
+			$data0 =$this->sesionevento_model->sesioneventosB($idevento);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->numerosesion,$r->unidad,$r->fecha,$r->horainicio,$r->horafin,$r->idmodoevaluacion,$r->tema, 
+				);
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
+
+
 
 
 

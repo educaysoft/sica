@@ -92,9 +92,7 @@
         <div class="pull-left">
             <b>Sesiones dictadas: </b>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('sesionevento/add/'.$evento['idevento']) ?>">Nueva sesion</a><a class="btn btn-danger" onclick='reportepdf()' >Reporte</a>
-        </div>
+        
     </div>
 </div>
 
