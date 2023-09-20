@@ -82,7 +82,7 @@ th,td{font-size:12px;
 	 <tr>
 	 <th>sesion</th>
 	 <th>unidad</th>
-	 <th>fecha</th>
+	 <th  width="100">fecha</th>
 	 <th>inicio</th>
 	 <th>termino</th>
 	 <th>Eval</th>
