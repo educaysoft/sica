@@ -60,7 +60,6 @@
 	 <th>Unidad</th>
 	 <th>idtema</th>
 	 <th>tema</th>
-	 <th>Detalle</th>
 	 </tr>
 	 </thead>
 	 <tbody id="show_data">
