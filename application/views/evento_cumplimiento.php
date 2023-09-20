@@ -2,7 +2,7 @@
 th,td{font-size:8px;
 }
 
->/style>
+</style>
 
 
 
