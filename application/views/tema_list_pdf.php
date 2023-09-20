@@ -1,7 +1,7 @@
 <?php
 
 
-	include 'plantilla.php';
+	include 'plantillaRactivoV.php';
 	
 
 
@@ -63,6 +63,7 @@
 	$pdf->Cell(50,5,'Secuencia:',2,0,'L',1);
 	$pdf->MultiCell(120,5,utf8_decode($tema[0]->secuencia),1,"L",0);
 
+		$pdf->WriteHTML($tema[0]->secuencia);
 
 	$pdf->Cell(50,5,utf8_decode('Aprendizaje autónomo:'),2,0,'L',1);
 	$pdf->MultiCell(120,5,utf8_decode($tema[0]->aprendizajeautonomo),1,"L",0);

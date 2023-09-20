@@ -245,5 +245,22 @@ echo form_input('idmodoevaluacion',$options[$tema['idmodoevaluacion']],array("di
 
 <?php echo form_close(); ?>
 
+<script>
+
+$(document).ready(function(){
+
+
+	 tinymce.init({
+		 selector:'#secuencia',
+			 height :300,
+			readonly: true,
+  toolbar: false,
+  menubar: false,
+  statusbar: false
+
+	});
+});
+</script>
+
 
 
