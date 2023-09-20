@@ -183,7 +183,7 @@ $(document).ready(function(){
 	
 	});
 
-	 mytablet.row(this).nodes()[0].style.cssText = 'font-size:120%';
+	 mytablat.row(this).nodes()[0].style.cssText = 'font-size:120%';
 
 	var mytablaf= $('#mydatal').DataTable({pageLength:50,"ajax": {url: '<?php echo site_url('evento/evento_fechas2')?>', type: 'GET',data:{idevento:idevento}},
 
