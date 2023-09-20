@@ -36,7 +36,7 @@ th,td{font-size:12px;
     </div>
 </div>
 
-	<table class="table table-striped table-bordered table-hover" id="mydatat">
+	<table class="table table-striped table-bordered table-hover" id="mydatat" style="width:100%">
 	 <thead>
 	 <tr>
 	 <th>Sesion</th>
