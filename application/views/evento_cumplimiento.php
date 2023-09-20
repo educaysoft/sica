@@ -92,7 +92,7 @@
     </div>
 </div>
 
-	<table class="table table-striped table-bordered table-hover" id="mydatal">
+	<table class="table table-striped table-bordered table-hover" style="font-size:13px;" id="mydatal">
 	 <thead>
 	 <tr>
 	 <th>sesion</th>
@@ -183,7 +183,6 @@ $(document).ready(function(){
 	
 	});
 
-	 mytablat.row(this).nodes()[0].style.cssText = 'font-size:120%';
 
 	var mytablaf= $('#mydatal').DataTable({pageLength:50,"ajax": {url: '<?php echo site_url('evento/evento_fechas2')?>', type: 'GET',data:{idevento:idevento}},
 
