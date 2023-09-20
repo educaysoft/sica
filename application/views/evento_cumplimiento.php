@@ -16,7 +16,7 @@ th,td{font-size:12px;
 
 
 
-<div style="display:flex; flex-direction:row;  border:2px red solid;justify-content: space-around;">
+<div style="display:flex; flex-direction:row;  border:2px red solid;justify-content: center;">
 
 
 
@@ -36,7 +36,7 @@ th,td{font-size:12px;
     </div>
 </div>
 
-	<table class="table table-striped table-bordered table-hover" id="mydatat" style="width:100%">
+	<table class="table table-striped table-bordered table-hover" id="mydatat" >
 	 <thead>
 	 <tr>
 	 <th>Sesion</th>
