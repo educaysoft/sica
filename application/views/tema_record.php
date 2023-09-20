@@ -105,7 +105,7 @@ if(isset($tema))
     <label class="col-md-2 col-form-label"> Secuencia contenidos:</label>
 	<div class="col-md-10">
 		<?php
-	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
+	$textarea_options = array('class' => 'form-control','rows' => '4', 'id'=>'secuencia',  'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
 	echo form_textarea('secuencia',$tema['secuencia'],$textarea_options);
 		?>
 	</div> 
