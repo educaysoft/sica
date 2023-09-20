@@ -106,7 +106,6 @@
 	 <th>termino</th>
 	 <th>Eval</th>
 	 <th>tema tratado</th>
-	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
 	 <tbody id="show_data">
@@ -184,7 +183,7 @@ $(document).ready(function(){
 
 	var mytablat= $('#mydatat').DataTable({pageLength:50,"ajax":{url: '<?php echo site_url('tema/tema_silabo2')?>', type: 'GET',data:{idsilabo:idsilabo}},});
 
-	var mytablaf= $('#mydatal').DataTable({pageLength:50,"ajax": {url: '<?php echo site_url('evento/evento_fechas')?>', type: 'GET',data:{idevento:idevento}},
+	var mytablaf= $('#mydatal').DataTable({pageLength:50,"ajax": {url: '<?php echo site_url('evento/evento_fechas2')?>', type: 'GET',data:{idevento:idevento}},
 
 	
        "rowCallback": function(row, data, index){
