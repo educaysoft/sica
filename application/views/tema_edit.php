@@ -73,7 +73,7 @@ $eys_arrinput=array('name'=>'nombrecorto','value'=>$tema['nombrecorto'], "style"
     <label class="col-md-2 col-form-label"> Secuencia contenido:</label>
 	<div class="col-md-10">
 		<?php
-	$textarea_options = array('class' => 'form-control','rows' => '2', 'id'=>'secuencia",  'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Título" );    
+	$textarea_options = array('class' => 'form-control','rows' => '2', 'id'=>'secuencia',  'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Título" );    
 	echo form_textarea('secuencia',$tema['secuencia'],$textarea_options ); 
 
 		?>
