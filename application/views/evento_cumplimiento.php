@@ -18,7 +18,7 @@ th,td{font-size:12px;
 
 <div style="display:flex; flex-direction:row; padding:10px; border:2px red solid;justify-content: space-around;">
 
-<div >
+
 
 <div class="form-group row">
 	<div class="col-md-10">
@@ -58,8 +58,8 @@ th,td{font-size:12px;
 
 
 
-</div>
-<div >
+
+
 
 
 
@@ -102,7 +102,6 @@ th,td{font-size:12px;
 
 
 
-</div>
 
 
 
