@@ -42,7 +42,7 @@ th,td{font-size:12px;
 	 <th>Sesion</th>
 	 <th>Unidad</th>
 	 <th>idtema</th>
-	 <th>tema</th>
+	 <th>tema a tratar</th>
 	 </tr>
 	 </thead>
 	 <tbody id="show_data">
