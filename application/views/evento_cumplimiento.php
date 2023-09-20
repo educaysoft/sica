@@ -36,14 +36,14 @@ th,td{font-size:12px;
     </div>
 </div>
 
-	<table class="table table-striped table-bordered table-hover" id="mydatat" >
+	<table class="table table-striped table-bordered table-hover" id="mydatat" width="300" >
 	 <thead>
 	 <tr>
 	 <th>Sesion</th>
 	 <th>Unidad</th>
 	 <th>idtema</th>
 	 <th>idieva</th>
-	 <th style="width:60px">tema a tratar</th>
+	 <th style="width:50%">tema a tratar</th>
 	 </tr>
 	 </thead>
 	 <tbody id="show_data">
