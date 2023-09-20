@@ -177,7 +177,13 @@ $(document).ready(function(){
 	var idevento=56;  //document.getElementById("idevento").innerHTML;
   	var idsilabo=24; //<?php echo $evento['idsilabo']; ?>;
 
-	var mytablat= $('#mydatat').DataTable({pageLength:50,font-size:1.1em,"ajax":{url: '<?php echo site_url('tema/tema_silabo2')?>', type: 'GET',data:{idsilabo:idsilabo}},});
+	var mytablat= $('#mydatat').DataTable({pageLength:50,"ajax":{url: '<?php echo site_url('tema/tema_silabo2')?>', type: 'GET',data:{idsilabo:idsilabo}},
+ function() {
+	 table.row(this).nodes()[0].style.cssText = 'font-size:120%;}
+
+	
+	
+	});
 
 	var mytablaf= $('#mydatal').DataTable({pageLength:50,"ajax": {url: '<?php echo site_url('evento/evento_fechas2')?>', type: 'GET',data:{idevento:idevento}},
 
