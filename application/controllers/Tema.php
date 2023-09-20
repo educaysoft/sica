@@ -216,7 +216,7 @@ function tema_silabo2()
 	 	$data0 = $this->tema_model->lista_temass($idsilabo);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->numerosesion,$r->unidad,$r->idtema,$r->nombrecorto,
+			$data[]=array($r->numerosesion,$r->unidad,$r->idtema,$r->idmodoevaluacion,$r->nombrecorto,
 				);
 		}	
 		$output=array( "draw"=>$draw,

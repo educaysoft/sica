@@ -25,6 +25,7 @@ th,td{font-size:12px;
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
  	<div class="row">
+  	<div class="col-12" style="border:solid;">
 
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
@@ -41,6 +42,7 @@ th,td{font-size:12px;
 	 <th>Sesion</th>
 	 <th>Unidad</th>
 	 <th>idtema</th>
+	 <th>idieva</th>
 	 <th>tema a tratar</th>
 	 </tr>
 	 </thead>
