@@ -1,7 +1,7 @@
 <?php
 
 
-	include 'plantillaRactivoV.php';
+	include 'plantillaReactivoV.php';
 	
 
 
