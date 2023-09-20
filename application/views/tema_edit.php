@@ -73,7 +73,7 @@ $eys_arrinput=array('name'=>'nombrecorto','value'=>$tema['nombrecorto'], "style"
     <label class="col-md-2 col-form-label"> Secuencia contenido:</label>
 	<div class="col-md-10">
 		<?php
-	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Título" );    
+	$textarea_options = array('class' => 'form-control','rows' => '2', 'id'=>'secuencia",  'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Título" );    
 	echo form_textarea('secuencia',$tema['secuencia'],$textarea_options ); 
 
 		?>
@@ -195,3 +195,21 @@ echo form_dropdown("idmodoevaluacion",$options, $tema['idmodoevaluacion']);
  </tr>
 </table>
 <?php echo form_close(); ?>
+
+
+
+<script>
+	$(document).ready(()=>{
+
+
+	 tinymce.init({
+		 selector:'#secuencia',
+		 height:300
+
+	});
+ 
+	});     
+
+
+
+</script>
