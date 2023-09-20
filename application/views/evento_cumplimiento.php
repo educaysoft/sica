@@ -92,7 +92,7 @@
     </div>
 </div>
 
-	<table class="table table-striped table-bordered table-hover" style="font-size:13px;" id="mydatal">
+	<table class="table table-striped table-bordered table-hover" style="font-size:8px;" id="mydatal">
 	 <thead>
 	 <tr>
 	 <th>sesion</th>
