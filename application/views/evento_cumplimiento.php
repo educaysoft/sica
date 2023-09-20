@@ -6,10 +6,6 @@ th,td{font-size:10px;
 
 
 
-
-
-
-
 <?php echo form_open('evento/save_edit') ?>
 <?php echo form_hidden('idevento',$evento['idevento'],array('name'=>'idevento')) ?>
 
@@ -18,21 +14,7 @@ th,td{font-size:10px;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div style="display:flex; flex-direction:row; padding:10px; border:2px red solid;justify-content: space-around;">
+<div style="display:flex; flex-direction:row;  border:2px red solid;">
 
 <div >
 
