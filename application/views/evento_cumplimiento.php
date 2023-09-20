@@ -104,11 +104,6 @@ th,td{font-size:12px;
 
 
 
-
-
-
-
-
 <?php echo form_close(); ?>
 
 
@@ -116,8 +111,8 @@ th,td{font-size:12px;
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var idevento=56;  //document.getElementById("idevento").innerHTML;
-  	var idsilabo=24; //<?php echo $evento['idsilabo']; ?>;
+	var idevento=<?php echo $evento['idevento']; ?>;
+  	var idsilabo=<?php echo $evento['idsilabo']; ?>;
 
 	var mytablat= $('#mydatat').DataTable({pageLength:50,"ajax":{url: '<?php echo site_url('tema/tema_silabo2')?>', type: 'GET',data:{idsilabo:idsilabo}},
  
