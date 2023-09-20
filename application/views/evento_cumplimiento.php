@@ -16,7 +16,7 @@ th,td{font-size:12px;
 
 
 
-<div style="display:flex; flex-direction:row;  border:2px red solid;justify-content: center;">
+<div style="display:flex; flex-direction:row;  border:2px red solid;justify-content: space-between;">
 
 
 
