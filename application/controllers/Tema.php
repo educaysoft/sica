@@ -205,6 +205,33 @@ function tema_silabo()
 
 
 
+function tema_silabo2()
+{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+
+		$idsilabo=$this->input->get('idsilabo');
+
+	 	$data0 = $this->tema_model->lista_temass($idsilabo);
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->numerosesion,$r->unidad,$r->idtema,$r->nombrecorto,
+				);
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+		echo json_encode($output);
+		exit();
+}
+
+
+
+
+
 
 
 
