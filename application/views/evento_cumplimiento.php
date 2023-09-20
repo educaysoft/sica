@@ -1,8 +1,10 @@
 <style>
-th,td{font-size:10px;
+th,td{font-size:12px;
 }
 
 </style>
+
+
 
 
 
@@ -14,7 +16,7 @@ th,td{font-size:10px;
 
 
 
-<div style="display:flex; flex-direction:row;  border:2px red solid;">
+<div style="display:flex; flex-direction:row; padding:10px; border:2px red solid;justify-content: space-around;">
 
 <div >
 
