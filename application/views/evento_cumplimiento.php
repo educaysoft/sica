@@ -43,7 +43,7 @@ th,td{font-size:12px;
 	 <th>Unidad</th>
 	 <th>idtema</th>
 	 <th>idieva</th>
-	 <th style="width:40px">tema a tratar</th>
+	 <th style="width:60px">tema a tratar</th>
 	 </tr>
 	 </thead>
 	 <tbody id="show_data">
