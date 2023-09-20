@@ -60,9 +60,6 @@ th,td{font-size:12px;
 
 
 
-
-
-
 <div class="form-group row">
 	<div class="col-md-10">
 	<div class="row justify-content-left">
@@ -99,48 +96,6 @@ th,td{font-size:12px;
 	</div>
 	</div> 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
