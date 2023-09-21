@@ -387,10 +387,10 @@ $data=$data.'</div>
               <b>Total Asistencias : </b> '.$tasistencia.'.<br>
               <b>Total participaciones + : </b> '.$tparticipacionpositiva.'".<br>
               <b>Total participaciones - : </b> '.$tparticipacionnegativa.'".<br>
-              <b>Componente A1 : </b> '.$componenteA1.'('.$componenteA1*0.3.').<br>
-              <b>Componente B1 : </b> '.$componenteB1.'.<br>
-              <b>Componente C1 : </b> '.$componenteC1.'.</p>
-              <b>Componente E1 : </b> '.$componenteE1.'.</p>
+              <b>Componente A1 : </b> '.$componenteA1.'('.$componenteA1*0.03.'/10).<br>
+              <b>Componente B1 : </b> '.$componenteB1.'('.$componenteB1*0.015.'/10).<br>
+              <b>Componente C1 : </b> '.$componenteC1.'('.$componenteC1*0.015.'/10).</br>
+              <b>Componente E1 : </b> '.$componenteE1.'('.$componenteE1*0.04.'/10).</p>
               
             </div>
           </div>
