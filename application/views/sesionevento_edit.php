@@ -196,6 +196,9 @@ echo form_input($eys_arrinput);
 </div>
 
 
+
+
+
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Unidad:</label>
 <div class="col-md-10">
@@ -211,6 +214,17 @@ foreach ($unidadsilabos as $row){
 </div>
 </div>
 
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Id tema:</label>
+<div class="col-md-10">
+<?php
+	$eys_arrinput=array('name'=>'idtema','value'=>$sesionevento['idtema'],"readonly"=>"true", "style"=>"width:500px");
+echo form_input($eys_arrinput);
+
+?>
+</div>
+</div>
 
 
 
