@@ -153,8 +153,8 @@ class Sesionevento extends CI_Controller{
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   		$data['silabo']= $this->silabo_model->silabo($data['evento']['idsilabo'])->first_row('array');
 		$data['distributivodocente']=$this->distributivodocente_model->distributivodocente_pado($data['silabo']['idperiodoacademico'],$data['silabo']['iddocente'])->first_row('array');	
-			$data['asignaturadocente']= $this->asignaturadocente_model->lista_asignaturadocentesA($data['distributivodocente']['iddistributivodocente'])->first_row('array');
-			$data['jornadadocente']= $this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente'])->result();
+		$data['asignaturadocente']= $this->asignaturadocente_model->lista_asignaturadocentesA($data['distributivodocente']['iddistributivodocente'])->first_row('array');
+		$data['jornadadocente']= $this->jornadadocente_model->jornadadocentes($data['evento']['idasignaturadocente'])->result();
 	   }
    		date_default_timezone_set('America/Guayaquil');
 	     	$date = date("Y-m-d");
@@ -301,6 +301,7 @@ class Sesionevento extends CI_Controller{
 	 		'idunidadsilabo' => $this->input->post('idunidadsilabo'),
 		 	'numerosesion' => $this->input->post('numerosesion'),
 		 	'secuencia' => $this->input->post('secuencia'),
+		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
 	 	);
 	 	$idtema =$this->tema_model->update($idtema,$array_tema);
 		}else{
@@ -312,6 +313,7 @@ class Sesionevento extends CI_Controller{
 	 		'duracionminutos' => 120,
 		 	'numerosesion' => $this->input->post('numerosesion'),
 		 	'secuencia' => $this->input->post('secuencia'),
+		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
 	 	);
 	 	$idtema =$this->tema_model->save($array_item2);
 		}
