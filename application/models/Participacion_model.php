@@ -68,7 +68,7 @@ class Participacion_model extends CI_model {
 		 return $asistencia;
 	}
 
-	function ParticipacionxPersonaC1($idevento){
+	function ParticipacionxPersonaE1($idevento){
 		$this->db->select("idpersona, porcentaje");
 		$this->db->where('idevento',$idevento);
 		$this->db->where('idmodoevaluacion',5);
