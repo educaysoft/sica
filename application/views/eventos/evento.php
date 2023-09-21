@@ -1,153 +1,129 @@
 <!DOCTYPE html>
-<html
->
+<html>
 <head>
+	<link href="http://www.w3schools.com/lib/w3.css" rel="stylesheet" />
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+ 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+ 	<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/album/">
+	<link href="../../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link href="http://www.w3schools.com/lib/w3.css" rel="stylesheet" />
+	<style>
+		/* Style the body */
+		body,html {
+  			font-family: Arial;
+  			margin: 0;
+  			height:100%;
+		}
 
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+		/* Header/Logo Title */
+		.header {
+  			padding: 60px;
+  			text-align: center;
+  			background: #1abc9c;
+  			font-size: 30px;
+		}
 
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-
- <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/album/">
-
-    
-
-    
-
-<link href="../../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-
-<style>
-/* Style the body */
-body,html {
-  font-family: Arial;
-  margin: 0;
-  height:100%;
-}
-
-/* Header/Logo Title */
-.header {
-  padding: 60px;
-  text-align: center;
-  background: #1abc9c;
-  font-size: 30px;
-}
-
-/* Page Content */
-.content {padding:20px;}
-
-    .blue-color {
-        color:white;
-    }
-    .green-color {
-        color:green;
-    }
-    .teal-color {
-        color:teal;
-    }
-    .yellow-color {
-    color:yellow;
-    }
-    .red-color {
-        color:red;
-    }
+		/* Page Content */
+		.content {padding:20px;}
+    		.blue-color {
+        		color:white;
+    		}
+    		.green-color {
+        		color:green;
+    		}
+    		.teal-color {
+        		color:teal;
+    		}
+    		.yellow-color {
+    			color:yellow;
+    		}
+    		.red-color {
+        		color:red;
+    		}
 
 
+		.hero-image {
+  			background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("http://educaysoft.org/sica/campus2.jpg");
+  			height: 50%;
+  			background-position: center;
+  			background-repeat: no-repeat;
+  			background-size: cover;
+  			position: relative;
+		}
 
-.hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("http://educaysoft.org/sica/campus2.jpg");
+		/* Place text in the middle of the image */
+ 		.hero-text {
+  			text-align: center;
+  			position: absolute;
+  			top: 50%;
+  			left: 50%;
+  			transform: translate(-50%, -50%);
+  			color: white;
+		}
 
-  height: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
+		.hero-text button {
+  			border: none;
+  			outline: 0;
+  			display: inline-block;
+  			padding: 10px 25px;
+  			color: black;
+  			background-color: #ddd;
+  			text-align: center;
+  			cursor: pointer;
+		}
 
-/* Place text in the middle of the image */
- .hero-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-}
-
-.hero-text button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 10px 25px;
-  color: black;
-  background-color: #ddd;
-  text-align: center;
-  cursor: pointer;
-}
-
-.hero-text button:hover {
-  background-color: #555;
-  color: white;
-}
-</style>
-
-
+		.hero-text button:hover {
+  			background-color: #555;
+  			color: white;
+		}
+	</style>
 </head>
 
 <body>
 
 <?php 
 
-$miasistencia= array();
-foreach ($asistencia as $row){
-	$miasistencia[$row->fecha]= $row->idtipoasistencia;
-}
-$miparticipacion= array();
-$miayuda= array();
-foreach ($participacion as $row){
-	$miparticipacion[$row->fecha]= $row->porcentaje;
-	$miayuda[$row->fecha]= $row->ayuda;
-	
-}
+	$miasistencia= array();
+	foreach ($asistencia as $row){
+		$miasistencia[$row->fecha]= $row->idtipoasistencia;
+	}
+	$miparticipacion= array();
+	$miayuda= array();
+	foreach ($participacion as $row){
+		$miparticipacion[$row->fecha]= $row->porcentaje;
+		$miayuda[$row->fecha]= $row->ayuda;
+	}
 
-$fecha=array();
-foreach ($sesioneventos as $row){
-        $fecha[$row->numerosesion]=$row->fecha;
-}
+	$fecha=array();
+	foreach ($sesioneventos as $row){
+        	$fecha[$row->numerosesion]=$row->fecha;
+	}
 
-
-$mipago= array();
-foreach ($pagoevento as $row){
-	$mipago[$row->fecha]= $row->valor;
-	
-}
-
-
-
-
+	$mipago= array();
+	foreach ($pagoevento as $row){
+		$mipago[$row->fecha]= $row->valor;
+	}
 
 ?>
 
 
 
-    <div class="hero-image">
-    <div class="hero-text">
- <center><img src="http://educaysoft.org/sica/images/LogoEducCont.png" style='max-width:40%' alt="Italian Trulli"></center>
-      <h1><?php  echo $evento['titulo'];?></h1>
+    	<div class="hero-image">
+    		<div class="hero-text">
+ 		<center><img src="http://educaysoft.org/sica/images/LogoEducCont.png" style='max-width:40%' alt="Italian Trulli"></center>
+      		<h1><?php  echo $evento['titulo'];?></h1>
 
-  <!---  <button><a href="http://educaysoft.org/sica/MTI/doc/_build/html/admision.html"> Mas información</a></button> -->
-  <button><a href="<?php echo $silabo['linkdetalle']; ?>"> Mas información</a></button>
-    </div>
-    </div>
+  		<!---  <button><a href="http://educaysoft.org/sica/MTI/doc/_build/html/admision.html"> Mas información</a></button> -->
+  		<button><a href="<?php echo $silabo['linkdetalle']; ?>"> Mas información</a></button>
+    		</div>
+    	</div>
 
-<div style="width:100%; margin:auto; padding:10px;" >
-      <div style="border:2px solid green; width:80%; margin:auto; padding:10px; " >
-	      <div style="margin: auto; width:90%">
-		 <h1 style="text-align: center; text-transform: uppercase; color: #4CAF50;">Resultados de aprendizaje</h1>
-		  <p style="text-indent: 50px; text-align: justify; letter-spacing:2px;"><?php echo $asignatura["resultadosaprendizaje"];?></p>
-	      </div>
+	<div style="width:100%; margin:auto; padding:10px;" >
+      		<div style="border:2px solid green; width:80%; margin:auto; padding:10px; " >
+	      		<div style="margin: auto; width:90%">
+		 	<h1 style="text-align: center; text-transform: uppercase; color: #4CAF50;">Resultados de aprendizaje</h1>
+		  	<p style="text-indent: 50px; text-align: justify; letter-spacing:2px;"><?php echo $asignatura["resultadosaprendizaje"];?></p>
+	      		</div>
 
 
 	      <div class="container" style="font-size: 20px;width:100%; background: yellow;">
@@ -292,13 +268,24 @@ foreach ($pagoevento as $row){
 
 
       <?php
-  //    foreach($sesioneventos as  $row)
       foreach($temas as  $row)
       {
 
       ?>
-
+	
+	<?php
+	if($row->idmodoevaluacion==1)
+	{
       <div class="container" style="font-size: 15px; width:100%; background: yellow; padding:5px;">
+	}else{
+
+      <div class="container" style="font-size: 15px; width:100%; background: #90EE90; padding:5px;">
+
+	}
+	?>
+
+
+
         <div style="display: flex; flex-direction: row;" >
           <div class="col-md-auto">
 		<?php if($row->idvideotutorial>0 and isset($this->session->userdata['logged_in']['idpersona'])) { ?>
