@@ -277,7 +277,7 @@
 	if($row->idmodoevaluacion==1)
 	{
 
-      <div class="container" style="font-size:15px; width:100%; background:yellow; padding:5px;">
+      <div class="container">
 
 	}else{
 
