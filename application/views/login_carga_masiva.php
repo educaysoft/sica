@@ -7,9 +7,12 @@
 	var idinstitucion=1;
 	var email=correo;
 	var password=cedula;
+	var idsexo=1;
+	var idpais=1
+	ver fechanacimiento="";
      $.ajax({
         url: "<?php echo site_url('login/carga_masiva_save'); ?>",
-        data: {password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion},
+        data: {password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion,idsexo:idsexo,idpais:idpais},
         method: 'GET',
 	async : false,
         success: function(data){
