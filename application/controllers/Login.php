@@ -245,10 +245,8 @@ public function carga_masiva_save() {
             {
           $datausuario = array('idinstitucion'=>$this->input->get('idinstitucion'),'email' => $this->input->get('email'),'password' => $this->input->get('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>$lapagina["ruta"]);
             }else{
-
           $datausuario = array('email' => $this->input->get('email'),'password' => $this->input->get('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>'principal');
             }
-
 
           $datapersona = array('cedula'=>$this->input->get('cedula'),'nombres'=>$this->input->get('nombres'),'apellidos'=>$this->input->get('apellidos'));
           $datapersona+=['foto'=>"fotos/".$this->input->get('cedula').".png"];

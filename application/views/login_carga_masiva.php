@@ -3,7 +3,7 @@
 
  async function save_masive(correo,cedula,nombres,apellidos,telefono) {
 	document.write("---- entro --- ");
-	var idevento = 42;
+	var idevento = 578;
 	var idinstitucion=1;
 	var email=correo;
 	var password=cedula;
@@ -37,12 +37,12 @@
 
 if(isset($_GET['inicio'])){
 
-
        $inicio=$_GET['inicio'];
        $fin=$_GET['fin'];
 
 //	$arhivo=base_url()."csv/Alencastro01.csv";
-	$arhivo=base_url()."csv/mtci-curso-01.csv";
+//	$arhivo=base_url()."csv/mtci-curso-01.csv";
+	$arhivo=base_url()."csv/graduados-2017-2022-aspirantes-carga.csv";
 
 	$csvFile = file($arhivo);
 	$data=[];
