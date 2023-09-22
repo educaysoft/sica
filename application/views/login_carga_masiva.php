@@ -9,10 +9,10 @@
 	var password=cedula;
 	var idsexo=1;
 	var idpais=1
-	var fechanacimiento="2023-09-21";
+	var fechanacimiento="";
      $.ajax({
         url: "<?php echo site_url('login/carga_masiva_save'); ?>",
-        data: {password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion,idsexo:idsexo,idpais:idpais},
+        data: {password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion,idsexo:idsexo,idpais:idpais,fechanacimiento:fechanacimiento},
         method: 'GET',
 	async : false,
         success: function(data){
