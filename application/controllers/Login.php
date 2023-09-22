@@ -251,7 +251,7 @@ public function carga_masiva_save() {
           $datapersona = array('cedula'=>$this->input->get('cedula'),'nombres'=>$this->input->get('nombres'),'apellidos'=>$this->input->get('apellidos'));
           $datapersona+=['foto'=>"fotos/".$this->input->get('cedula').".png"];
           $datapersona+=['pdf'=>"pdfs/".$this->input->get('cedula').".pdf"];
-          $datapersona+=["idsexo"=>$this->input->get('idsexo')];
+      //    $datapersona+=["idsexo"=>$this->input->get('idsexo')];
           $datapersona+=["fechanacimiento"=>$this->input->get('fechanacimiento')];
           $datapersona+=["idestadocivil"=>1];
           $datapersona+=["idtiposangre"=>1];

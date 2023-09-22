@@ -9,7 +9,7 @@
 	var password=cedula;
 	var idsexo=1;
 	var idpais=1
-	ver fechanacimiento="";
+	var fechanacimiento="";
      $.ajax({
         url: "<?php echo site_url('login/carga_masiva_save'); ?>",
         data: {password:password, email:email, cedula:cedula, nombres:nombres, apellidos:apellidos, telefono:telefono, idevento:idevento,idinstitucion:idinstitucion,idsexo:idsexo,idpais:idpais},
