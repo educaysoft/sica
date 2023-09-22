@@ -269,7 +269,7 @@ public function carga_masiva_save() {
           //correo
           $datacorreo=array('idpersona'=>0,'nombre'=>$this->input->get('email'),'idcorreo_estado'=>1);
 
-	 $data['eventos']= $this->evento_model->lista_eventos_open()->result();
+	 $data['eventos']= $this->evento_model->lista_eventos_open($this->input->get('idevento'))->result();
           $result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono,$datapaispersona);
           if ($result == TRUE) {
 		echo json_encode(array('resultado'=>'TRUE'));
