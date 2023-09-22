@@ -371,8 +371,8 @@ if(isset($E1[$row->idpersona])){
 	$componenteE1=0;
 }
 
-
-
+$NotaP1=($componenteA1*0.03+$componenteB1*0.015+$componenteC1*0.015+$componenteE1*0.04);
+$PorcentajeP1=($NotaP1/10)*100;
 
 
 
@@ -392,7 +392,7 @@ $data=$data.'</div>
               <b>Componente C1 : </b> '.$componenteC1.'('.$componenteC1*0.015.'/10).</br>
               <b>Componente E1 : </b> '.$componenteE1.'('.$componenteE1*0.04.'/10).</p>
               <b>Componente E1 : </b> '.$componenteE1.'('.$componenteE1*0.04.'/10).</p>
-              <span style="color:green"><b>Primer parcial: </b> '.$componenteA1+$componenteB1+$componenteC1+$componenteE1.'('.$componenteA1*0.03+$componenteB1*0.015+$componenteC1*0.015+$componenteE1*0.04.'/10).</span></p>
+              <span style="color:green"><b>Primer parcial: </b> '.$porcentajeP1.'('.$NotaP1.'/10).</span></p>
               
             </div>
           </div>
