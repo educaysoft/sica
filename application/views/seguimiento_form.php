@@ -169,6 +169,16 @@ foreach ($correosde as $row){
 					</div>
 
 
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Asunto:</label>
+						<div class="col-md-10">
+							<input type="text" name="asunto_edit" id="asunto_edit" class="form-control" placeholder="asunto">  
+						</div>
+					</div>
+
+
+
+
 										
 					<div class="form-group row">
 					<label class="col-md-2 col-form-label"> Comentario:</label>
@@ -180,6 +190,20 @@ foreach ($correosde as $row){
 					?>
 					</div>
 					</div>
+
+
+
+					<div class="form-group row">
+					<label class="col-md-2 col-form-label"> Pie:</label>
+					<div class="col-md-10">
+					<?php
+					$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:100%;height:100px;', "placeholder"=>"pies",'id'=>'pies_edit' );
+					echo form_textarea("pies_edit","",$textarea_options);
+
+					?>
+					</div>
+					</div>
+
 
 
 					<div class="form-group row">
@@ -232,7 +256,18 @@ echo '<a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Envi
 		 height:300
 
 	});
+
+
+
+	 tinymce.init({
+		 selector:'#pie_edit',
+		 height:300
+
+	});
  
+
+
+
 	});     
 
 
@@ -390,8 +425,12 @@ $("#btn_update").on("click", function(){
 		var fecha=x[0];
 		var fecha=document.getElementById("fecha_edit").value;
 		var idevento=document.getElementById("idevento_edit").value;
+		var correode=document.getElementById("correode_edit").value;
+		var correopara=document.getElementById("correopara_edit").value;
+		var asunto=document.getElementById("asunto_edit").value;
 		var idtiposeguimiento=document.getElementById("idtiposeguimiento_edit").value;
                 var comentario=tinyMCE.activeEditor.getContent();
+                var pie=tinyMCE.activeEditor.getContent();
 		var idpersona= $('select[name=idpersona]').val();
 	//	var p = document.getElementById("a");
 	//		var idpersona=p.options[p.selectedIndex].value;
@@ -399,7 +438,7 @@ $("#btn_update").on("click", function(){
 
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/save_seguimiento') ?>",
-		data: {idevento:idevento, fecha:fecha,idtiposeguimiento:idtiposeguimiento,comentario:comentario,idpersona:idpersona},
+		data: {idevento:idevento, fecha:fecha,idtiposeguimiento:idtiposeguimiento,comentario:comentario,idpersona:idpersona,correde:correode,correopara:correopara,asunto:asunto,pie:pie},
 		method: 'POST',
 		async : false,
 		dataType : 'json',
@@ -421,22 +460,23 @@ $("#btn_update").on("click", function(){
 
 	function enviar_correo(){
 		// var email="educacioncontinua@utelvt.edu.ec";
-		 var mailto=document.getElementById("correode_edit").value; //   "stalin.francis@utelvt.edu.ec";
+		 var correode=document.getElementById("correode_edit").value; //   "stalin.francis@utelvt.edu.ec";
 		 var nome= 'Stalin Francis Q.'; // document.getElementById("lapersona_edit").value; 		
                  var msg=tinyMCE.activeEditor.getContent({format:'text'});
-		 var mailto=document.getElementById("correo_edit").value; //   "stalin.francis@utelvt.edu.ec";
+		 var correopara=document.getElementById("correopara_edit").value; //   "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 		 var head="";
-			
+
+
 		var foot0="<br><div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres de Esmeralda cuenta con los programas de Posgrado los cuales ya estan abiertos para que puedas incribirte.<br><br> <a href='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg'><img src='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg'></a><br><br></div>" ;
 		 var foot=" <div style='text-align:center; background-color:lightgrey; font-size:12px;'> Este correo ha sido enviado a "+mailto+ ", de acuerdo a la Ley Orgánica de Protección de datos, usted tiene el derecho a solicitar a la Universidad Técnica Luis Vargas Torres, la actualización, inclusión, supresión y/o tratamiento de los datos personales incluidos en sus bases de datos, con este correo electrónico usted acepta recibir información de las actividades académicas que realiza el Alma Mater así como nuestra propuestas académicas <br><br> Este correo fue generado y enviado automáticamente desde el sistema cloud elaborado desde la Maestría en Tecnología de la Información</div> ";
-
+		
 		msg=head+msg+foot0+foot;
 		 if(mailto.includes('hotmail'))
 		 {
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/sendhotmail') ?>",
-		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure},
+		data: {nome:nome, correode:correode, msg:msg, correopara:correopara, secure:secure,asunto:asunto},
 		method: 'POST',
 		async : false,
 		success: function(data){
@@ -512,7 +552,10 @@ function get_seguimiento_xx() {
           $('[name="lapersona_edit"]').val(lapersona);
           $('[name="idpersona_edit"]').val(idpersona);
           $('[name="comentario_edit"]').val("");
+          $('[name="pies_edit"]').val("");
+          $('[name="asunto_edit"]').val("");
           tinyMCE.activeEditor.setContent(data[0].comentario);
+          tinyMCE.activeEditor.setContent(data[0].pies);
           $('[name="idtiposeguimiento_edit"]').val("");
         }else{
           $('[name="idseguimiento_edit"]').val(data[0].idseguimiento);
@@ -523,6 +566,8 @@ function get_seguimiento_xx() {
           $('[name="correo_edit"]').val(data[0].correo);
           $('[name="lapersona_edit"]').val(data[0].lapersona);
           $('[name="comentario_edit"]').val(data[0].comentario);
+          $('[name="pies_edit"]').val(data[0].pies);
+          $('[name="asunto_edit"]').val(data[0].asunto);
         //  $('[name="comentario_edit"]').val(data[0].comentario);
           $('[name="idtiposeguimiento__edit"]').val(data[0].idtiposeguimiento);
           tinyMCE.activeEditor.setContent(data[0].comentario);

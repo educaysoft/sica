@@ -86,6 +86,9 @@ class Seguimiento extends CI_Controller{
 	 	'idpersona' => $this->input->post('idpersona'),
 	 	'idevento' => $this->input->post('idevento'),
 	 	'fecha' => $this->input->post('fecha'),
+	 	'correode' => $this->input->post('correode'),
+	 	'correopara' => $this->input->post('correopara'),
+	 	'asunto' => $this->input->post('asunto'),
 		'idtiposeguimiento' => $this->input->post('idtiposeguimiento'),
 	 	'comentario' => $this->input->post('comentario'),
 	 	);
