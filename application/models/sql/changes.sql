@@ -311,10 +311,13 @@ alter table contabilidad add column idbeneficiario int(11);
  /* alter table pregunta add column linkimagen varchar(500) not null; */
 /* alter table pregunta add column ancho decimal(5,2) default 0; */
 /*  alter table pregunta add column alto decimal(5,2) default 0; */
+/*
 alter table seguimiento add column correode varchar(150) not null;
 alter table seguimiento add column correopara varchar(150) not null;
 alter table seguimiento add column asunto varchar(200) not null;
+*/
 
+alter table seguimiento add column pies text not null;
 
 
 

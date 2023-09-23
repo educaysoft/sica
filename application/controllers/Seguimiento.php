@@ -456,17 +456,17 @@ public function send()
 			$mailto=$query->result()[0]->nombre;
 
 		}else{
-        		$mailto = $this->input->post('mailto');
+        		$mailto = $this->input->post('correopara');
 		}
 	}else{
-       		$mailto = $this->input->post('mailto');
+       		$mailto = $this->input->post('correopara');
 	}
 
         $this->load->library('email');
         $nome = $this->input->post('nome');
         $msg = str_replace("stalin.francis@utelvt.edu.ec",$mailto, $this->input->post('msg'));
         $secure = $this->input->post('secure');
-	$email= $this->input->post('email');
+	$email= $this->input->post('correopara');
         $config['protocol'] = "ssmtp";
         $config['smtp_host'] = "ssl://ssmtp.googlemail.com";
         $config['smtp_port'] = "465";
