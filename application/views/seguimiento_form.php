@@ -162,9 +162,9 @@ foreach ($correosde as $row){
 					</div>					
 
 					<div class="form-group row">
-						<label class="col-md-2 col-form-label">Correo:</label>
+						<label class="col-md-2 col-form-label">Correo para:</label>
 						<div class="col-md-10">
-							<input type="text" name="correo_edit" id="correo_edit" class="form-control" placeholder="alumno">  
+							<input type="text" name="correopara_edit" id="correopara_edit" class="form-control" placeholder="alumno">  
 						</div>
 					</div>
 
