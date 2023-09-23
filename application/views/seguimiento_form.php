@@ -527,7 +527,7 @@ $("#btn_update").on("click", function(){
 		}
 
 
-	 if(correode.includes('gmail.com') or correode.includes('utelvt.edu.ec'))
+	 if(correode.includes('gmail.com') || correode.includes('utelvt.edu.ec'))
 	 {
 
 	    $.ajax({
