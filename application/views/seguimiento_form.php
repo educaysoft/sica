@@ -473,7 +473,39 @@ $("#btn_update").on("click", function(){
 		 var foot=" <div style='text-align:center; background-color:lightgrey; font-size:12px;'> Este correo ha sido enviado a "+correopara+ ", de acuerdo a la Ley Orgánica de Protección de datos, usted tiene el derecho a solicitar a la Universidad Técnica Luis Vargas Torres, la actualización, inclusión, supresión y/o tratamiento de los datos personales incluidos en sus bases de datos, con este correo electrónico usted acepta recibir información de las actividades académicas que realiza el Alma Mater así como nuestra propuestas académicas <br><br> Este correo fue generado y enviado automáticamente desde el sistema cloud elaborado desde la Maestría en Tecnología de la Información</div> ";
 		
 		msg=head+msg+foot0+foot;
-		 if(correopara.includes('hotmail'))
+		
+
+		 if(correopara.includes('educaysoft.org'))
+		 {
+	    $.ajax({
+		url: "<?php echo site_url('seguimiento/sendeducaysoft') ?>",
+		data: {nome:nome, correode:correode, msg:msg, correopara:correopara, secure:secure,asunto:asunto},
+		method: 'POST',
+		async : false,
+		success: function(data){
+		var html = '';
+		var i;
+	//	get_participantes2();
+		alert(data);
+		},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+		 })
+		 }
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		 if(correode.includes('hotmail.com'))
 		 {
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/sendhotmail') ?>",
@@ -492,7 +524,11 @@ $("#btn_update").on("click", function(){
 	      }
 	    })
 
-		}else{
+		}
+
+
+	 if(correode.includes('gmail.com') or correode.includes('utelvt.edu.ec'))
+	 {
 
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/send') ?>",

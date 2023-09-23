@@ -562,6 +562,67 @@ public function sendhotmail()
 
 
 
+public function sendeducaysoft()
+{
+	$this->load->database();
+        $this->load->helper('form','language');
+
+    if ($this->input->post('secure') != 'siteform') {
+        echo lang('erro_no_js');
+    }else{
+
+       if($this->input->post('idpersona'))
+	{
+	$condition="idpersona=".$this->input->post('idpersona')." and idcorreo_estado=1";
+		$this->db->select('*');
+		$this->db->from('correo');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query=$this->db->get();
+		if($query->num_rows() >0) {
+			$mailto=$query->result()[0]->nombre;
+
+		}else{
+        		$mailto = $this->input->post('mailto');
+		}
+	}else{
+       		$mailto = $this->input->post('mailto');
+	}
+
+        $this->load->library('email');
+        $nome = $this->input->post('nome');
+        $msg = str_replace("stalin.francis@utelvt.edu.ec",$mailto, $this->input->post('msg'));
+        $secure = $this->input->post('secure');
+	$email= $this->input->post('email');
+        $config['protocol'] = "ssmtp";
+        $config['smtp_host'] = "ssl://mail.educaysoft.org";
+        $config['smtp_port'] = "465";
+        $config['smtp_timeout'] = "7";
+        $config['smtp_user'] ="maestria.ti@utelvt.edu.ec"; // $this->settings['smtp_email'];
+        $config['smtp_pass'] ="PIwiIB2@3#"; //  $this->settings['smtp_password'];
+        $config['charset'] = "utf-8";
+        $config['mailtype'] = "html";
+        $config['newline'] = "\r\n";
+        $config['validation'] = TRUE; 
+        $this->email->initialize($config); 
+        $this->email->from($correode, $nome);
+        $this->email->to($correopara);
+	if($this->input->post('asunto'))
+	{
+		$this->email->subject($this->input->post('asunto'));
+	}else{
+		$this->email->subject('UTLVTE - EDUCACIÓN CONTINUA');
+	}	
+
+	$this->email->message($msg);
+        if ($this->email->send()){
+            echo json_encode(array("sent"=>TRUE,"mailto"=>$correopara));
+        }else{
+            echo json_encode(array("sent"=>FALSE));
+        }
+    }
+}
+
 
 
 
