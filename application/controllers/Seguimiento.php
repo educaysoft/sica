@@ -34,7 +34,8 @@ class Seguimiento extends CI_Controller{
 	     $data["idevento"]=$idevento;
 	    }
 
-
+		$idpersona=8 //Stalinm Francis
+		$data['correode']= $this->correo_model->correospersona($idpersona)->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['tiposeguimientos']= $this->tiposeguimiento_model->lista_tiposeguimientos()->result();

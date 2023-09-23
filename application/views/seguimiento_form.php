@@ -54,6 +54,24 @@ foreach ($sesioneventos as $row){
 
 
 <div class="form-group row">
+<label class="col-md-2 col-form-label">Correo from:</label>
+<div class="col-md-10">
+<?php
+
+$options= array('--Select--');
+foreach ($correosde as $row){
+	$options[$row->idcorreo]= $row->nombre;
+}
+ echo form_dropdown("idcorreo",$options, set_select('--Select--','default_value'),array('id'=>'idcorreo'));  
+
+?>
+</div>
+</div>
+
+
+
+
+<div class="form-group row">
 <label class="col-md-2 col-form-label">Participantes:</label>
 <div class="col-md-10">
 
@@ -119,6 +137,14 @@ foreach ($sesioneventos as $row){
 							<input type="text" name="fecha_edit" id="fecha_edit" class="form-control" placeholder="fecha">  
 						</div>
 					</div>					
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Correo de:</label>
+						<div class="col-md-10">
+							<input type="text" name="correode_edit" id="correode_edit" class="form-control" placeholder="alumno">  
+						</div>
+					</div>
+
 
 					<div class="form-group row">
 						<label class="col-md-2 col-form-label">idpersona</label>
@@ -394,7 +420,8 @@ $("#btn_update").on("click", function(){
 
 
 	function enviar_correo(){
-		 var email="educacioncontinua@utelvt.edu.ec";
+		// var email="educacioncontinua@utelvt.edu.ec";
+		 var mailto=document.getElementById("correode_edit").value; //   "stalin.francis@utelvt.edu.ec";
 		 var nome= 'Stalin Francis Q.'; // document.getElementById("lapersona_edit").value; 		
                  var msg=tinyMCE.activeEditor.getContent({format:'text'});
 		 var mailto=document.getElementById("correo_edit").value; //   "stalin.francis@utelvt.edu.ec";
@@ -405,6 +432,26 @@ $("#btn_update").on("click", function(){
 		 var foot=" <div style='text-align:center; background-color:lightgrey; font-size:12px;'> Este correo ha sido enviado a "+mailto+ ", de acuerdo a la Ley Orgánica de Protección de datos, usted tiene el derecho a solicitar a la Universidad Técnica Luis Vargas Torres, la actualización, inclusión, supresión y/o tratamiento de los datos personales incluidos en sus bases de datos, con este correo electrónico usted acepta recibir información de las actividades académicas que realiza el Alma Mater así como nuestra propuestas académicas <br><br> Este correo fue generado y enviado automáticamente desde el sistema cloud elaborado desde la Maestría en Tecnología de la Información</div> ";
 
 		msg=head+msg+foot0+foot;
+		 if(mailto.includes('hotmail'))
+		 {
+	    $.ajax({
+		url: "<?php echo site_url('seguimiento/sendhotmail') ?>",
+		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure},
+		method: 'POST',
+		async : false,
+		success: function(data){
+		var html = '';
+		var i;
+	//	get_participantes2();
+		alert(data);
+		},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+	    })
+
+		}else{
 
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/send') ?>",
@@ -422,9 +469,7 @@ $("#btn_update").on("click", function(){
 		alert(thrownError);
 	      }
 	    })
-
-
-
+		}
        }
 
 
@@ -461,6 +506,7 @@ function get_seguimiento_xx() {
           $('[name="idseguimiento_edit"]').val(0);
           $('[name="idevento_edit"]').val(idevento);
           $('[name="fecha_edit"]').val(fecha);
+          $('[name="correode_edit"]').val(correode);
           $('[name="correo_edit"]').val(elcorreo);
           $('[name="lapersona_edit"]').val(lapersona);
           $('[name="idpersona_edit"]').val(idpersona);
@@ -472,6 +518,7 @@ function get_seguimiento_xx() {
           $('[name="idevento_edit"]').val(data[0].idevento);
           $('[name="idpersona_edit"]').val(idpersona);
           $('[name="fecha_edit"]').val(data[0].fecha);
+          $('[name="correode_edit"]').val(data[0].correode);
           $('[name="correo_edit"]').val(data[0].correo);
           $('[name="lapersona_edit"]').val(data[0].lapersona);
           $('[name="comentario_edit"]').val(data[0].comentario);
