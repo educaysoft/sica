@@ -9,6 +9,7 @@ class Seguimiento extends CI_Controller{
       		$this->load->model('evento_model');
       		$this->load->model('tiposeguimiento_model');
          	$this->load->model('sesionevento_model');
+         	$this->load->model('correo_model');
 	}
 
 	public function index(){
