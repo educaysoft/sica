@@ -481,7 +481,7 @@ function get_seguimiento_xx() {
 	const x=arrtmp.split(" - ");
 	var fecha=x[0];
 	var idevento=document.getElementById("idevento").value;
-
+	var correode=  document.getElementById("idcorreo");
 	var idpersona= $('select[name=idpersona]').val();
 	var options = document.getElementById('idpersona').selectedOptions;
 	var values = Array.from(options).map(({ text }) => text);
