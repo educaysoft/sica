@@ -497,7 +497,7 @@ public function send()
         }else{
             echo json_encode(array("sent"=>FALSE));
         }
-    }
+   // }
 }
 
 
