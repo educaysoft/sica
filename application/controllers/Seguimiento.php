@@ -472,7 +472,7 @@ public function send()
         $config['smtp_port'] = "465";
         $config['smtp_timeout'] = "7";
         $config['smtp_user'] =$email; // $this->settings['smtp_email'];
-	if(str_contains($email,"stalin.francis")){
+	if(strpost($email,"stalin.francis")!=false){
         $config['smtp_pass'] ="PIwiIB2@3#"; //  $this->settings['smtp_password'];
 	}else{
         $config['smtp_pass'] ="PIwiIB.2@3#"; //  $this->settings['smtp_password'];
