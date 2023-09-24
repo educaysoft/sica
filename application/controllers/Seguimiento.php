@@ -440,9 +440,9 @@ public function send()
     $this->load->database();
     $this->load->helper('form','language');
 
-    if ($this->input->post('secure') != 'siteform') {
-        echo lang('erro_no_js');
-    }else{
+  //  if ($this->input->post('secure') != 'siteform') {
+   //     echo lang('erro_no_js');
+   // }else{
 
 //       if($this->input->post('idpersona'))
 //	{
