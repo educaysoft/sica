@@ -471,8 +471,12 @@ public function send()
         $config['smtp_host'] = "ssl://ssmtp.googlemail.com";
         $config['smtp_port'] = "465";
         $config['smtp_timeout'] = "7";
-        $config['smtp_user'] ="stalin.francis@utelvt.edu.ec"; // $this->settings['smtp_email'];
+        $config['smtp_user'] =$mail; // $this->settings['smtp_email'];
+	if(str_contains($email,"stalin.francis")){
         $config['smtp_pass'] ="PIwiIB2@3#"; //  $this->settings['smtp_password'];
+	}else{
+        $config['smtp_pass'] ="PIwiIB.2@3#"; //  $this->settings['smtp_password'];
+	}
         $config['charset'] = "utf-8";
         $config['mailtype'] = "html";
         $config['newline'] = "\r\n";
