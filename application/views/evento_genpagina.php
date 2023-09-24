@@ -205,7 +205,7 @@ foreach($participacionB1 as $row){
 $C1=array();
 
 foreach($participacionC1 as $row){
- $C1[$rowE>idpersona]=$row->porcentaje;
+ $C1[$row>idpersona]=$row->porcentaje;
 }
 
 
