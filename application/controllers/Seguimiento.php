@@ -471,7 +471,7 @@ public function send()
         $config['smtp_host'] = "ssl://ssmtp.googlemail.com";
         $config['smtp_port'] = "465";
         $config['smtp_timeout'] = "7";
-        $config['smtp_user'] =$mail; // $this->settings['smtp_email'];
+        $config['smtp_user'] =$email; // $this->settings['smtp_email'];
 	if(str_contains($email,"stalin.francis")){
         $config['smtp_pass'] ="PIwiIB2@3#"; //  $this->settings['smtp_password'];
 	}else{
