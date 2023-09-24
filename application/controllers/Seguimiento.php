@@ -427,18 +427,18 @@ public function get_seguimientop() {
 public function get_tiposeguimiento() {
     $this->load->database();
     $this->load->helper('form');
-        $this->db->select('*');
-        $query = $this->db->get('tiposeguimiento');
+    $this->db->select('*');
+    $query = $this->db->get('tiposeguimiento');
 	$data=$query->result();
 	echo json_encode($data);
-	}
+}
 
 
 
 public function send()
 {
-	$this->load->database();
-       $this->load->helper('form','language');
+    $this->load->database();
+    $this->load->helper('form','language');
 
     if ($this->input->post('secure') != 'siteform') {
         echo lang('erro_no_js');
@@ -598,7 +598,7 @@ public function sendeducaysoft()
         $config['smtp_host'] = "ssl://mail.educaysoft.org";
         $config['smtp_port'] = "465";
         $config['smtp_timeout'] = "7";
-        $config['smtp_user'] ="maestria.ti@utelvt.edu.ec"; // $this->settings['smtp_email'];
+        $config['smtp_user'] =  "_mainaccount@educaysoft.org"; // $this->settings['smtp_email'];
         $config['smtp_pass'] ="PIwiIB2@3#"; //  $this->settings['smtp_password'];
         $config['charset'] = "utf-8";
         $config['mailtype'] = "html";
