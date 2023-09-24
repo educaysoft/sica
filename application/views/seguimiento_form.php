@@ -438,7 +438,7 @@ $("#btn_update").on("click", function(){
 
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/save_seguimiento') ?>",
-		data: {idevento:idevento, fecha:fecha,idtiposeguimiento:idtiposeguimiento,comentario:comentario,idpersona:idpersona,correde:correode,correopara:correopara,asunto:asunto,pie:pie},
+		data: {idevento:idevento, fecha:fecha,idtiposeguimiento:idtiposeguimiento,comentario:comentario,idpersona:idpersona,correode:correode,correopara:correopara,asunto:asunto,pie:pie},
 		method: 'POST',
 		async : false,
 		dataType : 'json',
