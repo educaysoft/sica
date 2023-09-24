@@ -524,7 +524,7 @@ $("#btn_update").on("click", function(){
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/send') ?>",
 		data: {nome:nome, correode:correode, msg:msg, correopara:correopara, secure:secure,asunto:asunto},
-		method: 'GET',
+		method: 'POST',
 		async : false,
 		success: function(data){
 		var html = '';
