@@ -444,29 +444,29 @@ public function send()
         echo lang('erro_no_js');
     }else{
 
-       if($this->input->post('idpersona'))
-	{
-	$condition="idpersona=".$this->input->post('idpersona')." and idcorreo_estado=1";
-		$this->db->select('*');
-		$this->db->from('correo');
-		$this->db->where($condition);
-		$this->db->limit(1);
-		$query=$this->db->get();
-		if($query->num_rows() >0) {
-			$mailto=$query->result()[0]->nombre;
+//       if($this->input->post('idpersona'))
+//	{
+//	$condition="idpersona=".$this->input->post('idpersona')." and idcorreo_estado=1";
+//		$this->db->select('*');
+//		$this->db->from('correo');
+//		$this->db->where($condition);
+//		$this->db->limit(1);
+//		$query=$this->db->get();
+//		if($query->num_rows() >0) {
+///			$mailto=$query->result()[0]->nombre;
 
-		}else{
-        		$mailto = $this->input->post('correopara');
-		}
-	}else{
+//		}else{
+  //      		$mailto = $this->input->post('correopara');
+//		}
+//	}else{
        		$mailto = $this->input->post('correopara');
-	}
+//	}
 
         $this->load->library('email');
         $nome = $this->input->post('nome');
         $msg = str_replace("stalin.francis@utelvt.edu.ec",$mailto, $this->input->post('msg'));
         $secure = $this->input->post('secure');
-	$email= $this->input->post('correopara');
+	$email= $this->input->post('correode');
         $config['protocol'] = "ssmtp";
         $config['smtp_host'] = "ssl://ssmtp.googlemail.com";
         $config['smtp_port'] = "465";
