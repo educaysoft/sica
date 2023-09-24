@@ -495,15 +495,6 @@ $("#btn_update").on("click", function(){
 		 })
 		 }
 
-
-
-
-
-		
-		
-		
-		
-		
 		
 		 if(correode.includes('hotmail.com'))
 		 {

@@ -218,7 +218,9 @@ class Sesionevento extends CI_Controller{
 			echo "<script language='JavaScript'> alert('Fecha para este evento ya fue asignado'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
+
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+			echo "<script language='JavaScript'> enviar_correo();</script>";
 		}
  
  	}
@@ -355,6 +357,7 @@ class Sesionevento extends CI_Controller{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+			echo "<script language='JavaScript'> enviar_correo();</script>";
 		}
  	}
 
@@ -578,4 +581,55 @@ public function get_sesionevento() {
 
 
 
+
+
+
 }
+
+<script>
+	function enviar_correo(){
+		// var email="educacioncontinua@utelvt.edu.ec";
+		 var correode="stalin.francis@utelvt.edu.ec"; //   "stalin.francis@utelvt.edu.ec";
+		 var nome= 'Stalin Francis Q.'; // document.getElementById("lapersona_edit").value; 		
+                 var msg="Se añadio una sesion al leccionario";
+		 var correopara="educaysoft@gmail.com"; //   "stalin.francis@utelvt.edu.ec";
+		 var secure="siteform";
+		 var head="";
+
+		 var asunto="Leccionario digital"; 
+
+		var foot0="<br><div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres de Esmeralda cuenta con los programas de Posgrado los cuales ya estan abiertos para que puedas incribirte.<br><br> <a href='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg'><img src='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg'></a><br><br></div>" ;
+		 var foot=" <div style='text-align:center; background-color:lightgrey; font-size:12px;'> Este correo ha sido enviado a "+correopara+ ", de acuerdo a la Ley Orgánica de Protección de datos, usted tiene el derecho a solicitar a la Universidad Técnica Luis Vargas Torres, la actualización, inclusión, supresión y/o tratamiento de los datos personales incluidos en sus bases de datos, con este correo electrónico usted acepta recibir información de las actividades académicas que realiza el Alma Mater así como nuestra propuestas académicas <br><br> Este correo fue generado y enviado automáticamente desde el sistema cloud elaborado desde la Maestría en Tecnología de la Información</div> ";
+		
+		msg=head+msg+foot0+foot;
+		
+	
+
+	 if(correode.includes('gmail.com') || correode.includes('utelvt.edu.ec'))
+	 {
+
+	    $.ajax({
+		url: "<?php echo site_url('seguimiento/send') ?>",
+		data: {nome:nome, correode:correode, msg:msg, correopara:correopara, secure:secure,asunto:asunto},
+		method: 'POST',
+		async : false,
+		success: function(data){
+		var html = '';
+		var i;
+	//	get_participantes2();
+		alert(data);
+		},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+	    })
+		}
+       }
+
+
+
+
+
+</script>
+
