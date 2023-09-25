@@ -222,15 +222,16 @@ foreach ($correosde as $row){
 
 					<?php
 
-$file = file_get_contents( "https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg" );
-if($file)
-{
-   $base64 = base64_encode($file);
-   $tag = '<img src=\"data:image/jpg;base64,' . $base64 .'" alt=\"Imagen dentro del html\"  />';
+//$file = file_get_contents( "https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg" );
+//if($file)
+//{
+//   $base64 = base64_encode($file);
+//   $tag = '<img src=\"data:image/jpg;base64,' . $base64 .'" alt=\"Imagen dentro del html\"  />';
 //   echo $tag;
-echo '<a class="btn"  onclick="enviar_correo(\''.$tag.'\')"><i class="fa fa-female"></i>Enviar correo.</a>';
-}
+//echo '<a class="btn"  onclick="enviar_correo(\''.$tag.'\')"><i class="fa fa-female"></i>Enviar correo.</a>';
+//}
 
+echo '<a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Enviar correo.</a>';
 
 
 
@@ -472,7 +473,8 @@ $("#btn_update").on("click", function(){
 	});
 
 
-	function enviar_correo(laimagen){
+	//function enviar_correo(laimagen){
+	function enviar_correo(){
 		// var email="educacioncontinua@utelvt.edu.ec";
 		 var correode=document.getElementById("correode_edit").value; //   "stalin.francis@utelvt.edu.ec";
 		 var nome= 'Stalin Francis Q.'; // document.getElementById("lapersona_edit").value; 		
@@ -484,10 +486,10 @@ $("#btn_update").on("click", function(){
 		 var asunto=document.getElementById("asunto_edit").value; 
 
 
-	//	var foot0="<br><div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres de Esmeralda cuenta con los programas de Posgrado los cuales ya estan abiertos para que puedas incribirte.<br><br> <a href='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg'><img src='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg'></a><br><br></div>" ;
+		var foot0="<br><div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres de Esmeralda cuenta con los programas de Posgrado los cuales ya estan abiertos para que puedas incribirte.<br><br> <a href='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg'><img src='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg'></a><br><br></div>" ;
 
 
-		var foot0="<br><div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres de Esmeralda cuenta con los programas de Posgrado los cuales ya estan abiertos para que puedas incribirte.<br><br> <a href='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg'>"+laimagen+"</a><br><br></div>" ;
+//		var foot0="<br><div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres de Esmeralda cuenta con los programas de Posgrado los cuales ya estan abiertos para que puedas incribirte.<br><br> <a href='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg'>"+laimagen+"</a><br><br></div>" ;
 		 var foot=" <div style='text-align:center; background-color:lightgrey; font-size:12px;'> Este correo ha sido enviado a "+correopara+ ", de acuerdo a la Ley Orgánica de Protección de datos, usted tiene el derecho a solicitar a la Universidad Técnica Luis Vargas Torres, la actualización, inclusión, supresión y/o tratamiento de los datos personales incluidos en sus bases de datos, con este correo electrónico usted acepta recibir información de las actividades académicas que realiza el Alma Mater así como nuestra propuestas académicas <br><br> Este correo fue generado y enviado automáticamente desde el sistema cloud elaborado desde la Maestría en Tecnología de la Información</div> ";
 		
 		msg=head+msg+foot0+foot;
