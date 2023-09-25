@@ -226,7 +226,7 @@ $file = file_get_contents( "https://repositorioutlvte.org/Repositorio/publicidad
 if($file)
 {
    $base64 = base64_encode($file);
-   $tag = '<img src="data:image/jpg;base64,' . $base64 .'" alt="Imagen dentro del html"  />';
+   $tag = '<img src=\"data:image/jpg;base64,' . $base64 .'" alt=\"Imagen dentro del html\"  />';
 //   echo $tag;
 echo '<a class="btn"  onclick="enviar_correo(\''.$tag.'\')"><i class="fa fa-female"></i>Enviar correo.</a>';
 }
