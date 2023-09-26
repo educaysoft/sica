@@ -229,7 +229,7 @@ if($file)
 //   $tag = '<img src=\"data:image/jpg;base64,' . $base64 .'" alt=\"Imagen dentro del html\"  />';
 //   echo $tag;
 //echo '<a class="btn"  onclick="enviar_correo(\''.$tag.'\')"><i class="fa fa-female"></i>Enviar correo.</a>';
-echo '<a class="btn"  onclick="enviar_correo(\`<img src=\'data:image/jpg;base64,' .$base64 .'\' />\`)">Enviar correo</a>';
+echo '<a class="btn"  onclick="enviar_correo(`<img src=\'data:image/jpg;base64,' .$base64 .'\' />`)">Enviar correo</a>';
 }
 
 //echo '<a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Enviar correo.</a>';
