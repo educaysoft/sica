@@ -306,7 +306,7 @@ $data=$data.'</div>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login/validarcorreo?idevento='.$row->idevento.'\'"  >Inscribete</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login\'">Ingresa</button>
                 </div>
-                <small class="text-muted"><b>Modalidad:</b>On-line</small>
+                <small class="text-muted"><b>Modalidad:</b>Presencial</small>
 
               </div>
             </div>
