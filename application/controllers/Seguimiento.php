@@ -532,7 +532,7 @@ public function sendhotmail()
         $nome = $this->input->post('nome');
         $msg = str_replace("stalin.francis@utelvt.edu.ec",$mailto, $this->input->post('msg'));
         $secure = $this->input->post('secure');
-	$email= $this->input->post('email');
+	$email= $this->input->post('correode');
         $config['protocol'] = "smtp";
         $config['smtp_host'] = "smtp.office365.com";
         $config['smtp_port'] = "587";
