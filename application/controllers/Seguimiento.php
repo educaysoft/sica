@@ -559,7 +559,6 @@ public function sendhotmail()
         }else{
             echo json_encode(array("sent"=>FALSE));
         }
-    }
 }
 
 
