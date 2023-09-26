@@ -233,8 +233,14 @@ public function genpagina()
 	{
 		$iddistributivo=$this->uri->segment(3);
 		$iddistributivodocente=$this->uri->segment(3);
+
 		$data['jornadadocente'] = $this->jornadadocente_model->jornadadocentexdido($iddistributivodocente)->result();
 	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo2($iddistributivo,$ordenrpt)->result();
+
+	$data['asignatura']= $this->asignatura_model->asignaturas1($data['asignaturadocentes'][0]->idasignatura)->row_array();
+
+	$data['malla']= $this->malla_model->mallaA($data['asignatura']['idmalla'])->result();
+
 		$data['title']="Evento";
 		$this->load->view('distributivodocente_genpagina',$data);
 
