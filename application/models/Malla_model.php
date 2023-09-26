@@ -11,6 +11,11 @@ class Malla_model extends CI_model {
 		 return $malla;
 	}
 
+	function mallaA($id){
+ 		$malla = $this->db->query('select * from malla1 where idmalla="'. $id.'"');
+		 return $malla;
+	}
+
 
 
 
