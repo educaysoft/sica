@@ -539,6 +539,7 @@ public function sendhotmail()
         $config['smtp_timeout'] = "7";
         $config['smtp_user'] =$email; // $this->settings['smtp_email'];
         $config['smtp_pass'] ="SAfq1234"; //  $this->settings['smtp_password'];
+	$config['smtp_crypto'] = 'tls';
         $config['charset'] = "utf-8";
         $config['mailtype'] = "html";
         $config['newline'] = "\r\n";
