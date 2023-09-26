@@ -12,6 +12,8 @@ class Distributivodocente extends CI_Controller{
   	  $this->load->model('evento_model');
   	  $this->load->model('jornadadocente_model');
   	  $this->load->model('tiempodedicacion_model');
+  	  $this->load->model('asignatura_model');
+  	  $this->load->model('malla_model');
 }
 
 public function index(){
