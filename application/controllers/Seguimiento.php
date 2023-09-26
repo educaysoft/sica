@@ -538,8 +538,8 @@ public function sendhotmail()
      //   $config['smtp_port'] = "587";
     //    $config['smtp_timeout'] = "10";
  
-$config['protocol'] = 'smtp';
-$config['smtp_host'] = 'smtp.office365.com';
+$config['protocol'] = 'ssmtp';
+$config['smtp_host'] = 'ssl://smtp.office365.com';
 
 
 	$config['smtp_user'] =$email; // $this->settings['smtp_email'];
