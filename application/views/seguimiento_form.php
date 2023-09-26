@@ -223,15 +223,16 @@ foreach ($correosde as $row){
 					<?php
 
 //$file = file_get_contents( "https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg" );
-//if($file)
-//{
-//   $base64 = base64_encode($file);
+if($file)
+{
+   $base64 = base64_encode($file);
 //   $tag = '<img src=\"data:image/jpg;base64,' . $base64 .'" alt=\"Imagen dentro del html\"  />';
 //   echo $tag;
 //echo '<a class="btn"  onclick="enviar_correo(\''.$tag.'\')"><i class="fa fa-female"></i>Enviar correo.</a>';
-//}
+echo '<a class="btn"  onclick="enviar_correo(<img src=\"data:image/jpg;base64,' .$base64 .'" alt=\"Imagen dentro del html\"  />\")"><i class="fa fa-female"></i>Enviar correo.</a>';
+}
 
-echo '<a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Enviar correo.</a>';
+//echo '<a class="btn"  onclick="enviar_correo()"><i class="fa fa-female"></i>Enviar correo.</a>';
 
 
 
@@ -473,8 +474,8 @@ $("#btn_update").on("click", function(){
 	});
 
 
-	//function enviar_correo(laimagen){
-	function enviar_correo(){
+	function enviar_correo(laimagen){
+//	function enviar_correo(){
 		// var email="educacioncontinua@utelvt.edu.ec";
 		 var correode=document.getElementById("correode_edit").value; //   "stalin.francis@utelvt.edu.ec";
 		 var nome= 'Stalin Francis Q.'; // document.getElementById("lapersona_edit").value; 		
