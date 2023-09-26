@@ -533,17 +533,31 @@ public function sendhotmail()
         $msg = str_replace("stalin.francis@utelvt.edu.ec",$mailto, $this->input->post('msg'));
         $secure = $this->input->post('secure');
 	$email= $this->input->post('correode');
-        $config['protocol'] = "smtp";
-        $config['smtp_host'] = "smtp.office365.com";
-        $config['smtp_port'] = "587";
-        $config['smtp_timeout'] = "7";
-        $config['smtp_user'] =$email; // $this->settings['smtp_email'];
+     //   $config['protocol'] = "smtp";
+     //   $config['smtp_host'] = "smtp.live.com";
+     //   $config['smtp_port'] = "587";
+    //    $config['smtp_timeout'] = "10";
+ 
+$config['protocol'] = 'smtp';
+$config['smtp_host'] = 'smtp.office365.com';
+
+
+	$config['smtp_user'] =$email; // $this->settings['smtp_email'];
         $config['smtp_pass'] ="SAfq1234"; //  $this->settings['smtp_password'];
-	$config['smtp_crypto'] = 'tls';
-        $config['charset'] = "utf-8";
-        $config['mailtype'] = "html";
-        $config['newline'] = "\r\n";
-        $config['validation'] = TRUE; 
+
+$config['smtp_port'] = '587';
+$config['smtp_crypto'] = 'tls';
+$config['mailtype'] = 'html';
+$config['charset'] = 'iso-8859-1';
+$config['wordwrap'] = TRUE;
+$config['newline'] = "\r\n";
+$this->email->clear(TRUE);
+
+//	$config['smtp_crypto'] = 'tls';
+  //      $config['charset'] = "utf-8";
+    //    $config['mailtype'] = "html";
+    //    $config['newline'] = "\r\n";
+   //     $config['validation'] = TRUE; 
         $this->email->initialize($config); 
         $this->email->from($email, $nome);
         $this->email->to($mailto);
