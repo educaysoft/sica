@@ -219,7 +219,7 @@ $data=$data.'
 <img src="https://repositorioutlvte.org/Repositorio/qr/2023_1S_'.$idareaconocimiento.'.png" height="150px">
 </div>
       <div >
-        <h1 class="fw-light">'.$malla[0]->eldepartamentoi.'</h1>  
+        <h1 class="fw-light">'.$malla[0]->eldepartamento.'</h1>  
         <p class="lead text-muted">Área:'.$row->area.'.</p>
         <p class="lead text-muted">Periodo: 2023-1S.</p>
       </div>
