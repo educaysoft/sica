@@ -252,12 +252,6 @@ class Curso extends CI_Controller{
 
 
 	// Pedagogía de la física y la Mátematica
-	public function nivelacion_2023_1S_25()
-	{
-	  $this->load->view('cursos/2023-1S-25');
-	}
-
-	// Pedagogía de la física y la Mátematica
 	public function maestria_2023_1S_29()
 	{
 	  $this->load->view('cursos/2023-1S-29');
