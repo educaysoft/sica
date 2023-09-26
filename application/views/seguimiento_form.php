@@ -222,7 +222,7 @@ foreach ($correosde as $row){
 
 					<?php
 
-//$file = file_get_contents( "https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg" );
+$file = file_get_contents( "https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg" );
 if($file)
 {
    $base64 = base64_encode($file);
