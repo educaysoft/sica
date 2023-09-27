@@ -299,8 +299,9 @@ $data=$data.'</div>
               <p class="card-text"><b>Paralelo : </b> '.$row->paralelo.'".</p>
               <p><b>Docente : </b><span style="color:blue">'.$row->eldocente.'.</span></p>
 
-              <p><b>Inicia : </b><span style="color:red">'.$row->fechainicia.'.</span></p>
-              <p><b>Finaliza : </b><span style="color:red">'.$row->fechafinaliza.'.</span></p>
+              <p><b>Inicia : </b><span style="color:red">'.$row->fechainicia.'.</span><br>
+              <b>Finaliza : </b><span style="color:red">'.$row->fechafinaliza.'.</span></p>
+              <p><b>ESTADO : </b><span style="color:red">'.$row->estadoevento.'.</span></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login/validarcorreo?idevento='.$row->idevento.'\'"  >Inscribete</button>
