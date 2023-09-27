@@ -45,7 +45,7 @@ public function registro() {
 	$this->load->view('template/page_header.php');
 	//$this->load->view('registration_form',$data);
 	$this->load->view('registration_form',$data);
-	$this->load->view('template/page_footer.php');
+//	$this->load->view('template/page_footer.php');
 }
 
 
