@@ -302,7 +302,7 @@ $data=$data.'</div>
               <p><b>Inicia : </b><span style="color:red">'.$row->fechainicia.'.</span><br>
 	      <b>Finaliza : </b><span style="color:red">'.$row->fechafinaliza.'.</span></p>';
 
-	if(strpos($row->estadoevento,"TERMINADO")!==false || (strpos($row->estadoevento,"PRÓXIMO A INICIAR")!==false  ){
+	if(strpos($row->estadoevento,"TERMINADO")!==false || strpos($row->estadoevento,"PRÓXIMO A INICIAR")!==false  ){
 		$data=$data.' <p><b>ESTADO : </b><span style="color:red">'.$row->estadoevento.'.</span></p>';
 	}else{
 		$data=$data.' <p><b>ESTADO : </b><span style="color:green">'.$row->estadoevento.'.</span></p>';
