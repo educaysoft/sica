@@ -125,8 +125,8 @@ if(checkdate($m,$d,$a)){
 }
 
 
-	$fecha1=$fechasesion;
-    	$fecha2=$fechasesion;
+//	$fecha1=$fechasesion;
+ //   	$fecha2=$fechasesion;
 
 
 
@@ -198,7 +198,9 @@ if(checkdate($m,$d,$a)){
 
 
 	foreach ($participacion as $row){  //Recorre todas la participaciones realizadas por los participantes
-	       
+
+		$fecha1=$calendarioacademico[0]->fechadesde; //En cada fila reincia la fecha a la fecha de inicio del ciclo
+
 	  if($idparticipanteestado==$row->idparticipanteestado || $idparticipanteestado==0){ // En caso de que solo quiere un estado de aprticipancion    
 	  if($idpersona==$row->idpersona || $idpersona==0){ // En caso de que solo quiere el de un estudiante    
 	  if($id!=$row->idpersona)
