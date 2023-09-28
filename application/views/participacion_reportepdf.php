@@ -247,7 +247,7 @@ if(checkdate($m,$d,$a)){
 			{
 			      if($row1->fecha<=$fc)
 				{
-				$parcial[$p]=$parcial[$p]+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha])*$ponderacion,2);
+				$parcial[$p]=$parcial[$p]+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti)*$ponderacion,2);
 				$nnotas[$p]=$nnotas[$p]+1;
 				$nparcial=$p;
 				$salir=1;
