@@ -375,7 +375,6 @@ if(checkdate($m,$d,$a)){
     $pdf->Cell(5,5,utf8_decode($arrcolegio1[$id]),1,0,'L',0);
     foreach ($sesioneventos as $row1){
       if(isset($arrparticipacion[$row1->fecha])){
-
 			$fecha2=$row1->fecha;
 			$q1=$this->db->query("select idpersona, count(porcentaje) as cantidad from participacion2 where idevento=".$row1->idevento." and idmodoevaluacion=1 and (fecha between '". $fecha1. "' and '". $fecha2."')  group by idpersona order by cantidad desc limit 1");
 			if($q1->num_rows()>0){
