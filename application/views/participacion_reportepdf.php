@@ -358,7 +358,7 @@ if(checkdate($m,$d,$a)){
 
   }else{   //--Cuando 
     	$arrparticipacion[$row->fecha]=$row->porcentaje;
-
+	$xparti[$row->fecha]=0;
         if($nivelrpt==2){	
 	    $arrayuda[$row->fecha]=0;
 	}else{
