@@ -234,11 +234,11 @@ if(checkdate($m,$d,$a)){
 			      }
 			      if($arrayuda[$row1->fecha]>0){
 				$pdf->SetTextColor(3,18,249);
-				$xparti=(100-($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]))*($vp/(100*$cmp));
-				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti)*$ponderacion,2),1,0,'R',0);
+				$xparti[$row1->fecha]=(100-($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]))*($vp/(100*$cmp));
+				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 			      }else{
 				$xparti=(100-($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]))*($vp/(100*$cmp));
-				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti)*$ponderacion,2),1,0,'R',0);
+				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 			      }
 			       $fecha1=$row1->fecha;	
 			$pdf->SetTextColor(0,0,0);
@@ -247,7 +247,7 @@ if(checkdate($m,$d,$a)){
 			{
 			      if($row1->fecha<=$fc)
 				{
-				$parcial[$p]=$parcial[$p]+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti)*$ponderacion,2);
+				$parcial[$p]=$parcial[$p]+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti[$row1->fecha])*$ponderacion,2);
 				$nnotas[$p]=$nnotas[$p]+1;
 				$nparcial=$p;
 				$salir=1;
@@ -323,6 +323,7 @@ if(checkdate($m,$d,$a)){
 	  //print_r($row);
 
 	$arrparticipacion=array(); 	$arrgenero1=array(); 	$arrgenero2=array(); 	$arrcolegio1=array(); 	$arrcolegio2=array(); 	$arrayuda=array();
+	$xparti=array();
 	$id=$row->idpersona;
 	$arrparticipacion[$row->idpersona]=$row->nombres;
 	$arrgenero1[$row->idpersona]=$row->idsexo; 
@@ -330,7 +331,7 @@ if(checkdate($m,$d,$a)){
 	$arrcolegio1[$row->idpersona]=$row->idinstitucion; 
 	$arrcolegio2[$row->idpersona]=$row->colegio; 
 	$arrparticipacion[$row->fecha]=$row->porcentaje;
-
+	$xparti[$row->fecha]=0;
 // echo "\n";
 
 //	   print_r($arrparticipacion);
@@ -397,11 +398,11 @@ if(checkdate($m,$d,$a)){
 
 			      if($arrayuda[$row1->fecha]>0){
 				$pdf->SetTextColor(3,18,249);
-				$xparti=(100-($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]))*($vp/(100*$cmp));
-				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti)*$ponderacion,2),1,0,'R',0);
+				$xparti[$row1->fecha]=(100-($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]))*($vp/(100*$cmp));
+				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 			      }else{
-				$xparti=(100-($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]))*($vp/(100*$cmp));
-				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti)*$ponderacion,2),1,0,'R',0);
+				$xparti[$row1->fecha]=(100-($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]))*($vp/(100*$cmp));
+				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 			      }
 			       $fecha1=$row1->fecha;	
 	$pdf->SetTextColor(0,0,0);
@@ -411,7 +412,7 @@ if(checkdate($m,$d,$a)){
 	{
 	      if($row1->fecha<=$fc)
 		{
-  			$parcial[$p]=$parcial[$p]+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti)*$ponderacion,2);
+  			$parcial[$p]=$parcial[$p]+ round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti[$row1->fecha])*$ponderacion,2);
 			$nnotas[$p]=$nnotas[$p]+1;
 			$nparcial=$p;
 			$salir=1;
