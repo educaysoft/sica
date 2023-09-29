@@ -237,7 +237,7 @@ if(checkdate($m,$d,$a)){
 				$xparti[$row1->fecha]=(100-($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]))*($vp/(100*$cmp));
 				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 			      }else{
-				$xparti=(100-($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]))*($vp/(100*$cmp));
+				$xparti[$row1->fecha]=(100-($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]))*($vp/(100*$cmp));
 				$pdf->Cell(8,5,round(($arrparticipacion[$row1->fecha]+$arrayuda[$row1->fecha]+$xparti[$row1->fecha])*$ponderacion,2),1,0,'R',0);
 			      }
 			       $fecha1=$row1->fecha;	
