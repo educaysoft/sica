@@ -128,6 +128,7 @@ $('#show_data').on('click','.item_enviar',function(){
         var archivo="";
 	var iddocumento= $(this).data('iddocumento2');
 //	alert(iddocumento);
+	//
       $.ajax({
         url: "<?php echo site_url('documento/get_documento') ?>",
 	  method: 'POST',
@@ -137,11 +138,38 @@ $('#show_data').on('click','.item_enviar',function(){
 	  success: function(data) {
 		   archivo= data[0].archivopdf;  
 	},
-      error: function (xhr, ajaxOptions, thrownError){ 
-        alert(xhr.status);
-        alert(thrownError);
-      }
+      	error: function (xhr, ajaxOptions, thrownError){ 
+        	alert(xhr.status);
+        	alert(thrownError);
+      	}
 	});
+
+
+        var corropara="";
+	var idpersona= $(this).data('idpersona');
+
+      $.ajax({
+        url: "<?php echo site_url('documento/get_persona') ?>",
+	  method: 'POST',
+	  data: {idpersona:idpersona},
+	  async : false,
+          dataType : 'json',
+	  success: function(data) {
+		   correopara= data[0].correo;  
+	},
+      	error: function (xhr, ajaxOptions, thrownError){ 
+        	alert(xhr.status);
+        	alert(thrownError);
+      	}
+	});
+
+
+
+
+
+
+
+
 	if(archivo != ''){
  		var ordenador = "https://"+$(this).data('ordenador');
 		var ubicacion=$(this).data('ruta');
@@ -169,8 +197,9 @@ $('#show_data').on('click','.item_enviar',function(){
 		msg=head+msg+foot0+foot;
 
 		var correode="educacioncontinua@utelvt.edu.ec";
-		var correopara=mailto;
-
+		if(correopara==''){
+			correopara=mailto;
+		}
 
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/send') ?>",

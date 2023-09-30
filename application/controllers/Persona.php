@@ -394,6 +394,23 @@ public function anterior(){
 
 
 
+	public function get_persona() {
+	    $this->load->database();
+	    $this->load->helper('form');
+	    if($this->input->post('idpersona')) {
+		$this->db->select('*');
+		$this->db->where(array('idpersona' => $this->input->post('idpersona')));
+		$query = $this->db->get('persona2');
+		$data=$query->result();
+		echo json_encode($data);
+		}
+	}
+
+
+
+
+
+
 
 
 
