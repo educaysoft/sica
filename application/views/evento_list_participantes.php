@@ -168,12 +168,13 @@ $('#show_data').on('click','.item_enviar',function(){
 
 		msg=head+msg+foot0+foot;
 
-
+		var correode="educacioncontinua@utelvt.edu.ec";
+		var correopara=mailto;
 
 
 	    $.ajax({
 		url: "<?php echo site_url('seguimiento/send') ?>",
-		data: {nome:nome, email:email, msg:msg, mailto:mailto, secure:secure, asunto:asunto, idpersona:idpersona},
+		data: {nome:nome, correopara:correopara, msg:msg, correode:correode, secure:secure, asunto:asunto, idpersona:idpersona},
 		method: 'POST',
 		async : false,
 		success: function(data){
