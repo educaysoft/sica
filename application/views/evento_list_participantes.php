@@ -150,7 +150,7 @@ $('#show_data').on('click','.item_enviar',function(){
 	var idpersona= $(this).data('idpersona');
 
       $.ajax({
-        url: "<?php echo site_url('documento/get_persona') ?>",
+        url: "<?php echo site_url('persona/get_persona') ?>",
 	  method: 'POST',
 	  data: {idpersona:idpersona},
 	  async : false,
