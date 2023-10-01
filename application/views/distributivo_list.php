@@ -122,5 +122,16 @@ window.location.href = retorno+'/'+id;
 });
 
 
+$('#show_data_c').on('click','.item_ver',function(){
+
+var id= $(this).data('iddistributivo');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+
+});
+
+
+
+
 </script>
 
