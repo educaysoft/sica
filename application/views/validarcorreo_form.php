@@ -201,7 +201,8 @@ $('#validarcorreo').click(function() {
 		 var idevento=<?php echo $idevento ?>;
 		 var titulo=document.getElementById("titulo").value; //   "stalin.francis@utelvt.edu.ec";
 		 var email="educacioncontinua@utelvt.edu.ec";
-		 var correode="educacioncontinua@utelvt.edu.ec";
+//		 var correode="educacioncontinua@utelvt.edu.ec";
+		 var correode="educaysoft@hotmail.com";
 		 var nome= 'Stalin Francis Q.'; // document.getElementById("lapersona_edit").value; 		
                  var msg="Ingresa al siguiente link para terminar tu registro y poder recibir tu certificado al culminar el evento <br><br><a href='https://educaysoft.org/sica/index.php/login/registro?idevento="+idevento+"' style='text-align:center;'><b>Evento :</b>"+titulo+"</a><br><br>";  //tinyMCE.activeEditor.getContent({format:'text'});
 		 var mailto=document.getElementById("email").value; //   "stalin.francis@utelvt.edu.ec";
