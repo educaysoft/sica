@@ -199,7 +199,8 @@ function distributivo_data_close()
 
 
 
-public function panel()
+publit
+function panel()
 {
 	
 	$data['distributivos'] = $this->distributivo_model->lista_distributivos()->result();

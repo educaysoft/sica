@@ -441,12 +441,6 @@ public function send()
     $this->load->helper('form','language');
 
 
-
-
-
-
-
-
        		$mailto = $this->input->post('correopara');
 
         $this->load->library('email');
@@ -458,8 +452,12 @@ public function send()
 
 	if(strpos($email,"stalin.francis")!=false){
 
-		$config['protocol'] = 'ssmtp';
-		$config['smtp_host'] = 'ssl://smtp.office365.com';
+		//$config['protocol'] = 'ssmtp';
+		//$config['smtp_host'] = 'ssl://smtp.office365.com';
+
+		$config['protocol'] = 'smtp';
+		$config['smtp_host'] = 'ssl://smtp.live.com';
+
 		$config['smtp_user'] =$email; // $this->settings['smtp_email'];
         	$config['smtp_pass'] ="SAfq1234"; //  $this->settings['smtp_password'];
 		$config['smtp_port'] = '587';
