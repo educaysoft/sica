@@ -226,10 +226,10 @@
 
 
           <div class="col-sm-1">
-              <i class='fas fa-tasks'></i>
+              <i class='fa fa-tasks'></i>
           </div>
 
-          <div class="col-sm-3">
+          <div class="col-sm-2">
             <span>Fechas </span>
           </div>
 
@@ -330,7 +330,7 @@
 
 
 
-          <div class="col-sm-3">
+          <div class="col-sm-2">
             <span><?php  if(isset($fecha[$row->numerosesion])){ echo $fecha[$row->numerosesion];}else{ echo "";} ?></span>
           </div>
 
