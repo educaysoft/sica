@@ -6,7 +6,7 @@
  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
  	<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/album/">
 	<link href="../../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 	<style>
 		/* Style the body */
 		body,html {
@@ -225,7 +225,7 @@
           </div>
 
 	  <div class="col-md-auto">
-              <i class='fas fa-book-open'></i>
+              <i class='fas fa-tasks'></i>
           </div>
 
           <div class="col-sm-3">
