@@ -225,7 +225,7 @@
           </div>
 
 
-          <div class="col-sm-3">
+          <div class="col-sm-1">
               <i class='fas fa-tasks'></i>
           </div>
 
@@ -316,7 +316,7 @@
 		<?php } ?>
           </div>
 
-          <div class="col-sm-3">
+          <div class="col-sm-1">
 <button onclick="window.modal2.showModal();">tarea</button>
   <dialog id="modal2">
   <h3>Tarea para aprendizaje autonomo</h3>
