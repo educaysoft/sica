@@ -224,6 +224,10 @@
             <span>Tema(Sesión)</span> 
           </div>
 
+	  <div class="col-md-auto">
+              <i class='fa fa-book-open'></i>
+          </div>
+
           <div class="col-sm-3">
             <span>Fechas </span>
           </div>
@@ -310,6 +314,20 @@
             <span><?php   echo $row->nombrecorto; ?></span> 
 		<?php } ?>
           </div>
+
+<div class="col-md-auto">	
+<button onclick="window.modal2.showModal();">Otra ventana modal</button>
+  <dialog id="modal2">
+  <h3>¡Otra ventana modal diferente!</h3>
+    <p>Podemos crear tantas botones y ventanas modales como queramos en nuestro diseño, siempre teniendo en cuenta de enlazar bien cada botón con el elemento HTML <i>dialog</i> que debe abrir.</p>    
+  <button onclick="window.modal2.close();">Cerrar</button>
+</dialog>
+
+          </div>
+
+
+
+
           <div class="col-sm-3">
             <span><?php  if(isset($fecha[$row->numerosesion])){ echo $fecha[$row->numerosesion];}else{ echo "";} ?></span>
           </div>

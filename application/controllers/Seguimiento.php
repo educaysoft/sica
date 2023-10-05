@@ -621,9 +621,9 @@ public function sendeducaysoft()
         $msg = str_replace("stalin.francis@utelvt.edu.ec",$mailto, $this->input->post('msg'));
         $secure = $this->input->post('secure');
 	$email= $this->input->post('email');
-        $config['protocol'] = "ssmtp";
+        $config['protocol'] = "smtp";
         $config['smtp_host'] = "ssl://mail.educaysoft.org";
-        $config['smtp_port'] = "465";
+        $config['smtp_port'] = "25";
         $config['smtp_timeout'] = "7";
         $config['smtp_user'] =  "_mainaccount@educaysoft.org"; // $this->settings['smtp_email'];
         $config['smtp_pass'] ="PIwiIB2@3#"; //  $this->settings['smtp_password'];
