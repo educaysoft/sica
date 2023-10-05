@@ -322,9 +322,15 @@
 		<?php }else{ 
 			echo '<button onclick="window.modal'.$row->numerosesion.'.showModal();">tarea</button>';
   			echo '<dialog id="modal'.$row->numerosesion.'">';
+			echo '<div class="modal-header">';
 			echo '<h3>Tarea para aprendizaje autonomo<?php echo $row->idtema; ?></h3>';
+			echo '</div>';
     			echo $row->aprendizajeautonomo.' <br>';
+
+			echo '<div class="modal-footer">';
+
   			echo '<center><button onclick="window.modal'.$row->numerosesion.'.close();">Cerrar</button></center>';
+			echo '</div>';
 			echo '</dialog>';
 			 } ?>
           </div>
