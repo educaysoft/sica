@@ -224,7 +224,8 @@
             <span>Tema(Sesión)</span> 
           </div>
 
-	  <div class="col-md-auto">
+
+          <div class="col-sm-3">
               <i class='fas fa-tasks'></i>
           </div>
 
@@ -315,13 +316,13 @@
 		<?php } ?>
           </div>
 
-<div class="col-md-auto">	
+          <div class="col-sm-3">
 <button onclick="window.modal2.showModal();">tarea</button>
   <dialog id="modal2">
   <h3>Tarea para aprendizaje autonomo</h3>
-    <?php echo $row->nombrecorto; ?>
+    <?php echo $row->nombrecorto; ?><br>
         
-  <button onclick="window.modal2.close();">Cerrar</button>
+  <center><button onclick="window.modal2.close();">Cerrar</button></center>
 </dialog>
 
           </div>
