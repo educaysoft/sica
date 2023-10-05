@@ -312,7 +312,7 @@
 
             <span><a href="<?php   echo $row->linkpresentacion; ?>"><?php   echo $row->nombrecorto; ?></a></span> 
 		<?php }else{ ?>
-            <span><?php   echo $row->nombrecorto; ?></span> 
+            <span><?php   echo $row->nombrecorto;  $aa=$row->aprendizajeautonomo; ?></span> 
 		<?php } ?>
           </div>
 
@@ -323,7 +323,7 @@
 			<button onclick="window.modal2.showModal();">tarea</button>
   			<dialog id="modal2">
 			<h3>Tarea para aprendizaje autonomo<?php echo $row->idtema; ?></h3>
-    				<?php echo $row->aprendizajeautonomo; ?><br>
+    				<?php echo $aa; ?><br>
   			<center><button onclick="window.modal2.close();">Cerrar</button></center>
 			</dialog>
 			<?php } ?>
