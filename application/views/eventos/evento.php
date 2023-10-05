@@ -316,7 +316,6 @@
 		<?php } ?>
           </div>
 
-          <div class="col-sm-1">
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Launch demo modal
@@ -345,7 +344,6 @@
 
 
 
-          </div>
 
 <?php
 if($row->numerosesion==24){
