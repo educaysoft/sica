@@ -316,10 +316,11 @@
           </div>
 
 <div class="col-md-auto">	
-<button onclick="window.modal2.showModal();">Otra ventana modal</button>
+<button onclick="window.modal2.showModal();">tarea</button>
   <dialog id="modal2">
-  <h3>¡Otra ventana modal diferente!</h3>
-    <p>Podemos crear tantas botones y ventanas modales como queramos en nuestro diseño, siempre teniendo en cuenta de enlazar bien cada botón con el elemento HTML <i>dialog</i> que debe abrir.</p>    
+  <h3>Tarea para aprendizaje autonomo</h3>
+    <?php echo $row->nombrecorto; ?>
+        
   <button onclick="window.modal2.close();">Cerrar</button>
 </dialog>
 
