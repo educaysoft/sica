@@ -323,7 +323,7 @@
 			<button onclick="window.modal2.showModal();">tarea</button>
   			<dialog id="modal2">
   			<h3>Tarea para aprendizaje autonomo</h3>
-    				<?php echo $row->nombrecorto; ?><br>
+    				<?php echo $row->aprendizajeautonomo; ?><br>
   			<center><button onclick="window.modal2.close();">Cerrar</button></center>
 			</dialog>
 			<?php } ?>
