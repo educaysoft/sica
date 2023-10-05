@@ -225,7 +225,7 @@
           </div>
 
 	  <div class="col-md-auto">
-              <i class='fa fa-book-open'></i>
+              <i class='fas fa-book-open'></i>
           </div>
 
           <div class="col-sm-3">
