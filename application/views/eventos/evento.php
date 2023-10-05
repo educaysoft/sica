@@ -329,11 +329,6 @@
 			 } ?>
           </div>
 
-<?php
-if($row->numerosesion==24){
-    print_r($row);	 
-    die();
- }
   
 
 
