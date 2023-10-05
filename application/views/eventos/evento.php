@@ -317,14 +317,16 @@
           </div>
 
           <div class="col-sm-1">
-<button onclick="window.modal2.showModal();">tarea</button>
-  <dialog id="modal2">
-  <h3>Tarea para aprendizaje autonomo</h3>
-    <?php echo $row->nombrecorto; ?><br>
-        
-  <center><button onclick="window.modal2.close();">Cerrar</button></center>
-</dialog>
-
+		<?php if($row->aprendizajeautonomo==""){ ?>
+			<?php echo ""; ?>
+		<?php }else{ ?>
+			<button onclick="window.modal2.showModal();">tarea</button>
+  			<dialog id="modal2">
+  			<h3>Tarea para aprendizaje autonomo</h3>
+    				<?php echo $row->nombrecorto; ?><br>
+  			<center><button onclick="window.modal2.close();">Cerrar</button></center>
+			</dialog>
+			<?php } ?>
           </div>
 
 
