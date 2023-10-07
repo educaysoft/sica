@@ -199,7 +199,6 @@ function distributivo_data_close()
 
 
 
-publit
 function panel()
 {
 	
