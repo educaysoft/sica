@@ -28,11 +28,11 @@ foreach ($personas as $row){
 <td><?php 
 
 $options= array('--Select--');
-foreach ($relacionpersona_estados as $row){
-	$options[$row->idrelacionpersona_estado]= $row->nombre;
+foreach ($tiporelacionpersonas as $row){
+	$options[$row->idtiporelacionpersona]= $row->nombre;
 }
 
- echo form_dropdown("idrelacionpersona_estado",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idtiporelacionpersona",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
