@@ -80,7 +80,6 @@ public function add()
 	 	$array_item=array(
 		 	
 		 	'idrelacionpersona' => $this->input->post('idrelacionpersona'),
-		 	'nombre' => $this->input->post('nombre'),
 			'idpersona' => $this->input->post('idpersona'),
 			'idtiporelacionpersona' => $this->input->post('idtiporelacionpersona'),
 
@@ -111,7 +110,6 @@ public function edit()
 	 	$array_item=array(
 		 	
 		 	'idrelacionpersona' => $this->input->post('idrelacionpersona'),
-		 	'nombre' => $this->input->post('nombre'),
 			'idpersona' => $this->input->post('idpersona'),
 			'idtiporelacionpersona' => $this->input->post('idtiporelacionpersona'),
 	 	);

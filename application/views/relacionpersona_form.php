@@ -18,13 +18,15 @@ foreach ($personas as $row){
 </tr>
 
 
-<tr>
-<td> Relacionpersona: </td>
-<td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de Unidad"))  ?></td>
-</tr>
+
+
+
+
+
+
 
 <tr>
-<td> Estado: </td>
+<td> Tipo relación: </td>
 <td><?php 
 
 $options= array('--Select--');
