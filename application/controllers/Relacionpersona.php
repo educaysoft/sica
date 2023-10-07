@@ -15,7 +15,7 @@ public function index(){
 			
   	$data['relacionpersona']=$this->relacionpersona_model->lista_relacionpersonas()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['relacionpersona_estados']= $this->tiporelacionpersona_model->lista_relacionpersona_estado()->result();
+  	$data['tiporelacionpersonas']= $this->tiporelacionpersona_model->lista_tiporelacionpersonas()->result();
 			
 		$data['title']="Lista de relacionpersonas";
 		$this->load->view('template/page_header');
@@ -35,7 +35,7 @@ public function actual(){
 
 	$data['relacionpersona'] = $this->relacionpersona_model->relacionpersona($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['relacionpersona_estados']= $this->tiporelacionpersona_model->lista_relacionpersona_estado()->result();
+  	$data['tiporelacionpersonas']= $this->tiporelacionpersona_model->lista_tiporelacionpersonas()->result();
 	$data['title']="Modulo de Telefonos";
 	$this->load->view('template/page_header');		
 	$this->load->view('relacionpersona_record',$data);
@@ -65,7 +65,7 @@ public function add()
 	}
 
 
-  	$data['relacionpersona_estados']= $this->tiporelacionpersona_model->lista_relacionpersona_estado()->result();
+  	$data['tiporelacionpersonas']= $this->tiporelacionpersona_model->lista_tiporelacionpersonas()->result();
 		$data['title']="Nueva Relacionpersona";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('relacionpersona_form',$data);
@@ -82,7 +82,8 @@ public function add()
 		 	'idrelacionpersona' => $this->input->post('idrelacionpersona'),
 		 	'nombre' => $this->input->post('nombre'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idrelacionpersona_estado' => $this->input->post('idrelacionpersona_estado'),
+			'idtiporelacionpersona' => $this->input->post('idtiporelacionpersona'),
+
 	 	);
 	 	$this->relacionpersona_model->save($array_item);
 	 	//redirect('relacionpersona');
@@ -95,7 +96,7 @@ public function edit()
 {
 	 	$data['relacionpersona'] = $this->relacionpersona_model->relacionpersona($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['relacionpersona_estados']= $this->tiporelacionpersona_model->lista_relacionpersona_estado()->result();
+  		$data['tiporelacionpersonas']= $this->tiporelacionpersona_model->lista_tiporelacionpersonas()->result();
  	 	$data['title'] = "Actualizar Relacionpersona";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('relacionpersona_edit',$data);
@@ -112,7 +113,7 @@ public function edit()
 		 	'idrelacionpersona' => $this->input->post('idrelacionpersona'),
 		 	'nombre' => $this->input->post('nombre'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idrelacionpersona_estado' => $this->input->post('idrelacionpersona_estado'),
+			'idtiporelacionpersona' => $this->input->post('idtiporelacionpersona'),
 	 	);
 	 	$this->relacionpersona_model->update($id,$array_item);
 	 	//redirect('relacionpersona');
@@ -175,7 +176,8 @@ function relacionpersona_data()
 public function elprimero()
 {
 	$data['relacionpersona'] = $this->relacionpersona_model->elprimero();
-  	$data['relacionpersona_estados']= $this->tiporelacionpersona_model->lista_relacionpersona_estado()->result();
+  	$data['tiporelacionpersonas']= $this->tiporelacionpersona_model->lista_tiporelacionpersonas()->result();
+
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
@@ -193,7 +195,7 @@ public function elprimero()
 public function elultimo()
 {
 	$data['relacionpersona'] = $this->relacionpersona_model->elultimo();
-  	$data['relacionpersona_estados']= $this->tiporelacionpersona_model->lista_relacionpersona_estado()->result();
+  	$data['tiporelacionpersonas']= $this->tiporelacionpersona_model->lista_tiporelacionpersonas()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
@@ -214,7 +216,7 @@ public function siguiente(){
  // $data['relacionpersona_list']=$this->relacionpersona_model->lista_relacionpersona()->result();
 	$data['relacionpersona'] = $this->relacionpersona_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['relacionpersona_estados']= $this->tiporelacionpersona_model->lista_relacionpersona_estado()->result();
+  	$data['tiporelacionpersonas']= $this->tiporelacionpersona_model->lista_tiporelacionpersonas()->result();
   $data['title']="Relacionpersona";
 	$this->load->view('template/page_header');		
   $this->load->view('relacionpersona_record',$data);
@@ -225,7 +227,7 @@ public function anterior(){
  // $data['relacionpersona_list']=$this->relacionpersona_model->lista_relacionpersona()->result();
 	$data['relacionpersona'] = $this->relacionpersona_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['relacionpersona_estados']= $this->tiporelacionpersona_model->lista_relacionpersona_estado()->result();
+  	$data['tiporelacionpersonas']= $this->tiporelacionpersona_model->lista_tiporelacionpersonas()->result();
   $data['title']="Relacionpersona";
 	$this->load->view('template/page_header');		
   $this->load->view('relacionpersona_record',$data);
