@@ -85,7 +85,7 @@ function operadora_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->operadora_model->lista_operadoraes();
+	 	$data0 = $this->operadora_model->lista_operadoras();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idoperadora,$r->nombre,
