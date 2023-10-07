@@ -61,7 +61,7 @@ echo form_input('idpersona',$options[$vinculopersona['idpersona']],array("disabl
 
 <tr>
      <td>Vinculo:</td>
-     <td><?php echo form_input('elvinculo',$vinculopersona['elvinculo'],array("disabled"=>"disabled",'placeholder'=>'Nombre')) ?></td>
+     <td><?php echo form_input('larelacion',$vinculopersona['larelacion'],array("disabled"=>"disabled",'placeholder'=>'Nombre')) ?></td>
   </tr>
   
 
