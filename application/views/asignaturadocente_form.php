@@ -183,15 +183,16 @@ function get_asignaturas() {
 
 
 function get_estado() {
-	var iddistributivodocente = $('select[name=iddistributivodocente]').val();
+	var iddistributivo = $('select[name=iddistributivo]').val();
+//	var iddistributivodocente = $('select[name=iddistributivodocente]').val();
 	var idasignatura = $('select[name=idasignatura]').val();
 	var idparalelo = $('select[name=idparalelo]').val();
-	alert(iddistributivodocente);
+	alert(iddistributivo);
 	alert(idasignatura);
 	alert(idparalelo);
     $.ajax({
         url: "<?php echo site_url('asignaturadocente/get_estado') ?>",
-        data: {iddistributivodocente:iddistributivodocente,idasignatura:idasignatura,idparalelo:idparalelo},
+        data: {iddistributivo:iddistributivo,idasignatura:idasignatura,idparalelo:idparalelo},
         method: 'POST',
 	async : true,
         dataType : 'json',
