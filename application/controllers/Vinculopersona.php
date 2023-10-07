@@ -65,7 +65,7 @@ public function add()
 	}
 
 
-  	$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersona()->result();
+  	$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersonas()->result();
 		$data['title']="Nueva Vinculopersona";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('vinculopersona_form',$data);
