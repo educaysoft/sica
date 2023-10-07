@@ -89,7 +89,7 @@ function operadora_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idoperadora,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idoperadora="'.$r->idoperadora.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('operadora/actual').'"   data-idoperadora="'.$r->idoperadora.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -99,6 +99,28 @@ function operadora_data()
 		echo json_encode($output);
 		exit();
 }
+
+
+public function actual()
+{
+	$data['operadora'] = $this->operadora_model->operadora($this->uri->segment(3))->row_array();
+  if(!empty($data))
+  {
+    $data['title']="Operadora";
+    $this->load->view('template/page_header');		
+    $this->load->view('operadora_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
+
 
 
 public function elprimero()
