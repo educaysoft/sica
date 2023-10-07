@@ -152,7 +152,7 @@ function vinculopersona_data()
 	 	$data0 = $this->vinculopersona_model->lista_vinculopersonasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idvinculopersona,$r->lapersona,$r->elvinculopersona,
+			$data[]=array($r->idvinculopersona,$r->idpersona,$r->lapersona1,$r->larelacion,$r->idpersona2,$r->lapersona,$r->fechadesde,$r->fechahasta,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('vinculopersona/actual').'"  data-idvinculopersona="'.$r->idvinculopersona.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,

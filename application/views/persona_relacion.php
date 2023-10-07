@@ -51,9 +51,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <tr>
  <th>ID</th>
  <th>persona</th>
+ <th>tipo</th>
  <th>ID2</th>
  <th>relacion con</th>
- <th>tipo</th>
  <th>Desde</th>
  <th>Hasta</th>
  <th style="text-align: right;">Actions</th>

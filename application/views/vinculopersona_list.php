@@ -41,9 +41,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>IDvinculopersona</th>
- <th>La Persona</th>
- <th>El vinculopersona</th>
+ <th>ID</th>
+ <th>id1</th>
+ <th>persona</th>
+ <th>tipo</th>
+ <th>id2</th>
+ <th>relacion con</th>
+ <th>Desde</th>
+ <th>Hasta</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
