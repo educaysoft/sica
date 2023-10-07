@@ -6,7 +6,7 @@ class Vinculopersona extends CI_Controller{
       parent::__construct();
       $this->load->model('vinculopersona_model');
   	  $this->load->model('persona_model');
-  	  $this->load->model('vinculopersona_estado_model');
+  	  $this->load->model('relacionpersona_model');
 }
 
 public function index(){
@@ -15,7 +15,7 @@ public function index(){
 			
   	$data['vinculopersona']=$this->vinculopersona_model->lista_vinculopersonas()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
+  	$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersona()->result();
 			
 		$data['title']="Lista de vinculopersonas";
 		$this->load->view('template/page_header');
@@ -35,7 +35,7 @@ public function actual(){
 
 	$data['vinculopersona'] = $this->vinculopersona_model->vinculopersona($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
+  	$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersona()->result();
 	$data['title']="Modulo de Telefonos";
 	$this->load->view('template/page_header');		
 	$this->load->view('vinculopersona_record',$data);
@@ -65,7 +65,7 @@ public function add()
 	}
 
 
-  	$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
+  	$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersona()->result();
 		$data['title']="Nueva Vinculopersona";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('vinculopersona_form',$data);
@@ -80,9 +80,10 @@ public function add()
 	 	$array_item=array(
 		 	
 		 	'idvinculopersona' => $this->input->post('idvinculopersona'),
-		 	'nombre' => $this->input->post('nombre'),
+		 	'fechadesde' => $this->input->post('fechahasta'),
+		 	'fechahasta' => $this->input->post('fechahasta'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idvinculopersona_estado' => $this->input->post('idvinculopersona_estado'),
+			'idrelacionpersona' => $this->input->post('idrelacionpersona'),
 	 	);
 	 	$this->vinculopersona_model->save($array_item);
 	 	//redirect('vinculopersona');
@@ -95,7 +96,7 @@ public function edit()
 {
 	 	$data['vinculopersona'] = $this->vinculopersona_model->vinculopersona($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
+  		$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersona()->result();
  	 	$data['title'] = "Actualizar Vinculopersona";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('vinculopersona_edit',$data);
@@ -110,9 +111,10 @@ public function edit()
 	 	$array_item=array(
 		 	
 		 	'idvinculopersona' => $this->input->post('idvinculopersona'),
-		 	'nombre' => $this->input->post('nombre'),
+		 	'fechadesde' => $this->input->post('fechahasta'),
+		 	'fechahasta' => $this->input->post('fechahasta'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idvinculopersona_estado' => $this->input->post('idvinculopersona_estado'),
+			'idrelacionpersona' => $this->input->post('idrelacionpersona'),
 	 	);
 	 	$this->vinculopersona_model->update($id,$array_item);
 	 	//redirect('vinculopersona');
@@ -175,7 +177,7 @@ function vinculopersona_data()
 public function elprimero()
 {
 	$data['vinculopersona'] = $this->vinculopersona_model->elprimero();
-  	$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
+  	$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersona()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
@@ -193,7 +195,7 @@ public function elprimero()
 public function elultimo()
 {
 	$data['vinculopersona'] = $this->vinculopersona_model->elultimo();
-  	$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
+  	$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersona()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
@@ -214,7 +216,7 @@ public function siguiente(){
  // $data['vinculopersona_list']=$this->vinculopersona_model->lista_vinculopersona()->result();
 	$data['vinculopersona'] = $this->vinculopersona_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
+  	$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersona()->result();
   $data['title']="Vinculopersona";
 	$this->load->view('template/page_header');		
   $this->load->view('vinculopersona_record',$data);
@@ -225,7 +227,7 @@ public function anterior(){
  // $data['vinculopersona_list']=$this->vinculopersona_model->lista_vinculopersona()->result();
 	$data['vinculopersona'] = $this->vinculopersona_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
+  	$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersona()->result();
   $data['title']="Vinculopersona";
 	$this->load->view('template/page_header');		
   $this->load->view('vinculopersona_record',$data);

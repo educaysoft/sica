@@ -19,20 +19,27 @@ foreach ($personas as $row){
 
 
 <tr>
-<td> Vinculopersona: </td>
-<td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de Unidad"))  ?></td>
+<td> Fecha desde: </td>
+<td><?php echo form_input("fechadesde","", array("placeholder"=>"Fecha desde","type"=>"date"))  ?></td>
 </tr>
+
+<tr>
+<td> Fecha hasta: </td>
+<td><?php echo form_input("fechahasta","", array("placeholder"=>"Fecha hasta","type"=>"date"))  ?></td>
+</tr>
+
+
 
 <tr>
 <td> Estado: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($vinculopersona_estados as $row){
-	$options[$row->idvinculopersona_estado]= $row->nombre;
+foreach ($relacionpersonas as $row){
+	$options[$row->idrelacionpersona]= $row->nombre;
 }
 
- echo form_dropdown("idvinculopersona_estado",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idrelacionpersona",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
