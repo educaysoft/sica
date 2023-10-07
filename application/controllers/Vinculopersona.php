@@ -13,7 +13,7 @@ public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['vinculopersona']=$this->vinculopersona_model->lista_vinculopersonas()->row_array();
+  	$data['vinculopersona']=$this->vinculopersona_model->lista_vinculopersonasA()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersonas()->result();
 			

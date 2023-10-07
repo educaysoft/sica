@@ -56,21 +56,15 @@ echo form_input('idpersona',$options[$vinculopersona['idpersona']],array("disabl
  
   <tr>
      <td>Vinculopersona:</td>
-     <td><?php echo form_input('nombre',$vinculopersona['nombre'],array("disabled"=>"disabled",'placeholder'=>'Nombre')) ?></td>
+     <td><?php echo form_input('lapersona',$vinculopersona['lapersona'],array("disabled"=>"disabled",'placeholder'=>'Nombre')) ?></td>
   </tr>
 
-
-  
 <tr>
-     <td>Estado del Vinculopersona:</td>
-     <td><?php 
-$options= array("NADA");
-foreach ($vinculopersona_estados as $row){
-	$options[$row->idvinculopersona_estado]= $row->nombre;
-}
-
-echo form_input('idvinculopersona_estado',$options[$vinculopersona['idvinculopersona_estado']],array("disabled"=>"disabled")) ?></td>
+     <td>Vinculo:</td>
+     <td><?php echo form_input('elvinculo',$vinculopersona['elvinculo'],array("disabled"=>"disabled",'placeholder'=>'Nombre')) ?></td>
   </tr>
+  
+
 
 
 

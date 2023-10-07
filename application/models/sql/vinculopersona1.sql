@@ -1,0 +1,3 @@
+use educayso_facae;
+
+create view vinculopersona1 as select vinculopersona.idvinculopersona,vinculopersona.idpersona,relacionpersona1.lapersona,relacionpersona1.larelacion from vinculopersona,relacionpersona1 where vinculopersona.idrelacionpersona=relacionpersona1.idrelacionpersona;
