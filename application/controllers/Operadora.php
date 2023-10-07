@@ -71,7 +71,7 @@ public function edit()
 public function listar()
 {
 	
-  $data['operadora'] = $this->operadora_model->lista_operadoraes()->result();
+  $data['operadora'] = $this->operadora_model->lista_operadoras()->result();
   $data['title']="Operadora";
 	$this->load->view('template/page_header');		
   $this->load->view('operadora_list',$data);
