@@ -50,6 +50,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
+ <th>persona</th>
+ <th>ID2</th>
  <th>relacion con</th>
  <th>tipo</th>
  <th>Desde</th>

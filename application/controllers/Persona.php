@@ -305,8 +305,8 @@ function relacion_data()
 	 	$data0 = $this->vinculopersona_model->vinculopersonaspersona($idpersona);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idpersona,$r->lapersona,$r->larelacion,$r->fechadesde,$r->fechahasta,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('persona/actual').'"    data-idpersona="'.$r->idpersona.'">Ver</a>');
+			$data[]=array($r->idpersona,$r->lapersona1,$r->idpersona2,$r->lapersona,$r->larelacion,$r->fechadesde,$r->fechahasta,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('persona/actual').'"    data-idpersona="'.$r->idpersona2.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
