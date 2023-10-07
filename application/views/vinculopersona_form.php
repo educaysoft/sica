@@ -36,7 +36,7 @@ foreach ($personas as $row){
 
 $options= array('--Select--');
 foreach ($relacionpersonas as $row){
-	$options[$row->idrelacionpersona]= $row->lapersona+" - "+$row->larelacion;
+	$options[$row->idrelacionpersona]= $row->lapersona." - ".$row->larelacion;
 }
 
  echo form_dropdown("idrelacionpersona",$options, set_select('--Select--','default_value'));  ?></td>
