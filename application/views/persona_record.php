@@ -38,6 +38,7 @@ if(isset($persona))
         <li> <?php echo anchor('persona/edit/'.$persona['idpersona'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('persona/quitar/'.$persona['idpersona'],'Quitar'); ?></li>
         <li> <?php echo anchor('persona/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('persona/relacion/'.$persona['idpersona'],'Relaciones'); ?></li>
 
 	<?php } ?>
 <?php 
