@@ -21,7 +21,7 @@ class Vinculopersona_model extends CI_model {
 
 
  	function vinculopersona1( $id){
- 		$vinculopersona = $this->db->query('select * from vinculopersona where idvinculopersona="'. $id.'"');
+ 		$vinculopersona = $this->db->query('select * from vinculopersona1 where idvinculopersona="'. $id.'"');
  		return $vinculopersona;
  	}
 
