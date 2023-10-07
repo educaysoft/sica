@@ -14,6 +14,7 @@ class Persona extends CI_Controller{
       $this->load->model('paispersona_model');
       $this->load->model('nacionalidadpersona_model');
       $this->load->model('provinciapersona_model');
+      $this->load->model('vinculopersona_model');
 }
 
 public function index(){
