@@ -277,6 +277,52 @@ function persona_data()
 
 
 
+
+public function relacion()
+{
+	
+	$data['persona'] = $this->persona_model->lista_personas()->result();
+	$data['title']="Personas";
+	$this->load->view('template/page_header');		
+	$this->load->view('persona_relacion',$data);
+	$this->load->view('template/page_footer');
+}
+
+
+
+
+
+
+function relacion_data()
+{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+
+		$idpersona=$this->input->get('idpersona');
+
+	 	$data0 = $this->vinculopersona_model->vinculopersonaspersona($idpersona);
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->idpersona,$r->lapersona,$r->larelacion,$r->fechadesde,$r->fechahasta,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('persona/actual').'"    data-idpersona="'.$r->idpersona.'">Ver</a>');
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+		echo json_encode($output);
+		exit();
+}
+
+
+
+
+
+
+
+
 public function elprimero()
 {
 
