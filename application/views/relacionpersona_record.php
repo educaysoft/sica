@@ -54,10 +54,7 @@ echo form_input('idpersona',$options[$relacionpersona['idpersona']],array("disab
 
 
  
-  <tr>
-     <td>Relacionpersona:</td>
-     <td><?php echo form_input('nombre',$relacionpersona['nombre'],array("disabled"=>"disabled",'placeholder'=>'Nombre')) ?></td>
-  </tr>
+  
 
 
   
@@ -65,11 +62,11 @@ echo form_input('idpersona',$options[$relacionpersona['idpersona']],array("disab
      <td>Estado del Relacionpersona:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($relacionpersona_estados as $row){
-	$options[$row->idrelacionpersona_estado]= $row->nombre;
+foreach ($tiporelacionpersonas as $row){
+	$options[$row->idtiporelacionpersona]= $row->nombre;
 }
 
-echo form_input('idrelacionpersona_estado',$options[$relacionpersona['idrelacionpersona_estado']],array("disabled"=>"disabled")) ?></td>
+echo form_input('idtiporelacionpersona',$options[$relacionpersona['idtiporelacionpersona']],array("disabled"=>"disabled")) ?></td>
   </tr>
 
 
