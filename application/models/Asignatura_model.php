@@ -2,7 +2,7 @@
 class Asignatura_model extends CI_model {
 
 	function lista_asignaturas(){
-		 $asignatura= $this->db->get('asignatura');
+		 $asignatura= $this->db->get('asignatura0');
 		 return $asignatura;
 	}
 
@@ -14,7 +14,7 @@ class Asignatura_model extends CI_model {
 
 
  	function asignatura( $id){
- 		$asignatura = $this->db->query('select * from asignatura where idasignatura="'. $id.'"');
+ 		$asignatura = $this->db->query('select * from asignatura0 where idasignatura="'. $id.'"');
  		return $asignatura;
  	}
 
@@ -53,6 +53,36 @@ class Asignatura_model extends CI_model {
 	}
 
 
+
+ public function quitar($id)
+	{
+		$this->db->trans_start();
+		$condition = "idasignatura =" . $id ;
+		$this->db->select('*');
+		$this->db->from('asignatura0');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() != 0) {
+	 		  	$this->db->where('idasignatura',$id);
+				$this->db->update('asignatura', array('eliminado'=>1));
+           				 $this->db->trans_complete();
+			      		$result=true;
+      	}else{	
+
+            $this->db->trans_complete();
+			      $result=false;
+   	}
+
+	return $result;
+ 	}
+
+
+
+
+
+
+
  	public function delete($id)
 	{
  		$this->db->where('idasignatura',$id);
@@ -67,7 +97,7 @@ class Asignatura_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idasignatura")->get('asignatura');
+		$query=$this->db->order_by("idasignatura")->get('asignatura0');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -80,7 +110,7 @@ class Asignatura_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idasignatura")->get('asignatura');
+		$query=$this->db->order_by("idasignatura")->get('asignatura0');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -92,16 +122,16 @@ class Asignatura_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$asignatura = $this->db->select("idasignatura")->order_by("idasignatura")->get('asignatura')->result_array();
+ 		$asignatura = $this->db->select("idasignatura0")->order_by("idasignatura")->get('asignatura')->result_array();
 		$arr=array("idasignatura"=>$id);
 		$clave=array_search($arr,$asignatura);
 	   if(array_key_exists($clave+1,$asignatura))
 		 {
 
- 		$asignatura = $this->db->query('select * from asignatura where idasignatura="'. $asignatura[$clave+1]["idasignatura"].'"');
+ 		$asignatura = $this->db->query('select * from asignatura0 where idasignatura="'. $asignatura[$clave+1]["idasignatura"].'"');
 		 }else{
 
- 		$asignatura = $this->db->query('select * from asignatura where idasignatura="'. $id.'"');
+ 		$asignatura = $this->db->query('select * from asignatura0 where idasignatura="'. $id.'"');
 		 }
 		 	
  		return $asignatura;
@@ -110,26 +140,18 @@ class Asignatura_model extends CI_model {
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$asignatura = $this->db->select("idasignatura")->order_by("idasignatura")->get('asignatura')->result_array();
+ 		$asignatura = $this->db->select("idasignatura0")->order_by("idasignatura")->get('asignatura')->result_array();
 		$arr=array("idasignatura"=>$id);
 		$clave=array_search($arr,$asignatura);
 	   if(array_key_exists($clave-1,$asignatura))
 		 {
 
- 		$asignatura = $this->db->query('select * from asignatura where idasignatura="'. $asignatura[$clave-1]["idasignatura"].'"');
+ 		$asignatura = $this->db->query('select * from asignatura0 where idasignatura="'. $asignatura[$clave-1]["idasignatura"].'"');
 		 }else{
 
- 		$asignatura = $this->db->query('select * from asignatura where idasignatura="'. $id.'"');
+ 		$asignatura = $this->db->query('select * from asignatura0 where idasignatura="'. $id.'"');
 		 }
 		 	
  		return $asignatura;
  	}
-
-
-
-
-
-
- 
-
 }

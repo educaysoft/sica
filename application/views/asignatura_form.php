@@ -5,6 +5,15 @@
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id:</label>
+	<div class="col-md-10">
+<?php echo form_input("idasignatura","", array("placeholder"=>"Idasignatura"));
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Código:</label>
 	<div class="col-md-10">
 <?php echo form_input("codigo","", array("placeholder"=>"Código"));
@@ -12,6 +21,7 @@
 		?>
 	</div> 
 </div>
+
 
 
 
