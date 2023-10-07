@@ -15,7 +15,7 @@ public function index(){
 			
   	$data['vinculopersona']=$this->vinculopersona_model->lista_vinculopersonas()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersona()->result();
+  	$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersonas()->result();
 			
 		$data['title']="Lista de vinculopersonas";
 		$this->load->view('template/page_header');
