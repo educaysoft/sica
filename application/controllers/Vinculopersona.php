@@ -33,7 +33,7 @@ public function index(){
 public function actual(){
  if(isset($this->session->userdata['logged_in'])){
 
-	$data['vinculopersona'] = $this->vinculopersona_model->vinculopersona($this->uri->segment(3))->row_array();
+	$data['vinculopersona'] = $this->vinculopersona_model->vinculopersona1($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersonasA()->result();
 	$data['title']="Modulo de Telefonos";
