@@ -29,21 +29,18 @@ foreach ($personas as $row){
 
 
 
-<tr>
-      <td>Nombre:</td>
-      <td><?php echo form_input( array("name"=>'nombre',"id"=>'nombre',"value"=>$relacionpersona['nombre'],'type'=>'text','placeholder'=>'nombre del relacionpersona')); ?></td>
-  </tr>
+
 
 
 <tr>
 <td> Estado del relacionpersona:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($relacionpersona_estados as $row){
-	$options[$row->idrelacionpersona_estado]= $row->nombre;
+foreach ($tiporelacionpersonas as $row){
+	$options[$row->idtiporelacionpersona]= $row->nombre;
 }
 
- echo form_dropdown("idrelacionpersona_estado",$options, $relacionpersona['idrelacionpersona_estado']);  ?></td>
+ echo form_dropdown("idtiporelacionpersona",$options, $relacionpersona['idtiporelacionpersona']);  ?></td>
 </tr>
 
 
