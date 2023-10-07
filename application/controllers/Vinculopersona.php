@@ -1,25 +1,25 @@
 <?php
 
-class Correo extends CI_Controller{
+class Vinculopersona extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('correo_model');
+      $this->load->model('vinculopersona_model');
   	  $this->load->model('persona_model');
-  	  $this->load->model('correo_estado_model');
+  	  $this->load->model('vinculopersona_estado_model');
 }
 
 public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['correo']=$this->correo_model->lista_correos()->row_array();
+  	$data['vinculopersona']=$this->vinculopersona_model->lista_vinculopersonas()->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
+  	$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
 			
-		$data['title']="Lista de correos";
+		$data['title']="Lista de vinculopersonas";
 		$this->load->view('template/page_header');
-		$this->load->view('correo_record',$data);
+		$this->load->view('vinculopersona_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -33,12 +33,12 @@ public function index(){
 public function actual(){
  if(isset($this->session->userdata['logged_in'])){
 
-	$data['correo'] = $this->correo_model->correo($this->uri->segment(3))->row_array();
+	$data['vinculopersona'] = $this->vinculopersona_model->vinculopersona($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
+  	$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
 	$data['title']="Modulo de Telefonos";
 	$this->load->view('template/page_header');		
-	$this->load->view('correo_record',$data);
+	$this->load->view('vinculopersona_record',$data);
 	$this->load->view('template/page_footer');
    }else{
 	$this->load->view('template/page_header.php');
@@ -65,10 +65,10 @@ public function add()
 	}
 
 
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
-		$data['title']="Nueva Correo";
+  	$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
+		$data['title']="Nueva Vinculopersona";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('correo_form',$data);
+	 	$this->load->view('vinculopersona_form',$data);
 	 	$this->load->view('template/page_footer');
 
 
@@ -79,13 +79,13 @@ public function add()
 	{
 	 	$array_item=array(
 		 	
-		 	'idcorreo' => $this->input->post('idcorreo'),
+		 	'idvinculopersona' => $this->input->post('idvinculopersona'),
 		 	'nombre' => $this->input->post('nombre'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idcorreo_estado' => $this->input->post('idcorreo_estado'),
+			'idvinculopersona_estado' => $this->input->post('idvinculopersona_estado'),
 	 	);
-	 	$this->correo_model->save($array_item);
-	 	//redirect('correo');
+	 	$this->vinculopersona_model->save($array_item);
+	 	//redirect('vinculopersona');
 		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
  	}
 
@@ -93,12 +93,12 @@ public function add()
 
 public function edit()
 {
-	 	$data['correo'] = $this->correo_model->correo($this->uri->segment(3))->row_array();
+	 	$data['vinculopersona'] = $this->vinculopersona_model->vinculopersona($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-  		$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
- 	 	$data['title'] = "Actualizar Correo";
+  		$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
+ 	 	$data['title'] = "Actualizar Vinculopersona";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('correo_edit',$data);
+ 	 	$this->load->view('vinculopersona_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -106,25 +106,25 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idcorreo');
+		$id=$this->input->post('idvinculopersona');
 	 	$array_item=array(
 		 	
-		 	'idcorreo' => $this->input->post('idcorreo'),
+		 	'idvinculopersona' => $this->input->post('idvinculopersona'),
 		 	'nombre' => $this->input->post('nombre'),
 			'idpersona' => $this->input->post('idpersona'),
-			'idcorreo_estado' => $this->input->post('idcorreo_estado'),
+			'idvinculopersona_estado' => $this->input->post('idvinculopersona_estado'),
 	 	);
-	 	$this->correo_model->update($id,$array_item);
-	 	//redirect('correo');
+	 	$this->vinculopersona_model->update($id,$array_item);
+	 	//redirect('vinculopersona');
 		echo "<script  language='JavaScript'>window.history.go(-2);</script>";
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->correo_model->delete($this->uri->segment(3));
+ 		$data=$this->vinculopersona_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('correo/elprimero');
+	 	redirect('vinculopersona/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -132,26 +132,26 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Correos";
+  $data['title']="Vinculopersonas";
 	$this->load->view('template/page_header');		
-  $this->load->view('correo_list',$data);
+  $this->load->view('vinculopersona_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function correo_data()
+function vinculopersona_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->correo_model->lista_correosA();
+	 	$data0 = $this->vinculopersona_model->lista_vinculopersonasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idcorreo,$r->lapersona,$r->elcorreo,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('correo/actual').'"  data-idcorreo="'.$r->idcorreo.'">Ver</a>');
+			$data[]=array($r->idvinculopersona,$r->lapersona,$r->elvinculopersona,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('vinculopersona/actual').'"  data-idvinculopersona="'.$r->idvinculopersona.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -174,14 +174,14 @@ function correo_data()
 
 public function elprimero()
 {
-	$data['correo'] = $this->correo_model->elprimero();
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
+	$data['vinculopersona'] = $this->vinculopersona_model->elprimero();
+  	$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Correo";
+    $data['title']="Vinculopersona";
     $this->load->view('template/page_header');		
-    $this->load->view('correo_record',$data);
+    $this->load->view('vinculopersona_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -192,15 +192,15 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['correo'] = $this->correo_model->elultimo();
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
+	$data['vinculopersona'] = $this->vinculopersona_model->elultimo();
+  	$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Correo";
+    $data['title']="Vinculopersona";
   
     $this->load->view('template/page_header');		
-    $this->load->view('correo_record',$data);
+    $this->load->view('vinculopersona_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -211,24 +211,24 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['correo_list']=$this->correo_model->lista_correo()->result();
-	$data['correo'] = $this->correo_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['vinculopersona_list']=$this->vinculopersona_model->lista_vinculopersona()->result();
+	$data['vinculopersona'] = $this->vinculopersona_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
-  $data['title']="Correo";
+  	$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
+  $data['title']="Vinculopersona";
 	$this->load->view('template/page_header');		
-  $this->load->view('correo_record',$data);
+  $this->load->view('vinculopersona_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['correo_list']=$this->correo_model->lista_correo()->result();
-	$data['correo'] = $this->correo_model->anterior($this->uri->segment(3))->row_array();
+ // $data['vinculopersona_list']=$this->vinculopersona_model->lista_vinculopersona()->result();
+	$data['vinculopersona'] = $this->vinculopersona_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
-  $data['title']="Correo";
+  	$data['vinculopersona_estados']= $this->vinculopersona_estado_model->lista_vinculopersona_estado()->result();
+  $data['title']="Vinculopersona";
 	$this->load->view('template/page_header');		
-  $this->load->view('correo_record',$data);
+  $this->load->view('vinculopersona_record',$data);
 	$this->load->view('template/page_footer');
 }
 
