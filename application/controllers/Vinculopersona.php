@@ -35,7 +35,7 @@ public function actual(){
 
 	$data['vinculopersona'] = $this->vinculopersona_model->vinculopersona($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersona()->result();
+  	$data['relacionpersonas']= $this->relacionpersona_model->lista_relacionpersonasA()->result();
 	$data['title']="Modulo de Telefonos";
 	$this->load->view('template/page_header');		
 	$this->load->view('vinculopersona_record',$data);
