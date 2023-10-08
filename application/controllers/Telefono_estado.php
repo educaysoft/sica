@@ -4,15 +4,15 @@ class Telefono_estado extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('correo_estado_model');
+      $this->load->model('telefono_estado_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['correo_estado']=$this->correo_estado_model->correo_estado(1)->row_array();
-		$data['title']="Lista de correo_estadoes";
+		$data['telefono_estado']=$this->telefono_estado_model->telefono_estado(1)->row_array();
+		$data['title']="Lista de telefono_estadoes";
 		$this->load->view('template/page_header');
-		$this->load->view('correo_estado_record',$data);
+		$this->load->view('telefono_estado_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva correo_estado";
+		$data['title']="Nueva telefono_estado";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('correo_estado_form',$data);
+	 	$this->load->view('telefono_estado_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,21 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idcorreo_estado' => $this->input->post('idcorreo_estado'),
+	 	'idtelefono_estado' => $this->input->post('idtelefono_estado'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->correo_estado_model->save($array_item);
-	 	redirect('correo_estado');
+	 	$this->telefono_estado_model->save($array_item);
+	 	redirect('telefono_estado');
  	}
 
 
 
 public function edit()
 {
-	 	$data['correo_estado'] = $this->correo_estado_model->correo_estado($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar correo_estado";
+	 	$data['telefono_estado'] = $this->telefono_estado_model->telefono_estado($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar telefono_estado";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('correo_estado_edit',$data);
+ 	 	$this->load->view('telefono_estado_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +56,22 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idcorreo_estado');
+		$id=$this->input->post('idtelefono_estado');
 	 	$array_item=array(
 		 	
-		 	'idcorreo_estado' => $this->input->post('idcorreo_estado'),
+		 	'idtelefono_estado' => $this->input->post('idtelefono_estado'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->correo_estado_model->update($id,$array_item);
-	 	redirect('correo_estado');
+	 	$this->telefono_estado_model->update($id,$array_item);
+	 	redirect('telefono_estado');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->correo_estado_model->delete($this->uri->segment(3));
+ 		$data=$this->telefono_estado_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('correo_estado/elprimero');
+	 	redirect('telefono_estado/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -81,24 +81,24 @@ public function listar()
 	
   $data['title']="Telefono_estado";
 	$this->load->view('template/page_header');		
-  $this->load->view('correo_estado_list',$data);
+  $this->load->view('telefono_estado_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function correo_estado_data()
+function telefono_estado_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->correo_estado_model->lista_correo_estados();
+	 	$data0 = $this->telefono_estado_model->lista_telefono_estados();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idcorreo_estado,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcorreo_estado="'.$r->idcorreo_estado.'">Ver</a>');
+			$data[]=array($r->idtelefono_estado,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtelefono_estado="'.$r->idtelefono_estado.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -121,12 +121,12 @@ function correo_estado_data()
 
 public function elprimero()
 {
-	$data['correo_estado'] = $this->correo_estado_model->elprimero();
+	$data['telefono_estado'] = $this->telefono_estado_model->elprimero();
   if(!empty($data))
   {
     $data['title']="Telefono_estado";
     $this->load->view('template/page_header');		
-    $this->load->view('correo_estado_record',$data);
+    $this->load->view('telefono_estado_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -137,13 +137,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['correo_estado'] = $this->correo_estado_model->elultimo();
+	$data['telefono_estado'] = $this->telefono_estado_model->elultimo();
   if(!empty($data))
   {
     $data['title']="Telefono_estado";
   
     $this->load->view('template/page_header');		
-    $this->load->view('correo_estado_record',$data);
+    $this->load->view('telefono_estado_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -154,20 +154,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['correo_estado_list']=$this->correo_estado_model->lista_correo_estado()->result();
-	$data['correo_estado'] = $this->correo_estado_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['telefono_estado_list']=$this->telefono_estado_model->lista_telefono_estado()->result();
+	$data['telefono_estado'] = $this->telefono_estado_model->siguiente($this->uri->segment(3))->row_array();
   $data['title']="Telefono_estado";
 	$this->load->view('template/page_header');		
-  $this->load->view('correo_estado_record',$data);
+  $this->load->view('telefono_estado_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['correo_estado_list']=$this->correo_estado_model->lista_correo_estado()->result();
-	$data['correo_estado'] = $this->correo_estado_model->anterior($this->uri->segment(3))->row_array();
+ // $data['telefono_estado_list']=$this->telefono_estado_model->lista_telefono_estado()->result();
+	$data['telefono_estado'] = $this->telefono_estado_model->anterior($this->uri->segment(3))->row_array();
   $data['title']="Telefono_estado";
 	$this->load->view('template/page_header');		
-  $this->load->view('correo_estado_record',$data);
+  $this->load->view('telefono_estado_record',$data);
 	$this->load->view('template/page_footer');
 }
 

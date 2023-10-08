@@ -27,7 +27,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 <div id="eys-nav-i">
 	<ul>
-		<li> <?php echo anchor('correo_estado', 'Home'); ?></li>
+		<li> <?php echo anchor('telefono_estado', 'Home'); ?></li>
 	</ul>
 </div>
 
@@ -77,13 +77,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('correo_estado/correo_estado_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('telefono_estado/telefono_estado_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-window.location.href = "http://localhost/facae/index.php/correo_estado";
+window.location.href = "http://localhost/facae/index.php/telefono_estado";
 
 });
 
