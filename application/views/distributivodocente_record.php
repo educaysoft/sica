@@ -70,7 +70,7 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
 	<div class="col-md-10">
      	<?php 
     $options= array("NADA");
-    foreach ($distributivos as $row){
+    foreach ($distributivo as $row){
 	      $options[$row->iddistributivo]= $row->eldistributivo;
     }
     echo form_input('iddistributivo',$options[$distributivodocente['iddistributivo']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
