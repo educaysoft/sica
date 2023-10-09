@@ -183,7 +183,8 @@ public function actual(){
 			$draw= intval($this->input->get("length"));
 
 			$iddocente=$this->input->get('iddocente');
-			$data0 =$this->silabo_model->silaboss($iddocente);
+			$idperiodoacademico=$this->input->get('idperiodoacademico');
+			$data0 =$this->silabo_model->silabosdp($iddocente,$idperiodoacademico);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->iddocente,$r->idsilabo,$r->elsilabo,$r->elperiodo,
