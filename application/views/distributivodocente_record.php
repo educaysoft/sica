@@ -247,12 +247,13 @@ echo form_input('idtiempodedicacion',$options[$distributivodocente['idtiempodedi
 
 $(document).ready(function(){
 	var iddistributivodocente=document.getElementById("iddistributivodocente").value;
+	ver idperiodoacademico=<?php echo $distributivo['idperiodoacademico']; ?>;
 	var iddocente=  document.getElementById("iddocente").value;
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/asignaturadocente_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
 
 
 
-	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('docente/silabo_data')?>', type: 'GET',data:{iddocente:iddocente}},});
+	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('docente/silabo_data')?>', type: 'GET',data:{iddocente:iddocente,idperiodoacademico:idperiodoacademico}},});
 
 
 	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/evento_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
