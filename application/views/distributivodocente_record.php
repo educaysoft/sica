@@ -250,7 +250,8 @@ $(document).ready(function(){
 	var idperiodoacademico=<?php echo $distributivo[0]->idperiodoacademico; ?>;
 	var iddocente=  document.getElementById("iddocente").value;
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/asignaturadocente_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
-
+	alert(iddocente);
+	alert(idperiodoacademico);
 
 
 	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('docente/silabo_data')?>', type: 'GET',data:{iddocente:iddocente,idperiodoacademico:idperiodoacademico}},});
