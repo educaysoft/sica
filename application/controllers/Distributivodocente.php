@@ -266,7 +266,7 @@ public function actual()
 {
 	$data['distributivodocente'] = $this->distributivodocente_model->distributivodocente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['distributivo']= $this->distributivo_model->distributivos1($data['distributivodocente']['iddistributivo'])->result();
+  	$data['distributivo']= $this->distributivo_model->distributivo1($data['distributivodocente']['iddistributivo'])->result();
   	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	  if(!empty($data))
