@@ -59,12 +59,16 @@ $current_x = $pdf->GetX();
 	$id=0;
 	$persona="";
 	$i=0;
+	$factor=1;
+	$idpersona=0;
 	foreach ($asignaturadocentes as $row){  //Recorre todas la participaciones realiadas por los participantes
+		if($idpersona != $row->idpersona){$factor=$factor+1; $idpersona=$row->idpersona)
+							
 
 		    $i=$i+1;
 		    $pdf->Cell(5,5,$i,1,0,'R',0); 
 
-			$pdf->SetTextColor(0,0,round($row->iddocente*255/100,0));
+			$pdf->SetTextColor(0,0,$factor));
 		    $pdf->Cell(45,5,utf8_decode($row->eldocente),1,0,'L',0);
 			$pdf->SetTextColor(0,0,0);
 		    $pdf->Cell(17,5,utf8_decode($row->cedula),1,0,'L',0);
