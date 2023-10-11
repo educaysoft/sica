@@ -63,6 +63,7 @@ $current_x = $pdf->GetX();
 	$idpersona=0;
 	$x=sizeof($asignaturadocentes);
 	$x=round($x/255,0);
+	echo $x;
 	foreach ($asignaturadocentes as $row){  //Recorre todas la participaciones realiadas por los participantes
 		if($idpersona != $row->idpersona){$factor=$factor+$x; $idpersona=$row->idpersona;}
 							
