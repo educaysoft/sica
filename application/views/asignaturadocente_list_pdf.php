@@ -99,7 +99,7 @@ $current_x = $pdf->GetX();
 		    $pdf->Cell(10,5,utf8_decode($row->nsesion),1,1,'L',0);
     }
 
-   // die();
+   die();
 
 
 
