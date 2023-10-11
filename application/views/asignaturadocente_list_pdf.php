@@ -71,7 +71,7 @@ $current_x = $pdf->GetX();
 	foreach ($asignaturadocentes as $row){  //Recorre todas la participaciones realiadas por los participantes
 		if($idpersona != $row->idpersona){$factor=$factor+$x; $idpersona=$row->idpersona;}
 							
-			echo $factor; echo '<br>';
+		//	echo $factor; echo '<br>';
 
 		    $i=$i+1;
 		    $pdf->Cell(5,5,$i,1,0,'R',0); 
@@ -99,7 +99,7 @@ $current_x = $pdf->GetX();
 		    $pdf->Cell(10,5,utf8_decode($row->nsesion),1,1,'L',0);
     }
 
-    die();
+   // die();
 
 
 
