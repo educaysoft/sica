@@ -76,7 +76,7 @@ $current_x = $pdf->GetX();
 		    $i=$i+1;
 		    $pdf->Cell(5,5,$i,1,0,'R',0); 
 
-			$pdf->SetTextColor(255,0,$factor*2);
+			$pdf->SetTextColor(100,0,$factor);
 		    $pdf->Cell(45,5,utf8_decode($row->eldocente),1,0,'L',0);
 			$pdf->SetTextColor(0,0,0);
 		    $pdf->Cell(17,5,utf8_decode($row->cedula),1,0,'L',0);
