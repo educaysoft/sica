@@ -50,6 +50,8 @@ public function add()
 
 public function  save()
 	{
+		if($this->input->post('idasignatura')>0)
+		{
 	 	$array_item=array(
 	 	'idasignatura' => $this->input->post('idasignatura'),
 	 	'nombre' => $this->input->post('nombre'),
@@ -60,7 +62,22 @@ public function  save()
 	 	'idnivelacademico' => $this->input->post('idnivelacademico'),
 	 	'contenidosminimos' => $this->input->post('contenidosminimos'),
 	 	'resultadosaprendizaje' => $this->input->post('resultadosaprendizaje'),
-	 	);
+		);
+		}else{
+
+	 	$array_item=array(
+	 	'nombre' => $this->input->post('nombre'),
+	 	'codigo' => $this->input->post('codigo'),
+	 	'creditos' => $this->input->post('creditos'),
+	 	'idmalla' => $this->input->post('idmalla'),
+	 	'idareaconocimiento' => $this->input->post('idareaconocimiento'),
+	 	'idnivelacademico' => $this->input->post('idnivelacademico'),
+	 	'contenidosminimos' => $this->input->post('contenidosminimos'),
+	 	'resultadosaprendizaje' => $this->input->post('resultadosaprendizaje'),
+		);
+
+
+		}
 	 	$result=$this->asignatura_model->save($array_item);
 
 
