@@ -120,7 +120,7 @@ public function index(){
 			$data0 = $this->miembrocomisionacademica_model->lista_miembrocomisionacademicasB();
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idmiembrocomisionacademica,$r->elmiembrocomisionacademica,$r->lacarrera,$r->fechadesde,$r->fechahasta,
+				$data[]=array($r->idmiembrocomisionacademica,$r->elperiodo,$r->lapersona,$r->lacomision,$r->fechadesde,$r->fechahasta,
 					$r->href='<a href="javascript:void(0);" class="item_ver" data-doctos="'.$r->idpersona.'">'.$r->cantidad.'</a>',
 					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idmiembrocomisionacademica="'.$r->idmiembrocomisionacademica.'">Ver</a>');
 			}	

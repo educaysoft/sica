@@ -42,11 +42,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
- <th>miembrocomisionacademica</th>
- <th>Carrera</th>
+ <th>periodo</th>
+ <th>miebro</th>
+ <th>comision</th>
  <th>Desde</th>
  <th>Hasta</th>
- <th>doctos</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
