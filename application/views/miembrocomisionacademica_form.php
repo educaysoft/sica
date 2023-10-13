@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("aspirante/save") ?>
-<?php echo form_hidden("idaspirante")  ?>
+<?php echo form_open("miembrocomisionacademica/save") ?>
+<?php echo form_hidden("idmiembrocomisionacademica")  ?>
 <table>
 
 <tr>
@@ -47,7 +47,7 @@ foreach ($personas as $row){
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("aspirante","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("miembrocomisionacademica","Atras") ?> </td>
 </tr>
 
 </table>
