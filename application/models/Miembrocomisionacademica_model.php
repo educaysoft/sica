@@ -15,7 +15,7 @@ class Miembrocomisionacademica_model extends CI_model {
 
 	function lista_miembrocomisionacademicasB(){
 		 $this->db->order_by("elmiembrocomisionacademica","asc");
-		 $miembrocomisionacademica= $this->db->get('miembrocomisionacademica2');
+		 $miembrocomisionacademica= $this->db->get('miembrocomisionacademica1');
 		 return $miembrocomisionacademica;
 	}
 
