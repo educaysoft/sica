@@ -83,6 +83,7 @@ public function index(){
 		 	'idmiembrocomisionacademica' => $this->input->post('idmiembrocomisionacademica'),
 			'idpersona' => $this->input->post('idpersona'),
 			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+			'idcomisionacademica' => $this->input->post('idcomisionacademica'),
 			'fechainscripcion' => $this->input->post('fechainscripcion'),
 	 	);
 	 	$this->miembrocomisionacademica_model->update($id,$array_item);
@@ -139,6 +140,7 @@ public function index(){
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['miembrocomisionacademica'] = $this->miembrocomisionacademica_model->elprimero();
 		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+		$data['comisionacademicas']= $this->comisionacademica_model->lista_comisionacademicas()->result();
 
 		  if(!empty($data))
 		  {
@@ -159,6 +161,7 @@ public function index(){
 		$data['miembrocomisionacademica'] = $this->miembrocomisionacademica_model->elultimo();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+		$data['comisionacademicas']= $this->comisionacademica_model->lista_comisionacademicas()->result();
 		  if(!empty($data))
 		  {
 			$data['personas']= $this->persona_model->lista_personas()->result();
@@ -179,6 +182,7 @@ public function index(){
 		$data['miembrocomisionacademica'] = $this->miembrocomisionacademica_model->siguiente($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+		$data['comisionacademicas']= $this->comisionacademica_model->lista_comisionacademicas()->result();
 
 		$data['title']="Miembrocomisionacademica";
 		$this->load->view('template/page_header');		
@@ -190,6 +194,7 @@ public function index(){
 		$data['miembrocomisionacademica'] = $this->miembrocomisionacademica_model->anterior($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+		$data['comisionacademicas']= $this->comisionacademica_model->lista_comisionacademicas()->result();
 		$data['title']="Miembrocomisionacademica";
 		$this->load->view('template/page_header');		
 		$this->load->view('miembrocomisionacademica_record',$data);
