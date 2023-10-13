@@ -75,7 +75,7 @@ echo form_input('idpersona',$options[$miembrocomisionacademica['idpersona']],arr
 
 $options= array("NADA");
 foreach ($periodoacademicos as $row){
-	$options[$row->idperiodoacademico]= $row->nombre;
+	$options[$row->idperiodoacademico]= $row->nombrelargo;
 }
 
 echo form_input('idperiodoacademico',$options[$miembrocomisionacademica['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;'));
