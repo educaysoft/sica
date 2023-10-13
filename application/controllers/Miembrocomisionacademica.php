@@ -17,6 +17,7 @@ public function index(){
 		$data['miembrocomisionacademica']=$this->miembrocomisionacademica_model->elultimo();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+		$data['comisionacademicas']= $this->comisionacademica_model->lista_comisionacademicas()->result();
 			
 		$data['title']="Lista de miembrocomisionacademicas";
 		$this->load->view('template/page_header');
@@ -35,6 +36,7 @@ public function index(){
 	{
 			$data['personas']= $this->persona_model->lista_personas()->result();
 			$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+			$data['comisionacademicas']= $this->comisionacademica_model->lista_comisionacademicas()->result();
 			$data['title']="Nueva Miembrocomisionacademica";
 			$this->load->view('template/page_header');		
 			$this->load->view('miembrocomisionacademica_form',$data);
@@ -49,6 +51,7 @@ public function index(){
 		 	'idmiembrocomisionacademica' => $this->input->post('idmiembrocomisionacademica'),
 			'idpersona' => $this->input->post('idpersona'),
 			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+			'idcomisionacademica' => $this->input->post('idcomisionacademica'),
 			'fechadesde' => $this->input->post('fechadesde'),
 			'fechahasta' => $this->input->post('fechahasta'),
 	 	);
@@ -63,6 +66,7 @@ public function index(){
 			$data['miembrocomisionacademica'] = $this->miembrocomisionacademica_model->miembrocomisionacademica($this->uri->segment(3))->row_array();
 			$data['personas']= $this->persona_model->lista_personas()->result();
 			$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+			$data['comisonacademicas']= $this->comisonacademica_model->lista_comisonacademicas()->result();
 			$data['title'] = "Actualizar Miembrocomisionacademica";
 			$this->load->view('template/page_header');		
 			$this->load->view('miembrocomisionacademica_edit',$data);
