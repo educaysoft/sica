@@ -69,7 +69,7 @@ echo form_input('idpersona',$options[$miembrocomisionacademica['idpersona']],arr
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label"> Depart-Carrera: </label>
+<label class="col-md-2 col-form-label"> Perido academico: </label>
 	<div class="col-md-10">
      	<?php 
 
@@ -83,7 +83,26 @@ echo form_input('idperiodoacademico',$options[$miembrocomisionacademica['idperio
 	</div> 
 </div>
 
-  
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label"> Comision Academica: </label>
+	<div class="col-md-10">
+     	<?php 
+
+$options= array("NADA");
+foreach ($comisionacademicas as $row){
+	$options[$row->idcomisionacademica]= $row->nombre;
+}
+
+echo form_input('idcomisionacademica',$options[$miembrocomisionacademica['idcomisionacademica']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
+
+
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha desde: </label>

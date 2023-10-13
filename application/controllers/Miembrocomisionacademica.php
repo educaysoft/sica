@@ -7,7 +7,7 @@ class Miembrocomisionacademica extends CI_Controller{
   	  $this->load->model('persona_model');
   	  $this->load->model('periodoacademico_model');
   	  $this->load->model('miembrocomisionacademica_model');
-  	  $this->load->model('estudio_model');
+  	  $this->load->model('comisionacademica_model');
 }
 
 public function index(){

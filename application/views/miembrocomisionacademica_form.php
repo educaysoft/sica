@@ -5,7 +5,7 @@
 <table>
 
 <tr>
-<td> Departamento/Carrera: </td>
+<td> Periodo academico: </td>
 <td><?php 
 
 $options= array('--Select--');
@@ -30,6 +30,18 @@ foreach ($personas as $row){
  echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
+
+<tr>
+<td> Comision academica: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($comisionacademicas as $row){
+	$options[$row->idcomisionacademica]= $row->nombre;
+}
+
+ echo form_dropdown("idcomisionacademica",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
 
 
 
