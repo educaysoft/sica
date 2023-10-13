@@ -74,11 +74,11 @@ echo form_input('idpersona',$options[$miembrocomisionacademica['idpersona']],arr
      	<?php 
 
 $options= array("NADA");
-foreach ($departamentos as $row){
-	$options[$row->iddepartamento]= $row->nombre;
+foreach ($periodoacademicos as $row){
+	$options[$row->idperiodoacademico]= $row->nombre;
 }
 
-echo form_input('iddepartamento',$options[$miembrocomisionacademica['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('idperiodoacademico',$options[$miembrocomisionacademica['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div>

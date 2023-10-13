@@ -31,11 +31,11 @@ foreach ($personas as $row){
 <td> Institucion:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
+foreach ($periodoacademicoes as $row){
+	$options[$row->idperiodoacademico]= $row->nombre;
 }
 
- echo form_dropdown("idinstitucion",$options, $miembrocomisionacademica['idinstitucion']);  ?></td>
+ echo form_dropdown("idperiodoacademico",$options, $miembrocomisionacademica['idperiodoacademico']);  ?></td>
 </tr>
 
 <tr>
