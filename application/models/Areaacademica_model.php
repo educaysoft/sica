@@ -6,7 +6,10 @@ class Areaacademica_model extends CI_model {
 		 return $areaacademica;
 	}
 
-	function lista_areaacademicasA(){
+	function lista_areaacademicasA($idareaacademica){
+		if($idareaacademica>0){
+ 		$this->db->where('idareaacademica',$idareaacademica);
+		}
 		 $areaacademica= $this->db->get('areaacademica1');
 		 return $areaacademica;
 	}

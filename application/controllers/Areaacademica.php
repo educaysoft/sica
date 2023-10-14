@@ -99,7 +99,7 @@ function areaacademica_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idareaacademica,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idareaacademica="'.$r->idareaacademica.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('areaacademica/actual').'"  data-idareaacademica="'.$r->idareaacademica.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
