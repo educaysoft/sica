@@ -63,7 +63,7 @@
             <b>Estudios realizados: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('miembroareaacademica/add/'.$areaacademica['idareaacademica']) ?>">Nuevo miembro</a><a class="btn btn-danger" href="<?php echo base_url('docente/reportepdf/'.$persona['idpersona']) ?>">Reporte</a>
+            <a class="btn btn-success" href="<?php echo base_url('miembroareaacademica/add/'.$areaacademica['idareaacademica']) ?>">Nuevo miembro</a><a class="btn btn-danger" href="<?php echo base_url('docente/reportepdf/'.$areaacademica['idareaacademica']) ?>">Reporte</a>
         </div>
     </div>
 </div>
