@@ -83,7 +83,7 @@ $(document).ready(function(){
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('idmiebrocomisionacademica');
+var id= $(this).data('idmiembrocomisionacademica');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 

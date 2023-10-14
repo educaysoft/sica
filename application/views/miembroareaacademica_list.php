@@ -32,7 +32,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Lista de miembrocomisionacademicas 
+                 <h3>Lista de miembroareaacademicas 
                  <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
 			  
         	</h3>
@@ -77,13 +77,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('miembrocomisionacademica/miembrocomisionacademica_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('miembroareaacademica/miembroareaacademica_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('idmiembrocomisionacademica');
+var id= $(this).data('idmiembroareaacademica');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 

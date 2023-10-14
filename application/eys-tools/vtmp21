@@ -1,19 +1,19 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("aspirante/save") ?>
-<?php echo form_hidden("idaspirante")  ?>
+<?php echo form_open("miembrocomisionacademica/save") ?>
+<?php echo form_hidden("idmiembrocomisionacademica")  ?>
 <table>
 
 <tr>
-<td> Departamento/Carrera: </td>
+<td> Periodo academico: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($departamentos as $row){
-	$options[$row->iddepartamento]= $row->nombre;
+foreach ($periodoacademicos as $row){
+	$options[$row->idperiodoacademico]= $row->nombrelargo;
 }
 
- echo form_dropdown("iddepartamento",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idperiodoacademico",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
@@ -31,6 +31,18 @@ foreach ($personas as $row){
 </tr>
 
 
+<tr>
+<td> Comision academica: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($comisionacademicas as $row){
+	$options[$row->idcomisionacademica]= $row->nombre;
+}
+
+ echo form_dropdown("idcomisionacademica",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
 
 
 
@@ -47,7 +59,7 @@ foreach ($personas as $row){
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("aspirante","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("miembrocomisionacademica","Atras") ?> </td>
 </tr>
 
 </table>
