@@ -83,7 +83,9 @@ $(document).ready(function(){
 
 $('#show_data').on('click','.item_ver',function(){
 
-window.location.href = "http://localhost/facae/index.php/miembrocomisionacademica";
+var id= $(this).data('idmiebrocomisionacademica');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
 
 });
 
