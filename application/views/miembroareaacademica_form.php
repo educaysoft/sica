@@ -36,11 +36,11 @@ foreach ($personas as $row){
 <td><?php 
 
 $options= array('--Select--');
-foreach ($comisionacademicas as $row){
-	$options[$row->idcomisionacademica]= $row->nombre;
+foreach ($areaacademicas as $row){
+	$options[$row->idareaacademica]= $row->nombre;
 }
 
- echo form_dropdown("idcomisionacademica",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idareaacademica",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 

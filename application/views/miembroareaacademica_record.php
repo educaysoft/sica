@@ -87,16 +87,16 @@ echo form_input('idperiodoacademico',$options[$miembroareaacademica['idperiodoac
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label"> Comision Academica: </label>
+<label class="col-md-2 col-form-label"> Area Academica: </label>
 	<div class="col-md-10">
      	<?php 
 
 $options= array("NADA");
-foreach ($comisionacademicas as $row){
-	$options[$row->idcomisionacademica]= $row->nombre;
+foreach ($areaacademicas as $row){
+	$options[$row->idareaacademica]= $row->nombre;
 }
 
-echo form_input('idcomisionacademica',$options[$miembroareaacademica['idcomisionacademica']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('idareaacademica',$options[$miembroareaacademica['idareaacademica']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
