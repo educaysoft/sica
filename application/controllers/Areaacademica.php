@@ -95,7 +95,7 @@ function areaacademica_data()
 
 		$idareaacademica=$this->input->get('idareaacademica');
 
-	 	$data0 = $this->areaacademica_model->lista_areaacademicasA($idareaacademica);
+	 	$data0 = $this->areaacademica_model->lista_areaacademicasA(0);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idareaacademica,$r->nombre,
