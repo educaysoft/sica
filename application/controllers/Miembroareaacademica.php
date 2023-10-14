@@ -120,7 +120,7 @@ public function index(){
 			$data0 = $this->miembroareaacademica_model->lista_miembroareaacademicasB();
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idmiembroareaacademica,$r->elperiodo,$r->lapersona,$r->lacomision,$r->fechadesde,$r->fechahasta,
+				$data[]=array($r->idmiembroareaacademica,$r->elperiodo,$r->lapersona,$r->laarea,$r->fechadesde,$r->fechahasta,
 					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('miembroareaacademica/actual').'"   data-idmiembroareaacademica="'.$r->idmiembroareaacademica.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,

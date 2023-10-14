@@ -14,7 +14,7 @@ class Miembroareaacademica_model extends CI_model {
 	}
 
 	function lista_miembroareaacademicasB(){
-		 $this->db->order_by("elperiodo asc,lacomision asc");
+		 $this->db->order_by("elperiodo asc,laarea asc");
 		 $miembroareaacademica= $this->db->get('miembroareaacademica1');
 		 return $miembroareaacademica;
 	}
