@@ -133,6 +133,32 @@ public function index(){
 	}
 
 
+	public function actual()
+	{
+		$data['miembrocomisionacademica'] = $this->miembrocomisionacademica_model->miembrocomisionacademica($this->uri->segment(3))->row_array();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+		$data['comisionacademicas']= $this->comisionacademica_model->lista_comisionacademicas()->result();
+
+		  if(!empty($data))
+		  {
+			$data['personas']= $this->persona_model->lista_personas()->result();
+		    $data['title']="Miembrocomisionacademica";
+		    $this->load->view('template/page_header');		
+		    $this->load->view('miembrocomisionacademica_record',$data);
+		    $this->load->view('template/page_footer');
+		  }else{
+		    $this->load->view('template/page_header');		
+		    $this->load->view('registro_vacio');
+		    $this->load->view('template/page_footer');
+		  }
+	 }
+
+
+
+
+
+
 
 	public function elprimero()
 	{
