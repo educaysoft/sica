@@ -18,36 +18,32 @@
 
 
 <?php echo form_hidden('idareaacademica',$areaacademica['idareaacademica']) ?>
-<table>
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id área:</label>
+	<div class="col-md-10">
+	<?php
+
+      echo form_input('idareaacademica',$areaacademica['idareaacademica'],array("disabled"=>"disabled","id"=>"idareaacademica",'placeholder'=>'Idareaacademicas')); 
+	?>
+	</div> 
+</div>
+
+ <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Descripctión:</label>
+	<div class="col-md-10">
+	<?php
+
+     echo form_input('nombre',$areaacademica['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')); 
+	?>
+	</div> 
+</div>
 
 
  
- 
-
-
-  <tr>
-     <td>Id Tipo Doc:</td>
-     <td><?php echo form_input('idareaacademica',$areaacademica['idareaacademica'],array("disabled"=>"disabled","id"=>"idareaacademica",'placeholder'=>'Idareaacademicas')) ?></td>
-  </tr>
- 
- 
- 
-  <tr>
-     <td>Descripción:</td>
-     <td><?php echo form_input('nombre',$areaacademica['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?></td>
-  </tr>
-
-
-  
 
 
 
-
-
-
-
-
-</table>
 <?php echo form_close(); ?>
 
 <div class="form-group row">
@@ -60,7 +56,7 @@
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <b>Estudios realizados: </b>
+            <b>Miembros del área académica: </b>
         </div>
         <div class="pull-right">
             <a class="btn btn-success" href="<?php echo base_url('miembroareaacademica/add/'.$areaacademica['idareaacademica']) ?>">Nuevo miembro</a><a class="btn btn-danger" href="<?php echo base_url('docente/reportepdf/'.$areaacademica['idareaacademica']) ?>">Reporte</a>

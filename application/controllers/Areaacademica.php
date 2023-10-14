@@ -10,7 +10,7 @@ class Areaacademica extends CI_Controller{
 public function index(){
   	$data['areaacademica']=$this->areaacademica_model->areaacademica(1)->row_array();
  
-  	$data['title']="Tipos de documentos";
+  	$data['title']="Areas académicas";
 	$this->load->view('template/page_header');		
   	$this->load->view('areaacademica_record',$data);
 	$this->load->view('template/page_footer');
@@ -19,7 +19,7 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva Tipo de documento";
+		$data['title']="Nueva área académica";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('areaacademica_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -79,7 +79,7 @@ public function listar()
 {
 	
   $data['areaacademica_list'] = $this->areaacademica_model->lista_areaacademicasA()->result();
-  $data['title']="Tipo documento";
+  $data['title']="Areas academicas";
 	$this->load->view('template/page_header');		
   $this->load->view('areaacademica_list',$data);
 	$this->load->view('template/page_footer');
@@ -93,8 +93,9 @@ function areaacademica_data()
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
+		$idareaacademica=$this->input->get('idareaacademica');
 
-	 	$data0 = $this->areaacademica_model->lista_areaacademicasA();
+	 	$data0 = $this->areaacademica_model->lista_areaacademicasA($idareaacademica);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idareaacademica,$r->nombre,
@@ -124,7 +125,7 @@ public function elprimero()
 	$data['areaacademica'] = $this->areaacademica_model->elprimero();
   if(!empty($data))
   {
-    $data['title']="Tipo documento";
+    $data['title']="Area académica";
     $this->load->view('template/page_header');		
     $this->load->view('areaacademica_record',$data);
     $this->load->view('template/page_footer');
@@ -140,7 +141,7 @@ public function elultimo()
 	$data['areaacademica'] = $this->areaacademica_model->elultimo();
   if(!empty($data))
   {
-    $data['title']="Tipo documento";
+    $data['title']="Area académnica";
   
     $this->load->view('template/page_header');		
     $this->load->view('areaacademica_record',$data);
@@ -156,7 +157,7 @@ public function elultimo()
 public function siguiente(){
  // $data['areaacademica_list']=$this->areaacademica_model->lista_areaacademica()->result();
 	$data['areaacademica'] = $this->areaacademica_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Tipo documento";
+  $data['title']="Area académica";
 	$this->load->view('template/page_header');		
   $this->load->view('areaacademica_record',$data);
 	$this->load->view('template/page_footer');
@@ -165,7 +166,7 @@ public function siguiente(){
 public function anterior(){
  // $data['areaacademica_list']=$this->areaacademica_model->lista_areaacademica()->result();
 	$data['areaacademica'] = $this->areaacademica_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Tipo documento";
+  $data['title']="Area académica";
 	$this->load->view('template/page_header');		
   $this->load->view('areaacademica_record',$data);
 	$this->load->view('template/page_footer');
