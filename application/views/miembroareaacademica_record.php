@@ -137,7 +137,46 @@ echo form_input('idareaacademica',$options[$miembroareaacademica['idareaacademic
 <?php echo form_close(); ?>
 
 
+<div class="form-group row">
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12" style="border:solid;">
 
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Estudios realizados: </b>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-success" href="<?php echo base_url('miembroareaacademica/add/'.$areaacademica['idareaacademica']) ?>">Nuevo miembro</a><a class="btn btn-danger" href="<?php echo base_url('docente/reportepdf/'.$persona['idpersona']) ?>">Reporte</a>
+        </div>
+    </div>
+</div>
+
+
+
+	<table class="table table-striped table-bordered table-hover" id="mydatae">
+	 <thead>
+	 <tr>
+ <th>ID</th>
+ <th>periodo</th>
+ <th>miebro</th>
+ <th>area</th>
+ <th>Desde</th>
+ <th>Hasta</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_datae">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
 
 
 </body>
@@ -151,3 +190,22 @@ echo form_input('idareaacademica',$options[$miembroareaacademica['idareaacademic
 
 
 </html>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var idareaacademica=document.getElementById("idareaacademica").innerHTML;
+	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('miembroareaacademica/miembroareaacademica_data')?>', type: 'GET',data:{idareaacademica:idareaacademica}},});
+
+
+});
+
+$('#show_data').on('click','.item_ver',function(){
+var id= $(this).data('iddocumento');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+</script>
+

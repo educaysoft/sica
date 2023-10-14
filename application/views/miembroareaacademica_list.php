@@ -44,7 +44,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <th>ID</th>
  <th>periodo</th>
  <th>miebro</th>
- <th>comision</th>
+ <th>area</th>
  <th>Desde</th>
  <th>Hasta</th>
  <th style="text-align: right;">Actions</th>
