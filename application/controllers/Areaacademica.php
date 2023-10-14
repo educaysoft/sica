@@ -78,7 +78,7 @@ public function add()
 public function listar()
 {
 	
-  $data['areaacademica_list'] = $this->areaacademica_model->lista_areaacademicasA()->result();
+ // $data['areaacademica_list'] = $this->areaacademica_model->lista_areaacademicasA()->result();
   $data['title']="Areas academicas";
 	$this->load->view('template/page_header');		
   $this->load->view('areaacademica_list',$data);
