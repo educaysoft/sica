@@ -115,6 +115,25 @@ function areaacademica_data()
 
 
 
+public function actual()
+{
+	$data['areaacademica'] = $this->areaacademica_model->areaacademica($this->uri->segment(3))->row_array();
+  if(!empty($data))
+  {
+    $data['title']="Area académica";
+    $this->load->view('template/page_header');		
+    $this->load->view('areaacademica_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
 
 
 
