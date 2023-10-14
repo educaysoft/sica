@@ -27,7 +27,7 @@
 
   <tr>
      <td>Id Tipo Doc:</td>
-     <td><?php echo form_input('idareaacademica',$areaacademica['idareaacademica'],array("disabled"=>"disabled",'placeholder'=>'Idareaacademicas')) ?></td>
+     <td><?php echo form_input('idareaacademica',$areaacademica['idareaacademica'],array("disabled"=>"disabled","id"=>"idareaacademica",'placeholder'=>'Idareaacademicas')) ?></td>
   </tr>
  
  
