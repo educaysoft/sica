@@ -46,11 +46,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <b>Miembros del área académica: </b>
+            <b>Areas académica: </b>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('miembroareaacademica/add/'.$areaacademica['idareaacademica']) ?>">Nuevo miembro</a><a class="btn btn-danger" href="<?php echo base_url('docente/reportepdf/'.$areaacademica['idareaacademica']) ?>">Reporte</a>
-        </div>
+        
     </div>
 </div>
 
