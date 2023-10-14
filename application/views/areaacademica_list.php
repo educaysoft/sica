@@ -92,7 +92,7 @@ $(document).ready(function(){
 	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('areaacademica/areaacademica_data')?>', type: 'GET'},});
 });
 
-$('#show_data').on('click','.item_ver',function(){
+$('#show_datae').on('click','.item_ver',function(){
 var id= $(this).data('idareaacademica');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
