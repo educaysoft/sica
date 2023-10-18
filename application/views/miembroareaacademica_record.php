@@ -87,7 +87,7 @@ echo form_input('idperiodoacademico',$options[$miembroareaacademica['idperiodoac
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label"> <?php echo anchor('miembroareaacademica/actual/'.$miembroareaacademica['idareaacademica'], 'Area Académica:'); ?>: </label>
+<label class="col-md-2 col-form-label"> <?php echo anchor('areaacademica/actual/'.$miembroareaacademica['idareaacademica'], 'Area Académica:'); ?>: </label>
 	<div class="col-md-10">
      	<?php 
 
