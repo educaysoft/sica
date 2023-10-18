@@ -93,7 +93,6 @@
 
 $(document).ready(function(){
 	var idareaacademica=document.getElementById("idareaacademica").value;
-	alert(idareaacademica);
 	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('miembroareaacademica/miembroareaacademica_data')?>', type: 'GET',data:{idareaacademica:idareaacademica}},});
 
 
