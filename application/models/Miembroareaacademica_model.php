@@ -20,6 +20,18 @@ class Miembroareaacademica_model extends CI_model {
 	}
 
 
+	function lista_miembroareaacademicaxarea($id){
+ 		$this->db->where('idareaacademica',$id);
+		 $miembroareaacademica= $this->db->get('miembroareaacademica1');
+		 return $miembroareaacademica;
+	}
+
+
+
+
+
+
+
  	function miembroareaacademica( $id){
  		$miembroareaacademica = $this->db->query('select * from miembroareaacademica where idmiembroareaacademica="'. $id.'"');
  		return $miembroareaacademica;
