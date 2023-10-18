@@ -35,7 +35,7 @@ if(isset($miembroareaacademica))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('miembroareaacademica/actual/'.$miembroareaacademica['idmiembroareaacademica'], 'Id:'); ?>: </label>
+    <label class="col-md-2 col-form-label">Id : </label>
      	<?php 
 
 
@@ -87,7 +87,7 @@ echo form_input('idperiodoacademico',$options[$miembroareaacademica['idperiodoac
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label"> Area Academica: </label>
+<label class="col-md-2 col-form-label"> <?php echo anchor('miembroareaacademica/actual/'.$miembroareaacademica['idareaacademica'], 'Area Académica:'); ?>: </label>
 	<div class="col-md-10">
      	<?php 
 
