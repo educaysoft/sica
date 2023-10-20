@@ -43,6 +43,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <tr>
  <th>ID</th>
  <th>periodo</th>
+ <th>malla</th>
  <th>asignatura</th>
  <th>docente</th>
  <th style="text-align: right;">Actions</th>

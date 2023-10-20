@@ -168,6 +168,7 @@ if(isset($silabo))
 	 <th>idunidadsilabo</th>
 	 <th>Unidad</th>
 	 <th>nombre</th>
+	 <th>sesiones</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
