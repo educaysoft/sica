@@ -269,8 +269,10 @@ echo '<a class="btn"  onclick="enviar_correo(`<img src=\'data:image/jpg;base64,'
 
 	 tinymce.init({
 		selector:'#comentario_edit',
-		plugins: 'advcode',
+		plugins: 'code',
   		toolbar: 'code'
+		height: 300,
+  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
 	});
 
 
