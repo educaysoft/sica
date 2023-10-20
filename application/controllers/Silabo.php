@@ -166,7 +166,7 @@ function silabo_data()
 			$draw= intval($this->input->get("length"));
 
 			$idsilabo=$this->input->get('idsilabo');
-			$data0 =$this->unidadsilabo_model->unidadsilaboss($idsilabo);
+			$data0 =$this->unidadsilabo_model->lista_unidades($idsilabo);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idsilabo,$r->idunidadsilabo,$r->unidad,$r->nombre,$r->sesiones,
