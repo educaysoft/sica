@@ -143,7 +143,7 @@ function silabo_data()
 	 	$data0 = $this->silabo_model->lista_silabosA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idsilabo,$r->elperiodo,$r->laasignatura,$r->eldocente,
+			$data[]=array($r->idsilabo,$r->elperiodo,$r->malla,$r->laasignatura,$r->eldocente,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('silabo/actual').'"    data-idsilabo="'.$r->idsilabo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
