@@ -269,6 +269,8 @@ echo '<a class="btn"  onclick="enviar_correo(`<img src=\'data:image/jpg;base64,'
 
 	 tinymce.init({
 		 selector:'#comentario_edit',
+		 plugins: 'advcode',
+  		 toolbar: 'code',
 		 height:300
 
 	});
@@ -276,7 +278,7 @@ echo '<a class="btn"  onclick="enviar_correo(`<img src=\'data:image/jpg;base64,'
 
 
 	 tinymce.init({
-		 selector:'#pie_edit',
+		 selector:'#pies_edit',
 		 height:300
 
 	});
