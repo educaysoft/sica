@@ -269,9 +269,11 @@ echo '<a class="btn"  onclick="enviar_correo(`<img src=\'data:image/jpg;base64,'
 
 	 tinymce.init({
 		 selector:'#comentario_edit',
-		 plugins: 'advcode',
-  		 toolbar: 'code',
-		 height:300
+		plugins: "advlist lists spellchecker autoresize wordcount",
+  min_height: 120,
+  menubar: false,
+  toolbar: ["bold italic underline | bullist numlist | spellchecker"],	
+	 height:300
 
 	});
 
