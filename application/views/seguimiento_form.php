@@ -275,10 +275,7 @@ echo '<a class="btn"  onclick="enviar_correo(`<img src=\'data:image/jpg;base64,'
   menubar: false,
   toolbar: [
     "bold italic underline | forecolor | formatselect | alignleft aligncenter alignright | bullist numlist",
-    "cut copy paste formatpainter removeformat | casechange visualblocks | spellchecker | link image media | code"
-  ],
-	 height:300
-
+    "cut copy paste formatpainter removeformat | casechange visualblocks | spellchecker | link image media | code" ]
 	});
 
 
