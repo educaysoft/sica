@@ -140,10 +140,10 @@ function silabo_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->silabo_model->lista_silabos();
+	 	$data0 = $this->silabo_model->lista_silabosA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idsilabo,$r->nombre,
+			$data[]=array($r->idsilabo,$r->elperiodo,$r->laasignatura,$r->eldocente,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('silabo/actual').'"    data-idsilabo="'.$r->idsilabo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
