@@ -136,7 +136,10 @@ if(isset($silabo))
 	?>
 	<div class="col-md-10">
 		<?php
- 			echo form_multiselect('iddocumento[]',$options,(array)set_value('iddocumento',''), array('style'=>'width:500px;')); 
+
+
+$textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;',,'onChange'=>'mostrarsilabo()',"id"=>"linkdetalle");    
+ echo form_textarea('linkdetalle',$silabo['linkdetalle'],$textarea_options); 
 		?>
 	</div> 
 </div>
@@ -256,6 +259,19 @@ var id= $(this).data('idevento');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
+
+function mostrarsilabo()
+{
+
+	var options = document.getElementById('linkdetalle').value;
+	window.location.href = options;
+
+
+
+}
+
+
+
 
 
 </script>
