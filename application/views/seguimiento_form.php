@@ -272,7 +272,7 @@ echo '<a class="btn"  onclick="enviar_correo(`<img src=\'data:image/jpg;base64,'
 		plugins: 'code',
   		toolbar: 'code',
 		height: 300,
-  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }  div {position:relative; width: 150px;  height: 150px;  background: #522d5b; '
 	});
 
 
