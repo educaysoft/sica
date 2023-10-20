@@ -269,11 +269,9 @@ echo '<a class="btn"  onclick="enviar_correo(`<img src=\'data:image/jpg;base64,'
 
 	 tinymce.init({
 		selector:'#comentario_edit',
-		plugins: 'code',
 plugins:
-    "casechange advcode advlist lists spellchecker formatpainter autoresize visualblocks tinydrive image link media imagetools wordcount",
+    "casechange code advlist lists spellchecker formatpainter autoresize visualblocks tinydrive image link media imagetools wordcount",
   min_height: 380,
-  menubar: false,
   toolbar: [
     "bold italic underline | forecolor | formatselect | alignleft aligncenter alignright | bullist numlist",
     "cut copy paste formatpainter removeformat | casechange visualblocks | spellchecker | link image media | code"
