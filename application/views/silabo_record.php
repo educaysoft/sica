@@ -138,7 +138,7 @@ if(isset($silabo))
 		<?php
 
 
-$textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;',,'onChange'=>'mostrarsilabo()',"id"=>"linkdetalle");    
+$textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;','onChange'=>'mostrarsilabo()',"id"=>"linkdetalle");    
  echo form_textarea('linkdetalle',$silabo['linkdetalle'],$textarea_options); 
 		?>
 	</div> 
