@@ -169,7 +169,7 @@ function silabo_data()
 			$data0 =$this->unidadsilabo_model->lista_unidades($idsilabo);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idsilabo,$r->idunidadsilabo,$r->unidad,$r->nombre,$r->sesiones,
+				$data[]=array($r->idsilabo,$r->idunidadsilabo,$r->unidad,$r->launidad,$r->sesiones,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('unidadsilabo/actual').'"    data-idunidadsilabo="'.$r->idunidadsilabo.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
