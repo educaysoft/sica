@@ -190,6 +190,7 @@ public function elultimo()
   if(!empty($data))
   {
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
+  	$data['actividadacademicas']= $this->actividadacademica_model->lista_actividadacademicas()->result();
     	$data['title']="Docenteactividadacademica";
     	$this->load->view('template/page_header');		
     	$this->load->view('docenteactividadacademica_record',$data);
