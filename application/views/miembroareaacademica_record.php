@@ -35,9 +35,8 @@ if(isset($miembroareaacademica))
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label">Id : </label>
+	<div class="col-md-10">
      	<?php 
-
-
       echo form_input('idmiembroareaacademica',$miembroareaacademica['idmiembroareaacademica'],array("disabled"=>"disabled",'placeholder'=>'Idmiembroareaacademicas')); 
 		?>
 	</div> 
@@ -46,14 +45,10 @@ if(isset($miembroareaacademica))
 
 
 
-
-
-
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Persona: </label>
+	<div class="col-md-10">
      	<?php 
-
-
  
 $options= array("NADA");
 foreach ($personas as $row){
