@@ -144,7 +144,13 @@ function docenteactividadacademica_data()
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
-	 	$data0 = $this->docenteactividadacademica_model->lista_docenteactividadacademicasA();
+		if($this->input->get('iddistributivodocente'))
+		{
+			$iddistributivodocente=$this->input->get('iddistributivodocente');
+		}else{
+			$iddistributivodocente=0; 
+		}
+	 	$data0 = $this->docenteactividadacademica_model->lista_docenteactividadacademicasA($iddistributivodocente);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->iddocenteactividadacademica,$r->eldistributivodocente,$r->item,$r->tipoactividad,$r->nombreactividad,$r->numerohoras,

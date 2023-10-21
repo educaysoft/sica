@@ -7,7 +7,10 @@ class Docenteactividadacademica_model extends CI_model {
 	}
 
 
-	function lista_docenteactividadacademicasA(){
+	function lista_docenteactividadacademicasA($id){
+		if($id>0){
+ 			$this->db->where('iddistributivodocente',$id);
+		}
 		 $docenteactividadacademica= $this->db->get('docenteactividadacademica1');
 		 return $docenteactividadacademica;
 	}

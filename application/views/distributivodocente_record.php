@@ -149,6 +149,56 @@ echo form_input('idtiempodedicacion',$options[$distributivodocente['idtiempodedi
 
 
 
+<div class="form-group row">
+
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12" style="border:solid;">
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Distributivos individual</b>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-success" href="<?php echo base_url('docenteactividadacademica/add/') ?>">Sumar actividad</a>
+        </div>
+    </div>
+</div>
+
+
+	<table class="table table-striped table-bordered table-hover" id="mydataad">
+	 <thead>
+	 <tr>
+	 <th>Id</th>
+	 <th>docente</th>
+	 <th>item</th>
+	 <th>tipo</th>
+	 <th>Actividad academica</th>
+ 	<th>Horas/sem</th>
+ 	<th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_dataad">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="form-group row">
@@ -251,6 +301,7 @@ $(document).ready(function(){
 	var iddocente=  document.getElementById("iddocente").value;
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/asignaturadocente_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
 
+	var mytablaad= $('#mydataad').DataTable({"ajax": {url: '<?php echo site_url('docenteactividadacademica/docenteactividadacademica_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
 
 	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('docente/silabo_data')?>', type: 'GET',data:{iddocente:iddocente,idperiodoacademico:idperiodoacademico}},});
 
