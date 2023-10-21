@@ -31,7 +31,6 @@ if(isset($miembroareaacademica))
 
 <?php echo form_open('miembroareaacademica/save_edit') ?>
 <?php echo form_hidden('idmiembroareaacademica',$miembroareaacademica['idmiembroareaacademica']) ?>
-<table>
 
 
 <div class="form-group row">

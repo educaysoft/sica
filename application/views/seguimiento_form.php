@@ -182,7 +182,7 @@ foreach ($correosde as $row){
 										
 					<div class="form-group row">
 					<label class="col-md-2 col-form-label"> Comentario:</label>
-					<div class="col-md-10">
+					<div class="col-md-10" contenteditable="true" >
 					<?php
 					$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:100%;height:100px;', "placeholder"=>"comentario",'id'=>'comentario_edit' );
 					echo form_textarea("comentario_edit","",$textarea_options);
