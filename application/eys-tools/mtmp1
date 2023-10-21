@@ -1,55 +1,33 @@
 <?php
-class Miembroareaacademica_model extends CI_model {
+class Tipoactividadacademica_model extends CI_model {
 
-	function lista_miembrocomisionacademicas(){
-		 $miembrocomisionacademica= $this->db->get('miembrocomisionacademica');
-		 return $miembrocomisionacademica;
+	function lista_tipoeventos(){
+		 $tipoevento= $this->db->get('tipoevento');
+		 return $tipoevento;
 	}
 
-
-	function lista_miembrocomisionacademicasA(){
-		 $this->db->order_by("elmiembrocomisionacademica","asc");
-		 $miembrocomisionacademica= $this->db->get('miembrocomisionacademica1');
-		 return $miembrocomisionacademica;
-	}
-
-	function lista_miembrocomisionacademicasB(){
-		 $this->db->order_by("elperiodo asc,lacomision asc");
-		 $miembrocomisionacademica= $this->db->get('miembrocomisionacademica1');
-		 return $miembrocomisionacademica;
-	}
-
-
- 	function miembrocomisionacademica( $id){
- 		$miembrocomisionacademica = $this->db->query('select * from miembrocomisionacademica where idmiembrocomisionacademica="'. $id.'"');
- 		return $miembrocomisionacademica;
+ 	function tipoevento( $id){
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
+ 		return $tipoevento;
  	}
-
-
- 	function miembrocomisionacademicaspersona( $id){
- 		$miembrocomisionacademica = $this->db->query('select * from miembrocomisionacademica where idpersona="'. $id.'"');
- 		return $miembrocomisionacademica;
- 	}
-
-
 
  	function save($array)
  	{
-		$this->db->insert("miembrocomisionacademica", $array);
+		$this->db->insert("tipoevento", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idmiembrocomisionacademica',$id);
- 		$this->db->update('miembrocomisionacademica',$array_item);
+ 		$this->db->where('idtipoevento',$id);
+ 		$this->db->update('tipoevento',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idmiembrocomisionacademica',$id);
-		$this->db->delete('miembrocomisionacademica');
+ 		$this->db->where('idtipoevento',$id);
+		$this->db->delete('tipoevento');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -60,7 +38,7 @@ class Miembroareaacademica_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idmiembrocomisionacademica")->get('miembrocomisionacademica');
+		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -73,7 +51,7 @@ class Miembroareaacademica_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idmiembrocomisionacademica")->get('miembrocomisionacademica');
+		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -85,37 +63,37 @@ class Miembroareaacademica_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$miembrocomisionacademica = $this->db->select("idmiembrocomisionacademica")->order_by("idmiembrocomisionacademica")->get('miembrocomisionacademica')->result_array();
-		$arr=array("idmiembrocomisionacademica"=>$id);
-		$clave=array_search($arr,$miembrocomisionacademica);
-	   if(array_key_exists($clave+1,$miembrocomisionacademica))
+ 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
+		$arr=array("idtipoevento"=>$id);
+		$clave=array_search($arr,$tipoevento);
+	   if(array_key_exists($clave+1,$tipoevento))
 		 {
 
- 		$miembrocomisionacademica = $this->db->query('select * from miembrocomisionacademica where idmiembrocomisionacademica="'. $miembrocomisionacademica[$clave+1]["idmiembrocomisionacademica"].'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave+1]["idtipoevento"].'"');
 		 }else{
 
- 		$miembrocomisionacademica = $this->db->query('select * from miembrocomisionacademica where idmiembrocomisionacademica="'. $id.'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
 		 }
 		 	
- 		return $miembrocomisionacademica;
+ 		return $tipoevento;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$miembrocomisionacademica = $this->db->select("idmiembrocomisionacademica")->order_by("idmiembrocomisionacademica")->get('miembrocomisionacademica')->result_array();
-		$arr=array("idmiembrocomisionacademica"=>$id);
-		$clave=array_search($arr,$miembrocomisionacademica);
-	   if(array_key_exists($clave-1,$miembrocomisionacademica))
+ 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
+		$arr=array("idtipoevento"=>$id);
+		$clave=array_search($arr,$tipoevento);
+	   if(array_key_exists($clave-1,$tipoevento))
 		 {
 
- 		$miembrocomisionacademica = $this->db->query('select * from miembrocomisionacademica where idmiembrocomisionacademica="'. $miembrocomisionacademica[$clave-1]["idmiembrocomisionacademica"].'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave-1]["idtipoevento"].'"');
 		 }else{
 
- 		$miembrocomisionacademica = $this->db->query('select * from miembrocomisionacademica where idmiembrocomisionacademica="'. $id.'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
 		 }
 		 	
- 		return $miembrocomisionacademica;
+ 		return $tipoevento;
  	}
 
 

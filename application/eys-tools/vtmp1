@@ -1,153 +1,58 @@
 <div id="eys-nav-i">
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($miembrocomisionacademica))
+if(isset($tipoevento))
 {
 ?>
-        <li> <?php echo anchor('miembrocomisionacademica/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('miembrocomisionacademica/anterior/'.$miembrocomisionacademica['idmiembrocomisionacademica'], 'anterior'); ?></li>
-        <li> <?php echo anchor('miembrocomisionacademica/siguiente/'.$miembrocomisionacademica['idmiembrocomisionacademica'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('miembrocomisionacademica/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('miembrocomisionacademica/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('miembrocomisionacademica/edit/'.$miembrocomisionacademica['idmiembrocomisionacademica'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('miembrocomisionacademica/delete/'.$miembrocomisionacademica['idmiembrocomisionacademica'],'Delete'); ?></li>
-        <li> <?php echo anchor('miembrocomisionacademica/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('tipoevento/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('tipoevento/siguiente/'.$tipoevento['idtipoevento'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('tipoevento/anterior/'.$tipoevento['idtipoevento'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('tipoevento/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('tipoevento/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('tipoevento/edit/'.$tipoevento['idtipoevento'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('tipoevento/delete/'.$tipoevento['idtipoevento'],'Delete'); ?></li>
+        <li> <?php echo anchor('tipoevento/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('miembrocomisionacademica/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('tipoevento/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
-
     </ul>
 </div>
 <br>
 <br>
 
 
-<?php echo form_open('miembrocomisionacademica/save_edit') ?>
-<?php echo form_hidden('idmiembrocomisionacademica',$miembrocomisionacademica['idmiembrocomisionacademica']) ?>
-<table>
+<?php echo form_open('tipoevento/save_edit') ?>
+<?php echo form_hidden('idtipoevento',$tipoevento['idtipoevento']) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Miembrocomisionacademica: </label>
-     	<?php 
-
-
-      echo form_input('idmiembrocomisionacademica',$miembrocomisionacademica['idmiembrocomisionacademica'],array("disabled"=>"disabled",'placeholder'=>'Idmiembrocomisionacademicas')); 
-		?>
+    <label class="col-md-2 col-form-label"> Id:</label>
+	<div class="col-md-10">
+     <?php
+	echo form_input('idtipoevento',$tipoevento['idtipoevento'],array("disabled"=>"disabled",'placeholder'=>'Idtipoeventos'));
+	?>
 	</div> 
-</div>
-
-
-
-
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Persona: </label>
-     	<?php 
-
-
+</div> 
  
-$options= array("NADA");
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
-}
-
-echo form_input('idpersona',$options[$miembrocomisionacademica['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
-
-
-
 <div class="form-group row">
-<label class="col-md-2 col-form-label"> Perido academico: </label>
+    <label class="col-md-2 col-form-label"> Nombre:</label>
 	<div class="col-md-10">
-     	<?php 
+     <?php
+       echo form_input('nombre',$tipoevento['nombre'],array('placeholder'=>'Nombre del tipoevento')); 
 
-$options= array("NADA");
-foreach ($periodoacademicos as $row){
-	$options[$row->idperiodoacademico]= $row->nombrelargo;
-}
-
-echo form_input('idperiodoacademico',$options[$miembrocomisionacademica['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-		?>
+	?>
 	</div> 
-</div>
-
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> Comision Academica: </label>
-	<div class="col-md-10">
-     	<?php 
-
-$options= array("NADA");
-foreach ($comisionacademicas as $row){
-	$options[$row->idcomisionacademica]= $row->nombre;
-}
-
-echo form_input('idcomisionacademica',$options[$miembrocomisionacademica['idcomisionacademica']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
-
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha desde: </label>
-	<div class="col-md-10">
-     	<?php 
-
-
-      echo form_input('fechadesde',$miembrocomisionacademica['fechadesde'],array('type'=>'date','placeholder'=>'fechadesde','style'=>'width:500px;')); 
-
-		?>
-	</div> 
-</div>
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha hasta: </label>
-	<div class="col-md-10">
-     	<?php 
-
-       echo form_input('fechahasta',$miembrocomisionacademica['fechahasta'],array('type'=>'date','placeholder'=>'fechahasta','style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
-
-
-
-
-
-
-
+</div> 
+   
+   
 <?php echo form_close(); ?>
 
 
 
-
-
-</body>
-
-
-
-
-
-
-
-
-
-</html>
