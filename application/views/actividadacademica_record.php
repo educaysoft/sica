@@ -68,7 +68,7 @@ echo form_input('idtipoactividadacademica',$options[$actividadacademica['idtipoa
 <label class="col-md-2 col-form-label">Nombre:</label>
 	<div class="col-md-10">
 		<?php
-       $eys_arrinput=array('name'=>'nombre','value'=>$actividaddocente['nombre'], "style"=>"width:500px");
+       $eys_arrinput=array('name'=>'nombre','value'=>$actividadacademica['nombre'], "style"=>"width:500px");
      echo form_input($eys_arrinput);
 
 		?>
@@ -79,7 +79,7 @@ echo form_input('idtipoactividadacademica',$options[$actividadacademica['idtipoa
 <label class="col-md-2 col-form-label">Item-codigo:</label>
 	<div class="col-md-10">
 		<?php
-       $eys_arrinput=array('name'=>'item','value'=>$actividaddocente['item'], "style"=>"width:500px");
+       $eys_arrinput=array('name'=>'item','value'=>$actividadacademica['item'], "style"=>"width:500px");
      echo form_input($eys_arrinput);
 
 		?>
