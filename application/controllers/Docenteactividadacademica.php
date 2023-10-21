@@ -170,7 +170,7 @@ function docenteactividadacademica_data()
 public function elprimero()
 {
 	$data['docenteactividadacademica'] = $this->docenteactividadacademica_model->elprimero();
-  	$data['actividadacademicas']= $this->actividadacademica_model->lista_actividadacademicas()->result();
+  	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
   if(!empty($data))
   {
   	$data['distributivodocentes']= $this->distributivodocente_model->lista_distributivodocentes()->result();
@@ -188,7 +188,7 @@ public function elprimero()
 public function elultimo()
 {
 	$data['docenteactividadacademica'] = $this->docenteactividadacademica_model->elultimo();
-  	$data['actividadacademicas']= $this->actividadacademica_model->lista_actividadacademicas()->result();
+  	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
   if(!empty($data))
   {
   	$data['distributivodocentes']= $this->distributivodocente_model->lista_distributivodocentes()->result();
@@ -206,7 +206,7 @@ public function elultimo()
 public function siguiente(){
  // $data['docenteactividadacademica_list']=$this->docenteactividadacademica_model->lista_docenteactividadacademica()->result();
 	$data['docenteactividadacademica'] = $this->docenteactividadacademica_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['distributivodocentes']= $this->distributivodocente_model->lista_distributivodocentes()->result();
+  	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
   	$data['actividadacademicas']= $this->actividadacademica_model->lista_actividadacademicas()->result();
   	$data['title']="Docenteactividadacademica";
 	$this->load->view('template/page_header');		
@@ -217,7 +217,7 @@ public function siguiente(){
 public function anterior(){
  // $data['docenteactividadacademica_list']=$this->docenteactividadacademica_model->lista_docenteactividadacademica()->result();
 	$data['docenteactividadacademica'] = $this->docenteactividadacademica_model->anterior($this->uri->segment(3))->row_array();
- 	$data['distributivodocentes']= $this->distributivodocente_model->lista_distributivodocentes()->result();
+  	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
   	$data['actividadacademicas']= $this->actividadacademica_model->lista_actividadacademicas()->result();
   	$data['title']="Docenteactividadacademica";
 	$this->load->view('template/page_header');		
