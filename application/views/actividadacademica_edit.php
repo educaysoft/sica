@@ -32,7 +32,7 @@ foreach ($tipoactividadacademicas as $row){
 <tr>
       <td>Nombre actividad:</td>
 <?php $textarea_options = array('name' => 'nombre','value' => $actividadacademica['nombre'], 'style'=> 'width:500px;'); ?>    
-      <td><?php echo form_textarea($textarea_options);    ?></td>
+      <td><?php echo form_input($textarea_options);    ?></td>
   </tr>
 
 <tr>
