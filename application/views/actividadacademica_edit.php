@@ -19,7 +19,7 @@ echo form_input($eys_arrinput); ?></td>
  
 
 <tr>
-<td> Topo de horas:</td>
+<td> Tipo de actividad:</td>
 <td><?php
 $options= array('--Select--');
 foreach ($tipoactividadacademicas as $row){
@@ -30,13 +30,13 @@ foreach ($tipoactividadacademicas as $row){
 </tr>
 
 <tr>
-      <td>Nombre:</td>
-	<?php $textarea_options = array('name' => 'nombre','value' => $actividadacademica['nombre'], 'style'=> 'width:500px;'); ?>    
+      <td>Nombre actividad:</td>
+<?php $textarea_options = array('name' => 'nombre','value' => $actividadacademica['nombre'], 'style'=> 'width:500px;'); ?>    
       <td><?php echo form_textarea($textarea_options);    ?></td>
   </tr>
 
 <tr>
-      <td>Nombre:</td>
+      <td>Item-codigo:</td>
 <?php $textarea_options = array('name' => 'item','value' => $actividadacademica['item'], 'style'=> 'width:500px;'); ?>    
       <td><?php echo form_input($textarea_options);    ?></td>
   </tr>
