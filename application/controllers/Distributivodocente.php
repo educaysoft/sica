@@ -23,7 +23,7 @@ public function index(){
   	$data['distributivodocente']=$this->distributivodocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
-  	$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
+  	$data['distributivo']= $this->distributivo_model->lista_distributivos1(0)->result();
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			
 		$data['title']="Lista de distributivodocentes";
