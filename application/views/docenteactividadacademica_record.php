@@ -46,7 +46,7 @@ if(isset($docenteactividadacademica))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Asignatura:</label>
+    <label class="col-md-2 col-form-label">Docente:</label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
@@ -62,7 +62,7 @@ echo form_input('iddistributivodocente',$options[$docenteactividadacademica['idd
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Tipo de referencias:</label>
+    <label class="col-md-2 col-form-label">Actividad académica:</label>
 	<div class="col-md-10">
 		<?php
 $options= array("NADA");

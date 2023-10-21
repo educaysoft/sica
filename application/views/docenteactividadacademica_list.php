@@ -41,11 +41,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>ID</th>
- <th>Asignatura</th>
- <th>titulo</th>
+ <th>Id</th>
+ <th>docente</th>
+ <th>item</th>
  <th>tipo</th>
- <th>url</th>
+ <th>Actividad academica</th>
+ <th>Horas/sem</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>

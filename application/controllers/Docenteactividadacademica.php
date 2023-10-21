@@ -125,16 +125,15 @@ public function edit()
  		$data=$this->docenteactividadacademica_model->delete($this->uri->segment(3));
  		echo json_encode($data);
 	 	redirect('docenteactividadacademica/elprimero');
-	//	$db['default']['db_debug']=FALSE
  	}
 
 
 public function listar()
 {
 	
-  $data['title']="Docenteactividadacademicas";
+  	$data['title']="Docenteactividadacademicas";
 	$this->load->view('template/page_header');		
-  $this->load->view('docenteactividadacademica_list',$data);
+  	$this->load->view('docenteactividadacademica_list',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -148,8 +147,8 @@ function docenteactividadacademica_data()
 	 	$data0 = $this->docenteactividadacademica_model->lista_docenteactividadacademicasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->iddocenteactividadacademica,$r->ladistributivodocente,$r->titulo,$r->tipo,$r->url,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('docenteactividadacademica/actual').'"  data-iddocenteactividadacademica="'.$r->iddocenteactividadacademica.'">Ver</a>');
+			$data[]=array($r->iddocenteactividadacademica,$r->eldistributivodocente,$r->item,$r->tipoactividad,$r->nombreactividad,$r->numerohoras,
+			$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('docenteactividadacademica/actual').'"  data-iddocenteactividadacademica="'.$r->iddocenteactividadacademica.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -175,14 +174,14 @@ public function elprimero()
   if(!empty($data))
   {
   	$data['distributivodocentes']= $this->distributivodocente_model->lista_distributivodocentes()->result();
-    $data['title']="Docenteactividadacademica";
-    $this->load->view('template/page_header');		
-    $this->load->view('docenteactividadacademica_record',$data);
-    $this->load->view('template/page_footer');
+    	$data['title']="Docenteactividadacademica";
+    	$this->load->view('template/page_header');		
+    	$this->load->view('docenteactividadacademica_record',$data);
+    	$this->load->view('template/page_footer');
   }else{
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
+    	$this->load->view('template/page_header');		
+    	$this->load->view('registro_vacio');
+    	$this->load->view('template/page_footer');
   }
  }
 
@@ -193,16 +192,14 @@ public function elultimo()
   if(!empty($data))
   {
   	$data['distributivodocentes']= $this->distributivodocente_model->lista_distributivodocentes()->result();
-    $data['title']="Docenteactividadacademica";
-  
-    $this->load->view('template/page_header');		
-    $this->load->view('docenteactividadacademica_record',$data);
-    $this->load->view('template/page_footer');
+    	$data['title']="Docenteactividadacademica";
+    	$this->load->view('template/page_header');		
+    	$this->load->view('docenteactividadacademica_record',$data);
+   	$this->load->view('template/page_footer');
   }else{
-
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
+    	$this->load->view('template/page_header');		
+    	$this->load->view('registro_vacio');
+    	$this->load->view('template/page_footer');
   }
 }
 
@@ -211,9 +208,9 @@ public function siguiente(){
 	$data['docenteactividadacademica'] = $this->docenteactividadacademica_model->siguiente($this->uri->segment(3))->row_array();
   	$data['distributivodocentes']= $this->distributivodocente_model->lista_distributivodocentes()->result();
   	$data['actividadacademicas']= $this->actividadacademica_model->lista_actividadacademicas()->result();
-  $data['title']="Docenteactividadacademica";
+  	$data['title']="Docenteactividadacademica";
 	$this->load->view('template/page_header');		
-  $this->load->view('docenteactividadacademica_record',$data);
+  	$this->load->view('docenteactividadacademica_record',$data);
 	$this->load->view('template/page_footer');
 }
 
