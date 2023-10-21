@@ -1,5 +1,5 @@
 <?php
-class Actividadacademica_model extends CI_model {
+class Docenteactividadacademica_model extends CI_model {
 
 	function lista_referenciasasignaturas(){
 		 $referenciasasignatura= $this->db->get('referenciasasignatura');

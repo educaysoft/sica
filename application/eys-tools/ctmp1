@@ -1,6 +1,6 @@
 <?php
 
-class Actividadacademica extends CI_Controller{
+class Docenteactividadacademica extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
@@ -66,7 +66,7 @@ public function add()
 
 
   	$data['tiporeferenciasasignaturas']= $this->tiporeferenciasasignatura_model->lista_tiporeferenciasasignaturas()->result();
-		$data['title']="Nueva Actividadacademica";
+		$data['title']="Nueva Docenteactividadacademica";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('referenciasasignatura_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -97,7 +97,7 @@ public function edit()
 	 	$data['referenciasasignatura'] = $this->referenciasasignatura_model->referenciasasignatura($this->uri->segment(3))->row_array();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA(0)->result();
   		$data['tiporeferenciasasignaturas']= $this->tiporeferenciasasignatura_model->lista_tiporeferenciasasignaturas()->result();
- 	 	$data['title'] = "Actualizar Actividadacademica";
+ 	 	$data['title'] = "Actualizar Docenteactividadacademica";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('referenciasasignatura_edit',$data);
 	 	$this->load->view('template/page_footer');
@@ -134,7 +134,7 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Actividadacademicas";
+  $data['title']="Docenteactividadacademicas";
 	$this->load->view('template/page_header');		
   $this->load->view('referenciasasignatura_list',$data);
 	$this->load->view('template/page_footer');
@@ -177,7 +177,7 @@ public function elprimero()
   if(!empty($data))
   {
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
-    $data['title']="Actividadacademica";
+    $data['title']="Docenteactividadacademica";
     $this->load->view('template/page_header');		
     $this->load->view('referenciasasignatura_record',$data);
     $this->load->view('template/page_footer');
@@ -195,7 +195,7 @@ public function elultimo()
   if(!empty($data))
   {
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
-    $data['title']="Actividadacademica";
+    $data['title']="Docenteactividadacademica";
   
     $this->load->view('template/page_header');		
     $this->load->view('referenciasasignatura_record',$data);
@@ -213,7 +213,7 @@ public function siguiente(){
 	$data['referenciasasignatura'] = $this->referenciasasignatura_model->siguiente($this->uri->segment(3))->row_array();
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   	$data['tiporeferenciasasignaturas']= $this->tiporeferenciasasignatura_model->lista_tiporeferenciasasignaturas()->result();
-  $data['title']="Actividadacademica";
+  $data['title']="Docenteactividadacademica";
 	$this->load->view('template/page_header');		
   $this->load->view('referenciasasignatura_record',$data);
 	$this->load->view('template/page_footer');
@@ -224,7 +224,7 @@ public function anterior(){
 	$data['referenciasasignatura'] = $this->referenciasasignatura_model->anterior($this->uri->segment(3))->row_array();
  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
   	$data['tiporeferenciasasignaturas']= $this->tiporeferenciasasignatura_model->lista_tiporeferenciasasignaturas()->result();
-  $data['title']="Actividadacademica";
+  $data['title']="Docenteactividadacademica";
 	$this->load->view('template/page_header');		
   $this->load->view('referenciasasignatura_record',$data);
 	$this->load->view('template/page_footer');
