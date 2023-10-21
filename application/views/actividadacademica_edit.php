@@ -31,9 +31,16 @@ foreach ($tipoactividadacademicas as $row){
 
 <tr>
       <td>Nombre:</td>
-<?php $textarea_options = array('class' => 'form-control','rows' => '4', 'cols' => '20', 'style'=> 'width:500px;height:100px;'); ?>    
-      <td><?php echo form_textarea('nombre',$actividadacademica['nombre'],$textarea_options);    ?></td>
+	<?php $textarea_options = array('name' => 'nombre','value' => $actividadacademica['nombre'], 'style'=> 'width:500px;'); ?>    
+      <td><?php echo form_textarea($textarea_options);    ?></td>
   </tr>
+
+<tr>
+      <td>Nombre:</td>
+<?php $textarea_options = array('name' => 'item','value' => $actividadacademica['item'], 'style'=> 'width:500px;'); ?>    
+      <td><?php echo form_input($textarea_options);    ?></td>
+  </tr>
+
 
 <tr>
       <td>Dirección web:</td>

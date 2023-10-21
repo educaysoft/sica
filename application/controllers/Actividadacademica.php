@@ -70,6 +70,7 @@ public function add()
 		 	
 		 	'idactividadacademica' => $this->input->post('idactividadacademica'),
 		 	'nombre' => $this->input->post('nombre'),
+		 	'item' => $this->input->post('item'),
 			'idtipoactividadacademica' => $this->input->post('idtipoactividadacademica'),
 	 	);
 	 	$this->actividadacademica_model->save($array_item);
@@ -98,6 +99,7 @@ public function edit()
 		 	
 		 	'idactividadacademica' => $this->input->post('idactividadacademica'),
 		 	'nombre' => $this->input->post('nombre'),
+		 	'item' => $this->input->post('item'),
 			'idtipoactividadacademica' => $this->input->post('idtipoactividadacademica'),
 	 	);
 	 	$this->actividadacademica_model->update($id,$array_item);

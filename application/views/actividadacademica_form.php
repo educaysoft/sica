@@ -24,10 +24,15 @@ foreach ($tipoactividadacademicas as $row){
 </tr>
 
 <tr>
-<td> Titulo de la referencias: </td>
+<td> nombre de actividad: </td>
 <td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de la actividad"))  ?></td>
 </tr>
 
+
+<tr>
+<td> Item-codigo: </td>
+<td><?php echo form_input("item","", array("placeholder"=>"Item o codigo"))  ?></td>
+</tr>
 
 
 
