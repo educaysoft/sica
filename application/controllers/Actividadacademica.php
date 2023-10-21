@@ -136,7 +136,7 @@ function actividadacademica_data()
 	 	$data0 = $this->actividadacademica_model->lista_actividadacademicasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idactividadacademica,$r->nombre,$r->tipoactividadacademica,
+			$data[]=array($r->idactividadacademica,$r->item,$r->tipoactividada,$r->nombreactividad,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('actividadacademica/actual').'"  data-idactividadacademica="'.$r->idactividadacademica.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,

@@ -42,8 +42,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
- <th>Nombre</th>
+ <th>item</th>
  <th>tipo</th>
+ <th>Actividad</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
