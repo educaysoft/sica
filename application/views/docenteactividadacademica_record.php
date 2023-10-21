@@ -51,8 +51,10 @@ if(isset($docenteactividadacademica))
      <?php 
 $options= array("NADA");
 foreach ($distributivodocentes as $row){
-	$options[$row->iddistributivodocente]= $row->nombre;
+	$options[$row->iddistributivodocente]= $row->eldistributivodocente;
 }
+
+
 echo form_input('iddistributivodocente',$options[$docenteactividadacademica['iddistributivodocente']],array("disabled"=>"disabled",'style'=>'width:500px'));
 		?>
 	</div> 
