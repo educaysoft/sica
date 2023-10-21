@@ -170,10 +170,9 @@ function docenteactividadacademica_data()
 public function elprimero()
 {
 	$data['docenteactividadacademica'] = $this->docenteactividadacademica_model->elprimero();
-  	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
   if(!empty($data))
   {
-  	$data['distributivodocentes']= $this->distributivodocente_model->lista_distributivodocentes()->result();
+  	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
     	$data['title']="Docenteactividadacademica";
     	$this->load->view('template/page_header');		
     	$this->load->view('docenteactividadacademica_record',$data);
@@ -188,10 +187,9 @@ public function elprimero()
 public function elultimo()
 {
 	$data['docenteactividadacademica'] = $this->docenteactividadacademica_model->elultimo();
-  	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
   if(!empty($data))
   {
-  	$data['distributivodocentes']= $this->distributivodocente_model->lista_distributivodocentes()->result();
+  	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
     	$data['title']="Docenteactividadacademica";
     	$this->load->view('template/page_header');		
     	$this->load->view('docenteactividadacademica_record',$data);
