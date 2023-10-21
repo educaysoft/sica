@@ -68,16 +68,23 @@ echo form_input('idtipoactividadacademica',$options[$actividadacademica['idtipoa
 <label class="col-md-2 col-form-label">Nombre:</label>
 	<div class="col-md-10">
 		<?php
-
-$textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
-
-     echo form_textarea('nombre',$actividadacademica['nombre'],$textarea_options);
+       $eys_arrinput=array('name'=>'nombre','value'=>$actividaddocente['nombre'], "style"=>"width:500px");
+     echo form_input($eys_arrinput);
 
 		?>
 	</div> 
 </div>
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Item-codigo:</label>
+	<div class="col-md-10">
+		<?php
+       $eys_arrinput=array('name'=>'item','value'=>$actividaddocente['item'], "style"=>"width:500px");
+     echo form_input($eys_arrinput);
 
+		?>
+	</div> 
+</div>
 
  
 
