@@ -132,7 +132,7 @@ public function get_distributivo($id){
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("iddistributivo")->get('distributivo');
+		$query=$this->db->order_by("iddistributivo")->get('distributivo1');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -145,7 +145,7 @@ public function get_distributivo($id){
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("iddistributivo")->get('distributivo');
+		$query=$this->db->order_by("iddistributivo")->get('distributivo1');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -157,7 +157,7 @@ public function get_distributivo($id){
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$distributivo = $this->db->select("iddistributivo")->order_by("iddistributivo")->get('distributivo')->result_array();
+ 		$distributivo = $this->db->select("iddistributivo")->order_by("iddistributivo")->get('distributivo1')->result_array();
 		$arr=array("iddistributivo"=>$id);
 		$clave=array_search($arr,$distributivo);
 	   if(array_key_exists($clave+1,$distributivo))
@@ -175,7 +175,7 @@ public function get_distributivo($id){
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$distributivo = $this->db->select("iddistributivo")->order_by("iddistributivo")->get('distributivo')->result_array();
+ 		$distributivo = $this->db->select("iddistributivo")->order_by("iddistributivo")->get('distributivo1')->result_array();
 		$arr=array("iddistributivo"=>$id);
 		$clave=array_search($arr,$distributivo);
 	   if(array_key_exists($clave-1,$distributivo))
