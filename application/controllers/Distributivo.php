@@ -265,7 +265,7 @@ public function iniciar()
 
 public function actual()
 {
-	$data['distributivo'] = $this->distributivo_model->distributivo($this->uri->segment(3))->row_array();
+	$data['distributivo'] = $this->distributivo_model->distributivo1($this->uri->segment(3))->row_array();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['estadodistributivos']= $this->estadodistributivo_model->lista_estadodistributivos()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
