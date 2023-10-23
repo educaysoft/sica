@@ -14,7 +14,7 @@ if(isset($distributivo))
         <li style="border-right:1px solid green"> <?php echo anchor('distributivo/delete/'.$distributivo['iddistributivo'],'Delete'); ?></li>
         <li> <?php echo anchor('distributivo/listar/'.$distributivo['idperiodoacademico'],'Listar'); ?></li>
         <li> <?php echo anchor('distributivo/reportepdf/'.$distributivo['iddistributivo'],'reportepdf'); ?></li>
-        <li> <?php echo anchor('curso/cursos_'.str_replace('-','_',$distributivo['elperiodoacademico']).'_'.$asignaturadocente['area'],'Web'); ?></li>
+        <li> <?php echo anchor('curso/cursos_'.str_replace('-','_',$distributivo['elperiodoacademico']).'_'.$asignaturadocente['idareaconocimiento'],'Web'); ?></li>
         <li> <?php echo anchor('distributivo/','Distributivo'); ?></li>
 
 <?php 
