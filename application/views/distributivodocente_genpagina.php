@@ -168,6 +168,7 @@ function cargarVideo(url){
 
 
 $idareaconocimiento=0;
+$elperiodoacademico="";
 $inicio=1;
 
 foreach($asignaturadocentes as $row){
@@ -175,7 +176,7 @@ foreach($asignaturadocentes as $row){
 if($row->idareaconocimiento != $idareaconocimiento and $inicio==0)
 {
 	 	$data=$data.$data1;
-		$file='application/views/cursos/2023-1S-'.$idareaconocimiento.'.php';
+		$file='application/views/cursos/'.$elperiodoacademico.'-'.$idareaconocimiento.'.php';
 		if ( !write_file($file, $data)){
 		     echo 'Unable to write the file';
 		}else{
@@ -187,6 +188,7 @@ if($row->idareaconocimiento != $idareaconocimiento and $inicio==0)
 if($row->idareaconocimiento != $idareaconocimiento and $inicio==1)
 	{
 	 $idareaconocimiento=$row->idareaconocimiento;
+	 $elperiodoacademico=$row->elperiodoacademico;
 
 $data='
 <!doctype html>
@@ -201,7 +203,7 @@ $data='
         <meta property="og:image" content="https://educaysoft.org/sica/images/LogoEducacionContinua.png" />
         <meta property="og:image:width" content="400" />
         <meta property="og:image:height" content="400" />
-    <title> '.'Curos de Nivelación - Periodo 2023-1S  Area:'.$row->area . ' </title>
+    <title> '.'Curos de Educación Continua - UTLVTE - Periodo '.$row->elperiodoacademico.'  Area:'.$row->area . ' </title>
 
     <link rel="educaysoft" href="https://congresoutlvte.org/faci/">
     
@@ -216,12 +218,12 @@ $data=$data.'
   <section class="py-5 text-center container">
     <div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: center;" >
 <div style=" flex-basis: 40%"  >
-<img src="https://repositorioutlvte.org/Repositorio/qr/2023_1S_'.$idareaconocimiento.'.png" height="150px">
+<img src="https://repositorioutlvte.org/Repositorio/qr/'.$elperiodoacademico.'-'.$idareaconocimiento.'.png" height="150px">
 </div>
       <div >
         <h1 class="fw-light">'.$malla[0]->eldepartamento.'</h1>  
         <p class="lead text-muted">Área:'.$row->area.'.</p>
-        <p class="lead text-muted">Periodo: 2023-1S.</p>
+        <p class="lead text-muted">Periodo:'.$row->elperiodoacademico.'.</p>
       </div>
     </div>
   </section>
@@ -326,7 +328,7 @@ $data=$data.'</div>
 
 $data=$data.$data1;
 
-	$file='application/views/cursos/2023-1S-'.$idareaconocimiento.'.php';
+	$file='application/views/cursos/'.$elperiodoacademico.'-'.$idareaconocimiento.'.php';
 	if ( !write_file($file, $data)){
 	     echo 'Unable to write the file';
 	}else{
