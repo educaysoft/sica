@@ -317,7 +317,7 @@ alter table seguimiento add column correopara varchar(150) not null;
 alter table seguimiento add column asunto varchar(200) not null;
 */
 
-alter table seguimiento add column pies text not null;
+/*alter table seguimiento add column pies text not null;*/
 
 
-
+alter table portafolio add unique (idpersona, idperiodoacademico)

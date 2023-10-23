@@ -203,7 +203,7 @@ $data='
         <meta property="og:image" content="https://educaysoft.org/sica/images/LogoEducacionContinua.png" />
         <meta property="og:image:width" content="400" />
         <meta property="og:image:height" content="400" />
-    <title> '.'Curos de Educación Continua - UTLVTE - Periodo '.$row->elperiodoacademico.'  Area:'.$row->area . ' </title>
+    <title> '.'Cursos de Educación Continua - UTLVTE - Periodo '.$row->elperiodoacademico.'  Area:'.$row->area . ' </title>
 
     <link rel="educaysoft" href="https://congresoutlvte.org/faci/">
     
