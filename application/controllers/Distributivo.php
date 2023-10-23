@@ -270,7 +270,7 @@ public function actual()
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['estadodistributivos']= $this->estadodistributivo_model->lista_estadodistributivos()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
-	$data['asignaturadocente'] = $this->asignaturadocente_model->asignaturadocentexdistributivo2($data['distributivo']['iddistributivo'])->row_array()[0];
+	$data['asignaturadocente'] = $this->asignaturadocente_model->asignaturadocentexdistributivo2($data['distributivo']['iddistributivo'],1)->row_array()[0];
   if(!empty($data))
   {
     $data['title']="Distributivo";
