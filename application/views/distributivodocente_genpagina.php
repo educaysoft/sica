@@ -306,7 +306,7 @@ $data=$data.'</div>
 	      <b>Finaliza : </b><span style="color:red">'.$row->fechafinaliza.'.</span></p>';
 
 
-		print_r($jornadadocente);
+//		print_r($jornadadocente);
 foreach($jornadadocente as $rowj){
 			if(isset($rowj[$row->idasignaturadocente]['idasignaturadocente'])){		
 //			print_r($rowj);
