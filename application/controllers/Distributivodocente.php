@@ -243,8 +243,8 @@ public function genpagina()
 
 		}
 		$data['jornadadocente'] =$arreglo; 
-//		print_r($data['jornadadocente']);
-//		die();
+		print_r($data['jornadadocente']);
+		die();
 	$data['asignatura']= $this->asignatura_model->asignaturas1($data['asignaturadocentes'][0]->idasignatura)->row_array();
 
 	$data['malla']= $this->malla_model->mallaA($data['asignatura']['idmalla'])->result();
