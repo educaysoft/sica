@@ -242,6 +242,8 @@ public function genpagina()
 //		$arreglo[$row->idasignaturadocente]=$this->jornadadocente_model->jornadadocentes($idasignaturadocente)->row_array();
 		$xx=array($this->jornadadocente_model->jornadadocentes($idasignaturadocente)->result_array());	
 		print_r($xx);
+echo "<br><br>arrego individual<br><br>";
+
 		foreach($xx as $row2){
 			foreach($row2 as $row3)
 			 {
