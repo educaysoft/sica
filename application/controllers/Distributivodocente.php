@@ -242,6 +242,7 @@ public function genpagina()
 		$arreglo[$row->iddistributivodocente]=$this->jornadadocente_model->jornadadocentexdido($iddistributivodocente)->row_array();
 
 		}
+$data['jornadadocente']=array();
 		array_push($data['jornadadocente'],$arreglo); 
 //		print_r($data['jornadadocente']);
 //		die();
