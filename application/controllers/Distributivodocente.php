@@ -238,8 +238,8 @@ public function genpagina()
 	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo2($iddistributivo,$ordenrpt)->result();
 		$arreglo=array();
 		foreach($data['asignaturadocentes'] as $row){
-		$idasignaturadocente=$row->idasignaturadocente;
-		$arreglo[$row->idasignaturadocente]=$this->jornadadocente_model->jornadadocentes($idasignaturadocente)->row_array();
+		$iddistributivo=$row->iddistributivo;
+		$arreglo[$row->idasignaturadocente]=$this->jornadadocente_model->jornadadocentexdist($iddistributivo)->row_array();
 
 		}
 $data['jornadadocente']=array();
