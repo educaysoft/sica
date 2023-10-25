@@ -307,7 +307,7 @@ $data=$data.'</div>
 
 
 		print_r($jornadadocente);
-die();
+//die();
 foreach($jornadadocente as $rowj){
 //			if(isset($rowj[$row->idasignaturadocente]['idasignaturadocente'])){		
 //			print_r($rowj);
