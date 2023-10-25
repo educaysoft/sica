@@ -38,7 +38,7 @@ class Jornadadocente_model extends CI_model {
 
 
  	function jornadadocentes( $idasignaturadocente){
- 		$jornadadocente = $this->db->query('select * from jornadadocente1 where idasignaturadocente="'. $idasignaturadocente.'"');
+ 		$jornadadocente = $this->db->query('select * from jornadadocente1 where idasignaturadocente="'. $idasignaturadocente.'" order by idasignaturadocente');
  		return $jornadadocente;
  	}
 
