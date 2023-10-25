@@ -240,7 +240,7 @@ public function genpagina()
 		foreach($data['asignaturadocentes'] as $row){
 		$idasignaturadocente=$row->idasignaturadocente;
 //		$arreglo[$row->idasignaturadocente]=$this->jornadadocente_model->jornadadocentes($idasignaturadocente)->row_array();
-		foreach($this->jornadadocente_model->jornadadocentes($idasignaturadocente)->row_array()	as $row2)
+		foreach($this->jornadadocente_model->jornadadocentes($idasignaturadocente)->row_array()	as $row2){
 			$arreglo+=[$row->idasignaturadocente=>$row2];
 		}
 		}
