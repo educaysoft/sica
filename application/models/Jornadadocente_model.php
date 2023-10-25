@@ -45,11 +45,10 @@ class Jornadadocente_model extends CI_model {
 
  	function jornadadocentes( $idasignaturadocente){
  		$jornadadocente = $this->db->query('select * from jornadadocente1 where idasignaturadocente='. $idasignaturadocente.' order by idasignaturadocente');
-		if($idasignaturadocente==603){
-			
-			print_r($jornadadocente->result());
-			echo $jornadadocente->num_rows()."<br><br>";
-		}
+//		if($idasignaturadocente==603){
+//			print_r($jornadadocente->result_array());
+//			echo $jornadadocente->num_rows()."<br><br>";
+//		}
 		return $jornadadocente;
  	}
 

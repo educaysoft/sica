@@ -241,6 +241,7 @@ public function genpagina()
 		$idasignaturadocente=$row->idasignaturadocente;
 //		$arreglo[$row->idasignaturadocente]=$this->jornadadocente_model->jornadadocentes($idasignaturadocente)->row_array();
 		$xx=array($this->jornadadocente_model->jornadadocentes($idasignaturadocente)->result_array());	
+		if(count($xx) > 0){
 		print_r($xx);
 echo "<br><br>arrego individual<br><br>";
 		$i=0;
@@ -251,6 +252,7 @@ echo "<br><br>arrego individual<br><br>";
 				$i=$i+1;
 				 print_r($arreglo); echo "<br>";
 
+			}
 			}
 		}
 		}
