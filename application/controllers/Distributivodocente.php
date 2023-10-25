@@ -248,7 +248,7 @@ echo "<br><br>arrego individual<br><br>";
 			foreach($row2 as $row3)
 			 {
 				 print_r($row3); echo "<br>";
-				$arreglo+=[$row->idasignaturadocente=>$row3];
+				$arreglo=[$row->idasignaturadocente=>$row3];
 		}
 		}
 		}
