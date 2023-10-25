@@ -296,7 +296,8 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 $data=$data.'</div>
 
             <div class="card-body">
-              <p><b>Area:</b>'.$row->area.'.</p>
+              <b>Area:</b>'.$row->area.'.<br>
+              <b>Nivel:</b>'.$row->nivel.'.<br>
               <p><b>Asignatura : </b>'.$row->laasignatura.'.</p>
               <p class="card-text"><b>Paralelo : </b> '.$row->paralelo.'".</p>
               <p><b>Docente : </b><span style="color:blue">'.$row->eldocente.'.</span></p>
@@ -304,6 +305,9 @@ $data=$data.'</div>
               <p><b>Inicia : </b><span style="color:red">'.$row->fechainicia.'.</span><br>
 	      <b>Finaliza : </b><span style="color:red">'.$row->fechafinaliza.'.</span></p>';
 
+		foreach($jornadadocente as $rowj){
+		$data=$data.'<b>'.$rowj->nombre .': </b><span style="color:red">'.$rowj->horainicio.'('.$rowj->duracionminutos.') - aula:'.$rowj->elaula.'</span><br>';
+		}
 	if(strpos($row->estadoevento,"TERMINADO")!==false || strpos($row->estadoevento,"PRÓXIMO A INICIAR")!==false  ){
 		$data=$data.' <p><b>ESTADO : </b><span style="color:red">'.$row->estadoevento.'.</span></p>';
 	}else{
