@@ -248,7 +248,7 @@ public function genpagina()
 		}
 $data['jornadadocente']=array();
 		array_push($data['jornadadocente'],$arreglo); 
-		echo "<br><br>" 
+		echo "<br><br>" ;
 		print_r($data['jornadadocente']);
 //		die();
 	$data['asignatura']= $this->asignatura_model->asignaturas1($data['asignaturadocentes'][0]->idasignatura)->row_array();
