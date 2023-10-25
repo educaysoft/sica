@@ -234,10 +234,15 @@ public function genpagina()
 	if($this->uri->segment(3))
 	{
 		$iddistributivo=$this->uri->segment(3);
-		$iddistributivodocente=$this->uri->segment(3);
 
-		$data['jornadadocente'] = $this->jornadadocente_model->jornadadocentexdido($iddistributivodocente)->result();
 	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo2($iddistributivo,$ordenrpt)->result();
+		$arreglo=array();
+		foreach($data['asignaturadocentes'] as $row){
+		$iddistributivodocente=$row->iddistributivodocente;
+		$arreglo[$row->iddistributivodocente]=$this->jornadadocente_model->jornadadocentexdido($iddistributivodocente)->results;
+
+		}
+		$data['jornadadocente'] =$arreglo; 
 
 	$data['asignatura']= $this->asignatura_model->asignaturas1($data['asignaturadocentes'][0]->idasignatura)->row_array();
 
