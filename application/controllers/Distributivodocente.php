@@ -243,19 +243,21 @@ public function genpagina()
 		$xx=array($this->jornadadocente_model->jornadadocentes($idasignaturadocente)->result_array());	
 		print_r($xx);
 echo "<br><br>arrego individual<br><br>";
-
+		$i=0;
 		foreach($xx as $row2){
 			foreach($row2 as $row3)
 			 {
-				 print_r($row3); echo "<br>";
-				$arreglo=[$row->idasignaturadocente=>$row3];
-		}
+				$arreglo+=array($i=>array($row->idasignaturadocente=>$row3));
+				$i=$i+1;
+				 print_r($arreglo); echo "<br>";
+
+			}
 		}
 		}
 $data['jornadadocente']=array();
 	//	array_push($data['jornadadocente'],$arreglo); 
 		$data['jornadadocente']=$arreglo; 
-		echo "<br><br>" ;
+		echo "<br> jornadadocnete<br>" ;
 		print_r($data['jornadadocente']);
 //		die();
 	$data['asignatura']= $this->asignatura_model->asignaturas1($data['asignaturadocentes'][0]->idasignatura)->row_array();
