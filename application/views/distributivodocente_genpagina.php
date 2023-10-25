@@ -309,10 +309,10 @@ $data=$data.'</div>
 		print_r($jornadadocente);
 die();
 foreach($jornadadocente as $rowj){
-			if(isset($rowj[$row->idasignaturadocente]['idasignaturadocente'])){		
+//			if(isset($rowj[$row->idasignaturadocente]['idasignaturadocente'])){		
 //			print_r($rowj);
-			$data=$data.'<b>'.$rowj[$row->idasignaturadocente]['nombre'] .': </b><span style="color:red">'.$rowj[$row->idasignaturadocente]['horainicio'].'('.$rowj[$row->idasignaturadocente]['duracionminutos'].') - aula:'.$rowj[$row->idasignaturadocente]['elaula'].'</span><br>';
-			}	
+			$data=$data.'<b>'.$rowj[$row->idasignaturadocente]['idasignaturadocente'] .': </b><span style="color:red">'.$rowj[$row->idasignaturadocente]['horainicio'].'('.$rowj[$row->idasignaturadocente]['duracionminutos'].') - aula:'.$rowj[$row->idasignaturadocente]['elaula'].'</span><br>';
+//			}	
 		}
 //die();
 	if(strpos($row->estadoevento,"TERMINADO")!==false || strpos($row->estadoevento,"PRÓXIMO A INICIAR")!==false  ){
