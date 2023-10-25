@@ -310,7 +310,7 @@ $data=$data.'</div>
 		foreach($jornadadocente as $x=>$rowj){
 			if($row->iddistributivodocente==221){		
 			print_r($rowj);
-			$data=$data.'<b>'.$rowj['nombre'] .': </b><span style="color:red">'.$rowj['horainicio'].'('.$rowj['duracionminutos'].') - aula:'.$rowj['elaula'].'</span><br>';
+			$data=$data.'<b>'.$rowj->nombre .': </b><span style="color:red">'.$rowj->horainicio.'('.$rowj->duracionminutos.') - aula:'.$rowj->elaula.'</span><br>';
 			}
 		}
 die();
