@@ -306,7 +306,9 @@ $data=$data.'</div>
 	      <b>Finaliza : </b><span style="color:red">'.$row->fechafinaliza.'.</span></p>';
 
 		foreach($jornadadocente as $rowj){
+			if($row->iddistributivodocente=221){		
 		$data=$data.'<b>'.$rowj[$row->iddistributivodocente]->nombre .': </b><span style="color:red">'.$rowj[$row->iddistributivodocente]->horainicio.'('.$rowj[$row->iddistributivodocente]->duracionminutos.') - aula:'.$rowj[$row->iddistributivodocente]->elaula.'</span><br>';
+			}
 		}
 	if(strpos($row->estadoevento,"TERMINADO")!==false || strpos($row->estadoevento,"PRÓXIMO A INICIAR")!==false  ){
 		$data=$data.' <p><b>ESTADO : </b><span style="color:red">'.$row->estadoevento.'.</span></p>';
