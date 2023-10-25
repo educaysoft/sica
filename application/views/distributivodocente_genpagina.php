@@ -309,9 +309,11 @@ $data=$data.'</div>
 
 		foreach($jornadadocente[$row->iddistributivodocente] as $rowj){
 //			if($row->iddistributivodocente==221){		
-		$data=$data.'<b>'.$rowj['nombre'] .': </b><span style="color:red">'.$rowj['horainicio'].'('.$rowj['duracionminutos'].') - aula:'.$rowj['elaula'].'</span><br>';
+			print_r(rowj);
+			$data=$data.'<b>'.$rowj['nombre'] .': </b><span style="color:red">'.$rowj['horainicio'].'('.$rowj['duracionminutos'].') - aula:'.$rowj['elaula'].'</span><br>';
 //			}
 		}
+die();
 	if(strpos($row->estadoevento,"TERMINADO")!==false || strpos($row->estadoevento,"PRÓXIMO A INICIAR")!==false  ){
 		$data=$data.' <p><b>ESTADO : </b><span style="color:red">'.$row->estadoevento.'.</span></p>';
 	}else{
