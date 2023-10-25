@@ -308,7 +308,7 @@ $data=$data.'</div>
 
 //		print_r($jornadadocente);
 		foreach($jornadadocente as $rowj){
-			if($rowj[$row->idasignaturadocente]['idasignaturadocente']==$row->idasignaturadocente){		
+			if(isset($rowj[$row->idasignaturadocente]['idasignaturadocente'])){		
 //			print_r($rowj);
 			$data=$data.'<b>'.$rowj[$row->idasignaturadocente]['nombre'] .': </b><span style="color:red">'.$rowj[$row->idasignaturadocente]['horainicio'].'('.$rowj[$row->idasignaturadocente]['duracionminutos'].') - aula:'.$rowj[$row->idasignaturadocente]['elaula'].'</span><br>';
 			}	
