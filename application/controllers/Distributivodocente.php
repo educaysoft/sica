@@ -250,7 +250,7 @@ public function genpagina()
 		}
 $data['jornadadocente']=array();
 	//	array_push($data['jornadadocente'],$arreglo); 
-		$data['jornadadocente']=$arreglo); 
+		$data['jornadadocente']=$arreglo; 
 		echo "<br><br>" ;
 		print_r($data['jornadadocente']);
 //		die();
