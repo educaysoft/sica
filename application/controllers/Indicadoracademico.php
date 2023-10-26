@@ -118,8 +118,8 @@ function indicadoracademico_data()
 
 	public function indicador1pdf()
 	{
-		$idperiodoacademico=$this->uri->segment(3);
-		$data['docentes']=$this->indicadoracademico_model->indicador1($idperiodoacademico)->result();
+		$iddistributivo=$this->uri->segment(3);
+		$data['docentes']=$this->indicadoracademico_model->indicador1($iddistributivo)->result();
 		$data['title']="Evento";
 		$this->load->view('indicadoracademico_pdf1',$data);
 	}
