@@ -13,6 +13,7 @@ if(isset($indicadoracademico))
         <li> <?php echo anchor('indicadoracademico/edit/'.$indicadoracademico['idindicadoracademico'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('indicadoracademico/delete/'.$indicadoracademico['idindicadoracademico'],'Delete'); ?></li>
         <li> <?php echo anchor('indicadoracademico/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('indicadoracademico/indicador1pdf/distributivo','Inticador1'); ?></li>
 
 <?php 
 }else{

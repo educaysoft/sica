@@ -19,7 +19,7 @@ echo form_input($eys_arrinput);
     <label class="col-md-2 col-form-label">Password:</label>
 	<div class="col-md-10">
 	<?php
-$eys_arrinput=array('name'=>'password','value'=>$password['password'],'readonly'=>'true', "style"=>"width:500px");
+$eys_arrinput=array('name'=>'password','value'=>$password['password'], "style"=>"width:500px");
 echo form_input($eys_arrinput); 
 	?>
 	</div> 
