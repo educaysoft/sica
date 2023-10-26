@@ -42,7 +42,7 @@
 	$id=0;
 	$persona="";
 	$i=0;
-	print_r($docente);
+	print_r($docentes);
 	die();
 	foreach ($docentes as $row){  //Recorre todas la participaciones realiadas por los participantes
 	       
