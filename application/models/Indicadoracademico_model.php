@@ -61,6 +61,19 @@ class Indicadoracademico_model extends CI_model {
 	}
 
 
+	function indicador1($idperiodoacademico)
+	{
+
+
+ 		$indicadoracademico = $this->db->query('select dido.eldocente,(select estu.titulo from estudio estu where estu.idnivel=4) as titulo  from docentes1 doce,distributivodocente1 dido where doce.iddocente=dido.iddocente and dido.idperiodoacademico=$idperiodoacaeemico');
+	
+		 return $indicadoracademico;
+
+
+	}
+
+
+
 	// Para moverse al siguiente registro
  	function siguiente($id){
  		$indicadoracademico = $this->db->select("idindicadoracademico")->order_by("idindicadoracademico")->get('indicadoracademico')->result_array();

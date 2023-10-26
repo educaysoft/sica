@@ -42,12 +42,12 @@
 	$id=0;
 	$persona="";
 	$i=0;
-	foreach ($estudios as $row){  //Recorre todas la participaciones realiadas por los participantes
+	foreach ($docentes as $row){  //Recorre todas la participaciones realiadas por los participantes
 	       
 		    $i=$i+1;
-		    $pdf->Cell(10,5,$row->idestudio,1,0,'R',0); 
-		    $pdf->Cell(60,5,utf8_decode($row->lainstitucion),1,0,'L',0);
-		    $pdf->Cell(10,5,utf8_decode($row->idnivelestudio),1,0,'L',0);
+		    $pdf->Cell(10,5,$i,1,0,'R',0); 
+		    $pdf->Cell(60,5,utf8_decode($row->eldocente),1,0,'L',0);
+		    $pdf->Cell(10,5,utf8_decode($row->nivel),1,0,'L',0);
 		    $pdf->Cell(70,5,utf8_decode($row->titulo),1,1,'L',0);
 
     }
