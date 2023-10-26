@@ -31,7 +31,7 @@
 
 
 	$pdf->Cell(10,5,'idestu',1,0,'C',1);
-	$pdf->Cell(60,5,'institucion',1,0,'C',1);
+	$pdf->Cell(60,5,'docenten',1,0,'C',1);
 	$pdf->Cell(10,5,'nivel',1,0,'C',1);
 	$pdf->Cell(70,5,'titulo',1,1,'C',1);
  
@@ -42,6 +42,7 @@
 	$id=0;
 	$persona="";
 	$i=0;
+	print_r($docente);
 	foreach ($docentes as $row){  //Recorre todas la participaciones realiadas por los participantes
 	       
 		    $i=$i+1;
