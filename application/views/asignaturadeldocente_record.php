@@ -101,14 +101,14 @@ echo form_input('iddocumento',$options[$asignaturadeldocente['iddocumento']],arr
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha desde:</label>
 	<div class="col-md-10">
-      <?php echo form_input('fechadesde',$evento['fechadesde'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechainicia','style'=>'width:600px;')) ?>
+      <?php echo form_input('fechadesde',$asignaturadeldocente['fechadesde'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechainicia','style'=>'width:600px;')) ?>
 	</div> 
 </div>
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha hasta:</label>
 	<div class="col-md-10">
-      <?php echo form_input('fechahasta',$evento['fechahasta'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechainicia','style'=>'width:600px;')) ?>
+      <?php echo form_input('fechahasta',$asignaturadeldocente['fechahasta'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechainicia','style'=>'width:600px;')) ?>
 	</div> 
 </div>
 
