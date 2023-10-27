@@ -39,7 +39,7 @@ foreach ($docentes as $row){
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha de desde:</label>
+    <label class="col-md-2 col-form-label"> Documento:</label>
 	<div class="col-md-10">
 	<?php
 
@@ -55,7 +55,7 @@ foreach ($documentos as $row){
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha de inicio:</label>
+    <label class="col-md-2 col-form-label"> Fecha de desde:</label>
 	<div class="col-md-10">
 	<?php
  echo form_input(array("name"=>"fechadesde","id"=>"fechadesde","type"=>"date"));  

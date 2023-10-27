@@ -53,7 +53,7 @@ class Asignaturadeldocente_model extends CI_model {
 		$this->db->from('asignaturadeldocente0');
 		$condition = "iddocente =" .  $array['iddocente'] ;
 		$this->db->where($condition);
-		$condition = "iddistributivo =" . $array['iddistributivo'];
+		$condition = "idasignatura =" . $array['idasignatura'];
 		$this->db->where($condition);
 		$this->db->limit(1);
 		$query = $this->db->get();

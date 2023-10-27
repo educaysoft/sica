@@ -59,6 +59,9 @@ public function add()
 			'iddocente' => $this->input->post('iddocente'),
 			'idasignatura' => $this->input->post('idasignatura'),
 			'iddocumento' => $this->input->post('iddocumento'),
+			'fechadesde' => $this->input->post('fechadesde'),
+			'fechahasta' => $this->input->post('fechahasta'),
+
 	 	);
 	 	$result=$this->asignaturadeldocente_model->save($array_item);
 	 	if($result == false)
