@@ -83,7 +83,7 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$asignaturad
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"><?php echo anchor('documento/actual/'.$asignaturadeldocente['iddocumento'], 'Tiempo dedicacion:'); ?>  </label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('documento/actual/'.$asignaturadeldocente['iddocumento'], 'Documento:'); ?>  </label>
 	<div class="col-md-10">
      	<?php 
 $options= array("NADA");
@@ -98,95 +98,17 @@ echo form_input('iddocumento',$options[$asignaturadeldocente['iddocumento']],arr
 </div>
 
 
-
-
-
-
-
-
-<div class="form-group row" >
-  
-
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha desde:</label>
 	<div class="col-md-10">
-	<div class="row justify-content-left">
-      	<!-- Page Heading -->
- 	<div class="row">
-  	<div class="col-12" style="border:solid;">
-<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <b>Asignaturas del docente</b>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('asignaturadocente/add/'.$asignaturadeldocente['idasignaturadeldocente']) ?>">Nueva asignatura</a>
-        </div>
-    </div>
-</div>
-
-
-	<table class="table table-striped table-bordered table-hover" id="mydatac">
-	 <thead>
-	 <tr>
-	 <th>iddistdocen</th>
-	 <th>idasig</th>
-	 <th>nivel</th>
-	 <th>Asignatura</th>
-	 <th>Paralelo</th>
-	 <th>horas</th>
-	 <th>Estado</th>
-	 <th style="text-align: right;">Actions</th>
-	 </tr>
-	 </thead>
-	 <tbody id="show_data">
-	 </tbody>
-	</table>
-	</div>
-	</div>
-	</div>
+      <?php echo form_input('fechadesde',$evento['fechadesde'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechainicia','style'=>'width:600px;')) ?>
 	</div> 
 </div>
-
-
 
 <div class="form-group row">
-
+    <label class="col-md-2 col-form-label"> Fecha hasta:</label>
 	<div class="col-md-10">
-	<div class="row justify-content-left">
-      	<!-- Page Heading -->
- 	<div class="row">
-  	<div class="col-12" style="border:solid;">
-
-<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <b>Distributivos individual</b>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('docenteactividadacademica/add/') ?>">Sumar actividad</a>
-        </div>
-    </div>
-</div>
-
-
-	<table class="table table-striped table-bordered table-hover" id="mydataad">
-	 <thead>
-	 <tr>
-	 <th>Id</th>
-	 <th>docente</th>
-	 <th>item</th>
-	 <th>tipo</th>
-	 <th>Actividad academica</th>
- 	<th>Horas/sem</th>
- 	<th style="text-align: right;">Actions</th>
-	 </tr>
-	 </thead>
-	 <tbody id="show_dataad">
-	 </tbody>
-	</table>
-	</div>
-	</div>
-	</div>
+      <?php echo form_input('fechahasta',$evento['fechahasta'],array('type'=>'date', "disabled"=>"disabled",'placeholder'=>'fechainicia','style'=>'width:600px;')) ?>
 	</div> 
 </div>
 
@@ -201,87 +123,22 @@ echo form_input('iddocumento',$options[$asignaturadeldocente['iddocumento']],arr
 
 
 
-<div class="form-group row">
-
-	<div class="col-md-10">
-	<div class="row justify-content-left">
-      	<!-- Page Heading -->
- 	<div class="row">
-  	<div class="col-12" style="border:solid;">
-
-<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <b>Silabos  del docente</b>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('silabo/add/') ?>">Crear un silabo</a>
-        </div>
-    </div>
-</div>
-
-
-	<table class="table table-striped table-bordered table-hover" id="mydatas">
-	 <thead>
-	 <tr>
-	 <th>iddocente</th>
-	 <th>idsilabo</th>
-	 <th>elsilabo</th>
-	 <th>periodo</th>
-	 <th style="text-align: right;">Actions</th>
-	 </tr>
-	 </thead>
-	 <tbody id="show_datas">
-	 </tbody>
-	</table>
-	</div>
-	</div>
-	</div>
-	</div> 
-</div>
 
 
 
 
 
 
-<div class="form-group row">
 
-	<div class="col-md-10">
-	<div class="row justify-content-left">
-      	<!-- Page Heading -->
- 	<div class="row">
-  	<div class="col-12" style="border:solid;">
 
-<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <b>Eventos-cursos:</b>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('evento/add/') ?>">Crear un evento</a>
-        </div>
-    </div>
-</div>
 
-	<table class="table table-striped table-bordered table-hover" id="mydatae">
-	 <thead>
-	 <tr>
-	 <th>idsilabo</th>
-	 <th>idevento</th>
-	 <th>evento</th>
-	 <th>Classroom</th>
-	 <th style="text-align: right;">Actions</th>
-	 </tr>
-	 </thead>
-	 <tbody id="show_data1">
-	 </tbody>
-	</table>
-	</div>
-	</div>
-	</div>
-	</div> 
-</div>
+
+
+
+
+
+
+
 
 
 
