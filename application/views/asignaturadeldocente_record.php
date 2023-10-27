@@ -66,12 +66,12 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$asignaturad
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"><?php echo anchor('asignatura/actual/'.$asignaturadeldocente['idasignatura'], 'Distributivo:'); ?> </label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('asignatura/actual/'.$asignaturadeldocente['idasignatura'], 'Asignatura:'); ?> </label>
 	<div class="col-md-10">
      	<?php 
     $options= array("NADA");
     foreach ($asignatura as $row){
-	      $options[$row->idasignatura]= $row->idasignatura+' - '+$row->area+' - '+$row->nivel+' - '+$row->nombre;
+	      $options[$row->idasignatura]= $row->idasignaturai.' - '.$row->area.' - '.$row->nivel.' - '.$row->nombre;
     }
     echo form_input('idasignatura',$options[$asignaturadeldocente['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
