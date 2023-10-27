@@ -24,7 +24,12 @@ class Asignatura_model extends CI_model {
 
 
  	function asignaturas1( $id){
+		if($id>0){
  		$asignatura = $this->db->query('select * from asignatura1 where idasignatura="'. $id.'"');
+		}else{
+ 		$asignatura = $this->db->query('select * from asignatura1');
+
+		}
  		return $asignatura;
  	}
 
