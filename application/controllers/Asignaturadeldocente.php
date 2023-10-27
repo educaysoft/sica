@@ -40,7 +40,7 @@ public function add()
 		$idasignatura=$this->uri->segment(3);
 	}
 
-  		$data['asignaturas']= $this->asignatura_model->asignatura1($idasignatura)->result();
+  		$data['asignaturas']= $this->asignatura_model->asignaturas1($idasignatura)->result();
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['title']="Nueva Asignaturadeldocente";
