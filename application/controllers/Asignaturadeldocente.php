@@ -17,7 +17,7 @@ public function index(){
   	$data['asignaturadeldocente']=$this->asignaturadeldocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
-  	$data['asignatura']= $this->asignatura_model->lista_asignaturas1(0)->result();
+  	$data['asignatura']= $this->asignatura_model->asignaturas1(0)->result();
 			
 		$data['title']="Lista de asignaturadeldocentes";
 		$this->load->view('template/page_header');
