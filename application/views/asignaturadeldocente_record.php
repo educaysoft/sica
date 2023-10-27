@@ -88,7 +88,7 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$asignaturad
      	<?php 
 $options= array("NADA");
 foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->nombre;
+	$options[$row->iddocumento]= $row->asunto;
 }
 
 echo form_input('iddocumento',$options[$asignaturadeldocente['iddocumento']],array("id"=>"iddocumento","disabled"=>"disabled",'style'=>'width:500px;')); 
