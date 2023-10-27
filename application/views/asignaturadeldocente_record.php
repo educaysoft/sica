@@ -71,7 +71,7 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$asignaturad
      	<?php 
     $options= array("NADA");
     foreach ($asignatura as $row){
-	      $options[$row->idasignatura]= $row->idasignaturai.' - '.$row->area.' - '.$row->nivel.' - '.$row->nombre;
+	      $options[$row->idasignatura]= $row->idasignatura.' - '.$row->area.' - '.$row->nivel.' - '.$row->nombre;
     }
     echo form_input('idasignatura',$options[$asignaturadeldocente['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
