@@ -5,30 +5,23 @@ class Asignaturadeldocente extends CI_Controller{
   public function __construct(){
       parent::__construct();
   	  $this->load->model('docente_model');
-  	  $this->load->model('distributivo_model');
-  	  $this->load->model('distributivodocente_model');
-  	  $this->load->model('asignaturadocente_model');
-  	  $this->load->model('departamento_model');
-  	  $this->load->model('evento_model');
-  	  $this->load->model('jornadadocente_model');
-  	  $this->load->model('tiempodedicacion_model');
   	  $this->load->model('asignatura_model');
-  	  $this->load->model('malla_model');
+  	  $this->load->model('asignaturadeldocente_model');
+  	  $this->load->model('documento_model');
 }
 
 public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['distributivodocente']=$this->distributivodocente_model->elultimo();
+  	$data['asignaturadeldocente']=$this->asignaturadeldocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
-  	$data['distributivo']= $this->distributivo_model->lista_distributivos1(0)->result();
-  		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['asignatura']= $this->asignatura_model->lista_asignaturas1(0)->result();
 			
-		$data['title']="Lista de distributivodocentes";
+		$data['title']="Lista de asignaturadeldocentes";
 		$this->load->view('template/page_header');
-		$this->load->view('distributivodocente_record',$data);
+		$this->load->view('asignaturadeldocente_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -41,19 +34,18 @@ public function index(){
 
 public function add()
 {
-	$iddistributivo=0;
+	$idasignatura=0;
 	if($this->uri->segment(3))
 	{
-		$iddistributivo=$this->uri->segment(3);
+		$idasignatura=$this->uri->segment(3);
 	}
 
-  		$data['distributivos']= $this->distributivo_model->distributivo1($iddistributivo)->result();
+  		$data['asignaturas']= $this->asignatura_model->asignatura1($idasignatura)->result();
 		$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
+  	$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['title']="Nueva Asignaturadeldocente";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('distributivodocente_form',$data);
+	 	$this->load->view('asignaturadeldocente_form',$data);
 	 	$this->load->view('template/page_footer');
 
 
@@ -65,10 +57,10 @@ public function add()
 	 	$array_item=array(
 		 	
 			'iddocente' => $this->input->post('iddocente'),
-			'iddistributivo' => $this->input->post('iddistributivo'),
-			'idtiempodedicacion' => $this->input->post('idtiempodedicacion'),
+			'idasignatura' => $this->input->post('idasignatura'),
+			'iddocumento' => $this->input->post('iddocumento'),
 	 	);
-	 	$result=$this->distributivodocente_model->save($array_item);
+	 	$result=$this->asignaturadeldocente_model->save($array_item);
 	 	if($result == false)
 		{
 			echo "<script language='JavaScript'> alert('Docente ya ha sido asignado'); </script>";
@@ -78,20 +70,20 @@ public function add()
 		}
 
 
-	 	redirect('distributivodocente');
+	 	redirect('asignaturadeldocente');
  	}
 
 
 
 	public function edit()
 	{
-			$data['distributivodocente'] = $this->distributivodocente_model->distributivodocente($this->uri->segment(3))->row_array();
+			$data['asignaturadeldocente'] = $this->asignaturadeldocente_model->asignaturadeldocente($this->uri->segment(3))->row_array();
 			$data['docentes']= $this->docente_model->lista_docentesA()->result();
-			$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
-			$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
+			$data['asignaturas']= $this->asignatura_model->lista_asignaturas1(0)->result();
+			$data['documentos']= $this->documento_model->lista_documentos()->result();
 			$data['title'] = "Actualizar Asignaturadeldocente";
 			$this->load->view('template/page_header');		
-			$this->load->view('distributivodocente_edit',$data);
+			$this->load->view('asignaturadeldocente_edit',$data);
 			$this->load->view('template/page_footer');
 	 
 	}
@@ -99,31 +91,31 @@ public function add()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('iddistributivodocente');
+		$id=$this->input->post('idasignaturadeldocente');
 	 	$array_item=array(
 		 	
-		 	'iddistributivodocente' => $this->input->post('iddistributivodocente'),
+		 	'idasignaturadeldocente' => $this->input->post('idasignaturadeldocente'),
 			'iddocente' => $this->input->post('iddocente'),
-			'iddistributivo' => $this->input->post('iddistributivo'),
-			'idtiempodedicacion' => $this->input->post('idtiempodedicacion'),
+			'idasignatura' => $this->input->post('idasignatura'),
+			'iddocumento' => $this->input->post('iddocumento'),
 	 	);
-	 	$this->distributivodocente_model->update($id,$array_item);
-	 	redirect('distributivodocente/actual/'.$id);
+	 	$this->asignaturadeldocente_model->update($id,$array_item);
+	 	redirect('asignaturadeldocente/actual/'.$id);
  	}
 
 
  	public function quitar()
  	{
- 		$data=$this->distributivodocente_model->quitar($this->uri->segment(3));
+ 		$data=$this->asignaturadeldocente_model->quitar($this->uri->segment(3));
 	 	if(!$result)
 		{
-			echo "<script language='JavaScript'> alert('Este docente no ha podida salir de este distributivo'); </script>";
+			echo "<script language='JavaScript'> alert('Este docente no ha podida salir de este asignatura'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}
  //		echo json_encode($data);
-//	 	redirect('distributivodocente/elprimero');
+//	 	redirect('asignaturadeldocente/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -133,24 +125,24 @@ public function listar()
 	
   $data['title']="Asignaturadeldocentes";
 	$this->load->view('template/page_header');		
-  $this->load->view('distributivodocente_list',$data);
+  $this->load->view('asignaturadeldocente_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function distributivodocente_data()
+function asignaturadeldocente_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->distributivodocente_model->lista_distributivodocentesA();
+	 	$data0 = $this->asignaturadeldocente_model->lista_asignaturadeldocentesA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->iddistributivodocente,$r->eldistributivodocente,$r->numeasig,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('distributivodocente/actual').'"  data-iddistributivodocente="'.$r->iddistributivodocente.'">Ver</a>');
+			$data[]=array($r->idasignaturadeldocente,$r->elasignaturadeldocente,$r->numeasig,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('asignaturadeldocente/actual').'"  data-idasignaturadeldocente="'.$r->idasignaturadeldocente.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -172,11 +164,11 @@ function distributivodocente_data()
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
-		$iddistributivodocente=$this->input->get('iddistributivodocente');
-		$data0 =$this->asignaturadocente_model->lista_asignaturadocentesA($iddistributivodocente);
+		$idasignaturadeldocente=$this->input->get('idasignaturadeldocente');
+		$data0 =$this->asignaturadocente_model->lista_asignaturadocentesA($idasignaturadeldocente);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->iddistributivodocente,$r->idasignaturadocente,$r->nivel,$r->laasignatura,$r->paralelo,$r->horas,$r->estado,
+			$data[]=array($r->idasignaturadeldocente,$r->idasignaturadocente,$r->nivel,$r->laasignatura,$r->paralelo,$r->horas,$r->estado,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('asignaturadocente/actual').'"    data-idasignaturadocente="'.$r->idasignaturadocente.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_gesi"  data-retorno="'.site_url('silabo/save').'"     data-paralelo="'.$r->paralelo.'"  data-laasignatura="'.$r->laasignatura.'"   data-elperiodoacademico="'.$r->elperiodoacademico.'"  data-idperiodoacademico="'.$r->idperiodoacademico.'"  data-iddocente="'.$r->iddocente.'" data-idpersona="'.$r->idpersona.'"   data-idasignatura="'.$r->idasignatura.'">GeSi</a>');
 			}	
 		$output=array( "draw"=>$draw,
@@ -197,8 +189,8 @@ function distributivodocente_data()
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$iddistributivodocente=$this->input->get('iddistributivodocente');
-			$data0 =$this->evento_model->eventosd($iddistributivodocente);
+			$idasignaturadeldocente=$this->input->get('idasignaturadeldocente');
+			$data0 =$this->evento_model->eventosd($idasignaturadeldocente);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idsilabo,$r->idevento,$r->titulo,$r->codigoclassroom,
@@ -218,24 +210,24 @@ function distributivodocente_data()
 
 	public function reportepdf()
 	{
-		$iddistributivodocente=$this->uri->segment(3);
-		$data['jornadadocente'] = $this->jornadadocente_model->jornadadocentexdido($iddistributivodocente)->result();
-		$data['distributivodocente']=$this->distributivodocente_model->distributivodocente($iddistributivodocente)->row_array();
-		$data['docente']=$this->docente_model->docente1($data['distributivodocente']['iddocente'])->result();
+		$idasignaturadeldocente=$this->uri->segment(3);
+		$data['jornadadocente'] = $this->jornadadocente_model->jornadadocentexdido($idasignaturadeldocente)->result();
+		$data['asignaturadeldocente']=$this->asignaturadeldocente_model->asignaturadeldocente($idasignaturadeldocente)->row_array();
+		$data['docente']=$this->docente_model->docente1($data['asignaturadeldocente']['iddocente'])->result();
 		$data['title']="Evento";
-		$this->load->view('distributivodocente_list_pdf',$data);
+		$this->load->view('asignaturadeldocente_list_pdf',$data);
 	}
 
 
 public function genpagina()
 {
-	$iddistributivo=0;
+	$idasignatura=0;
 	$ordenrpt=1;
 	if($this->uri->segment(3))
 	{
-		$iddistributivo=$this->uri->segment(3);
+		$idasignatura=$this->uri->segment(3);
 
-	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo2($iddistributivo,$ordenrpt)->result();
+	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexasignatura2($idasignatura,$ordenrpt)->result();
 		$arreglo=array();
 		$i=0;
 		foreach($data['asignaturadocentes'] as $row){
@@ -267,7 +259,7 @@ $data['jornadadocente']=array();
 	$data['malla']= $this->malla_model->mallaA($data['asignatura']['idmalla'])->result();
 
 		$data['title']="Evento";
-		$this->load->view('distributivodocente_genpagina',$data);
+		$this->load->view('asignaturadeldocente_genpagina',$data);
 
 	}
 }
@@ -287,17 +279,16 @@ $data['jornadadocente']=array();
 
 public function actual()
 {
-	$data['distributivodocente'] = $this->distributivodocente_model->distributivodocente($this->uri->segment(3))->row_array();
+	$data['asignaturadeldocente'] = $this->asignaturadeldocente_model->asignaturadeldocente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['distributivo']= $this->distributivo_model->distributivo1($data['distributivodocente']['iddistributivo'])->result();
-  	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
-	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  	$data['asignatura']= $this->asignatura_model->asignatura1($data['asignaturadeldocente']['idasignatura'])->result();
+  	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	  if(!empty($data))
 	  {
   		$data['docentes']= $this->docente_model->lista_docentesA()->result();
     		$data['title']="Asignaturadeldocente";
     		$this->load->view('template/page_header');		
-    		$this->load->view('distributivodocente_record',$data);
+    		$this->load->view('asignaturadeldocente_record',$data);
     		$this->load->view('template/page_footer');
   	}else{
     		$this->load->view('template/page_header');		
@@ -317,17 +308,16 @@ public function actual()
 
 public function elprimero()
 {
-  	$data['distributivo']= $this->distributivo_model->lista_distributivos1(0)->result();
+  	$data['asignatura']= $this->asignatura_model->lista_asignaturas1(0)->result();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-	$data['distributivodocente'] = $this->distributivodocente_model->elprimero();
-  	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['asignaturadeldocente'] = $this->asignaturadeldocente_model->elprimero();
+  	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	  if(!empty($data))
 	  {
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
     $data['title']="Asignaturadeldocente";
     $this->load->view('template/page_header');		
-    $this->load->view('distributivodocente_record',$data);
+    $this->load->view('asignaturadeldocente_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -338,17 +328,16 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['distributivodocente'] = $this->distributivodocente_model->elultimo();
+	$data['asignaturadeldocente'] = $this->asignaturadeldocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['distributivo']= $this->distributivo_model->lista_distributivos1(0)->result();
-  	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  	$data['asignatura']= $this->asignatura_model->lista_asignaturas1(0)->result();
+  	$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
   {
     $data['title']="Asignaturadeldocente";
   
     $this->load->view('template/page_header');		
-    $this->load->view('distributivodocente_record',$data);
+    $this->load->view('asignaturadeldocente_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -359,30 +348,28 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['distributivodocente_list']=$this->distributivodocente_model->lista_distributivodocente()->result();
-	$data['distributivodocente'] = $this->distributivodocente_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['asignaturadeldocente_list']=$this->asignaturadeldocente_model->lista_asignaturadeldocente()->result();
+	$data['asignaturadeldocente'] = $this->asignaturadeldocente_model->siguiente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['distributivo']= $this->distributivo_model->lista_distributivos1(0)->result();
-  	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  	$data['asignatura']= $this->asignatura_model->lista_asignaturas1(0)->result();
+  	$data['documentos']= $this->documento_model->lista_documentos()->result();
   
 
 $data['title']="Asignaturadeldocente";
 	$this->load->view('template/page_header');		
-  $this->load->view('distributivodocente_record',$data);
+  $this->load->view('asignaturadeldocente_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['distributivodocente_list']=$this->distributivodocente_model->lista_distributivodocente()->result();
-	$data['distributivodocente'] = $this->distributivodocente_model->anterior($this->uri->segment(3))->row_array();
+ // $data['asignaturadeldocente_list']=$this->asignaturadeldocente_model->lista_asignaturadeldocente()->result();
+	$data['asignaturadeldocente'] = $this->asignaturadeldocente_model->anterior($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
-  	$data['distributivo']= $this->distributivo_model->lista_distributivos1(0)->result();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['asignatura']= $this->asignatura_model->lista_asignaturas1(0)->result();
   $data['title']="Asignaturadeldocente";
 	$this->load->view('template/page_header');		
-  $this->load->view('distributivodocente_record',$data);
+  $this->load->view('asignaturadeldocente_record',$data);
 	$this->load->view('template/page_footer');
 }
 

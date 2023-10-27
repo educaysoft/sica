@@ -1,20 +1,20 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("distributivodocente/save") ?>
-<?php echo form_hidden("iddistributivodocente")  ?>
+<?php echo form_open("asignaturadeldocente/save") ?>
+<?php echo form_hidden("idasignaturadeldocente")  ?>
 <table>
 
 
 
 <tr>
-<td> Distributivo: </td>
+<td> Asignatura: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($distributivos as $row){
-	$options[$row->iddistributivo]= $row->eldistributivo;
+foreach ($asignaturas as $row){
+	$options[$row->idasignatura]= $row->elasignatura;
 }
- echo form_dropdown("iddistributivo",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
@@ -46,7 +46,7 @@ foreach ($docentes as $row){
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("distributivodocente","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("asignaturadeldocente","Atras") ?> </td>
 </tr>
 
 </table>

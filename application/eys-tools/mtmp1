@@ -1,44 +1,106 @@
 <?php
-class Indicadoracademico_model extends CI_model {
+class Asignaturadeldocente_model extends CI_model {
 
-	function lista_tipoeventos(){
-		 $tipoevento= $this->db->get('tipoevento');
-		 return $tipoevento;
+	function lista_distributivodocentes(){
+		 $distributivodocente= $this->db->get('distributivodocente0');
+		 return $distributivodocente;
 	}
 
- 	function tipoevento( $id){
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
- 		return $tipoevento;
+
+	function lista_distributivodocentesA(){
+		 $distributivodocente= $this->db->get('distributivodocente1');
+		 return $distributivodocente;
+	}
+
+
+
+ 	function distributivodocente( $id){
+ 		$distributivodocente = $this->db->query('select * from distributivodocente0 where iddistributivodocente="'. $id.'"');
+ 		return $distributivodocente;
+	}
+
+
+
+ 	function distributivodocente_pado( $idperiodoacademico,$iddocente){
+ 		$distributivodocente = $this->db->query('select * from distributivodocente1 where idperiodoacademico="'. $idperiodoacademico.'" and iddocente="'.$iddocente.'"');
+ 		return $distributivodocente;
+	}
+
+
+	function distributivodocentes1( $id){
+ 		$distributivodocente = $this->db->query('select * from distributivodocente1 where iddistributivo="'. $id.'"');
+ 		return $distributivodocente;
  	}
+
+
+	function distributivodocentes2($id){
+ 		$distributivodocente = $this->db->query('select * from distributivodocente1 where iddistributivodocente="'. $id.'"');
+ 		return $distributivodocente;
+ 	}
+
+
+
+ 	function distributivodocentespersona( $id){
+ 		$distributivodocente = $this->db->query('select * from distributivodocente0 where idpersona="'. $id.'"');
+ 		return $distributivodocente;
+ 	}
+
+
 
  	function save($array)
  	{
-		$this->db->insert("tipoevento", $array);
+		$this->db->select('*');
+		$this->db->from('distributivodocente0');
+		$condition = "iddocente =" .  $array['iddocente'] ;
+		$this->db->where($condition);
+		$condition = "iddistributivo =" . $array['iddistributivo'];
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0){
+			$this->db->insert("distributivodocente", $array);
+			return true;
+		}else{
+			return false;
+		}
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idtipoevento',$id);
- 		$this->db->update('tipoevento',$array_item);
+ 		$this->db->where('iddistributivodocente',$id);
+ 		$this->db->update('distributivodocente0',$array_item);
 	}
  
 
 
- 	public function delete($id)
+ 	public function quitar($id)
 	{
- 		$this->db->where('idtipoevento',$id);
-		$this->db->delete('tipoevento');
-    		if($this->db->affected_rows()==1)
-			$result=true;
-		else
-			$result=false;
+		$condition = "iddistributivodocente =" . $id ;
+		$this->db->select('*');
+		$this->db->from('distributivodocente0');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() != 0) {
+	
+
+ 			$this->db->where('iddistributivodocente',$id);
+			$this->db->update('distributivodocente',array('eliminado'=>1));
+    			if($this->db->affected_rows()==1)
+				$result=true;
+			else
+				$result=false;
+		}else{	
+			      $result=false;
+   		}
+
 		return $result;
  	}
 
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
+		$query=$this->db->order_by("iddistributivodocente")->get('distributivodocente0');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -51,7 +113,7 @@ class Indicadoracademico_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
+		$query=$this->db->order_by("iddistributivodocente")->get('distributivodocente0');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -63,37 +125,37 @@ class Indicadoracademico_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
-		$arr=array("idtipoevento"=>$id);
-		$clave=array_search($arr,$tipoevento);
-	   if(array_key_exists($clave+1,$tipoevento))
+ 		$distributivodocente = $this->db->select("iddistributivodocente")->order_by("iddistributivodocente")->get('distributivodocente0')->result_array();
+		$arr=array("iddistributivodocente"=>$id);
+		$clave=array_search($arr,$distributivodocente);
+	   if(array_key_exists($clave+1,$distributivodocente))
 		 {
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave+1]["idtipoevento"].'"');
+ 		$distributivodocente = $this->db->query('select * from distributivodocente0 where iddistributivodocente="'. $distributivodocente[$clave+1]["iddistributivodocente"].'"');
 		 }else{
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
+ 		$distributivodocente = $this->db->query('select * from distributivodocente0 where iddistributivodocente="'. $id.'"');
 		 }
 		 	
- 		return $tipoevento;
+ 		return $distributivodocente;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
-		$arr=array("idtipoevento"=>$id);
-		$clave=array_search($arr,$tipoevento);
-	   if(array_key_exists($clave-1,$tipoevento))
+ 		$distributivodocente = $this->db->select("iddistributivodocente")->order_by("iddistributivodocente")->get('distributivodocente0')->result_array();
+		$arr=array("iddistributivodocente"=>$id);
+		$clave=array_search($arr,$distributivodocente);
+	   if(array_key_exists($clave-1,$distributivodocente))
 		 {
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave-1]["idtipoevento"].'"');
+ 		$distributivodocente = $this->db->query('select * from distributivodocente0 where iddistributivodocente="'. $distributivodocente[$clave-1]["iddistributivodocente"].'"');
 		 }else{
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
+ 		$distributivodocente = $this->db->query('select * from distributivodocente0 where iddistributivodocente="'. $id.'"');
 		 }
 		 	
- 		return $tipoevento;
+ 		return $distributivodocente;
  	}
 
 

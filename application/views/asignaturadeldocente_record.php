@@ -2,24 +2,24 @@
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($distributivodocente))
+if(isset($asignaturadeldocente))
 {
 ?>
-   <li> <?php echo anchor('distributivodocente/elprimero/', 'primero'); ?></li>
-   <li> <?php echo anchor('distributivodocente/anterior/'.$distributivodocente['iddistributivodocente'], 'anterior'); ?></li>
-   <li> <?php echo anchor('distributivodocente/siguiente/'.$distributivodocente['iddistributivodocente'], 'siguiente'); ?></li>
-   <li style="border-right:1px solid green"><?php echo anchor('distributivodocente/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('distributivodocente/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('distributivodocente/edit/'.$distributivodocente['iddistributivodocente'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('distributivodocente/quitar/'.$distributivodocente['iddistributivodocente'],'Quitar'); ?></li>
-        <li> <?php echo anchor('distributivodocente/listar/','Listar'); ?></li>
-        <li> <?php echo anchor('distributivodocente/reportepdf/'.$distributivodocente['iddistributivodocente'],'reportepdf'); ?></li>
+   <li> <?php echo anchor('asignaturadeldocente/elprimero/', 'primero'); ?></li>
+   <li> <?php echo anchor('asignaturadeldocente/anterior/'.$asignaturadeldocente['idasignaturadeldocente'], 'anterior'); ?></li>
+   <li> <?php echo anchor('asignaturadeldocente/siguiente/'.$asignaturadeldocente['idasignaturadeldocente'], 'siguiente'); ?></li>
+   <li style="border-right:1px solid green"><?php echo anchor('asignaturadeldocente/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('asignaturadeldocente/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('asignaturadeldocente/edit/'.$asignaturadeldocente['idasignaturadeldocente'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('asignaturadeldocente/quitar/'.$asignaturadeldocente['idasignaturadeldocente'],'Quitar'); ?></li>
+        <li> <?php echo anchor('asignaturadeldocente/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('asignaturadeldocente/reportepdf/'.$asignaturadeldocente['idasignaturadeldocente'],'reportepdf'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('distributivodocente/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('asignaturadeldocente/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -30,14 +30,14 @@ if(isset($distributivodocente))
 <br>
 
 
-<?php echo form_open('distributivodocente/save_edit') ?>
-<?php echo form_hidden('iddistributivodocente',$distributivodocente['iddistributivodocente']) ?>
+<?php echo form_open('asignaturadeldocente/save_edit') ?>
+<?php echo form_hidden('idasignaturadeldocente',$asignaturadeldocente['idasignaturadeldocente']) ?>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id distributivo docente: </label>
+    <label class="col-md-2 col-form-label"> Id asignatura docente: </label>
 	<div class="col-md-10">
      	<?php 
-      echo form_input('iddistributivodocente',$distributivodocente['iddistributivodocente'],array("id"=>"iddistributivodocente","disabled"=>"disabled",'placeholder'=>'Iddistributivodocentes')); 
+      echo form_input('idasignaturadeldocente',$asignaturadeldocente['idasignaturadeldocente'],array("id"=>"idasignaturadeldocente","disabled"=>"disabled",'placeholder'=>'Idasignaturadeldocentes')); 
 		?>
 	</div> 
 </div>
@@ -48,7 +48,7 @@ if(isset($distributivodocente))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"><?php echo anchor('docente/actual/'.$distributivodocente['iddocente'], 'Docente:'); ?>  </label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('docente/actual/'.$asignaturadeldocente['iddocente'], 'Docente:'); ?>  </label>
 	<div class="col-md-10">
      	<?php 
 $options= array("NADA");
@@ -56,9 +56,9 @@ foreach ($docentes as $row){
 	$options[$row->iddocente]= $row->eldocente;
 }
 
-echo form_input('eldocente',$options[$distributivodocente['iddocente']],array("id"=>"eldocente","disabled"=>"disabled",'style'=>'width:500px;')); 
+echo form_input('eldocente',$options[$asignaturadeldocente['iddocente']],array("id"=>"eldocente","disabled"=>"disabled",'style'=>'width:500px;')); 
 
-echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributivodocente['iddocente'],"id"=>"iddocente")); 
+echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$asignaturadeldocente['iddocente'],"id"=>"iddocente")); 
 		?>
 	</div> 
 </div>
@@ -66,14 +66,14 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"><?php echo anchor('distributivo/actual/'.$distributivodocente['iddistributivo'], 'Distributivo:'); ?> </label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('asignatura/actual/'.$asignaturadeldocente['idasignatura'], 'Distributivo:'); ?> </label>
 	<div class="col-md-10">
      	<?php 
     $options= array("NADA");
-    foreach ($distributivo as $row){
-	      $options[$row->iddistributivo]= $row->eldistributivo;
+    foreach ($asignatura as $row){
+	      $options[$row->idasignatura]= $row->elasignatura;
     }
-    echo form_input('iddistributivo',$options[$distributivodocente['iddistributivo']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+    echo form_input('idasignatura',$options[$asignaturadeldocente['idasignatura']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
@@ -83,15 +83,15 @@ echo form_input(array('name'=>'iddocente',"type"=>"hidden","value"=>$distributiv
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"><?php echo anchor('tiempodedicacion/actual/'.$distributivodocente['idtiempodedicacion'], 'Tiempo dedicacion:'); ?>  </label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('documento/actual/'.$asignaturadeldocente['iddocumento'], 'Tiempo dedicacion:'); ?>  </label>
 	<div class="col-md-10">
      	<?php 
 $options= array("NADA");
-foreach ($tiempodedicacions as $row){
-	$options[$row->idtiempodedicacion]= $row->nombre;
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->nombre;
 }
 
-echo form_input('idtiempodedicacion',$options[$distributivodocente['idtiempodedicacion']],array("id"=>"idtiempodedicacion","disabled"=>"disabled",'style'=>'width:500px;')); 
+echo form_input('iddocumento',$options[$asignaturadeldocente['iddocumento']],array("id"=>"iddocumento","disabled"=>"disabled",'style'=>'width:500px;')); 
 
 		?>
 	</div> 
@@ -119,7 +119,7 @@ echo form_input('idtiempodedicacion',$options[$distributivodocente['idtiempodedi
             <b>Asignaturas del docente</b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('asignaturadocente/add/'.$distributivodocente['iddistributivodocente']) ?>">Nueva asignatura</a>
+            <a class="btn btn-success" href="<?php echo base_url('asignaturadocente/add/'.$asignaturadeldocente['idasignaturadeldocente']) ?>">Nueva asignatura</a>
         </div>
     </div>
 </div>
@@ -296,17 +296,17 @@ echo form_input('idtiempodedicacion',$options[$distributivodocente['idtiempodedi
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var iddistributivodocente=document.getElementById("iddistributivodocente").value;
-	var idperiodoacademico=<?php echo $distributivo[0]->idperiodoacademico; ?>;
+	var idasignaturadeldocente=document.getElementById("idasignaturadeldocente").value;
+	var idperiodoacademico=<?php echo $asignatura[0]->idperiodoacademico; ?>;
 	var iddocente=  document.getElementById("iddocente").value;
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/asignaturadocente_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('asignaturadeldocente/asignaturadocente_data')?>', type: 'GET',data:{idasignaturadeldocente:idasignaturadeldocente}},});
 
-	var mytablaad= $('#mydataad').DataTable({"ajax": {url: '<?php echo site_url('docenteactividadacademica/docenteactividadacademica_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
+	var mytablaad= $('#mydataad').DataTable({"ajax": {url: '<?php echo site_url('docenteactividadacademica/docenteactividadacademica_data')?>', type: 'GET',data:{idasignaturadeldocente:idasignaturadeldocente}},});
 
 	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('docente/silabo_data')?>', type: 'GET',data:{iddocente:iddocente,idperiodoacademico:idperiodoacademico}},});
 
 
-	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/evento_data')?>', type: 'GET',data:{iddistributivodocente:iddistributivodocente}},});
+	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('asignaturadeldocente/evento_data')?>', type: 'GET',data:{idasignaturadeldocente:idasignaturadeldocente}},});
 
 
 });
