@@ -12,7 +12,7 @@
 
 $options= array('--Select--');
 foreach ($asignaturas as $row){
-	$options[$row->idasignatura]= $row->elasignatura;
+	$options[$row->idasignatura]= $row->nombre;
 }
  echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
