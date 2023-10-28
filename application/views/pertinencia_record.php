@@ -32,7 +32,7 @@ if(isset($pertinencia))
 <br>
 
 <?php echo form_open('pertinencia/save_edit') ?>
-<?php echo form_hidden('iddocumento',$pertinencia['iddocumento']) ?>
+<?php echo form_hidden('iddepartamento',$pertinencia['iddepartamento']) ?>
 <table>
 
 
@@ -48,10 +48,10 @@ if(isset($pertinencia))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id documento:</label>
+    <label class="col-md-2 col-form-label"> Id departamento/carrera:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('iddocumento',$pertinencia['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos'));
+      echo form_input('iddepartamento',$pertinencia['iddepartamento'],array("disabled"=>"disabled",'placeholder'=>'Iddepartamentos'));
 	?>
 	</div> 
 </div> 
@@ -59,24 +59,24 @@ if(isset($pertinencia))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('documento/actual/'.$pertinencia['iddocumento'], 'Documento:'); ?></label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('departamento/actual/'.$pertinencia['iddepartamento'], 'Documento:'); ?></label>
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
+foreach ($departamentos as $row){
+	$options[$row->iddepartamento]= $row->nombre;
 }
-echo form_input('iddocumento',$options[$pertinencia['iddocumento']],array("disabled"=>"disabled"));
+echo form_input('iddepartamento',$options[$pertinencia['iddepartamento']],array("disabled"=>"disabled"));
 	?>
 	</div> 
 </div> 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id persona:</label>
+    <label class="col-md-2 col-form-label"> Id estudio:</label>
 	<div class="col-md-10">
 	<?php
-     	 echo form_input('idpersona',$pertinencia['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Idpertinenciaes'));
+     	 echo form_input('idestudio',$pertinencia['idestudio'],array("disabled"=>"disabled",'placeholder'=>'Idpertinenciaes'));
 	?>
 	</div> 
 </div> 
@@ -84,14 +84,14 @@ echo form_input('iddocumento',$options[$pertinencia['iddocumento']],array("disab
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Persona:</label>
+    <label class="col-md-2 col-form-label"> Estudio:</label>
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+foreach ($estudios as $row){
+	$options[$row->idestudio]= $row->lapersona." ".$row->titulo;
 }
-echo form_input('idpersona',$options[$pertinencia['idpersona']],array("disabled"=>"disabled"));
+echo form_input('idestudio',$options[$pertinencia['idestudio']],array("disabled"=>"disabled"));
 	?>
 	</div> 
 </div> 
