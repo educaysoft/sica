@@ -30,11 +30,10 @@
 	$pdf->SetFont('Arial','B',8);
 
 
-	$pdf->Cell(10,5,'idestu',1,0,'C',1);
-	$pdf->Cell(60,5,'docenten',1,0,'C',1);
-	$pdf->Cell(10,5,'nivel',1,0,'C',1);
-	$pdf->Cell(70,5,'titulo',1,1,'C',1);
- 
+	$pdf->Cell(8,5,'No',1,0,'C',1);
+	$pdf->Cell(50,5,'Docente',1,0,'C',1);
+	$pdf->Cell(10,5,'Nivel',1,0,'C',1);
+	$pdf->Cell(100,5,'Estudio',1,1,'C',1);
 	 
 
 
@@ -50,8 +49,8 @@
 		    $pdf->Cell(10,5,$i,1,0,'R',0); 
 		    $pdf->Cell(60,5,utf8_decode($row->eldocente),1,0,'L',0);
 		    $pdf->Cell(10,5,utf8_decode($row->nivel),1,0,'L',0);
-		    $pdf->Cell(70,5,utf8_decode($row->titulo),1,1,'L',0);
-
+		  //  $pdf->Cell(70,5,utf8_decode($row->titulo),1,1,'L',0);
+		    $pdf->MultiCell(100,5,utf8_decode($row->titulo),1,L,0);
     }
 
     
