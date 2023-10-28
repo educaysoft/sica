@@ -41,7 +41,7 @@ if(isset($pertinencia))
     <label class="col-md-2 col-form-label"> Id pertinencia:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('idpertinencia',$pertinencia['idpertinencia'],array("disabled"=>"disabled",'placeholder'=>'Idpertinencias'));
+      echo form_input('idpertinencia',$pertinencia['idpertinencia'],array("disabled"=>"disabled",'placeholder'=>'Idpertinencias','style'=>'width:600px;'));
 	?>
 	</div> 
 </div> 
@@ -51,7 +51,7 @@ if(isset($pertinencia))
     <label class="col-md-2 col-form-label"> Id departamento/carrera:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('iddepartamento',$pertinencia['iddepartamento'],array("disabled"=>"disabled",'placeholder'=>'Iddepartamentos'));
+      echo form_input('iddepartamento',$pertinencia['iddepartamento'],array("disabled"=>"disabled",'placeholder'=>'Iddepartamentos','style'=>'width:600px;'));
 	?>
 	</div> 
 </div> 
@@ -66,7 +66,7 @@ $options= array("NADA");
 foreach ($departamentos as $row){
 	$options[$row->iddepartamento]= $row->nombre;
 }
-echo form_input('iddepartamento',$options[$pertinencia['iddepartamento']],array("disabled"=>"disabled"));
+echo form_input('iddepartamento',$options[$pertinencia['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:600px;'));
 	?>
 	</div> 
 </div> 
@@ -76,7 +76,7 @@ echo form_input('iddepartamento',$options[$pertinencia['iddepartamento']],array(
     <label class="col-md-2 col-form-label"> Id estudio:</label>
 	<div class="col-md-10">
 	<?php
-     	 echo form_input('idestudio',$pertinencia['idestudio'],array("disabled"=>"disabled",'placeholder'=>'Idpertinenciaes'));
+     	 echo form_input('idestudio',$pertinencia['idestudio'],array("disabled"=>"disabled",'placeholder'=>'Idpertinenciaes','style'=>'width:600px;'));
 	?>
 	</div> 
 </div> 
@@ -91,7 +91,7 @@ $options= array("NADA");
 foreach ($estudios as $row){
 	$options[$row->idestudio]= $row->lapersona." ".$row->titulo;
 }
-echo form_input('idestudio',$options[$pertinencia['idestudio']],array("disabled"=>"disabled"));
+echo form_input('idestudio',$options[$pertinencia['idestudio']],array("disabled"=>"disabled",'style'=>'width:600px;'));
 	?>
 	</div> 
 </div> 
