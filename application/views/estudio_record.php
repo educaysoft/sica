@@ -134,6 +134,27 @@ echo form_input('idpersona',$options[$estudio['idpersona']],array("disabled"=>"d
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('pertinencia/add/'.$estudio['idestudio'], 'nueva pertinencias:') ?> </label>
+     	<?php 
+
+	$options = array();
+  	foreach ($pertinencias as $row){
+		$options[$row->idestudio]=$row->eldepartamento;
+	}
+
+	?>
+	<div class="col-md-10">
+		<?php
+			 echo form_multiselect('idpertinencia[]',$options,(array)set_value('idpertinencia', ''), array('style'=>'width:500px')); 
+		?>
+	</div> 
+</div>
+
+
+
+
+
 
 </table>
 <?php echo form_close(); ?>
