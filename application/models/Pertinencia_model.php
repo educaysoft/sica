@@ -18,6 +18,20 @@ class Pertinencia_model extends CI_model {
 	}
 
 
+	function listar_pertinencia1xestudio($id){
+
+		if($id>0)
+		{
+ 			$pertinencia = $this->db->query('select * from pertinencia1 where idestudio="'. $id.'"');
+		}else{
+		 	$pertinencia= $this->db->get('pertinencia1');
+		}	
+		 return $pertinencia;
+	}
+
+
+
+
 
  	function pertinencia( $id){
  		$pertinencia = $this->db->query('select * from pertinencia where idpertinencia="'. $id.'"');
