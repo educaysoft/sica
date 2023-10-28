@@ -7,7 +7,7 @@ class Departamento_model extends CI_model {
 	}
 
 
-	function lista_departamento1($id){
+	function lista_departamentos1($id){
 
 		if($id>0)
 		{
