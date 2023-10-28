@@ -144,8 +144,8 @@ function asignaturadeldocente_data()
 	 	$data0 = $this->asignaturadeldocente_model->lista_asignaturadeldocentesA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idasignaturadeldocente,$r->elasignaturadeldocente,$r->numeasig,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('asignaturadeldocente/actual').'"  data-idasignaturadeldocente="'.$r->idasignaturadeldocente.'">Ver</a>');
+			$data[]=array($r->idasignaturadeldocente,$r->eldocente,$r->laasignatura,$r->archivopdf,
+			$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('asignaturadeldocente/actual').'"  data-idasignaturadeldocente="'.$r->idasignaturadeldocente.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
