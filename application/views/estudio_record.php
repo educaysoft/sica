@@ -166,7 +166,7 @@ if(isset($estudio))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('pertinencia/add/'.$estudio['idestudio'], 'Pertinencia pertinencias:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('pertinencia/add/'.$estudio['idestudio'], 'Pertinencia:') ?> </label>
      	<?php 
 
 	$options = array();

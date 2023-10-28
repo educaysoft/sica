@@ -178,9 +178,9 @@ public function actual()
 
 
 	$data['estudio'] = $this->estudio_model->estudio($this->uri->segment(3))->row_array();
+  	$data['pertinencias']= $this->pertinencia_model->listar_pertinencia1($data['estudio']['idestudio'])->result();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Estudio";
     $this->load->view('template/page_header');		
     $this->load->view('estudio_record',$data);
