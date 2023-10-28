@@ -24,15 +24,13 @@ class Pertinencia extends CI_Controller{
 
 	public function add()
 	{
-
 		if($this->uri->segment(3)){
-			$data['departamentos']= $this->departamento_model->lista_departamentos1($this->uri->segment(3))->result();
+			$data['estudios']= $this->estudio_model->lista_estudiosA($this->uri->segment(3))->result();
 		}else{
-			$data['departamentos']= $this->departamento_model->lista_departamentos1(0)->result();
+			$data['estudios']= $this->estudio_model->lista_estudiosA()->result();
 		}
+			$data['departamentos']= $this->departamento_model->lista_departamentos1(0)->result();
 
-
-		$data['estudios']= $this->estudio_model->lista_estudiosA()->result();
 		$data['title']="Nuevo Pertinencia";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('pertinencia_form',$data);

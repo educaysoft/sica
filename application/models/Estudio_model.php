@@ -19,7 +19,11 @@ class Estudio_model extends CI_model {
 
 
 	function lista_estudiosA(){
- 		$estudio = $this->db->query('select * from estudio1 order by lapersona');
+		if($id>0){
+ 			$estudio = $this->db->query('select * from estudio1 where idestudio='.$id.' order by lapersona');
+		}else{
+ 			$estudio = $this->db->query('select * from estudio1  order by lapersona');
+		}
 		 return $estudio;
 	}
 
@@ -29,6 +33,11 @@ class Estudio_model extends CI_model {
  		$estudio = $this->db->query('select * from estudio where idestudio="'. $id.'"');
  		return $estudio;
  	}
+ 	function estudio1( $id){
+ 		$estudio = $this->db->query('select * from estudio1 where idestudio="'. $id.'"');
+ 		return $estudio;
+ 	}
+
 
 
 
