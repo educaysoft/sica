@@ -11,7 +11,7 @@ class Pertinencia extends CI_Controller{
 
 	public function index(){
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  		$data['estudios']= $this->estudio_model->lista_estudios()->result();
+  		$data['estudios']= $this->estudio_model->lista_estudios1(0)->result();
  		// $data['pertinencia']=$this->pertinencia_model->pertinencia(1)->row_array();
 		$data['pertinencia'] = $this->pertinencia_model->elprimero();
  		// print_r($data['usuario_list']);

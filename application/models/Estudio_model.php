@@ -8,8 +8,9 @@ class Estudio_model extends CI_model {
 
 
 	function lista_estudios1($idpersona){
-
- 		$this->db->where('idpersona',$idpersona);
+		if($idpersona>0){
+ 			$this->db->where('idpersona',$idpersona);
+		}
 		 $estudio= $this->db->get('estudio1');
 		 return $estudio;
 	}
@@ -18,7 +19,7 @@ class Estudio_model extends CI_model {
 
 
 	function lista_estudiosA(){
-		 $estudio= $this->db->get('estudio1');
+ 		$estudio = $this->db->query('select * from estudio1 order by lapersona');
 		 return $estudio;
 	}
 
