@@ -8,6 +8,7 @@ class Estudio extends CI_Controller{
   	  $this->load->model('institucion_model');
   	  $this->load->model('estudio_model');
   	$this->load->model('nivelestudio_model');
+  	$this->load->model('pertenencia_model');
 }
 
 public function index(){
@@ -18,6 +19,7 @@ public function index(){
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['estudios']= $this->estudio_model->lista_estudios()->result();
+  	$data['pertenencias']= $this->pertenencia_model->lista_pertenencias()->result();
   		$data['nivelestudios']= $this->nivelestudio_model->lista_nivelestudios()->result();
 			
 		$data['title']="Lista de estudios";
