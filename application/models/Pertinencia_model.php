@@ -6,8 +6,14 @@ class Pertinencia_model extends CI_model {
 		 return $pertinencia;
 	}
 
-	function listar_pertinencia1(){
-		 $pertinencia= $this->db->get('pertinencia1');
+	function listar_pertinencia1($id){
+
+	`	if($id>0)
+		{
+ 			$pertinencia = $this->db->query('select * from pertinencia1 where idpertinencia="'. $id.'"');
+		}else{
+		 	$pertinencia= $this->db->get('pertinencia1');
+		}	
 		 return $pertinencia;
 	}
 
