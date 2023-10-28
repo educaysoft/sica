@@ -8,28 +8,29 @@
 
 
 <tr>
-<td> Asunto: </td>
+<td> Departamento/carrera: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
+foreach ($departamentos as $row){
+	$options[$row->iddepartamento]= $row->nombre;
 }
 
- echo form_dropdown("iddocumento",$options, $pertinencia['iddocumento']);  ?></td>
+ echo form_dropdown("iddepartamento",$options, $pertinencia['iddepartamento']);  ?></td>
 </tr>
 
 
 
 
 <tr>
-<td> Remitente: </td>
+<td> Estudio: </td>
 <td><?php
 $options= array('--Select--');
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->lapersona;
+foreach ($estudios as $row){
+	$options[$row->idestudio]= $row->lapersona.' - '.$row->titulo;
+
 }
- echo form_dropdown("idpersona",$options,$pertinencia['idpersona']);  ?></td>
+ echo form_dropdown("idestudio",$options,$pertinencia['idestudio']);  ?></td>
 </tr>
 
 

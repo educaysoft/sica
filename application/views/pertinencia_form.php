@@ -5,33 +5,33 @@
 <hr/>
 <?php echo form_open("pertinencia/save") ?>
 <table>
+<tr>
+<td> Estudio: </td>
+<td><?php
+$options= array('--Select--');
+foreach ($estudios as $row){
+	$options[$row->idestudio]= $row->lapersona.' - '.$row->titulo;
+}
 
+ echo form_dropdown("idestudio",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
 
 <tr>
-<td> Asunto: </td>
+<td> Departamento/carrera: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
+foreach ($departamentos as $row){
+	$options[$row->iddepartamento]= $row->asunto;
 }
 
- echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("iddepartamento",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
 
 
-<tr>
-<td> Remitente: </td>
-<td><?php
-$options= array('--Select--');
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->lapersona;
-}
 
- echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
 
 
 <tr>
