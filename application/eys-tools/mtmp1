@@ -1,106 +1,59 @@
 <?php
-class Asignaturadeldocente_model extends CI_model {
+class Pertinencia_model extends CI_model {
 
-	function lista_distributivodocentes(){
-		 $distributivodocente= $this->db->get('distributivodocente0');
-		 return $distributivodocente;
+	function listar_emisor(){
+		 $emisor= $this->db->get('emisor');
+		 return $emisor;
 	}
 
-
-	function lista_distributivodocentesA(){
-		 $distributivodocente= $this->db->get('distributivodocente1');
-		 return $distributivodocente;
-	}
-
-
-
- 	function distributivodocente( $id){
- 		$distributivodocente = $this->db->query('select * from distributivodocente0 where iddistributivodocente="'. $id.'"');
- 		return $distributivodocente;
+	function listar_emisor1(){
+		 $emisor= $this->db->get('emisor1');
+		 return $emisor;
 	}
 
 
 
- 	function distributivodocente_pado( $idperiodoacademico,$iddocente){
- 		$distributivodocente = $this->db->query('select * from distributivodocente1 where idperiodoacademico="'. $idperiodoacademico.'" and iddocente="'.$iddocente.'"');
- 		return $distributivodocente;
-	}
-
-
-	function distributivodocentes1( $id){
- 		$distributivodocente = $this->db->query('select * from distributivodocente1 where iddistributivo="'. $id.'"');
- 		return $distributivodocente;
+ 	function emisor( $id){
+ 		$emisor = $this->db->query('select * from emisor where idemisor="'. $id.'"');
+ 		return $emisor;
  	}
-
-
-	function distributivodocentes2($id){
- 		$distributivodocente = $this->db->query('select * from distributivodocente1 where iddistributivodocente="'. $id.'"');
- 		return $distributivodocente;
- 	}
-
-
-
- 	function distributivodocentespersona( $id){
- 		$distributivodocente = $this->db->query('select * from distributivodocente0 where idpersona="'. $id.'"');
- 		return $distributivodocente;
- 	}
-
-
 
  	function save($array)
  	{
-		$this->db->select('*');
-		$this->db->from('distributivodocente0');
-		$condition = "iddocente =" .  $array['iddocente'] ;
-		$this->db->where($condition);
-		$condition = "iddistributivo =" . $array['iddistributivo'];
-		$this->db->where($condition);
-		$this->db->limit(1);
-		$query = $this->db->get();
-		if ($query->num_rows() == 0){
-			$this->db->insert("distributivodocente", $array);
-			return true;
-		}else{
-			return false;
-		}
+		$this->db->insert("emisor", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('iddistributivodocente',$id);
- 		$this->db->update('distributivodocente0',$array_item);
+ 		$this->db->where('idemisor',$id);
+		 $query= $this->db->get('emisor');
+		if($query->num_rows()>0)
+		{
+ 			$this->db->where('idemisor',$id);
+ 			$this->db->update('emisor',$array_item);
+			return true;
+		}else{
+	        	return false;
+		}
+
 	}
  
 
-
- 	public function quitar($id)
+  public function delete($id)
 	{
-		$condition = "iddistributivodocente =" . $id ;
-		$this->db->select('*');
-		$this->db->from('distributivodocente0');
-		$this->db->where($condition);
-		$this->db->limit(1);
-		$query = $this->db->get();
-		if ($query->num_rows() != 0) {
-	
-
- 			$this->db->where('iddistributivodocente',$id);
-			$this->db->update('distributivodocente',array('eliminado'=>1));
-    			if($this->db->affected_rows()==1)
-				$result=true;
-			else
-				$result=false;
-		}else{	
-			      $result=false;
-   		}
-
+ 		$this->db->where('idemisor',$id);
+		$this->db->delete('emisor');
+    		if($this->db->affected_rows()==1)
+			$result=true;
+		else
+			$result=false;
 		return $result;
  	}
 
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("iddistributivodocente")->get('distributivodocente0');
+		$query=$this->db->order_by("idemisor")->get('emisor');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -113,7 +66,7 @@ class Asignaturadeldocente_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("iddistributivodocente")->get('distributivodocente0');
+		$query=$this->db->order_by("idemisor")->get('emisor');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -125,42 +78,38 @@ class Asignaturadeldocente_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$distributivodocente = $this->db->select("iddistributivodocente")->order_by("iddistributivodocente")->get('distributivodocente0')->result_array();
-		$arr=array("iddistributivodocente"=>$id);
-		$clave=array_search($arr,$distributivodocente);
-	   if(array_key_exists($clave+1,$distributivodocente))
+ 		$emisor = $this->db->select("idemisor")->order_by("idemisor")->get('emisor')->result_array();
+		$arr=array("idemisor"=>$id);
+		$clave=array_search($arr,$emisor);
+	   if(array_key_exists($clave+1,$emisor))
 		 {
 
- 		$distributivodocente = $this->db->query('select * from distributivodocente0 where iddistributivodocente="'. $distributivodocente[$clave+1]["iddistributivodocente"].'"');
+ 		$emisor = $this->db->query('select * from emisor where idemisor="'. $emisor[$clave+1]["idemisor"].'"');
 		 }else{
 
- 		$distributivodocente = $this->db->query('select * from distributivodocente0 where iddistributivodocente="'. $id.'"');
+ 		$emisor = $this->db->query('select * from emisor where idemisor="'. $id.'"');
 		 }
 		 	
- 		return $distributivodocente;
+ 		return $emisor;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$distributivodocente = $this->db->select("iddistributivodocente")->order_by("iddistributivodocente")->get('distributivodocente0')->result_array();
-		$arr=array("iddistributivodocente"=>$id);
-		$clave=array_search($arr,$distributivodocente);
-	   if(array_key_exists($clave-1,$distributivodocente))
+ 		$emisor = $this->db->select("idemisor")->order_by("idemisor")->get('emisor')->result_array();
+		$arr=array("idemisor"=>$id);
+		$clave=array_search($arr,$emisor);
+	   if(array_key_exists($clave-1,$emisor))
 		 {
 
- 		$distributivodocente = $this->db->query('select * from distributivodocente0 where iddistributivodocente="'. $distributivodocente[$clave-1]["iddistributivodocente"].'"');
+ 		$emisor = $this->db->query('select * from emisor where idemisor="'. $emisor[$clave-1]["idemisor"].'"');
 		 }else{
 
- 		$distributivodocente = $this->db->query('select * from distributivodocente0 where iddistributivodocente="'. $id.'"');
+ 		$emisor = $this->db->query('select * from emisor where idemisor="'. $id.'"');
 		 }
 		 	
- 		return $distributivodocente;
+ 		return $emisor;
  	}
-
-
-
-
 
 
 }

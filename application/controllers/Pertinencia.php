@@ -4,7 +4,7 @@ class Pertinencia extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('emisor_model');
+      $this->load->model('pertinencia_model');
       $this->load->model('persona_model');
       $this->load->model('documento_model');
 }
@@ -12,12 +12,12 @@ class Pertinencia extends CI_Controller{
 	public function index(){
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
- 		// $data['emisor']=$this->emisor_model->emisor(1)->row_array();
-		$data['emisor'] = $this->emisor_model->elprimero();
+ 		// $data['pertinencia']=$this->pertinencia_model->pertinencia(1)->row_array();
+		$data['pertinencia'] = $this->pertinencia_model->elprimero();
  		// print_r($data['usuario_list']);
   		$data['title']="Lista de Pertinenciaes";
 		$this->load->view('template/page_header');		
-  		$this->load->view('emisor_record',$data);
+  		$this->load->view('pertinencia_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
@@ -35,7 +35,7 @@ class Pertinencia extends CI_Controller{
 		$data['personas']= $this->persona_model->lista_personasA()->result();
 		$data['title']="Nuevo Pertinencia";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('emisor_form',$data);
+	 	$this->load->view('pertinencia_form',$data);
 	 	$this->load->view('template/page_footer');
 	}
 
@@ -43,10 +43,10 @@ class Pertinencia extends CI_Controller{
 public function listar()
 {
 	
-  $data['list'] = $this->emisor_model->lista_emisor1()->result();
+  $data['list'] = $this->pertinencia_model->lista_pertinencia1()->result();
   $data['title']="Pertinenciaes de documento";
 	$this->load->view('template/page_header');		
-  $this->load->view('emisor_list',$data);
+  $this->load->view('pertinencia_list',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -61,8 +61,8 @@ public function listar()
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
-	 	$this->emisor_model->save($array_item);
-	 	redirect('emisor');
+	 	$this->pertinencia_model->save($array_item);
+	 	redirect('pertinencia');
  	}
 
 
@@ -70,12 +70,12 @@ public function listar()
 public function edit()
 {
 
-	 	$data['emisor'] = $this->emisor_model->emisor($this->uri->segment(3))->row_array();
+	 	$data['pertinencia'] = $this->pertinencia_model->pertinencia($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personasA()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Persona";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('emisor_edit',$data);
+ 	 	$this->load->view('pertinencia_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -83,13 +83,13 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idemisor');
+		$id=$this->input->post('idpertinencia');
 	 	$array_item=array(
 
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
-	 	$result=$this->emisor_model->update($id,$array_item);
+	 	$result=$this->pertinencia_model->update($id,$array_item);
 	 	if($result == false)
 		{
 			echo "<script language='JavaScript'> alert('Pertinencia no  existe'); </script>";
@@ -102,9 +102,9 @@ public function edit()
 
  	public function delete()
  	{
- 		$data=$this->emisor_model->delete($this->uri->segment(3));
+ 		$data=$this->pertinencia_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('emisor/elprimero');
+	 	redirect('pertinencia/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -116,13 +116,13 @@ public function edit()
 public function elprimero()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->elprimero();
+	$data['pertinencia'] = $this->pertinencia_model->elprimero();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Pertinencia del documento";
     $this->load->view('template/page_header');		
-    $this->load->view('emisor_record',$data);
+    $this->load->view('pertinencia_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -134,14 +134,14 @@ public function elprimero()
 public function elultimo()
 {
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->elultimo();
+	$data['pertinencia'] = $this->pertinencia_model->elultimo();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Pertinencia del documento";
   
     $this->load->view('template/page_header');		
-    $this->load->view('emisor_record',$data);
+    $this->load->view('pertinencia_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -152,26 +152,26 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['emisor_list']=$this->emisor_model->lista_emisor()->result();
+ // $data['pertinencia_list']=$this->pertinencia_model->lista_pertinencia()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->siguiente($this->uri->segment(3))->row_array();
+	$data['pertinencia'] = $this->pertinencia_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Pertinencia del documento";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
-  $this->load->view('emisor_record',$data);
+  $this->load->view('pertinencia_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['emisor_list']=$this->emisor_model->lista_emisor()->result();
+ // $data['pertinencia_list']=$this->pertinencia_model->lista_pertinencia()->result();
   $data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['emisor'] = $this->emisor_model->anterior($this->uri->segment(3))->row_array();
+	$data['pertinencia'] = $this->pertinencia_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
  // $data['title']="Correo";
     $data['title']="Pertinencia del documento";
 	$this->load->view('template/page_header');		
-  $this->load->view('emisor_record',$data);
+  $this->load->view('pertinencia_record',$data);
 	$this->load->view('template/page_footer');
 }
 

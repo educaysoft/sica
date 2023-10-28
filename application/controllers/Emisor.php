@@ -25,11 +25,11 @@ class Emisor extends CI_Controller{
 	public function add()
 	{
 
-	if($this->uri->segment(3)){
-		$data['documentos']= $this->documento_model->lista_documentosA($this->uri->segment(3))->result();
-	}else{
-		$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
-	}
+		if($this->uri->segment(3)){
+			$data['documentos']= $this->documento_model->lista_documentosA($this->uri->segment(3))->result();
+		}else{
+			$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
+		}
 
 
 		$data['personas']= $this->persona_model->lista_personasA()->result();
@@ -38,6 +38,21 @@ class Emisor extends CI_Controller{
 	 	$this->load->view('emisor_form',$data);
 	 	$this->load->view('template/page_footer');
 	}
+
+
+public function listar()
+{
+	
+  $data['list'] = $this->emisor_model->lista_emisor1()->result();
+  $data['title']="Emisores de documento";
+	$this->load->view('template/page_header');		
+  $this->load->view('emisor_list',$data);
+	$this->load->view('template/page_footer');
+}
+
+
+
+
 
 
 	public function  save()

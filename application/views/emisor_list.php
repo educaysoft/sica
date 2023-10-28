@@ -22,7 +22,7 @@
 <td> <?php echo $list->iddocumento ?></td>
 <td> <?php echo $list->asunto ?></td>
 <td> <?php echo $list->idpersona ?></td>
-<td> <?php echo $list->nombres ?></td>
+<td> <?php echo $list->elemisor ?></td>
 <td> <?php echo anchor('emisor/edit/'.$list->iddocumento,'Edit') ?> || <?php echo anchor('emisor/delete/'.$list->iddocumento,'Delete') ?></td>
  </tr>
 
