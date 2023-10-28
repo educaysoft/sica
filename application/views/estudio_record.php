@@ -65,77 +65,106 @@ if(isset($estudio))
 
 <?php echo form_open('estudio/save_edit') ?>
 <?php echo form_hidden('idestudio',$estudio['idestudio']) ?>
-<table>
-  <tr>
-     <td>Id Estudio:</td>
-     <td><?php echo form_input('idestudio',$estudio['idestudio'],array("disabled"=>"disabled",'placeholder'=>'Idestudios')) ?></td>
-  </tr>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Estudio: </label>
+     	<?php 
+
+      echo form_input('idestudio',$estudio['idestudio'],array("disabled"=>"disabled",'placeholder'=>'Idestudios'));
+
+		?>
+	</div> 
+</div>
  
  
-<tr>
-     <td>Persona:</td>
-     <td><?php 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Persona: </label>
+     	<?php 
+
 $options= array("NADA");
 foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
 
-echo form_input('idpersona',$options[$estudio['idpersona']],array("disabled"=>"disabled",'style'=>'width:600px;')) ?></td>
-  </tr>
+echo form_input('idpersona',$options[$estudio['idpersona']],array("disabled"=>"disabled",'style'=>'width:600px;'));
+		?>
+	</div> 
+</div>
+
  
 
- <tr>
-     <td>Institucion:</td>
-     <td><?php 
-    $options= array("NADA");
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Institución: </label>
+     	<?php 
+	$options= array("NADA");
     foreach ($instituciones as $row){
 	      $options[$row->idinstitucion]= $row->nombre;
     }
-    echo form_input('idinstitucion',$options[$estudio['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:600px;')) ?></td>
- </tr>
-  
+    echo form_input('idinstitucion',$options[$estudio['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:600px;'));
+		?>
+	</div> 
+</div>
 
 
-<tr>
-     <td>Nivel estudio:</td>
-     <td><?php 
 
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nivel estudio: </label>
+     	<?php 
     $options= array("NADA");
     foreach ($nivelestudios as $row){
 	      $options[$row->idnivelestudio]= $row->nombre;
     }
     echo form_input('idnivelestudio',$options[$estudio['idnivelestudio']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
-
-	?>
-	</td> 
-</tr>
+		?>
+	</div> 
+</div>
 
 
 
   
 
 
-<tr>
-      <td>Titulo:</td>
-      <td><?php echo form_input('titulo',$estudio['titulo'],array("disabled"=>"disabled",'type'=>'text','placeholder'=>'Titulo obtenido','style'=>'width:600px;')) ?></td>
-</tr>
 
-
-<tr>
-      <td>Fecha de registro:</td>
-      <td><?php echo form_input('fecharegistro',$estudio['fecharegistro'],array("disabled"=>"disabled",'type'=>'date','placeholder'=>'Titulo obtenido','style'=>'width:600px;')) ?></td>
-</tr>
-
-<tr>
-      <td>Número registro:</td>
-      <td><?php echo form_input('numeroregistro',$estudio['numeroregistro'],array("disabled"=>"disabled",'type'=>'text','placeholder'=>'Titulo obtenido','style'=>'width:500px;')) ?></td>
-</tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Titulo: </label>
+     	<?php 
+       echo form_input('titulo',$estudio['titulo'],array("disabled"=>"disabled",'type'=>'text','placeholder'=>'Titulo obtenido','style'=>'width:600px;')); 
+		?>
+	</div> 
+</div>
 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('pertinencia/add/'.$estudio['idestudio'], 'nueva pertinencias:') ?> </label>
+    <label class="col-md-2 col-form-label"> Fecha de registro: </label>
+     	<?php 
+      		 echo form_input('fecharegistro',$estudio['fecharegistro'],array("disabled"=>"disabled",'type'=>'date','placeholder'=>'Titulo obtenido','style'=>'width:600px;')); 
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Número registro: </label>
+     	<?php 
+       echo form_input('numeroregistro',$estudio['numeroregistro'],array("disabled"=>"disabled",'type'=>'text','placeholder'=>'Titulo obtenido','style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
+
+
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('pertinencia/add/'.$estudio['idestudio'], 'Pertinencia pertinencias:') ?> </label>
      	<?php 
 
 	$options = array();
@@ -154,9 +183,6 @@ echo form_input('idpersona',$options[$estudio['idpersona']],array("disabled"=>"d
 
 
 
-
-
-</table>
 <?php echo form_close(); ?>
 
 
