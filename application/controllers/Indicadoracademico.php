@@ -5,6 +5,7 @@ class Indicadoracademico extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('indicadoracademico_model');
+      $this->load->model('distributivo_model');
 }
 
 public function index(){
