@@ -26,9 +26,9 @@ class Pertinencia extends CI_Controller{
 	{
 
 		if($this->uri->segment(3)){
-			$data['departamentos']= $this->departamento_model->lista_departamentosA($this->uri->segment(3))->result();
+			$data['departamentos']= $this->departamento_model->lista_departamentos1($this->uri->segment(3))->result();
 		}else{
-			$data['departamentos']= $this->departamento_model->lista_departamentosA(0)->result();
+			$data['departamentos']= $this->departamento_model->lista_departamentos1(0)->result();
 		}
 
 

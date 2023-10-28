@@ -8,7 +8,7 @@ class Pertinencia_model extends CI_model {
 
 	function listar_pertinencia1($id){
 
-	`	if($id>0)
+		if($id>0)
 		{
  			$pertinencia = $this->db->query('select * from pertinencia1 where idpertinencia="'. $id.'"');
 		}else{
