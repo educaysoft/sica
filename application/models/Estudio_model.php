@@ -18,7 +18,7 @@ class Estudio_model extends CI_model {
 
 
 
-	function lista_estudiosA(){
+	function lista_estudiosA($id){
 		if($id>0){
  			$estudio = $this->db->query('select * from estudio1 where idestudio='.$id.' order by lapersona');
 		}else{
