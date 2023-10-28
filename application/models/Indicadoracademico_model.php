@@ -65,7 +65,7 @@ class Indicadoracademico_model extends CI_model {
 	{
 
 
- 		$indicadoracademico = $this->db->query('select distinct dido.eldocente, (select distinct estu.idnivelestudio from estudio estu,petinencia pert where  estu.idnivelestudio=4 and estu.idpersona=doce.idpersona,pert.idestudio=estu.idestudio and pert.iddepartamento=1 limit 1) as nivel  ,(select distinct estu.titulo from estudio estu,pertinencia pert where estu.idnivelestudio=4 and estu.idpersona=doce.idpersona, pert.idestudio=estu.idestudio and pert.iddepartamento=1 limit 1) as titulo  from docente0 doce,distributivodocente1 dido where doce.iddocente=dido.iddocente and dido.iddistributivo='.$iddistributivo);
+ 		$indicadoracademico = $this->db->query('select distinct dido.eldocente, (select distinct estu.idnivelestudio from estudio estu,petinencia pert where  estu.idnivelestudio=4 and estu.idpersona=doce.idpersona and pert.idestudio=estu.idestudio and pert.iddepartamento=1 limit 1) as nivel  ,(select distinct estu.titulo from estudio estu and pertinencia pert where estu.idnivelestudio=4 and estu.idpersona=doce.idpersona and pert.idestudio=estu.idestudio and pert.iddepartamento=1 limit 1) as titulo  from docente0 doce,distributivodocente1 dido where doce.iddocente=dido.iddocente and dido.iddistributivo='.$iddistributivo);
 	
 		 return $indicadoracademico;
 
