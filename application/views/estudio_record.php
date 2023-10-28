@@ -100,6 +100,7 @@ if(isset($estudio))
     foreach ($instituciones as $row){
 	      $options[$row->idinstitucion]= $row->nombre;
     }
+	?>
 	<div class="col-md-10">
      	<?php 
     echo form_input('idinstitucion',$options[$estudio['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:600px;'));
