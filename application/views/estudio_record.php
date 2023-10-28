@@ -70,31 +70,23 @@ if(isset($estudio))
 <div class="form-group row">
     <label class="col-md-2 col-form-label">Estudio: </label>
      	<?php 
-
       echo form_input('idestudio',$estudio['idestudio'],array("disabled"=>"disabled",'placeholder'=>'Idestudios'));
-
 		?>
 	</div> 
 </div>
- 
- 
 
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label">Persona: </label>
      	<?php 
-
-$options= array("NADA");
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
-}
-
-echo form_input('idpersona',$options[$estudio['idpersona']],array("disabled"=>"disabled",'style'=>'width:600px;'));
+	$options= array("NADA");
+	foreach ($personas as $row){
+		$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+	}
+	echo form_input('idpersona',$options[$estudio['idpersona']],array("disabled"=>"disabled",'style'=>'width:600px;'));
 		?>
 	</div> 
 </div>
-
- 
 
 
 <div class="form-group row">
@@ -108,9 +100,6 @@ echo form_input('idpersona',$options[$estudio['idpersona']],array("disabled"=>"d
 		?>
 	</div> 
 </div>
-
-
-
 
 
 <div class="form-group row">
