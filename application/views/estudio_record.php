@@ -156,7 +156,7 @@ if(isset($estudio))
     <label class="col-md-2 col-form-label"> Número registro: </label>
 	<div class="col-md-10">
      	<?php 
-       echo form_input('numeroregistro',$estudio['numeroregistro'],array("disabled"=>"disabled",'type'=>'text','placeholder'=>'Titulo obtenido','style'=>'width:500px;'));
+ 	      echo form_input('numeroregistro',$estudio['numeroregistro'],array("disabled"=>"disabled",'type'=>'text','placeholder'=>'Titulo obtenido','style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
