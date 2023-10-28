@@ -15,11 +15,11 @@ public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['estudio']=$this->estudio_model->elultimo();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['estudios']= $this->estudio_model->lista_estudios()->result();
-  	$data['pertinencias']= $this->pertinencia_model->listar_pertinencia1(0)->result();
+  		$data['estudio']=$this->estudio_model->elultimo();
+  		$data['personas']= $this->persona_model->lista_personas()->result();
+  		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+  		$data['estudios']= $this->estudio_model->lista_estudios()->result();
+  		$data['pertinencias']= $this->pertinencia_model->listar_pertinencia1($dat['estudio']['idestudio'])->result();
   		$data['nivelestudios']= $this->nivelestudio_model->lista_nivelestudios()->result();
 			
 		$data['title']="Lista de estudios";
@@ -194,24 +194,13 @@ public function actual()
 
 
 
-
-
-
-
-
-
-
 public function elprimero()
 {
-
-
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['nivelestudios']= $this->nivelestudio_model->lista_nivelestudios()->result();
-
-  	$data['pertinencias']= $this->pertinencia_model->listar_pertinencia1(0)->result();
-
 	$data['estudio'] = $this->estudio_model->elprimero();
+  	$data['pertinencias']= $this->pertinencia_model->listar_pertinencia1($dat['estudio']['idestudio'])->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
@@ -232,7 +221,7 @@ public function elultimo()
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['nivelestudios']= $this->nivelestudio_model->lista_nivelestudios()->result();
-  	$data['pertinencias']= $this->pertinencia_model->listar_pertinencia1(0)->result();
+  	$data['pertinencias']= $this->pertinencia_model->listar_pertinencia1($dat['estudio']['idestudio'])->result();
   if(!empty($data))
   {
   	$data['personas']= $this->persona_model->lista_personas()->result();
@@ -254,10 +243,8 @@ public function siguiente(){
 	$data['estudio'] = $this->estudio_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-  	$data['pertinencias']= $this->pertinencia_model->listar_pertinencia1(0)->result();
   	$data['nivelestudios']= $this->nivelestudio_model->lista_nivelestudios()->result();
-  	$data['pertinencias']= $this->pertinencia_model->listar_pertinencia1(0)->result();
-  
+  	$data['pertinencias']= $this->pertinencia_model->listar_pertinencia1($dat['estudio']['idestudio'])->result();
 
 $data['title']="Estudio";
 	$this->load->view('template/page_header');		
@@ -271,7 +258,7 @@ public function anterior(){
  	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['nivelestudios']= $this->nivelestudio_model->lista_nivelestudios()->result();
-  	$data['pertinencias']= $this->pertinencia_model->listar_pertinencia1(0)->result();
+  	$data['pertinencias']= $this->pertinencia_model->listar_pertinencia1($dat['estudio']['idestudio'])->result();
   $data['title']="Estudio";
 	$this->load->view('template/page_header');		
   $this->load->view('estudio_record',$data);
