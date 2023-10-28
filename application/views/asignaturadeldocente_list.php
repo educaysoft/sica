@@ -51,8 +51,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
- <th>asignaturadeldocente</th>
- <th>Asignaturas</th>
+ <th>Docente</th>
+ <th>Asignatura</th>
+ <th>Evidencia</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
