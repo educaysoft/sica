@@ -7,6 +7,21 @@ class Departamento_model extends CI_model {
 	}
 
 
+	function lista_departamento1($id){
+
+		if($id>0)
+		{
+ 			$departamento = $this->db->query('select * from departamento1 where iddepartamento="'. $id.'"');
+		}else{
+		 	$departamento= $this->db->get('departamento1');
+		}	
+		 return $departamento;
+	}
+
+
+
+
+
 
 	function lista_departamentoA(){
 		 $departamento= $this->db->get('departamento1');
