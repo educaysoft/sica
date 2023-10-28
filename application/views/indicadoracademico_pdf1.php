@@ -13,7 +13,7 @@
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
-	$pdf->titulo="Perfil del docente";
+	$pdf->titulo="Indicador No1: Docente con 4to Nivel";
 	
 
 
@@ -46,8 +46,8 @@
 	foreach ($docentes as $row){  //Recorre todas la participaciones realiadas por los participantes
 	       
 		    $i=$i+1;
-		    $pdf->Cell(10,5,$i,1,0,'R',0); 
-		    $pdf->Cell(60,5,utf8_decode($row->eldocente),1,0,'L',0);
+		    $pdf->Cell(8,5,$i,1,0,'R',0); 
+		    $pdf->Cell(50,5,utf8_decode($row->eldocente),1,0,'L',0);
 		    $pdf->Cell(10,5,utf8_decode($row->nivel),1,0,'L',0);
 		  //  $pdf->Cell(70,5,utf8_decode($row->titulo),1,1,'L',0);
 		    $pdf->MultiCell(100,5,utf8_decode($row->titulo),1,L,0);
