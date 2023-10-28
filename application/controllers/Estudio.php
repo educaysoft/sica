@@ -19,7 +19,7 @@ public function index(){
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   	$data['estudios']= $this->estudio_model->lista_estudios()->result();
-  	$data['pertinencias']= $this->pertinencia_model->lista_pertinencias()->result();
+  	$data['pertinencias']= $this->pertinencia_model->listar_pertinencia1(0)->result();
   		$data['nivelestudios']= $this->nivelestudio_model->lista_nivelestudios()->result();
 			
 		$data['title']="Lista de estudios";
