@@ -148,7 +148,7 @@ function estudio_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->estudio_model->lista_estudiosA();
+	 	$data0 = $this->estudio_model->lista_estudiosA(0);
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idestudio,$r->lapersona,$r->lainstitucion,$r->nivel,$r->titulo,
