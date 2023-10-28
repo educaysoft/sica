@@ -69,6 +69,7 @@ if(isset($estudio))
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label">Estudio: </label>
+	<div class="col-md-10">
      	<?php 
       echo form_input('idestudio',$estudio['idestudio'],array("disabled"=>"disabled",'placeholder'=>'Idestudios'));
 		?>
@@ -83,6 +84,8 @@ if(isset($estudio))
 	foreach ($personas as $row){
 		$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 	}
+	<div class="col-md-10">
+     	<?php 
 	echo form_input('idpersona',$options[$estudio['idpersona']],array("disabled"=>"disabled",'style'=>'width:600px;'));
 		?>
 	</div> 
@@ -96,6 +99,8 @@ if(isset($estudio))
     foreach ($instituciones as $row){
 	      $options[$row->idinstitucion]= $row->nombre;
     }
+	<div class="col-md-10">
+     	<?php 
     echo form_input('idinstitucion',$options[$estudio['idinstitucion']],array("disabled"=>"disabled",'style'=>'width:600px;'));
 		?>
 	</div> 
@@ -109,6 +114,8 @@ if(isset($estudio))
     foreach ($nivelestudios as $row){
 	      $options[$row->idnivelestudio]= $row->nombre;
     }
+	<div class="col-md-10">
+     	<?php 
     echo form_input('idnivelestudio',$options[$estudio['idnivelestudio']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
@@ -122,6 +129,7 @@ if(isset($estudio))
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Titulo: </label>
+	<div class="col-md-10">
      	<?php 
        echo form_input('titulo',$estudio['titulo'],array("disabled"=>"disabled",'type'=>'text','placeholder'=>'Titulo obtenido','style'=>'width:600px;')); 
 		?>
@@ -132,6 +140,7 @@ if(isset($estudio))
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha de registro: </label>
+	<div class="col-md-10">
      	<?php 
       		 echo form_input('fecharegistro',$estudio['fecharegistro'],array("disabled"=>"disabled",'type'=>'date','placeholder'=>'Titulo obtenido','style'=>'width:600px;')); 
 		?>
@@ -142,6 +151,7 @@ if(isset($estudio))
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Número registro: </label>
+	<div class="col-md-10">
      	<?php 
        echo form_input('numeroregistro',$estudio['numeroregistro'],array("disabled"=>"disabled",'type'=>'text','placeholder'=>'Titulo obtenido','style'=>'width:500px;'));
 		?>
