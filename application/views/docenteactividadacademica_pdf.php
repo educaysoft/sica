@@ -33,7 +33,7 @@
 
 	$pdf->Cell(8,5,'No',1,0,'C',1);
 	$pdf->Cell(10,5,'Item',1,0,'C',1);
-	$pdf->Cell(80,5,'Actividad',1,0,'C',1);
+	$pdf->Cell(100,5,'Actividad',1,0,'C',1);
 	$pdf->Cell(20,5,'horas',1,1,'R',1);
 	 
 
@@ -52,8 +52,8 @@
 		    $pdf->Cell(10,5,utf8_decode($row->item),1,0,'C',0);
 		    $current_y = $pdf->GetY();
 		    $current_x = $pdf->GetX();
-		    $cell_width = 80;
-		    $pdf->MultiCell(80,5,utf8_decode($row->nombreactividad),1,'L',0,0);
+		    $cell_width = 100;
+		    $pdf->MultiCell($cell_width,5,utf8_decode($row->nombreactividad),1,'L',0,0);
 
 		    $current_y2 = $pdf->GetY();
 		    $pdf->SetXY($current_x + $cell_width, $current_y);
