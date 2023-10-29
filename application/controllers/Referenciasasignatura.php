@@ -6,6 +6,7 @@ class Referenciasasignatura extends CI_Controller{
       parent::__construct();
       $this->load->model('referenciasasignatura_model');
   	  $this->load->model('asignatura_model');
+  	  $this->load->model('distributivo_model');
   	  $this->load->model('tiporeferenciasasignatura_model');
 }
 
