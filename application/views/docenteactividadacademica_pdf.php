@@ -64,7 +64,7 @@
 		    $pdf->Cell(20,5,utf8_decode($row->numerohoras),1,0,'R',0);
 
 		    $pdf->SetXY($current_x + $cell_width, $current_y2);
-		    $pdf->$Ln(0);
+		    $pdf->Ln(0);
     }
 
     
