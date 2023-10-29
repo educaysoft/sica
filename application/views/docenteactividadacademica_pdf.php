@@ -50,7 +50,14 @@
 		    $i=$i+1;
 		    $pdf->Cell(8,5,$i,1,0,'R',0); 
 		    $pdf->Cell(10,5,utf8_decode($row->item),1,0,'C',0);
+		    $current_y = $pdf->GetY();
+		    $current_x = $pdf->GetX();
+		    $cell_width = 80;
 		    $pdf->MultiCell(80,5,utf8_decode($row->nombreactividad),1,'L',0,0);
+		    $pdf->SetXY($current_x + $cell_width, $current_y);
+
+		    $current_x = $pdf->GetX();
+
 		    $pdf->Cell(20,5,utf8_decode($row->numerohoras),1,1,'R',0);
     }
 
