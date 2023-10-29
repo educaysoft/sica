@@ -26,16 +26,15 @@
 	$pdf->SetTextColor(0, 0,0);
 //    	$pdf->Text(20,40,"Docente:  ".$estudios[0]->cedula." - ". $estudios[0]->lapersona); 
 
-    	$pdf->Text(20,40,"Distributivo : ". $distributivo[0]->eldistributivo); 
+    	$pdf->Text(20,40,"Distributivo : ". $docenteactividadacademica[0]->eldistributivodocente); 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
 
 
 	$pdf->Cell(8,5,'No',1,0,'C',1);
-	$pdf->Cell(10,5,'Tipo',1,0,'C',1);
-	$pdf->Cell(45,5,'Asignatura',1,0,'C',1);
-	$pdf->Cell(20,5,'tiulo',1,0,'C',1);
-	$pdf->Cell(80,5,'url',1,1,'C',1);
+	$pdf->Cell(10,5,'Item',1,0,'C',1);
+	$pdf->Cell(80,5,'Actividad',1,0,'C',1);
+	$pdf->Cell(20,5,'horas',1,1,'R',1);
 	 
 
 
@@ -45,14 +44,14 @@
 	$i=0;
 //	print_r($docentes);
 //	die();
-	foreach ($referenciasasignaturas as $row){  //Recorre todas la participaciones realiadas por los participantes
+	foreach ($docenteactividadacademicas as $row){  //Recorre todas la participaciones realiadas por los participantes
+	
 	       
 		    $i=$i+1;
 		    $pdf->Cell(8,5,$i,1,0,'R',0); 
-		    $pdf->Cell(10,5,utf8_decode($row->tipo),1,0,'C',0);
-		    $pdf->MultiCell(80,5,utf8_decode($row->laasignatura),1,1,'L',0);
-		    $pdf->MultiCell(50,5,utf8_decode($row->titulo),1,'L',0);
-		    $pdf->MultiCell(80,5,utf8_decode($row->url),1,L,0);
+		    $pdf->Cell(20,5,utf8_decode($row->item),1,0,'C',0);
+		    $pdf->MultiCell(80,5,utf8_decode($row->nombreactividad),1,'L',0);
+		    $pdf->Cell(50,5,utf8_decode($row->numerohoras),1,1,'R',0);
     }
 
     
