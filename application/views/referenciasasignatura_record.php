@@ -13,6 +13,7 @@ if(isset($referenciasasignatura))
         <li> <?php echo anchor('referenciasasignatura/edit/'.$referenciasasignatura['idreferenciasasignatura'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('referenciasasignatura/delete/'.$referenciasasignatura['idreferenciasasignatura'],'Delete'); ?></li>
         <li> <?php echo anchor('referenciasasignatura/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('referenciasasignatura/reportepdf/','Reportepdf'); ?></li>
 
 <?php 
 }else{
