@@ -17,12 +17,12 @@ public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['jornadadocente']=$this->jornadadocente_model->elultimo();
-  	$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
-  	$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
-  	$data['aulas']= $this->aula_model->lista_aulas()->result();
+  		$data['jornadadocente']=$this->jornadadocente_model->elultimo();
+  		$data['horariodocentes']=$this->horariodocente_model->lista_horariodocentesA()->result();
+  		$data['asignaturadocentes']=$this->asignaturadocente_model->lista_asignaturadocentesA(0)->result();
+  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  		$data['diasemanas']= $this->diasemana_model->lista_diasemanas()->result();
+  		$data['aulas']= $this->aula_model->lista_aulas()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
 			
 		$data['title']="Lista de jornadadocentes";
@@ -149,7 +149,7 @@ function jornadadocente_data()
 	 	$data0 = $this->jornadadocente_model->lista_jornadadocentesA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idjornadadocente,$r->nombre,$r->horainicio,$r->duracionminutos,
+			$data[]=array($r->idjornadadocente,$r->laasignatura,$r->eldistributivodocente,$r->$r->nombre,$r->horainicio,$r->duracionminutos,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('jornadadocente/actual').'"  data-idjornadadocente="'.$r->idjornadadocente.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
