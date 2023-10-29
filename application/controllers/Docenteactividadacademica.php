@@ -172,7 +172,7 @@ function docenteactividadacademica_data()
 	public function reportepdf()
 	{
 		$iddistributivo=$this->uri->segment(3);
-		$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA()->result();
+		$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA(0)->result();
 		$data['title']="Evento";
 		$this->load->view('docenteactividadacademica_pdf',$data);
 	}
