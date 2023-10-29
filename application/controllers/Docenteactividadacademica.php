@@ -172,8 +172,8 @@ function docenteactividadacademica_data()
 	public function reportepdf()
 	{
 		$iddistributivodocente=$this->uri->segment(3);
-		$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA($iddistributivodocente)->row_array();
-		$data['distributivodocente']=$this->distributivodocente_model->distributivodocente($iddistributivodocente)->result();
+		$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA($iddistributivodocente)->result();
+		$data['distributivodocente']=$this->distributivodocente_model->distributivodocente($iddistributivodocente)->row_array();
 		$data['title']="Evento";
 		$this->load->view('docenteactividadacademica_pdf',$data);
 	}

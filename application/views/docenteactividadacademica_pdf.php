@@ -30,7 +30,6 @@
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
 
-
 	$pdf->Cell(8,5,'No',1,0,'C',1);
 	$pdf->Cell(10,5,'Item',1,0,'C',1);
 	$pdf->Cell(30,5,'Tipo',1,0,'C',1);
