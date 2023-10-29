@@ -167,7 +167,7 @@ function referenciasasignatura_data()
 	public function reportepdf()
 	{
 		$iddistributivo=$this->uri->segment(3);
-		$data['referenciasasignaturas']=$this->referenciasasigantura_model->lista_referenciasasignaturasA()->result();
+		$data['referenciasasignaturas']=$this->referenciasasignatura_model->lista_referenciasasignaturasA()->result();
 		$data['distributivo'] =$this->distributivo_model->distributivo1($iddistributivo)->result();
 		$data['title']="Evento";
 		$this->load->view('referenciasasignatura_pdf',$data);
