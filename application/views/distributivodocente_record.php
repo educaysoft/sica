@@ -164,7 +164,7 @@ echo form_input('idtiempodedicacion',$options[$distributivodocente['idtiempodedi
         </div>
         <div class="pull-right">
             <a class="btn btn-success" href="<?php echo base_url('docenteactividadacademica/add/') ?>">Sumar actividad</a>
-	    <a class="btn btn-danger" href="<?php echo base_url('docenteactividadacademica/reportepdf/'.$distributivodocente['iddistributivodocente']) ?>">Generar pagina</a>
+	    <a class="btn btn-danger" href="<?php echo base_url('docenteactividadacademica/reportepdf/'.$distributivodocente['iddistributivodocente']) ?>">Reporte individual</a>
         </div>
     </div>
 </div>
