@@ -26,7 +26,7 @@
 	$pdf->SetTextColor(0, 0,0);
 //    	$pdf->Text(20,40,"Docente:  ".$estudios[0]->cedula." - ". $estudios[0]->lapersona); 
 
-   // 	$pdf->Text(20,40,"Distributivo : ". $docenteactividadacademica[0]->eldistributivodocente); 
+   	$pdf->Text(20,40,"Distributivo docente : ". $distributivodocente[0]->eldistributivodocente); 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
 
