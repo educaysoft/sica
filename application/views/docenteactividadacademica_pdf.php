@@ -49,9 +49,9 @@
 	       
 		    $i=$i+1;
 		    $pdf->Cell(8,5,$i,1,0,'R',0); 
-		    $pdf->Cell(20,5,utf8_decode($row->item),1,0,'C',0);
+		    $pdf->Cell(10,5,utf8_decode($row->item),1,0,'C',0);
 		    $pdf->MultiCell(80,5,utf8_decode($row->nombreactividad),1,'L',0);
-		    $pdf->Cell(50,5,utf8_decode($row->numerohoras),1,1,'R',0);
+		    $pdf->Cell(20,5,utf8_decode($row->numerohoras),1,1,'R',0);
     }
 
     
