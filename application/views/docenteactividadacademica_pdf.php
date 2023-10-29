@@ -26,13 +26,14 @@
 	$pdf->SetTextColor(0, 0,0);
 //    	$pdf->Text(20,40,"Docente:  ".$estudios[0]->cedula." - ". $estudios[0]->lapersona); 
 
-   	$pdf->Text(20,40,"Distributivo docente : ". $distributivodocente[0]->eldistributivodocente); 
+   	$pdf->Text(20,40,"Distributivo docente : ". $distributivodocente->eldistributivodocente); 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
 
 
 	$pdf->Cell(8,5,'No',1,0,'C',1);
 	$pdf->Cell(10,5,'Item',1,0,'C',1);
+	$pdf->Cell(30,5,'Tipo',1,0,'C',1);
 	$pdf->Cell(100,5,'Actividad',1,0,'C',1);
 	$pdf->Cell(20,5,'horas',1,1,'R',1);
 	 
@@ -50,6 +51,7 @@
 		    $i=$i+1;
 		    $pdf->Cell(8,5,$i,1,0,'R',0); 
 		    $pdf->Cell(10,5,utf8_decode($row->item),1,0,'C',0);
+		    $pdf->Cell(30,5,utf8_decode($row->tipoactividad),1,0,'L',0);
 		    $current_y = $pdf->GetY();
 		    $current_x = $pdf->GetX();
 		    $cell_width = 100;
