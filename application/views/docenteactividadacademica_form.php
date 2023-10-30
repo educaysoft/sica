@@ -26,7 +26,7 @@ foreach ($distributivodocentes as $row){
 
 $options= array('--Select--');
 foreach ($actividadacademicas as $row){
-	$options[$row->idactividadacademica]=i$row->item.' - '.$row->nombre;
+	$options[$row->idactividadacademica]=$row->item.' - '.$row->nombre;
 
 }
 
