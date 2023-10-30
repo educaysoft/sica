@@ -57,7 +57,8 @@ public function add()
 
 	if($this->uri->segment(3))
 	{
-		$data['distributivodocentes']= $this->distributivodocente_model->distributivodocentes1($this->uri->segment(3))->result();
+		$iddistributivodocente=$this->uri->segment(3);
+		$data['distributivodocentes']= $this->distributivodocente_model->distributivodocentes2($iddistributivodocente)->result();
 
 	}else{
 
