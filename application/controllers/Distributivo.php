@@ -249,6 +249,35 @@ public function iniciar()
 
 
 
+	function docente2_data()
+	{
+
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$iddocente=$this->input->get('iddocente');
+			$data0 =$this->distributivodocente_model->distributivodocentes1xdocente($iddocente);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idddocente,$r->iddistributivo,$r->iddistributivodocente,$r->periodoacademico,$r->eldepartamento,$r->numeasig,$r->horas,
+
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('distributivodocente/actual').'"    data-iddistributivodocente="'.$r->iddistributivodocente.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
+
 	public function reportepdf()
 	{
 		$iddistributivo=$this->uri->segment(3);

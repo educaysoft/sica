@@ -98,13 +98,24 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('estudio/add/'.$docente['idpersona'], 'Estudios realizados:') ?> </label>
-
 	<div class="col-md-10">
 	<div class="row justify-content-left">
       	<!-- Page Heading -->
  	<div class="row">
   	<div class="col-12">
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Estudios realizados: </b>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-success" href="<?php echo base_url('estudio/add/'.$docente['idpersona']) ?>">Nueva estudio</a><a class="btn btn-danger" href="<?php echo base_url('docente/reportepdf/'.$docente['idpersona']) ?>">Reporte</a>
+        </div>
+    </div>
+</div>
+
+
 	<table class="table table-striped table-bordered table-hover" id="mydatae">
 	 <thead>
 	 <tr>
@@ -139,13 +150,24 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
       	<!-- Page Heading -->
  	<div class="row">
   	<div class="col-12">
-	<table class="table table-striped table-bordered table-hover" id="mydatas">
+	<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+	    <div class="col-lg-12 margin-tb">
+		<div class="pull-left">
+		    <b>Participación en distributivo: </b>
+		</div>
+	    </div>
+	</div>
+
+	<table class="table table-striped table-bordered table-hover" id="mydatad">
 	 <thead>
 	 <tr>
 	 <th>iddocente</th>
-	 <th>idsilabo</th>
-	 <th>elsilabo</th>
-	 <th>periodo</th>
+	 <th>iddistributivo</th>
+	 <th>iddistdoce</th>
+	 <th>perido</th>
+	 <th>Departamento</th>
+	 <th>numeasig</th>
+	 <th>horas</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
@@ -170,10 +192,8 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 $(document).ready(function(){
 	var iddocente=document.getElementById("iddocente").value;
 	var idpersona=document.getElementById("idpersona").value;
-	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('docente/silabo_data')?>', type: 'GET',data:{iddocente:iddocente}},});
+	var mytablaf= $('#mydatad').DataTable({"ajax": {url: '<?php echo site_url('distributivo/docente2_data')?>', type: 'GET',data:{iddocente:iddocente}},});
 	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('docente/estudio_data')?>', type: 'GET',data:{idpersona:idpersona}},});
-
-
 });
 
 
