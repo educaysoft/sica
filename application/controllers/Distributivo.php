@@ -260,7 +260,7 @@ public function iniciar()
 			$data0 =$this->distributivodocente_model->distributivodocentes1xdocente($iddocente);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idddocente,$r->iddistributivo,$r->iddistributivodocente,$r->periodoacademico,$r->eldepartamento,$r->numeasig,$r->horas,
+				$data[]=array($r->iddocente,$r->iddistributivo,$r->iddistributivodocente,$r->periodoacademico,$r->eldepartamento,$r->numeasig,$r->horas,
 
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('distributivodocente/actual').'"    data-iddistributivodocente="'.$r->iddistributivodocente.'">Ver</a>');
 			}	
