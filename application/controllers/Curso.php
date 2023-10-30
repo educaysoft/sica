@@ -94,6 +94,14 @@ class Curso extends CI_Controller{
 
 
 
+	public function cursos_2022_1S_24()
+	{
+	  $this->load->view('cursos/2022-1S-24');
+	}
+
+
+
+
 //CTI
 	public function cursos_2022_2S_24()
 	{
