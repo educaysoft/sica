@@ -143,7 +143,6 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Silabos presentados: </label>
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">
@@ -171,7 +170,7 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
-	 <tbody id="show_datas">
+	 <tbody id="show_datad">
 	 </tbody>
 	</table>
 	</div>
@@ -210,8 +209,8 @@ window.location.href = retorno+'/'+id;
 
 
 
-$('#show_datas').on('click','.item_ver',function(){
-var id= $(this).data('idsilabo');
+$('#show_datad').on('click','.item_ver',function(){
+var id= $(this).data('iddistributivodocente');
 var retorno= $(this).data('retornos');
 window.location.href = retorno+'/'+id;
 });
