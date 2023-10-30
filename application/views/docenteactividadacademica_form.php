@@ -6,7 +6,7 @@
 
 
 <tr>
-<td> Asignatura: </td>
+<td> Docente: </td>
 <td><?php 
 
 $options= array('--Select--');
@@ -21,12 +21,12 @@ foreach ($distributivodocentes as $row){
 
 
 <tr>
-<td> Tipo de referencias: </td>
+<td> Actividad: </td>
 <td><?php 
 
 $options= array('--Select--');
 foreach ($actividadacademicas as $row){
-	$options[$row->idactividadacademica]=$row->nombre;
+	$options[$row->idactividadacademica]=i$row->item.' - '.$row->nombre;
 
 }
 
