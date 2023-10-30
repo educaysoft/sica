@@ -59,7 +59,7 @@ public function actual(){
 	$data['estudios']= $this->estudio_model->estudios($data['docente']['idpersona'])->result();
 
 
-	$data['title']="Modulo de Estudiane";
+	$data['title']="Modulo del Docente";
 	$this->load->view('template/page_header');		
 	$this->load->view('docente_record',$data);
 	$this->load->view('template/page_footer');

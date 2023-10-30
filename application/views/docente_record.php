@@ -38,7 +38,7 @@ if(isset($docente))
     <label class="col-md-2 col-form-label">id persona: </label>
 	<div class="col-md-10">
      	<?php 
-      echo form_input('idpersona',$docente['idpersona'],array("id"=>"idpersona","disabled"=>"disabled",'placeholder'=>'Iddocentes')); 
+      echo form_input('idpersona',$docente['idpersona'],array("id"=>"idpersona","disabled"=>"disabled",'placeholder'=>'Iddocentes','style'=>'width:600px;')); 
 		?>
 	</div> 
 </div>
@@ -50,7 +50,7 @@ if(isset($docente))
     <label class="col-md-2 col-form-label">id Docente: </label>
 	<div class="col-md-10">
      	<?php 
-      echo form_input('iddocente',$docente['iddocente'],array("id"=>"iddocente","disabled"=>"disabled",'placeholder'=>'Iddocentes')); 
+      echo form_input('iddocente',$docente['iddocente'],array("id"=>"iddocente","disabled"=>"disabled",'placeholder'=>'Iddocentes','style'=>'width:600px;')); 
 		?>
 	</div> 
 </div>
@@ -71,7 +71,7 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
 }
 
-echo form_input('idpersona',$options[$docente['idpersona']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('idpersona',$options[$docente['idpersona']],array("disabled"=>"disabled",'style'=>'width:600px;'));
 		?>
 	</div> 
 </div>
@@ -88,7 +88,7 @@ foreach ($departamentos as $row){
 	$options[$row->iddepartamento]= $row->nombre;
 }
 
-echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:600px;'));
 		?>
 	</div> 
 </div>
