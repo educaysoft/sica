@@ -104,8 +104,6 @@ public function add()
 	{
 		$id=$this->input->post('idjornadadocente');
 	 	$array_item=array(
-
-
 			'idjornadadocente' => $this->input->post('idjornadadocente'),
 			'idasignaturadocente' => $this->input->post('idasignaturadocente'),
 			'iddiasemana' => $this->input->post('iddiasemana'),
@@ -115,7 +113,7 @@ public function add()
 
 	 	);
 	 	$this->jornadadocente_model->update($id,$array_item);
-	 	redirect('jornadadocente');
+	 	redirect('jornadadocente/actual/'.$id);
  	}
 
 

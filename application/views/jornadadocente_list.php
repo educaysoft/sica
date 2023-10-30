@@ -42,8 +42,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
- <th>jornadadocente</th>
- <th>Periodo</th>
+ <th>asignatura</th>
+ <th>docente</th>
+ <th>dia</th>
+ <th>inicia</th>
+ <th>duracion</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>

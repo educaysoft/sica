@@ -116,7 +116,7 @@ echo form_input('idtiempodedicacion',$options[$distributivodocente['idtiempodedi
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <b>Asignaturas del docente</b>
+            <b>Asignaturas  docente en el periodo</b>
         </div>
         <div class="pull-right">
             <a class="btn btn-success" href="<?php echo base_url('asignaturadocente/add/'.$distributivodocente['iddistributivodocente']) ?>">Nueva asignatura</a>
