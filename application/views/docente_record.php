@@ -211,7 +211,7 @@ window.location.href = retorno+'/'+id;
 
 $('#show_datad').on('click','.item_ver',function(){
 var id= $(this).data('iddistributivodocente');
-var retorno= $(this).data('retornos');
+var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
 
