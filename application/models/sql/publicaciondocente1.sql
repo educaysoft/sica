@@ -1,0 +1,3 @@
+
+use educayso_facae;
+create view publicaciondocente1 as select publicaciondocente.idpublicaciondocente,publicaciondocente.titulo,publicaciondocente.iddocente,doce.eldocente as eldocente,tipopublicaciondocente.idtipopublicaciondocente, tipopublicaciondocente.nombre as tipo,publicaciondocente.url  from publicaciondocente,tipopublicaciondocente,docente1 doce  where publicaciondocente.idtipopublicaciondocente=tipopublicaciondocente.idtipopublicaciondocente and publicaciondocente.iddocente=doce.iddocente;

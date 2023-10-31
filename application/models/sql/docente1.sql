@@ -1,4 +1,4 @@
 
 use educayso_facae;
 drop view docente1;
-create view docente1 as select docente.iddocente,persona.idpersona,concat(COALESCE(persona.apellidos,''),"  ",COALESCE(persona.nombres,'')) as eldocente   from docente,persona,departamento  where docente.idpersona=persona.idpersona;
+create view docente1 as select doce.iddocente,pers.idpersona,concat(COALESCE(pers.apellidos,''),"  ",COALESCE(pers.nombres,'')) as eldocente   from docente0 doce,persona0 pers  where doce.idpersona=pers.idpersona;
