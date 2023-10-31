@@ -15,7 +15,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   		$data['publicaciondocente']=$this->publicaciondocente_model->lista_publicaciondocentes()->row_array();
-  		$data['docentes']= $this->docente_model->lista_docentes()->result();
+  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
   		$data['tipopublicaciondocentes']= $this->tipopublicaciondocente_model->lista_tipopublicaciondocentes()->result();
 			
 		$data['title']="Lista de publicaciondocentes";
