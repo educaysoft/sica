@@ -66,11 +66,11 @@ echo form_input('iddocente',$options[$publicaciondocente['iddocente']],array("di
 	<div class="col-md-10">
 		<?php
 $options= array("NADA");
-foreach ($tipopublicaciondocentes as $row){
-	$options[$row->idtipopublicaciondocente]= $row->nombre;
+foreach ($publicacions as $row){
+	$options[$row->idpublicacion]= $row->nombre;
 }
 
-echo form_input('idtipopublicaciondocente',$options[$publicaciondocente['idtipopublicaciondocente']],array("disabled"=>"disabled",'style'=>'width:500px'));
+echo form_input('idpublicacion',$options[$publicaciondocente['idpublicacion']],array("disabled"=>"disabled",'style'=>'width:500px'));
 
 		?>
 	</div> 

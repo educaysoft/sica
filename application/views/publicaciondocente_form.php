@@ -25,12 +25,12 @@ foreach ($docentes as $row){
 <td><?php 
 
 $options= array('--Select--');
-foreach ($tipopublicaciondocentes as $row){
-	$options[$row->idtipopublicaciondocente]=$row->nombre;
+foreach ($publicacions as $row){
+	$options[$row->idpublicacion]=$row->nombre;
 
 }
 
- echo form_dropdown("idtipopublicaciondocente",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idpublicacion",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 <tr>

@@ -31,11 +31,11 @@ foreach ($docentes as $row){
 <td> Topo de horas:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($tipopublicaciondocentes as $row){
-	$options[$row->idtipopublicaciondocente]= $row->nombre;
+foreach ($publicacions as $row){
+	$options[$row->idpublicacion]= $row->nombre;
 }
 
- echo form_dropdown("idtipopublicaciondocente",$options, $publicaciondocente['idtipopublicaciondocente']);  ?></td>
+ echo form_dropdown("idpublicacion",$options, $publicaciondocente['idpublicacion']);  ?></td>
 </tr>
 
 <tr>

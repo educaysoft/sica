@@ -7,7 +7,7 @@ class Publicaciondocente extends CI_Controller{
       $this->load->model('publicaciondocente_model');
   	  $this->load->model('docente_model');
   	  $this->load->model('distributivo_model');
-  	  $this->load->model('tipopublicaciondocente_model');
+  	  $this->load->model('publicacion_model');
 }
 
 public function index(){
@@ -16,7 +16,7 @@ public function index(){
 			
   		$data['publicaciondocente']=$this->publicaciondocente_model->lista_publicaciondocentes()->row_array();
   		$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  		$data['tipopublicaciondocentes']= $this->tipopublicaciondocente_model->lista_tipopublicaciondocentes()->result();
+  		$data['publicacions']= $this->publicacion_model->lista_publicacions()->result();
 			
 		$data['title']="Lista de publicaciondocentes";
 		$this->load->view('template/page_header');
@@ -36,7 +36,7 @@ public function actual(){
 
 	$data['publicaciondocente'] = $this->publicaciondocente_model->publicaciondocente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['tipopublicaciondocentes']= $this->tipopublicaciondocente_model->lista_tipopublicaciondocentes()->result();
+  	$data['publicacions']= $this->publicacion_model->lista_publicacions()->result();
 	$data['title']="Modulo de Telefonos";
 	$this->load->view('template/page_header');		
 	$this->load->view('publicaciondocente_record',$data);
@@ -66,7 +66,7 @@ public function add()
 	}
 
 
-  	$data['tipopublicaciondocentes']= $this->tipopublicaciondocente_model->lista_tipopublicaciondocentes()->result();
+  	$data['publicacions']= $this->publicacion_model->lista_publicacions()->result();
 		$data['title']="Nueva Publicaciondocente";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('publicaciondocente_form',$data);
@@ -84,7 +84,7 @@ public function add()
 		 	'titulo' => $this->input->post('titulo'),
 		 	'url' => $this->input->post('url'),
 			'iddocente' => $this->input->post('iddocente'),
-			'idtipopublicaciondocente' => $this->input->post('idtipopublicaciondocente'),
+			'idpublicacion' => $this->input->post('idpublicacion'),
 	 	);
 	 	$this->publicaciondocente_model->save($array_item);
 	 	//redirect('publicaciondocente');
@@ -97,7 +97,7 @@ public function edit()
 {
 	 	$data['publicaciondocente'] = $this->publicaciondocente_model->publicaciondocente($this->uri->segment(3))->row_array();
 		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
-  		$data['tipopublicaciondocentes']= $this->tipopublicaciondocente_model->lista_tipopublicaciondocentes()->result();
+  		$data['publicacions']= $this->publicacion_model->lista_publicacions()->result();
  	 	$data['title'] = "Actualizar Publicaciondocente";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('publicaciondocente_edit',$data);
@@ -115,7 +115,7 @@ public function edit()
 		 	'titulo' => $this->input->post('titulo'),
 		 	'url' => $this->input->post('url'),
 			'iddocente' => $this->input->post('iddocente'),
-			'idtipopublicaciondocente' => $this->input->post('idtipopublicaciondocente'),
+			'idpublicacion' => $this->input->post('idpublicacion'),
 	 	);
 	 	$this->publicaciondocente_model->update($id,$array_item);
 	 	//redirect('publicaciondocente');
@@ -183,7 +183,7 @@ function publicaciondocente_data()
 public function elprimero()
 {
 	$data['publicaciondocente'] = $this->publicaciondocente_model->elprimero();
-  	$data['tipopublicaciondocentes']= $this->tipopublicaciondocente_model->lista_tipopublicaciondocentes()->result();
+  	$data['publicacions']= $this->publicacion_model->lista_publicacions()->result();
   if(!empty($data))
   {
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
@@ -201,7 +201,7 @@ public function elprimero()
 public function elultimo()
 {
 	$data['publicaciondocente'] = $this->publicaciondocente_model->elultimo();
-  	$data['tipopublicaciondocentes']= $this->tipopublicaciondocente_model->lista_tipopublicaciondocentes()->result();
+  	$data['publicacions']= $this->publicacion_model->lista_publicacions()->result();
   if(!empty($data))
   {
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
@@ -222,7 +222,7 @@ public function siguiente(){
  // $data['publicaciondocente_list']=$this->publicaciondocente_model->lista_publicaciondocente()->result();
 	$data['publicaciondocente'] = $this->publicaciondocente_model->siguiente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['tipopublicaciondocentes']= $this->tipopublicaciondocente_model->lista_tipopublicaciondocentes()->result();
+  	$data['publicacions']= $this->publicacion_model->lista_publicacions()->result();
   $data['title']="Publicaciondocente";
 	$this->load->view('template/page_header');		
   $this->load->view('publicaciondocente_record',$data);
@@ -233,7 +233,7 @@ public function anterior(){
  // $data['publicaciondocente_list']=$this->publicaciondocente_model->lista_publicaciondocente()->result();
 	$data['publicaciondocente'] = $this->publicaciondocente_model->anterior($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA()->result();
-  	$data['tipopublicaciondocentes']= $this->tipopublicaciondocente_model->lista_tipopublicaciondocentes()->result();
+  	$data['publicacions']= $this->publicacion_model->lista_publicacions()->result();
   $data['title']="Publicaciondocente";
 	$this->load->view('template/page_header');		
   $this->load->view('publicaciondocente_record',$data);
