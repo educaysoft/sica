@@ -32,7 +32,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Lista de referenciasasignaturas 
+                 <h3>Lista de publicaciondocentes 
                  <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
 			  
         	</h3>
@@ -42,7 +42,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
- <th>Asignatura</th>
+ <th>Docente</th>
  <th>titulo</th>
  <th>tipo</th>
  <th>url</th>
@@ -76,14 +76,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('referenciasasignatura/referenciasasignatura_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('publicaciondocente/publicaciondocente_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id=$(this).data('idreferenciasasignatura');
-window.location.href = "http://localhost/facae/index.php/referenciasasignatura/actual/"+id;
+var id=$(this).data('idpublicaciondocente');
+window.location.href = "http://localhost/facae/index.php/publicaciondocente/actual/"+id;
 
 });
 

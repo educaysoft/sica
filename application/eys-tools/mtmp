@@ -1,48 +1,49 @@
 <?php
-class Emisor_model extends CI_model {
+class Referenciasasignatura_model extends CI_model {
 
-	function listar_emisor(){
-		 $emisor= $this->db->get('emisor');
-		 return $emisor;
-	}
-
-	function listar_emisor1(){
-		 $emisor= $this->db->get('emisor1');
-		 return $emisor;
+	function lista_referenciasasignaturas(){
+		 $referenciasasignatura= $this->db->get('referenciasasignatura');
+		 return $referenciasasignatura;
 	}
 
 
+	function lista_referenciasasignaturasA(){
+		 $referenciasasignatura= $this->db->get('referenciasasignatura1');
+		 return $referenciasasignatura;
+	}
 
- 	function emisor( $id){
- 		$emisor = $this->db->query('select * from emisor where idemisor="'. $id.'"');
- 		return $emisor;
+
+
+ 	function referenciasasignatura( $id){
+ 		$referenciasasignatura = $this->db->query('select * from referenciasasignatura where idreferenciasasignatura="'. $id.'"');
+ 		return $referenciasasignatura;
  	}
+
+
+ 	function referenciasasignaturasA( $idasignatura){
+ 		$referenciasasignatura = $this->db->query('select * from referenciasasignatura1 where idasignatura="'. $idasignatura.'"');
+ 		return $referenciasasignatura;
+ 	}
+
+
 
  	function save($array)
  	{
-		$this->db->insert("emisor", $array);
+		$this->db->insert("referenciasasignatura", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idemisor',$id);
-		 $query= $this->db->get('emisor');
-		if($query->num_rows()>0)
-		{
- 			$this->db->where('idemisor',$id);
- 			$this->db->update('emisor',$array_item);
-			return true;
-		}else{
-	        	return false;
-		}
-
+ 		$this->db->where('idreferenciasasignatura',$id);
+ 		$this->db->update('referenciasasignatura',$array_item);
 	}
  
 
-  public function delete($id)
+
+ 	public function delete($id)
 	{
- 		$this->db->where('idemisor',$id);
-		$this->db->delete('emisor');
+ 		$this->db->where('idreferenciasasignatura',$id);
+		$this->db->delete('referenciasasignatura');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -53,7 +54,7 @@ class Emisor_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idemisor")->get('emisor');
+		$query=$this->db->order_by("idreferenciasasignatura")->get('referenciasasignatura');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -66,7 +67,7 @@ class Emisor_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idemisor")->get('emisor');
+		$query=$this->db->order_by("idreferenciasasignatura")->get('referenciasasignatura');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -78,38 +79,42 @@ class Emisor_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$emisor = $this->db->select("idemisor")->order_by("idemisor")->get('emisor')->result_array();
-		$arr=array("idemisor"=>$id);
-		$clave=array_search($arr,$emisor);
-	   if(array_key_exists($clave+1,$emisor))
+ 		$referenciasasignatura = $this->db->select("idreferenciasasignatura")->order_by("idreferenciasasignatura")->get('referenciasasignatura')->result_array();
+		$arr=array("idreferenciasasignatura"=>$id);
+		$clave=array_search($arr,$referenciasasignatura);
+	   if(array_key_exists($clave+1,$referenciasasignatura))
 		 {
 
- 		$emisor = $this->db->query('select * from emisor where idemisor="'. $emisor[$clave+1]["idemisor"].'"');
+ 		$referenciasasignatura = $this->db->query('select * from referenciasasignatura where idreferenciasasignatura="'. $referenciasasignatura[$clave+1]["idreferenciasasignatura"].'"');
 		 }else{
 
- 		$emisor = $this->db->query('select * from emisor where idemisor="'. $id.'"');
+ 		$referenciasasignatura = $this->db->query('select * from referenciasasignatura where idreferenciasasignatura="'. $id.'"');
 		 }
 		 	
- 		return $emisor;
+ 		return $referenciasasignatura;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$emisor = $this->db->select("idemisor")->order_by("idemisor")->get('emisor')->result_array();
-		$arr=array("idemisor"=>$id);
-		$clave=array_search($arr,$emisor);
-	   if(array_key_exists($clave-1,$emisor))
+ 		$referenciasasignatura = $this->db->select("idreferenciasasignatura")->order_by("idreferenciasasignatura")->get('referenciasasignatura')->result_array();
+		$arr=array("idreferenciasasignatura"=>$id);
+		$clave=array_search($arr,$referenciasasignatura);
+	   if(array_key_exists($clave-1,$referenciasasignatura))
 		 {
 
- 		$emisor = $this->db->query('select * from emisor where idemisor="'. $emisor[$clave-1]["idemisor"].'"');
+ 		$referenciasasignatura = $this->db->query('select * from referenciasasignatura where idreferenciasasignatura="'. $referenciasasignatura[$clave-1]["idreferenciasasignatura"].'"');
 		 }else{
 
- 		$emisor = $this->db->query('select * from emisor where idemisor="'. $id.'"');
+ 		$referenciasasignatura = $this->db->query('select * from referenciasasignatura where idreferenciasasignatura="'. $id.'"');
 		 }
 		 	
- 		return $emisor;
+ 		return $referenciasasignatura;
  	}
+
+
+
+
 
 
 }
