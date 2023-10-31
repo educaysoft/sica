@@ -47,12 +47,12 @@ if(isset($publicaciondocente))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Asignatura:</label>
+    <label class="col-md-2 col-form-label">Docente:</label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
 foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->nombre;
+	$options[$row->iddocente]= $row->eldocente;
 }
 
 echo form_input('iddocente',$options[$publicaciondocente['iddocente']],array("disabled"=>"disabled",'style'=>'width:500px'));
