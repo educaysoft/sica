@@ -152,7 +152,7 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
             <b>Publicaciones del docente: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('publicacion/add/') ?>">Nueva publicacion</a><a class="btn btn-danger" href="<?php echo base_url('publicaciondocente/add/'.$publicaciondocente['iddocente']) ?>">Nueva publicación docente</a>
+            <a class="btn btn-success" href="<?php echo base_url('publicacion/add/') ?>">Nueva publicacion</a><a class="btn btn-danger" href="<?php echo base_url('publicaciondocente/add/'.$docente['iddocente']) ?>">Nueva publicación docente</a>
         </div>
     </div>
 </div>
