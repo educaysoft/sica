@@ -146,7 +146,7 @@ function publicaciondocente_data()
 	 	$data0 = $this->publicaciondocente_model->lista_publicaciondocentesA(0);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idpublicaciondocente,$r->eldocente,$r->titulo,$r->tipo,$r->url,$row->fechapublicacion,
+			$data[]=array($r->idpublicaciondocente,$r->eldocente,$r->titulo,$r->tipo,$r->url,$r->fechapublicacion,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('publicaciondocente/actual').'"  data-idpublicaciondocente="'.$r->idpublicaciondocente.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
