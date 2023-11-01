@@ -46,7 +46,7 @@ foreach ($docentes as $row){
 
 $options= array('--Select--');
 foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
+	$options[$row->iddocumento]= $row->iddocumento." - ".$row->asunto;
 }
  echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value'));  
 		?>
