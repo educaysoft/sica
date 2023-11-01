@@ -5,17 +5,7 @@
 <table>
 
 
-<tr>
-<td> Docente: </td>
-<td><?php 
 
-$options= array('--Select--');
-foreach ($docentes as $row){
-	$options[$row->iddocente]=$row->eldocente;
-}
-
- echo form_dropdown("iddocente",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
 
 
 
