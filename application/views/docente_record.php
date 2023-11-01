@@ -167,6 +167,7 @@ echo form_input('iddepartamento',$options[$docente['iddepartamento']],array("dis
  <th>titulo</th>
  <th>tipo</th>
  <th>url</th>
+ <th>fecha</th>
  <th style="text-align: right;">Actions</th>
  </tr>
 
@@ -236,7 +237,7 @@ $(document).ready(function(){
 	var iddocente=document.getElementById("iddocente").value;
 	var idpersona=document.getElementById("idpersona").value;
 	var mytablaf= $('#mydatad').DataTable({"ajax": {url: '<?php echo site_url('distributivo/docente2_data')?>', type: 'GET',data:{iddocente:iddocente}},});
-	var mytabla= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('publicaciondocente/publicaciondocente_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('publicaciondocente/publicaciondocente_data')?>', type: 'GET',data:{iddocente:iddocente}},});
 	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('docente/estudio_data')?>', type: 'GET',data:{idpersona:idpersona}},});
 });
 

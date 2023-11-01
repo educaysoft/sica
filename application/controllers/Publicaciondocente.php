@@ -143,7 +143,12 @@ function publicaciondocente_data()
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
+		if($this->input->get('iddocente')){
+		$iddocente=$this->input->get('iddocente');
+	 	$data0 = $this->publicaciondocente_model->lista_publicaciondocentesA($iddocente);
+		}else{
 	 	$data0 = $this->publicaciondocente_model->lista_publicaciondocentesA(0);
+		}
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idpublicaciondocente,$r->eldocente,$r->titulo,$r->tipo,$r->url,$r->fechapublicacion,
