@@ -8,6 +8,7 @@ class Publicacion extends CI_Controller{
   	  $this->load->model('docente_model');
   	  $this->load->model('distributivo_model');
   	  $this->load->model('tipopublicacion_model');
+  	  $this->load->model('publicaciondocente_model');
 }
 
 public function index(){
