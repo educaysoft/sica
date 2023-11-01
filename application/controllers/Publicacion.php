@@ -83,7 +83,7 @@ public function add()
 		 	'idpublicacion' => $this->input->post('idpublicacion'),
 		 	'titulo' => $this->input->post('titulo'),
 		 	'url' => $this->input->post('url'),
-			'iddocente' => $this->input->post('iddocente'),
+			'fechapublicacion' => $this->input->post('fechapublicacion'),
 			'idtipopublicacion' => $this->input->post('idtipopublicacion'),
 	 	);
 	 	$this->publicacion_model->save($array_item);
@@ -114,7 +114,7 @@ public function edit()
 		 	'idpublicacion' => $this->input->post('idpublicacion'),
 		 	'titulo' => $this->input->post('titulo'),
 		 	'url' => $this->input->post('url'),
-			'iddocente' => $this->input->post('iddocente'),
+			'fechapublicacion' => $this->input->post('fechapublicacion'),
 			'idtipopublicacion' => $this->input->post('idtipopublicacion'),
 	 	);
 	 	$this->publicacion_model->update($id,$array_item);

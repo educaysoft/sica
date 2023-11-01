@@ -38,9 +38,15 @@ foreach ($tipopublicacions as $row){
 <td><?php echo form_input("titulo","", array("placeholder"=>"Titulo de la referencia"))  ?></td>
 </tr>
 
+
 <tr>
 <td> url de la referencias: </td>
 <td><?php echo form_input("url","", array("placeholder"=>"direccion web de la referencia"))  ?></td>
+</tr>
+
+<tr>
+<td> Fecha publicación: </td>
+<td><?php echo form_input("fechapublicacion","", array("placeholder"=>"Titulo de la referencia","type"=>"date"))  ?></td>
 </tr>
 
 

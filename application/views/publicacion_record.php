@@ -46,19 +46,7 @@ if(isset($publicacion))
  
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">Docente:</label>
-	<div class="col-md-10">
-     <?php 
-$options= array("NADA");
-foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->eldocente;
-}
 
-echo form_input('iddocente',$options[$publicacion['iddocente']],array("disabled"=>"disabled",'style'=>'width:500px'));
-		?>
-	</div> 
-</div>
 
 
 <div class="form-group row">
@@ -106,7 +94,18 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 	</div> 
 </div>
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Fecha publicación</label>
+	<div class="col-md-10">
+		<?php
 
+$textarea_options = array('class' => 'form-control',"disabled"=>"disabled",  'style'=> 'width:500px;height:100px;');    
+
+     echo form_input('fechapublicacion',$publicacion['fechapublicacion'],$textarea_options);
+
+		?>
+	</div> 
+</div>
 
 
 <?php echo form_close(); ?>
