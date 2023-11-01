@@ -81,8 +81,6 @@ public function add()
 	 	$array_item=array(
 		 	
 		 	'idpublicaciondocente' => $this->input->post('idpublicaciondocente'),
-		 	'titulo' => $this->input->post('titulo'),
-		 	'url' => $this->input->post('url'),
 			'iddocente' => $this->input->post('iddocente'),
 			'idpublicacion' => $this->input->post('idpublicacion'),
 	 	);
@@ -112,8 +110,6 @@ public function edit()
 	 	$array_item=array(
 		 	
 		 	'idpublicaciondocente' => $this->input->post('idpublicaciondocente'),
-		 	'titulo' => $this->input->post('titulo'),
-		 	'url' => $this->input->post('url'),
 			'iddocente' => $this->input->post('iddocente'),
 			'idpublicacion' => $this->input->post('idpublicacion'),
 	 	);

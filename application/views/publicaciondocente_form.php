@@ -21,27 +21,21 @@ foreach ($docentes as $row){
 
 
 <tr>
-<td> Tipo de referencias: </td>
+<td> Publicacion: </td>
 <td><?php 
 
 $options= array('--Select--');
 foreach ($publicacions as $row){
-	$options[$row->idpublicacion]=$row->nombre;
+	$options[$row->idpublicacion]=$row->titulo;
 
 }
 
  echo form_dropdown("idpublicacion",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
-<tr>
-<td> Titulo de la referencias: </td>
-<td><?php echo form_input("titulo","", array("placeholder"=>"Titulo de la referencia"))  ?></td>
-</tr>
 
-<tr>
-<td> url de la referencias: </td>
-<td><?php echo form_input("url","", array("placeholder"=>"direccion web de la referencia"))  ?></td>
-</tr>
+
+
 
 
 <tr>

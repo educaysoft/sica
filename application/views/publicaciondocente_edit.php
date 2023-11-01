@@ -21,7 +21,7 @@ echo form_input($eys_arrinput); ?></td>
 <td><?php
 $options= array('--Select--');
 foreach ($docentes as $row){
-	$options[$row->iddocente]=$row->malla." - ".$row->area." - ".$row->nombre;
+	$options[$row->iddocente]=$row->eldocente;
 }
 
  echo form_dropdown("iddocente",$options, $publicaciondocente['iddocente']);  ?></td>
@@ -32,24 +32,15 @@ foreach ($docentes as $row){
 <td><?php
 $options= array('--Select--');
 foreach ($publicacions as $row){
-	$options[$row->idpublicacion]= $row->nombre;
+	$options[$row->idpublicacion]= $row->titulo;
 }
 
  echo form_dropdown("idpublicacion",$options, $publicaciondocente['idpublicacion']);  ?></td>
 </tr>
 
-<tr>
-      <td>Titulo:</td>
-<?php $textarea_options = array('class' => 'form-control','rows' => '4', 'cols' => '20', 'style'=> 'width:500px;height:100px;'); ?>    
-      <td><?php echo form_textarea('titulo',$publicaciondocente['titulo'],$textarea_options);    ?></td>
-  </tr>
 
-<tr>
-      <td>Dirección web:</td>
 
-<?php $textarea_options = array('class' => 'form-control','rows' => '4', 'cols' => '20', 'style'=> 'width:500px;height:100px;',"name"=>'url',"id"=>'url',"value"=>$publicaciondocente['url'],); ?>    
-      <td><?php echo form_textarea($textarea_options); ?></td>
-  </tr>
+
 
 
 
