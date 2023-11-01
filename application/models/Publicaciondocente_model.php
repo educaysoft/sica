@@ -7,8 +7,14 @@ class Publicaciondocente_model extends CI_model {
 	}
 
 
-	function lista_publicaciondocentesA(){
+	function lista_publicaciondocentesA($id){
+		if($id>0)
+		{
+			$this->db->where('idpublicacion',$id);
+			$publicaciondocente= $this->db->get('publicaciondocente1');
+		}else{
 		 $publicaciondocente= $this->db->get('publicaciondocente1');
+		}
 		 return $publicaciondocente;
 	}
 

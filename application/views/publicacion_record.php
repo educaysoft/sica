@@ -99,13 +99,33 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 	<div class="col-md-10">
 		<?php
 
-$textarea_options = array('class' => 'form-control',"disabled"=>"disabled",  'style'=> 'width:500px;height:100px;');    
 
-     echo form_input('fechapublicacion',$publicacion['fechapublicacion'],$textarea_options);
+      		 echo form_input('fechapublicacion',$documento['fechapublicacion'],array('type'=>'date','placeholder'=>'fechapublicacion','style'=>'width:500px;')) 
 
 		?>
 	</div> 
 </div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('publicaciondocente/add/'.$publicacion['idpublicacion'], 'Docente Autor:') ?> </label>
+     	<?php 
+
+	$options = array();
+  	foreach ($publicaciondocentes as $row){
+		$options[$row->iddocente]=$row->eldocente;
+	}
+
+	?>
+	<div class="col-md-10">
+		<?php
+			 echo form_multiselect('idpublicaciondocente[]',$options,(array)set_value('idpublicaciondocente', ''), array('style'=>'width:500px')); 
+		?>
+	</div> 
+</div>
+
+
+
 
 
 <?php echo form_close(); ?>
