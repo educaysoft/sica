@@ -140,6 +140,12 @@ function asignaturadeldocente_data()
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
+		if($this->input->get('iddocente')){
+		$iddocente=$this->input->get('iddocente');
+	 	$data0 = $this->asignaturadeldocente_model->lista_asignaturadeldocentesA($iddocente);
+		}else{
+	 	$data0 = $this->asignaturadeldocente_model->lista_asignaturadeldocentesA(0);
+		}
 
 	 	$data0 = $this->asignaturadeldocente_model->lista_asignaturadeldocentesA();
 		$data=array();
