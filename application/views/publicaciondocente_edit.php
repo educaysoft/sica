@@ -17,7 +17,7 @@ echo form_input($eys_arrinput); ?></td>
 
  
  <tr>
-<td> Asignatura:</td>
+<td> Docente:</td>
 <td><?php
 $options= array('--Select--');
 foreach ($docentes as $row){
@@ -28,7 +28,7 @@ foreach ($docentes as $row){
 </tr>
 
 <tr>
-<td> Topo de horas:</td>
+<td> publicacion:</td>
 <td><?php
 $options= array('--Select--');
 foreach ($publicacions as $row){

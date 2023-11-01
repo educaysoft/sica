@@ -16,19 +16,10 @@ echo form_input($eys_arrinput); ?></td>
 
 
  
- <tr>
-<td> Asignatura:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($docentes as $row){
-	$options[$row->iddocente]=$row->malla." - ".$row->area." - ".$row->nombre;
-}
-
- echo form_dropdown("iddocente",$options, $publicacion['iddocente']);  ?></td>
-</tr>
+ 
 
 <tr>
-<td> Topo de horas:</td>
+<td> Tipo de publicación:</td>
 <td><?php
 $options= array('--Select--');
 foreach ($tipopublicacions as $row){
