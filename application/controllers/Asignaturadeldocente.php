@@ -147,7 +147,6 @@ function asignaturadeldocente_data()
 	 	$data0 = $this->asignaturadeldocente_model->lista_asignaturadeldocentesA(0);
 		}
 
-	 	$data0 = $this->asignaturadeldocente_model->lista_asignaturadeldocentesA();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idasignaturadeldocente,$r->eldocente,$r->laasignatura,$r->archivopdf,
