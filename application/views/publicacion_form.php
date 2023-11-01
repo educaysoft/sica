@@ -11,7 +11,7 @@
 
 
 <tr>
-<td> Tipo de referencias: </td>
+<td> Tipo de publicación: </td>
 <td><?php 
 
 $options= array('--Select--');
@@ -24,19 +24,19 @@ foreach ($tipopublicacions as $row){
 </tr>
 
 <tr>
-<td> Titulo de la referencias: </td>
+<td> Titulo de la publicación: </td>
 <td><?php echo form_input("titulo","", array("placeholder"=>"Titulo de la referencia"))  ?></td>
 </tr>
 
 
 <tr>
-<td> url de la referencias: </td>
+<td> url de la publicación: </td>
 <td><?php echo form_input("url","", array("placeholder"=>"direccion web de la referencia"))  ?></td>
 </tr>
 
 <tr>
 <td> Fecha publicación: </td>
-<td><?php echo form_input("fechapublicacion","", array("placeholder"=>"Titulo de la referencia","type"=>"date"))  ?></td>
+<td><?php echo form_input(array("name"=>"fechapublicacion","id"="fechapublicacion","placeholder"=>"fecha publicacion","type"=>"date"))  ?></td>
 </tr>
 
 
