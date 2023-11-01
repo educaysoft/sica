@@ -58,15 +58,14 @@ public function add()
 
 	if($this->uri->segment(3))
 	{
-		$data['docentes']= $this->docente_model->docentes1($this->uri->segment(3))->result();
-
+		$idpublicacion=$this->uri->segment(3);
+  		$data['publicacions']= $this->publicacion_model->publicacionsA($idpublicacion)->result();
 	}else{
-
-		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  		$data['publicacions']= $this->publicacion_model->publicacionsA(0)->result();
 	}
 
+		$data['docentes']= $this->docente_model->lista_docentesA()->result();
 
-  	$data['publicacions']= $this->publicacion_model->lista_publicacions()->result();
 		$data['title']="Nueva Publicaciondocente";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('publicaciondocente_form',$data);

@@ -20,8 +20,13 @@ class Publicacion_model extends CI_model {
  	}
 
 
- 	function publicacionsA( $idasignatura){
- 		$publicacion = $this->db->query('select * from publicacion1 where idasignatura="'. $idasignatura.'"');
+ 	function publicacionsA( $id){
+		if($id>0)
+		{
+ 			$publicacion = $this->db->query('select * from publicacion1 where idpublicacion="'. $id.'"');
+		}else{
+ 			$publicacion = $this->db->query('select * from publicacion1 ');
+		}
  		return $publicacion;
  	}
 
