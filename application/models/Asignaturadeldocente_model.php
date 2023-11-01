@@ -7,8 +7,14 @@ class Asignaturadeldocente_model extends CI_model {
 	}
 
 
-	function lista_asignaturadeldocentesA(){
-		 $asignaturadeldocente= $this->db->get('asignaturadeldocente1');
+	function lista_asignaturadeldocentesA($id){
+		if($id>0)
+		{
+			$this->db->where('iddocente',$id);
+		}
+		
+		
+		$asignaturadeldocente= $this->db->get('asignaturadeldocente1');
 		 return $asignaturadeldocente;
 	}
 
