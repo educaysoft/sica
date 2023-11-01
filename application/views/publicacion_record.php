@@ -100,7 +100,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 		<?php
 
 
-      		 echo form_input('fechapublicacion',$documento['fechapublicacion'],array('type'=>'date','placeholder'=>'fechapublicacion','style'=>'width:500px;')) 
+      		 echo form_input('fechapublicacion',$publicacion['fechapublicacion'],array('type'=>'date','placeholder'=>'fechapublicacion','style'=>'width:500px;')) 
 
 		?>
 	</div> 
