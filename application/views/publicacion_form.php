@@ -36,7 +36,7 @@ foreach ($tipopublicacions as $row){
 
 <tr>
 <td> Fecha publicación: </td>
-<td><?php echo form_input(array("name"=>"fechapublicacion","id"="fechapublicacion","placeholder"=>"fecha publicacion","type"=>"date"))  ?></td>
+<td><?php echo form_input(array("name"=>"fechapublicacion","id"=>"fechapublicacion","placeholder"=>"fecha publicacion","type"=>"date"))  ?></td>
 </tr>
 
 
