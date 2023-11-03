@@ -9,6 +9,7 @@ class Documentoportafolio extends CI_Controller{
   	  $this->load->model('docente_model');
   	  $this->load->model('documentoportafolio_model');
   	  $this->load->model('docenteactividadacademica_model');
+  	  $this->load->model('distributivodocente_model');
 }
 
 public function index(){
