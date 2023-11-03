@@ -86,7 +86,7 @@ echo form_input('idportafolio',$options[$documentoportafolio['idportafolio']],ar
 
 $options= array('--Select--');
 foreach ($docenteactividadacademicas as $row){
-	$options[$row->iddocenteactividadacademica]=$row->item." - ". $row->eldistributivodocente." - ".$row->nombreactividad;
+	$options[$row->iddocenteactividadacademica]=$row->item." - ". $row->eldistributivodocente." - ".$row->nombreactividad." - (".$row->numerohoras.")";
 }
 
  echo form_dropdown("iddocenteactividadacademica",$options,$documentoportafolio['iddocenteactividadacademica']);  ?>
