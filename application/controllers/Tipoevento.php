@@ -115,6 +115,27 @@ function tipoevento_data()
 
 
 
+public function actual()
+{
+	$data['tipoevento'] = $this->tipoevento_model->tipoevento($this->uri->segment(3))->row_array();
+  	if(!empty($data))
+  	{
+    		$data['title']="Tipoevento";
+    		$this->load->view('template/page_header');		
+    		$this->load->view('tipoevento_record',$data);
+    		$this->load->view('template/page_footer');
+  	}else{
+    		$this->load->view('template/page_header');		
+    		$this->load->view('registro_vacio');
+    		$this->load->view('template/page_footer');
+  	}
+ }
+
+
+
+
+
+
 
 
 
