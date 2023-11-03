@@ -172,8 +172,14 @@ $(document).ready(function(){
 
 
 $('#show_data').on('click','.item_ver',function(){
+var id= $(this).data('iddocumentoportafolio');
+var retorno= $(this).data('retorno1');
+window.location.href = retorno+'/'+id;
+});
+
+$('#show_data').on('click','.item_doc',function(){
 var id= $(this).data('iddocumento');
-var retorno= $(this).data('retorno');
+var retorno= $(this).data('retorno2');
 window.location.href = retorno+'/'+id;
 });
 
