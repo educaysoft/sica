@@ -320,4 +320,13 @@ alter table seguimiento add column asunto varchar(200) not null;
 /*alter table seguimiento add column pies text not null;*/
 
 
-alter table portafolio add unique (idpersona, idperiodoacademico)
+/*alter table portafolio add unique (idpersona, idperiodoacademico) */
+
+alter table documentoportafolio drop column iddocenteactividadacademica;
+alter table documentoportafolio drop column minutosocupados;
+
+alter table documentoportafolio add column iddocenteactividadacademica int(11) default 0 ;
+alter table documentoportafolio add column minutosocupados int(11) default 0 ;
+
+
+

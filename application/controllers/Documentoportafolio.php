@@ -7,16 +7,21 @@ class Documentoportafolio extends CI_Controller{
   	  $this->load->model('documento_model');
   	  $this->load->model('portafolio_model');
   	  $this->load->model('documentoportafolio_model');
+  	  $this->load->model('docenteactividadacademica_model');
 }
 
 public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['documentoportafolio']=$this->documentoportafolio_model->lista_documentoportafolios()->row_array();
-  	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['documentoportafolio']=$this->documentoportafolio_model->elultimo();
+	$data['documentos']= $this->documento_model->lista_documentos()->result();
+	$data['docente']= $this->docente_model->docente($data['documentoportafolio']['idpersona'])->row_array();
+  	$data['portafolio']= $this->portafolio_model->lista_portafoliosA($data['documentoportafolio']['idportafolio'])->row_array();
   	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
 			
+	$data['distributivodocente']=$this->distributivodocente_model->distributivodocente_pado($data['portafolio']['idperiodoacademico'],$data['docente']['iddocente'])->row_array();
+	$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA($data['distributivodocente']['iddistributivodocente'])->result();
 		$data['title']="Lista de documentoportafolios";
 		$this->load->view('template/page_header');
 		$this->load->view('documentoportafolio_record',$data);
@@ -41,6 +46,7 @@ public function add()
 		$tipodocumento=17;  //portafolio
 		$data['documentos']= $this->documento_model->lista_documentosxtipo($tipodocumento)->result();
   		$data['portafolios']= $this->portafolio_model->lista_portafoliosA($idportafolio)->result();
+		$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA(0)->result();
 		$data['title']="Nueva Documentoportafolio";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('documentoportafolio_form',$data);
@@ -55,6 +61,8 @@ public function add()
 	 	$array_item=array(
 			'iddocumento' => $this->input->post('iddocumento'),
 			'idportafolio' => $this->input->post('idportafolio'),
+			'iddocenteactividadacademica' => $this->input->post('iddocenteactividadacademica'),
+			'minutosocupados' => $this->input->post('minutosocupados'),
 	 	);
 	 	$result=$this->documentoportafolio_model->save($array_item);
 
@@ -94,6 +102,8 @@ public function edit()
 		 	'iddocumentoportafolio' => $this->input->post('iddocumentoportafolio'),
 			'iddocumento' => $this->input->post('iddocumento'),
 			'idportafolio' => $this->input->post('idportafolio'),
+			'iddocenteactividadacademica' => $this->input->post('iddocenteactividadacademica'),
+			'minutosocupados' => $this->input->post('minutosocupados'),
 	 	);
 	 	$this->documentoportafolio_model->update($id,$array_item);
 	 	redirect('documentoportafolio');
