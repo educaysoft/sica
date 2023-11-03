@@ -11,7 +11,7 @@ class Docenteactividadacademica_model extends CI_model {
 		if($id>0){
  			$this->db->where('iddistributivodocente',$id);
 		}
-		 $docenteactividadacademica= $this->db->order_by("item")->get('docenteactividadacademica1');
+		 $docenteactividadacademica= $this->db->order_by("item,eldistributivodocente")->get('docenteactividadacademica1');
 		 return $docenteactividadacademica;
 	}
 
