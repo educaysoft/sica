@@ -216,6 +216,7 @@ public function actual()
 	$data['documentoportafolio'] = $this->documentoportafolio_model->documentoportafolio($this->uri->segment(3))->row_array();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
+	$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA(0)->result();
 	  if(!empty($data))
 	  {
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
