@@ -1,6 +1,13 @@
 <?php
 class Destinodocumento_model extends CI_model {
 
+	function lista_destinodocumento(){
+		 $destinodocumento= $this->db->get('destinodocumento');
+		 return $destinodocumento;
+	}
+
+
+
 	function lista_destinodocumentos(){
 		 $destinodocumento= $this->db->get('destinodocumento');
 		 return $destinodocumento;
