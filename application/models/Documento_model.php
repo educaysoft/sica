@@ -11,7 +11,7 @@ class Documento_model extends CI_model {
 
 	function lista_documentosxdestino($iddestinodocumento){
 		
-		if($idtipodocumento==0)
+		if($iddestinodocumento==0)
 		{
 		$documento=$this->db->order_by("fechaelaboracion")->get('documento1');
 		}else{
