@@ -49,8 +49,8 @@ public function add()
 		$idportafolio=$this->uri->segment(3);
 	}
 
-		$tipodocumento=17;  //portafolio
-		$data['documentos']= $this->documento_model->lista_documentosxtipo($tipodocumento)->result();
+		$destinodocumento=1;  //portafolio
+		$data['documentos']= $this->documento_model->lista_documentosxdestino($destinodocumento)->result();
   		$data['portafolios']= $this->portafolio_model->lista_portafoliosA($idportafolio)->result();
 		$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA(0)->result();
 		$data['title']="Nueva Documentoportafolio";
