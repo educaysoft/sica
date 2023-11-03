@@ -27,7 +27,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 <div id="eys-nav-i">
 	<ul>
-		<li> <?php echo anchor('tipoevento', 'Home'); ?></li>
+		<li> <?php echo anchor('destinodocumento', 'Home'); ?></li>
 	</ul>
 </div>
 
@@ -77,12 +77,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('tipoevento/tipoevento_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('destinodocumento/destinodocumento_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idtipoevento');
+var id= $(this).data('iddestinodocumento');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });

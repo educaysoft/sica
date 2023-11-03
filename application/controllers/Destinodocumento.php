@@ -4,15 +4,15 @@ class Destinodocumento extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('tipoevento_model');
+      $this->load->model('destinodocumento_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['tipoevento']=$this->tipoevento_model->tipoevento(1)->row_array();
-		$data['title']="Lista de tipoeventoes";
+		$data['destinodocumento']=$this->destinodocumento_model->destinodocumento(1)->row_array();
+		$data['title']="Lista de destinodocumentoes";
 		$this->load->view('template/page_header');
-		$this->load->view('tipoevento_record',$data);
+		$this->load->view('destinodocumento_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva tipoevento";
+		$data['title']="Nueva destinodocumento";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('tipoevento_form',$data);
+	 	$this->load->view('destinodocumento_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,21 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idtipoevento' => $this->input->post('idtipoevento'),
+	 	'iddestinodocumento' => $this->input->post('iddestinodocumento'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->tipoevento_model->save($array_item);
-	 	redirect('tipoevento');
+	 	$this->destinodocumento_model->save($array_item);
+	 	redirect('destinodocumento');
  	}
 
 
 
 public function edit()
 {
-	 	$data['tipoevento'] = $this->tipoevento_model->tipoevento($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar tipoevento";
+	 	$data['destinodocumento'] = $this->destinodocumento_model->destinodocumento($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar destinodocumento";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('tipoevento_edit',$data);
+ 	 	$this->load->view('destinodocumento_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +56,22 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idtipoevento');
+		$id=$this->input->post('iddestinodocumento');
 	 	$array_item=array(
 		 	
-		 	'idtipoevento' => $this->input->post('idtipoevento'),
+		 	'iddestinodocumento' => $this->input->post('iddestinodocumento'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->tipoevento_model->update($id,$array_item);
-	 	redirect('tipoevento');
+	 	$this->destinodocumento_model->update($id,$array_item);
+	 	redirect('destinodocumento');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->tipoevento_model->delete($this->uri->segment(3));
+ 		$data=$this->destinodocumento_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('tipoevento/elprimero');
+	 	redirect('destinodocumento/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -81,24 +81,24 @@ public function listar()
 	
   $data['title']="Destinodocumento";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipoevento_list',$data);
+  $this->load->view('destinodocumento_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function tipoevento_data()
+function destinodocumento_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->tipoevento_model->lista_tipoeventos();
+	 	$data0 = $this->destinodocumento_model->lista_destinodocumentos();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idtipoevento,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('tipoevento/actual').'" data-idtipoevento="'.$r->idtipoevento.'">Ver</a>');
+			$data[]=array($r->iddestinodocumento,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('destinodocumento/actual').'" data-iddestinodocumento="'.$r->iddestinodocumento.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -117,12 +117,12 @@ function tipoevento_data()
 
 public function actual()
 {
-	$data['tipoevento'] = $this->tipoevento_model->tipoevento($this->uri->segment(3))->row_array();
+	$data['destinodocumento'] = $this->destinodocumento_model->destinodocumento($this->uri->segment(3))->row_array();
   	if(!empty($data))
   	{
     		$data['title']="Destinodocumento";
     		$this->load->view('template/page_header');		
-    		$this->load->view('tipoevento_record',$data);
+    		$this->load->view('destinodocumento_record',$data);
     		$this->load->view('template/page_footer');
   	}else{
     		$this->load->view('template/page_header');		
@@ -142,12 +142,12 @@ public function actual()
 
 public function elprimero()
 {
-	$data['tipoevento'] = $this->tipoevento_model->elprimero();
+	$data['destinodocumento'] = $this->destinodocumento_model->elprimero();
   if(!empty($data))
   {
     $data['title']="Destinodocumento";
     $this->load->view('template/page_header');		
-    $this->load->view('tipoevento_record',$data);
+    $this->load->view('destinodocumento_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -158,13 +158,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['tipoevento'] = $this->tipoevento_model->elultimo();
+	$data['destinodocumento'] = $this->destinodocumento_model->elultimo();
   if(!empty($data))
   {
     $data['title']="Destinodocumento";
   
     $this->load->view('template/page_header');		
-    $this->load->view('tipoevento_record',$data);
+    $this->load->view('destinodocumento_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -175,20 +175,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
-	$data['tipoevento'] = $this->tipoevento_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['destinodocumento_list']=$this->destinodocumento_model->lista_destinodocumento()->result();
+	$data['destinodocumento'] = $this->destinodocumento_model->siguiente($this->uri->segment(3))->row_array();
   $data['title']="Destinodocumento";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipoevento_record',$data);
+  $this->load->view('destinodocumento_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['tipoevento_list']=$this->tipoevento_model->lista_tipoevento()->result();
-	$data['tipoevento'] = $this->tipoevento_model->anterior($this->uri->segment(3))->row_array();
+ // $data['destinodocumento_list']=$this->destinodocumento_model->lista_destinodocumento()->result();
+	$data['destinodocumento'] = $this->destinodocumento_model->anterior($this->uri->segment(3))->row_array();
   $data['title']="Destinodocumento";
 	$this->load->view('template/page_header');		
-  $this->load->view('tipoevento_record',$data);
+  $this->load->view('destinodocumento_record',$data);
 	$this->load->view('template/page_footer');
 }
 

@@ -1,33 +1,33 @@
 <?php
-class Tipopublicaciondocente_model extends CI_model {
+class Tipoevento_model extends CI_model {
 
-	function lista_tipopublicaciondocentes(){
-		 $tipopublicaciondocente= $this->db->get('tipopublicaciondocente');
-		 return $tipopublicaciondocente;
+	function lista_tipoeventos(){
+		 $tipoevento= $this->db->get('tipoevento');
+		 return $tipoevento;
 	}
 
- 	function tipopublicaciondocente( $id){
- 		$tipopublicaciondocente = $this->db->query('select * from tipopublicaciondocente where idtipopublicaciondocente="'. $id.'"');
- 		return $tipopublicaciondocente;
+ 	function tipoevento( $id){
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
+ 		return $tipoevento;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("tipopublicaciondocente", $array);
+		$this->db->insert("tipoevento", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idtipopublicaciondocente',$id);
- 		$this->db->update('tipopublicaciondocente',$array_item);
+ 		$this->db->where('idtipoevento',$id);
+ 		$this->db->update('tipoevento',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idtipopublicaciondocente',$id);
-		$this->db->delete('tipopublicaciondocente');
+ 		$this->db->where('idtipoevento',$id);
+		$this->db->delete('tipoevento');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -38,7 +38,7 @@ class Tipopublicaciondocente_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idtipopublicaciondocente")->get('tipopublicaciondocente');
+		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -51,7 +51,7 @@ class Tipopublicaciondocente_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idtipopublicaciondocente")->get('tipopublicaciondocente');
+		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -63,37 +63,37 @@ class Tipopublicaciondocente_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$tipopublicaciondocente = $this->db->select("idtipopublicaciondocente")->order_by("idtipopublicaciondocente")->get('tipopublicaciondocente')->result_array();
-		$arr=array("idtipopublicaciondocente"=>$id);
-		$clave=array_search($arr,$tipopublicaciondocente);
-	   if(array_key_exists($clave+1,$tipopublicaciondocente))
+ 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
+		$arr=array("idtipoevento"=>$id);
+		$clave=array_search($arr,$tipoevento);
+	   if(array_key_exists($clave+1,$tipoevento))
 		 {
 
- 		$tipopublicaciondocente = $this->db->query('select * from tipopublicaciondocente where idtipopublicaciondocente="'. $tipopublicaciondocente[$clave+1]["idtipopublicaciondocente"].'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave+1]["idtipoevento"].'"');
 		 }else{
 
- 		$tipopublicaciondocente = $this->db->query('select * from tipopublicaciondocente where idtipopublicaciondocente="'. $id.'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
 		 }
 		 	
- 		return $tipopublicaciondocente;
+ 		return $tipoevento;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$tipopublicaciondocente = $this->db->select("idtipopublicaciondocente")->order_by("idtipopublicaciondocente")->get('tipopublicaciondocente')->result_array();
-		$arr=array("idtipopublicaciondocente"=>$id);
-		$clave=array_search($arr,$tipopublicaciondocente);
-	   if(array_key_exists($clave-1,$tipopublicaciondocente))
+ 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
+		$arr=array("idtipoevento"=>$id);
+		$clave=array_search($arr,$tipoevento);
+	   if(array_key_exists($clave-1,$tipoevento))
 		 {
 
- 		$tipopublicaciondocente = $this->db->query('select * from tipopublicaciondocente where idtipopublicaciondocente="'. $tipopublicaciondocente[$clave-1]["idtipopublicaciondocente"].'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave-1]["idtipoevento"].'"');
 		 }else{
 
- 		$tipopublicaciondocente = $this->db->query('select * from tipopublicaciondocente where idtipopublicaciondocente="'. $id.'"');
+ 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
 		 }
 		 	
- 		return $tipopublicaciondocente;
+ 		return $tipoevento;
  	}
 
 
