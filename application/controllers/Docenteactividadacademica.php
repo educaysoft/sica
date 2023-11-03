@@ -154,7 +154,7 @@ function docenteactividadacademica_data()
 	 	$data0 = $this->docenteactividadacademica_model->lista_docenteactividadacademicasA($iddistributivodocente);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->iddocenteactividadacademica,$r->eldistributivodocente,$r->item,$r->tipoactividad,$r->nombreactividad,$r->numerohoras,
+			$data[]=array($r->iddocenteactividadacademica,$r->eldistributivodocente,$r->item,$r->tipoactividad,$r->nombreactividad,$r->numerohoras,$r->horasocupadas,
 			$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('docenteactividadacademica/actual').'"  data-iddocenteactividadacademica="'.$r->iddocenteactividadacademica.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,

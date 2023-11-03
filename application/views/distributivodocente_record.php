@@ -178,7 +178,8 @@ echo form_input('idtiempodedicacion',$options[$distributivodocente['idtiempodedi
 	 <th>item</th>
 	 <th>tipo</th>
 	 <th>Actividad academica</th>
- 	<th>Horas/sem</th>
+ 	<th>Hor/sem</th>
+ 	<th>Hor/ocup</th>
  	<th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
