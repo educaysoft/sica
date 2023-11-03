@@ -85,6 +85,7 @@ public function edit()
 		$data['documentos']= $this->documento_model->lista_documentosxtipo($tipodocumento)->result();
 
 
+		$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA(0)->result();
   		$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
  	 	$data['title'] = "Actualizar Documentoportafolio";
  	 	$this->load->view('template/page_header');		
