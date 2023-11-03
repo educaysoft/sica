@@ -90,7 +90,26 @@ if(isset($documento))
 	</div> 
 </div> 
 
- 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('destinodocumento/elprimero/', 'Destino documento'); ?> :</label>
+     	<?php 
+	$options= array("NADA");
+	foreach ($destinodocumentos as $row){
+		$options[$row->iddestinodocumento]= $row->nombre;
+	}
+	$arrdatos=array('name'=>'iddestinodocumento','value'=>$options[$documento['iddestinodocumento']],"disabled"=>"disabled","style"=>"width:500px");
+	?>
+	<div class="col-md-10">
+		<?php
+			echo form_input($arrdatos) 
+		?>
+	</div> 
+</div>
+
+
 
 
 

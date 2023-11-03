@@ -6,6 +6,7 @@ class Documento extends CI_Controller{
       parent::__construct();
       $this->load->model('documento_model');
       $this->load->model('tipodocu_model');
+      $this->load->model('destinodocumento_model');
       $this->load->model('ordenador_model');
       $this->load->model('directorio_model');
       $this->load->model('persona_model');
@@ -16,6 +17,7 @@ class Documento extends CI_Controller{
  		if(isset($this->session->userdata['logged_in'])){
 			$data['documento'] = $this->documento_model->elultimo();
 			$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+			$data['destinodocumentos']= $this->destinodocumento_model->lista_destinodocumento()->result();
 			$data['emisores'] =$this->documento_model->emisores($data['documento']['iddocumento'])->result();
 			$data['destinatarios'] = $this->documento_model->destinatarios($data['documento']['iddocumento'])->result();
 			$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
@@ -43,6 +45,7 @@ class Documento extends CI_Controller{
 	{
 		$data['title']="Usted esta Creando un nuevo Documento";
 		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['destinodocumentos']= $this->destinodocumento_model->lista_destinodocumento()->result();
 		$data['ordenadores']= $this->ordenador_model->lista_ordenadores()->result();
 		$data['personas']= $this->persona_model->lista_personasA()->result();
   		$data['documento_estados']= $this->documento_estado_model->lista_documento_estado()->result();
@@ -61,6 +64,7 @@ class Documento extends CI_Controller{
 		 	
 		 	'iddocumento' => $this->input->post('iddocumento'),
 		 	'idtipodocu' => $this->input->post('idtipodocu'),
+		 	'iddestinodocumento' => $this->input->post('iddestinodocumento'),
 		 	'archivopdf' => $this->input->post('archivopdf'),
 		 	'asunto' => $this->input->post('asunto'),
 		 	'descripcion' => $this->input->post('descripcion'),
@@ -99,6 +103,7 @@ class Documento extends CI_Controller{
 	 // $data['documento_list']=$this->documento_model->lista_documento()->result();
 	  $data['documento'] = $this->documento_model->documento( $this->uri->segment(3))->row_array();
 	  $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+	  $data['destinodocumentos']= $this->destinodocumento_model->lista_destinodocumento()->result();
 	  $data['emisores'] =$this->documento_model->emisores($this->uri->segment(3))->result();
 	  $data['destinatarios'] = $this->documento_model->destinatarios($data['documento']['iddocumento'])->result();
 		$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
@@ -118,6 +123,7 @@ class Documento extends CI_Controller{
 	
   		$data['documento'] = $this->documento_model->lista_documentos()->result();
   		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+  		$data['destinodocumentos']= $this->destinodocumento_model->lista_destinodocumento()->result();
   		$data['filtro']= $this->uri->segment(3);
   		$data['title']="Documento";
 		$this->load->view('template/page_header');		
@@ -225,6 +231,7 @@ public function elprimero()
   if(!empty($data))
   {
     $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+    $data['destinodocumentos']= $this->destinodocumento_model->lista_destinodocumento()->result();
     $data['emisores'] =$this->documento_model->emisores($data['documento']['iddocumento'])->result();
     $data['destinatarios'] = $this->documento_model->destinatarios($data['documento']['iddocumento'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
@@ -253,6 +260,7 @@ public function elultimo()
   if(!empty($data))
   {
     $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+    $data['destinodocumentos']= $this->destinodocumento_model->lista_destinodocumento()->result();
     $data['emisores'] =$this->documento_model->emisores($data['documento']['iddocumento'])->result();
     $data['destinatarios'] = $this->documento_model->destinatarios($data['documento']['iddocumento'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
@@ -285,6 +293,7 @@ public function siguiente(){
  // $data['documento_list']=$this->documento_model->lista_documento()->result();
 	$data['documento'] = $this->documento_model->siguiente($this->uri->segment(3))->row_array();
   $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+  $data['destinodocumentos']= $this->destinodocumento_model->lista_destinodocumento()->result();
   $data['emisores'] =$this->documento_model->emisores($data['documento']['iddocumento'])->result();
   $data['destinatarios'] = $this->documento_model->destinatarios($data['documento']['iddocumento'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
@@ -301,6 +310,7 @@ public function anterior(){
  // $data['documento_list']=$this->documento_model->lista_documento()->result();
 	$data['documento'] = $this->documento_model->anterior($this->uri->segment(3))->row_array();
   $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+  $data['destinodocumentos']= $this->destinodocumento_model->lista_destinodocumento()->result();
   $data['emisores'] =$this->documento_model->emisores($data['documento']['iddocumento'])->result();
   $data['destinatarios'] = $this->documento_model->destinatarios($data['documento']['iddocumento'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
@@ -324,6 +334,7 @@ public function anterior(){
 	{
     		$data['documento'] = $this->documento_model->documento($this->uri->segment(3))->row_array();
     		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+    		$data['destinodocumentos']= $this->destinodocumento_model->lista_destinodocumento()->result();
     		$data['emisores'] =$this->documento_model->emisores($this->uri->segment(3))->result();
     		$data['destinatarios'] = $this->documento_model->destinatarios($this->uri->segment(3))->result();
 		$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
@@ -349,6 +360,15 @@ public function anterior(){
 		{
 			$array_item['idtipodocu'] = $this->input->post('idtipodocu');
 		}
+
+		if(null!==$this->input->post('iddestinodocumento'))
+		{
+			$array_item['iddestinodocumento'] = $this->input->post('iddestinodocumento');
+		}
+
+
+
+
 
 		if(null!==$this->input->post('archivopdf'))
 		{

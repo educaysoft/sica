@@ -332,6 +332,6 @@ alter table documentoportafolio add column minutosocupados int(11) default 0 ;
 
 alter table documento drop column iddestinodocumento  ;
 alter table documento add column iddestinodocumento int(11) default 1 ;
-alter table documento add  foreign key (iddestinodocumento) references destinodocumento(iddestinodocumento) on delete cascade;
+alter table documento add  foreign key ('iddestinodocumento') references destinodocumento('iddestinodocumento') on delete cascade;
 
 

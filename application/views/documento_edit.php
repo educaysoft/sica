@@ -26,6 +26,22 @@ foreach ($tipodocus as $row){
 </tr>
 
 
+<tr>
+<td> Destino documento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($destinodocumentos as $row){
+	$options[$row->iddestinodocumento]= $row->nombre;
+}
+
+ echo form_dropdown("iddestinodocumento",$options, $documento['iddestinodocumento'],array('id'=>'iddestinodocumento'));  ?></td>
+</tr>
+
+
+
+
+
+
   <tr>
      <td>iddocumento:</td>
      <td><?php echo form_input(array("name"=>'iddocumento','id'=>'iddocumento','value'=>$documento['iddocumento'],'placeholder'=>'Iddocumentos')) ?></td>
