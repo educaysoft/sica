@@ -38,7 +38,7 @@ foreach ($portafolios as $row){
 
 $options= array('--Select--');
 foreach ($docenteactividadacademicas as $row){
-	$options[$row->iddocenteactividadacademica]= $row->eldistributivo." - ".$row->nombreactividad;
+	$options[$row->iddocenteactividadacademica]= $row->eldistributivodocente." - ".$row->nombreactividad;
 }
 
  echo form_dropdown("iddocenteactividadacademica",$options, set_select('--Select--','default_value'));  ?></td>
