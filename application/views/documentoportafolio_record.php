@@ -77,12 +77,31 @@ echo form_input('idportafolio',$options[$documentoportafolio['idportafolio']],ar
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Actividad académica:  </label>
+	<div class="col-md-10">
+  
+
+<?php 
+
+$options= array('--Select--');
+foreach ($docenteactividadacademicas as $row){
+	$options[$row->iddocenteactividadacademica]=$row->item." - ". $row->eldistributivodocente." - ".$row->nombreactividad;
+}
+
+ echo form_dropdown("iddocenteactividadacademica",$options,$documentoportafolio['iddocenteactividadacademica']);  ?>
+	</div> 
+</div>
 
 
 
 
-
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Minutos ocupados:  </label>
+	<div class="col-md-10">
+<?php echo form_input("minutosocupados",$documentoportafolio['minutosocupados'], array("placeholder"=>"Minutos utilizados"))  ?>
+	</div> 
+</div>
 
 
 
