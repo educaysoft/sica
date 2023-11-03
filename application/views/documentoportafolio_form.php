@@ -37,11 +37,11 @@ foreach ($portafolios as $row){
 <td><?php 
 
 $options= array('--Select--');
-foreach ($documentoactividadacademicas as $row){
-	$options[$row->iddocumentoactividadacademica]= $row->eldistributivo." - ".$row->nombreactividad;
+foreach ($docenteactividadacademicas as $row){
+	$options[$row->iddocenteactividadacademica]= $row->eldistributivo." - ".$row->nombreactividad;
 }
 
- echo form_dropdown("iddocumentoactividadacademica",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("iddocenteactividadacademica",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 <tr>
