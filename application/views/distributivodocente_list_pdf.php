@@ -23,7 +23,7 @@
 
 	$pdf->SetFont('Arial','',12);
 	$pdf->SetTextColor(0, 0,0);
-    	$pdf->Text(20,40,"Docente:  ".$distributivodocente['eldistributivodocente']); 
+    	$pdf->Text(20,40,"Docente:  ".utf8_decode($distributivodocente['eldistributivodocente'])); 
 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
