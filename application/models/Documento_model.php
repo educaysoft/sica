@@ -9,6 +9,23 @@ class Documento_model extends CI_model {
 
 
 
+	function lista_documentosxdestino($iddestinodocumento){
+		
+		if($idtipodocumento==0)
+		{
+		$documento=$this->db->order_by("fechaelaboracion")->get('documento1');
+		}else{
+
+		$this->db->where('iddestinodocumento='.$iddestinodocumento);
+		$documento=$this->db->order_by("iddocumento")->get('documento1');
+		}
+		 return $documento;
+	}
+
+
+
+
+
 	//Retorna todos los registros como un objeto
 	function lista_documentosxtipo($idtipodocumento){
 		
