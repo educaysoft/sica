@@ -21,7 +21,7 @@ public function index(){
 	$data['docente']= $this->docente_model->docentespersona($data['documentoportafolio']['idpersona'])->row_array();
   	$data['portafolio']= $this->portafolio_model->lista_portafoliosA($data['documentoportafolio']['idportafolio'])->row_array();
   	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
-	if(isset($data['docente']['iddocente'])
+	if(isset($data['docente']['iddocente']))
 	{
 	$data['distributivodocente']=$this->distributivodocente_model->distributivodocente_pado($data['portafolio']['idperiodoacademico'],$data['docente']['iddocente'])->row_array();
 	$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA($data['distributivodocente']['iddistributivodocente'])->result();
