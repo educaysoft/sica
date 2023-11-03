@@ -23,7 +23,7 @@
 
 	$pdf->SetFont('Arial','',12);
 	$pdf->SetTextColor(0, 0,0);
-    	$pdf->Text(20,40,"Docente:  ".$docente[0]->eldocente); 
+    	$pdf->Text(20,40,"Docente:  ".$distributivodocente['eldistributivodocente']); 
 
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
@@ -48,7 +48,7 @@
 	foreach ($horario1 as $hora){
 		foreach ($jornadadocente as $row){
 			if($row->horainicio==$hora){
-				$horario2[$row->horainicio][$row->nombre]=$row->laasignatura."-".$row->nivel."-".$row->paralelo;
+				$horario2[$row->horainicio][$row->nombre]=$row->laasignatura."-".$row->nivel."-".$row->paralelo." (".$row->duracionminutos." min )";
 			}
 		}
 	}
