@@ -101,7 +101,7 @@ class Documentoportafolio_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("iddocumentoportafolio")->get('documentoportafolio');
+		$query=$this->db->order_by("iddocumentoportafolio")->get('documentoportafolio1');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
