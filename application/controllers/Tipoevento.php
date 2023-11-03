@@ -98,7 +98,7 @@ function tipoevento_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idtipoevento,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idtipoevento="'.$r->idtipoevento.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('tipoevento/actual').'" data-idtipoevento="'.$r->idtipoevento.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
