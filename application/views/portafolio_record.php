@@ -56,7 +56,7 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->lapersona;
 }
 
-echo form_input('lapersona',$options[$portafolio['idpersona']],array("id"=>"lapersona","disabled"=>"disabled", "style"=>"width:500px")); ?>
+echo form_input('lapersona',$options[$portafolio['idpersona']],array("id"=>"lapersona","disabled"=>"disabled", "style"=>"width:600px")); ?>
 	</div> 
 </div>
 
@@ -71,7 +71,7 @@ $options= array("NADA");
 foreach ($personas as $row){
 	$options[$row->idpersona]= $row->idpersona;
 }
-echo form_input('idpersona',$options[$portafolio['idpersona']],array("id"=>"idpersona","disabled"=>"disabled", "style"=>"width:500px")); ?>
+echo form_input('idpersona',$options[$portafolio['idpersona']],array("id"=>"idpersona","disabled"=>"disabled", "style"=>"width:600px")); ?>
 	</div> 
 </div>
 
@@ -86,7 +86,7 @@ $options= array("NADA");
 foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
-echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"iddocumento","disabled"=>"disabled","style"=>"width:500px"));
+echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"iddocumento","disabled"=>"disabled","style"=>"width:600px"));
 		?>
 	</div> 
 </div>
@@ -101,7 +101,7 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
 	foreach ($portafolioestados as $row){
 		$options[$row->idportafolioestado]= $row->nombre;
 	}
-	echo form_input('idportafolioestado',$options[$portafolio['idportafolioestado']],array("disabled"=>"disabled", "style"=>"width:500px")); 
+	echo form_input('idportafolioestado',$options[$portafolio['idportafolioestado']],array("disabled"=>"disabled", "style"=>"width:600px")); 
 	?>
 
 	</div> 
@@ -117,9 +117,9 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
 	<?php 
 	$options= array("NADA");
 	foreach ($periodoacademicos as $row){
-		$options[$row->idperiodoacademico]= $row->nombrelargo;
+		$options[$row->idperiodoacademico]=$row->nombrecorto.' - '.$row->nombrelargo;
 	}
-	echo form_input('idperiodoacademico',$options[$portafolio['idperiodoacademico']],array("disabled"=>"disabled", "style"=>"width:500px")); 
+	echo form_input('idperiodoacademico',$options[$portafolio['idperiodoacademico']],array("disabled"=>"disabled", "style"=>"width:600px")); 
 	?>
 
 	</div> 
