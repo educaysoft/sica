@@ -18,13 +18,10 @@ public function index(){
 			
   	$data['documentoportafolio']=$this->documentoportafolio_model->elultimo();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['docente']= $this->docente_model->docente($data['documentoportafolio']['idpersona'])->row_array();
+	$data['docente']= $this->docente_model->docentespersona($data['documentoportafolio']['idpersona'])->row_array();
   	$data['portafolio']= $this->portafolio_model->lista_portafoliosA($data['documentoportafolio']['idportafolio'])->row_array();
   	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
 
-	echo $data['portafolio']['idperiodoacademico'];
-	echo $data['docente']['iddocente'];
-	die();
 
 	$data['distributivodocente']=$this->distributivodocente_model->distributivodocente_pado($data['portafolio']['idperiodoacademico'],$data['docente']['iddocente'])->row_array();
 	$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA($data['distributivodocente']['iddistributivodocente'])->result();
