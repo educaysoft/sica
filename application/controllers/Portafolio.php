@@ -168,8 +168,8 @@ function portafolio_data()
 			$data0 =$this->documento_model->lista_documentosD($idpersona,$idportafolio);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->iddocumento,$r->idpersona,$r->asunto,$r->fechaelaboracion,$r->archivopdf,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('documento/actual').'"    data-iddocumento="'.$r->iddocumento.'">Ver</a>');
+				$data[]=array($r->iddocumentoportafolio,$r->iddocumento,$r->idpersona,$r->asunto,$r->fechaelaboracion,$r->archivopdf,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('documentoportafolio/actual').'"    data-iddocumentoportafolio="'.$r->iddocumentoportafolio.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_doc"  data-retorno="'.site_url('documento/actual').'"    data-iddocumento="'.$r->iddocumento.'">doc</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),

@@ -138,6 +138,7 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
 	<table class="table table-striped table-bordered table-hover" id="mydatac">
 	 <thead>
 	 <tr>
+	 <th>iddopo</th>
 	 <th>iddocu</th>
 	 <th>idpersona</th>
 	 <th>titulo</th>
