@@ -39,6 +39,24 @@ foreach ($portafolios as $row){
 </tr>
 
 
+<tr>
+<td> Actividad academica: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($docenteactividadacademicas as $row){
+	$options[$row->iddocenteactividadacademica]=$row->item." - ". $row->eldistributivodocente." - ".$row->nombreactividad;
+}
+
+ echo form_dropdown("iddocenteactividadacademica",$options,$documentoportafolio['iddocenteactividadacademica']);  ?></td>
+</tr>
+
+<tr>
+<td> Minutos ocupados: </td>
+<td><?php echo form_input("minutosocupados",$documentoportafolio['minutosocupados'], array("placeholder"=>"Minutos utilizados"))  ?></td>
+</tr>
+
+
 
  
  <tr>
