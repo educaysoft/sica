@@ -6,6 +6,7 @@ class Documentoportafolio extends CI_Controller{
       parent::__construct();
   	  $this->load->model('documento_model');
   	  $this->load->model('portafolio_model');
+  	  $this->load->model('docente_model');
   	  $this->load->model('documentoportafolio_model');
   	  $this->load->model('docenteactividadacademica_model');
 }
