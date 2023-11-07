@@ -5,6 +5,11 @@ class Asignatura_model extends CI_model {
 		 $asignatura= $this->db->get('asignatura0');
 		 return $asignatura;
 	}
+	function lista_asignaturas1(){
+		 $asignatura= $this->db->order_by("malla asc,area asc,nombre asc")->get('asignatura1');
+		 return $asignatura;
+	}
+
 
 
 	function lista_asignaturasA(){
