@@ -221,6 +221,23 @@ class Documento extends CI_Controller{
 
 
 
+	public function reportepdf()
+	{
+//		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
+//		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
+//		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		
+		$data['documentos'] = $this->documento_model->documentosxtipo($this->uri->segment(3))->result();
+
+		$data['title']="Evento";
+		$this->load->view('documento_list_pdf',$data);
+	
+	}
+
+
+
+
+
 
 
 
