@@ -59,7 +59,7 @@
 		    $pdf->Cell(5,5,$i,1,0,'R',0); 
 		    $pdf->Cell(45,5,utf8_decode($row->autor),1,0,'L',0);
 		 $pdf->Cell(80,5,utf8_decode($row->asunto),1,0,'L',0);
-		 $pdf->Cell(40,5,f8_decode($row->archivopdf),1,1,'L',0);
+		 $pdf->Cell(40,5,utf8_decode($row->archivopdf),1,1,'L',0);
 
 
    }
