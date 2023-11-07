@@ -54,7 +54,7 @@ if(isset($documento))
 
 
         <li> <?php echo "<a onclick='verpdf()'>Ver PDF</a>" ?></li>
-		<li> <?php echo anchor('documento/reportepdf/'.$documento['idtipodoc'],'reportepdf'); ?></li>
+		<li> <?php echo anchor('documento/reportepdf/'.$documento['idtipodocu'],'reportepdf'); ?></li>
 
 
 <?php 
