@@ -130,7 +130,6 @@ $options= array("NADA");
 foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
-
 echo form_input('iddocumento',$options[$silabo['iddocumento']],array("id"=>"iddocumento","disabled"=>"disabled", "style"=>"width:500px")); ?>
 	</div> 
 </div>
