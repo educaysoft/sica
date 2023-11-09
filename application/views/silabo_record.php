@@ -122,6 +122,21 @@ if(isset($silabo))
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Documento:</label>
+	<div class="col-md-10">
+     <?php 
+$options= array("NADA");
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->asunto;
+}
+
+echo form_input('iddocumento',$options[$silabo['iddocumento']],array("id"=>"iddocumento","disabled"=>"disabled", "style"=>"width:500px")); ?>
+	</div> 
+</div>
+
+
+
 
 
 
@@ -188,7 +203,6 @@ $textarea_options = array('class' => 'form-control','rows' => '4', 'cols' => '20
 
 
 <div class="form-group row">
-
 	<div class="col-md-10">
 	<div class="row justify-content-left">
       	<!-- Page Heading -->

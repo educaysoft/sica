@@ -103,6 +103,22 @@ echo form_dropdown("iddocente",$options, $silabo['iddocente']);
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Documentos:</label>
+	<div class="col-md-10">
+		<?php
+$options= array('--Select--');
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->autor." - ". $row->asunto;
+}
+
+ echo form_dropdown("iddocumento",$options, $documentoportafolio['iddocumento']);  
+
+		?>
+	</div> 
+</div>
+
+
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('silabo','Atras') ?></td>
  </tr>

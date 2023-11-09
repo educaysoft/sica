@@ -91,6 +91,24 @@ foreach ($asignaturas as $row){
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Documento:</label>
+	<div class="col-md-10">
+		<?php
+
+$options= array('--Select--');
+foreach ($documentos as $row){
+	$options[$row->iddocumento]=$row->iddocumento.' - '.$row->autor." - ". $row->asunto;
+}
+
+ echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value'));  
+
+		?>
+	</div> 
+</div>
+
+
+
 </table>
 <tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("silabo","Atras") ?> </td>
