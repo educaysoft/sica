@@ -187,7 +187,7 @@ public function actual(){
 			$data0 =$this->silabo_model->silabosdp($iddocente,$idperiodoacademico);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->iddocente,$r->idsilabo,$r->elsilabo,$r->elperiodo,archivopdf,
+				$data[]=array($r->iddocente,$r->idsilabo,$r->elsilabo,$r->elperiodo,$r->archivopdf,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retornos="'.site_url('silabo/actual').'"    data-idsilabo="'.$r->idsilabo.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
