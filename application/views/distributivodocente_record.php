@@ -230,6 +230,7 @@ echo form_input('idtiempodedicacion',$options[$distributivodocente['idtiempodedi
 	 <th>idsilabo</th>
 	 <th>elsilabo</th>
 	 <th>periodo</th>
+	 <th>Archivopdf</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
