@@ -120,13 +120,17 @@ if(isset($silabo))
 </div>
 
 
-
-
 <div class="form-group row">
     <label class="col-md-2 col-form-label">Documento:</label>
 	<div class="col-md-10">
      <?php 
-$options= array("NADA");
+    print_r($silabo);
+die();
+
+
+    
+    
+    $options= array("NADA");
 foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }

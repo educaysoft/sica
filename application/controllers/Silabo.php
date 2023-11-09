@@ -63,6 +63,7 @@ class Silabo extends CI_Controller{
 	 	'duracion' => $this->input->post('duracion'),
 	 	'idasignatura' => $this->input->post('idasignatura'),
 	 	'iddocente' => $this->input->post('iddocente'),
+	 	'iddocumento' => $this->input->post('iddocumento'),
 	 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	'linkdetalle' => $this->input->post('linkdetalle'),
 	 	);
@@ -103,6 +104,7 @@ class Silabo extends CI_Controller{
 	 		'linkdetalle' => $this->input->post('linkdetalle'),
 	 		'idasignatura' => $this->input->post('idasignatura'),
 	 		'iddocente' => $this->input->post('iddocente'),
+	 		'iddocumento' => $this->input->post('iddocumento'),
 	 		'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
 	 	$this->silabo_model->update($id,$array_item);
