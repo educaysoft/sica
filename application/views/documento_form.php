@@ -233,7 +233,7 @@ function uploadFiles(url1) {
     var iddirectorio = document.getElementById('iddirectorio').value;
     var idddocumento_estado = 1;
     var idpersona = document.getElementById('idpersona').value; 
-    var iddocumento_estado=document.getElementById('idpersona').value;
+    var iddocumento_estado=document.getElementById('iddocumento_estado').value;
 
     formData.append("iddocumento", 0);
     formData.append("idtipodocu", idtipodocu);
