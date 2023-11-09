@@ -27,7 +27,8 @@ class Silabo extends CI_Controller{
 			$data['silabo']=$this->silabo_model->elultimo();
 			$data['documentosilabos']= $this->documentosilabo_model->listar_documentosilabo1($data['silabo']['idsilabo'])->result();
 
-    print_r($data['silabo']);
+    //print_r($data['silabo']);
+//			die();
   			$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
   			$data['docentes']= $this->docente_model->lista_docentesA()->result();
  			$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();

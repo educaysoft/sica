@@ -124,8 +124,8 @@ if(isset($silabo))
     <label class="col-md-2 col-form-label">Documento:</label>
 	<div class="col-md-10">
      <?php 
-    print_r($silabo);
-die();
+   // print_r($silabo);
+//die();
 
 
     
