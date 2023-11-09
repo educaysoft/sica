@@ -112,7 +112,7 @@ foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->autor." - ". $row->asunto;
 }
 
- echo form_dropdown("iddocumento",$options, $documentoportafolio['iddocumento']);  
+ echo form_dropdown("iddocumento",$options, $silabo['iddocumento']);  
 
 		?>
 	</div> 
