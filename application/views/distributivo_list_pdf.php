@@ -12,9 +12,9 @@
 
 
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
-	$pdf->unidad='UNIDAD DE NIVELACION';
-	$pdf->departamento='PERIODO: 2022-2S';
-	$pdf->titulo="CONTROL ACADÉMICO - LECCIONARIO";
+	$pdf->unidad='FACULTAD DE INGENIERIAS';
+	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
+	$pdf->titulo="PRESENTACIÓN DEL SILABO";
 	
  //   	$pdf->asignatura="Evento(Clase):  ".$sesioneventos[0]->elevento; 
     	$pdf->docente="Distributivo:  ".$distributivo[0]->eldistributivo; 
