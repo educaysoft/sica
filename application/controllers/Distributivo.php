@@ -277,16 +277,38 @@ public function iniciar()
 
 
 
-
 	public function reportepdf()
 	{
 		$iddistributivo=$this->uri->segment(3);
-	 	$data['fechacalendarios']= $this->fechacalendario_model->lista_fechacalendarios1($idperiodoacademico)->result();
-		$data['distributivodocentes'] =$this->distributivodocente_model->distributivodocentes1($iddistributivo)->result();
-
+		$tmp=explode("-",$this->uri->segment(3));
+		$iddistributivo=$tmp[0];
+		if(isset($tmp[1]))
+		{
+			$ordenrpt=$tmp[1];
+		}else{
+			$ordenrpt=0;
+		}
+	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo4($iddistributivo,$ordenrpt)->result();
+		$data['distributivo']=$this->distributivo_model->distributivo1($iddistributivo)->result();
 		$data['title']="Evento";
 		$this->load->view('distributivo_list_pdf',$data);
 	}
+
+
+
+
+
+
+
+//	public function reportepdf()
+//	{
+//		$iddistributivo=$this->uri->segment(3);
+//	 	$data['fechacalendarios']= $this->fechacalendario_model->lista_fechacalendarios1($idperiodoacademico)->result();
+//		$data['distributivodocentes'] =$this->distributivodocente_model->distributivodocentes1($iddistributivo)->result();
+///
+//		$data['title']="Evento";
+//		$this->load->view('distributivo_list_pdf',$data);
+//	}
 
 
 
