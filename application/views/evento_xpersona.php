@@ -183,9 +183,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 		<div class="pull-left">
 		    <b>Documentos del portafolio: </b>
 		</div>
-		<div class="pull-right">
-		  <a class="btn btn-danger" href="<?php echo base_url('documentoportafolio/add/'.$portafolio['idportafolio']) ?>">Nuevo documento</a>  
-		</div>
+		
 	    </div>
 	</div>
 	<table class="table table-striped table-bordered table-hover" id="mydatap">
