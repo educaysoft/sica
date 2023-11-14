@@ -134,9 +134,11 @@ class Documento_model extends CI_model {
 
 	//Retorna todos los registros como un objeto
 	function lista_documentosD($idpersona,$idportafolio){
-		
-	//	$this->db->where('idpersona',$idpersona);
+		if($idportafolio==0){
+		$this->db->where('idpersona',$idpersona);
+		}else{
 		$this->db->where('idportafolio',$idportafolio);
+		}
 		$documento=$this->db->order_by("fechaelaboracion")->get('documentoportafolio1');
 		 return $documento;
 	}
