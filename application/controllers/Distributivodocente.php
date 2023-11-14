@@ -262,9 +262,9 @@ $data['jornadadocente']=array();
 		echo "<br> jornadadocnete<br>" ;
 //		print_r($data['jornadadocente']);
 //		die();
-	$data['asignatura']= $this->asignatura_model->asignaturas1($data['asignaturadocentes'][0]->idasignatura)->row_array();
+		$data['asignatura']= $this->asignatura_model->asignaturas1($data['asignaturadocentes'][0]->idasignatura)->row_array();
 
-	$data['malla']= $this->malla_model->mallaA($data['asignatura']['idmalla'])->result();
+		$data['malla']= $this->malla_model->mallaA($data['asignatura']['idmalla'])->result();
 
 		$data['title']="Evento";
 		$this->load->view('distributivodocente_genpagina',$data);
