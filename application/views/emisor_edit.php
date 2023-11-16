@@ -4,6 +4,7 @@
 </div>
 <hr/>
 <?php echo form_open("emisor/save_edit") ?>
+<?php echo form_hidden('idemisor',$emisor['idemisor']) ?>
 <table>
 
 
