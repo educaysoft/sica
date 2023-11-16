@@ -57,7 +57,7 @@ if(isset($evento))
 	<?php } ?>
 
 	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['delete']){ ?>
-        <li style="border-right:1px solid green"> <?php echo anchor('evento/delete/'.$evento['idevento'],'Delete'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('evento/quitar/'.$evento['idevento'],'Quitar'); ?></li>
 	<?php } ?>
 
 	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['read']){ ?>
