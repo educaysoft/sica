@@ -217,9 +217,9 @@ public function cumplimiento(){
 
 
 
- 	public function delete()
+ 	public function quitar()
  	{
- 		$data=$this->evento_model->delete($this->uri->segment(3));
+ 		$data=$this->evento_model->quitar($this->uri->segment(3));
  		echo json_encode($data);
 	 	redirect('evento/elultimo');
 	//	$db['default']['db_debug']=FALSE
