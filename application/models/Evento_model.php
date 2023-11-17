@@ -165,12 +165,12 @@ class Evento_model extends CI_model {
 		$condition1 = "idcalendarioacademico =" . $array['idcalendarioacademico'] ;
 		$condition2 = "idasignaturadocente =" . $array['idasignaturadocente'] ;
 		$this->db->select('*');
-		$this->db->from('evento0');
+		$this->db->from('evento');
 		$this->db->where($condition1);
 		$this->db->where($condition2);
 		$this->db->limit(1);
 		$query = $this->db->get();
-		if ($query->num_rows() > 0) {
+		if (!($query->num_rows() > 0)) {
 	
 
 		$this->db->trans_begin();
