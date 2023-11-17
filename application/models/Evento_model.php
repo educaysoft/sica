@@ -161,6 +161,17 @@ class Evento_model extends CI_model {
    		date_default_timezone_set('America/Guayaquil');
     		$fecha = date("Y-m-d");
     		$hora= date("H:i:s");
+		
+		$condition1 = "idcalendarioacademico =" . $array['idcalendarioacademico'] ;
+		$condition2 = "idasignaturadocente =" . $array['idasignaturadocente'] ;
+		$this->db->select('*');
+		$this->db->from('evento0');
+		$this->db->where($condition1);
+		$this->db->where($condition2);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+	
 
 		$this->db->trans_begin();
 		$this->db->insert("evento", $array);
@@ -185,6 +196,12 @@ class Evento_model extends CI_model {
 			die("No se pudo grabar" );
 			return false;
 		}
+		}else{
+			echo("El evento ya esta creado, No se pudo grabar" );
+			return false;
+		}
+
+
  	}
 
 	// Para actualiza un registro
