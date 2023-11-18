@@ -328,8 +328,8 @@ var idpersona= $(this).data('idpersona');
 var idasignatura= $(this).data('idasignatura');
 var duracion= "4 meses";
 var linkdetalle= "";
+	var idasignaturadocente=data('idasignaturadocente');	
 	var idsilabo=0;
-	var idasignaturadocente=0;	
 	var idcalendarioacademico=0;
 
 	var fechainicia = ""; 
@@ -341,7 +341,6 @@ $.ajax({url: '<?php echo site_url('silabo/save')?>',
 	dataType: 'json',
 	success: function(data){
 	 idsilabo=data.idsilabo;
-	 idasignaturadocente=data.idasignaturadocente;	
 	 idcalendarioacademico=data.idcalendarioacademico;
 	 fechainicia=data.fechainicio;
 	 fechafinaliza=data.fechafin;
