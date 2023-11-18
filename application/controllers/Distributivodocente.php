@@ -234,7 +234,6 @@ public function genpagina()
 	if($this->uri->segment(3))
 	{
 		$iddistributivo=$this->uri->segment(3);
-
 	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo2($iddistributivo,$ordenrpt)->result();
 		$arreglo=array();
 		$i=0;
@@ -250,7 +249,6 @@ public function genpagina()
 			 {
 				$arreglo+=array($i=>array($row->idasignaturadocente=>$row3));
 				$i=$i+1;
-
 			}
 //				 print_r($arreglo); echo "<br>";
 			}
