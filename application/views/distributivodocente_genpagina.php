@@ -304,7 +304,7 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 
 $data=$data.'</div>
 
-	    <div class="card-body" style="background-color:<?php echo $arraycolor[$i]; ?>"  >
+	    <div class="card-body" style="background-color:<?php echo $arrcolor[$i]; ?>"  >
               <b>Area:</b>'.$row->area.'.<br>
               <b>Nivel:</b>'.$row->nivel.'.<br>
               <p><b>Asignatura : </b>'.$row->laasignatura.'.</p>
