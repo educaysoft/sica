@@ -326,9 +326,9 @@ var idperiodoacademico= $(this).data('idperiodoacademico');
 var iddocente= $(this).data('iddocente');
 var idpersona= $(this).data('idpersona');
 var idasignatura= $(this).data('idasignatura');
+var idasignaturadocente=$(this).data('idasignaturadocente');	
 var duracion= "4 meses";
 var linkdetalle= "";
-	var idasignaturadocente=data('idasignaturadocente');	
 	var idsilabo=0;
 	var idcalendarioacademico=0;
 
