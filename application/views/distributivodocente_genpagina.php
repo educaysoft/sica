@@ -85,7 +85,6 @@ overflow:hidden;
 <?php
 $arrcolor=array(1=>"#F68081",2=>"#F5DA81",3=>"#A9F5A9",4=>"#A9F4F3",5=>"#CFCEF7",6=>"#D1A9F4",7=>"#F5A8F3",8=>"#80DBF5",9=>"#9BFE2F");
 
-
 ?>
 
 <header>
@@ -304,7 +303,7 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 
 $data=$data.'</div>
 
-	    <div class="card-body" style="background-color:<?php echo $arrcolor[$i]; ?>"  >
+	    <div class="card-body" style="background-color:'.$arrcolor[$i].'"  >
               <b>Area:</b>'.$row->area.'.<br>
               <b>Nivel:</b>'.$row->nivel.'.<br>
               <p><b>Asignatura : </b>'.$row->laasignatura.'.</p>
