@@ -354,8 +354,6 @@ $.ajax({url: '<?php echo site_url('silabo/save')?>',
 
 	    })
 
-
-
 	var idtipoevento=2; // CURSOS DE MALLA
 	var idevento_estado=2; //INSCRIPCION
 	var idinstitucion=1;  //Universidad Tecnica Luis Vargas Torres
@@ -379,13 +377,6 @@ $.ajax({url: '<?php echo site_url('evento/save')?>',
 		alert(thrownError);
 	      }
 	    })
-
-
-
-
-	
-	
-
 
 
 
