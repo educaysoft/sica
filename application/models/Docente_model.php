@@ -7,7 +7,11 @@ class Docente_model extends CI_model {
 	}
 
 
-	function lista_docentesA(){
+	function lista_docentesA($iddocente){
+		if($iddocente>0){
+		$this->db->where('iddocente',$iddocente);
+		}
+
 		 $this->db->order_by("eldocente","asc");
 		 $docente= $this->db->get('docente1');
 		 return $docente;

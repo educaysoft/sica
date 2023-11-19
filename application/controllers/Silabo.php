@@ -83,10 +83,11 @@ class Silabo extends CI_Controller{
 
 			$tipodocumento=9;  //silabos\o
 			$data['silabo'] = $this->silabo_model->silabo($this->uri->segment(3))->row_array();
+  			$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
+  			$data['docente']= $this->docente_model->lista_docentesA($data['silabo']['iddocente'])->result();
   			$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
-			$data['documentos']= $this->documento_model->lista_documentosxtipo($tipodocumento)->result();
+			$data['documentos']= $this->documento_model->lista_documentosxtipo($tipodocumento,$data['docente']['idpersona'])->result();
   			$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
-  			$data['docentes']= $this->docente_model->lista_docentesA()->result();
 			$data['title'] = "Actualizar silabo";
 			$this->load->view('template/page_header');		
 			$this->load->view('silabo_edit',$data);
