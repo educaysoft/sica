@@ -292,7 +292,7 @@ public function actual()
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	  if(!empty($data))
 	  {
-  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
     		$data['title']="Distributivodocente";
     		$this->load->view('template/page_header');		
     		$this->load->view('distributivodocente_record',$data);
