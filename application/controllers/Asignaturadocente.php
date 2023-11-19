@@ -239,7 +239,7 @@ public function actual()
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
 	  if(!empty($data))
 	  {
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
     $data['title']="Asignaturadocente";
     $this->load->view('template/page_header');		
     $this->load->view('asignaturadocente_record',$data);
