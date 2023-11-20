@@ -114,7 +114,8 @@
       		<h1><?php  echo $evento['titulo'];?></h1>
 
   		<!---  <button><a href="http://educaysoft.org/sica/MTI/doc/_build/html/admision.html"> Mas información</a></button> -->
-  		<button><a href="<?php echo $silabo['linkdetalle']; ?>"> Mas información</a></button>
+  	<!---	<button><a href="<?php echo $silabo['linkdetalle']; ?>"> Mas información</a></button> -->
+  		<button><a href="<?php echo 'https://repositorioutlvte.org/Repositorio/'.$silabo['archivopdf']; ?>"> Silabo</a></button>
     		</div>
     	</div>
 

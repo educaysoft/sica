@@ -270,11 +270,11 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 }else{
 	if(is_null($row->archivopdf) || $row->archivopdf=="")
 	{
-$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/'.trim($row->idareaconocimiento).'-no.jpg" height="100%" width="100%"/> </svg></a>
+$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/'.trim($row->idareaconocimiento).'-no.jpg" alt="No hay programación" height="100%" width="100%"/> </svg></a>
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 	}else{
 
-$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/'.trim($row->idareaconocimiento).'-si.jpg" height="100%" width="100%"/> </svg></a>
+$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/'.trim($row->idareaconocimiento).'-si.jpg" alt="Revisar la programación"  height="100%" width="100%"/> </svg></a>
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 	}
 

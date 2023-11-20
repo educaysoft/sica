@@ -973,8 +973,7 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 
 
 
-	public function detalle()
-	{
+	public function No hay	{
 		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 		$data['sesioneventos'] = $this->sesionevento_model->sesioneventos1($this->uri->segment(3))->result();
 		$data['temas'] = $this->tema_model->temase($this->uri->segment(3))->result();
@@ -1009,7 +1008,7 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 
 
 
-		$data['silabo']=$this->silabo_model->silabo($data['evento']['idsilabo'])->row_array();
+		$data['silabo']=$this->silabo_model->silabo1($data['evento']['idsilabo'])->row_array();
 		$data['asignatura']=$this->asignatura_model->asignatura($data['silabo']['idasignatura'])->row_array();
 //		$this->load->view('template/page_header');		
 //		unset($this->session->userdata['logged_in']);
