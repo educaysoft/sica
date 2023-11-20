@@ -194,7 +194,7 @@ $options= array('--Select--');
 foreach ($aulas as $row){
 	$options[$row->idaula]= $row->nombre;
 }
- echo form_dropdown("idaula",$options, $jornadadocente['idaula']);  
+ echo form_dropdown("idaula",$options, $tema['idaula']);  
 ?>
 </div>
 </div>

@@ -250,7 +250,7 @@ echo form_input('idmodoevaluacion',$options[$tema['idmodoevaluacion']],array("di
     foreach ($aulas as $row){
 	      $options[$row->idaula]= $row->nombre;
     }
-    echo form_input('idaula',$options[$jornadadocente['idaula']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+    echo form_input('idaula',$options[$tema['idaula']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div>
