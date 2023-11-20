@@ -185,11 +185,23 @@ echo form_dropdown("idmodoevaluacion",$options, $tema['idmodoevaluacion']);
 </div>
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Aula:</label>
+<div class="col-md-10">
+<?php
+
+$options= array('--Select--');
+foreach ($aulas as $row){
+	$options[$row->idaula]= $row->nombre;
+}
+ echo form_dropdown("idaula",$options, $jornadadocente['idaula']);  
+?>
+</div>
+</div>
 
 
 
-
-
+<table>
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('tema','Atras') ?></td>
  </tr>

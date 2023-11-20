@@ -335,4 +335,6 @@ alter table documento add column iddestinodocumento int(11) default 1 ;
 alter table documento add  foreign key ('iddestinodocumento') references destinodocumento('iddestinodocumento') on delete cascade;
 */
 
-alter table evento add unique (idcalendarioacademico, idasiganturadocente) 
+/*alter table evento add unique (idcalendarioacademico, idasiganturadocente) */
+
+alter table tema add column idaula int(11) default 0;

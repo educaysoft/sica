@@ -8,6 +8,7 @@ class Tema extends CI_Controller{
       $this->load->model('unidadsilabo_model');
       $this->load->model('silabo_model');
       $this->load->model('videotutorial_model');
+   $this->load->model('aula_model');
       $this->load->model('modoevaluacion_model');
       $this->load->model('documento_model');
       $this->load->model('metodoaprendizajetema_model');
@@ -24,6 +25,7 @@ class Tema extends CI_Controller{
 			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
 			$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   			$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+  			$data['aulas']= $this->aula_model->lista_aulas()->result();
 			$data['title']="Lista de temaes";
 			$this->load->view('template/page_header');
 			$this->load->view('tema_record',$data);
@@ -43,6 +45,7 @@ class Tema extends CI_Controller{
 			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo()->result();
   		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+  		$data['aulas']= $this->aula_model->lista_aulas()->result();
 			$this->load->view('template/page_header');		
 			$this->load->view('tema_form',$data);
 			$this->load->view('template/page_footer');
@@ -57,6 +60,7 @@ class Tema extends CI_Controller{
 	 	'nombrelargo' => $this->input->post('nombrelargo'),
 	 	'idunidadsilabo' => $this->input->post('idunidadsilabo'),
 	 	'duracionminutos' => $this->input->post('duracionminutos'),
+		'idaula' => $this->input->post('idaula'),
 	 	'objetivoaprendizaje' => $this->input->post('objetivoaprendizaje'),
 	 	'experiencia' => $this->input->post('experiencia'),
 	 	'reflexion' => $this->input->post('reflexion'),
@@ -78,6 +82,7 @@ class Tema extends CI_Controller{
   			$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 			$data['unidadsilabo'] = $this->unidadsilabo_model->unidadsilabo($data['tema']['idunidadsilabo'])->result();
 			$data['unidadsilabos'] = $this->unidadsilabo_model->unidadsilaboss($data['unidadsilabo'][0]->idsilabo)->result();
+  	$data['aulas']= $this->aula_model->lista_aulas()->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 			$data['title'] = "Actualizar tema";
 			$this->load->view('template/page_header');		
@@ -105,6 +110,7 @@ class Tema extends CI_Controller{
 		 	'idmodoevaluacion' => $this->input->post('idmodoevaluacion'),
 	 		'aprendizajeautonomo' => $this->input->post('aprendizajeautonomo'),
 		 	'numerosesion' => $this->input->post('numerosesion'),
+			'idaula' => $this->input->post('idaula'),
 		 	'linkpresentacion' => $this->input->post('linkpresentacion'),
 	 	);
 	 	$this->tema_model->update($id,$array_item);
@@ -282,6 +288,7 @@ public function actual()
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
 	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+  	$data['aulas']= $this->aula_model->lista_aulas()->result();
   	if(!empty($data))
   	{
     		$data['title']="Tema";
@@ -305,6 +312,7 @@ public function elprimero()
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
 	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
+  	$data['aulas']= $this->aula_model->lista_aulas()->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   if(!empty($data))
   {
@@ -327,6 +335,7 @@ public function elultimo()
 		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+  	$data['aulas']= $this->aula_model->lista_aulas()->result();
   if(!empty($data))
   {
     $data['title']="Tema";
@@ -349,6 +358,7 @@ public function siguiente(){
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+  	$data['aulas']= $this->aula_model->lista_aulas()->result();
 	
 	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   	$data['title']="Tema";
@@ -365,6 +375,7 @@ public function anterior(){
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+  	$data['aulas']= $this->aula_model->lista_aulas()->result();
   	$data['title']="Tema";
 	$this->load->view('template/page_header');		
   	$this->load->view('tema_record',$data);

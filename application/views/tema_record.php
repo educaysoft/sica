@@ -242,6 +242,22 @@ echo form_input('idmodoevaluacion',$options[$tema['idmodoevaluacion']],array("di
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Aula:</label>
+	<div class="col-md-10">
+		<?php
+    $options= array("NADA");
+    foreach ($aulas as $row){
+	      $options[$row->idaula]= $row->nombre;
+    }
+    echo form_input('idaula',$options[$jornadadocente['idaula']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
+
+
+
+
 
 <?php echo form_close(); ?>
 
