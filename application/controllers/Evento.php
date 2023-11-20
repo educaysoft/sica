@@ -973,7 +973,8 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 
 
 
-	public function No hay	{
+	public function detalle()
+	{
 		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 		$data['sesioneventos'] = $this->sesionevento_model->sesioneventos1($this->uri->segment(3))->result();
 		$data['temas'] = $this->tema_model->temase($this->uri->segment(3))->result();
