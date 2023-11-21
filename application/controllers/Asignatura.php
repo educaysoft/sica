@@ -22,7 +22,7 @@ public function index(){
 		$data['referenciasasignaturas'] =$this->referenciasasignatura_model->referenciasasignaturasA($data['asignatura']['idasignatura'])->result();
   		$data['mallas']= $this->malla_model->lista_mallas()->result();
  		$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
-  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   		$data['title']="Lista de asignatura";
 			$this->load->view('template/page_header');		
@@ -208,7 +208,7 @@ public function actual()
 	$data['horasasignaturas'] =$this->horasasignatura_model->horasasignaturasA($data['asignatura']['idasignatura'])->result();
 	$data['referenciasasignaturas'] =$this->referenciasasignatura_model->referenciasasignaturasA($data['asignatura']['idasignatura'])->result();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
  	$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
   if(!empty($data))
@@ -235,7 +235,7 @@ public function elprimero()
 	$data['horasasignaturas'] =$this->horasasignatura_model->horasasignaturasA($data['asignatura']['idasignatura'])->result();
 	$data['referenciasasignaturas'] =$this->referenciasasignatura_model->referenciasasignaturasA($data['asignatura']['idasignatura'])->result();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
  	$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
   if(!empty($data))
@@ -257,7 +257,7 @@ public function elultimo()
 	$data['horasasignaturas'] =$this->horasasignatura_model->horasasignaturasA($data['asignatura']['idasignatura'])->result();
 	$data['referenciasasignaturas'] =$this->referenciasasignatura_model->referenciasasignaturasA($data['asignatura']['idasignatura'])->result();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
  	$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
   if(!empty($data))
@@ -281,7 +281,7 @@ public function siguiente(){
 	$data['horasasignaturas'] =$this->horasasignatura_model->horasasignaturasA($data['asignatura']['idasignatura'])->result();
 	$data['referenciasasignaturas'] =$this->referenciasasignatura_model->referenciasasignaturasA($data['asignatura']['idasignatura'])->result();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
  	$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
   $data['title']="Asignatura";
@@ -296,7 +296,7 @@ public function anterior(){
 	$data['horasasignaturas'] =$this->horasasignatura_model->horasasignaturasA($data['asignatura']['idasignatura'])->result();
 	$data['referenciasasignaturas'] =$this->referenciasasignatura_model->referenciasasignaturasA($data['asignatura']['idasignatura'])->result();
   	$data['mallas']= $this->malla_model->lista_mallas()->result();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
  	$data['areaconocimientos']=$this->areaconocimiento_model->lista_areaconocimientos()->result();
   $data['title']="Asignatura";

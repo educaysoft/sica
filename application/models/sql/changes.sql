@@ -337,4 +337,9 @@ alter table documento add  foreign key ('iddestinodocumento') references destino
 
 /*alter table evento add unique (idcalendarioacademico, idasiganturadocente) */
 
-alter table tema add column idaula int(11) default 0;
+/* alter table tema add column idaula int(11) default 0; */
+
+
+alter table departamento add column mision text default "";
+alter table departamento add column vision text default "";
+
