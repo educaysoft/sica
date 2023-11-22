@@ -24,10 +24,36 @@ foreach ($personas as $row){
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Desde:</label>
+	<div class="col-md-10">
+	<?php
+
+$options= array('--Select--');
+foreach (departamentofuente as $row){
+	$options[$row->ididepartamentofuente]= $row->eldepartamento;
+}
+
+ echo form_dropdown("iddepartamentofuente",$options, set_select('--Select--','default_value'));  
+		?>
+	</div> 
+</div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Hasta:</label>
+	<div class="col-md-10">
+	<?php
 
+$options= array('--Select--');
+foreach ($personas as $row){
+	$options[$row->iddepartamentodestino]= $row->eldepartamento;
+}
 
+ echo form_dropdown("iddepartamentodestino",$options, set_select('--Select--','default_value'));  
+		?>
+	</div> 
+</div>
 
 
 
