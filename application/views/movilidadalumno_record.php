@@ -79,7 +79,7 @@ echo form_input('idpersona',$options[$movilidadalumno['idpersona']],array("disab
      	<?php 
  
 $options= array("NADA");
-foreach ($personas as $row){
+foreach ($departamentofuente as $row){
 	$options[$row->iddepartamentofuente]= $row->eldepartamento;
 }
 
@@ -95,7 +95,7 @@ echo form_input('iddepartamentofuente',$options[$movilidadalumno['iddepartamento
      	<?php 
  
 $options= array("NADA");
-foreach ($personas as $row){
+foreach ($departamentodestino as $row){
 	$options[$row->iddepartamentodestino]= $row->eldepartamento;
 }
 
