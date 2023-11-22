@@ -53,11 +53,9 @@ class Alumno_model extends CI_model {
 
  	function save($array)
  	{
-		$condition1 = "iddepartamento =" . "'" . $array['iddepartamento'] . "'";
 		$condition2 = "idpersona =" . "'" . $array['idpersona'] . "'";
 		$this->db->select('*');
 		$this->db->from('alumno0');
-		$this->db->where($condition1);
 		$this->db->where($condition2);
 		$this->db->limit(1);
 		$query = $this->db->get();
