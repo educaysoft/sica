@@ -42,11 +42,11 @@ if(isset($departamentoalumno))
      <td>Funcionario:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($funcionarios as $row){
-	$options[$row->idfuncionario]= $row->elfuncionario;
+foreach ($alumnos as $row){
+	$options[$row->idalumno]= $row->elalumno;
 }
 
-echo form_input('idfuncionario',$options[$departamentoalumno['idfuncionario']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+echo form_input('idalumno',$options[$departamentoalumno['idalumno']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
   </tr>
  
 

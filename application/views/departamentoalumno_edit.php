@@ -20,11 +20,11 @@ echo form_input($eys_arrinput); ?></td>
 <td> Persona:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($funcionarios as $row){
-	$options[$row->idfuncionario]= $row->elfuncionario;
+foreach ($alumnos as $row){
+	$options[$row->idalumno]= $row->elalumno;
 }
 
- echo form_dropdown("idfuncionario",$options, $departamentoalumno['idfuncionario']);  ?></td>
+ echo form_dropdown("idalumno",$options, $departamentoalumno['idalumno']);  ?></td>
 </tr>
 
 <tr>
