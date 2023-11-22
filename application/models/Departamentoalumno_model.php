@@ -7,9 +7,9 @@ class Departamentoalumno_model extends CI_model {
 	}
 
 
-	function lista_departamentoalumnos1($idfuncionario){
+	function lista_departamentoalumnos1($idalumno){
 
- 		$this->db->where('idfuncionario',$idfuncionario);
+ 		$this->db->where('idalumno',$idalumno);
 		 $departamentoalumno= $this->db->get('departamentoalumno1');
 		 return $departamentoalumno;
 	}
