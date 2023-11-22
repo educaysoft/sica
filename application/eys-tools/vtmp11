@@ -1,58 +1,94 @@
 <div id="eys-nav-i">
-	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<ul>
 <?php
-if(isset($tipoevento))
+if(isset($departamentofuncionario))
 {
 ?>
-        <li> <?php echo anchor('tipoevento/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('tipoevento/siguiente/'.$tipoevento['idtipoevento'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('tipoevento/anterior/'.$tipoevento['idtipoevento'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('tipoevento/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('tipoevento/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('tipoevento/edit/'.$tipoevento['idtipoevento'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('tipoevento/delete/'.$tipoevento['idtipoevento'],'Delete'); ?></li>
-        <li> <?php echo anchor('tipoevento/listar/','Listar'); ?></li>
+   <li> <?php echo anchor('departamentofuncionario/elprimero/', 'primero'); ?></li>
+   <li> <?php echo anchor('departamentofuncionario/anterior/'.$departamentofuncionario['iddepartamentofuncionario'], 'anterior'); ?></li>
+   <li> <?php echo anchor('departamentofuncionario/siguiente/'.$departamentofuncionario['iddepartamentofuncionario'], 'siguiente'); ?></li>
+   <li style="border-right:1px solid green"><?php echo anchor('departamentofuncionario/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('departamentofuncionario/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('departamentofuncionario/edit/'.$departamentofuncionario['iddepartamentofuncionario'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('departamentofuncionario/delete/'.$departamentofuncionario['iddepartamentofuncionario'],'Delete'); ?></li>
+        <li> <?php echo anchor('departamentofuncionario/listar/','Listar'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('tipoevento/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('departamentofuncionario/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
+
     </ul>
 </div>
 <br>
 <br>
 
 
-<?php echo form_open('tipoevento/save_edit') ?>
-<?php echo form_hidden('idtipoevento',$tipoevento['idtipoevento']) ?>
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id:</label>
-	<div class="col-md-10">
-     <?php
-	echo form_input('idtipoevento',$tipoevento['idtipoevento'],array("disabled"=>"disabled",'placeholder'=>'Idtipoeventos'));
-	?>
-	</div> 
-</div> 
+<?php echo form_open('departamentofuncionario/save_edit') ?>
+<?php echo form_hidden('iddepartamentofuncionario',$departamentofuncionario['iddepartamentofuncionario']) ?>
+<table>
+  <tr>
+     <td>Id DepartamenteoFuncioanrio:</td>
+     <td><?php echo form_input('iddepartamentofuncionario',$departamentofuncionario['iddepartamentofuncionario'],array("disabled"=>"disabled",'placeholder'=>'Iddepartamentofuncionarios')) ?></td>
+  </tr>
  
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre:</label>
-	<div class="col-md-10">
-     <?php
-       echo form_input('nombre',$tipoevento['nombre'],array('placeholder'=>'Nombre del tipoevento')); 
+ 
+<tr>
+     <td>Funcionario:</td>
+     <td><?php 
+$options= array("NADA");
+foreach ($funcionarios as $row){
+	$options[$row->idfuncionario]= $row->elfuncionario;
+}
 
-	?>
-	</div> 
-</div> 
-   
-   
+echo form_input('idfuncionario',$options[$departamentofuncionario['idfuncionario']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+  </tr>
+ 
+
+ <tr>
+     <td>Departamento:</td>
+     <td><?php 
+    $options= array("NADA");
+    foreach ($departamentos as $row){
+	      $options[$row->iddepartamento]= $row->nombre;
+    }
+    echo form_input('iddepartamento',$options[$departamentofuncionario['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+ </tr>
+  
+
+
+  
+<tr>
+      <td>Fecha desde:</td>
+      <td><?php echo form_input('fechadesde',$departamentofuncionario['fechadesde'],array('type'=>'date','placeholder'=>'fechadesde','style'=>'width:500px;')) ?></td>
+</tr>
+
+
+
+
+
+
+
+</table>
 <?php echo form_close(); ?>
 
 
 
+
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>

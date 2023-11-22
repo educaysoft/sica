@@ -111,7 +111,7 @@ echo form_input('idcargo',$options[$funcionario['idcargo']],array("disabled"=>"d
             <b>Departamento del funcionario: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('departamento/add/'.$funcionario['idpersona']) ?>">Nueva departamento</a>
+            <a class="btn btn-success" href="<?php echo base_url('departamentofuncionario/add/'.$funcionario['idfuncionario']) ?>">Nueva departamento</a>
         </div>
     </div>
 </div>

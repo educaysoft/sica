@@ -1,33 +1,66 @@
 <?php
-class Tipoevento_model extends CI_model {
+class Departamentofuncionario_model extends CI_model {
 
-	function lista_tipoeventos(){
-		 $tipoevento= $this->db->get('tipoevento');
-		 return $tipoevento;
+	function lista_departamentofuncionarios(){
+		 $departamentofuncionario= $this->db->get('departamentofuncionario');
+		 return $departamentofuncionario;
 	}
 
- 	function tipoevento( $id){
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
- 		return $tipoevento;
+
+	function lista_departamentofuncionarios1($idfuncionario){
+
+ 		$this->db->where('idfuncionario',$idfuncionario);
+		 $departamentofuncionario= $this->db->get('departamentofuncionario1');
+		 return $departamentofuncionario;
+	}
+
+
+
+
+	function lista_departamentofuncionariosA(){
+		 $departamentofuncionario= $this->db->get('departamentofuncionario1');
+		 return $departamentofuncionario;
+	}
+
+
+
+ 	function departamentofuncionario( $id){
+ 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $id.'"');
+ 		return $departamentofuncionario;
  	}
+
+
+
+ 	function departamentofuncionarios( $idpersona){
+ 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario1 where idpersona="'. $idpersona.'"');
+ 		return $departamentofuncionario;
+ 	}
+
+
+ 	function departamentofuncionariospersona( $id){
+ 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where idpersona="'. $id.'"');
+ 		return $departamentofuncionario;
+ 	}
+
+
 
  	function save($array)
  	{
-		$this->db->insert("tipoevento", $array);
+		$this->db->insert("departamentofuncionario", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idtipoevento',$id);
- 		$this->db->update('tipoevento',$array_item);
+ 		$this->db->where('iddepartamentofuncionario',$id);
+ 		$this->db->update('departamentofuncionario',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idtipoevento',$id);
-		$this->db->delete('tipoevento');
+ 		$this->db->where('iddepartamentofuncionario',$id);
+		$this->db->delete('departamentofuncionario');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -38,7 +71,7 @@ class Tipoevento_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
+		$query=$this->db->order_by("iddepartamentofuncionario")->get('departamentofuncionario');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -51,7 +84,7 @@ class Tipoevento_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idtipoevento")->get('tipoevento');
+		$query=$this->db->order_by("iddepartamentofuncionario")->get('departamentofuncionario');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -63,37 +96,37 @@ class Tipoevento_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
-		$arr=array("idtipoevento"=>$id);
-		$clave=array_search($arr,$tipoevento);
-	   if(array_key_exists($clave+1,$tipoevento))
+ 		$departamentofuncionario = $this->db->select("iddepartamentofuncionario")->order_by("iddepartamentofuncionario")->get('departamentofuncionario')->result_array();
+		$arr=array("iddepartamentofuncionario"=>$id);
+		$clave=array_search($arr,$departamentofuncionario);
+	   if(array_key_exists($clave+1,$departamentofuncionario))
 		 {
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave+1]["idtipoevento"].'"');
+ 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $departamentofuncionario[$clave+1]["iddepartamentofuncionario"].'"');
 		 }else{
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
+ 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $id.'"');
 		 }
 		 	
- 		return $tipoevento;
+ 		return $departamentofuncionario;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$tipoevento = $this->db->select("idtipoevento")->order_by("idtipoevento")->get('tipoevento')->result_array();
-		$arr=array("idtipoevento"=>$id);
-		$clave=array_search($arr,$tipoevento);
-	   if(array_key_exists($clave-1,$tipoevento))
+ 		$departamentofuncionario = $this->db->select("iddepartamentofuncionario")->order_by("iddepartamentofuncionario")->get('departamentofuncionario')->result_array();
+		$arr=array("iddepartamentofuncionario"=>$id);
+		$clave=array_search($arr,$departamentofuncionario);
+	   if(array_key_exists($clave-1,$departamentofuncionario))
 		 {
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $tipoevento[$clave-1]["idtipoevento"].'"');
+ 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $departamentofuncionario[$clave-1]["iddepartamentofuncionario"].'"');
 		 }else{
 
- 		$tipoevento = $this->db->query('select * from tipoevento where idtipoevento="'. $id.'"');
+ 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $id.'"');
 		 }
 		 	
- 		return $tipoevento;
+ 		return $departamentofuncionario;
  	}
 
 
