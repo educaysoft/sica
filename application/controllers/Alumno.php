@@ -86,7 +86,6 @@ public function actual(){
 		 	
 		 	'idalumno' => $this->input->post('idalumno'),
 			'idpersona' => $this->input->post('idpersona'),
-			'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
 	 	$result=$this->alumno_model->save($array_item);
 	 	if($result == FALSE)
@@ -120,7 +119,6 @@ public function actual(){
 		 	
 		 	'idalumno' => $this->input->post('idalumno'),
 			'idpersona' => $this->input->post('idpersona'),
-			'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
 	 	$this->alumno_model->update($id,$array_item);
 	 	redirect('alumno');

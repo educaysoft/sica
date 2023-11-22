@@ -5,19 +5,7 @@
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Departamento:</label>
-	<div class="col-md-10">
-	<?php
 
-$options= array('--Select--');
-foreach ($departamentos as $row){
-	$options[$row->iddepartamento]= $row->nombre;
-}
- echo form_dropdown("iddepartamento",$options, set_select('--Select--','default_value')); 
-		?>
-	</div> 
-</div>
 
 
 <div class="form-group row">
