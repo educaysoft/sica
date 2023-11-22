@@ -31,7 +31,7 @@ foreach ($personas as $row){
 
 $options= array('--Select--');
 foreach (departamentofuente as $row){
-	$options[$row->ididepartamentofuente]= $row->eldepartamento;
+	$options[$row->iddepartamentofuente]= $row->eldepartamento;
 }
 
  echo form_dropdown("iddepartamentofuente",$options, set_select('--Select--','default_value'));  
