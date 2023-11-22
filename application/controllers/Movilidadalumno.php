@@ -72,7 +72,7 @@ public function actual(){
 	public function add()
 	{
 			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['departamentos']= $this->departamentofuente_model->lista_departamentos()->result();
+			$data['departamentos']= $this->departamentofuente_model->listar_departamentofuente()->result();
 			$data['title']="Nueva Movilidadmovilidadalumno";
 			$this->load->view('template/page_header');		
 			$this->load->view('movilidadalumno_form',$data);
