@@ -65,7 +65,7 @@ echo form_input('idmovilidadalumno',$options[$etapamovilidadalumno['idmovilidada
   
 <tr>
       <td>Fecha desde:</td>
-      <td><?php echo form_input('fechadesde',$etapamovilidadalumno['fechadesde'],array('type'=>'date','placeholder'=>'fechadesde','style'=>'width:500px;')) ?></td>
+      <td><?php echo form_input('fecha',$etapamovilidadalumno['fecha'],array('type'=>'date','placeholder'=>'fecha','style'=>'width:500px;')) ?></td>
 </tr>
 
 
