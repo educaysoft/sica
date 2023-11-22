@@ -1,6 +1,6 @@
 <?php
 
-class Movilidadmovilidadalumno extends CI_Controller{
+class Movilidadadalumno extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
