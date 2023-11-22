@@ -16,7 +16,7 @@ public function index(){
 			
 		$data['movilidadalumno']=$this->movilidadalumno_model->elultimo();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['departamentos']= $this->departamentofuente_model->lista_departamentos()->result();
+		$data['departamentos']= $this->departamentofuente_model->listar_departamentofuente()->result();
 			
 		$data['title']="Lista de movilidadalumnos";
 		$this->load->view('template/page_header');
