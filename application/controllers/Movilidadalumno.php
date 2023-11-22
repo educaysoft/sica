@@ -160,7 +160,7 @@ public function actual(){
 			$data0 = $this->etapamovilidadalumno_model->lista_etapamovilidadalumnos1($idmovilidadalumno);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idetapamovilidadalumno,$r->idmovilidadaulumno,$r->etapa,$r->fecha,
+				$data[]=array($r->idetapamovilidadalumno,$r->idmovilidadalumno,$r->etapa,$r->fecha,
 					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('movilidadalumno/actual').'"  data-idmovilidadalumno="'.$r->idmovilidadalumno.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
