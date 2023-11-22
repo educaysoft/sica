@@ -156,10 +156,10 @@ public function actual(){
 
 
 			$idmovilidadalumno=$this->input->get('idmovilidadalumno');
-			$data0 = $this->departamentodestino_model->lista_departamentodestinos1($idmovilidadalumno);
+			$data0 = $this->etapamovilidad_model->lista_departamentodestinos1($idmovilidadalumno);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idmovilidadalumno,$r->iddepartamento,$r->eldepartamento,$r->fechadesde,
+				$data[]=array($r->idetapamovilidadalumno,$r->idmovilidadaulumno,$r->etapa,$r->fecha,
 					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('movilidadalumno/actual').'"  data-idmovilidadalumno="'.$r->idmovilidadalumno.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,

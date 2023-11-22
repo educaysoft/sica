@@ -7,9 +7,9 @@ class Etapamovilidadalumno_model extends CI_model {
 	}
 
 
-	function lista_etapamovilidadalumnos1($idfuncionario){
+	function lista_etapamovilidadalumnos1($idmovilidadalumno){
 
- 		$this->db->where('idfuncionario',$idfuncionario);
+ 		$this->db->where('idmovilidadalumno',$idmovilidadalumno);
 		 $etapamovilidadalumno= $this->db->get('etapamovilidadalumno1');
 		 return $etapamovilidadalumno;
 	}
