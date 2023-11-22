@@ -6,7 +6,6 @@ class Alumno extends CI_Controller{
       parent::__construct();
   	  $this->load->model('persona_model');
   	  $this->load->model('departamento_model');
-  	  $this->load->model('cargo_model');
   	  $this->load->model('alumno_model');
   	  $this->load->model('departamentoalumno_model');
 }
@@ -18,7 +17,6 @@ public function index(){
 		$data['alumno']=$this->alumno_model->elultimo();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['cargos']= $this->cargo_model->lista_cargos()->result();
 			
 		$data['title']="Lista de alumnos";
 		$this->load->view('template/page_header');
@@ -54,7 +52,6 @@ public function actual(){
 
 	$data['personas']= $this->persona_model->lista_personas()->result();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-	$data['cargos']= $this->cargo_model->lista_cargos()->result();
 	$data['alumno']=$this->alumno_model->alumno($this->uri->segment(3))->row_array();
 
 
@@ -76,7 +73,6 @@ public function actual(){
 	{
 			$data['personas']= $this->persona_model->lista_personas()->result();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-			$data['cargos']= $this->cargo_model->lista_cargos()->result();
 			$data['title']="Nueva Alumno";
 			$this->load->view('template/page_header');		
 			$this->load->view('alumno_form',$data);
@@ -91,9 +87,6 @@ public function actual(){
 		 	'idalumno' => $this->input->post('idalumno'),
 			'idpersona' => $this->input->post('idpersona'),
 			'iddepartamento' => $this->input->post('iddepartamento'),
-			'idcargo' => $this->input->post('idcargo'),
-			'fechaingreso' => $this->input->post('fechaingreso'),
-			'fechasalida' => $this->input->post('fechasalida'),
 	 	);
 	 	$result=$this->alumno_model->save($array_item);
 	 	if($result == FALSE)
@@ -194,7 +187,6 @@ public function actual(){
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['alumno'] = $this->alumno_model->elprimero();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['cargos']= $this->cargo_model->lista_cargos()->result();
 
 		  if(!empty($data))
 		  {
@@ -214,8 +206,6 @@ public function actual(){
 	{
 		$data['alumno'] = $this->alumno_model->elultimo();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['cargos']= $this->cargo_model->lista_cargos()->result();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		  if(!empty($data))
 		  {
 			$data['personas']= $this->persona_model->lista_personas()->result();
@@ -236,7 +226,6 @@ public function actual(){
 		$data['alumno'] = $this->alumno_model->siguiente($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['cargos']= $this->cargo_model->lista_cargos()->result();
 
 		$data['title']="Alumno";
 		$this->load->view('template/page_header');		
@@ -247,8 +236,6 @@ public function actual(){
 	public function anterior(){
 		$data['alumno'] = $this->alumno_model->anterior($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['cargos']= $this->cargo_model->lista_cargos()->result();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['title']="Alumno";
 		$this->load->view('template/page_header');		
 		$this->load->view('alumno_record',$data);

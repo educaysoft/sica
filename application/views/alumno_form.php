@@ -36,18 +36,7 @@ foreach ($personas as $row){
 </div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Cargo:</label>
-	<div class="col-md-10">
-	<?php
-$options= array('--Select--');
-foreach ($cargos as $row){
-	$options[$row->idcargo]= $row->nombre;
-}
- echo form_dropdown("idcargo",$options, set_select('--Select--','default_value')); 
-		?>
-	</div> 
-</div>
+
 
 
 

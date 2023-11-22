@@ -78,20 +78,7 @@ echo form_input('idpersona',$options[$alumno['idpersona']],array("disabled"=>"di
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> Cargo: </label>
-	<div class="col-md-10">
-     	<?php 
 
-$options= array("NADA");
-foreach ($cargos as $row){
-	$options[$row->idcargo]= $row->nombre;
-}
-
-echo form_input('idcargo',$options[$alumno['idcargo']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-		?>
-	</div> 
-</div>
 
   
 
