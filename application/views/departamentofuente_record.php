@@ -47,29 +47,11 @@ if(isset($departamentofuente))
 </div> 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id estudio:</label>
-	<div class="col-md-10">
-	<?php
-     	 echo form_input('idestudio',$departamentofuente['idestudio'],array("disabled"=>"disabled",'placeholder'=>'Iddepartamentofuentees','style'=>'width:600px;'));
-	?>
-	</div> 
-</div> 
+ 
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Estudio:</label>
-	<div class="col-md-10">
-	<?php
-$options= array("NADA");
-foreach ($estudios as $row){
-	$options[$row->idestudio]= $row->lapersona." -  ".$row->titulo;
-}
-echo form_input('idestudio',$options[$departamentofuente['idestudio']],array("disabled"=>"disabled",'style'=>'width:600px;'));
-	?>
-	</div> 
-</div> 
+ 
 
 
 
