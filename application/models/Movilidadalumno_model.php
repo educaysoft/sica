@@ -8,7 +8,7 @@ class Movilidadalumno_model extends CI_model {
 
 
 	function lista_movilidadalumnosA(){
-		 $this->db->order_by("elmovilidadalumno","asc");
+		 $this->db->order_by("idmovilidadalumno","asc");
 		 $movilidadalumno= $this->db->get('movilidadalumno1');
 		 return $movilidadalumno;
 	}
