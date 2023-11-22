@@ -40,7 +40,7 @@ foreach ($etapamovilidads as $row){
 
 <tr>
       <td>Fecha :</td>
-      <td><?php echo form_input( array("name"=>'fecha',"id"=>'fecha',"value"=>$etapamovilidadalumno['fechadesde'],'placeholder'=>'fecha',"type"=>"date")); ?></td>
+      <td><?php echo form_input( array("name"=>'fecha',"id"=>'fecha',"value"=>$etapamovilidadalumno['fecha'],'placeholder'=>'fecha',"type"=>"date")); ?></td>
   </tr>
 
  
