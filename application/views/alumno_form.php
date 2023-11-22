@@ -41,24 +41,10 @@ foreach ($personas as $row){
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha de ingreso:</label>
-	<div class="col-md-10">
-	<?php
- echo form_input(array("name"=>"fechaingreso","id"=>"fechaingreso","type"=>"date"));  
-		?>
-	</div> 
-</div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha de salida:</label>
-	<div class="col-md-10">
-	<?php
- echo form_input(array("name"=>"fechasalida","id"=>"fechasalida","type"=>"date"));  
-		?>
-	</div> 
-</div>
+
+
 
 
 <table>
