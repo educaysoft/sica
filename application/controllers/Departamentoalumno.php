@@ -4,7 +4,7 @@ class Departamentoalumno extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-  	  $this->load->model('funcionario_model');
+  	  $this->load->model('alumno_model');
   	  $this->load->model('departamento_model');
   	  $this->load->model('departamentoalumno_model');
 }
@@ -14,7 +14,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   	$data['departamentoalumno']=$this->departamentoalumno_model->lista_departamentoalumnos()->row_array();
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
+  	$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   	$data['departamentoalumnos']= $this->departamentoalumno_model->lista_departamentoalumnos()->result();
 			
@@ -33,7 +33,7 @@ public function index(){
 
 	public function add()
 	{
-			$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
+			$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			$data['title']="Nueva Departamentoalumno";
 			$this->load->view('template/page_header');		
@@ -47,7 +47,7 @@ public function index(){
 	 	$array_item=array(
 		 	
 		'iddepartamentoalumno' => $this->input->post('iddepartamentoalumno'),
-		'idfuncionario' => $this->input->post('idfuncionario'),
+		'idalumno' => $this->input->post('idalumno'),
 		'iddepartamento' => $this->input->post('iddepartamento'),
 		'fechadesde' => $this->input->post('fechadesde'),
 	 	);
@@ -60,7 +60,7 @@ public function index(){
 	public function edit()
 	{
 			$data['departamentoalumno'] = $this->departamentoalumno_model->departamentoalumno($this->uri->segment(3))->row_array();
-			$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
+			$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			$data['title'] = "Actualizar Departamentoalumno";
 			$this->load->view('template/page_header');		
@@ -76,7 +76,7 @@ public function index(){
 	 	$array_item=array(
 		 	
 		 	'iddepartamentoalumno' => $this->input->post('iddepartamentoalumno'),
-			'idfuncionario' => $this->input->post('idfuncionario'),
+			'idalumno' => $this->input->post('idalumno'),
 			'iddepartamento' => $this->input->post('iddepartamento'),
 			'fechadesde' => $this->input->post('fechadesde'),
 	 	);
@@ -115,7 +115,7 @@ function departamentoalumno_data()
 	 	$data0 = $this->departamentoalumno_model->lista_departamentoalumnosA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->iddepartamentoalumno,$r->lafuncionario,$r->ladepartamento,
+			$data[]=array($r->iddepartamentoalumno,$r->laalumno,$r->ladepartamento,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('departamentoalumno/actual').'"   data-iddepartamentoalumno="'.$r->iddepartamentoalumno.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
@@ -136,14 +136,14 @@ public function actual()
 {
 
 
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
+  	$data['alumnos']= $this->alumno_model->lista_alumnos()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 
 
 	$data['departamentoalumno'] = $this->departamentoalumno_model->departamentoalumno($this->uri->segment(3))->row_array();
   if(!empty($data))
   {
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
+  	$data['alumnos']= $this->alumno_model->lista_alumnos()->result();
     $data['title']="Departamentoalumno";
     $this->load->view('template/page_header');		
     $this->load->view('departamentoalumno_record',$data);
@@ -168,14 +168,14 @@ public function elprimero()
 {
 
 
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
+  	$data['alumnos']= $this->alumno_model->lista_alumnos()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 
 
 	$data['departamentoalumno'] = $this->departamentoalumno_model->elprimero();
   if(!empty($data))
   {
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
+  	$data['alumnos']= $this->alumno_model->lista_alumnos()->result();
     $data['title']="Departamentoalumno";
     $this->load->view('template/page_header');		
     $this->load->view('departamentoalumno_record',$data);
@@ -190,11 +190,11 @@ public function elprimero()
 public function elultimo()
 {
 	$data['departamentoalumno'] = $this->departamentoalumno_model->elultimo();
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
+  	$data['alumnos']= $this->alumno_model->lista_alumnos()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   if(!empty($data))
   {
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
+  	$data['alumnos']= $this->alumno_model->lista_alumnos()->result();
     $data['title']="Departamentoalumno";
   
     $this->load->view('template/page_header');		
@@ -211,7 +211,7 @@ public function elultimo()
 public function siguiente(){
  // $data['departamentoalumno_list']=$this->departamentoalumno_model->lista_departamentoalumno()->result();
 	$data['departamentoalumno'] = $this->departamentoalumno_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
+  	$data['alumnos']= $this->alumno_model->lista_alumnos()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   
 
@@ -224,7 +224,7 @@ $data['title']="Departamentoalumno";
 public function anterior(){
  // $data['departamentoalumno_list']=$this->departamentoalumno_model->lista_departamentoalumno()->result();
 	$data['departamentoalumno'] = $this->departamentoalumno_model->anterior($this->uri->segment(3))->row_array();
- 	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
+ 	$data['alumnos']= $this->alumno_model->lista_alumnos()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   $data['title']="Departamentoalumno";
 	$this->load->view('template/page_header');		
