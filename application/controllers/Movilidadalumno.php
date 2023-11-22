@@ -85,8 +85,9 @@ public function actual(){
 	{
 	 	$array_item=array(
 		 	
-		 	'idmovilidadalumno' => $this->input->post('idmovilidadalumno'),
 			'idpersona' => $this->input->post('idpersona'),
+			'iddepartamentofuente' => $this->input->post('iddepartamentofuente'),
+			'iddepartamentodestino' => $this->input->post('iddepartamentodestino'),
 	 	);
 	 	$result=$this->movilidadalumno_model->save($array_item);
 	 	if($result == FALSE)
@@ -120,6 +121,8 @@ public function actual(){
 		 	
 		 	'idmovilidadalumno' => $this->input->post('idmovilidadalumno'),
 			'idpersona' => $this->input->post('idpersona'),
+			'iddepartamentofuente' => $this->input->post('iddepartamentofuente'),
+			'iddepartamentodestino' => $this->input->post('iddepartamentodestino'),
 	 	);
 	 	$this->movilidadalumno_model->update($id,$array_item);
 	 	redirect('movilidadalumno');
