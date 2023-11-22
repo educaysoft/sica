@@ -5,16 +5,7 @@
 <hr/>
 <?php echo form_open("departamentofuente/save") ?>
 <table>
-<tr>
-<td> Estudio: </td>
-<td><?php
-$options= array('--Select--');
-foreach ($estudios as $row){
-	$options[$row->idestudio]= $row->lapersona.' - '.$row->titulo;
-}
 
- echo form_dropdown("idestudio",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
 
 <tr>
 <td> Departamento/carrera: </td>
