@@ -50,8 +50,8 @@ foreach ($etapamovilidads as $row){
 
 
 <tr>
-<td> Fechadesde: </td>
-<td><?php echo form_input(array("name"=>"fechadesde","id"=>"fechadesde","type"=>"date"));  ?></td>
+<td> Fecha: </td>
+<td><?php echo form_input(array("name"=>"fecha","id"=>"fecha","type"=>"date"));  ?></td>
 </tr>
 
 

@@ -39,25 +39,25 @@ if(isset($etapamovilidadalumno))
  
  
 <tr>
-     <td>Funcionario:</td>
+     <td>Movilidad alumno:</td>
      <td><?php 
 $options= array("NADA");
-foreach ($funcionarios as $row){
-	$options[$row->idfuncionario]= $row->elfuncionario;
+foreach ($movilidadalumnos as $row){
+	$options[$row->idmovilidadalumno]= $row->lapersona;
 }
 
-echo form_input('idfuncionario',$options[$etapamovilidadalumno['idfuncionario']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+echo form_input('idmovilidadalumno',$options[$etapamovilidadalumno['idmovilidadalumno']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
   </tr>
  
 
  <tr>
-     <td>Departamento:</td>
+     <td>Etapa movilidad:</td>
      <td><?php 
     $options= array("NADA");
-    foreach ($departamentos as $row){
-	      $options[$row->iddepartamento]= $row->nombre;
+    foreach ($etapamovilidads as $row){
+	      $options[$row->idetapamovilidad]= $row->nombre;
     }
-    echo form_input('iddepartamento',$options[$etapamovilidadalumno['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+    echo form_input('idetapamovilidad',$options[$etapamovilidadalumno['idetapamovilidad']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
   
 

@@ -20,26 +20,26 @@ echo form_input($eys_arrinput); ?></td>
 <td> Persona:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($funcionarios as $row){
-	$options[$row->idfuncionario]= $row->elfuncionario;
+foreach ($movilidadalumnos as $row){
+	$options[$row->idmovilidadalumno]= $row->elmovilidadalumno;
 }
 
- echo form_dropdown("idfuncionario",$options, $etapamovilidadalumno['idfuncionario']);  ?></td>
+ echo form_dropdown("idmovilidadalumno",$options, $etapamovilidadalumno['idmovilidadalumno']);  ?></td>
 </tr>
 
 <tr>
-<td> Departamento:</td>
+<td> Etapa:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($departamentos as $row){
-	$options[$row->iddepartamento]= $row->nombre;
+foreach ($etapamovilidads as $row){
+	$options[$row->idetapamovilidad]= $row->nombre;
 }
 
- echo form_dropdown("iddepartamento",$options, $etapamovilidadalumno['iddepartamento']);  ?></td>
+ echo form_dropdown("idetapamovilidad",$options, $etapamovilidadalumno['idetapamovilidad']);  ?></td>
 </tr>
 
 <tr>
-      <td>Fecha desde:</td>
+      <td>Fecha :</td>
       <td><?php echo form_input( array("name"=>'fechadesde',"id"=>'fechadesde',"value"=>$etapamovilidadalumno['fechadesde'],'placeholder'=>'fechadesde',"type"=>"date")); ?></td>
   </tr>
 
