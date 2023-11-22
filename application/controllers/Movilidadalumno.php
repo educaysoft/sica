@@ -72,8 +72,8 @@ public function actual(){
 	public function add()
 	{
 			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['departamentofuente']= $this->departamentofuente_model->listar_departamentofuente1()->result();
-			$data['departamentodestino']= $this->departamentodestino_model->listar_departamentodestino1()->result();
+			$data['departamentofuente']= $this->departamentofuente_model->listar_departamentofuente1(0)->result();
+			$data['departamentodestino']= $this->departamentodestino_model->listar_departamentodestino1(0)->result();
 			$data['title']="Nueva Movilidadmovilidadalumno";
 			$this->load->view('template/page_header');		
 			$this->load->view('movilidadalumno_form',$data);
