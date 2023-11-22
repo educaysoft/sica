@@ -19,7 +19,7 @@ if(isset($_GET["idmovilidadalumno"]))
 
 $options= array('--Select--');
 foreach ($movilidadalumnos as $row){
-	$options[$row->idmovilidadalumno]= $row->elmovilidadalumno;
+	$options[$row->idmovilidadalumno]= $row->lapersona;
 }
  if(isset($idmovilidadalumno))
  {
