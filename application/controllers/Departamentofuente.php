@@ -5,13 +5,11 @@ class Departamentofuente extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('departamentofuente_model');
-      $this->load->model('estudio_model');
       $this->load->model('departamento_model');
 }
 
 	public function index(){
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  		$data['estudios']= $this->estudio_model->lista_estudios1(0)->result();
  		// $data['departamentofuente']=$this->departamentofuente_model->departamentofuente(1)->row_array();
 		$data['departamentofuente'] = $this->departamentofuente_model->elprimero();
  		// print_r($data['usuario_list']);
@@ -24,11 +22,7 @@ class Departamentofuente extends CI_Controller{
 
 	public function add()
 	{
-		if($this->uri->segment(3)){
-			$data['estudios']= $this->estudio_model->lista_estudiosA($this->uri->segment(3))->result();
-		}else{
-			$data['estudios']= $this->estudio_model->lista_estudiosA()->result();
-		}
+		
 			$data['departamentos']= $this->departamento_model->lista_departamentos1(0)->result();
 
 		$data['title']="Nuevo Departamentofuente";
@@ -56,7 +50,6 @@ public function listar()
 	public function  save()
 	{
 	 	$array_item=array(
-		 	'idestudio' => $this->input->post('idestudio'),
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
 	 	$this->departamentofuente_model->save($array_item);
@@ -69,7 +62,6 @@ public function edit()
 {
 
 	 	$data['departamentofuente'] = $this->departamentofuente_model->departamentofuente($this->uri->segment(3))->row_array();
-		$data['estudios']= $this->estudio_model->lista_estudiosA()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
  	 	$data['title'] = "Actualizar Departamentofuente";
  	 	$this->load->view('template/page_header');		
@@ -84,7 +76,6 @@ public function edit()
 		$id=$this->input->post('iddepartamentofuente');
 	 	$array_item=array(
 
-		 	'idestudio' => $this->input->post('idestudio'),
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
 	 	$result=$this->departamentofuente_model->update($id,$array_item);
@@ -117,7 +108,6 @@ public function elprimero()
 	$data['departamentofuente'] = $this->departamentofuente_model->elprimero();
   if(!empty($data))
   {
-  	$data['estudios']= $this->estudio_model->lista_estudios()->result();
     $data['title']="Departamentofuente del departamento";
     $this->load->view('template/page_header');		
     $this->load->view('departamentofuente_record',$data);
@@ -135,7 +125,6 @@ public function elultimo()
 	$data['departamentofuente'] = $this->departamentofuente_model->elultimo();
   if(!empty($data))
   {
-  	$data['estudios']= $this->estudio_model->lista_estudios()->result();
     $data['title']="Departamentofuente del departamento";
   
     $this->load->view('template/page_header');		
@@ -153,7 +142,6 @@ public function siguiente(){
  // $data['departamentofuente_list']=$this->departamentofuente_model->lista_departamentofuente()->result();
   $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['departamentofuente'] = $this->departamentofuente_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['estudios']= $this->estudio_model->lista_estudios()->result();
     $data['title']="Departamentofuente del departamento";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
@@ -165,7 +153,6 @@ public function anterior(){
  // $data['departamentofuente_list']=$this->departamentofuente_model->lista_departamentofuente()->result();
   $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	$data['departamentofuente'] = $this->departamentofuente_model->anterior($this->uri->segment(3))->row_array();
- 	$data['estudios']= $this->estudio_model->lista_estudios()->result();
  // $data['title']="Correo";
     	$data['title']="Departamentofuente del departamento";
 	$this->load->view('template/page_header');		
