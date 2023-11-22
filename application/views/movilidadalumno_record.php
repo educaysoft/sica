@@ -120,7 +120,7 @@ echo form_input('iddepartamentodestino',$options[$movilidadalumno['iddepartament
             <b>Etapa de la movilidadalumno: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('departamentomovilidadalumno/add/'.$movilidadalumno['idmovilidadalumno']) ?>">Nueva departamento</a>
+            <a class="btn btn-success" href="<?php echo base_url('etapamovilidadalumno/add/'.$movilidadalumno['idmovilidadalumno']) ?>">Nueva etapa</a>
         </div>
     </div>
 </div>
