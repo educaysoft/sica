@@ -164,7 +164,7 @@ echo form_input('iddepartamentodestino',$options[$movilidadalumno['iddepartament
 
 $(document).ready(function(){
 	var idmovilidadalumno=document.getElementById("idmovilidadalumno").value;
-	var mytablaf= $('#mydatad').DataTable({"ajax": {url: '<?php echo site_url('movilidadalumno/departamento_data')?>', type: 'GET',data:{idmovilidadalumno:idmovilidadalumno}},});
+	var mytablaf= $('#mydatad').DataTable({"ajax": {url: '<?php echo site_url('movilidadalumno/etapamovilidadalumno_data')?>', type: 'GET',data:{idmovilidadalumno:idmovilidadalumno}},});
 
 
 });

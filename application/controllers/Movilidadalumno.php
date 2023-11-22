@@ -156,7 +156,7 @@ public function actual(){
 
 
 			$idmovilidadalumno=$this->input->get('idmovilidadalumno');
-			$data0 = $this->etapamovilidad_model->lista_departamentodestinos1($idmovilidadalumno);
+			$data0 = $this->etapamovilidadalumno_model->lista_etapamovilidadalumnos1($idmovilidadalumno);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idetapamovilidadalumno,$r->idmovilidadaulumno,$r->etapa,$r->fecha,
