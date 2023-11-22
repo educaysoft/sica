@@ -1,68 +1,66 @@
 <?php
-class Pertinencia_model extends CI_model {
+class Departamentofuncionario_model extends CI_model {
 
-	function listar_pertinencia(){
-		 $pertinencia= $this->db->get('pertinencia');
-		 return $pertinencia;
-	}
-
-	function listar_pertinencia1($id){
-
-		if($id>0)
-		{
- 			$pertinencia = $this->db->query('select * from pertinencia1 where idpertinencia="'. $id.'"');
-		}else{
-		 	$pertinencia= $this->db->get('pertinencia1');
-		}	
-		 return $pertinencia;
+	function lista_departamentofuncionarios(){
+		 $departamentofuncionario= $this->db->get('departamentofuncionario');
+		 return $departamentofuncionario;
 	}
 
 
-	function listar_pertinencia1xestudio($id){
+	function lista_departamentofuncionarios1($idfuncionario){
 
-		if($id>0)
-		{
- 			$pertinencia = $this->db->query('select * from pertinencia1 where idestudio="'. $id.'"');
-		}else{
-		 	$pertinencia= $this->db->get('pertinencia1');
-		}	
-		 return $pertinencia;
+ 		$this->db->where('idfuncionario',$idfuncionario);
+		 $departamentofuncionario= $this->db->get('departamentofuncionario1');
+		 return $departamentofuncionario;
 	}
 
 
 
 
+	function lista_departamentofuncionariosA(){
+		 $departamentofuncionario= $this->db->get('departamentofuncionario1');
+		 return $departamentofuncionario;
+	}
 
- 	function pertinencia( $id){
- 		$pertinencia = $this->db->query('select * from pertinencia where idpertinencia="'. $id.'"');
- 		return $pertinencia;
+
+
+ 	function departamentofuncionario( $id){
+ 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $id.'"');
+ 		return $departamentofuncionario;
  	}
+
+
+
+ 	function departamentofuncionarios( $idpersona){
+ 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario1 where idpersona="'. $idpersona.'"');
+ 		return $departamentofuncionario;
+ 	}
+
+
+ 	function departamentofuncionariospersona( $id){
+ 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where idpersona="'. $id.'"');
+ 		return $departamentofuncionario;
+ 	}
+
+
 
  	function save($array)
  	{
-		$this->db->insert("pertinencia", $array);
+		$this->db->insert("departamentofuncionario", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idpertinencia',$id);
-		 $query= $this->db->get('pertinencia');
-		if($query->num_rows()>0)
-		{
- 			$this->db->where('idpertinencia',$id);
- 			$this->db->update('pertinencia',$array_item);
-			return true;
-		}else{
-	        	return false;
-		}
-
+ 		$this->db->where('iddepartamentofuncionario',$id);
+ 		$this->db->update('departamentofuncionario',$array_item);
 	}
  
 
-  public function delete($id)
+
+ 	public function delete($id)
 	{
- 		$this->db->where('idpertinencia',$id);
-		$this->db->delete('pertinencia');
+ 		$this->db->where('iddepartamentofuncionario',$id);
+		$this->db->delete('departamentofuncionario');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -73,7 +71,7 @@ class Pertinencia_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idpertinencia")->get('pertinencia');
+		$query=$this->db->order_by("iddepartamentofuncionario")->get('departamentofuncionario');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -86,7 +84,7 @@ class Pertinencia_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idpertinencia")->get('pertinencia');
+		$query=$this->db->order_by("iddepartamentofuncionario")->get('departamentofuncionario');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -98,38 +96,42 @@ class Pertinencia_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$pertinencia = $this->db->select("idpertinencia")->order_by("idpertinencia")->get('pertinencia')->result_array();
-		$arr=array("idpertinencia"=>$id);
-		$clave=array_search($arr,$pertinencia);
-	   if(array_key_exists($clave+1,$pertinencia))
+ 		$departamentofuncionario = $this->db->select("iddepartamentofuncionario")->order_by("iddepartamentofuncionario")->get('departamentofuncionario')->result_array();
+		$arr=array("iddepartamentofuncionario"=>$id);
+		$clave=array_search($arr,$departamentofuncionario);
+	   if(array_key_exists($clave+1,$departamentofuncionario))
 		 {
 
- 		$pertinencia = $this->db->query('select * from pertinencia where idpertinencia="'. $pertinencia[$clave+1]["idpertinencia"].'"');
+ 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $departamentofuncionario[$clave+1]["iddepartamentofuncionario"].'"');
 		 }else{
 
- 		$pertinencia = $this->db->query('select * from pertinencia where idpertinencia="'. $id.'"');
+ 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $id.'"');
 		 }
 		 	
- 		return $pertinencia;
+ 		return $departamentofuncionario;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$pertinencia = $this->db->select("idpertinencia")->order_by("idpertinencia")->get('pertinencia')->result_array();
-		$arr=array("idpertinencia"=>$id);
-		$clave=array_search($arr,$pertinencia);
-	   if(array_key_exists($clave-1,$pertinencia))
+ 		$departamentofuncionario = $this->db->select("iddepartamentofuncionario")->order_by("iddepartamentofuncionario")->get('departamentofuncionario')->result_array();
+		$arr=array("iddepartamentofuncionario"=>$id);
+		$clave=array_search($arr,$departamentofuncionario);
+	   if(array_key_exists($clave-1,$departamentofuncionario))
 		 {
 
- 		$pertinencia = $this->db->query('select * from pertinencia where idpertinencia="'. $pertinencia[$clave-1]["idpertinencia"].'"');
+ 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $departamentofuncionario[$clave-1]["iddepartamentofuncionario"].'"');
 		 }else{
 
- 		$pertinencia = $this->db->query('select * from pertinencia where idpertinencia="'. $id.'"');
+ 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $id.'"');
 		 }
 		 	
- 		return $pertinencia;
+ 		return $departamentofuncionario;
  	}
+
+
+
+
 
 
 }
