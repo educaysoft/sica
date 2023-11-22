@@ -1,5 +1,5 @@
 <?php
-class Movilidadmovilidadalumno_model extends CI_model {
+class Movilidadalumno_model extends CI_model {
 
 	function lista_movilidadalumnos(){
 		 $movilidadalumno= $this->db->get('movilidadalumno0');
