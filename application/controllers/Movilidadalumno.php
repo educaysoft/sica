@@ -8,6 +8,7 @@ class Movilidadalumno extends CI_Controller{
   	  $this->load->model('departamentofuente_model');
   	  $this->load->model('movilidadalumno_model');
   	  $this->load->model('departamentodestino_model');
+  	  $this->load->model('etapamovilidadalumno_model');
 }
 
 public function index(){
