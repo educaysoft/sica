@@ -47,7 +47,7 @@ if(isset($movilidadalumno))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">id Movilidadmovilidadalumno: </label>
+    <label class="col-md-2 col-form-label">id persona: </label>
 	<div class="col-md-10">
      	<?php 
       echo form_input('idmovilidadalumno',$movilidadalumno['idmovilidadalumno'],array("id"=>"idmovilidadalumno","disabled"=>"disabled",'placeholder'=>'Idmovilidadalumnos')); 
@@ -57,12 +57,8 @@ if(isset($movilidadalumno))
 
 
 
-
-
-
-
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Movilidadmovilidadalumno: </label>
+    <label class="col-md-2 col-form-label"> Alumno: </label>
 	<div class="col-md-10">
      	<?php 
  
@@ -77,10 +73,36 @@ echo form_input('idpersona',$options[$movilidadalumno['idpersona']],array("disab
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Desde: </label>
+	<div class="col-md-10">
+     	<?php 
+ 
+$options= array("NADA");
+foreach ($personas as $row){
+	$options[$row->iddepartamentofuente]= $row->eldepartamento;
+}
+
+echo form_input('iddepartamentofuente',$options[$movilidadalumno['iddepartamentofuente']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
 
 
+ <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Hasta: </label>
+	<div class="col-md-10">
+     	<?php 
+ 
+$options= array("NADA");
+foreach ($personas as $row){
+	$options[$row->iddepartamentodestino]= $row->eldepartamento;
+}
 
-  
+echo form_input('iddepartamentodestino',$options[$movilidadalumno['iddepartamentodestino']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
+	</div> 
+</div> 
 
 
 

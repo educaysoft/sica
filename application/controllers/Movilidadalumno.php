@@ -17,6 +17,8 @@ public function index(){
 		$data['movilidadalumno']=$this->movilidadalumno_model->elultimo();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['departamentos']= $this->departamentofuente_model->listar_departamentofuente()->result();
+			$data['departamentofuente']= $this->departamentofuente_model->listar_departamentofuente1(0)->result();
+			$data['departamentodestino']= $this->departamentodestino_model->listar_departamentodestino1(0)->result();
 			
 		$data['title']="Lista de movilidadalumnos";
 		$this->load->view('template/page_header');
@@ -53,7 +55,8 @@ public function actual(){
 	$data['personas']= $this->persona_model->lista_personas()->result();
 	$data['departamentos']= $this->departamentofuente_model->lista_departamentos()->result();
 	$data['movilidadalumno']=$this->movilidadalumno_model->movilidadalumno($this->uri->segment(3))->row_array();
-
+			$data['departamentofuente']= $this->departamentofuente_model->listar_departamentofuente1(0)->result();
+			$data['departamentodestino']= $this->departamentodestino_model->listar_departamentodestino1(0)->result();
 
 	$data['title']="Modulo de Estudiane";
 	$this->load->view('template/page_header');		
@@ -65,9 +68,6 @@ public function actual(){
 	$this->load->view('template/page_footer.php');
    }
 }
-
-
-
 
 	public function add()
 	{
