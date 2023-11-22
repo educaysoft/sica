@@ -1,3 +1,0 @@
-
-use educayso_facae;
-create view etapamovilidadalumno1 as select etapamovilidadalumno.idetapamovilidadalumno,etapamovilidadalumno.idmovilidadalumno, etapamovilidad.idetapamovilidad, etapamovilidad.nombre as etapa   from etapamovilidadalumno,movilidadalumno,etapamovilidad  where etapamovilidadalumno.idmovilidadalumno=movilidadalumno.idmovilidadalumno  and etapamovilidadalumno.idetapamovilidad=etapamovilidad.idetapamovilidad;

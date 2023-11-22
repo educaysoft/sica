@@ -17,11 +17,11 @@ echo form_input($eys_arrinput); ?></td>
 
  
  <tr>
-<td> Persona:</td>
+<td> Movilidad:</td>
 <td><?php
 $options= array('--Select--');
 foreach ($movilidadalumnos as $row){
-	$options[$row->idmovilidadalumno]= $row->elmovilidadalumno;
+	$options[$row->idmovilidadalumno]= $row->lapersona;
 }
 
  echo form_dropdown("idmovilidadalumno",$options, $etapamovilidadalumno['idmovilidadalumno']);  ?></td>
