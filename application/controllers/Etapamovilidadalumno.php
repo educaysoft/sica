@@ -49,7 +49,7 @@ public function index(){
 		'idetapamovilidadalumno' => $this->input->post('idetapamovilidadalumno'),
 		'idmovilidadalumno' => $this->input->post('idmovilidadalumno'),
 		'idetapamovilidad' => $this->input->post('idetapamovilidad'),
-		'fechadesde' => $this->input->post('fechadesde'),
+		'fecha' => $this->input->post('fecha'),
 	 	);
 	 	$this->etapamovilidadalumno_model->save($array_item);
 	 	redirect('etapamovilidadalumno');
@@ -78,7 +78,7 @@ public function index(){
 		 	'idetapamovilidadalumno' => $this->input->post('idetapamovilidadalumno'),
 			'idmovilidadalumno' => $this->input->post('idmovilidadalumno'),
 			'idetapamovilidad' => $this->input->post('idetapamovilidad'),
-			'fechadesde' => $this->input->post('fechadesde'),
+		'fecha' => $this->input->post('fecha'),
 	 	);
 	 	$this->etapamovilidadalumno_model->update($id,$array_item);
 	 	redirect('etapamovilidadalumno');
