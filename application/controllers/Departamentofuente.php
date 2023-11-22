@@ -1,10 +1,10 @@
 <?php
 
-class Departamentodestino extends CI_Controller{
+class Departamentofuente extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('pertinencia_model');
+      $this->load->model('departamentofuente_model');
       $this->load->model('estudio_model');
       $this->load->model('departamento_model');
 }
@@ -12,12 +12,12 @@ class Departamentodestino extends CI_Controller{
 	public function index(){
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   		$data['estudios']= $this->estudio_model->lista_estudios1(0)->result();
- 		// $data['pertinencia']=$this->pertinencia_model->pertinencia(1)->row_array();
-		$data['pertinencia'] = $this->pertinencia_model->elprimero();
+ 		// $data['departamentofuente']=$this->departamentofuente_model->departamentofuente(1)->row_array();
+		$data['departamentofuente'] = $this->departamentofuente_model->elprimero();
  		// print_r($data['usuario_list']);
-  		$data['title']="Lista de Departamentodestinoes";
+  		$data['title']="Lista de Departamentofuentees";
 		$this->load->view('template/page_header');		
-  		$this->load->view('pertinencia_record',$data);
+  		$this->load->view('departamentofuente_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
@@ -31,9 +31,9 @@ class Departamentodestino extends CI_Controller{
 		}
 			$data['departamentos']= $this->departamento_model->lista_departamentos1(0)->result();
 
-		$data['title']="Nuevo Departamentodestino";
+		$data['title']="Nuevo Departamentofuente";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('pertinencia_form',$data);
+	 	$this->load->view('departamentofuente_form',$data);
 	 	$this->load->view('template/page_footer');
 	}
 
@@ -41,10 +41,10 @@ class Departamentodestino extends CI_Controller{
 public function listar()
 {
 	
-  $data['list'] = $this->pertinencia_model->lista_pertinencia1()->result();
-  $data['title']="Departamentodestinoes de departamento";
+  $data['list'] = $this->departamentofuente_model->lista_departamentofuente1()->result();
+  $data['title']="Departamentofuentees de departamento";
 	$this->load->view('template/page_header');		
-  $this->load->view('pertinencia_list',$data);
+  $this->load->view('departamentofuente_list',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -59,8 +59,8 @@ public function listar()
 		 	'idestudio' => $this->input->post('idestudio'),
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
-	 	$this->pertinencia_model->save($array_item);
-	 	redirect('pertinencia');
+	 	$this->departamentofuente_model->save($array_item);
+	 	redirect('departamentofuente');
  	}
 
 
@@ -68,12 +68,12 @@ public function listar()
 public function edit()
 {
 
-	 	$data['pertinencia'] = $this->pertinencia_model->pertinencia($this->uri->segment(3))->row_array();
+	 	$data['departamentofuente'] = $this->departamentofuente_model->departamentofuente($this->uri->segment(3))->row_array();
 		$data['estudios']= $this->estudio_model->lista_estudiosA()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
- 	 	$data['title'] = "Actualizar Departamentodestino";
+ 	 	$data['title'] = "Actualizar Departamentofuente";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('pertinencia_edit',$data);
+ 	 	$this->load->view('departamentofuente_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -81,16 +81,16 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idpertinencia');
+		$id=$this->input->post('iddepartamentofuente');
 	 	$array_item=array(
 
 		 	'idestudio' => $this->input->post('idestudio'),
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
-	 	$result=$this->pertinencia_model->update($id,$array_item);
+	 	$result=$this->departamentofuente_model->update($id,$array_item);
 	 	if($result == false)
 		{
-			echo "<script language='JavaScript'> alert('Departamentodestino no  existe'); </script>";
+			echo "<script language='JavaScript'> alert('Departamentofuente no  existe'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
@@ -100,9 +100,9 @@ public function edit()
 
  	public function delete()
  	{
- 		$data=$this->pertinencia_model->delete($this->uri->segment(3));
+ 		$data=$this->departamentofuente_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('pertinencia/elprimero');
+	 	redirect('departamentofuente/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -114,13 +114,13 @@ public function edit()
 public function elprimero()
 {
   $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-	$data['pertinencia'] = $this->pertinencia_model->elprimero();
+	$data['departamentofuente'] = $this->departamentofuente_model->elprimero();
   if(!empty($data))
   {
   	$data['estudios']= $this->estudio_model->lista_estudios()->result();
-    $data['title']="Departamentodestino del departamento";
+    $data['title']="Departamentofuente del departamento";
     $this->load->view('template/page_header');		
-    $this->load->view('pertinencia_record',$data);
+    $this->load->view('departamentofuente_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -132,14 +132,14 @@ public function elprimero()
 public function elultimo()
 {
   $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-	$data['pertinencia'] = $this->pertinencia_model->elultimo();
+	$data['departamentofuente'] = $this->departamentofuente_model->elultimo();
   if(!empty($data))
   {
   	$data['estudios']= $this->estudio_model->lista_estudios()->result();
-    $data['title']="Departamentodestino del departamento";
+    $data['title']="Departamentofuente del departamento";
   
     $this->load->view('template/page_header');		
-    $this->load->view('pertinencia_record',$data);
+    $this->load->view('departamentofuente_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -150,26 +150,26 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['pertinencia_list']=$this->pertinencia_model->lista_pertinencia()->result();
+ // $data['departamentofuente_list']=$this->departamentofuente_model->lista_departamentofuente()->result();
   $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-	$data['pertinencia'] = $this->pertinencia_model->siguiente($this->uri->segment(3))->row_array();
+	$data['departamentofuente'] = $this->departamentofuente_model->siguiente($this->uri->segment(3))->row_array();
   	$data['estudios']= $this->estudio_model->lista_estudios()->result();
-    $data['title']="Departamentodestino del departamento";
+    $data['title']="Departamentofuente del departamento";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
-  $this->load->view('pertinencia_record',$data);
+  $this->load->view('departamentofuente_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['pertinencia_list']=$this->pertinencia_model->lista_pertinencia()->result();
+ // $data['departamentofuente_list']=$this->departamentofuente_model->lista_departamentofuente()->result();
   $data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-	$data['pertinencia'] = $this->pertinencia_model->anterior($this->uri->segment(3))->row_array();
+	$data['departamentofuente'] = $this->departamentofuente_model->anterior($this->uri->segment(3))->row_array();
  	$data['estudios']= $this->estudio_model->lista_estudios()->result();
  // $data['title']="Correo";
-    	$data['title']="Departamentodestino del departamento";
+    	$data['title']="Departamentofuente del departamento";
 	$this->load->view('template/page_header');		
-  	$this->load->view('pertinencia_record',$data);
+  	$this->load->view('departamentofuente_record',$data);
 	$this->load->view('template/page_footer');
 }
 

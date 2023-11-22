@@ -3,7 +3,7 @@
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open("pertinencia/save_edit") ?>
+<?php echo form_open("departamentofuente/save_edit") ?>
 <table>
 
 
@@ -16,7 +16,7 @@ foreach ($departamentos as $row){
 	$options[$row->iddepartamento]= $row->nombre;
 }
 
- echo form_dropdown("iddepartamento",$options, $pertinencia['iddepartamento']);  ?></td>
+ echo form_dropdown("iddepartamento",$options, $departamentofuente['iddepartamento']);  ?></td>
 </tr>
 
 
@@ -30,12 +30,12 @@ foreach ($estudios as $row){
 	$options[$row->idestudio]= $row->lapersona.' - '.$row->titulo;
 
 }
- echo form_dropdown("idestudio",$options,$pertinencia['idestudio']);  ?></td>
+ echo form_dropdown("idestudio",$options,$departamentofuente['idestudio']);  ?></td>
 </tr>
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("pertinencia","Atrás") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("departamentofuente","Atrás") ?> </td>
 </tr>
 
 </table>

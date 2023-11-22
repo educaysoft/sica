@@ -5,9 +5,9 @@ class Movilidadalumno extends CI_Controller{
   public function __construct(){
       parent::__construct();
   	  $this->load->model('persona_model');
-  	  $this->load->model('departamento_model');
+  	  $this->load->model('departamentofuente_model');
   	  $this->load->model('movilidadalumno_model');
-  	  $this->load->model('departamentomovilidadalumno_model');
+  	  $this->load->model('departamentodestino_model');
 }
 
 public function index(){
@@ -16,7 +16,7 @@ public function index(){
 			
 		$data['movilidadalumno']=$this->movilidadalumno_model->elultimo();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['departamentos']= $this->departamentofuente_model->lista_departamentos()->result();
 			
 		$data['title']="Lista de movilidadalumnos";
 		$this->load->view('template/page_header');
@@ -51,7 +51,7 @@ public function actual(){
  if(isset($this->session->userdata['logged_in'])){
 
 	$data['personas']= $this->persona_model->lista_personas()->result();
-	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['departamentos']= $this->departamentofuente_model->lista_departamentos()->result();
 	$data['movilidadalumno']=$this->movilidadalumno_model->movilidadalumno($this->uri->segment(3))->row_array();
 
 
@@ -72,7 +72,7 @@ public function actual(){
 	public function add()
 	{
 			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+			$data['departamentos']= $this->departamentofuente_model->lista_departamentos()->result();
 			$data['title']="Nueva Movilidadmovilidadalumno";
 			$this->load->view('template/page_header');		
 			$this->load->view('movilidadalumno_form',$data);
@@ -103,7 +103,7 @@ public function actual(){
 	{
 			$data['movilidadalumno'] = $this->movilidadalumno_model->movilidadalumno($this->uri->segment(3))->row_array();
 			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+			$data['departamentos']= $this->departamentofuente_model->lista_departamentos()->result();
 			$data['title'] = "Actualizar Movilidadmovilidadalumno";
 			$this->load->view('template/page_header');		
 			$this->load->view('movilidadalumno_edit',$data);
@@ -144,7 +144,7 @@ public function actual(){
 
 
 
-	function departamento_data()
+	function departamentofuente_data()
 	{
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
@@ -152,7 +152,7 @@ public function actual(){
 
 
 			$idmovilidadalumno=$this->input->get('idmovilidadalumno');
-			$data0 = $this->departamentomovilidadalumno_model->lista_departamentomovilidadalumnos1($idmovilidadalumno);
+			$data0 = $this->departamentodestino_model->lista_departamentodestinos1($idmovilidadalumno);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idmovilidadalumno,$r->iddepartamento,$r->eldepartamento,$r->fechadesde,
@@ -184,7 +184,7 @@ public function actual(){
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['movilidadalumno'] = $this->movilidadalumno_model->elprimero();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['departamentos']= $this->departamentofuente_model->lista_departamentos()->result();
 
 		  if(!empty($data))
 		  {
@@ -223,7 +223,7 @@ public function actual(){
 	public function siguiente(){
 		$data['movilidadalumno'] = $this->movilidadalumno_model->siguiente($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['departamentos']= $this->departamentofuente_model->lista_departamentos()->result();
 
 		$data['title']="Movilidadmovilidadalumno";
 		$this->load->view('template/page_header');		

@@ -1,43 +1,23 @@
+
+<div style="margin-top:5cm;">
 <h2> <?php echo $title; ?> </h2>
+</div>
 <hr/>
-<?php echo form_open("departamentoalumno/save") ?>
-<?php echo form_hidden("iddepartamentoalumno")  ?>
-
-<?php
-
-if(isset($_GET["idalumno"]))
-{
-	$idalumno=$_GET["idalumno"];
-}
-?>
+<?php echo form_open("pertinencia/save") ?>
 <table>
-
-
 <tr>
-<td> Alumno: </td>
-<td><?php 
-
+<td> Estudio: </td>
+<td><?php
 $options= array('--Select--');
-foreach ($alumnos as $row){
-	$options[$row->idalumno]= $row->elalumno;
+foreach ($estudios as $row){
+	$options[$row->idestudio]= $row->lapersona.' - '.$row->titulo;
 }
- if(isset($idalumno))
- {
- echo form_dropdown("idalumno",$options,$idalumno );
- }else{
 
- echo form_dropdown("idalumno",$options,set_select('--Select--','default_value'));
-
- }
-
-?></td>
-
+ echo form_dropdown("idestudio",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
-
-
 <tr>
-<td> Carrera: </td>
+<td> Departamento/carrera: </td>
 <td><?php 
 
 $options= array('--Select--');
@@ -49,16 +29,13 @@ foreach ($departamentos as $row){
 </tr>
 
 
-<tr>
-<td> Fechadesde: </td>
-<td><?php echo form_input(array("name"=>"fechadesde","id"=>"fechadesde","type"=>"date"));  ?></td>
-</tr>
+
 
 
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("departamentoalumno","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("pertinencia","Atrás") ?> </td>
 </tr>
 
 </table>

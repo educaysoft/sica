@@ -3,7 +3,7 @@
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open("pertinencia/save") ?>
+<?php echo form_open("departamentodestino/save") ?>
 <table>
 <tr>
 <td> Estudio: </td>
@@ -35,7 +35,7 @@ foreach ($departamentos as $row){
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("pertinencia","Atrás") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("departamentodestino","Atrás") ?> </td>
 </tr>
 
 </table>
