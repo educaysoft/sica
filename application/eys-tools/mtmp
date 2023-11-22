@@ -1,77 +1,109 @@
 <?php
-class Departamentofuncionario_model extends CI_model {
+class Funcionario_model extends CI_model {
 
-	function lista_departamentofuncionarios(){
-		 $departamentofuncionario= $this->db->get('departamentofuncionario');
-		 return $departamentofuncionario;
+	function lista_funcionarios(){
+		 $funcionario= $this->db->get('funcionario0');
+		 return $funcionario;
 	}
 
 
-	function lista_departamentofuncionarios1($idfuncionario){
+	function lista_funcionariosA(){
+		 $this->db->order_by("elfuncionario","asc");
+		 $funcionario= $this->db->get('funcionario1');
+		 return $funcionario;
+	}
 
- 		$this->db->where('idfuncionario',$idfuncionario);
-		 $departamentofuncionario= $this->db->get('departamentofuncionario1');
-		 return $departamentofuncionario;
+	function lista_funcionariosB(){
+		 $this->db->order_by("elfuncionario","asc");
+		 $funcionario= $this->db->get('funcionario2');
+		 return $funcionario;
 	}
 
 
+ 	function funcionario( $id){
+ 		$funcionario = $this->db->query('select * from funcionario0 where idfuncionario="'. $id.'"');
+ 		return $funcionario;
+ 	}
 
 
-	function lista_departamentofuncionariosA(){
-		 $departamentofuncionario= $this->db->get('departamentofuncionario1');
-		 return $departamentofuncionario;
-	}
-
-
-
- 	function departamentofuncionario( $id){
- 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $id.'"');
- 		return $departamentofuncionario;
+ 	function funcionario1( $id){
+ 		$funcionario = $this->db->query('select * from funcionario1 where idfuncionario="'. $id.'"');
+ 		return $funcionario;
  	}
 
 
 
- 	function departamentofuncionarios( $idpersona){
- 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario1 where idpersona="'. $idpersona.'"');
- 		return $departamentofuncionario;
+ 	function funcionariospersona( $id){
+ 		$funcionario = $this->db->query('select * from funcionario0 where idpersona="'. $id.'"');
+ 		return $funcionario;
  	}
 
 
- 	function departamentofuncionariospersona( $id){
- 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where idpersona="'. $id.'"');
- 		return $departamentofuncionario;
+
+ 	function esfuncionario( $id){
+ 		$query = $this->db->query('select * from funcionario0 where idpersona="'. $id.'"');
+		if ($query->num_rows() == 0) {
+			return false;
+		   }else{
+			return true;
+		   }
  	}
 
 
 
  	function save($array)
  	{
-		$this->db->insert("departamentofuncionario", $array);
+		$condition1 = "iddepartamento =" . "'" . $array['iddepartamento'] . "'";
+		$condition2 = "idpersona =" . "'" . $array['idpersona'] . "'";
+		$this->db->select('*');
+		$this->db->from('funcionario0');
+		$this->db->where($condition1);
+		$this->db->where($condition2);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+			$this->db->insert("funcionario", $array);
+			return true;
+		   }else{
+			return false;
+		   }
+
+
+
+
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('iddepartamentofuncionario',$id);
- 		$this->db->update('departamentofuncionario',$array_item);
+ 		$this->db->where('idfuncionario',$id);
+ 		$this->db->update('funcionario0',$array_item);
 	}
  
 
 
- 	public function delete($id)
+ 	public function delete($idfuncionario)
 	{
- 		$this->db->where('iddepartamentofuncionario',$id);
-		$this->db->delete('departamentofuncionario');
-    		if($this->db->affected_rows()==1)
+
+		$condition = "idfuncionario =" . $idfuncionario ;
+		$this->db->select('*');
+		$this->db->from('funcionario');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() != 0) {
+	 		  	$this->db->where('idfuncionario',$idp);
+				$this->db->update('funcionario', array('eliminado'=>1));
 			$result=true;
-		else
+		}else{
 			$result=false;
+		}
 		return $result;
  	}
 
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("iddepartamentofuncionario")->get('departamentofuncionario');
+		$query=$this->db->order_by("idfuncionario")->get('funcionario0');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -84,7 +116,7 @@ class Departamentofuncionario_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("iddepartamentofuncionario")->get('departamentofuncionario');
+		$query=$this->db->order_by("idfuncionario")->get('funcionario0');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -96,37 +128,37 @@ class Departamentofuncionario_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$departamentofuncionario = $this->db->select("iddepartamentofuncionario")->order_by("iddepartamentofuncionario")->get('departamentofuncionario')->result_array();
-		$arr=array("iddepartamentofuncionario"=>$id);
-		$clave=array_search($arr,$departamentofuncionario);
-	   if(array_key_exists($clave+1,$departamentofuncionario))
+ 		$funcionario = $this->db->select("idfuncionario")->order_by("idfuncionario")->get('funcionario0')->result_array();
+		$arr=array("idfuncionario"=>$id);
+		$clave=array_search($arr,$funcionario);
+	   if(array_key_exists($clave+1,$funcionario))
 		 {
 
- 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $departamentofuncionario[$clave+1]["iddepartamentofuncionario"].'"');
+ 		$funcionario = $this->db->query('select * from funcionario0 where idfuncionario="'. $funcionario[$clave+1]["idfuncionario"].'"');
 		 }else{
 
- 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $id.'"');
+ 		$funcionario = $this->db->query('select * from funcionario0 where idfuncionario="'. $id.'"');
 		 }
 		 	
- 		return $departamentofuncionario;
+ 		return $funcionario;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$departamentofuncionario = $this->db->select("iddepartamentofuncionario")->order_by("iddepartamentofuncionario")->get('departamentofuncionario')->result_array();
-		$arr=array("iddepartamentofuncionario"=>$id);
-		$clave=array_search($arr,$departamentofuncionario);
-	   if(array_key_exists($clave-1,$departamentofuncionario))
+ 		$funcionario = $this->db->select("idfuncionario")->order_by("idfuncionario")->get('funcionario0')->result_array();
+		$arr=array("idfuncionario"=>$id);
+		$clave=array_search($arr,$funcionario);
+	   if(array_key_exists($clave-1,$funcionario))
 		 {
 
- 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $departamentofuncionario[$clave-1]["iddepartamentofuncionario"].'"');
+ 		$funcionario = $this->db->query('select * from funcionario0 where idfuncionario="'. $funcionario[$clave-1]["idfuncionario"].'"');
 		 }else{
 
- 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $id.'"');
+ 		$funcionario = $this->db->query('select * from funcionario0 where idfuncionario="'. $id.'"');
 		 }
 		 	
- 		return $departamentofuncionario;
+ 		return $funcionario;
  	}
 
 

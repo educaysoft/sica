@@ -1,11 +1,13 @@
 <?php
 
-class Departamentoalumno extends CI_Controller{
+class Alumno extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-  	  $this->load->model('funcionario_model');
+  	  $this->load->model('persona_model');
   	  $this->load->model('departamento_model');
+  	  $this->load->model('cargo_model');
+  	  $this->load->model('funcionario_model');
   	  $this->load->model('departamentofuncionario_model');
 }
 
@@ -13,14 +15,14 @@ public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['departamentofuncionario']=$this->departamentofuncionario_model->lista_departamentofuncionarios()->row_array();
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
-  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  	$data['departamentofuncionarios']= $this->departamentofuncionario_model->lista_departamentofuncionarios()->result();
+		$data['funcionario']=$this->funcionario_model->elultimo();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['cargos']= $this->cargo_model->lista_cargos()->result();
 			
-		$data['title']="Lista de departamentofuncionarios";
+		$data['title']="Lista de funcionarios";
 		$this->load->view('template/page_header');
-		$this->load->view('departamentofuncionario_record',$data);
+		$this->load->view('funcionario_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -31,13 +33,53 @@ public function index(){
  }
 
 
+
+
+
+	public function reportepdf()
+	{
+		$idpersona=$this->uri->segment(3);
+		$data['title']="Evento";
+		$this->load->view('funcionario_list_pdf',$data);
+	}
+
+
+
+
+
+
+
+public function actual(){
+ if(isset($this->session->userdata['logged_in'])){
+
+	$data['personas']= $this->persona_model->lista_personas()->result();
+	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+	$data['cargos']= $this->cargo_model->lista_cargos()->result();
+	$data['funcionario']=$this->funcionario_model->funcionario($this->uri->segment(3))->row_array();
+
+
+	$data['title']="Modulo de Estudiane";
+	$this->load->view('template/page_header');		
+	$this->load->view('funcionario_record',$data);
+	$this->load->view('template/page_footer');
+   }else{
+	$this->load->view('template/page_header.php');
+	$this->load->view('login_form');
+	$this->load->view('template/page_footer.php');
+   }
+}
+
+
+
+
 	public function add()
 	{
-			$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
+			$data['personas']= $this->persona_model->lista_personas()->result();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-			$data['title']="Nueva Departamentoalumno";
+			$data['cargos']= $this->cargo_model->lista_cargos()->result();
+			$data['title']="Nueva Alumno";
 			$this->load->view('template/page_header');		
-			$this->load->view('departamentofuncionario_form',$data);
+			$this->load->view('funcionario_form',$data);
 			$this->load->view('template/page_footer');
 	}
 
@@ -46,25 +88,33 @@ public function index(){
 	{
 	 	$array_item=array(
 		 	
-		'iddepartamentofuncionario' => $this->input->post('iddepartamentofuncionario'),
-		'idfuncionario' => $this->input->post('idfuncionario'),
-		'iddepartamento' => $this->input->post('iddepartamento'),
-		'fechadesde' => $this->input->post('fechadesde'),
+		 	'idfuncionario' => $this->input->post('idfuncionario'),
+			'idpersona' => $this->input->post('idpersona'),
+			'iddepartamento' => $this->input->post('iddepartamento'),
+			'idcargo' => $this->input->post('idcargo'),
+			'fechaingreso' => $this->input->post('fechaingreso'),
+			'fechasalida' => $this->input->post('fechasalida'),
 	 	);
-	 	$this->departamentofuncionario_model->save($array_item);
-	 	redirect('departamentofuncionario');
+	 	$result=$this->funcionario_model->save($array_item);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Alumno ya existe'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
  	}
 
 
 
 	public function edit()
 	{
-			$data['departamentofuncionario'] = $this->departamentofuncionario_model->departamentofuncionario($this->uri->segment(3))->row_array();
-			$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
+			$data['funcionario'] = $this->funcionario_model->funcionario($this->uri->segment(3))->row_array();
+			$data['personas']= $this->persona_model->lista_personas()->result();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-			$data['title'] = "Actualizar Departamentoalumno";
+			$data['title'] = "Actualizar Alumno";
 			$this->load->view('template/page_header');		
-			$this->load->view('departamentofuncionario_edit',$data);
+			$this->load->view('funcionario_edit',$data);
 			$this->load->view('template/page_footer');
 	 
 	}
@@ -72,88 +122,59 @@ public function index(){
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('iddepartamentofuncionario');
+		$id=$this->input->post('idfuncionario');
 	 	$array_item=array(
 		 	
-		 	'iddepartamentofuncionario' => $this->input->post('iddepartamentofuncionario'),
-			'idfuncionario' => $this->input->post('idfuncionario'),
+		 	'idfuncionario' => $this->input->post('idfuncionario'),
+			'idpersona' => $this->input->post('idpersona'),
 			'iddepartamento' => $this->input->post('iddepartamento'),
-			'fechadesde' => $this->input->post('fechadesde'),
 	 	);
-	 	$this->departamentofuncionario_model->update($id,$array_item);
-	 	redirect('departamentofuncionario');
+	 	$this->funcionario_model->update($id,$array_item);
+	 	redirect('funcionario');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->departamentofuncionario_model->delete($this->uri->segment(3));
+ 		$data=$this->funcionario_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('departamentofuncionario/elprimero');
+	 	redirect('funcionario/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
 
 	public function listar()
 	{
-		
-		$data['title']="Departamentoalumnos";
+		$data['title']="Alumnos";
 		$this->load->view('template/page_header');		
-		$this->load->view('departamentofuncionario_list',$data);
+		$this->load->view('funcionario_list',$data);
 		$this->load->view('template/page_footer');
 	}
 
 
 
-function departamentofuncionario_data()
-{
-		$draw= intval($this->input->get("draw"));
-		$draw= intval($this->input->get("start"));
-		$draw= intval($this->input->get("length"));
+	function departamento_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->departamentofuncionario_model->lista_departamentofuncionariosA();
-		$data=array();
-		foreach($data0->result() as $r){
-			$data[]=array($r->iddepartamentofuncionario,$r->lafuncionario,$r->ladepartamento,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('departamentofuncionario/actual').'"   data-iddepartamentofuncionario="'.$r->iddepartamentofuncionario.'">Ver</a>');
-		}	
-		$output=array( "draw"=>$draw,
-			"recordsTotal"=> $data0->num_rows(),
-			"recordsFiltered"=> $data0->num_rows(),
-			"data"=>$data
-		);
-		echo json_encode($output);
-		exit();
-	
-			
-
-}
-
-
-
-public function actual()
-{
-
-
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-
-
-	$data['departamentofuncionario'] = $this->departamentofuncionario_model->departamentofuncionario($this->uri->segment(3))->row_array();
-  if(!empty($data))
-  {
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-    $data['title']="Departamentoalumno";
-    $this->load->view('template/page_header');		
-    $this->load->view('departamentofuncionario_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
- }
+			$idfuncionario=$this->input->get('idfuncionario');
+			$data0 = $this->departamentofuncionario_model->lista_departamentofuncionarios1($idfuncionario);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idfuncionario,$r->iddepartamento,$r->eldepartamento,$r->fechadesde,
+					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('funcionario/actual').'"  data-idfuncionario="'.$r->idfuncionario.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
 
 
 
@@ -164,73 +185,75 @@ public function actual()
 
 
 
-public function elprimero()
-{
 
 
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 
 
-	$data['departamentofuncionario'] = $this->departamentofuncionario_model->elprimero();
-  if(!empty($data))
-  {
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-    $data['title']="Departamentoalumno";
-    $this->load->view('template/page_header');		
-    $this->load->view('departamentofuncionario_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
- }
+	public function elprimero()
+	{
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['funcionario'] = $this->funcionario_model->elprimero();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['cargos']= $this->cargo_model->lista_cargos()->result();
 
-public function elultimo()
-{
-	$data['departamentofuncionario'] = $this->departamentofuncionario_model->elultimo();
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  if(!empty($data))
-  {
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-    $data['title']="Departamentoalumno";
-  
-    $this->load->view('template/page_header');		
-    $this->load->view('departamentofuncionario_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
+		  if(!empty($data))
+		  {
+			$data['personas']= $this->persona_model->lista_personas()->result();
+		    $data['title']="Alumno";
+		    $this->load->view('template/page_header');		
+		    $this->load->view('funcionario_record',$data);
+		    $this->load->view('template/page_footer');
+		  }else{
+		    $this->load->view('template/page_header');		
+		    $this->load->view('registro_vacio');
+		    $this->load->view('template/page_footer');
+		  }
+	 }
 
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
-}
+	public function elultimo()
+	{
+		$data['funcionario'] = $this->funcionario_model->elultimo();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['cargos']= $this->cargo_model->lista_cargos()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		  if(!empty($data))
+		  {
+			$data['personas']= $this->persona_model->lista_personas()->result();
+		    $data['title']="Alumno";
+		  
+		    $this->load->view('template/page_header');		
+		    $this->load->view('funcionario_record',$data);
+		    $this->load->view('template/page_footer');
+		  }else{
 
-public function siguiente(){
- // $data['departamentofuncionario_list']=$this->departamentofuncionario_model->lista_departamentofuncionario()->result();
-	$data['departamentofuncionario'] = $this->departamentofuncionario_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  
+		    $this->load->view('template/page_header');		
+		    $this->load->view('registro_vacio');
+		    $this->load->view('template/page_footer');
+		  }
+	}
 
-$data['title']="Departamentoalumno";
-	$this->load->view('template/page_header');		
-  $this->load->view('departamentofuncionario_record',$data);
-	$this->load->view('template/page_footer');
-}
+	public function siguiente(){
+		$data['funcionario'] = $this->funcionario_model->siguiente($this->uri->segment(3))->row_array();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['cargos']= $this->cargo_model->lista_cargos()->result();
 
-public function anterior(){
- // $data['departamentofuncionario_list']=$this->departamentofuncionario_model->lista_departamentofuncionario()->result();
-	$data['departamentofuncionario'] = $this->departamentofuncionario_model->anterior($this->uri->segment(3))->row_array();
- 	$data['funcionarios']= $this->funcionario_model->lista_funcionarios()->result();
-  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  $data['title']="Departamentoalumno";
-	$this->load->view('template/page_header');		
-  $this->load->view('departamentofuncionario_record',$data);
-	$this->load->view('template/page_footer');
-}
+		$data['title']="Alumno";
+		$this->load->view('template/page_header');		
+		$this->load->view('funcionario_record',$data);
+		$this->load->view('template/page_footer');
+	}
+
+	public function anterior(){
+		$data['funcionario'] = $this->funcionario_model->anterior($this->uri->segment(3))->row_array();
+		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['cargos']= $this->cargo_model->lista_cargos()->result();
+		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+		$data['title']="Alumno";
+		$this->load->view('template/page_header');		
+		$this->load->view('funcionario_record',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
 
