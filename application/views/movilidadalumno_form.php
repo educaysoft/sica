@@ -30,7 +30,7 @@ foreach ($personas as $row){
 	<?php
 
 $options= array('--Select--');
-foreach (departamentofuente as $row){
+foreach ($departamentofuente as $row){
 	$options[$row->iddepartamentofuente]= $row->eldepartamento;
 }
 
@@ -46,7 +46,7 @@ foreach (departamentofuente as $row){
 	<?php
 
 $options= array('--Select--');
-foreach ($personas as $row){
+foreach ($departamentodestino as $row){
 	$options[$row->iddepartamentodestino]= $row->eldepartamento;
 }
 
