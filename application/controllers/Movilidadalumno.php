@@ -148,7 +148,7 @@ public function actual(){
 
 
 
-	function departamentofuente_data()
+	function etapamovilidadalumno_data()
 	{
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
