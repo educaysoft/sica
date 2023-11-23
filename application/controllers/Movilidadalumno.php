@@ -199,6 +199,8 @@ public function actual(){
 		$data['movilidadalumno'] = $this->movilidadalumno_model->elprimero();
 		$data['departamentos']= $this->departamentofuente_model->lista_departamentos()->result();
   			$data['tipomovilidadalumno']=$this->tipomovilidadalumno_model->lista_tipomovilidadalumnos()->result();
+			$data['departamentofuente']= $this->departamentofuente_model->listar_departamentofuente1(0)->result();
+			$data['departamentodestino']= $this->departamentodestino_model->listar_departamentodestino1(0)->result();
 
 		  if(!empty($data))
 		  {
@@ -219,6 +221,8 @@ public function actual(){
 		$data['movilidadalumno'] = $this->movilidadalumno_model->elultimo();
 		$data['personas']= $this->persona_model->lista_personas()->result();
   			$data['tipomovilidadalumno']=$this->tipomovilidadalumno_model->lista_tipomovilidadalumnos()->result();
+			$data['departamentofuente']= $this->departamentofuente_model->listar_departamentofuente1(0)->result();
+			$data['departamentodestino']= $this->departamentodestino_model->listar_departamentodestino1(0)->result();
 		  if(!empty($data))
 		  {
 			$data['personas']= $this->persona_model->lista_personas()->result();
@@ -240,6 +244,8 @@ public function actual(){
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['departamentos']= $this->departamentofuente_model->lista_departamentos()->result();
   			$data['tipomovilidadalumno']=$this->tipomovilidadalumno_model->lista_tipomovilidadalumnos()->result();
+			$data['departamentofuente']= $this->departamentofuente_model->listar_departamentofuente1(0)->result();
+			$data['departamentodestino']= $this->departamentodestino_model->listar_departamentodestino1(0)->result();
 
 		$data['title']="Movilidadmovilidadalumno";
 		$this->load->view('template/page_header');		
@@ -251,6 +257,8 @@ public function actual(){
 		$data['movilidadalumno'] = $this->movilidadalumno_model->anterior($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
   			$data['tipomovilidadalumno']=$this->tipomovilidadalumno_model->lista_tipomovilidadalumnos()->result();
+			$data['departamentofuente']= $this->departamentofuente_model->listar_departamentofuente1(0)->result();
+			$data['departamentodestino']= $this->departamentodestino_model->listar_departamentodestino1(0)->result();
 		$data['title']="Movilidadmovilidadalumno";
 		$this->load->view('template/page_header');		
 		$this->load->view('movilidadalumno_record',$data);
