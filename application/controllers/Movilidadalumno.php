@@ -21,7 +21,7 @@ public function index(){
 		$data['departamentos']= $this->departamentofuente_model->listar_departamentofuente()->result();
 			$data['departamentofuente']= $this->departamentofuente_model->listar_departamentofuente1(0)->result();
 			$data['departamentodestino']= $this->departamentodestino_model->listar_departamentodestino1(0)->result();
-  	$data['tipomovilidadalumno']=$this->tipomovilidadalumno_model->lista_tipomovilidadalumnos()->row_array();
+  	$data['tipomovilidadalumno']=$this->tipomovilidadalumno_model->lista_tipomovilidadalumnos()->result();
 			
 		$data['title']="Lista de movilidadalumnos";
 		$this->load->view('template/page_header');
