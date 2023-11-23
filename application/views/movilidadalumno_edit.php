@@ -55,7 +55,7 @@ foreach ($departamentodestino as $row){
 <td><?php
 $options= array('--Select--');
 foreach ($tipomovilidadalumno as $row){
-	$options[$row->idtipomovilidadalumno]= $row->eldepartamento;
+	$options[$row->idtipomovilidadalumno]= $row->nombre;
 }
 
  echo form_dropdown("idtipomovilidadalumno",$options, $movilidadalumno['idtipomovilidadalumno']);  ?></td>
