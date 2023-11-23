@@ -105,6 +105,22 @@ echo form_input('iddepartamentodestino',$options[$movilidadalumno['iddepartament
 </div> 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Tipo: </label>
+	<div class="col-md-10">
+     	<?php 
+ 
+$options= array("NADA");
+foreach ($tipomovilidadalumno as $row){
+	$options[$row->idtipomovilidadalumno]= $row->nombre;
+}
+
+echo form_input('idtipomovilidadalumno',$options[$movilidadalumno['idtipomovilidadalumno']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+		?>
+	</div> 
+</div>
+
+
 
 <div class="form-group row">
 

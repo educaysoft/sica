@@ -4,15 +4,15 @@ class Tipomovilidadalumno extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('etapamovilidad_model');
+      $this->load->model('tipomovilidadalumno_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-		$data['etapamovilidad']=$this->etapamovilidad_model->etapamovilidad(1)->row_array();
-		$data['title']="Lista de etapamovilidades";
+		$data['tipomovilidadalumno']=$this->tipomovilidadalumno_model->tipomovilidadalumno(1)->row_array();
+		$data['title']="Lista de tipomovilidadalumnoes";
 		$this->load->view('template/page_header');
-		$this->load->view('etapamovilidad_record',$data);
+		$this->load->view('tipomovilidadalumno_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -24,9 +24,9 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva etapamovilidad";
+		$data['title']="Nueva tipomovilidadalumno";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('etapamovilidad_form',$data);
+	 	$this->load->view('tipomovilidadalumno_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -34,21 +34,21 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idetapamovilidad' => $this->input->post('idetapamovilidad'),
+	 	'idtipomovilidadalumno' => $this->input->post('idtipomovilidadalumno'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->etapamovilidad_model->save($array_item);
-	 	redirect('etapamovilidad');
+	 	$this->tipomovilidadalumno_model->save($array_item);
+	 	redirect('tipomovilidadalumno');
  	}
 
 
 
 public function edit()
 {
-	 	$data['etapamovilidad'] = $this->etapamovilidad_model->etapamovilidad($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar etapamovilidad";
+	 	$data['tipomovilidadalumno'] = $this->tipomovilidadalumno_model->tipomovilidadalumno($this->uri->segment(3))->row_array();
+ 	 	$data['title'] = "Actualizar tipomovilidadalumno";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('etapamovilidad_edit',$data);
+ 	 	$this->load->view('tipomovilidadalumno_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -56,22 +56,22 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idetapamovilidad');
+		$id=$this->input->post('idtipomovilidadalumno');
 	 	$array_item=array(
 		 	
-		 	'idetapamovilidad' => $this->input->post('idetapamovilidad'),
+		 	'idtipomovilidadalumno' => $this->input->post('idtipomovilidadalumno'),
 		 	'nombre' => $this->input->post('nombre'),
 	 	);
-	 	$this->etapamovilidad_model->update($id,$array_item);
-	 	redirect('etapamovilidad');
+	 	$this->tipomovilidadalumno_model->update($id,$array_item);
+	 	redirect('tipomovilidadalumno');
  	}
 
 
  	public function delete()
  	{
- 		$data=$this->etapamovilidad_model->delete($this->uri->segment(3));
+ 		$data=$this->tipomovilidadalumno_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('etapamovilidad/elprimero');
+	 	redirect('tipomovilidadalumno/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -81,24 +81,24 @@ public function listar()
 	
   $data['title']="Tipomovilidadalumno";
 	$this->load->view('template/page_header');		
-  $this->load->view('etapamovilidad_list',$data);
+  $this->load->view('tipomovilidadalumno_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function etapamovilidad_data()
+function tipomovilidadalumno_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->etapamovilidad_model->lista_etapamovilidads();
+	 	$data0 = $this->tipomovilidadalumno_model->lista_tipomovilidadalumnos();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idetapamovilidad,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('etapamovilidad/actual').'" data-idetapamovilidad="'.$r->idetapamovilidad.'">Ver</a>');
+			$data[]=array($r->idtipomovilidadalumno,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('tipomovilidadalumno/actual').'" data-idtipomovilidadalumno="'.$r->idtipomovilidadalumno.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -117,12 +117,12 @@ function etapamovilidad_data()
 
 public function actual()
 {
-	$data['etapamovilidad'] = $this->etapamovilidad_model->etapamovilidad($this->uri->segment(3))->row_array();
+	$data['tipomovilidadalumno'] = $this->tipomovilidadalumno_model->tipomovilidadalumno($this->uri->segment(3))->row_array();
   	if(!empty($data))
   	{
     		$data['title']="Tipomovilidadalumno";
     		$this->load->view('template/page_header');		
-    		$this->load->view('etapamovilidad_record',$data);
+    		$this->load->view('tipomovilidadalumno_record',$data);
     		$this->load->view('template/page_footer');
   	}else{
     		$this->load->view('template/page_header');		
@@ -142,12 +142,12 @@ public function actual()
 
 public function elprimero()
 {
-	$data['etapamovilidad'] = $this->etapamovilidad_model->elprimero();
+	$data['tipomovilidadalumno'] = $this->tipomovilidadalumno_model->elprimero();
   if(!empty($data))
   {
     $data['title']="Tipomovilidadalumno";
     $this->load->view('template/page_header');		
-    $this->load->view('etapamovilidad_record',$data);
+    $this->load->view('tipomovilidadalumno_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -158,13 +158,13 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['etapamovilidad'] = $this->etapamovilidad_model->elultimo();
+	$data['tipomovilidadalumno'] = $this->tipomovilidadalumno_model->elultimo();
   if(!empty($data))
   {
     $data['title']="Tipomovilidadalumno";
   
     $this->load->view('template/page_header');		
-    $this->load->view('etapamovilidad_record',$data);
+    $this->load->view('tipomovilidadalumno_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -175,20 +175,20 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['etapamovilidad_list']=$this->etapamovilidad_model->lista_etapamovilidad()->result();
-	$data['etapamovilidad'] = $this->etapamovilidad_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['tipomovilidadalumno_list']=$this->tipomovilidadalumno_model->lista_tipomovilidadalumno()->result();
+	$data['tipomovilidadalumno'] = $this->tipomovilidadalumno_model->siguiente($this->uri->segment(3))->row_array();
   $data['title']="Tipomovilidadalumno";
 	$this->load->view('template/page_header');		
-  $this->load->view('etapamovilidad_record',$data);
+  $this->load->view('tipomovilidadalumno_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['etapamovilidad_list']=$this->etapamovilidad_model->lista_etapamovilidad()->result();
-	$data['etapamovilidad'] = $this->etapamovilidad_model->anterior($this->uri->segment(3))->row_array();
+ // $data['tipomovilidadalumno_list']=$this->tipomovilidadalumno_model->lista_tipomovilidadalumno()->result();
+	$data['tipomovilidadalumno'] = $this->tipomovilidadalumno_model->anterior($this->uri->segment(3))->row_array();
   $data['title']="Tipomovilidadalumno";
 	$this->load->view('template/page_header');		
-  $this->load->view('etapamovilidad_record',$data);
+  $this->load->view('tipomovilidadalumno_record',$data);
 	$this->load->view('template/page_footer');
 }
 

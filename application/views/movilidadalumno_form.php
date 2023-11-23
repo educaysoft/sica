@@ -57,6 +57,23 @@ foreach ($departamentodestino as $row){
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Hasta:</label>
+	<div class="col-md-10">
+	<?php
+
+$options= array('--Select--');
+foreach ($tipomovilidadalumno as $row){
+	$options[$row->idtipomovilidadalumno]= $row->nombre;
+}
+
+ echo form_dropdown("idtipomovilidadalumno",$options, set_select('--Select--','default_value'));  
+		?>
+	</div> 
+</div>
+
+
+
 
 
 

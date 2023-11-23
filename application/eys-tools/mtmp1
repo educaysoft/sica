@@ -1,66 +1,33 @@
 <?php
-class Etapamovilidadalumno_model extends CI_model {
+class Tipomovilidadalumno_model extends CI_model {
 
-	function lista_departamentofuncionarios(){
-		 $departamentofuncionario= $this->db->get('departamentofuncionario');
-		 return $departamentofuncionario;
+	function lista_etapamovilidads(){
+		 $etapamovilidad= $this->db->get('etapamovilidad');
+		 return $etapamovilidad;
 	}
 
-
-	function lista_departamentofuncionarios1($idfuncionario){
-
- 		$this->db->where('idfuncionario',$idfuncionario);
-		 $departamentofuncionario= $this->db->get('departamentofuncionario1');
-		 return $departamentofuncionario;
-	}
-
-
-
-
-	function lista_departamentofuncionariosA(){
-		 $departamentofuncionario= $this->db->get('departamentofuncionario1');
-		 return $departamentofuncionario;
-	}
-
-
-
- 	function departamentofuncionario( $id){
- 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $id.'"');
- 		return $departamentofuncionario;
+ 	function etapamovilidad( $id){
+ 		$etapamovilidad = $this->db->query('select * from etapamovilidad where idetapamovilidad="'. $id.'"');
+ 		return $etapamovilidad;
  	}
-
-
-
- 	function departamentofuncionarios( $idpersona){
- 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario1 where idpersona="'. $idpersona.'"');
- 		return $departamentofuncionario;
- 	}
-
-
- 	function departamentofuncionariospersona( $id){
- 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where idpersona="'. $id.'"');
- 		return $departamentofuncionario;
- 	}
-
-
 
  	function save($array)
  	{
-		$this->db->insert("departamentofuncionario", $array);
+		$this->db->insert("etapamovilidad", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('iddepartamentofuncionario',$id);
- 		$this->db->update('departamentofuncionario',$array_item);
+ 		$this->db->where('idetapamovilidad',$id);
+ 		$this->db->update('etapamovilidad',$array_item);
 	}
  
 
 
  	public function delete($id)
 	{
- 		$this->db->where('iddepartamentofuncionario',$id);
-		$this->db->delete('departamentofuncionario');
+ 		$this->db->where('idetapamovilidad',$id);
+		$this->db->delete('etapamovilidad');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -71,7 +38,7 @@ class Etapamovilidadalumno_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("iddepartamentofuncionario")->get('departamentofuncionario');
+		$query=$this->db->order_by("idetapamovilidad")->get('etapamovilidad');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -84,7 +51,7 @@ class Etapamovilidadalumno_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("iddepartamentofuncionario")->get('departamentofuncionario');
+		$query=$this->db->order_by("idetapamovilidad")->get('etapamovilidad');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -96,37 +63,37 @@ class Etapamovilidadalumno_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$departamentofuncionario = $this->db->select("iddepartamentofuncionario")->order_by("iddepartamentofuncionario")->get('departamentofuncionario')->result_array();
-		$arr=array("iddepartamentofuncionario"=>$id);
-		$clave=array_search($arr,$departamentofuncionario);
-	   if(array_key_exists($clave+1,$departamentofuncionario))
+ 		$etapamovilidad = $this->db->select("idetapamovilidad")->order_by("idetapamovilidad")->get('etapamovilidad')->result_array();
+		$arr=array("idetapamovilidad"=>$id);
+		$clave=array_search($arr,$etapamovilidad);
+	   if(array_key_exists($clave+1,$etapamovilidad))
 		 {
 
- 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $departamentofuncionario[$clave+1]["iddepartamentofuncionario"].'"');
+ 		$etapamovilidad = $this->db->query('select * from etapamovilidad where idetapamovilidad="'. $etapamovilidad[$clave+1]["idetapamovilidad"].'"');
 		 }else{
 
- 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $id.'"');
+ 		$etapamovilidad = $this->db->query('select * from etapamovilidad where idetapamovilidad="'. $id.'"');
 		 }
 		 	
- 		return $departamentofuncionario;
+ 		return $etapamovilidad;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$departamentofuncionario = $this->db->select("iddepartamentofuncionario")->order_by("iddepartamentofuncionario")->get('departamentofuncionario')->result_array();
-		$arr=array("iddepartamentofuncionario"=>$id);
-		$clave=array_search($arr,$departamentofuncionario);
-	   if(array_key_exists($clave-1,$departamentofuncionario))
+ 		$etapamovilidad = $this->db->select("idetapamovilidad")->order_by("idetapamovilidad")->get('etapamovilidad')->result_array();
+		$arr=array("idetapamovilidad"=>$id);
+		$clave=array_search($arr,$etapamovilidad);
+	   if(array_key_exists($clave-1,$etapamovilidad))
 		 {
 
- 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $departamentofuncionario[$clave-1]["iddepartamentofuncionario"].'"');
+ 		$etapamovilidad = $this->db->query('select * from etapamovilidad where idetapamovilidad="'. $etapamovilidad[$clave-1]["idetapamovilidad"].'"');
 		 }else{
 
- 		$departamentofuncionario = $this->db->query('select * from departamentofuncionario where iddepartamentofuncionario="'. $id.'"');
+ 		$etapamovilidad = $this->db->query('select * from etapamovilidad where idetapamovilidad="'. $id.'"');
 		 }
 		 	
- 		return $departamentofuncionario;
+ 		return $etapamovilidad;
  	}
 
 

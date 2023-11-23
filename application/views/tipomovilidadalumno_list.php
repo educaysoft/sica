@@ -27,7 +27,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 <div id="eys-nav-i">
 	<ul>
-		<li> <?php echo anchor('etapamovilidad', 'Home'); ?></li>
+		<li> <?php echo anchor('tipomovilidadalumno', 'Home'); ?></li>
 	</ul>
 </div>
 
@@ -77,12 +77,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('etapamovilidad/etapamovilidad_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('tipomovilidadalumno/tipomovilidadalumno_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idetapamovilidad');
+var id= $(this).data('idtipomovilidadalumno');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });

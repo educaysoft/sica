@@ -7,6 +7,7 @@ class Movilidadalumno extends CI_Controller{
   	  $this->load->model('persona_model');
   	  $this->load->model('departamentofuente_model');
   	  $this->load->model('movilidadalumno_model');
+  	  $this->load->model('tipomovilidadalumno_model');
   	  $this->load->model('departamentodestino_model');
   	  $this->load->model('etapamovilidadalumno_model');
 }
@@ -20,6 +21,7 @@ public function index(){
 		$data['departamentos']= $this->departamentofuente_model->listar_departamentofuente()->result();
 			$data['departamentofuente']= $this->departamentofuente_model->listar_departamentofuente1(0)->result();
 			$data['departamentodestino']= $this->departamentodestino_model->listar_departamentodestino1(0)->result();
+  	$data['tipomovilidadalumno']=$this->tipomovilidadalumno_model->lista_tipomovilidadalumnos()->row_array();
 			
 		$data['title']="Lista de movilidadalumnos";
 		$this->load->view('template/page_header');
