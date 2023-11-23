@@ -28,20 +28,43 @@ foreach ($personas as $row){
 </tr>
 
 <tr>
-<td> Institucion:</td>
+<td> Desde:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
+foreach ($departamentofuente as $row){
+	$options[$row->iddepartamentofuente]= $row->eldepartamento;
 }
 
- echo form_dropdown("idinstitucion",$options, $movilidadalumno['idinstitucion']);  ?></td>
+ echo form_dropdown("iddepartamentofuente",$options, $movilidadalumno['iddepartamentofuente']);  ?></td>
 </tr>
 
 <tr>
-      <td>Fecha de Inscripcion:</td>
-      <td><?php echo form_input( array("name"=>'fechainscripcion',"id"=>'fechainscripcion',"value"=>$movilidadalumno['fechainscripcion'],'type'=>'date','placeholder'=>'fechainscripcion')); ?></td>
-  </tr>
+<td> Hasta:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($departamentodestino as $row){
+	$options[$row->iddepartamentodestino]= $row->eldepartamento;
+}
+
+ echo form_dropdown("iddepartamentodestino",$options, $movilidadalumno['iddepartamentodestino']);  ?></td>
+</tr>
+
+
+<tr>
+<td> Tipo movilidad:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($tipomovilidadalumno as $row){
+	$options[$row->idtipomovilidadalumno]= $row->eldepartamento;
+}
+
+ echo form_dropdown("idtipomovilidadalumno",$options, $movilidadalumno['idtipomovilidadalumno']);  ?></td>
+</tr>
+
+
+
+
+
 
  
  <tr>
