@@ -60,6 +60,7 @@ public function actual(){
 	$data['movilidadalumno']=$this->movilidadalumno_model->movilidadalumno($this->uri->segment(3))->row_array();
 			$data['departamentofuente']= $this->departamentofuente_model->listar_departamentofuente1(0)->result();
 			$data['departamentodestino']= $this->departamentodestino_model->listar_departamentodestino1(0)->result();
+  	$data['tipomovilidadalumno']=$this->tipomovilidadalumno_model->lista_tipomovilidadalumnos()->result();
 
 	$data['title']="Modulo de Estudiane";
 	$this->load->view('template/page_header');		
@@ -77,6 +78,7 @@ public function actual(){
 			$data['personas']= $this->persona_model->lista_personas()->result();
 			$data['departamentofuente']= $this->departamentofuente_model->listar_departamentofuente1(0)->result();
 			$data['departamentodestino']= $this->departamentodestino_model->listar_departamentodestino1(0)->result();
+  			$data['tipomovilidadalumno']=$this->tipomovilidadalumno_model->lista_tipomovilidadalumnos()->result();
 			$data['title']="Nueva Movilidadmovilidadalumno";
 			$this->load->view('template/page_header');		
 			$this->load->view('movilidadalumno_form',$data);
