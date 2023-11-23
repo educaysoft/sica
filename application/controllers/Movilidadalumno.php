@@ -93,6 +93,7 @@ public function actual(){
 			'idpersona' => $this->input->post('idpersona'),
 			'iddepartamentofuente' => $this->input->post('iddepartamentofuente'),
 			'iddepartamentodestino' => $this->input->post('iddepartamentodestino'),
+			'idtipomovilidadalumno' => $this->input->post('idtipomovilidadalumno'),
 	 	);
 	 	$result=$this->movilidadalumno_model->save($array_item);
 	 	if($result == FALSE)
@@ -110,7 +111,9 @@ public function actual(){
 	{
 			$data['movilidadalumno'] = $this->movilidadalumno_model->movilidadalumno($this->uri->segment(3))->row_array();
 			$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['departamentos']= $this->departamentofuente_model->lista_departamentos()->result();
+			$data['departamentofuente']= $this->departamentofuente_model->listar_departamentofuente1(0)->result();
+			$data['departamentodestino']= $this->departamentodestino_model->listar_departamentodestino1(0)->result();
+  			$data['tipomovilidadalumno']=$this->tipomovilidadalumno_model->lista_tipomovilidadalumnos()->result();
 			$data['title'] = "Actualizar Movilidadmovilidadalumno";
 			$this->load->view('template/page_header');		
 			$this->load->view('movilidadalumno_edit',$data);
@@ -128,6 +131,7 @@ public function actual(){
 			'idpersona' => $this->input->post('idpersona'),
 			'iddepartamentofuente' => $this->input->post('iddepartamentofuente'),
 			'iddepartamentodestino' => $this->input->post('iddepartamentodestino'),
+			'idtipomovilidadalumno' => $this->input->post('idtipomovilidadalumno'),
 	 	);
 	 	$this->movilidadalumno_model->update($id,$array_item);
 	 	redirect('movilidadalumno');
