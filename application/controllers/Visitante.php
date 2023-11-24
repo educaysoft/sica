@@ -297,6 +297,7 @@ public function elprimero()
   $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['visitante'] = $this->visitante_model->elprimero();
 	$data['departamento'] = $this->departamento_model->departamento($data['visitante']['iddepartamento'])->row_array();
+  	$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
   if(!empty($data))
   {
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
@@ -318,6 +319,7 @@ public function elultimo()
   $data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['visitante'] = $this->visitante_model->elultimo();
 	$data['departamento'] = $this->departamento_model->departamento($data['visitante']['iddepartamento'])->row_array();
+  	$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
   if(!empty($data))
   {
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
@@ -342,6 +344,7 @@ public function siguiente(){
 	$data['departamento'] = $this->departamento_model->departamento($data['visitante']['iddepartamento'])->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  	$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
     $data['title']="Visitante del documento";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
@@ -356,6 +359,7 @@ public function anterior(){
 	$data['departamento'] = $this->departamento_model->departamento($data['visitante']['iddepartamento'])->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  	$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
  // $data['title']="Correo";
     $data['title']="Visitante del documento";
 	$this->load->view('template/page_header');		
