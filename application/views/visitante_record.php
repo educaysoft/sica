@@ -312,12 +312,6 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 
-$(document).ready(function(){
-	var idevento=document.getElementById("idevento").value;
-	var idpersona=document.getElementById("idpersona").value;
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_fechasAsisPartPago')?>', type: 'GET',data:function(d){d.idevento=idevento; d.idpersona=idpersona}},});
-});
-
 $('#show_data').on('click','.item_ver',function(){
 var idevento= $(this).data('idevento');
 var fecha= $(this).data('fecha');
