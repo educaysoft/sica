@@ -62,6 +62,7 @@ public function actual(){
 		}
 
 
+  	$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
 
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['title']="Nuevo Visitante";
