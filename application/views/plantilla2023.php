@@ -295,7 +295,7 @@ function OpenTag($tag, $attr)
     }
 }
 
-unction CloseTag($tag)
+function CloseTag($tag)
 {
     //Closing tag
     if($tag=='STRONG')
