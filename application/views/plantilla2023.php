@@ -11,10 +11,33 @@ class PDF extends PDF_Sector
 	public $departamento ="";
 	public $titulo="";
 
+ public $laasignatura="";
+        public $eldocente="";
+        public $detalle="";
+
+
 	var $legends;
 	var $wLegend;
 	var $sum;
 	var $NbVal;
+
+
+function __construct($orientation='P', $unit='mm', $size='A4')
+{
+    //Call parent constructor
+    parent::__construct($orientation,$unit,$size);
+    //Initialization
+    $this->B=0;
+    $this->I=0;
+    $this->U=0;
+    $this->HREF='';
+    $this->fontlist=array('arial', 'times', 'courier', 'helvetica', 'symbol');
+    $this->issetfont=false;
+    $this->issetcolor=false;
+}
+
+
+
 
 
 	function Header()
