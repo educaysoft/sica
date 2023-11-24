@@ -1,6 +1,7 @@
 <?php
 
-	include 'plantillaReactivoV.php';
+	//include 'plantillaReactivoV.php';
+	include 'plantilla2023.php';
 
 
 	$pdf = new PDF();
@@ -12,7 +13,7 @@
 	$pdf->departamento=$reactivo['nombre']; 
 	$pdf->titulo="RECTIVO";
         $pdf->laasignatura= $asignatura[0]->nombre;
-        $pdf->eldocente="   "; //$silabo[0]->eldocente;
+        $pdf->eldocente=$silabo[0]->eldocente;
 	$pdf->detalle=$reactivos[0]->detalle;
 
 

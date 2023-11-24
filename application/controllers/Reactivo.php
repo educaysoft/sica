@@ -215,7 +215,7 @@ function reactivo_respuesta2()
 	 	$data['reactivos'] = $this->reactivo_model->reactivo($this->uri->segment(3))->result();
 		$data['evento'] = $this->evento_model->evento($data['reactivo']['idevento'])->row_array();
 		$data['asignatura'] = $this->asignatura_model->asignatura($data['reactivo']['idasignatura'])->result();
-	//	$data['silabo']=$this->silabo_model->silabo1($data['evento']['idsilabo'])->result();
+		$data['silabo']=$this->silabo_model->silabo1($data['evento']['idsilabo'])->result();
 	 	$data['pregunta'] = $this->pregunta_model->preguntasxreactivo($data['reactivo']['idreactivo'])->row_array();
 	 	$data['preguntas'] = $this->pregunta_model->preguntasxreactivo($data['reactivo']['idreactivo'])->result();
 	 	$data['respuesta'] = $this->respuesta_model->respuestasxreactivo($data['reactivo']['idreactivo'])->row_array();
