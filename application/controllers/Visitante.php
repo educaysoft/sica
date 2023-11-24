@@ -84,6 +84,7 @@ public function actual(){
 	 	$array_item=array(
 		 	'idpersona' => $this->input->post('idpersona'),
 		 	'iddepartamento' => $this->input->post('iddepartamento'),
+		 	'idfuncionario' => $this->input->post('idfuncionario'),
 		 	'fecha' => $this->input->post('fecha'),
 		 	'hora' => $this->input->post('hora'),
 		 	'motivo' => $this->input->post('motivo'),
@@ -136,6 +137,7 @@ public function actual(){
 	 	$array_item=array(
 		 	'rutafirma' => $this->input->get('rutafirma'),
 		 	'motivo' => $this->input->get('motivo'),
+		 	'idfuncionario' => $this->input->post('idfuncionario'),
 	 	);
 	 	$result=$this->visitante_model->update($id,$array_item);
 	 	if($result == FALSE)
