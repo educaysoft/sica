@@ -472,6 +472,24 @@ var iddocumento=document.getElementById("iddocumento").value;
 
 
 
+ function  firmar()
+ {
+   idvisitante=document.getElementById('idvisitante').value;
+   motivo =document.getElementById('motivo').value;   
+   idpersona =document.getElementById('idpersona').value;   
+   fecha =document.getElementById('fecha').value;   
+
+//window.location.href="https://repositorioutlvte.org/firmadigital.php?idvisitante="+idvisitante+"&motivo='"+motivo+"'";
+	window.location.href="https://repositorioutlvte.org/firmadigital.php?idpersona="+idpersona+"&motivo="+motivo+"&fecha="+fecha+"&idvisitante="+idvisitante;
+
+ }
+
+
+
+
+
+
+
 </script>
 
 
