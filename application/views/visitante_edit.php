@@ -7,7 +7,7 @@
   <label class="col-md-2 col-form-label">Id Visita :</label>
 	<div class="col-md-10">
 		<?php
-	$eys_arrinput=array('name'=>'idvisitante2','value'=>$visitante['idvisitante'],'readonly'=>'true', "style"=>"width:500px");
+	$eys_arrinput=array('name'=>'idvisitante','value'=>$visitante['idvisitante'],'id'=>'idvisitante','readonly'=>'true', "style"=>"width:500px");
 echo form_input($eys_arrinput); 
 		?>
 	</div> 
