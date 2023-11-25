@@ -162,7 +162,6 @@ public function actual(){
 	 	);
 	 	echo $this->visitante_model->update($id,$array_item);
 		echo "<script language='JavaScript'> window.history.go(-2);</script>";
-		}
 
  	}
 
