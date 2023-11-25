@@ -1,4 +1,4 @@
-<?php echo form_open('visitante/save_edit2'); ?>
+<?php echo form_open('visitante/firmar'); ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
  
