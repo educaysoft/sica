@@ -65,7 +65,6 @@ if(isset($visitante))
 
 
 <?php echo form_open('visitante/save_edit') ?>
-<?php echo form_hidden('idvisitante',$visitante['idvisitante']) ?>
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label">Id visitante:</label>
@@ -166,7 +165,7 @@ echo form_input('nombre',$options[$visitante['idpersona']],array("id"=>"nombre",
 <div class="col-md-10">
 <?php
     
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Motivo de la visita" );    
+$textarea_options = array('class' => 'form-control','rows' => '4', 'id'=>'motivo',  'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Motivo de la visita" );    
  echo form_textarea("motivo",$visitante['motivo'] , $textarea_options);  
 
 ?>
