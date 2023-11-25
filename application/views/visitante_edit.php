@@ -115,8 +115,6 @@ $textarea_options = array('class' => 'form-control','rows' => '4','id'=>'motivo'
 <?php
 
  echo form_input(array("name"=>"rutafirma","id"=>"rutafirma","type"=>"text",'value'=>$visitante['rutafirma'],"style"=>"width:600px"));   
-			$js='onClick="firmar()"';     
-			echo form_button("carga","Registrar firma",$js);
 ?>
 </div>
 </div>

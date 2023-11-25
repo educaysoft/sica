@@ -35,7 +35,6 @@ public function actual(){
   	$data['funcionarios']= $this->funcionario_model->lista_funcionariosA()->result();
 	$data['personas']= $this->persona_model->lista_personas()->result();
  
- 
    	$data['visitante']=$this->visitante_model->visitante($this->uri->segment(3))->row_array();
 	$data['departamento'] = $this->departamento_model->departamento($data['visitante']['iddepartamento'])->row_array();
 	$data['title']="Esta viendo el Visitante # :";
@@ -54,7 +53,6 @@ public function actual(){
 
 	public function add()
 	{
-
 		if($this->uri->segment(3)){
 			$data['departamentos']= $this->departamento_model->lista_departamentos($this->uri->segment(3))->result();
 		}else{
@@ -137,7 +135,6 @@ public function actual(){
 	 	$array_item=array(
 		 	'rutafirma' => $this->input->get('rutafirma'),
 		 	'motivo' => $this->input->get('motivo'),
-		 	'idfuncionario' => $this->input->post('idfuncionario'),
 	 	);
 	 	$result=$this->visitante_model->update($id,$array_item);
 	 	if($result == FALSE)

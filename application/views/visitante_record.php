@@ -99,7 +99,6 @@ $options= array("NADA");
 foreach ($funcionarios as $row){
 	$options[$row->idfuncionario]= $row->elfuncionario;
 }
-
 echo form_input(array('name'=>'idfuncionario',"type"=>"text","value"=>$options[$visitante['idfuncionario']],"id"=>"idfuncionario")); 
 		?>
 	</div> 
@@ -180,6 +179,8 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 	<div class="col-md-10">
 		<?php
     echo form_input('rutafirma',$visitante['rutafirma'],array("id"=>"rutafirma","disabled"=>"disabled",'placeholder'=>'rutafirma',"style"=>"width:500px"));
+			$js='onClick="firmar()"';     
+			echo form_button("carga","Registrar firma",$js);
 		?>
 	</div> 
 </div>
