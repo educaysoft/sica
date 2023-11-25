@@ -146,7 +146,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','id'=>'motivo'
 
  function  firmar()
  {
-   idvisitante=documento.getElementById('idvisitante');
+   idvisitante=document.getElementById('idvisitante');
    motivo =document.getElementById('motivo');   
    idpersona =document.getElementById('idpersona');   
    fecha =document.getElementById('fecha');   
