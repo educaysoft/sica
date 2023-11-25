@@ -63,7 +63,7 @@ foreach ($personas as $row){
 	}
 }
 
- echo form_dropdown("idpersona",$options, $indice,array['id'=>'idpersona']);  
+ echo form_dropdown("idpersona",$options, $indice,array('id'=>'idpersona'));  
 
 
 ?>
