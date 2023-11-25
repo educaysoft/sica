@@ -152,7 +152,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','id'=>'motivo'
    fecha =document.getElementById('fecha');   
 
 //window.location.href="https://repositorioutlvte.org/firmadigital.php?idvisitante="+idvisitante+"&motivo='"+motivo+"'";
-	window.location.href="https://repositorioutlvte.org/firmadigital.php?idvisitante="+idvisitante+"&motivo='"+motivo+"&fecha='"+fecha+"&idpersona='"+idpersona+"'";
+	window.location.href="https://repositorioutlvte.org/firmadigital.php?idvisitante="+idvisitante+"&motivo='"+motivo+"'&fecha='"+fecha+"'&idpersona="+idpersona;
 
  }
 
