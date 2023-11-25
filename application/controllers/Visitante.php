@@ -154,10 +154,14 @@ public function actual(){
 	{
 		$id=$this->input->post('idvisitante');
 	 	$array_item=array(
-		 	'iddepartamento' => $this->input->post('iddepartamento'),
 		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
-		 	'grupoletra' => $this->input->post('grupoletra'),
+		 	'iddepartamento' => $this->input->post('iddepartamento'),
+		 	'idfuncionario' => $this->input->post('idfuncionario'),
+		 	'fecha' => $this->input->post('fecha'),
+		 	'hora' => $this->input->post('hora'),
+		 	'motivo' => $this->input->post('motivo'),
+		 	'rutafirma' => $this->input->post('rutafirma'),
+	
 	 	);
 	 	echo $this->visitante_model->update($id,$array_item);
  	}

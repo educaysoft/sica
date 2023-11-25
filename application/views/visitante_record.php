@@ -309,9 +309,6 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <script type="text/javascript">
 
 
-
-
-
 $('#show_data').on('click','.item_ver',function(){
 var idevento= $(this).data('idevento');
 var fecha= $(this).data('fecha');
@@ -331,8 +328,6 @@ alert(loc);
 window.location.href =loc;
 
 });
-
-
 
 
 

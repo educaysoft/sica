@@ -1,4 +1,4 @@
-<?php echo form_open('visitante/firmar'); ?>
+<?php echo form_open('visitante/save_edit2'); ?>
 <?php echo form_hidden('idvisitante',$visitante['idvisitante']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
@@ -26,8 +26,6 @@ foreach ($departamentos as $row){
 		?>
 	</div> 
 </div>
-
-
 
 <div class="form-group row">
   <label class="col-md-2 col-form-label"> Funcionario :</label>
@@ -65,7 +63,7 @@ foreach ($personas as $row){
 	}
 }
 
- echo form_dropdown("idpersona",$options, $indice);  
+ echo form_dropdown("idpersona",$options, $indice,array['id'=>'idpersona']);  
 
 
 ?>
@@ -118,7 +116,8 @@ $textarea_options = array('class' => 'form-control','rows' => '4','id'=>'motivo'
 <?php
 
  echo form_input(array("name"=>"rutafirma","id"=>"rutafirma","type"=>"text",'value'=>$visitante['rutafirma'],"style"=>"width:600px"));   
-
+			$js='onClick="firmar()"';     
+			echo form_button("carga","Registrar firma",$js);
 ?>
 </div>
 </div>
@@ -149,8 +148,11 @@ $textarea_options = array('class' => 'form-control','rows' => '4','id'=>'motivo'
  {
    idvisitante=documento.getElementById('idvisitante');
    motivo =document.getElementById('motivo');   
+   idpersona =document.getElementById('idpersona');   
+   fecha =document.getElementById('fecha');   
 
-window.location.href="https://repositorioutlvte.org/firmadigital.php?idvisitante="+idvisitante+"&motivo='"+motivo+"'";
+//window.location.href="https://repositorioutlvte.org/firmadigital.php?idvisitante="+idvisitante+"&motivo='"+motivo+"'";
+	window.location.href="https://repositorioutlvte.org/firmadigital.php?idvisitante="+idvisitante+"&motivo='"+motivo+"&fecha='"+fecha+"&idpersona='"+idpersona+"'";
 
  }
 
