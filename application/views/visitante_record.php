@@ -11,7 +11,7 @@
 
 
 <div id="eys-nav-i">
-	<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idvisitante"><?php echo $visitante['idvisitante']; ?></idem></div>
+	<div style="text-align: left; font-size:large"> <?php echo $title  ?><idem style="font-size:large" id="idvisitante1"><?php echo $visitante['idvisitante']; ?></idem></div>
 
 <?php
 if(isset($visitante))
