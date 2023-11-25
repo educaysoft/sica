@@ -1,5 +1,4 @@
 <?php echo form_open('visitante/save_edit2'); ?>
-<?php echo form_hidden('idvisitante',$visitante['idvisitante']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
  
@@ -146,10 +145,10 @@ $textarea_options = array('class' => 'form-control','rows' => '4','id'=>'motivo'
 
  function  firmar()
  {
-   idvisitante=document.getElementById('idvisitante');
-   motivo =document.getElementById('motivo');   
-   idpersona =document.getElementById('idpersona');   
-   fecha =document.getElementById('fecha');   
+   idvisitante=document.getElementById('idvisitante').value;
+   motivo =document.getElementById('motivo').value;   
+   idpersona =document.getElementById('idpersona').value;   
+   fecha =document.getElementById('fecha').value;   
 
 //window.location.href="https://repositorioutlvte.org/firmadigital.php?idvisitante="+idvisitante+"&motivo='"+motivo+"'";
 	window.location.href="https://repositorioutlvte.org/firmadigital.php?idvisitante="+idvisitante+"&motivo='"+motivo+"'&fecha='"+fecha+"'&idpersona="+idpersona;
