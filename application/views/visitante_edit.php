@@ -129,7 +129,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','id'=>'motivo'
 
 <table>
  <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Firmar y Guardar'); ?> <?php echo anchor('visitante','Atras') ?></td>
+ <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('visitante','Atras') ?></td>
  </tr>
 </table>
 <?php echo form_close(); ?>
