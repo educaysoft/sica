@@ -138,7 +138,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','id'=>'motivo'
 <?php echo form_close(); ?>
 
 
- <script>_
+ <script>
 
 
 
