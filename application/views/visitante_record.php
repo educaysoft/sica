@@ -70,7 +70,7 @@ if(isset($visitante))
     <label class="col-md-2 col-form-label">Id visitante:</label>
 	<div class="col-md-10">
 		<?php
-    echo form_input('idvisitante',$visitante['idvisitante'],array("id"=>"idvisitante","disabled"=>"disabled",'placeholder'=>'Idvisitante'));
+    echo form_input('idvisitante',$visitante['idvisitante'],array("id"=>"idvisitante","disabled"=>"disabled",'placeholder'=>'Idvisitante',"style"=>"width:500px"));
 		?>
 	</div> 
 </div> 
@@ -98,7 +98,7 @@ $options= array("NADA");
 foreach ($funcionarios as $row){
 	$options[$row->idfuncionario]= $row->elfuncionario;
 }
-echo form_input(array('name'=>'idfuncionario',"type"=>"text","value"=>$options[$visitante['idfuncionario']],"disabled"=>"disabled","id"=>"idfuncionario")); 
+echo form_input(array('name'=>'idfuncionario',"type"=>"text","value"=>$options[$visitante['idfuncionario']],"disabled"=>"disabled","id"=>"idfuncionario","style"=>"width:500px")); 
 		?>
 	</div> 
 </div>
