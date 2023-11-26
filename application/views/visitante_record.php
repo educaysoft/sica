@@ -98,7 +98,7 @@ $options= array("NADA");
 foreach ($funcionarios as $row){
 	$options[$row->idfuncionario]= $row->elfuncionario;
 }
-echo form_input(array('name'=>'idfuncionario',"type"=>"text","value"=>$options[$visitante['idfuncionario']],"id"=>"idfuncionario")); 
+echo form_input(array('name'=>'idfuncionario',"type"=>"text","value"=>$options[$visitante['idfuncionario']],"disabled"=>"disabled","id"=>"idfuncionario")); 
 		?>
 	</div> 
 </div>
@@ -135,7 +135,7 @@ echo form_input('nombre',$options[$visitante['idpersona']],array("id"=>"nombre",
     <label class="col-md-2 col-form-label">Fecha:</label>
 	<div class="col-md-10">
 		<?php
-    echo form_input('fecha',$visitante['fecha'],array("id"=>"fecha","disabled"=>"disabled",'placeholder'=>'fecha'));
+    echo form_input('fecha',$visitante['fecha'],array("id"=>"fecha","disabled"=>"disabled",'placeholder'=>'fecha',"style"=>"width:500px"));
 		?>
 	</div> 
 </div> 
@@ -145,7 +145,7 @@ echo form_input('nombre',$options[$visitante['idpersona']],array("id"=>"nombre",
     <label class="col-md-2 col-form-label">Hora:</label>
 	<div class="col-md-10">
 		<?php
-    echo form_input('hora',$visitante['hora'],array("id"=>"hora","disabled"=>"disabled",'placeholder'=>'hora'));
+    echo form_input('hora',$visitante['hora'],array("id"=>"hora","disabled"=>"disabled",'placeholder'=>'hora',"style"=>"width:500px"));
 		?>
 	</div> 
 </div>
@@ -165,7 +165,7 @@ echo form_input('nombre',$options[$visitante['idpersona']],array("id"=>"nombre",
 <div class="col-md-10">
 <?php
     
-$textarea_options = array('class' => 'form-control','rows' => '4', 'id'=>'motivo',  'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Motivo de la visita" );    
+$textarea_options = array('class' => 'form-control','rows' => '4', 'id'=>'motivo',  'cols' => '20', 'style'=> 'width:500px;height:100px;', "placeholder"=>"Motivo de la visita" );    
  echo form_textarea("motivo",$visitante['motivo'] , $textarea_options);  
 
 ?>
