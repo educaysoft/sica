@@ -69,33 +69,13 @@ class Ubicacionproceso_model extends CI_model {
 
  	function save($array)
 	{	
-		$condition ="idproceso="."'". $array['idproceso']."' and  fecha=". "'".$array['fecha']."'";
-		$this->db->select('*');
-		$this->db->from('ubicacionproceso');
-		$this->db->where($condition);
-		$this->db->limit(1);
-		$query = $this->db->get();
-		if($query->num_rows()==0)
-		{	
 			$this->db->insert("ubicacionproceso", $array);
 			if($this->db->affected_rows()>0)
 			{
 				return true;
 			}else{
 				return false;
-			}
-		}else{
-			$this->db->where('fecha',$array['fecha']);
-			$this->db->where('idproceso',$array['idproceso']);
-			$this->db->update('ubicacionproceso',$array);
-
-			if($this->db->affected_rows()>0)
-			{
-				return true;
-			}else{
-				return false;
-			}
-		}
+				}
  	}
 
  	function update($id,$array_item)

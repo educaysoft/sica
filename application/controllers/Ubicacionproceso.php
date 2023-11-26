@@ -41,7 +41,7 @@ class Ubicacionproceso extends CI_Controller{
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['title']="Ubicacionproceso del departamento";
 	 
-		$data['title']="Modulo ubicación del artículo: ";
+		$data['title']="Modulo ubicación del proceso: ";
 		$this->load->view('template/page_header');		
 		$this->load->view('ubicacionproceso_record',$data);
 		$this->load->view('template/page_footer');
@@ -64,7 +64,7 @@ class Ubicacionproceso extends CI_Controller{
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
    		date_default_timezone_set('America/Guayaquil');
 	     	$date = date("Y-m-d");
-		$data['title']="Nueva ubicación de artículo: ";
+		$data['title']="Nueva ubicación de proceso: ";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('ubicacionproceso_form',$data);
 	 	$this->load->view('template/page_footer');
