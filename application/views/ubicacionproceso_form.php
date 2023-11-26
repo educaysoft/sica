@@ -7,7 +7,7 @@
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Articulo: </label>
+<label class="col-md-2 col-form-label">Proceso: </label>
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
@@ -21,7 +21,7 @@ foreach ($procesos as $row){
 </div>
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">persona:</label>
+<label class="col-md-2 col-form-label">persona responsable:</label>
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
@@ -35,7 +35,7 @@ foreach ($personas as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Unidad:</label>
+<label class="col-md-2 col-form-label">Departamento:</label>
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
