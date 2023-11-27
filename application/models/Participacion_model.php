@@ -42,7 +42,7 @@ class Participacion_model extends CI_model {
 		$this->db->where('idevento',$idevento);
 		$this->db->where('idmodoevaluacion',2);
 		$this->db->from('participacion2');
- 		$this->db->group_by('idpersona');
+ 		$this->db->order_by('idpersona');
 		$asistencia= $this->db->get();
 		 return $asistencia;
 	}
@@ -52,7 +52,7 @@ class Participacion_model extends CI_model {
 		$this->db->where('idevento',$idevento);
 		$this->db->where('idmodoevaluacion',3);
 		$this->db->from('participacion2');
- 		$this->db->group_by('idpersona');
+ 		$this->db->order_by('idpersona');
 		$asistencia= $this->db->get();
 		 return $asistencia;
 	}
@@ -63,7 +63,7 @@ class Participacion_model extends CI_model {
 		$this->db->where('idevento',$idevento);
 		$this->db->where('idmodoevaluacion',4);
 		$this->db->from('participacion2');
- 		$this->db->group_by('idpersona');
+ 		$this->db->order_by('idpersona');
 		$asistencia= $this->db->get();
 		 return $asistencia;
 	}
@@ -73,7 +73,7 @@ class Participacion_model extends CI_model {
 		$this->db->where('idevento',$idevento);
 		$this->db->where('idmodoevaluacion',5);
 		$this->db->from('participacion2');
- 		$this->db->group_by('idpersona');
+ 		$this->db->order_by('idpersona');
 		$asistencia= $this->db->get();
 		 return $asistencia;
 	}
