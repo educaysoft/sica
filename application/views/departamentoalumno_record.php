@@ -39,7 +39,7 @@ if(isset($departamentoalumno))
  
  
 <tr>
-     <td>Funcionario:</td>
+     <td>Alumno:</td>
      <td><?php 
 $options= array("NADA");
 foreach ($alumnos as $row){
@@ -60,6 +60,16 @@ echo form_input('idalumno',$options[$departamentoalumno['idalumno']],array("disa
     echo form_input('iddepartamento',$options[$departamentoalumno['iddepartamento']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
   
+
+<tr>
+     <td>Cohorte:</td>
+     <td><?php 
+    $options= array("NADA");
+    foreach ($periodoacademicos as $row){
+	      $options[$row->idperidoacademico]= $row->elperiodo;
+    }
+    echo form_input('iperiodoacademico',$options[$departamentoalumno['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+ </tr>
 
 
   
