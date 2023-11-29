@@ -476,10 +476,11 @@ var iddocumento=document.getElementById("iddocumento").value;
    idvisitante=document.getElementById('idvisitante').value;
    motivo =document.getElementById('motivo').value;   
    idpersona =document.getElementById('idpersona').value;   
+   nombre =document.getElementById('nombre').value;   
    fecha =document.getElementById('fecha').value;   
 
 //window.location.href="https://repositorioutlvte.org/firmadigital.php?idvisitante="+idvisitante+"&motivo='"+motivo+"'";
-	window.location.href="https://repositorioutlvte.org/firmadigital.php?idpersona="+idpersona+"&motivo="+motivo+"&fecha="+fecha+"&idvisitante="+idvisitante;
+	window.location.href="https://repositorioutlvte.org/firmadigital.php?nombre="+nombre+"&motivo="+motivo+"&fecha="+fecha+"&idvisitante="+idvisitante;
 
  }
 
