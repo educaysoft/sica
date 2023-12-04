@@ -7,6 +7,7 @@ class Departamentoalumno extends CI_Controller{
   	  $this->load->model('alumno_model');
   	  $this->load->model('departamento_model');
   	  $this->load->model('departamentoalumno_model');
+  	  $this->load->model('periodoacademico_model');
 }
 
 public function index(){
