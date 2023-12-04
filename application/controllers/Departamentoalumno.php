@@ -19,6 +19,7 @@ public function index(){
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   	$data['departamentoalumnos']= $this->departamentoalumno_model->lista_departamentoalumnos()->result();
 			
+			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
 		$data['title']="Lista de departamentoalumnos";
 		$this->load->view('template/page_header');
 		$this->load->view('departamentoalumno_record',$data);
