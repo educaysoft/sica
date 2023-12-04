@@ -66,7 +66,7 @@ echo form_input('idalumno',$options[$departamentoalumno['idalumno']],array("disa
      <td><?php 
     $options= array("NADA");
     foreach ($periodoacademicos as $row){
-	      $options[$row->idperidoacademico]= $row->elperiodo;
+	      $options[$row->idperiodoacademico]= $row->elperiodoacademico;
     }
     echo form_input('iperiodoacademico',$options[$departamentoalumno['idperiodoacademico']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
  </tr>
