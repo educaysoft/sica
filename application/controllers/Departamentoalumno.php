@@ -36,6 +36,7 @@ public function index(){
 			$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			$data['title']="Nueva Departamentoalumno";
+			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
 			$this->load->view('template/page_header');		
 			$this->load->view('departamentoalumno_form',$data);
 			$this->load->view('template/page_footer');
@@ -62,6 +63,7 @@ public function index(){
 			$data['departamentoalumno'] = $this->departamentoalumno_model->departamentoalumno($this->uri->segment(3))->row_array();
 			$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
 			$data['title'] = "Actualizar Departamentoalumno";
 			$this->load->view('template/page_header');		
 			$this->load->view('departamentoalumno_edit',$data);
