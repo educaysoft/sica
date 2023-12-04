@@ -155,7 +155,7 @@ public function actual(){
 			$data0 = $this->departamentoalumno_model->lista_departamentoalumnos1($idalumno);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idalumno,$r->iddepartamento,$r->eldepartamento,$r->fechadesde,$r->lacorte
+				$data[]=array($r->idalumno,$r->iddepartamento,$r->eldepartamento,$r->fechadesde,$r->lacorte,
 					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('alumno/actual').'"  data-idalumno="'.$r->idalumno.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
