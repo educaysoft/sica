@@ -20,6 +20,14 @@ class Metodoaprendizajetema_model extends CI_model {
  	}
 
 
+ 	function metodoaprendizajetemaxsilabo( $id){
+ 		$metodoaprendizajetema = $this->db->query('select * from metodoaprendizajetema1 where idsilabo="'. $id.'"');
+ 		return $metodoaprendizajetema;
+ 	}
+
+
+
+
  	function metodoaprendizajetemas1( $idtema){
  		$metodoaprendizajetema = $this->db->query('select * from metodoaprendizajetema1 where idtema="'. $idtema.'"');
  		return $metodoaprendizajetema;

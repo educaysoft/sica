@@ -106,7 +106,7 @@ $pdf->Ln(20);
 	 	 	$current_x+=$cell_width;
 			$current_y = $pdf->GetY()-5;
 			$pdf->SetXY($current_x, $current_y);   
-		    $pdf->MultiCell($cell_width,5,utf8_decode($row->numerosesion),1,'L',$fill);
+		    	$pdf->MultiCell($cell_width,5,utf8_decode($row->numerosesion),1,'L',$fill);
 	 	 	$current_x+=$cell_width;
 			if($current_y==$pdf->GetY()-5){
 				$current_y = $pdf->GetY()-5;
@@ -114,9 +114,20 @@ $pdf->Ln(20);
 				$current_y = $pdf->GetY()-10;
 			}
 
+			$medologiaaprendizaje="";
+			$salir=0;
+	foreach ($metodologiaaprendizajetema as $row1){  //Recorre todas la participaciones realiadas por los participantes
+		if($row->idsilabo==$row1->idsilabo){
+			$salir=1;
+			$metodologiaaprendizaje+=$row1.nombre;
+		}else{
+			if($salir==1) break;
+		}
+	}
+
 			$pdf->SetXY($current_x, $current_y);   
 			$cell_width=70;
-		    $pdf->MultiCell($cell_width,5,utf8_decode($row->nombrecorto),1,'L',$fill);
+		    	$pdf->MultiCell($cell_width,5,utf8_decode($row->nombrecorto),1,'L',$fill);
 	 	 	$current_x+=$cell_width;
 			$current_y2 = $pdf->GetY();
 			if($current_y==$pdf->GetY()-5){
@@ -171,3 +182,41 @@ $pdf->Ln(20);
 
 	$pdf->Output();
 ?>
+
+
+<script>
+
+function get_metodologia() {
+	var idordenador = $('select[name=idordenador]').val();
+    $.ajax({
+        url: "<?php echo site_url('silabo/get_metodologia') ?>",
+        data: {idtema: idtema},
+        method: 'POST',
+	async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        for(i=0; i<data.length; i++){
+        html += '<option value='+data[i].iddirectorio+'>'+data[i].ruta+'</option>';
+        }
+        $('#iddirectorio').html(html);
+
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
+
+
+
+
+</script>
+
+
+

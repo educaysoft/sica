@@ -16,6 +16,7 @@ class Silabo extends CI_Controller{
   	$this->load->model('malla_model');
   	$this->load->model('departamento_model');
   	$this->load->model('calendarioacademico_model');
+      $this->load->model('metodoaprendizajetema_model');
   }
 
 //=========================================================
@@ -256,25 +257,24 @@ public function actual()
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
-  		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
-  if(!empty($data))
-  {
-    $data['title']="Silabo";
-    $this->load->view('template/page_header');		
-    $this->load->view('silabo_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
+	  if(!empty($data))
+	  {
+	    $data['title']="Silabo";
+	    $this->load->view('template/page_header');		
+	    $this->load->view('silabo_record',$data);
+	    $this->load->view('template/page_footer');
+	  }else{
+	    $this->load->view('template/page_header');		
+	    $this->load->view('registro_vacio');
+	    $this->load->view('template/page_footer');
+	  }
  }
 
 
 
 	public function reportepdf()
 	{
-
 		$tmp=explode("-",$this->uri->segment(3));
         	$idsilabo=$tmp[0];
         	if(isset($tmp[1]))
@@ -283,21 +283,14 @@ public function actual()
         	}else{
         		$mesnumero=0;
         	}
-
-
 		$data['unidadsilabo'] =$this->unidadsilabo_model->unidadsilaboss($idsilabo)->result();
 		$data['silabo'] =$this->silabo_model->silabo1($idsilabo)->result();
 	 	$data['temas']= $this->tema_model->lista_temass($idsilabo)->result();
-
 		$data['asignatura']=$this->asignatura_model->asignatura($data['silabo'][0]->idasignatura)->result();
-
+		$data['metodoaprendizajetema']=$this->metodoaprendizajetema_model->metodoaprendizajetemaxsilabo($data['silabo'][0]->idsilabo)->result();
 		$data['malla']=$this->malla_model->malla($data['asignatura'][0]->idmalla)->result();
-
 		$data['departamento']=$this->departamento_model->departamento($data['malla'][0]->iddepartamento)->result();
-
 		$data['calendarioacademico'] = $this->calendarioacademico_model->lista_calendarioacademico2($data['silabo'][0]->idperiodoacademico,$data['malla'][0]->iddepartamento)->result();
-
-
 		$data['title']="Silabo";
 	//	$this->load->view('template/page_header');		
 		$this->load->view('silabo_list_pdf',$data);
