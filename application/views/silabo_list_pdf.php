@@ -116,12 +116,14 @@ $pdf->Ln(20);
 
 			$medologiaaprendizaje="";
 			$salir=0;
+			print_r($metodologiaaprendizajetema);
+			die();
 	foreach ($metodologiaaprendizajetema as $row1){  //Recorre todas la participaciones realiadas por los participantes
 		if($row->idtema==$row1->idtema){
 			$salir=1;
 			$metodologiaaprendizaje+=$row1.elmetodo;
 		}else{
-			if($salir==1) break;
+			if($salir==1){ break;}
 		}
 	}
 
