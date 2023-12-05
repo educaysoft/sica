@@ -18,7 +18,7 @@
     	$pdf->asignatura="Asignatura: ".$asignatura[0]->nombre; 
 	
     
-    	$pdf->mes="Periodo:  ".$calendarioacademico[0]->nombre; 
+   // 	$pdf->mes="Periodo:  ".$calendarioacademico[0]->nombre; 
     	//$pdf->docente="unidad:  ".$temas[0]->launidadsilabo; 
 
 
@@ -116,9 +116,9 @@ $pdf->Ln(20);
 
 			$medologiaaprendizaje="";
 			$salir=0;
-			print_r($metodologiaaprendizajetema);
+			print_r($metodoaprendizajetema);
 			die();
-	foreach ($metodologiaaprendizajetema as $row1){  //Recorre todas la participaciones realiadas por los participantes
+	foreach ($metodoaprendizajetema as $row1){  //Recorre todas la participaciones realiadas por los participantes
 		if($row->idtema==$row1->idtema){
 			$salir=1;
 			$metodologiaaprendizaje+=$row1.elmetodo;
