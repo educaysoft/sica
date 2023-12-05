@@ -127,7 +127,7 @@ $pdf->Ln(20);
 
 			$pdf->SetXY($current_x, $current_y);   
 			$cell_width=70;
-		    	$pdf->MultiCell($cell_width,5,utf8_decode($row->nombrecorto),1,'L',$fill);
+		    	$pdf->MultiCell($cell_width,5,utf8_decode($metodologiaaprendizaje),1,'L',$fill);
 	 	 	$current_x+=$cell_width;
 			$current_y2 = $pdf->GetY();
 			if($current_y==$pdf->GetY()-5){
