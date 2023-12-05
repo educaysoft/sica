@@ -104,12 +104,12 @@ $pdf->Ln(20);
 
 		    $pdf->MultiCell($cell_width,3,utf8_decode($row->unidad),1,'L',$fill);
 	 	 	$current_x+=$cell_width;
-			$current_y = $pdf->GetY()-5;
+			$current_y = $pdf->GetY()-3;
 			$pdf->SetXY($current_x, $current_y);   
 		    	$pdf->MultiCell($cell_width,3,utf8_decode($row->numerosesion),1,'L',$fill);
 	 	 	$current_x+=$cell_width;
-			if($current_y==$pdf->GetY()-5){
-				$current_y = $pdf->GetY()-5;
+			if($current_y==$pdf->GetY()-3){
+				$current_y = $pdf->GetY()-3;
 			}else{
 				$current_y = $pdf->GetY()-10;
 			}
