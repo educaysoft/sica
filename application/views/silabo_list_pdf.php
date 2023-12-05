@@ -114,7 +114,7 @@ $pdf->Ln(20);
 				$current_y = $pdf->GetY()-10;
 			}
 
-			$medologiaaprendizaje="";
+			$metodologiaaprendizaje="";
 			$salir=0;
 			//print_r($metodoaprendizajetema);
 		//	die();
