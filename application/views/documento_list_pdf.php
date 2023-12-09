@@ -56,8 +56,8 @@
 	$i=0;
 	foreach ($documentos as $row){  //Recorre todas la participaciones realiadas por los participantes
 		$l=strlen($row->asunto);
-		echo $l;
-		die();
+	//	echo $l;
+	//	die();
 		   if($l>60){
 		   	$h=10;
      		   }else{
