@@ -58,7 +58,7 @@
 		$l=strlen($row->asunto);
 		echo $l;
 		die();
-		   if($l>150){
+		   if($l>60){
 		   	$h=10;
      		   }else{
 		   	$h=5;
