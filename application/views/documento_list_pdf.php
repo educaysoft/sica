@@ -56,6 +56,8 @@
 	$i=0;
 	foreach ($documentos as $row){  //Recorre todas la participaciones realiadas por los participantes
 		$l=strlen($row->asunto);
+		echo $l;
+		die();
 		   if($l>150){
 		   	$h=10;
      		   }else{
@@ -73,7 +75,7 @@
 		    $pdf->Cell(45,$h,utf8_decode(""),1,0,'L',0);
 		    }
 		 //$pdf->Cell(80,5,utf8_decode($row->asunto),1,0,'L',0);
-		 $pdf->MultiCell(80,5,utf8_decode($row->asunto),1,'L',0);
+		 $pdf->MultiCell(80,5,utf8_decode($row->asunto),1,'L',1);
 		 $pdf->Cell(40,$h,utf8_decode($row->archivopdf),1,1,'L',0);
 
 
