@@ -41,8 +41,8 @@
 
 
 	$pdf->Cell(5,5,'#',1,0,'C',1);
-	$pdf->Cell(45,5,'Peraona',1,0,'C',1);
-	$pdf->Cell(80,5,'Asunto',1,0,'C',1);
+	$pdf->Cell(45,5,'Autor',1,0,'C',1);
+	$pdf->Cell(80,5,'Asunto/tema',1,0,'C',1);
 	$pdf->Cell(40,5,'codigo',1,1,'C',1);
  
 	 
@@ -52,21 +52,29 @@
 
 	$autor='';
 	$persona="";
+	$h=5;
 	$i=0;
 	foreach ($documentos as $row){  //Recorre todas la participaciones realiadas por los participantes
-	       
+		$l=strlen($row->asunto)
+		   if($l>150){
+		   	$h=10;
+     		   }else{
+		   	$h=5;
+		   }			   
+
 		    if($autor != $row->autor){
 		    $i=$i+1;
-		    $pdf->Cell(5,5,$i,1,0,'R',0); 
-		    $pdf->Cell(45,5,utf8_decode($row->autor),1,0,'L',0);
+		    $pdf->Cell(5,$h,$i,1,0,'R',0); 
+		    $pdf->Cell(45,$h,utf8_decode($row->autor),1,0,'L',0);
 		    $autor=$row->autor;
 		    }else{
 
-		    $pdf->Cell(5,5,"",1,0,'R',0); 
-		    $pdf->Cell(45,5,utf8_decode(""),1,0,'L',0);
+		    $pdf->Cell(5,$h,"",1,0,'R',0); 
+		    $pdf->Cell(45,$h,utf8_decode(""),1,0,'L',0);
 		    }
-		 $pdf->Cell(80,5,utf8_decode($row->asunto),1,0,'L',0);
-		 $pdf->Cell(40,5,utf8_decode($row->archivopdf),1,1,'L',0);
+		 //$pdf->Cell(80,5,utf8_decode($row->asunto),1,0,'L',0);
+		 $pdf->MultiCell(80,5,utf8_decode($row->asunto),1,'L',0);
+		 $pdf->Cell(40,$h,utf8_decode($row->archivopdf),1,1,'L',0);
 
 
    }
