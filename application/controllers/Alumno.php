@@ -143,6 +143,34 @@ public function actual(){
 	}
 
 
+	function alumno_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+
+			$data0 = $this->alumno_model->lista_alumnosA();
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idalumno,$r->idpersona,$r->elalumno,
+					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('alumno/actual').'"  data-idalumno="'.$r->idalumno.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
+
+
 
 	function departamento_data()
 	{
