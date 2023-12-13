@@ -15,6 +15,7 @@ if(isset($silabo))
         <li> <?php echo anchor('silabo/listar/','Listar'); ?></li>
         <li> <?php echo anchor('silabounidad/','Unidades'); ?></li>
         <li> <?php echo anchor('silabo/reportepdf/'.$silabo['idsilabo'],'Reportepdf'); ?></li>
+        <li> <?php echo anchor('silabo/exportcsv/'.$silabo['idsilabo'],'ExportarCSV'); ?></li>
 
 <?php 
 }else{

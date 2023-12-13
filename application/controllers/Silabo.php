@@ -299,6 +299,35 @@ public function actual()
 
 
 
+public function exportcsv()
+{
+	$tmp=explode("-",$this->uri->segment(3));
+       	$idsilabo=$tmp[0];
+       	if(isset($tmp[1]))
+       	{
+       		$mesnumero=$tmp[1];
+       	}else{
+       		$mesnumero=0;
+       	}
+	$filename='silabo.csv';
+	header("Content-Description:File Transfer");
+	header("Content-Disposition: attachment; filename=$filename");
+	header("Content-Type: application/csv;");
+
+	$data['temas']= $this->tema_model->lista_temassexport($idsilabo)->result_array();
+
+	$file=fopen('php://output','w');
+	$header=array("idtema","sesion","nombrecorto","nombrelargo");
+	fputcsv($file,$header);
+	foreach($data['tema'] as $key=>$value){
+
+	fputcsv($file,$value)
+	}
+	fclose($file);
+	exit;
+
+}
+
 
 
 
@@ -374,5 +403,7 @@ public function anterior(){
   	$this->load->view('silabo_record',$data);
 	$this->load->view('template/page_footer');
 }
+
+
 
 }
