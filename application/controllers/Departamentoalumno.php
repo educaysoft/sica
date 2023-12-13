@@ -14,12 +14,11 @@ public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['departamentoalumno']=$this->departamentoalumno_model->lista_departamentoalumnos()->row_array();
-  	$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
-  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  	$data['departamentoalumnos']= $this->departamentoalumno_model->lista_departamentoalumnos()->result();
-			
-			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
+  		$data['departamentoalumno']=$this->departamentoalumno_model->lista_departamentoalumnos()->row_array();
+  		$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
+  		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  		$data['departamentoalumnos']= $this->departamentoalumno_model->lista_departamentoalumnos()->result();
+		$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
 		$data['title']="Lista de departamentoalumnos";
 		$this->load->view('template/page_header');
 		$this->load->view('departamentoalumno_record',$data);
@@ -195,12 +194,16 @@ public function elprimero()
 
 public function elultimo()
 {
+
+
 	$data['departamentoalumno'] = $this->departamentoalumno_model->elultimo();
-  	$data['alumnos']= $this->alumno_model->lista_alumnos()->result();
+  	$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  	$data['departamentoalumnos']= $this->departamentoalumno_model->lista_departamentoalumnos()->result();
+	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
+
   if(!empty($data))
   {
-  	$data['alumnos']= $this->alumno_model->lista_alumnos()->result();
     $data['title']="Departamentoalumno";
   
     $this->load->view('template/page_header');		
@@ -217,9 +220,10 @@ public function elultimo()
 public function siguiente(){
  // $data['departamentoalumno_list']=$this->departamentoalumno_model->lista_departamentoalumno()->result();
 	$data['departamentoalumno'] = $this->departamentoalumno_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['alumnos']= $this->alumno_model->lista_alumnos()->result();
+  	$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  
+  	$data['departamentoalumnos']= $this->departamentoalumno_model->lista_departamentoalumnos()->result();
+	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
 
 $data['title']="Departamentoalumno";
 	$this->load->view('template/page_header');		
@@ -230,8 +234,11 @@ $data['title']="Departamentoalumno";
 public function anterior(){
  // $data['departamentoalumno_list']=$this->departamentoalumno_model->lista_departamentoalumno()->result();
 	$data['departamentoalumno'] = $this->departamentoalumno_model->anterior($this->uri->segment(3))->row_array();
- 	$data['alumnos']= $this->alumno_model->lista_alumnos()->result();
+  	$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+  	$data['departamentoalumnos']= $this->departamentoalumno_model->lista_departamentoalumnos()->result();
+	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
+
   $data['title']="Departamentoalumno";
 	$this->load->view('template/page_header');		
   $this->load->view('departamentoalumno_record',$data);
