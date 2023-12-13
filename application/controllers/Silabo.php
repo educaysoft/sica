@@ -321,7 +321,7 @@ public function exportcsv()
 	fputcsv($file,$header);
 	foreach($data['tema'] as $key=>$value){
 
-	fputcsv($file,$value)
+	fputcsv($file,$value);
 	}
 	fclose($file);
 	exit;
