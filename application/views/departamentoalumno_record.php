@@ -39,7 +39,7 @@ if(isset($departamentoalumno))
  
  
 <tr>
-     <td>Alumno:</td>
+     <td>( <?php echo anchor('alumno/actual/'.$departamentoalumno['idalumno'], 'Alumno:'); ?>) </td>
      <td><?php 
 $options= array("NADA");
 foreach ($alumnos as $row){

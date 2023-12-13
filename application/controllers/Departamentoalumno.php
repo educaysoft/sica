@@ -239,9 +239,9 @@ public function anterior(){
   	$data['departamentoalumnos']= $this->departamentoalumno_model->lista_departamentoalumnos()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
 
-  $data['title']="Departamentoalumno";
+  	$data['title']="Departamentoalumno";
 	$this->load->view('template/page_header');		
-  $this->load->view('departamentoalumno_record',$data);
+  	$this->load->view('departamentoalumno_record',$data);
 	$this->load->view('template/page_footer');
 }
 
