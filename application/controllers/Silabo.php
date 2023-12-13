@@ -319,7 +319,7 @@ public function exportcsv()
 	$file=fopen('php://output','w');
 	$header=array("idtema","sesion","nombrecorto","nombrelargo");
 	fputcsv($file,$header);
-	foreach($data['tema'] as $key=>$value){
+	foreach($data['temas'] as $key=>$value){
 
 	fputcsv($file,$value);
 	}
