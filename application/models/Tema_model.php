@@ -2,7 +2,7 @@
 class Tema_model extends CI_model {
 
 	function lista_temas(){
-		 $tema= $this->db->get('tema');
+		 $tema= $this->db->get('tema0');
 		 return $tema;
 	}
 
@@ -218,7 +218,7 @@ public function get_tema($id){
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idtema")->get('tema');
+		$query=$this->db->order_by("idtema")->get('tema0');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -230,7 +230,7 @@ public function get_tema($id){
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$tema = $this->db->select("idtema")->order_by("idtema")->get('tema')->result_array();
+ 		$tema = $this->db->select("idtema")->order_by("idtema")->get('tema0')->result_array();
 		$arr=array("idtema"=>$id);
 		$clave=array_search($arr,$tema);
 	   if(array_key_exists($clave+1,$tema))
@@ -248,16 +248,16 @@ public function get_tema($id){
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$tema = $this->db->select("idtema")->order_by("idtema")->get('tema')->result_array();
+ 		$tema = $this->db->select("idtema")->order_by("idtema")->get('tema0')->result_array();
 		$arr=array("idtema"=>$id);
 		$clave=array_search($arr,$tema);
 	   if(array_key_exists($clave-1,$tema))
 		 {
 
- 		$tema = $this->db->query('select * from tema where idtema="'. $tema[$clave-1]["idtema"].'"');
+ 		$tema = $this->db->query('select * from tema0 where idtema="'. $tema[$clave-1]["idtema"].'"');
 		 }else{
 
- 		$tema = $this->db->query('select * from tema where idtema="'. $id.'"');
+ 		$tema = $this->db->query('select * from tema0 where idtema="'. $id.'"');
 		 }
 		 	
  		return $tema;
@@ -267,7 +267,7 @@ public function get_tema($id){
 
 	function lista_temaes_con_inscripciones(){
 		 $this->db->select('tema.*');
-		 $this->db->from('tema,evento');
+		 $this->db->from('tema0,evento');
 		 $this->db->where('evento.idtema=tema.idtema and evento.idevento_estado=2');
 		 $tema= $this->db->get();
 		 return $tema;
