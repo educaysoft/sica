@@ -66,13 +66,14 @@ class Silabo_model extends CI_model {
  	{
 	   	$this->db->trans_begin();
 		$condition1 = "idasignatura =" . "'" . $array['idasignatura'] . "'";
-		$condition2 = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
+//		$condition2 = "idperiodoacademico =" . "'" . $array['idperiodoacademico'] . "'";
 		$condition3 = "iddocente =" . "'" . $array['iddocente'] . "'";
 		$this->db->select('*');
 		$this->db->from('silabo');
 		$this->db->where($condition1);
-		$this->db->where($condition2);
+	//	$this->db->where($condition2);
 		$this->db->where($condition3);
+		$this->db->order_by('idsilabo',"DESC");
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() == 0) {
@@ -88,7 +89,7 @@ class Silabo_model extends CI_model {
 					$this->db->insert('unidadsilabo',$arrayunidad);
 				}	
 				//Se busca la asignacion del docente a esta asignatura
-		   }else{
+	   		}else{
 			   $this->db->trans_rollback();
 			   $idsilabo=0;
 		//	return false;
