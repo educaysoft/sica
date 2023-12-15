@@ -285,6 +285,12 @@ class Curso extends CI_Controller{
 	  $this->load->view('cursos/2023-1S-24');
 	}
 
+	// Carrera de tecnología de la Información 2023
+	public function cursos_2023_2S_24()
+	{
+	  $this->load->view('cursos/2023-2S-24');
+	}
+
 
 
 
