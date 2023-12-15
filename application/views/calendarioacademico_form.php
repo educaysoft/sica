@@ -3,18 +3,7 @@
 <?php echo form_open("calendarioacademico/save") ?>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Institucion:</label>
-	<div class="col-md-10">
-	<?php
-	$options= array('--Select--');
-	foreach ($instituciones as $row){
-		$options[$row->idinstitucion]= $row->nombre;
-	}
-	 echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value')); 
-		?>
-	</div> 
-</div>
+
 
 
 <div class="form-group row">
