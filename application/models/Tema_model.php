@@ -163,7 +163,7 @@ function lista_temassexport($idsilabo){
 		$this->db->where($condition);
 		$this->db->limit(1);
 		$query = $this->db->get();
-		if ($query->num_rows() != 0) {
+		if ($query->num_rows() == 0) {
 	 		  	$this->db->where('idtema',$id);
 				$this->db->update('tema', array('eliminado'=>1));
 		    		//$this->db->delete('participante');
