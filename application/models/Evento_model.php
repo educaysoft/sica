@@ -92,7 +92,8 @@ class Evento_model extends CI_model {
 			$idperiodoacademico=$query->result()[0]->idperiodoacademico;
 //		print_r($query);
 	//		die();
-				$evento = $this->db->query('select * from evento0 where idsilabo in (select idsilabo from silabo where iddocente="'. $iddocente.'" and idperiodoacademico="'.$idperiodoacademico.'") order by idevento');
+//				$evento = $this->db->query('select * from evento0 where idsilabo in (select idsilabo from silabo where iddocente="'. $iddocente.'" and idperiodoacademico="'.$idperiodoacademico.'") order by idevento');
+				$evento = $this->db->query('select * from evento0 where idasignaturadocente in (select idasignaturadocente from asignaturadocente where asignaturadocente.iddistributivodocnete="'. $iddistributivodocente.'")  order by idevento');
  				return $evento;
 			}else{
 				return $query;
@@ -171,20 +172,17 @@ class Evento_model extends CI_model {
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if (!($query->num_rows() > 0)) {
-	
-
 		$this->db->trans_begin();
 		$this->db->insert("evento", $array);
 		if($this->db->affected_rows()>0){
 			$idevento=$this->db->insert_id();
 			$array2['idevento']=$idevento;
 			$this->db->insert("participante", $array2);
-
 			$namefile1="evento-".sprintf("%d",$idevento) ;
 			$namefile2="evento/detalle/".sprintf("%d",$idevento) ;
 			$this->db->insert("pagina", array("nombre"=>$namefile1,"ruta"=>$namefile2));
 			if($this->db->affected_rows()>0){
-						$this->db->where('idevento',$idevento);
+					$this->db->where('idevento',$idevento);
 		$this->db->update('evento',array('idpagina'=>$this->db->insert_id()));
 				}
 

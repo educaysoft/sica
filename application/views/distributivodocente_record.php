@@ -377,10 +377,6 @@ $.ajax({url: '<?php echo site_url('evento/save')?>',
 	      }
 	    })
 
-
-
-
-
 	});
 
 
