@@ -5,14 +5,12 @@ class Periodoacademico extends CI_Controller{
   public function __construct(){
       parent::__construct();
       	$this->load->model('periodoacademico_model');
-    	$this->load->model('departamento_model');
     	$this->load->model('silabo_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 		$data['periodoacademico']=$this->periodoacademico_model->elultimo();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['title']="Lista de periodoacademicos";
 		$this->load->view('template/page_header');
 		$this->load->view('periodoacademico_record',$data);
@@ -27,7 +25,6 @@ public function index(){
 
 public function add()
 {
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['title']="Nueva periodoacademico";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('periodoacademico_form',$data);
@@ -52,7 +49,6 @@ public function  save()
 public function edit()
 {
 	 	$data['periodoacademico'] = $this->periodoacademico_model->periodoacademico($this->uri->segment(3))->row_array();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
  	 	$data['title'] = "Actualizar periodoacademico";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('periodoacademico_edit',$data);
@@ -148,7 +144,6 @@ public function edit()
 public function actual()
 {
 	$data['periodoacademico'] = $this->periodoacademico_model->periodoacademico($this->uri->segment(3))->row_array();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   if(!empty($data))
   {
     $data['title']="Periodoacademico";
@@ -170,7 +165,6 @@ public function actual()
 public function elprimero()
 {
 	$data['periodoacademico'] = $this->periodoacademico_model->elprimero();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   if(!empty($data))
   {
     $data['title']="Periodoacademico";
@@ -187,7 +181,6 @@ public function elprimero()
 public function elultimo()
 {
 	$data['periodoacademico'] = $this->periodoacademico_model->elultimo();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   if(!empty($data))
   {
     $data['title']="Periodoacademico";
@@ -206,7 +199,6 @@ public function elultimo()
 public function siguiente(){
  // $data['periodoacademico_list']=$this->periodoacademico_model->lista_periodoacademico()->result();
 	$data['periodoacademico'] = $this->periodoacademico_model->siguiente($this->uri->segment(3))->row_array();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   $data['title']="Periodoacademico";
 	$this->load->view('template/page_header');		
   $this->load->view('periodoacademico_record',$data);
@@ -216,7 +208,6 @@ public function siguiente(){
 public function anterior(){
  // $data['periodoacademico_list']=$this->periodoacademico_model->lista_periodoacademico()->result();
 	$data['periodoacademico'] = $this->periodoacademico_model->anterior($this->uri->segment(3))->row_array();
-		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   $data['title']="Periodoacademico";
 	$this->load->view('template/page_header');		
   $this->load->view('periodoacademico_record',$data);
