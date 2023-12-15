@@ -48,7 +48,7 @@ public function add()
 	}
 
   		$data['distributivos']= $this->distributivo_model->distributivo1($iddistributivo)->result();
-		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
 		$data['title']="Nueva Distributivodocente";
