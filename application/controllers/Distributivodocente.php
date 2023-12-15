@@ -21,7 +21,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   	$data['distributivodocente']=$this->distributivodocente_model->elultimo();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
   	$data['distributivo']= $this->distributivo_model->lista_distributivos1(0)->result();
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
@@ -86,7 +86,7 @@ public function add()
 	public function edit()
 	{
 			$data['distributivodocente'] = $this->distributivodocente_model->distributivodocente($this->uri->segment(3))->row_array();
-			$data['docentes']= $this->docente_model->lista_docentesA()->result();
+			$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
 			$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
 			$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
 			$data['title'] = "Actualizar Distributivodocente";
@@ -316,13 +316,13 @@ public function actual()
 public function elprimero()
 {
   	$data['distributivo']= $this->distributivo_model->lista_distributivos1(0)->result();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
 	$data['distributivodocente'] = $this->distributivodocente_model->elprimero();
   	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	  if(!empty($data))
 	  {
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
     $data['title']="Distributivodocente";
     $this->load->view('template/page_header');		
     $this->load->view('distributivodocente_record',$data);
@@ -337,7 +337,7 @@ public function elprimero()
 public function elultimo()
 {
 	$data['distributivodocente'] = $this->distributivodocente_model->elultimo();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['distributivo']= $this->distributivo_model->lista_distributivos1(0)->result();
   	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
@@ -359,7 +359,7 @@ public function elultimo()
 public function siguiente(){
  // $data['distributivodocente_list']=$this->distributivodocente_model->lista_distributivodocente()->result();
 	$data['distributivodocente'] = $this->distributivodocente_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['distributivo']= $this->distributivo_model->lista_distributivos1(0)->result();
   	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
@@ -374,7 +374,7 @@ $data['title']="Distributivodocente";
 public function anterior(){
  // $data['distributivodocente_list']=$this->distributivodocente_model->lista_distributivodocente()->result();
 	$data['distributivodocente'] = $this->distributivodocente_model->anterior($this->uri->segment(3))->row_array();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
   	$data['distributivo']= $this->distributivo_model->lista_distributivos1(0)->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
