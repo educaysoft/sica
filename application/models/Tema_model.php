@@ -96,7 +96,7 @@ function lista_temassexport($idsilabo){
 
 
  	function tema( $id){
- 		$tema = $this->db->query('select * from tema where idtema="'. $id.'"');
+ 		$tema = $this->db->query('select * from tema0 where idtema="'. $id.'"');
  		return $tema;
  	}
 
