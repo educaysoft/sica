@@ -22,7 +22,7 @@ public function index(){
 			
   	$data['asignaturadocente']=$this->asignaturadocente_model->lista_asignaturadocentes()->row_array();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
   	$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
@@ -52,7 +52,7 @@ public function add()
   	$data['distributivos']=$this->distributivo_model->lista_distributivos1($data['distributivodocentes']['idperiodoacademico'])->result();
 	}else{
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
-	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['distributivos']=$this->distributivo_model->lista_distributivos1(0)->result();
 	}
 
@@ -98,7 +98,7 @@ public function add()
 public function edit()
 {
 	 	$data['asignaturadocente'] = $this->asignaturadocente_model->asignaturadocente($this->uri->segment(3))->row_array();
-		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
   		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
   		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
