@@ -5,14 +5,12 @@ class Documentosilabo extends CI_Controller{
       		parent::__construct();
       		$this->load->model('documentosilabo_model');
       		$this->load->model('documento_model');
-      		$this->load->model('persona_model');
-      		$this->load->model('curso_model');
+      		$this->load->model('silabo_model');
       		$this->load->model('documento_model');
 	}
 
 	public function index(){
-  		$data['cursos']= $this->curso_model->lista_cursos()->result();
-  		$data['personas']= $this->persona_model->lista_personas()->result();
+  		$data['silabos']= $this->silabo_model->lista_silabos()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['documentosilabo'] = $this->documentosilabo_model->elultimo();
 
@@ -26,11 +24,10 @@ class Documentosilabo extends CI_Controller{
 
 	public function add()
 	{
-		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['cursos']= $this->curso_model->lista_cursos()->result();
-  		$data['documentoes']= $this->documento_model->lista_documentos()->result();
+		$data['silabos']= $this->silabo_model->lista_silabos()->result();
+  		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['documentosilabo'] = $this->documentosilabo_model->elultimo();
-		$data['title']="Nuevo documento para el curso";
+		$data['title']="Nuevo documento para el silabo";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('documentosilabo_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -41,7 +38,7 @@ class Documentosilabo extends CI_Controller{
 	{
 	 	$array_item=array(
 		 	'iddocumento' => $this->input->post('iddocumento'),
-		 	'idcurso' => $this->input->post('idcurso'),
+		 	'idsilabo' => $this->input->post('idsilabo'),
 	 	);
 	 	$this->documentosilabo_model->save($array_item);
 	 	redirect('documentosilabo');
@@ -52,8 +49,7 @@ class Documentosilabo extends CI_Controller{
 	public function edit()
 	{
 	 	$data['documentosilabo'] = $this->documentosilabo_model->documentosilabo($this->uri->segment(3))->row_array();
-		$data['cursos']= $this->curso_model->lista_cursos()->result();
-		$data['personas']= $this->persona_model->lista_personas()->result();
+		$data['silabos']= $this->silabo_model->lista_silabos()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Documentosilabo";
  	 	$this->load->view('template/page_header');		
@@ -66,7 +62,7 @@ class Documentosilabo extends CI_Controller{
 	{
 		$id=$this->input->post('iddocumentosilabo');
 	 	$array_item=array(
-		 	'idcurso' => $this->input->post('idcurso'),
+		 	'idsilabo' => $this->input->post('idsilabo'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	$this->documentosilabo_model->update($id,$array_item);
@@ -77,8 +73,7 @@ class Documentosilabo extends CI_Controller{
 	{
 		$id=$this->input->post('iddocumentosilabo');
 	 	$array_item=array(
-		 	'idcurso' => $this->input->post('idcurso'),
-		 	'idpersona' => $this->input->post('idpersona'),
+		 	'idsilabo' => $this->input->post('idsilabo'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	echo $this->documentosilabo_model->update($id,$array_item);
@@ -98,7 +93,7 @@ class Documentosilabo extends CI_Controller{
 	public function listar()
 	{
 		
-		$data['title']="Unidades del curso";
+		$data['title']="Unidades del silabo";
 		$this->load->view('template/page_header');		
 		$this->load->view('documentosilabo_list',$data);
 		$this->load->view('template/page_footer');
@@ -116,7 +111,7 @@ class Documentosilabo extends CI_Controller{
 			$data0 = $this->documentosilabo_model->listar_documentosilabo1();
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->iddocumentosilabo,$r->idcurso,$r->unidad,$r->launidad,$r->elvideo,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idcurso="'.$r->iddocumentosilabo.'">Ver</a>');
+				$data[]=array($r->iddocumentosilabo,$r->idsilabo,$r->unidad,$r->launidad,$r->elvideo,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idsilabo="'.$r->iddocumentosilabo.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -136,9 +131,8 @@ class Documentosilabo extends CI_Controller{
 		$data['documentosilabo'] = $this->documentosilabo_model->elprimero();
 	  if(!empty($data))
 	  {
-		    $data['cursos']= $this->curso_model->lista_cursos()->result();
-		    $data['documentoes']= $this->documento_model->lista_documentos()->result();
-		    $data['personas']= $this->persona_model->lista_personas()->result();
+		    $data['silabos']= $this->silabo_model->lista_silabos()->result();
+		    $data['documentos']= $this->documento_model->lista_documentos()->result();
 		    $data['title']="Documentosilabo del documento";
 		    $this->load->view('template/page_header');		
 		    $this->load->view('documentosilabo_record',$data);
@@ -155,9 +149,8 @@ class Documentosilabo extends CI_Controller{
 		$data['documentosilabo'] = $this->documentosilabo_model->elultimo();
 	  if(!empty($data))
 	  {
-			$data['cursos']= $this->curso_model->lista_cursos()->result();
-		$data['documentoes']= $this->documento_model->lista_documentos()->result();
-		$data['personas']= $this->persona_model->lista_personas()->result();
+			$data['silabos']= $this->silabo_model->lista_silabos()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
 	    $data['title']="Documentosilabo del documento";
 	  
 	    $this->load->view('template/page_header');		
@@ -173,10 +166,9 @@ class Documentosilabo extends CI_Controller{
 
 	public function siguiente(){
 	 // $data['documentosilabo_list']=$this->documentosilabo_model->lista_documentosilabo()->result();
-		$data['documentoes']= $this->documento_model->lista_documentos()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['documentosilabo'] = $this->documentosilabo_model->siguiente($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['cursos']= $this->curso_model->lista_cursos()->result();
+		$data['silabos']= $this->silabo_model->lista_silabos()->result();
 	    $data['title']="Documentosilabo del documento";
 	 // $data['title']="Correo";
 		$this->load->view('template/page_header');		
@@ -186,10 +178,9 @@ class Documentosilabo extends CI_Controller{
 
 	public function anterior(){
 	 // $data['documentosilabo_list']=$this->documentosilabo_model->lista_documentosilabo()->result();
-		$data['documentoes']= $this->documento_model->lista_documentos()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['documentosilabo'] = $this->documentosilabo_model->anterior($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_personas()->result();
-			$data['cursos']= $this->curso_model->lista_cursos()->result();
+		$data['silabos']= $this->silabo_model->lista_silabos()->result();
 	 // $data['title']="Correo";
 	    $data['title']="Documentosilabo del documento";
 		$this->load->view('template/page_header');		
