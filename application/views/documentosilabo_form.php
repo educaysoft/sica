@@ -27,8 +27,8 @@
 	<div class="col-md-10">
 	<?php
 	$options= array('--Select--');
-	foreach ($documentoes as $row){
-		$options[$row->iddocumento]= $row->asunto;
+	foreach ($documentos as $row){
+		$options[$row->iddocumento]=$row->iddocumento.' - '.$row->asunto;
 	}
 	 echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value')); 
 		?>
