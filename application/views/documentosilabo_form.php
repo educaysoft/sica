@@ -12,7 +12,7 @@
 		<?php
 	$options= array('--Select--');
 	foreach ($silabos as $row){
-		$options[$row->idsilabo]= $row->nombre;
+		$options[$row->idsilabo]=$row->idsilabo.' - '.$row->nombre;
 	}
 
 	 echo form_dropdown("idsilabo",$options, set_select('--Select--','default_value'));  
