@@ -116,6 +116,7 @@
   		<!---  <button><a href="http://educaysoft.org/sica/MTI/doc/_build/html/admision.html"> Mas información</a></button> -->
   	<!---	<button><a href="<?php echo $silabo['linkdetalle']; ?>"> Mas información</a></button> -->
   		<button><a href="<?php echo 'https://repositorioutlvte.org/Repositorio/'.$silabo['archivopdf']; ?>"> Silabo</a></button>
+  		<button><a href="<?php echo 'https://repositorioutlvte.org/Repositorio/'.$silabo['elplandeclasepdf']; ?>">PanDeClase</a></button>
     		</div>
     	</div>
 
