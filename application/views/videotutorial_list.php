@@ -42,9 +42,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
- <th>Ordenador</th>
- <th>Nombre</th>
- <th>Ruta</th>
+ <th>nombrer</th>
+ <th>enlace</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>

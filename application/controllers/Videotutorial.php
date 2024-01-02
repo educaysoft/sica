@@ -117,7 +117,7 @@ function videotutorial_data()
 	 	$data0 = $this->videotutorial_model->lista_videotutorialsA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idvideotutorial,$r->elordenador,$r->nombre,$r->ruta,
+			$data[]=array($r->idvideotutorial,$r->nombre,$r->enlace,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idvideotutorial="'.$r->idvideotutorial.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
