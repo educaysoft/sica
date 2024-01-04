@@ -69,7 +69,7 @@ class Documentosilabo extends CI_Controller{
 	 	$array_item=array(
 		 	'idsilabo' => $this->input->post('idsilabo'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
-			'idtipodocu' => $this->input->post('idtipodocu');
+			'idtipodocu' => $this->input->post('idtipodocu'),
 	 	);
 	 	$this->documentosilabo_model->update($id,$array_item);
 	 	redirect('documentosilabo');
