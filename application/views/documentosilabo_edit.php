@@ -14,47 +14,47 @@ echo form_input($eys_arrinput); ?></td>
   </tr> 
 
 
-<tr>
-     <td>No. Unidad:</td>
-     <td><?php 
 
 
-$eys_arrinput=array('name'=>'unidad','value'=>$documentosilabo['unidad'], "style"=>"width:500px");
-echo form_input($eys_arrinput); ?></td>
-  </tr>
+
+
 
 
 <tr>
-     <td>Nombre:</td>
-     <td><?php 
-
-
-$eys_arrinput=array('name'=>'nombre','value'=>$documentosilabo['nombre'], "style"=>"width:500px");
-echo form_input($eys_arrinput); ?></td>
-  </tr>
-
-
-<tr>
-<td> Curso:</td>
+<td> Silabo:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($cursos as $row){
-	$options[$row->idcurso]= $row->nombre;
+foreach ($silabos as $row){
+	$options[$row->idsilabo]= $row->nombre;
 }
 
- echo form_dropdown("idcurso",$options, $documentosilabo['idcurso']);  ?></td>
+ echo form_dropdown("idsilabo",$options, $documentosilabo['idsilabo']);  ?></td>
 </tr>
 
- 
- <tr>
-<td> Videotutorial:</td>
+
+<tr>
+<td> Tipo de documento:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($videotutorials as $row){
-	$options[$row->idvideotutorial]= $row->nombre;
+foreach ($tipodocus as $row){
+	$options[$row->idtipodocu]= $row->descripcion;
 }
 
- echo form_dropdown("idvideotutorial",$options, $documentosilabo['idvideotutorial']);  ?></td>
+ echo form_dropdown("idtipodocu",$options, $documentosilabo['idtipodocu'],array('id'=>'idtipodocu'));  ?></td>
+</tr>
+
+
+
+
+ <tr>
+<td> Documento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($documentos as $row){
+	$options[$row->iddocumento]= $row->nombre;
+}
+
+ echo form_dropdown("iddocumento",$options, $documentosilabo['iddocumento']);  ?></td>
 </tr>
 
 

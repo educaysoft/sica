@@ -4,6 +4,7 @@ class Documentosilabo extends CI_Controller{
 	public function __construct(){
       		parent::__construct();
       		$this->load->model('documentosilabo_model');
+      		$this->load->model('tipodocu_model');
       		$this->load->model('documento_model');
       		$this->load->model('silabo_model');
       		$this->load->model('documento_model');
@@ -14,6 +15,7 @@ class Documentosilabo extends CI_Controller{
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['documentosilabo'] = $this->documentosilabo_model->elultimo();
 
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
  		// print_r($data['documentosilabo_list']);
   		$data['title']="Lista de Documentosilaboes";
 		$this->load->view('template/page_header');		
@@ -26,6 +28,7 @@ class Documentosilabo extends CI_Controller{
 	{
 		$data['silabos']= $this->silabo_model->lista_silabos()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['documentosilabo'] = $this->documentosilabo_model->elultimo();
 		$data['title']="Nuevo documento para el silabo";
 	 	$this->load->view('template/page_header');		
@@ -39,6 +42,7 @@ class Documentosilabo extends CI_Controller{
 	 	$array_item=array(
 		 	'iddocumento' => $this->input->post('iddocumento'),
 		 	'idsilabo' => $this->input->post('idsilabo'),
+		 	'idtipodocu' => $this->input->post('idtipodocu'),
 	 	);
 	 	$this->documentosilabo_model->save($array_item);
 	 	redirect('documentosilabo');
@@ -49,6 +53,7 @@ class Documentosilabo extends CI_Controller{
 	public function edit()
 	{
 	 	$data['documentosilabo'] = $this->documentosilabo_model->documentosilabo($this->uri->segment(3))->row_array();
+    		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['silabos']= $this->silabo_model->lista_silabos()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Documentosilabo";
@@ -64,6 +69,7 @@ class Documentosilabo extends CI_Controller{
 	 	$array_item=array(
 		 	'idsilabo' => $this->input->post('idsilabo'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
+			'idtipodocu' => $this->input->post('idtipodocu');
 	 	);
 	 	$this->documentosilabo_model->update($id,$array_item);
 	 	redirect('documentosilabo');
@@ -129,6 +135,8 @@ class Documentosilabo extends CI_Controller{
 	public function elprimero()
 	{
 		$data['documentosilabo'] = $this->documentosilabo_model->elprimero();
+
+    		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 	  if(!empty($data))
 	  {
 		    $data['silabos']= $this->silabo_model->lista_silabos()->result();
@@ -147,6 +155,7 @@ class Documentosilabo extends CI_Controller{
 	public function elultimo()
 	{
 		$data['documentosilabo'] = $this->documentosilabo_model->elultimo();
+    		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 	  if(!empty($data))
 	  {
 			$data['silabos']= $this->silabo_model->lista_silabos()->result();
@@ -167,6 +176,7 @@ class Documentosilabo extends CI_Controller{
 	public function siguiente(){
 	 // $data['documentosilabo_list']=$this->documentosilabo_model->lista_documentosilabo()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
+    		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['documentosilabo'] = $this->documentosilabo_model->siguiente($this->uri->segment(3))->row_array();
 		$data['silabos']= $this->silabo_model->lista_silabos()->result();
 	    $data['title']="Documentosilabo del documento";
@@ -179,6 +189,7 @@ class Documentosilabo extends CI_Controller{
 	public function anterior(){
 	 // $data['documentosilabo_list']=$this->documentosilabo_model->lista_documentosilabo()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
+    		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['documentosilabo'] = $this->documentosilabo_model->anterior($this->uri->segment(3))->row_array();
 		$data['silabos']= $this->silabo_model->lista_silabos()->result();
 	 // $data['title']="Correo";
