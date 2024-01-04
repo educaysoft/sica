@@ -22,37 +22,12 @@ class Tema extends CI_Controller{
 
 
 		if(isset($this->session->userdata['logged_in'])){
-			$ti= microtime(true);
 			$data['tema']=$this->tema_model->elultimo();
-			$tf= microtime(true);
-			$tc=$tf-$ti;
-			echo "tipo de carga del tema: ".$tc;
-			$ti= microtime(true);
   			$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
-			$tf= microtime(true);
-			$tc=$tf-$ti;
-			echo "tipo de carga del metodoaprendizaje: ".$tc;
-			$ti= microtime(true);
 			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1(0)->result();
-			$tf= microtime(true);
-			$tc=$tf-$ti;
-			echo "tipo de carga del unidadsilabo: ".$tc;
-			$ti= microtime(true);
 			$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
-			$tf= microtime(true);
-			$tc=$tf-$ti;
-			echo "tipo de carga del modoevaluacion: ".$tc;
-			$ti= microtime(true);
   			$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
-			$tf= microtime(true);
-			$tc=$tf-$ti;
-			echo "tipo de carga del videoturtorales: ".$tc;
-			$ti= microtime(true);
   			$data['aulas']= $this->aula_model->lista_aulas()->result();
-			$tf= microtime(true);
-			$tc=$tf-$ti;
-			echo "tipo de carga del aula: ".$tc;
-			die();
 			$data['title']="Lista de temaes";
 			$this->load->view('template/page_header');
 			$this->load->view('tema_record',$data);
