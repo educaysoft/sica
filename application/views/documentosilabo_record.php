@@ -77,7 +77,7 @@ echo form_input('idsilabo',$options[$documentosilabo['idsilabo']],array("disable
 	foreach ($tipodocus as $row){
 		$options[$row->idtipodocu]= $row->descripcion;
 	}
-	$arrdatos=array('name'=>'idtipodocu','value'=>$options[$documento['idtipodocu']],"disabled"=>"disabled","style"=>"width:500px");
+	$arrdatos=array('name'=>'idtipodocu','value'=>$options[$documentosilabo['idtipodocu']],"disabled"=>"disabled","style"=>"width:500px");
 	?>
 	<div class="col-md-10">
 		<?php
