@@ -42,10 +42,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>Iddocumentosilabo</th>
- <th>idcurso</th>
- <th>unidad</th>
- <th>launidad</th>
- <th>elvideo</th>
+ <th>silabo</th>
+ <th>documento</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
