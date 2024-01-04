@@ -51,7 +51,7 @@ foreach ($tipodocus as $row){
 <td><?php
 $options= array('--Select--');
 foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->iddocumento.$row->asunto;
+	$options[$row->iddocumento]= $row->iddocumento.' - '.$row->asunto;
 }
 
  echo form_dropdown("iddocumento",$options, $documentosilabo['iddocumento']);  ?></td>

@@ -71,6 +71,24 @@ echo form_input('idsilabo',$options[$documentosilabo['idsilabo']],array("disable
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('tipodocu/elprimero/', 'Tipo documento'); ?> :</label>
+     	<?php 
+	$options= array("NADA");
+	foreach ($tipodocus as $row){
+		$options[$row->idtipodocu]= $row->descripcion;
+	}
+	$arrdatos=array('name'=>'idtipodocu','value'=>$options[$documento['idtipodocu']],"disabled"=>"disabled","style"=>"width:500px");
+	?>
+	<div class="col-md-10">
+		<?php
+			echo form_input($arrdatos) 
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Id documento:</label>
 	<div class="col-md-10">
 	<?php
