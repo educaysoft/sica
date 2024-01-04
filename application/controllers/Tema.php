@@ -20,7 +20,12 @@ class Tema extends CI_Controller{
 // ========================================================
 	public function index(){
 		if(isset($this->session->userdata['logged_in'])){
+			$ti= microtime(true);
 			$data['tema']=$this->tema_model->elultimo();
+			$tf= microtime(true);
+			$tc=$tf-$ti;
+			echo "tipo de carga del tema: ".$tc;
+			die();
   			$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
 			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
 			$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
@@ -313,7 +318,7 @@ public function elprimero()
 	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
   	$data['aulas']= $this->aula_model->lista_aulas()->result();
-		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   if(!empty($data))
   {
     $data['title']="Tema";
@@ -332,9 +337,9 @@ public function elultimo()
 		$data['tema'] = $this->tema_model->elultimo();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
-		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
+	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
-		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   	$data['aulas']= $this->aula_model->lista_aulas()->result();
   if(!empty($data))
   {
