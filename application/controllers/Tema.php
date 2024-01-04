@@ -19,6 +19,8 @@ class Tema extends CI_Controller{
 // http://educaysoft.org/sica/tema
 // ========================================================
 	public function index(){
+
+
 		if(isset($this->session->userdata['logged_in'])){
 			$ti= microtime(true);
 			$data['tema']=$this->tema_model->elultimo();
@@ -31,7 +33,7 @@ class Tema extends CI_Controller{
 			$tc=$tf-$ti;
 			echo "tipo de carga del metodoaprendizaje: ".$tc;
 			$ti= microtime(true);
-			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
+			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1(0)->result();
 			$tf= microtime(true);
 			$tc=$tf-$ti;
 			echo "tipo de carga del unidadsilabo: ".$tc;
@@ -310,7 +312,7 @@ public function actual()
 	$data['tema'] = $this->tema_model->tema($this->uri->segment(3))->row_array();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
-	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
+	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1(0)->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
 	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   	$data['aulas']= $this->aula_model->lista_aulas()->result();
@@ -334,7 +336,7 @@ public function elprimero()
 {
 	$data['tema'] = $this->tema_model->elprimero();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
+	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1(0)->result();
 	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
   	$data['aulas']= $this->aula_model->lista_aulas()->result();
@@ -356,7 +358,7 @@ public function elultimo()
 {
 		$data['tema'] = $this->tema_model->elultimo();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
+	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1(0)->result();
 	$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
 	$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
@@ -380,7 +382,7 @@ public function siguiente(){
  // $data['tema_list']=$this->tema_model->lista_tema()->result();
 	$data['tema'] = $this->tema_model->siguiente($this->uri->segment(3))->row_array();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
-	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
+	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1(0)->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   	$data['aulas']= $this->aula_model->lista_aulas()->result();
@@ -396,7 +398,7 @@ public function anterior(){
  // $data['tema_list']=$this->tema_model->lista_tema()->result();
 	$data['tema'] = $this->tema_model->anterior($this->uri->segment(3))->row_array();
 		$data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
-	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1()->result();
+	$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo1(0)->result();
 	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['metodoaprendizajetemas']=$this->metodoaprendizajetema_model->metodoaprendizajetemas1($data['tema']['idtema'])->result();
 		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();

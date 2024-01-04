@@ -9,8 +9,13 @@ class Unidadsilabo_model extends CI_model {
 
 
 
-	function listar_unidadsilabo1(){
+	function listar_unidadsilabo1($versesiones){
+		if($versesiones==0)
+		{
+		 $unidadsilabo= $this->db->get('unidadsilabo2');
+		}else{
 		 $unidadsilabo= $this->db->get('unidadsilabo1');
+		}
 		 return $unidadsilabo;
 	}
 
