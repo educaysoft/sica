@@ -21,14 +21,14 @@ echo form_input($eys_arrinput); ?></td>
 
 
 <tr>
-<td> Silabo:</td>
+<td> Evento:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($silabos as $row){
-	$options[$row->idsilabo]= $row->nombre;
+foreach ($eventos as $row){
+	$options[$row->idevento]= $row->nombre;
 }
 
- echo form_dropdown("idsilabo",$options, $documentoevento['idsilabo']);  ?></td>
+ echo form_dropdown("idevento",$options, $documentoevento['idevento']);  ?></td>
 </tr>
 
 

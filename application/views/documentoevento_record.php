@@ -37,7 +37,7 @@ if(isset($documentoevento))
 <br>
 
 
-<?php echo form_hidden('idsilabo',$documentoevento['idsilabo']) ?>
+<?php echo form_hidden('idevento',$documentoevento['idevento']) ?>
 
 
  
@@ -46,24 +46,24 @@ if(isset($documentoevento))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id silabo:</label>
+    <label class="col-md-2 col-form-label"> Id evento:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('idsilabo',$documentoevento['idsilabo'],array("disabled"=>"disabled",'placeholder'=>'Idsilabos','style'=>'width:500px;'));
+      echo form_input('idevento',$documentoevento['idevento'],array("disabled"=>"disabled",'placeholder'=>'Ideventos','style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre del silabo:</label>
+    <label class="col-md-2 col-form-label"> Nombre del evento:</label>
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
-foreach ($silabos as $row){
-	$options[$row->idsilabo]= $row->nombre;
+foreach ($eventos as $row){
+	$options[$row->idevento]= $row->nombre;
 }
-echo form_input('idsilabo',$options[$documentoevento['idsilabo']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('idevento',$options[$documentoevento['idevento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 

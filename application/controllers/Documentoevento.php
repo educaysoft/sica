@@ -6,12 +6,12 @@ class Documentoevento extends CI_Controller{
       		$this->load->model('documentoevento_model');
       		$this->load->model('tipodocu_model');
       		$this->load->model('documento_model');
-      		$this->load->model('silabo_model');
+      		$this->load->model('evento_model');
       		$this->load->model('documento_model');
 	}
 
 	public function index(){
-  		$data['silabos']= $this->silabo_model->lista_silabos()->result();
+  		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['documentoevento'] = $this->documentoevento_model->elultimo();
 
@@ -26,11 +26,11 @@ class Documentoevento extends CI_Controller{
 
 	public function add()
 	{
-		$data['silabos']= $this->silabo_model->lista_silabos()->result();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['documentoevento'] = $this->documentoevento_model->elultimo();
-		$data['title']="Nuevo documento para el silabo";
+		$data['title']="Nuevo documento para el evento";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('documentoevento_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -41,7 +41,7 @@ class Documentoevento extends CI_Controller{
 	{
 	 	$array_item=array(
 		 	'iddocumento' => $this->input->post('iddocumento'),
-		 	'idsilabo' => $this->input->post('idsilabo'),
+		 	'idevento' => $this->input->post('idevento'),
 		 	'idtipodocu' => $this->input->post('idtipodocu'),
 	 	);
 	 	$this->documentoevento_model->save($array_item);
@@ -54,7 +54,7 @@ class Documentoevento extends CI_Controller{
 	{
 	 	$data['documentoevento'] = $this->documentoevento_model->documentoevento($this->uri->segment(3))->row_array();
     		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-		$data['silabos']= $this->silabo_model->lista_silabos()->result();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Documentoevento";
  	 	$this->load->view('template/page_header');		
@@ -67,7 +67,7 @@ class Documentoevento extends CI_Controller{
 	{
 		$id=$this->input->post('iddocumentoevento');
 	 	$array_item=array(
-		 	'idsilabo' => $this->input->post('idsilabo'),
+		 	'idevento' => $this->input->post('idevento'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
 			'idtipodocu' => $this->input->post('idtipodocu'),
 	 	);
@@ -79,7 +79,7 @@ class Documentoevento extends CI_Controller{
 	{
 		$id=$this->input->post('iddocumentoevento');
 	 	$array_item=array(
-		 	'idsilabo' => $this->input->post('idsilabo'),
+		 	'idevento' => $this->input->post('idevento'),
 		 	'iddocumento' => $this->input->post('iddocumento'),
 	 	);
 	 	echo $this->documentoevento_model->update($id,$array_item);
@@ -99,7 +99,7 @@ class Documentoevento extends CI_Controller{
 	public function listar()
 	{
 		
-		$data['title']="Unidades del silabo";
+		$data['title']="Unidades del evento";
 		$this->load->view('template/page_header');		
 		$this->load->view('documentoevento_list',$data);
 		$this->load->view('template/page_footer');
@@ -117,7 +117,7 @@ class Documentoevento extends CI_Controller{
 			$data0 = $this->documentoevento_model->listar_documentoevento1(0);
 			$data=array();
 			foreach($data0->result() as $r){
-			$data[]=array($r->iddocumentoevento,$r->elsilabo,$r->eldocumento,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('documentoevento/actual').'"  data-iddocumentoevento="'.$r->iddocumentoevento.'">Ver</a>');
+			$data[]=array($r->iddocumentoevento,$r->elevento,$r->eldocumento,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('documentoevento/actual').'"  data-iddocumentoevento="'.$r->iddocumentoevento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -137,7 +137,7 @@ class Documentoevento extends CI_Controller{
     		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 	  if(!empty($data))
 	  {
-		    $data['silabos']= $this->silabo_model->lista_silabos()->result();
+		    $data['eventos']= $this->evento_model->lista_eventos()->result();
 		    $data['documentos']= $this->documento_model->lista_documentos()->result();
 		    $data['title']="Documentoevento del documento";
 		    $this->load->view('template/page_header');		
@@ -166,7 +166,7 @@ class Documentoevento extends CI_Controller{
     		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 	  if(!empty($data))
 	  {
-		    $data['silabos']= $this->silabo_model->lista_silabos()->result();
+		    $data['eventos']= $this->evento_model->lista_eventos()->result();
 		    $data['documentos']= $this->documento_model->lista_documentos()->result();
 		    $data['title']="Documentoevento del documento";
 		    $this->load->view('template/page_header');		
@@ -185,7 +185,7 @@ class Documentoevento extends CI_Controller{
     		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 	  if(!empty($data))
 	  {
-			$data['silabos']= $this->silabo_model->lista_silabos()->result();
+			$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
 	    $data['title']="Documentoevento del documento";
 	  
@@ -205,7 +205,7 @@ class Documentoevento extends CI_Controller{
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
     		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['documentoevento'] = $this->documentoevento_model->siguiente($this->uri->segment(3))->row_array();
-		$data['silabos']= $this->silabo_model->lista_silabos()->result();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
 	    $data['title']="Documentoevento del documento";
 	 // $data['title']="Correo";
 		$this->load->view('template/page_header');		
@@ -218,7 +218,7 @@ class Documentoevento extends CI_Controller{
 		$data['documentos']= $this->documento_model->lista_documentos()->result();
     		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['documentoevento'] = $this->documentoevento_model->anterior($this->uri->segment(3))->row_array();
-		$data['silabos']= $this->silabo_model->lista_silabos()->result();
+		$data['eventos']= $this->evento_model->lista_eventos()->result();
 	 // $data['title']="Correo";
 	    $data['title']="Documentoevento del documento";
 		$this->load->view('template/page_header');		
