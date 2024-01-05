@@ -9,11 +9,11 @@ class Documentosilabo_model extends CI_model {
 	function listar_documentosilabo1($idsilabo){
 		if($idsilabo==0)
 		{
-		$documentosilabo=$this->db->order_by("asunto")->get('documentosilabo1');
+		$documentosilabo=$this->db->order_by("elsilabo")->get('documentosilabo1');
 		}else{
 
 		$this->db->where('idsilabo='.$idsilabo);
-		$documentosilabo=$this->db->order_by("asunto")->get('documentosilabo1');
+		$documentosilabo=$this->db->order_by("elsilabo")->get('documentosilabo1');
 		}
 
 		 return $documentosilabo;
