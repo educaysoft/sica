@@ -3,7 +3,7 @@
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open("documentosilabo/save") ?>
+<?php echo form_open("documentoevento/save") ?>
 
 
 <div class="form-group row">
@@ -59,7 +59,7 @@
 <table>
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("documentosilabo","Atrás") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("documentoevento","Atrás") ?> </td>
 </tr>
 
 </table>

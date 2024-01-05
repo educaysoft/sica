@@ -1,195 +1,230 @@
 <?php
+class Documentosilabo extends CI_Controller{
 
-class Etapamovilidad extends CI_Controller{
-
-  public function __construct(){
-      parent::__construct();
-      $this->load->model('etapamovilidad_model');
-}
-
-public function index(){
-	if(isset($this->session->userdata['logged_in'])){
-		$data['etapamovilidad']=$this->etapamovilidad_model->etapamovilidad(1)->row_array();
-		$data['title']="Lista de etapamovilidades";
-		$this->load->view('template/page_header');
-		$this->load->view('etapamovilidad_record',$data);
-		$this->load->view('template/page_footer');
-	}else{
-	 	$this->load->view('template/page_header.php');
-		$this->load->view('login_form');
-	 	$this->load->view('template/page_footer.php');
+	public function __construct(){
+      		parent::__construct();
+      		$this->load->model('documentosilabo_model');
+      		$this->load->model('tipodocu_model');
+      		$this->load->model('documento_model');
+      		$this->load->model('silabo_model');
+      		$this->load->model('documento_model');
 	}
-}
+
+	public function index(){
+  		$data['silabos']= $this->silabo_model->lista_silabos()->result();
+  		$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$data['documentosilabo'] = $this->documentosilabo_model->elultimo();
+
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+ 		// print_r($data['documentosilabo_list']);
+  		$data['title']="Lista de Documentosilaboes";
+		$this->load->view('template/page_header');		
+  		$this->load->view('documentosilabo_record',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
-public function add()
-{
-		$data['title']="Nueva etapamovilidad";
+	public function add()
+	{
+		$data['silabos']= $this->silabo_model->lista_silabos()->result();
+  		$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['documentosilabo'] = $this->documentosilabo_model->elultimo();
+		$data['title']="Nuevo documento para el silabo";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('etapamovilidad_form',$data);
+	 	$this->load->view('documentosilabo_form',$data);
 	 	$this->load->view('template/page_footer');
-}
+	}
 
 
-public function  save()
+	public function  save()
 	{
 	 	$array_item=array(
-	 	'idetapamovilidad' => $this->input->post('idetapamovilidad'),
-	 	'nombre' => $this->input->post('nombre'),
+		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'idsilabo' => $this->input->post('idsilabo'),
+		 	'idtipodocu' => $this->input->post('idtipodocu'),
 	 	);
-	 	$this->etapamovilidad_model->save($array_item);
-	 	redirect('etapamovilidad');
+	 	$this->documentosilabo_model->save($array_item);
+	 	redirect('documentosilabo');
  	}
 
 
 
-public function edit()
-{
-	 	$data['etapamovilidad'] = $this->etapamovilidad_model->etapamovilidad($this->uri->segment(3))->row_array();
- 	 	$data['title'] = "Actualizar etapamovilidad";
+	public function edit()
+	{
+	 	$data['documentosilabo'] = $this->documentosilabo_model->documentosilabo($this->uri->segment(3))->row_array();
+    		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['silabos']= $this->silabo_model->lista_silabos()->result();
+  		$data['documentos']= $this->documento_model->lista_documentos()->result();
+ 	 	$data['title'] = "Actualizar Documentosilabo";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('etapamovilidad_edit',$data);
+ 	 	$this->load->view('documentosilabo_edit',$data);
 	 	$this->load->view('template/page_footer');
- 
-}
+	}
 
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idetapamovilidad');
+		$id=$this->input->post('iddocumentosilabo');
 	 	$array_item=array(
-		 	
-		 	'idetapamovilidad' => $this->input->post('idetapamovilidad'),
-		 	'nombre' => $this->input->post('nombre'),
+		 	'idsilabo' => $this->input->post('idsilabo'),
+		 	'iddocumento' => $this->input->post('iddocumento'),
+			'idtipodocu' => $this->input->post('idtipodocu'),
 	 	);
-	 	$this->etapamovilidad_model->update($id,$array_item);
-	 	redirect('etapamovilidad');
+	 	$this->documentosilabo_model->update($id,$array_item);
+	 	redirect('documentosilabo');
  	}
+
+	public function  save_edit2()
+	{
+		$id=$this->input->post('iddocumentosilabo');
+	 	$array_item=array(
+		 	'idsilabo' => $this->input->post('idsilabo'),
+		 	'iddocumento' => $this->input->post('iddocumento'),
+	 	);
+	 	echo $this->documentosilabo_model->update($id,$array_item);
+ 	}
+
 
 
  	public function delete()
  	{
- 		$data=$this->etapamovilidad_model->delete($this->uri->segment(3));
+ 		$data=$this->documentosilabo_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('etapamovilidad/elprimero');
+	 	redirect('documentosilabo/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
 
-public function listar()
-{
-	
-  $data['title']="Etapamovilidad";
-	$this->load->view('template/page_header');		
-  $this->load->view('etapamovilidad_list',$data);
-	$this->load->view('template/page_footer');
-}
+	public function listar()
+	{
+		
+		$data['title']="Unidades del silabo";
+		$this->load->view('template/page_header');		
+		$this->load->view('documentosilabo_list',$data);
+		$this->load->view('template/page_footer');
+	}
 
 
 
-function etapamovilidad_data()
-{
-		$draw= intval($this->input->get("draw"));
-		$draw= intval($this->input->get("start"));
-		$draw= intval($this->input->get("length"));
+	function documentosilabo_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->etapamovilidad_model->lista_etapamovilidads();
-		$data=array();
-		foreach($data0->result() as $r){
-			$data[]=array($r->idetapamovilidad,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('etapamovilidad/actual').'" data-idetapamovilidad="'.$r->idetapamovilidad.'">Ver</a>');
-		}	
-		$output=array( "draw"=>$draw,
-			"recordsTotal"=> $data0->num_rows(),
-			"recordsFiltered"=> $data0->num_rows(),
-			"data"=>$data
-		);
-		echo json_encode($output);
-		exit();
-	
-			
-
-}
+			$data0 = $this->documentosilabo_model->listar_documentosilabo1(0);
+			$data=array();
+			foreach($data0->result() as $r){
+			$data[]=array($r->iddocumentosilabo,$r->elsilabo,$r->eldocumento,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('documentosilabo/actual').'"  data-iddocumentosilabo="'.$r->iddocumentosilabo.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
 
 
 
+	public function actual()
+	{
+		$data['documentosilabo'] = $this->documentosilabo_model->documentosilabo($this->uri->segment(3))->row_array();
 
-public function actual()
-{
-	$data['etapamovilidad'] = $this->etapamovilidad_model->etapamovilidad($this->uri->segment(3))->row_array();
-  	if(!empty($data))
-  	{
-    		$data['title']="Etapamovilidad";
-    		$this->load->view('template/page_header');		
-    		$this->load->view('etapamovilidad_record',$data);
-    		$this->load->view('template/page_footer');
-  	}else{
-    		$this->load->view('template/page_header');		
-    		$this->load->view('registro_vacio');
-    		$this->load->view('template/page_footer');
-  	}
- }
-
-
-
+    		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+	  if(!empty($data))
+	  {
+		    $data['silabos']= $this->silabo_model->lista_silabos()->result();
+		    $data['documentos']= $this->documento_model->lista_documentos()->result();
+		    $data['title']="Documentosilabo del documento";
+		    $this->load->view('template/page_header');		
+		    $this->load->view('documentosilabo_record',$data);
+		    $this->load->view('template/page_footer');
+	  }else{
+		    $this->load->view('template/page_header');		
+		    $this->load->view('registro_vacio');
+		    $this->load->view('template/page_footer');
+	  }
+	}
 
 
 
 
 
 
+//===========================================================
+	//Devuelve el primer registro de la tabla
+	//===========================================================
 
-public function elprimero()
-{
-	$data['etapamovilidad'] = $this->etapamovilidad_model->elprimero();
-  if(!empty($data))
-  {
-    $data['title']="Etapamovilidad";
-    $this->load->view('template/page_header');		
-    $this->load->view('etapamovilidad_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
- }
+	public function elprimero()
+	{
+		$data['documentosilabo'] = $this->documentosilabo_model->elprimero();
 
-public function elultimo()
-{
-	$data['etapamovilidad'] = $this->etapamovilidad_model->elultimo();
-  if(!empty($data))
-  {
-    $data['title']="Etapamovilidad";
-  
-    $this->load->view('template/page_header');		
-    $this->load->view('etapamovilidad_record',$data);
-    $this->load->view('template/page_footer');
-  }else{
+    		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+	  if(!empty($data))
+	  {
+		    $data['silabos']= $this->silabo_model->lista_silabos()->result();
+		    $data['documentos']= $this->documento_model->lista_documentos()->result();
+		    $data['title']="Documentosilabo del documento";
+		    $this->load->view('template/page_header');		
+		    $this->load->view('documentosilabo_record',$data);
+		    $this->load->view('template/page_footer');
+	  }else{
+		    $this->load->view('template/page_header');		
+		    $this->load->view('registro_vacio');
+		    $this->load->view('template/page_footer');
+	  }
+	}
 
-    $this->load->view('template/page_header');		
-    $this->load->view('registro_vacio');
-    $this->load->view('template/page_footer');
-  }
-}
+	public function elultimo()
+	{
+		$data['documentosilabo'] = $this->documentosilabo_model->elultimo();
+    		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+	  if(!empty($data))
+	  {
+			$data['silabos']= $this->silabo_model->lista_silabos()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
+	    $data['title']="Documentosilabo del documento";
+	  
+	    $this->load->view('template/page_header');		
+	    $this->load->view('documentosilabo_record',$data);
+	    $this->load->view('template/page_footer');
+	  }else{
 
-public function siguiente(){
- // $data['etapamovilidad_list']=$this->etapamovilidad_model->lista_etapamovilidad()->result();
-	$data['etapamovilidad'] = $this->etapamovilidad_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Etapamovilidad";
-	$this->load->view('template/page_header');		
-  $this->load->view('etapamovilidad_record',$data);
-	$this->load->view('template/page_footer');
-}
+	    $this->load->view('template/page_header');		
+	    $this->load->view('registro_vacio');
+	    $this->load->view('template/page_footer');
+	  }
+	}
 
-public function anterior(){
- // $data['etapamovilidad_list']=$this->etapamovilidad_model->lista_etapamovilidad()->result();
-	$data['etapamovilidad'] = $this->etapamovilidad_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Etapamovilidad";
-	$this->load->view('template/page_header');		
-  $this->load->view('etapamovilidad_record',$data);
-	$this->load->view('template/page_footer');
-}
+	public function siguiente(){
+	 // $data['documentosilabo_list']=$this->documentosilabo_model->lista_documentosilabo()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
+    		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['documentosilabo'] = $this->documentosilabo_model->siguiente($this->uri->segment(3))->row_array();
+		$data['silabos']= $this->silabo_model->lista_silabos()->result();
+	    $data['title']="Documentosilabo del documento";
+	 // $data['title']="Correo";
+		$this->load->view('template/page_header');		
+	  $this->load->view('documentosilabo_record',$data);
+		$this->load->view('template/page_footer');
+	}
+
+	public function anterior(){
+	 // $data['documentosilabo_list']=$this->documentosilabo_model->lista_documentosilabo()->result();
+		$data['documentos']= $this->documento_model->lista_documentos()->result();
+    		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+		$data['documentosilabo'] = $this->documentosilabo_model->anterior($this->uri->segment(3))->row_array();
+		$data['silabos']= $this->silabo_model->lista_silabos()->result();
+	 // $data['title']="Correo";
+	    $data['title']="Documentosilabo del documento";
+		$this->load->view('template/page_header');		
+	  $this->load->view('documentosilabo_record',$data);
+		$this->load->view('template/page_footer');
+	}
+
 
 }
