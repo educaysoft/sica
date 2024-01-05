@@ -128,7 +128,35 @@ class Documentosilabo extends CI_Controller{
 			exit();
 	}
 
-	//===========================================================
+
+
+	public function actual()
+	{
+		$data['documentosilabo'] = $this->documentosilabo_model->documentosilabo($this->uri->segment(3))->row_array();
+elprimero();
+
+    		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+	  if(!empty($data))
+	  {
+		    $data['silabos']= $this->silabo_model->lista_silabos()->result();
+		    $data['documentos']= $this->documento_model->lista_documentos()->result();
+		    $data['title']="Documentosilabo del documento";
+		    $this->load->view('template/page_header');		
+		    $this->load->view('documentosilabo_record',$data);
+		    $this->load->view('template/page_footer');
+	  }else{
+		    $this->load->view('template/page_header');		
+		    $this->load->view('registro_vacio');
+		    $this->load->view('template/page_footer');
+	  }
+	}
+
+
+
+
+
+
+//===========================================================
 	//Devuelve el primer registro de la tabla
 	//===========================================================
 
