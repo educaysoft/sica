@@ -6,14 +6,14 @@ class Documentoevento_model extends CI_model {
 		 return $documentoevento;
 	}
 
-	function listar_documentoevento1($idsilabo){
-		if($idsilabo==0)
+	function listar_documentoevento1($idevento){
+		if($idevento==0)
 		{
-		$documentoevento=$this->db->order_by("elsilabo")->get('documentoevento1');
+		$documentoevento=$this->db->order_by("elevento")->get('documentoevento1');
 		}else{
 
-		$this->db->where('idsilabo='.$idsilabo);
-		$documentoevento=$this->db->order_by("elsilabo")->get('documentoevento1');
+		$this->db->where('idevento='.$idevento);
+		$documentoevento=$this->db->order_by("elevento")->get('documentoevento1');
 		}
 
 		 return $documentoevento;
@@ -24,7 +24,7 @@ class Documentoevento_model extends CI_model {
  		return $documentoevento;
  	}
  	function lista_unidades( $id){
-		$documentoevento = $this->db->query('select * from documentoevento1 where idsilabo="'. $id.'"');
+		$documentoevento = $this->db->query('select * from documentoevento1 where idevento="'. $id.'"');
  		return $documentoevento;
  	}
 
