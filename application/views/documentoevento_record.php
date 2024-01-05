@@ -61,7 +61,7 @@ if(isset($documentoevento))
 	<?php
 $options= array("NADA");
 foreach ($eventos as $row){
-	$options[$row->idevento]= $row->nombre;
+	$options[$row->idevento]= $row->titulo;
 }
 echo form_input('idevento',$options[$documentoevento['idevento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
