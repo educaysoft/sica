@@ -133,7 +133,6 @@ class Documentosilabo extends CI_Controller{
 	public function actual()
 	{
 		$data['documentosilabo'] = $this->documentosilabo_model->documentosilabo($this->uri->segment(3))->row_array();
-elprimero();
 
     		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 	  if(!empty($data))
