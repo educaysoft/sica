@@ -114,7 +114,7 @@ class Documentosilabo extends CI_Controller{
 			$draw= intval($this->input->get("length"));
 
 
-			$data0 = $this->documentosilabo_model->listar_documentosilabo1();
+			$data0 = $this->documentosilabo_model->listar_documentosilabo1(0);
 			$data=array();
 			foreach($data0->result() as $r){
 			$data[]=array($r->iddocumentosilabo,$r->elsilabo,$r->eldocumento,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idsilabo="'.$r->iddocumentosilabo.'">Ver</a>');
