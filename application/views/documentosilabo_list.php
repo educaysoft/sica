@@ -32,7 +32,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Lista de eventos 
+                 <h3>Lista de documentos del silabo 
                  <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
 			  
         	</h3>
@@ -81,7 +81,10 @@ $(document).ready(function(){
 $('#show_data').on('click','.item_ver',function(){
 
 var id= $(this).data('iddocumentosilabo');
-window.location.href = "http://localhost/facae/index.php/documentosilabo/actual/"+id;
+
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+
 
 });
 
