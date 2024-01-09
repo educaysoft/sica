@@ -298,6 +298,29 @@ public function iniciar()
 
 
 
+	public function reportepdf2()
+	{
+		$iddistributivo=$this->uri->segment(3);
+		$tmp=explode("-",$this->uri->segment(3));
+		$iddistributivo=$tmp[0];
+		if(isset($tmp[1]))
+		{
+			$ordenrpt=$tmp[1];
+		}else{
+			$ordenrpt=0;
+		}
+	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo4($iddistributivo,$ordenrpt)->result();
+		$data['distributivo']=$this->distributivo_model->distributivo1($iddistributivo)->result();
+		$data['title']="Evento";
+		$this->load->view('distributivo_list_pdf2',$data);
+	}
+
+
+
+
+
+
+
 
 
 //	public function reportepdf()
