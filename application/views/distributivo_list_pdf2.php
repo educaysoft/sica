@@ -75,7 +75,7 @@
 		    $cedula=$row->cedula;
 		    }else{
 		    $pdf->Cell(5,5,"",1,0,'R',0); 
-		    $pdf->Cell(17,5,utf8_decode(""),1,0,'L',0);
+		   // $pdf->Cell(17,5,utf8_decode(""),1,0,'L',0);
 		    $pdf->Cell(45,5,utf8_decode(""),1,0,'L',0);
 		    }
 
