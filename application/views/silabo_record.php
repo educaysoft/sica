@@ -150,7 +150,7 @@ echo form_input('iddocumento',$options[$silabo['iddocumento']],array("id"=>"iddo
      	<?php 
 	$options=array();
   	foreach ($documentosilabos as $row){
-		$options[$row->iddocumento]=$row->asunto;
+		$options[$row->iddocumento]=$row->eldocumento;
 	}
 	?>
 	<div class="col-md-10">
