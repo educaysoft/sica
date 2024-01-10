@@ -336,6 +336,23 @@ echo form_input($arrdatos) ?>
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor($silabo['linkdetalle'], 'Documentos:') ?> </label>
+     	<?php 
+	$options=array();
+  	foreach ($documentoeventos as $row){
+		$options[$row->iddocumentoevento]=$row->eldocumento;
+	}
+	?>
+	<div class="col-md-10">
+		<?php
+
+ echo form_multiselect('documentoevento[]',$options,(array)set_value('iddocumento', ''), array('style'=>'width:500px','name'=>'iddocumentoevento','id'=>'iddocumentoevento','onChange'=>'mostrarref()')); 
+		?>
+	</div> 
+</div>
+
+
 
 
 

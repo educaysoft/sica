@@ -6,6 +6,7 @@ class Evento extends CI_Controller{
       $this->load->model('evento_estado_model');
       $this->load->model('tipoevento_model');
       $this->load->model('participante_model');
+      $this->load->model('documentoevento_model');
       $this->load->model('docente_model');
       $this->load->model('sesionevento_model');
       $this->load->model('institucion_model');
@@ -28,6 +29,7 @@ public function index(){
 	$data['evento'] = $this->evento_model->elultimo();
 	$data['eventos']= $this->evento_model->lista_eventos()->result();
 	$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
+	$data['documentoeventos']= $this->documentoevento_model->listar_documentoevento1($data['evento']['idevento'])->result();
 	$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
@@ -268,6 +270,7 @@ public function cumplimiento(){
 		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
+		$data['documentoeventos']= $this->documentoevento_model->listar_documentoevento1($data['evento']['idevento'])->result();
 		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 	  	$data['silabos']= $this->silabo_model->lista_silabos()->result();
@@ -859,6 +862,7 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 		$data['evento'] = $this->evento_model->elprimero();
 		  if(!empty($data))
 		  {
+			$data['documentoeventos']= $this->documentoevento_model->listar_documentoevento1($data['evento']['idevento'])->result();
 			$data['eventos']= $this->evento_model->lista_eventos()->result();
 			$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
@@ -889,6 +893,7 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 		$data['evento'] = $this->evento_model->elultimo();
 		  if(!empty($data))
 		  {
+			$data['documentoeventos']= $this->documentoevento_model->listar_documentoevento1($data['evento']['idevento'])->result();
 			$data['eventos']= $this->evento_model->lista_eventos()->result();
 			$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 			$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
@@ -920,6 +925,7 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 	public function siguiente(){
 	 // $data['evento_list']=$this->evento_model->lista_evento()->result();
 		$data['evento'] = $this->evento_model->siguiente($this->uri->segment(3))->row_array();
+		$data['documentoeventos']= $this->documentoevento_model->listar_documentoevento1($data['evento']['idevento'])->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();
 		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
@@ -947,6 +953,7 @@ $r->href='<a href="javascript:void(0);" class="btn btn-info btn-outline-primary 
 	public function anterior(){
 	 // $data['evento_list']=$this->evento_model->lista_evento()->result();
 		$data['evento'] = $this->evento_model->anterior($this->uri->segment(3))->row_array();
+		$data['documentoeventos']= $this->documentoevento_model->listar_documentoevento1($data['evento']['idevento'])->result();
 		$data['eventos']= $this->evento_model->lista_eventos()->result();
 		$data['tipoeventos']= $this->tipoevento_model->lista_tipoeventos()->result();
 		$data['certificados'] =$this->evento_model->certificados($data['evento']['idevento'])->result();

@@ -156,10 +156,6 @@ echo form_input('iddocumento',$options[$silabo['iddocumento']],array("id"=>"iddo
 	<div class="col-md-10">
 		<?php
 
-
-//$textarea_options = array('class' => 'form-control','rows' => '4', 'cols' => '20', 'style'=> 'width:500px;height:100px;','onChange'=>'mostrarsilabo()',"id"=>"linkdetalle");    
-// echo form_textarea('linkdetalle',$silabo['linkdetalle'],$textarea_options); 
-
  echo form_multiselect('documentosilabo[]',$options,(array)set_value('iddocumento', ''), array('style'=>'width:500px','name'=>'iddocumentosilabo','id'=>'iddocumentosilabo','onChange'=>'mostrarref()')); 
 		?>
 	</div> 
