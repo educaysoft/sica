@@ -106,7 +106,7 @@ function beneficiario_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->beneficiario_model->lista_beneficiarios1();
+	 	$data0 = $this->beneficiario_model->listar_beneficiarios1();
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idbeneficiario,$r->elbeneficiario,$r->idpersona,
