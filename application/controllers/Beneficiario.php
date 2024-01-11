@@ -88,6 +88,42 @@ public function edit()
 
 
 
+public function listar()
+{
+	$data['beneficiario'] = $this->beneficiario_model->lista_beneficiarios()->result();
+	$data['title']="Beneficiario de compras";
+	$this->load->view('template/page_header');		
+	$this->load->view('beneficiario_list',$data);
+	$this->load->view('template/page_footer');
+}
+
+
+
+function beneficiario_data()
+{
+		$draw= intval($this->input->get("draw"));
+		$draw= intval($this->input->get("start"));
+		$draw= intval($this->input->get("length"));
+
+
+	 	$data0 = $this->beneficiario_model->lista_beneficiarios();
+		$data=array();
+		foreach($data0->result() as $r){
+			$data[]=array($r->idbeneficiario,$r->elbeneficiario,$r->idpersona,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('beneficiario/actual').'"    data-idbeneficiario="'.$r->idbeneficiario.'">Ver</a>');
+		}	
+		$output=array( "draw"=>$draw,
+			"recordsTotal"=> $data0->num_rows(),
+			"recordsFiltered"=> $data0->num_rows(),
+			"data"=>$data
+		);
+		echo json_encode($output);
+		exit();
+}
+
+
+
+
 
 public function elprimero()
 {

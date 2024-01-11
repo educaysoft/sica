@@ -183,7 +183,6 @@ public function add()
 
 public function listar()
 {
-	
 	$data['persona'] = $this->persona_model->lista_personas()->result();
 	$data['title']="Personas";
 	$this->load->view('template/page_header');		
