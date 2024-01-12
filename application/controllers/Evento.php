@@ -4,6 +4,7 @@ class Evento extends CI_Controller{
       parent::__construct();
       $this->load->model('evento_model');
       $this->load->model('evento_estado_model');
+     	$this->load->model('periodoacademico_model');
       $this->load->model('tipoevento_model');
       $this->load->model('participante_model');
       $this->load->model('documentoevento_model');
@@ -354,6 +355,7 @@ public function cumplimiento(){
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 
+	 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos();
    		$data['filtro']=0;
 		if($this->uri->segment(3))
 		{

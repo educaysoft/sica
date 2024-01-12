@@ -164,8 +164,9 @@ function portafolio_data()
 			$draw= intval($this->input->get("length"));
 
 			$idpersona=$this->input->get('idpersona');
-			$idportafolio=$this->input->get('idportafolio');
-			$data0 =$this->documento_model->lista_documentosD($idpersona,$idportafolio);
+			$idperiodoacademico=$this->input->get('idperiodoacademico');
+			//$data0 =$this->documento_model->lista_documentosD($idpersona,$idportafolio);
+			$data0 =$this->portafolio_model->lista_portafolio2($idpersona,$idperiodoacademico);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->iddocumentoportafolio,$r->iddocumento,$r->idpersona,$r->asunto,$r->fechaelaboracion,$r->archivopdf,

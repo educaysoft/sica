@@ -45,7 +45,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 	<div class="form-group row">
-    	<label class="col-md-2 col-form-label"> Tipo  documento:</label>
+    	<label class="col-md-2 col-form-label"> Tipo documento:</label>
 	<?php
 		$options= array('--Select--');
 		foreach ($tipodocus as $row){

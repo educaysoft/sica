@@ -186,6 +186,26 @@ body {font-family: Arial, Helvetica, sans-serif;}
 		
 	    </div>
 	</div>
+
+
+	<div class="form-group row">
+    	<label class="col-md-2 col-form-label"> Periodo académico:</label>
+	<?php
+		$options= array('--Select--');
+		foreach ($periodoacademicos as $row){
+			$options[$row->idperiodoacademico]= $row->nombrecorto;
+		}
+	?>
+
+	<div class="col-md-10">
+		<?php
+     			echo form_dropdown("idperiodoacademico",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_periodo()'));  
+		?>
+	</div>
+	</div>
+
+
+
 	<table class="table table-striped table-bordered table-hover" id="mydatap">
 	 <thead>
 	 <tr>
@@ -218,10 +238,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 $(document).ready(function(){
 	var idpersona = document.getElementById("filtro").innerHTML;
 	var idportafolio=0;
+	var idperiodoacademico=0;
 	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('evento/persona_data')?>', type: 'GET',data:{idpersona:idpersona}},});
 	var mytabla_e= $('#mydatac_e').DataTable({"ajax": {url: '<?php echo site_url('evento/persona_data_e')?>', type: 'GET',data:{idpersona:idpersona}},});
 	var mytabla_e= $('#mydatac_t').DataTable({"ajax": {url: '<?php echo site_url('evento/persona_data_t')?>', type: 'GET',data:{idpersona:idpersona}},});
-	var mytablaf= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('portafolio/documento_data')?>', type: 'GET',data:{idpersona:idpersona,idportafolio:idportafolio}},});
+	var mytablaf= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('portafolio/documento_data')?>', type: 'GET',data:{idpersona:idpersona,idperiodoacademico:idperiodoacademico}},});
 });
 
 
@@ -275,6 +296,15 @@ function filtra_evento()
 	var idpersona = document.getElementById("filtro").innerHTML;
        
 var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('evento/persona_data')?>', type: 'GET',data:{idpersona:idpersona}},});
+}
+
+var idperiodoacademico=0;
+function filtra_periodo()
+{
+	var idpersona = document.getElementById("filtro").innerHTML;
+	idperiodoacademico = $('select[name=idperiodoacademico]').val();
+//	var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('documento/documento_dataxtipodocu')?>', type: 'GET',data:{idperiodoacaemico:idperiodoacademico}},});
+	var mytablaf= $('#mydatap').DataTable({destroy:true,"ajax": {url: '<?php echo site_url('portafolio/documento_data')?>', type: 'GET',data:{idpersona:idpersona,idperiodoacademico:idperiodoacademico}},});
 }
 
 
