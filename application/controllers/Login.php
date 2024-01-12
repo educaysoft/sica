@@ -249,7 +249,7 @@ public function carga_masiva_save() {
             }
 
           $datapersona = array('cedula'=>$this->input->get('cedula'),'nombres'=>$this->input->get('nombres'),'apellidos'=>$this->input->get('apellidos'));
-          $datapersona+=['foto'=>"fotos/".$this->input->get('cedula').".png"];
+          $datapersona+=['foto'=>"fotos/".$this->input->get('cedula').".jpg"];
           $datapersona+=['pdf'=>"pdfs/".$this->input->get('cedula').".pdf"];
          $datapersona+=["idsexo"=>$this->input->get('idsexo')];
           $datapersona+=["fechanacimiento"=>$this->input->get('fechanacimiento')];
@@ -363,7 +363,7 @@ if ($result == TRUE) {
 				'idpersona' => $result2[0]->idpersona,
 				'elusuario' => $result2[0]->apellidos." ".$result2[0]->nombres,
 				'cedula' => $result2[0]->cedula,
-				'foto' => "fotos/".$result2[0]->cedula.".png",
+				'foto' => "fotos/".$result2[0]->cedula.".jpg",
 				'pdf' => $result2[0]->pdf,
 				'inicio'=>$result[0]->inicio,
 				'institucion'=>$resulti[0]->nombre,
