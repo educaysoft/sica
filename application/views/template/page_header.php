@@ -659,7 +659,8 @@ span a {
 
       			<div class="btn-group">
         	 		 <button class="btn btn-success">
-		            		<img id="foto" src= "<?php echo base_url().$this->session->userdata['logged_in']['foto']; ?>" height="100%" class="avatar" onerror="this.onerror=null; this.src='<?php echo base_url().'fotos/perfil.jpg'; ?>'">
+		            		<img id="foto" src= "<?php echo 'https://repositorioutlvte.org/Repositorio/fotos/'.$this->session->userdata['logged_in']['foto']; ?>" height="100%" class="avatar" onerror="this.onerror=null; this.src='<?php echo base_url().'fotos/perfil.jpg'; ?>'">
+<!----				<img id="foto" src= "<?php echo base_url().$this->session->userdata['logged_in']['foto']; ?>" height="100%" class="avatar" onerror="this.onerror=null; this.src='<?php echo base_url().'fotos/perfil.jpg'; ?>'">   --->
 	          		</button>
             			<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
                             		<span class="caret"></span>
