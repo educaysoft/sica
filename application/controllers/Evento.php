@@ -355,7 +355,7 @@ public function cumplimiento(){
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['participantes'] =$this->participante_model->participantes($data['evento']['idevento'])->result();
 
-	 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos();
+	 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
    		$data['filtro']=0;
 		if($this->uri->segment(3))
 		{
