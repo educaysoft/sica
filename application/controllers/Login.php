@@ -149,7 +149,7 @@ public function new_user_registration() {
 
 
           $datapersona = array('cedula'=>$this->input->post('cedula'),'nombres'=>$this->input->post('nombres'),'apellidos'=>$this->input->post('apellidos'));
-          $datapersona+=['foto'=>"fotos/".$this->input->post('cedula').".png"];
+          $datapersona+=['foto'=>"fotos/".$this->input->post('cedula').".jpg"];
           $datapersona+=['pdf'=>"pdfs/".$this->input->post('cedula').".pdf"];
           $datapersona+=["idsexo"=>$this->input->post('idsexo')];
           $datapersona+=["fechanacimiento"=>$this->input->post('fechanacimiento')];
