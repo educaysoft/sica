@@ -12,7 +12,7 @@
 
  <tr>
       <td>Enlace:</td>
-      <td><?php echo form_input('enlace',$videotutorial['enlace'],array('placeholder'=>'Nombre de videotutorial','style'=>"width:500px;")) ?></td>
+      <td><?php echo form_textarea('enlace',$videotutorial['enlace'],array('placeholder'=>'Nombre de videotutorial','style'=>"width:500px;")) ?></td>
 </tr> 
 
 

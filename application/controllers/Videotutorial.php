@@ -81,7 +81,7 @@ public function add()
 			'duracion' => $this->input->post('duracion'),
 	 	);
 	 	$this->videotutorial_model->update($id,$array_item);
-	 	redirect('videotutorial');
+	 	redirect('videotutorial/actual/'.$id);
  	}
 
 
