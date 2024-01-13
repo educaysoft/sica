@@ -29,7 +29,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <div class="row justify-content-center">
       <!-- Page Heading -->
-1iv class="row">
+<div class="row">
   <div class="col-12">
              <div class="col-md-12">
                  <h3>Videotutorial - Listar 
@@ -41,9 +41,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>ID</th>
- <th>nombrer</th>
+ <th>IDvideo</th>
+ <th>titulo</th>
  <th>enlace</th>
+<th>idrectivo</th>
+<th>titulo rectivo</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
@@ -80,8 +82,9 @@ $(document).ready(function(){
 
 $('#show_data').on('click','.item_ver',function(){
 
-window.location.href = "http://localhost/facae/index.php/videotutorial";
-
+var id= $(this).data('idvideotutorial');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
 });
 
 

@@ -1,5 +1,5 @@
 
 use educayso_facae;
 
-
-create view videotutorial1 as select videotutorial.idvideotutorial,videotutorial.nombre, videotutorial.enlace from videotutorial ;
+drop view videotutorial1 ;
+create view videotutorial1 as select vide.idvideotutorial,vide.nombre, vide.enlace, vide.idreactivo, (select reac.nombre from reactivo reac where reac.idreactivo=vide.idreactivo) as elreactivo from videotutorial vide ;
