@@ -134,6 +134,28 @@ function videotutorial_data()
 
 
 
+public function actual()
+{
+	$data['videotutorial'] = $this->videotutorial_model->videotutorial($this->uri->segment(3))->row_array();
+  if(!empty($data))
+  {
+	$data['instructores']= $this->instructor_model->lista_instructorA()->result();
+	$data['reactivos']= $this->reactivo_model->lista_reactivos()->result();
+    	$data['title']="Videotutorial";
+    	$this->load->view('template/page_header');		
+    	$this->load->view('videotutorial_record',$data);
+    	$this->load->view('template/page_footer');
+  }else{
+    	$this->load->view('template/page_header');		
+    	$this->load->view('registro_vacio');
+    	$this->load->view('template/page_footer');
+  }
+ }
+
+
+
+
+
 
 
 
