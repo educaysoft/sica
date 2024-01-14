@@ -73,11 +73,11 @@ class Documento_model extends CI_model {
 		
 		if($iddocumento==0)
 		{
-		$documento=$this->db->order_by("fechaelaboracion")->get('documento1');
+		$documento=$this->db->order_by("iddocumento")->get('documento1');
 		}else{
 
 		$this->db->where('iddocumento='.$iddocumento);
-		$documento=$this->db->order_by("fechaelaboracion")->get('documento1');
+		$documento=$this->db->order_by("iddocumento")->get('documento1');
 		}
 		 return $documento;
 	}
