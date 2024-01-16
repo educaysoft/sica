@@ -15,7 +15,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   	$data['asignaturadeldocente']=$this->asignaturadeldocente_model->elultimo();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['asignatura']= $this->asignatura_model->asignaturas1(0)->result();
 			
