@@ -289,7 +289,7 @@ public function actual()
 {
 	$data['asignaturadeldocente'] = $this->asignaturadeldocente_model->asignaturadeldocente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
-  	$data['asignatura']= $this->asignatura_model->asignatura1($data['asignaturadeldocente']['idasignatura'])->result();
+  	$data['asignatura']= $this->asignatura_model->lista_asignaturas1($data['asignaturadeldocente']['idasignatura'])->result();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	  if(!empty($data))
 	  {
