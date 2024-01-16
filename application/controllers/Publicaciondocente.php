@@ -64,7 +64,7 @@ public function add()
   		$data['publicacions']= $this->publicacion_model->publicacionsA(0)->result();
 	}
 
-		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
 
 		$data['title']="Nueva Publicaciondocente";
 	 	$this->load->view('template/page_header');		
