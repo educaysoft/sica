@@ -62,7 +62,7 @@ echo form_input('iddocente',$options[$publicaciondocente['iddocente']],array("di
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Publicación:</label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('publicacion/actual/'.$publicaciondocente['idpublicacion'], 'Publicacion:'); ?></label>
 	<div class="col-md-10">
 		<?php
 $options= array("NADA");
