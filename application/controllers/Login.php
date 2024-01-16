@@ -170,6 +170,10 @@ public function new_user_registration() {
           	$datacorreo=array('idpersona'=>0,'nombre'=>$this->input->post('email'),'idcorreo_estado'=>1);
 
 	 	$data['eventos']= $this->evento_model->lista_eventos_open(0)->result();
+
+		echo "que pasa";
+		die();
+
           	$result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono,$datapaispersona);
           	if ($result >0) {
 		if($fuente==0)  
