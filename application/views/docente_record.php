@@ -307,6 +307,12 @@ var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
 
+$('#show_datap').on('click','.item_ver',function(){
+var id= $(this).data('idpublicaciondocente');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
 
 
 
