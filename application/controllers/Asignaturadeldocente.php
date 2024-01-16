@@ -41,7 +41,7 @@ public function add()
 	}
 
   		$data['asignaturas']= $this->asignatura_model->asignaturas1($idasignatura)->result();
-		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['title']="Nueva Asignaturadeldocente";
 	 	$this->load->view('template/page_header');		
@@ -293,7 +293,7 @@ public function actual()
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	  if(!empty($data))
 	  {
-  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
     		$data['title']="Asignaturadeldocente";
     		$this->load->view('template/page_header');		
     		$this->load->view('asignaturadeldocente_record',$data);
@@ -317,12 +317,12 @@ public function actual()
 public function elprimero()
 {
   	$data['asignatura']= $this->asignatura_model->lista_asignaturas1(0)->result();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
 	$data['asignaturadeldocente'] = $this->asignaturadeldocente_model->elprimero();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
 	  if(!empty($data))
 	  {
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
     $data['title']="Asignaturadeldocente";
     $this->load->view('template/page_header');		
     $this->load->view('asignaturadeldocente_record',$data);
@@ -337,7 +337,7 @@ public function elprimero()
 public function elultimo()
 {
 	$data['asignaturadeldocente'] = $this->asignaturadeldocente_model->elultimo();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['asignatura']= $this->asignatura_model->lista_asignaturas1(0)->result();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
   if(!empty($data))
@@ -358,7 +358,7 @@ public function elultimo()
 public function siguiente(){
  // $data['asignaturadeldocente_list']=$this->asignaturadeldocente_model->lista_asignaturadeldocente()->result();
 	$data['asignaturadeldocente'] = $this->asignaturadeldocente_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['asignatura']= $this->asignatura_model->lista_asignaturas1(0)->result();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
   
@@ -372,7 +372,7 @@ $data['title']="Asignaturadeldocente";
 public function anterior(){
  // $data['asignaturadeldocente_list']=$this->asignaturadeldocente_model->lista_asignaturadeldocente()->result();
 	$data['asignaturadeldocente'] = $this->asignaturadeldocente_model->anterior($this->uri->segment(3))->row_array();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['asignatura']= $this->asignatura_model->lista_asignaturas1(0)->result();
   $data['title']="Asignaturadeldocente";
