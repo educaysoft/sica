@@ -81,7 +81,7 @@ public function add()
 	public function edit()
 	{
 			$data['asignaturadeldocente'] = $this->asignaturadeldocente_model->asignaturadeldocente($this->uri->segment(3))->row_array();
-			$data['docentes']= $this->docente_model->lista_docentesA()->result();
+			$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
 			$data['asignaturas']= $this->asignatura_model->lista_asignaturas1(0)->result();
 			$data['documentos']= $this->documento_model->lista_documentos()->result();
 			$data['title'] = "Actualizar Asignaturadeldocente";
