@@ -16,7 +16,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   		$data['publicacion']=$this->publicacion_model->elultimo();
-  		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   		$data['tipopublicacions']= $this->tipopublicacion_model->lista_tipopublicacions()->result();
 			
 		$data['publicaciondocentes']=$this->publicaciondocente_model->lista_publicaciondocentesA($data['publicacion']['idpublicacion'])->result();
@@ -37,7 +37,7 @@ public function actual(){
  if(isset($this->session->userdata['logged_in'])){
 
 	$data['publicacion'] = $this->publicacion_model->publicacion($this->uri->segment(3))->row_array();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['tipopublicacions']= $this->tipopublicacion_model->lista_tipopublicacions()->result();
 	$data['publicaciondocentes']=$this->publicaciondocente_model->lista_publicaciondocentesA($data['publicacion']['idpublicacion'])->result();
 	$data['title']="Modulo de Telefonos";
@@ -65,7 +65,7 @@ public function add()
 
 	}else{
 
-		$data['docentes']= $this->docente_model->lista_docentesA()->result();
+		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
 	}
 
 
@@ -189,7 +189,7 @@ public function elprimero()
   	$data['tipopublicacions']= $this->tipopublicacion_model->lista_tipopublicacions()->result();
   if(!empty($data))
   {
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
     $data['title']="Publicacion";
     $this->load->view('template/page_header');		
     $this->load->view('publicacion_record',$data);
@@ -207,7 +207,7 @@ public function elultimo()
   	$data['tipopublicacions']= $this->tipopublicacion_model->lista_tipopublicacions()->result();
   if(!empty($data))
   {
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
 	$data['publicaciondocentes']=$this->publicaciondocente_model->lista_publicaciondocentesA($data['publicacion']['idpublicacion'])->result();
     $data['title']="Publicacion";
   
@@ -225,7 +225,7 @@ public function elultimo()
 public function siguiente(){
  // $data['publicacion_list']=$this->publicacion_model->lista_publicacion()->result();
 	$data['publicacion'] = $this->publicacion_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['tipopublicacions']= $this->tipopublicacion_model->lista_tipopublicacions()->result();
 	$data['publicaciondocentes']=$this->publicaciondocente_model->lista_publicaciondocentesA($data['publicacion']['idpublicacion'])->result();
   $data['title']="Publicacion";
@@ -237,7 +237,7 @@ public function siguiente(){
 public function anterior(){
  // $data['publicacion_list']=$this->publicacion_model->lista_publicacion()->result();
 	$data['publicacion'] = $this->publicacion_model->anterior($this->uri->segment(3))->row_array();
-  	$data['docentes']= $this->docente_model->lista_docentesA()->result();
+  	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['tipopublicacions']= $this->tipopublicacion_model->lista_tipopublicacions()->result();
 	$data['publicaciondocentes']=$this->publicaciondocente_model->lista_publicaciondocentesA($data['publicacion']['idpublicacion'])->result();
   $data['title']="Publicacion";
