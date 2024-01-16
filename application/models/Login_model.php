@@ -77,10 +77,6 @@ Class Login_model extends CI_Model {
 	// varible fuente para saber de donde fue llamada 0 =php   1=javascrip
 public function registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono,$datapaispersona) {
 
-         echo "se inicio la grabacion ";
-	 die();
-
-		$this->db->trans_start();
 // Query to check whether username already exist or not
 		$condition = "email =" . "'" . $datausuario['email'] . "'";
 		$this->db->select('*');
@@ -127,8 +123,6 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 									return 0;
 						}
 				}else{
-					 echo "vamos a grabar";
-					 die();
 						$idpersona=$query->result()[0]->idpersona;
 						$datausuario["idpersona"]=$idpersona;
 						$dataparticipante["idpersona"]=$idpersona;

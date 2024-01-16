@@ -116,8 +116,6 @@ public function new_user_registration() {
           $this->form_validation->set_rules('fechanacimiento', 'Fechanacimiento', 'trim|required|xss_clean');
           $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
           if ($this->form_validation->run() == FALSE) {
-		  echo "falla";
-		  die();
             $data['eventos']= $this->evento_model->lista_eventos()->result();
   	    $data["sexos"]= $this->sexo_model->lista_sexos()->result();
   	    $data["paises"]= $this->pais_model->lista_paises()->result();
@@ -173,8 +171,6 @@ public function new_user_registration() {
 
 	 	$data['eventos']= $this->evento_model->lista_eventos_open(0)->result();
 
-		echo "que pasa";
-		die();
 
           	$result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono,$datapaispersona);
           	if ($result >0) {
