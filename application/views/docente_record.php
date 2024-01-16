@@ -313,6 +313,12 @@ var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
 
+$('#show_dataa').on('click','.item_ver',function(){
+var id= $(this).data('idasignaturadeldocente');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
 
 
 
