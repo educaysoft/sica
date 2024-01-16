@@ -123,55 +123,55 @@ public function new_user_registration() {
             $this->load->view('registration_form',$data);
             $this->load->view('template/page_footer.php');
           } else {
-	//Definiento de donde es llama la funcion
-	//1=javascrip   0=php
-	if($this->input->post('fuente')==1 || $this->input->post('fuente')==0)
-	{
-		$fuente=$this->input->post('fuente');
-	}
-	else
-	{
-		$fuente=0;
-	}
-            //hubicando la pagina con que inicia el usuario        
-            $elevento= $this->evento_model->evento($this->input->post('idevento'))->row_array();
-            $lapagina= $this->pagina_model->pagina($elevento['idpagina'])->row_array();
+		//Definiento de donde es llama la funcion
+		//1=javascrip   0=php
+		if($this->input->post('fuente')==1 || $this->input->post('fuente')==0)
+		{
+			$fuente=$this->input->post('fuente');
+		}
+		else
+		{
+			$fuente=0;
+		}
+            	//hubicando la pagina con que inicia el usuario        
+            	$elevento= $this->evento_model->evento($this->input->post('idevento'))->row_array();
+            	$lapagina= $this->pagina_model->pagina($elevento['idpagina'])->row_array();
 
-            if(isset($lapagina['ruta']))
-            {
-		    $idinstitucion=1; //Universidad tecnica luis varga torres
-          $datausuario = array('idinstitucion'=>$idinstitucion,'email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>$lapagina["ruta"],'idpagina'=>47);
-            }else{
+            	if(isset($lapagina['ruta']))
+            	{
+		    	$idinstitucion=1; //Universidad tecnica luis varga torres
+         		$datausuario = array('idinstitucion'=>$idinstitucion,'email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>$lapagina["ruta"],'idpagina'=>47);
+            	}else{
 
-            $lapagina= $this->pagina_model->pagina(47)->row_array();
-          $datausuario = array('email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>$lapagina["ruta"]);
-            }
+            		$lapagina= $this->pagina_model->pagina(47)->row_array();
+          		$datausuario = array('email' => $this->input->post('email'),'password' => $this->input->post('password'),'idpersona'=>0,'idperfil'=>1,'inicio'=>$lapagina["ruta"]);
+            	}
 
 
-          $datapersona = array('cedula'=>$this->input->post('cedula'),'nombres'=>$this->input->post('nombres'),'apellidos'=>$this->input->post('apellidos'));
-          $datapersona+=['foto'=>"fotos/".$this->input->post('cedula').".jpg"];
-          $datapersona+=['pdf'=>"pdfs/".$this->input->post('cedula').".pdf"];
-          $datapersona+=["idsexo"=>$this->input->post('idsexo')];
-          $datapersona+=["fechanacimiento"=>$this->input->post('fechanacimiento')];
-          $datapersona+=["idestadocivil"=>1];
-          $datapersona+=["idtiposangre"=>1];
-          $datapersona+=["idnacionalidad"=>1];
+          	$datapersona = array('cedula'=>$this->input->post('cedula'),'nombres'=>$this->input->post('nombres'),'apellidos'=>$this->input->post('apellidos'));
+          	$datapersona+=['foto'=>"fotos/".$this->input->post('cedula').".jpg"];
+          	$datapersona+=['pdf'=>"pdfs/".$this->input->post('cedula').".pdf"];
+          	$datapersona+=["idsexo"=>$this->input->post('idsexo')];
+          	$datapersona+=["fechanacimiento"=>$this->input->post('fechanacimiento')];
+          	$datapersona+=["idestadocivil"=>1];
+          	$datapersona+=["idtiposangre"=>1];
+          	$datapersona+=["idnacionalidad"=>1];
 
-          // se suma un partipacipante
-          $dataparticipante=array();
-          $dataparticipante+=['idevento'=>$this->input->post("idevento"),'idpersona'=>0,'idparticipanteestado'=>1];
-          //telefono
-          $datatelefono=array('idpersona'=>0,'numero'=>$this->input->post('telefono'),'idoperadora'=>1,'idtelefono_estado'=>1);
+          	// se suma un partipacipante
+          	$dataparticipante=array();
+          	$dataparticipante+=['idevento'=>$this->input->post("idevento"),'idpersona'=>0,'idparticipanteestado'=>1];
+          	//telefono
+          	$datatelefono=array('idpersona'=>0,'numero'=>$this->input->post('telefono'),'idoperadora'=>1,'idtelefono_estado'=>1);
 
-          //paispersona
-          $datapaispersona=array('idpersona'=>0,'idpais'=>$this->input->post('idpais'),'fechadesde'=>$this->input->get('fechanacimiento'));
+          	//paispersona
+          	$datapaispersona=array('idpersona'=>0,'idpais'=>$this->input->post('idpais'),'fechadesde'=>$this->input->get('fechanacimiento'));
 
-          //correo
-          $datacorreo=array('idpersona'=>0,'nombre'=>$this->input->post('email'),'idcorreo_estado'=>1);
+          	//correo
+          	$datacorreo=array('idpersona'=>0,'nombre'=>$this->input->post('email'),'idcorreo_estado'=>1);
 
-	 $data['eventos']= $this->evento_model->lista_eventos_open(0)->result();
-          $result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono,$datapaispersona);
-          if ($result >0) {
+	 	$data['eventos']= $this->evento_model->lista_eventos_open(0)->result();
+          	$result = $this->login_model->registration_insert($datapersona,$datausuario,$dataparticipante,$datacorreo,$datatelefono,$datapaispersona);
+          	if ($result >0) {
 		if($fuente==0)  
 		{
 			$idpersona=$result;

@@ -124,6 +124,8 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 									return 0;
 						}
 				}else{
+					 echo "vamos a grabar";
+					 die();
 						$idpersona=$query->result()[0]->idpersona;
 						$datausuario["idpersona"]=$idpersona;
 						$dataparticipante["idpersona"]=$idpersona;
@@ -135,6 +137,7 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 						$this->nuevo_telefono($datatelefono);
 						$this->nuevo_paispersona($datapaispersona);
 						$this->db->insert('usuario', $datausuario);
+
 						if ($this->db->affected_rows() > 0) {
 							    $idusuario=$this->db->insert_id();
 							    $date = date('d-m-y h:i:s');
@@ -143,10 +146,10 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 							    $this->db->insert('acceso',array('idusuario'=>$idusuario,'idmodulo'=>25,'idnivelacceso'=>2));
 							    if ($this->db->affected_rows() > 0) {
 							      $this->db->trans_complete();
-										return $idpersona;
+									return $idpersona;
 							    }else{
 							      $this->db->trans_complete();
-										return 0;
+									return 0;
 							    }
             					}
 				}
