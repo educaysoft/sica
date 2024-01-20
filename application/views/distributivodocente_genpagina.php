@@ -315,7 +315,7 @@ $data=$data.'</div>
 
 
 		if(isset($silabos[$row->idasignaturadocente])){		
-			$data=$data.'[<a href="'.$silabos[$row->idasignaturadocente]['silabopdf'].'">Sillabus</a><a href="'.$silabos[$row->idasignaturadocente]['planclasepdf'].'">Plan de Clases</a><br>';
+			$data=$data.'[<a href="'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'">Sillabus</a><a href="'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'">Plan de Clases</a><br>';
 		}	
 
 
