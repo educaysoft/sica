@@ -305,18 +305,20 @@ $data=$data.'</div>
 	    <div class="card-body" style="background-color:'.$arrcolor[$row->numeronivelacademico].'"  >
               <b>Area:</b>'.$row->area.'.<br>
               <b>Nivel:</b>'.$row->nivel.'.<br>
-              <p><b>Asignatura : </b>'.$row->laasignatura.'.</p>
-              <p class="card-text"><b>Paralelo : </b> '.$row->paralelo.'".</p>
-              <p><b>Docente : </b><span style="color:blue">'.$row->eldocente.'.</span></p>
-
-              <p><b>Inicia : </b><span style="color:red">'.$row->fechainicia.'.</span><br>
-	      <b>Finaliza : </b><span style="color:red">'.$row->fechafinaliza.'.</span></p>';
-
+              <p><b>Asignatura : </b>'.$row->laasignatura.'.<br>
+              <p class="card-text"><b>Paralelo : </b> '.$row->paralelo.'".<br>
+	      <p><b>Docente : </b><span style="color:blue">'.$row->eldocente.'.</span></p>';
 
 
 		if(isset($silabos[$row->idasignaturadocente])){		
-			$data=$data.'[<a href="'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'">Sillabus</a><a href="'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'">Plan de Clases</a><br>';
+			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'">Sillabus</a>]-[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'">Plan de Clases</a>]</p>';
 		}	
+
+
+ $data=$data.' <p><b>Inicia : </b><span style="color:red">'.$row->fechainicia.'.</span><br>
+	      <b>Finaliza : </b><span style="color:red">'.$row->fechafinaliza.'.</span></p>';
+
+
 
 
 
