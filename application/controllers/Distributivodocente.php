@@ -237,12 +237,13 @@ public function genpagina()
 		$iddistributivo=$this->uri->segment(3);
 	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo2($iddistributivo,$ordenrpt)->result();
 		$arreglo=array();
+		$arreglo2=array();
 		$i=0;
 		foreach($data['asignaturadocentes'] as $row){
 		$idasignaturadocente=$row->idasignaturadocente;
 
 
-		$data['silabos']+=array($idasignaturadocente=>$this->silabo_model->silabo2($row->iddocente,$row->idasignatura)->result_array());
+		$arreglo2+=array($idasignaturadocente=>$this->silabo_model->silabo2($row->iddocente,$row->idasignatura)->result_array());
 
 
 
@@ -259,8 +260,10 @@ public function genpagina()
 		}
 		}
 		$data['jornadadocente']=array();
+		$data['silabos']=array();
 	//	array_push($data['jornadadocente'],$arreglo); 
 		$data['jornadadocente']=$arreglo; 
+		$data['silabos']=$arreglo2;
 		echo "<br> jornadadocnete<br>" ;
 //		print_r($data['jornadadocente']);
 //		die();
