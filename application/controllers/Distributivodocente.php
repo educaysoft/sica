@@ -14,6 +14,7 @@ class Distributivodocente extends CI_Controller{
   	  $this->load->model('tiempodedicacion_model');
   	  $this->load->model('asignatura_model');
   	  $this->load->model('malla_model');
+  	  $this->load->model('silabo_model');
 }
 
 public function index(){
@@ -239,22 +240,25 @@ public function genpagina()
 		$i=0;
 		foreach($data['asignaturadocentes'] as $row){
 		$idasignaturadocente=$row->idasignaturadocente;
+
+
+		$data['silabos']+=array($idasignaturadocente=>$this->silabo_model->silabo2($row->iddocente,$row->idasignatura)->result_array());
+
+
+
 //		$arreglo[$row->idasignaturadocente]=$this->jornadadocente_model->jornadadocentes($idasignaturadocente)->row_array();
-		$xx=array($this->jornadadocente_model->jornadadocentes($idasignaturadocente)->result_array());	
+		$xx=array($this->jornadadocente_model->jornadadocentes($idasignaturadocente)->result_array`
 		if(count($xx[0]) > 0){
-//		print_r($xx);
-//echo "<br><br>arrego individual<br><br>";
 		foreach($xx as $row2){
 			foreach($row2 as $row3)
 			 {
 				$arreglo+=array($i=>array($row->idasignaturadocente=>$row3));
 				$i=$i+1;
 			}
-//				 print_r($arreglo); echo "<br>";
 			}
 		}
 		}
-$data['jornadadocente']=array();
+		$data['jornadadocente']=array();
 	//	array_push($data['jornadadocente'],$arreglo); 
 		$data['jornadadocente']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;

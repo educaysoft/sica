@@ -313,10 +313,16 @@ $data=$data.'</div>
 	      <b>Finaliza : </b><span style="color:red">'.$row->fechafinaliza.'.</span></p>';
 
 
-//		print_r($jornadadocente);
+
+		if(isset($silabos[$row->idasignaturadocente])){		
+			$data=$data.'[<a href="'.$rows[$row->idasignaturadocente]['silabopdf'].'">Sillabus</a><a href="'.$rows[$row->idasignaturadocente]['planclasepdf'].'">Plan de Clases</a><br>';
+		}	
+
+
+
+
 foreach($jornadadocente as $rowj){
 			if(isset($rowj[$row->idasignaturadocente]['idasignaturadocente'])){		
-//			print_r($rowj);
 			$data=$data.'<b>'.$rowj[$row->idasignaturadocente]['nombre'] .': </b><span style="color:red">'.$rowj[$row->idasignaturadocente]['horainicio'].'('.$rowj[$row->idasignaturadocente]['duracionminutos'].') - aula:'.$rowj[$row->idasignaturadocente]['elaula'].'</span><br>';
 			}	
 		}
