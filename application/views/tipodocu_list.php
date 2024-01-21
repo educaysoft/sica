@@ -48,6 +48,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <tr>
  <th>ID</th>
  <th>nombre</th>
+ <th>Cantidad</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
