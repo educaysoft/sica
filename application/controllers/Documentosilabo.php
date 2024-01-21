@@ -44,8 +44,17 @@ class Documentosilabo extends CI_Controller{
 		 	'idsilabo' => $this->input->post('idsilabo'),
 		 	'idtipodocu' => $this->input->post('idtipodocu'),
 	 	);
-	 	$this->documentosilabo_model->save($array_item);
-	 	redirect('documentosilabo');
+	 	$result=$this->documentosilabo_model->save($array_item);
+
+	 	if($result == false)
+		{
+			echo "<script language='JavaScript'> alert('Docente ya ha sido asignado'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+
+
  	}
 
 

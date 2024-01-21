@@ -38,7 +38,23 @@ class Documentosilabo_model extends CI_model {
 
  	function save($array)
  	{
-		$this->db->insert("documentosilabo", $array);
+
+		$this->db->select('*');
+		$this->db->from('documentosilabo0');
+		$condition = "idsilabo =" .  $array['idsilabo'] ;
+		$this->db->where($condition);
+		$condition = "iddocumento =" . $array['iddocumento'];
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0){
+			$this->db->insert("documentosilabo", $array);
+			return true;
+		}else{
+			return false;
+		}
+
+
  	}
 
  	function update($id,$array_item)
