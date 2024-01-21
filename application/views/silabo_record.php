@@ -156,7 +156,7 @@ echo form_input('iddocumento',$options[$silabo['iddocumento']],array("id"=>"iddo
 	<div class="col-md-10">
 		<?php
 
- echo form_multiselect('documentosilabo[]',$options,(array)set_value('iddocumento', ''), array('style'=>'width:500px','name'=>'iddocumentosilabo','id'=>'iddocumentosilabo','onChange'=>'mostrarref()')); 
+ echo form_multiselect('documentosilabo[]',$options,(array)set_value('iddocumento', ''), array('style'=>'width:500px','name'=>'iddocumentosilabo','id'=>'iddocumentosilabo','onChange'=>'mostrardocu()')); 
 		?>
 	</div> 
 </div>
