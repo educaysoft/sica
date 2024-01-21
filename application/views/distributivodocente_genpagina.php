@@ -312,15 +312,15 @@ $data=$data.'</div>
 
 		if(isset($silabos[$row->idasignaturadocente])){		
 			$colorsilabo='green';
-			$colorplanclase='green';
+			$colorplansemestral='green';
 			if($silabos[$row->idasignaturadocente][0]['silabopdf']==''){
 				$colorsilabo='red';
 			}
 			if($silabos[$row->idasignaturadocente][0]['planclasepdf']==''){
-				$colorplanclase='red';
+				$colorplansemestral='red';
 			}
 
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'"><span style="color:'.$colorsilabo.'" >Sillabus</span></a>]-[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'">Plan de Clases</a>]</p>';
+			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'"><span style="color:'.$colorsilabo.'" >Sillabus</span></a>]-[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'"><span style="color:'.$colorplansemestral.'" >Plan Semestral</span></a>]</p>';
 			}else{
 		}	
 
