@@ -115,6 +115,22 @@ function tipodocu_data()
 
 
 
+public function elprimero()
+{
+	$data['tipodocu'] = $this->tipodocu_model->elprimero();
+  if(!empty($data))
+  {
+    $data['title']="Tipoevento";
+    $this->load->view('template/page_header');		
+    $this->load->view('tipodocu_record',$data);
+    $this->load->view('template/page_footer');
+  }else{
+    $this->load->view('template/page_header');		
+    $this->load->view('registro_vacio');
+    $this->load->view('template/page_footer');
+  }
+ }
+
 
 
 
