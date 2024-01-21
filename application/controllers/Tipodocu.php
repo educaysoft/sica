@@ -61,7 +61,7 @@ public function add()
 		 	'descripcion' => $this->input->post('descripcion'),
 	 	);
 	 	$this->tipodocu_model->update($id,$array_item);
-	 	redirect('tipodocu');
+	 	redirect('tipodocu/actual/'.$id);
  	}
 
 
@@ -120,7 +120,7 @@ public function actual()
 	$data['tipodocu'] = $this->tipodocu_model->tipodocu($this->uri->segment(3))->row_array();
   	if(!empty($data))
   	{
-    		$data['title']="Tipoevento";
+    		$data['title']="Tipo documento";
     		$this->load->view('template/page_header');		
     		$this->load->view('tipodocu_record',$data);
     		$this->load->view('template/page_footer');
