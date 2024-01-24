@@ -245,8 +245,8 @@ public function genpagina()
 
 		$arreglo2+=array($idasignaturadocente=>$this->silabo_model->silabo2($row->iddocente,$row->idasignatura)->result_array());
 
-//		$arreglo[$row->idasignaturadocente]=$this->jornadadocente_model->jornadadocentes($idasignaturadocente)->row_array();
-		$xx=array($this->jornadadocente_model->jornadadocentes($idasignaturadocente)->result_array);
+		$arreglo[$row->idasignaturadocente]=$this->jornadadocente_model->jornadadocentes($idasignaturadocente)->row_array();
+		$xx=array($this->jornadadocente_model->jornadadocentes($idasignaturadocente)->result_array());
 		if(count($xx[0]) > 0){
 		foreach($xx as $row2){
 			foreach($row2 as $row3)
