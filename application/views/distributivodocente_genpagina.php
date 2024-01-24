@@ -309,7 +309,7 @@ $data=$data.'</div>
               <p class="card-text"><b>Paralelo : </b> '.$row->paralelo.'".<br>
 	      <p><b>Docente : </b><span style="color:blue">'.$row->eldocente.'.</span></p>';
 
-
+/*
 		if(isset($silabos[$row->idasignaturadocente])){		
 			$colorsilabo='green';
 			$colorplansemestral='green';
@@ -324,7 +324,7 @@ $data=$data.'</div>
 			}else{
 		}	
 
-
+ */
  $data=$data.' <p><b>Inicia : </b><span style="color:red">'.$row->fechainicia.'.</span><br>
 	      <b>Finaliza : </b><span style="color:red">'.$row->fechafinaliza.'.</span></p>';
 
