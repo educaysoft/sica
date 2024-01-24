@@ -338,7 +338,7 @@ foreach($jornadadocente as $rowj){
 
 			$data=$data.'<b>'.$rowj[$row->idasignaturadocente]['nombre'] .': </b><span style="color:red">'.$rowj[$row->idasignaturadocente]['horainicio'].'('.$rowj[$row->idasignaturadocente]['duracionminutos'].') - aula:'.$rowj[$row->idasignaturadocente]['elaula'].'</span><br>';
 			}	
-			echo $rowj; echo '<br>';
+	//		echo $rowj; echo '<br>';
 		}
 
 	if(strpos($row->estadoevento,"TERMINADO")!==false || strpos($row->estadoevento,"PRÓXIMO A INICIAR")!==false  ){
