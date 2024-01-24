@@ -309,7 +309,7 @@ $data=$data.'</div>
               <p class="card-text"><b>Paralelo : </b> '.$row->paralelo.'".<br>
 	      <p><b>Docente : </b><span style="color:blue">'.$row->eldocente.'.</span></p>';
 
-/*
+
 		if(isset($silabos[$row->idasignaturadocente])){		
 			$colorsilabo='green';
 			$colorplansemestral='green';
@@ -324,7 +324,7 @@ $data=$data.'</div>
 			}else{
 		}	
 
- */
+
  $data=$data.' <p><b>Inicia : </b><span style="color:red">'.$row->fechainicia.'.</span><br>
 	      <b>Finaliza : </b><span style="color:red">'.$row->fechafinaliza.'.</span></p>';
 
@@ -338,9 +338,9 @@ foreach($jornadadocente as $rowj){
 
 			$data=$data.'<b>'.$rowj[$row->idasignaturadocente]['nombre'] .': </b><span style="color:red">'.$rowj[$row->idasignaturadocente]['horainicio'].'('.$rowj[$row->idasignaturadocente]['duracionminutos'].') - aula:'.$rowj[$row->idasignaturadocente]['elaula'].'</span><br>';
 			}	
-			echo "entre";
+			echo $rowj; echo '<br>';
 		}
-die();
+
 	if(strpos($row->estadoevento,"TERMINADO")!==false || strpos($row->estadoevento,"PRÓXIMO A INICIAR")!==false  ){
 		$data=$data.' <p><b>ESTADO : </b><span style="color:red">'.$row->estadoevento.'.</span></p>';
 	}else{
