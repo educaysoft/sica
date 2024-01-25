@@ -313,24 +313,29 @@ $data=$data.'</div>
 		if(isset($silabos[$row->idasignaturadocente])){		
 
 				$disable1='';
-
-				$disable3='';
+				$color1='gray';
 				$disable2='';
+				$color2='gray';
+				$disable3='';
+				$color3='gray';
 			if($silabos[$row->idasignaturadocente][0]['silabopdf']==''){
 				$disable1='style="pointer-events:none; cursor:default"';
+				$color1='green';
 			}
 			if($silabos[$row->idasignaturadocente][0]['planclasepdf']==''){
 				$disable2= 'style="pointer-events:none; cursor:default"';
+				$color2='green';
 			}
 			if($silabos[$row->idasignaturadocente][0]['proyectocursopdf']==''){
 				$disable3= 'style="pointer-events:none; cursor:default"';
+				$color3='green';
 			}
 
 
 
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'"  '.$disable1.'><span style="color:green" >Sillabus</span></a>] - ';
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'"  '.$disable2.' ><span style="color:green" >Plan Semestral</span></a>] - ';
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['proyectocursopdf'].'"  '.$disable3.' ><span style="color:green" >Proyecto de Curso</span></a>]';
+			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'"  '.$disable1.'><span style="color:'.$color1.'" >Sillabus</span></a>] - ';
+			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'"  '.$disable2.' ><span style="color:'.$color2.'" >Plan Semestral</span></a>] - ';
+			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['proyectocursopdf'].'"  '.$disable3.' ><span style="color:'.$color3.'" >Proyecto de Curso</span></a>]';
 
 
 		//	$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'"><span style="color:'.$colorsilabo.'" >Sillabus</span></a>]-[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'"><span style="color:'.$colorplansemestral.'" >Plan Semestral</span></a>]</p>';
