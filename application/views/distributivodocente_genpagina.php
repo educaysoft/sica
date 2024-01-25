@@ -354,7 +354,7 @@ $data=$data.'</div>
 foreach($jornadadocente as $rowj){
 			if(isset($rowj[$row->idasignaturadocente]['idasignaturadocente'])){		
 
-			$data=$data.'<b>'.$rowj[$row->idasignaturadocente]['nombre'] .': </b><span style="color:red">'.$rowj[$row->idasignaturadocente]['horainicio'].'('.$rowj[$row->idasignaturadocente]['duracionminutos'].'),/span> - aula:<a href="https://repositorioutlvte.org/Repositorio/aulas/aula'.$rowj[$row->idasignaturadocente]['idaula'].'.jpg">' .$rowj[$row->idasignaturadocente]['elaula'].'</a><br>';
+			$data=$data.'<b>'.$rowj[$row->idasignaturadocente]['nombre'] .': </b><span style="color:red">'.$rowj[$row->idasignaturadocente]['horainicio'].'('.$rowj[$row->idasignaturadocente]['duracionminutos'].'),</span> - aula:<a href="https://repositorioutlvte.org/Repositorio/aulas/aula'.$rowj[$row->idasignaturadocente]['idaula'].'.jpg">' .$rowj[$row->idasignaturadocente]['elaula'].'</a><br>';
 			}	
 	//		echo $rowj; echo '<br>';
 		}
