@@ -406,8 +406,6 @@ $data=$data.'</div>
             <div class="card-body">
               <b>Participante : </b>'.$row->nombres.'.<br>
               <b>Grupo : </b> '.$row->grupoletra.'.<br>
-              <b>Total participaciones + : </b> '.$tparticipacionpositiva.'".<br>
-              <b>Total participaciones - : </b> '.$tparticipacionnegativa.'".<br>
               
             </div>
           </div>
