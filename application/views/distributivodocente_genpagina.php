@@ -313,22 +313,22 @@ $data=$data.'</div>
 		if(isset($silabos[$row->idasignaturadocente])){		
 
 				$disable1='';
-				$color1='gray';
+				$color1='green';
 				$disable2='';
-				$color2='gray';
+				$color2='green';
 				$disable3='';
-				$color3='gray';
+				$color3='green';
 			if($silabos[$row->idasignaturadocente][0]['silabopdf']==''){
 				$disable1='style="pointer-events:none; cursor:default"';
-				$color1='green';
+				$color1='gray';
 			}
 			if($silabos[$row->idasignaturadocente][0]['planclasepdf']==''){
 				$disable2= 'style="pointer-events:none; cursor:default"';
-				$color2='green';
+				$color2='gray';
 			}
 			if($silabos[$row->idasignaturadocente][0]['proyectocursopdf']==''){
 				$disable3= 'style="pointer-events:none; cursor:default"';
-				$color3='green';
+				$color3='gray';
 			}
 
 
@@ -354,7 +354,7 @@ $data=$data.'</div>
 foreach($jornadadocente as $rowj){
 			if(isset($rowj[$row->idasignaturadocente]['idasignaturadocente'])){		
 
-			$data=$data.'<b>'.$rowj[$row->idasignaturadocente]['nombre'] .': </b><span style="color:red">'.$rowj[$row->idasignaturadocente]['horainicio'].'('.$rowj[$row->idasignaturadocente]['duracionminutos'].') - aula:'.$rowj[$row->idasignaturadocente]['elaula'].'</span><br>';
+			$data=$data.'<b>'.$rowj[$row->idasignaturadocente]['nombre'] .': </b><span style="color:red">'.$rowj[$row->idasignaturadocente]['horainicio'].'('.$rowj[$row->idasignaturadocente]['duracionminutos'].'),/span> - aula:<a href="https://repositorioutlvte.org/Repositorio/aulas/aula'.$rowj[$row->idasignaturadocente]['idaula'].'">' .$rowj[$row->idasignaturadocente]['elaula'].'</a><br>';
 			}	
 	//		echo $rowj; echo '<br>';
 		}
