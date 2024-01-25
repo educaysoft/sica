@@ -69,6 +69,22 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
   
 
 
+ <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Ubicación:</label>
+	<div class="col-md-10">
+ <img src="http://congresoutlvte.org/Repositorio/aulas/aula<?php echo $aula[idaula]; ?>.jpg" alt="aula" width="200" height="200"> 
+  
+
+
+
+	</div> 
+</div>
+  
+
+
+
+
+
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('Joranadadocente/add', 'Uso'); ?>: </label>
 	<div class="col-md-10">
