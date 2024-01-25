@@ -317,13 +317,13 @@ $data=$data.'</div>
 				$disable3='';
 				$disable2='';
 			if($silabos[$row->idasignaturadocente][0]['silabopdf']==''){
-				$disable1='aria-disabled="true"';
+				$disable1='style="pointer-events:none; cursor:default"';
 			}
 			if($silabos[$row->idasignaturadocente][0]['planclasepdf']==''){
-				$disable2=' aria-disabled="true"';
+				$disable2= 'style="pointer-events:none; cursor:default"';
 			}
 			if($silabos[$row->idasignaturadocente][0]['proyectocursopdf']==''){
-				$disable3='aria-disabled="true"';
+				$disable3= 'style="pointer-events:none; cursor:default"';
 			}
 
 
