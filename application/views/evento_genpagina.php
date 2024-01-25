@@ -375,9 +375,7 @@ $NotaP1=($componenteA1*0.03+$componenteB1*0.015+$componenteC1*0.015+$componenteE
 $PorcentajeP1=($NotaP1/10)*100;
 
 
-
-
-
+/*
 $data=$data.'</div>
 
             <div class="card-body">
@@ -392,6 +390,24 @@ $data=$data.'</div>
               <b>Componente C1 : </b> '.$componenteC1.'% - ('.$componenteC1*0.015.'/10).</br>
               <b>Componente E1 : </b> '.$componenteE1.'% - ('.$componenteE1*0.04.'/10).</br>
               <span style="color:green"><b>Primer parcial: </b> '.$PorcentajeP1.'% - ('.$NotaP1.'/10).</span></p>
+              
+            </div>
+          </div>
+        </div>
+';
+
+ */
+
+
+
+
+$data=$data.'</div>
+
+            <div class="card-body">
+              <b>Participante : </b>'.$row->nombres.'.<br>
+              <b>Grupo : </b> '.$row->grupoletra.'.<br>
+              <b>Total participaciones + : </b> '.$tparticipacionpositiva.'".<br>
+              <b>Total participaciones - : </b> '.$tparticipacionnegativa.'".<br>
               
             </div>
           </div>
