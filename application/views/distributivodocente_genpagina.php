@@ -311,17 +311,19 @@ $data=$data.'</div>
 
 
 		if(isset($silabos[$row->idasignaturadocente])){		
-			$disable1='disabled="disabled"';
-			$disable2='disabled="disabled"';
-			$disable3='disabled="disabled"';
-			if($silabos[$row->idasignaturadocente][0]['silabopdf']==''){
+
 				$disable1='';
+
+				$disable3='';
+				$disable2='';
+			if($silabos[$row->idasignaturadocente][0]['silabopdf']==''){
+				$disable1='disabled="disabled"';
 			}
 			if($silabos[$row->idasignaturadocente][0]['planclasepdf']==''){
-				$disable2='';
+				$disable2='disabled="disabled"';
 			}
 			if($silabos[$row->idasignaturadocente][0]['proyectocursopdf']==''){
-				$disable3='';
+				$disable3='disabled="disabled"';
 			}
 
 
