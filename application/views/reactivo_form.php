@@ -35,7 +35,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 		<?php
 		$options= array('--Select--');
 		foreach ($asignaturas as $row){
-			$options[$row->idasignatura]= $row->idasignatura." - ".$row->nombre;
+			$options[$row->idasignatura]= $row->idasignatura." - ".$row->area." - ".$row->nombre;
 		}
 
  echo form_dropdown("idasignatura",$options, set_select('--Select--','default_value'));
