@@ -36,7 +36,7 @@ public function add()
 {
 
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  		$data['asignaturas']= $this->asignatura_model->lista_asignaturas1()->result();
 		$data['title']="Nuevo Reactivo :";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('reactivo_form',$data);
