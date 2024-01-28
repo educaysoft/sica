@@ -65,7 +65,7 @@ echo form_input('idinstructor',$options[$videotutorial['idinstructor']],array("d
     <label class="col-md-2 col-form-label">Duración:</label>
 	<div class="col-md-10">
 	<?php
-       echo form_input('duracion',$videotutorial['duracion'],array('placeholder'=>'Duracion del videotutorial','style'=>'width:500px;'));
+       echo form_input('duracion',$videotutorial['duracion'],array("disabled"=>"disabled",'placeholder'=>'Duracion del videotutorial','style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 

@@ -27,6 +27,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 
 
+	
+<div id="eys-nav-i">
+	<ul>
+		<li> <?php echo anchor('reactivo', 'Home'); ?></li>
+	</ul>
+</div>
+
+<br>
+
+
+
+
 <div class="row justify-content-center">
       <!-- Page Heading -->
  <div class="row">
