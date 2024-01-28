@@ -50,11 +50,11 @@ echo form_input('idinstructor',$options[$videotutorial['idinstructor']],array("d
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Nombres:</label>
+    <label class="col-md-2 col-form-label">Nombre:</label>
 	<div class="col-md-10">
 	<?php
 
-       echo form_input('nombre',$videotutorial['nombre'],array('placeholder'=>'Nombre del videotutorial','style'=>'width:500px;'));
+       echo form_input('nombre',$videotutorial['nombre'],array("disabled"=>"disabled",'placeholder'=>'Nombre del videotutorial','style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 
@@ -76,8 +76,8 @@ echo form_input('idinstructor',$options[$videotutorial['idinstructor']],array("d
     <label class="col-md-2 col-form-label">Enlace:</label>
 	<div class="col-md-10">
 	<?php
-       echo form_textarea('enlace',$videotutorial['enlace'],array('placeholder'=>'Enlace para compartir'));
-		?>
+       		echo form_textarea('enlace',$videotutorial['enlace'],array("disabled"=>"disabled",'placeholder'=>'Enlace para compartir','style'=>'width:500px;'));
+	?>
 	</div> 
 </div> 
 
