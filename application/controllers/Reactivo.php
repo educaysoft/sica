@@ -18,7 +18,7 @@ class Reactivo extends CI_Controller{
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
-  		$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+  		$data['asignaturas']= $this->asignatura_model->lista_asignaturas1()->result();
 	  	$data['reactivo']=$this->reactivo_model->elultimo();
   		$data['title']="Reactivo # :";
 			$this->load->view('template/page_header');		
