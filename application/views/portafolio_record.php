@@ -149,7 +149,7 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
 	 <tr>
 	 <th>iddopo</th>
 	 <th>iddocu</th>
-	 <th>idpersona</th>
+	 <th>tipo</th>
 	 <th>titulo</th>
 	 <th>elabor.</th>
 	 <th>archvo.</th>
@@ -191,6 +191,27 @@ var id= $(this).data('iddocumento');
 var retorno= $(this).data('retorno2');
 window.location.href = retorno+'/'+id;
 });
+
+
+
+$('#show_data').on('click','.docu_ver',function(){
+
+
+var ordenador = "https://"+$(this).data('ordenador');
+var ubicacion = $(this).data('ubicacion');
+if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+        ubicacion = ordenador+"/"+ubicacion;
+}else{
+	ubicacion = ordenador+ubicacion;
+}
+var archivo = $(this).data('archivo');
+var certi= ubicacion.trim()+archivo.trim();
+window.location.href = certi;
+
+});
+
+
+
 
 
 </script>

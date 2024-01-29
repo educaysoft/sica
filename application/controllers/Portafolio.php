@@ -169,8 +169,8 @@ function portafolio_data()
 			$data0 =$this->portafolio_model->lista_portafolio2($idpersona,$idperiodoacademico);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->iddocumentoportafolio,$r->iddocumento,$r->idpersona,$r->asunto,$r->fechaelaboracion,$r->archivopdf,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno1="'.site_url('documentoportafolio/actual').'"    data-iddocumentoportafolio="'.$r->iddocumentoportafolio.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_doc"  data-retorno2="'.site_url('documento/actual').'"    data-iddocumento="'.$r->iddocumento.'">doc</a>');
+				$data[]=array($r->iddocumentoportafolio,$r->iddocumento,$r->eltipodocumento,$r->asunto,$r->fechaelaboracion,$r->archivopdf,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno1="'.site_url('documentoportafolio/actual').'"    data-iddocumentoportafolio="'.$r->iddocumentoportafolio.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_doc"  data-retorno2="'.site_url('documento/actual').'"    data-iddocumento="'.$r->iddocumento.'">doc</a><a href="javascript:void(0);" class="btn btn-info btn-sm docu_ver"  data-iddocumento="'.$r->iddocumento.'" data-ordenador="'.$r->elordenador.'"  data-ubicacion="'.$r->ruta.'"  data-archivo="'.$r->archivopdf.'">pdf</a> ');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
