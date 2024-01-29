@@ -16,7 +16,9 @@ if(isset($asignatura))
 	<li> <?php echo anchor('asignatura/reportepdf/'.$asignatura['idmalla'],'reportepdf'); ?></li>
 <?php 
 }else{
-   <li> <?php echo anchor('asignatura/add', 'Nuevo'); ?></li>
+?>
+
+        <li> <?php echo anchor('asignatura/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
