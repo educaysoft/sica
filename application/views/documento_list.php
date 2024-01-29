@@ -140,7 +140,7 @@ var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('docume
 //	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET'},});
 
 
-$('#show_data').on('click','.item_ver',function(){
+$('#show_data').on('click','.docu_ver',function(){
 
 alert($(this).data('eltipodocu'));
 
@@ -159,7 +159,7 @@ window.location.href = certi;
 
 
 
-$('#show_data').on('click','.item_pdf',function(){
+$('#show_data').on('click','.item_ver',function(){
 var id= $(this).data('iddocumento');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
