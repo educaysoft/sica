@@ -142,7 +142,7 @@ var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('docume
 
 $('#show_data').on('click','.item_ver',function(){
 
-alert($(this).data('ubicacion'));
+alert($(this).data('ordenador'));
 
 var ordenador = "https://"+$(this).data('ordenador');
 var ubicacion = $(this).data('ubicacion');
