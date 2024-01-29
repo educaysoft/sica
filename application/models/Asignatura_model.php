@@ -45,6 +45,14 @@ class Asignatura_model extends CI_model {
  	}
 
 
+ 	function asignaturaxmalla( $idmalla){
+ 		$asignatura = $this->db->query('select * from asignatura1 where idmalla="'. $idmalla.'" order by idmalla,nivel asc');
+ 		return $asignatura;
+ 	}
+
+
+
+
 
  	function save($array)
  	{

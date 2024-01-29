@@ -226,6 +226,22 @@ public function actual()
 
 
 
+	public function reportepdf()
+	{
+		
+		$data['asignaturas'] = $this->asignatura_model->asignaturaxmalla($this->uri->segment(3))->result();
+
+		$data['title']="Evento";
+		$this->load->view('asignatura_list_pdf',$data);
+	
+	}
+
+
+
+
+
+
+
 
 
 

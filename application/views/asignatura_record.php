@@ -13,12 +13,10 @@ if(isset($asignatura))
         <li> <?php echo anchor('asignatura/edit/'.$asignatura['idasignatura'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('asignatura/quitar/'.$asignatura['idasignatura'],'Quitar'); ?></li>
         <li> <?php echo anchor('asignatura/listar/','Listar'); ?></li>
-
+	<li> <?php echo anchor('asignatura/reportepdf/'.$asignatura['idmalla'],'reportepdf'); ?></li>
 <?php 
 }else{
-?>
-
-        <li> <?php echo anchor('asignatura/add', 'Nuevo'); ?></li>
+?malla   <li> <?php echo anchor('asignatura/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
