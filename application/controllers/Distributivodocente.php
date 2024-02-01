@@ -272,7 +272,7 @@ public function genpagina()
 		$data['malla']= $this->malla_model->mallaA($data['asignatura']['idmalla'])->result();
 
 
-		if(!isset($this->input->get("orden")){
+		if(!isset($this->input->get("orden"))){
 			$data['title']="Evento";
 			$this->load->view('distributivodocente_genpagina',$data);
 		}else{
