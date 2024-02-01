@@ -179,7 +179,14 @@ $i=$i+1;
 if($row->idareaconocimiento != $idareaconocimiento and $inicio==0)
 {
 	 	$data=$data.$data1;
+		if($ordenrpt==0){
 		$file='application/views/cursos/'.$elperiodoacademico.'-'.$idareaconocimiento.'.php';
+		}else{
+		$file='application/views/cursos/'.$elperiodoacademico.'-'.$idareaconocimiento.'-'.$ordenrpt.'.php';
+		}
+
+
+
 		if ( !write_file($file, $data)){
 		     echo 'Unable to write the file';
 		}else{
