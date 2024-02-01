@@ -361,10 +361,16 @@ $data=$data.'</div>
 			}
 
 
-
+			if(isset($silabos[$row->idasignaturadocente][0]['silabopdf'])){
 			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'"  '.$disable1.'><span style="color:'.$color1.'" >Sillabus</span></a>] - ';
+			}
+
+			if(isset($silabos[$row->idasignaturadocente][0]['planclasepdf'])){
 			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'"  '.$disable2.' ><span style="color:'.$color2.'" >Plan Semestral</span></a>] - ';
+			}
+			if(isset($silabos[$row->idasignaturadocente][0]['proyectocursopdf'])){
 			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['proyectocursopdf'].'"  '.$disable3.' ><span style="color:'.$color3.'" >Proyecto de Curso</span></a>]';
+			}
 
 
 		//	$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'"><span style="color:'.$colorsilabo.'" >Sillabus</span></a>]-[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'"><span style="color:'.$colorplansemestral.'" >Plan Semestral</span></a>]</p>';
