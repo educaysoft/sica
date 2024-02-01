@@ -28,8 +28,8 @@ class Silabo_model extends CI_model {
 
 
 
- 	function silabo2( $iddocente,$idasignatura){
- 		$silabo = $this->db->query('select * from silabo2 where  iddocente="'. $iddocente.'" and idasignatura="'.$idasignatura.'"   order by idperiodoacademico desc  limit 1');
+ 	function silabo2( $iddocente,$idasignatura,$idevento){
+ 		$silabo = $this->db->query('select * from silabo2 where  iddocente="'. $iddocente.'" and idasignatura="'.$idasignatura.'"   and idevento="'.$idevento.'" order by idperiodoacademico desc  limit 1');
  		return $silabo;
  	}
 
