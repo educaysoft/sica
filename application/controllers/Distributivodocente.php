@@ -276,6 +276,7 @@ public function genpagina()
 			$data['title']="Evento";
 			$this->load->view('distributivodocente_genpagina',$data);
 		}else{
+			echo $this->input->get("orden"); 
 		if($this->input->get("orden")==1){
 		$data['ordenrpt']=1;	
 		$ordenrpt=1;
@@ -283,7 +284,8 @@ public function genpagina()
 		$this->load->view('distributivodocente_genpagina',$data);
 		}
 
-		if($this->input->get("orden")==1){
+		if($this->input->get("orden")==2){
+
 		$data['ordenrpt']=2;	
 		$ordenrpt=2;
 	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo2($iddistributivo,$ordenrpt)->result();
