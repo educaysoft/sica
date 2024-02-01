@@ -322,8 +322,8 @@ $data=$data.'</div>
 	    <div class="card-body" style="background-color:'.$arrcolor[$row->numeronivelacademico].'"  >
               <b>Area:</b>'.$row->area.'.<br>
               <b>Nivel:</b>'.$row->nivel.'.<br>
-              <p><b>Asignatura : </b>'.$row->laasignatura.'.<br>
-              <p class="card-text"><b>Paralelo : </b> '.$row->paralelo.'".<br>
+              <b>Asignatura : </b>'.$row->laasignatura.'.<br>
+              <b>Paralelo : </b> '.$row->paralelo.'".<br>
 	      <p><b>Docente : </b><span style="color:blue">'.$row->eldocente.'.</span></p>';
 
 
@@ -370,7 +370,7 @@ $data=$data.'</div>
 
 			}
 
-
+			$data=$data.'<p>';
 			if(isset($silabos[$row->idasignaturadocente][0]['silabopdf'])){
 			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'"  '.$disable1.'><span style="color:'.$color1.'" >Sillabus</span></a>] - ';
 			}
@@ -382,6 +382,7 @@ $data=$data.'</div>
 			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['proyectocursopdf'].'"  '.$disable3.' ><span style="color:'.$color3.'" >Proyecto de Curso</span></a>]';
 			}
 
+			$data=$data.'</p>';
 
 		//	$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'"><span style="color:'.$colorsilabo.'" >Sillabus</span></a>]-[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'"><span style="color:'.$colorplansemestral.'" >Plan Semestral</span></a>]</p>';
 			}else{
