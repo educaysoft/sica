@@ -231,6 +231,7 @@ function distributivodocente_data()
 public function genpagina()
 {
 	$iddistributivo=0;
+
 	$ordenrpt=0;
 	if($this->uri->segment(3))
 	{
@@ -270,21 +271,25 @@ public function genpagina()
 
 		$data['malla']= $this->malla_model->mallaA($data['asignatura']['idmalla'])->result();
 
-		$data['title']="Evento";
-		$this->load->view('distributivodocente_genpagina',$data);
 
-	
+		if(!isset($this->input->get("orden")){
+			$data['title']="Evento";
+			$this->load->view('distributivodocente_genpagina',$data);
+		}else{
+		if($this->input->get("orden")==1){
 		$data['ordenrpt']=1;	
 		$ordenrpt=1;
 	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo2($iddistributivo,$ordenrpt)->result();
 		$this->load->view('distributivodocente_genpagina',$data);
-	
-	
+		}
+
+		if($this->input->get("orden")==1){
 		$data['ordenrpt']=2;	
 		$ordenrpt=2;
 	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo2($iddistributivo,$ordenrpt)->result();
 		$this->load->view('distributivodocente_genpagina',$data);
-	
+		}	
+	}
 	}
 }
 
