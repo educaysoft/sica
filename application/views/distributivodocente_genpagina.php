@@ -416,9 +416,19 @@ foreach($jornadadocente as $rowj){
 }
 
 
+
+
+
+
 $data=$data.$data1;
 
-	$file='application/views/cursos/'.$elperiodoacademico.'-'.$idareaconocimiento.'.php';
+		if($ordenrpt==0){
+		$file='application/views/cursos/'.$elperiodoacademico.'-'.$idareaconocimiento.'.php';
+		}else{
+		$file='application/views/cursos/'.$elperiodoacademico.'-'.$idareaconocimiento.'-'.$ordenrpt.'.php';
+		}
+
+
 	if ( !write_file($file, $data)){
 	     echo 'Unable to write the file';
 	}else{
