@@ -428,7 +428,7 @@ $data=$data.$data1;
 
 
 echo "archivo generado";
-die();
+//die();
 
 ?>
 
