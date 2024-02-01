@@ -325,17 +325,37 @@ $data=$data.'</div>
 				$color2='green';
 				$disable3='';
 				$color3='green';
+				
+			if(isset($silabos[$row->idasignaturadocente][0]['silabopdf'])){
 			if($silabos[$row->idasignaturadocente][0]['silabopdf']==''){
 				$disable1='style="pointer-events:none; cursor:default"';
 				$color1='gray';
 			}
+			}else{
+
+				$disable1='style="pointer-events:none; cursor:default"';
+				$color1='gray';
+
+			}
+
+			if(isset($silabos[$row->idasignaturadocente][0]['planclasepdf'])){
 			if($silabos[$row->idasignaturadocente][0]['planclasepdf']==''){
 				$disable2= 'style="pointer-events:none; cursor:default"';
 				$color2='gray';
+			}else{
+				$disable2= 'style="pointer-events:none; cursor:default"';
+				$color2='gray';
+
 			}
+
+			if(isset($silabos[$row->idasignaturadocente][0]['proyectocursopdf'])){
 			if($silabos[$row->idasignaturadocente][0]['proyectocursopdf']==''){
 				$disable3= 'style="pointer-events:none; cursor:default"';
 				$color3='gray';
+			}else{
+				$disable3= 'style="pointer-events:none; cursor:default"';
+				$color3='gray';
+
 			}
 
 
