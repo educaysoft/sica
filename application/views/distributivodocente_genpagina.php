@@ -404,14 +404,21 @@ foreach($jornadadocente as $rowj){
 	//		echo $rowj; echo '<br>';
 		}
 
+
+			$disabled='disabled';
+		if(strpos($row->estadoevento,"INSCRIPCION")==true){
+			$disabled='';
+		}
+
+
 	if(strpos($row->estadoevento,"TERMINADO")!==false || strpos($row->estadoevento,"PRÓXIMO A INICIAR")!==false  ){
-		$data=$data.' <p><b>ESTADO : </b><span style="color:red">'.$row->estadoevento.'.</span></p>';
+		$data=$data.'<br> <p><b>ESTADO : </b><span style="color:red">'.$row->estadoevento.'.</span></p>';
 	}else{
-		$data=$data.' <p><b>ESTADO : </b><span style="color:green">'.$row->estadoevento.'.</span></p>';
+		$data=$data.'<br> <p><b>ESTADO : </b><span style="color:green">'.$row->estadoevento.'.</span></p>';
 	}
               	$data=$data.'<div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login/validarcorreo?idevento='.$row->idevento.'\'"  >Inscribete</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login/validarcorreo?idevento='.$row->idevento.'\'" '.$disabled.' >Inscribete</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login\'">Ingresa</button>
                 </div>
                 <small class="text-muted"><b>Modalidad:</b>Presencial</small>
