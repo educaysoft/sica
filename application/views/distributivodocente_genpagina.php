@@ -342,6 +342,7 @@ $data=$data.'</div>
 			if($silabos[$row->idasignaturadocente][0]['planclasepdf']==''){
 				$disable2= 'style="pointer-events:none; cursor:default"';
 				$color2='gray';
+			}
 			}else{
 				$disable2= 'style="pointer-events:none; cursor:default"';
 				$color2='gray';
@@ -352,6 +353,7 @@ $data=$data.'</div>
 			if($silabos[$row->idasignaturadocente][0]['proyectocursopdf']==''){
 				$disable3= 'style="pointer-events:none; cursor:default"';
 				$color3='gray';
+			}
 			}else{
 				$disable3= 'style="pointer-events:none; cursor:default"';
 				$color3='gray';
