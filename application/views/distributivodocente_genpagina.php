@@ -175,7 +175,18 @@ $i=0;
 
 $arrcolor=array(1=>"#F68081",2=>"#F5DA81",3=>"#A9F5A9",4=>"#A9F4F3",5=>"#CFCEF7",6=>"#D1A9F4",7=>"#F5A8F3",8=>"#80DBF5",9=>"#9BFE2F",10=>"#9BFE2F");
 foreach($asignaturadocentes as $row){
-if($row->idareaconocimiento != $idareaconocimiento and $inicio==0)
+	
+	if(is_null($row->archivopdf) || $row->archivopdf=="")
+	{
+		continue;
+	}else{
+		$i=$i+1;
+	}
+
+	
+	
+	
+	if($row->idareaconocimiento != $idareaconocimiento and $inicio==0)
 {
 	 	$data=$data.$data1;
 		if($ordenrpt==0){
@@ -278,10 +289,8 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 	{
 $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/'.trim($row->idareaconocimiento).'-no.jpg" alt="No hay programación" height="100%" width="100%"/> </svg></a>
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
-		continue;
 	}else{
 
-		$i=$i+1;
 $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/'.trim($row->idareaconocimiento).'-si.jpg" alt="Revisar la programación"  height="100%" width="100%"/> </svg></a>
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 	}
