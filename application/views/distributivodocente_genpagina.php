@@ -427,8 +427,11 @@ $data=$data.$data1;
 
 
 
-echo "archivo generado";
-//die();
+echo "archivo generado<br>";
+echo $ordenrpt; 
+echo "<br>";
+echo $file;
+die();
 
 ?>
 
