@@ -273,6 +273,7 @@ public function genpagina()
 
 
 		if(!$this->input->get("orden")){
+			$data['ordenrpt']=0;	
 			$data['title']="Evento";
 			$this->load->view('distributivodocente_genpagina',$data);
 		}else{
