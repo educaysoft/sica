@@ -29,7 +29,7 @@ class Documentosilabo extends CI_Controller{
 
 		if($this->uri->segment(3))
 		{
-			$data['silabo']= $this->silabo_model->silabo($this->uri->segment(3))->result();
+			$data['silabos']= $this->silabo_model->silabo($this->uri->segment(3))->result();
 		}else{
 			$data['silabos']= $this->silabo_model->lista_silabos()->result();
 		}
