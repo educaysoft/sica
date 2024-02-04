@@ -89,7 +89,7 @@ overflow:hidden;
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">Acerca de Educación Continua</h4>
+          <h4 class="text-white">Acerca del Proyecto de Aula</h4>
           <p class="text-light"> Artículo 48:La educación continua hace referencia a procesos de capacitación, actualización y certificación de competencias laborales específicas. Se ejecuta en forma de cursos, seminarios, talleres u otras actividades académicas.</p>
 
         </div>
@@ -158,7 +158,7 @@ function cargarVideo(url){
 }
 
 </script>
-    <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/dist/js/bootstrap.bundle.min.js"></script>
       
   </body>
 </html>
