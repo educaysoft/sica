@@ -158,7 +158,7 @@ function cargarVideo(url){
 }
 
 </script>
-    <script src="../../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://congresoutlvte.org/assets/dist/js/bootstrap.bundle.min.js"></script>
       
   </body>
 </html>
@@ -436,7 +436,7 @@ foreach($jornadadocente as $rowj){
 
 
 
-$data1= str_replace($i,'<xxxx>',$data1);
+$data1= str_replace('<xxxx>',$i,$data1);
 
 $data=$data.$data1;
 
