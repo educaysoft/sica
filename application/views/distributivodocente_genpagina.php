@@ -89,16 +89,16 @@ overflow:hidden;
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">Acerca del Proyecto de Aula</h4>
-          <p class="text-light"> Artículo 48:La educación continua hace referencia a procesos de capacitación, actualización y certificación de competencias laborales específicas. Se ejecuta en forma de cursos, seminarios, talleres u otras actividades académicas.</p>
+          <h4 class="text-white"> <a href="https://repositorioutlvte.org/Repositorio/eventos/2023-11-29.jpeg" class="text-white">Acerca del Proyecto de Aula de Ingenieria de Software</a></h4>
+          <p class="text-light"> El proyecto de aula en Ingeniería de Software  implico la planificación, desarrollo y evaluación colaborativa de soluciones informáticas, fomentando el trabajo en equipo, la resolución de problemas y la aplicación práctica de conceptos técnicos. .</p>
 
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
           <h4 class="text-white">Contactanos</h4>
           <ul class="list-unstyled">
-            <li><a href="https://twitter.com/educaysoft1" class="text-white">Siguenos en Twitter</a></li>
-            <li><a href="https://www.facebook.com/stalin.francis.7/" class="text-white">Siguenos en  Facebook</a></li>
-            <li><a href="mailto:educaysoft@educaysoft.org" class="text-white">Mensajeame</a></li>
+            <li><a href="https://educaysoft.org/sica/evento/participantes/356" class="text-white">5to-A Ingenieria de Software I</a></li>
+            <li><a href="https://educaysoft.org/sica/evento/participantes/357" class="text-white">5to-B Ingenieria de Softare I</a></li>
+            <li><a href="https://educaysoft.org/sica/evento/participantes/350" class="text-white">4to-B Base de Datos I</a></li>
           </ul>
         </div>
       </div>
@@ -219,11 +219,11 @@ $data='
     <meta name="description" content="">
     <meta name="author" content="Stalin Francis Quinde">
     <meta name="generator" content="Hugo 0.101.0">
-        <meta property="og:site_name" content="Educación Continua-UTLVTE" />
-        <meta property="og:image" content="https://educaysoft.org/sica/images/LogoEducacionContinua.png" />
+        <meta property="og:site_name" content="Carrera en Tecnología de la Información" />
+        <meta property="og:image" content="https://repositorioutlvte.org/Repositorio/logos/logocti.png" />
         <meta property="og:image:width" content="400" />
         <meta property="og:image:height" content="400" />
-    <title> '.'Cursos de Educación Continua - UTLVTE - Periodo '.$row->elperiodoacademico.'  Area:'.$row->area . ' </title>
+    <title> '.'Carrera en Tecnología de la Información - UTLVTE - Periodo '.$row->elperiodoacademico.'  Area:'.$row->area . ' </title>
 
     <link rel="educaysoft" href="https://congresoutlvte.org/faci/">
     
