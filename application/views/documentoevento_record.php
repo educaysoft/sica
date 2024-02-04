@@ -46,7 +46,7 @@ if(isset($documentoevento))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id evento:</label>
+<label class="col-md-2 col-form-label"><?php echo anchor('evento/actual/'.$documentoevento['idevento'],'Id evento:'); ?> </label>
 	<div class="col-md-10">
 	<?php
       echo form_input('idevento',$documentoevento['idevento'],array("disabled"=>"disabled",'placeholder'=>'Ideventos','style'=>'width:500px;'));
