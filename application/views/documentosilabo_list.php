@@ -73,8 +73,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <script type="text/javascript">
 
 $(document).ready(function(){
-
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documentosilabo/documentosilabo_data')?>', type: 'GET'},});
+var idsilabo=0;
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documentosilabo/documentosilabo_data')?>', type: 'GET',data:{idsilabo:idsilabo},});
 
 });
 
