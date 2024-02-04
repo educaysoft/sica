@@ -26,7 +26,13 @@ class Documentoevento extends CI_Controller{
 
 	public function add()
 	{
-		$data['eventos']= $this->evento_model->lista_eventos()->result();
+
+		if($this->uri->segment(3))
+		{
+			$data['eventos']= $this->evento_model->evento($this->uri->segment(3))->result();
+		}else{
+			$data['eventos']= $this->evento_model->lista_eventos()->result();
+		}
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['documentoevento'] = $this->documentoevento_model->elultimo();

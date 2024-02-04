@@ -337,7 +337,7 @@ echo form_input($arrdatos) ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Documentos: </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('documentoevento/add/'.$evento['idevento'], 'Documentos:') ?> </label>
      	<?php 
 	$options=array();
   	foreach ($documentoeventos as $row){
