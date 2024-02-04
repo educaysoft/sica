@@ -46,7 +46,7 @@ if(isset($documentosilabo))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id silabo:</label>
+<label class="col-md-2 col-form-label"><?php echo anchor('silabo/actual/'.$documentosilabo['idsilabo'],'Id silabo:'); ?> </label>
 	<div class="col-md-10">
 	<?php
       echo form_input('idsilabo',$documentosilabo['idsilabo'],array("disabled"=>"disabled",'placeholder'=>'Idsilabos','style'=>'width:500px;'));
