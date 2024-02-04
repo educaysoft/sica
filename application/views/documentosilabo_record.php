@@ -112,16 +112,74 @@ echo form_input('nombre',$options[$documentosilabo['iddocumento']],array("disabl
 	</div> 
 </div> 
  
-  
-
-
-
-
-
-
 
 
 <?php echo form_close(); ?>
+
+
+
+
+
+<div class="row justify-content-center">
+      <!-- Page Heading -->
+ <div class="row">
+  <div class="col-12" style="border:solid;">
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+             <div class="col-md-12 margin-tb">
+        <div class="pull-left">
+                 <b>Lista de documentos del silabo </b>
+       	     </div>
+       	     </div>
+
+<table class="table table-striped table-bordered table-hover" id="mydatac">
+ <thead>
+ <tr>
+ <th>Iddocumentosilabo</th>
+ <th>silabo</th>
+ <th>documento</th>
+ <th style="text-align: right;">Actions</th>
+ </tr>
+ </thead>
+
+ <tbody id="show_data">
+
+ </tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	var idsilabo=<?php echo $documentosilabo['idsilabo']; ?>; 
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documentosilabo/documentosilabo_data')?>', type: 'GET',data:{idsilabo:idsilabo}},});
+
+});
+
+$('#show_data').on('click','.item_ver',function(){
+
+var id= $(this).data('iddocumentosilabo');
+
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+
+
+});
+
+
+</script>
 
 
 

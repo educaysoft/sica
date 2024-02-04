@@ -26,7 +26,13 @@ class Documentosilabo extends CI_Controller{
 
 	public function add()
 	{
-		$data['silabos']= $this->silabo_model->lista_silabos()->result();
+
+		if($this->uri->segment(3))
+		{
+			$data['silabo']= $this->silabo_model->silabo($this->uri->segment(3))->result();
+		}else{
+			$data['silabos']= $this->silabo_model->lista_silabos()->result();
+		}
   		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['documentosilabo'] = $this->documentosilabo_model->elultimo();

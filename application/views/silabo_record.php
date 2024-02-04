@@ -146,7 +146,7 @@ echo form_input('iddocumento',$options[$silabo['iddocumento']],array("id"=>"iddo
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor($silabo['linkdetalle'], 'Documentos:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('documentosilabo/add/'.$silabo['idsilabo'], 'Documentos:') ?> </label>
      	<?php 
 	$options=array();
   	foreach ($documentosilabos as $row){
