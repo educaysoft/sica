@@ -248,7 +248,7 @@ if(isset($asignatura))
 </div>
 
 
-	<table class="table table-striped table-bordered table-hover" id="mydatas">
+	<table class="table table-striped table-bordered table-hover" id="mydatac">
 	 <thead>
 	 <tr>
 	 <th>idasignatura</th>
@@ -272,7 +272,7 @@ if(isset($asignatura))
 
 
 
-<?php echo form_close(); ?>
+<?php echo form_close(); ?>$r->elaula,
 
 <script type="text/javascript">
 
