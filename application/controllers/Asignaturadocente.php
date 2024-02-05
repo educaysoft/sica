@@ -203,6 +203,38 @@ function asignaturadocente_data()
 	}
 
 
+
+
+
+	function jornadadocente2_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idasignatura=$this->input->get('idasignatura');
+			$data0 =$this->jornadadocente_model->jornadadocentexasignatura($idasignatura);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idasignatura,$r->paralelo,$r->nombre,$r->horainicio,$r->duracionminutos,$r->eldistributivodocente,$r->elaula,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('jornadadocente/actual').'"    data-idjornadadocente="'.$r->idjornadadocente.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
+
+
+
 	public function reportepdf()
 	{
 		$iddistributivo=$this->uri->segment(3);
