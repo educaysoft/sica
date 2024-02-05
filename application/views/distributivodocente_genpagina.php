@@ -234,11 +234,20 @@ $data='
 
 	 $data=$data.$data0;
 
+		if($ordenrpt==0){
+		$qridx='';
+		}else{
+		$qridx='-'.$ordenrpt;
+		}
+
+
+
+
 $data=$data.'
   <section class="py-5 text-center container">
     <div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: center;" >
 <div style=" flex-basis: 40%"  >
-<img src="https://repositorioutlvte.org/Repositorio/qr/'.$elperiodoacademico.'-'.$idareaconocimiento.'.png" height="150px">
+<img src="https://repositorioutlvte.org/Repositorio/qr/'.$elperiodoacademico.'-'.$idareaconocimiento.$qridx.'.png" height="150px">
 </div>
       <div >
         <h1 class="fw-light">'.$malla[0]->eldepartamento.'</h1>  
