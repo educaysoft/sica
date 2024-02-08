@@ -298,6 +298,13 @@ window.location.href = certi;
 }
 
 
+$('#show_data').on('click','.item_doc',function(){
+var id= $(this).data('iddocumento');
+var retorno= $(this).data('retorno2');
+window.location.href = retorno+'/'+id;
+});
+
+
 
 
 
