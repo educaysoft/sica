@@ -132,7 +132,7 @@ $data1='</div>
     <p class="float-end mb-1">
       <a href="#">Back to top</a>
     </p>
-     <p class="mb-1">Este sitio web que presenta <xxxx> clases, es parte del producto del <b>PROYECTO DE AULA</b> titulado <a href="https://repositorioutlvte.org/Repositorio/2024-01-15-FQSA-01627.pdf"> <b> "Diseño y Desarrollo de una plataforma web para la Gestión de la información Académica"</b></a> </p>
+     <p class="mb-1">Este sitio web que presenta <xxxx>/<yyyy> clases, es parte del producto del <b>PROYECTO DE AULA</b> titulado <a href="https://repositorioutlvte.org/Repositorio/2024-01-15-FQSA-01627.pdf"> <b> "Diseño y Desarrollo de una plataforma web para la Gestión de la información Académica"</b></a> </p>
     <p class="mb-0">El proyecto fue realizado con la participación de <a href="https://educaysoft.org/sica/evento/participantes/350"> 4-B Base de Datos I</a> ,<a href="https://educaysoft.org/sica/evento/participantes/356"> 5to-A</a> y <a href="https://educaysoft.org/sica/evento/participantes/357">5to-B</a>  Ingenieria de Software I en el periodo 2023-1S, cuyo tutor fue el Ing. Stalin Francis Msc., Docente de las Asignaturas.</p>
   </div>
 </footer>
@@ -172,10 +172,12 @@ $idareaconocimiento=0;
 $elperiodoacademico="";
 $inicio=1;
 $i=0;
+$j=0;
 
 $arrcolor=array(1=>"#F68081",2=>"#F5DA81",3=>"#A9F5A9",4=>"#A9F4F3",5=>"#CFCEF7",6=>"#D1A9F4",7=>"#F5A8F3",8=>"#80DBF5",9=>"#9BFE2F",10=>"#9BFE2F");
 foreach($asignaturadocentes as $row){
 	
+		$j=$j+1;
 	if(is_null($row->archivopdf) || $row->archivopdf=="")
 	{
 		continue;
@@ -446,6 +448,7 @@ foreach($jornadadocente as $rowj){
 
 
 $data1= str_replace('<xxxx>',$i,$data1);
+$data1= str_replace('<yyyy>',$j,$data1);
 
 $data=$data.$data1;
 

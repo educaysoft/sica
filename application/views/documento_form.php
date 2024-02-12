@@ -276,7 +276,7 @@ function uploadFiles(url1) {
 		}else{
 			url2 = url2+"/cargafile.php";
 		}
-                alert("Se va a ejecutar "+ url2);	
+         //---       alert("Se va a ejecutar "+ url2);	
     		// Set POST method and ajax file path
     		xhttp.open("POST", url2, true);
     		// call on request changes state
@@ -285,10 +285,12 @@ function uploadFiles(url1) {
     			var status = xhttp.status;
     			if (status ===  0 || (status >= 200 && status < 400)) {
       				// The request has been completed successfully
-				var response = xhttp.responseText;
-          			alert(response + "archivo cargado");
+		           console.log('El archivo PDF se cargó correctamente en el servidor en la nube.');
+	//--			var response = xhttp.responseText;
+        //  			alert(response + "archivo cargado");
 				history.back(); //Go to the previous page
        			}else{
+		           console.error('Error al cargar el archivo PDF en el servidor en la nube. Código de estado:', xhr.status);
 				alert("No se pudo cargar el archivo");
 			}
 			}
@@ -368,57 +370,25 @@ if(emisor.length>0)
 {
     
     let formData = new FormData(); 
-//    formData.append("filepdf", filepdf.files[0]);
-formData.append("filepdf",document.getElementById('filepdf').files[02]);
-formData.append("archivopdf",document.getElementById('archivopdf').value);
+	formData.append("filepdf",document.getElementById('filepdf').files[02]);
+	formData.append("archivopdf",document.getElementById('archivopdf').value);
 
-    await fetch(url, {method: "POST", body: formData}); 
-  alert('The file has been uploaded successfully.');
+	await fetch(url, {method: "POST", body: formData}
+
+.then(response => {
+        if (response.ok) {
+            console.log('El archivo PDF se cargó correctamente en el servidor en la nube.');
+ 	 alert('The file has been uploaded successfully.');
+        } else {
+            console.error('Error al cargar el archivo PDF en el servidor en la nube.');
+        }
+    })
+    .catch(error => {
+        console.error('Error en la solicitud:', error);
+
+); 
 
 };
 
 
-//=====================
-//
-// Upload file
-/*
-function uploadFiles(url) {
-
-  var totalfiles = document.getElementById('files').files.length;
-
-  if(totalfiles > 0 ){
-
-    var formData = new FormData();
-
-    // Read selected files
-    for (var index = 0; index < totalfiles; index++) {
-      formData.append("files[]", document.getElementById('files').files[index]);
-    }
-      formData.append("archivopdf", document.getElementById('archivopdf').value);
-     alert(document.getElementById('archivopdf').value);
-    var xhttp = new XMLHttpRequest();
-
-    // Set POST method and ajax file path
-    xhttp.open("POST", url, true);
-
-    // call on request changes state
-    xhttp.onreadystatechange = function() {
-       if (this.readyState == 4 && this.status == 200) {
-
-          var response = this.responseText;
-
-          alert(response + " File uploaded.");
-
-       }
-    };
-
-    // Send request with data
-    xhttp.send(formData);
-
-  }else{
-    alert("Please select a file");
-  }
-
-}
-*/
 </script>
