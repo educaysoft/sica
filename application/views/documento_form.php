@@ -5,14 +5,16 @@
 
 
 
-<?php echo form_hidden("iddocumento")  ?>
+<?php echo form_hidden("iddocumento")  
 
-
+	date_default_timezone_set('America/Guayaquil');
+	$fecha = date("Y-m-d");
+?>
 <div class="form-group row">
 	<label class="col-md-2 col-form-label">Fecha elaboración:</label>
 		<div class="col-md-10">
 			<?php
- 				echo form_input(array("name"=>"fechaelaboracion","id"=>"fechaelaboracion","type"=>"date"));  
+ 				echo form_input(array("name"=>"fechaelaboracion","id"=>"fechaelaboracion","value"=>$fecha,"type"=>"date"));  
 			?>
 		</div>
 </div>
@@ -21,7 +23,7 @@
 	<label class="col-md-2 col-form-label">Fecha subida:</label>
 		<div class="col-md-10">
 			<?php
- 				echo form_input(array("name"=>"fechasubida","id"=>"fechasubida","type"=>"date"));  
+ 				echo form_input(array("name"=>"fechasubida","id"=>"fechasubida","value"=>$fecha,"type"=>"date"));  
 			?>
 		</div>
 </div>
