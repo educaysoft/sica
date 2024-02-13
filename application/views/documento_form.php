@@ -373,7 +373,7 @@ if(emisor.length>0)
 	formData.append("filepdf",document.getElementById('filepdf').files[02]);
 	formData.append("archivopdf",document.getElementById('archivopdf').value);
 
-	await fetch(url, {method: "POST", body: formData}
+	await fetch(url, {method: "POST", body: formData})
 
 .then(response => {
         if (response.ok) {
