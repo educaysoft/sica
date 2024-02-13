@@ -385,8 +385,7 @@ if(emisor.length>0)
     })
     .catch(error => {
         console.error('Error en la solicitud:', error);
-
-//); 
+	}); 
 
 };
 
