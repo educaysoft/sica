@@ -50,8 +50,15 @@ class Documentoevento extends CI_Controller{
 		 	'idevento' => $this->input->post('idevento'),
 		 	'idtipodocu' => $this->input->post('idtipodocu'),
 	 	);
-	 	$this->documentoevento_model->save($array_item);
-	 	redirect('documentoevento');
+	 $result=$this->documentoevento_model->save($array_item);
+
+	 	if($result == false)
+		{
+			echo "<script language='JavaScript'> alert(' ya ha sido asignado'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
  	}
 
 
