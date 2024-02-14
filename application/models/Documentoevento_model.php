@@ -38,8 +38,24 @@ class Documentoevento_model extends CI_model {
 
  	function save($array)
  	{
-		$this->db->insert("documentoevento", $array);
- 	}
+		$this->db->select('*');
+		$this->db->from('documentoevento0');
+		$condition = "idevento =" .  $array['idevento'] ;
+		$this->db->where($condition);
+		$condition = "iddocumento =" . $array['iddocumento'];
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0){
+			$this->db->insert("documentoevento", $array);
+			return true;
+		}else{
+			return false;
+		}
+
+ 
+	
+		}
 
  	function update($id,$array_item)
  	{
