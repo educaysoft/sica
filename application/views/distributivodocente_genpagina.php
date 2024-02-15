@@ -346,7 +346,15 @@ $data=$data.'</div>
 				$color2='green';
 				$disable3='';
 				$color3='green';
-				
+
+				$disable4='';
+				$color4='green';
+
+				$disable5='';
+				$color5='green';
+
+
+
 			if(isset($silabos[$row->idasignaturadocente][0]['silabopdf'])){
 			if($silabos[$row->idasignaturadocente][0]['silabopdf']==''){
 				$disable1='style="pointer-events:none; cursor:default"';
@@ -381,17 +389,59 @@ $data=$data.'</div>
 
 			}
 
+	if(isset($silabos[$row->idasignaturadocente][0]['distributivoindividualpdf'])){
+			if($silabos[$row->idasignaturadocente][0]['distributivoindividualpdf']==''){
+				$disable4= 'style="pointer-events:none; cursor:default"';
+				$color4='gray';
+			}
+			}else{
+				$disable4= 'style="pointer-events:none; cursor:default"';
+				$color4='gray';
+
+			}
+
+
+	if(isset($silabos[$row->idasignaturadocente][0]['informeactividadpdf'])){
+			if($silabos[$row->idasignaturadocente][0]['informeactividadpdf']==''){
+				$disable5= 'style="pointer-events:none; cursor:default"';
+				$color5='gray';
+			}
+			}else{
+				$disable5= 'style="pointer-events:none; cursor:default"';
+				$color5='gray';
+
+			}
+
+
+
+
+
+
 			$data=$data.'<p>';
 			if(isset($silabos[$row->idasignaturadocente][0]['silabopdf'])){
 			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'"  '.$disable1.'><span style="color:'.$color1.'" >Sillabus</span></a>] - ';
 			}
 
 			if(isset($silabos[$row->idasignaturadocente][0]['planclasepdf'])){
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'"  '.$disable2.' ><span style="color:'.$color2.'" >Plan Semestral</span></a>] - ';
+			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'"  '.$disable2.' ><span style="color:'.$color2.'" >PlanSemestral</span></a>] - ';
 			}
 			if(isset($silabos[$row->idasignaturadocente][0]['proyectocursopdf'])){
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['proyectocursopdf'].'"  '.$disable3.' ><span style="color:'.$color3.'" >Proyecto de Curso</span></a>]';
+			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['proyectocursopdf'].'"  '.$disable3.' ><span style="color:'.$color3.'" >ProyectoAula</span></a>]';
 			}
+
+
+			if(isset($silabos[$row->idasignaturadocente][0]['distributivoindividualpdf'])){
+			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['distributivoindividualpdf'].'"  '.$disable4.' ><span style="color:'.$color4.'" >Distributivo</span></a>]';
+			}
+
+
+			if(isset($silabos[$row->idasignaturadocente][0]['informeactividadpdf'])){
+			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['informeactividadpdf'].'"  '.$disable5.' ><span style="color:'.$color5.'" >Informe</span></a>]';
+			}
+
+
+
+
 
 			$data=$data.'</p>';
 
