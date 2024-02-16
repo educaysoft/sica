@@ -1,12 +1,10 @@
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 	<?php echo form_open("documento/save",array('id'=>'eys-form')); ?>
-
 <br>
 
 
 
 <?php echo form_hidden("iddocumento");  
-
 	date_default_timezone_set('America/Guayaquil');
 	$fecha = date("Y-m-d");
 ?>
@@ -178,9 +176,6 @@ echo form_dropdown("iddocumento_estado",$options, set_select('--Select--','defau
 
 
 
-
-
-
 <div id="eys-nav-i">
 	<ul>
 		<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
@@ -192,16 +187,14 @@ echo form_dropdown("iddocumento_estado",$options, set_select('--Select--','defau
     
   <script>
 
-			$(document).ready(function(){
+	$(document).ready(function(){
 
-   var text_max = 200;
-    $('#textarea_feedback').html('Quedan ' + text_max + ' caracteres');
-
-    $('#asunto').keyup(function() {
-        var text_length = $('#asunto').val().length;
-        var text_remaining = text_max - text_length;
-
-        $('#textarea_feedback').html('Quedan ' + text_remaining + ' caracteres');
+  		var text_max = 200;
+    		$('#textarea_feedback').html('Quedan ' + text_max + ' caracteres');
+    		$('#asunto').keyup(function() {
+        	var text_length = $('#asunto').val().length;
+        	var text_remaining = text_max - text_length;
+        	$('#textarea_feedback').html('Quedan ' + text_remaining + ' caracteres');
     });
 		
 });
@@ -221,7 +214,7 @@ function uploadFiles(url1) {
 
   var totalfiles = document.getElementById('files').files.length;
   var formData = new FormData();
-  alert("Este proceso guardará todas los datos ingresados");	
+ // alert("Este proceso guardará todas los datos ingresados");	
   if(totalfiles > 0 ){
 
     var iddocumento = 0;
@@ -256,13 +249,15 @@ function uploadFiles(url1) {
     xhttp1.open("POST", url1, true);
     xhttp1.send(formData);
 
-    xhttp1.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-		alert(this.responseText);
+  //  xhttp1.onreadystatechange = function() {
+    xhttp1.onload = function() {
+    // if (this.readyState == 4 && this.status == 200) {
+    if ( xhttp1.status == 200) {
+	///	alert(this.responseText);
 		//Recupera el nombre del archivo
 		var result_array = JSON.parse(this.responseText);
 		//document.getElemetById("archivopdf").value=result_array.archivopdf;
-		 alert("Guardado exitoso...ahora procedemos a cargar el archivo..con un nuevo nombre"+result_array.archivopdf);
+////		 alert("Guardado exitoso...ahora procedemos a cargar el archivo..con un nuevo nombre"+result_array.archivopdf);
 		//Para cargar el archivo	
 		var formData = new FormData();
    	 	// Read selected files
@@ -282,10 +277,12 @@ function uploadFiles(url1) {
     		// Set POST method and ajax file path
     		xhttp.open("POST", url2, true);
     		// call on request changes state
-    		xhttp.onreadystatechange = function() {
- 		if(xhttp.readyState === XMLHttpRequest.DONE) {
-    			var status = xhttp.status;
-    			if (status ===  0 || (status >= 200 && status < 400)) {
+    	//	xhttp.onreadystatechange = function() {
+    		xhttp.onload = function() {
+ 	//	if(xhttp.readyState === XMLHttpRequest.DONE) {
+    		//	var status = xhttp.status;
+    	//		if (status ===  0 || (status >= 200 && status < 400)) {
+			if(xhttp.status ==200){
       				// The request has been completed successfully
 		           console.log('El archivo PDF se cargó correctamente en el servidor en la nube.');
 	//--			var response = xhttp.responseText;
@@ -293,16 +290,29 @@ function uploadFiles(url1) {
 				history.back(); //Go to the previous page
        			}else{
 		           console.error('Error al cargar el archivo PDF en el servidor en la nube. Código de estado:', xhr.status);
-				alert("No se pudo cargar el archivo");
+//				alert("No se pudo cargar el archivo");
 			}
-			}
-              	};
-    		// Send request with data
+	//		}
+		};
+
+		   // Configura el progreso de la carga
+    		xhttp.upload.onprogress = function (e) {
+        	if (e.lengthComputable) {
+            		var percentComplete = (e.loaded / e.total) * 100;
+         	   	console.log('Porcentaje completado: ' + percentComplete + '%');
+        	}
+    		};
+    		// Enviar la solicitud
     		xhttp.send(formData);
 	}else{
-		 alert("intento de guardar fallado");
+		  console.error('Error al guardar los datos.');
+	//	 alert("intento de guardar fallado");
 	}
 	};
+
+
+
+
   }else{
     alert("Porfavor seleccione un archivo");
   }
