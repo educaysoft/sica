@@ -213,7 +213,10 @@ echo form_dropdown("iddocumento_estado",$options, set_select('--Select--','defau
 function uploadFiles(url1) {
 
   var totalfiles = document.getElementById('files').files.length;
-  var formData = new FormData();
+ 
+ 
+    var xhttp1 = new XMLHttpRequest();
+  var formData1 = new FormData();
  // alert("Este proceso guardará todas los datos ingresados");	
   if(totalfiles > 0 ){
 
@@ -230,24 +233,22 @@ function uploadFiles(url1) {
     var idpersona = document.getElementById('idpersona').value; 
     var iddocumento_estado=document.getElementById('iddocumento_estado').value;
 
-    formData.append("iddocumento", 0);
-    formData.append("idtipodocu", idtipodocu);
-    formData.append("iddestinodocumento", iddestinodocumento);
-    formData.append("asunto", asunto);
-    formData.append("descripcion", descripcion);
-    formData.append("fechaelaboracion", fechaelaboracion);
-    formData.append("fechasubida", fechasubida);
-    formData.append("idordenador", idordenador);
-    formData.append("iddirectorio", iddirectorio);
-    formData.append("iddocumento_estado", 1);
-    formData.append("idpersona", idpersona);
-    formData.append("iddocumento_estado", iddocumento_estado);
+    formData1.append("iddocumento", 0);
+    formData1.append("idtipodocu", idtipodocu);
+    formData1.append("iddestinodocumento", iddestinodocumento);
+    formData1.append("asunto", asunto);
+    formData1.append("descripcion", descripcion);
+    formData1.append("fechaelaboracion", fechaelaboracion);
+    formData1.append("fechasubida", fechasubida);
+    formData1.append("idordenador", idordenador);
+    formData1.append("iddirectorio", iddirectorio);
+    formData1.append("iddocumento_estado", 1);
+    formData1.append("idpersona", idpersona);
+    formData1.append("iddocumento_estado", iddocumento_estado);
 
-    var xhttp1 = new XMLHttpRequest();
 
 
     xhttp1.open("POST", url1, true);
-    xhttpl.setRequestHeader('Content-Type', 'application/json'); // Especifica el tipo de contenido JSON
 
 
   //  xhttp1.onreadystatechange = function() {
@@ -314,7 +315,7 @@ function uploadFiles(url1) {
 
 
 
-    xhttp1.send(formData);
+    xhttp1.send(formData1);
 
 
   }else{
