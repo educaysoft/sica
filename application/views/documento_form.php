@@ -254,7 +254,7 @@ function uploadFiles(url1) {
   //  xhttp1.onreadystatechange = function() {
     xhttp1.onload = function() {
     // if (this.readyState == 4 && this.status == 200) {
-    if ( xhttp1.status == 200) {
+    if ( xhttp1.status === 200) {
 	///	alert(this.responseText);
 		//Recupera el nombre del archivo
 		var result_array = JSON.parse(this.responseText);
@@ -284,7 +284,7 @@ function uploadFiles(url1) {
  	//	if(xhttp.readyState === XMLHttpRequest.DONE) {
     		//	var status = xhttp.status;
     	//		if (status ===  0 || (status >= 200 && status < 400)) {
-			if(xhttp.status ==200){
+			if(xhttp.status ===200){
       				// The request has been completed successfully
 		           console.log('El archivo PDF se cargó correctamente en el servidor en la nube.');
 	//--			var response = xhttp.responseText;
