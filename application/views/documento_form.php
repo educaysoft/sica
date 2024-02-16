@@ -247,7 +247,8 @@ function uploadFiles(url1) {
 
 
     xhttp1.open("POST", url1, true);
-    xhttp1.send(formData);
+    xhttpl.setRequestHeader('Content-Type', 'application/json'); // Especifica el tipo de contenido JSON
+
 
   //  xhttp1.onreadystatechange = function() {
     xhttp1.onload = function() {
@@ -311,6 +312,9 @@ function uploadFiles(url1) {
 	};
 
 
+
+
+    xhttp1.send(formData);
 
 
   }else{
