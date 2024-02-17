@@ -39,7 +39,7 @@ if (isset($this->session->userdata['logged_in'])) {
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.css">
  
 <script  src="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <style>
 
 body{

@@ -237,14 +237,18 @@ function uploadFiles(url1) {
     formData.append("iddocumento_estado",getValueById('iddocumento_estado'));
 
 
-	var xhttp1 = new XMLHttpRequest();
+//	var xhttp1 = new XMLHttpRequest();
 
-    xhttp1.open("POST", url1, true);
+ //   xhttp1.open("POST", url1, true);
 
 
-    xhttp1.onload = function() {
-    if ( xhttp1.status === 200) {
-		var result_array = JSON.parse(this.responseText);
+  //  xhttp1.onload = function() {
+  //  if ( xhttp1.status === 200) {
+
+ axios.post(url1, formData)
+        .then(function(response) {
+   // var result_array = JSON.parse(this.responseText);
+    var result_array = response.data;
 		var uformData = new FormData();
 		
 		// Read selected files
@@ -253,34 +257,27 @@ function uploadFiles(url1) {
     		}
       		uformData.append("archivopdf",result_array.archivopdf );
 		var uploadUrl = getUploadUrl();
-    		var xhttp = new XMLHttpRequest();
+   // 		var xhttp = new XMLHttpRequest();
     		// Set POST method and ajax file path
-    		xhttp.open("POST", uploadUrl, true);
+    //		xhttp.open("POST", uploadUrl, true);
     		// call on request changes state
-    		xhttp.onload = function() {
-			if(xhttp.status ===200){
-      			   // The request has been completed successfully
-		           console.log('El archivo PDF se cargó correctamente en el servidor en la nube.');
+    //		xhttp.onload = function() {
+//			if(xhttp.status ===200){
+
+		// The request has been completed successfully
+
+       axios.post(uploadUrl, uformData)
+                .then(function(response) {
+		console.log('El archivo PDF se cargó correctamente en el servidor en la nube.');
 			   history.back(); //Go to the previous page
-       			}else{
+       		//	}else{
+		   })
+		   .catch(function(error){
 		           console.error('Error al cargar el archivo PDF en el servidor en la nube. Código de estado:', xhr.status);
-			}
-		};
-
-		   // Configura el progreso de la carga
-    		xhttp.upload.onprogress = function (e) {
-        	if (e.lengthComputable) {
-            		var percentComplete = (e.loaded / e.total) * 100;
-         	   	console.log('Porcentaje completado: ' + percentComplete + '%');
-        	}
-    		};
-    		xhttp.send(uformData);
-	}else{
-		  console.error('Error al guardar los datos.');
-	}
-	};
-
-    xhttp1.send(formData);
+		   })
+		 .cath(function(error){
+	    console.error('Error al guardar los datos.', error);
+        });
 }
 
 
