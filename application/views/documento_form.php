@@ -280,7 +280,7 @@ function uploadFiles(url1) {
 	}
 	};
 
-    xhttp1.send(formData1);
+    xhttp1.send(formData);
 }
 
 
