@@ -254,7 +254,6 @@ function uploadFiles(url1) {
       		uformData.append("archivopdf",result_array.archivopdf );
 		var uploadUrl = getUploadUrl();
     		var xhttp = new XMLHttpRequest();
-		}
     		// Set POST method and ajax file path
     		xhttp.open("POST", uploadUrl, true);
     		// call on request changes state
