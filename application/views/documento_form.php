@@ -248,7 +248,7 @@ function uploadFiles(url1) {
 		var uformData = new FormData();
 		
 		// Read selected files
-    		for (var index = 0; index < totalfiles; index++) {
+    		for (var index = 0; index < totalFiles; index++) {
       			uformData.append("files[]", filesInput.files[index]);
     		}
       		uformData.append("archivopdf",result_array.archivopdf );
