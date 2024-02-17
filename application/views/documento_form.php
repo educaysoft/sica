@@ -224,17 +224,17 @@ function uploadFiles(url1) {
   	var formData = new FormData();
 
     formData.append("iddocumento",0);
-    formData.append("idtipodocu",document.getValueById('idtipodocu'));
-    formData.append("iddestinodocumento",document.getValueById('iddestinodocumento'));
-    formData.append("asunto", document.getValueById('asunto'));
-    formData.append("descripcion", document.getValueById('descripcion'));
-    formData.append("fechaelaboracion",document.getValueById('fechaelaboracion'));
-    formData.append("fechasubida",document.getValueById('fechasubida'));
-    formData.append("idordenador", document.getValueById('idordenador'));
-    formData.append("iddirectorio",document.getValueById('iddirectorio'));
+    formData.append("idtipodocu",getValueById('idtipodocu'));
+    formData.append("iddestinodocumento",getValueById('iddestinodocumento'));
+    formData.append("asunto", getValueById('asunto'));
+    formData.append("descripcion", getValueById('descripcion'));
+    formData.append("fechaelaboracion",getValueById('fechaelaboracion'));
+    formData.append("fechasubida",getValueById('fechasubida'));
+    formData.append("idordenador", getValueById('idordenador'));
+    formData.append("iddirectorio",getValueById('iddirectorio'));
     formData.append("idddocumento_estado",1);
-    formData.append("idpersona",document.getValueById('idpersona')); 
-    formData.append("iddocumento_estado",document.getValueById('iddocumento_estado'));
+    formData.append("idpersona",getValueById('idpersona')); 
+    formData.append("iddocumento_estado",getValueById('iddocumento_estado'));
 
 
 	var xhttp1 = new XMLHttpRequest();
