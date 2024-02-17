@@ -221,7 +221,7 @@ function uploadFiles(url1) {
 		return;
 	}
  
-  	var formData1 = new FormData();
+  	var formData = new FormData();
 
     formData.append("iddocumento",0);
     formData.append("idtipodocu",document.getValueById('idtipodocu'));
