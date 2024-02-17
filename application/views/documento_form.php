@@ -212,9 +212,8 @@ echo form_dropdown("iddocumento_estado",$options, set_select('--Select--','defau
 //====================			
 function uploadFiles(url1) {
 
-//  var totalfiles = document.getElementById('files').files.length;
 	var filesInput = document.getElementById('files');
-	var totalFiles= filesInput.length;
+	var totalFiles= filesInput.files.length;
 
 	if(totalFiles <= 0){
 		alert("Por favor seleccione un archivo");
@@ -237,17 +236,9 @@ function uploadFiles(url1) {
     formData.append("iddocumento_estado",getValueById('iddocumento_estado'));
 
 
-//	var xhttp1 = new XMLHttpRequest();
-
- //   xhttp1.open("POST", url1, true);
-
-
-  //  xhttp1.onload = function() {
-  //  if ( xhttp1.status === 200) {
 
  axios.post(url1, formData)
         .then(function(response) {
-   // var result_array = JSON.parse(this.responseText);
     var result_array = response.data;
 		var uformData = new FormData();
 		
@@ -257,20 +248,11 @@ function uploadFiles(url1) {
     		}
       		uformData.append("archivopdf",result_array.archivopdf );
 		var uploadUrl = getUploadUrl();
-   // 		var xhttp = new XMLHttpRequest();
-    		// Set POST method and ajax file path
-    //		xhttp.open("POST", uploadUrl, true);
-    		// call on request changes state
-    //		xhttp.onload = function() {
-//			if(xhttp.status ===200){
-
-		// The request has been completed successfully
-
+		alert(uploadUrl);
        axios.post(uploadUrl, uformData)
                 .then(function(response) {
 		console.log('El archivo PDF se cargó correctamente en el servidor en la nube.');
 			   history.back(); //Go to the previous page
-       		//	}else{
 		   })
 		   .catch(function(error){
 		           console.error('Error al cargar el archivo PDF en el servidor en la nube. Código de estado:', error);
