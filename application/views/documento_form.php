@@ -232,7 +232,7 @@ function uploadFiles(url1) {
     formData.append("fechasubida",document.getValueById('fechasubida'));
     formData.append("idordenador", document.getValueById('idordenador'));
     formData.append("iddirectorio",document.getValueById('iddirectorio'));
-    formData.append("idddocumento_estado",1;
+    formData.append("idddocumento_estado",1);
     formData.append("idpersona",document.getValueById('idpersona')); 
     formData.append("iddocumento_estado",document.getValueById('iddocumento_estado'));
 
