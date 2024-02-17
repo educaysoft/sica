@@ -212,89 +212,60 @@ echo form_dropdown("iddocumento_estado",$options, set_select('--Select--','defau
 //====================			
 function uploadFiles(url1) {
 
-  var totalfiles = document.getElementById('files').files.length;
+//  var totalfiles = document.getElementById('files').files.length;
+	var filesInput = document.getElementById('files');
+	var totalFiles= filesInput.length;
+
+	if(totalFiles <= 0){
+		alert("Por favor seleccione un archivo");
+		return;
+	}
  
- 
-    var xhttp1 = new XMLHttpRequest();
-  var formData1 = new FormData();
- // alert("Este proceso guardará todas los datos ingresados");	
-  if(totalfiles > 0 ){
+  	var formData1 = new FormData();
 
-    var iddocumento = 0;
-    var idtipodocu = document.getElementById('idtipodocu').value;
-    var iddestinodocumento = document.getElementById('iddestinodocumento').value;
-    var asunto =  document.getElementById('asunto').value;
-    var descripcion =  document.getElementById('descripcion').value;
-    var fechaelaboracion = document.getElementById('fechaelaboracion').value;
-    var fechasubida = document.getElementById('fechasubida').value;
-    var idordenador =  document.getElementById('idordenador').value;
-    var iddirectorio = document.getElementById('iddirectorio').value;
-    var idddocumento_estado = 1;
-    var idpersona = document.getElementById('idpersona').value; 
-    var iddocumento_estado=document.getElementById('iddocumento_estado').value;
-
-    formData1.append("iddocumento", 0);
-    formData1.append("idtipodocu", idtipodocu);
-    formData1.append("iddestinodocumento", iddestinodocumento);
-    formData1.append("asunto", asunto);
-    formData1.append("descripcion", descripcion);
-    formData1.append("fechaelaboracion", fechaelaboracion);
-    formData1.append("fechasubida", fechasubida);
-    formData1.append("idordenador", idordenador);
-    formData1.append("iddirectorio", iddirectorio);
-    formData1.append("iddocumento_estado", 1);
-    formData1.append("idpersona", idpersona);
-    formData1.append("iddocumento_estado", iddocumento_estado);
+    formData.append("iddocumento",0);
+    formData.append("idtipodocu",document.getValueById('idtipodocu'));
+    formData.append("iddestinodocumento",document.getValueById('iddestinodocumento'));
+    formData.append("asunto", document.getValueById('asunto'));
+    formData.append("descripcion", document.getValueById('descripcion'));
+    formData.append("fechaelaboracion",document.getValueById('fechaelaboracion'));
+    formData.append("fechasubida",document.getValueById('fechasubida'));
+    formData.append("idordenador", document.getValueById('idordenador'));
+    formData.append("iddirectorio",document.getValueById('iddirectorio'));
+    formData.append("idddocumento_estado",1;
+    formData.append("idpersona",document.getValueById('idpersona')); 
+    formData.append("iddocumento_estado",document.getValueById('iddocumento_estado'));
 
 
+	var xhttp1 = new XMLHttpRequest();
 
     xhttp1.open("POST", url1, true);
 
 
-  //  xhttp1.onreadystatechange = function() {
     xhttp1.onload = function() {
-    // if (this.readyState == 4 && this.status == 200) {
     if ( xhttp1.status === 200) {
-	///	alert(this.responseText);
-		//Recupera el nombre del archivo
 		var result_array = JSON.parse(this.responseText);
-		//document.getElemetById("archivopdf").value=result_array.archivopdf;
-////		 alert("Guardado exitoso...ahora procedemos a cargar el archivo..con un nuevo nombre"+result_array.archivopdf);
-		//Para cargar el archivo	
-		var formData = new FormData();
-   	 	// Read selected files
+		var uformData = new FormData();
+		
+		// Read selected files
     		for (var index = 0; index < totalfiles; index++) {
-      			formData.append("files[]", document.getElementById('files').files[index]);
+      			uformData.append("files[]", filesInput.files[index]);
     		}
-      		formData.append("archivopdf",result_array.archivopdf );
+      		uformData.append("archivopdf",result_array.archivopdf );
+		var uploadUrl = getUploadUrl();
     		var xhttp = new XMLHttpRequest();
-		var e =document.getElementById('idordenador');
-		var url2 = "https://"+e.options[e.selectedIndex].text;
-		if(url2.slice(-1) == '/'){
-			url2 = url2+"cargafile.php";
-		}else{
-			url2 = url2+"/cargafile.php";
 		}
-         //---       alert("Se va a ejecutar "+ url2);	
     		// Set POST method and ajax file path
-    		xhttp.open("POST", url2, true);
+    		xhttp.open("POST", uploadUrl, true);
     		// call on request changes state
-    	//	xhttp.onreadystatechange = function() {
     		xhttp.onload = function() {
- 	//	if(xhttp.readyState === XMLHttpRequest.DONE) {
-    		//	var status = xhttp.status;
-    	//		if (status ===  0 || (status >= 200 && status < 400)) {
 			if(xhttp.status ===200){
-      				// The request has been completed successfully
+      			   // The request has been completed successfully
 		           console.log('El archivo PDF se cargó correctamente en el servidor en la nube.');
-	//--			var response = xhttp.responseText;
-        //  			alert(response + "archivo cargado");
-				history.back(); //Go to the previous page
+			   history.back(); //Go to the previous page
        			}else{
 		           console.error('Error al cargar el archivo PDF en el servidor en la nube. Código de estado:', xhr.status);
-//				alert("No se pudo cargar el archivo");
 			}
-	//		}
 		};
 
 		   // Configura el progreso de la carga
@@ -304,26 +275,26 @@ function uploadFiles(url1) {
          	   	console.log('Porcentaje completado: ' + percentComplete + '%');
         	}
     		};
-    		// Enviar la solicitud
-    		xhttp.send(formData);
+    		xhttp.send(uformData);
 	}else{
 		  console.error('Error al guardar los datos.');
-	//	 alert("intento de guardar fallado");
 	}
 	};
 
-
-
-
     xhttp1.send(formData1);
-
-
-  }else{
-    alert("Porfavor seleccione un archivo");
-  }
-
 }
 
+
+function getValueById(id) {
+    return document.getElementById(id).value;
+}
+
+
+function getUploadUrl() {
+    var selectElement = document.getElementById('idordenador');
+    var url = "https://" + selectElement.options[selectElement.selectedIndex].text;
+    return url.endsWith('/') ? url + "cargafile.php" : url + "/cargafile.php";
+}
 
 
 
