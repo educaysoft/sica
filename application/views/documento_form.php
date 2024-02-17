@@ -274,10 +274,11 @@ function uploadFiles(url1) {
 		   })
 		   .catch(function(error){
 		           console.error('Error al cargar el archivo PDF en el servidor en la nube. Código de estado:', xhr.status);
+        	});
 		   })
 		 .cath(function(error){
-	    console.error('Error al guardar los datos.', error);
-        });
+	    		console.error('Error al guardar los datos.', error);
+        	});
 }
 
 
