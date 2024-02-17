@@ -273,7 +273,7 @@ function uploadFiles(url1) {
        		//	}else{
 		   })
 		   .catch(function(error){
-		           console.error('Error al cargar el archivo PDF en el servidor en la nube. Código de estado:', xhr.status);
+		           console.error('Error al cargar el archivo PDF en el servidor en la nube. Código de estado:', error);
         	});
 		   })
 		 .catch(function(error){
