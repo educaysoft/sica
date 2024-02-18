@@ -238,13 +238,13 @@ $data='
 
 		if($ordenrpt==0){
 		$qridx='';
-		$elorden=" ordenado por nivel"
+		$elorden=" ordenado por nivel";
 		}else{
 
 			if($ordenrpt==1){
-				$elorden=" ordenado por docente"
+				$elorden=" ordenado por docente";
 			}else{
-				$elorden=" ordenado por asignatura"
+				$elorden=" ordenado por asignatura";
 
 
 			}
