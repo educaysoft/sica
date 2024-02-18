@@ -238,7 +238,17 @@ $data='
 
 		if($ordenrpt==0){
 		$qridx='';
+		$elorden=" ordenado por nivel"
 		}else{
+
+			if($ordenrpt==1){
+				$elorden=" ordenado por docente"
+			}else{
+				$elorden=" ordenado por asignatura"
+
+
+			}
+
 		$qridx='-'.$ordenrpt;
 		}
 
@@ -254,7 +264,7 @@ $data=$data.'
       <div >
         <h1 class="fw-light">'.$malla[0]->eldepartamento.'</h1>  
         <p class="lead text-muted">Área:'.$row->area.'.</p>
-        <p class="lead text-muted">Periodo:'.$row->elperiodoacademico.'.</p>
+        <p class="lead text-muted">Periodo:'.$row->elperiodoacademico.' :: '.$elorden.'.</p>
       </div>
     </div>
   </section>
@@ -503,9 +513,9 @@ $data1= str_replace('<yyyy>',$j,$data1);
 $data=$data.$data1;
 
 		if($ordenrpt==0){
-		$file='application/views/cursos/'.$elperiodoacademico.'-'.$idareaconocimiento.'.php';
+			$file='application/views/cursos/'.$elperiodoacademico.'-'.$idareaconocimiento.'.php';
 		}else{
-		$file='application/views/cursos/'.$elperiodoacademico.'-'.$idareaconocimiento.'-'.$ordenrpt.'.php';
+			$file='application/views/cursos/'.$elperiodoacademico.'-'.$idareaconocimiento.'-'.$ordenrpt.'.php';
 		}
 
 
