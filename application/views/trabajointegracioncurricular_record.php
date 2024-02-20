@@ -80,21 +80,7 @@ if(isset($trabajointegracioncurricular))
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('destinotrabajointegracioncurricular/elprimero/', 'Destino trabajointegracioncurricular'); ?> :</label>
-     	<?php 
-	$options= array("NADA");
-	foreach ($destinotrabajointegracioncurriculars as $row){
-		$options[$row->iddestinotrabajointegracioncurricular]= $row->nombre;
-	}
-	$arrdatos=array('name'=>'iddestinotrabajointegracioncurricular','value'=>$options[$trabajointegracioncurricular['iddestinotrabajointegracioncurricular']],"disabled"=>"disabled","style"=>"width:500px");
-	?>
-	<div class="col-md-10">
-		<?php
-			echo form_input($arrdatos) 
-		?>
-	</div> 
-</div>
+
 
 
 
@@ -104,17 +90,17 @@ if(isset($trabajointegracioncurricular))
     <label class="col-md-2 col-form-label"> Fecha de creación:</label>
 	<div class="col-md-10">
 		<?php
-      		 echo form_input('fechaelaboracion',$trabajointegracioncurricular['fechaelaboracion'],array('type'=>'date','placeholder'=>'fechaelaboracion','style'=>'width:500px;')) 
+      		 echo form_input('fechacreacion',$trabajointegracioncurricular['fechacreacion'],array('type'=>'date','placeholder'=>'fechacreacion','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha de subida:</label>
+    <label class="col-md-2 col-form-label"> Hora Creación:</label>
 	<div class="col-md-10">
 		<?php
-      		 echo form_input('fechasubida',$trabajointegracioncurricular['fechasubida'],array('type'=>'date','placeholder'=>'fecha de carga','style'=>'width:500px;')) 
+      		 echo form_input('horacreacion',$trabajointegracioncurricular['horacreacion'],array('type'=>'date','placeholder'=>'fecha de carga','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
@@ -122,34 +108,34 @@ if(isset($trabajointegracioncurricular))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('emisor/add/'.$trabajointegracioncurricular['idtrabajointegracioncurricular'], 'Emisor/emisores:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('egresado/add/'.$trabajointegracioncurricular['idtrabajointegracioncurricular'], 'Emisor/egresadoes:') ?> </label>
      	<?php 
 
 	$options = array();
-  	foreach ($emisores as $row){
-		$options[$row->idpersona]=$row->elemisor;
+  	foreach ($egresados as $row){
+		$options[$row->idestudiante]=$row->elegresado;
 	}
 
 	?>
 	<div class="col-md-10">
 		<?php
-			 echo form_multiselect('idemisor[]',$options,(array)set_value('idemisor', ''), array('style'=>'width:500px')); 
+			 echo form_multiselect('idegresado[]',$options,(array)set_value('idegresado', ''), array('style'=>'width:500px')); 
 		?>
 	</div> 
 </div>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('destinatario/add/'.$trabajointegracioncurricular['idtrabajointegracioncurricular'], 'Destinatarios/as:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('lector/add/'.$trabajointegracioncurricular['idtrabajointegracioncurricular'], 'Destinatarios/as:') ?> </label>
      	<?php 
 	$options=array();
-  	foreach ($destinatarios as $row){
-		$options[$row->idpersona]=$row->eldestinatario;
+  	foreach ($lectores as $row){
+		$options[$row->idpersona]=$row->ellector;
 	}
 	?>
 	<div class="col-md-10">
 		<?php
- 			echo form_multiselect('iddestinatario[]',$options,(array)set_value('iddestinatario',''), array('style'=>'width:500px;')); 
+ 			echo form_multiselect('idlector[]',$options,(array)set_value('idlector',''), array('style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
@@ -158,92 +144,41 @@ if(isset($trabajointegracioncurricular))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Asunto:</label>
+    <label class="col-md-2 col-form-label"> Nombre/TituloAsunto:</label>
 	<div class="col-md-10">
 		<?php
 $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('asunto',$trabajointegracioncurricular['asunto'],$textarea_options); 
+ echo form_textarea('nombre',$trabajointegracioncurricular['nombre'],$textarea_options); 
 		?>
 	</div> 
 </div>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Descripción:</label>
+    <label class="col-md-2 col-form-label"> Resumen:</label>
 	<div class="col-md-10">
 		<?php
 $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('descripcion',$trabajointegracioncurricular['descripcion'],$textarea_options); 
+ echo form_textarea('resumen',$trabajointegracioncurricular['resumen'],$textarea_options); 
 		?>
 	</div> 
 </div>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <a href="<?php echo base_url(); ?>index.php/trabajointegracioncurricular/show_pdf/<?php echo $trabajointegracioncurricular['idtrabajointegracioncurricular']; ?>">Archivo_Pdf</a>   </label>
-	<div class="col-md-10">
-		<?php
-      echo form_input('archivopdf',$trabajointegracioncurricular['archivopdf'],array("id"=>"archivopdf","disabled"=>"disabled",'placeholder'=>'Archivo php','style'=>'width:500px;')); 
- 
-		?>
-	</div> 
-</div>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Ordenador:</label>
-     	<?php 
-	$options= array("NADA");
-	foreach ($ordenadores as $row){
-		$options[$row->idordenador]= $row->nombre;
-	}
-
-	?>
-	<div class="col-md-10">
-		<?php
-			echo form_input('idordenador',$options[$trabajointegracioncurricular['idordenador']],array("id"=>"idordenador","disabled"=>"disabled"));
-		?>
-	</div> 
-</div>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Directorio:</label>
-     	<?php 
-	$options= array("NADA");
-	foreach ($directorios as $row){
-		$options[$row->iddirectorio]= $row->ruta;
-	}
-	?>
-	<div class="col-md-10">
-		<?php
-		echo form_input('iddirectorio',$options[$trabajointegracioncurricular['iddirectorio']],array("id"=>"iddirectorio", "disabled"=>"disabled")); 
-		?>
-	</div> 
-</div>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Estado del trabajointegracioncurricular:</label>
-     	<?php 
-$options= array("NADA");
-foreach ($trabajointegracioncurricular_estados as $row){
-	$options[$row->idtrabajointegracioncurricular_estado]= $row->nombre;
-}
-
-	?>
-	<div class="col-md-10">
-		<?php
 
 
-echo form_input('idtrabajointegracioncurricular_estado',$options[$trabajointegracioncurricular['idtrabajointegracioncurricular_estado']],array('id'=>'idtrabajointegracioncurricular_estado', "disabled"=>"disabled", 'style'=>"background-color:yellow;")); 
-		?>
-	</div> 
-</div>
+
+
 
 
 
