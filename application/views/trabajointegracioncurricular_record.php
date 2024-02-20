@@ -53,8 +53,8 @@ if(isset($trabajointegracioncurricular))
 
 
 
-        <li> <?php echo "<a onclick='verpdf()'>Ver PDF</a>" ?></li>
-		<li> <?php echo anchor('trabajointegracioncurricular/reportepdf/'.$trabajointegracioncurricular['idtipodocu'],'reportepdf'); ?></li>
+        
+		
 
 
 <?php 
@@ -75,21 +75,7 @@ if(isset($trabajointegracioncurricular))
 <?php echo form_hidden('idtrabajointegracioncurricular',$trabajointegracioncurricular['idtrabajointegracioncurricular']) ?>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('tipodocu/elprimero/', 'Tipo trabajointegracioncurricular'); ?> :</label>
-     	<?php 
-	$options= array("NADA");
-	foreach ($tipodocus as $row){
-		$options[$row->idtipodocu]= $row->descripcion;
-	}
-	$arrdatos=array('name'=>'idtipodocu','value'=>$options[$trabajointegracioncurricular['idtipodocu']],"disabled"=>"disabled","style"=>"width:500px");
-	?>
-	<div class="col-md-10">
-		<?php
-			echo form_input($arrdatos) 
-		?>
-	</div> 
-</div> 
+ 
 
 
 
