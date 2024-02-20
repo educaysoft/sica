@@ -357,11 +357,11 @@ class Trabajointegracioncurricular_model extends CI_model {
 	}
 
 
-  // Para presentar los destinatarios
-	function destinatarios( $iddocu)
+  // Para presentar los lectores
+	function lectores( $iddocu)
 	{
-		$destinatarios=$this->db->query('select idpersona,eldestinatario from destinatario1 where idtrabajointegracioncurricular="'. $iddocu.'"');
-		return $destinatarios;
+		$lectores=$this->db->query('select idpersona,ellector from lector1 where idtrabajointegracioncurricular="'. $iddocu.'"');
+		return $lectores;
 	}
 
 
