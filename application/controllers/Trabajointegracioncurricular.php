@@ -9,7 +9,6 @@ class Trabajointegracioncurricular extends CI_Controller{
       $this->load->model('ordenador_model');
       $this->load->model('directorio_model');
       $this->load->model('persona_model');
-      $this->load->model('trabajointegracioncurricular_estado_model');
 	}
 
 	public function index(){
@@ -21,7 +20,6 @@ class Trabajointegracioncurricular extends CI_Controller{
 			$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
 			$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 
-  	$data['trabajointegracioncurricular_estados']= $this->trabajointegracioncurricular_estado_model->lista_trabajointegracioncurricular_estado()->result();
 			$data['title']="Usted esta visualizando el trabajointegracioncurricular No: ";
 			$this->load->view('template/page_header');		
 			$this->load->view('trabajointegracioncurricular_record',$data);
@@ -45,7 +43,6 @@ class Trabajointegracioncurricular extends CI_Controller{
 		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 		$data['ordenadores']= $this->ordenador_model->lista_ordenadores()->result();
 		$data['personas']= $this->persona_model->lista_personasA()->result();
-  		$data['trabajointegracioncurricular_estados']= $this->trabajointegracioncurricular_estado_model->lista_trabajointegracioncurricular_estado()->result();
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('trabajointegracioncurricular_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -68,7 +65,6 @@ class Trabajointegracioncurricular extends CI_Controller{
 			'fechasubida' => $this->input->post('fechasubida'),
 			'idordenador' => $this->input->post('idordenador'),
 			'iddirectorio' => $this->input->post('iddirectorio'),
-			'idtrabajointegracioncurricular_estado' => $this->input->post('idtrabajointegracioncurricular_estado'),
 	 	);
 		$array_creador=array(
 			'idtrabajointegracioncurricular'=>0,
@@ -103,7 +99,6 @@ class Trabajointegracioncurricular extends CI_Controller{
 	  $data['lectores'] = $this->trabajointegracioncurricular_model->lectores($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
 		$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
 		$data['directorios'] = $this->directorio_model->lista_directorios()->result();
-		$data['trabajointegracioncurricular_estados']= $this->trabajointegracioncurricular_estado_model->lista_trabajointegracioncurricular_estado()->result();
 		$data['title']="Usted esta visualizando el trabajointegracioncurricular No: ";
 		$this->load->view('template/page_header');		
 	  $this->load->view('trabajointegracioncurricular_record',$data);
@@ -243,7 +238,6 @@ public function elprimero()
     $data['lectores'] = $this->trabajointegracioncurricular_model->lectores($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
-  	$data['trabajointegracioncurricular_estados']= $this->trabajointegracioncurricular_estado_model->lista_trabajointegracioncurricular_estado()->result();
 	$data['title']="Usted esta visualizando el trabajointegracioncurricular No: ";
   
     $this->load->view('template/page_header');		
@@ -271,7 +265,6 @@ public function elultimo()
     $data['lectores'] = $this->trabajointegracioncurricular_model->lectores($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
-  	$data['trabajointegracioncurricular_estados']= $this->trabajointegracioncurricular_estado_model->lista_trabajointegracioncurricular_estado()->result();
 	$data['title']="Usted esta visualizando el trabajointegracioncurricular No: ";
   
     $this->load->view('template/page_header');		
@@ -303,7 +296,6 @@ public function siguiente(){
   $data['lectores'] = $this->trabajointegracioncurricular_model->lectores($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
-  	$data['trabajointegracioncurricular_estados']= $this->trabajointegracioncurricular_estado_model->lista_trabajointegracioncurricular_estado()->result();
 	$data['title']="Usted esta visualizando el trabajointegracioncurricular No: ";
 	$this->load->view('template/page_header');		
   $this->load->view('trabajointegracioncurricular_record',$data);
@@ -319,7 +311,6 @@ public function anterior(){
   $data['lectores'] = $this->trabajointegracioncurricular_model->lectores($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
-  	$data['trabajointegracioncurricular_estados']= $this->trabajointegracioncurricular_estado_model->lista_trabajointegracioncurricular_estado()->result();
 	$data['title']="Usted esta visualizando el trabajointegracioncurricular No: ";
 	$this->load->view('template/page_header');		
   $this->load->view('trabajointegracioncurricular_record',$data);
@@ -342,7 +333,6 @@ public function anterior(){
     		$data['lectores'] = $this->trabajointegracioncurricular_model->lectores($this->uri->segment(3))->result();
 		$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 		$data['directorios'] = $this->directorio_model->lista_directoriosxordenador($data['trabajointegracioncurricular']['idordenador'])->result();
-  		$data['trabajointegracioncurricular_estados']= $this->trabajointegracioncurricular_estado_model->lista_trabajointegracioncurricular_estado()->result();
     		$data['title'] = "Actualizar el  Trabajointegracioncurricular No: ";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('trabajointegracioncurricular_edit',$data);
@@ -398,9 +388,6 @@ public function anterior(){
 		}
 
 
-
-
-
 		if(null!==$this->input->post('idordenador'))
 		{
 			$array_item['idordenador'] = $this->input->post('idordenador');
@@ -411,10 +398,6 @@ public function anterior(){
 			$array_item['iddirectorio'] = $this->input->post('iddirectorio');
 		}
 
-		if(null!==$this->input->post('idtrabajointegracioncurricular_estado'))
-		{
-			$array_item['idtrabajointegracioncurricular_estado'] = $this->input->post('idtrabajointegracioncurricular_estado');
-		}
 
 
 	 	$this->trabajointegracioncurricular_model->update($id,$array_item);
