@@ -6,7 +6,6 @@ class Trabajointegracioncurricular extends CI_Controller{
       parent::__construct();
       $this->load->model('trabajointegracioncurricular_model');
       $this->load->model('tipodocu_model');
-      $this->load->model('destinotrabajointegracioncurricular_model');
       $this->load->model('ordenador_model');
       $this->load->model('directorio_model');
       $this->load->model('persona_model');
@@ -17,7 +16,6 @@ class Trabajointegracioncurricular extends CI_Controller{
  		if(isset($this->session->userdata['logged_in'])){
 			$data['trabajointegracioncurricular'] = $this->trabajointegracioncurricular_model->elultimo();
 			$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-			$data['destinotrabajointegracioncurriculars']= $this->destinotrabajointegracioncurricular_model->lista_destinotrabajointegracioncurricular()->result();
 			$data['egresados'] =$this->trabajointegracioncurricular_model->egresados($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
 			$data['lectores'] = $this->trabajointegracioncurricular_model->lectores($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
 			$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
@@ -45,7 +43,6 @@ class Trabajointegracioncurricular extends CI_Controller{
 	{
 		$data['title']="Usted esta Creando un nuevo Trabajointegracioncurricular";
 		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-		$data['destinotrabajointegracioncurriculars']= $this->destinotrabajointegracioncurricular_model->lista_destinotrabajointegracioncurricular()->result();
 		$data['ordenadores']= $this->ordenador_model->lista_ordenadores()->result();
 		$data['personas']= $this->persona_model->lista_personasA()->result();
   		$data['trabajointegracioncurricular_estados']= $this->trabajointegracioncurricular_estado_model->lista_trabajointegracioncurricular_estado()->result();
@@ -64,7 +61,6 @@ class Trabajointegracioncurricular extends CI_Controller{
 		 	
 		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
 		 	'idtipodocu' => $this->input->post('idtipodocu'),
-		 	'iddestinotrabajointegracioncurricular' => $this->input->post('iddestinotrabajointegracioncurricular'),
 		 	'archivopdf' => $this->input->post('archivopdf'),
 		 	'asunto' => $this->input->post('asunto'),
 		 	'descripcion' => $this->input->post('descripcion'),
@@ -103,7 +99,6 @@ class Trabajointegracioncurricular extends CI_Controller{
 	 // $data['trabajointegracioncurricular_list']=$this->trabajointegracioncurricular_model->lista_trabajointegracioncurricular()->result();
 	  $data['trabajointegracioncurricular'] = $this->trabajointegracioncurricular_model->trabajointegracioncurricular( $this->uri->segment(3))->row_array();
 	  $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-	  $data['destinotrabajointegracioncurriculars']= $this->destinotrabajointegracioncurricular_model->lista_destinotrabajointegracioncurricular()->result();
 	  $data['egresados'] =$this->trabajointegracioncurricular_model->egresados($this->uri->segment(3))->result();
 	  $data['lectores'] = $this->trabajointegracioncurricular_model->lectores($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
 		$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
@@ -123,7 +118,6 @@ class Trabajointegracioncurricular extends CI_Controller{
 	
   		$data['trabajointegracioncurricular'] = $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
   		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-  		$data['destinotrabajointegracioncurriculars']= $this->destinotrabajointegracioncurricular_model->lista_destinotrabajointegracioncurricular()->result();
   		$data['filtro']= $this->uri->segment(3);
   		$data['title']="Trabajointegracioncurricular";
 		$this->load->view('template/page_header');		
@@ -245,7 +239,6 @@ public function elprimero()
   if(!empty($data))
   {
     $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-    $data['destinotrabajointegracioncurriculars']= $this->destinotrabajointegracioncurricular_model->lista_destinotrabajointegracioncurricular()->result();
     $data['egresados'] =$this->trabajointegracioncurricular_model->egresados($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
     $data['lectores'] = $this->trabajointegracioncurricular_model->lectores($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
@@ -274,7 +267,6 @@ public function elultimo()
   if(!empty($data))
   {
     $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-    $data['destinotrabajointegracioncurriculars']= $this->destinotrabajointegracioncurricular_model->lista_destinotrabajointegracioncurricular()->result();
     $data['egresados'] =$this->trabajointegracioncurricular_model->egresados($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
     $data['lectores'] = $this->trabajointegracioncurricular_model->lectores($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
@@ -307,7 +299,6 @@ public function siguiente(){
  // $data['trabajointegracioncurricular_list']=$this->trabajointegracioncurricular_model->lista_trabajointegracioncurricular()->result();
 	$data['trabajointegracioncurricular'] = $this->trabajointegracioncurricular_model->siguiente($this->uri->segment(3))->row_array();
   $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-  $data['destinotrabajointegracioncurriculars']= $this->destinotrabajointegracioncurricular_model->lista_destinotrabajointegracioncurricular()->result();
   $data['egresados'] =$this->trabajointegracioncurricular_model->egresados($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
   $data['lectores'] = $this->trabajointegracioncurricular_model->lectores($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
@@ -324,7 +315,6 @@ public function anterior(){
  // $data['trabajointegracioncurricular_list']=$this->trabajointegracioncurricular_model->lista_trabajointegracioncurricular()->result();
 	$data['trabajointegracioncurricular'] = $this->trabajointegracioncurricular_model->anterior($this->uri->segment(3))->row_array();
   $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-  $data['destinotrabajointegracioncurriculars']= $this->destinotrabajointegracioncurricular_model->lista_destinotrabajointegracioncurricular()->result();
   $data['egresados'] =$this->trabajointegracioncurricular_model->egresados($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
   $data['lectores'] = $this->trabajointegracioncurricular_model->lectores($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
@@ -348,7 +338,6 @@ public function anterior(){
 	{
     		$data['trabajointegracioncurricular'] = $this->trabajointegracioncurricular_model->trabajointegracioncurricular($this->uri->segment(3))->row_array();
     		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-    		$data['destinotrabajointegracioncurriculars']= $this->destinotrabajointegracioncurricular_model->lista_destinotrabajointegracioncurricular()->result();
     		$data['egresados'] =$this->trabajointegracioncurricular_model->egresados($this->uri->segment(3))->result();
     		$data['lectores'] = $this->trabajointegracioncurricular_model->lectores($this->uri->segment(3))->result();
 		$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
@@ -375,10 +364,7 @@ public function anterior(){
 			$array_item['idtipodocu'] = $this->input->post('idtipodocu');
 		}
 
-		if(null!==$this->input->post('iddestinotrabajointegracioncurricular'))
-		{
-			$array_item['iddestinotrabajointegracioncurricular'] = $this->input->post('iddestinotrabajointegracioncurricular');
-		}
+		
 
 
 
