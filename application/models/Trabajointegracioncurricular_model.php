@@ -232,44 +232,13 @@ class Trabajointegracioncurricular_model extends CI_model {
 
 
   // Para guardar un registro nuevo
-	function save($array,$array_creador)
+	function save($array)
  	{
-		$this->db->trans_start();
 		$this->db->insert("trabajointegracioncurricular", $array);
 		if( $this->db->affected_rows()>0) {
 			$idtrabajointegracioncurricular=$this->db->insert_id();
 			//Graba nombre de trabajointegracioncurricular
-
-
-			$array_creador['idtrabajointegracioncurricular']=$idtrabajointegracioncurricular;
-			$this->db->insert('egresado',$array_creador);
-			if($this->db->affected_rows()>0){
-				$this->db->trans_complete();
-			
- 			$this->db->where('idpersona',$array_creador['idpersona']);
-			$arp=$this->db->get("persona")->result_array();
-			
-			$egresado1=$arp[0]['apellidos']." ".$arp[0]['nombres'];
-			$egresado2=explode(" ",$egresado1);
-			$iniciales="";
-			foreach($egresado2 as $palabra)
-			{
-				$iniciales=$iniciales.strtoupper(substr($palabra,0,1));
-
-			}			
-			$filename=$array['fechaelaboracion'].'-'.$iniciales.'-'.sprintf("%05d",$idtrabajointegracioncurricular).".pdf";
-			$arr=array('archivopdf'=>$filename);
- 			$this->db->where('idtrabajointegracioncurricular',$idtrabajointegracioncurricular);
-			$this->db->update("trabajointegracioncurricular",$arr);
-				
-			echo json_encode(json_decode('{"idtrabajointegracioncurricular":'.$idtrabajointegracioncurricular.',"archivopdf":"'.$filename.'"}'),JSON_PRETTY_PRINT);	
-
-		//		return true;
-			}else{
-
-				$this->db->trans_complete();
-				return false;
-			}
+				return true;
 		}else{
 			return false;
 		}
