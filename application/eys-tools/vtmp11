@@ -1,123 +1,113 @@
 <div id="eys-nav-i">
-
-<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-<?php echo form_open('documentosilabo/save_edit') ?>
-    <ul>
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
+	<ul>
 <?php
-if(isset($documentosilabo))
+if(isset($destinatario))
 {
 ?>
- 
-        <li> <?php echo anchor('documentosilabo/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('documentosilabo/anterior/'.$documentosilabo['iddocumentosilabo'], 'anterior'); ?></li>
-        <li> <?php echo anchor('documentosilabo/siguiente/'.$documentosilabo['iddocumentosilabo'], 'siguiente'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('documentosilabo/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('documentosilabo/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('documentosilabo/edit/'.$documentosilabo['iddocumentosilabo'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('documentosilabo/delete/'.$documentosilabo['iddocumentosilabo'],'Delete'); ?></li>
-        <li> <?php echo anchor('documentosilabo/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('destinatario/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('destinatario/anterior/'.$destinatario['iddestinatario'], 'anterior'); ?></li>
+        <li> <?php echo anchor('destinatario/siguiente/'.$destinatario['iddestinatario'], 'siguiente'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('destinatario/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('destinatario/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('destinatario/edit/'.$destinatario['iddestinatario'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('destinatario/delete/'.$destinatario['iddestinatario'],'Delete'); ?></li>
+        <li> <?php echo anchor('destinatario/listar/','Listar'); ?></li>
 
-    </ul>
+
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('documentosilabo/add', 'Nuevo'); ?></li>
-    </ul>
+        <li> <?php echo anchor('destinatario/add', 'Nuevo'); ?></li>
 <?php
-	die();
 }
 ?>
-
-
-
-
-
-</div>
-<br>
-
-
-<?php echo form_hidden('idsilabo',$documentosilabo['idsilabo']) ?>
-
-
  
 
 
+    </ul>
+</div>
+<br>
+<br>
 
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id silabo:</label>
-	<div class="col-md-10">
-	<?php
-      echo form_input('idsilabo',$documentosilabo['idsilabo'],array("disabled"=>"disabled",'placeholder'=>'Idsilabos','style'=>'width:500px;'));
-		?>
-	</div> 
-</div> 
-
+<?php echo form_open('destinatario/save_edit') ?>
+<?php echo form_hidden('iddestinatario',$destinatario['iddestinatario']) ?>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre del silabo:</label>
-	<div class="col-md-10">
-	<?php
-$options= array("NADA");
-foreach ($silabos as $row){
-	$options[$row->idsilabo]= $row->nombre;
-}
-echo form_input('idsilabo',$options[$documentosilabo['idsilabo']],array("disabled"=>"disabled",'style'=>'width:500px;'));
-		?>
-	</div> 
-</div> 
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('tipodocu/elprimero/', 'Tipo documento'); ?> :</label>
-     	<?php 
-	$options= array("NADA");
-	foreach ($tipodocus as $row){
-		$options[$row->idtipodocu]= $row->descripcion;
-	}
-	$arrdatos=array('name'=>'idtipodocu','value'=>$options[$documentosilabo['idtipodocu']],"disabled"=>"disabled","style"=>"width:500px");
-	?>
+    <label class="col-md-2 col-form-label"> Id destinatario:</label>
 	<div class="col-md-10">
 		<?php
-			echo form_input($arrdatos) 
+      echo form_input('iddestinatario',$destinatario['iddestinatario'],array("disabled"=>"disabled",'placeholder'=>'Iddestinatarios'));
+		?>
+	</div> 
+</div>
+ 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id Documento:</label>
+	<div class="col-md-10">
+		<?php
+      echo form_input('iddocumento',$destinatario['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos'));
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('documento/actual/'.$destinatario['iddocumento'], 'Documento'); ?></label>
+
+	<div class="col-md-10">
+		<?php
+	$options= array("NADA");
+	foreach ($documentos as $row){
+		$options[$row->iddocumento]= $row->asunto;
+	}
+
+$textarea_options = array('class' => 'form-control','rows' => '4',  "disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('iddocumento',$options[$destinatario['iddocumento']],$textarea_options); 
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Idpersona:</label>
+	<div class="col-md-10">
+		<?php
+      echo form_input('idpersona',$destinatario['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Iddestinatarios'));
 		?>
 	</div> 
 </div>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id documento:</label>
-	<div class="col-md-10">
-	<?php
-      echo form_input('iddocumento',$documentosilabo['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentosilaboes','style'=>'width:500px;'));
-		?>
-	</div> 
-</div> 
-
-
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Documento:</label>
+    <label class="col-md-2 col-form-label"> Persona:</label>
 	<div class="col-md-10">
-	<?php
+		<?php
 $options= array("NADA");
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
+foreach ($personas as $row){
+	$options[$row->idpersona]= $row->nombres;
 }
-echo form_input('nombre',$options[$documentosilabo['iddocumento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+echo form_input('nombre',$options[$destinatario['idpersona']],array("disabled"=>"disabled"));
 		?>
 	</div> 
-</div> 
+</div>
  
   
 
-
-
-
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Detalle:</label>
+	<div class="col-md-10">
+		<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',  "disabled"=>"disabled",   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('detalle',$destinatario['detalle'],$textarea_options); 
+		?>
+	</div> 
+</div>
 
 
 

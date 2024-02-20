@@ -3,20 +3,7 @@
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open("destinatario/save_edit") ?>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">id destinatario:</label>
-<div class="col-md-10">
-<?php
-
-$eys_arrinput=array('name'=>'iddestinatario','value'=>$destinatario['iddestinatario'],'readonly'=>'true', "style"=>"width:500px");
-echo form_input($eys_arrinput); 
-?>
-</div>
-</div>
+<?php echo form_open("lector/save") ?>
 
 
 
@@ -30,7 +17,7 @@ foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
 }
 
- echo form_dropdown("iddocumento",$options, $destinatario['iddocumento']);  
+ echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value'));  
 
 ?>
 </div>
@@ -38,7 +25,7 @@ foreach ($documentos as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Destinatario:</label>
+<label class="col-md-2 col-form-label">Lector:</label>
 <div class="col-md-10">
 <?php
 
@@ -47,7 +34,7 @@ foreach ($personas as $row){
 	$options[$row->idpersona]= $row->apellidos.' '.$row->nombres;
 }
 
- echo form_dropdown("idpersona",$options,$destinatario['idpersona']); 
+ echo form_dropdown("idpersona",$options, set_select('--Select--','default_value')); 
 ?>
 </div>
 </div>
@@ -58,7 +45,7 @@ foreach ($personas as $row){
 <div class="col-md-10">
 <?php
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Detalle",'id'=>'detalle' );    
- echo form_textarea("detalle",$destinatario['detalle'], $textarea_options); 
+ echo form_textarea("detalle","", $textarea_options); 
 ?>
 </div>
 </div>
@@ -67,7 +54,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 <table>
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("destinatario","Atrás") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("lector","Atrás") ?> </td>
 </tr>
 
 </table>

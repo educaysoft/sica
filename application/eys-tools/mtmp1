@@ -1,59 +1,55 @@
 <?php
-class Documentoevento_model extends CI_model {
+class Lector_model extends CI_model {
 
-	function listar_documentosilabo(){
-		 $documentosilabo= $this->db->get('documentosilabo');
-		 return $documentosilabo;
+	function listar_destinatario(){
+		 $destinatario= $this->db->get('destinatario');
+		 return $destinatario;
 	}
 
-	function listar_documentosilabo1($idsilabo){
-		if($idsilabo==0)
-		{
-		$documentosilabo=$this->db->order_by("elsilabo")->get('documentosilabo1');
-		}else{
-
-		$this->db->where('idsilabo='.$idsilabo);
-		$documentosilabo=$this->db->order_by("elsilabo")->get('documentosilabo1');
-		}
-
-		 return $documentosilabo;
+	function listar_destinatario1(){
+		 $destinatario= $this->db->get('destinatario1');
+		 return $destinatario;
 	}
 
- 	function documentosilabo( $id){
- 		$documentosilabo = $this->db->query('select * from documentosilabo where iddocumentosilabo="'. $id.'"');
- 		return $documentosilabo;
- 	}
- 	function lista_unidades( $id){
-		$documentosilabo = $this->db->query('select * from documentosilabo1 where idsilabo="'. $id.'"');
- 		return $documentosilabo;
- 	}
 
 
 
-
- 	function documentosilabos( $id){
- 		$documentosilabo = $this->db->query('select * from documentosilabo1 where idevento="'. $id.'"');
- 		return $documentosilabo;
+ 	function destinatario($id){
+ 		$destinatario = $this->db->query('select * from destinatario where iddestinatario="'. $id.'"');
+ 		return $destinatario;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("documentosilabo", $array);
+		$condition1 = "iddocumento =" . "'" . $array['iddocumento'] . "'";
+		$condition2 = "idpersona =" . "'" . $array['idpersona'] . "'";
+		$this->db->select('*');
+		$this->db->from('destinatario');
+		$this->db->where($condition1);
+		$this->db->where($condition2);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+			$this->db->insert("destinatario", $array);
+			return true;
+		}else{
+			return false;
+		}
+
+
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('iddocumentosilabo',$id);
- 		$this->db->update('documentosilabo',$array_item);
+ 		$this->db->where('iddestinatario',$id);
+ 		$this->db->update('destinatario',$array_item);
 	}
- 
-
 
 
   public function delete($id)
 	{
- 		$this->db->where('iddocumentosilabo',$id);
-		$this->db->delete('documentosilabo');
+ 		$this->db->where('iddestinatario',$id);
+		$this->db->delete('destinatario');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -64,7 +60,7 @@ class Documentoevento_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("iddocumentosilabo")->get('documentosilabo');
+		$query=$this->db->order_by("iddestinatario")->get('destinatario');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -77,7 +73,7 @@ class Documentoevento_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("iddocumentosilabo")->get('documentosilabo');
+		$query=$this->db->order_by("iddestinatario")->get('destinatario');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -89,46 +85,38 @@ class Documentoevento_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$documentosilabo = $this->db->select("iddocumentosilabo")->order_by("iddocumentosilabo")->get('documentosilabo')->result_array();
-		$arr=array("iddocumentosilabo"=>$id);
-		$clave=array_search($arr,$documentosilabo);
-	   if(array_key_exists($clave+1,$documentosilabo))
+ 		$destinatario = $this->db->select("iddestinatario")->order_by("iddestinatario")->get('destinatario')->result_array();
+		$arr=array("iddestinatario"=>$id);
+		$clave=array_search($arr,$destinatario);
+	   if(array_key_exists($clave+1,$destinatario))
 		 {
 
- 		$documentosilabo = $this->db->query('select * from documentosilabo where iddocumentosilabo="'. $documentosilabo[$clave+1]["iddocumentosilabo"].'"');
+ 		$destinatario = $this->db->query('select * from destinatario where iddestinatario="'. $destinatario[$clave+1]["iddestinatario"].'"');
 		 }else{
 
- 		$documentosilabo = $this->db->query('select * from documentosilabo where iddocumentosilabo="'. $id.'"');
+ 		$destinatario = $this->db->query('select * from destinatario where iddestinatario="'. $id.'"');
 		 }
 		 	
- 		return $documentosilabo;
+ 		return $destinatario;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$documentosilabo = $this->db->select("iddocumentosilabo")->order_by("iddocumentosilabo")->get('documentosilabo')->result_array();
-		$arr=array("iddocumentosilabo"=>$id);
-		$clave=array_search($arr,$documentosilabo);
-	   if(array_key_exists($clave-1,$documentosilabo))
+ 		$destinatario = $this->db->select("iddestinatario")->order_by("iddestinatario")->get('destinatario')->result_array();
+		$arr=array("iddestinatario"=>$id);
+		$clave=array_search($arr,$destinatario);
+	   if(array_key_exists($clave-1,$destinatario))
 		 {
 
- 		$documentosilabo = $this->db->query('select * from documentosilabo where iddocumentosilabo="'. $documentosilabo[$clave-1]["iddocumentosilabo"].'"');
+ 		$destinatario = $this->db->query('select * from destinatario where iddestinatario="'. $destinatario[$clave-1]["iddestinatario"].'"');
 		 }else{
 
- 		$documentosilabo = $this->db->query('select * from documentosilabo where iddocumentosilabo="'. $id.'"');
+ 		$destinatario = $this->db->query('select * from destinatario where iddestinatario="'. $id.'"');
 		 }
 		 	
- 		return $documentosilabo;
+ 		return $destinatario;
  	}
-
-
-
-
-
-
-
-
 
 
 
