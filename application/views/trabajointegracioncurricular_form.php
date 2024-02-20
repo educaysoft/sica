@@ -8,48 +8,23 @@
 	date_default_timezone_set('America/Guayaquil');
 	$fecha = date("Y-m-d");
 ?>
-<div class="form-group row">
-	<label class="col-md-2 col-form-label">Fecha elaboración:</label>
-		<div class="col-md-10">
-			<?php
- 				echo form_input(array("name"=>"fechaelaboracion","id"=>"fechaelaboracion","value"=>$fecha,"type"=>"date"));  
-			?>
-		</div>
-</div>
-
-<div class="form-group row">
-	<label class="col-md-2 col-form-label">Fecha subida:</label>
-		<div class="col-md-10">
-			<?php
- 				echo form_input(array("name"=>"fechasubida","id"=>"fechasubida","value"=>$fecha,"type"=>"date"));  
-			?>
-		</div>
-</div>
 
 
 
-<div class="form-group row">
-	<label class="col-md-2 col-form-label">Quién la elabora?:(<?php echo anchor('persona/add', 'Nuevo');?>) :</label>
-		<div class="col-md-10">
-		<?php
-			$options= array('--Select--');
-			foreach ($personas as $row){
-			$options[$row->idpersona]= $row->lapersona;
-		}
- 		echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'),array('id'=>'idpersona')); 
-		?>
-	</div>
-</div>
+
+
+
+
 
 
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Asunto/título:</label>
+<label class="col-md-2 col-form-label">Nombre/título:</label>
 <div class="col-md-10">
 <?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'maxlength'=>'200', 'style'=> 'width:50%;height:100px;', "placeholder"=>"asunto",'id'=>'asunto' );    
- echo form_textarea("asunto","", $textarea_options); 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'maxlength'=>'200', 'style'=> 'width:50%;height:100px;', "placeholder"=>"nombre",'id'=>'nombre' );    
+ echo form_textarea("nombre","", $textarea_options); 
 ?><div id="textarea_feedback"></div>
 </div>
 </div>
@@ -59,64 +34,8 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <label class="col-md-2 col-form-label">Descripción:</label>
 <div class="col-md-10">
 <?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"descripcion",'id'=>'descripcion' );    
- echo form_textarea("descripcion","", $textarea_options); 
-?>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Ordenador destino:</label>
-<div class="col-md-10">
-<?php
-
-    $options= array('--Select--');
-    foreach ($ordenadores as $row){
-      $options[$row->idordenador]= $row->nombre;
-    }
-     echo form_dropdown($name="idordenador",$options, set_select('--Select--','default_value'),array('id'=>'idordenador','onchange'=>'get_directorio()'));  
-?>
-</div>
-</div>
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Directorio:</label>
-<div class="col-md-10">
-    <div class="form-group">
-         <select class="form-control" id="iddirectorio" name="iddirectorio" required>
-                 <option>No Selected</option>
-          </select>
-    </div>
-</div>
-</div>
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Tipo de trabajointegracioncurricular:</label>
-<div class="col-md-10">
-<?php
-    $options= array('--Select--');
-    foreach ($tipodocus as $row){
-      $options[$row->idtipodocu]= $row->descripcion;
-    }
-     echo form_dropdown("idtipodocu",$options, set_select('--Select--','default_value'),array('id'=>'idtipodocu')); 
-?>
-</div>
-</div>
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Destino de trabajointegracioncurricular:</label>
-<div class="col-md-10">
-<?php
-    $options= array('--Select--');
-    foreach ($destinotrabajointegracioncurriculars as $row){
-      $options[$row->iddestinotrabajointegracioncurricular]= $row->nombre;
-    }
-     echo form_dropdown("iddestinotrabajointegracioncurricular",$options, set_select('--Select--','default_value'),array('id'=>'iddestinotrabajointegracioncurricular')); 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"resumen",'id'=>'resumen' );    
+ echo form_textarea("resumen","", $textarea_options); 
 ?>
 </div>
 </div>
@@ -124,55 +43,13 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Cargar pdf:</label>
-<div class="col-md-10">
-
-
-<div style="display: inline-block";>
-<div style="float: left;">
-	<?php 
-	$upload_data = array('type' => 'file','name' => 'files','id' => 'files');
-	echo form_upload($upload_data );?>
-	</div>
-		<div style="float: left;">
-			<?php 
-    			$options= array('--Select--');
-    			foreach ($ordenadores as $row){
-      				$options[$row->idordenador]= $row->nombre;
-   			}
-			// url de la funcion php que carga el archivo en el 
-			$url1= base_url()."index.php/trabajointegracioncurricular/save";
-			$js='onClick="uploadFiles(\''.$url1.'\')"';     
-			echo form_button("carga","cargar a directorio",$js); ?>
-		</div> 
-	</div>
-</div>
-</div>
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Estado del trabajointegracioncurricular:</label>
-<div class="col-md-10">
 
 
 
-<div style="display: inline-block";>
-<div style="float: left;">
-<?php
-$options= array('--Select--');
-foreach ($trabajointegracioncurricular_estados as $row){
-	$options[$row->idtrabajointegracioncurricular_estado]= $row->nombre;
-}
 
-echo form_dropdown("idtrabajointegracioncurricular_estado",$options, set_select('--Select--','default_value'),array('id'=>"idtrabajointegracioncurricular_estado")); 
-
-?>
-		</div> 
-	</div>
-</div>
-</div>
 
 
 

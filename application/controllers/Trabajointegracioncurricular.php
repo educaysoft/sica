@@ -54,23 +54,23 @@ class Trabajointegracioncurricular extends CI_Controller{
 // ==============================================
 	public function  save()
 	{
+
+
+   			date_default_timezone_set('America/Guayaquil');
+    			$fecha = date("Y-m-d");
+    			$hora= date("H:i:s");
+			$idusuario=$this->session->userdata['logged_in']['idusuario'];
+
 	 	$array_item=array(
 		 	
 		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
-		 	'idtipodocu' => $this->input->post('idtipodocu'),
-		 	'archivopdf' => $this->input->post('archivopdf'),
-		 	'asunto' => $this->input->post('asunto'),
-		 	'descripcion' => $this->input->post('descripcion'),
-			'fechaelaboracion' => $this->input->post('fechaelaboracion'),
-			'fechasubida' => $this->input->post('fechasubida'),
-			'idordenador' => $this->input->post('idordenador'),
-			'iddirectorio' => $this->input->post('iddirectorio'),
+		 	'nombre' => $this->input->post('nombre'),
+		 	'resumen' => $this->input->post('resumen'),
+	                'idusuario'=>$idusuario,
+			'fechacreacion'=>$fecha,
+			'horacreacion'=>$hora
 	 	);
-		$array_creador=array(
-			'idtrabajointegracioncurricular'=>0,
-			'idpersona'=>$this->input->post('idpersona')
-		);
-	 	echo $this->trabajointegracioncurricular_model->save($array_item,$array_creador);
+	 	echo $this->trabajointegracioncurricular_model->save($array_item);
 	 	//redirect('trabajointegracioncurricular');
  	}
 
