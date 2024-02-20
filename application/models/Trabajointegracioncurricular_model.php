@@ -167,11 +167,11 @@ class Trabajointegracioncurricular_model extends CI_model {
 			}	
 
 			$this->db->where("idtrabajointegracioncurricular",$id);
-		    	$query=$this->db->get('emisor');
+		    	$query=$this->db->get('egresado');
 			if($query->num_rows()>0)
 			{
 				$this->db->where("idtrabajointegracioncurricular",$id);
-				$this->db->delete("emisor");	
+				$this->db->delete("egresado");	
 			}	
 
 			$this->db->where('idtrabajointegracioncurricular',$id);
@@ -242,17 +242,17 @@ class Trabajointegracioncurricular_model extends CI_model {
 
 
 			$array_creador['idtrabajointegracioncurricular']=$idtrabajointegracioncurricular;
-			$this->db->insert('emisor',$array_creador);
+			$this->db->insert('egresado',$array_creador);
 			if($this->db->affected_rows()>0){
 				$this->db->trans_complete();
 			
  			$this->db->where('idpersona',$array_creador['idpersona']);
 			$arp=$this->db->get("persona")->result_array();
 			
-			$emisor1=$arp[0]['apellidos']." ".$arp[0]['nombres'];
-			$emisor2=explode(" ",$emisor1);
+			$egresado1=$arp[0]['apellidos']." ".$arp[0]['nombres'];
+			$egresado2=explode(" ",$egresado1);
 			$iniciales="";
-			foreach($emisor2 as $palabra)
+			foreach($egresado2 as $palabra)
 			{
 				$iniciales=$iniciales.strtoupper(substr($palabra,0,1));
 
@@ -346,14 +346,14 @@ class Trabajointegracioncurricular_model extends CI_model {
 
 
 
-	// Para moverse presentar  los emisores 
-	function emisores( $iddocu)
+	// Para moverse presentar  los egresados 
+	function egresados( $iddocu)
 	{
- 		$this->db->select('idpersona,elemisor');
+ 		$this->db->select('idpersona,elegresado');
 		$this->db->where('idtrabajointegracioncurricular="'.$iddocu.'"');
-		$emisores=$this->db->get('emisor1');
-		$emisores=$this->db->query('select idpersona,elemisor from emisor1 where idtrabajointegracioncurricular="'. $iddocu.'"');
-		return $emisores;
+		$egresados=$this->db->get('egresado1');
+		$egresados=$this->db->query('select idpersona,elegresado from egresado1 where idtrabajointegracioncurricular="'. $iddocu.'"');
+		return $egresados;
 	}
 
 
