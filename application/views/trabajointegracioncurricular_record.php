@@ -86,59 +86,6 @@ if(isset($trabajointegracioncurricular))
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Fecha de creación:</label>
-	<div class="col-md-10">
-		<?php
-      		 echo form_input('fechacreacion',$trabajointegracioncurricular['fechacreacion'],array('type'=>'date','placeholder'=>'fechacreacion','style'=>'width:500px;')) 
-		?>
-	</div> 
-</div>
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Hora Creación:</label>
-	<div class="col-md-10">
-		<?php
-      		 echo form_input('horacreacion',$trabajointegracioncurricular['horacreacion'],array('type'=>'date','placeholder'=>'fecha de carga','style'=>'width:500px;')) 
-		?>
-	</div> 
-</div>
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('egresado/add/'.$trabajointegracioncurricular['idtrabajointegracioncurricular'], 'Emisor/egresadoes:') ?> </label>
-     	<?php 
-
-	$options = array();
-  	foreach ($egresados as $row){
-		$options[$row->idestudiante]=$row->elegresado;
-	}
-
-	?>
-	<div class="col-md-10">
-		<?php
-			 echo form_multiselect('idegresado[]',$options,(array)set_value('idegresado', ''), array('style'=>'width:500px')); 
-		?>
-	</div> 
-</div>
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('lector/add/'.$trabajointegracioncurricular['idtrabajointegracioncurricular'], 'Destinatarios/as:') ?> </label>
-     	<?php 
-	$options=array();
-  	foreach ($lectores as $row){
-		$options[$row->idpersona]=$row->ellector;
-	}
-	?>
-	<div class="col-md-10">
-		<?php
- 			echo form_multiselect('idlector[]',$options,(array)set_value('idlector',''), array('style'=>'width:500px;')); 
-		?>
-	</div> 
-</div>
 
 
 
@@ -168,11 +115,64 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('egresado/add/'.$trabajointegracioncurricular['idtrabajointegracioncurricular'], 'egresado/s:') ?> </label>
+     	<?php 
+
+	$options = array();
+  	foreach ($egresados as $row){
+		$options[$row->idestudiante]=$row->elegresado;
+	}
+
+	?>
+	<div class="col-md-10">
+		<?php
+			 echo form_multiselect('idegresado[]',$options,(array)set_value('idegresado', ''), array('style'=>'width:500px')); 
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('lector/add/'.$trabajointegracioncurricular['idtrabajointegracioncurricular'], 'Lectores') ?> </label>
+     	<?php 
+	$options=array();
+  	foreach ($lectores as $row){
+		$options[$row->idpersona]=$row->ellector;
+	}
+	?>
+	<div class="col-md-10">
+		<?php
+ 			echo form_multiselect('idlector[]',$options,(array)set_value('idlector',''), array('style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
 
 
 
 
 
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha de creación:</label>
+	<div class="col-md-10">
+		<?php
+      		 echo form_input('fechacreacion',$trabajointegracioncurricular['fechacreacion'],array('type'=>'date','placeholder'=>'fechacreacion','style'=>'width:500px;')) 
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Hora Creación:</label>
+	<div class="col-md-10">
+		<?php
+      		 echo form_input('horacreacion',$trabajointegracioncurricular['horacreacion'],array('type'=>'date','placeholder'=>'fecha de carga','style'=>'width:500px;')) 
+		?>
+	</div> 
+</div>
 
 
 

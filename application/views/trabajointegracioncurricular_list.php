@@ -67,11 +67,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
-<th>Tipo</th>
- <th>Elaboracion</th>
- <th>Autor</th>
- <th>asunto/titulo</th>
- <th>archivopdf</th>
+<th>N. egres</th>
+ <th>nombre</th>
+ <th>resumen</th>
+ <th>No. Lectores</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
