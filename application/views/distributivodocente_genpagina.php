@@ -333,8 +333,8 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
 
 }else{
-	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
-//	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/'.trim($row->cedula).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
+//	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
+	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/'.trim($row->cedula).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
 
 
 }
