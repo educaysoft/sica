@@ -91,10 +91,9 @@ contenedor {
 }
 
 .texto-transversal {
-  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(-0deg);
+  transform: translate(0%, 0%) rotate(-0deg);
   background-color: rgba(0, 0, 0, 0.7);
   padding: 20px;
   color: white;
