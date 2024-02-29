@@ -79,31 +79,40 @@ overflow:hidden;
       }
    
 
- /* Estilos para el contenedor del texto */
-        .texto-con-cinta {
-            position: relative;
-            width: 300px; /* Puedes ajustar el ancho según tus necesidades */
-            padding: 20px;
-            background-color: #f2f2f2;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            margin: 50px auto;
-        }
-
-        /* Estilos para la cinta */
-        .texto-con-cinta::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -20px;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 20px 20px 20px 0;
-            border-color: transparent #f2f2f2 transparent transparent;
-        }
 
 
+contenedor {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  background-color: #f0f0f0;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.texto-transversal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-0deg);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  color: white;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.texto-transversal h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.texto-transversal p {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+}
 
 
 
@@ -382,9 +391,15 @@ $data=$data.'</div>
 
 	    <div class="card-body" style="background-color:'.$arrcolor[$row->numeronivelacademico].'"  >
 	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->laasignatura.' </div>	
-<div class="texto-con-cinta">
-        <p>Este es un ejemplo de texto con efecto de cinta transparente. Puedes ajustar los estilos CSS según tus preferencias.</p>
+
+<div class="contenedor">
+    <div class="texto-transversal">
+      <h2>Contenidos minimos</h2>
+      <p>Este es un ejemplo de texto transversal sobre un div contenedor. El texto está superpuesto y tiene un efecto de sombra y transparencia.</p>
     </div>
+  </div>
+
+
 	     <p><span style="color:red;" >Instructor : </span><span style="font-size:16px; font-weight:bold;">'.$row->eldocente.'.</span></p>
               <b>Nivel:</b>'.$row->nivel.'.<br>
               <b>Paralelo : </b> '.$row->paralelo.'".<br>
