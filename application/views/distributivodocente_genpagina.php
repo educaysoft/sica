@@ -342,12 +342,11 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 $data=$data.'</div>
 
 	    <div class="card-body" style="background-color:'.$arrcolor[$row->numeronivelacademico].'"  >
-	    <div style="font-size:24px; font-weight:bold; color:#333; text-align:center; margin-top:20px;" >'.$row->laasignatura.' </div>	
-              <b>Area:</b>'.$row->area.'.<br>
+	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->laasignatura.' </div>	
+	     <p><b>Instructor:</b><span style="font-size:16px; font-weight:bold;">'.$row->eldocente.'.</span></p>;
               <b>Nivel:</b>'.$row->nivel.'.<br>
-              <b>Asignatura : </b>'.$row->laasignatura.'.<br>
               <b>Paralelo : </b> '.$row->paralelo.'".<br>
-	      <p><b>Docente : </b><span style="color:blue">'.$row->eldocente.'.</span></p>';
+              <b>Area:</b>'.$row->area.'.<br>';
 
 
 		if(isset($silabos[$row->idasignaturadocente])){		
