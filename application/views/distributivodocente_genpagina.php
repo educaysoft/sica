@@ -343,7 +343,7 @@ $data=$data.'</div>
 
 	    <div class="card-body" style="background-color:'.$arrcolor[$row->numeronivelacademico].'"  >
 	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->laasignatura.' </div>	
-	     <p><b>Instructor:</b><span style="font-size:16px; font-weight:bold;">'.$row->eldocente.'.</span></p>;
+	     <p><span style="color:red;" >Instructor : </span><span style="font-size:16px; font-weight:bold;">'.$row->eldocente.'.</span></p>
               <b>Nivel:</b>'.$row->nivel.'.<br>
               <b>Paralelo : </b> '.$row->paralelo.'".<br>
               <b>Area:</b>'.$row->area.'.<br>';
