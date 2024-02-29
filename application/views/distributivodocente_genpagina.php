@@ -77,7 +77,46 @@ overflow:hidden;
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
       }
-    </style>
+   
+
+ /* Estilos para el contenedor del texto */
+        .texto-con-cinta {
+            position: relative;
+            width: 300px; /* Puedes ajustar el ancho según tus necesidades */
+            padding: 20px;
+            background-color: #f2f2f2;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin: 50px auto;
+        }
+
+        /* Estilos para la cinta */
+        .texto-con-cinta::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -20px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 20px 20px 20px 0;
+            border-color: transparent #f2f2f2 transparent transparent;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </style>
     
   </head>
 
@@ -343,6 +382,9 @@ $data=$data.'</div>
 
 	    <div class="card-body" style="background-color:'.$arrcolor[$row->numeronivelacademico].'"  >
 	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->laasignatura.' </div>	
+<div class="texto-con-cinta">
+        <p>Este es un ejemplo de texto con efecto de cinta transparente. Puedes ajustar los estilos CSS según tus preferencias.</p>
+    </div>
 	     <p><span style="color:red;" >Instructor : </span><span style="font-size:16px; font-weight:bold;">'.$row->eldocente.'.</span></p>
               <b>Nivel:</b>'.$row->nivel.'.<br>
               <b>Paralelo : </b> '.$row->paralelo.'".<br>
