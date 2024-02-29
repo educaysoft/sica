@@ -394,7 +394,7 @@ $data=$data.'</div>
 <div class="contenedor">
     <div class="texto-transversal">
       <h2>Contenidos minimos</h2>
-      <p>Este es un ejemplo de texto transversal sobre un div contenedor. El texto está superpuesto y tiene un efecto de sombra y transparencia.</p>
+      <p>'.$row->contenidosminimos.'.</p>
     </div>
   </div>
 
