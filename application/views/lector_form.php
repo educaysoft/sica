@@ -39,16 +39,23 @@ foreach ($docentes as $row){
 </div>
 </div>
 
-
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Detalle:</label>
+<label class="col-md-2 col-form-label">Tipo de documento:</label>
 <div class="col-md-10">
 <?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Detalle",'id'=>'detalle' );    
- echo form_textarea("detalle","", $textarea_options); 
+    $options= array('--Select--');
+    foreach ($tipolectors as $row){
+      $options[$row->idtipolector]= $row->descripcion;
+    }
+     echo form_dropdown("idtipolector",$options, set_select('--Select--','default_value'),array('id'=>'idtipolector')); 
 ?>
 </div>
 </div>
+
+
+
+
+
 
 
 

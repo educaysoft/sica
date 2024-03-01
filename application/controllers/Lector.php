@@ -6,6 +6,7 @@ class Lector extends CI_Controller{
       parent::__construct();
       $this->load->model('lector_model');
       $this->load->model('docente_model');
+      $this->load->model('tipolector_model');
       $this->load->model('trabajointegracioncurricular_model');
 }
 
@@ -14,6 +15,7 @@ public function index(){
   $data['docentes']= $this->docente_model->lista_docentes()->result();
   $data['lector']=$this->lector_model->elultimo();
 
+	$data['tipolectors']= $this->tipolector_model->lista_tipolector()->result();
  // print_r($data['lector_list']);
   $data['title']="Lista de Lectors";
 	$this->load->view('template/page_header');		
@@ -29,6 +31,7 @@ public function add()
 	}else{
 		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
 	}
+		$data['tipolectors']= $this->tipolector_model->lista_tipolector()->result();
 		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
 		$data['title']="Nuevo Lector de trabajo de integración curricular";
 	 	$this->load->view('template/page_header');		
@@ -44,7 +47,7 @@ public function add()
 	 	$array_item=array(
 		 	'iddocente' => $this->input->post('iddocente'),
 		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
-		 	'detalle' => $this->input->post('detalle'),
+		 	'idtipolector' => $this->input->post('idtipolector'),
 	 	);
 	 	$result= $this->lector_model->save($array_item);
 
@@ -64,6 +67,7 @@ public function edit()
 		$data['lector']= $this->lector_model->lector($this->uri->segment(3))->row_array();
 		$data['docentes']= $this->docente_model->lista_docentes()->result();
 		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
+    		$data['tipolectors']= $this->tipolector_model->lista_tipolector()->result();
  	 	$data['title'] = "Actualizar Persona";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('lector_edit',$data);
@@ -79,7 +83,7 @@ public function edit()
 		 	'idlector' => $this->input->post('idlector'),
 		 	'iddocente' => $this->input->post('iddocente'),
 		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
-		 	'detalle' => $this->input->post('detalle'),
+		 	'idtipolector' => $this->input->post('idtipolector'),
 	 	);
 	 	$this->lector_model->update($id,$array_item);
 	 	redirect('lector/actual/'.$id);
