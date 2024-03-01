@@ -10,7 +10,7 @@ class Tipolector extends CI_Controller{
 public function index(){
   	$data['tipolector']=$this->tipolector_model->tipolector(1)->row_array();
  
-  	$data['title']="Tipos de documentos";
+  	$data['title']="Tipos de lectores";
 	$this->load->view('template/page_header');		
   	$this->load->view('tipolector_record',$data);
 	$this->load->view('template/page_footer');
@@ -19,7 +19,7 @@ public function index(){
 
 public function add()
 {
-		$data['title']="Nueva Tipo de documento";
+		$data['title']="Nueva Tipo de lector";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('tipolector_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -79,7 +79,7 @@ public function listar()
 {
 	
   $data['tipolector_list'] = $this->tipolector_model->lista_tipolectorsA()->result();
-  $data['title']="Tipo documento";
+  $data['title']="Tipo lector";
 	$this->load->view('template/page_header');		
   $this->load->view('tipolector_list',$data);
 	$this->load->view('template/page_footer');
@@ -120,7 +120,7 @@ public function actual()
 	$data['tipolector'] = $this->tipolector_model->tipolector($this->uri->segment(3))->row_array();
   	if(!empty($data))
   	{
-    		$data['title']="Tipo documento";
+    		$data['title']="Tipo lector";
     		$this->load->view('template/page_header');		
     		$this->load->view('tipolector_record',$data);
     		$this->load->view('template/page_footer');
@@ -138,7 +138,7 @@ public function elprimero()
 	$data['tipolector'] = $this->tipolector_model->elprimero();
   if(!empty($data))
   {
-    $data['title']="Tipo documento";
+    $data['title']="Tipo lector";
     $this->load->view('template/page_header');		
     $this->load->view('tipolector_record',$data);
     $this->load->view('template/page_footer');
@@ -154,7 +154,7 @@ public function elultimo()
 	$data['tipolector'] = $this->tipolector_model->elultimo();
   if(!empty($data))
   {
-    $data['title']="Tipo documento";
+    $data['title']="Tipo lector";
   
     $this->load->view('template/page_header');		
     $this->load->view('tipolector_record',$data);
@@ -170,7 +170,7 @@ public function elultimo()
 public function siguiente(){
  // $data['tipolector_list']=$this->tipolector_model->lista_tipolector()->result();
 	$data['tipolector'] = $this->tipolector_model->siguiente($this->uri->segment(3))->row_array();
-  $data['title']="Tipo documento";
+  $data['title']="Tipo lector";
 	$this->load->view('template/page_header');		
   $this->load->view('tipolector_record',$data);
 	$this->load->view('template/page_footer');
@@ -179,7 +179,7 @@ public function siguiente(){
 public function anterior(){
  // $data['tipolector_list']=$this->tipolector_model->lista_tipolector()->result();
 	$data['tipolector'] = $this->tipolector_model->anterior($this->uri->segment(3))->row_array();
-  $data['title']="Tipo documento";
+  $data['title']="Tipo lector";
 	$this->load->view('template/page_header');		
   $this->load->view('tipolector_record',$data);
 	$this->load->view('template/page_footer');
@@ -193,7 +193,7 @@ public function get_tipolector() {
     if($this->input->post('idtipolector')) {
         $this->db->select('*');
         $this->db->where(array('idtipolector' => $this->input->post('idtipolector')));
-        $query = $this->db->get('documento');
+        $query = $this->db->get('lector');
 	$data=$query->result();
 	echo json_encode($data);
 	}

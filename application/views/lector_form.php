@@ -45,7 +45,7 @@ foreach ($docentes as $row){
 <?php
     $options= array('--Select--');
     foreach ($tipolectors as $row){
-      $options[$row->idtipolector]= $row->descripcion;
+      $options[$row->idtipolector]= $row->nombre;
     }
      echo form_dropdown("idtipolector",$options, set_select('--Select--','default_value'),array('id'=>'idtipolector')); 
 ?>
