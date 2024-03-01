@@ -6,11 +6,11 @@ class Lector extends CI_Controller{
       parent::__construct();
       $this->load->model('lector_model');
       $this->load->model('persona_model');
-      $this->load->model('documento_model');
+      $this->load->model('trabajointegracioncurricular_model');
 }
 
 public function index(){
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
+  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
   $data['personas']= $this->persona_model->lista_personas()->result();
   $data['lector']=$this->lector_model->elultimo();
 
@@ -25,9 +25,9 @@ public function index(){
 public function add()
 {
 	if($this->uri->segment(3)){
-		$data['documentos']= $this->documento_model->lista_documentosA($this->uri->segment(3))->result();
+		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA($this->uri->segment(3))->result();
 	}else{
-		$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
+		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
 	}
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['title']="Nuevo Destinario";
@@ -43,7 +43,7 @@ public function add()
 	{
 	 	$array_item=array(
 		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
 		 	'detalle' => $this->input->post('detalle'),
 	 	);
 	 	$result= $this->lector_model->save($array_item);
@@ -63,7 +63,7 @@ public function edit()
 {
 		$data['lector']= $this->lector_model->lector($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
  	 	$data['title'] = "Actualizar Persona";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('lector_edit',$data);
@@ -78,7 +78,7 @@ public function edit()
 	 	$array_item=array(
 		 	'idlector' => $this->input->post('idlector'),
 		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
 		 	'detalle' => $this->input->post('detalle'),
 	 	);
 	 	$this->lector_model->update($id,$array_item);
@@ -102,7 +102,7 @@ public function edit()
 
 public function actual()
 {
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
+  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
   $data['lector'] = $this->lector_model->lector($this->uri->segment(3))->row_array();
   if(!empty($data))
   {
@@ -127,7 +127,7 @@ public function actual()
 
 public function elprimero()
 {
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
+  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
 	$data['lector'] = $this->lector_model->elprimero();
   if(!empty($data))
   {
@@ -145,7 +145,7 @@ public function elprimero()
 
 public function elultimo()
 {
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
+  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
 	$data['lector'] = $this->lector_model->elultimo();
   if(!empty($data))
   {
@@ -165,7 +165,7 @@ public function elultimo()
 
 public function siguiente(){
  // $data['lector_list']=$this->lector_model->lista_lector()->result();
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
+  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
 	$data['lector'] = $this->lector_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   $data['title']="Correo";
@@ -176,7 +176,7 @@ public function siguiente(){
 
 public function anterior(){
  // $data['lector_list']=$this->lector_model->lista_lector()->result();
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
+  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
 	$data['lector'] = $this->lector_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
   $data['title']="Correo";

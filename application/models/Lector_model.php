@@ -21,7 +21,7 @@ class Lector_model extends CI_model {
 
  	function save($array)
  	{
-		$condition1 = "iddocumento =" . "'" . $array['iddocumento'] . "'";
+		$condition1 = "idtrabajointegracioncurricular =" . "'" . $array['idtrabajointegracioncurricular'] . "'";
 		$condition2 = "idpersona =" . "'" . $array['idpersona'] . "'";
 		$this->db->select('*');
 		$this->db->from('lector');
