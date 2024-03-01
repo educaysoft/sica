@@ -8,7 +8,7 @@
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Asunto:</label>
+<label class="col-md-2 col-form-label">Titulo/tema:</label>
 <div class="col-md-10">
 <?php
 
@@ -25,16 +25,16 @@ foreach ($trabajointegracioncurriculars as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Lector:</label>
+<label class="col-md-2 col-form-label">Docente lector:</label>
 <div class="col-md-10">
 <?php
 
 $options= array('--Select--');
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos.' '.$row->nombres;
+foreach ($docentes as $row){
+	$options[$row->iddocente]= $row->eldocente;
 }
 
- echo form_dropdown("idpersona",$options, set_select('--Select--','default_value')); 
+ echo form_dropdown("iddocente",$options, set_select('--Select--','default_value')); 
 ?>
 </div>
 </div>
