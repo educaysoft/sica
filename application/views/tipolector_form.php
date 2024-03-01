@@ -10,7 +10,7 @@
 
 <tr>
 <td> Nombre </td>
-<td><?php echo form_input("descripcion","", array("placeholder"=>"Descripcion de tipolector"))  ?></td>
+<td><?php echo form_input("nombre","", array("placeholder"=>"Descripcion de tipolector"))  ?></td>
 </tr>
 
 <tr>

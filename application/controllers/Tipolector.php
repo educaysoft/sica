@@ -33,7 +33,7 @@ public function add()
 	 	$array_item=array(
 		 	
 		 	'idtipolector' => $this->input->post('idtipolector'),
-		 	'descripcion' => $this->input->post('descripcion'),
+		 	'nombre' => $this->input->post('nombre'),
 	 	);
 	 	$this->tipolector_model->save($array_item);
 	 	redirect('tipolector');
@@ -58,7 +58,7 @@ public function add()
 	 	$array_item=array(
 		 	
 		 	'idtipolector' => $this->input->post('idtipolector'),
-		 	'descripcion' => $this->input->post('descripcion'),
+		 	'nombre' => $this->input->post('nombre'),
 	 	);
 	 	$this->tipolector_model->update($id,$array_item);
 	 	redirect('tipolector/actual/'.$id);
@@ -97,7 +97,7 @@ function tipolector_data()
 	 	$data0 = $this->tipolector_model->lista_tipolectorsA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idtipolector,$r->descripcion,$r->cantidad,
+			$data[]=array($r->idtipolector,$r->nombre,$r->cantidad,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('tipolector/actual').'"  data-idtipolector="'.$r->idtipolector.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
