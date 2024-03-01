@@ -29,7 +29,7 @@ public function add()
 	}else{
 		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
 	}
-		$data['docentes']= $this->docente_model->lista_docentes()->result();
+		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
 		$data['title']="Nuevo Lector de trabajo de integración curricular";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('lector_form',$data);
