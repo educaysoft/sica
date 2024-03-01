@@ -14,28 +14,10 @@
 
 <table>
 
-<tr>
-<td> Tipo de trabajointegracioncurricular:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($tipodocus as $row){
-	$options[$row->idtipodocu]= $row->descripcion;
-}
-
- echo form_dropdown("idtipodocu",$options, $trabajointegracioncurricular['idtipodocu'],array('id'=>'idtipodocu'));  ?></td>
-</tr>
 
 
-<tr>
-<td> Destino trabajointegracioncurricular:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($destinotrabajointegracioncurriculars as $row){
-	$options[$row->iddestinotrabajointegracioncurricular]= $row->nombre;
-}
 
- echo form_dropdown("iddestinotrabajointegracioncurricular",$options, $trabajointegracioncurricular['iddestinotrabajointegracioncurricular'],array('id'=>'iddestinotrabajointegracioncurricular'));  ?></td>
-</tr>
+
 
 
 
@@ -47,162 +29,49 @@ foreach ($destinotrabajointegracioncurriculars as $row){
      <td><?php echo form_input(array("name"=>'idtrabajointegracioncurricular','id'=>'idtrabajointegracioncurricular','value'=>$trabajointegracioncurricular['idtrabajointegracioncurricular'],'placeholder'=>'Idtrabajointegracioncurriculars')) ?></td>
   </tr>
  
- <tr>
-      <td>Fecha Elaboracion:</td>
-      <td><?php echo form_input( array("name"=>'fechaelaboracion',"id"=>'fechaelaboracion',"value"=>$trabajointegracioncurricular['fechaelaboracion'],'type'=>'date','placeholder'=>'fechaelaboracion')); ?></td>
-  </tr>
-
-  <tr>
-      <td>Fecha subida:</td>
-      <td><?php echo form_input( array("name"=>'fechasubida',"id"=>'fechasubida',"value"=>$trabajointegracioncurricular['fechasubida'],'type'=>'date','placeholder'=>'fecha de subida')); ?></td>
-  </tr>
-
-  <tr>
-      <td>Emisor/es:</td>
-      <td><?php
- 	$options = array();
-  	foreach ($emisores as $row){
-		$options[$row->idpersona]=$row->elemisor;
-	}
-
-
- echo form_multiselect('idemisor[]',$options,(array)set_value('idpersona', ''),array('id'=>"idpersona")); ?></td>
-  </tr>
-
-
-
-
-
-<tr>
-  <td>Asunto:</td>
-  <td><?php 
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"asunto","id" =>"asunto");    
-echo form_textarea('asunto',$trabajointegracioncurricular['asunto'],$textarea_options ); ?></td>
-</tr>
-
-<tr>
-  <td>Descripción:</td>
-  <td><?php 
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"descripcion","id" =>"descripcion");    
-echo form_textarea('descripcion',$trabajointegracioncurricular['descripcion'],$textarea_options ); ?></td>
-</tr>
-
-
-
-  <tr>
-     <td>Archivo_Pdf</td>
-     <td>
-      <div style="display: inline-block";>
-      <div style="float: left;">
-      <?php 
-  echo form_input(array("name"=>'archivopdf',"id"=>'archivopdf','value'=>$trabajointegracioncurricular['archivopdf'],'style'=>"width:300;"));
-?>
-</div>
-<div style="float: left;">
-<?php 
-$url= base_url()."index.php/trabajointegracioncurricular/loadpdf";
-
-//$js='onClick="cargaarchivo(\''.$url.'\')"';     
-$js='onClick="nombredearchivo()"';     
-echo form_button("carga","cargar archivo",$js); ?>
-</div> 
-</div>
  
-</td>
 
-  </tr> 
+  
 
+  
 
-
-
-
-<tr>
-     <td>carga archivo pdf</td>
-<td>
-
-<div style="display: inline-block";>
-<div style="float: left;">
-	<?php 
-	$upload_data = array('type' => 'file','name' => 'files','id' => 'files');
-	echo form_upload($upload_data );?>
-	</div>
-		<div style="float: left;">
-			<?php 
-    			$options= array('--Select--');
-    			foreach ($ordenadores as $row){
-      				$options[$row->idordenador]= $row->nombre;
-   			}
-			
-			if($trabajointegracioncurricular['idtrabajointegracioncurricular_estado']==3) //si ha sido generado
-			{
-				$js='onClick="generar_trabajointegracioncurricular()"';     
-				echo form_button("carga","volver a generar",$js); 
-			}else{
-			// url de la funcion php que carga el archivo en el 
-			$url1= base_url()."index.php/trabajointegracioncurricular/save";
-			$js='onClick="uploadFiles(\''.$url1.'\')"';     
-
-			echo form_button("carga","cargar a directorio",$js);
-
-}
- ?>
-		</div> 
-	</div>
-</td>
-</tr>
 
 
 
 
 <tr>
-    <td>Ordenador destino:</td>
-    <td><?php
-    $options= array('--Select--');
-    foreach ($ordenadores as $row){
-      $options[$row->idordenador]= $row->nombre;
-    }
-     echo form_dropdown($name="idordenador",$options, $trabajointegracioncurricular['idordenador'],array('onchange'=>'get_directorio()',"id"=>"idordenador"));  ?></td>
+  <td>Nombre/titulo:</td>
+  <td><?php 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"nombre","id" =>"nombre");    
+echo form_textarea('nombre',$trabajointegracioncurricular['nombre'],$textarea_options ); ?></td>
 </tr>
 
 <tr>
-    <td>Directorio:</td>
-
-    <td>
-<div class="form-group">
-                    <select class="form-control" id="iddirectorio" name="iddirectorio" required>
-                        <option>No Selected</option>
-<?php
-    $options= array('--Select--');
-    foreach ($directorios as $row){
-	    if($trabajointegracioncurricular['iddirectorio']==$row->iddirectorio)
-		{
-	    echo '<option selected="selected"  value="'.$row->iddirectorio.'">'.$row->ruta.'</option>'; 
-	    }else{
-	    echo '<option value="'.$row->iddirectorio.'">'.$row->ruta.'</option>'; 
-	    }
-    }
-?>
-
-                    </select>
-                  </div>
-
-
-
-</td>
-
+  <td>Resumen:</td>
+  <td><?php 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"resumen","id" =>"resumen");    
+echo form_textarea('resumen',$trabajointegracioncurricular['resumen'],$textarea_options ); ?></td>
 </tr>
 
-|
-<tr>
-<td> Estado del trabajointegracioncurricular:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($trabajointegracioncurricular_estados as $row){
-	$options[$row->idtrabajointegracioncurricular_estado]= $row->nombre;
-}
 
- echo form_dropdown("idtrabajointegracioncurricular_estado",$options, $trabajointegracioncurricular['idtrabajointegracioncurricular_estado']);  ?></td>
-</tr>
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

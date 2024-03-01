@@ -319,20 +319,12 @@ public function anterior(){
 
 
 
-
-
-
-
-
-
 	public function edit()
 	{
     		$data['trabajointegracioncurricular'] = $this->trabajointegracioncurricular_model->trabajointegracioncurricular($this->uri->segment(3))->row_array();
     		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
     		$data['egresados'] =$this->trabajointegracioncurricular_model->egresados($this->uri->segment(3))->result();
     		$data['lectores'] = $this->trabajointegracioncurricular_model->lectores($this->uri->segment(3))->result();
-		$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
-		$data['directorios'] = $this->directorio_model->lista_directoriosxordenador($data['trabajointegracioncurricular']['idordenador'])->result();
     		$data['title'] = "Actualizar el  Trabajointegracioncurricular No: ";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('trabajointegracioncurricular_edit',$data);
@@ -349,55 +341,17 @@ public function anterior(){
 		'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
 	 	);
 
-		if(null!==$this->input->post('idtipodocu'))
+
+		if(null!==$this->input->post('nombre'))
 		{
-			$array_item['idtipodocu'] = $this->input->post('idtipodocu');
-		}
-
-		
-
-
-
-
-
-		if(null!==$this->input->post('archivopdf'))
-		{
-			$array_item['archivopdf'] = $this->input->post('archivopdf');
-		}
-
-		if(null!==$this->input->post('asunto'))
-		{
-			$array_item['asunto'] = $this->input->post('asunto');
+			$array_item['nombre'] = $this->input->post('nombre');
 		}
 
 
-
-		if(null!==$this->input->post('descripcion'))
+		if(null!==$this->input->post('resumen'))
 		{
-			$array_item['descripcion'] = $this->input->post('descripcion');
+			$array_item['resumen'] = $this->input->post('resumen');
 		}
-
-
-		if(null!==$this->input->post('fechaelaboracion'))
-		{
-			$array_item['fechaelaboracion'] = $this->input->post('fechaelaboracion');
-		}
-		if(null!==$this->input->post('fechasubida'))
-		{
-			$array_item['fechasubida'] = $this->input->post('fechasubida');
-		}
-
-
-		if(null!==$this->input->post('idordenador'))
-		{
-			$array_item['idordenador'] = $this->input->post('idordenador');
-		}
-
-		if(null!==$this->input->post('iddirectorio'))
-		{
-			$array_item['iddirectorio'] = $this->input->post('iddirectorio');
-		}
-
 
 
 	 	$this->trabajointegracioncurricular_model->update($id,$array_item);
