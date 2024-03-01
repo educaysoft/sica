@@ -34,7 +34,7 @@
  
   <tr>
      <td>Descripción:</td>
-     <td><?php echo form_input('descripcion',$tipolector['descripcion'],array("disabled"=>"disabled",'placeholder'=>'descripcion')) ?></td>
+     <td><?php echo form_input('nombre',$tipolector['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?></td>
   </tr>
 
 
