@@ -1,60 +1,20 @@
-
-<div style="margin-top:5cm;">
 <h2> <?php echo $title; ?> </h2>
-</div>
 <hr/>
-<?php echo form_open("destinatario/save") ?>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Asunto:</label>
-<div class="col-md-10">
-<?php
-
-$options= array('--Select--');
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
-}
-
- echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value'));  
-
-?>
-</div>
-</div>
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Lector:</label>
-<div class="col-md-10">
-<?php
-
-$options= array('--Select--');
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos.' '.$row->nombres;
-}
-
- echo form_dropdown("idpersona",$options, set_select('--Select--','default_value')); 
-?>
-</div>
-</div>
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Detalle:</label>
-<div class="col-md-10">
-<?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Detalle",'id'=>'detalle' );    
- echo form_textarea("detalle","", $textarea_options); 
-?>
-</div>
-</div>
-
-
-
+<?php echo form_open("sexo/save") ?>
+<?php echo form_hidden("idsexo")  ?>
 <table>
+
+
+
+
+
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("destinatario","Atrás") ?> </td>
+<td> Nombre </td>
+<td><?php echo form_input("nombre","", array("placeholder"=>"Descripcion de sexo"))  ?></td>
+</tr>
+
+<tr>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("sexo","Atras") ?> </td>
 </tr>
 
 </table>
