@@ -71,8 +71,8 @@ public function edit()
 public function listar()
 {
 	
-  $data['genero'] = $this->genero_model->lista_generos()->result();
-  $data['title']="Genero";
+  $data['generos'] = $this->genero_model->lista_generos()->result();
+  $data['title']="Lista de Generos";
 	$this->load->view('template/page_header');		
   $this->load->view('genero_list',$data);
 	$this->load->view('template/page_footer');

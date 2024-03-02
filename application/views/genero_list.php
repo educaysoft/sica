@@ -16,7 +16,7 @@
 <th> cantidad</th>
 </tr>
 <tbody>
-<?php  foreach($genero_list as $list) { ?>
+<?php  foreach($generos as $list) { ?>
 <tr>
 
 <td> <?php echo $list->idgenero ?></td>
