@@ -275,7 +275,8 @@ $data='
     <title> '.'Carrera en Tecnología de la Información - UTLVTE - Periodo '.$row->elperiodoacademico.'  Area:'.$row->area . ' </title>
 
     <link rel="educaysoft" href="https://congresoutlvte.org/faci/">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
 <link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css" />
 
 ';
