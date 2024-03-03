@@ -486,14 +486,14 @@ $data=$data.'</div>
 
 			$data=$data.'<p>';
 			if(isset($silabos[$row->idasignaturadocente][0]['silabopdf'])){
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'"  '.$disable1.'><span style="color:'.$color1.'" >Sillabus</span></a>] - ';
+			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'"  '.$disable1.'><i class="fas fa-file-pdf" style="font-size:24px" ></i> <span style="color:'.$color1.'" >Sillabus</span></a>] - ';
 			}
 
 			if(isset($silabos[$row->idasignaturadocente][0]['planclasepdf'])){
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'"  '.$disable2.' ><span style="color:'.$color2.'" >PlanSemestral</span></a>] - ';
+			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'"  '.$disable2.' ><i class="fas fa-file-pdf" style="font-size:24px" ></i> <span style="color:'.$color2.'" >PlanSemestral</span></a>] - ';
 			}
 			if(isset($silabos[$row->idasignaturadocente][0]['proyectocursopdf'])){
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['proyectocursopdf'].'"  '.$disable3.' ><span style="color:'.$color3.'" >ProyectoAula</span></a>]';
+			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['proyectocursopdf'].'"  '.$disable3.' > <i class="fas fa-file-pdf" style="font-size:24px" ></i><span style="color:'.$color3.'" >ProyectoAula</span></a>]';
 			}
 
 
@@ -528,7 +528,7 @@ $data=$data.'</div>
 foreach($jornadadocente as $rowj){
 			if(isset($rowj[$row->idasignaturadocente]['idasignaturadocente'])){		
 
-			$data=$data.'<b>'.$rowj[$row->idasignaturadocente]['nombre'] .': </b><span style="color:red">'.$rowj[$row->idasignaturadocente]['horainicio'].'('.$rowj[$row->idasignaturadocente]['duracionminutos'].'),</span> - aula:<a href="https://repositorioutlvte.org/Repositorio/aulas/aula'.$rowj[$row->idasignaturadocente]['idaula'].'.jpg">' .$rowj[$row->idasignaturadocente]['elaula'].'</a><br>';
+			$data=$data.'<b>'.$rowj[$row->idasignaturadocente]['nombre'] .': </b><span style="color:red">'.$rowj[$row->idasignaturadocente]['horainicio'].'('.$rowj[$row->idasignaturadocente]['duracionminutos'].'),</span> - aula:<a href="https://repositorioutlvte.org/Repositorio/aulas/aula'.$rowj[$row->idasignaturadocente]['idaula'].'.jpg"> <i class="fas fa-map-marker-alt" style="font-size:24px" ></i> ' .$rowj[$row->idasignaturadocente]['elaula'].'</a><br>';
 			}	
 	//		echo $rowj; echo '<br>';
 		}
