@@ -318,10 +318,8 @@ class Trabajointegracioncurricular_model extends CI_model {
 	// Para moverse presentar  los egresados 
 	function egresados( $iddocu)
 	{
- 		$this->db->select('idpersona,elegresado');
 		$this->db->where('idtrabajointegracioncurricular="'.$iddocu.'"');
 		$egresados=$this->db->get('egresado1');
-		$egresados=$this->db->query('select idpersona,elegresado from egresado1 where idtrabajointegracioncurricular="'. $iddocu.'"');
 		return $egresados;
 	}
 
