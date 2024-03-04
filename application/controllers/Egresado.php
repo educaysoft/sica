@@ -4,7 +4,7 @@ class Egresado extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('estudiante_model');
+      $this->load->model('egresado_model');
       $this->load->model('estudiante_model');
       $this->load->model('trabajointegracioncurricular_model');
 }
