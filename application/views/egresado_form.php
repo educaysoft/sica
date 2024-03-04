@@ -13,7 +13,7 @@
 
 $options= array('--Select--');
 foreach ($trabajointegracioncurriculars as $row){
-	$options[$row->idtrabajointegracioncurricular]= $row->idtrabajointegracioncurricular." - ".$row->asunto;
+	$options[$row->idtrabajointegracioncurricular]= $row->idtrabajointegracioncurricular." - ".$row->nombre;
 }
 
  echo form_dropdown("idtrabajointegracioncurricular",$options, set_select('--Select--','default_value'));  ?></td>
