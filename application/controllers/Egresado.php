@@ -35,7 +35,7 @@ class Egresado extends CI_Controller{
 		$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
 		$data['title']="Nuevo Egresado";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('estudiante_form',$data);
+	 	$this->load->view('egresado_form',$data);
 	 	$this->load->view('template/page_footer');
 	}
 
@@ -46,7 +46,7 @@ public function listar()
   $data['list'] = $this->estudiante_model->lista_estudiante1()->result();
   $data['title']="Egresadoes de trabajointegracioncurricular";
 	$this->load->view('template/page_header');		
-  $this->load->view('estudiante_list',$data);
+  $this->load->view('egresado_list',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -75,7 +75,7 @@ public function edit()
 		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
  	 	$data['title'] = "Actualizar Persona";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('estudiante_edit',$data);
+ 	 	$this->load->view('egresado_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
