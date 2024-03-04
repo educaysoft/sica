@@ -61,7 +61,7 @@ public function listar()
 		 	'idestudiante' => $this->input->post('idestudiante'),
 		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
 	 	);
-	 	$this->estudiante_model->save($array_item);
+	 	$this->egresado_model->save($array_item);
 	 	redirect('estudiante');
  	}
 
