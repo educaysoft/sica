@@ -2,7 +2,7 @@
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open("estudiante/save") ?>
+<?php echo form_open("egresado/save") ?>
 <table>
 
 
