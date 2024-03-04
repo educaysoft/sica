@@ -32,7 +32,7 @@ class Egresado extends CI_Controller{
 		}
 
 
-		$data['estudiantes']= $this->estudiante_model->listar_estudiante1()->result();
+		$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
 		$data['title']="Nuevo Egresado";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('estudiante_form',$data);
