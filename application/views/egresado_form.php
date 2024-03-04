@@ -8,29 +8,29 @@
 
 
 <tr>
-<td> Asunto: </td>
+<td> Trabajo de integracion curricular: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->iddocumento." - ".$row->asunto;
+foreach ($trabajointegracioncurriculars as $row){
+	$options[$row->idtrabajointegracioncurricular]= $row->idtrabajointegracioncurricular." - ".$row->asunto;
 }
 
- echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idtrabajointegracioncurricular",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
 
 
 <tr>
-<td> Remitente: </td>
+<td> Egreasado: </td>
 <td><?php
 $options= array('--Select--');
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->lapersona;
+foreach ($egresados as $row){
+	$options[$row->idegresado]= $row->elegresado;
 }
 
- echo form_dropdown("idpersona",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idegresado",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 

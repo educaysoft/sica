@@ -5,13 +5,13 @@ class Egresado extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('egresado_model');
-      $this->load->model('persona_model');
-      $this->load->model('documento_model');
+      $this->load->model('estudiante_model');
+      $this->load->model('trabajointegracioncurricular_model');
 }
 
 	public function index(){
-  		$data['documentos']= $this->documento_model->lista_documentos()->result();
-  		$data['personas']= $this->persona_model->lista_personas()->result();
+  		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
+  		$data['estudiantes']= $this->estudiante_model->lista_estudiantes()->result();
  		// $data['egresado']=$this->egresado_model->egresado(1)->row_array();
 		$data['egresado'] = $this->egresado_model->elprimero();
  		// print_r($data['usuario_list']);
@@ -26,13 +26,13 @@ class Egresado extends CI_Controller{
 	{
 
 		if($this->uri->segment(3)){
-			$data['documentos']= $this->documento_model->lista_documentosA($this->uri->segment(3))->result();
+			$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA($this->uri->segment(3))->result();
 		}else{
-			$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
+			$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
 		}
 
 
-		$data['personas']= $this->persona_model->lista_personasA()->result();
+		$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
 		$data['title']="Nuevo Egresado";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('egresado_form',$data);
@@ -44,7 +44,7 @@ public function listar()
 {
 	
   $data['list'] = $this->egresado_model->lista_egresado1()->result();
-  $data['title']="Egresadoes de documento";
+  $data['title']="Egresadoes de trabajointegracioncurricular";
 	$this->load->view('template/page_header');		
   $this->load->view('egresado_list',$data);
 	$this->load->view('template/page_footer');
@@ -58,8 +58,8 @@ public function listar()
 	public function  save()
 	{
 	 	$array_item=array(
-		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'idestudiante' => $this->input->post('idestudiante'),
+		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
 	 	);
 	 	$this->egresado_model->save($array_item);
 	 	redirect('egresado');
@@ -71,8 +71,8 @@ public function edit()
 {
 
 	 	$data['egresado'] = $this->egresado_model->egresado($this->uri->segment(3))->row_array();
-		$data['personas']= $this->persona_model->lista_personasA()->result();
-		$data['documentos']= $this->documento_model->lista_documentos()->result();
+		$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
+		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
  	 	$data['title'] = "Actualizar Persona";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('egresado_edit',$data);
@@ -86,8 +86,8 @@ public function edit()
 		$id=$this->input->post('idegresado');
 	 	$array_item=array(
 
-		 	'idpersona' => $this->input->post('idpersona'),
-		 	'iddocumento' => $this->input->post('iddocumento'),
+		 	'idestudiante' => $this->input->post('idestudiante'),
+		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
 	 	);
 	 	$result=$this->egresado_model->update($id,$array_item);
 	 	if($result == false)
@@ -115,12 +115,12 @@ public function edit()
 
 public function elprimero()
 {
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
+  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
 	$data['egresado'] = $this->egresado_model->elprimero();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Egresado del documento";
+  	$data['estudiantes']= $this->estudiante_model->lista_estudiantes()->result();
+    $data['title']="Egresado del trabajointegracioncurricular";
     $this->load->view('template/page_header');		
     $this->load->view('egresado_record',$data);
     $this->load->view('template/page_footer');
@@ -133,12 +133,12 @@ public function elprimero()
 
 public function elultimo()
 {
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
+  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
 	$data['egresado'] = $this->egresado_model->elultimo();
   if(!empty($data))
   {
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Egresado del documento";
+  	$data['estudiantes']= $this->estudiante_model->lista_estudiantes()->result();
+    $data['title']="Egresado del trabajointegracioncurricular";
   
     $this->load->view('template/page_header');		
     $this->load->view('egresado_record',$data);
@@ -153,10 +153,10 @@ public function elultimo()
 
 public function siguiente(){
  // $data['egresado_list']=$this->egresado_model->lista_egresado()->result();
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
+  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
 	$data['egresado'] = $this->egresado_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-    $data['title']="Egresado del documento";
+  	$data['estudiantes']= $this->estudiante_model->lista_estudiantes()->result();
+    $data['title']="Egresado del trabajointegracioncurricular";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
   $this->load->view('egresado_record',$data);
@@ -165,11 +165,11 @@ public function siguiente(){
 
 public function anterior(){
  // $data['egresado_list']=$this->egresado_model->lista_egresado()->result();
-  $data['documentos']= $this->documento_model->lista_documentos()->result();
+  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
 	$data['egresado'] = $this->egresado_model->anterior($this->uri->segment(3))->row_array();
- 	$data['personas']= $this->persona_model->lista_personas()->result();
+ 	$data['estudiantes']= $this->estudiante_model->lista_estudiantes()->result();
  // $data['title']="Correo";
-    $data['title']="Egresado del documento";
+    $data['title']="Egresado del trabajointegracioncurricular";
 	$this->load->view('template/page_header');		
   $this->load->view('egresado_record',$data);
 	$this->load->view('template/page_footer');
