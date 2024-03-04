@@ -61,8 +61,16 @@ public function listar()
 		 	'idestudiante' => $this->input->post('idestudiante'),
 		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
 	 	);
-	 	$this->egresado_model->save($array_item);
-	 	redirect('estudiante');
+	 	$result=$this->egresado_model->save($array_item);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('iegresado ya existe'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+
+
  	}
 
 

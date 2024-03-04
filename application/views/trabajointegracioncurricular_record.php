@@ -121,7 +121,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 
 	$options = array();
   	foreach ($egresados as $row){
-		$options[$row->idestudiante]=$row->elegresado;
+		$options[$row->idegresado]=$row->elegresado;
 	}
 
 	?>
