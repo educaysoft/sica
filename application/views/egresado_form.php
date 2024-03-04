@@ -1,9 +1,8 @@
-
 <div style="margin-top:5cm;">
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open("egresado/save") ?>
+<?php echo form_open("estudiante/save") ?>
 <table>
 
 
@@ -26,16 +25,16 @@ foreach ($trabajointegracioncurriculars as $row){
 <td> Egreasado: </td>
 <td><?php
 $options= array('--Select--');
-foreach ($egresados as $row){
-	$options[$row->idegresado]= $row->elegresado;
+foreach ($estudiantes as $row){
+	$options[$row->idestudiante]= $row->elestudiante;
 }
 
- echo form_dropdown("idegresado",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idestudiante",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("egresado","Atrás") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("estudiante","Atrás") ?> </td>
 </tr>
 
 </table>
