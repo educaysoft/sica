@@ -302,6 +302,74 @@ public function genpagina()
 
 
 
+public function genpagina2()
+{
+	$iddistributivo=0;
+
+	$ordenrpt=0;
+	if($this->uri->segment(3))
+	{
+		$iddistributivo=$this->uri->segment(3);
+	 	$data['distributivodocentes']= $this->distributivodocente_model->distributivodocentexdistributivo2($iddistributivo,$ordenrpt)->result();
+		$arreglo=array();
+		$arreglo2=array();
+		$i=0;
+		foreach($data['distributivodocentes'] as $row){
+		$iddocente=$row->iddocente;
+
+
+		$arreglo2+=array($idasignaturadocente=>$this->silabo_model->silabo2($row->iddocente,$row->idasignatura,$row->idevento)->result_array());
+
+		$arreglo[$row->iddocente]=$this->publicaciondocente_model->publicaciondocentes($iddocente)->row_array();
+		$xx=array($this->publicaciondocente_model->publicaciondocentes($iddocente)->result_array());
+		if(count($xx[0]) > 0){
+		foreach($xx as $row2){
+			foreach($row2 as $row3)
+			 {
+				$arreglo+=array($i=>array($row->iddocente=>$row3));
+				$i=$i+1;
+			}
+			}
+		}
+		}
+		$data['jornadadocente']=array();
+		$data['silabos']=array();
+	//	array_push($data['jornadadocente'],$arreglo); 
+		$data['jornadadocente']=$arreglo; 
+		$data['silabos']=$arreglo2;
+		echo "<br> jornadadocnete<br>" ;
+//		print_r($data['jornadadocente']);
+//		die();
+
+		$data['asignatura']= $this->asignatura_model->asignaturas1($data['asignaturadocentes'][0]->idasignatura)->row_array();
+
+		$data['malla']= $this->malla_model->mallaA($data['asignatura']['idmalla'])->result();
+
+
+		if(!$this->input->get("orden")){
+			$data['ordenrpt']=0;	
+			$data['title']="Evento";
+			$this->load->view('distributivodocente_genpagina',$data);
+		}else{
+			echo $this->input->get("orden"); 
+		if($this->input->get("orden")==1){
+		$data['ordenrpt']=1;	
+		$ordenrpt=1;
+	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo2($iddistributivo,$ordenrpt)->result();
+		$this->load->view('distributivodocente_genpagina',$data);
+		}
+
+		if($this->input->get("orden")==2){
+
+		$data['ordenrpt']=2;	
+		$ordenrpt=2;
+	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo2($iddistributivo,$ordenrpt)->result();
+		$this->load->view('distributivodocente_genpagina',$data);
+		}	
+	}
+	}
+}
+
 
 
 
