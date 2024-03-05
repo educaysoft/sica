@@ -312,7 +312,7 @@ $data=$data.'
       <div >
         <h1 class="fw-light">'.$malla[0]->eldepartamento.'</h1>  
         <p class="lead text-muted">Área:'.$row->area.'   -  Periodo:'.$row->elperiodoacademico.' :: '.$elorden.'.</p>
- <p class="lead text-muted"> <a href="https://repositorioutlvte.org/Repositorio/aulas/aulas'.$row->periodoacademico.'.jpg"> <i class="fas fa-map-marker-alt" style="font-size:24px" ></i> Ubicación del las aulas </a></p>
+ <p class="lead text-muted"> <a href="https://repositorioutlvte.org/Repositorio/aulas/aulas'.$row->elperiodoacademico.'.jpg"> <i class="fas fa-map-marker-alt" style="font-size:24px" ></i> Ubicación del las aulas </a></p>
       </div>
     </div>
   </section>
