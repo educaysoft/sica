@@ -317,7 +317,7 @@ public function genpagina2()
 		foreach($data['distributivodocentes'] as $row){
 		$iddocente=$row->iddocente;
 
-		$arreglo[$row->iddocente]=$this->publicaciondocente_model->publicaciondocentesA($iddocente)->row_array();
+	//	$arreglo[$row->iddocente]=$this->publicaciondocente_model->publicaciondocentesA($iddocente)->row_array();
 		$xx=array($this->publicaciondocente_model->publicaciondocentesA($iddocente)->result_array());
 		if(count($xx[0]) > 0){
 		foreach($xx as $row2){
