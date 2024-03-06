@@ -41,7 +41,6 @@ overflow:hidden;
         }
       }
 
-      .b-example-divider {
         height: 3rem;
         background-color: rgba(0, 0, 0, .1);
         border: solid rgba(0, 0, 0, .15);
@@ -222,126 +221,59 @@ $i=0;
 $j=0;
 
 $arrcolor=array(1=>"#F68081",2=>"#F5DA81",3=>"#A9F5A9",4=>"#A9F4F3",5=>"#CFCEF7",6=>"#D1A9F4",7=>"#F5A8F3",8=>"#80DBF5",9=>"#9BFE2F",10=>"#9BFE2F");
-foreach($asignaturadocentes as $row){
+foreach($distributivodocentes as $row){
 	
-		$j=$j+1;
-	if(is_null($row->archivopdf) || $row->archivopdf=="")
+
+	if($inicio==1)
 	{
-		continue;
-	}else{
-		$i=$i+1;
-	}
 
-	
-	
-	
-	if($row->idareaconocimiento != $idareaconocimiento and $inicio==0)
-{
-	 	$data=$data.$data1;
-		if($ordenrpt==0){
-		$file='application/views/cursos/'.$elperiodoacademico.'-'.$idareaconocimiento.'.php';
-		}else{
-		$file='application/views/cursos/'.$elperiodoacademico.'-'.$idareaconocimiento.'-'.$ordenrpt.'.php';
+	$data='
+		<!doctype html>
+		<html lang="en">
+  		<head>
+    		<meta charset="utf-8">
+    		<meta name="viewport" content="width=device-width, initial-scale=1">
+    		<meta name="description" content="">
+    		<meta name="author" content="Stalin Francis Quinde">
+    		<meta name="generator" content="Hugo 0.101.0">
+        	<meta property="og:site_name" content="Carrera en Tecnología de la Información" />
+        	<meta property="og:image" content="https://repositorioutlvte.org/Repositorio/logos/logocti.png" />
+        	<meta property="og:image:width" content="400" />
+        	<meta property="og:image:height" content="400" />
+    		<title> Carrera: '.$row->eldepartamento.'  - Periodo '.$row->elperiodoacademico.' </title>
+    		<link rel="educaysoft" href="https://congresoutlvte.org/faci/">
+    		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+		<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css" />';
+	 	$data=$data.$data0;
+
+
+
+	$data=$data.'
+  		<section class="py-5 text-center container">
+    		<div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: center;" >
+		<div style=" flex-basis: 40%"  >
+		<img src="https://repositorioutlvte.org/Repositorio/qr/docentes-'.$elperiodoacademico.'-'.$iddistributivo.'.png" height="150px">
+		</div>
+      		<div >
+        	<h1 class="fw-light">'.$row->eldepartamento.'</h1>  
+        	<p class="lead text-muted">Periodo:'.$row->elperiodoacademico.' :: '.$row->iddistributivo.'.</p>
+      		</div>
+    		</div>
+  		</section>
+  		<div class="album py-5 bg-light">
+    		<div class="container">
+      		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">';
+	 	$inicio=0;
 		}
-
-
-
-		if ( !write_file($file, $data)){
-		     echo 'Unable to write the file';
-		}else{
-		    echo $file."\n";
-		}
- 		$inicio=1;
-       }
-
-if($row->idareaconocimiento != $idareaconocimiento and $inicio==1)
-	{
-	 $idareaconocimiento=$row->idareaconocimiento;
-	 $elperiodoacademico=$row->elperiodoacademico;
-
-$data='
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Stalin Francis Quinde">
-    <meta name="generator" content="Hugo 0.101.0">
-        <meta property="og:site_name" content="Carrera en Tecnología de la Información" />
-        <meta property="og:image" content="https://repositorioutlvte.org/Repositorio/logos/logocti.png" />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="400" />
-    <title> '.'Carrera en Tecnología de la Información - UTLVTE - Periodo '.$row->elperiodoacademico.'  Area:'.$row->area . ' </title>
-
-    <link rel="educaysoft" href="https://congresoutlvte.org/faci/">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-
-<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css" />
-
-';
-
-
-	 $data=$data.$data0;
-
-		if($ordenrpt==0){
-		$qridx='';
-		$elorden=" ordenado por nivel";
-		}else{
-
-			if($ordenrpt==1){
-				$elorden=" ordenado por docente";
-			}else{
-				$elorden=" ordenado por asignatura";
-
-
-			}
-
-		$qridx='-'.$ordenrpt;
-		}
-
-
-
-
-$data=$data.'
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: center;" >
-<div style=" flex-basis: 40%"  >
-<img src="https://repositorioutlvte.org/Repositorio/qr/'.$elperiodoacademico.'-'.$idareaconocimiento.$qridx.'.png" height="150px">
-</div>
-      <div >
-        <h1 class="fw-light">'.$malla[0]->eldepartamento.'</h1>  
-        <p class="lead text-muted">Área:'.$row->area.'.</p>
-        <p class="lead text-muted">Periodo:'.$row->elperiodoacademico.' :: '.$elorden.'.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-
-
-';
-
-
-
-
-
-	 $inicio=0;
-
-	}
 
 
 
 $data=$data.'<div class="col">
           <div class="card shadow-sm">
-		  <a  href="https://educaysoft.org/sica/evento/detalle/'.$row->idevento.'"><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>';
+		  <a  href="https://educaysoft.org/sica/evento/detalle/'.$inicio.'"><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>';
 
 // Remote file url
-$remoteFile = "https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/".trim($row->idareaconocimiento).".jpg";
+$remoteFile = "https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/".trim($inicio).".jpg";
 
 $file_headers = @get_headers($remoteFile);
 
@@ -354,17 +286,8 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
 }else{
-	if(is_null($row->archivopdf) || $row->archivopdf=="")
-	{
-$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/'.trim($row->idareaconocimiento).'-no.jpg" alt="No hay programación" height="100%" width="100%"/> </svg></a>
+$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/'.trim($inicio).'-no.jpg" alt="No hay programación" height="100%" width="100%"/> </svg></a>
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
-	}else{
-
-$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/'.trim($row->idareaconocimiento).'-si.jpg" alt="Revisar la programación"  height="100%" width="100%"/> </svg></a>
-<div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
-	}
-
-
 
 }
 
@@ -389,147 +312,18 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 
 $data=$data.'</div>
 
-	    <div class="card-body" style="background-color:'.$arrcolor[$row->numeronivelacademico].'"  >
-	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->laasignatura.' </div>	
-
-<div class="contenedor">
-    <div class="texto-transversal">
-      <h2>Contenidos minimos</h2>
-      <p>'.$row->contenidosminimos.'.</p>
-    </div>
-  </div>
+	    <div class="card-body" style="background-color:'.$arrcolor[1].'"  >
+	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->eldistributivodocente.' </div>	
 
 
-	     <p><span style="color:red;" >Instructor : </span><span style="font-size:16px; font-weight:bold;">'.$row->eldocente.'.</span></p>
-              <b>Nivel:</b>'.$row->nivel.'.<br>
-              <b>Paralelo : </b> '.$row->paralelo.'".<br>
-              <b>Area:</b>'.$row->area.'.<br>';
-
-
-		if(isset($silabos[$row->idasignaturadocente])){		
-
-				$disable1='';
-				$color1='green';
-				$disable2='';
-				$color2='green';
-				$disable3='';
-				$color3='green';
-
-				$disable4='';
-				$color4='green';
-
-				$disable5='';
-				$color5='green';
+	     <p><span style="color:red;" >Instructor : </span><span style="font-size:16px; font-weight:bold;">'.$row->eldistributivodocente.'.</span></p>' ;
 
 
 
-			if(isset($silabos[$row->idasignaturadocente][0]['silabopdf'])){
-			if($silabos[$row->idasignaturadocente][0]['silabopdf']==''){
-				$disable1='style="pointer-events:none; cursor:default"';
-				$color1='gray';
-			}
-			}else{
+foreach($publicaciondocente as $rowj){
+			if(isset($rowj[$row->iddocente]['iddocente'])){		
 
-				$disable1='style="pointer-events:none; cursor:default"';
-				$color1='gray';
-
-			}
-
-			if(isset($silabos[$row->idasignaturadocente][0]['planclasepdf'])){
-			if($silabos[$row->idasignaturadocente][0]['planclasepdf']==''){
-				$disable2= 'style="pointer-events:none; cursor:default"';
-				$color2='gray';
-			}
-			}else{
-				$disable2= 'style="pointer-events:none; cursor:default"';
-				$color2='gray';
-
-			}
-
-			if(isset($silabos[$row->idasignaturadocente][0]['proyectocursopdf'])){
-			if($silabos[$row->idasignaturadocente][0]['proyectocursopdf']==''){
-				$disable3= 'style="pointer-events:none; cursor:default"';
-				$color3='gray';
-			}
-			}else{
-				$disable3= 'style="pointer-events:none; cursor:default"';
-				$color3='gray';
-
-			}
-
-	if(isset($silabos[$row->idasignaturadocente][0]['distributivoindividualpdf'])){
-			if($silabos[$row->idasignaturadocente][0]['distributivoindividualpdf']==''){
-				$disable4= 'style="pointer-events:none; cursor:default"';
-				$color4='gray';
-			}
-			}else{
-				$disable4= 'style="pointer-events:none; cursor:default"';
-				$color4='gray';
-
-			}
-
-
-	if(isset($silabos[$row->idasignaturadocente][0]['informeactividadpdf'])){
-			if($silabos[$row->idasignaturadocente][0]['informeactividadpdf']==''){
-				$disable5= 'style="pointer-events:none; cursor:default"';
-				$color5='gray';
-			}
-			}else{
-				$disable5= 'style="pointer-events:none; cursor:default"';
-				$color5='gray';
-
-			}
-
-
-
-
-
-
-			$data=$data.'<p>';
-			if(isset($silabos[$row->idasignaturadocente][0]['silabopdf'])){
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'"  '.$disable1.'><i class="fas fa-file-pdf" style="font-size:24px" ></i> <span style="color:'.$color1.'" >Sillabus</span></a>] - ';
-			}
-
-			if(isset($silabos[$row->idasignaturadocente][0]['planclasepdf'])){
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'"  '.$disable2.' ><i class="fas fa-file-pdf" style="font-size:24px" ></i> <span style="color:'.$color2.'" >PlanSemestral</span></a>] - ';
-			}
-			if(isset($silabos[$row->idasignaturadocente][0]['proyectocursopdf'])){
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['proyectocursopdf'].'"  '.$disable3.' > <i class="fas fa-file-pdf" style="font-size:24px" ></i><span style="color:'.$color3.'" >ProyectoAula</span></a>]';
-			}
-
-
-			if(isset($silabos[$row->idasignaturadocente][0]['distributivoindividualpdf'])){
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['distributivoindividualpdf'].'"  '.$disable4.' ><span style="color:'.$color4.'" >Distributivo</span></a>]';
-			}
-
-
-			if(isset($silabos[$row->idasignaturadocente][0]['informeactividadpdf'])){
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['informeactividadpdf'].'"  '.$disable5.' ><span style="color:'.$color5.'" >Informe</span></a>]';
-			}
-
-
-
-
-
-			$data=$data.'</p>';
-
-		//	$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['silabopdf'].'"><span style="color:'.$colorsilabo.'" >Sillabus</span></a>]-[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['planclasepdf'].'"><span style="color:'.$colorplansemestral.'" >Plan Semestral</span></a>]</p>';
-			}else{
-		}	
-
-
- $data=$data.' <p><b>Inicia : </b><span style="color:red">'.$row->fechainicia.'.</span><br>
-	      <b>Finaliza : </b><span style="color:red">'.$row->fechafinaliza.'.</span></p>';
-
-
-
-
-
-
-foreach($jornadadocente as $rowj){
-			if(isset($rowj[$row->idasignaturadocente]['idasignaturadocente'])){		
-
-			$data=$data.'<b>'.$rowj[$row->idasignaturadocente]['nombre'] .': </b><span style="color:red">'.$rowj[$row->idasignaturadocente]['horainicio'].'('.$rowj[$row->idasignaturadocente]['duracionminutos'].'),</span> - aula:<a href="https://repositorioutlvte.org/Repositorio/aulas/aula'.$rowj[$row->idasignaturadocente]['idaula'].'.jpg"> <i class="fas fa-map-marker-alt" style="font-size:24px" ></i> ' .$rowj[$row->idasignaturadocente]['elaula'].'</a><br>';
+			$data=$data.'<b>'.$rowj[$row->iddocente]['tipo'] .': </b><span style="color:red">'.$rowj[$row->iddocente]['titulo'].'('.$rowj[$row->idasignaturadocente]['fechapublicacion'].'),</span> - link:<a href="'.$rowj[$row->iddocente]['url'].'"> <i class="fas fa-map-marker-alt" style="font-size:24px" ></i> </a><br>';
 			}	
 	//		echo $rowj; echo '<br>';
 		}
@@ -540,18 +334,8 @@ foreach($jornadadocente as $rowj){
 			$disabled='';
 		}
 
-
-	if(strpos($row->estadoevento,"TERMINADO")!==false || strpos($row->estadoevento,"PRÓXIMO A INICIAR")!==false  ){
-		$data=$data.'<br> <p><b>ESTADO : </b><span style="color:red">'.$row->estadoevento.'.</span></p>';
-	}else{
-		$data=$data.'<br> <p><b>ESTADO : </b><span style="color:green">'.$row->estadoevento.'.</span></p>';
-	}
               	$data=$data.'<div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login/validarcorreo?idevento='.$row->idevento.'\'" '.$disabled.' >Inscribete</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login\'">Ingresa</button>
-                </div>
-                <small class="text-muted"><b>Modalidad:</b>Presencial</small>
+
 
               </div>
             </div>
@@ -564,17 +348,7 @@ foreach($jornadadocente as $rowj){
 
 
 
-
-$data1= str_replace('<xxxx>',$i,$data1);
-$data1= str_replace('<yyyy>',$j,$data1);
-
-$data=$data.$data1;
-
-		if($ordenrpt==0){
-			$file='application/views/cursos/'.$elperiodoacademico.'-'.$idareaconocimiento.'.php';
-		}else{
-			$file='application/views/cursos/'.$elperiodoacademico.'-'.$idareaconocimiento.'-'.$ordenrpt.'.php';
-		}
+			$file='application/views/cursos/'.$elperiodoacademico.'-'.$iddistributivo.'.php';
 
 
 	if ( !write_file($file, $data)){
@@ -586,7 +360,6 @@ $data=$data.$data1;
 
 
 echo "archivo generado<br>";
-echo $ordenrpt; 
 echo "<br>";
 echo $file;
 die();
