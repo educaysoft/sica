@@ -334,8 +334,8 @@ public function genpagina2()
 		$data['publicaciondocente']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
 
-		print_r(	$data['publicaciondocente']);
-		die();
+//		print_r(	$data['publicaciondocente']);
+//		die();
 
 		$this->load->view('distributivodocente_genpagina2',$data);
 	}
