@@ -313,7 +313,6 @@ public function genpagina2()
 		$iddistributivo=$this->uri->segment(3);
 	 	$data['distributivodocentes']= $this->distributivodocente_model->distributivodocentes1($iddistributivo)->result();
 		$arreglo=array();
-		$arreglo2=array();
 		$i=0;
 		foreach($data['distributivodocentes'] as $row){
 		$iddocente=$row->iddocente;
@@ -335,8 +334,8 @@ public function genpagina2()
 		$data['publicaciondocente']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
 
-
-
+		print_r(	$data['publicaciondocente']);
+		die();
 
 		$this->load->view('distributivodocente_genpagina2',$data);
 	}
