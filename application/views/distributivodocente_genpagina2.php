@@ -323,7 +323,7 @@ $data=$data.'</div>
 foreach($publicaciondocente as $rowj){
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
 
-			$data=$data.'<b>'.$rowj[$row->iddocente]['tipo'] .': </b><span style="color:red">'.$rowj[$row->iddocente]['titulo'].'('.$rowj[$row->iddocente]['fechapublicacion'].'),</span> - link:<a href="'.$rowj[$row->iddocente]['url'].'"> <i class="fas fa-map-marker-alt" style="font-size:24px" ></i> </a><br>';
+			$data=$data.'<b>'.$rowj[$row->iddocente]['tipo'] .': </b><span style="color:red">'.$rowj[$row->iddocente]['titulo'].'('.$rowj[$row->iddocente]['fechapublicacion'].'),</span> - link:<a href="'.$rowj[$row->iddocente]['url'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
 			}	
 	//		echo $rowj; echo '<br>';
 		}
