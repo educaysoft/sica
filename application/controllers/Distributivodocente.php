@@ -330,9 +330,9 @@ public function genpagina2()
 			}
 		}
 		}
-		$data['jornadadocente']=array();
+		$data['publicaciondocente']=array();
 	//	array_push($data['jornadadocente'],$arreglo); 
-		$data['jornadadocente']=$arreglo; 
+		$data['publicaciondocente']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
 
 
