@@ -29,10 +29,10 @@ class Publicaciondocente_model extends CI_model {
 	function publicaciondocentesA( $iddocente){
 		if($iddocente>0)
 		{
- 		$publicaciondocente = $this->db->query('select * from publicaciondocente1 where iddocente="'. $iddocente.'"');
-	}else{
- 		$publicaciondocente = $this->db->query('select * from publicaciondocente1');
-	}
+ 			$publicaciondocente = $this->db->query('select * from publicaciondocente1 where iddocente="'. $iddocente.'" order by iddocente');
+		}else{
+ 			$publicaciondocente = $this->db->query('select * from publicaciondocente1');
+		}
  		return $publicaciondocente;
  	}
 
