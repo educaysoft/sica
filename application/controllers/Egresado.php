@@ -11,7 +11,7 @@ class Egresado extends CI_Controller{
 
 	public function index(){
   		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
-  		$data['estudiantes']= $this->estudiante_model->lista_estudiantes()->result();
+  		$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
  		// $data['estudiante']=$this->estudiante_model->estudiante(1)->row_array();
 		$data['egresado'] = $this->egresado_model->elultimo();
  		// print_r($data['usuario_list']);
