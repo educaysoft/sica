@@ -17,7 +17,7 @@ class Egresado extends CI_Controller{
  		// print_r($data['usuario_list']);
   		$data['title']="Lista de Egresadoes";
 		$this->load->view('template/page_header');		
-  		$this->load->view('estudiante_record',$data);
+  		$this->load->view('egresado_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
@@ -130,7 +130,7 @@ public function elprimero()
   	$data['estudiantes']= $this->estudiante_model->lista_estudiantes()->result();
     $data['title']="Egresado del trabajointegracioncurricular";
     $this->load->view('template/page_header');		
-    $this->load->view('estudiante_record',$data);
+    $this->load->view('egresado_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -149,7 +149,7 @@ public function elultimo()
     $data['title']="Egresado del trabajointegracioncurricular";
   
     $this->load->view('template/page_header');		
-    $this->load->view('estudiante_record',$data);
+    $this->load->view('egresado_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -167,7 +167,7 @@ public function siguiente(){
     $data['title']="Egresado del trabajointegracioncurricular";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
-  $this->load->view('estudiante_record',$data);
+  $this->load->view('egresado_record',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -179,7 +179,7 @@ public function anterior(){
  // $data['title']="Correo";
     $data['title']="Egresado del trabajointegracioncurricular";
 	$this->load->view('template/page_header');		
-  $this->load->view('estudiante_record',$data);
+  $this->load->view('egresado_record',$data);
 	$this->load->view('template/page_footer');
 }
 
