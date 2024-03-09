@@ -64,7 +64,7 @@ if(isset($egresado))
 	<?php
 $options= array("NADA");
 foreach ($trabajointegracioncurriculars as $row){
-	$options[$row->idtrabajointegracioncurricular]= $row->asunto;
+	$options[$row->idtrabajointegracioncurricular]= $row->titulo;
 }
 echo form_input('idtrabajointegracioncurricular',$options[$egresado['idtrabajointegracioncurricular']],array("disabled"=>"disabled"));
 	?>
