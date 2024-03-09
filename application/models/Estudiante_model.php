@@ -60,7 +60,7 @@ class Estudiante_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idestudiante")->get('estudiante');
+		$query=$this->db->order_by("idestudiante")->get('estudiante1');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -73,7 +73,7 @@ class Estudiante_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idestudiante")->get('estudiante');
+		$query=$this->db->order_by("idestudiante")->get('estudiante1');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -85,7 +85,7 @@ class Estudiante_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$estudiante = $this->db->select("idestudiante")->order_by("idestudiante")->get('estudiante')->result_array();
+ 		$estudiante = $this->db->select("idestudiante")->order_by("idestudiante")->get('estudiante1')->result_array();
 		$arr=array("idestudiante"=>$id);
 		$clave=array_search($arr,$estudiante);
 	   if(array_key_exists($clave+1,$estudiante))
@@ -103,7 +103,7 @@ class Estudiante_model extends CI_model {
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$estudiante = $this->db->select("idestudiante")->order_by("idestudiante")->get('estudiante')->result_array();
+ 		$estudiante = $this->db->select("idestudiante")->order_by("idestudiante")->get('estudiante1')->result_array();
 		$arr=array("idestudiante"=>$id);
 		$clave=array_search($arr,$estudiante);
 	   if(array_key_exists($clave-1,$estudiante))
