@@ -133,7 +133,7 @@ class Trabajointegracioncurricular extends CI_Controller{
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idtrabajointegracioncurricular,$r->numeroestudiantes,$r->nombre,$r->resumen,$r->numerolectores,
-			$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm docu_ver"  data-idtrabajointegracioncurricular="'.$r->idtrabajointegracioncurricular.'">doc</a> ');
+			$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('trabajointegracioncurricular/actual').'"   data-idtrabajointegracioncurricular="'.$r->idtrabajointegracioncurricular.'">ver</a> ');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
