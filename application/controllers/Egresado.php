@@ -110,9 +110,9 @@ public function edit()
 
  	public function delete()
  	{
- 		$data=$this->estudiante_model->delete($this->uri->segment(3));
+ 		$data=$this->egresado_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('estudiante/elprimero');
+	 	redirect('egresado/elultimo');
 	//	$db['default']['db_debug']=FALSE
  	}
 
