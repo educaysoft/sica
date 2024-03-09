@@ -32,7 +32,7 @@ if(isset($egresado))
 <br>
 
 <?php echo form_open('egresado/save_edit') ?>
-<?php echo form_hidden('iddocumento',$egresado['iddocumento']) ?>
+<?php echo form_hidden('idegresado',$egresado['idegresado']) ?>
 <table>
 
 
@@ -48,10 +48,10 @@ if(isset($egresado))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id documento:</label>
+    <label class="col-md-2 col-form-label"> Id trabajointegracioncurricular:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('iddocumento',$egresado['iddocumento'],array("disabled"=>"disabled",'placeholder'=>'Iddocumentos'));
+      echo form_input('idtrabajointegracioncurricular',$egresado['idtrabajointegracioncurricular'],array("disabled"=>"disabled",'placeholder'=>'Idtrabajointegracioncurriculars'));
 	?>
 	</div> 
 </div> 
@@ -59,14 +59,14 @@ if(isset($egresado))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('documento/actual/'.$egresado['iddocumento'], 'Documento:'); ?></label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('trabajointegracioncurricular/actual/'.$egresado['idtrabajointegracioncurricular'], 'Documento:'); ?></label>
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
-foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
+foreach ($trabajointegracioncurriculars as $row){
+	$options[$row->idtrabajointegracioncurricular]= $row->asunto;
 }
-echo form_input('iddocumento',$options[$egresado['iddocumento']],array("disabled"=>"disabled"));
+echo form_input('idtrabajointegracioncurricular',$options[$egresado['idtrabajointegracioncurricular']],array("disabled"=>"disabled"));
 	?>
 	</div> 
 </div> 
