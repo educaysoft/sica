@@ -124,7 +124,7 @@ public function edit()
 public function elprimero()
 {
   $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
-	$data['estudiante'] = $this->estudiante_model->elprimero();
+	$data['egresado'] = $this->egresado_model->elprimero();
   if(!empty($data))
   {
   	$data['estudiantes']= $this->estudiante_model->lista_estudiantes()->result();
@@ -142,7 +142,7 @@ public function elprimero()
 public function elultimo()
 {
   $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
-	$data['estudiante'] = $this->estudiante_model->elultimo();
+	$data['egresado'] = $this->egresado_model->elultimo();
   if(!empty($data))
   {
   	$data['estudiantes']= $this->estudiante_model->lista_estudiantes()->result();
@@ -162,7 +162,7 @@ public function elultimo()
 public function siguiente(){
  // $data['estudiante_list']=$this->estudiante_model->lista_estudiante()->result();
   $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
-	$data['estudiante'] = $this->estudiante_model->siguiente($this->uri->segment(3))->row_array();
+	$data['egresado'] = $this->egresado_model->siguiente($this->uri->segment(3))->row_array();
   	$data['estudiantes']= $this->estudiante_model->lista_estudiantes()->result();
     $data['title']="Egresado del trabajointegracioncurricular";
  // $data['title']="Correo";
@@ -174,7 +174,7 @@ public function siguiente(){
 public function anterior(){
  // $data['estudiante_list']=$this->estudiante_model->lista_estudiante()->result();
   $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
-	$data['estudiante'] = $this->estudiante_model->anterior($this->uri->segment(3))->row_array();
+	$data['egresado'] = $this->egresado_model->anterior($this->uri->segment(3))->row_array();
  	$data['estudiantes']= $this->estudiante_model->lista_estudiantes()->result();
  // $data['title']="Correo";
     $data['title']="Egresado del trabajointegracioncurricular";
