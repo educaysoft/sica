@@ -73,10 +73,10 @@ echo form_input('idtrabajointegracioncurricular',$options[$egresado['idtrabajoin
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id persona:</label>
+    <label class="col-md-2 col-form-label"> Id egresado:</label>
 	<div class="col-md-10">
 	<?php
-     	 echo form_input('idpersona',$egresado['idpersona'],array("disabled"=>"disabled",'placeholder'=>'Idegresadoes'));
+     	 echo form_input('idegresado',$egresado['idegresado'],array("disabled"=>"disabled",'placeholder'=>'Idegresadoes'));
 	?>
 	</div> 
 </div> 
@@ -84,14 +84,14 @@ echo form_input('idtrabajointegracioncurricular',$options[$egresado['idtrabajoin
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Persona:</label>
+    <label class="col-md-2 col-form-label"> Egresado:</label>
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos." ".$row->nombres;
+foreach ($egresados as $row){
+	$options[$row->idegresado]= $row->elegresado;
 }
-echo form_input('idpersona',$options[$egresado['idpersona']],array("disabled"=>"disabled"));
+echo form_input('idegresado',$options[$egresado['idegresado']],array("disabled"=>"disabled"));
 	?>
 	</div> 
 </div> 
