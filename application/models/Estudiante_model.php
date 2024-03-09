@@ -109,10 +109,10 @@ class Estudiante_model extends CI_model {
 	   if(array_key_exists($clave-1,$estudiante))
 		 {
 
- 		$estudiante = $this->db->query('select * from estudiante where idestudiante="'. $estudiante[$clave-1]["idestudiante"].'"');
+ 		$estudiante = $this->db->query('select * from estudiante1 where idestudiante="'. $estudiante[$clave-1]["idestudiante"].'"');
 		 }else{
 
- 		$estudiante = $this->db->query('select * from estudiante where idestudiante="'. $id.'"');
+ 		$estudiante = $this->db->query('select * from estudiante1 where idestudiante="'. $id.'"');
 		 }
 		 	
  		return $estudiante;
