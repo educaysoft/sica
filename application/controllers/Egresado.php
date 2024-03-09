@@ -127,7 +127,7 @@ public function elprimero()
 	$data['egresado'] = $this->egresado_model->elprimero();
   if(!empty($data))
   {
-  	$data['estudiantes']= $this->estudiante_model->lista_estudiantes()->result();
+  	$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
     $data['title']="Egresado del trabajointegracioncurricular";
     $this->load->view('template/page_header');		
     $this->load->view('egresado_record',$data);
@@ -145,7 +145,7 @@ public function elultimo()
 	$data['egresado'] = $this->egresado_model->elultimo();
   if(!empty($data))
   {
-  	$data['estudiantes']= $this->estudiante_model->lista_estudiantes()->result();
+  	$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
     $data['title']="Egresado del trabajointegracioncurricular";
   
     $this->load->view('template/page_header');		
@@ -163,7 +163,7 @@ public function siguiente(){
  // $data['estudiante_list']=$this->estudiante_model->lista_estudiante()->result();
   $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
 	$data['egresado'] = $this->egresado_model->siguiente($this->uri->segment(3))->row_array();
-  	$data['estudiantes']= $this->estudiante_model->lista_estudiantes()->result();
+  	$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
     $data['title']="Egresado del trabajointegracioncurricular";
  // $data['title']="Correo";
 	$this->load->view('template/page_header');		
@@ -175,7 +175,7 @@ public function anterior(){
  // $data['estudiante_list']=$this->estudiante_model->lista_estudiante()->result();
   $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
 	$data['egresado'] = $this->egresado_model->anterior($this->uri->segment(3))->row_array();
- 	$data['estudiantes']= $this->estudiante_model->lista_estudiantes()->result();
+ 	$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
  // $data['title']="Correo";
     $data['title']="Egresado del trabajointegracioncurricular";
 	$this->load->view('template/page_header');		
