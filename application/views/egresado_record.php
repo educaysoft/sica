@@ -88,10 +88,10 @@ echo form_input('idtrabajointegracioncurricular',$options[$egresado['idtrabajoin
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
-foreach ($egresado as $row){
-	$options[$row->idegresado]= $row->elegresado;
+foreach ($estudiantes as $row){
+	$options[$row->idestudiante]= $row->elestudiante;
 }
-echo form_input('idegresado',$options[$egresado['idegresado']],array("disabled"=>"disabled"));
+echo form_input('idegresado',$options[$egresado['idestudiante']],array("disabled"=>"disabled"));
 	?>
 	</div> 
 </div> 
