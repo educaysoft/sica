@@ -42,7 +42,10 @@ foreach ($tipopublicacions as $row){
       <td><?php echo form_textarea($textarea_options); ?></td>
   </tr>
 
-
+<tr>
+      <td>Fecha publicacion:</td>
+      <td><?php echo form_input( array("name"=>'fechapublicacion',"id"=>'fechapublicacion',"value"=>$publicacion['fechapublicacion'],'type'=>'date','placeholder'=>'fechapublicacion')); ?></td>
+  </tr>
 
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('publicacion','Atras') ?></td>
