@@ -535,9 +535,9 @@ foreach($jornadadocente as $rowj){
 		}
 
 
-			$disabled='disabled';
-		if(strpos($row->estadoevento,"INSCRIPCION")==true){
 			$disabled='';
+		if(strpos($row->estadoevento,"INSCRIPCION")=== false){
+			$disabled='disabled';
 		}
 
 
