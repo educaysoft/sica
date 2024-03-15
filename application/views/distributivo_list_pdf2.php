@@ -94,7 +94,8 @@
 		    $pdf->Cell(10,5,utf8_decode($row->cantidadtemas),1,0,'L',0);
 		    $pdf->Cell(35,5,utf8_decode($row->archivopdf),1,0,'L',0);
 		    $pdf->Cell(35,5,utf8_decode($row->planpdf),1,0,'L',0);
-		    $pdf->Cell(35,5,utf8_decode($row->distributivoindividualpdf),1,1,'L',0);
+		    $link= 'https://repositorioutlvte.org/Repositorio/'.$row->distributivoindividualpdf;
+		    $pdf->Cell(35,5,utf8_decode($row->distributivoindividualpdf),1,1,'L',0,$link);
     }
 
 
