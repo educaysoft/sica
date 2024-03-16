@@ -1,5 +1,5 @@
 <?php
-class Estadocivil_model extends CI_model {
+class Tipoidentificacion_model extends CI_model {
 
 	function lista_sexos(){
 		 $sexo= $this->db->get('sexo');
