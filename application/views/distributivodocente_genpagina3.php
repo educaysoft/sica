@@ -344,7 +344,7 @@ foreach($docenteactividadacademica as $rowj){
 
 
 
-			$file='application/views/cursos/docentes-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.php';
+			$file='application/views/cursos/distributivo-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.php';
 
 
 	if ( !write_file($file, $data)){

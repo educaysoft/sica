@@ -362,7 +362,7 @@ public function genpagina3()
 		$iddistributivodocente=$row->iddistributivodocente;
 
 	//	$xx=array($this->publicaciondocente_model->publicaciondocentesA($iddocente)->result_array());
-		$xx=array($this->docenteactividadacademica_model->docenteactividadacademicaA($iddistributivodocente)->result_array());
+		$xx=array($this->docenteactividadacademica_model->lista_docenteactividadacademicasA($iddistributivodocente)->result_array());
 		if(count($xx[0]) > 0){
 		foreach($xx as $row2){
 			foreach($row2 as $row3)
