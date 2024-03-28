@@ -373,9 +373,9 @@ public function genpagina3()
 			}
 		}
 		}
-		$data['docenteactividaddocente']=array();
+		$data['docenteactividadacademica']=array();
 	//	array_push($data['jornadadocente'],$arreglo); 
-		$data['docenteactividaddocente']=$arreglo; 
+		$data['docenteactividadacademica']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
 
 
