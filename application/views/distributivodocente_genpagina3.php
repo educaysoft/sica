@@ -114,8 +114,60 @@ contenedor {
 
 
 
+/* para la tabla de distributivo individual */
 
+/* Estilos de la tabla */
+.tabla-container {
+  width: 100%;
+  overflow-x: auto; /* Permitir desplazamiento horizontal en pantallas pequeñas */
+}
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Estilos de la tabla - Alternar colores de fila */
+table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Estilos de la tabla - Cabecera */
+table th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Estilos de la tabla - Responsive */
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+  table thead {
+    display: none;
+  }
+  table tr {
+    border-bottom: 2px solid #ddd;
+    display: block;
+    margin-bottom: 20px;
+  }
+  table td {
+    border-bottom: none;
+    display: block;
+    text-align: right;
+  }
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+}
 
 
 
@@ -314,23 +366,34 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 $data=$data.'</div>
 
 	    <div class="card-body" style="background-color:'.$arrcolor[1].'"  >
-	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->eldocente.' </div>';	
+	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->eldocente.' </div>	
 
 
 
-
+<div class="tabla-container">
+  <table>
+    <thead>
+      <tr>
+        <th>item</th>
+        <th>tipo</th>
+        <th>Actividad</th>
+        <th>horas</th>
+      </tr>
+    </thead> 
+<tbody>	
+    ';
 
 foreach($docenteactividadacademica as $rowj){
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
 
-			$data=$data.'<b>'.$rowj[$row->iddocente]['item'] .':(</b><span style="color:red">'.$rowj[$row->iddocente]['tipoactividad'].')'.$rowj[$row->iddocente]['nombreactividad'].'),</span> - horas:'.$rowj[$row->iddocente]['numerohoras'].'.';
+			$data=$data.'<tr><td>'.$rowj[$row->iddocente]['item'] .'</td><td>'.$rowj[$row->iddocente]['tipoactividad'].'</td><td>'.$rowj[$row->iddocente]['nombreactividad'].'</td><td>'.$rowj[$row->iddocente]['numerohoras'].'</td></tr>';
 			}	
 	//		echo $rowj; echo '<br>';
 		}
 
 
 
-              	$data=$data.'<div class="d-flex justify-content-between align-items-center">
+              	$data=$data.'</tbody></table></div>                 <div class="d-flex justify-content-between align-items-center">
 
 
               </div>
