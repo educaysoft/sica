@@ -135,7 +135,7 @@ table th, table td {
 
 /* Estilos de la tabla - Alternar colores de fila */
 table tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #fdcaca;
 }
 
 /* Estilos de la tabla - Cabecera */
@@ -143,6 +143,12 @@ table th {
   background-color: #4CAF50;
   color: white;
 }
+
+table tr:last-child {
+	color: #fff;
+	background-color: #000;
+}
+
 
 /* Estilos de la tabla - Responsive */
 @media screen and (max-width: 600px) {
