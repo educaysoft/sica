@@ -315,7 +315,7 @@ foreach($distributivodocentes as $row){
       		<div >
         	<h1 class="fw-light">'.$row->eldepartamento.'</h1>  
         	<p class="lead text-muted">Periodo:'.$row->elperiodoacademico.' :: '.$row->iddistributivo.'.</p>
-        	<p class="lead text-muted">Producción Literaria</p>
+        	<p class="lead text-muted">Distributivo Invidual del Docente</p>
       		</div>
     		</div>
   		</section>
@@ -340,7 +340,7 @@ $file_headers = @get_headers($remoteFile);
 //if(!file_exists($remoteFile)){
 
 if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
- $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/produccionliteraria.jpg"  height="100%" width="100%"/> </svg></a>
+ $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/distributivoindividual.jpg"  height="100%" width="100%"/> </svg></a>
 
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
