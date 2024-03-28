@@ -377,7 +377,7 @@ public function genpagina3()
 	//	array_push($data['jornadadocente'],$arreglo); 
 		$data['docenteactividadacademica']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
-
+  		print_r($data['docenteactividadacademica']);
 
 		$this->load->view('distributivodocente_genpagina3',$data);
 	}
