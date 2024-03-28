@@ -16,6 +16,7 @@ class Distributivodocente extends CI_Controller{
   	  $this->load->model('malla_model');
   	  $this->load->model('silabo_model');
   	  $this->load->model('publicaciondocente_model');
+  	  $this->load->model('docenteactividadacademica_model');
 }
 
 public function index(){
@@ -340,6 +341,59 @@ public function genpagina2()
 		$this->load->view('distributivodocente_genpagina2',$data);
 	}
 }
+
+
+
+
+
+public function genpagina3()
+{
+	$iddistributivo=0;
+
+	$ordenrpt=0;
+	if($this->uri->segment(3))
+	{
+		$iddistributivo=$this->uri->segment(3);
+	 	$data['distributivodocentes']= $this->distributivodocente_model->distributivodocentes1($iddistributivo)->result();
+		$arreglo=array();
+		$i=0;
+		foreach($data['distributivodocentes'] as $row){
+		$iddocente=$row->iddocente;
+		$iddistributivodocente=$row->iddistributivodocente;
+
+	//	$xx=array($this->publicaciondocente_model->publicaciondocentesA($iddocente)->result_array());
+		$xx=array($this->docenteactividadacademica_model->docenteactividadacademicaA($iddistributivodocente)->result_array());
+		if(count($xx[0]) > 0){
+		foreach($xx as $row2){
+			foreach($row2 as $row3)
+			 {
+				$arreglo+=array($i=>array($row->iddocente=>$row3));
+				$i=$i+1;
+			}
+			}
+		}
+		}
+		$data['docenteactividaddocente']=array();
+	//	array_push($data['jornadadocente'],$arreglo); 
+		$data['docenteactividaddocente']=$arreglo; 
+		echo "<br> jornadadocnete<br>" ;
+
+
+		$this->load->view('distributivodocente_genpagina3',$data);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
