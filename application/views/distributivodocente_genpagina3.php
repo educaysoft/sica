@@ -382,18 +382,19 @@ $data=$data.'</div>
     </thead> 
 <tbody>	
     ';
-
+$thoras=0;
 foreach($docenteactividadacademica as $rowj){
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
 
 			$data=$data.'<tr><td>'.$rowj[$row->iddocente]['item'] .'</td><td>'.$rowj[$row->iddocente]['tipoactividad'].'</td><td>'.$rowj[$row->iddocente]['nombreactividad'].'</td><td>'.$rowj[$row->iddocente]['numerohoras'].'</td></tr>';
+			$thoras=$thoras+$rowj[$row->iddocente]['numerohoras'];
 			}	
 	//		echo $rowj; echo '<br>';
 		}
 
 
 
-              	$data=$data.'</tbody></table></div>                 <div class="d-flex justify-content-between align-items-center">
+              	$data=$data.'<tr><td></td><td></td><td>Total horas:</td><td>'.$thoras.'</td></tr>                          </tbody></table></div>                 <div class="d-flex justify-content-between align-items-center">
 
 
               </div>
