@@ -98,7 +98,7 @@ echo form_input('idpersona',$options[$alumno['idpersona']],array("disabled"=>"di
             <b>Departamento del alumno: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('departamentoalumno/add/'.$alumno['idalumno']) ?>">Nueva departamento</a>
+            <a class="btn btn-success" href="<?php echo base_url('matricula/add/'.$alumno['idalumno']) ?>">Nueva departamento</a>
         </div>
     </div>
 </div>

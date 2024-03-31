@@ -344,4 +344,16 @@ alter table departamento add column mision text default "";
 alter table departamento add column vision text default "";
 */
 
-alter table departamentoalumno add column idperiodoacademico int default 0;
+/* alter table departamentoalumno add column idperiodoacademico int default 0; */
+
+
+
+
+
+/*rename table departamentoalumno to matricula;*/
+alter table matricula modify column iddepartamentoalumno int(11);
+alter table matricula drop primary key; 
+alter table matricula change iddepartamentoalumno idmatricula int(11) not null auto_increment primary key; 
+
+
+

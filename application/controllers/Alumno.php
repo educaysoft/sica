@@ -7,7 +7,7 @@ class Alumno extends CI_Controller{
   	  $this->load->model('persona_model');
   	  $this->load->model('departamento_model');
   	  $this->load->model('alumno_model');
-  	  $this->load->model('departamentoalumno_model');
+  	  $this->load->model('matricula_model');
 }
 
 public function index(){
@@ -180,7 +180,7 @@ public function actual(){
 
 
 			$idalumno=$this->input->get('idalumno');
-			$data0 = $this->departamentoalumno_model->lista_departamentoalumnos1($idalumno);
+			$data0 = $this->matricula_model->lista_matriculas1($idalumno);
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idalumno,$r->iddepartamento,$r->eldepartamento,$r->fechadesde,$r->lacorte,
