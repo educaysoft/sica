@@ -156,7 +156,7 @@ $(document).ready(function(){
 
 $('#show_datae').on('click','.item_ver',function(){
 var id= $(this).data('idmatricula');
-var retorno= $(this).data('retornoe');
+var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
 
