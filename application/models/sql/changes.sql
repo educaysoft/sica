@@ -350,10 +350,11 @@ alter table departamento add column vision text default "";
 
 
 
-/*rename table departamentoalumno to matricula;*/
+/*rename table departamentoalumno to matricula;
 alter table matricula modify column iddepartamentoalumno int(11);
 alter table matricula drop primary key; 
 alter table matricula change iddepartamentoalumno idmatricula int(11) not null auto_increment primary key; 
+*/
 
 
-
+ alter table matricula change fechadesde idrepeticion int default 1;

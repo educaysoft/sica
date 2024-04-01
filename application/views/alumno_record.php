@@ -95,10 +95,10 @@ echo form_input('idpersona',$options[$alumno['idpersona']],array("disabled"=>"di
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <b>Departamento del alumno: </b>
+            <b>Matrículas del  alumno: </b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('matricula/add/'.$alumno['idalumno']) ?>">Nueva departamento</a>
+            <a class="btn btn-success" href="<?php echo base_url('matricula/add/'.$alumno['idalumno']) ?>">Nueva matrícula</a>
         </div>
     </div>
 </div>
@@ -107,10 +107,10 @@ echo form_input('idpersona',$options[$alumno['idpersona']],array("disabled"=>"di
 	<table class="table table-striped table-bordered table-hover" id="mydatad">
 	 <thead>
 	 <tr>
+	 <th>idmatricula</th>
 	 <th>idalumno</th>
-	 <th>iddepartamento</th>
 	 <th>departamento</th>
-	 <th>desde</th>
+	 <th>repetida</th>
 	 <th>cohorte</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
@@ -143,7 +143,7 @@ echo form_input('idpersona',$options[$alumno['idpersona']],array("disabled"=>"di
 
 $(document).ready(function(){
 	var idalumno=document.getElementById("idalumno").value;
-	var mytablaf= $('#mydatad').DataTable({"ajax": {url: '<?php echo site_url('alumno/departamento_data')?>', type: 'GET',data:{idalumno:idalumno}},});
+	var mytablaf= $('#mydatad').DataTable({"ajax": {url: '<?php echo site_url('alumno/matricula_data')?>', type: 'GET',data:{idalumno:idalumno}},});
 
 
 });

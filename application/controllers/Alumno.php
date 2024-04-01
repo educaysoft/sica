@@ -172,7 +172,7 @@ public function actual(){
 
 
 
-	function departamento_data()
+	function matricula_data()
 	{
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
@@ -183,8 +183,8 @@ public function actual(){
 			$data0 = $this->matricula_model->lista_matriculas1($idalumno);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idalumno,$r->iddepartamento,$r->eldepartamento,$r->fechadesde,$r->lacorte,
-					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('alumno/actual').'"  data-idalumno="'.$r->idalumno.'">Ver</a>');
+				$data[]=array($r->idmatricula,$r->idalumno,$r->eldepartamento,$r->periodo,$r->idrepeticion,
+					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('alumno/actual').'"  data-idmatricula="'.$r->idmatricula.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
