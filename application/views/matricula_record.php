@@ -74,6 +74,20 @@ echo form_input('idalumno',$options[$matricula['idalumno']],array("disabled"=>"d
 
 
 
+<tr>
+      <td>Repeticion:</td>
+     <td><?php 
+    $options= array("NADA");
+    foreach ($tipomatriculas as $row){
+	      $options[$row->idtipomatricula]= $row->nombre;
+    }
+ 
+
+       echo form_input('idtipomatricula',$options[$matricula['idtipomatricula']],array('disable'=>'disable','placeholder'=>'tipomatricula','style'=>'width:500px;')) ?></td>
+</tr>
+
+
+
   
 <tr>
       <td>Repeticion:</td>

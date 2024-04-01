@@ -50,6 +50,22 @@ foreach ($departamentos as $row){
 
 
 <tr>
+<td> Tipo maticula: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($tipomatriculas as $row){
+	$options[$row->idtipomatricula]= $row->nombre;
+}
+
+ echo form_dropdown("idtipomatricula",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
+
+
+
+<tr>
 <td> Fechadesde: </td>
 <td><?php echo form_input(array("name"=>"fechadesde","id"=>"fechadesde","type"=>"date"));  ?></td>
 </tr>

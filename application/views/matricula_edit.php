@@ -64,6 +64,25 @@ foreach ($periodoacademicos as $row){
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Tipo matricula:</label>
+	<div class="col-md-10">
+		<?php
+$options= array('--Select--');
+foreach ($tipomatriculas as $row){
+	$options[$row->idtipomatricula]= $row->nombre;
+}
+
+ echo form_dropdown("idtipomatricula",$options, $matricula['idtipomatricula']);  
+		?>
+	</div> 
+</div>
+
+
+
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Repeticion:</label>
 	<div class="col-md-10">
 		<?php
