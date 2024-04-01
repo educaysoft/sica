@@ -33,7 +33,7 @@ if(isset($matricula))
 <?php echo form_hidden('idmatricula',$matricula['idmatricula']) ?>
 <table>
   <tr>
-     <td>Id DepartamenteoFuncioanrio:</td>
+     <td>Idmatricula:</td>
      <td><?php echo form_input('idmatricula',$matricula['idmatricula'],array("disabled"=>"disabled",'placeholder'=>'Idmatriculas')) ?></td>
   </tr>
  

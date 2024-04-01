@@ -155,12 +155,12 @@ public function actual()
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 
 
+  		$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
   		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   		$data['tipomatriculas']= $this->tipomatricula_model->lista_tipomatriculas()->result();
 	$data['matricula'] = $this->matricula_model->matricula($this->uri->segment(3))->row_array();
   if(!empty($data))
   {
-  	$data['alumnos']= $this->alumno_model->lista_alumnos()->result();
     $data['title']="Matricula";
     $this->load->view('template/page_header');		
     $this->load->view('matricula_record',$data);
@@ -194,7 +194,7 @@ public function elprimero()
 	$data['matricula'] = $this->matricula_model->elprimero();
   if(!empty($data))
   {
-  	$data['alumnos']= $this->alumno_model->lista_alumnos()->result();
+  	$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
     $data['title']="Matricula";
     $this->load->view('template/page_header');		
     $this->load->view('matricula_record',$data);
@@ -208,7 +208,6 @@ public function elprimero()
 
 public function elultimo()
 {
-
 
 	$data['matricula'] = $this->matricula_model->elultimo();
   	$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
