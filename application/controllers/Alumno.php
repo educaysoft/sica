@@ -184,7 +184,7 @@ public function actual(){
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idmatricula,$r->idalumno,$r->eldepartamento,$r->elperiodo,$r->eltipomatricula,$r->nivelacademico,
-					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('alumno/actual').'"  data-idmatricula="'.$r->idmatricula.'">Ver</a>');
+					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('matricula/actual').'"  data-idmatricula="'.$r->idmatricula.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
