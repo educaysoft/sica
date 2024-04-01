@@ -62,7 +62,7 @@ echo form_input('idalumno',$options[$matricula['idalumno']],array("disabled"=>"d
   
 
 <tr>
-     <td>Cohorte:</td>
+     <td>Periodo:</td>
      <td><?php 
     $options= array("NADA");
     foreach ($periodoacademicos as $row){
