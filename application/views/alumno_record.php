@@ -110,8 +110,9 @@ echo form_input('idpersona',$options[$alumno['idpersona']],array("disabled"=>"di
 	 <th>idmatricula</th>
 	 <th>idalumno</th>
 	 <th>departamento</th>
+	 <th>periodo</th>
+	 <th>tipo</th>
 	 <th>repetida</th>
-	 <th>cohorte</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
