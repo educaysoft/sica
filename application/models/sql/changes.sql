@@ -360,8 +360,9 @@ alter table matricula change iddepartamentoalumno idmatricula int(11) not null a
 /* alter table matricula change fechadesde idrepeticion int default 1; */
 
 
-alter table matricula add column idtipomatricula int default 1;
+/* alter table matricula add column idtipomatricula int default 1; */
 
+ alter table matricula change idrepeticion idnivelacademico int default 1; 
 
 
 

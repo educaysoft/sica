@@ -6,7 +6,7 @@ class Matricula extends CI_Controller{
       parent::__construct();
   	  $this->load->model('alumno_model');
   	  $this->load->model('departamento_model');
-  	  $this->load->model('repeticion_model');
+  	  $this->load->model('nivelacademico_model');
   	  $this->load->model('tipomatricula_model');
   	  $this->load->model('matricula_model');
   	  $this->load->model('periodoacademico_model');
@@ -19,7 +19,7 @@ public function index(){
   		$data['matricula']=$this->matricula_model->lista_matriculas()->row_array();
   		$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  		$data['repeticions']= $this->repeticion_model->lista_repeticions()->result();
+  		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   		$data['tipomatriculas']= $this->tipomatricula_model->lista_tipomatriculas()->result();
   		$data['matriculas']= $this->matricula_model->lista_matriculas()->result();
 		$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
@@ -40,7 +40,7 @@ public function index(){
 	{
 			$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  		$data['repeticions']= $this->repeticion_model->lista_repeticions()->result();
+  		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   		$data['tipomatriculas']= $this->tipomatricula_model->lista_tipomatriculas()->result();
 			$data['title']="Nueva Matricula";
 			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
@@ -57,7 +57,7 @@ public function index(){
 		'idmatricula' => $this->input->post('idmatricula'),
 		'idalumno' => $this->input->post('idalumno'),
 		'iddepartamento' => $this->input->post('iddepartamento'),
-		'idrepeticion' => $this->input->post('idrepeticion'),
+		'idnivelacademico' => $this->input->post('idnivelacademico'),
 		'idtipomatricula' => $this->input->post('idtipomatricula'),
 		'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
@@ -72,7 +72,7 @@ public function index(){
 			$data['matricula'] = $this->matricula_model->matricula($this->uri->segment(3))->row_array();
 			$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
 			$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  		$data['repeticions']= $this->repeticion_model->lista_repeticions()->result();
+  		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   		$data['tipomatriculas']= $this->tipomatricula_model->lista_tipomatriculas()->result();
 			$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos()->result();
 			$data['title'] = "Actualizar Matricula";
@@ -91,7 +91,7 @@ public function index(){
 		 	'idmatricula' => $this->input->post('idmatricula'),
 			'idalumno' => $this->input->post('idalumno'),
 			'iddepartamento' => $this->input->post('iddepartamento'),
-			'idrepeticion' => $this->input->post('idrepeticion'),
+			'idnivelacademico' => $this->input->post('idnivelacademico'),
 		'idtipomatricula' => $this->input->post('idtipomatricula'),
 		'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
@@ -155,7 +155,7 @@ public function actual()
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 
 
-  		$data['repeticions']= $this->repeticion_model->lista_repeticions()->result();
+  		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   		$data['tipomatriculas']= $this->tipomatricula_model->lista_tipomatriculas()->result();
 	$data['matricula'] = $this->matricula_model->matricula($this->uri->segment(3))->row_array();
   if(!empty($data))
@@ -188,7 +188,7 @@ public function elprimero()
   	$data['alumnos']= $this->alumno_model->lista_alumnos()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 
-  		$data['repeticions']= $this->repeticion_model->lista_repeticions()->result();
+  		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   		$data['tipomatriculas']= $this->tipomatricula_model->lista_tipomatriculas()->result();
 
 	$data['matricula'] = $this->matricula_model->elprimero();
@@ -213,7 +213,7 @@ public function elultimo()
 	$data['matricula'] = $this->matricula_model->elultimo();
   	$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  		$data['repeticions']= $this->repeticion_model->lista_repeticions()->result();
+  		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   		$data['tipomatriculas']= $this->tipomatricula_model->lista_tipomatriculas()->result();
   	$data['matriculas']= $this->matricula_model->lista_matriculas()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
@@ -238,7 +238,7 @@ public function siguiente(){
 	$data['matricula'] = $this->matricula_model->siguiente($this->uri->segment(3))->row_array();
   	$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  		$data['repeticions']= $this->repeticion_model->lista_repeticions()->result();
+  		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   		$data['tipomatriculas']= $this->tipomatricula_model->lista_tipomatriculas()->result();
   	$data['matriculas']= $this->matricula_model->lista_matriculas()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
@@ -254,7 +254,7 @@ public function anterior(){
 	$data['matricula'] = $this->matricula_model->anterior($this->uri->segment(3))->row_array();
   	$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
   	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-  		$data['repeticions']= $this->repeticion_model->lista_repeticions()->result();
+  		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   		$data['tipomatriculas']= $this->tipomatricula_model->lista_tipomatriculas()->result();
   	$data['matriculas']= $this->matricula_model->lista_matriculas()->result();
 	$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();

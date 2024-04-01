@@ -50,6 +50,21 @@ foreach ($departamentos as $row){
 
 
 <tr>
+<td> Nivel </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($periodoacademicos as $row){
+	$options[$row->idperiodoacademico]= $row->nombrelargo;
+}
+
+ echo form_dropdown("idperiodoacademico",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
+
+
+
+
+<tr>
 <td> Tipo maticula: </td>
 <td><?php 
 
@@ -62,15 +77,15 @@ foreach ($tipomatriculas as $row){
 </tr>
 
 <tr>
-<td> Repeticon: </td>
+<td> Nivel </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($repeticions as $row){
-	$options[$row->idrepeticion]= $row->nombre;
+foreach ($nivelacademicos as $row){
+	$options[$row->idnivelacademico]= $row->nombre;
 }
 
- echo form_dropdown("idrepeticion",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idnivelacademico",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 

@@ -88,11 +88,11 @@ foreach ($tipomatriculas as $row){
 		<?php
 
 $options= array('--Select--');
-foreach ($repeticions as $row){
-	$options[$row->idrepeticion]= $row->nombre;
+foreach ($nivelacademicos as $row){
+	$options[$row->idnivelacademico]= $row->nombre;
 }
 
- echo form_dropdown("idrepeticion",$options, $matricula['idrepeticion']);  
+ echo form_dropdown("idnivelacademico",$options, $matricula['idnivelacademico']);  
 		?>
 	</div> 
 </div>

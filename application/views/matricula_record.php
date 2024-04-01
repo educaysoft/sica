@@ -93,12 +93,12 @@ echo form_input('idalumno',$options[$matricula['idalumno']],array("disabled"=>"d
       <td>Repeticion:</td>
      <td><?php 
     $options= array("NADA");
-    foreach ($repeticions as $row){
-	      $options[$row->idrepeticion]= $row->nombre;
+    foreach ($nivelacademicos as $row){
+	      $options[$row->idnivelacademico]= $row->nombre;
     }
  
 
-       echo form_input('idrepeticion',$options[$matricula['idrepeticion']],array('disable'=>'disable','placeholder'=>'repeticion','style'=>'width:500px;')) ?></td>
+       echo form_input('idnivelacademico',$options[$matricula['idnivelacademico']],array('disable'=>'disable','placeholder'=>'nivelacademico','style'=>'width:500px;')) ?></td>
 </tr>
 
 
