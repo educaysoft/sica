@@ -72,10 +72,19 @@ echo form_input('idalumno',$options[$matricula['idalumno']],array("disabled"=>"d
  </tr>
 
 
+
+
   
 <tr>
-      <td>Fecha desde:</td>
-      <td><?php echo form_input('fechadesde',$matricula['fechadesde'],array('type'=>'date','placeholder'=>'fechadesde','style'=>'width:500px;')) ?></td>
+      <td>Repeticion:</td>
+     <td><?php 
+    $options= array("NADA");
+    foreach ($repeticions as $row){
+	      $options[$row->idrepeticion]= $row->nombre;
+    }
+ 
+
+       echo form_input('idrepeticion',$options[$matricula['idrepeticion']],array('disable'=>'disable','placeholder'=>'repeticion','style'=>'width:500px;')) ?></td>
 </tr>
 
 
