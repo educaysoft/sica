@@ -159,6 +159,7 @@ public function actual()
   		$data['nivelacademicos']= $this->nivelacademico_model->lista_nivelacademicos()->result();
   		$data['tipomatriculas']= $this->tipomatricula_model->lista_tipomatriculas()->result();
 	$data['matricula'] = $this->matricula_model->matricula($this->uri->segment(3))->row_array();
+		$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
   if(!empty($data))
   {
     $data['title']="Matricula";
@@ -192,6 +193,7 @@ public function elprimero()
   		$data['tipomatriculas']= $this->tipomatricula_model->lista_tipomatriculas()->result();
 
 	$data['matricula'] = $this->matricula_model->elprimero();
+		$data['periodoacademicos'] = $this->periodoacademico_model->lista_periodoacademicos1()->result();
   if(!empty($data))
   {
   	$data['alumnos']= $this->alumno_model->lista_alumnosA()->result();
