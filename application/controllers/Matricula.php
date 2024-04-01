@@ -86,7 +86,7 @@ public function index(){
 		 	'idmatricula' => $this->input->post('idmatricula'),
 			'idalumno' => $this->input->post('idalumno'),
 			'iddepartamento' => $this->input->post('iddepartamento'),
-			'repeticion' => $this->input->post('repeticion'),
+			'idrepeticion' => $this->input->post('idrepeticion'),
 		'idperiodoacademico' => $this->input->post('idperiodoacademico'),
 	 	);
 	 	$this->matricula_model->update($id,$array_item);
