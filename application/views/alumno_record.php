@@ -154,8 +154,8 @@ $(document).ready(function(){
 
 
 
-$('#show_datae').on('click','.item_vere',function(){
-var id= $(this).data('idestudio');
+$('#show_datae').on('click','.item_ver',function(){
+var id= $(this).data('idmatricula');
 var retorno= $(this).data('retornoe');
 window.location.href = retorno+'/'+id;
 });
