@@ -61,14 +61,21 @@ foreach ($tipomatriculas as $row){
  echo form_dropdown("idtipomatricula",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
-
-
-
-
 <tr>
-<td> Fechadesde: </td>
-<td><?php echo form_input(array("name"=>"fechadesde","id"=>"fechadesde","type"=>"date"));  ?></td>
+<td> Repeticon: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($repeticions as $row){
+	$options[$row->idrepeticion]= $row->nombre;
+}
+
+ echo form_dropdown("idrepeticion",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
+
+
+
+
 
 
 
