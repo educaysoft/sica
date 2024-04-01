@@ -62,14 +62,27 @@ foreach ($periodoacademicos as $row){
 	</div> 
 </div>
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Repeticion:</label>
+	<div class="col-md-10">
+		<?php
+
+$options= array('--Select--');
+foreach ($repeticions as $row){
+	$options[$row->idrepeticion]= $row->nombre;
+}
+
+ echo form_dropdown("idrepeticion",$options, $matricula['idrepeticion']);  
+		?>
+	</div> 
+</div>
+
+
+
+
+
 <table>
-
-
-<tr>
-      <td>Fecha desde:</td>
-      <td><?php echo form_input( array("name"=>'fechadesde',"id"=>'fechadesde',"value"=>$matricula['fechadesde'],'placeholder'=>'fechadesde',"type"=>"date")); ?></td>
-  </tr>
-
  
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('matricula','Atras') ?></td>
