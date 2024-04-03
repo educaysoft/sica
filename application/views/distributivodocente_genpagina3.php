@@ -304,15 +304,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
-
-
-
-	
-
-
-
-
 </script>
     <script src="https://congresoutlvte.org/assets/dist/js/bootstrap.bundle.min.js"></script>
       
@@ -471,6 +462,7 @@ foreach($docenteactividadacademica as $rowj){
 }
 
 
+	 	$data=$data.$data1;
 
 			$file='application/views/cursos/distributivo-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.php';
 
