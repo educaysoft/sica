@@ -334,7 +334,7 @@ foreach($distributivodocentes as $row){
 		<html lang="en">
   		<head>
     		<meta charset="utf-8">
-    		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-----		<meta name="viewport" content="width=device-width, initial-scale=1">  ---->
     		<meta name="description" content="">
     		<meta name="author" content="Stalin Francis Quinde">
     		<meta name="generator" content="Hugo 0.101.0">
@@ -463,6 +463,7 @@ foreach($docenteactividadacademica as $rowj){
 }
 
 
+$data1= str_replace('<xxxx>',$thc,$data1);
 	 	$data=$data.$data1;
 
 			$file='application/views/cursos/distributivo-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.php';
