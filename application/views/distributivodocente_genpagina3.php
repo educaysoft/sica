@@ -190,21 +190,23 @@ table tr:last-child {
 
    
 .texto {
-    font-size: 16px;
+
+font-size: 16px;
     line-height: 1.6;
-    position: relative;
-    z-index: 1; /* Asegura que el texto esté sobre el mensaje emergente */
+
 }
 
 .popup {
-    display: none;
-    position: absolute;
+ display: none;
+    position: fixed;
     background-color: #ffcc00; /* color de fondo del mensaje */
     color: #333; /* color de texto del mensaje */
     padding: 10px; /* ajusta el relleno según sea necesario */
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* sombra del mensaje */
-    z-index: 2; /* asegura que el mensaje esté sobre el texto */
+    z-index: 9999; /* asegura que el mensaje esté sobre otros elementos */ 
+
+
 }
 
 
