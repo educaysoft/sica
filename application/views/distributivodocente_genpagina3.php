@@ -439,7 +439,7 @@ foreach($docenteactividadacademica as $rowj){
 
 			$data=$data.'<tr><td>'.$rowj[$row->iddocente]['item'] .'</td><td>'.$rowj[$row->iddocente]['tipoactividad'].'</td><td>'.$rowj[$row->iddocente]['nombreactividad'].'</td><td><div class="container"><p class="texto">'.$rowj[$row->iddocente]['numerohoras'].'</p><div class="popup" id="popup"> <span class="popup-text">'.$rowj[$row->iddocente]['detalle'].'</span></div></div></td></tr>';
 			$thoras=$thoras+$rowj[$row->iddocente]['numerohoras'];
-			if($rowj[$row->iddocente]['item']=='4.1.1')
+			if(trim($rowj[$row->iddocente]['item'])=='4.1.1')
 			{
 			$thc=$thc+$rowj[$row->iddocente]['numerohoras']; // thc = total hora clase
 			}
