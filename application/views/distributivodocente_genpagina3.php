@@ -268,7 +268,7 @@ $data1='</div>
     <p class="float-end mb-1">
       <a href="#">Back to top</a>
     </p>
-     <p class="mb-1">Este sitio web que presenta <xxxx>/<yyyy> clases, es parte del producto del <b>PROYECTO DE AULA</b> titulado <a href="https://repositorioutlvte.org/Repositorio/2024-01-15-FQSA-01627.pdf"> <b> "Diseño y Desarrollo de una plataforma web para la Gestión de la información Académica"</b></a> </p>
+     <p class="mb-1">Este sitio web que presenta <xxxx> horas clases docencia, es parte del producto del <b>PROYECTO DE AULA</b> titulado <a href="https://repositorioutlvte.org/Repositorio/2024-01-15-FQSA-01627.pdf"> <b> "Diseño y Desarrollo de una plataforma web para la Gestión de la información Académica"</b></a> </p>
     <p class="mb-0">El proyecto fue realizado con la participación de <a href="https://educaysoft.org/sica/evento/participantes/350"> 4-B Base de Datos I</a> ,<a href="https://educaysoft.org/sica/evento/participantes/356"> 5to-A</a> y <a href="https://educaysoft.org/sica/evento/participantes/357">5to-B</a>  Ingenieria de Software I en el periodo 2023-1S, cuyo tutor fue el Ing. Stalin Francis Msc., Docente de las Asignaturas.</p>
   </div>
 </footer>
@@ -321,8 +321,9 @@ $elperiodoacademico="";
 $inicio=1;
 $i=0;
 $j=0;
-
+$thc=0;
 $arrcolor=array(1=>"#F68081",2=>"#F5DA81",3=>"#A9F5A9",4=>"#A9F4F3",5=>"#CFCEF7",6=>"#D1A9F4",7=>"#F5A8F3",8=>"#80DBF5",9=>"#9BFE2F",10=>"#9BFE2F");
+
 foreach($distributivodocentes as $row){
 	
 
@@ -354,7 +355,7 @@ foreach($distributivodocentes as $row){
   		<section class="py-5 text-center container">
     		<div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: center;" >
 		<div style=" flex-basis: 40%"  >
-		<img src="https://repositorioutlvte.org/Repositorio/qr/docentes-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.png" height="150px">
+		<img src="https://repositorioutlvte.org/Repositorio/qr/distributivo-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.png" height="150px">
 		</div>
       		<div >
         	<h1 class="fw-light">'.$row->eldepartamento.'</h1>  
@@ -433,7 +434,6 @@ $data=$data.'</div>
 <tbody>	
     ';
 	$thoras=0;
-	$thc=0;
 foreach($docenteactividadacademica as $rowj){
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
 
