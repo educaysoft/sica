@@ -282,7 +282,9 @@ $data1='</div>
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    const texto = document.querySelector(".texto");
+   
+	alert("funcion");
+ const texto = document.querySelector(".texto");
     const popup = document.querySelector("#popup");
 
     texto.addEventListener("mouseover", function() {
