@@ -270,18 +270,6 @@ $data1='</div>
 
 <script type="text/javascript">
 
-$(".submenu").click(function(){
-  $(this).children("ul").slideToggle();
-})
-
-$("ul").click(function(ev){
-  ev.stopPropagation();
-})
-
-function cargarVideo(url){
-        document.getElementById("slider").src=url;
-}
-
 
 
 document.addEventListener("DOMContentLoaded", function() {
