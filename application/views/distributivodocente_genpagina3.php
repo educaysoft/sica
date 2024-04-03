@@ -282,23 +282,23 @@ $data1='</div>
 
 
 document.addEventListener("DOMContentLoaded", function() {
-   
-	alert("funcion");
- const texto = document.querySelector(".texto");
-    const popup = document.querySelector("#popup");
+    const textos = document.querySelectorAll(".texto");
 
-    texto.addEventListener("mouseover", function() {
-        const textoRect = texto.getBoundingClientRect();
-        popup.style.top = `${textoRect.top - popup.offsetHeight}px`;
-        popup.style.left = `${textoRect.left}px`;
-        popup.style.display = "block";
-    });
-    
-    texto.addEventListener("mouseout", function() {
-        popup.style.display = "none";
+    textos.forEach(function(texto) {
+        const popup = texto.nextElementSibling;
+
+        texto.addEventListener("mouseover", function() {
+            const textoRect = texto.getBoundingClientRect();
+            popup.style.top = `${textoRect.top - popup.offsetHeight}px`;
+            popup.style.left = `${textoRect.left}px`;
+            popup.style.display = "block";
+        });
+
+        texto.addEventListener("mouseout", function() {
+            popup.style.display = "none";
+        });
     });
 });
-
 
 
 
