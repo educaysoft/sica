@@ -451,7 +451,7 @@ $data=$data.'</div>
 foreach($docenteactividadacademica as $rowj){
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
 
-			$data=$data.'<tr><td>'.$rowj[$row->iddocente]['item'] .'</td><td>'.$rowj[$row->iddocente]['tipoactividad'].'</td><td>'.$rowj[$row->iddocente]['nombreactividad'].'</td><td><div class="container"><p class="texto">'.$rowj[$row->iddocente]['numerohoras'].'</p><div class="popup" id="popup"> <span class="popup-text">'.$rowj[$row->iddocente]['detalle'].'</span></div></div></td></tr>';
+			$data=$data.'<tr><td>'.$rowj[$row->iddocente]['item'] .'</td><td>'.$rowj[$row->iddocente]['tipoactividad'].'</td><td>'.$rowj[$row->iddocente]['nombreactividad'].'</td><td></td></tr>';
 			$thoras=$thoras+$rowj[$row->iddocente]['numerohoras'];
 			if($rowj[$row->iddocente]['item']=='4.1.1')
 			{
