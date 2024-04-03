@@ -177,6 +177,33 @@ table tr:last-child {
 
 
 
+/* para los mensaje popup */
+
+.container {
+    position: relative;
+    width: 300px; /* ajusta el ancho según sea necesario */
+    margin: 0 auto;
+    padding-top: 50px; /* espacio para el mensaje emergente */
+}
+    
+.texto {
+    font-size: 16px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1; /* Asegura que el texto esté sobre el mensaje emergente */
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    background-color: #ffcc00; /* color de fondo del mensaje */
+    color: #333; /* color de texto del mensaje */
+    padding: 10px; /* ajusta el relleno según sea necesario */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* sombra del mensaje */
+    z-index: 2; /* asegura que el mensaje esté sobre el texto */
+}
+
 
 
 
@@ -260,6 +287,37 @@ $("ul").click(function(ev){
 function cargarVideo(url){
         document.getElementById("slider").src=url;
 }
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const texto = document.querySelector(".texto");
+    const popup = document.querySelector("#popup");
+
+    texto.addEventListener("mouseover", function() {
+        const textoRect = texto.getBoundingClientRect();
+        popup.style.top = `${textoRect.top - popup.offsetHeight}px`;
+        popup.style.left = `${textoRect.left}px`;
+        popup.style.display = "block";
+    });
+    
+    texto.addEventListener("mouseout", function() {
+        popup.style.display = "none";
+    });
+});
+
+
+
+
+
+
+
+
+
+	
+
+
+
 
 </script>
     <script src="https://congresoutlvte.org/assets/dist/js/bootstrap.bundle.min.js"></script>
@@ -388,12 +446,18 @@ $data=$data.'</div>
     </thead> 
 <tbody>	
     ';
-$thoras=0;
+	$thoras=0;
+	$thc=0;
 foreach($docenteactividadacademica as $rowj){
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
 
-			$data=$data.'<tr><td>'.$rowj[$row->iddocente]['item'] .'</td><td>'.$rowj[$row->iddocente]['tipoactividad'].'</td><td>'.$rowj[$row->iddocente]['nombreactividad'].'</td><td>'.$rowj[$row->iddocente]['numerohoras'].'</td></tr>';
+			$data=$data.'<tr><td>'.$rowj[$row->iddocente]['item'] .'</td><td>'.$rowj[$row->iddocente]['tipoactividad'].'</td><td>'.$rowj[$row->iddocente]['nombreactividad'].'</td><td><div class="container"><span class="texto">'.$rowj[$row->iddocente]['numerohoras'].'</span><div class="popup" id="popup"> <span class="popup-text">'.$rowj[$row->iddocente]['detalle'].'</span></div></div></td></tr>';
 			$thoras=$thoras+$rowj[$row->iddocente]['numerohoras'];
+			if($rowj[$row->iddocente]['item']=='4.1.1')
+			{
+			$thc=$thc+$rowj[$row->iddocente]['numerohoras']; // thc = total hora clase
+			}
+
 			}	
 	//		echo $rowj; echo '<br>';
 		}
@@ -459,6 +523,28 @@ body {font-family: Arial, Helvetica, sans-serif;}
     width: 80%;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
 
 
@@ -512,7 +598,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
  </div>
 
-
+echo $thc;
 
 <script type="text/javascript">
 
@@ -526,6 +612,21 @@ $('#show_data').on('click','.item_ver',function(){
 	var retorno= $(this).data('retorno');
 	window.location.href = retorno+'/'+id;
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </script>
