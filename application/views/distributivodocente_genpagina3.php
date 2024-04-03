@@ -179,6 +179,15 @@ table tr:last-child {
 
 /* para los mensaje popup */
 
+.containerm {
+    position: relative;
+    width: 300px; /* ajusta el ancho según sea necesario */
+    margin: 0 auto;
+    padding-top: 50px; /* espacio para el mensaje emergente */
+}
+
+
+
    
 .texto {
     font-size: 16px;
@@ -424,7 +433,7 @@ $data=$data.'</div>
 foreach($docenteactividadacademica as $rowj){
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
 
-			$data=$data.'<tr><td>'.$rowj[$row->iddocente]['item'] .'</td><td>'.$rowj[$row->iddocente]['tipoactividad'].'</td><td>'.$rowj[$row->iddocente]['nombreactividad'].'</td><td><div class="container"><p class="texto">'.$rowj[$row->iddocente]['numerohoras'].'</p><div class="popup" id="popup"> <span class="popup-text">'.$rowj[$row->iddocente]['detalle'].'</span></div></div></td></tr>';
+			$data=$data.'<tr><td>'.$rowj[$row->iddocente]['item'] .'</td><td>'.$rowj[$row->iddocente]['tipoactividad'].'</td><td>'.$rowj[$row->iddocente]['nombreactividad'].'</td><td><div class="containerm"><p class="texto">'.$rowj[$row->iddocente]['numerohoras'].'</p><div class="popup" id="popup"> <span class="popup-text">'.$rowj[$row->iddocente]['detalle'].'</span></div></div></td></tr>';
 			$thoras=$thoras+$rowj[$row->iddocente]['numerohoras'];
 			if($rowj[$row->iddocente]['item']=='4.1.1')
 			{
