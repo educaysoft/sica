@@ -87,7 +87,15 @@ $textarea_options = array('class' => 'form-control',"disabled"=>"disabled",  'st
 
 
 
- 
+ <div class="form-group row">
+<label class="col-md-2 col-form-label">Detalle</label>
+	<div class="col-md-10">
+		<?php
+$textarea_options = array('class' => 'form-control',"disabled"=>"disabled",  'style'=> 'width:500px;');    
+     echo form_input('detalle',$docenteactividadacademica['detalle'],$textarea_options);
+		?>
+	</div> 
+</div>
 
 
 

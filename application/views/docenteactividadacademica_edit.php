@@ -45,6 +45,12 @@ foreach ($actividadacademicas as $row){
   </tr>
 
 
+<tr>
+      <td>Detalle:</td>
+<?php $textarea_options = array('class' => 'form-control',  'style'=> 'width:500px;'); ?>    
+      <td><?php echo form_input('detalle',$docenteactividadacademica['detalle'],$textarea_options);    ?></td>
+  </tr>
+
 
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('docenteactividadacademica','Atras') ?></td>

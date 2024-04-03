@@ -38,7 +38,10 @@ foreach ($actividadacademicas as $row){
 <td><?php echo form_input("numerohoras","", array("placeholder"=>"Numero de horas semanales"))  ?></td>
 </tr>
 
-
+<tr>
+<td> Detalle: </td>
+<td><?php echo form_input("detalle","", array("placeholder"=>"detalle"))  ?></td>
+</tr>
 
 
 <tr>

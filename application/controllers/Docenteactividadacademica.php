@@ -82,6 +82,7 @@ public function add()
 		 	
 		 	'iddocenteactividadacademica' => $this->input->post('iddocenteactividadacademica'),
 		 	'numerohoras' => $this->input->post('numerohoras'),
+		 	'detalle' => $this->input->post('detalle'),
 			'iddistributivodocente' => $this->input->post('iddistributivodocente'),
 			'idactividadacademica' => $this->input->post('idactividadacademica'),
 	 	);
@@ -112,6 +113,7 @@ public function edit()
 		 	
 		 	'iddocenteactividadacademica' => $this->input->post('iddocenteactividadacademica'),
 		 	'numerohoras' => $this->input->post('numerohoras'),
+		 	'detalle' => $this->input->post('detalle'),
 			'iddistributivodocente' => $this->input->post('iddistributivodocente'),
 			'idactividadacademica' => $this->input->post('idactividadacademica'),
 	 	);
