@@ -190,7 +190,7 @@ function asignaturadocente_data()
 			$data0 =$this->jornadadocente_model->jornadadocentes($idasignaturadocente);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idasignaturadocente,$r->idjornadadocente,$r->nombre,$r->horainicio,$r->duracionminutos,
+				$data[]=array($r->idasignaturadocente,$r->idjornadadocente,$r->nombre,$r->horainicio,$r->duracionminutos,$r->elaula,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('jornadadocente/actual').'"    data-idjornadadocente="'.$r->idjornadadocente.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
