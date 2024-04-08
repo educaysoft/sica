@@ -141,6 +141,7 @@ echo form_input('iddistributivodocente',$asignaturadocente['iddistributivodocent
 	 <th>nombre</th>
 	 <th>horainicio</th>
 	 <th>duracion</th>
+	 <th>aula</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
