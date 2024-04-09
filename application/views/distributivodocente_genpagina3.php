@@ -134,9 +134,9 @@ table th, table td {
 }
 
 /* Estilos de la tabla - Alternar colores de fila */
-table tbody tr:nth-child(even) {
+/*table tbody tr:nth-child(even) {
   background-color: #fdcaca;
-}
+} */
 
 /* Estilos de la tabla - Cabecera */
 table th {
@@ -320,7 +320,7 @@ document.addEventListener("DOMContentLoaded", function() {
         } else if (tipo == "Vinculación") {
           filas[i].classList.add("vinculacion");
         } else if (tipo == "Gestión") {
-          filas[i].classList.add("vinculacion");
+          filas[i].classList.add("gestion");
         } else {
         }
       }
