@@ -149,6 +149,22 @@ table tr:last-child {
 	background-color: #000;
 }
 
+.docencia {
+  background-color: lightgreen;
+}
+.investigacion {
+  background-color: yellow;
+}
+.vinculacion {
+  background-color: salmon;
+}
+
+.gestion {
+  background-color: lightblue;
+}
+
+
+
 
 /* Estilos de la tabla - Responsive */
 @media screen and (max-width: 600px) {
@@ -285,6 +301,38 @@ $data1='</div>
 
 document.addEventListener("DOMContentLoaded", function() {
     const textos = document.querySelectorAll(".texto");
+  var tablas = document.querySelectorAll(".miTabla");
+
+//color a fila de tabla
+ tablas.forEach(function(tabla) {
+    var filas = tabla.getElementsByTagName("tr");
+
+    for (var i = 0; i < filas.length; i++) {
+      var celda = filas[i].querySelector(".tipo");
+
+      if (celda) {
+        var tipo = parseInt(celda.textContent || celda.innerText);
+
+        if (tipo == Docencia) {
+          filas[i].classList.add("docencia");
+        } else if (tipo == Investigación) {
+          filas[i].classList.add("investigacion");
+        } else if (tipo == Vinculación) {
+          filas[i].classList.add("vinculacion");
+        } else if (tipo == Gestión) {
+          filas[i].classList.add("vinculacion");
+        } else {
+        }
+      }
+    }
+  });
+
+
+
+
+
+
+//para mostra mensaje en una campo de una tabl
 
     textos.forEach(function(texto) {
         const popup = texto.nextElementSibling;
@@ -422,7 +470,7 @@ $data=$data.'</div>
 
 
 <div class="tabla-container">
-  <table>
+  <table class="miTabla">
     <thead>
       <tr>
         <th>item</th>
@@ -437,7 +485,7 @@ $data=$data.'</div>
 foreach($docenteactividadacademica as $rowj){
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
 
-			$data=$data.'<tr><td>'.$rowj[$row->iddocente]['item'] .'</td><td>'.$rowj[$row->iddocente]['tipoactividad'].'</td><td>'.$rowj[$row->iddocente]['nombreactividad'].'</td><td><div class="container"><p class="texto">'.$rowj[$row->iddocente]['numerohoras'].'</p><div class="popup" id="popup"> <span class="popup-text">'.$rowj[$row->iddocente]['detalle'].'</span></div></div></td></tr>';
+			$data=$data.'<tr><td>'.$rowj[$row->iddocente]['item'] .'</td><td class="tipo">'.$rowj[$row->iddocente]['tipoactividad'].'</td><td>'.$rowj[$row->iddocente]['nombreactividad'].'</td><td><div class="container"><p class="texto">'.$rowj[$row->iddocente]['numerohoras'].'</p><div class="popup" id="popup"> <span class="popup-text">'.$rowj[$row->iddocente]['detalle'].'</span></div></div></td></tr>';
 			$thoras=$thoras+$rowj[$row->iddocente]['numerohoras'];
 			if(trim($rowj[$row->iddocente]['item'])=='4.1.1')
 			{
