@@ -311,7 +311,7 @@ document.addEventListener("DOMContentLoaded", function() {
       var celda = filas[i].querySelector(".tipo");
 
       if (celda) {
-        var tipo = parseInt(celda.textContent || celda.innerText);
+	var tipo = celda.textContent.trim();   // parseInt(celda.textContent || celda.innerText);
 
         if (tipo == "Docencia") {
           filas[i].classList.add("docencia");
