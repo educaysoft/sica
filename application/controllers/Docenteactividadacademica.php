@@ -34,7 +34,7 @@ public function actual(){
  if(isset($this->session->userdata['logged_in'])){
 
 	$data['docenteactividadacademica'] = $this->docenteactividadacademica_model->docenteactividadacademica($this->uri->segment(3))->row_array();
-  	$data['distributivodocentes']= $this->distributivodocente_model->lista_distributivodocentes()->result();
+  	$data['distributivodocentes']= $this->distributivodocente_model->lista_distributivodocentesA()->result();
   	$data['actividadacademicas']= $this->actividadacademica_model->lista_actividadacademicas()->result();
 	$data['title']="Modulo de Telefonos";
 	$this->load->view('template/page_header');		
