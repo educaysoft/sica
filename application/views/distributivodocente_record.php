@@ -169,7 +169,7 @@ echo form_input('idtiempodedicacion',$options[$distributivodocente['idtiempodedi
     </div>
 </div>
 
-
+h
 	<table class="table table-striped table-bordered table-hover" id="mydataad">
 	 <thead>
 	 <tr>
@@ -385,6 +385,12 @@ $.ajax({url: '<?php echo site_url('evento/save')?>',
 
 $('#show_data').on('click','.item_ver',function(){
 var id= $(this).data('idasignaturadocente');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+$('#show_dataad').on('click','.item_ver',function(){
+var id= $(this).data('iddocenteactividadacademica');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
