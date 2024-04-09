@@ -315,11 +315,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (tipo == Docencia) {
           filas[i].classList.add("docencia");
-        } else if (tipo == Investigación) {
+        } else if (tipo == "Investigación") {
           filas[i].classList.add("investigacion");
-        } else if (tipo == Vinculación) {
+        } else if (tipo == "Vinculación") {
           filas[i].classList.add("vinculacion");
-        } else if (tipo == Gestión) {
+        } else if (tipo == "Gestión") {
           filas[i].classList.add("vinculacion");
         } else {
         }
