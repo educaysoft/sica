@@ -313,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function() {
       if (celda) {
         var tipo = parseInt(celda.textContent || celda.innerText);
 
-        if (tipo == Docencia) {
+        if (tipo == "Docencia") {
           filas[i].classList.add("docencia");
         } else if (tipo == "Investigación") {
           filas[i].classList.add("investigacion");
