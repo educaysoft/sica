@@ -17,6 +17,7 @@ class Distributivodocente extends CI_Controller{
   	  $this->load->model('silabo_model');
   	  $this->load->model('publicaciondocente_model');
   	  $this->load->model('docenteactividadacademica_model');
+  	  $this->load->model('trabajointegracioncurricular_model');
 }
 
 public function index(){
