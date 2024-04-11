@@ -252,12 +252,12 @@ foreach($distributivodocentes as $row){
   		<section class="py-5 text-center container">
     		<div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: center;" >
 		<div style=" flex-basis: 40%"  >
-		<img src="https://repositorioutlvte.org/Repositorio/qr/docentes-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.png" height="150px">
+		<img src="https://repositorioutlvte.org/Repositorio/qr/integracion-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.png" height="150px">
 		</div>
       		<div >
         	<h1 class="fw-light">'.$row->eldepartamento.'</h1>  
         	<p class="lead text-muted">Periodo:'.$row->elperiodoacademico.' :: '.$row->iddistributivo.'.</p>
-        	<p class="lead text-muted">Producción Literaria</p>
+        	<p class="lead text-muted">Trabajos de Integración Curricular</p>
       		</div>
     		</div>
   		</section>
@@ -282,7 +282,7 @@ $file_headers = @get_headers($remoteFile);
 //if(!file_exists($remoteFile)){
 
 if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
- $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/produccionliteraria.jpg"  height="100%" width="100%"/> </svg></a>
+ $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/integracioncurricular.jpg"  height="100%" width="100%"/> </svg></a>
 
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
