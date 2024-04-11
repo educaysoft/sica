@@ -405,8 +405,8 @@ public function genpagina4()
 		foreach($data['distributivodocentes'] as $row){
 		$iddocente=$row->iddocente;
 
-	//	$arreglo[$row->iddocente]=$this->publicaciondocente_model->publicaciondocentesA($iddocente)->row_array();
-		$xx=array($this->publicaciondocente_model->publicaciondocentesA($iddocente)->result_array());
+	//	$arreglo[$row->iddocente]=$this->trabajointegracioncurricular_model->trabajointegracioncurricularsA($iddocente)->row_array();
+		$xx=array($this->trabajointegracioncurricular_model->trabajointegracioncurricularsA($iddocente)->result_array());
 		if(count($xx[0]) > 0){
 		foreach($xx as $row2){
 			foreach($row2 as $row3)
@@ -417,15 +417,15 @@ public function genpagina4()
 			}
 		}
 		}
-		$data['publicaciondocente']=array();
+		$data['trabajointegracioncurricular']=array();
 	//	array_push($data['jornadadocente'],$arreglo); 
-		$data['publicaciondocente']=$arreglo; 
+		$data['trabajointegracioncurricular']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
 
-//		print_r(	$data['publicaciondocente']);
+//		print_r(	$data['trabajointegracioncurricular']);
 //		die();
 
-		$this->load->view('distributivodocente_genpagina2',$data);
+		$this->load->view('distributivodocente_genpagina4',$data);
 	}
 }
 
