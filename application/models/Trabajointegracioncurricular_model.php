@@ -83,6 +83,25 @@ class Trabajointegracioncurricular_model extends CI_model {
 	}
 
 
+
+	//Retorna todos los registros como un objeto
+	function trabajointegracioncurricularsA($iddocente){
+		
+		if($iddocente==0)
+		{
+		$trabajointegracioncurricular=$this->db->order_by("idtrabajointegracioncurricular")->get('trabajointegracioncurricular2');
+		}else{
+
+		$this->db->where('iddocente='.$iddocente);
+		$trabajointegracioncurricular=$this->db->order_by("iddocente")->get('trabajointegracioncurricular2');
+		}
+		 return $trabajointegracioncurricular;
+	}
+
+
+
+
+
 	function lista_facturas($idtipotrabajointegracioncurricular){
 		
 		if($idtipotrabajointegracioncurricular==0)
