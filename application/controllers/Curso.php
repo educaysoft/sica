@@ -330,6 +330,11 @@ class Curso extends CI_Controller{
 	  $this->load->view('cursos/trabajos-2023-2S-19');
 	}
 
+	public function portafolio_2023_2S_19()
+	{
+	  $this->load->view('cursos/portafolio-2023-2S-19');
+	}
+
 
 
 
