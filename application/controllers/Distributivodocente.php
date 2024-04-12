@@ -18,6 +18,8 @@ class Distributivodocente extends CI_Controller{
   	  $this->load->model('publicaciondocente_model');
   	  $this->load->model('docenteactividadacademica_model');
   	  $this->load->model('trabajointegracioncurricular_model');
+  	  $this->load->model('documentoportafolio_model');
+
 }
 
 public function index(){
@@ -434,6 +436,41 @@ public function genpagina4()
 
 
 
+
+public function genpagina5()
+{
+	$iddistributivo=0;
+
+	$ordenrpt=0;
+	if($this->uri->segment(3))
+	{
+		$iddistributivo=$this->uri->segment(3);
+	 	$data['distributivodocentes']= $this->distributivodocente_model->distributivodocentes1($iddistributivo)->result();
+		$arreglo=array();
+		$i=0;
+		foreach($data['distributivodocentes'] as $row){
+		$iddocente=$row->iddocente;
+
+		$xx=array($this->documentoportafolio_model->documentoportafoliodocente($iddocente,$row->idperiodoacademico)->result_array());
+		if(count($xx[0]) > 0){
+		foreach($xx as $row2){
+			foreach($row2 as $row3)
+			 {
+				$arreglo+=array($i=>array($row->iddocente=>$row3));
+				$i=$i+1;
+			}
+			}
+		}
+		}
+		$data['documentoportafolio']=array();
+	//	array_push($data['jornadadocente'],$arreglo); 
+		$data['documentoportafolio']=$arreglo; 
+		echo "<br> jornadadocnete<br>" ;
+
+
+		$this->load->view('distributivodocente_genpagina5',$data);
+	}
+}
 
 
 
