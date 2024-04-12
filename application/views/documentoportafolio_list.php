@@ -53,7 +53,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <th>ID</th>
  <th>iddocumento</th>
  <th>Asunto</th>
- <th>Fecha</th>
+ <th>periodo</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>

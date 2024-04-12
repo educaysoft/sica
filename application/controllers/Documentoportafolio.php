@@ -147,7 +147,7 @@ function documentoportafolio_data()
 	 	$data0 = $this->documentoportafolio_model->lista_documentoportafoliosA(0);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->iddocumentoportafolio,$r->iddocumento,$r->asunto,$r->fechaelaboracion,
+			$data[]=array($r->iddocumentoportafolio,$r->iddocumento,$r->asunto,$r->elperiodo,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('documentoportafolio/actual').'"  data-iddocumentoportafolio="'.$r->iddocumentoportafolio.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
