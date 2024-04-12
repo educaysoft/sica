@@ -192,9 +192,9 @@ $data1='</div>
 
 <script type="text/javascript">
 
-$(".submenu").click(function(){
-  $(this).children("ul").slideToggle();
-})
+//$(".submenu").click(function(){
+//  $(this).children("ul").slideToggle();
+//})
 
 $("ul").click(function(ev){
   ev.stopPropagation();
