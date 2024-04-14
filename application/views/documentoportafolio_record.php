@@ -122,8 +122,8 @@ foreach ($docenteactividadacademicas as $row){
 <script>
 function verpdf(){
 
-	var orde=<?php echo $elordenador; ?>; 
-	var dire=<?php echo $eldirectorio; ?>;  
+	var orde='<?php echo $elordenador; ?>'; 
+	var dire='<?php echo $eldirectorio; ?>';  
 var ordenador = "https://"+orde;
 var ubicacion=dire;
 if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
@@ -131,7 +131,7 @@ if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
 }else{
 	ubicacion = ordenador+ubicacion;
 }
-var archi=<?php echo $archivopdf; ?>;
+var archi='<?php echo $archivopdf; ?>';
 var archivo =archi;
 var certi= ubicacion.trim()+archivo.trim();
 window.location.href = certi;
