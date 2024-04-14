@@ -17,7 +17,7 @@ public function index(){
   	if(isset($this->session->userdata['logged_in'])){
 			
   	$data['documentoportafolio']=$this->documentoportafolio_model->elultimo();
-	$data['documentos']= $this->documento_model->lista_documentos()->result();
+	$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
 	$data['docente']= $this->docente_model->docentespersona($data['documentoportafolio']['idpersona'])->row_array();
   	$data['portafolio']= $this->portafolio_model->lista_portafoliosA($data['documentoportafolio']['idportafolio'])->row_array();
   	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();

@@ -13,6 +13,7 @@ if(isset($documentoportafolio) and !empty($documentoportafolio))
         <li> <?php echo anchor('documentoportafolio/edit/'.$documentoportafolio['iddocumentoportafolio'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('documentoportafolio/delete/'.$documentoportafolio['iddocumentoportafolio'],'Delete'); ?></li>
         <li> <?php echo anchor('documentoportafolio/listar/','Listar'); ?></li>
+        <li> <?php echo "<a onclick='verpdf()'>Ver PDF</a>" ?></li>
         <li> <?php echo anchor('documentoportafolio/listar_doce/','Portafolio'); ?></li>
         <li> <?php echo anchor('documentoportafolio/reportepdf/'.$documentoportafolio['iddocumentoportafolio'],'Reporte'); ?></li>
 
@@ -48,12 +49,21 @@ if(isset($documentoportafolio) and !empty($documentoportafolio))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Documento:</label>
+    <label class="col-md-2 col-form-label"><a href= "<?php echo base_url(); ?>documento/actual/<?php echo $documentoportafolio['iddocumento']; ?> "   >Documento: &#x1F448;</a>  </label>
 	<div class="col-md-10">
      <?php 
+
+
+	$elordenador='';
+	$eldirectorio='';
+	$archivopdf='';
+
 $options= array("NADA");
 foreach ($documentos as $row){
 	$options[$row->iddocumento]= $row->asunto;
+	$elordenador=$row->elordenador;
+	$eldirectorio=$row->ruta;
+	$archivopdf=$row->archivopdf;
 }
 
 echo form_input('iddocumento',$options[$documentoportafolio['iddocumento']],array("id"=>"iddocumento","disabled"=>"disabled", "style"=>"width:500px")); ?>
@@ -109,9 +119,30 @@ foreach ($docenteactividadacademicas as $row){
 <?php echo form_close(); ?>
 
 
+<script>
+function verpdf(){
+
+	var orde=<?php echo $elordenador; ?>; 
+	var dire=<?php echo $eldirectorio; ?>;  
+var ordenador = "https://"+orde;
+var ubicacion=dire;
+if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+        ubicacion = ordenador+"/"+ubicacion;
+}else{
+	ubicacion = ordenador+ubicacion;
+}
+var archi=<?php echo $archivopdf; ?>;
+var archivo =archi;
+var certi= ubicacion.trim()+archivo.trim();
+window.location.href = certi;
+
+
+}
 
 
 
+
+</script>
 
 
 </body>
