@@ -225,7 +225,6 @@ public function actual()
 	$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA(0)->result();
 	  if(!empty($data))
 	  {
-  	$data['documentos']= $this->documento_model->lista_documentos()->result();
     $data['title']="Documentoportafolio";
     $this->load->view('template/page_header');		
     $this->load->view('documentoportafolio_record',$data);
