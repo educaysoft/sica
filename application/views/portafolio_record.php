@@ -176,7 +176,7 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
 $(document).ready(function(){
 	var idpersona=document.getElementById("idpersona").value;
 //	var idportafolio=document.getElementById("idportafolio").value;
-	var idperiodoacademico=document.getElementById("idperiodoacademico").value;
+	var idperiodoacademico='<?php $portafolio["idperiodoacademico"]; ?>';
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('portafolio/documento_data')?>', type: 'GET',data:{idpersona:idpersona,idperiodoacademico:idperiodoacademico}},});
 });
 
