@@ -119,7 +119,7 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
 	foreach ($periodoacademicos as $row){
 		$options[$row->idperiodoacademico]=$row->nombrecorto.' - '.$row->nombrelargo;
 	}
-	echo form_input('idperiodoacademico',$options[$portafolio['idperiodoacademico']],array("disabled"=>"disabled", "style"=>"width:600px")); 
+	echo form_input('idperiodoacademico',$options[$portafolio['idperiodoacademico']],array("id"=>"idperiodoacademico","disabled"=>"disabled", "style"=>"width:600px")); 
 	?>
 
 	</div> 
