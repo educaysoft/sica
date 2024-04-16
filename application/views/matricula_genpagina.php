@@ -252,11 +252,11 @@ foreach($matriculas as $row){
   		<section class="py-5 text-center container">
     		<div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: center;" >
 		<div style=" flex-basis: 40%"  >
-		<img src="https://repositorioutlvte.org/Repositorio/qr/portafolio-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.png" height="150px">
+		<img src="https://repositorioutlvte.org/Repositorio/qr/portafolio-'.$row->elperiodoacademico.'-'.$row->iddepartamento.'.png" height="150px">
 		</div>
       		<div >
         	<h1 class="fw-light">'.$row->eldepartamento.'</h1>  
-        	<p class="lead text-muted">Periodo:'.$row->elperiodoacademico.' :: '.$row->iddistributivo.'.</p>
+        	<p class="lead text-muted">Periodo:'.$row->elperiodoacademico.' :: '.$row->iddepartamento.'.</p>
         	<p class="lead text-muted">Portafolio del Docente</p>
       		</div>
     		</div>
