@@ -478,6 +478,10 @@ public function genpagina5()
 
 
 
+
+
+
+
 public function actual()
 {
 	$data['distributivodocente'] = $this->distributivodocente_model->distributivodocente($this->uri->segment(3))->row_array();

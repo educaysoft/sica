@@ -146,6 +146,47 @@ function matricula_data()
 }
 
 
+public function genpagina()
+{
+	$idperiodoacademico=0;
+
+	$ordenrpt=0;
+	if($this->uri->segment(3))
+	{
+		$idperiodoacademico=$this->uri->segment(3);
+	 	$data['matriculas']= $this->matricula_model->matriculas1($idperiodoacademico)->result();
+		$arreglo=array();
+		$i=0;
+		foreach($data['matriculas'] as $row){
+		$idestudiante=$row->idestudiante;
+
+		$xx=array($this->documentoportafolio_model->documentoportafolioestudiante($idestudiante,$row->idperiodoacademico)->result_array());
+		if(count($xx[0]) > 0){
+		foreach($xx as $row2){
+			foreach($row2 as $row3)
+			 {
+				$arreglo+=array($i=>array($row->idestudiante=>$row3));
+				$i=$i+1;
+			}
+			}
+		}
+		}
+		$data['documentoportafolio']=array();
+	//	array_push($data['jornadadocente'],$arreglo); 
+		$data['documentoportafolio']=$arreglo; 
+		echo "<br> jornadadocnete<br>" ;
+
+
+		$this->load->view('matricula_genpagina',$data);
+	}
+}
+
+
+
+
+
+
+
 
 public function actual()
 {

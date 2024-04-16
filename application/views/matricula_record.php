@@ -14,6 +14,7 @@ if(isset($matricula))
         <li style="border-right:1px solid green"> <?php echo anchor('matricula/delete/'.$matricula['idmatricula'],'Delete'); ?></li>
         <li> <?php echo anchor('matricula/listar/','Listar'); ?></li>
 
+        <li> <?php echo anchor('matricula/genpagina/'.$matricula['idperiodoacademico'],'generapagina'); ?></li>
 <?php 
 }else{
 ?>
