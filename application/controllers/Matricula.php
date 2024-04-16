@@ -159,14 +159,14 @@ public function genpagina()
 		$arreglo=array();
 		$i=0;
 		foreach($data['matriculas'] as $row){
-		$idestudiante=$row->idestudiante;
+		$idalumno=$row->idalumno;
 
-		$xx=array($this->documentoportafolio_model->documentoportafolioestudiante($idestudiante,$row->idperiodoacademico)->result_array());
+		$xx=array($this->documentoportafolio_model->documentoportafolioalumno($idalumno,$row->idperiodoacademico)->result_array());
 		if(count($xx[0]) > 0){
 		foreach($xx as $row2){
 			foreach($row2 as $row3)
 			 {
-				$arreglo+=array($i=>array($row->idestudiante=>$row3));
+				$arreglo+=array($i=>array($row->idalumno=>$row3));
 				$i=$i+1;
 			}
 			}

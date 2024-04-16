@@ -314,16 +314,16 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 $data=$data.'</div>
 
 	    <div class="card-body" style="background-color:'.$arrcolor[1].'"  >
-	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->elestudiante.' </div>';	
+	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->elalumno.' </div>';	
 
 
 
 
 
 foreach($documentoportafolio as $rowj){
-			if(isset($rowj[$row->idestudiante]['idestudiante'])){		
+			if(isset($rowj[$row->idalumno]['idalumno'])){		
 
-			$data=$data.'<b>'.$rowj[$row->idestudiante]['elperiodo'] .': </b><span style="color:red">'.$rowj[$row->idestudiante]['asunto'].'('.$rowj[$row->idestudiante]['tipodocumento'].'),</span> - link:<a href="https://educaysoft.org/sica/documentoportafolio/actual/'.$rowj[$row->idestudiante]['iddocumentoportafolio'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
+			$data=$data.'<b>'.$rowj[$row->idalumno]['elperiodo'] .': </b><span style="color:red">'.$rowj[$row->idalumno]['asunto'].'('.$rowj[$row->idalumno]['tipodocumento'].'),</span> - link:<a href="https://educaysoft.org/sica/documentoportafolio/actual/'.$rowj[$row->idalumno]['iddocumentoportafolio'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
 			}	
 	//		echo $rowj; echo '<br>';
 		}
