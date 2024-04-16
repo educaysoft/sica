@@ -281,7 +281,7 @@ public function anterior(){
 
 	public function portafolio_2023_1S_1()
 	{
-	  $this->load->view('portafolio/portafolio-2023-1S-1');
+	  $this->load->view('cursos/portafolio-2023-1S-1');
 	}
 
 
