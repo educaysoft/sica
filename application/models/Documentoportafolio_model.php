@@ -35,9 +35,9 @@ class Documentoportafolio_model extends CI_model {
 
 
 
- 	function documentoportafolioalumno( $idestudiante,$idperiodoacademico){
+ 	function documentoportafolioalumno( $idalumno,$idperiodoacademico){
 
- 		$documentoportafolio = $this->db->query('select * from documentoportafolio3 where idestudiante="'. $idestudiante.'" and idperiodoacademico="'. $idperiodoacademico.' "  order by idestudiante  ');
+ 		$documentoportafolio = $this->db->query('select * from documentoportafolio3 where idalumno="'. $idalumno.'" and idperiodoacademico="'. $idperiodoacademico.' "  order by idalumno  ');
  		return $documentoportafolio;
  	}
 
