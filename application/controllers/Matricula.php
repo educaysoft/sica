@@ -10,6 +10,7 @@ class Matricula extends CI_Controller{
   	  $this->load->model('tipomatricula_model');
   	  $this->load->model('matricula_model');
   	  $this->load->model('periodoacademico_model');
+  	  $this->load->model('documentoportafolio_model');
 }
 
 public function index(){
@@ -154,7 +155,7 @@ public function genpagina()
 	if($this->uri->segment(3))
 	{
 		$idperiodoacademico=$this->uri->segment(3);
-	 	$data['matriculas']= $this->matricula_model->matriculas1($idperiodoacademico)->result();
+	 	$data['matriculas']= $this->matricula_model->matriculasxperiodo($idperiodoacademico)->result();
 		$arreglo=array();
 		$i=0;
 		foreach($data['matriculas'] as $row){

@@ -44,6 +44,13 @@ class Matricula_model extends CI_model {
 
 
 
+ 	function matriculaxperiodo( $idperiodoacademico){
+ 		$matricula = $this->db->query('select * from matricula1 where idperiodoacademico="'. $idperiodoacademico.'"');
+ 		return $matricula;
+ 	}
+
+
+
  	function save($array)
  	{
 		$this->db->insert("matricula", $array);
