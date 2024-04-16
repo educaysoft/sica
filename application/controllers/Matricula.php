@@ -155,7 +155,7 @@ public function genpagina()
 	if($this->uri->segment(3))
 	{
 		$idperiodoacademico=$this->uri->segment(3);
-	 	$data['matriculas']= $this->matricula_model->matriculasxperiodo($idperiodoacademico)->result();
+	 	$data['matriculas']= $this->matricula_model->matriculaxperiodo($idperiodoacademico)->result();
 		$arreglo=array();
 		$i=0;
 		foreach($data['matriculas'] as $row){
