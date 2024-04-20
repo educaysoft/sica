@@ -342,22 +342,47 @@ foreach($documentoportafolio as $rowj){
 		}
 
 
-              	$data=$data.'<div class="d-flex justify-content-between align-items-center">
+       
 
-<!-- Formulario emergente para cargar el archivo -->
-<div id="uploadForm" style="display: block;">
-    <?php echo form_open_multipart("uploadcontroller/do_upload"); ?>
-    <input type="file" name="userfile" id="userfile" />
-    <input type="hidden" name="iddocente" id="iddocente" value="" />
-    <input type="submit" value="Cargar PDF" />
-    <?php echo form_close(); ?>
-</div>
 
-              </div>
-            </div>
-          </div>
-        </div>
-';
+
+
+$data .= '<div class="d-flex justify-content-between align-items-center">
+    <!-- Formulario emergente para cargar el archivo -->
+    <div id="uploadForm" style="display: block;">
+        <div style="float: left;">';
+$data .= form_upload(array("type" => "file", "name" => "files", "id" => "files"));
+$data .= '</div>
+        <div style="float: left;">';
+
+// URL de la función PHP que carga el archivo
+$url1 = base_url()."index.php/documento/save";
+$js = 'onClick="cargarFiles(\''.$url1.'\')"';
+$data .= form_button("carga", "cargar a directorio", $js);
+
+$data .= '</div>
+    </div>
+</div>';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

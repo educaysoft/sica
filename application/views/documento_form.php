@@ -141,7 +141,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
    			}
 			// url de la funcion php que carga el archivo en el 
 			$url1= base_url()."index.php/documento/save";
-			$js='onClick="uploadFiles(\''.$url1.'\')"';     
+			$js='onClick="cargarFiles(\''.$url1.'\')"';     
 			echo form_button("carga","cargar a directorio",$js); ?>
 		</div> 
 	</div>
@@ -197,6 +197,29 @@ echo form_dropdown("iddocumento_estado",$options, set_select('--Select--','defau
 
 
 
+function cargarFile(url1)
+{
+	var formDataJson = {
+    		iddocumento: 0,
+    		idtipodocu: getValueById('idtipodocu'),
+    		iddestinodocumento: getValueById('iddestinodocumento'),
+    		asunto: getValueById('asunto'),
+    		descripcion: getValueById('descripcion'),
+    		fechaelaboracion: getValueById('fechaelaboracion'),
+    		fechasubida: getValueById('fechasubida'),
+    		idordenador: getValueById('idordenador'),
+    		iddirectorio: getValueById('iddirectorio'),
+    		idddocumento_estado: 1,
+    		idpersona: getValueById('idpersona'),
+    		iddocumento_estado: getValueById('iddocumento_estado')
+	};
+
+	// Llamar a la función uploadFiles con la URL de destino y los valores del formulario en forma de objeto JSON
+	uploadFiles(url1, formDataJson);
+
+}
+
+
 
 
 
@@ -204,7 +227,7 @@ echo form_dropdown("iddocumento_estado",$options, set_select('--Select--','defau
 //=====================
 // Upload file
 //====================			
-function uploadFiles(url1) {
+function uploadFiles(url1,formDataJson) {
 
 	var filesInput = document.getElementById('files');
 	var totalFiles= filesInput.files.length;
@@ -214,20 +237,27 @@ function uploadFiles(url1) {
 		return;
 	}
  
- 	var formData = new FormData();
+// 	var formData = new FormData();
 
-    formData.append("iddocumento",0);
-    formData.append("idtipodocu",getValueById('idtipodocu'));
-    formData.append("iddestinodocumento",getValueById('iddestinodocumento'));
-    formData.append("asunto", getValueById('asunto'));
-    formData.append("descripcion", getValueById('descripcion'));
-    formData.append("fechaelaboracion",getValueById('fechaelaboracion'));
-    formData.append("fechasubida",getValueById('fechasubida'));
-    formData.append("idordenador", getValueById('idordenador'));
-    formData.append("iddirectorio",getValueById('iddirectorio'));
-    formData.append("idddocumento_estado",1);
-    formData.append("idpersona",getValueById('idpersona')); 
-    formData.append("iddocumento_estado",getValueById('iddocumento_estado'));
+  //  formData.append("iddocumento",0);
+  //  formData.append("idtipodocu",getValueById('idtipodocu'));
+   // formData.append("iddestinodocumento",getValueById('iddestinodocumento'));
+    //formData.append("asunto", getValueById('asunto'));
+   // formData.append("descripcion", getValueById('descripcion'));
+    //formData.append("fechaelaboracion",getValueById('fechaelaboracion'));
+   // formData.append("fechasubida",getValueById('fechasubida'));
+   // formData.append("idordenador", getValueById('idordenador'));
+  //  formData.append("iddirectorio",getValueById('iddirectorio'));
+  //  formData.append("idddocumento_estado",1);
+  //  formData.append("idpersona",getValueById('idpersona')); 
+  //  formData.append("iddocumento_estado",getValueById('iddocumento_estado'));
+
+// Crear objeto FormData para enviar datos del formulario al servidor
+    var formData = new FormData();
+    for (var key in formDataJson) {
+        formData.append(key, formDataJson[key]);
+    }
+
 
 
 
