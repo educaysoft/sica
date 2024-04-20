@@ -344,11 +344,8 @@ foreach($documentoportafolio as $rowj){
 
               	$data=$data.'<div class="d-flex justify-content-between align-items-center">
 
-                <div class="btn-group">
-		  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openUploadForm('. $row->iddocente.')">Subir archivo</button>
-                </div>
 <!-- Formulario emergente para cargar el archivo -->
-<div id="uploadForm" style="display: none;">
+<div id="uploadForm" style="display: block;">
     <?php echo form_open_multipart("uploadcontroller/do_upload"); ?>
     <input type="file" name="userfile" id="userfile" />
     <input type="hidden" name="iddocente" id="iddocente" value="" />
