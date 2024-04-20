@@ -191,9 +191,9 @@ $data1='</div>
 
 <script type="text/javascript">
 
-$(".submenu").click(function(){
-  $(this).children("ul").slideToggle();
-})
+//$(".submenu").click(function(){
+//  $(this).children("ul").slideToggle();
+//})
 
 $("ul").click(function(ev){
   ev.stopPropagation();
@@ -206,7 +206,7 @@ function cargarVideo(url){
 
  function openUploadForm(iddocente) {
         // Establece el valor de idevento en el campo oculto del formulario
-        document.getElementById(`iddocente`).value = idevento;
+        document.getElementById(`iddocente`).value = iddocente;
         // Muestra el formulario emergente
         document.getElementById(`uploadForm`).style.display = `block`;
     }
