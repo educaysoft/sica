@@ -204,7 +204,7 @@ function cargarVideo(url){
 }
 
 
- function openUploadForm(idevento) {
+ function openUploadForm(iddocente) {
         // Establece el valor de idevento en el campo oculto del formulario
         document.getElementById(`iddocente`).value = idevento;
         // Muestra el formulario emergente
@@ -367,6 +367,7 @@ foreach($documentoportafolio as $rowj){
 
 
 
+	 	$data=$data.$data1;
 			$file='application/views/cursos/portafolio-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.php';
 
 
