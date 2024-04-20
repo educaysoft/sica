@@ -203,6 +203,19 @@ function cargarVideo(url){
         document.getElementById("slider").src=url;
 }
 
+
+ function openUploadForm(idevento) {
+        // Establece el valor de idevento en el campo oculto del formulario
+        document.getElementById(`iddocente`).value = idevento;
+        // Muestra el formulario emergente
+        document.getElementById(`uploadForm`).style.display = `block`;
+    }
+
+
+
+
+
+
 </script>
     <script src="https://congresoutlvte.org/assets/dist/js/bootstrap.bundle.min.js"></script>
       
@@ -332,8 +345,16 @@ foreach($documentoportafolio as $rowj){
               	$data=$data.'<div class="d-flex justify-content-between align-items-center">
 
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href=\'https://educaysoft.org/sica/login/validarcorreo?idevento='.$row->idevento.'\'" '.$disabled.' >Subir archivo</button>
+		  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openUploadForm('. $row->iddocente.')">Subir archivo</button>
                 </div>
+<!-- Formulario emergente para cargar el archivo -->
+<div id="uploadForm" style="display: none;">
+    <?php echo form_open_multipart(`uploadcontroller/do_upload`); ?>
+    <input type="file" name="userfile" id="userfile" />
+    <input type="hidden" name="iddocente" id="iddocente" value="" />
+    <input type="submit" value="Cargar PDF" />
+    <?php echo form_close(); ?>
+</div>
 
               </div>
             </div>
