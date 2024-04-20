@@ -127,12 +127,12 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div class="col-md-10">
 
 
-<div style="display: inline-block";>
-<div style="float: left;">
-	<?php 
-	$upload_data = array('type' => 'file','name' => 'files','id' => 'files');
-	echo form_upload($upload_data );?>
-	</div>
+	<div style="display: inline-block";>
+		<div style="float: left;">
+			<?php 
+			$upload_data = array('type' => 'file','name' => 'files','id' => 'files');
+			echo form_upload($upload_data );?>
+		</div>
 		<div style="float: left;">
 			<?php 
     			$options= array('--Select--');
