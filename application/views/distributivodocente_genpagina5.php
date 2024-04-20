@@ -342,8 +342,7 @@ foreach($documentoportafolio as $rowj){
 		}
 
 
-       
-
+              
 
 
 
@@ -362,6 +361,9 @@ $data .= form_button("carga", "cargar a directorio", $js);
 
 $data .= '</div>
     </div>
+              </div>
+            </div>
+          </div>
 </div>';
 
 
