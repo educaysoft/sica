@@ -122,8 +122,6 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 </div>
 
 
-
-
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Cargar pdf:</label>
 <div class="col-md-10">
@@ -184,11 +182,8 @@ echo form_dropdown("iddocumento_estado",$options, set_select('--Select--','defau
 </div>
 
 <?php echo form_close();?>
-    
   <script>
-
 	$(document).ready(function(){
-
   		var text_max = 200;
     		$('#textarea_feedback').html('Quedan ' + text_max + ' caracteres');
     		$('#asunto').keyup(function() {
@@ -207,7 +202,6 @@ echo form_dropdown("iddocumento_estado",$options, set_select('--Select--','defau
 
 
 //=====================
-//
 // Upload file
 //====================			
 function uploadFiles(url1) {
@@ -220,7 +214,7 @@ function uploadFiles(url1) {
 		return;
 	}
  
-  	var formData = new FormData();
+ 	var formData = new FormData();
 
     formData.append("iddocumento",0);
     formData.append("idtipodocu",getValueById('idtipodocu'));
