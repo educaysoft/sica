@@ -349,7 +349,7 @@ foreach($documentoportafolio as $rowj){
                 </div>
 <!-- Formulario emergente para cargar el archivo -->
 <div id="uploadForm" style="display: none;">
-    <?php echo form_open_multipart(`uploadcontroller/do_upload`); ?>
+    <?php echo form_open_multipart("uploadcontroller/do_upload"); ?>
     <input type="file" name="userfile" id="userfile" />
     <input type="hidden" name="iddocente" id="iddocente" value="" />
     <input type="submit" value="Cargar PDF" />
