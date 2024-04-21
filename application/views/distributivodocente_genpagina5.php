@@ -213,6 +213,84 @@ function cargarVideo(url){
 
 
 
+function cargarFile(url1)
+{
+        var formDataJson = {
+                iddocumento: 0,
+                idtipodocu: getValueById("idtipodocu"),
+                iddestinodocumento: getValueById("iddestinodocumento"),
+                asunto: getValueById("asunto"),
+                descripcion: getValueById("descripcion"),
+                fechaelaboracion: getValueById("fechaelaboracion"),
+                fechasubida: getValueById("fechasubida"),
+                idordenador: getValueById("idordenador"),
+                iddirectorio: getValueById("iddirectorio"),
+                iddocumento_estado: 1,
+                idpersona: getValueById("idpersona"),
+                iddocumento_estado: getValueById("iddocumento_estado")
+        };
+
+        // Llamar a la función uploadFiles con la URL de destino y los valores del formulario en forma de objeto JSON
+        uploadFiles(url1, formDataJson);
+}
+
+
+//=====================
+// Upload file
+//====================                  
+function uploadFiles(url1,formDataJson) {
+
+        var filesInput = document.getElementById("files");
+        var totalFiles= filesInput.files.length;
+
+        if(totalFiles <= 0){
+                alert("Por favor seleccione un archivo");
+                return;
+        }
+ 
+// Crear objeto FormData para enviar datos del formulario al servidor
+    var formData = new FormData();
+    for (var key in formDataJson) {
+        formData.append(key, formDataJson[key]);
+    }
+
+ axios.post(url1, formData)
+        .then(function(response) {
+    var result_array = response.data;
+                var uformData = new FormData();
+                
+                // Read selected files
+                for (var index = 0; index < totalFiles; index++) {
+                        uformData.append("files[]", filesInput.files[index]);
+                }
+                uformData.append("archivopdf",result_array.archivopdf );
+                var uploadUrl = getUploadUrl();
+                alert(uploadUrl);
+       axios.post(uploadUrl, uformData)
+                .then(function(response) {
+                console.log("El archivo PDF se cargó correctamente en el servidor en la nube.");
+                           history.back(); //Go to the previous page
+                   })
+                   .catch(function(error){
+                           console.error("Error al cargar el archivo PDF en el servidor en la nube. Código de estado:", error);
+                });
+                   })
+                 .catch(function(error){
+                        console.error("Error al guardar los datos.", error);
+                });
+}
+
+
+function getValueById(id) {
+    return document.getElementById(id).value;
+}
+
+
+
+
+
+
+
 
 
 
@@ -337,8 +415,8 @@ foreach($documentoportafolio as $rowj){
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
 
 			$data=$data.'<b>'.$rowj[$row->iddocente]['elperiodo'] .': </b><span style="color:red">'.$rowj[$row->iddocente]['asunto'].'('.$rowj[$row->iddocente]['tipodocumento'].'),</span> - link:<a href="https://educaysoft.org/sica/documentoportafolio/actual/'.$rowj[$row->iddocente]['iddocumentoportafolio'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
+
 			}	
-	//		echo $rowj; echo '<br>';
 		}
 
 
@@ -358,7 +436,6 @@ $data .= '</div>
 $url1 = base_url()."index.php/documento/save";
 $js = 'onClick="cargarFiles(\''.$url1.'\')"';
 $data .= form_button("carga", "cargar a directorio", $js);
-
 $data .= '</div>
     </div>
               </div>

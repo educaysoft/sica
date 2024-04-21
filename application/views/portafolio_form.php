@@ -31,6 +31,33 @@ foreach ($periodoacademicos as $row){
  echo form_dropdown("idperiodoacademico",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Ordenador destino:</label>
+<div class="col-md-10">
+<?php
+
+    $options= array('--Select--');
+    foreach ($ordenadores as $row){
+      $options[$row->idordenador]= $row->nombre;
+    }
+     echo form_dropdown($name="idordenador",$options, set_select('--Select--','default_value'),array('id'=>'idordenador','onchange'=>'get_directorio()'));  
+?>
+</div>
+</div>
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Directorio:</label>
+<div class="col-md-10">
+    <div class="form-group">
+         <select class="form-control" id="iddirectorio" name="iddirectorio" required>
+                 <option>No Selected</option>
+          </select>
+    </div>
+</div>
+</div>
+
+
 
 
 

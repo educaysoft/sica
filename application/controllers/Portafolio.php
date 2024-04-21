@@ -4,19 +4,23 @@ class Portafolio extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-  	  $this->load->model('persona_model');
-  	  $this->load->model('documento_model');
-  	  $this->load->model('periodoacademico_model');
-  	  $this->load->model('portafolio_model');
+  	$this->load->model('persona_model');
+  	$this->load->model('documento_model');
+  	$this->load->model('periodoacademico_model');
+  	$this->load->model('portafolio_model');
+      	$this->load->model('ordenador_model');
+      	$this->load->model('directorio_model');
 }
 
 public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['portafolio']=$this->portafolio_model->elultimo();
-  	$data['personas']= $this->persona_model->lista_personasA()->result();
-  	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+  		$data['portafolio']=$this->portafolio_model->elultimo();
+  		$data['personas']= $this->persona_model->lista_personasA()->result();
+  		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+		$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
+		$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 			
 		$data['title']="Lista de portafolios";
 		$this->load->view('template/page_header');
@@ -35,6 +39,8 @@ public function index(){
 	{
 			$data['personas']= $this->persona_model->lista_personasA()->result();
 			$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+			$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
+			$data['directorios'] = $this->directorio_model->lista_directoriosxordenador($data['documento']['idordenador'])->result();
 			$data['title']="Nueva Portafolio";
 			$this->load->view('template/page_header');		
 			$this->load->view('portafolio_form',$data);
@@ -50,6 +56,8 @@ public function index(){
 		 	
 			'idpersona' => $this->input->post('idpersona'),
 			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+			'idordenador' => $this->input->post('idordenador'),
+			'iddirectorio' => $this->input->post('iddirectorio'),
 	 	);
 	 	$this->portafolio_model->save($array_item);
 	 	redirect('portafolio');
@@ -62,6 +70,8 @@ public function edit()
 	 	$data['portafolio'] = $this->portafolio_model->portafolio($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personasA()->result();
   		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+		$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
+		$data['directorios'] = $this->directorio_model->lista_directoriosxordenador($data['documento']['idordenador'])->result();
  	 	$data['title'] = "Actualizar Portafolio";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('portafolio_edit',$data);
@@ -78,6 +88,8 @@ public function edit()
 		 	'idportafolio' => $this->input->post('idportafolio'),
 			'idpersona' => $this->input->post('idpersona'),
 			'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+			'idordenador' => $this->input->post('idordenador'),
+			'iddirectorio' => $this->input->post('iddirectorio'),
 	 	);
 	 	$this->portafolio_model->update($id,$array_item);
 	 	redirect('portafolio');
@@ -219,6 +231,8 @@ public function elprimero()
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['personas']= $this->persona_model->lista_personasA()->result();
 	$data['portafolio'] = $this->portafolio_model->elprimero();
+		$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
+		$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 	  if(!empty($data))
 	  {
   	$data['personas']= $this->persona_model->lista_personasA()->result();
@@ -238,6 +252,8 @@ public function elultimo()
 	$data['portafolio'] = $this->portafolio_model->elultimo();
   	$data['personas']= $this->persona_model->lista_personasA()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+		$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
+		$data['directorios'] = $this->directorio_model->lista_directorios()->result();
   if(!empty($data))
   {
     $data['title']="Portafolio";
@@ -258,6 +274,8 @@ public function siguiente(){
 	$data['portafolio'] = $this->portafolio_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personasA()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+		$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
+		$data['directorios'] = $this->directorio_model->lista_directorios()->result();
   
 
 $data['title']="Portafolio";
@@ -271,9 +289,11 @@ public function anterior(){
 	$data['portafolio'] = $this->portafolio_model->anterior($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personasA()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
-  $data['title']="Portafolio";
+	$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
+	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
+  	$data['title']="Portafolio";
 	$this->load->view('template/page_header');		
-  $this->load->view('portafolio_record',$data);
+  	$this->load->view('portafolio_record',$data);
 	$this->load->view('template/page_footer');
 }
 

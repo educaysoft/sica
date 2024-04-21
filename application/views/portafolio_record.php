@@ -128,6 +128,41 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Ordenador:</label>
+     	<?php 
+	$options= array("NADA");
+	foreach ($ordenadores as $row){
+		$options[$row->idordenador]= $row->nombre;
+	}
+
+	?>
+	<div class="col-md-10">
+		<?php
+			echo form_input('idordenador',$options[$documento['idordenador']],array("id"=>"idordenador","disabled"=>"disabled"));
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Directorio:</label>
+     	<?php 
+	$options= array("NADA");
+	foreach ($directorios as $row){
+		$options[$row->iddirectorio]= $row->ruta;
+	}
+	?>
+	<div class="col-md-10">
+		<?php
+		echo form_input('iddirectorio',$options[$documento['iddirectorio']],array("id"=>"iddirectorio", "disabled"=>"disabled")); 
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
 
 	<div class="col-md-10">
 	<div class="row justify-content-left">

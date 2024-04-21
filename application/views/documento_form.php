@@ -201,27 +201,22 @@ function cargarFile(url1)
 {
 	var formDataJson = {
     		iddocumento: 0,
-    		idtipodocu: getValueById('idtipodocu'),
-    		iddestinodocumento: getValueById('iddestinodocumento'),
-    		asunto: getValueById('asunto'),
-    		descripcion: getValueById('descripcion'),
-    		fechaelaboracion: getValueById('fechaelaboracion'),
-    		fechasubida: getValueById('fechasubida'),
-    		idordenador: getValueById('idordenador'),
-    		iddirectorio: getValueById('iddirectorio'),
-    		idddocumento_estado: 1,
-    		idpersona: getValueById('idpersona'),
-    		iddocumento_estado: getValueById('iddocumento_estado')
+    		idtipodocu: getValueById("idtipodocu"),
+    		iddestinodocumento: getValueById("iddestinodocumento"),
+    		asunto: getValueById("asunto"),
+    		descripcion: getValueById("descripcion"),
+    		fechaelaboracion: getValueById("fechaelaboracion"),
+    		fechasubida: getValueById("fechasubida"),
+    		idordenador: getValueById("idordenador"),
+    		iddirectorio: getValueById("iddirectorio"),
+    		iddocumento_estado: 1,
+    		idpersona: getValueById("idpersona"),
+    		iddocumento_estado: getValueById("iddocumento_estado")
 	};
 
 	// Llamar a la función uploadFiles con la URL de destino y los valores del formulario en forma de objeto JSON
 	uploadFiles(url1, formDataJson);
-
 }
-
-
-
-
 
 
 //=====================
@@ -229,7 +224,7 @@ function cargarFile(url1)
 //====================			
 function uploadFiles(url1,formDataJson) {
 
-	var filesInput = document.getElementById('files');
+	var filesInput = document.getElementById("files");
 	var totalFiles= filesInput.files.length;
 
 	if(totalFiles <= 0){
@@ -237,29 +232,11 @@ function uploadFiles(url1,formDataJson) {
 		return;
 	}
  
-// 	var formData = new FormData();
-
-  //  formData.append("iddocumento",0);
-  //  formData.append("idtipodocu",getValueById('idtipodocu'));
-   // formData.append("iddestinodocumento",getValueById('iddestinodocumento'));
-    //formData.append("asunto", getValueById('asunto'));
-   // formData.append("descripcion", getValueById('descripcion'));
-    //formData.append("fechaelaboracion",getValueById('fechaelaboracion'));
-   // formData.append("fechasubida",getValueById('fechasubida'));
-   // formData.append("idordenador", getValueById('idordenador'));
-  //  formData.append("iddirectorio",getValueById('iddirectorio'));
-  //  formData.append("idddocumento_estado",1);
-  //  formData.append("idpersona",getValueById('idpersona')); 
-  //  formData.append("iddocumento_estado",getValueById('iddocumento_estado'));
-
 // Crear objeto FormData para enviar datos del formulario al servidor
     var formData = new FormData();
     for (var key in formDataJson) {
         formData.append(key, formDataJson[key]);
     }
-
-
-
 
  axios.post(url1, formData)
         .then(function(response) {
@@ -275,15 +252,15 @@ function uploadFiles(url1,formDataJson) {
 		alert(uploadUrl);
        axios.post(uploadUrl, uformData)
                 .then(function(response) {
-		console.log('El archivo PDF se cargó correctamente en el servidor en la nube.');
+		console.log("El archivo PDF se cargó correctamente en el servidor en la nube.");
 			   history.back(); //Go to the previous page
 		   })
 		   .catch(function(error){
-		           console.error('Error al cargar el archivo PDF en el servidor en la nube. Código de estado:', error);
+		           console.error("Error al cargar el archivo PDF en el servidor en la nube. Código de estado:", error);
         	});
 		   })
 		 .catch(function(error){
-	    		console.error('Error al guardar los datos.', error);
+	    		console.error("Error al guardar los datos.", error);
         	});
 }
 
