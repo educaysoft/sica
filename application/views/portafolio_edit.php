@@ -45,7 +45,7 @@ foreach ($periodoacademicos as $row){
     foreach ($ordenadores as $row){
       $options[$row->idordenador]= $row->nombre;
     }
-     echo form_dropdown($name="idordenador",$options, $documento['idordenador'],array('onchange'=>'get_directorio()',"id"=>"idordenador"));  ?></td>
+     echo form_dropdown($name="idordenador",$options, $portafolio['idordenador'],array('onchange'=>'get_directorio()',"id"=>"idordenador"));  ?></td>
 </tr>
 
 
