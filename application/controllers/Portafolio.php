@@ -202,6 +202,8 @@ public function actual()
 	$data['portafolio'] = $this->portafolio_model->portafolio($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
+	$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
+	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 	  if(!empty($data))
 	  {
   	$data['personas']= $this->persona_model->lista_personasA()->result();
@@ -230,8 +232,8 @@ public function elprimero()
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['personas']= $this->persona_model->lista_personasA()->result();
 	$data['portafolio'] = $this->portafolio_model->elprimero();
-		$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
-		$data['directorios'] = $this->directorio_model->lista_directorios()->result();
+	$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
+	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 	  if(!empty($data))
 	  {
   	$data['personas']= $this->persona_model->lista_personasA()->result();
