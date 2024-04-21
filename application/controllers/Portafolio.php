@@ -40,7 +40,6 @@ public function index(){
 			$data['personas']= $this->persona_model->lista_personasA()->result();
 			$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 			$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
-			$data['directorios'] = $this->directorio_model->lista_directoriosxordenador($data['documento']['idordenador'])->result();
 			$data['title']="Nueva Portafolio";
 			$this->load->view('template/page_header');		
 			$this->load->view('portafolio_form',$data);
@@ -71,7 +70,7 @@ public function edit()
 		$data['personas']= $this->persona_model->lista_personasA()->result();
   		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 		$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
-		$data['directorios'] = $this->directorio_model->lista_directoriosxordenador($data['documento']['idordenador'])->result();
+		$data['directorios'] = $this->directorio_model->lista_directoriosxordenador($data['portafolio']['idordenador'])->result();
  	 	$data['title'] = "Actualizar Portafolio";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('portafolio_edit',$data);
