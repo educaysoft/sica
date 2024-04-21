@@ -138,7 +138,7 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
 	?>
 	<div class="col-md-10">
 		<?php
-			echo form_input('idordenador',$options[$documento['idordenador']],array("id"=>"idordenador","disabled"=>"disabled"));
+			echo form_input('idordenador',$options[$portafolio['idordenador']],array("id"=>"idordenador","disabled"=>"disabled"));
 		?>
 	</div> 
 </div>
@@ -155,7 +155,7 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
 	?>
 	<div class="col-md-10">
 		<?php
-		echo form_input('iddirectorio',$options[$documento['iddirectorio']],array("id"=>"iddirectorio", "disabled"=>"disabled")); 
+		echo form_input('iddirectorio',$options[$portafolio['iddirectorio']],array("id"=>"iddirectorio", "disabled"=>"disabled")); 
 		?>
 	</div> 
 </div>
