@@ -86,3 +86,37 @@ foreach ($periodoacademicos as $row){
  </tr>
 </table>
 <?php echo form_close(); ?>
+
+    <script>
+
+function get_directorio() {
+	var idordenador = $('select[name=idordenador]').val();
+    $.ajax({
+        url: "<?php echo site_url('documento/get_directorio') ?>",
+        data: {idordenador: idordenador},
+        method: 'POST',
+	async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        for(i=0; i<data.length; i++){
+        html += '<option value='+data[i].iddirectorio+'>'+data[i].ruta+'</option>';
+        }
+        $('#iddirectorio').html(html);
+
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
+
+</script>
+
+
+
