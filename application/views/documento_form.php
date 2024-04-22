@@ -141,7 +141,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
    			}
 			// url de la funcion php que carga el archivo en el 
 			$url1= base_url()."index.php/documento/save";
-			$js='onClick="cargarFiles(\''.$url1.'\')"';     
+			$js='onClick="cargarFile(\''.$url1.'\')"';     
 			echo form_button("carga","cargar a directorio",$js); ?>
 		</div> 
 	</div>
