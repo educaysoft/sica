@@ -462,14 +462,24 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 
 }
 
+
+
+				$disable1='';
+				$color1='green';
+
 $data=$data.'</div>
 
 	    <div class="card-body" style="background-color:'.$arrcolor[1].'"  >
-	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->eldocente.' </div>	
+	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->eldocente.' </div>';	
 
 
+			$data=$data.'<p>';
+			if(isset($row->distributivoindividualpdf)){
+			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$row->distributivoindividualpdf.'"  '.$disable1.'><i class="fas fa-file-pdf" style="font-size:24px" ></i> <span style="color:'.$color1.'" >DistriburtivoIndividual</span></a>] - ';
+			}
+			$data=$data.'</p>';
 
-<div class="tabla-container">
+$data=$data.'<div class="tabla-container">
   <table class="miTabla">
     <thead>
       <tr>
@@ -481,6 +491,7 @@ $data=$data.'</div>
     </thead> 
 <tbody>	
     ';
+
 	$thoras=0;
 foreach($docenteactividadacademica as $rowj){
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
@@ -511,10 +522,10 @@ foreach($docenteactividadacademica as $rowj){
 }
 
 
-$data1= str_replace('<xxxx>',$thc,$data1);
-	 	$data=$data.$data1;
+	$data1= str_replace('<xxxx>',$thc,$data1);
+ 	$data=$data.$data1;
 
-			$file='application/views/cursos/distributivo-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.php';
+	$file='application/views/cursos/distributivo-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.php';
 
 
 	if ( !write_file($file, $data)){
