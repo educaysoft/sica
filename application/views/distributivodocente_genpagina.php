@@ -472,10 +472,10 @@ $data=$data.'</div>
 			}
 
 			if(isset($silabos[$row->idasignaturadocente][0]['reactivo1pdf'])){
-			if($silabos[$row->idasignaturadocente][0]['reactivo1pdf']==''){
+		//	if($silabos[$row->idasignaturadocente][0]['reactivo1pdf']==''){
 				$disable4= 'style="pointer-events:none; cursor:default"';
 				$color4='gray';
-			}
+		//	}
 			}else{
 				$disable4= 'style="pointer-events:none; cursor:default"';
 				$color4='gray';
@@ -483,10 +483,10 @@ $data=$data.'</div>
 
 
 			if(isset($silabos[$row->idasignaturadocente][0]['calificacon1pdf'])){
-			if($silabos[$row->idasignaturadocente][0]['calificacion1pdf']==''){
+	//		if($silabos[$row->idasignaturadocente][0]['calificacion1pdf']==''){
 				$disable5= 'style="pointer-events:none; cursor:default"';
 				$color5='gray';
-			}
+	//		}
 			}else{
 				$disable5= 'style="pointer-events:none; cursor:default"';
 				$color5='gray';
