@@ -168,7 +168,7 @@ public function actual(){
 			$data0 = $this->matricula_model->lista_matriculas1($idestudiante);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idmatricula,$r->idestudiante,$r->eldepartamento,$r->elperiodo,$r->eltipomatricula,$r->nivelacademico,
+				$data[]=array($r->idmatricula,$r->idestudiante,$r->eldepartamento,$r->elperiodoacademico,$r->eltipomatricula,$r->nivelacademico,
 					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('matricula/actual').'"  data-idmatricula="'.$r->idmatricula.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
