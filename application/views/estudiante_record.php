@@ -171,7 +171,35 @@ echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("
 
 <?php echo form_close(); ?>
 
+<script type="text/javascript">
 
+$(document).ready(function(){
+	var idestudiante=document.getElementById("idestudiante").value;
+	var mytablaf= $('#mydatad').DataTable({"ajax": {url: '<?php echo site_url('estudiante/matricula_data')?>', type: 'GET',data:{idestudiante:idestudiante}},});
+
+
+});
+
+
+
+
+
+
+$('#show_datae').on('click','.item_ver',function(){
+var id= $(this).data('idmatricula');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+
+
+
+
+
+
+
+</script>
 
 
 
