@@ -8,6 +8,7 @@ class Estudiante extends CI_Controller{
   	  $this->load->model('departamento_model');
   	  $this->load->model('estudiante_model');
   	  $this->load->model('estudio_model');
+  	  $this->load->model('matricula_model');
 }
 
 public function index(){
