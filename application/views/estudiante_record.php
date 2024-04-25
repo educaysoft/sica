@@ -31,11 +31,11 @@ if(isset($estudiante))
 
 <?php echo form_open('estudiante/save_edit') ?>
 <?php echo form_hidden('idestudiante',$estudiante['idestudiante']) ?>
-<table>
 
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Estudiante: </label>
+	<div class="col-md-10">
      	<?php 
       echo form_input('idestudiante',$estudiante['idestudiante'],array("id"=>"idestudiante","disabled"=>"disabled",'placeholder'=>'Idestudiantes')); 
 		?>
@@ -50,6 +50,7 @@ if(isset($estudiante))
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Persona: </label>
+	<div class="col-md-10">
      	<?php 
 
 
@@ -85,6 +86,7 @@ echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha desde: </label>
+	<div class="col-md-10">
      	<?php 
 
 
@@ -98,6 +100,7 @@ echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha hasta: </label>
+	<div class="col-md-10">
      	<?php 
 
        echo form_input('fechahasta',$estudiante['fechahasta'],array('type'=>'date','placeholder'=>'fechahasta','style'=>'width:500px;'));
@@ -110,6 +113,7 @@ echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('estudio/add?idpersona='.$estudiante['idpersona'], 'Estudios:') ?> </label>
+	<div class="col-md-10">
      	<?php 
 
 	$options = array();
