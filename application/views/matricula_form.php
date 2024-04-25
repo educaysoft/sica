@@ -5,9 +5,9 @@
 
 <?php
 
-if(isset($_GET["idalumno"]))
+if(isset($_GET["idestudiante"]))
 {
-	$idalumno=$_GET["idalumno"];
+	$idestudiante=$_GET["idestudiante"];
 }
 ?>
 <table>
@@ -18,15 +18,15 @@ if(isset($_GET["idalumno"]))
 <td><?php 
 
 $options= array('--Select--');
-foreach ($alumnos as $row){
-	$options[$row->idalumno]= $row->elalumno;
+foreach ($estudiantes as $row){
+	$options[$row->idestudiante]= $row->elestudiante;
 }
- if(isset($idalumno))
+ if(isset($idestudiante))
  {
- echo form_dropdown("idalumno",$options,$idalumno );
+ echo form_dropdown("idestudiante",$options,$idestudiante );
  }else{
 
- echo form_dropdown("idalumno",$options,set_select('--Select--','default_value'));
+ echo form_dropdown("idestudiante",$options,set_select('--Select--','default_value'));
 
  }
 
