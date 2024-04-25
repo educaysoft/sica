@@ -92,9 +92,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
         <div class="pull-left">
 		<?php echo anchor('ubicacionarticulo/add', 'Ubicación'); ?>:
         </div>
-        <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('sesionevento/add/'.$evento['idevento']) ?>">Nueva sesion</a><a class="btn btn-danger" onclick='reportepdf()' >Reporte</a>
-        </div>
+        
     </div>
 </div>
 
@@ -134,9 +132,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
         <div class="pull-left">
  <?php echo anchor('prestamoarticulo/add', 'Prestamo'); ?>:
         </div>
-        <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('sesionevento/add/'.$evento['idevento']) ?>">Nueva sesion</a><a class="btn btn-danger" onclick='reportepdf()' >Reporte</a>
-        </div>
+        
     </div>
 </div>
 
