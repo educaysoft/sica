@@ -7,9 +7,9 @@ class Matricula_model extends CI_model {
 	}
 
 
-	function lista_matriculas1($idalumno){
+	function lista_matriculas1($idestudiante){
 
- 		$this->db->where('idalumno',$idalumno);
+ 		$this->db->where('idestudiante',$idestudiante);
 		 $matricula= $this->db->get('matricula1');
 		 return $matricula;
 	}

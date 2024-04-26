@@ -31,13 +31,13 @@ if(isset($estudiante))
 
 <?php echo form_open('estudiante/save_edit') ?>
 <?php echo form_hidden('idestudiante',$estudiante['idestudiante']) ?>
-<table>
 
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Estudiante: </label>
+	<div class="col-md-10">
      	<?php 
-      echo form_input('idestudiante',$estudiante['idestudiante'],array("disabled"=>"disabled",'placeholder'=>'Idestudiantes')); 
+      echo form_input('idestudiante',$estudiante['idestudiante'],array("id"=>"idestudiante","disabled"=>"disabled",'placeholder'=>'Idestudiantes')); 
 		?>
 	</div> 
 </div>
@@ -50,6 +50,7 @@ if(isset($estudiante))
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Persona: </label>
+	<div class="col-md-10">
      	<?php 
 
 
@@ -85,6 +86,7 @@ echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha desde: </label>
+	<div class="col-md-10">
      	<?php 
 
 
@@ -98,6 +100,7 @@ echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha hasta: </label>
+	<div class="col-md-10">
      	<?php 
 
        echo form_input('fechahasta',$estudiante['fechahasta'],array('type'=>'date','placeholder'=>'fechahasta','style'=>'width:500px;'));
@@ -110,6 +113,7 @@ echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('estudio/add?idpersona='.$estudiante['idpersona'], 'Estudios:') ?> </label>
+	<div class="col-md-10">
      	<?php 
 
 	$options = array();
@@ -123,9 +127,83 @@ echo form_input('iddepartamento',$options[$estudiante['iddepartamento']],array("
 </div>
 
 
+
+<div class="form-group row">
+
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12" style="border:solid;" >
+
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Matrículas del  estudiante: </b>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-success" href="<?php echo base_url('matricula/add/'.$estudiante['idestudiante']) ?>">Nueva matrícula</a>
+        </div>
+    </div>
+</div>
+
+
+	<table class="table table-striped table-bordered table-hover" id="mydatad">
+	 <thead>
+	 <tr>
+	 <th>idmatricula</th>
+	 <th>idestudiante</th>
+	 <th>departamento</th>
+	 <th>periodo</th>
+	 <th>tipo</th>
+	 <th>repetida</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_datae">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
+
+
 <?php echo form_close(); ?>
 
+<script type="text/javascript">
 
+$(document).ready(function(){
+	var idestudiante=document.getElementById("idestudiante").value;
+	var mytablaf= $('#mydatad').DataTable({"ajax": {url: '<?php echo site_url('estudiante/matricula_data')?>', type: 'GET',data:{idestudiante:idestudiante}},});
+
+
+});
+
+
+
+
+
+
+$('#show_datae').on('click','.item_ver',function(){
+var id= $(this).data('idmatricula');
+var retorno= $(this).data('retorno');
+window.location.href = retorno+'/'+id;
+});
+
+
+
+
+
+
+
+
+
+</script>
 
 
 

@@ -8,6 +8,7 @@ class Estudiante extends CI_Controller{
   	  $this->load->model('departamento_model');
   	  $this->load->model('estudiante_model');
   	  $this->load->model('estudio_model');
+  	  $this->load->model('matricula_model');
 }
 
 public function index(){
@@ -152,6 +153,35 @@ public function actual(){
 			echo json_encode($output);
 			exit();
 	}
+
+
+
+
+	function matricula_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+
+			$idestudiante=$this->input->get('idestudiante');
+			$data0 = $this->matricula_model->lista_matriculas1($idestudiante);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idmatricula,$r->idestudiante,$r->eldepartamento,$r->elperiodoacademico,$r->eltipomatricula,$r->nivelacademico,
+					$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"   data-retorno="'.site_url('matricula/actual').'"  data-idmatricula="'.$r->idmatricula.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
 
 
 

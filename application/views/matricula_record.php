@@ -40,14 +40,14 @@ if(isset($matricula))
  
  
 <tr>
-     <td>( <?php echo anchor('alumno/actual/'.$matricula['idalumno'], 'Alumno:'); ?>) </td>
+     <td>( <?php echo anchor('estudiante/actual/'.$matricula['idestudiante'], 'Alumno:'); ?>) </td>
      <td><?php 
 $options= array("NADA");
-foreach ($alumnos as $row){
-	$options[$row->idalumno]= $row->elalumno;
+foreach ($estudiantes as $row){
+	$options[$row->idestudiante]= $row->elestudiante;
 }
 
-echo form_input('idalumno',$options[$matricula['idalumno']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
+echo form_input('idestudiante',$options[$matricula['idestudiante']],array("disabled"=>"disabled",'style'=>'width:500px;')) ?></td>
   </tr>
  
 

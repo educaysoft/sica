@@ -5,7 +5,7 @@
 
  
 <div class="form-group row">
-    <label class="col-md-2 col-form-label">Id departamento alumno:</label>
+    <label class="col-md-2 col-form-label">Id departamento estudiante:</label>
 	<div class="col-md-10">
 		<?php
 $eys_arrinput=array('name'=>'idmatricula','value'=>$matricula['idmatricula'],'readonly'=>'true', "style"=>"width:500px");
@@ -19,11 +19,11 @@ echo form_input($eys_arrinput); ?></td>
 	<div class="col-md-10">
 		<?php
 $options= array('--Select--');
-foreach ($alumnos as $row){
-	$options[$row->idalumno]= $row->elalumno;
+foreach ($estudiantes as $row){
+	$options[$row->idestudiante]= $row->elestudiante;
 }
 
- echo form_dropdown("idalumno",$options, $matricula['idalumno']);  
+ echo form_dropdown("idestudiante",$options, $matricula['idestudiante']);  
 		?>
 	</div> 
 </div>
