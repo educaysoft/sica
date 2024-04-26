@@ -114,8 +114,17 @@ public function edit()
 			'iddocenteactividadacademica' => $this->input->post('iddocenteactividadacademica'),
 			'minutosocupados' => $this->input->post('minutosocupados'),
 	 	);
-	 	$this->documentoportafolio_model->update($id,$array_item);
-	 	redirect('documentoportafolio');
+	$result =	$this->documentoportafolio_model->update($id,$array_item);
+f($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Documento ya existe en este portafolio'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+
+
+
  	}
 
 

@@ -86,6 +86,11 @@ class Documentoportafolio_model extends CI_model {
  	{
  		$this->db->where('iddocumentoportafolio',$id);
  		$this->db->update('documentoportafolio',$array_item);
+		   if( $this->db->affected_rows()>0){
+			return true;
+		 }else{
+			return false;
+	   }
 	}
  
 
