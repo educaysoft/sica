@@ -87,9 +87,11 @@ public function edit()
 {
 	 	$data['documentoportafolio'] = $this->documentoportafolio_model->documentoportafolio($this->uri->segment(3))->row_array();
 
-		$tipodocumento=17;  //portafolio
-		$data['documentos']= $this->documento_model->lista_documentosxtipo($tipodocumento,0)->result();
+		//$tipodocumento=17;  //portafolio
+		//$data['documentos']= $this->documento_model->lista_documentosxtipo($tipodocumento,0)->result();
 
+		$destinodocumento=1;  //portafolio
+		$data['documentos']= $this->documento_model->lista_documentosxdestino($destinodocumento)->result();
 
 		$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA(0)->result();
   		$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
