@@ -88,7 +88,7 @@ public function edit()
 	 	$data['documentoportafolio'] = $this->documentoportafolio_model->documentoportafolio($this->uri->segment(3))->row_array();
 
 		$tipodocumento=17;  //portafolio
-		$data['documentos']= $this->documento_model->lista_documentosxtipo($tipodocumento)->result();
+		$data['documentos']= $this->documento_model->lista_documentosxtipo($tipodocumento,0)->result();
 
 
 		$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA(0)->result();
