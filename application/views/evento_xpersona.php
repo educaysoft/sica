@@ -218,7 +218,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
-	 <tbody id="show_data">
+	 <tbody id="show_datap">
 	 </tbody>
 	</table>
 	</div>
@@ -308,7 +308,7 @@ function filtra_periodo()
 }
 
 
-$('#show_data').on('click','.docu_ver',function(){
+$('#show_datap').on('click','.docu_ver',function(){
 
 
 var ordenador = "https://"+$(this).data('ordenador');
