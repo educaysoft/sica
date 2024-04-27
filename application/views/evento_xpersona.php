@@ -308,6 +308,23 @@ function filtra_periodo()
 }
 
 
+$('#show_data').on('click','.docu_ver',function(){
+
+
+var ordenador = "https://"+$(this).data('ordenador');
+var ubicacion = $(this).data('ubicacion');
+if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+        ubicacion = ordenador+"/"+ubicacion;
+}else{
+	ubicacion = ordenador+ubicacion;
+}
+var archivo = $(this).data('archivo');
+var certi= ubicacion.trim()+archivo.trim();
+window.location.href = certi;
+
+});
+
+
 
 
 
