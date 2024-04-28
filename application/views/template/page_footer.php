@@ -4,6 +4,32 @@
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
+
+ <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+         <div class="col">
+          <div class="card shadow-sm">
+          <a  href=' http://congresoutlvte.org/informatica/PeriodoAcademico.php'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="images/PeriodoAcademico.jpg" height="100%" width="100%"/>  </svg></a>
+
+            <div class="card-body">
+              <p class="card-text"><font color="blue">Periodos Académicos .</font><br><b>"Carrera en Tecnología de la Información".</b></p>
+          <p>Director de carrera:<a href="http://www.utelvt.edu.ec/sitioweb/index.php/decano-ingenieria-y-tecnologias">  Ing. Stalin Francis.</a></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://congresoutlvte.org/facae/2021/'"  >Sitio</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Mapa</button>
+                </div>
+                <small class="text-muted">nov/2023</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
     <div class="col">
           <div class="card shadow-sm">
           <a  href='http://educaysoft.org/sica/curso/cursosparadocentes2023_2'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="images/CapacitacionDocente.jpg" height="100%" width="100%"/>  </svg></a>
@@ -41,6 +67,81 @@
             </div>
           </div>
         </div>
+
+
+
+ <div class="col">
+          <div class="card shadow-sm">
+          <a  href='https://educaysoft.org/sica/curso/docentes_2023_2S_19'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="images/ProduccionCientifica.jpg" height="100%" width="100%"/>  </svg></a>
+
+            <div class="card-body">
+              <p class="card-text"><font color="blue">Producción Cientifica.</font><br><b>"Carrera en Tecnología de la Información".</b></p>
+          <p>Director de carrera:<a href="http://www.utelvt.edu.ec/sitioweb/index.php/decano-ingenieria-y-tecnologias">  Ing. Stalin Francis.</a></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://congresoutlvte.org/facae/2021/'"  >Sitio</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Mapa</button>
+                </div>
+                <small class="text-muted">nov/2023</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col">
+          <div class="card shadow-sm">
+          <a  href='http://congresoutlvte.org/feriafaci/2023/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="images/FeriaCientifica.jpg" height="100%" width="100%"/>  </svg></a>
+
+            <div class="card-body">
+              <p class="card-text"><font color="blue">Ferias Cientificas.</font><br><b>"Carrera en Tecnología de la Información".</b></p>
+          <p>Director de carrera:<a href="http://www.utelvt.edu.ec/sitioweb/index.php/decano-ingenieria-y-tecnologias">  Ing. Stalin Francis.</a></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://congresoutlvte.org/facae/2021/'"  >Sitio</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Mapa</button>
+                </div>
+                <small class="text-muted">nov/2023</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+ <div class="col">
+          <div class="card shadow-sm">
+          <a  href='https://congresoutlvte.org/faci/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="images/CongresoInternacional.jpg" height="100%" width="100%"/>  </svg></a>
+
+            <div class="card-body">
+              <p class="card-text"><font color="blue">Congreso Internacional.</font><br><b>"Carrera en Tecnología de la Información".</b></p>
+          <p>Director de carrera:<a href="http://www.utelvt.edu.ec/sitioweb/index.php/decano-ingenieria-y-tecnologias">  Ing. Stalin Francis.</a></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='https://congresoutlvte.org/facae/2021/'"  >Sitio</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Mapa</button>
+                </div>
+                <small class="text-muted">nov/2023</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -32,7 +32,6 @@ if (isset($message_display)) {
 
  <div >
                  <label class="form-label" for="email">Usuario(correo):</label>
-              <!---    <input type="email" class="form-control" name="email" id="email"  aria-describedby="sizing-addon1">  --->
                  <input type="text" class="form-control" name="email" id="email"  aria-describedby="sizing-addon1">  
 </div>
 
@@ -60,7 +59,6 @@ if (isset($message_display)) {
 <!--- <center><p>¿Usted aun no tiene un cuenta? <br> <a style="color:red;" href="<?php echo base_url() ?>index.php/login/user_registration_show" role="button">Creela ahora</a></p></center> -->
 	</footer>
 
-   <?php echo form_close(); ?>
 </div>
 </div>
 </div>
