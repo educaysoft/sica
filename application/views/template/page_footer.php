@@ -32,7 +32,7 @@
 
     <div class="col">
           <div class="card shadow-sm">
-          <a  href='http://educaysoft.org/sica/curso/cursosparadocentes2023_2'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="images/CapacitacionDocente.jpg" height="100%" width="100%"/>  </svg></a>
+          <a  href='http://educaysoft.org/sica/curso/cursosparadocentes2023_2'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="<?php echo base_url(); ?>/images/CapacitacionDocente.jpg" height="100%" width="100%"/>  </svg></a>
 
             <div class="card-body">
               <p class="card-text"><font color="blue">Capacitación a Docentes.</font><br><b>"Carrera en Tecnología de la Información".</b></p>
@@ -52,7 +52,7 @@
 
         <div class="col">
           <div class="card shadow-sm">
-          <a  href='http://educaysoft.org/sica/curso/cursosparaestudiantes2023_2'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="images/CapacitacionEstudiante.jpg" height="100%" width="100%"/>  </svg></a>
+          <a  href='http://educaysoft.org/sica/curso/cursosparaestudiantes2023_2'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="<?php echo base_url(); ?>/images/CapacitacionEstudiante.jpg" height="100%" width="100%"/>  </svg></a>
 
             <div class="card-body">
               <p class="card-text"><font color="blue">Capacitación a Estudiantes.</font><br><b>"Carrera en Tecnología de la Información".</b></p>
@@ -72,7 +72,7 @@
 
  <div class="col">
           <div class="card shadow-sm">
-          <a  href='https://educaysoft.org/sica/curso/docentes_2023_2S_19'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="images/ProduccionCientifica.jpg" height="100%" width="100%"/>  </svg></a>
+          <a  href='https://educaysoft.org/sica/curso/docentes_2023_2S_19'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="<?php echo base_url(); ?>/images/ProduccionCientifica.jpg" height="100%" width="100%"/>  </svg></a>
 
             <div class="card-body">
               <p class="card-text"><font color="blue">Producción Cientifica.</font><br><b>"Carrera en Tecnología de la Información".</b></p>
@@ -92,7 +92,7 @@
 
         <div class="col">
           <div class="card shadow-sm">
-          <a  href='http://congresoutlvte.org/feriafaci/2023/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="images/FeriaCientifica.jpg" height="100%" width="100%"/>  </svg></a>
+          <a  href='http://congresoutlvte.org/feriafaci/2023/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="<?php echo base_url(); ?>/images/FeriaCientifica.jpg" height="100%" width="100%"/>  </svg></a>
 
             <div class="card-body">
               <p class="card-text"><font color="blue">Ferias Cientificas.</font><br><b>"Carrera en Tecnología de la Información".</b></p>
@@ -111,7 +111,7 @@
 
  <div class="col">
           <div class="card shadow-sm">
-          <a  href='https://congresoutlvte.org/faci/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="images/CongresoInternacional.jpg" height="100%" width="100%"/>  </svg></a>
+          <a  href='https://congresoutlvte.org/faci/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="<?php echo base_url(); ?>/images/CongresoInternacional.jpg" height="100%" width="100%"/>  </svg></a>
 
             <div class="card-body">
               <p class="card-text"><font color="blue">Congreso Internacional.</font><br><b>"Carrera en Tecnología de la Información".</b></p>
