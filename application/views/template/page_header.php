@@ -40,6 +40,8 @@ if (isset($this->session->userdata['logged_in'])) {
  
 <script  src="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<link   type="text/css" href="<?php echo base_url(); ?>/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <style>
 
 body{
