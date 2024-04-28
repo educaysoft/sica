@@ -12,7 +12,7 @@ if (isset($message_display)) {
 	echo "</div>";
 }
 ?>
-	<div id="eys-login" class="w3-container" style="height:1500px;" >
+	<div id="eys-login" class="w3-container"  >
 <div id="eys-login2"  class="w3-card-4"  >
 	<header class="w3-container" style="background-color:#4CAF50;">
 					<p style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:25px; color:white; text-align:center;">Educación Continua </p>
