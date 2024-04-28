@@ -744,9 +744,11 @@ if(isset($this->session->userdata['acceso'])){
         <h4>UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS</h4>
     </div>
     <div class="menu-items pull-right">
+			<div  style="display:flex; vertical-align: middle;">
         <div class="w3-bar">
             <a id="ln-registrar" href="<?php echo base_url(); ?>index.php/login/user_registration_show" class="abrir-cerrar w3-bar-item w3-border-green w3-border-right">Registrar</a>
             <a href="<?php echo base_url(); ?>index.php/login" class="abrir-cerrar w3-bar-item">Entrar</a>
+        </div>
         </div>
     </div>
 </div>
