@@ -737,7 +737,7 @@ if(isset($this->session->userdata['acceso'])){
 <div class="menu-container">
     <div class="logo-container media-left">
         <a href="<?php echo base_url(); ?>index.php/mti">
-            <img src="<?php echo base_url(); ?>images/logo.jpg" style="width:50px;height:50px;" alt="Formget logo">
+            <img src="<?php echo base_url(); ?>images/logo-cti.png" style="width:50px;height:50px;" alt="Formget logo">
         </a>
     </div>
     <div class="title-container media-left">
@@ -754,9 +754,6 @@ if(isset($this->session->userdata['acceso'])){
 
 
 <!---
-
-
-
 		<div class="media-left">
 			<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo.jpg"  style="width:50px;height:50px:" alt="Formget logo"></a>  
 		</div>    
@@ -772,7 +769,6 @@ if(isset($this->session->userdata['acceso'])){
 			  </div> 
 			 </div>
 		</div>
-
 -->
 
 
