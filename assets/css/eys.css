@@ -13,7 +13,7 @@ flex-direction:column;
 }
 
 
-
+/*
 #eys-footer{
 height: 200px;
 width:100%;
@@ -36,7 +36,7 @@ padding:5px;
 #eys-footer div div{
 float:left;
 width:20%;
-/*position:relative;*/
+position:relative;
 text-align:left;
 height: 100%;
 }
@@ -48,6 +48,51 @@ height: 100%;
 #eys-footer div div ul li {
    font-size: 1vw;
 }
+
+*/
+
+
+#eys-footer {
+  height: auto; /* Cambiado a 'auto' para adaptarse al contenido */
+  width: 100%;
+  background-color: lightgray;
+  position: fixed; /* Cambiado a 'fixed' para que se mantenga en el pie de la página */
+  bottom: 0;
+  left: 0; /* Asegura que el footer se alinee correctamente en todo el ancho de la página */
+  padding: 20px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Distribuye los elementos a lo largo del footer */
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+#eys-footer div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinea los elementos a la izquierda */
+  padding: 5px;
+}
+
+#eys-footer div:nth-child(2) {
+  flex-grow: 1; /* Ajusta este div para que ocupe el espacio restante */
+}
+
+#eys-footer div div {
+  text-align: center; /* Centra horizontalmente el contenido */
+}
+
+#eys-footer div p {
+  font-size: 14px; /* Cambiado el tamaño del texto para que sea más legible */
+}
+
+#eys-footer div div ul li {
+  font-size: 12px; /* Cambiado el tamaño del texto para que sea más legible */
+}
+
+
+
+
+
 
 
 #eys-caja{
