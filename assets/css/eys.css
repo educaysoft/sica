@@ -12,54 +12,6 @@ display:flex;
 flex-direction:column;
 }
 
-footer {
-    background-color: #f0f0f0;
-    padding: 20px;
-  /*  position: absolute;
-    bottom: 0; */
-    width: 100%;
-  }
-
-  footer > div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  footer > div > div {
-    flex: 1;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
-  footer h2 {
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-  footer p {
-    color: black;
-    font-size: 14px;
-  }
-
-  footer img {
-    height: 80px;
-  }
-
-  footer ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  footer ul li a {
-    color: black;
-    font-size: 14px;
-    text-decoration: none;
-  }
 
 
 
@@ -107,7 +59,7 @@ height: 100%;
   height: auto; /* Cambiado a 'auto' para adaptarse al contenido */
   width: 100%;
   background-color: lightgray;
-/*  position: fixed;  Cambiado a 'fixed' para que se mantenga en el pie de la página */
+  position: fixed;  Cambiado a 'fixed' para que se mantenga en el pie de la página */
   bottom: 0;
   left: 0; /* Asegura que el footer se alinee correctamente en todo el ancho de la página */
   padding: 20px 0;
