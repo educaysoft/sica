@@ -12,7 +12,7 @@
 
          <div class="col">
           <div class="card shadow-sm">
-          <a  href=' http://congresoutlvte.org/informatica/PeriodoAcademico.php'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="images/PeriodoAcademico.jpg" height="100%" width="100%"/>  </svg></a>
+          <a  href=' http://congresoutlvte.org/informatica/PeriodoAcademico.php'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="<?php echo base_url(); ?>/images/PeriodoAcademico.jpg" height="100%" width="100%"/>  </svg></a>
 
             <div class="card-body">
               <p class="card-text"><font color="blue">Periodos Académicos .</font><br><b>"Carrera en Tecnología de la Información".</b></p>
