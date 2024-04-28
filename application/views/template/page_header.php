@@ -649,8 +649,7 @@ span a {
 
 
 
-<!---<div  style="position:fixed; padding:2px; background-color: rgba(0,255, 0, 0.3); margin-top:0; border-bottom:5px solid green ;z-index: 9999;">-->
-<!--<div  style="position:fixed; width: 100%; padding:8px; background-color: #04df8c ; margin-top:0; border-bottom:2px solid green ;z-index: 9999; ">-->
+<!----<div  style="position:fixed; width: 100%; padding:0px; background-color: #04df8c ; margin-top:0; border-bottom:2px solid green ;z-index: 9999; display: flex; flex-direction: row; justify-content:space-between; "> ---->
 <div  style="position:fixed; width: 100%; padding:0px; background-color: #04df8c ; margin-top:0; border-bottom:2px solid green ;z-index: 9999; display: flex; flex-direction: row; justify-content:space-between; ">
   
    	<?php if(isset($this->session->userdata['logged_in']) ){ ?>
