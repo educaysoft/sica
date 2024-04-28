@@ -634,11 +634,13 @@ span a {
    	<?php if(isset($this->session->userdata['logged_in']) ){ ?>
  
 <div style="display: flex; flex-direction: row; justify-content: flex-start;">
+
     	<div style="height: 50px;">
         	<a id="abrir" class="abrir-cerrar w3-bar-item"  href="javascript:void(0)" onclick="mostrar()"><img src="<?php echo base_url(); ?>images/menu0.png"  style="height:100%;"  alt="Formget logo"> </a><a id="cerrar" class="abrir-cerrar w3-bar-item" href="#" onclick="ocultar()"><img src="<?php echo base_url(); ?>images/menu1.png"  style="height:100%;"  alt="Formget logo"> </a>
     	</div>    
- 	<div style="height: 50px;">
-    		<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo.jpg" style="height: 100%;" alt="Formget logo"></a>  
+
+ 	    <div style="height: 50px;">
+    		<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo-cti.png" style="height: 100%;" alt="Formget logo"></a>  
     	</div>    
 
 		<div class="media-left" style=" display:table-cell; vertical-align:middle; "  >

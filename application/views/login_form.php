@@ -34,7 +34,6 @@ if (isset($message_display)) {
                  <label class="form-label" for="email">Usuario(correo):</label>
               <!---    <input type="email" class="form-control" name="email" id="email"  aria-describedby="sizing-addon1">  --->
                  <input type="text" class="form-control" name="email" id="email"  aria-describedby="sizing-addon1">  
-
 </div>
 
  <div >
