@@ -1,3 +1,7 @@
+
+   	<?php if(!isset($this->session->userdata['logged_in']) ){ ?>
+
+
  <div class="album py-5 bg-light" style="margin-top: 60px;"> 
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -122,7 +126,6 @@
 </main>
 
 
-   	<?php if(!isset($this->session->userdata['logged_in']) ){ ?>
 
 <!-- Footer -->
 
@@ -146,40 +149,15 @@
 </footer>
 
 
+   	<?php }else{ ?>
 
-
-
-
-
-<!--
-<footer id="eys-footer"    >
-  <div style="margin-top:10px; height: 100%; width: 30%; display: flex; flex-direction:column;  ">
-    <div >      
-        <p style="color: black;font-size:20px;font-weight:bold;">Contactanos:</p>
-    </div>
-    <div style="color: black;font-size:20px;width: 100%;">
-      <p style="font-size: 1vw;">Dirección: Ciudadela Nuevos Horizontes:</p>
-      <p style="font-size: 1vw;">Correo: educacioncontinua@utelvt.edu.ec</p>
-</div>   
- </div>
- <div style="  height:100%; width:30%; display:flex; justify-content: center; flex-direction: column; ">
-     <div style="width: 100%;  height: 100%;text-align:center; ">
-     <a href="https://utelvt.edu.ec/sitioweb/"> <img src="<?php echo base_url(); ?>images/logo.png" alt="logo utelvt" style="height: 100%;"></a>
-    </div>
-<div style="width: 100%;text-align:center;">
-Visitas:<br> <script src="<?php echo base_url(); ?>misvisitas.php"></script> 
 </div>
- </div>
-
-<div style="color: black; height: 100%; width: 30%; display:flex; justify-content: center;  ">
-    <ul style="margin:0; padding:0;" class="icons">
-    <li><a href="https://educaysoft.org/sica/MTI/doc/_build/html/">Maestría en Tecnología de la Información</a></li>
-    </ul>
 </div>
-</footer>
---->
+</main>
 
-<!-- Footer -->
+
+
+
 
    	<?php } ?>
 
