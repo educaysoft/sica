@@ -84,6 +84,28 @@ flex-direction:row;
     }
 
 
+/* para el menu principal de tipo responsive */
+ 
+
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container, .title-container, .menu-items {
+    padding: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    .menu-container {
+        flex-direction: column;
+    }
+}
+
+
+
+
 
 
 
@@ -709,7 +731,32 @@ if(isset($this->session->userdata['acceso'])){
 
 
 	    <?php }else { ?>
-  
+
+
+
+<div class="menu-container">
+    <div class="logo-container media-left">
+        <a href="<?php echo base_url(); ?>index.php/mti">
+            <img src="<?php echo base_url(); ?>images/logo.jpg" style="width:50px;height:50px;" alt="Formget logo">
+        </a>
+    </div>
+    <div class="title-container media-left">
+        <h4>UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS</h4>
+    </div>
+    <div class="menu-items pull-right">
+        <div class="w3-bar">
+            <a id="ln-registrar" href="<?php echo base_url(); ?>index.php/login/user_registration_show" class="abrir-cerrar w3-bar-item w3-border-green w3-border-right">Registrar</a>
+            <a href="<?php echo base_url(); ?>index.php/login" class="abrir-cerrar w3-bar-item">Entrar</a>
+        </div>
+    </div>
+</div>
+
+
+
+<!---
+
+
+
 		<div class="media-left">
 			<a href=" <?php echo base_url(); ?>index.php/mti"> <img src="<?php echo base_url(); ?>images/logo.jpg"  style="width:50px;height:50px:" alt="Formget logo"></a>  
 		</div>    
@@ -726,7 +773,7 @@ if(isset($this->session->userdata['acceso'])){
 			 </div>
 		</div>
 
-
+-->
 
 
 	<?php } ?>
