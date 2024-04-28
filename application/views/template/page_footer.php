@@ -9,20 +9,20 @@
 <!-- Footer -->
 
 <!-- <footer id="eys-footer" style="background-color: #f0f0f0; padding: 20px;"> -->
-<footer  style="background-color: #f0f0f0; padding: 20px;">
-  <div style="display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; max-width: 1200px; margin: 0 auto;">
-    <div style="flex: 1; margin-bottom: 20px;">
-      <h2 style="color: black; font-size: 20px; font-weight: bold;">Contactanos:</h2>
-      <p style="color: black; font-size: 14px;">Dirección: Ciudadela Nuevos Horizontes:</p>
-      <p style="color: black; font-size: 14px;">Correo: <a href="mailto:educacioncontinua@utelvt.edu.ec">educacioncontinua@utelvt.edu.ec</a></p>
+<footer>
+  <div>
+    <div>
+      <h2>Contactanos:</h2>
+      <p>Dirección: Ciudadela Nuevos Horizontes:</p>
+      <p>Correo: <a href="mailto:educacioncontinua@utelvt.edu.ec">educacioncontinua@utelvt.edu.ec</a></p>
     </div>
-    <div style="flex: 1; text-align: center; margin-bottom: 20px;">
-      <a href="https://utelvt.edu.ec/sitioweb/"><img src="<?php echo base_url(); ?>images/logo.png" alt="Logo UTELVT" style="height: 80px;"></a>
-      <p style="color: black; font-size: 14px; margin-top: 10px;">Visitas: <script src="<?php echo base_url(); ?>misvisitas.php"></script></p>
+    <div>
+      <a href="https://utelvt.edu.ec/sitioweb/"><img src="https://educaysoft.org/sica/images/logo.png" alt="Logo UTELVT"></a>
+      <p>Visitas: <script src="https://educaysoft.org/sica/misvisitas.php"></script></p>
     </div>
-    <div style="flex: 1; text-align: center;">
-      <ul style="list-style-type: none; padding: 0;">
-        <li><a href="https://educaysoft.org/sica/MTI/doc/_build/html/" style="color: black; font-size: 14px;">Maestría en Tecnología de la Información</a></li>
+    <div>
+      <ul>
+        <li><a href="https://educaysoft.org/sica/MTI/doc/_build/html/">Maestría en Tecnología de la Información</a></li>
       </ul>
     </div>
   </div>
