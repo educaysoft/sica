@@ -1,8 +1,6 @@
- <div class="album py-5 bg-light">
+ <div class="album py-5 bg-light" style="margin-top: 60px;"> 
     <div class="container">
-
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
          <div class="col">
           <div class="card shadow-sm">
           <a  href=' http://congresoutlvte.org/informatica/PeriodoAcademico.php'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="<?php echo base_url(); ?>/images/PeriodoAcademico.jpg" height="100%" width="100%"/>  </svg></a>
@@ -20,8 +18,6 @@
             </div>
           </div>
         </div>
-
-
 
     <div class="col">
           <div class="card shadow-sm">
@@ -41,8 +37,6 @@
           </div>
         </div>
 
-
-
         <div class="col">
           <div class="card shadow-sm">
           <a  href='http://educaysoft.org/sica/curso/cursosparaestudiantes2023_2'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="<?php echo base_url(); ?>/images/CapacitacionEstudiante.jpg" height="100%" width="100%"/>  </svg></a>
@@ -60,8 +54,6 @@
             </div>
           </div>
         </div>
-
-
 
  <div class="col">
           <div class="card shadow-sm">
@@ -81,8 +73,6 @@
           </div>
         </div>
 
-
-
         <div class="col">
           <div class="card shadow-sm">
           <a  href='http://congresoutlvte.org/feriafaci/2023/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="<?php echo base_url(); ?>/images/FeriaCientifica.jpg" height="100%" width="100%"/>  </svg></a>
@@ -101,7 +91,6 @@
           </div>
         </div>
 
-
  <div class="col">
           <div class="card shadow-sm">
           <a  href='https://congresoutlvte.org/faci/'><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><image href="<?php echo base_url(); ?>/images/CongresoInternacional.jpg" height="100%" width="100%"/>  </svg></a>
@@ -119,7 +108,6 @@
             </div>
           </div>
         </div>
-
 
 
  </div>
@@ -143,7 +131,7 @@
     <div style="flex: 1; margin-bottom: 20px;">
       <h2 style="color: black; font-size: 20px; font-weight: bold;">Contactanos:</h2>
       <p style="color: black; font-size: 14px;">Dirección: Ciudadela Nuevos Horizontes:</p>
-      <p style="color: black; font-size: 14px;">Correo: <a href="mailto:educacioncontinua@utelvt.edu.ec">educacioncontinua@utelvt.edu.ec</a></p>
+      <p style="color: black; font-size: 14px;">Correo: <a href="mailto:stalin.francis@utelvt.edu.ec">educacioncontinua@utelvt.edu.ec</a></p>
     </div>
     <div style="flex: 1; text-align: center; margin-bottom: 20px;">
       <a href="https://utelvt.edu.ec/sitioweb/"><img src="<?php echo base_url(); ?>images/logo.png" alt="Logo UTELVT" style="height: 80px;"></a>
