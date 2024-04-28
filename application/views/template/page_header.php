@@ -740,9 +740,7 @@ if(isset($this->session->userdata['acceso'])){
             <img src="<?php echo base_url(); ?>images/logo-cti.png" style="height:50px;" alt="Formget logo">
         </a>
     </div>
-    <div class="title-container media-left">
-        <h4>UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS</h4>
-    </div>
+    
     <div class="menu-items pull-right">
 			<div  style="display:flex; vertical-align: middle;">
         <div class="w3-bar">
