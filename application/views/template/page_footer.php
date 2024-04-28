@@ -81,9 +81,9 @@ function closeForm1() {
 function mostrar() {
 
  <?php  
+   $amenu=array();                               
                                                   
  if(isset($this->session->userdata['acceso'])){
-   $amenu=array();                               
                     
    foreach($this->session->userdata['acceso'] as $row)
        {
