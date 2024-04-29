@@ -139,7 +139,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="row" style="background-color:red; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left" >
-	     <b style="color:white">Lista de eventos recibidos y ditados ya terminados  :  <?php echo $persona[0]->apellidos; ?> <?php echo "  "; ?>  <?php echo $persona[0]->nombres; ?>    	</b>
+	     <b style="color:white">Eventos recibidos y ditados ya terminados  :  <?php echo $persona[0]->apellidos; ?> <?php echo "  "; ?>  <?php echo $persona[0]->nombres; ?>    	</b>
         </div>
         
     </div>
@@ -172,13 +172,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 <div class="form-group row">
-
 	<div class="col-md-10">
-	<div class="row justify-content-left">
+	<div class="row justify-content-center">
       	<!-- Page Heading -->
  	<div class="row">
   	<div class="col-12" style="border:solid;">
-	<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+<div class="row" style="background-color:blue; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
 	    <div class="col-lg-12 margin-tb">
 		<div class="pull-left">
 		    <b>Documentos del portafolio: </b>
