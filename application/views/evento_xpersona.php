@@ -189,7 +189,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 	<div class="form-group row">
-    	<label class="col-md-2 col-form-label"> Periodo académico:</label>
+    	<label class="col-md-2 col-form-label"> Periodo:</label>
 	<?php
 		$options= array('--Select--');
 		foreach ($periodoacademicos as $row){
@@ -209,12 +209,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	<table class="table table-striped table-bordered table-hover" id="mydatap">
 	 <thead>
 	 <tr>
-	 <th>iddopo</th>
-	 <th>iddocu</th>
-	 <th>idpersona</th>
-	 <th>titulo</th>
-	 <th>elabor.</th>
-	 <th>archvo.</th>
+	 <th>Id document</th>
+	 <th>Tipo document</th>
+	 <th>Título asunto</th>
+	 <th>Nombre archvo.</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
@@ -309,7 +307,6 @@ function filtra_periodo()
 
 
 $('#show_datap').on('click','.docu_ver',function(){
-
 
 var ordenador = "https://"+$(this).data('ordenador');
 var ubicacion = $(this).data('ubicacion');
