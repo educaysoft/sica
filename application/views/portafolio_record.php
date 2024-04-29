@@ -212,7 +212,7 @@ $(document).ready(function(){
 	var idpersona=document.getElementById("idpersona").value;
 //	var idportafolio=document.getElementById("idportafolio").value;
 	var idperiodoacademico='<?php echo $portafolio["idperiodoacademico"]; ?>';
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('portafolio/documento_data')?>', type: 'GET',data:{idpersona:idpersona,idperiodoacademico:idperiodoacademico}},});
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('portafolio/documento2_data')?>', type: 'GET',data:{idpersona:idpersona,idperiodoacademico:idperiodoacademico}},});
 });
 
 
