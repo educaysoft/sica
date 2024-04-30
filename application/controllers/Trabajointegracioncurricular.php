@@ -9,6 +9,7 @@ class Trabajointegracioncurricular extends CI_Controller{
       $this->load->model('ordenador_model');
       $this->load->model('directorio_model');
       $this->load->model('persona_model');
+      $this->load->model('estadotrabajointegracioncurricular_model');
 	}
 
 	public function index(){
@@ -19,6 +20,7 @@ class Trabajointegracioncurricular extends CI_Controller{
 			$data['lectores'] = $this->trabajointegracioncurricular_model->lectores($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
 			$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
 			$data['directorios'] = $this->directorio_model->lista_directorios()->result();
+	        $data['estadotrabajointegracioncurriculars']= $this->estadotrabajointegracioncurricular_model->lista_estadotrabajointegracioncurriculars()->result();
 
 			$data['title']="Usted esta visualizando el trabajointegracioncurricular No: ";
 			$this->load->view('template/page_header');		
@@ -41,6 +43,7 @@ class Trabajointegracioncurricular extends CI_Controller{
 	{
 		$data['title']="Usted esta Creando un nuevo Trabajointegracioncurricular";
 		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+	    $data['estadotrabajointegracioncurriculars']= $this->estadotrabajointegracioncurricular_model->lista_estadotrabajointegracioncurriculars()->result();
 		$data['ordenadores']= $this->ordenador_model->lista_ordenadores()->result();
 		$data['personas']= $this->persona_model->lista_personasA()->result();
 	 	$this->load->view('template/page_header');		
@@ -66,7 +69,8 @@ class Trabajointegracioncurricular extends CI_Controller{
 		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
 		 	'nombre' => $this->input->post('nombre'),
 		 	'resumen' => $this->input->post('resumen'),
-	                'idusuario'=>$idusuario,
+            'idestadotrabajointegracioncurricular'=> $this->input->post('idestadotrabajointegracioncurricular');
+	        'idusuario'=>$idusuario,
 			'fechacreacion'=>$fecha,
 			'horacreacion'=>$hora
 	 	);
@@ -97,6 +101,7 @@ class Trabajointegracioncurricular extends CI_Controller{
 	  $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 	  $data['egresados'] =$this->trabajointegracioncurricular_model->egresados($this->uri->segment(3))->result();
 	  $data['lectores'] = $this->trabajointegracioncurricular_model->lectores($data['trabajointegracioncurricular']['idtrabajointegracioncurricular'])->result();
+	        $data['estadotrabajointegracioncurriculars']= $this->estadotrabajointegracioncurricular_model->lista_estadotrabajointegracioncurriculars()->result();
 		$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
 		$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 		$data['title']="Usted esta visualizando el trabajointegracioncurricular No: ";
@@ -339,6 +344,7 @@ public function anterior(){
 	 	$array_item=array(
 		 	
 		'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
+        'idestadotrabajointegracioncurricular'=> $this->input->post('idestadotrabajointegracioncurricular')
 	 	);
 
 

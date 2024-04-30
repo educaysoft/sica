@@ -61,7 +61,7 @@ if(isset($trabajointegracioncurricular))
 }else{
 ?>
 
-        <li> <?php echo anchor('evento_estado/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -150,7 +150,21 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('/add', 'Estado:') ?> </label>
+     <?php 
+    $options= array("NADA");
+    foreach ($s as $row){
+	      $options[$row->id]= $row->nombre;
+    }
+	?>
+	<div class="col-md-10">
+		<?php
+    $arrdatos=array('name'=>'id','value'=>$options[$evento['idestadotrabajointegracioncurricular']],"disabled"=>"disabled", "style"=>"width:600px");
+echo form_input($arrdatos) ?>
 
+	</div> 
+</div>
 
 
 

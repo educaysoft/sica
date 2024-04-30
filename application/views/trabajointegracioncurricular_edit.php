@@ -53,7 +53,16 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 echo form_textarea('resumen',$trabajointegracioncurricular['resumen'],$textarea_options ); ?></td>
 </tr>
 
+<tr>
+<td> Estado del evento:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($estadotrabajointegracioncurriculars as $row){
+	$options[$row->idestadotrabajointegracioncurricular]= $row->nombre;
+}
 
+ echo form_dropdown("idestadotrabajointegracioncurricular",$options, $evento['idestadotrabajointegracioncurricular']);  ?></td>
+</tr>
 
    
 
