@@ -220,7 +220,7 @@ $inicio=1;
 $i=0;
 $j=0;
 
-$arrcolor=array(1=>"#001F3F",2=>"#F5DA81",3=>"#A9F5A9",4=>"#A9F4F3",5=>"#CFCEF7",6=>"#D1A9F4",7=>"#F5A8F3",8=>"#80DBF5",9=>"#9BFE2F",10=>"#9BFE2F");
+$arrcolor=array(1=>"#4d85c5",2=>"#F5DA81",3=>"#A9F5A9",4=>"#A9F4F3",5=>"#CFCEF7",6=>"#D1A9F4",7=>"#F5A8F3",8=>"#80DBF5",9=>"#9BFE2F",10=>"#9BFE2F");
 foreach($distributivodocentes as $row){
 	
 
