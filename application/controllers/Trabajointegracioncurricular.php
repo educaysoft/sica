@@ -69,7 +69,7 @@ class Trabajointegracioncurricular extends CI_Controller{
 		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
 		 	'nombre' => $this->input->post('nombre'),
 		 	'resumen' => $this->input->post('resumen'),
-            'idestadotrabajointegracioncurricular'=> $this->input->post('idestadotrabajointegracioncurricular');
+            'idestadotrabajointegracioncurricular'=> $this->input->post('idestadotrabajointegracioncurricular'),
 	        'idusuario'=>$idusuario,
 			'fechacreacion'=>$fecha,
 			'horacreacion'=>$hora
