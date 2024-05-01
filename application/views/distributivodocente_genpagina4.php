@@ -322,17 +322,12 @@ $data=$data.'</div>
 
 foreach($trabajointegracioncurricular as $rowj){
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
-
-			$data=$data.'<b>'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'] .': </b><span style="color:red">'.$rowj[$row->iddocente]['nombre'].'('.$rowj[$row->iddocente]['elegresado'].'),</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
+			    $data=$data.'<b>'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'] .': </b><span style="color:red">'.$rowj[$row->iddocente]['nombre'].'('.$rowj[$row->iddocente]['elegresado'].'),</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
 			}	
 	//		echo $rowj; echo '<br>';
 		}
 
-
-
               	$data=$data.'<div class="d-flex justify-content-between align-items-center">
-
-
               </div>
             </div>
           </div>
