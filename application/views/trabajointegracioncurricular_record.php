@@ -160,7 +160,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'id','value'=>$options[$evento['idestadotrabajointegracioncurricular']],"disabled"=>"disabled", "style"=>"width:600px");
+    $arrdatos=array('name'=>'id','value'=>$options[$trabajointegracioncurricular['idestadotrabajointegracioncurricular']],"disabled"=>"disabled", "style"=>"width:600px");
 echo form_input($arrdatos) ?>
 
 	</div> 
