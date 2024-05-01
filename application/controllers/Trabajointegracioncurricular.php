@@ -331,6 +331,7 @@ public function anterior(){
     		$data['egresados'] =$this->trabajointegracioncurricular_model->egresados($this->uri->segment(3))->result();
     		$data['lectores'] = $this->trabajointegracioncurricular_model->lectores($this->uri->segment(3))->result();
     		$data['title'] = "Actualizar el  Trabajointegracioncurricular No: ";
+	        $data['estadotrabajointegracioncurriculars']= $this->estadotrabajointegracioncurricular_model->lista_estadotrabajointegracioncurriculars()->result();
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('trabajointegracioncurricular_edit',$data);
 	 	$this->load->view('template/page_footer');
