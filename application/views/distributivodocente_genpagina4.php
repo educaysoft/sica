@@ -324,10 +324,10 @@ foreach($trabajointegracioncurricular as $rowj){
 
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
                 if($rowj[$row->iddocente]['idestadotrabajointegracioncurricular']==5){
-			    $data=$data.'<b>'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'] .': </b><span style="color:green">'.$rowj[$row->iddocente]['nombre'].'[Egresado: '.$rowj[$row->iddocente]['elegresado'].']-[Estado: '.$rowj[$row->iddocente]['elestado'].',</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
+			    $data=$data.'<b>'.$rowj[$row->iddocente]['eltipolector'] .': </b><span style="color:green">'.$rowj[$row->iddocente]['nombre'].'[Egresado: '.$rowj[$row->iddocente]['elegresado'].']-[Estado: '.$rowj[$row->iddocente]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
                 }else{
 
-			    $data=$data.'<b>'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'] .': </b><span style="color:red">'.$rowj[$row->iddocente]['nombre'].'('.$rowj[$row->iddocente]['elegresado'].')-[Estado: '.$rowj[$row->iddocente]['elestado'].',</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
+			    $data=$data.'<b>'.$rowj[$row->iddocente]['eltipolector'] .': </b><span style="color:red">'.$rowj[$row->iddocente]['nombre'].'('.$rowj[$row->iddocente]['elegresado'].')-[Estado: '.$rowj[$row->iddocente]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
 
                 }
 			}	
