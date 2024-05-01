@@ -61,7 +61,7 @@ foreach ($estadotrabajointegracioncurriculars as $row){
 	$options[$row->idestadotrabajointegracioncurricular]= $row->nombre;
 }
 
- echo form_dropdown("idestadotrabajointegracioncurricular",$options, $evento['idestadotrabajointegracioncurricular']);  ?></td>
+ echo form_dropdown("idestadotrabajointegracioncurricular",$options, $trabajointegracioncurricular['idestadotrabajointegracioncurricular']);  ?></td>
 </tr>
 
    
