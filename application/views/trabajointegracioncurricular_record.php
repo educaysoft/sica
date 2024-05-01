@@ -155,7 +155,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
      <?php 
     $options= array("NADA");
     foreach ($estadotrabajointegracioncurriculars as $row){
-	      $options[$row->id]= $row->nombre;
+	      $options[$row->idtrabajointegracioncurricular]= $row->nombre;
     }
 	?>
 	<div class="col-md-10">
