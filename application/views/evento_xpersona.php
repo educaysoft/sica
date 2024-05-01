@@ -31,6 +31,72 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <div class="form-group row">
 	<div class="col-md-10">
+	<div class="row justify-content-center">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12" style="border:solid;">
+<div class="row" style="background-color:blue; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+	    <div class="col-lg-12 margin-tb">
+		<div class="pull-left">
+		    <b style="color:white">Documentos del portafolio: </b>
+		</div>
+		
+	    </div>
+	</div>
+
+
+	<div class="form-group row">
+    	<label class="col-md-2 col-form-label"> Periodo:</label>
+	<?php
+		$options= array('--Select--');
+		foreach ($periodoacademicos as $row){
+			$options[$row->idperiodoacademico]= $row->nombrecorto;
+		}
+	?>
+
+	<div class="col-md-10">
+		<?php
+     			echo form_dropdown("idperiodoacademico",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_periodo()'));  
+		?>
+	</div>
+	</div>
+
+
+
+	<table class="table table-striped table-bordered table-hover" id="mydatap">
+	 <thead>
+	 <tr>
+	 <th>Id document</th>
+	 <th>Tipo document</th>
+	 <th>Título asunto</th>
+	 <th>Nombre archvo.</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_datap">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="form-group row">
+	<div class="col-md-10">
 <div class="row justify-content-center">
       <!-- Page Heading -->
  <div class="row">
@@ -171,58 +237,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 
-<div class="form-group row">
-	<div class="col-md-10">
-	<div class="row justify-content-center">
-      	<!-- Page Heading -->
- 	<div class="row">
-  	<div class="col-12" style="border:solid;">
-<div class="row" style="background-color:blue; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
-	    <div class="col-lg-12 margin-tb">
-		<div class="pull-left">
-		    <b style="color:white">Documentos del portafolio: </b>
-		</div>
-		
-	    </div>
-	</div>
 
-
-	<div class="form-group row">
-    	<label class="col-md-2 col-form-label"> Periodo:</label>
-	<?php
-		$options= array('--Select--');
-		foreach ($periodoacademicos as $row){
-			$options[$row->idperiodoacademico]= $row->nombrecorto;
-		}
-	?>
-
-	<div class="col-md-10">
-		<?php
-     			echo form_dropdown("idperiodoacademico",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_periodo()'));  
-		?>
-	</div>
-	</div>
-
-
-
-	<table class="table table-striped table-bordered table-hover" id="mydatap">
-	 <thead>
-	 <tr>
-	 <th>Id document</th>
-	 <th>Tipo document</th>
-	 <th>Título asunto</th>
-	 <th>Nombre archvo.</th>
-	 <th style="text-align: right;">Actions</th>
-	 </tr>
-	 </thead>
-	 <tbody id="show_datap">
-	 </tbody>
-	</table>
-	</div>
-	</div>
-	</div>
-	</div> 
-</div>
 
 
 
