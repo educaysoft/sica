@@ -10,7 +10,7 @@ class Sexo extends CI_Controller{
 public function index(){
   	$data['sexo']=$this->sexo_model->sexo(1)->row_array();
  
-  	$data['title']="Tipos de documentos";
+  	$data['title']="Sexo";
 	$this->load->view('template/page_header');		
   	$this->load->view('sexo_record',$data);
 	$this->load->view('template/page_footer');

@@ -20,7 +20,7 @@
 <?php echo form_hidden('idsexo',$sexo['idsexo']) ?>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id Tipo Doc:</label>
+    <label class="col-md-2 col-form-label"> Id:</label>
 	<div class="col-md-10">
 
      <?php echo form_input('idsexo',$sexo['idsexo'],array("disabled"=>"disabled",'placeholder'=>'Idsexos')) ?>
@@ -29,7 +29,7 @@
 </div> 
  
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Descripcion:</label>
+    <label class="col-md-2 col-form-label"> Nombre:</label>
 	<div class="col-md-10">
  
      <?php echo form_input('nombre',$sexo['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?>
