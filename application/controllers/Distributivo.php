@@ -288,7 +288,7 @@ public function iniciar()
 		}else{
 			$ordenrpt=0;
 		}
-	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo4($iddistributivo,$ordenrpt)->result();
+	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo5($iddistributivo,$ordenrpt)->result();
 		$data['distributivo']=$this->distributivo_model->distributivo1($iddistributivo)->result();
 		$data['title']="Evento";
 		$this->load->view('distributivo_list_pdf',$data);

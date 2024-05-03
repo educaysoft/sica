@@ -42,8 +42,11 @@
 	$pdf->Cell(10,5,'Horas',1,0,'C',1);
 	$pdf->Cell(15,5,'Estado',1,0,'C',1);
 	$pdf->Cell(10,5,'Ses',1,0,'C',1);
-	$pdf->Cell(35,5,'Silabopdf',1,0,'C',1);
-	$pdf->Cell(35,5,'Calificacionpdf',1,1,'C',1);
+	$pdf->Cell(14,5,'H.Clases',1,0,'C',1);
+	$pdf->Cell(14,5,'H. metos',1,0,'C',1);
+	$pdf->Cell(14,5,'H. metos',1,0,'C',1);
+	$pdf->Cell(14,5,'H. metos',1,0,'C',1);
+	$pdf->Cell(14,5,'H. metos',1,1,'C',1);
  
 	 
 
@@ -99,8 +102,11 @@ $current_x = $pdf->GetX();
 
 		    $pdf->Cell(15,5,utf8_decode($row->estado),1,0,'L',0);
 		    $pdf->Cell(10,5,utf8_decode($row->cantidadtemas),1,0,'L',0);
-		    $pdf->Cell(35,5,utf8_decode($row->archivopdf),1,0,'L',0);
-		    $pdf->Cell(35,5,utf8_decode($row->calificacionpdf),1,1,'L',0);
+		    $pdf->Cell(14,5,utf8_decode($row->horasclases),1,0,'L',0);
+		    $pdf->Cell(14,5,utf8_decode($row->horasmetodologicas-$row->horasclases),1,0,'L',0);
+		    $pdf->Cell(14,5,utf8_decode($row->horasclases),1,0,'L',0);
+		    $pdf->Cell(14,5,utf8_decode($row->horasclases),1,0,'L',0);
+		    $pdf->Cell(14,5,utf8_decode($row->horasclases),1,1,'L',0);
     }
 
 
