@@ -43,10 +43,10 @@
 	$pdf->Cell(15,5,'Estado',1,0,'C',1);
 	$pdf->Cell(10,5,'Ses',1,0,'C',1);
 	$pdf->Cell(14,5,'H.Clases',1,0,'C',1);
-	$pdf->Cell(14,5,'H. metos',1,0,'C',1);
-	$pdf->Cell(14,5,'H. metos',1,0,'C',1);
-	$pdf->Cell(14,5,'H. metos',1,0,'C',1);
-	$pdf->Cell(14,5,'H. metos',1,1,'C',1);
+	$pdf->Cell(14,5,'H.Metodo',1,0,'C',1);
+	$pdf->Cell(14,5,'H.Invsti',1,0,'C',1);
+	$pdf->Cell(14,5,'H.Vincul',1,0,'C',1);
+	$pdf->Cell(14,5,'H.Gestio',1,1,'C',1);
  
 	 
 
@@ -104,9 +104,9 @@ $current_x = $pdf->GetX();
 		    $pdf->Cell(10,5,utf8_decode($row->cantidadtemas),1,0,'L',0);
 		    $pdf->Cell(14,5,utf8_decode($row->horasclases),1,0,'L',0);
 		    $pdf->Cell(14,5,utf8_decode($row->horasmetodologicas-$row->horasclases),1,0,'L',0);
-		    $pdf->Cell(14,5,utf8_decode($row->horasclases),1,0,'L',0);
-		    $pdf->Cell(14,5,utf8_decode($row->horasclases),1,0,'L',0);
-		    $pdf->Cell(14,5,utf8_decode($row->horasclases),1,1,'L',0);
+		    $pdf->Cell(14,5,utf8_decode($row->horasinvestigacion),1,0,'L',0);
+		    $pdf->Cell(14,5,utf8_decode($row->horasvinculacion),1,0,'L',0);
+		    $pdf->Cell(14,5,utf8_decode($row->horasgestion),1,1,'L',0);
     }
 
 
