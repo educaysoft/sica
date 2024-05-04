@@ -42,12 +42,12 @@
 	$pdf->Cell(10,5,'Horas',1,0,'C',1);
 	$pdf->Cell(15,5,'Estado',1,0,'C',1);
 	$pdf->Cell(10,5,'Ses',1,0,'C',1);
-	$pdf->Cell(14,3,'H.Clas',1,0,'C',1);
-	$pdf->Cell(14,3,'H.Meto',1,0,'C',1);
-	$pdf->Cell(14,3,'H.Inve',1,0,'C',1);
-	$pdf->Cell(14,3,'H.Vind',1,0,'C',1);
-	$pdf->Cell(14,3,'H.Gest',1,0,'C',1);
-	$pdf->Cell(14,3,'H.Tota',1,1,'C',1);
+	$pdf->Cell(12,5,'H.Clas',1,0,'C',1);
+	$pdf->Cell(12,5,'H.Meto',1,0,'C',1);
+	$pdf->Cell(12,5,'H.Inve',1,0,'C',1);
+	$pdf->Cell(12,5,'H.Vind',1,0,'C',1);
+	$pdf->Cell(12,5,'H.Gest',1,0,'C',1);
+	$pdf->Cell(12,5,'H.Tota',1,1,'C',1);
  
 	 
 
@@ -107,20 +107,20 @@ $current_x = $pdf->GetX();
 
 
 		    if($cedula2 != $row->cedula){
-		        $pdf->Cell(14,3,utf8_decode($row->horasclases),1,0,'L',0);
-		        $pdf->Cell(14,3,utf8_decode($row->horasmetodologicas-$row->horasclases),1,0,'L',0);
-		        $pdf->Cell(14,3,utf8_decode($row->horasinvestigacion),1,0,'L',0);
-		        $pdf->Cell(14,3,utf8_decode($row->horasvinculacion),1,0,'L',0);
-		        $pdf->Cell(14,3,utf8_decode($row->horasgestion),1,0,'L',0);
-		        $pdf->Cell(14,3,utf8_decode($row->horasmetodologicas+$row->hotasinvestigacion+$row->horasvinculacion+$row->horasgestion),1,1,'L',0);
+		        $pdf->Cell(12,5,utf8_decode($row->horasclases),1,0,'L',0);
+		        $pdf->Cell(12,5,utf8_decode($row->horasmetodologicas-$row->horasclases),1,0,'L',0);
+		        $pdf->Cell(12,5,utf8_decode($row->horasinvestigacion),1,0,'L',0);
+		        $pdf->Cell(12,5,utf8_decode($row->horasvinculacion),1,0,'L',0);
+		        $pdf->Cell(12,5,utf8_decode($row->horasgestion),1,0,'L',0);
+		        $pdf->Cell(12,5,utf8_decode($row->horasmetodologicas+$row->hotasinvestigacion+$row->horasvinculacion+$row->horasgestion),1,1,'L',0);
 		        $cedula2=$row->cedula;
 		    }else{
-		        $pdf->Cell(14,3,utf8_decode(""),1,0,'L',0);
-		        $pdf->Cell(14,3,utf8_decode(""),1,0,'L',0);
-		        $pdf->Cell(14,3,utf8_decode(""),1,0,'L',0);
-		        $pdf->Cell(14,3,utf8_decode(""),1,0,'L',0);
-		        $pdf->Cell(14,3,utf8_decode(""),1,0,'L',0);
-		        $pdf->Cell(14,3,utf8_decode(""),1,1,'L',0);
+		        $pdf->Cell(12,5,utf8_decode(""),1,0,'L',0);
+		        $pdf->Cell(12,5,utf8_decode(""),1,0,'L',0);
+		        $pdf->Cell(12,5,utf8_decode(""),1,0,'L',0);
+		        $pdf->Cell(12,5,utf8_decode(""),1,0,'L',0);
+		        $pdf->Cell(12,5,utf8_decode(""),1,0,'L',0);
+		        $pdf->Cell(12,5,utf8_decode(""),1,1,'L',0);
 
 		    }
 
