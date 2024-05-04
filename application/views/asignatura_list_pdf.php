@@ -46,8 +46,8 @@
 	$pdf->Cell(8,5,'Nivel',1,0,'C',1);
 	$pdf->Cell(70,5,'Asignatura',1,0,'C',1);
 	$pdf->Cell(15,5,'doce',1,0,'C',1);
-	$pdf->Cell(15,5,'prác',1,0,'C',1);
-	$pdf->Cell(15,5,'autó',1,0,'C',1);
+	$pdf->Cell(15,5,utf8_decode('prác'),1,0,'C',1);
+	$pdf->Cell(15,5,utf8_decode('autó'),1,0,'C',1);
 	$pdf->Cell(15,5,'malla',1,1,'C',1);
  
 	 
