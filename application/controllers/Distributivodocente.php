@@ -377,11 +377,8 @@ public function genpagina3()
 		}
 		}
 		$data['docenteactividadacademica']=array();
-	//	array_push($data['jornadadocente'],$arreglo); 
 		$data['docenteactividadacademica']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
-  //		print_r($data['docenteactividadacademica']);
-//		die();
 		$this->load->view('distributivodocente_genpagina3',$data);
 	}
 }
@@ -471,6 +468,45 @@ public function genpagina5()
 		$this->load->view('distributivodocente_genpagina5',$data);
 	}
 }
+
+
+
+
+
+public function genpagina6()
+{
+	$iddistributivo=0;
+
+	$ordenrpt=0;
+	if($this->uri->segment(3))
+	{
+		$iddistributivo=$this->uri->segment(3);
+	 	$data['distributivodocentes']= $this->distributivodocente_model->distributivodocentes1($iddistributivo)->result();
+		$arreglo=array();
+		$i=0;
+		foreach($data['distributivodocentes'] as $row){
+		$iddocente=$row->iddocente;
+		$iddistributivodocente=$row->iddistributivodocente;
+
+		//$xx=array($this->docenteactividadacademica_model->lista_docenteactividadacademicasA($iddistributivodocente)->result_array());
+		$xx=array($this->asignaturadeldocente_model->lista_asignaturadeldocenteA($idddocente)->result_array());
+		if(count($xx[0]) > 0){
+		foreach($xx as $row2){
+			foreach($row2 as $row3)
+			 {
+				$arreglo+=array($i=>array($row->iddocente=>$row3));
+				$i=$i+1;
+			}
+			}
+		}
+		}
+		$data['docenteactividadacademica']=array();
+		$data['docenteactividadacademica']=$arreglo; 
+		echo "<br> jornadadocnete<br>" ;
+		$this->load->view('distributivodocente_genpagina3',$data);
+	}
+}
+
 
 
 

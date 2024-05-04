@@ -41,11 +41,14 @@
 
 
 	$pdf->Cell(5,5,'#',1,0,'C',1);
-	$pdf->Cell(10,5,'id',1,0,'C',1);
-	$pdf->Cell(20,5,utf8_decode('Código'),1,0,'C',1);
+	$pdf->Cell(7,5,'id',1,0,'C',1);
+	$pdf->Cell(15,5,utf8_decode('Código'),1,0,'C',1);
 	$pdf->Cell(8,5,'Nivel',1,0,'C',1);
-	$pdf->Cell(100,5,'Asignatura',1,0,'C',1);
-	$pdf->Cell(20,5,'malla',1,1,'C',1);
+	$pdf->Cell(70,5,'Asignatura',1,0,'C',1);
+	$pdf->Cell(15,5,'doce',1,0,'C',1);
+	$pdf->Cell(15,5,'prác',1,0,'C',1);
+	$pdf->Cell(15,5,'autó',1,0,'C',1);
+	$pdf->Cell(15,5,'malla',1,1,'C',1);
  
 	 
 
@@ -66,17 +69,20 @@
 
 		    $i=$i+1;
 		    $pdf->Cell(5,$h,$i,1,0,'R',0); 
-		    $pdf->Cell(10,$h,$row->idasignatura,1,0,'R',0); 
-		    $pdf->Cell(20,$h,utf8_decode($row->codigo),1,0,'L',0);
+		    $pdf->Cell(7,$h,$row->idasignatura,1,0,'R',0); 
+		    $pdf->Cell(15,$h,utf8_decode($row->codigo),1,0,'L',0);
 		    $pdf->Cell(8,$h,utf8_decode($row->nivel),1,0,'L',0);
 		 $current_x = $pdf->GetX();
 		 $current_y = $pdf->GetY();
 
 		 //$pdf->Cell(80,5,utf8_decode($row->asunto),1,0,'L',0);
-		 $pdf->MultiCell(100,5,utf8_decode($row->nombre),1,'L',1);
+		 $pdf->MultiCell(70,5,utf8_decode($row->nombre),1,'L',1);
 		 $pdf->SetXY($current_x+100, $current_y);
 
-		 $pdf->Cell(20,$h,utf8_decode($row->malla),1,1,'L',0);
+		 $pdf->Cell(15,$h,utf8_decode($row->docencia),1,1,'L',0);
+		 $pdf->Cell(15,$h,utf8_decode($row->practico),1,1,'L',0);
+		 $pdf->Cell(15,$h,utf8_decode($row->autonomo),1,1,'L',0);
+		 $pdf->Cell(15,$h,utf8_decode($row->malla),1,1,'L',0);
 
 
    }
