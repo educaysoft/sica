@@ -77,7 +77,7 @@
 
 		 //$pdf->Cell(80,5,utf8_decode($row->asunto),1,0,'L',0);
 		 $pdf->MultiCell(70,5,utf8_decode($row->nombre),1,'L',1);
-		 $pdf->SetXY($current_x+100, $current_y);
+		 $pdf->SetXY($current_x+70, $current_y);
 
 		 $pdf->Cell(15,$h,utf8_decode($row->docencia),1,0,'L',0);
 		 $pdf->Cell(15,$h,utf8_decode($row->practico),1,0,'L',0);
