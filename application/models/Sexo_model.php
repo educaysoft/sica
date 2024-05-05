@@ -34,6 +34,9 @@ class Sexo_model extends CI_model {
 		   }else{
 			    return false;
 		   }
+	   }else{
+		    return false;
+		   }
  	}
 
  	function update($id,$array_item)
