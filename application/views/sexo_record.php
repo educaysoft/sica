@@ -9,7 +9,7 @@
         <li style="border-right:1px solid green"><?php echo anchor('sexo/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('sexo/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('sexo/edit/'.$sexo['idsexo'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('sexo/delete/'.$sexo['idsexo'],'Delete'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('sexo/quitar/'.$sexo['idsexo'],'Quitar'); ?></li>
         <li> <?php echo anchor('sexo/listar/','Listar'); ?></li>
 
     </ul>

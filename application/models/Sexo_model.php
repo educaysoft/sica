@@ -21,7 +21,19 @@ class Sexo_model extends CI_model {
 
  	function save($array)
  	{
-		$this->db->insert("sexo", $array);
+		$condition = "idsexo =" . "'" . $array['idsexo'] . "'";
+		$this->db->select('*');
+		$this->db->from('sexo');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+		   $this->db->insert("sexo", $array);
+		   if( $this->db->affected_rows()>0){
+			    return true;
+		   }else{
+			    return false;
+		   }
  	}
 
  	function update($id,$array_item)
@@ -54,7 +66,6 @@ class Sexo_model extends CI_model {
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() != 0) {
-	 		$this->db->delete('sexo');
 	 	  	$this->db->where('idsexo',$id);
 			$this->db->update('sexo', array('eliminado'=>1));
 			$result=true;

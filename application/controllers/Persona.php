@@ -171,10 +171,6 @@ public function add()
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}
- 		//$data=$this->persona_model->delete($this->uri->segment(3));
- 		//echo json_encode($data);
-	 	//redirect('persona/elprimero');
-	//	$db['default']['db_debug']=FALSE
  	}
 
 

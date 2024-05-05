@@ -2,17 +2,27 @@
 <?php echo form_hidden('idsexo',$sexo['idsexo']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
-<table>
- 
-   <tr>
-     <td>Id sexo</td>
-     <td><?php echo form_textarea('idsexo',$sexo['idsexo'],array('placeholder'=>'Idsexo')) ?></td>
-  </tr> 
-  <tr>
-      <td>Nombre:</td>
-      <td><?php echo form_input('nombre',$sexo['nombre'],array('placeholder'=>'Nombre sexo')) ?></td>
-  </tr>
- 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id sexo:</label>
+	<div class="col-md-10">
+	<?php
+      echo form_input('idsexo',$sexo['idsexo'],array('placeholder'=>'Idsexo')); ?>
+	</div> 
+</div> 
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+	<?php
+       echo form_input('nombre',$sexo['nombre'],array('placeholder'=>'Nombre sexo')); ?>
+	</div> 
+</div> 
+
+
+<table> 
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('sexo','Atras') ?></td>
  </tr>

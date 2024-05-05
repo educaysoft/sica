@@ -36,8 +36,17 @@ class Sexo extends CI_Controller {
             'idsexo' => $this->input->post('idsexo'),
             'nombre' => $this->input->post('nombre'),
         );
-        $this->sexo_model->save($array_item);
-        redirect('sexo');
+        $result=$this->sexo_model->save($array_item);
+
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Sexo ya existe'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+
+
     }
 
     // Método para mostrar el formulario de edición de sexo
@@ -67,6 +76,24 @@ class Sexo extends CI_Controller {
         redirect('sexo/elprimero');
         // $db['default']['db_debug'] = FALSE;
     }
+
+
+ 	public function quitar()
+ 	{
+ 		$result=$this->sexo_model->quitar($this->uri->segment(3));
+	 	if(!$result)
+		{
+			echo "<script language='JavaScript'> alert('El sexo no pudo eliminarse revise permisos'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+ 	}
+
+
+
+
+
 
     // Método para listar todos los sexos
     public function listar() {
