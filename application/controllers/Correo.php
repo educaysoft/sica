@@ -12,10 +12,9 @@ class Correo extends CI_Controller{
 public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
-			
-  	$data['correo']=$this->correo_model->lista_correos()->row_array();
-  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
+  	    $data['correo']=$this->correo_model->lista_correos()->row_array();
+  	    $data['personas']= $this->persona_model->lista_personas()->result();
+  	    $data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
 			
 		$data['title']="Lista de correos";
 		$this->load->view('template/page_header');
