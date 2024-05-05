@@ -45,7 +45,8 @@
 	$pdf->Cell(15,5,utf8_decode('Código'),1,0,'C',1);
 	$pdf->Cell(8,5,'Nivel',1,0,'C',1);
 	$pdf->Cell(70,5,'Asignatura',1,0,'C',1);
-	$pdf->Cell(15,5,'doce',1,0,'C',1);
+	$pdf->Cell(6,5,'h/s',1,0,'C',1);
+	$pdf->Cell(15,5,'doce',1,0,'R',1);
 	$pdf->Cell(15,5,utf8_decode('prác'),1,0,'C',1);
 	$pdf->Cell(15,5,utf8_decode('autó'),1,0,'C',1);
 	$pdf->Cell(15,5,'malla',1,1,'C',1);
@@ -78,10 +79,15 @@
 		 //$pdf->Cell(80,5,utf8_decode($row->asunto),1,0,'L',0);
 		 $pdf->MultiCell(70,5,utf8_decode($row->nombre),1,'L',1);
 		 $pdf->SetXY($current_x+70, $current_y);
-
-		 $pdf->Cell(15,$h,utf8_decode($row->docencia),1,0,'L',0);
-		 $pdf->Cell(15,$h,utf8_decode($row->practicas),1,0,'L',0);
-		 $pdf->Cell(15,$h,utf8_decode($row->autonomas),1,0,'L',0);
+         if(($row->docencia+$row->practicas)>0){
+             // se divide para 16 semandas
+		    $pdf->Cell(6,$h,($row->docencia+$row->practicas)/16,1,0,'R',0);
+         }else{
+		    $pdf->Cell(6,$h,0,1,0,'R',0);
+         }
+		 $pdf->Cell(15,$h,utf8_decode($row->docencia),1,0,'R',0);
+		 $pdf->Cell(15,$h,utf8_decode($row->practicas),1,0,'R',0);
+		 $pdf->Cell(15,$h,utf8_decode($row->autonomas),1,0,'R',0);
 		 $pdf->Cell(15,$h,utf8_decode($row->malla),1,1,'L',0);
 
 

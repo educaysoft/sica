@@ -1,2 +1,3 @@
 use educayso_facae;
-create view sexo1 as select idsexo, nombre from sexo;
+drop view sexo1;
+create view sexo1 as select idsexo, nombre from sexo0;

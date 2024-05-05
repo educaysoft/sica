@@ -2,7 +2,7 @@
 class Sexo_model extends CI_model {
 
 	function lista_sexos(){
-		 $sexo= $this->db->get('sexo');
+		 $sexo= $this->db->get('sexo0');
 		 return $sexo;
 	}
 
@@ -15,7 +15,7 @@ class Sexo_model extends CI_model {
 
 
  	function sexo( $id){
- 		$sexo = $this->db->query('select * from sexo where idsexo="'. $id.'"');
+ 		$sexo = $this->db->query('select * from sexo0 where idsexo="'. $id.'"');
  		return $sexo;
  	}
 
