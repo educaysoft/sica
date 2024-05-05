@@ -33,7 +33,7 @@
 </div>
 
 <div class="container">
-    <div class="row justify-content-left">
+    <div class="row">
         <div class="col-12">
             <h3>Sexo - Listar</h3>
         </div>
@@ -55,11 +55,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="Modal_pdf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    </div>
-</div>
+
 
 <script type="text/javascript">
     $(document).ready(function(){
