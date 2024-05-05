@@ -57,7 +57,7 @@ class Sexo_model extends CI_model {
 
 
 
- 	public function quitar($id)
+ 	function quitar($id)
 	{
 
         $this->db->select('*');
