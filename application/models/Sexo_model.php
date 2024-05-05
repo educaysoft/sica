@@ -55,11 +55,12 @@ class Sexo_model extends CI_model {
 		$query = $this->db->get();
 		if ($query->num_rows() != 0) {
 	 		$this->db->delete('sexo');
-	 		  	$this->db->where('idsexo',$id);
-				$this->db->update('sexo', array('eliminado'=>1));
+	 	  	$this->db->where('idsexo',$id);
+			$this->db->update('sexo', array('eliminado'=>1));
 			$result=true;
-		else
-			$result=false;
+        }else{
+            $result=false;
+        }
 		return $result;
  	}
 
