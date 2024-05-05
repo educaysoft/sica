@@ -26,6 +26,8 @@
       
 	$pdf = new PDF();
 	$pdf->SetMargins(23, 10, 11.7);
+
+	$pdf->SetAutoPageBreak(true,40); //page created doesn't have template attached
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
@@ -34,7 +36,7 @@
 
 
 	$pdf->AliasNbPages();
-	$pdf->AddPage();
+	$pdf->AddPage('L');
 	
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
@@ -49,6 +51,8 @@
 	$pdf->Cell(15,5,'doce',1,0,'R',1);
 	$pdf->Cell(15,5,utf8_decode('prác'),1,0,'C',1);
 	$pdf->Cell(15,5,utf8_decode('autó'),1,0,'C',1);
+	$pdf->Cell(15,5,utf8_decode('Total'),1,0,'C',1);
+	$pdf->Cell(15,5,utf8_decode('Créditos'),1,0,'C',1);
 	$pdf->Cell(15,5,'malla',1,1,'C',1);
  
 	 
@@ -88,6 +92,8 @@
 		 $pdf->Cell(15,$h,utf8_decode($row->docencia),1,0,'R',0);
 		 $pdf->Cell(15,$h,utf8_decode($row->practicas),1,0,'R',0);
 		 $pdf->Cell(15,$h,utf8_decode($row->autonomas),1,0,'R',0);
+		 $pdf->Cell(15,$h,($row->docencia+$row->practicas+$row->autonomas),1,0,'R',0);
+		 $pdf->Cell(15,$h,round(($row->docencia+$row->practicas+$row->autonomas)/48,2),1,0,'R',0);
 		 $pdf->Cell(15,$h,utf8_decode($row->malla),1,1,'L',0);
 
 
