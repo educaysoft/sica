@@ -80,8 +80,8 @@
 		 $pdf->SetXY($current_x+70, $current_y);
 
 		 $pdf->Cell(15,$h,utf8_decode($row->docencia),1,0,'L',0);
-		 $pdf->Cell(15,$h,utf8_decode($row->practico),1,0,'L',0);
-		 $pdf->Cell(15,$h,utf8_decode($row->autonomo),1,0,'L',0);
+		 $pdf->Cell(15,$h,utf8_decode($row->practicas),1,0,'L',0);
+		 $pdf->Cell(15,$h,utf8_decode($row->autonomas),1,0,'L',0);
 		 $pdf->Cell(15,$h,utf8_decode($row->malla),1,1,'L',0);
 
 
