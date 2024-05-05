@@ -42,8 +42,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>IDhorasasignatura</th>
- <th>La Persona</th>
- <th>El horasasignatura</th>
+ <th>Area</th>
+ <th>Malla</th>
+ <th>Asignatura</th>
+ <th>Tipo horas</th>
+ <th>cantidad</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>

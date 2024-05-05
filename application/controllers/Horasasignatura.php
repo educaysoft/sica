@@ -150,8 +150,8 @@ function horasasignatura_data()
 	 	$data0 = $this->horasasignatura_model->lista_horasasignaturasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idhorasasignatura,$r->laasignatura,$r->elhorasasignatura,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idhorasasignatura="'.$r->idhorasasignatura.'">Ver</a>');
+			$data[]=array($r->idhorasasignatura,$r->area,$r->malla,$r->laasignatura,$r->descripcion,$r->cantidad,
+			$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idhorasasignatura="'.$r->idhorasasignatura.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
