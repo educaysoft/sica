@@ -83,7 +83,7 @@
              // se divide para 16 semandas
 		    $pdf->Cell(6,$h,($row->docencia+$row->practicas)/16,1,0,'R',0);
          }else{
-		    $pdf->Cell(6,$h,0,1," ",'R',0);
+		    $pdf->Cell(6,$h," ",1,0,'R',0);
          }
 		 $pdf->Cell(15,$h,utf8_decode($row->docencia),1,0,'R',0);
 		 $pdf->Cell(15,$h,utf8_decode($row->practicas),1,0,'R',0);
