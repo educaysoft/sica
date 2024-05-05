@@ -33,7 +33,7 @@
 </div>
 
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-left">
         <div class="col-12">
             <h3>Sexo - Listar</h3>
         </div>
