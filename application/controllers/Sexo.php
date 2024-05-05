@@ -10,7 +10,7 @@ class Sexo extends CI_Controller {
     // Método para mostrar la página principal
     public function index() {
         if (isset($this->session->userdata['logged_in'])) {
-            $data['sexo'] = $this->sexo_model->sexo(1)->row_array();
+            $data['sexo'] = $this->sexo_model->elultimo();
             $data['title'] = "Sexo";
             $this->load->view('template/page_header');
             $this->load->view('sexo_record', $data);
