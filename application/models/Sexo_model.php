@@ -43,8 +43,7 @@ class Sexo_model extends CI_model {
 	}
  
 
-
- 	public function delete($id)
+ 	 function delete($id)
 	{
  		$this->db->where('idsexo',$id);
 		$this->db->delete('sexo');
