@@ -224,7 +224,8 @@ public function anterior(){
  // $data['correo_list']=$this->correo_model->lista_correo()->result();
 	$data['correo'] = $this->correo_model->anterior($this->uri->segment(3))->row_array();
  	$data['personas']= $this->persona_model->lista_personas()->result();
-  	$data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
+    t
+        data['correo_estados']= $this->correo_estado_model->lista_correo_estado()->result();
   $data['title']="Correo";
 	$this->load->view('template/page_header');		
   $this->load->view('correo_record',$data);

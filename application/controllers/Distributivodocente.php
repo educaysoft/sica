@@ -500,10 +500,10 @@ public function genpagina6()
 			}
 		}
 		}
-		$data['docenteactividadacademica']=array();
-		$data['docenteactividadacademica']=$arreglo; 
+		$data['asignaturadeldocente']=array();
+		$data['asignaturadeldocente']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
-		$this->load->view('distributivodocente_genpagina3',$data);
+		$this->load->view('distributivodocente_genpagina6',$data);
 	}
 }
 

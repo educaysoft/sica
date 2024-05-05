@@ -493,7 +493,7 @@ $data=$data.'<div class="tabla-container">
     ';
 
 	$thoras=0;
-foreach($docenteactividadacademica as $rowj){
+foreach($asignaturadeldocente as $rowj){
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
 
 			$data=$data.'<tr><td>'.$rowj[$row->iddocente]['item'] .'</td><td class="tipo">'.$rowj[$row->iddocente]['tipoactividad'].'</td><td>'.$rowj[$row->iddocente]['nombreactividad'].'</td><td><div class="container"><p class="texto">'.$rowj[$row->iddocente]['numerohoras'].'</p><div class="popup" id="popup"> <span class="popup-text">'.$rowj[$row->iddocente]['detalle'].'</span></div></div></td></tr>';
