@@ -47,8 +47,8 @@
 	$pdf->Cell(15,5,utf8_decode('Código'),1,0,'C',1);
 	$pdf->Cell(8,5,'Nivel',1,0,'C',1);
 	$pdf->Cell(70,5,'Asignatura',1,0,'C',1);
-	$pdf->Cell(15,5,'h/clas',1,0,'C',1);
-	$pdf->Cell(15,5,'h/autó',1,0,'C',1);
+	$pdf->Cell(15,5,'h/clases',1,0,'C',1);
+	$pdf->Cell(15,5,utf8_decode('h/autóno'),1,0,'C',1);
 	$pdf->Cell(15,5,'doce',1,0,'R',1);
 	$pdf->Cell(15,5,utf8_decode('prác'),1,0,'C',1);
 	$pdf->Cell(15,5,utf8_decode('autó'),1,0,'C',1);
@@ -102,7 +102,14 @@
 		 $pdf->Cell(15,$h,utf8_decode($row->practicas),1,0,'R',0);
 		 $pdf->Cell(15,$h,utf8_decode($row->autonomas),1,0,'R',0);
 		 $pdf->Cell(15,$h,($row->docencia+$row->practicas+$row->autonomas),1,0,'R',0);
-		 $pdf->Cell(15,$h,($row->docencia+$row->practicas+$row->autonomas>0)? round(($row->docencia+$row->practicas+$row->autonomas)/48,2):"",1,0,'R',0);
+         if(is_float(round(($row->docencia+$row->practicas+$row->autonomas)/48,2))){
+            $pdf->SetTextColor(255, 0, 0); // Establece el color del texto a rojo (RGB: 255, 0, 0)
+		    $pdf->Cell(15,$h,($row->docencia+$row->practicas+$row->autonomas>0)? round(($row->docencia+$row->practicas+$row->autonomas)/48,2):"",1,0,'R',0);
+            $pdf->SetTextColor(0, 0, 0); // Restablece el color del texto al valor predeterminado (negro)
+        }else{
+		    $pdf->Cell(15,$h,($row->docencia+$row->practicas+$row->autonomas>0)? round(($row->docencia+$row->practicas+$row->autonomas)/48,2):"",1,0,'R',0);
+        }
+
 		 $pdf->Cell(15,$h,utf8_decode($row->malla),1,1,'L',0);
 
 
