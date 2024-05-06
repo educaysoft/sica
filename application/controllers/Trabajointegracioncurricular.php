@@ -172,6 +172,11 @@ class Trabajointegracioncurricular extends CI_Controller{
 
 
 
+
+
+
+
+
 //////////////////////////////////
 // Listar por tipo de trabajointegracioncurricular 
 /////////////////////////////////
