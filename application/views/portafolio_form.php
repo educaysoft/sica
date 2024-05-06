@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("portafolio/save") ?>
-<?php echo form_hidden("idportafolio")  ?>
+<?php echo form_open("portafolio/save", array('id'=>'eys-form')); ?>
+<?php echo form_hidden("idportafolio");  ?>
 
 
 <div class="form-group row">
@@ -52,7 +52,18 @@
 <div class="col-md-10">
     <div class="form-group">
          <select class="form-control" id="iddirectorio" name="iddirectorio" required>
-                 <option>No Selected</option>
+                <option>No Selected</option>
+                <?php
+                    $options= array('--Select--');
+                    foreach ($directorios as $row){
+                        if($documento['iddirectorio']==$row->iddirectorio)
+                        {
+                        echo '<option selected="selected"  value="'.$row->iddirectorio.'">'.$row->ruta.'</option>'; 
+                        }else{
+                        echo '<option value="'.$row->iddirectorio.'">'.$row->ruta.'</option>'; 
+                        }
+                    }
+                ?>
           </select>
     </div>
 </div>
@@ -71,3 +82,32 @@
 
 <?php echo form_close();?>
 
+<script>
+function get_directorio() {
+	var idordenador = $('select[name=idordenador]').val();
+    $.ajax({
+        url: "<?php echo site_url('documento/get_directorio') ?>",
+        data: {idordenador: idordenador},
+        method: 'POST',
+	async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+        var i;
+        for(i=0; i<data.length; i++){
+        html += '<option value='+data[i].iddirectorio+'>'+data[i].ruta+'</option>';
+        }
+        $('#iddirectorio').html(html);
+
+
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
+
+</script>
