@@ -26,6 +26,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 </style>
 
+<div id="eys-nav-i">
+	<ul>
+		<li> <?php echo anchor('jornadadocente', 'Home'); ?></li>
+	</ul>
+</div>
+
+
 
 <div class="row justify-content-center">
       <!-- Page Heading -->
@@ -42,11 +49,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
- <th>asignatura</th>
  <th>docente</th>
+ <th>asignatura</th>
  <th>dia</th>
  <th>inicia</th>
  <th>duracion</th>
+ <th>Aula</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
