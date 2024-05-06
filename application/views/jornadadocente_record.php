@@ -13,6 +13,7 @@ if(isset($jornadadocente))
         <li> <?php echo anchor('jornadadocente/edit/'.$jornadadocente['idjornadadocente'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('jornadadocente/delete/'.$jornadadocente['idjornadadocente'],'Delete'); ?></li>
         <li> <?php echo anchor('jornadadocente/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('jornadadocente/generajoranadas','generajornada'); ?></li>
 
 <?php 
 }else{

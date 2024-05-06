@@ -188,7 +188,37 @@ public function actual()
  }
 
 
+public function generajornadas()
+{
 
+	 	$data0 = $this->jornadadocente_model->jornadadocentexdist2(19);
+        $jornada= array();
+        $jornadadocente= array();
+        $iddocente=0;
+        $inicio=0;
+		foreach($data0->result() as $r){
+            if($inicio==0){
+              $iddocente=$r->iddocente;
+            }
+             jornada['idasignatura']=$r->idasignatura;
+             jornada['nivel']=$r->nivel;
+             jornada['paralelo']=$r->paralelo;
+             jornada['aula']=$r->elaula;
+             jornada['dia']=$r->nombre;
+             jornada['horainicio']=$r->horainicio;
+             jornada['duracionminutos']=$r->duracionminutos;
+            
+
+       if($iddocente != $r->iddocente){
+              $jornadadocente[$r->iddocente]=$jornada;
+              $jornada= array();
+              $iddocente=$r->iddocente;
+          }
+
+        }
+ print_r($jornadadocente);
+        die();
+}
 
 
 
