@@ -51,10 +51,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <th>ID</th>
  <th>docente</th>
  <th>asignatura</th>
+ <th>nivel</th>
+ <th>paralelo</th>
+ <th>Aula</th>
  <th>dia</th>
  <th>inicia</th>
  <th>duracion</th>
- <th>Aula</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
