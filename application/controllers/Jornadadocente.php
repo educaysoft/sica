@@ -210,8 +210,8 @@ public function generajornadas()
              $jornada['duracionminutos']=$r->duracionminutos;
             $j[$r->idjornadadocente]=$jornada;
 
-       if($iddocente != $r->iddocente){
-              $jornadadocente[$r->iddocente]=$j;
+       if($iddocente != $r->iddistributivodocente){
+              $jornadadocente[$r->iddistributivodocente]=$j;
               $j= array();
               $iddocente=$r->iddocente;
           }
