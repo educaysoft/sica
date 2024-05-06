@@ -199,6 +199,7 @@ public function generajornadas()
         $inicio=0;
 		foreach($data0->result() as $r){
             if($inicio==0){
+                $inicio=1;
               $iddocente=$r->iddistributivodocente;
             }
              $jornada['idasignatura']=$r->idasignatura;
