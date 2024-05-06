@@ -32,18 +32,17 @@ public function index(){
 
 public function actual(){
  if(isset($this->session->userdata['logged_in'])){
-
-	$data['horasasignatura'] = $this->horasasignatura_model->horasasignatura($this->uri->segment(3))->row_array();
-  	$data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
-  	$data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignaturas()->result();
-	$data['title']="Modulo de Telefonos";
-	$this->load->view('template/page_header');		
-	$this->load->view('horasasignatura_record',$data);
-	$this->load->view('template/page_footer');
+        $data['horasasignatura'] = $this->horasasignatura_model->horasasignatura($this->uri->segment(3))->row_array();
+        $data['asignaturas']= $this->asignatura_model->lista_asignaturas()->result();
+        $data['tipohorasasignaturas']= $this->tipohorasasignatura_model->lista_tipohorasasignaturas()->result();
+        $data['title']="Modulo de Telefonos";
+        $this->load->view('template/page_header');		
+        $this->load->view('horasasignatura_record',$data);
+        $this->load->view('template/page_footer');
    }else{
-	$this->load->view('template/page_header.php');
-	$this->load->view('login_form');
-	$this->load->view('template/page_footer.php');
+        $this->load->view('template/page_header.php');
+        $this->load->view('login_form');
+        $this->load->view('template/page_footer.php');
    }
 }
 
@@ -151,7 +150,7 @@ function horasasignatura_data()
 		$data=array();
 		foreach($data0->result() as $r){
 			$data[]=array($r->idhorasasignatura,$r->area,$r->malla,$r->laasignatura,$r->descripcion,$r->cantidad,
-			$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idhorasasignatura="'.$r->idhorasasignatura.'">Ver</a>');
+			$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('horasasignatura/actual').'"  data-idhorasasignatura="'.$r->idhorasasignatura.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
