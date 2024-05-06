@@ -214,7 +214,7 @@ public function generajornadas()
        if($iddocente != $r->iddistributivodocente){
               $jornadadocente[$r->iddistributivodocente]=$j;
               $j= array();
-              $iddocente=$r->iddocente;
+              $iddocente=$r->iddistributivodocente;
           }
 
         }
