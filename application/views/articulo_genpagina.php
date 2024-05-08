@@ -284,28 +284,29 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
   //  echo 'File not found';
 	//$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
 
-    $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/articulos/articulo0.jpg" alt="No hay programación" height="100%" width="100%"/> </svg></a>
+    $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/articulo0.jpg" alt="No hay programación" height="100%" width="100%"/> </svg></a>
     <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 }else{
 //	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
 //	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
-$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/articulos/articulo'.trim($row->idarticulo).'.jpg" alt="No hay programación" height="100%" width="100%"/> </svg></a>
+$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" alt="No hay programación" height="100%" width="100%"/> </svg></a>
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 }
 
 $data=$data.'</div>
 
 	    <div class="card-body" style="background-color:'.$arrcolor[1].'"  >
-        <div style="font-size:20px; font-weight:bold; color:#333;  margin-top:10px;" > Nombre:<br> '.$row->elarticulo.' </div>
-        <div style="font-size:12px;  color:#333;  margin-top:10px;" ><br>Detalle:</b><br> '.$row->detalle.' </div>
-        <div style="font-size:12px;  color:#333;  margin-top:10px;" ><b> Custodio:</b> '.$row->elcustodio.' </div>'
+        <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Nombre:</b><br> '.$row->elarticulo.' </div>
+        <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b>Detalle:</b><br> '.$row->detalle.' </div>
+        <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b> Custodio:</b> '.$row->elcustodio.' </div>
+        <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b> Prestamos y Devoluciones:</b>  </div>'
         ;	
 
 
 foreach($prestamoarticulo as $rowj){
 			if(isset($rowj[$row->idarticulo]['idarticulo'])){		
 
-			$data=$data.'<b>'.$rowj[$row->idarticulo]['idprestamoarticulo'] .': </b><span style="color:red">'.$rowj[$row->idarticulo]['lapersona'].'('.$rowj[$row->idarticulo]['fechaprestamo'].' - '.$rowj[$row->idarticulo]['fechadevolucion'].'),</span> - link:<a href="https://educaysoft.org/sica/prestamoarticulo/actual/'.$rowj[$row->idarticulo]['idprestamoarticulo'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
+			$data=$data.'<b>'.$rowj[$row->idarticulo]['idprestamoarticulo'] .': </b><span style="font-size:14px; color:red">'.$rowj[$row->idarticulo]['lapersona'].'('.$rowj[$row->idarticulo]['fechaprestamo'].' - '.$rowj[$row->idarticulo]['fechadevolucion'].'),</span> - link:<a href="https://educaysoft.org/sica/prestamoarticulo/actual/'.$rowj[$row->idarticulo]['idprestamoarticulo'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
 			}	
 	//		echo $rowj; echo '<br>';
 		}
