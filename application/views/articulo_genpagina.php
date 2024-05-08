@@ -324,7 +324,7 @@ foreach($prestamoarticulo as $rowj){
 
 
 
-			$file='application/views/articulos/articulo-'.$row->idarticulo.'.php';
+			$file='application/views/articulos/articulo-'.$row->idinstitucion.'.php';
 
 
 	if ( !write_file($file, $data)){

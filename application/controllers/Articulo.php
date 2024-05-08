@@ -291,10 +291,9 @@ public function anterior(){
 
 
 
-	// Forestal
-	public function articulo_200()
+	public function articulo_1()
 	{
-	  $this->load->view('articulos/articulo-200');
+	  $this->load->view('articulos/articulo-1');
 	}
 
 
