@@ -302,7 +302,7 @@ $data=$data.'</div>
 foreach($prestamoarticulo as $rowj){
 			if(isset($rowj[$row->idarticulo]['idarticulo'])){		
 
-			$data=$data.'<b>'.$rowj[$row->idarticulo]['idprestamoarticulo'] .': </b><span style="color:red">'.$rowj[$row->idarticulo]['lapersona'].'('.$rowj[$row->idarticulo]['fechaprestamo'].' - '.$rowj[$row->idarticulo]['fechadevolucion'].'),</span> - link:<a href="'.$rowj[$row->idarticulo]['idpretamoarticulo'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
+			$data=$data.'<b>'.$rowj[$row->idarticulo]['idprestamoarticulo'] .': </b><span style="color:red">'.$rowj[$row->idarticulo]['lapersona'].'('.$rowj[$row->idarticulo]['fechaprestamo'].' - '.$rowj[$row->idarticulo]['fechadevolucion'].'),</span> - link:<a href="https://educaysoft.org/sica/prestamoarticulo/actual/'.$rowj[$row->idarticulo]['idprestamoarticulo'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
 			}	
 	//		echo $rowj; echo '<br>';
 		}
