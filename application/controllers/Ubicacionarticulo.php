@@ -57,7 +57,7 @@ class Ubicacionarticulo extends CI_Controller{
 
 	    if($this->uri->segment(3))
 	    {
-		    $data['articulos']= $this->articulo_model->articulos($this->uri->segment(3))->result();
+		    $data['articulos']= $this->articulo_model->articulo($this->uri->segment(3))->result();
         }else{
 		    $data['articulos']= $this->articulo_model->lista_articulos()->result();
          }
