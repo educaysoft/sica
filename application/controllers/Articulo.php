@@ -175,7 +175,7 @@ public function genpagina()
 	{
 		//$iddistributivo=$this->uri->segment(3);
 		$iddistributivo=1;
-	 	$data['articulos']= $this->articulo_model->articulo1($iddistributivo)->result();
+	 	$data['articulos']= $this->articulo_model->articuloA($iddistributivo)->result();
 		$arreglo=array();
 		$i=0;
 		foreach($data['articulos'] as $row){
