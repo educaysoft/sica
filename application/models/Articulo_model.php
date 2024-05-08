@@ -20,6 +20,14 @@ class Articulo_model extends CI_model {
  		return $articulo;
  	}
 
+ 	function articuloA( $id){
+ 		$articulo = $this->db->query('select * from articulo1 where idinstitucion="'. $id.'"');
+ 		return $articulo;
+ 	}
+
+
+
+
  	function save($array)
  	{
 		$this->db->insert("articulo", $array);
