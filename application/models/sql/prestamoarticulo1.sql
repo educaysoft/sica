@@ -1,3 +1,2 @@
-
 use educayso_facae;
-create view prestamoarticulo1 as select prestamoarticulo.idprestamoarticulo,prestamoarticulo.idarticulo,prestamoarticulo.idpersona,prestamoarticulo.detalle,prestamoarticulo.fechaprestamo,prestamoarticulo.horaprestamo,prestamoarticulo.fechadevolucion,prestamoarticulo.horadevolucion,articulo.nombre as elarticulo ,  concat(persona.apellidos,"  ",persona.nombres) as lapersona from prestamoarticulo,articulo,persona where prestamoarticulo.idarticulo=articulo.idarticulo and prestamoarticulo.idpersona=persona.idpersona;
+create view prestamoarticulo1 as select prar.idprestamoarticulo,prar.idarticulo,prar.idpersona,prar.detalle,prar.fechaprestamo,prar.horaprestamo,prar.fechadevolucion,prar.horadevolucion,arti.nombre as elarticulo ,  concat(pers.apellidos,"  ",pers.nombres) as lapersona from prestamoarticulo prar,articulo arti,persona pers where prar.idarticulo=arti.idarticulo and prar.idpersona=pers.idpersona;

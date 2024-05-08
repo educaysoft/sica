@@ -270,24 +270,7 @@ $data=$data.'<div class="col">
           <div class="card shadow-sm">
 		  <a  href="https://educaysoft.org/sica/evento/detalle/'.$inicio.'"><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>';
 
-// Remote file url
-$remoteFile = "https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/".trim($inicio).".jpg";
 
-$file_headers = @get_headers($remoteFile);
-
-// Check if file exists
-//if(!file_exists($remoteFile)){
-
-if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
- $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/produccionliteraria.jpg"  height="100%" width="100%"/> </svg></a>
-
-<div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
-
-}else{
-$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/'.trim($inicio).'-no.jpg" alt="No hay programación" height="100%" width="100%"/> </svg></a>
-<div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
-
-}
 
 
 // Remote file url
@@ -299,13 +282,15 @@ $file_headers = @get_headers($remoteFile);
 //if(!file_exists($remoteFile)){
 if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
   //  echo 'File not found';
-	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
+	//$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
 
+    $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/articulo/articulo0.jpg" alt="No hay programación" height="100%" width="100%"/> </svg></a>
+    <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 }else{
 //	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
-	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
-
-
+//	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
+$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/articulo/articulo'.trim($row->idarticulo).'.jpg" alt="No hay programación" height="100%" width="100%"/> </svg></a>
+<div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 }
 
 $data=$data.'</div>
@@ -314,10 +299,10 @@ $data=$data.'</div>
 	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->elarticulo.' </div>';	
 
 
-foreach($ubicacionarticulo as $rowj){
+foreach($prestamoarticulo as $rowj){
 			if(isset($rowj[$row->idarticulo]['idarticulo'])){		
 
-			$data=$data.'<b>'.$rowj[$row->idarticulo]['idarticulo'] .': </b><span style="color:red">'.$rowj[$row->idarticulo]['lapersona'].'('.$rowj[$row->idarticulo]['launidad'].'),</span> - link:<a href="'.$rowj[$row->idarticulo]['idpersona'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
+			$data=$data.'<b>'.$rowj[$row->idarticulo]['idprestamoarticulo'] .': </b><span style="color:red">'.$rowj[$row->idarticulo]['lapersona'].'('.$rowj[$row->idarticulo]['fechaprestamo'].' - '.$rowj[$row->idarticulo]['fechadevolucion'].'),</span> - link:<a href="'.$rowj[$row->idarticulo]['idpretamoarticulo'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
 			}	
 	//		echo $rowj; echo '<br>';
 		}

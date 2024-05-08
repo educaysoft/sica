@@ -1,0 +1,3 @@
+use educayso_facae;
+drop view prestamoarticulo1;
+create view prestamoarticulo1 as select prar.idprestamoarticulo,prar.idarticulo,prar.idpersona,prar.detalle,prar.fechaprestamo,prar.horaprestamo,prear.fechadevolucion,prar.horadevolucion,arti.nombre as elarticulo ,  concat(pers.apellidos,"  ",pers.nombres) as lapersona from prestamoarticulo prar,articulo arti,persona pers where prar.idarticulo=arti.idarticulo and prar.idpersona=pers.idpersona;
