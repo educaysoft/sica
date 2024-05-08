@@ -296,7 +296,7 @@ $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/ar
 $data=$data.'</div>
 
 	    <div class="card-body" style="background-color:'.$arrcolor[1].'"  >
-        <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Nombre:</b><br> '.$row->elarticulo.' </div>
+        <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Id::Nombre:</b><br>'.$row->idarticulo.'::'.$row->elarticulo.' </div>
         <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b>Detalle:</b><br> '.$row->detalle.' </div>
         <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b> Custodio:</b> '.$row->elcustodio.' </div>
         <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b> Prestamos y Devoluciones:</b>  </div>'
