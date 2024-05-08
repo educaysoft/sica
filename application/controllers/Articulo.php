@@ -173,34 +173,31 @@ public function genpagina()
 	$ordenrpt=0;
 	if($this->uri->segment(3))
 	{
-		$iddistributivo=$this->uri->segment(3);
-	 	$data['distributivodocentes']= $this->articulo_model->articulo1($iddistributivo)->result();
+		//$iddistributivo=$this->uri->segment(3);
+		$iddistributivo=1;
+	 	$data['articulos']= $this->articulo_model->articulo1($iddistributivo)->result();
 		$arreglo=array();
 		$i=0;
-		foreach($data['distributivodocentes'] as $row){
-		$iddocente=$row->iddocente;
+		foreach($data['articulos'] as $row){
+		$idarticulo=$row->idarticulo;
 
-	//	$arreglo[$row->iddocente]=$this->publicaciondocente_model->publicaciondocentesA($iddocente)->row_array();
-		$xx=array($this->publicaciondocente_model->publicaciondocentesA($iddocente)->result_array());
+		//$xx=array($this->publicaciondocente_model->publicaciondocentesA($iddocente)->result_array());
+		$xx=array($this->ubicacionarticulo_model->ubicacionarticulosA($idarticulo)->result_array());
 		if(count($xx[0]) > 0){
 		foreach($xx as $row2){
 			foreach($row2 as $row3)
 			 {
-				$arreglo+=array($i=>array($row->iddocente=>$row3));
+				$arreglo+=array($i=>array($row->idarticulo=>$row3));
 				$i=$i+1;
 			}
 			}
 		}
 		}
-		$data['publicaciondocente']=array();
-	//	array_push($data['jornadadocente'],$arreglo); 
-		$data['publicaciondocente']=$arreglo; 
+		$data['ubicacion']=array();
+		$data['ubicacion']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
 
-//		print_r(	$data['publicaciondocente']);
-//		die();
-
-		$this->load->view('distributivodocente_genpagina2',$data);
+		$this->load->view('articulo_genpagina',$data);
 	}
 }
 

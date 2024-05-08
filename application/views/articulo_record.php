@@ -13,6 +13,7 @@ if(isset($articulo))
         <li> <?php echo anchor('articulo/edit/'.$articulo['idarticulo'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('articulo/delete/'.$articulo['idarticulo'],'Delete'); ?></li>
         <li> <?php echo anchor('articulo/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('articulo/genpagina/1','Listar'); ?></li>
 
 <?php 
 }else{

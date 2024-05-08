@@ -218,7 +218,7 @@ $i=0;
 $j=0;
 
 $arrcolor=array(1=>"#F68081",2=>"#F5DA81",3=>"#A9F5A9",4=>"#A9F4F3",5=>"#CFCEF7",6=>"#D1A9F4",7=>"#F5A8F3",8=>"#80DBF5",9=>"#9BFE2F",10=>"#9BFE2F");
-foreach($distributivodocentes as $row){
+foreach($articulos as $row){
 	
 
 	if($inicio==1)
@@ -291,7 +291,7 @@ $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/Area
 
 
 // Remote file url
-$remoteFile = "https://repositorioutlvte.org/Repositorio/fotos/".trim($row->cedula).".jpg";
+$remoteFile = "https://repositorioutlvte.org/Repositorio/articulos/articulo".trim($row->idarticulo).".jpg";
 
 $file_headers = @get_headers($remoteFile);
 
@@ -303,7 +303,7 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 
 }else{
 //	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
-	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/'.trim($row->cedula).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
+	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
 
 
 }
@@ -311,16 +311,16 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 $data=$data.'</div>
 
 	    <div class="card-body" style="background-color:'.$arrcolor[1].'"  >
-	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->eldocente.' </div>';	
+	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->elarticulo.' </div>';	
 
 
 
 
 
-foreach($publicaciondocente as $rowj){
-			if(isset($rowj[$row->iddocente]['iddocente'])){		
+foreach($ubicacionarticulo as $rowj){
+			if(isset($rowj[$row->idarticulo]['idarticulo'])){		
 
-			$data=$data.'<b>'.$rowj[$row->iddocente]['tipo'] .': </b><span style="color:red">'.$rowj[$row->iddocente]['titulo'].'('.$rowj[$row->iddocente]['fechapublicacion'].'),</span> - link:<a href="'.$rowj[$row->iddocente]['url'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
+			$data=$data.'<b>'.$rowj[$row->idarticulo]['idarticulo'] .': </b><span style="color:red">'.$rowj[$row->idarticulo]['lapersona'].'('.$rowj[$row->idarticulo]['launidad'].'),</span> - link:<a href="'.$rowj[$row->idarticulo]['idpersona'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
 			}	
 	//		echo $rowj; echo '<br>';
 		}
@@ -341,7 +341,7 @@ foreach($publicaciondocente as $rowj){
 
 
 
-			$file='application/views/cursos/docentes-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.php';
+			$file='application/views/articulos/articulo-'.$row->idarticulo.'.php';
 
 
 	if ( !write_file($file, $data)){
@@ -394,7 +394,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Lista de distributivodocentes 
+                 <h3>Lista de articulos 
                  <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
 			  
         	</h3>
@@ -405,7 +405,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 	<div id="eys-nav-i">
 	<ul>
-    		<li> <?php echo anchor('distributivodocente', 'Home'); ?></li>
+    		<li> <?php echo anchor('articulo', 'Home'); ?></li>
 	</ul>
        	</div>
 <br>
@@ -413,7 +413,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
- <th>distributivodocente</th>
+ <th>articulo</th>
  <th>Asignaturas</th>
  <th style="text-align: right;">Actions</th>
  </tr>
@@ -444,12 +444,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('distributivodocente/distributivodocente_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('articulo/articulo_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
-	var id= $(this).data('iddistributivodocente');
+	var id= $(this).data('idarticulo');
 	var retorno= $(this).data('retorno');
 	window.location.href = retorno+'/'+id;
 });
