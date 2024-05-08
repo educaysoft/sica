@@ -193,8 +193,8 @@ public function genpagina()
 			}
 		}
 		}
-		$data['ubicacion']=array();
-		$data['ubicacion']=$arreglo; 
+		$data['ubicacionarticulo']=array();
+		$data['ubicacionarticulo']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
 
 		$this->load->view('articulo_genpagina',$data);
