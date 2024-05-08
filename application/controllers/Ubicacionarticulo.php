@@ -54,7 +54,14 @@ class Ubicacionarticulo extends CI_Controller{
 	public function add()
 	{
 
-		$data['articulos']= $this->articulo_model->lista_articulos()->result();
+
+	    if($this->uri->segment(3))
+	    {
+		    $data['articulos']= $this->articulo_model->articulos($this->uri->segment(3))->result();
+        }else{
+		    $data['articulos']= $this->articulo_model->lista_articulos()->result();
+         }
+
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['unidades']= $this->unidad_model->lista_unidades()->result();
    		date_default_timezone_set('America/Guayaquil');

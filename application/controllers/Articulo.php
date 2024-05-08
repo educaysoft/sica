@@ -166,6 +166,50 @@ function articulo_data()
 
 
 
+public function genpagina()
+{
+	$iddistributivo=0;
+
+	$ordenrpt=0;
+	if($this->uri->segment(3))
+	{
+		$iddistributivo=$this->uri->segment(3);
+	 	$data['distributivodocentes']= $this->articulo_model->articulo1($iddistributivo)->result();
+		$arreglo=array();
+		$i=0;
+		foreach($data['distributivodocentes'] as $row){
+		$iddocente=$row->iddocente;
+
+	//	$arreglo[$row->iddocente]=$this->publicaciondocente_model->publicaciondocentesA($iddocente)->row_array();
+		$xx=array($this->publicaciondocente_model->publicaciondocentesA($iddocente)->result_array());
+		if(count($xx[0]) > 0){
+		foreach($xx as $row2){
+			foreach($row2 as $row3)
+			 {
+				$arreglo+=array($i=>array($row->iddocente=>$row3));
+				$i=$i+1;
+			}
+			}
+		}
+		}
+		$data['publicaciondocente']=array();
+	//	array_push($data['jornadadocente'],$arreglo); 
+		$data['publicaciondocente']=$arreglo; 
+		echo "<br> jornadadocnete<br>" ;
+
+//		print_r(	$data['publicaciondocente']);
+//		die();
+
+		$this->load->view('distributivodocente_genpagina2',$data);
+	}
+}
+
+
+
+
+
+
+
 
 
 
