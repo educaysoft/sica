@@ -237,7 +237,7 @@ foreach($articulos as $row){
         	<meta property="og:image" content="https://repositorioutlvte.org/Repositorio/logos/logocti.png" />
         	<meta property="og:image:width" content="400" />
         	<meta property="og:image:height" content="400" />
-    		<title> Carrera: '.$row->eldepartamento.'  - Periodo '.$row->elperiodoacademico.' </title>
+    		<title> Carrera: TECNOLOGIA DE LA INFORMACION </title>
     		<link rel="educaysoft" href="https://congresoutlvte.org/faci/">
     		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 		<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css" />';
@@ -249,11 +249,11 @@ foreach($articulos as $row){
   		<section class="py-5 text-center container">
     		<div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: center;" >
 		<div style=" flex-basis: 40%"  >
-		<img src="https://repositorioutlvte.org/Repositorio/qr/docentes-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.png" height="150px">
+		<img src="https://repositorioutlvte.org/Repositorio/qr/articulo-'.$row->idinstitucion.'-'.$row->idinstitucion.'.png" height="150px">
 		</div>
       		<div >
-        	<h1 class="fw-light">'.$row->eldepartamento.'</h1>  
-        	<p class="lead text-muted">Periodo:'.$row->elperiodoacademico.' :: '.$row->iddistributivo.'.</p>
+        	<h1 class="fw-light">'.$row->idinstitucion.'</h1>  
+        	<p class="lead text-muted">Periodo:'.$row->idinstitucion.' :: '.$row->idinstitucion.'.</p>
         	<p class="lead text-muted">Producción Literaria</p>
       		</div>
     		</div>
