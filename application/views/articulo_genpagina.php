@@ -296,7 +296,10 @@ $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/ar
 $data=$data.'</div>
 
 	    <div class="card-body" style="background-color:'.$arrcolor[1].'"  >
-	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->elarticulo.' </div>';	
+        <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" > Nombre: '.$row->elarticulo.' </div>
+        <div style="font-size:24px;  color:#333;  margin-top:10px;" >Detalle: '.$row->detalle.' </div>
+        <div style="font-size:24px;  color:#333;  margin-top:10px;" >Custodio: '.$row->elcustodio.' </div>'
+        ;	
 
 
 foreach($prestamoarticulo as $rowj){
