@@ -292,5 +292,14 @@ public function anterior(){
 
 
 
+	// Forestal
+	public function articulo_200()
+	{
+	  $this->load->view('articulos/articulo-200');
+	}
+
+
+
+
 
 }

@@ -314,9 +314,6 @@ $data=$data.'</div>
 	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->elarticulo.' </div>';	
 
 
-
-
-
 foreach($ubicacionarticulo as $rowj){
 			if(isset($rowj[$row->idarticulo]['idarticulo'])){		
 
@@ -325,10 +322,7 @@ foreach($ubicacionarticulo as $rowj){
 	//		echo $rowj; echo '<br>';
 		}
 
-
-
               	$data=$data.'<div class="d-flex justify-content-between align-items-center">
-
 
               </div>
             </div>
