@@ -328,7 +328,7 @@ foreach($articulos as $row){
 
 
 $data=$data.'<div class="col">
-          <div class="card shadow-sm"'>;
+          <div class="card shadow-sm">';
 
 
 
