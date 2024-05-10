@@ -328,8 +328,7 @@ foreach($articulos as $row){
 
 
 $data=$data.'<div class="col">
-          <div class="card shadow-sm">
-		  <a  href="https://educaysoft.org/sica/evento/detalle/'.$inicio.'"><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>';
+          <div class="card shadow-sm"'>;
 
 
 
@@ -350,7 +349,7 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 }else{
 //	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
 //	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
-$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" alt="No hay programación" height="100%" width="100%"  onclick="mostrarImagen(\'https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg\')" /> </svg></a>
+$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" alt="No hay programación" height="100%" width="100%"  onclick="mostrarImagen(\'https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg\')" /> </svg>
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
 
