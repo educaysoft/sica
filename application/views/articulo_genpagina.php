@@ -112,8 +112,8 @@ contenedor {
 
  /* Estilos para la imagen en miniatura */
     .thumbnail {
-        width: 200px;
-        height: auto;
+     /*   width: 200px;
+        height: auto; */
         cursor: pointer;
     }
     /* Estilos para la ventana emergente */
