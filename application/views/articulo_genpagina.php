@@ -110,7 +110,49 @@ contenedor {
 }
 
 
-
+ /* Estilos para la imagen en miniatura */
+    .thumbnail {
+        width: 200px;
+        height: auto;
+        cursor: pointer;
+    }
+    /* Estilos para la ventana emergente */
+    #modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 50px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.9);
+    }
+    /* Estilos para la imagen en la ventana emergente */
+    #modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+    }
+    /* Estilos para cerrar la ventana emergente */
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
 
 
@@ -187,6 +229,25 @@ $data1='</div>
 ></script>
 
 <script type="text/javascript">
+
+// Función para mostrar la imagen en la ventana emergente
+function mostrarImagen(imagen) {
+    // Obtener la referencia de la imagen grande
+    var modalImg = document.getElementById("modal-content");
+    // Asignar la imagen al src de la ventana emergente
+    modalImg.src = imagen;
+    // Mostrar la ventana emergente
+    document.getElementById(\'modal\').style.display = "block";
+}
+
+// Función para cerrar la ventana emergente
+function cerrarModal() {
+    // Ocultar la ventana emergente
+    document.getElementById(\'modal\').style.display = "none";
+}
+
+
+
 
 $(".submenu").click(function(){
   $(this).children("ul").slideToggle();
@@ -289,13 +350,26 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 }else{
 //	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
 //	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
-$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" alt="No hay programación" height="100%" width="100%"/> </svg></a>
+$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" alt="No hay programación" height="100%" width="100%"  onclick="mostrarImagen(\'https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg\')" /> </svg></a>
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
+
+
+
+
+
 }
 
 $data=$data.'</div>
 
-	    <div class="card-body" style="background-color:'.$arrcolor[1].'"  >
+<div id="modal">
+  <span class="close" onclick="cerrarModal()">&times;</span>
+  <img id="modal-content" src="" alt="Imagen Grande">
+</div>
+
+
+
+
+        <div class="card-body" style="background-color:'.$arrcolor[1].'"  >
         <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Id::Nombre:</b><br>'.$row->idarticulo.'::'.$row->elarticulo.' </div>
         <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b>Detalle:</b><br> '.$row->detalle.' </div>
         <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b> Custodio:</b> '.$row->elcustodio.' </div>
