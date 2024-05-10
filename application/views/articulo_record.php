@@ -142,13 +142,13 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 	<table class="table table-striped table-bordered table-hover" id="mydatac">
 	 <thead>
 	 <tr>
-	 <th>idprestamoarticulo</th>
+	 <th>idprestamo</th>
 	 <th>idarticulo</th>
 	 <th>lapersona</th>
-	 <th>fechaprestamo.</th>
-	 <th>horaprestamo.</th>
-	 <th>fechadevolucion.</th>
-	 <th>horadevolucion.</th>
+	 <th>fecha prestamo.</th>
+	 <th>hora prestamo.</th>
+	 <th>fecha devolucion.</th>
+	 <th>hora devolucion.</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
