@@ -354,7 +354,7 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 }else{
 //	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
 //	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
-$data=$data.'<img  class="thumbnail" src="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" alt="No hay programación" height="100%" width="100%"  onclick="mostrarImagen(\'https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg\')" /> </svg>
+$data=$data.'<image  class="thumbnail" href="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" alt="No hay programación" height="100%" width="100%"  onclick="mostrarImagen(\'https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg\')" /> </svg>
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
 
