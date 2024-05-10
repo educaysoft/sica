@@ -328,7 +328,8 @@ foreach($articulos as $row){
 
 
 $data=$data.'<div class="col">
-          <div class="card shadow-sm">';
+          <div class="card shadow-sm">
+		  <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>';
 
 
 
@@ -344,7 +345,7 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
   //  echo 'File not found';
 	//$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
 
-    $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/articulo0.jpg" alt="No hay programación" height="100%" width="100%"/> </svg></a>
+    $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/articulo0.jpg" alt="No hay programación" height="100%" width="100%"/> </svg>
     <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 }else{
 //	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
