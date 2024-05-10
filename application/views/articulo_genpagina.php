@@ -401,6 +401,7 @@ foreach($prestamoarticulo as $rowj){
 }
 
 
+	 	$data=$data.$data1;
 
 			$file='application/views/articulos/articulo-'.$row->idinstitucion.'.php';
 
