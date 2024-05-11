@@ -264,6 +264,43 @@ function cerrarModal() {
 
 
 
+function uploadImage() {
+  var fileInput = document.getElementById("fileInput");
+  var status = document.getElementById("status");
+
+  if (fileInput.files.length === 0) {
+    status.textContent = "Por favor seleccione un archivo.";
+    return;
+  }
+
+  var file = fileInput.files[0];
+
+  if (file.size > 500 * 1024) {
+    status.textContent = "El archivo es demasiado grande. Por favor seleccione un archivo de menos de 500 KB.";
+    return;
+  }
+
+  var formData = new FormData();
+  formData.append("file", file);
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://repositorioutlvte.org/cargafile.php", true);
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      status.textContent = "Imagen subida exitosamente.";
+    } else {
+      status.textContent = "Error al subir la imagen.";
+    }
+  };
+  xhr.onerror = function () {
+    status.textContent = "Error de red al subir la imagen.";
+  };
+  xhr.send(formData);
+}
+
+
+
+
 
 </script>
     <script src="https://congresoutlvte.org/assets/dist/js/bootstrap.bundle.min.js"></script>
@@ -351,6 +388,17 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 
     $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/articulo0.jpg" alt="No hay programación" height="100%" width="100%"/> </svg>
     <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
+
+
+$data=$data.'</div>
+
+<input type="file" id="fileInput" accept="image/*">
+  <button onclick="uploadImage()">Subir Imagen</button>
+  <p id="status"></p>
+  <script src="upload.js"></script>'; 
+
+
+
 }else{
 //	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
 //	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
@@ -358,17 +406,21 @@ $data=$data.'<image  class="thumbnail" href="https://repositorioutlvte.org/Repos
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
 
-
-
-
-}
-
 $data=$data.'</div>
 
 <div id="modal">
   <span class="close" onclick="cerrarModal()">&times;</span>
   <img id="modal-content" src="" alt="Imagen Grande">
-</div>
+</div>a';
+
+
+
+
+}
+
+
+$data=$data.'</div>
+
 
 
 

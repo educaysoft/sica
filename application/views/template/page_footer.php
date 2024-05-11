@@ -127,7 +127,7 @@
 
 
 
-<!-- Footer -->
+<!-- Footer 
 
 <footer id="eys-footer" style="background-color: #f0f0f0; padding: 20px;"> 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; max-width: 1200px; margin: 0 auto;">
@@ -147,7 +147,7 @@
     </div>
   </div>
 </footer>
-
+-->
 
    	<?php }else{ ?>
 
