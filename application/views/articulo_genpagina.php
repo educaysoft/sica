@@ -264,7 +264,7 @@ function cerrarModal() {
 
 
 
-function uploadImage() {
+function uploadImage(nombre) {
   var fileInput = document.getElementById("fileInput");
   var status = document.getElementById("status");
 
@@ -283,21 +283,36 @@ function uploadImage() {
   var formData = new FormData();
   formData.append("file", file);
 
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://repositorioutlvte.org/cargafile.php", true);
-  xhr.onload = function () {
-    if (xhr.status === 200) {
-      status.textContent = "Imagen subida exitosamente.";
-    } else {
-      status.textContent = "Error al subir la imagen.";
-    }
-  };
-  xhr.onerror = function () {
-    status.textContent = "Error de red al subir la imagen.";
-  };
-  xhr.send(formData);
+
+
+
+      formData.append("nombrearchivo",nombre);
+		var uploadUrl = getUploadUrl();
+		alert(uploadUrl);
+       axios.post(uploadUrl, uformData)
+                .then(function(response) {
+		console.log("El archivo PDF se cargó correctamente en el servidor en la nube.");
+			   history.back(); //Go to the previous page
+		   })
+		   .catch(function(error){
+		           console.error("Error al cargar el archivo PDF en el servidor en la nube. Código de estado:", error);
+        	});
+		   })
+		 .catch(function(error){
+	    		console.error("Error al guardar los datos.", error);
+        	});
+
+
+
+
 }
 
+
+function getUploadUrl() {
+    var selectElement = document.getElementById('idordenador');
+    var url = "https://repositorioutlvte.org";
+    return url.endsWith('/') ? url + "cargafile.php" : url + "/cargafile.php";
+}
 
 
 
@@ -393,7 +408,7 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 $data=$data.'</div>
 
 <input type="file" id="fileInput" accept="image/*">
-  <button onclick="uploadImage()">Subir Imagen</button>
+  <button onclick="uploadImage('\articulo'.trim($row->idarticulo).'.jpg\')">Subir Imagen</button>
   <p id="status"></p>
   <script src="upload.js"></script>'; 
 
