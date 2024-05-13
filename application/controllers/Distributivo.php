@@ -438,7 +438,18 @@ public function get_periodoacademico() {
 
 }
 
+public fucntion exportarxls()
+{
+$this->load->model('export_model');
+$data = [
+    ['Nombre', 'Edad', 'Correo'],
+    ['Juan', 25, 'juan@example.com'],
+    ['María', 30, 'maria@example.com'],
+    ['Pedro', 28, 'pedro@example.com'],
+];
+$filename = 'reporte.xlsx';
 
+}
 
 
 
