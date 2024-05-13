@@ -315,7 +315,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	 * @param	string	$session_id	Session ID
 	 * @return	bool
 	 */
-	function destroy($session_id)
+	function destroy($session_id): bool
 	{
 		if ($this->close() === $this->_success)
 		{
