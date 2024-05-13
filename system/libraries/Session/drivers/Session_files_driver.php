@@ -405,7 +405,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	 * @param	string	$id
 	 * @return	bool
 	 */
-	public function validateSessionId($id)
+	function validateSessionId($id)
 	{
 		$result = is_file($this->_file_path.$id);
 		clearstatcache(TRUE, $this->_file_path.$id);
