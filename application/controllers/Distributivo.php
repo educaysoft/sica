@@ -448,7 +448,7 @@ $data = [
     ['Pedro', 28, 'pedro@example.com'],
 ];
 $filename = 'reporte.xlsx';
-
+$this->export_model->exportToExcel($data, $filename);
 }
 
 
