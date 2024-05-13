@@ -1,5 +1,11 @@
 <?php
-require_once(APPPATH . 'third_party/phpspreadsheet/src/Bootstrap.php');
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
+
 class Distributivo extends CI_Controller{
 
   public function __construct(){
