@@ -18,6 +18,7 @@
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
 	},
 	"require-dev": {
-		"mikey179/vfsstream": "1.1.*"
+		"mikey179/vfsstream": "1.1.*",
+    "vendor/package": "^1.0" // Esto significa que aceptará versiones desde 1.0 hasta <2.0
 	}
 }
