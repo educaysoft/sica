@@ -223,23 +223,29 @@ $data1='</div>
 </footer>
 
 <!-- MDB -->
-<script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
-></script>
+<script  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"></script>
+
+<script type="text/javascript"
+   src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script type="text/javascript">
 
 
 
+$(document).ready(function() {
 
 $(".submenu").click(function(){
   $(this).children("ul").slideToggle();
-})
+});
 
 $("ul").click(function(ev){
   ev.stopPropagation();
-})
+});
+
+});
 
 function cargarVideo(url){
         document.getElementById("slider").src=url;
@@ -265,53 +271,53 @@ function cerrarModal() {
 
 
 function uploadImage(nombre) {
-  var fileInput = document.getElementById("fileInput");
+  var filesInput = document.getElementById("fileInput");
   var status = document.getElementById("status");
 
-  if (fileInput.files.length === 0) {
+	var totalFiles= filesInput.files.length;
+
+  if (filesInput.files.length === 0) {
     status.textContent = "Por favor seleccione un archivo.";
     return;
   }
 
-  var file = fileInput.files[0];
+  var file = filesInput.files[0];
 
   if (file.size > 500 * 1024) {
     status.textContent = "El archivo es demasiado grande. Por favor seleccione un archivo de menos de 500 KB.";
     return;
   }
 
-  var formData = new FormData();
-  formData.append("file", file);
 
+
+
+  var formData = new FormData();
+
+		// Read selected files
+    		for (var index = 0; index < totalFiles; index++) {
+      			formData.append("files[]", filesInput.files[index]);
+    		}
 
 
 
       formData.append("nombrearchivo",nombre);
 		var uploadUrl = getUploadUrl();
 		alert(uploadUrl);
-       axios.post(uploadUrl, uformData)
-                .then(function(response) {
+		alert(nombre);
+       axios.post(uploadUrl, formData).then(function(response) {
 		console.log("El archivo PDF se cargó correctamente en el servidor en la nube.");
 			   history.back(); //Go to the previous page
 		   })
 		   .catch(function(error){
 		           console.error("Error al cargar el archivo PDF en el servidor en la nube. Código de estado:", error);
         	});
-		   })
-		 .catch(function(error){
-	    		console.error("Error al guardar los datos.", error);
-        	});
-
-
-
-
 }
 
 
 function getUploadUrl() {
-    var selectElement = document.getElementById('idordenador');
+    var selectElement = document.getElementById("idordenador");
     var url = "https://repositorioutlvte.org";
-    return url.endsWith('/') ? url + "cargafile.php" : url + "/cargafile.php";
+    return url.endsWith("/") ? url + "cargaimagen.php" : url + "/cargaimagen.php";
 }
 
 
@@ -387,38 +393,25 @@ $data=$data.'<div class="col">
           <div class="card shadow-sm">
 		  <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>';
 
-
-
-
 // Remote file url
 $remoteFile = "https://repositorioutlvte.org/Repositorio/articulos/articulo".trim($row->idarticulo).".jpg";
 
 $file_headers = @get_headers($remoteFile);
 
-// Check if file exists
-//if(!file_exists($remoteFile)){
 if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
-  //  echo 'File not found';
-	//$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
 
     $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/articulo0.jpg" alt="No hay programación" height="100%" width="100%"/> </svg>
-    <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
+    <div class="img-contenedor w3-card-4" style="position:relative"; width:100% height:100% display:flex; justify-content: center; align-items: center;">';
 
 
-$data=$data.'</div>
-
-<input type="file" id="fileInput" accept="image/*">
-  <button onclick="uploadImage('\articulo'.trim($row->idarticulo).'.jpg\')">Subir Imagen</button>
-  <p id="status"></p>
-  <script src="upload.js"></script>'; 
-
-
+$data=$data.' <input type="file" id="fileInput" accept="image/*">
+  <button onclick="uploadImage(\'articulo'.trim($row->idarticulo).'.jpg\')">Subir Imagen</button>
+  <p id="status"></p> </div>';
 
 }else{
-//	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
-//	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
+
 $data=$data.'<image  class="thumbnail" href="https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg" alt="No hay programación" height="100%" width="100%"  onclick="mostrarImagen(\'https://repositorioutlvte.org/Repositorio/articulos/articulo'.trim($row->idarticulo).'.jpg\')" /> </svg>
-<div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
+<div class="img-contenedor w3-card-4" style="position:absolute"; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
 
 $data=$data.'</div>
@@ -426,13 +419,9 @@ $data=$data.'</div>
 <div id="modal">
   <span class="close" onclick="cerrarModal()">&times;</span>
   <img id="modal-content" src="" alt="Imagen Grande">
-</div>a';
-
-
-
+</div>';
 
 }
-
 
 $data=$data.'</div>
 
