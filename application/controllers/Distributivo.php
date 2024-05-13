@@ -438,7 +438,7 @@ public function get_periodoacademico() {
 
 }
 
-public fucntion exportarxls()
+public function exportarxls()
 {
 $this->load->model('export_model');
 $data = [
