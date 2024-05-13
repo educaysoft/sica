@@ -420,7 +420,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	 * @param	string	$str
 	 * @return	int
 	 */
-	protected static function strlen($str)
+	 static function strlen($str)
 	{
 		return (self::$func_overload)
 			? mb_strlen($str, '8bit')
