@@ -536,7 +536,7 @@ class CI_Output {
 		}
 		else
 		{
-			//echo $output; // Send it to the browser!
+			echo $output; // Send it to the browser!
 		}
 
 		log_message('info', 'Final output sent to browser');
