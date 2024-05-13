@@ -2,8 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 
 class Distributivo extends CI_Controller{
@@ -17,6 +15,8 @@ class Distributivo extends CI_Controller{
       $this->load->model('estadodistributivo_model');
       $this->load->model('fechacalendario_model');
       $this->load->model('asignaturadocente_model');
+
+      $this->load->library('phpspreadsheet');
 }
 
 //=========================================================
