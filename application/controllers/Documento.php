@@ -596,6 +596,8 @@ public function get_directorio() {
         $this->db->where(array('idordenador' => $this->input->post('idordenador')));
         $query = $this->db->get('directorio');
 	$data=$query->result();
+        // Establecer el tipo de contenido JSON
+    header('Content-Type: application/json');
 	echo json_encode($data);
 	}
 
