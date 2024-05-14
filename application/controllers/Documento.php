@@ -592,7 +592,7 @@ public function get_directorio() {
     $this->load->database();
     $this->load->helper('form');
     // Establecer el tipo de contenido JSON
-    header('Content-Type: application/json');
+ //   header('Content-Type: application/json');
     if($this->input->get('idordenador')) {
         $this->db->select('iddirectorio,ruta');
         $this->db->where(array('idordenador' => $this->input->get('idordenador')));

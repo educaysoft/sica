@@ -284,8 +284,8 @@ function get_directorio() {
     $.ajax({
         url: "<?php echo site_url('documento/get_directorio') ?>",
         data: {idordenador: idordenador},
-        method: 'POST',
-	async : true,
+        method: 'GET',
+	async : false,
         dataType : 'json',
         success: function(data){
         var html = '';
