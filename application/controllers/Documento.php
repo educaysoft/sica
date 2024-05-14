@@ -598,7 +598,6 @@ public function get_directorio() {
         $this->db->where(array('idordenador' => $this->input->get('idordenador')));
         $query = $this->db->get('directorio');
 	    $data=$query->result();
-        var_dump($data); // Verifica los datos devueltos
 	    echo json_encode($data);
 	}
 
