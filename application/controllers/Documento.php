@@ -595,7 +595,7 @@ public function get_directorio() {
     header('Content-Type: application/json');
     if($this->input->get('idordenador')) {
         $this->db->select('iddirectorio,ruta');
-        $this->db->where(array('idordenador' => $this->input->post('idordenador')));
+        $this->db->where(array('idordenador' => $this->input->get('idordenador')));
         $query = $this->db->get('directorio');
 	    $data=$query->result();
         var_dump($data); // Verifica los datos devueltos
