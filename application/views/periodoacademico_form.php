@@ -4,7 +4,10 @@
 <table>
 
 
-
+<tr>
+<td> Id </td>
+<td><?php echo form_input("idperiodoacademico","", array("value"=>0, "placeholder"=>"esta valor es 0 "))  ?></td>
+</tr>
 
 
 <tr>

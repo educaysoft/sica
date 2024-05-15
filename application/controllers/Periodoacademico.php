@@ -34,12 +34,25 @@ public function add()
 
 public function  save()
 	{
+        if($this->input->post('idperiodoacademico')>0)
+        {
+
+	 	$array_item=array(
+	 	'idperiodoacademico' => $this->input->post('idperiodoacademico'),
+	 	'nombrecorto' => $this->input->post('nombrecorto'),
+	 	'nombrelargo' => $this->input->post('nombrelargo'),
+	 	'fechainicio' => $this->input->post('fechainicio'),
+	 	'fechafin' => $this->input->post('fechafin'),
+        );
+
+        }else{    
 	 	$array_item=array(
 	 	'nombrecorto' => $this->input->post('nombrecorto'),
 	 	'nombrelargo' => $this->input->post('nombrelargo'),
 	 	'fechainicio' => $this->input->post('fechainicio'),
 	 	'fechafin' => $this->input->post('fechafin'),
-	 	);
+        );
+        }
 	 	$this->periodoacademico_model->save($array_item);
 	 	redirect('periodoacademico');
  	}
