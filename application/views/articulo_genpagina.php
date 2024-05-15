@@ -270,7 +270,7 @@ function cerrarModal() {
 
 
 
-function uploadImage(nombre,inx) {
+function uploadImage(nombre,idx) {
   var fI="fileInput"+idx; 
   var st="status"+idx;
   var filesInput = document.getElementById(fI);
