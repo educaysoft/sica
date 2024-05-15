@@ -273,8 +273,9 @@ function cerrarModal() {
 function uploadImage(nombre) {
   var filesInput = document.getElementById("fileInput");
   var status = document.getElementById("status");
+  var totalFiles= filesInput.files.length;
 
-	var totalFiles= filesInput.files.length;
+    alert("entreo");
 
   if (filesInput.files.length === 0) {
     status.textContent = "Por favor seleccione un archivo.";
@@ -287,8 +288,6 @@ function uploadImage(nombre) {
     status.textContent = "El archivo es demasiado grande. Por favor seleccione un archivo de menos de 500 KB.";
     return;
   }
-
-
 
 
   var formData = new FormData();
