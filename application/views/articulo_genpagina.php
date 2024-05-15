@@ -270,9 +270,11 @@ function cerrarModal() {
 
 
 
-function uploadImage(nombre) {
-  var filesInput = document.getElementById("fileInput");
-  var status = document.getElementById("status");
+function uploadImage(nombre,inx) {
+  var fI="fileInput"+idx; 
+  var st="status"+idx;
+  var filesInput = document.getElementById(fI);
+  var status = document.getElementById(st);
   var totalFiles= filesInput.files.length;
 
     alert("entreo");
@@ -403,9 +405,9 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
     <div class="img-contenedor w3-card-4" style="position:relative"; width:100% height:100% display:flex; justify-content: center; align-items: center;">';
 
 
-$data=$data.' <input type="file" id="fileInput" accept="image/*">
-  <button onclick="uploadImage(\'articulo'.trim($row->idarticulo).'.jpg\')">Subir Imagen</button>
-  <p id="status"></p> </div>';
+$data=$data.' <input type="file" id="fileInput'.trim($row->idarticulo).'" accept="image/*">
+  <button onclick="uploadImage(\'articulo'.trim($row->idarticulo).'.jpg\',\''.trim($row->idarticulo).'\')">Subir Imagen</button>
+  <p id="status'.trim($row->idarticulo).'"></p> </div>';
 
 }else{
 
