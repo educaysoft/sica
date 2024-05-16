@@ -200,7 +200,7 @@ public function generajornadas()
                 $inicio=1;
               $iddocente=$r->iddistributivodocente;
             }
-             $jornada['idasignatura']=$r->idasignatura;
+             $jornada['idasignatura']=$r->idasignatura.' - '.$r->laasignatura;
              $jornada['nivel']=$r->nivel;
              $jornada['paralelo']=$r->paralelo;
              $jornada['aula']=$r->elaula;
@@ -225,7 +225,7 @@ public function generajornadas()
             $j[$r->idjornadadocente]=$jornada;
 
        if($iddocente != $r->iddistributivodocente){
-              $jornadadocente[$r->iddistributivodocente]=$j;
+              $jornadadocente[$r->iddistributivodocente." - ".$r->eldistributivodocente]=$j;
               $j= array();
               $iddocente=$r->iddistributivodocente;
           }
