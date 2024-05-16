@@ -116,22 +116,6 @@ $(document).ready(function(){
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('fotoevidencia/prestamo_data')?>', type: 'GET',data:{idfotoevidencia:idfotoevidencia}},});
 });
 
-$('#show_datau').on('click','.item_ver',function(){
-var id= $(this).data('idubicacionfotoevidencia');
-var retorno= $(this).data('retorno');
-window.location.href = retorno+'/'+id;
-});
-
-
-
-
-
-$('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idprestamofotoevidencia');
-var retorno= $(this).data('retorno');
-window.location.href = retorno+'/'+id;
-});
-
 
 
 
@@ -183,7 +167,7 @@ function uploadImage(nombre,idx) {
 function getUploadUrl() {
     var selectElement = document.getElementById("idordenador");
     var url = "https://repositorioutlvte.org";
-    return url.endsWith("/") ? url + "cargaimagen.php" : url + "/cargaimagen.php";
+    return url.endsWith("/") ? url + "cargafotoevidencia.php" : url + "/cargafotoevidencia.php";
 }
 
 
