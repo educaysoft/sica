@@ -1,34 +1,50 @@
 <?php
-class Estadotrabajointegracioncurricular_model extends CI_model {
+class Fotoevidencia_model extends CI_model {
 
-	function lista_estadoprocesos(){
-		 $estadoproceso= $this->db->get('estadoproceso');
-		 return $estadoproceso;
+	function lista_articulos(){
+		 $articulo= $this->db->get('articulo');
+		 return $articulo;
 	}
 
- 	function estadoproceso( $id){
- 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $id.'"');
- 		return $estadoproceso;
+
+	function lista_articulosA(){
+		 $articulo= $this->db->get('articulo1');
+		 return $articulo;
+	}
+
+
+
+
+ 	function articulo( $id){
+ 		$articulo = $this->db->query('select * from articulo where idarticulo="'. $id.'"');
+ 		return $articulo;
  	}
+
+ 	function articuloA( $id){
+ 		$articulo = $this->db->query('select * from articulo1 where idinstitucion="'. $id.'"');
+ 		return $articulo;
+ 	}
+
+
+
 
  	function save($array)
  	{
-		$this->db->insert("estadoproceso", $array);
+		$this->db->insert("articulo", $array);
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idestadoproceso',$id);
- 		$this->db->update('estadoproceso',$array_item);
+ 		$this->db->where('idarticulo',$id);
+ 		$this->db->update('articulo',$array_item);
 	}
- 
 
 
  	public function delete($id)
 	{
- 		$this->db->where('idestadoproceso',$id);
-		$this->db->delete('estadoproceso');
-    		if($this->db->affected_rows()==1)
+ 		$this->db->where('idarticulo',$id);
+		$this->db->delete('articulo');
+    if($this->db->affected_rows()==1)
 			$result=true;
 		else
 			$result=false;
@@ -38,7 +54,7 @@ class Estadotrabajointegracioncurricular_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idestadoproceso")->get('estadoproceso');
+		$query=$this->db->order_by("idarticulo")->get('articulo');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -51,7 +67,7 @@ class Estadotrabajointegracioncurricular_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idestadoproceso")->get('estadoproceso');
+		$query=$this->db->order_by("idarticulo")->get('articulo');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -63,42 +79,44 @@ class Estadotrabajointegracioncurricular_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$estadoproceso = $this->db->select("idestadoproceso")->order_by("idestadoproceso")->get('estadoproceso')->result_array();
-		$arr=array("idestadoproceso"=>$id);
-		$clave=array_search($arr,$estadoproceso);
-	   if(array_key_exists($clave+1,$estadoproceso))
+ 		$articulo = $this->db->select("idarticulo")->order_by("idarticulo")->get('articulo')->result_array();
+		$arr=array("idarticulo"=>$id);
+		$clave=array_search($arr,$articulo);
+	   if(array_key_exists($clave+1,$articulo))
 		 {
 
- 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $estadoproceso[$clave+1]["idestadoproceso"].'"');
+ 		$articulo = $this->db->query('select * from articulo where idarticulo="'. $articulo[$clave+1]["idarticulo"].'"');
 		 }else{
 
- 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $id.'"');
+ 		$articulo = $this->db->query('select * from articulo where idarticulo="'. $id.'"');
 		 }
 		 	
- 		return $estadoproceso;
+ 		return $articulo;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$estadoproceso = $this->db->select("idestadoproceso")->order_by("idestadoproceso")->get('estadoproceso')->result_array();
-		$arr=array("idestadoproceso"=>$id);
-		$clave=array_search($arr,$estadoproceso);
-	   if(array_key_exists($clave-1,$estadoproceso))
+ 		$articulo = $this->db->select("idarticulo")->order_by("idarticulo")->get('articulo')->result_array();
+		$arr=array("idarticulo"=>$id);
+		$clave=array_search($arr,$articulo);
+	   if(array_key_exists($clave-1,$articulo))
 		 {
 
- 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $estadoproceso[$clave-1]["idestadoproceso"].'"');
+ 		$articulo = $this->db->query('select * from articulo where idarticulo="'. $articulo[$clave-1]["idarticulo"].'"');
 		 }else{
 
- 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $id.'"');
+ 		$articulo = $this->db->query('select * from articulo where idarticulo="'. $id.'"');
 		 }
 		 	
- 		return $estadoproceso;
+ 		return $articulo;
  	}
 
 
 
 
 
+
+ 
 
 }

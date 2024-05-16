@@ -1,20 +1,10 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("articulo/save") ?>
-<?php echo form_hidden("idarticulo")  ?>
+<?php echo form_open("fotoevidencia/save") ?>
+<?php echo form_hidden("idfotoevidencia")  ?>
 <table>
 
-<tr>
-<td> Institución: </td>
-<td><?php 
 
-$options= array('--Select--');
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
-}
-
- echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
 
 
 
@@ -42,7 +32,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("articulo","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("fotoevidencia","Atras") ?> </td>
 </tr>
 
 
