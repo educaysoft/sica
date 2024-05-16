@@ -45,7 +45,7 @@
                     <td><?php echo $jornada['dia']; ?></td>
                     <td><?php echo $jornada['horainicio']; ?></td>
                     <td><?php echo $jornada['horafinal']; ?></td>
-                <?php if($jornada['duracionminutos']>120) ?>
+                <?php if($jornada['duracionminutos']>120){ ?>
                     <td class="rojo"><?php echo $jornada['duracionminutos']; ?></td>
                 <?php }else{  ?>
 
