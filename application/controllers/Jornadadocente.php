@@ -126,41 +126,39 @@ public function add()
  	}
 
 
-public function listar()
-{
-	
-  $data['title']="Jornadadocentes";
-	$this->load->view('template/page_header');		
-  $this->load->view('jornadadocente_list',$data);
-	$this->load->view('template/page_footer');
-}
+    public function listar()
+    {
+        
+      $data['title']="Jornadadocentes";
+        $this->load->view('template/page_header');		
+      $this->load->view('jornadadocente_list',$data);
+        $this->load->view('template/page_footer');
+    }
 
 
 
-function jornadadocente_data()
-{
-		$draw= intval($this->input->get("draw"));
-		$draw= intval($this->input->get("start"));
-		$draw= intval($this->input->get("length"));
+    function jornadadocente_data()
+    {
+            $draw= intval($this->input->get("draw"));
+            $draw= intval($this->input->get("start"));
+            $draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->jornadadocente_model->lista_jornadadocentesA();
-		$data=array();
-		foreach($data0->result() as $r){
-			$data[]=array($r->idjornadadocente,$r->eldistributivodocente,$r->laasignatura,$r->nivel,$r->paralelo,$r->elaula,$r->nombre,$r->horainicio,$r->duracionminutos,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('jornadadocente/actual').'"  data-idjornadadocente="'.$r->idjornadadocente.'">Ver</a>');
-		}	
-		$output=array( "draw"=>$draw,
-			"recordsTotal"=> $data0->num_rows(),
-			"recordsFiltered"=> $data0->num_rows(),
-			"data"=>$data
-		);
-		echo json_encode($output);
-		exit();
-	
-			
+            $data0 = $this->jornadadocente_model->lista_jornadadocentesA();
+            $data=array();
+            foreach($data0->result() as $r){
+                $data[]=array($r->idjornadadocente,$r->eldistributivodocente,$r->laasignatura,$r->nivel,$r->paralelo,$r->elaula,$r->nombre,$r->horainicio,$r->duracionminutos,
+                    $r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('jornadadocente/actual').'"  data-idjornadadocente="'.$r->idjornadadocente.'">Ver</a>');
+            }	
+            $output=array( "draw"=>$draw,
+                "recordsTotal"=> $data0->num_rows(),
+                "recordsFiltered"=> $data0->num_rows(),
+                "data"=>$data
+            );
+            echo json_encode($output);
+            exit();
 
-}
+    }
 
 
 
@@ -208,6 +206,7 @@ public function generajornadas()
              $jornada['aula']=$r->elaula;
              $jornada['dia']=$r->nombre;
              $jornada['horainicio']=$r->horainicio;
+             $jornada['horafin']=$r->horainicio+;
              $jornada['duracionminutos']=$r->duracionminutos;
             $j[$r->idjornadadocente]=$jornada;
 
@@ -216,10 +215,12 @@ public function generajornadas()
               $j= array();
               $iddocente=$r->iddistributivodocente;
           }
-
         }
- print_r($jornadadocente);
-        die();
+// print_r($jornadadocente);
+    $data['joranadadocente']=$jornadadocente;
+    $this->load->view('template/page_header');		
+    $this->load->view('jornadadocente_list2',$data);
+    $this->load->view('template/page_footer');
 }
 
 
