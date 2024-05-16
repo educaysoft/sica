@@ -81,7 +81,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 <div class="img-contenedor w3-card-4" style="position:relative; width:100%; height:100%; display:flex; justify-content: center; align-items: center;">
 
 
- <input type="file" id="fileInput'.trim($row->idarticulo).'" accept="image/*">
+ <input type="file" id="fileInput<?php echo trim($articulo['idarticulo']); ?>" accept="image/*">
   <button onclick="uploadImage('articulo<?php echo trim($articulo['idarticulo']); ?>.jpg','<?php echo trim($articulo['idarticulo']); ?>')">Subir Imagen</button>
   <p id="status<?php echo trim($articulo['idarticulo']); ?>"></p> </div>';
 
