@@ -199,6 +199,8 @@ public function generajornadas()
             if($inicio==0){
                 $inicio=1;
               $iddocente=$r->iddistributivodocente;
+                $iddistributivodocente=$r->iddistributivodocente;
+                $eldistributivodocente=$r->eldistributivodocente;
             }
              $jornada['idasignatura']=$r->idasignatura.' - '.$r->laasignatura;
              $jornada['nivel']=$r->nivel;
@@ -212,12 +214,12 @@ public function generajornadas()
             $horaInicial = new DateTime($r->horainicio); // Crear objeto DateTime con la hora inicial
             $duracionMinutos = $r->duracionminutos; // Obtener la duración en minutos
     
-    // Agregar la duración en minutos a la hora inicial
-    $horaFinal = clone $horaInicial; // Clonar la hora inicial para no modificarla directamente
-    $horaFinal->add(new DateInterval('PT' . $duracionMinutos . 'M')); // Agregar duración en minutos
+        // Agregar la duración en minutos a la hora inicial
+        $horaFinal = clone $horaInicial; // Clonar la hora inicial para no modificarla directamente
+        $horaFinal->add(new DateInterval('PT' . $duracionMinutos . 'M')); // Agregar duración en minutos
     
-    // Obtener la hora final formateada
-    $horaFinalFormateada = $horaFinal->format('H:i:s');
+        // Obtener la hora final formateada
+        $horaFinalFormateada = $horaFinal->format('H:i:s');
         $jornada['horafinal'] = $horaFinalFormateada; // Agregar la hora final al arreglo $jornada
 
 
@@ -225,9 +227,11 @@ public function generajornadas()
             $j[$r->idjornadadocente]=$jornada;
 
        if($iddocente != $r->iddistributivodocente){
-              $jornadadocente[$r->iddistributivodocente." - ".$r->eldistributivodocente]=$j;
+              $jornadadocente[$iddistributivodocente." - ".$eldistributivodocente]=$j;
               $j= array();
               $iddocente=$r->iddistributivodocente;
+                $iddistributivodocente=$r->iddistributivodocente;
+                $eldistributivodocente=$r->eldistributivodocente;
           }
         }
 // print_r($jornadadocente);
