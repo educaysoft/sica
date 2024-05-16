@@ -1,3 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabla con celda roja</title>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    .rojo {
+        background-color: red;
+    }
+</style>
+</head>
+<body>
+
 <?php foreach ($jornadadocente as $iddocente => $jornadas): ?>
     <h2>Docente ID: <?php echo $iddocente; ?></h2>
     <table>
@@ -21,10 +44,19 @@
                     <td><?php echo $jornada['aula']; ?></td>
                     <td><?php echo $jornada['dia']; ?></td>
                     <td><?php echo $jornada['horainicio']; ?></td>
+                    <td><?php echo $jornada['horafinal']; ?></td>
+                <?php if($jornada['duracionminutos']>120) ?>
+                    <td class="rojo"><?php echo $jornada['duracionminutos']; ?></td>
+                <?php }else{  ?>
+
                     <td><?php echo $jornada['duracionminutos']; ?></td>
+
+                <?php }  ?>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 <?php endforeach; ?>
+</body>
+</html>
 
