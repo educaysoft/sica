@@ -78,6 +78,14 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
   
 
 	</div> 
+<div class="img-contenedor w3-card-4" style="position:relative; width:100%; height:100%; display:flex; justify-content: center; align-items: center;">
+
+
+ <input type="file" id="fileInput'.trim($row->idarticulo).'" accept="image/*">
+  <button onclick="uploadImage('articulo<?php echo trim($articulo['idarticulo']); ?>.jpg','<?php echo trim($articulo['idarticulo']); ?>')">Subir Imagen</button>
+  <p id="status<?php echo trim($articulo['idarticulo']); ?>"></p> </div>';
+
+
 </div>
 
 
@@ -194,6 +202,68 @@ var id= $(this).data('idprestamoarticulo');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
+
+
+
+
+function uploadImage(nombre,idx) {
+  var fI="fileInput"+idx; 
+  var st="status"+idx;
+  var filesInput = document.getElementById(fI);
+  var status = document.getElementById(st);
+  var totalFiles= filesInput.files.length;
+
+    alert("entreo");
+
+  if (filesInput.files.length === 0) {
+    status.textContent = "Por favor seleccione un archivo.";
+    return;
+  }
+
+  var file = filesInput.files[0];
+
+  if (file.size > 500 * 1024) {
+    status.textContent = "El archivo es demasiado grande. Por favor seleccione un archivo de menos de 500 KB.";
+    return;
+  }
+
+
+  var formData = new FormData();
+
+		// Read selected files
+    		for (var index = 0; index < totalFiles; index++) {
+      			formData.append("files[]", filesInput.files[index]);
+    		}
+
+
+
+      formData.append("nombrearchivo",nombre);
+		var uploadUrl = getUploadUrl();
+		alert(uploadUrl);
+		alert(nombre);
+       axios.post(uploadUrl, formData).then(function(response) {
+		console.log("El archivo PDF se cargó correctamente en el servidor en la nube.");
+			   history.back(); //Go to the previous page
+		   })
+		   .catch(function(error){
+		           console.error("Error al cargar el archivo PDF en el servidor en la nube. Código de estado:", error);
+        	});
+}
+
+
+function getUploadUrl() {
+    var selectElement = document.getElementById("idordenador");
+    var url = "https://repositorioutlvte.org";
+    return url.endsWith("/") ? url + "cargaimagen.php" : url + "/cargaimagen.php";
+}
+
+
+
+
+
+
+
+
 
 
 </script>

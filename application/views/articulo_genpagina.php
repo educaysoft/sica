@@ -402,7 +402,7 @@ $file_headers = @get_headers($remoteFile);
 if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 
     $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/articulos/articulo0.jpg" alt="No hay programación" height="100%" width="100%"/> </svg>
-    <div class="img-contenedor w3-card-4" style="position:relative"; width:100% height:100% display:flex; justify-content: center; align-items: center;">';
+    <div class="img-contenedor w3-card-4" style="position:relative; width:100%; height:100%; display:flex; justify-content: center; align-items: center;">';
 
 
 $data=$data.' <input type="file" id="fileInput'.trim($row->idarticulo).'" accept="image/*">
