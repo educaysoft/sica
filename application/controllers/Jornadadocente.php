@@ -202,6 +202,8 @@ public function generajornadas()
                 $iddistributivodocente=$r->iddistributivodocente;
                 $eldistributivodocente=$r->eldistributivodocente;
             }
+
+       if($iddocente == $r->iddistributivodocente){
              $jornada['idasignatura']=$r->idasignatura.' - '.$r->laasignatura;
              $jornada['nivel']=$r->nivel;
              $jornada['paralelo']=$r->paralelo;
@@ -225,14 +227,44 @@ public function generajornadas()
 
 
             $j[$r->idjornadadocente]=$jornada;
-
-       if($iddocente != $r->iddistributivodocente){
+       }else{
+     //  if($iddocente != $r->iddistributivodocente){
               $jornadadocente[$iddistributivodocente." - ".$eldistributivodocente]=$j;
               $j= array();
               $iddocente=$r->iddistributivodocente;
                 $iddistributivodocente=$r->iddistributivodocente;
                 $eldistributivodocente=$r->eldistributivodocente;
-          }
+   
+              $jornada['idasignatura']=$r->idasignatura.' - '.$r->laasignatura;
+             $jornada['nivel']=$r->nivel;
+             $jornada['paralelo']=$r->paralelo;
+             $jornada['aula']=$r->elaula;
+             $jornada['dia']=$r->nombre;
+             $jornada['horainicio']=$r->horainicio;
+             $jornada['horafin']=$r->horainicio;
+             $jornada['duracionminutos']=$r->duracionminutos;
+
+            $horaInicial = new DateTime($r->horainicio); // Crear objeto DateTime con la hora inicial
+            $duracionMinutos = $r->duracionminutos; // Obtener la duración en minutos
+    
+        // Agregar la duración en minutos a la hora inicial
+        $horaFinal = clone $horaInicial; // Clonar la hora inicial para no modificarla directamente
+        $horaFinal->add(new DateInterval('PT' . $duracionMinutos . 'M')); // Agregar duración en minutos
+    
+        // Obtener la hora final formateada
+        $horaFinalFormateada = $horaFinal->format('H:i:s');
+        $jornada['horafinal'] = $horaFinalFormateada; // Agregar la hora final al arreglo $jornada
+
+
+
+            $j[$r->idjornadadocente]=$jornada;
+   
+   
+   
+   
+   
+   
+       }
         }
 // print_r($jornadadocente);
     $data['jornadadocente']=$jornadadocente;
