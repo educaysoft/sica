@@ -402,6 +402,8 @@ $data=$data.'</div>
 
 
 	     <p><span style="color:red;" >Instructor : </span><span style="font-size:16px; font-weight:bold;">'.$row->eldocente.'.</span> <br>
+	     <span style="color:red;" >correo : </span><span style="font-size:16px; font-weight:bold;">'.$row->correo.'.</span> </p></p>
+	     <p><span style="color:red;" >pregrado : </span><span style="font-size:16px; font-weight:bold;">'.$row->pregrado.'.</span> <br>
 	     <span style="color:red;" >maestria : </span><span style="font-size:16px; font-weight:bold;">'.$row->maestria.'.</span> <br></p>
               <b>Nivel:</b>'.$row->nivel.'.<br>
               <b>Paralelo : </b> '.$row->paralelo.'".<br>
