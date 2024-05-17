@@ -55,6 +55,7 @@
  */
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
+    require 'vendor/autoload.php'; // Agrega esta línea
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
