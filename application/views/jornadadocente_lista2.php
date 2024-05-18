@@ -61,7 +61,7 @@
                 <?php }else{  ?>
                     <td><?php echo $jornada['duracionminutos']; ?></td>
                 <?php }  
-                    $horafin=$jornada['horafin'];
+                    $horafin=$jornada['horafinal'];
 ?>
 
 
