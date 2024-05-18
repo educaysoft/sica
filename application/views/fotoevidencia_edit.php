@@ -32,7 +32,7 @@
     <label class="col-md-2 col-form-label"> Fecha tomada:</label>
 	<div class="col-md-10">
 	<?php
-       echo form_input( array("name"=>'fechatomada',"id"=>'fechatomada',"value"=>$persona['fechatomada'],'type'=>'date','placeholder'=>'fechatomada')); 
+       echo form_input( array("name"=>'fechatomada',"id"=>'fechatomada',"value"=>$fotoevidencia['fechatomada'],'type'=>'date','placeholder'=>'fechatomada')); 
 	?>
 	</div> 
 </div>

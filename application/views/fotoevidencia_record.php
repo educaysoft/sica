@@ -74,7 +74,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
     <label class="col-md-2 col-form-label"> Fecha tomada:</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('fechatomada',$persona['fechatomada'],array("disabled"=>"disabled",'placeholder'=>'Fechanacimiento','style'=>'width:600px;')) ;
+      echo form_input('fechatomada',$fotoevidencia['fechatomada'],array("disabled"=>"disabled",'placeholder'=>'Fechanacimiento','style'=>'width:600px;')) ;
 	?>
 	</div> 
 </div>
