@@ -44,6 +44,10 @@ class Jornadadocente_model extends CI_model {
  	}
 
 
+ 	function jornadadocentexdist3( $iddistributivo){
+ 		$jornadadocente = $this->db->query('select * from jornadadocente1 where iddistributivo="'. $iddistributivo.'" order by numeronivel,paralelo,nombre,horainicio');
+ 		return $jornadadocente;
+ 	}
 
 
 
