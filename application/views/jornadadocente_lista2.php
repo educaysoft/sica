@@ -36,7 +36,17 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($jornadas as $jornada): ?>
+            <?php 
+            $inicio=1;
+foreach ($jornadas as $jornada): ?>
+                    
+                    <?php if($inicio==1) {
+                    $horafin=$jornada['horainicio'];
+                    $inicio=0;
+                    }
+
+?>
+
                     <?php if($jornada['horainicio']>$horafin) { ?>
 
                     <td><?php echo "  "; ?></td>
