@@ -37,7 +37,7 @@
         </thead>
         <tbody>
             <?php foreach ($jornadas as $jornada): ?>
-                    <?php if($jornada['horainicio']>$jorafin) { ?>
+                    <?php if($jornada['horainicio']>$horafin) { ?>
 
                     <td><?php echo "  "; ?></td>
                     <td><?php echo "  "; ?></td>
