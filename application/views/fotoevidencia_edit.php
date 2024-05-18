@@ -1,32 +1,55 @@
-<?php echo form_open('fotoevidencia/save_edit') ?>
+<?php echo form_open('fotoevidencia/save_edit', array('id'=>'eys-form')); ?>
 <?php echo form_hidden('idfotoevidencia',$fotoevidencia['idfotoevidencia']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
-<table>
- 
- <tr>
-      <td>Nombre:</td>
-      <td><?php echo form_input('nombre',$fotoevidencia['nombre'],array('placeholder'=>'Nombre del ', "style"=>"width:500px")) ?></td>
-  </tr>
 
-<tr>
-      <td>Detalle:</td>
-<td><?php 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+	<?php
+
+      echo form_input('nombre',$fotoevidencia['nombre'],array('placeholder'=>'Nombre del ', "style"=>"width:500px")); 
+	?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Detalle:</label>
+	<div class="col-md-10">
+	<?php
+
 	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle del fotoevidencia" );    
-      echo form_textarea('detalle',$fotoevidencia['detalle'],$textarea_options) ?></td>
-  </tr>
+      echo form_textarea('detalle',$fotoevidencia['detalle'],$textarea_options); 
+
+	?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Fecha tomada:</label>
+	<div class="col-md-10">
+	<?php
+       echo form_input( array("name"=>'fechatomada',"id"=>'fechatomada',"value"=>$persona['fechatomada'],'type'=>'date','placeholder'=>'fechatomada')); 
+	?>
+	</div> 
+</div>
 
 
 
 
+ 
 
 
+<div id="eys-nav-i">
 
-
- <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('fotoevidencia','Atras') ?></td>
- </tr>
-
+	<ul>
+   	 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
+    		<li> <?php echo anchor('fotoevidencia', 'Cancelar'); ?></li>
+	</ul>
+</div>
 
 
 </table>

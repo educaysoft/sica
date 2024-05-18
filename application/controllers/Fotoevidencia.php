@@ -37,6 +37,7 @@ public function  save()
 	 	'idfotoevidencia' => $this->input->post('idfotoevidencia'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	'detalle' => $this->input->post('detalle'),
+		 	'fechatomada' => $this->input->post('fechatomada'),
 	 	);
 	 	$this->fotoevidencia_model->save($array_item);
 	 	redirect('fotoevidencia');
@@ -63,6 +64,7 @@ public function edit()
 		 	'idfotoevidencia' => $this->input->post('idfotoevidencia'),
 		 	'nombre' => $this->input->post('nombre'),
 		 	'detalle' => $this->input->post('detalle'),
+		 	'fechatomada' => $this->input->post('fechatomada'),
 	 	);
 	 	$this->fotoevidencia_model->update($id,$array_item);
 	 	redirect('fotoevidencia');
