@@ -478,7 +478,6 @@ public function generahorario()
     $horainiciovespertino = "13:00:00";
     $horafinalmatutino = "13:00:00";
     $horafinalvespertino = "16:00:00";
-    print_r($data0->result());
 
 
     $reiniciar=1;
@@ -604,7 +603,8 @@ public function generahorario()
 
             if (($r->numeronivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) || 
                 ($r->numeronivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
-
+                print_r($jornadadocente);
+                die();
                 // Verifica que no haya cruce de horarios para el docente
                 $cruce = false;
                 foreach ($jornadadocente as $idx=>$jds) {
@@ -612,7 +612,7 @@ public function generahorario()
                // foreach ($jornadadocente as $jd) {
                     if ($jd['iddistributivodocente'] == $r->iddistributivodocente && $jd['iddiasemana'] == $iddiasemana) {
                         if( $r->iddistributivodocente==410){
-                                echo $jd['aula']."   con  ". $aula; 
+                                echo $jd['aula']." con ". $aula; 
                                 die();
 
                         } 
