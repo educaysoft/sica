@@ -512,8 +512,8 @@ public function generahorario()
             $horafinDatetime = clone $horainicioDatetime;
             $horafinDatetime->modify("+$duracion minutes");
 
-            if (($r->nivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) || 
-                ($r->nivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
+            if (($r->numeronivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) || 
+                ($r->numeronivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
 
                 // Verifica que no haya cruce de horarios para el docente
                 $cruce = false;
@@ -576,8 +576,8 @@ public function generahorario()
             );
 
             $iddiasemana = 1;
-            $horainicio = $r->nivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
-            $horafinal = $r->nivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
+            $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+            $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
 
         while ($r->horas > 0) {
             $duracion = $r->horas >= 2 ? 120 : 60;
@@ -585,8 +585,8 @@ public function generahorario()
             $horafinDatetime = clone $horainicioDatetime;
             $horafinDatetime->modify("+$duracion minutes");
 
-            if (($r->nivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) || 
-                ($r->nivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
+            if (($r->numeronivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) || 
+                ($r->numeronivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
 
                 // Verifica que no haya cruce de horarios para el docente
                 $cruce = false;
@@ -650,8 +650,6 @@ public function generahorario()
 
 
 }
-
-
 
 
 }
