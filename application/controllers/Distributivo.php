@@ -503,8 +503,8 @@ public function generahorario()
 
 
             $iddiasemana = 1;
-            $horainicio = $r->nivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
-            $horafinal = $r->nivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
+            $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+            $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
 
         while ($r->horas > 0) {
             $duracion = $r->horas >= 2 ? 120 : 60;
@@ -574,8 +574,6 @@ public function generahorario()
                 'horafinal' => "",
                 'duracionminutos' => 0
             );
-
-
 
             $iddiasemana = 1;
             $horainicio = $r->nivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
