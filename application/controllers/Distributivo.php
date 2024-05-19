@@ -604,11 +604,13 @@ public function generahorario()
             if (($r->numeronivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) || 
                 ($r->numeronivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
                 print_r($jornadadocente);
-                die();
+                echo "===========<br>";
                 // Verifica que no haya cruce de horarios para el docente
                 $cruce = false;
                 foreach ($jornadadocente as $idx=>$jds) {
                 foreach ($jds as $jd) {
+                print_r($jd);
+                die();
                // foreach ($jornadadocente as $jd) {
                     if ($jd['iddistributivodocente'] == $r->iddistributivodocente && $jd['iddiasemana'] == $iddiasemana) {
                         if( $r->iddistributivodocente==410){
