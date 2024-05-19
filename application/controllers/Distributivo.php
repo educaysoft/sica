@@ -613,6 +613,7 @@ public function generahorario()
                     if ($jd['iddistributivodocente'] == $r->iddistributivodocente && $jd['iddiasemana'] == $iddiasemana) {
                         if( $r->iddistributivodocente==410){
                                 echo $jd['aula']."   con  ". $aula; 
+                                die();
 
                         } 
                         $inicioExistente = new DateTime($jd['horainicio']);
