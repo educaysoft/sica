@@ -567,6 +567,7 @@ public function generahorario()
             }
      //   }
        }else{
+           $reiniciar=1;
            $jornadadocente[$r->numeronivel.' - '.$r->paralelo]=$j;
            $j= array();
             $aula = $r->numeronivel . ' - ' . $r->paralelo;
