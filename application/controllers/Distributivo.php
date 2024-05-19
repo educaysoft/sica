@@ -559,7 +559,7 @@ public function generahorario()
        }else{
            $jornadadocente[$r->numeronivel.' - '.$r->paralelo]=$j;
            $j= array();
-            $aula = $r->nivel . "-" . $r->paralelo;
+            $aula = $r->numeronivel . "-" . $r->paralelo;
 
             // Inicializa el arreglo $jornada con los valores iniciales
             $jornada = array(
@@ -639,8 +639,8 @@ public function generahorario()
     }
 
 // Aquí puedes guardar el arreglo $j en la base de datos o realizar alguna otra acción necesaria
-      echo "<br>==================";
-    print_r($jornadadocente);
+  //    echo "<br>==================";
+  //  print_r($jornadadocente);
 
 
 
