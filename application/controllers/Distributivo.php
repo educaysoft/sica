@@ -494,7 +494,7 @@ public function generahorario()
             'aula' => $r->nivel . "-" . $r->paralelo,
             'iddiasemana' => "",
             'horainicio' => "",
-            'horafin' => "",
+            'horafinal' => "",
             'duracionminutos' => 0
         );
 
@@ -526,7 +526,7 @@ public function generahorario()
                 foreach ($jornadadocente as $jd) {
                     if ($jd['iddocente'] == $r->iddocente && $jd['iddiasemana'] == $iddiasemana) {
                         $inicioExistente = new DateTime($jd['horainicio']);
-                        $finExistente = new DateTime($jd['horafin']);
+                        $finExistente = new DateTime($jd['horafinal']);
                         if (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
                             ($horafinDatetime > $inicioExistente && $horafinDatetime <= $finExistente)) {
                             $cruce = true;
@@ -538,14 +538,14 @@ public function generahorario()
                 if (!$cruce) {
                     $j[$aula]['iddiasemana'] = $iddiasemana;
                     $j[$aula]['horainicio'] = $horainicioDatetime->format('H:i:s');
-                    $j[$aula]['horafin'] = $horafinDatetime->format('H:i:s');
+                    $j[$aula]['horafinal'] = $horafinDatetime->format('H:i:s');
                     $j[$aula]['duracionminutos'] = $duracion;
 
                     $jornadadocente[] = array(
                         'iddocente' => $r->iddocente,
                         'iddiasemana' => $iddiasemana,
                         'horainicio' => $horainicioDatetime->format('H:i:s'),
-                        'horafin' => $horafinDatetime->format('H:i:s')
+                        'horafinal' => $horafinDatetime->format('H:i:s')
                     );
 
                     $r->horas -= $duracion / 60;
