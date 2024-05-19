@@ -479,6 +479,10 @@ public function generahorario()
     $horafinalmatutino = "13:00:00";
     $horafinalvespertino = "16:00:00";
     print_r($data0->result());
+
+
+
+
     foreach ($data0->result() as $r) {
         if ($inicio == 0) {
             $inicio = 1;
@@ -506,7 +510,7 @@ public function generahorario()
             $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
             $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
 
-        while ($r->horas > 0) {
+       // while ($r->horas > 0) {
             $duracion = $r->horas >= 2 ? 120 : 60;
             $horainicioDatetime = new DateTime($horainicio);
             $horafinDatetime = clone $horainicioDatetime;
@@ -519,7 +523,7 @@ public function generahorario()
                 $cruce = false;
                 foreach ($jornadadocente as $idx=>$jds) {
                 foreach ($jds as $jd) {
-                    if ($jd['iddistributivodocente'] == $r->iddistributivodocente && $jd['iddiasemana'] == $iddiasemana) {
+                    if (   $jd['iddistributivodocente'] == $r->iddistributivodocente && $jd['iddiasemana'] == $iddiasemana) {
                         $inicioExistente = new DateTime($jd['horainicio']);
                         $finExistente = new DateTime($jd['horafinal']);
                         if (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
@@ -555,7 +559,7 @@ public function generahorario()
                 $iddiasemana++;
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
             }
-        }
+     //   }
        }else{
            $jornadadocente[$r->numeronivel.' - '.$r->paralelo]=$j;
            $j= array();
@@ -579,7 +583,7 @@ public function generahorario()
             $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
             $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
 
-        while ($r->horas > 0) {
+       // while ($r->horas > 0) {
             $duracion = $r->horas >= 2 ? 120 : 60;
             $horainicioDatetime = new DateTime($horainicio);
             $horafinDatetime = clone $horainicioDatetime;
@@ -630,10 +634,7 @@ public function generahorario()
                 $iddiasemana++;
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
             }
-        }
-       // echo "<br>==================";
-       // print_r($jornadadocente);
-       // die();
+       // }
 
        }
     }
