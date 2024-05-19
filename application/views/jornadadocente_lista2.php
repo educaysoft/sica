@@ -41,6 +41,8 @@
 foreach ($jornadas as $jornada): ?>
                     
                     <?php if($inicio==1) {
+                    print_r($jornada);
+                    die();
                     $horafin=$jornada['horainicio'];
                     $inicio=0;
                     }
