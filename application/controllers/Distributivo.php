@@ -479,7 +479,7 @@ public function generahorario()
     $horafinalmatutino = "13:00:00";
     $horafinalvespertino = "16:00:00";
     print_r($data0);
-
+    die();
     foreach ($data0->result() as $r) {
         if ($inicio == 0) {
             $inicio = 1;
