@@ -491,7 +491,7 @@ public function generahorario()
        if($aula == $r->numeronivel.' - '.$r->paralelo){
             // Inicializa el arreglo $jornada con los valores iniciales
             $jornada = array(
-                'iddistributivodocente' => $r->eldistributivodocente,
+                'iddistributivodocente' => $r->iddistributivodocente,
                 'idasignatura' => $r->iddistributivodocente . ' - ' . $r->laasignatura,
                 'horassemanales' => $r->horas,
                 'nivel' => $r->numeronivel,
@@ -577,7 +577,7 @@ public function generahorario()
 
             // Inicializa el arreglo $jornada con los valores iniciales
             $jornada = array(
-                'iddistributivodocente' => $r->eldistributivodocente,
+                'iddistributivodocente' => $r->iddistributivodocente,
                 'idasignatura' => $r->iddistributivodocente . ' - ' . $r->laasignatura,
                 'horassemanales' => $r->horas,
                 'nivel' => $r->numeronivel,
@@ -603,21 +603,21 @@ public function generahorario()
 
             if (($r->numeronivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) || 
                 ($r->numeronivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
-                print_r($jornadadocente);
-                echo "===========<br>";
+             //   print_r($jornadadocente);
+             //   echo "===========<br>";
                 // Verifica que no haya cruce de horarios para el docente
                 $cruce = false;
                 foreach ($jornadadocente as $idx=>$jds) {
                 foreach ($jds as $jd) {
-                print_r($jd);
-                die();
+               // print_r($jd);
+              //  die();
                // foreach ($jornadadocente as $jd) {
                     if ($jd['iddistributivodocente'] == $r->iddistributivodocente && $jd['iddiasemana'] == $iddiasemana) {
-                        if( $r->iddistributivodocente==410){
-                                echo $jd['aula']." con ". $aula; 
-                                die();
+               //         if( $r->iddistributivodocente==410){
+                 //               echo $jd['aula']." con ". $aula; 
+                   //             die();
 
-                        } 
+                     //   } 
                         $inicioExistente = new DateTime($jd['horainicio']);
                         $finExistente = new DateTime($jd['horafinal']);
                         if (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
