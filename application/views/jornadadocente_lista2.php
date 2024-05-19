@@ -22,7 +22,7 @@
 <body>
 
 <?php foreach ($jornadadocente as $iddocente => $jornadas): ?>
-    <h2>Docente ID: <?php echo $iddocente; ?></h2>
+    <h2>Aula ID: <?php echo $iddocente; ?></h2>
     <table>
         <thead>
             <tr>

@@ -639,7 +639,8 @@ public function generahorario()
     }
 
 // Aquí puedes guardar el arreglo $j en la base de datos o realizar alguna otra acción necesaria
-  //  print_r($j);
+      echo "<br>==================";
+    print_r($jornadadocente);
 
 
 
