@@ -493,7 +493,7 @@ public function generahorario()
             // Inicializa el arreglo $jornada con los valores iniciales
             $jornada = array(
                 'iddistributivodocente' => $r->eldistributivodocente,
-                'idasignatura' => $r->idasignatura . ' - ' . $r->laasignatura,
+                'idasignatura' => $r->iddistributivodocente . ' - ' . $r->laasignatura,
                 'horassemanales' => $r->horas,
                 'nivel' => $r->numeronivel,
                 'paralelo' => $r->paralelo,
@@ -568,14 +568,14 @@ public function generahorario()
      //   }
        }else{
            $reiniciar=1;
-           $jornadadocente[$r->numeronivel.' - '.$r->paralelo]=$j;
+           $jornadadocente[$aula]=$j;
            $j= array();
             $aula = $r->numeronivel . ' - ' . $r->paralelo;
 
             // Inicializa el arreglo $jornada con los valores iniciales
             $jornada = array(
                 'iddistributivodocente' => $r->eldistributivodocente,
-                'idasignatura' => $r->idasignatura . ' - ' . $r->laasignatura,
+                'idasignatura' => $r->iddistributivodocente . ' - ' . $r->laasignatura,
                 'horassemanales' => $r->horas,
                 'nivel' => $r->numeronivel,
                 'paralelo' => $r->paralelo,
@@ -616,7 +616,6 @@ public function generahorario()
                         }
                     }
                 }
-
                             if($cruce == true){
                               break;
                             }
