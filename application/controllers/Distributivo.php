@@ -481,9 +481,7 @@ public function generahorario()
     foreach ($data0->result() as $r) {
         if ($inicio == 0) {
             $inicio = 1;
-            $iddocente = $r->numeronivel . ' - ' . $r->paralelo;
-            $iddistributivodocente = $r->numeronivel . ' - ' . $r->paralelo;
-            $eldistributivodocente = $r->nivel . ' - ' . $r->paralelo;
+            $aula = $r->numeronivel . ' - ' . $r->paralelo;
         }
 
         // Inicializa el arreglo $jornada con los valores iniciales
@@ -501,7 +499,14 @@ public function generahorario()
         );
 
         $aula = $r->nivel . "-" . $r->paralelo;
-        $j[$aula] = $jornada;
+
+ if (!isset($j[$aula])) {
+            $j[$aula] = array();
+        }
+
+        $j[$aula][] = $jornada;
+
+
 
         $iddiasemana = 1;
         $horainicio = $r->nivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
