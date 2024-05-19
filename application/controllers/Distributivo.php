@@ -464,7 +464,8 @@ public function generahorario()
 
 
  $iddistributivo = $this->uri->segment(3);
-    $data0 = $this->asignaturadocente_model->asignaturadocente1($iddistributivo);
+    $data0 = $this->asignaturadocente_model->asignaturadocente1xdistributivo($iddistributivo);
+    
     $jornada = array();
     $j = array();
     $jornadadocente = array();
