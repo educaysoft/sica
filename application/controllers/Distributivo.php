@@ -479,7 +479,6 @@ public function generahorario()
     $horafinalmatutino = "13:00:00";
     $horafinalvespertino = "16:00:00";
     print_r($data0->result());
-    die();
     foreach ($data0->result() as $r) {
         if ($inicio == 0) {
             $inicio = 1;
@@ -549,12 +548,12 @@ public function generahorario()
                 } else {
                     // Si hay cruce, incrementar el día de la semana y reiniciar el horario
                     $iddiasemana++;
-                    $horainicio = $r->nivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+                    $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
                 }
             } else {
                 // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
                 $iddiasemana++;
-                $horainicio = $r->nivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+                $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
             }
         }
        }else{
@@ -624,12 +623,12 @@ public function generahorario()
                 } else {
                     // Si hay cruce, incrementar el día de la semana y reiniciar el horario
                     $iddiasemana++;
-                    $horainicio = $r->nivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+                    $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
                 }
             } else {
                 // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
                 $iddiasemana++;
-                $horainicio = $r->nivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+                $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
             }
         }
 
