@@ -631,7 +631,9 @@ public function generahorario()
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
             }
         }
-
+        echo "<br>";
+        print_r($jornadadocente);
+        die();
 
        }
     }
