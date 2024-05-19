@@ -528,6 +528,10 @@ public function generahorario()
                 foreach ($jornadadocente as $idx=>$jds) {
                 foreach ($jds as $jd) {
                     if (   $jd['iddistributivodocente'] == $r->iddistributivodocente && $jd['iddiasemana'] == $iddiasemana) {
+
+
+
+
                         $inicioExistente = new DateTime($jd['horainicio']);
                         $finExistente = new DateTime($jd['horafinal']);
                         if (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
@@ -607,6 +611,10 @@ public function generahorario()
                 foreach ($jds as $jd) {
                // foreach ($jornadadocente as $jd) {
                     if ($jd['iddistributivodocente'] == $r->iddistributivodocente && $jd['iddiasemana'] == $iddiasemana) {
+                        if( $r->iddistributivodocente==410){
+                                echo $jd['aula']."   con  ". $aula; 
+
+                        } 
                         $inicioExistente = new DateTime($jd['horainicio']);
                         $finExistente = new DateTime($jd['horafinal']);
                         if (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
