@@ -341,14 +341,7 @@ public function generajornadas2()
         $horaFinalFormateada = $horaFinal->format('H:i:s');
         $jornada['horafinal'] = $horaFinalFormateada; // Agregar la hora final al arreglo $jornada
 
-
-
             $j[$r->idjornadadocente]=$jornada;
-   
-   
-   
-   
-   
    
        }
         }

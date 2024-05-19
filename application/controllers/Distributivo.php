@@ -459,5 +459,125 @@ $this->export_model->exportToExcel($data, $filename);
 }
 
 
+public function generahorario()
+{
+
+
+ $iddistributivo = $this->uri->segment(3);
+    $data0 = $this->asignaturadocente_model->asignaturadocente1($iddistributivo);
+    $jornada = array();
+    $j = array();
+    $jornadadocente = array();
+    $iddocente = 0;
+    $inicio = 0;
+
+    // Horarios predefinidos
+    $horainiciomatutino = "07:00:00";
+    $horainiciovespertino = "13:00:00";
+    $horafinalmatutino = "13:00:00";
+    $horafinalvespertino = "16:00:00";
+    
+    foreach ($data0->result() as $r) {
+        if ($inicio == 0) {
+            $inicio = 1;
+            $iddocente = $r->numeronivel . ' - ' . $r->paralelo;
+            $iddistributivodocente = $r->numeronivel . ' - ' . $r->paralelo;
+            $eldistributivodocente = $r->nivel . ' - ' . $r->paralelo;
+        }
+
+        // Inicializa el arreglo $jornada con los valores iniciales
+        $jornada = array(
+            'iddistributivodocente' => $r->eldistributivodocente,
+            'idasignatura' => $r->idasignatura . ' - ' . $r->laasignatura,
+            'horassemanales' => $r->horas,
+            'nivel' => $r->numeronivel,
+            'paralelo' => $r->paralelo,
+            'aula' => $r->nivel . "-" . $r->paralelo,
+            'iddiasemana' => "",
+            'horainicio' => "",
+            'horafin' => "",
+            'duracionminutos' => 0
+        );
+
+        $aula = $r->nivel . "-" . $r->paralelo;
+        $j[$aula] = $jornada;
+
+        $iddiasemana = 1;
+        $horainicio = $r->nivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+        $horafinal = $r->nivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
+
+        while ($r->horas > 0) {
+            $duracion = $r->horas >= 2 ? 120 : 60;
+            $horainicioDatetime = new DateTime($horainicio);
+            $horafinDatetime = clone $horainicioDatetime;
+            $horafinDatetime->modify("+$duracion minutes");
+
+            if (($r->nivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) || 
+                ($r->nivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
+
+                // Verifica que no haya cruce de horarios para el docente
+                $cruce = false;
+                foreach ($jornadadocente as $jd) {
+                    if ($jd['iddocente'] == $r->iddocente && $jd['iddiasemana'] == $iddiasemana) {
+                        $inicioExistente = new DateTime($jd['horainicio']);
+                        $finExistente = new DateTime($jd['horafin']);
+                        if (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
+                            ($horafinDatetime > $inicioExistente && $horafinDatetime <= $finExistente)) {
+                            $cruce = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!$cruce) {
+                    $j[$aula]['iddiasemana'] = $iddiasemana;
+                    $j[$aula]['horainicio'] = $horainicioDatetime->format('H:i:s');
+                    $j[$aula]['horafin'] = $horafinDatetime->format('H:i:s');
+                    $j[$aula]['duracionminutos'] = $duracion;
+
+                    $jornadadocente[] = array(
+                        'iddocente' => $r->iddocente,
+                        'iddiasemana' => $iddiasemana,
+                        'horainicio' => $horainicioDatetime->format('H:i:s'),
+                        'horafin' => $horafinDatetime->format('H:i:s')
+                    );
+
+                    $r->horas -= $duracion / 60;
+                    $horainicio = $horafinDatetime->format('H:i:s');
+                } else {
+                    // Si hay cruce, incrementar el día de la semana y reiniciar el horario
+                    $iddiasemana++;
+                    $horainicio = $r->nivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+                }
+            } else {
+                // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
+                $iddiasemana++;
+                $horainicio = $r->nivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+            }
+        }
+    }
+
+  
+
+
+
+
+
+
+
+
+
+// print_r($jornadadocente);
+    $data['jornadadocente']=$j;
+    $this->load->view('template/page_header');		
+    $this->load->view('jornadadocente_lista2',$data);
+    $this->load->view('template/page_footer');
+
+
+
+}
+
+
+
 
 }
