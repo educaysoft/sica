@@ -504,7 +504,7 @@ public function generahorario()
             $j[$aula] = array();
         }
 
-        $j[$aula][] = $jornada;
+        $j[$aula] = $jornada;
 
 
 
