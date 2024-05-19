@@ -639,12 +639,12 @@ public function generahorario()
     }
 
 // Aquí puedes guardar el arreglo $j en la base de datos o realizar alguna otra acción necesaria
-    print_r($j);
+  //  print_r($j);
 
 
 
 // print_r($jornadadocente);
-    $data['jornadadocente']=$j;
+    $data['jornadadocente']=$jornadadocente;
     $this->load->view('template/page_header');		
     $this->load->view('jornadadocente_lista2',$data);
     $this->load->view('template/page_footer');
