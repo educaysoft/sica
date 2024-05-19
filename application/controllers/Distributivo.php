@@ -481,7 +481,7 @@ public function generahorario()
     print_r($data0->result());
 
 
-
+    $reiniciar=1;
 
     foreach ($data0->result() as $r) {
         if ($inicio == 0) {
@@ -506,8 +506,12 @@ public function generahorario()
 
 
 
+            if($reiniciar==1){
             $iddiasemana = 1;
             $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+            $reiniciar=0;
+            }
+
             $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
 
        // while ($r->horas > 0) {
@@ -549,6 +553,8 @@ public function generahorario()
 
                     $r->horas -= $duracion / 60;
                     $horainicio = $horafinDatetime->format('H:i:s');
+                    
+                    
                 } else {
                     // Si hay cruce, incrementar el día de la semana y reiniciar el horario
                     $iddiasemana++;
@@ -579,10 +585,12 @@ public function generahorario()
                 'duracionminutos' => 0
             );
 
-            $iddiasemana = 1;
-            $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
-            $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
-
+            if($reiniciar==1){
+                $iddiasemana = 1;
+                $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+                $reiniciar=0;
+            }
+                $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
        // while ($r->horas > 0) {
             $duracion = $r->horas >= 2 ? 120 : 60;
             $horainicioDatetime = new DateTime($horainicio);
