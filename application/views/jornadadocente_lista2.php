@@ -63,7 +63,7 @@ foreach ($jornadas as $jornada): ?>
                     <td><?php echo $jornada['nivel']; ?></td>
                     <td><?php echo $jornada['paralelo']; ?></td>
                     <td><?php echo $jornada['aula']; ?></td>
-                    <td><?php echo $jornada['dia']; ?></td>
+                    <td><?php echo $jornada['iddiasemana']; ?></td>
                     <td><?php echo $jornada['horainicio']; ?></td>
                     <td><?php echo $jornada['horafinal']; ?></td>
                 <?php if($jornada['duracionminutos']>120){ ?>
