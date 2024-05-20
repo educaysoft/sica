@@ -557,11 +557,12 @@ public function generahorario()
                     $r->horas -= $duracion / 60;
                     $horainicio = $horafinDatetime->format('H:i:s');
                     
-                    
                 } else {
                     // Si hay cruce, incrementar el día de la semana y reiniciar el horario
-                    $iddiasemana++;
-                    $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+                    $r->horas -= $duracion / 60;
+                    $horainicio = $horafinDatetime->format('H:i:s');
+                  //  $iddiasemana++;
+                  //  $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
                 }
             } else {
                 // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
