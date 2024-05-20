@@ -482,6 +482,7 @@ public function generahorario()
 
     $reiniciar=1;
    $count=0; 
+    print_r($data0->result());
     foreach ($data0->result() as $r) {
         if ($inicio == 0) {
             $inicio = 1;
