@@ -507,6 +507,40 @@ public function generahorario()
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
                 $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
        // while ($r->horas > 0) {
+
+
+         if(empty($jornadadocente)){
+
+            $cruce = false;
+            $duracion = $r->horas >= 2 ? 120 : 60;
+            $horainicioDatetime = new DateTime($horainicio);
+            $horafinDatetime = clone $horainicioDatetime;
+            $horafinDatetime->modify("+$duracion minutes");
+
+            if (($r->numeronivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) || 
+                ($r->numeronivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
+                // Verifica que no haya cruce de horarios para el docente
+                if (!$cruce) {
+                    $jornada['iddiasemana'] = $iddiasemana;
+                    $jornada['horainicio'] = $horainicioDatetime->format('H:i:s');
+                    $jornada['horafinal'] = $horafinDatetime->format('H:i:s');
+                    $jornada['duracionminutos'] = $duracion;
+
+                    $j[$idjornadadocente] = $jornada;
+                    $idjornadadocente++;
+
+                    $r->horas -= $duracion / 60;
+                    $horainicio = $horafinDatetime->format('H:i:s');
+                } 
+                }
+            } else {
+                // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
+                $iddiasemana++;
+                $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+            }
+
+        }else{
+
            foreach ($jornadadocente as $idx=>$jds) {
            foreach ($jds as $jd) {
             $cruce = false;
@@ -554,14 +588,7 @@ public function generahorario()
                               break;
                             }
         }
-
-
-
-
-
-
-
-
+        }
       }else{
            $jornadadocente[$aula]=$j;
            $j= array();
