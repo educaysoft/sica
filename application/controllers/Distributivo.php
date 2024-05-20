@@ -590,8 +590,7 @@ public function generahorario()
             } else {
                 // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
                 $iddiasemana++;
-                echo $iddiasemana."     -   ". $r->laasignatura."     -   ".$horainicioDatetime->format('H:i:s')."   -  ".$cruce ;
-               // die();
+                echo $iddiasemana."     -   ". $r->laasignatura."     -   ".$horainicioDatetime->format('H:i:s')."   -  ".$xx=$cruce?"verdadero": "false" ;
 
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
             }
