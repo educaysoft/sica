@@ -658,7 +658,8 @@ public function generahorario()
 
 
 
-// print_r($jornadadocente);
+ print_r($jornadadocente);
+    die();
     $data['jornadadocente']=$jornadadocente;
     $this->load->view('template/page_header');		
     $this->load->view('jornadadocente_lista2',$data);
