@@ -485,10 +485,10 @@ public function generahorario()
 
     $asignaturas_filtradas=$data0->result();
 
-    do{
+  //  do{
 
         $asignaturas=$asignaturas_filtradas;
-          $asignaturas_filtradas = [];
+   //       $asignaturas_filtradas = [];
 
     foreach ($asignaturas as $r) {
         if ($inicio == 0) {
@@ -595,10 +595,10 @@ public function generahorario()
 
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
             }
+        }
                             if($cruce){
                               break;
                             }
-        }
         }
 
                 if (!$cruce) {
@@ -701,7 +701,7 @@ public function generahorario()
        }
     }
 
- }while(!empty($asignaturas_filtradas));
+ //}while(!empty($asignaturas_filtradas));
 
     // print_r($jornadadocente);
     $data['jornadadocente']=$jornadadocente;
