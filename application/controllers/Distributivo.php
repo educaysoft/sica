@@ -516,14 +516,13 @@ public function generahorario()
 
                 $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
          if(empty($jornadadocente)){
-            $cruce = false;
-            $duracion = $r->horas >= 2 ? 120 : 60;
-            $horainicioDatetime = new DateTime($horainicio);
+             //Cuando es la primera asignatura 
+             $duracion = $r->horas >= 2 ? 120 : 60;   //Calculamos la durecion de la hora de clase 
+             $horainicioDatetime = new DateTime($horainicio);
             $horafinDatetime = clone $horainicioDatetime;
             $horafinDatetime->modify("+$duracion minutes");
             if (($r->numeronivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) || 
                 ($r->numeronivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
-               if (!$cruce) {
                     $jornada['iddiasemana'] = $iddiasemana;
                     $jornada['horainicio'] = $horainicioDatetime->format('H:i:s');
                     $jornada['horafinal'] = $horafinDatetime->format('H:i:s');
@@ -536,11 +535,6 @@ public function generahorario()
                         $asignaturas_filtradas[] = $r;
                     }
                     $horainicio = $horafinDatetime->format('H:i:s');
-
-                } else {
-                    // Si hay cruce, revisa el siguiente hora
-                    $horainicio = $horafinDatetime->format('H:i:s');
-                }
             } else {
                 // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
                 $iddiasemana++;
@@ -596,6 +590,9 @@ public function generahorario()
             } else {
                 // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
                 $iddiasemana++;
+                echo $iddiasemana."     -   ". $r->laasignatura;
+                die();
+
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
             }
         }
