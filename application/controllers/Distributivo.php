@@ -502,10 +502,10 @@ public function generahorario()
                 'horafinal' => "",
                 'duracionminutos' => 0
             );
-            if($iniciar==1){
+            if($reiniciar==1){
                 $iddiasemana = 1;
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
-                $iniciar=0;
+                $reiniciar=0;
             }
                 $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
 
