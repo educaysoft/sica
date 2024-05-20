@@ -613,7 +613,7 @@ public function generahorario()
                         if (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
                             ($horafinDatetime > $inicioExistente && $horafinDatetime <= $finExistente)) {
                             $cruce = true;
-                            break;
+                          //  break;
                         }
                     }
                 }
