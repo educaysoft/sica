@@ -541,6 +541,20 @@ public function generahorario()
                 // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
                 $iddiasemana++;
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+                $duracion = $r->horas >= 2 ? 120 : 60;
+                $horainicioDatetime = new DateTime($horainicio);
+                $horafinDatetime = clone $horainicioDatetime;
+                $horafinDatetime->modify("+$duracion minutes");
+  
+                  $jornada['iddiasemana'] = $iddiasemana;
+                    $jornada['horainicio'] = $horainicioDatetime->format('H:i:s');
+                    $jornada['horafinal'] = $horafinDatetime->format('H:i:s');
+                    $jornada['duracionminutos'] = $duracion;
+                    $j[$idjornadadocente] = $jornada;
+                    $idjornadadocente++;
+                    $r->horas -= $duracion / 60;
+                    $horainicio = $horafinDatetime->format('H:i:s');
+   
             }
         }else{
                 $iddiasemana = 1;
