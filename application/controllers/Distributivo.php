@@ -590,6 +590,9 @@ public function generahorario()
                         if (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
                             ($horafinDatetime > $inicioExistente && $horafinDatetime <= $finExistente)) {
                             $cruce = true;
+               if($r->iddistributivodocente==387){
+                   echo "hubo cruce";
+               }
                             break;
                         }
                     }
