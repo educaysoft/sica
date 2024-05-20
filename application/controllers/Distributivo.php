@@ -482,8 +482,13 @@ public function generahorario()
 
     $reiniciar=1;
    $count=0; 
-    print_r($data0->result());
-    foreach ($data0->result() as $r) {
+
+    $asignaturas_filtradas=$data0->result();
+
+    {
+
+     $asignaturas=$asignaturas_filtradas;
+    foreach ($asignaturas as $r) {
         if ($inicio == 0) {
             $inicio = 1;
             $aula = $r->numeronivel . ' - ' . $r->paralelo;
@@ -493,8 +498,6 @@ public function generahorario()
             break;    
 
         }
-
-
 
        if($aula == $r->numeronivel.' - '.$r->paralelo){
             // Inicializa el arreglo $jornada con los valores iniciales
@@ -533,6 +536,7 @@ public function generahorario()
                     $idjornadadocente++;
                     $r->horas -= $duracion / 60;
                     $horainicio = $horafinDatetime->format('H:i:s');
+
                 } else {
                     // Si hay cruce, revisa el siguiente hora
                     $horainicio = $horafinDatetime->format('H:i:s');
@@ -553,6 +557,10 @@ public function generahorario()
                     $j[$idjornadadocente] = $jornada;
                     $idjornadadocente++;
                     $r->horas -= $duracion / 60;
+                    if ($r->horas != 0) {
+                        $asignaturas_filtradas[] = $r;
+                        }
+
                     $horainicio = $horafinDatetime->format('H:i:s');
    
             }
@@ -606,6 +614,9 @@ public function generahorario()
                     $idjornadadocente++;
 
                     $r->horas -= $duracion / 60;
+                    if ($r->horas != 0) {
+                        $asignaturas_filtradas[] = $r;
+                        }
                     $horainicio = $horafinDatetime->format('H:i:s');
                     break;
                 } else {
@@ -668,6 +679,9 @@ public function generahorario()
                     $idjornadadocente++;
 
                     $r->horas -= $duracion / 60;
+                    if ($r->horas != 0) {
+                        $asignaturas_filtradas[] = $r;
+                        }
                     $horainicio = $horafinDatetime->format('H:i:s');
                     break;
                 } else {
@@ -689,7 +703,7 @@ public function generahorario()
        }
     }
 
-
+ }while(!empty($asignatura_filtrada));
 
     // print_r($jornadadocente);
     $data['jornadadocente']=$jornadadocente;
