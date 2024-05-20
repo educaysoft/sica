@@ -489,7 +489,7 @@ public function generahorario()
             $aula = $r->numeronivel . ' - ' . $r->paralelo;
         }
         $count++;
-        if($count==15){
+        if($count==25){
             break;    
 
         }
