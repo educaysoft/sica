@@ -589,11 +589,11 @@ public function generahorario()
                 'duracionminutos' => 0
             );
 
-            if($reiniciar==1){
+          //  if($reiniciar==1){
                 $iddiasemana = 1;
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
                 $reiniciar=0;
-            }
+          //  }
                 $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
        // while ($r->horas > 0) {
            foreach ($jornadadocente as $idx=>$jds) {
