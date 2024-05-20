@@ -616,7 +616,6 @@ public function generahorario()
                           //  break;
                         }
                     }
-                }
                 if (!$cruce) {
                     $jornada['iddiasemana'] = $iddiasemana;
                     $jornada['horainicio'] = $horainicioDatetime->format('H:i:s');
@@ -632,6 +631,7 @@ public function generahorario()
                 } else {
                     // Si hay cruce, revisa el siguiente hora
                     $horainicio = $horafinDatetime->format('H:i:s');
+                }
                 }
             } else {
                 // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
