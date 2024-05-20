@@ -73,8 +73,8 @@ class Distributivo extends CI_Controller{
 	 	);
 	 	$result=$this->distributivo_model->save($array_item);
 	 	if($result == false)
-		{
-			echo "<script language='JavaScript'> alert('El distributivo ya fue creado'); </script>";
+        {
+            echo "<script language='JavaScript'> alert('El distributivo ya fue creado'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
@@ -561,7 +561,7 @@ public function generahorario()
                if($r->iddistributivodocente==387){
                     print_r($jd); echo "<br>";
                     print_r($r);  echo "<br>";
-                    echo $horainicioDatatime." - "; echo "<br>=======";
+                    echo $horainicioDatetime." - "; echo "<br>=======";
 
                 }
 
@@ -685,9 +685,9 @@ public function generahorario()
 
     // print_r($jornadadocente);
     $data['jornadadocente']=$jornadadocente;
-    $this->load->view('template/page_header');		
+  //  $this->load->view('template/page_header');		
     $this->load->view('jornadadocente_lista2',$data);
-    $this->load->view('template/page_footer');
+ //   $this->load->view('template/page_footer');
 
 
 }
