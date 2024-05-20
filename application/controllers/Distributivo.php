@@ -607,8 +607,8 @@ public function generahorario()
                     $jornada['duracionminutos'] = $duracion;
 
                     $j[$idjornadadocente] = $jornada;
-                    $jornadadocente[$aula]=$j;
                     $idjornadadocente++;
+                    $jornadadocente[$aula]=$j;
 
                     $r->horas -= $duracion / 60;
                     if ($r->horas > 0) {
