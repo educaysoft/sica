@@ -568,6 +568,8 @@ public function generahorario()
 
            foreach ($jornadadocente as $idx=>$jds) {
            foreach ($jds as $jd) {
+            
+
 
             $cruce = false;
             $duracion = $r->horas >= 2 ? 120 : 60;
@@ -590,7 +592,8 @@ public function generahorario()
             } else {
                 // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
                 $iddiasemana++;
-                print_r($jd); 
+                print_r($jornadadocente); echo "<br>"; 
+                print_r($jd);  echo "<br>";
                 echo $iddiasemana."     -   ". $r->laasignatura."     -   ".$horainicioDatetime->format('H:i:s')."   -  ".$xx=$cruce?"verdadero": "false".'<br><br>' ;
 
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
