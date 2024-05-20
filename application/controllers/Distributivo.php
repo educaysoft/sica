@@ -713,4 +713,127 @@ public function generahorario()
 }
 
 
+
+
+
+public function generahorario2() {
+    $iddistributivo = $this->uri->segment(3);
+    $data0 = $this->asignaturadocente_model->asignaturadocente1xdistributivo($iddistributivo);
+
+    // Horarios predefinidos
+    $horainiciomatutino = "07:00:00";
+    $horainiciovespertino = "13:00:00";
+    $horafinalmatutino = "13:00:00";
+    $horafinalvespertino = "19:00:00";
+
+    $jornadadocente = [];
+    $asignaturas_filtradas = $data0->result();
+
+    foreach ($asignaturas_filtradas as $r) {
+        $aula = $r->numeronivel . ' - ' . $r->paralelo;
+        $iddiasemana = 1;
+        $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+        $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
+
+        while ($r->horas > 0) {
+            $duracion = min(2, $r->horas) * 60; // 120 minutos si hay al menos 2 horas, 60 minutos si queda menos de 2 horas
+            $horainicioDatetime = new DateTime($horainicio);
+            $horafinDatetime = clone $horainicioDatetime;
+            $horafinDatetime->modify("+$duracion minutes");
+
+            if (($r->numeronivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) ||
+                ($r->numeronivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
+                
+                $cruce = false;
+
+                foreach ($jornadadocente as $jd) {
+                    foreach ($jd as $item) {
+                        if (hayCruce($item, $horainicioDatetime, $horafinDatetime, $r->iddistributivodocente, $aula, $iddiasemana)) {
+                            $cruce = true;
+                            break 2;
+                        }
+                    }
+                }
+
+                if (!$cruce) {
+                    // Asigna la hora si no hay cruce
+                    asignarHora($jornadadocente, $aula, $r, $iddiasemana, $horainicioDatetime, $horafinDatetime, $duracion);
+                    $r->horas -= $duracion / 60;
+                    $horainicio = $horafinDatetime->format('H:i:s');
+                } else {
+                    // Si hay cruce, revisa la siguiente hora
+                    $horainicio = $horafinDatetime->format('H:i:s');
+                }
+            } else {
+                // Incrementar el día de la semana y reiniciar el horario
+                $iddiasemana++;
+                $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+            }
+        }
+    }
+
+    $data['jornadadocente'] = $jornadadocente;
+    $this->load->view('distributivo_lista2', $data);
+}
+
+function hayCruce($item, $horainicioDatetime, $horafinDatetime, $iddistributivodocente, $aula, $iddiasemana) {
+    $inicioExistente = new DateTime($item['horainicio']);
+    $finExistente = new DateTime($item['horafinal']);
+
+    return (($item['iddistributivodocente'] == $iddistributivodocente && $item['iddiasemana'] == $iddiasemana) || 
+            ($item['aula'] == $aula && $item['iddiasemana'] == $iddiasemana)) &&
+           (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
+            ($horafinDatetime > $inicioExistente && $horafinDatetime <= $finExistente));
+}
+
+function asignarHora(&$jornadadocente, $aula, $r, $iddiasemana, $horainicioDatetime, $horafinDatetime, $duracion) {
+    $jornada = [
+        'iddistributivodocente' => $r->iddistributivodocente,
+        'idasignatura' => $r->iddistributivodocente . ' - ' . $r->laasignatura,
+        'horassemanales' => $r->horas,
+        'nivel' => $r->numeronivel,
+        'paralelo' => $r->paralelo,
+        'aula' => $r->numeronivel . " - " . $r->paralelo,
+        'iddiasemana' => $iddiasemana,
+        'horainicio' => $horainicioDatetime->format('H:i:s'),
+        'horafinal' => $horafinDatetime->format('H:i:s'),
+        'duracionminutos' => $duracion
+    ];
+
+    $jornadadocente[$aula][] = $jornada;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
