@@ -713,13 +713,9 @@ public function generahorario()
 }
 
 
-
-
-
-
 public function generahorario2() {
+    set_time_limit(120); // Extiende el tiempo de ejecución a 120 segundos
 
-        set_time_limit(120); // Extiende el tiempo de ejecución a 120 segundos
     $iddistributivo = $this->uri->segment(3);
     $data0 = $this->asignaturadocente_model->asignaturadocente1xdistributivo($iddistributivo);
 
