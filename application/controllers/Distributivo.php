@@ -597,8 +597,8 @@ public function generahorario()
                 $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
        // while ($r->horas > 0) {
            foreach ($jornadadocente as $idx=>$jds) {
-           $cruce = false;
            foreach ($jds as $jd) {
+            $cruce = false;
             $duracion = $r->horas >= 2 ? 120 : 60;
             $horainicioDatetime = new DateTime($horainicio);
             $horafinDatetime = clone $horainicioDatetime;
