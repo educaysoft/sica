@@ -561,7 +561,7 @@ public function generahorario()
                if($r->iddistributivodocente==387){
                     print_r($jd); echo "<br>";
                     print_r($r);  echo "<br>";
-                    echo $horainicioDatetime->format('H:i:s')." - "; echo "<br>=======";
+                    echo $horainicioDatetime->format('H:i:s')." - diasemana:  ".$iddiasemana." - docente;".$r->iddistributivodocente;  echo "<br>===============<br>";
 
                 }
 
