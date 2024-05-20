@@ -496,10 +496,6 @@ public function generahorario()
             $aula = $r->numeronivel . ' - ' . $r->paralelo;
         }
         $count++;
-    //    if($count==30){
-      //      break;    
-
-       // }
 
        if($aula == $r->numeronivel.' - '.$r->paralelo){
             // Inicializa el arreglo $jornada con los valores iniciales
@@ -536,8 +532,9 @@ public function generahorario()
                     $jornada['duracionminutos'] = $duracion;
                     $j[$idjornadadocente] = $jornada;
                     $idjornadadocente++;
+                    $jornadadocente[$aula]=$j;
                     $r->horas -= $duracion / 60;
-                    if ($r->horas != 0) {
+                    if ($r->horas > 0) {
                         $asignaturas_filtradas[] = $r;
                     }
                     $horainicio = $horafinDatetime->format('H:i:s');
@@ -561,8 +558,9 @@ public function generahorario()
                     $jornada['duracionminutos'] = $duracion;
                     $j[$idjornadadocente] = $jornada;
                     $idjornadadocente++;
+                    $jornadadocente[$aula]=$j;
                     $r->horas -= $duracion / 60;
-                    if ($r->horas != 0) {
+                    if ($r->horas > 0) {
                         $asignaturas_filtradas[] = $r;
                     }
 
@@ -619,7 +617,7 @@ public function generahorario()
                     $idjornadadocente++;
 
                     $r->horas -= $duracion / 60;
-                    if ($r->horas != 0) {
+                    if ($r->horas > 0) {
                         $asignaturas_filtradas[] = $r;
                     }
                     $horainicio = $horafinDatetime->format('H:i:s');
@@ -684,7 +682,7 @@ public function generahorario()
                     $idjornadadocente++;
 
                     $r->horas -= $duracion / 60;
-                    if ($r->horas != 0) {
+                    if ($r->horas >0) {
                         $asignaturas_filtradas[] = $r;
                      }
                     $horainicio = $horafinDatetime->format('H:i:s');
