@@ -477,7 +477,7 @@ public function generahorario()
     $horainiciomatutino = "07:00:00";
     $horainiciovespertino = "13:00:00";
     $horafinalmatutino = "13:00:00";
-    $horafinalvespertino = "16:00:00";
+    $horafinalvespertino = "19:00:00";
 
 
     $reiniciar=1;
