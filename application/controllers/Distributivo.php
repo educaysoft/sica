@@ -495,7 +495,6 @@ public function generahorario()
             $inicio = 1;
             $aula = $r->numeronivel . ' - ' . $r->paralelo;
         }
-        $count++;
 
        if($aula == $r->numeronivel.' - '.$r->paralelo){
             // Inicializa el arreglo $jornada con los valores iniciales
@@ -511,11 +510,10 @@ public function generahorario()
                 'horafinal' => "",
                 'duracionminutos' => 0
             );
-            if($reiniciar==1){
                 $iddiasemana = 1;
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
                 $reiniciar=0;
-            }
+
                 $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
          if(empty($jornadadocente)){
             $cruce = false;
