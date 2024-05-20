@@ -717,7 +717,6 @@ public function generahorario()
 
 
 
-
 public function generahorario2() {
     $iddistributivo = $this->uri->segment(3);
     $data0 = $this->asignaturadocente_model->asignaturadocente1xdistributivo($iddistributivo);
@@ -743,33 +742,29 @@ public function generahorario2() {
             $horafinDatetime = clone $horainicioDatetime;
             $horafinDatetime->modify("+$duracion minutes");
 
-            if (($r->numeronivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) ||
-                ($r->numeronivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
-                
-                $cruce = false;
-
-                foreach ($jornadadocente as $jd) {
-                    foreach ($jd as $item) {
-                        if ($this->hayCruce($item, $horainicioDatetime, $horafinDatetime, $r->iddistributivodocente, $aula, $iddiasemana)) {
-                            $cruce = true;
-                            break 2;
-                        }
+            $cruce = false;
+            foreach ($jornadadocente as $jd) {
+                foreach ($jd as $item) {
+                    if ($this->hayCruce($item, $horainicioDatetime, $horafinDatetime, $r->iddistributivodocente, $aula, $iddiasemana)) {
+                        $cruce = true;
+                        break 2;
                     }
                 }
+            }
 
-                if (!$cruce && !$this->mismaAsignaturaEnDia($jornadadocente, $r->iddistributivodocente, $r->laasignatura, $iddiasemana)) {
-                    // Asigna la hora si no hay cruce y el profesor no tiene la misma asignatura en el día
-                    $this->asignarHora($jornadadocente, $aula, $r, $iddiasemana, $horainicioDatetime, $horafinDatetime, $duracion);
-                    $r->horas -= $duracion / 60;
-                    $horainicio = $horafinDatetime->format('H:i:s');
-                } else {
-                    // Si hay cruce, revisa la siguiente hora
-                    $horainicio = $horafinDatetime->format('H:i:s');
-                }
+            if (!$cruce && !$this->mismaAsignaturaEnDia($jornadadocente, $r->iddistributivodocente, $r->laasignatura, $iddiasemana)) {
+                // Asigna la hora si no hay cruce y el profesor no tiene la misma asignatura en el día
+                $this->asignarHora($jornadadocente, $aula, $r, $iddiasemana, $horainicioDatetime, $horafinDatetime, $duracion);
+                $r->horas -= $duracion / 60;
+                $horainicio = $horafinDatetime->format('H:i:s');
             } else {
                 // Incrementar el día de la semana y reiniciar el horario
                 $iddiasemana++;
+                if ($iddiasemana > 5) {
+                    $iddiasemana = 1; // Reset week if more than 5 days
+                }
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+                $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
             }
         }
     }
@@ -815,10 +810,6 @@ private function asignarHora(&$jornadadocente, $aula, $r, $iddiasemana, $horaini
 
     $jornadadocente[$aula][] = $jornada;
 }
-
-
-
-
 
 
 
