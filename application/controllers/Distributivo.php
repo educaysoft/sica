@@ -481,7 +481,7 @@ public function generahorario()
 
 
     $reiniciar=1;
-
+    
     foreach ($data0->result() as $r) {
         if ($inicio == 0) {
             $inicio = 1;
@@ -597,6 +597,8 @@ public function generahorario()
                 $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
        // while ($r->horas > 0) {
            foreach ($jornadadocente as $idx=>$jds) {
+           $cruce = false;
+           foreach ($jds as $jd) {
             $duracion = $r->horas >= 2 ? 120 : 60;
             $horainicioDatetime = new DateTime($horainicio);
             $horafinDatetime = clone $horainicioDatetime;
@@ -605,9 +607,7 @@ public function generahorario()
             if (($r->numeronivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) || 
                 ($r->numeronivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
                 // Verifica que no haya cruce de horarios para el docente
-                $cruce = false;
-                foreach ($jds as $jd) {
-                    if ($jd['iddistributivodocente'] == $r->iddistributivodocente && $jd['iddiasemana'] == $iddiasemana) {
+                   if ($jd['iddistributivodocente'] == $r->iddistributivodocente && $jd['iddiasemana'] == $iddiasemana) {
                         $inicioExistente = new DateTime($jd['horainicio']);
                         $finExistente = new DateTime($jd['horafinal']);
                         if (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
@@ -632,12 +632,16 @@ public function generahorario()
                     // Si hay cruce, revisa el siguiente hora
                     $horainicio = $horafinDatetime->format('H:i:s');
                 }
-                }
             } else {
                 // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
                 $iddiasemana++;
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
             }
+        }
+
+                            if(!$cruce){
+                              break;
+                            }
         }
 
        }
