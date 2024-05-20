@@ -550,11 +550,22 @@ public function generahorario()
 
            foreach ($jornadadocente as $idx=>$jds) {
            foreach ($jds as $jd) {
+
             $cruce = false;
             $duracion = $r->horas >= 2 ? 120 : 60;
             $horainicioDatetime = new DateTime($horainicio);
             $horafinDatetime = clone $horainicioDatetime;
             $horafinDatetime->modify("+$duracion minutes");
+
+
+               if($r->iddistributivodocente==387){
+                    print_r($jd); echo "<br>";
+                    print_r($r);  echo "<br>";
+                    echo $horainicioDatatime." - "; echo "<br>=======";
+
+                }
+
+
             if (($r->numeronivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) || 
                 ($r->numeronivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
                 // Verifica que no haya cruce de horarios para el docente
