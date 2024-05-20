@@ -47,18 +47,7 @@ foreach ($jornadas as $jornada): ?>
 
 ?>
 
-                    <?php if($jornada['horainicio']>$horafin) { ?>
-
-                    <td><?php echo "  "; ?></td>
-                    <td><?php echo "  "; ?></td>
-                    <td><?php echo "  "; ?></td>
-                    <td><?php echo "  "; ?></td>
-                    <td><?php echo " "; ?></td>
-                    <td><?php echo $horafin; ?></td>
-                    <td><?php echo $jornada['horainicio']; ?></td>
-                    <?php }  ?>
-
-                <tr>
+                  <tr>
                     <td><?php echo $jornada['idasignatura']; ?></td>
                     <td><?php echo $jornada['nivel']; ?></td>
                     <td><?php echo $jornada['paralelo']; ?></td>
