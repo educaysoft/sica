@@ -714,7 +714,7 @@ public function generahorario()
 
 
 public function generahorario2() {
-    set_time_limit(120); // Extiende el tiempo de ejecución a 120 segundos
+    set_time_limit(300); // Extiende el tiempo de ejecución a 300 segundos
 
     $iddistributivo = $this->uri->segment(3);
     $data0 = $this->asignaturadocente_model->asignaturadocente1xdistributivo($iddistributivo);
@@ -740,21 +740,45 @@ public function generahorario2() {
             $horafinDatetime = clone $horainicioDatetime;
             $horafinDatetime->modify("+$duracion minutes");
 
-            $cruce = false;
-            foreach ($jornadadocente as $jd) {
-                foreach ($jd as $item) {
-                    if ($this->hayCruce($item, $horainicioDatetime, $horafinDatetime, $r->iddistributivodocente, $aula, $iddiasemana)) {
-                        $cruce = true;
-                        break 2;
+            if ($horafinDatetime->format('H:i:s') <= $horafinal) {
+                $cruce = false;
+                $mismaAsignatura = false;
+
+                if (isset($jornadadocente[$aula])) {
+                    foreach ($jornadadocente[$aula] as $item) {
+                        $inicioExistente = new DateTime($item['horainicio']);
+                        $finExistente = new DateTime($item['horafinal']);
+
+                        if (($item['iddistributivodocente'] == $r->iddistributivodocente && $item['iddiasemana'] == $iddiasemana) || 
+                            ($item['aula'] == $aula && $item['iddiasemana'] == $iddiasemana)) {
+                            if (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
+                                ($horafinDatetime > $inicioExistente && $horafinDatetime <= $finExistente)) {
+                                $cruce = true;
+                                break;
+                            }
+                        }
+
+                        if ($item['iddistributivodocente'] == $r->iddistributivodocente && $item['idasignatura'] == $r->laasignatura && $item['iddiasemana'] == $iddiasemana) {
+                            $mismaAsignatura = true;
+                            break;
+                        }
                     }
                 }
-            }
 
-            if (!$cruce && !$this->mismaAsignaturaEnDia($jornadadocente, $r->iddistributivodocente, $r->laasignatura, $iddiasemana)) {
-                // Asigna la hora si no hay cruce y el profesor no tiene la misma asignatura en el día
-                $this->asignarHora($jornadadocente, $aula, $r, $iddiasemana, $horainicioDatetime, $horafinDatetime, $duracion);
-                $r->horas -= $duracion / 60;
-                $horainicio = $horafinDatetime->format('H:i:s');
+                if (!$cruce && !$mismaAsignatura) {
+                    // Asigna la hora si no hay cruce y el profesor no tiene la misma asignatura en el día
+                    $this->asignarHora($jornadadocente, $aula, $r, $iddiasemana, $horainicioDatetime, $horafinDatetime, $duracion);
+                    $r->horas -= $duracion / 60;
+                    $horainicio = $horafinDatetime->format('H:i:s');
+                } else {
+                    // Incrementar el día de la semana y reiniciar el horario
+                    $iddiasemana++;
+                    if ($iddiasemana > 5) {
+                        $iddiasemana = 1; // Reset week if more than 5 days
+                    }
+                    $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+                    $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
+                }
             } else {
                 // Incrementar el día de la semana y reiniciar el horario
                 $iddiasemana++;
@@ -769,27 +793,6 @@ public function generahorario2() {
 
     $data['jornadadocente'] = $jornadadocente;
     $this->load->view('distributivo_lista2', $data);
-}
-
-private function hayCruce($item, $horainicioDatetime, $horafinDatetime, $iddistributivodocente, $aula, $iddiasemana) {
-    $inicioExistente = new DateTime($item['horainicio']);
-    $finExistente = new DateTime($item['horafinal']);
-
-    return (($item['iddistributivodocente'] == $iddistributivodocente && $item['iddiasemana'] == $iddiasemana) || 
-            ($item['aula'] == $aula && $item['iddiasemana'] == $iddiasemana)) &&
-           (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
-            ($horafinDatetime > $inicioExistente && $horafinDatetime <= $finExistente));
-}
-
-private function mismaAsignaturaEnDia($jornadadocente, $iddistributivodocente, $asignatura, $iddiasemana) {
-    foreach ($jornadadocente as $jd) {
-        foreach ($jd as $item) {
-            if ($item['iddistributivodocente'] == $iddistributivodocente && $item['idasignatura'] == $asignatura && $item['iddiasemana'] == $iddiasemana) {
-                return true;
-            }
-        }
-    }
-    return false;
 }
 
 private function asignarHora(&$jornadadocente, $aula, $r, $iddiasemana, $horainicioDatetime, $horafinDatetime, $duracion) {
@@ -808,10 +811,6 @@ private function asignarHora(&$jornadadocente, $aula, $r, $iddiasemana, $horaini
 
     $jornadadocente[$aula][] = $jornada;
 }
-
-
-
-
 
 
 
