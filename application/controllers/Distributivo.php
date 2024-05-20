@@ -502,14 +502,16 @@ public function generahorario()
                 'horafinal' => "",
                 'duracionminutos' => 0
             );
-
+            if($iniciar==1){
                 $iddiasemana = 1;
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+                $iniciar=0;
+            }
                 $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
-       // while ($r->horas > 0) {
 
 
          if(empty($jornadadocente)){
+
 
             $cruce = false;
             $duracion = $r->horas >= 2 ? 120 : 60;
@@ -520,6 +522,15 @@ public function generahorario()
             if (($r->numeronivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) || 
                 ($r->numeronivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
                 // Verifica que no haya cruce de horarios para el docente
+                   if ($jd['iddistributivodocente'] == $r->iddistributivodocente && $jd['iddiasemana'] == $iddiasemana) {
+                        $inicioExistente = new DateTime($jd['horainicio']);
+                        $finExistente = new DateTime($jd['horafinal']);
+                        if (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
+                            ($horafinDatetime > $inicioExistente && $horafinDatetime <= $finExistente)) {
+                            $cruce = true;
+                          //  break;
+                        }
+                    }
                 if (!$cruce) {
                     $jornada['iddiasemana'] = $iddiasemana;
                     $jornada['horainicio'] = $horainicioDatetime->format('H:i:s');
@@ -531,7 +542,10 @@ public function generahorario()
 
                     $r->horas -= $duracion / 60;
                     $horainicio = $horafinDatetime->format('H:i:s');
-                } 
+                    break;
+                } else {
+                    // Si hay cruce, revisa el siguiente hora
+                    $horainicio = $horafinDatetime->format('H:i:s');
                 }
             } else {
                 // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
