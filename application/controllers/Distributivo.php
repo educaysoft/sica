@@ -559,7 +559,6 @@ public function generahorario()
                     
                 } else {
                     // Si hay cruce, incrementar el día de la semana y reiniciar el horario
-                    $r->horas -= $duracion / 60;
                     $horainicio = $horafinDatetime->format('H:i:s');
                   //  $iddiasemana++;
                   //  $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
@@ -645,9 +644,8 @@ public function generahorario()
                     $r->horas -= $duracion / 60;
                     $horainicio = $horafinDatetime->format('H:i:s');
                 } else {
-                    // Si hay cruce, incrementar el día de la semana y reiniciar el horario
-                    $iddiasemana++;
-                    $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+                    // Si hay cruce, revisa el siguiente hora
+                    $horainicio = $horafinDatetime->format('H:i:s');
                 }
             } else {
                 // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
