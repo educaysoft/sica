@@ -481,12 +481,19 @@ public function generahorario()
 
 
     $reiniciar=1;
-    
+   $count=0; 
     foreach ($data0->result() as $r) {
         if ($inicio == 0) {
             $inicio = 1;
             $aula = $r->numeronivel . ' - ' . $r->paralelo;
         }
+        $count++;
+        if($count==7){
+            break;    
+
+        }
+
+
 
        if($aula == $r->numeronivel.' - '.$r->paralelo){
             // Inicializa el arreglo $jornada con los valores iniciales
