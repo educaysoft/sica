@@ -536,7 +536,7 @@ public function generahorario()
             }
         }else{
 
-
+            while(true){
                 $iddiasemana = 1;
                 $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
                 $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
@@ -557,9 +557,20 @@ public function generahorario()
                         if (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
                             ($horafinDatetime > $inicioExistente && $horafinDatetime <= $finExistente)) {
                             $cruce = true;
-                          //  break;
+                            break;
                         }
                     }
+            } else {
+                // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
+                $iddiasemana++;
+                $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+            }
+        }
+                            if($cruce){
+                              break;
+                            }
+        }
+
                 if (!$cruce) {
                     $jornada['iddiasemana'] = $iddiasemana;
                     $jornada['horainicio'] = $horainicioDatetime->format('H:i:s');
@@ -576,16 +587,7 @@ public function generahorario()
                     // Si hay cruce, revisa el siguiente hora
                     $horainicio = $horafinDatetime->format('H:i:s');
                 }
-            } else {
-                // Si se sale del horario permitido, incrementar el día de la semana y reiniciar el horario
-                $iddiasemana++;
-                $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
-            }
-        }
-                            if(!$cruce){
-                              break;
-                            }
-        }
+         }        
         }
       }else{
            $jornadadocente[$aula]=$j;
