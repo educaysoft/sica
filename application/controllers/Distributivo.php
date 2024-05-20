@@ -522,15 +522,15 @@ public function generahorario()
             if (($r->numeronivel <= 4 && $horafinDatetime->format('H:i:s') <= $horafinal) || 
                 ($r->numeronivel > 4 && $horainicio >= $horainiciovespertino && $horafinDatetime->format('H:i:s') <= $horafinal)) {
                 // Verifica que no haya cruce de horarios para el docente
-                   if ($jd['iddistributivodocente'] == $r->iddistributivodocente && $jd['iddiasemana'] == $iddiasemana) {
-                        $inicioExistente = new DateTime($jd['horainicio']);
-                        $finExistente = new DateTime($jd['horafinal']);
-                        if (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
-                            ($horafinDatetime > $inicioExistente && $horafinDatetime <= $finExistente)) {
-                            $cruce = true;
+                 //  if ($jd['iddistributivodocente'] == $r->iddistributivodocente && $jd['iddiasemana'] == $iddiasemana) {
+                   //     $inicioExistente = new DateTime($jd['horainicio']);
+                     //   $finExistente = new DateTime($jd['horafinal']);
+                       // if (($horainicioDatetime >= $inicioExistente && $horainicioDatetime < $finExistente) ||
+                         //   ($horafinDatetime > $inicioExistente && $horafinDatetime <= $finExistente)) {
+                          //  $cruce = true;
                           //  break;
-                        }
-                    }
+                       // }
+                  //  }
                 if (!$cruce) {
                     $jornada['iddiasemana'] = $iddiasemana;
                     $jornada['horainicio'] = $horainicioDatetime->format('H:i:s');
