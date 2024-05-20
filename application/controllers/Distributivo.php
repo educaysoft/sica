@@ -525,7 +525,6 @@ public function generahorario()
                     $idjornadadocente++;
                     $r->horas -= $duracion / 60;
                     $horainicio = $horafinDatetime->format('H:i:s');
-                    break;
                 } else {
                     // Si hay cruce, revisa el siguiente hora
                     $horainicio = $horafinDatetime->format('H:i:s');
