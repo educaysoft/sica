@@ -654,12 +654,7 @@ public function generahorario()
         }
 
        }
-       }
     }
-
-// Aquí puedes guardar el arreglo $j en la base de datos o realizar alguna otra acción necesaria
-  //    echo "<br>==================";
-  //  print_r($jornadadocente);
 
 
 
@@ -668,7 +663,6 @@ public function generahorario()
     $this->load->view('template/page_header');		
     $this->load->view('jornadadocente_lista2',$data);
     $this->load->view('template/page_footer');
-
 
 
 }
