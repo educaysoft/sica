@@ -748,7 +748,7 @@ public function generahorario2() {
 
                 foreach ($jornadadocente as $jd) {
                     foreach ($jd as $item) {
-                        if (hayCruce($item, $horainicioDatetime, $horafinDatetime, $r->iddistributivodocente, $aula, $iddiasemana)) {
+                        if ($this->hayCruce($item, $horainicioDatetime, $horafinDatetime, $r->iddistributivodocente, $aula, $iddiasemana)) {
                             $cruce = true;
                             break 2;
                         }
@@ -757,7 +757,7 @@ public function generahorario2() {
 
                 if (!$cruce) {
                     // Asigna la hora si no hay cruce
-                    asignarHora($jornadadocente, $aula, $r, $iddiasemana, $horainicioDatetime, $horafinDatetime, $duracion);
+                   $this-> asignarHora($jornadadocente, $aula, $r, $iddiasemana, $horainicioDatetime, $horafinDatetime, $duracion);
                     $r->horas -= $duracion / 60;
                     $horainicio = $horafinDatetime->format('H:i:s');
                 } else {
@@ -776,7 +776,7 @@ public function generahorario2() {
     $this->load->view('distributivo_lista2', $data);
 }
 
-function hayCruce($item, $horainicioDatetime, $horafinDatetime, $iddistributivodocente, $aula, $iddiasemana) {
+private function hayCruce($item, $horainicioDatetime, $horafinDatetime, $iddistributivodocente, $aula, $iddiasemana) {
     $inicioExistente = new DateTime($item['horainicio']);
     $finExistente = new DateTime($item['horafinal']);
 
@@ -786,7 +786,7 @@ function hayCruce($item, $horainicioDatetime, $horafinDatetime, $iddistributivod
             ($horafinDatetime > $inicioExistente && $horafinDatetime <= $finExistente));
 }
 
-function asignarHora(&$jornadadocente, $aula, $r, $iddiasemana, $horainicioDatetime, $horafinDatetime, $duracion) {
+private function asignarHora(&$jornadadocente, $aula, $r, $iddiasemana, $horainicioDatetime, $horafinDatetime, $duracion) {
     $jornada = [
         'iddistributivodocente' => $r->iddistributivodocente,
         'idasignatura' => $r->iddistributivodocente . ' - ' . $r->laasignatura,
@@ -802,36 +802,6 @@ function asignarHora(&$jornadadocente, $aula, $r, $iddiasemana, $horainicioDatet
 
     $jornadadocente[$aula][] = $jornada;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
