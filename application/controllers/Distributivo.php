@@ -494,10 +494,10 @@ public function generahorario()
             $aula = $r->numeronivel . ' - ' . $r->paralelo;
         }
         $count++;
-        if($count==30){
-            break;    
+    //    if($count==30){
+      //      break;    
 
-        }
+       // }
 
        if($aula == $r->numeronivel.' - '.$r->paralelo){
             // Inicializa el arreglo $jornada con los valores iniciales
