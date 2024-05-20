@@ -713,7 +713,7 @@ public function generahorario()
 }
 
 
-public function generahorario2() {
+public function generahorario22() {
     set_time_limit(300); // Extiende el tiempo de ejecución a 300 segundos
 
     $iddistributivo = $this->uri->segment(3);
@@ -769,7 +769,12 @@ public function generahorario2() {
                     // Asigna la hora si no hay cruce y el profesor no tiene la misma asignatura en el día
                     $this->asignarHora($jornadadocente, $aula, $r, $iddiasemana, $horainicioDatetime, $horafinDatetime, $duracion);
                     $r->horas -= $duracion / 60;
-                    $horainicio = $horafinDatetime->format('H:i:s');
+                    $iddiasemana++; // Incrementamos el día para la siguiente asignación
+                    if ($iddiasemana > 5) {
+                        $iddiasemana = 1; // Reset week if more than 5 days
+                    }
+                    $horainicio = $r->numeronivel <= 4 ? $horainiciomatutino : $horainiciovespertino;
+                    $horafinal = $r->numeronivel <= 4 ? $horafinalmatutino : $horafinalvespertino;
                 } else {
                     // Incrementar el día de la semana y reiniciar el horario
                     $iddiasemana++;
@@ -811,8 +816,6 @@ private function asignarHora(&$jornadadocente, $aula, $r, $iddiasemana, $horaini
 
     $jornadadocente[$aula][] = $jornada;
 }
-
-
 
 
 }
