@@ -716,7 +716,9 @@ public function generahorario()
 
 
 
-public function generahorario2() {
+
+
+public function generahorario() {
     $iddistributivo = $this->uri->segment(3);
     $data0 = $this->asignaturadocente_model->asignaturadocente1xdistributivo($iddistributivo);
 
@@ -755,9 +757,9 @@ public function generahorario2() {
                     }
                 }
 
-                if (!$cruce) {
-                    // Asigna la hora si no hay cruce
-                   $this-> asignarHora($jornadadocente, $aula, $r, $iddiasemana, $horainicioDatetime, $horafinDatetime, $duracion);
+                if (!$cruce && !$this->mismaAsignaturaEnDia($jornadadocente, $r->iddistributivodocente, $r->laasignatura, $iddiasemana)) {
+                    // Asigna la hora si no hay cruce y el profesor no tiene la misma asignatura en el día
+                    $this->asignarHora($jornadadocente, $aula, $r, $iddiasemana, $horainicioDatetime, $horafinDatetime, $duracion);
                     $r->horas -= $duracion / 60;
                     $horainicio = $horafinDatetime->format('H:i:s');
                 } else {
@@ -786,6 +788,17 @@ private function hayCruce($item, $horainicioDatetime, $horafinDatetime, $iddistr
             ($horafinDatetime > $inicioExistente && $horafinDatetime <= $finExistente));
 }
 
+private function mismaAsignaturaEnDia($jornadadocente, $iddistributivodocente, $asignatura, $iddiasemana) {
+    foreach ($jornadadocente as $jd) {
+        foreach ($jd as $item) {
+            if ($item['iddistributivodocente'] == $iddistributivodocente && $item['idasignatura'] == $asignatura && $item['iddiasemana'] == $iddiasemana) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 private function asignarHora(&$jornadadocente, $aula, $r, $iddiasemana, $horainicioDatetime, $horafinDatetime, $duracion) {
     $jornada = [
         'iddistributivodocente' => $r->iddistributivodocente,
@@ -802,6 +815,14 @@ private function asignarHora(&$jornadadocente, $aula, $r, $iddiasemana, $horaini
 
     $jornadadocente[$aula][] = $jornada;
 }
+
+
+
+
+
+
+
+
 
 
 
