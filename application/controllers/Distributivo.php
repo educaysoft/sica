@@ -451,14 +451,15 @@ $this->load->model('export_model');
 
 
 	$iddistributivo=$this->uri->segment(3);
-   $ordenrpt=1;
-   $asignaturadocentes= $this->asignaturadocente_model->asignaturadocentexdistributivo5($iddistributivo,$ordenrpt)->result();
+   $ordenrpt=0;
+  $asignaturadocentes= $this->asignaturadocente_model->asignaturadocentexdistributivo5($iddistributivo,$ordenrpt)->result();
 // Preparar los datos para exportar a Excel
     $data = array();
-    $data[] = ['cedula', 'docente', 'area']; // Encabezados
+    $data[] = ['cedula', 'docente', "Pregrado","Maestria",'area',"Asignatura","nivel","Paralelo","h.clase","h.meto","h.inve","h.vinc","h.gest","tota.h" ]; // Encabezados
 
     foreach ($asignaturadocentes as $docente) {
-        $data[] = [$docente->cedula, $docente->eldocente, $docente->area];
+        $totalhoras=$docente->horasclases+$docente->horasmetodologicas+$docente->horasinvestigacion+$docente->horasvinculacion+$docente->horasgestion;
+        $data[] = [$docente->cedula, $docente->eldocente,$docente->pregrado,$docente->maestria, $docente->area,$docente->laasignatura,$docente->numeronivelacademico,$docente->paralelo,$docente->horasclases,$docente->horasmetodologicas,$docente->horasinvestigacion,$docente->horasvinculacion,$docente->horasgestion,$totalhoras];
     }
 
 $filename = 'reporte.xlsx';
