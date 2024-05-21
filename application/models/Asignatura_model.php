@@ -158,7 +158,7 @@ class Asignatura_model extends CI_model {
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$asignatura = $this->db->select("idasignatura0")->order_by("idasignatura")->get('asignatura')->result_array();
+ 		$asignatura = $this->db->select("asignatura0")->order_by("idasignatura")->get('asignatura')->result_array();
 		$arr=array("idasignatura"=>$id);
 		$clave=array_search($arr,$asignatura);
 	   if(array_key_exists($clave-1,$asignatura))

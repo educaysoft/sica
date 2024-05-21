@@ -19,6 +19,7 @@ class Export_model extends CI_Model {
 // Cambiar el ancho de las celdas
     $sheet->getColumnDimension('A')->setWidth(10); // Ancho de la columna A
     $sheet->getColumnDimension('B')->setWidth(40); // Ancho de la columna B
+    $sheet->getColumnDimension('C')->setWidth(40); // Ancho de la columna B
     $sheet->getColumnDimension('D')->setWidth(40); // Ancho de la columna C
     $sheet->getColumnDimension('E')->setWidth(10); // Ancho de la columna C
     $sheet->getColumnDimension('F')->setWidth(40); // Ancho de la columna C
