@@ -16,6 +16,14 @@ class Export_model extends CI_Model {
         // Escribir los datos en la hoja de cálculo
         $sheet->fromArray($data, null, 'A1');
 
+// Cambiar el ancho de las celdas
+    $sheet->getColumnDimension('A')->setWidth(10); // Ancho de la columna A
+    $sheet->getColumnDimension('B')->setWidth(40); // Ancho de la columna B
+    $sheet->getColumnDimension('D')->setWidth(40); // Ancho de la columna C
+    $sheet->getColumnDimension('E')->setWidth(10); // Ancho de la columna C
+    $sheet->getColumnDimension('F')->setWidth(40); // Ancho de la columna C
+    $sheet->getColumnDimension('G')->setWidth(10); // Ancho de la columna C
+    $sheet->getColumnDimension('H')->setWidth(10); // Ancho de la columna C
 
 
     // Enviar el archivo al navegador para descarga
