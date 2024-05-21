@@ -458,8 +458,8 @@ $this->load->model('export_model');
     $data[] = ['cedula', 'docente', "Pregrado","Maestria",'area',"Asignatura","nivel","Paralelo","h.clase","h.meto","h.inve","h.vinc","h.gest","tota.h" ]; // Encabezados
 
     foreach ($asignaturadocentes as $docente) {
-        $totalhoras=$docente->horasclases+$docente->horasmetodologicas+$docente->horasinvestigacion+$docente->horasvinculacion+$docente->horasgestion;
-        $data[] = [$docente->cedula, $docente->eldocente,$docente->pregrado,$docente->maestria, $docente->area,$docente->laasignatura,$docente->numeronivelacademico,$docente->paralelo,$docente->horasclases,$docente->horasmetodologicas,$docente->horasinvestigacion,$docente->horasvinculacion,$docente->horasgestion,$totalhoras];
+        $totalhoras=$docente->horasmetodologicas+$docente->horasinvestigacion+$docente->horasvinculacion+$docente->horasgestion;
+        $data[] = [$docente->cedula, $docente->eldocente,$docente->pregrado,$docente->maestria, $docente->area,$docente->laasignatura,$docente->numeronivelacademico,$docente->paralelo,$docente->horasclases,$docente->horasmetodologicas-$docente->horasclases,$docente->horasinvestigacion,$docente->horasvinculacion,$docente->horasgestion,$totalhoras];
     }
 
 $filename = 'reporte.xlsx';
