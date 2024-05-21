@@ -448,12 +448,19 @@ public function get_periodoacademico() {
 public function exportarxls()
 {
 $this->load->model('export_model');
-$data = [
-    ['Nombre', 'Edad', 'Correo'],
-    ['Juan', 25, 'juan@example.com'],
-    ['María', 30, 'maria@example.com'],
-    ['Pedro', 28, 'pedro@example.com'],
-];
+
+
+		$iddistributivo=$this->uri->segment(3);
+			$ordenrpt=1;
+	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo5($iddistributivo,$ordenrpt)->result();
+/ Preparar los datos para exportar a Excel
+    $data = array();
+    $data[] = ['cedula', 'docente', 'area']; // Encabezados
+
+    foreach ($asignaturadocentes as $docente) {
+        $data[] = [$docente->cedula, $docente->eldocente, $docente->area];
+    }
+
 $filename = 'reporte.xlsx';
 $this->export_model->exportToExcel($data, $filename);
 }
@@ -484,11 +491,13 @@ public function generahorario()
    $count=0; 
 
     $asignaturas_filtradas=$data0->result();
+    print_r($asignaturas_filtradas); echo "<br><br>";
 
-  //  do{
+    do{
 
         $asignaturas=$asignaturas_filtradas;
-   //       $asignaturas_filtradas = [];
+        $asignaturas_filtradas = [];
+        print_r($asignaturas_filtradas); echo "<br><br>";
 
     foreach ($asignaturas as $r) {
         if ($inicio == 0) {
@@ -701,7 +710,7 @@ public function generahorario()
        }
     }
 
- //}while(!empty($asignaturas_filtradas));
+ }while(!empty($asignaturas_filtradas));
 
     // print_r($jornadadocente);
     $data['jornadadocente']=$jornadadocente;
