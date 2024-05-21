@@ -450,9 +450,9 @@ public function exportarxls()
 $this->load->model('export_model');
 
 
-		$iddistributivo=$this->uri->segment(3);
-			$ordenrpt=1;
-	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo5($iddistributivo,$ordenrpt)->result();
+	$iddistributivo=$this->uri->segment(3);
+   $ordenrpt=1;
+   $asignaturadocentes= $this->asignaturadocente_model->asignaturadocentexdistributivo5($iddistributivo,$ordenrpt)->result();
 // Preparar los datos para exportar a Excel
     $data = array();
     $data[] = ['cedula', 'docente', 'area']; // Encabezados
