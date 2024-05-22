@@ -21,19 +21,19 @@ class Export_model extends CI_Model {
      $sheet->getStyle('A')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
     $sheet->getColumnDimension('B')->setWidth(40); // Ancho de la columna B
      $sheet->getStyle('B')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
-    $sheet->getColumnDimension('C')->setWidth(40); // Ancho de la columna B
+    $sheet->getColumnDimension('C')->setWidth(20); // Ancho de la columna B
      $sheet->getStyle('C')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
     $sheet->getColumnDimension('D')->setWidth(40); // Ancho de la columna C
      $sheet->getStyle('D')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
-    $sheet->getColumnDimension('E')->setWidth(10); // Ancho de la columna C
+    $sheet->getColumnDimension('E')->setWidth(40); // Ancho de la columna C
      $sheet->getStyle('E')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
     $sheet->getColumnDimension('F')->setWidth(40); // Ancho de la columna C
      $sheet->getStyle('F')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
-    $sheet->getColumnDimension('G')->setWidth(10); // Ancho de la columna C
+    $sheet->getColumnDimension('G')->setWidth(40); // Ancho de la columna C
      $sheet->getStyle('G')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
     $sheet->getColumnDimension('H')->setWidth(10); // Ancho de la columna C
      $sheet->getStyle('H')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
-    $sheet->getColumnDimension('I')->setWidth(10); // Ancho de la columna C
+    $sheet->getColumnDimension('I')->setWidth(40); // Ancho de la columna C
      $sheet->getStyle('I')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
     $sheet->getColumnDimension('J')->setWidth(10); // Ancho de la columna C
      $sheet->getStyle('J')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
@@ -47,6 +47,17 @@ class Export_model extends CI_Model {
      $sheet->getStyle('N')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
     $sheet->getColumnDimension('O')->setWidth(10); // Ancho de la columna C
      $sheet->getStyle('O')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('P')->setWidth(10); // Ancho de la columna C
+     $sheet->getStyle('P')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('Q')->setWidth(10); // Ancho de la columna C
+     $sheet->getStyle('Q')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('R')->setWidth(10); // Ancho de la columna C
+     $sheet->getStyle('R')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('S')->setWidth(10); // Ancho de la columna C
+     $sheet->getStyle('S')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+ 
+
+
 
 
     // Enviar el archivo al navegador para descarga

@@ -61,6 +61,7 @@ public function index(){
 			'idpersona' => $this->input->post('idpersona'),
 			'idinstitucion' => $this->input->post('idinstitucion'),
 			'titulo' => $this->input->post('titulo'),
+			'campodetallado' => $this->input->post('campodetallado'),
 			'fecharegistro' => $this->input->post('fecharegistro'),
 	 	'idnivelestudio' => $this->input->post('idnivelestudio'),
 	 		'idnivelestudio' => $this->input->post('idnivelestudio'),
@@ -103,6 +104,7 @@ public function index(){
 			'fecharegistro' => $this->input->post('fecharegistro'),
 			'numeroregistro' => $this->input->post('numeroregistro'),
 	 		'idnivelestudio' => $this->input->post('idnivelestudio'),
+			'campodetallado' => $this->input->post('campodetallado'),
 			'titulo' => $this->input->post('titulo'),
 	 	);
 	 	$this->estudio_model->update($id,$array_item);

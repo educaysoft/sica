@@ -79,6 +79,12 @@ foreach ($nivelestudios as $row){
 <td><?php echo form_input(array("name"=>"numeroregistro","id"=>"numeroregistro","type"=>"text"));  ?></td>
 </tr>
 
+<tr>
+<td> Campo detallado: </td>
+<td><?php echo form_input(array("name"=>"campodetallado","id"=>"campodetallado","type"=>"text"));  ?></td>
+</tr>
+
+
 
 <tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("estudio","Atras") ?> </td>

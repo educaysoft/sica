@@ -69,6 +69,11 @@ foreach ($nivelestudios as $row){
       <td><?php echo form_input( array("name"=>'titulo',"id"=>'titulo',"value"=>$estudio['titulo'],'type'=>'text','placeholder'=>'nivel')); ?></td>
   </tr>
 
+<tr>
+      <td>Campo detallado:</td>
+      <td><?php echo form_input( array("name"=>'campodetallado',"id"=>'campodetallado',"value"=>$estudio['campodetallado'],'type'=>'text','placeholder'=>'nivel')); ?></td>
+  </tr>
+
 
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('estudio','Atras') ?></td>

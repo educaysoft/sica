@@ -181,7 +181,14 @@ if(isset($estudio))
 		?>
 	</div> 
 </div>
-
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Campo detallado: </label>
+	<div class="col-md-10">
+     	<?php 
+       echo form_input('campodetallado',$estudio['campodetallado'],array("disabled"=>"disabled",'type'=>'text','placeholder'=>'Titulo obtenido','style'=>'width:600px;')); 
+		?>
+	</div> 
+</div>
 
 
 
