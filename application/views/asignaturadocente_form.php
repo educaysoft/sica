@@ -97,6 +97,28 @@ echo form_dropdown("idparalelo",$options, set_select('--Select--','default_value
 
 
 <div class="form-group row">
+<label class="col-md-2 col-form-label">Afinidad titulo:</label>
+<div class="col-md-10">
+    <div class="form-group">
+<?php 
+
+$options= array('--Select--');
+foreach ($afinidadtitulos as $row){
+	$options[$row->idafinidadtitulo]= $row->nombre;
+}
+
+echo form_dropdown("idafinidadtitulo",$options, set_select('--Select--','default_value'),array('id'=>'idafinidadtitulo','onchange'=>'get_estado()')); 
+
+?>
+    </div>
+</div>
+</div>
+
+
+
+
+
+<div class="form-group row">
 <label class="col-md-2 col-form-label">Estado:</label>
 <div class="col-md-10">
     <div class="form-group">

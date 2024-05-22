@@ -1,14 +1,14 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("sexo/save", array('id'=>'eys-form')); ?>
-<?php echo form_hidden("idsexo");  ?>
+<?php echo form_open("afinidadtitulo/save", array('id'=>'eys-form')); ?>
+<?php echo form_hidden("idafinidadtitulo");  ?>
 
 
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Id Afinidadtitulo:</label>
 	<div class="col-md-10">
-<?php echo form_input("idsexo","", array("placeholder"=>"Id sexo"));  ?>
+<?php echo form_input("idafinidadtitulo","", array("placeholder"=>"Id afinidadtitulo"));  ?>
 	</div> 
 </div>
 
@@ -16,7 +16,7 @@
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Nombre:</label>
 	<div class="col-md-10">
-<?php echo form_input("nombre","", array("placeholder"=>"Descripcion de sexo"));  ?>
+<?php echo form_input("nombre","", array("placeholder"=>"Descripcion de afinidadtitulo"));  ?>
 	</div> 
 </div> 
 

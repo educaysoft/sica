@@ -13,6 +13,7 @@ class Asignaturadocente extends CI_Controller{
   	  $this->load->model('distributivo_model');
   	  $this->load->model('distributivodocente_model');
   	  $this->load->model('paralelo_model');
+  	  $this->load->model('afinidadtitulo_model');
   	  $this->load->model('jornadadocente_model');
 }
 
@@ -24,6 +25,7 @@ public function index(){
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
   	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  	$data['afinidadtitulos']= $this->afinidadtitulo_model->lista_afinidadtitulos()->result();
   	$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
@@ -60,6 +62,7 @@ public function add()
 	$data['mallas']= $this->malla_model->lista_mallas()->result();
 	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
   	$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  	$data['afinidadtitulos']= $this->afinidadtitulo_model->lista_afinidadtitulos()->result();
   		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 	$data['title']="Nueva Asignaturadocente";
@@ -78,6 +81,7 @@ public function add()
 			'iddistributivodocente' => $this->input->post('iddistributivodocente'),
 			'idasignatura' => $this->input->post('idasignatura'),
 			'idparalelo' => $this->input->post('idparalelo'),
+			'idafinidadtitulo' => $this->input->post('idafinidadtitulo'),
 			'idsilabo' => 0,
 			'idestadoasignaturadocente' => 1,
 	 	);
@@ -101,6 +105,7 @@ public function edit()
 		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
   		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  		$data['afinidadtitulos']= $this->afinidadtitulo_model->lista_afinidadtitulos()->result();
   		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
   		$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
@@ -121,6 +126,7 @@ public function edit()
 			'iddistributivodocente' => $this->input->post('iddistributivodocente'),
 			'idasignatura' => $this->input->post('idasignatura'),
 			'idparalelo' => $this->input->post('idparalelo'),
+			'idafinidadtitulo' => $this->input->post('idafinidadtitulo'),
 			'idestadoasignaturadocente' => $this->input->post('idestadoasignaturadocente'),
 	 	);
 	 	$this->asignaturadocente_model->update($id,$array_item);
@@ -266,6 +272,7 @@ public function actual()
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  		$data['afinidadtitulos']= $this->afinidadtitulo_model->lista_afinidadtitulos()->result();
   		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
 		$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
@@ -298,6 +305,7 @@ public function elprimero()
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
 	$data['asignaturadocente'] = $this->asignaturadocente_model->elprimero();
   		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  		$data['afinidadtitulos']= $this->afinidadtitulo_model->lista_afinidadtitulos()->result();
   		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
 	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
@@ -321,6 +329,7 @@ public function elultimo()
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  	$data['afinidadtitulos']= $this->afinidadtitulo_model->lista_afinidadtitulos()->result();
   	$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
 	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();
@@ -345,6 +354,7 @@ public function siguiente(){
 	$data['asignaturadocente'] = $this->asignaturadocente_model->siguiente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  		$data['afinidadtitulos']= $this->afinidadtitulo_model->lista_afinidadtitulos()->result();
   		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
@@ -363,6 +373,7 @@ public function anterior(){
  	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['periodoacademicos']= $this->periodoacademico_model->lista_periodoacademicos()->result();
   		$data['paralelos']= $this->paralelo_model->lista_paralelos()->result();
+  		$data['afinidadtitulos']= $this->afinidadtitulo_model->lista_afinidadtitulos()->result();
   		$data['estadoasignaturadocentes']= $this->estadoasignaturadocente_model->lista_estadoasignaturadocentes()->result();
   	$data['distributivodocentes']=$this->distributivodocente_model->lista_distributivodocentesA()->result();
 	$data['asignaturas']= $this->asignatura_model->lista_asignaturasA()->result();

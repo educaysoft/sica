@@ -1,60 +1,91 @@
 <?php
-class Fotoevidencia_model extends CI_model {
+class Afinidadtitulo_model extends CI_model {
 
-	function lista_articulos(){
-		 $articulo= $this->db->get('articulo');
-		 return $articulo;
+	function lista_sexos(){
+		 $sexo= $this->db->get('sexo0');
+		 return $sexo;
+	}
+
+	function lista_sexosA(){
+		 $sexo= $this->db->get('sexo1');
+		 return $sexo;
 	}
 
 
-	function lista_articulosA(){
-		 $articulo= $this->db->get('articulo1');
-		 return $articulo;
-	}
 
 
-
-
- 	function articulo( $id){
- 		$articulo = $this->db->query('select * from articulo where idarticulo="'. $id.'"');
- 		return $articulo;
+ 	function sexo( $id){
+ 		$sexo = $this->db->query('select * from sexo0 where idsexo="'. $id.'"');
+ 		return $sexo;
  	}
-
- 	function articuloA( $id){
- 		$articulo = $this->db->query('select * from articulo1 where idinstitucion="'. $id.'"');
- 		return $articulo;
- 	}
-
-
-
 
  	function save($array)
  	{
-		$this->db->insert("articulo", $array);
+		$condition = "idsexo =" . "'" . $array['idsexo'] . "'";
+		$this->db->select('*');
+		$this->db->from('sexo');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+		   $this->db->insert("sexo", $array);
+		   if( $this->db->affected_rows()>0){
+			    return true;
+		   }else{
+			    return false;
+		   }
+	   }else{
+		    return false;
+		   }
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idarticulo',$id);
- 		$this->db->update('articulo',$array_item);
+ 		$this->db->where('idsexo',$id);
+ 		$this->db->update('sexo',$array_item);
 	}
+ 
 
-
- 	public function delete($id)
+ 	 function delete($id)
 	{
- 		$this->db->where('idarticulo',$id);
-		$this->db->delete('articulo');
-    if($this->db->affected_rows()==1)
+ 		$this->db->where('idsexo',$id);
+		$this->db->delete('sexo');
+    	if($this->db->affected_rows()==1){
 			$result=true;
-		else
+        }else{
 			$result=false;
+    }
 		return $result;
  	}
 
 
+
+ 	function quitar($id)
+	{
+
+        $this->db->select('*');
+		$this->db->from('sexo0');
+ 		$this->db->where('idsexo',$id);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() != 0) {
+	 	  	$this->db->where('idsexo',$id);
+			$this->db->update('sexo', array('eliminado'=>1));
+			$result=true;
+        }else{
+            $result=false;
+        }
+		return $result;
+ 	}
+
+
+
+
+
+
 	function elprimero()
 	{
-		$query=$this->db->order_by("idarticulo")->get('articulo');
+		$query=$this->db->order_by("idsexo")->get('sexo');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -67,7 +98,7 @@ class Fotoevidencia_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idarticulo")->get('articulo');
+		$query=$this->db->order_by("idsexo")->get('sexo');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -79,37 +110,37 @@ class Fotoevidencia_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$articulo = $this->db->select("idarticulo")->order_by("idarticulo")->get('articulo')->result_array();
-		$arr=array("idarticulo"=>$id);
-		$clave=array_search($arr,$articulo);
-	   if(array_key_exists($clave+1,$articulo))
+ 		$sexo = $this->db->select("idsexo")->order_by("idsexo")->get('sexo')->result_array();
+		$arr=array("idsexo"=>$id);
+		$clave=array_search($arr,$sexo);
+	   if(array_key_exists($clave+1,$sexo))
 		 {
 
- 		$articulo = $this->db->query('select * from articulo where idarticulo="'. $articulo[$clave+1]["idarticulo"].'"');
+ 		$sexo = $this->db->query('select * from sexo where idsexo="'. $sexo[$clave+1]["idsexo"].'"');
 		 }else{
 
- 		$articulo = $this->db->query('select * from articulo where idarticulo="'. $id.'"');
+ 		$sexo = $this->db->query('select * from sexo where idsexo="'. $id.'"');
 		 }
 		 	
- 		return $articulo;
+ 		return $sexo;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$articulo = $this->db->select("idarticulo")->order_by("idarticulo")->get('articulo')->result_array();
-		$arr=array("idarticulo"=>$id);
-		$clave=array_search($arr,$articulo);
-	   if(array_key_exists($clave-1,$articulo))
+ 		$sexo = $this->db->select("idsexo")->order_by("idsexo")->get('sexo')->result_array();
+		$arr=array("idsexo"=>$id);
+		$clave=array_search($arr,$sexo);
+	   if(array_key_exists($clave-1,$sexo))
 		 {
 
- 		$articulo = $this->db->query('select * from articulo where idarticulo="'. $articulo[$clave-1]["idarticulo"].'"');
+ 		$sexo = $this->db->query('select * from sexo where idsexo="'. $sexo[$clave-1]["idsexo"].'"');
 		 }else{
 
- 		$articulo = $this->db->query('select * from articulo where idarticulo="'. $id.'"');
+ 		$sexo = $this->db->query('select * from sexo where idsexo="'. $id.'"');
 		 }
 		 	
- 		return $articulo;
+ 		return $sexo;
  	}
 
 
@@ -117,6 +148,6 @@ class Fotoevidencia_model extends CI_model {
 
 
 
- 
+
 
 }

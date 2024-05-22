@@ -51,6 +51,20 @@ foreach ($paralelos as $row){
 </tr>
 
 
+
+<tr>
+<td> Afinida título:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($afinidadtitulos as $row){
+	$options[$row->idafinidadtitulo]= $row->nombre;
+}
+
+ echo form_dropdown("idafinidadtitulo",$options, $asignaturadocente['idafinidadtitulo']);  ?></td>
+</tr>
+
+
+
 <tr>
 <td> Estado:</td>
 <td><?php
