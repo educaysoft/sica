@@ -455,7 +455,7 @@ $this->load->model('export_model');
   $asignaturadocentes= $this->asignaturadocente_model->asignaturadocentexdistributivo5($iddistributivo,$ordenrpt)->result();
 // Preparar los datos para exportar a Excel
     $data = array();
-    $data[] = ['cedula', 'docente', "Pregrado","Maestria",'area',"Asignatura","h.sem","nivel","Paralelo","h.clase","h.meto","h.inve","h.vinc","h.gest","tota.h" ]; // Encabezados
+    $data[] = ['CEDULA', 'DOCENTE', "TERCER NIVEL","CUARTO NIVEL",'CARRERA',"ASIGNATURA(S)","HORAS SEMANALES","CICLO","PARALELO","TOTAL HORAS SEMANALES","H. METODOLÓGICAS","H. INVEST. SEMANA","H. VINCU. SEMANA","h. GEST. SEMANA","TOTAL HORAS SEMANA" ]; // Encabezados
 
     foreach ($asignaturadocentes as $docente) {
         $totalhoras=$docente->horasmetodologicas+$docente->horasinvestigacion+$docente->horasvinculacion+$docente->horasgestion;
