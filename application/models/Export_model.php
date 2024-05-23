@@ -57,9 +57,6 @@ class Export_model extends CI_Model {
      $sheet->getStyle('S')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
  
 
-
-
-
     // Enviar el archivo al navegador para descarga
     header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
     header('Content-Disposition: attachment;filename="' . $filename . '"');
@@ -71,22 +68,23 @@ class Export_model extends CI_Model {
     header('Pragma: public'); // HTTP/1.0
 
 
+        // Crear un objeto Writer para guardar la hoja de cálculo
+        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
 
+        // Enviar el archivo al navegador para su descarga
+        $writer->save('php://output');
 
-
-
-
-
-
+        // Salir para asegurarse de que no se envíe nada más
+        exit;
 
 
         // Crear un objeto Writer para guardar la hoja de cálculo
-        $writer = new Xlsx($spreadsheet);
+    //    $writer = new Xlsx($spreadsheet);
 
         // Guardar la hoja de cálculo en un archivo
-        $writer->save($filename);
+     //   $writer->save($filename);
 
-        return $filename;
+      //  return $filename;
     }
 }
 
