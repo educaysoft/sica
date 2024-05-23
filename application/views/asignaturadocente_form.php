@@ -181,7 +181,7 @@ function get_asignaturas() {
         url: "<?php echo site_url('asignaturadocente/get_asignaturas') ?>",
         data: {idmalla: idmalla},
         method: 'POST',
-	async : true,
+	async : false,
         dataType : 'json',
         success: function(data){
 		console.log(data);
@@ -216,7 +216,7 @@ function get_estado() {
         url: "<?php echo site_url('asignaturadocente/get_estado') ?>",
         data: {iddistributivo:iddistributivo,idasignatura:idasignatura,idparalelo:idparalelo},
         method: 'POST',
-	async : true,
+	async : false,
         dataType : 'json',
         success: function(data){
 		console.log(data);
