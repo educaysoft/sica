@@ -452,7 +452,7 @@ $this->load->model('export_model');
 
 	$iddistributivo=$this->uri->segment(3);
    $ordenrpt=0;
-  $asignaturadocentes= $this->asignaturadocente_model->asignaturadocentexdistributivo5($iddistributivo,$ordenrpt)->result();
+  $asignaturadocentes= $this->asignaturadocente_model->asignaturadocentexdistributivo6($iddistributivo,$ordenrpt)->result();
 // Preparar los datos para exportar a Excel
     $data = array();
     $data[] = ['CEDULA', 'DOCENTE','DIDICACION', "TERCER NIVEL","CUARTO NIVEL",'CAMPO DETALADO 4TONIVEL' , 'CARRERA',"ASIGNATURA(S)",'AFINIDAD' ,"CICLO","PARALELO", "HORAS SEMANALES","TOTAL HORAS SEMANALES","H. METODOLÓGICAS","H. INVEST. SEMANA","H. VINCU. SEMANA","h. GEST. SEMANA","TOTAL HORAS SEMANA" ]; // Encabezados
