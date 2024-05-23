@@ -128,12 +128,13 @@ echo form_input('idtiempodedicacion',$options[$distributivodocente['idtiempodedi
 	<table class="table table-striped table-bordered table-hover" id="mydatac">
 	 <thead>
 	 <tr>
-	 <th>iddistdocen</th>
+	 <th>iddido</th>
 	 <th>idasig</th>
 	 <th>nivel</th>
 	 <th>Asignatura</th>
 	 <th>Paralelo</th>
-	 <th>horas</th>
+	 <th>h.sema</th>
+	 <th>h.hora</th>
 	 <th>Estado</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
