@@ -69,6 +69,21 @@ for ($row = 1; $row <= $highestRow; $row++) {
         // Si encontramos una celda no vacía y hay un rango de celdas vacías para fusionar
         if ($currentMergeStart !== null && $currentMergeStart < $row - 1) {
             $sheet->mergeCells('A' . $currentMergeStart . ':A' . ($row - 1));
+            $sheet->mergeCells('B' . $currentMergeStart . ':B' . ($row - 1));
+            $sheet->mergeCells('C' . $currentMergeStart . ':C' . ($row - 1));
+            $sheet->mergeCells('D' . $currentMergeStart . ':D' . ($row - 1));
+            $sheet->mergeCells('E' . $currentMergeStart . ':E' . ($row - 1));
+            $sheet->mergeCells('F' . $currentMergeStart . ':F' . ($row - 1));
+        
+            $sheet->mergeCells('M' . $currentMergeStart . ':M' . ($row - 1));
+            $sheet->mergeCells('N' . $currentMergeStart . ':N' . ($row - 1));
+            $sheet->mergeCells('O' . $currentMergeStart . ':O' . ($row - 1));
+            $sheet->mergeCells('P' . $currentMergeStart . ':P' . ($row - 1));
+            $sheet->mergeCells('Q' . $currentMergeStart . ':Q' . ($row - 1));
+            $sheet->mergeCells('R' . $currentMergeStart . ':R' . ($row - 1));
+ 
+
+
         }
         // Reiniciar el inicio del rango de celdas vacías
         $currentMergeStart = null;
