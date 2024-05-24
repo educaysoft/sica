@@ -90,7 +90,7 @@ for ($row = 1; $row <= $highestRow; $row++) {
     } else {
         // Si encontramos una celda vacía y no se ha iniciado un rango de celdas vacías
         if ($currentMergeStart === null) {
-            $currentMergeStart = $row;
+            $currentMergeStart = $row-1;
         }
     }
 }
