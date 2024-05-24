@@ -58,7 +58,7 @@ class Export_model extends CI_Model {
 
 
 
-/ Fusionar celdas vacías debajo de una celda no vacía en la columna A
+// Fusionar celdas vacías debajo de una celda no vacía en la columna A
 $highestRow = $sheet->getHighestRow();
 $currentMergeStart = null;
 
