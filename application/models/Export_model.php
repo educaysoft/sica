@@ -98,6 +98,19 @@ for ($row = 1; $row <= $highestRow; $row++) {
 // Verificar si hay un rango de celdas vacías al final del documento
 if ($currentMergeStart !== null && $currentMergeStart < $highestRow) {
     $sheet->mergeCells('A' . $currentMergeStart . ':A' . $highestRow);
+         $sheet->mergeCells('B' . $currentMergeStart . ':B' . $highestRow );
+            $sheet->mergeCells('C' . $currentMergeStart . ':C' . $highestRow );
+            $sheet->mergeCells('D' . $currentMergeStart . ':D' . $highestRow );
+            $sheet->mergeCells('E' . $currentMergeStart . ':E' . $highestRow );
+            $sheet->mergeCells('F' . $currentMergeStart . ':F' . $highestRow );
+        
+            $sheet->mergeCells('M' . $currentMergeStart . ':M' . $highestRow );
+            $sheet->mergeCells('N' . $currentMergeStart . ':N' . $highestRow );
+            $sheet->mergeCells('O' . $currentMergeStart . ':O' . $highestRow );
+            $sheet->mergeCells('P' . $currentMergeStart . ':P' . $highestRow );
+            $sheet->mergeCells('Q' . $currentMergeStart . ':Q' . $highestRow );
+            $sheet->mergeCells('R' . $currentMergeStart . ':R' . $highestRow );
+
 }
 
 
