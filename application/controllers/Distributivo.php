@@ -456,11 +456,23 @@ $this->load->model('export_model');
 // Preparar los datos para exportar a Excel
     $data = array();
     $data[] = ['CEDULA', 'DOCENTE','DIDICACION', "TERCER NIVEL","CUARTO NIVEL",'CAMPO DETALADO 4TONIVEL' , 'CARRERA',"ASIGNATURA(S)",'AFINIDAD' ,"CICLO","PARALELO", "HORAS SEMANALES","TOTAL HORAS SEMANALES","H. METODOLÓGICAS","H. INVEST. SEMANA","H. VINCU. SEMANA","h. GEST. SEMANA","TOTAL HORAS SEMANA" ]; // Encabezados
-
+    $inicio=1;
     foreach ($asignaturadocentes as $docente) {
+        if($inicio==1)
+        {
+            $cedula=$docente->cedula;
+            $inicio=0;
+
+
+        }
+
         $totalhoras=$docente->horasmetodologicas+$docente->horasinvestigacion+$docente->horasvinculacion+$docente->horasgestion;
         $horassemanales=round(($docente->hpdo+$docente->hpra)/16,2);
-        $data[] = [$docente->cedula, $docente->eldocente,$docente->tiempodedicacion,$docente->pregrado,$docente->maestria,$docente->campodetallado, $docente->area,$docente->laasignatura,$docente->afinidad,$docente->numeronivelacademico,$docente->paralelo,$horassemanales,$docente->horasclases,$docente->horasmetodologicas-$docente->horasclases,$docente->horasinvestigacion,$docente->horasvinculacion,$docente->horasgestion,$totalhoras];
+        if($cedula==$docente->cedula){
+            $data[] = [$docente->cedula, $docente->eldocente,$docente->tiempodedicacion,$docente->pregrado,$docente->maestria,$docente->campodetallado, $docente->area,$docente->laasignatura,$docente->afinidad,$docente->numeronivelacademico,$docente->paralelo,$horassemanales,$docente->horasclases,$docente->horasmetodologicas-$docente->horasclases,$docente->horasinvestigacion,$docente->horasvinculacion,$docente->horasgestion,$totalhoras];
+        }else{
+            $data[] = ["", $docente->eldocente,$docente->tiempodedicacion,$docente->pregrado,$docente->maestria,$docente->campodetallado, $docente->area,$docente->laasignatura,$docente->afinidad,$docente->numeronivelacademico,$docente->paralelo,$horassemanales,$docente->horasclases,$docente->horasmetodologicas-$docente->horasclases,$docente->horasinvestigacion,$docente->horasvinculacion,$docente->horasgestion,$totalhoras];
+        }
     }
 
 
