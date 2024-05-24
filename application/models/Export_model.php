@@ -60,43 +60,6 @@ class Export_model extends CI_Model {
 
 
 
-// Fusionar celdas vacías debajo de una celda no vacía en la columna A
-$highestRow = $sheet->getHighestRow();
-$currentMergeStart = null;
-
-for ($row = 1; $row <= $highestRow; $row++) {
-    $cellValue = $sheet->getCell('A' . $row)->getValue();
-
-    if (!empty($cellValue)) {
-        // Si encontramos una celda no vacía y hay un rango de celdas vacías para fusionar
-        if ($currentMergeStart !== null && $currentMergeStart < $row - 1) {
-            $sheet->mergeCells('A' . $currentMergeStart . ':A' . ($row - 1));
-        }
-        // Reiniciar el inicio del rango de celdas vacías
-        $currentMergeStart = null;
-    } else {
-        // Si encontramos una celda vacía y no se ha iniciado un rango de celdas vacías
-        if ($currentMergeStart === null) {
-            $currentMergeStart = $row;
-        }
-    }
-}
-
-// Verificar si hay un rango de celdas vacías al final del documento
-if ($currentMergeStart !== null && $currentMergeStart < $highestRow) {
-    $sheet->mergeCells('A' . $currentMergeStart . ':A' . $highestRow);
-}
-
-
-
-
-
-
-
-
-
-
-
 
 
 
