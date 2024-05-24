@@ -29,11 +29,11 @@ class Export_model extends CI_Model {
      $sheet->getStyle('E')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
     $sheet->getColumnDimension('F')->setWidth(40); // Ancho de la columna C
      $sheet->getStyle('F')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
-    $sheet->getColumnDimension('G')->setWidth(40); // Ancho de la columna C
+    $sheet->getColumnDimension('G')->setWidth(10); // Ancho de la columna C
      $sheet->getStyle('G')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
-    $sheet->getColumnDimension('H')->setWidth(10); // Ancho de la columna C
+    $sheet->getColumnDimension('H')->setWidth(40); // Ancho de la columna C
      $sheet->getStyle('H')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
-    $sheet->getColumnDimension('I')->setWidth(40); // Ancho de la columna C
+    $sheet->getColumnDimension('I')->setWidth(10); // Ancho de la columna C
      $sheet->getStyle('I')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
     $sheet->getColumnDimension('J')->setWidth(10); // Ancho de la columna C
      $sheet->getStyle('J')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
@@ -58,7 +58,32 @@ class Export_model extends CI_Model {
 
 
 
+/ Fusionar celdas vacías debajo de una celda no vacía en la columna A
+$highestRow = $sheet->getHighestRow();
+$currentMergeStart = null;
 
+for ($row = 1; $row <= $highestRow; $row++) {
+    $cellValue = $sheet->getCell('A' . $row)->getValue();
+
+    if (!empty($cellValue)) {
+        // Si encontramos una celda no vacía y hay un rango de celdas vacías para fusionar
+        if ($currentMergeStart !== null && $currentMergeStart < $row - 1) {
+            $sheet->mergeCells('A' . $currentMergeStart . ':A' . ($row - 1));
+        }
+        // Reiniciar el inicio del rango de celdas vacías
+        $currentMergeStart = null;
+    } else {
+        // Si encontramos una celda vacía y no se ha iniciado un rango de celdas vacías
+        if ($currentMergeStart === null) {
+            $currentMergeStart = $row;
+        }
+    }
+}
+
+// Verificar si hay un rango de celdas vacías al final del documento
+if ($currentMergeStart !== null && $currentMergeStart < $highestRow) {
+    $sheet->mergeCells('A' . $currentMergeStart . ':A' . $highestRow);
+}
 
 
 
