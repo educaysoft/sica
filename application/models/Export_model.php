@@ -59,6 +59,15 @@ $styleArray2 = [
     ],
 ];
 
+$styleArray3 = [
+     'fill' => [
+        'fillType' => Fill::FILL_SOLID,
+        'startColor' => [
+            'argb' => 'FFD3D3D3', // Color de fondo negro
+        ],
+    ],
+];
+
 
 
 
@@ -121,7 +130,7 @@ $sheet->getStyle('A1:T1')->applyFromArray($styleArray);
 // Fusionar celdas vacías debajo de una celda no vacía en la columna A
 $highestRow = $sheet->getHighestRow();
 $currentMergeStart = null;
-
+$colorear=1;
 for ($row = 1; $row <= $highestRow; $row++) {
     $cellValue = $sheet->getCell('A' . $row)->getValue();
 
@@ -157,7 +166,13 @@ for ($row = 1; $row <= $highestRow; $row++) {
             $sheet->getStyle('S' . $currentMergeStart . ':S' . ($row - 1))->applyFromArray($styleArray2);
             $sheet->mergeCells('T' . $currentMergeStart . ':T' . ($row - 1));
             $sheet->getStyle('T' . $currentMergeStart . ':T' . ($row - 1))->applyFromArray($styleArray2);
- 
+            if($colorear==1){
+                $sheet->getStyle('A' . $currentMergeStart . ':T' . ($row - 1))->applyFromArray($styleArray3);
+                $colorear=0;
+            }else{
+                $colorear=1;
+
+            }
 
 
         }
@@ -204,6 +219,19 @@ if ($currentMergeStart !== null && $currentMergeStart < $highestRow) {
             $sheet->getStyle('S' . $currentMergeStart . ':S' . ($highestRow))->applyFromArray($styleArray2);
             $sheet->mergeCells('T' . $currentMergeStart . ':T' . $highestRow );
             $sheet->getStyle('T' . $currentMergeStart . ':T' . ($highestRow))->applyFromArray($styleArray2);
+
+            if($colorear==1){
+                $sheet->getStyle('A' . $currentMergeStart . ':T' . ($highestRow - 1))->applyFromArray($styleArray3);
+                $colorear=0;
+            }else{
+                $colorear=1;
+
+            }
+
+
+
+
+
 
 }
 
