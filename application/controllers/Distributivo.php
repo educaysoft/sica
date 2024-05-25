@@ -466,7 +466,7 @@ $this->load->model('export_model');
             $data[] = [$docente->cedula, $docente->eldocente,$docente->tiempodedicacion,$docente->pregrado,$docente->maestria,$docente->campodetallado, $docente->area,$docente->lamalla,$docente->laasignatura,$docente->afinidad,$docente->numeronivelacademico,$docente->paralelo,$horassemanales,$docente->horasclases,$docente->horasmetodologicas-$docente->horasclases,$docente->horasinvestigacion,$docente->horasvinculacion,$docente->horasgestion,$totalhoras];
             $cedula=$docente->cedula;
         }else{
-            $data[] = ["","","","","","", $docente->area,$docente->laasignatura,$docente->afinidad,$docente->numeronivelacademico,$docente->paralelo,$horassemanales,$docente->lamalla,$docente->horasclases,$docente->horasmetodologicas-$docente->horasclases,$docente->horasinvestigacion,$docente->horasvinculacion,$docente->horasgestion,$totalhoras];
+            $data[] = ["","","","","","", $docente->area,$docente->lamalla,$docente->laasignatura,$docente->afinidad,$docente->numeronivelacademico,$docente->paralelo,$horassemanales,$docente->lamalla,$docente->horasclases,$docente->horasmetodologicas-$docente->horasclases,$docente->horasinvestigacion,$docente->horasvinculacion,$docente->horasgestion,$totalhoras];
         }
     }
 

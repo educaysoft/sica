@@ -44,7 +44,7 @@ $styleArray = [
 ];
 
 // Aplicar el estilo a la primera fila
-$sheet->getStyle('A1:R1')->applyFromArray($styleArray);
+$sheet->getStyle('A1:S1')->applyFromArray($styleArray);
 
 
 
@@ -68,9 +68,9 @@ $sheet->getStyle('A1:R1')->applyFromArray($styleArray);
      $sheet->getStyle('F')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
     $sheet->getColumnDimension('G')->setWidth(10); // Ancho de la columna C
      $sheet->getStyle('G')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
-    $sheet->getColumnDimension('H')->setWidth(40); // Ancho de la columna C
+    $sheet->getColumnDimension('H')->setWidth(10); // Ancho de la columna C
      $sheet->getStyle('H')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
-    $sheet->getColumnDimension('I')->setWidth(10); // Ancho de la columna C
+    $sheet->getColumnDimension('I')->setWidth(40); // Ancho de la columna C
      $sheet->getStyle('I')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
     $sheet->getColumnDimension('J')->setWidth(10); // Ancho de la columna C
      $sheet->getStyle('J')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
@@ -112,12 +112,12 @@ for ($row = 1; $row <= $highestRow; $row++) {
             $sheet->mergeCells('E' . $currentMergeStart . ':E' . ($row - 1));
             $sheet->mergeCells('F' . $currentMergeStart . ':F' . ($row - 1));
         
-            $sheet->mergeCells('M' . $currentMergeStart . ':M' . ($row - 1));
             $sheet->mergeCells('N' . $currentMergeStart . ':N' . ($row - 1));
             $sheet->mergeCells('O' . $currentMergeStart . ':O' . ($row - 1));
             $sheet->mergeCells('P' . $currentMergeStart . ':P' . ($row - 1));
             $sheet->mergeCells('Q' . $currentMergeStart . ':Q' . ($row - 1));
             $sheet->mergeCells('R' . $currentMergeStart . ':R' . ($row - 1));
+            $sheet->mergeCells('S' . $currentMergeStart . ':S' . ($row - 1));
  
 
 
@@ -141,12 +141,12 @@ if ($currentMergeStart !== null && $currentMergeStart < $highestRow) {
             $sheet->mergeCells('E' . $currentMergeStart . ':E' . $highestRow );
             $sheet->mergeCells('F' . $currentMergeStart . ':F' . $highestRow );
         
-            $sheet->mergeCells('M' . $currentMergeStart . ':M' . $highestRow );
             $sheet->mergeCells('N' . $currentMergeStart . ':N' . $highestRow );
             $sheet->mergeCells('O' . $currentMergeStart . ':O' . $highestRow );
             $sheet->mergeCells('P' . $currentMergeStart . ':P' . $highestRow );
             $sheet->mergeCells('Q' . $currentMergeStart . ':Q' . $highestRow );
             $sheet->mergeCells('R' . $currentMergeStart . ':R' . $highestRow );
+            $sheet->mergeCells('S' . $currentMergeStart . ':S' . $highestRow );
 
 }
 
