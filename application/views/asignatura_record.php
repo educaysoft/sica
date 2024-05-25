@@ -161,10 +161,12 @@ if(isset($asignatura))
 	<div class="col-md-10">
 	<?php
  	$options = array();
+ 	$arrurl2 = array();
   	foreach ($horasasignaturas as $row){
 		$options[$row->idhorasasignatura]=$row->descripcion." (".$row->cantidad.")";
+		$arrurl2[$row->idhorasasignatura]= base_url().'horasasignatura/actual/'.$row->idhorasasignatura;
 	}
- echo form_multiselect('horasasignatura[]',$options,(array)set_value('idhorasasignatura', ''), array('style'=>'width:500px')); 
+ echo form_multiselect('horasasignatura[]',$options,(array)set_value('idhorasasignatura', ''), array('style'=>'width:500px','name'=>'idhorasasignatura','id'=> 'idhorasasignatura','onChange'=>'editarhoras()')); 
 
 	?>
 	</div> 
@@ -309,6 +311,21 @@ function mostrarref()
 	console.log(refe[idreferenciasasignatura]);
 	window.location.href = refe[idreferenciasasignatura];
 
+
+}
+
+
+
+function editarhoras()
+{
+
+	var options = document.getElementById('idhorasasginatura').selectedOptions;
+	  var idhorasasignatura = Array.from(options).map(({ value }) => value);
+//	  var idreferenciasasignatura= $('select[name=idreferenciasasignatura]').val();
+//	  var idreferenciasasignatura=2;
+       var refe = JSON.parse('<?= json_encode($arrurl2); ?>');
+	console.log(refe[idhorasasignatura]);
+	window.location.href = refe[idhorasasignatura];
 
 }
 
