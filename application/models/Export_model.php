@@ -118,12 +118,20 @@ for ($row = 1; $row <= $highestRow; $row++) {
             $sheet->mergeCells('A' . $currentMergeStart . ':A' . ($row - 1));
             $sheet->getStyle('A' . $currentMergeStart . ':A' . ($row - 1))->applyFromArray($styleArray1);
             $sheet->mergeCells('B' . $currentMergeStart . ':B' . ($row - 1));
+            $sheet->getStyle('B' . $currentMergeStart . ':B' . ($row - 1))->applyFromArray($styleArray1);
             $sheet->mergeCells('C' . $currentMergeStart . ':C' . ($row - 1));
+            $sheet->getStyle('C' . $currentMergeStart . ':C' . ($row - 1))->applyFromArray($styleArray1);
             $sheet->mergeCells('D' . $currentMergeStart . ':D' . ($row - 1));
+            $sheet->getStyle('D' . $currentMergeStart . ':D' . ($row - 1))->applyFromArray($styleArray1);
             $sheet->mergeCells('E' . $currentMergeStart . ':E' . ($row - 1));
+            $sheet->getStyle('E' . $currentMergeStart . ':E' . ($row - 1))->applyFromArray($styleArray1);
             $sheet->mergeCells('F' . $currentMergeStart . ':F' . ($row - 1));
+            $sheet->getStyle('F' . $currentMergeStart . ':F' . ($row - 1))->applyFromArray($styleArray1);
         
             $sheet->mergeCells('N' . $currentMergeStart . ':N' . ($row - 1));
+
+            $sheet->setCellValue('N' . ($currentMergeStart), '=SUM(M'.$currentMergeStart . ':M' . $row-1 . ')');
+
             $sheet->mergeCells('O' . $currentMergeStart . ':O' . ($row - 1));
             $sheet->mergeCells('P' . $currentMergeStart . ':P' . ($row - 1));
             $sheet->mergeCells('Q' . $currentMergeStart . ':Q' . ($row - 1));
