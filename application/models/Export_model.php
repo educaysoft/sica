@@ -43,6 +43,16 @@ $styleArray = [
     ],
 ];
 
+
+$styleArray1 = [
+   'alignment' => [
+        'vertical' => Alignment::VERTICAL_CENTER,
+    ],
+];
+
+
+
+
 // Aplicar el estilo a la primera fila
 $sheet->getStyle('A1:S1')->applyFromArray($styleArray);
 
@@ -106,6 +116,7 @@ for ($row = 1; $row <= $highestRow; $row++) {
         // Si encontramos una celda no vacía y hay un rango de celdas vacías para fusionar
         if ($currentMergeStart !== null && $currentMergeStart < $row - 1) {
             $sheet->mergeCells('A' . $currentMergeStart . ':A' . ($row - 1));
+            $sheet->getStyle('A' . $currentMergeStart . ':A' . ($row - 1))->applyFromArray($styleArray1);
             $sheet->mergeCells('B' . $currentMergeStart . ':B' . ($row - 1));
             $sheet->mergeCells('C' . $currentMergeStart . ':C' . ($row - 1));
             $sheet->mergeCells('D' . $currentMergeStart . ':D' . ($row - 1));
