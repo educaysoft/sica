@@ -52,6 +52,17 @@ $styleArray1 = [
 
 
 
+$styleArray2 = [
+   'alignment' => [
+        'horizontal' => Alignment::HORIZONTAL_CENTER,
+        'vertical' => Alignment::VERTICAL_CENTER,
+    ],
+];
+
+
+
+
+
 
 // Aplicar el estilo a la primera fila
 $sheet->getStyle('A1:S1')->applyFromArray($styleArray);
@@ -129,14 +140,19 @@ for ($row = 1; $row <= $highestRow; $row++) {
             $sheet->getStyle('F' . $currentMergeStart . ':F' . ($row - 1))->applyFromArray($styleArray1);
         
             $sheet->mergeCells('N' . $currentMergeStart . ':N' . ($row - 1));
-
             $sheet->setCellValue('N' . ($currentMergeStart), '=SUM(M'.$currentMergeStart . ':M' . $row-1 . ')');
+            $sheet->getStyle('N' . $currentMergeStart . ':N' . ($row - 1))->applyFromArray($styleArray1);
 
             $sheet->mergeCells('O' . $currentMergeStart . ':O' . ($row - 1));
+            $sheet->getStyle('O' . $currentMergeStart . ':O' . ($row - 1))->applyFromArray($styleArray1);
             $sheet->mergeCells('P' . $currentMergeStart . ':P' . ($row - 1));
+            $sheet->getStyle('P' . $currentMergeStart . ':P' . ($row - 1))->applyFromArray($styleArray1);
             $sheet->mergeCells('Q' . $currentMergeStart . ':Q' . ($row - 1));
+            $sheet->getStyle('Q' . $currentMergeStart . ':Q' . ($row - 1))->applyFromArray($styleArray1);
             $sheet->mergeCells('R' . $currentMergeStart . ':R' . ($row - 1));
+            $sheet->getStyle('R' . $currentMergeStart . ':R' . ($row - 1))->applyFromArray($styleArray1);
             $sheet->mergeCells('S' . $currentMergeStart . ':S' . ($row - 1));
+            $sheet->getStyle('S' . $currentMergeStart . ':S' . ($row - 1))->applyFromArray($styleArray1);
  
 
 
@@ -153,19 +169,35 @@ for ($row = 1; $row <= $highestRow; $row++) {
 
 // Verificar si hay un rango de celdas vacías al final del documento
 if ($currentMergeStart !== null && $currentMergeStart < $highestRow) {
-    $sheet->mergeCells('A' . $currentMergeStart . ':A' . $highestRow);
-         $sheet->mergeCells('B' . $currentMergeStart . ':B' . $highestRow );
+            $sheet->mergeCells('A' . $currentMergeStart . ':A' . $highestRow);
+            $sheet->getStyle('A' . $currentMergeStart . ':A' . ($highestRow))->applyFromArray($styleArray1);
+            $sheet->mergeCells('B' . $currentMergeStart . ':B' . $highestRow );
+            $sheet->getStyle('B' . $currentMergeStart . ':B' . ($highestRow))->applyFromArray($styleArray1);
             $sheet->mergeCells('C' . $currentMergeStart . ':C' . $highestRow );
+            $sheet->getStyle('C' . $currentMergeStart . ':C' . ($highestRow))->applyFromArray($styleArray1);
             $sheet->mergeCells('D' . $currentMergeStart . ':D' . $highestRow );
+            $sheet->getStyle('D' . $currentMergeStart . ':D' . ($highestRow))->applyFromArray($styleArray1);
             $sheet->mergeCells('E' . $currentMergeStart . ':E' . $highestRow );
+            $sheet->getStyle('E' . $currentMergeStart . ':E' . ($highestRow))->applyFromArray($styleArray1);
             $sheet->mergeCells('F' . $currentMergeStart . ':F' . $highestRow );
+            $sheet->getStyle('F' . $currentMergeStart . ':F' . ($highestRow))->applyFromArray($styleArray1);
         
             $sheet->mergeCells('N' . $currentMergeStart . ':N' . $highestRow );
+            $sheet->setCellValue('N' . ($currentMergeStart), '=SUM(M'.$currentMergeStart . ':M' . $highestRow . ')');
+            $sheet->getStyle('N' . $currentMergeStart . ':N' . ($highestRow))->applyFromArray($styleArray2);
+
+
+
             $sheet->mergeCells('O' . $currentMergeStart . ':O' . $highestRow );
+            $sheet->getStyle('O' . $currentMergeStart . ':O' . ($highestRow))->applyFromArray($styleArray2);
             $sheet->mergeCells('P' . $currentMergeStart . ':P' . $highestRow );
+            $sheet->getStyle('P' . $currentMergeStart . ':P' . ($highestRow))->applyFromArray($styleArray2);
             $sheet->mergeCells('Q' . $currentMergeStart . ':Q' . $highestRow );
+            $sheet->getStyle('Q' . $currentMergeStart . ':Q' . ($highestRow))->applyFromArray($styleArray2);
             $sheet->mergeCells('R' . $currentMergeStart . ':R' . $highestRow );
+            $sheet->getStyle('R' . $currentMergeStart . ':R' . ($highestRow))->applyFromArray($styleArray2);
             $sheet->mergeCells('S' . $currentMergeStart . ':S' . $highestRow );
+            $sheet->getStyle('S' . $currentMergeStart . ':S' . ($highestRow))->applyFromArray($styleArray2);
 
 }
 

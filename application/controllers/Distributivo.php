@@ -455,7 +455,7 @@ $this->load->model('export_model');
   $asignaturadocentes= $this->asignaturadocente_model->asignaturadocentexdistributivo6($iddistributivo,$ordenrpt)->result();
 // Preparar los datos para exportar a Excel
     $data = array();
-    $data[] = ['CEDULA', 'DOCENTE','DIDICACION', "TERCER NIVEL","CUARTO NIVEL",'CAMPO DETALADO 4TONIVEL' , 'CARRERA',"MALLA", "ASIGNATURA(S)",'AFINIDAD' ,"CICLO","PARALELO", "HORAS SEMANALES","TOTAL HORAS SEMANALES","H. METODOLÓGICAS","H. INVEST. SEMANA","H. VINCU. SEMANA","h. GEST. SEMANA","TOTAL HORAS SEMANA" ]; // Encabezados
+    $data[] = ['CEDULA', 'DOCENTE','DIDICACION', "TERCER NIVEL","CUARTO NIVEL",'CAMPO DETALADO 4TONIVEL' , 'CARRERA',"MALLA", "ASIGNATURA(S)",'AFINIDAD' ,"CICLO","PARALELO", "HORAS SEMANALES","TOTAL HORAS SEMANALES","TOTAL HORAS SEMANALES","H. METODOLÓGICAS","H. INVEST. SEMANA","H. VINCU. SEMANA","h. GEST. SEMANA","TOTAL HORAS SEMANA" ]; // Encabezados
     $inicio=1;
      $cedula="";
     foreach ($asignaturadocentes as $docente) {
@@ -463,10 +463,10 @@ $this->load->model('export_model');
         $totalhoras=$docente->horasmetodologicas+$docente->horasinvestigacion+$docente->horasvinculacion+$docente->horasgestion;
         $horassemanales=round(($docente->hpdo+$docente->hpra)/16,2);
         if($cedula != $docente->cedula){
-            $data[] = [$docente->cedula, $docente->eldocente,$docente->tiempodedicacion,$docente->pregrado,$docente->maestria,$docente->campodetallado, $docente->area,$docente->lamalla,$docente->laasignatura,$docente->afinidad,$docente->numeronivelacademico,$docente->paralelo,$horassemanales,$docente->horasclases,$docente->horasmetodologicas-$docente->horasclases,$docente->horasinvestigacion,$docente->horasvinculacion,$docente->horasgestion,$totalhoras];
+            $data[] = [$docente->cedula, $docente->eldocente,$docente->tiempodedicacion,$docente->pregrado,$docente->maestria,$docente->campodetallado, $docente->area,$docente->lamalla,$docente->laasignatura,$docente->afinidad,$docente->numeronivelacademico,$docente->paralelo,$horassemanales,'',$docente->horasclases,$docente->horasmetodologicas-$docente->horasclases,$docente->horasinvestigacion,$docente->horasvinculacion,$docente->horasgestion,$totalhoras];
             $cedula=$docente->cedula;
         }else{
-            $data[] = ["","","","","","", $docente->area,$docente->lamalla,$docente->laasignatura,$docente->afinidad,$docente->numeronivelacademico,$docente->paralelo,$horassemanales,$docente->lamalla,$docente->horasclases,$docente->horasmetodologicas-$docente->horasclases,$docente->horasinvestigacion,$docente->horasvinculacion,$docente->horasgestion,$totalhoras];
+            $data[] = ["","","","","","", $docente->area,$docente->lamalla,$docente->laasignatura,$docente->afinidad,$docente->numeronivelacademico,$docente->paralelo,$horassemanales,'',$docente->horasclases,$docente->horasmetodologicas-$docente->horasclases,$docente->horasinvestigacion,$docente->horasvinculacion,$docente->horasgestion,$totalhoras];
         }
     }
 
