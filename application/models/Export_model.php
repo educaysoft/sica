@@ -16,6 +16,36 @@ class Export_model extends CI_Model {
         // Escribir los datos en la hoja de cálculo
         $sheet->fromArray($data, null, 'A1');
 
+
+
+// Aplicar estilo a la primera fila
+$styleArray = [
+    'font' => [
+        'bold' => true,
+        'color' => ['argb' => Color::COLOR_WHITE],
+    ],
+    'alignment' => [
+        'horizontal' => Alignment::HORIZONTAL_CENTER,
+        'vertical' => Alignment::VERTICAL_CENTER,
+    ],
+    'fill' => [
+        'fillType' => Fill::FILL_SOLID,
+        'startColor' => [
+            'argb' => '00000000', // Color de fondo negro
+        ],
+    ],
+];
+
+// Aplicar el estilo a la primera fila
+$sheet->getStyle('A1:R1')->applyFromArray($styleArray);
+
+
+
+
+
+
+
+
 // Cambiar el ancho de las celdas
     $sheet->getColumnDimension('A')->setWidth(13); // Ancho de la columna A
      $sheet->getStyle('A')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
