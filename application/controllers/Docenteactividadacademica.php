@@ -194,7 +194,7 @@ public function clonar()
         print_r($data['distributivodocente1']); echo "<br><br>";
         $iddistributivodocente0=$data['distributivodocente1']['iddistributivodocente'];
 	 	$data0 = $this->docenteactividadacademica_model->docenteactividadacademicaxdistdoce($iddistributivodocente0);
-
+        die();
 		foreach($data0->result() as $r){
 	 	$array_item=array(
 		 	

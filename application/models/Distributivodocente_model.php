@@ -37,7 +37,6 @@ class Distributivodocente_model extends CI_model {
                       ->from('distributivodocente0')
                       ->where('iddocente', $iddocente)
                       ->order_by('iddistributivodocente', 'DESC')
-                      ->limit(1, 1) // LIMIT 1 OFFSET 1
                       ->get();
 
     // Obtener el resultado
