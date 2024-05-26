@@ -319,7 +319,7 @@ function mostrarref()
 function editarhoras()
 {
 
-	var options = document.getElementById('idhorasasginatura').selectedOptions;
+	var options = document.getElementById('idhorasasignatura').selectedOptions;
 	  var idhorasasignatura = Array.from(options).map(({ value }) => value);
 //	  var idreferenciasasignatura= $('select[name=idreferenciasasignatura]').val();
 //	  var idreferenciasasignatura=2;
