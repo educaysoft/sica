@@ -41,7 +41,7 @@ class Distributivodocente_model extends CI_model {
                       ->get();
 
     // Obtener el resultado
-    $penultimodistributivodocente = $query->row_array();
+    $penultimodistributivodocente = $query;
 
 
 
