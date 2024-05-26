@@ -23,7 +23,7 @@ class Docenteactividadacademica_model extends CI_model {
  	}
 
 
- 	function docenteactividadacademicasxdistdoce( $iddistributivodocente){
+ 	function docenteactividadacademicaxdistdoce( $iddistributivodocente){
  		$docenteactividadacademica = $this->db->query('select * from docenteactividadacademica where iddistributivodocente="'. $iddistributivodocente.'"');
  		return $docenteactividadacademica;
  	}
