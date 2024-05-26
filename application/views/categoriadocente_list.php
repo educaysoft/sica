@@ -28,7 +28,7 @@
 
 <div id="eys-nav-i">
     <ul>
-        <li><?php echo anchor('sexo', 'Home'); ?></li>
+        <li><?php echo anchor('categoriadocente', 'Home'); ?></li>
     </ul>
 </div>
 
@@ -61,13 +61,13 @@
     $(document).ready(function(){
         var mytabla = $('#mydatac').DataTable({
             "ajax": {
-                url: '<?php echo site_url('sexo/sexo_data')?>',
+                url: '<?php echo site_url('categoriadocente/categoriadocente_data')?>',
                 type: 'GET'
             }
         });
 
         $('#show_data').on('click','.item_ver', function(){
-            var id = $(this).data('idsexo');
+            var id = $(this).data('idcategoriadocente');
             var retorno = $(this).data('retorno');
             window.location.href = retorno + '/' + id;
         });

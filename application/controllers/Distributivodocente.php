@@ -12,6 +12,7 @@ class Distributivodocente extends CI_Controller{
   	  $this->load->model('evento_model');
   	  $this->load->model('jornadadocente_model');
   	  $this->load->model('tiempodedicacion_model');
+  	  $this->load->model('categoriadocente_model');
   	  $this->load->model('asignatura_model');
   	  $this->load->model('malla_model');
   	  $this->load->model('silabo_model');
@@ -29,6 +30,7 @@ public function index(){
   	$data['distributivodocente']=$this->distributivodocente_model->elultimo();
   	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
+  	$data['categoriadocentes']= $this->categoriadocente_model->lista_categoriadocentes()->result();
   	$data['distributivo']= $this->distributivo_model->lista_distributivos1(0)->result();
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 			
@@ -57,6 +59,7 @@ public function add()
 		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
+  	$data['categoriadocentes']= $this->categoriadocente_model->lista_categoriadocentes()->result();
 		$data['title']="Nueva Distributivodocente";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('distributivodocente_form',$data);
@@ -73,6 +76,7 @@ public function add()
 			'iddocente' => $this->input->post('iddocente'),
 			'iddistributivo' => $this->input->post('iddistributivo'),
 			'idtiempodedicacion' => $this->input->post('idtiempodedicacion'),
+			'idcategoriadocente' => $this->input->post('idcategoriadocente'),
 	 	);
 	 	$result=$this->distributivodocente_model->save($array_item);
 	 	if($result == false)
@@ -95,6 +99,7 @@ public function add()
 			$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
 			$data['distributivos']= $this->distributivo_model->lista_distributivos1(0)->result();
 			$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
+			$data['categoriadocentes']= $this->categoriadocente_model->lista_categoriadocentes()->result();
 			$data['title'] = "Actualizar Distributivodocente";
 			$this->load->view('template/page_header');		
 			$this->load->view('distributivodocente_edit',$data);
@@ -112,6 +117,7 @@ public function add()
 			'iddocente' => $this->input->post('iddocente'),
 			'iddistributivo' => $this->input->post('iddistributivo'),
 			'idtiempodedicacion' => $this->input->post('idtiempodedicacion'),
+			'idcategoriadocente' => $this->input->post('idcategoriadocente'),
 	 	);
 	 	$this->distributivodocente_model->update($id,$array_item);
 	 	redirect('distributivodocente/actual/'.$id);
@@ -524,6 +530,7 @@ public function actual()
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   	$data['distributivo']= $this->distributivo_model->distributivo1($data['distributivodocente']['iddistributivo'])->result();
   	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
+  	$data['categoriadocentes']= $this->categoriadocente_model->lista_categoriadocentes()->result();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	  if(!empty($data))
 	  {
@@ -554,6 +561,7 @@ public function elprimero()
   	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
 	$data['distributivodocente'] = $this->distributivodocente_model->elprimero();
   	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
+  	$data['categoriadocentes']= $this->categoriadocente_model->lista_categoriadocentes()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 	  if(!empty($data))
 	  {
@@ -575,6 +583,7 @@ public function elultimo()
   	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['distributivo']= $this->distributivo_model->lista_distributivos1(0)->result();
   	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
+  	$data['categoriadocentes']= $this->categoriadocente_model->lista_categoriadocentes()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   if(!empty($data))
   {
@@ -597,6 +606,7 @@ public function siguiente(){
   	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['distributivo']= $this->distributivo_model->lista_distributivos1(0)->result();
   	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
+  	$data['categoriadocentes']= $this->categoriadocente_model->lista_categoriadocentes()->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   
 
@@ -611,6 +621,7 @@ public function anterior(){
 	$data['distributivodocente'] = $this->distributivodocente_model->anterior($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
   	$data['tiempodedicacions']= $this->tiempodedicacion_model->lista_tiempodedicacions()->result();
+  	$data['categoriadocentes']= $this->categoriadocente_model->lista_categoriadocentes()->result();
   	$data['distributivo']= $this->distributivo_model->lista_distributivos1(0)->result();
 		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
   $data['title']="Distributivodocente";

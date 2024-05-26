@@ -97,7 +97,20 @@ echo form_input('idtiempodedicacion',$options[$distributivodocente['idtiempodedi
 	</div> 
 </div>
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"><?php echo anchor('categoriadocente/actual/'.$distributivodocente['idcategoriadocente'], 'Tiempo dedicacion:'); ?>  </label>
+	<div class="col-md-10">
+     	<?php 
+$options= array("NADA");
+foreach ($categoriadocentes as $row){
+	$options[$row->idcategoriadocente]= $row->nombre;
+}
 
+echo form_input('idcategoriadocente',$options[$distributivodocente['idcategoriadocente']],array("id"=>"idcategoriadocente","disabled"=>"disabled",'style'=>'width:500px;')); 
+
+		?>
+	</div> 
+</div>
 
 
 
