@@ -182,7 +182,31 @@ function docenteactividadacademica_data()
 	}
 
 
+public function clonar()
+{
+        $iddistributivodocente=$this->uri->segment(3);
 
+	    $data['distributivodocente'] = $this->distributivodocente_model->distributivodocente($iddistributivodocente)->row_array();
+	    $data['distributivodocente1'] = $this->distributivodocente_model->penultimodistributivodocente($data['distributivodocente']['iddocente'])->row_array();
+
+        $iddistributivodocente0=$data['distributivodocente']['iddistributivodocente'];
+	 	$data0 = $this->docenteactividadacademica_model->docenteactividadacademicaxdistdoce($iddistributivodocente0);
+
+		foreach($data0->result() as $r){
+	 	$array_item=array(
+		 	
+		 	'iddocenteactividadacademica' => $r->iddocenteactividadacademica,
+		 	'numerohoras' => $r->numerohoras,
+		 	'detalle' => $r->detalle,
+			'iddistributivodocente' => $iddistributivodocente,
+			'idactividadacademica' => $r->idactividadacademica,
+	 	);
+
+        print_r($array_item); echo "<br><br>";
+//	 	$this->docenteactividadacademica_model->save($array_item);
+        }
+
+}
 
 
 

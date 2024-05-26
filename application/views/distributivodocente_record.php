@@ -190,8 +190,9 @@ echo form_input('idrelaciondependencia',$options[$distributivodocente['idrelacio
             <b>Distributivos individual</b>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="<?php echo base_url('docenteactividadacademica/add/'.$distributivodocente['iddistributivodocente']) ?>">Sumar actividad</a>
-	    <a class="btn btn-danger" href="<?php echo base_url('docenteactividadacademica/reportepdf/'.$distributivodocente['iddistributivodocente']) ?>">Reporte individual</a>
+             <a class="btn btn-success" href="<?php echo base_url('docenteactividadacademica/add/'.$distributivodocente['iddistributivodocente']) ?>">Sumar actividad</a>
+	         <a class="btn btn-danger" href="<?php echo base_url('docenteactividadacademica/reportepdf/'.$distributivodocente['iddistributivodocente']) ?>">Reporte individual</a>
+	        <a class="btn btn-danger" href="<?php echo base_url('docenteactividadacademica/clonar/'.$distributivodocente['iddistributivodocente']) ?>">Clonar</a>
         </div>
     </div>
 </div>

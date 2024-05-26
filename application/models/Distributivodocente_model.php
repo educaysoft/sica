@@ -25,6 +25,35 @@ class Distributivodocente_model extends CI_model {
 	}
 
 
+ 	function penultimodistributivodocente( $iddocente){
+
+
+ // Asegurarse de que el ID es un número entero para evitar inyección SQL
+    $iddocente = intval($iddocente);
+
+    // Preparar la consulta SQL
+    $sql = "
+        SELECT * FROM distributivodocente0 
+        WHERE iddocente = ? 
+        ORDER BY iddistributivodocente DESC 
+        LIMIT 1 OFFSET 1
+    ";
+
+    // Ejecutar la consulta utilizando consultas preparadas
+    $query = $this->db->prepare($sql);
+    $query->execute([$iddocente]);
+
+    // Obtener el resultado
+    $penultimodistributivodocente = $query->fetch(PDO::FETCH_ASSOC);
+
+    return $penultimodistributivodocente;
+
+
+	}
+
+
+
+
 
  	function distributivodocente_pado( $idperiodoacademico,$iddocente){
  		$distributivodocente = $this->db->query('select * from distributivodocente1 where idperiodoacademico="'. $idperiodoacademico.'" and iddocente="'.$iddocente.'"');
