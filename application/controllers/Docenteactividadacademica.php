@@ -197,7 +197,6 @@ public function clonar()
 		foreach($data0->result() as $r){
 	 	$array_item=array(
 		 	
-		 	'iddocenteactividadacademica' => $r->iddocenteactividadacademica,
 		 	'numerohoras' => $r->numerohoras,
 		 	'detalle' => $r->detalle,
 			'iddistributivodocente' => $iddistributivodocente,

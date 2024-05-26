@@ -32,7 +32,21 @@ class Docenteactividadacademica_model extends CI_model {
 
  	function save($array)
  	{
-		$this->db->insert("docenteactividadacademica", $array);
+
+		$condition1 = "iddistributivodocente =" . "'" . $array['iddistributivodocente'] . "'";
+		$condition2 = "idactividadacademica =" . "'" . $array['idactividadacademica'] . "'";
+		$this->db->select('*');
+		$this->db->from('docenteactividadacademica');
+		$this->db->where($condition1);
+		$this->db->where($condition2);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) { // Crear un silabo para la asignatura docente nuevo
+            $this->db->insert("docenteactividadacademica", $array);
+            return true;
+        }else{
+            return false;
+        }
  	}
 
  	function update($id,$array_item)
