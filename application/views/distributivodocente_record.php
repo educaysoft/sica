@@ -98,7 +98,7 @@ echo form_input('idtiempodedicacion',$options[$distributivodocente['idtiempodedi
 </div>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"><?php echo anchor('categoriadocente/actual/'.$distributivodocente['idcategoriadocente'], 'Tiempo dedicacion:'); ?>  </label>
+    <label class="col-md-2 col-form-label"><?php echo anchor('categoriadocente/actual/'.$distributivodocente['idcategoriadocente'], 'Categoría del docente:'); ?>  </label>
 	<div class="col-md-10">
      	<?php 
 $options= array("NADA");
@@ -113,7 +113,20 @@ echo form_input('idcategoriadocente',$options[$distributivodocente['idcategoriad
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"><?php echo anchor('relaciondependencia/actual/'.$distributivodocente['idrelaciondependencia'], 'Relación de dependencia:'); ?>  </label>
+	<div class="col-md-10">
+     	<?php 
+$options= array("NADA");
+foreach ($relaciondependencias as $row){
+	$options[$row->idrelaciondependencia]= $row->nombre;
+}
 
+echo form_input('idrelaciondependencia',$options[$distributivodocente['idrelaciondependencia']],array("id"=>"idrelaciondependencia","disabled"=>"disabled",'style'=>'width:500px;')); 
+
+		?>
+	</div> 
+</div>
 
 
 
