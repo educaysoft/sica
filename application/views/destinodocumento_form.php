@@ -1,10 +1,12 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
 <?php echo form_open("destinodocumento/save") ?>
-<?php echo form_hidden("iddestinodocumento")  ?>
 <table>
 
-
+<tr>
+<td> Id </td>
+<td><?php echo form_input("iddestinodocumento","", array("value"=>0, "placeholder"=>"este valor es 0 "))  ?></td>
+</tr>
 
 
 

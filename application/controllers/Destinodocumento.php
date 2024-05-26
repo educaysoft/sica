@@ -67,13 +67,12 @@ public function edit()
  	}
 
 
- 	public function delete()
- 	{
- 		$data=$this->destinodocumento_model->delete($this->uri->segment(3));
- 		echo json_encode($data);
-	 	redirect('destinodocumento/elprimero');
-	//	$db['default']['db_debug']=FALSE
- 	}
+// 	public function delete()
+ //	{
+ //		$data=$this->destinodocumento_model->delete($this->uri->segment(3));
+ //		echo json_encode($data);
+//	 	redirect('destinodocumento/elprimero');
+ //	}
 
 
 public function listar()
