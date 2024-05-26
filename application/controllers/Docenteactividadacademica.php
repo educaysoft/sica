@@ -189,7 +189,7 @@ public function clonar()
 	    $data['distributivodocente'] = $this->distributivodocente_model->distributivodocente($iddistributivodocente)->row_array();
 
         print_r($data['distributivodocente']); echo "<br><br>";
-	    $data['distributivodocente1'] = $this->distributivodocente_model->penultimodistributivodocente($data['distributivodocente']['iddocente'])->row_array();
+	    $data['distributivodocente1'] = $this->distributivodocente_model->penultimodistributivodocente($data['distributivodocente']['iddocente'],$iddistributivodocente)->row_array();
 
         print_r($data['distributivodocente1']); echo "<br><br>";
         $iddistributivodocente0=$data['distributivodocente1']['iddistributivodocente'];

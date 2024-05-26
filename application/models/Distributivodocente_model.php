@@ -25,7 +25,7 @@ class Distributivodocente_model extends CI_model {
 	}
 
 
- 	function penultimodistributivodocente( $iddocente){
+ 	function penultimodistributivodocente( $iddocente,$iddistributivodocente){
 
 
  // Asegurarse de que el ID es un número entero para evitar inyección SQL
@@ -36,7 +36,9 @@ class Distributivodocente_model extends CI_model {
     $query = $this->db->select('*')
                       ->from('distributivodocente0')
                       ->where('iddocente', $iddocente)
+                      ->where('iddistributivodocente<', $iddistributivodocente)
                       ->order_by('iddistributivodocente', 'DESC')
+                      ->limit(1, 0) // LIMIT 1 OFFSET 1
                       ->get();
 
     // Obtener el resultado
