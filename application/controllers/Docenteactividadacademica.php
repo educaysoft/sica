@@ -204,8 +204,7 @@ public function clonar()
 			'idactividadacademica' => $r->idactividadacademica,
 	 	);
 
-        print_r($array_item); echo "<br><br>";
-//	 	$this->docenteactividadacademica_model->save($array_item);
+	 	$this->docenteactividadacademica_model->save($array_item);
         }
 
 }
