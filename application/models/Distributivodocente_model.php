@@ -31,20 +31,19 @@ class Distributivodocente_model extends CI_model {
  // Asegurarse de que el ID es un número entero para evitar inyección SQL
     $iddocente = intval($iddocente);
 
-    // Preparar la consulta SQL
-    $sql = "
-        SELECT * FROM distributivodocente0 
-        WHERE iddocente = ? 
-        ORDER BY iddistributivodocente DESC 
-        LIMIT 1 OFFSET 1
-    ";
 
-    // Ejecutar la consulta utilizando consultas preparadas
-    $query = $this->db->prepare($sql);
-    $query->execute([$iddocente]);
+  // Construir la consulta utilizando el sistema de base de datos de CodeIgniter
+    $query = $this->db->select('*')
+                      ->from('distributivodocente0')
+                      ->where('iddocente', $iddocente)
+                      ->order_by('iddistributivodocente', 'DESC')
+                      ->limit(1, 1) // LIMIT 1 OFFSET 1
+                      ->get();
 
     // Obtener el resultado
-    $penultimodistributivodocente = $query->fetch(PDO::FETCH_ASSOC);
+    $penultimodistributivodocente = $query->row_array();
+
+
 
     return $penultimodistributivodocente;
 
