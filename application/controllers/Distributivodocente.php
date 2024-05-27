@@ -539,6 +539,8 @@ public function actual()
   	$data['categoriadocentes']= $this->categoriadocente_model->lista_categoriadocentes()->result();
   	$data['relaciondependencias']= $this->relaciondependencia_model->lista_relaciondependencias()->result();
 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
+    print_r($data['distributivodocente']);
+    die();
 	  if(!empty($data))
 	  {
   		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();

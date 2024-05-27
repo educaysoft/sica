@@ -88,17 +88,17 @@ $sheet->getStyle('A1:T1')->applyFromArray($styleArray);
      $sheet->getStyle('A')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
     $sheet->getColumnDimension('B')->setWidth(40); // Ancho de la columna B
      $sheet->getStyle('B')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
-    $sheet->getColumnDimension('C')->setWidth(20); // Ancho de la columna B
+    $sheet->getColumnDimension('C')->setWidth(10); // Ancho de la columna B
      $sheet->getStyle('C')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
-    $sheet->getColumnDimension('D')->setWidth(40); // Ancho de la columna C
+    $sheet->getColumnDimension('D')->setWidth(10); // Ancho de la columna C
      $sheet->getStyle('D')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
-    $sheet->getColumnDimension('E')->setWidth(40); // Ancho de la columna C
+    $sheet->getColumnDimension('E')->setWidth(10); // Ancho de la columna C
      $sheet->getStyle('E')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
-    $sheet->getColumnDimension('F')->setWidth(40); // Ancho de la columna C
+    $sheet->getColumnDimension('F')->setWidth(15); // Ancho de la columna C
      $sheet->getStyle('F')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
-    $sheet->getColumnDimension('G')->setWidth(10); // Ancho de la columna C
+    $sheet->getColumnDimension('G')->setWidth(40); // Ancho de la columna C
      $sheet->getStyle('G')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
-    $sheet->getColumnDimension('H')->setWidth(10); // Ancho de la columna C
+    $sheet->getColumnDimension('H')->setWidth(40); // Ancho de la columna C
      $sheet->getStyle('H')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
     $sheet->getColumnDimension('I')->setWidth(40); // Ancho de la columna C
      $sheet->getStyle('I')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
