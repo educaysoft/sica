@@ -201,6 +201,7 @@ for ($row = 1; $row <= $highestRow; $row++) {
                 }
                 $colorear=0;
             }else{
+                $cellValue = $sheet->getCell('E' . $currentMergeStart)->getValue();
                 if($cellValue=='Ocacional'){
                 $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray4);
                 }
@@ -272,6 +273,7 @@ if ($currentMergeStart !== null && $currentMergeStart < $highestRow) {
             $sheet->getStyle('X' . $currentMergeStart . ':X' . ($highestRow))->applyFromArray($styleArray2);
 
             if($colorear==1){
+                $cellValue = $sheet->getCell('E' . $currentMergeStart)->getValue();
                if($cellValue=='Ocacional'){
                 $sheet->getStyle('A' . $currentMergeStart . ':X' . ($highestRow - 1))->applyFromArray($styleArray4);
                 }else{
@@ -279,6 +281,7 @@ if ($currentMergeStart !== null && $currentMergeStart < $highestRow) {
                 }
                 $colorear=0;
             }else{
+                $cellValue = $sheet->getCell('E' . $currentMergeStart)->getValue();
                 if($cellValue=='Ocacional'){
                 $sheet->getStyle('A' . $currentMergeStart . ':X' . ($highestRow - 1))->applyFromArray($styleArray4);
                 }
