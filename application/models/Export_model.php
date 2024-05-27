@@ -63,7 +63,16 @@ $styleArray3 = [
      'fill' => [
         'fillType' => Fill::FILL_SOLID,
         'startColor' => [
-            'argb' => 'FFD3D3D3', // Color de fondo negro
+            'argb' => 'FFD3D3D3', // Color de fondo gris
+        ],
+    ],
+];
+
+$styleArray4 = [
+     'fill' => [
+        'fillType' => Fill::FILL_SOLID,
+        'startColor' => [
+            'argb' => 'FFFFC0CB', // Color de fondo rosado
         ],
     ],
 ];
@@ -74,11 +83,7 @@ $styleArray3 = [
 
 
 // Aplicar el estilo a la primera fila
-$sheet->getStyle('A1:T1')->applyFromArray($styleArray);
-
-
-
-
+$sheet->getStyle('A1:X1')->applyFromArray($styleArray);
 
 
 
@@ -131,6 +136,8 @@ $sheet->getStyle('A1:T1')->applyFromArray($styleArray);
      $sheet->getStyle('V')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
     $sheet->getColumnDimension('W')->setWidth(10); // Ancho de la columna C
      $sheet->getStyle('W')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('X')->setWidth(10); // Ancho de la columna C
+    $sheet->getStyle('X')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
 
 
 
@@ -164,15 +171,15 @@ for ($row = 1; $row <= $highestRow; $row++) {
             $sheet->getStyle('H' . $currentMergeStart . ':H' . ($row - 1))->applyFromArray($styleArray1);
             $sheet->mergeCells('I' . $currentMergeStart . ':I' . ($row - 1));
             $sheet->getStyle('I' . $currentMergeStart . ':I' . ($row - 1))->applyFromArray($styleArray1);
+            $sheet->mergeCells('J' . $currentMergeStart . ':J' . ($row - 1));
+            $sheet->getStyle('J' . $currentMergeStart . ':J' . ($row - 1))->applyFromArray($styleArray1);
 
 
-
-            $sheet->mergeCells('Q' . $currentMergeStart . ':Q' . ($row - 1));
-            $sheet->setCellValue('Q' . ($currentMergeStart), '=SUM(P'.$currentMergeStart . ':P' . $row-1 . ')');
-            $sheet->getStyle('Q' . $currentMergeStart . ':Q' . ($row - 1))->applyFromArray($styleArray2);
 
             $sheet->mergeCells('R' . $currentMergeStart . ':R' . ($row - 1));
+            $sheet->setCellValue('R' . ($currentMergeStart), '=SUM(Q'.$currentMergeStart . ':Q' . $row-1 . ')');
             $sheet->getStyle('R' . $currentMergeStart . ':R' . ($row - 1))->applyFromArray($styleArray2);
+
             $sheet->mergeCells('S' . $currentMergeStart . ':S' . ($row - 1));
             $sheet->getStyle('S' . $currentMergeStart . ':S' . ($row - 1))->applyFromArray($styleArray2);
             $sheet->mergeCells('T' . $currentMergeStart . ':T' . ($row - 1));
@@ -183,8 +190,15 @@ for ($row = 1; $row <= $highestRow; $row++) {
             $sheet->getStyle('V' . $currentMergeStart . ':V' . ($row - 1))->applyFromArray($styleArray2);
             $sheet->mergeCells('W' . $currentMergeStart . ':W' . ($row - 1));
             $sheet->getStyle('W' . $currentMergeStart . ':W' . ($row - 1))->applyFromArray($styleArray2);
+            $sheet->mergeCells('X' . $currentMergeStart . ':X' . ($row - 1));
+            $sheet->getStyle('X' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray2);
             if($colorear==1){
-                $sheet->getStyle('A' . $currentMergeStart . ':W' . ($row - 1))->applyFromArray($styleArray3);
+                $cellValue = $sheet->getCell('E' . $currentMergeStart)->getValue();
+                if($cellValue=='Ocacional'){
+                $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray4);
+                }else{
+                $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray3);
+                }
                 $colorear=0;
             }else{
                 $colorear=1;
@@ -225,19 +239,19 @@ if ($currentMergeStart !== null && $currentMergeStart < $highestRow) {
             $sheet->getStyle('H' . $currentMergeStart . ':H' . ($highestRow - 1))->applyFromArray($styleArray1);
             $sheet->mergeCells('I' . $currentMergeStart . ':I' . ($highestRow - 1));
             $sheet->getStyle('I' . $currentMergeStart . ':I' . ($highestRow - 1))->applyFromArray($styleArray1);
+            $sheet->mergeCells('J' . $currentMergeStart . ':J' . ($highestRow - 1));
+            $sheet->getStyle('J' . $currentMergeStart . ':J' . ($highestRow - 1))->applyFromArray($styleArray1);
 
 
-
-
-
-            $sheet->mergeCells('Q' . $currentMergeStart . ':Q' . $highestRow );
-            $sheet->setCellValue('Q' . ($currentMergeStart), '=SUM(P'.$currentMergeStart . ':P' . $highestRow . ')');
-            $sheet->getStyle('Q' . $currentMergeStart . ':Q' . ($highestRow))->applyFromArray($styleArray2);
 
 
 
             $sheet->mergeCells('R' . $currentMergeStart . ':R' . $highestRow );
+            $sheet->setCellValue('R' . ($currentMergeStart), '=SUM(Q'.$currentMergeStart . ':Q' . $highestRow . ')');
             $sheet->getStyle('R' . $currentMergeStart . ':R' . ($highestRow))->applyFromArray($styleArray2);
+
+
+
             $sheet->mergeCells('S' . $currentMergeStart . ':S' . $highestRow );
             $sheet->getStyle('S' . $currentMergeStart . ':S' . ($highestRow))->applyFromArray($styleArray2);
             $sheet->mergeCells('T' . $currentMergeStart . ':T' . $highestRow );
@@ -248,9 +262,11 @@ if ($currentMergeStart !== null && $currentMergeStart < $highestRow) {
             $sheet->getStyle('V' . $currentMergeStart . ':V' . ($highestRow))->applyFromArray($styleArray2);
             $sheet->mergeCells('W' . $currentMergeStart . ':W' . $highestRow );
             $sheet->getStyle('W' . $currentMergeStart . ':W' . ($highestRow))->applyFromArray($styleArray2);
+            $sheet->mergeCells('X' . $currentMergeStart . ':X' . $highestRow );
+            $sheet->getStyle('X' . $currentMergeStart . ':X' . ($highestRow))->applyFromArray($styleArray2);
 
             if($colorear==1){
-                $sheet->getStyle('A' . $currentMergeStart . ':W' . ($highestRow - 1))->applyFromArray($styleArray3);
+                $sheet->getStyle('A' . $currentMergeStart . ':X' . ($highestRow - 1))->applyFromArray($styleArray3);
                 $colorear=0;
             }else{
                 $colorear=1;
