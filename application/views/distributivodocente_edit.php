@@ -63,6 +63,17 @@ foreach ($categoriadocentes as $row){
 </tr>
 
 
+<tr>
+<td> Relación dependencia:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($relaciondependencias as $row){
+	$options[$row->idrelaciondependencia]= $row->nombre;
+}
+
+ echo form_dropdown("idrelaciondependencia",$options, $distributivodocente['idrelaciondependencia']);  ?></td>
+</tr>
+
 
  
  <tr>
