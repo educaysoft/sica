@@ -190,14 +190,6 @@ for ($row = 1; $row <= $highestRow; $row++) {
             $sheet->getStyle('X' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray2);
             if($colorear==1){
                 $cellValue = $sheet->getCell('E' . $currentMergeStart)->getValue();
-                $cellValue2 = $sheet->getCell('B' . $currentMergeStart)->getValue();
-                echo $cellValue2."<br>";
-                if($cellValue2=="'0800830606"){
-                    echo $currentMergeStart ;
-                    echo "--"; 
-                    echo $row; 
-                    echo "..<br><br>"; 
-                }
                 if($cellValue=='Ocacional'){
                     $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray4);
                 }else{
@@ -206,15 +198,6 @@ for ($row = 1; $row <= $highestRow; $row++) {
                 $colorear=0;
             }else{
                 $cellValue = $sheet->getCell('E' . $currentMergeStart)->getValue();
-                $cellValue2 = $sheet->getCell('B' . $currentMergeStart)->getValue();
-                echo $cellValue2."<br>";
-                if($cellValue2=="'0800830606"){
-                    echo $currentMergeStart ;
-                    echo "--"; 
-                    echo $row; 
-                    echo "..<br><br>"; 
-                }
-
                 if($cellValue=='Ocacional'){
 
                     $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray4);
@@ -229,6 +212,30 @@ for ($row = 1; $row <= $highestRow; $row++) {
         // Si encontramos una celda vacía y no se ha iniciado un rango de celdas vacías
         if ($currentMergeStart === null) {
             $currentMergeStart = $row-1;
+        }else{
+
+            if($colorear==1){
+                $cellValue = $sheet->getCell('E' . $currentMergeStart)->getValue();
+                if($cellValue=='Ocacional'){
+                    $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray4);
+                }else{
+                    $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray3);
+                }
+                $colorear=0;
+            }else{
+                $cellValue = $sheet->getCell('E' . $currentMergeStart)->getValue();
+                if($cellValue=='Ocacional'){
+
+                    $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray4);
+                }
+                $colorear=1;
+            }
+
+
+
+
+
+
         }
     }
 }
