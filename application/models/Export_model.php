@@ -209,16 +209,33 @@ for ($row = 1; $row <= $highestRow; $row++) {
         // Reiniciar el inicio del rango de celdas vacías
         $currentMergeStart = null;
     } else {
+
+
+
         // Si encontramos una celda vacía y no se ha iniciado un rango de celdas vacías
         if ($currentMergeStart === null) {
             $currentMergeStart = $row-1;
+            if($row-2 >1) {
+                $cellValue = $sheet->getCell('A' . $row-2)->getValue();
+                if (!empty($cellValue)) {
+                    if($colorear==1){
+                        $cellValue = $sheet->getCell('E' . $row-2)->getValue();
+                        if($cellValue=='Ocacional'){
+                            $sheet->getStyle('A' . $row-2 . ':X' . ($row - 2))->applyFromArray($styleArray4);
+                        }else{
+                            $sheet->getStyle('A' . $row-2 . ':X' . ($row - 2))->applyFromArray($styleArray3);
+                        }
+                        $colorear=0;
+                    }else{
+                        $cellValue = $sheet->getCell('E' . $row-2)->getValue();
+                        if($cellValue=='Ocacional'){
 
-                $cellValue = $sheet->getCell('E' . $currentMergeStart)->getValue();
-                if($cellValue=='Ocacional'){
-
-                    $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray4);
+                            $sheet->getStyle('A' . $row-2 . ':X' . ($row - 2))->applyFromArray($styleArray4);
+                        }
+                        $colorear=1;
+                    }
                 }
- 
+        }
 
 
 
