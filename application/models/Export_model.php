@@ -301,7 +301,7 @@ if ($currentMergeStart !== null && $currentMergeStart < $highestRow) {
 
 
 
-
+die();
 
 
 
