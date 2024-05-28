@@ -302,7 +302,6 @@ if ($currentMergeStart !== null && $currentMergeStart < $highestRow) {
 }
 
 
-    die();
 
 
 // Enviar el archivo al navegador para descarga
