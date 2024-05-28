@@ -147,7 +147,6 @@ $currentMergeStart = null;
 $colorear=1;
 for ($row = 1; $row <= $highestRow; $row++) {
     $cellValue = $sheet->getCell('A' . $row)->getValue();
-
     if (!empty($cellValue)) {
         // Si encontramos una celda no vacía y hay un rango de celdas vacías para fusionar
         if ($currentMergeStart !== null && $currentMergeStart < $row - 1) {
@@ -164,7 +163,6 @@ for ($row = 1; $row <= $highestRow; $row++) {
             $sheet->mergeCells('F' . $currentMergeStart . ':F' . ($row - 1));
             $sheet->getStyle('F' . $currentMergeStart . ':F' . ($row - 1))->applyFromArray($styleArray1);
 
-
             $sheet->mergeCells('G' . $currentMergeStart . ':G' . ($row - 1));
             $sheet->getStyle('G' . $currentMergeStart . ':G' . ($row - 1))->applyFromArray($styleArray1);
             $sheet->mergeCells('H' . $currentMergeStart . ':H' . ($row - 1));
@@ -173,8 +171,6 @@ for ($row = 1; $row <= $highestRow; $row++) {
             $sheet->getStyle('I' . $currentMergeStart . ':I' . ($row - 1))->applyFromArray($styleArray1);
             $sheet->mergeCells('J' . $currentMergeStart . ':J' . ($row - 1));
             $sheet->getStyle('J' . $currentMergeStart . ':J' . ($row - 1))->applyFromArray($styleArray1);
-
-
 
             $sheet->mergeCells('R' . $currentMergeStart . ':R' . ($row - 1));
             $sheet->setCellValue('R' . ($currentMergeStart), '=SUM(Q'.$currentMergeStart . ':Q' . $row-1 . ')');
@@ -195,9 +191,9 @@ for ($row = 1; $row <= $highestRow; $row++) {
             if($colorear==1){
                 $cellValue = $sheet->getCell('E' . $currentMergeStart)->getValue();
                 if($cellValue=='Ocacional'){
-                $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray4);
+                    $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray4);
                 }else{
-                $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray3);
+                    $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray3);
                 }
                 $colorear=0;
             }else{
@@ -205,16 +201,11 @@ for ($row = 1; $row <= $highestRow; $row++) {
                 if($cellValue=='Ocacional'){
                     echo $currentMergeStart ;
                     echo $row; 
-                    echo "<br><br>"; 
-                $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray4);
+                    echo "..<br><br>"; 
+                    $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray4);
                 }
- 
-
-
                 $colorear=1;
-
             }
-
 
         }
         // Reiniciar el inicio del rango de celdas vacías
@@ -252,15 +243,9 @@ if ($currentMergeStart !== null && $currentMergeStart < $highestRow) {
             $sheet->mergeCells('J' . $currentMergeStart . ':J' . ($highestRow - 1));
             $sheet->getStyle('J' . $currentMergeStart . ':J' . ($highestRow - 1))->applyFromArray($styleArray1);
 
-
-
-
-
             $sheet->mergeCells('R' . $currentMergeStart . ':R' . $highestRow );
             $sheet->setCellValue('R' . ($currentMergeStart), '=SUM(Q'.$currentMergeStart . ':Q' . $highestRow . ')');
             $sheet->getStyle('R' . $currentMergeStart . ':R' . ($highestRow))->applyFromArray($styleArray2);
-
-
 
             $sheet->mergeCells('S' . $currentMergeStart . ':S' . $highestRow );
             $sheet->getStyle('S' . $currentMergeStart . ':S' . ($highestRow))->applyFromArray($styleArray2);
@@ -292,20 +277,14 @@ if ($currentMergeStart !== null && $currentMergeStart < $highestRow) {
 
             }
 
-
-
-
-
-
 }
 
 
-
-die();
-
+    die();
 
 
-    // Enviar el archivo al navegador para descarga
+// Enviar el archivo al navegador para descarga
+
     header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
     header('Content-Disposition: attachment;filename="' . $filename . '"');
     header('Cache-Control: max-age=0');
@@ -320,19 +299,10 @@ die();
         $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
 
         // Enviar el archivo al navegador para su descarga
-        $writer->save('php://output');
+       $writer->save('php://output');
 
         // Salir para asegurarse de que no se envíe nada más
         exit;
-
-
-        // Crear un objeto Writer para guardar la hoja de cálculo
-    //    $writer = new Xlsx($spreadsheet);
-
-        // Guardar la hoja de cálculo en un archivo
-     //   $writer->save($filename);
-
-      //  return $filename;
     }
 }
 
