@@ -203,6 +203,9 @@ for ($row = 1; $row <= $highestRow; $row++) {
             }else{
                 $cellValue = $sheet->getCell('E' . $currentMergeStart)->getValue();
                 if($cellValue=='Ocacional'){
+                    echo $currentMergeStart ;
+                    echo $row; 
+                    echo "<br><br>"; 
                 $sheet->getStyle('A' . $currentMergeStart . ':X' . ($row - 1))->applyFromArray($styleArray4);
                 }
  
