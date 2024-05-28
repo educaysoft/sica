@@ -191,6 +191,7 @@ for ($row = 1; $row <= $highestRow; $row++) {
             if($colorear==1){
                 $cellValue = $sheet->getCell('E' . $currentMergeStart)->getValue();
                 $cellValue2 = $sheet->getCell('B' . $currentMergeStart)->getValue();
+                echo $cellValue2."<br>";
                 if($cellValue2=="'0800830606"){
                     echo $currentMergeStart ;
                     echo "--"; 
@@ -206,6 +207,7 @@ for ($row = 1; $row <= $highestRow; $row++) {
             }else{
                 $cellValue = $sheet->getCell('E' . $currentMergeStart)->getValue();
                 $cellValue2 = $sheet->getCell('B' . $currentMergeStart)->getValue();
+                echo $cellValue2."<br>";
                 if($cellValue2=="'0800830606"){
                     echo $currentMergeStart ;
                     echo "--"; 
