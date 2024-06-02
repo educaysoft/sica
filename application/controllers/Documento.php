@@ -4,6 +4,8 @@ class Documento extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
+    $this->load->database();
+    $this->load->helper('form');
       $this->load->model('documento_model');
       $this->load->model('tipodocu_model');
       $this->load->model('destinodocumento_model');
@@ -588,27 +590,25 @@ exit;
 
 
 
-public function get_directorio() {
-    $this->load->database();
-    $this->load->helper('form');
-    // Establecer el tipo de contenido JSON
- //   header('Content-Type: application/json');
-    if($this->input->post('idordenador')) {
-        $this->db->select('iddirectorio,ruta');
-        $this->db->where(array('idordenador' => $this->input->get('idordenador')));
-        $query = $this->db->get('directorio');
-	    $data=$query->result();
-	    echo json_encode($data);
-	}
+ public function get_directorio() {
+        // Establecer el tipo de contenido JSON
+        header('Content-Type: application/json');
 
-}
-
-
+        $idordenador = $this->input->post('idordenador');
+        if ($idordenador) {
+            $this->db->select('iddirectorio, ruta');
+            $this->db->where('idordenador', $idordenador);
+            $query = $this->db->get('directorio');
+            $data = $query->result();
+            echo json_encode($data);
+        } else {
+            // Manejar el caso cuando no se proporciona idordenador
+            echo json_encode(array('error' => 'ID ordenador no proporcionado'));
+        }
+    }
 
 
 public function get_documento() {
-    $this->load->database();
-    $this->load->helper('form');
     if($this->input->post('iddocumento')) {
         $this->db->select('*');
         $this->db->where(array('iddocumento' => $this->input->post('iddocumento')));
