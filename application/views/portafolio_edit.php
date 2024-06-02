@@ -95,9 +95,10 @@ function get_directorio() {
         url: "<?php echo site_url('documento/get_directorio') ?>",
         data: {idordenador: idordenador},
         method: 'POST',
-	async : false,
+	    async : false,
         dataType : 'json',
         success: function(data){
+        console.log(data); // Depuración: Imprimir datos recibidos
         var html = '';
         var i;
         for(i=0; i<data.length; i++){
@@ -110,6 +111,7 @@ function get_directorio() {
       error: function (xhr, ajaxOptions, thrownError) {
         alert(xhr.status);
         alert(thrownError);
+        console.log(xhr.responseText); // Añadir más información de depuración  
       }
 
     })
