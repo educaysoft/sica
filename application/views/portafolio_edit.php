@@ -95,7 +95,7 @@ function get_directorio() {
         url: "<?php echo site_url('documento/get_directorio') ?>",
         data: {idordenador: idordenador},
         method: 'POST',
-	async : true,
+	async : false,
         dataType : 'json',
         success: function(data){
         var html = '';
