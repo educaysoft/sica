@@ -10,7 +10,7 @@ if(isset($periodoacademico))
         <li> <?php echo anchor('periodoacademico/anterior/'.$periodoacademico['idperiodoacademico'], 'anterior'); ?></li>
         <li style="border-right:1px solid green"><?php echo anchor('periodoacademico/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('periodoacademico/add', 'Nuevo'); ?></li>
-        <listyle="border-right:1px solid green"> <?php echo anchor('periodoacademico/edit/'.$periodoacademico['idperiodoacademico'],'Edit'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('periodoacademico/edit/'.$periodoacademico['idperiodoacademico'],'Edit'); ?></li>
    <!---     <li style="border-right:1px solid green"> <?php echo anchor('periodoacademico/delete/'.$periodoacademico['idperiodoacademico'],'Delete'); ?></li>  --->
         <li> <?php echo anchor('periodoacademico/listar/','Listar'); ?></li>
         <li> <?php echo anchor('calendarioacademico/','Calendario'); ?></li>
