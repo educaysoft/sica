@@ -10,8 +10,8 @@ if(isset($portafolio) and !empty($portafolio))
         <li> <?php echo anchor('portafolio/siguiente/'.$portafolio['idportafolio'], 'siguiente'); ?></li>
         <li style="border-right:1px solid green"><?php echo anchor('portafolio/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('portafolio/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('portafolio/edit/'.$portafolio['idportafolio'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('portafolio/delete/'.$portafolio['idportafolio'],'Delete'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('portafolio/edit/'.$portafolio['idportafolio'],'Edit'); ?></li>
+<!--        <li style="border-right:1px solid green"> <?php echo anchor('portafolio/delete/'.$portafolio['idportafolio'],'Delete'); ?></li> -->
         <li> <?php echo anchor('portafolio/listar/','Listar'); ?></li>
         <li> <?php echo anchor('portafolio/listar_doce/','Portafolio'); ?></li>
         <li> <?php echo anchor('portafolio/reportepdf/'.$portafolio['idportafolio'],'Reporte'); ?></li>
