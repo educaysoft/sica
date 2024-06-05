@@ -620,6 +620,13 @@ foreach($jornadadocente as $rowj){
 
 
 
+        ';
+
+
+}
+
+
+$dataresu='
 
 <div id="fsaludo" style="border-top: 2px solid green; background-color:white;   width: 100%; margin:0px auto; display: flex; flex-direction:column ; ">
 <div   style="margin-left:10px; margin-top:10px;  padding: 10px; height: 100%;">
@@ -772,24 +779,12 @@ foreach($jornadadocente as $rowj){
 </div>
 </div>
 
+';
 
 
 
 
-
-
-
-
-
-
-
-
-        ';
-
-
-}
-
-
+$data1=$dataresu.$data1;
 
 
 $data1= str_replace('<xxxx>',$i,$data1);
