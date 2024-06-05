@@ -221,11 +221,13 @@ $inicio=1;
 $i=0;
 $j=0;
 $k=0;
+$totalinscritos=0;
 
 $arrcolor=array(1=>"#F68081",2=>"#F5DA81",3=>"#A9F5A9",4=>"#A9F4F3",5=>"#CFCEF7",6=>"#D1A9F4",7=>"#F5A8F3",8=>"#80DBF5",9=>"#9BFE2F",10=>"#9BFE2F");
 foreach($asignaturadocentes as $row){
 	
-		$j=$j+1;
+    $j=$j+1;
+    $totalinscritos=$totalinscritos+1;
 	if(is_null($row->archivopdf) || $row->archivopdf=="")
 	{
 		continue;
@@ -709,7 +711,7 @@ $dataresu='
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"/></svg>
      <!---   <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"/></svg> -->
         <div>
-          <h4 class="fw-bold mb-0">Inscripciones ponencias y posters</h4>
+          <h4 class="fw-bold mb-0">Número de paralelos</h4>
           <p>Del 01 de julio hasta el 04 de agosto del 2023.<br>
           <a href="congresoutlvte-normas.php">Ver normativas</a></p>
         </div>
@@ -718,14 +720,14 @@ $dataresu='
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"/></svg>
         <!-- <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#cpu-fill"/></svg> -->
         <div>
-          <h4 class="fw-bold mb-0">Notificación de aceptación</h4>
-          <p>Hasta el 15 de agosto del 2023.</p>
+          <h4 class="fw-bold mb-0">Número de estudiantes matriculados</h4>
+          <p><totalinscritos>.</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"/></svg>
         <div>
-          <h4 class="fw-bold mb-0">Inscripción público en general</h4>
+          <h4 class="fw-bold mb-0">Número de asignaturas</h4>
           <p>Hasta el 03 de septiembre del 2023. <br>
 <a  href="https://docs.google.com/forms/d/e/1FAIpQLSfs_lEPqL6olDpVWh7Dwfbpfhxypkv9_4uRixUaG9pY00JfKA/viewform?usp=sf_link">Inscribete ya </a></p>
         </div>
@@ -733,28 +735,28 @@ $dataresu='
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#home"/></svg>
         <div>
-          <h4 class="fw-bold mb-0">Lugar del evento</h4>
+          <h4 class="fw-bold mb-0">Numero de horas</h4>
           <p><a href="https://www.utelvt.edu.ec/site/" target="_blank">Universidad Técnica Luis Vargas Torres de Esmeraldas-Ecuador.</a></p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#toggles2"/></svg>
         <div>
-          <h4 class="fw-bold mb-0">Modalidad del evento</h4>
+          <h4 class="fw-bold mb-0">Número de docentes titulares a tiempo completo</h4>
           <p>Presencial y Virtual (Híbrida).</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"/></svg>
         <div>
-          <h4 class="fw-bold mb-0">Foros y Coloquios</h4>
+          <h4 class="fw-bold mb-0">Número de docentes titulares a medio tiempo</h4>
           <p>Lunes 4, martes 5 y miercoles 6 de noviembre del 2023<br> <a href="#cursos">Más Información</a></p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#geo-fill"/></svg>
         <div>
-          <h4 class="fw-bold mb-0">Productos </h4>
+          <h4 class="fw-bold mb-0">Número de docentes ocacionales a tiempo completo </h4>
           <p>Libro de memoria,Certificados(40h), Derechos de Autor, ISBN, ISSN</p>
         </div>
       </div>
@@ -763,7 +765,7 @@ $dataresu='
 	<!--- <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#tools"/></svg> -->
 
         <div>
-          <h4 class="fw-bold mb-0">Celebración del congreso</h4>
+          <h4 class="fw-bold mb-0">Número de docente ocacionales a medio tiempo</h4>
           <p>Lunes 4, martes 5, miercoles 6 de septiembre del 2023</p>
         </div>
       </div>
@@ -790,6 +792,8 @@ $data1=$dataresu.$data1;
 $data1= str_replace('<xxxx>',$i,$data1);
 $data1= str_replace('<yyyy>',$j,$data1);
 $data1= str_replace('<zzzz>',$k,$data1);
+$data1= str_replace('<totalinscritos>',$totalinscritos,$data1);
+
 
 $data=$data.$data1;
 

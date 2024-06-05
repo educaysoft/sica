@@ -163,6 +163,14 @@ foreach ($silabos as $row){
  echo form_textarea($textarea_options); ?></td>
   </tr>
 
+<tr>
+     <td>Total inscritos:</td>
+     <td><?php
+	
+	$textarea_options = array("name"=>'totalinscritos','id'=>'totalinscritos','value'=>$evento['totalinscritos'],'class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:600px;height:100px;');    
+ echo form_textarea($textarea_options); ?></td>
+  </tr>
+
    
 
 </table>

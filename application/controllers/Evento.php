@@ -127,6 +127,7 @@ public function cumplimiento(){
 			'costo' => $this->input->post('costo'),
 			'idsilabo' => $this->input->post('idsilabo'),
 			'codigoclassroom' => $this->input->post('codigoclassroom'),
+			'totalinscritos' => $this->input->post('totalinscritos'),
 			'idasignaturadocente' => $this->input->post('idasignaturadocente'),
 			'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
 	 	);	 
@@ -210,6 +211,7 @@ public function cumplimiento(){
 			'costo' => $this->input->post('costo'),
 			'idsilabo' => $this->input->post('idsilabo'),
 			'codigoclassroom' => $this->input->post('codigoclassroom'),
+			'totalinscritos' => $this->input->post('totalinscritos'),
 			'idasignaturadocente' => $this->input->post('idasignaturadocente'),
 			'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
 	 	);
