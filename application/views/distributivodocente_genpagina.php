@@ -227,7 +227,7 @@ $arrcolor=array(1=>"#F68081",2=>"#F5DA81",3=>"#A9F5A9",4=>"#A9F4F3",5=>"#CFCEF7"
 foreach($asignaturadocentes as $row){
 	
     $j=$j+1;
-    $totalinscritos=$totalinscritos+1;
+    $totalinscritos=$totalinscritos+$row->totalinscritos;
 	if(is_null($row->archivopdf) || $row->archivopdf=="")
 	{
 		continue;
