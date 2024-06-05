@@ -222,12 +222,15 @@ $i=0;
 $j=0;
 $k=0;
 $totalinscritos=0;
+$totalparalelos=0;
 
 $arrcolor=array(1=>"#F68081",2=>"#F5DA81",3=>"#A9F5A9",4=>"#A9F4F3",5=>"#CFCEF7",6=>"#D1A9F4",7=>"#F5A8F3",8=>"#80DBF5",9=>"#9BFE2F",10=>"#9BFE2F");
 foreach($asignaturadocentes as $row){
 	
     $j=$j+1;
     $totalinscritos=$totalinscritos+$row->totalinscritos;
+    $totalparalelos=$totalparalelos+1;
+
 	if(is_null($row->archivopdf) || $row->archivopdf=="")
 	{
 		continue;
@@ -712,8 +715,7 @@ $dataresu='
      <!---   <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"/></svg> -->
         <div>
           <h4 class="fw-bold mb-0">Número de paralelos</h4>
-          <p>Del 01 de julio hasta el 04 de agosto del 2023.<br>
-          <a href="congresoutlvte-normas.php">Ver normativas</a></p>
+          <p><totalparalelos>.</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
@@ -793,6 +795,7 @@ $data1= str_replace('<xxxx>',$i,$data1);
 $data1= str_replace('<yyyy>',$j,$data1);
 $data1= str_replace('<zzzz>',$k,$data1);
 $data1= str_replace('<totalinscritos>',$totalinscritos,$data1);
+$data1= str_replace('<totalparalelos>',$totalparalelos,$data1);
 
 
 $data=$data.$data1;
