@@ -51,7 +51,7 @@ if ( ! isset($this->session->userdata['logged_in'])){
 
 
 function uploadImage(nombre) {
-  var fI="fileInput"; 
+  var fI="fileToUpload"; 
   var st="status";
   var filesInput = document.getElementById(fI);
   var status = document.getElementById(st);
