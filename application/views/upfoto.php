@@ -57,7 +57,7 @@ function uploadImage(nombre) {
   var status = document.getElementById(st);
   var totalFiles= filesInput.files.length;
 
-    alert("entreo");
+  //alert("entreo");
 
   if (filesInput.files.length === 0) {
     status.textContent = "Por favor seleccione un archivo.";
@@ -83,8 +83,8 @@ function uploadImage(nombre) {
 
       formData.append("nombrearchivo",nombre);
 		var uploadUrl = getUploadUrl();
-		alert(uploadUrl);
-		alert(nombre);
+//		alert(uploadUrl);
+//	alert(nombre);
        axios.post(uploadUrl, formData).then(function(response) {
 		console.log("El archivo PDF se cargó correctamente en el servidor en la nube.");
 			   history.back(); //Go to the previous page
