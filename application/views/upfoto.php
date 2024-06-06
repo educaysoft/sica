@@ -20,7 +20,7 @@ if ( ! isset($this->session->userdata['logged_in'])){
 
 			<?php 
 			$cedula=$this->session->userdata['logged_in']['cedula'];
-			$js='onClick="uploadImage(\''.$cedula.'\')"';     
+			$js='onClick="uploadImage(\''.$cedula.'.jpg\')"';     
 			echo form_button("carga","cargar a directorio",$js); ?>
 
   <p id="status"></p> 
