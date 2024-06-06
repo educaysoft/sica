@@ -35,7 +35,7 @@ if ( ! isset($this->session->userdata['logged_in'])){
 				<?php if(trim($this->session->userdata['logged_in']['foto'])==""){ ?> 
 				<a  href="#"><img style="border-radius:50%;" src="<?php echo base_url(); ?>fotos/perfil.jpg" width="400" height="300" alt=""> </a>
 				<?php }else{ ?>
-				<img style="border-radius:50%;" src="<?php echo base_url().$this->session->userdata['logged_in']['foto']; ?>" width="400" height="300" alt=""> 
+				<img style="border-radius:50%;" src="<?php echo "https://repositorioutlvte.org/".$this->session->userdata['logged_in']['foto']; ?>" width="400" height="300" alt=""> 
 <?php } ?>
 
 				</center>
