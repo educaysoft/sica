@@ -237,7 +237,7 @@ public function siguiente(){
 }
 
 public function anterior(){
-	$data['password'] = $this->password_model->siguiente($this->uri->segment(3))->row_array();
+	$data['password'] = $this->password_model->anterior($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['usuarios']= $this->usuario_model->lista_usuarios1()->result();
   	$data['modulos']= $this->modulo_model->lista_modulos()->result();
