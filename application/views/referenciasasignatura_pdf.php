@@ -52,7 +52,7 @@
 		    $pdf->Cell(10,5,utf8_decode($row->tipo),1,0,'C',0);
 		    $pdf->MultiCell(80,5,utf8_decode($row->laasignatura),1,1,'L',0);
 		    $pdf->MultiCell(50,5,utf8_decode($row->titulo),1,'L',0);
-		    $pdf->MultiCell(80,5,utf8_decode($row->url),1,L,0);
+		    $pdf->MultiCell(80,5,utf8_decode($row->url),1,'L',0);
     }
 
     
