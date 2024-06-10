@@ -8,28 +8,24 @@
 
 ?>
 <section id="presentacion">
-    
 <div class="w3-container" id="eys-registro" style="width: 100%;"  >
-	
 	<div style="width: 50%;  padding:5px;   display: inline-flex; " >
 		<div   style="width:100%; height:800px; ">
 			<header class="w3-container">
-			<div style="text-align:center"> <img src="<?php echo base_url(); ?>images/LogoEducacionContinua.png" style="width: 30%;" alt="Centro de Educación Continua UTLVTE">  </div>
-			<p id="titulo1" style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:30px; text-align:center;">Sistema de registro para eventos académicos <br>  UTELVT</p>
+			<p id="titulo1" style="font-variant: small-caps; font-weight:bold; font-family:'Times New Roman'; font-size:30px; text-align:center;">Sistema de registro para eventos académicos y de gestión <br> CTI-UTELVT</p>
 			</header>
 			<div id="detalle" class="w3-container" style="display:flex; flex-direction:column; padding: 30px; font-size:70%;margin:auto;	">
     <?php
     $x='https://repositorioutlvte.org/Repositorio/eventos/'. $eventos[0]->idevento.'.png';
-if(@getimagesize($x)){ ?>
-<img src="<?php echo $x; ?>"  id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img>
-   <?php }else{ ?>
-
- <img src="https://repositorioutlvte.org/Repositorio/eventos/sinimagen.png"  id="imagenevento" style="width: 100%;" alt="Imagen del evento">
-<?php } ?>
+    if(@getimagesize($x)){ ?>
+        <img src="<?php echo $x; ?>"  id="imagenevento" style="width: 100%;" alt="Imagen del evento"></img>
+    <?php }else{ ?>
+        <img src="https://repositorioutlvte.org/Repositorio/eventos/sinimagen.png"  id="imagenevento" style="width: 100%;" alt="Imagen del evento">
+    <?php } ?>
 
 			<p>Para poder unirte a este evento sigue las  instrucciones: </p><br>
 			<ol>
-			<li> Ingresa un correo electrónica válido.  </li>
+			<li> Ingresa un correo electrónico válido(preferiblemente el institucional).  </li>
 			<li> Presiona el boton Enviar mensaje.  </li>
 			<li> Verifica si te llego un mensaje y continua con el registro.  </li>
 			</ol>
@@ -80,32 +76,13 @@ if(sizeof($eventos)>1){
     $arrdatos=array('name'=>'idevento','value'=>$eventos[0]->idevento,"type"=>"hidden", "style"=>"width:600px");
 				echo form_input($arrdatos) ;
 
-	$textarea_options = array('class' => 'form-control',"disabled"=>"disabled", 'style'=>"height:100px !important;",'id'=>'titulo');    
+	$textarea_options = array('class' => 'form-control',"disabled"=>"disabled", 'style'=>"height:100px !important; font-size:20px ",'id'=>'titulo');    
 							echo form_textarea('titulo',$eventos[0]->titulo,$textarea_options);
 }
 ?>
 
 
-
-
-
 					</div>
-
-
-
-
-
-
-
-
-	
-
-
-					
-
-
-					
-
 
 
 
@@ -117,27 +94,6 @@ if(sizeof($eventos)>1){
 					?>
 					</div>
 
-					
-
-
-					
-
-
-
-					
-
-
-
-
-
-
-
-
-
-					
-
-					
-					
 					
 					<div class="w3-container" style="padding-top:10px;">
 					<?php
@@ -197,11 +153,13 @@ $('#validarcorreo').click(function() {
 
   });     
 
+
+/*
+
 	function enviar_correo(){
 		 var idevento=<?php echo $idevento ?>;
 		 var titulo=document.getElementById("titulo").value; //   "stalin.francis@utelvt.edu.ec";
 		 var email="educacioncontinua@utelvt.edu.ec";
-//		 var correode="educacioncontinua@utelvt.edu.ec";
 		 var correode="educaysoft@hotmail.com";
 		 var nome= 'Stalin Francis Q.'; // document.getElementById("lapersona_edit").value; 		
                  var msg="Ingresa al siguiente link para terminar tu registro y poder recibir tu certificado al culminar el evento <br><br><a href='https://educaysoft.org/sica/index.php/login/registro?idevento="+idevento+"' style='text-align:center;'><b>Evento :</b>"+titulo+"</a><br><br>";  //tinyMCE.activeEditor.getContent({format:'text'});
@@ -211,7 +169,6 @@ $('#validarcorreo').click(function() {
 		 var head="";
 		  var asunto="Completar registro a SIGECA";
 		var foot0="";		
-	//	var foot0="<br><div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres esta ejecutando los siguientes programas de capacitación para el perfeccionamiento de nuestros docentes.<br><br> <a href='https://educaysoft.org/sica/curso/CursosEducacionContinua2023'>Cursos de Educación Continua</a><br><br></div>" ;
 		 var foot=" <div style='text-align:center; background-color:lightgrey; font-size:12px;'> Este correo ha sido enviado a "+mailto+ ", de acuerdo a la Ley Orgánica de Protección de datos, usted tiene el derecho a solicitar a la Universidad Técnica Luis Vargas Torres, la actualización, inclusión, supresión y/o tratamiento de los datos personales incluidos en sus bases de datos, con este correo electrónico usted acepta recibir información de las actividades académicas que realiza el Alma Mater así como nuestra propuestas académicas <br><br> Este correo fue generado y enviado automáticamente desde el sistema cloud elaborado de la Maestría en Tecnología de la Información</div> ";
 
 		msg=head+msg+foot0+foot;
@@ -224,7 +181,6 @@ $('#validarcorreo').click(function() {
 		success: function(data){
 		var html = '';
 		const div = document.getElementById('panel2');
-	//	get_participantes2();
 		div.innerHTML ='<span style="font-size:20px; ">Un mensaje a sido enviado al correo<br><br>'+mailto+'<br><br> Revisa la bandeja de entrada y da click en el enlace para continuar con el registro</span>';
 		alert(data);
 		},
@@ -238,32 +194,88 @@ $('#validarcorreo').click(function() {
 
        }
 
+ */
 
 
 
+function enviar_correo() {
+    var idevento = <?php echo $idevento ?>;
+    var titulo = document.getElementById("titulo").value;
+    var email = "educacioncontinua@utelvt.edu.ec";
+    var correode = "educaysoft@hotmail.com";
+    var nome = 'Stalin Francis Q.';
+    var msg = "Ingresa al siguiente link para terminar tu registro y poder recibir tu certificado al culminar el evento: <b>";
+    var mailto = document.getElementById("email").value;
+    var correopara = mailto;
+    var secure = "siteform";
+    var head = "";
+    var asunto = "Completar registro a SIGECA";
+    var foot0 = "";
+    var foot = "<div style='text-align:center; background-color:lightgrey; font-size:12px;'> Este correo ha sido enviado a " + mailto + ".</div>";
 
+    msg = head + msg + foot0 + foot;
 
-						
-						function validacedula()
-						{
-
-
-var inputField = document.querySelector('#cedula');
-alert(inputField.value);
-						}						
-						
-function showpassword(){
-	var x=document.getElementById("password");
-	var y=document.getElementById("password2");
-	if(x.type=="password" ){
-		x.type="text";
-		y.type="text";
-	}else{
-		x.type="password";
-		y.type="password";
-	}
-
+    $.ajax({
+        url: "<?php echo site_url('seguimiento/send') ?>",
+        data: {
+            nome: nome,
+            correode: correode,
+            correopara: correopara,
+            email: email,
+            msg: msg,
+            mailto: mailto,
+            secure: secure,
+            asunto: asunto
+        },
+        method: 'POST',
+        async: false,
+        success: function(data) {
+            var html = '';
+            const div = document.getElementById('panel2');
+            div.innerHTML = `
+                <div style="font-size:18px; color:#333; text-align:center;">
+                    <h2>Mensaje enviado con éxito</h2>
+                    <p>Se ha enviado un mensaje al correo:</p>
+                    <p style="font-weight:bold; color:#0056b3;">${mailto}</p>
+                    <p>Por favor, revisa tu bandeja de entrada para continuar con el registro.</p>
+                    <p>Si no ves el correo en tu bandeja de entrada, revisa también la carpeta de spam.</p>
+                </div>
+            `;
+            alert("Correo enviado exitosamente.");
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+        }
+    });
 }
+
+
+
+
+
+
+
+
+
+						
+	function validacedula()
+    {
+        var inputField = document.querySelector('#cedula');
+        alert(inputField.value);
+	}						
+						
+    function showpassword(){
+	    var x=document.getElementById("password");
+    	var y=document.getElementById("password2");
+	    if(x.type=="password" ){
+		    x.type="text";
+		    y.type="text";
+	    }else{
+		    x.type="password";
+		    y.type="password";
+	    }
+    }
 
 
 
