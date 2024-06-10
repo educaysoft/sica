@@ -123,8 +123,6 @@ public function registration_insert($datapersona,$datausuario,$dataparticipante,
 									return 0;
 						}
 				}else{
-                    echo "entreo aqui";
-                    die();
 						$idpersona=$query->result()[0]->idpersona;
 						$datausuario["idpersona"]=$idpersona;
 						$dataparticipante["idpersona"]=$idpersona;
