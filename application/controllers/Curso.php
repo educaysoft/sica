@@ -337,6 +337,10 @@ class Curso extends CI_Controller{
 
 
 
+	public function getion_2023_2S_24()
+	{
+	  $this->load->view('cursos/Gestión2023-2S-24');
+	}
 
 
 	public function listar()
