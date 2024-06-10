@@ -98,10 +98,10 @@ if(sizeof($eventos)>1){
 
 	<div  class="w3-container" style="text-align:left; font-size: 70%;">
 	<?php
-	echo "<label  style='text-align:left; font-size: 100%;' for='cedula'> Cédula:<span style='color:red;'>*</span>  </label>";
+	echo "<label  style='text-align:left; font-size: 100%;' for='cedula'> Cédula: </label>";
 
 	if($eventos[0]->idevento_estado==2)
-	echo form_input(array('id'=>'cedula','name'=>'cedula','maxlength'=>'10', 'onkeyup'=>'get_datos()', 'class'=>'form-control')); 
+	echo "<span style='color:red;'>*</span> ".form_input(array('id'=>'cedula','name'=>'cedula','maxlength'=>'10', 'onkeyup'=>'get_datos()', 'class'=>'form-control')); 
 	else
 	echo form_input(array('id'=>'cedula','name'=>'cedula','maxlength'=>'10', 'disabled'=>'disabled', 'class'=>'form-control'));
 
