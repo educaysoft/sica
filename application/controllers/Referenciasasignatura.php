@@ -147,26 +147,26 @@ public function listar()
 
 
 
-function referenciasasignatura_data()
-{
-		$draw= intval($this->input->get("draw"));
-		$draw= intval($this->input->get("start"));
-		$draw= intval($this->input->get("length"));
-	 	$data0 = $this->referenciasasignatura_model->lista_referenciasasignaturasA();
-		$data=array();
-		foreach($data0->result() as $r){
-			$data[]=array($r->idreferenciasasignatura,$r->laasignatura,$r->titulo,$r->tipo,$r->url,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('referenciasasignatura/actual').'"  data-idreferenciasasignatura="'.$r->idreferenciasasignatura.'">Ver</a>');
-		}	
-		$output=array( "draw"=>$draw,
-			"recordsTotal"=> $data0->num_rows(),
-			"recordsFiltered"=> $data0->num_rows(),
-			"data"=>$data
-		);
-		echo json_encode($output);
-		exit();
+    function referenciasasignatura_data()
+    {
+            $draw= intval($this->input->get("draw"));
+            $draw= intval($this->input->get("start"));
+            $draw= intval($this->input->get("length"));
+            $data0 = $this->referenciasasignatura_model->lista_referenciasasignaturasA();
+            $data=array();
+            foreach($data0->result() as $r){
+                $data[]=array($r->idreferenciasasignatura,$r->laasignatura,$r->titulo,$r->tipo,$r->url,
+                    $r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('referenciasasignatura/actual').'"  data-idreferenciasasignatura="'.$r->idreferenciasasignatura.'">Ver</a>');
+            }	
+            $output=array( "draw"=>$draw,
+                "recordsTotal"=> $data0->num_rows(),
+                "recordsFiltered"=> $data0->num_rows(),
+                "data"=>$data
+            );
+            echo json_encode($output);
+            exit();
 
-}
+    }
 
 
 	public function reportepdf()
