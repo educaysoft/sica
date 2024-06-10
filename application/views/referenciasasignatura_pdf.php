@@ -43,13 +43,13 @@
 	foreach ($referenciasasignaturas as $row){  //Recorre todas la participaciones realiadas por los participantes
 
     $i=$i+1;
-	$pdf->Cell(8,5,'No : ',1,0,'C',1);  $pdf->Cell(8,5,$i,1,1,'R',0); 
-	$pdf->Cell(8,5,'Tipo',1,0,'C',1);  $pdf->Cell(10,5,utf8_decode($row->tipo),1,1,'C',0);
-	$pdf->Cell(8,5,'Asignatura',1,0,'C',1);  $pdf->MultiCell(80,5,utf8_decode($row->laasignatura),1,1,'L',0);
-	$pdf->Cell(8,5,'tiulo',1,0,'C',1);    $pdf->MultiCell(150,5,utf8_decode($row->titulo),1,'L',0);
-	$pdf->Cell(8,5,'url',1,0,'C',1);     $pdf->MultiCell(150,5,utf8_decode($row->url),1,'L',0);
-	$pdf->Cell(8,5,'Apa',1,0,'C',1);     $pdf->MultiCell(150,5,utf8_decode($row->apa),1,'L',0);
-    $pdf->Cell(8,5,'bittext',1,0,'C',1);     $pdf->MultiCell(150,5,utf8_decode($row->bibtex),1,'L',0);
+	$pdf->Cell(15,5,'No        : ',1,0,'C',1);  $pdf->Cell(8,5,$i,1,1,'R',0); 
+	$pdf->Cell(15,5,'Tipo      :',1,0,'C',1);  $pdf->Cell(10,5,utf8_decode($row->tipo),1,1,'C',0);
+	$pdf->Cell(15,5,'Asignatura:',1,0,'C',1);  $pdf->MultiCell(80,5,utf8_decode($row->laasignatura),1,1,'L',0);
+	$pdf->Cell(15,5,'tiulo     :',1,0,'C',1);    $pdf->MultiCell(150,5,utf8_decode($row->titulo),1,'L',0);
+	$pdf->Cell(15,5,'url       :',1,0,'C',1);     $pdf->MultiCell(150,5,utf8_decode($row->url),1,'L',0);
+	$pdf->Cell(15,5,'Apa       :',1,0,'C',1);     $pdf->MultiCell(150,5,utf8_decode($row->apa),1,'L',0);
+    $pdf->Cell(15,5,'bittext   :',1,0,'C',1);     $pdf->MultiCell(150,5,utf8_decode($row->bibtex),1,'L',0);
     $pdf->Ln();
     }
 
