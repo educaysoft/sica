@@ -84,7 +84,7 @@ public function add()
 		 	'titulo' => $this->input->post('titulo'),
 		 	'url' => $this->input->post('url'),
 		 	'apa' => $this->input->post('apa'),
-		 	'bibtex' => $this->input->post('bittext'),
+		 	'bibtex' => $this->input->post('bibtex'),
 			'idasignatura' => $this->input->post('idasignatura'),
 			'idtiporeferenciasasignatura' => $this->input->post('idtiporeferenciasasignatura'),
 	 	);
@@ -117,7 +117,7 @@ public function edit()
 		 	'titulo' => $this->input->post('titulo'),
 		 	'url' => $this->input->post('url'),
 		 	'apa' => $this->input->post('apa'),
-		 	'bibtex' => $this->input->post('bittext'),
+		 	'bibtex' => $this->input->post('bibtex'),
 			'idasignatura' => $this->input->post('idasignatura'),
 			'idtiporeferenciasasignatura' => $this->input->post('idtiporeferenciasasignatura'),
 	 	);
