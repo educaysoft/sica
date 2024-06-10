@@ -18,15 +18,15 @@
 
 $(document).ready(function(){
 
-alert('llago'); 
+//alert('llago'); 
 var a = document.getElementById("email");
 var b = document.getElementById("mensaje");
 var c = document.getElementById("idevento");
 var email=a.innerHTML;
 var mensaje=b.innerHTML; 
 var idevento=c.innerHTML; 
- alert(email);
- alert(mensaje);
+// alert(email);
+// alert(mensaje);
 
 	enviar_correo(idevento,mensaje,email);
 
