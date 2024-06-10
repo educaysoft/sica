@@ -127,7 +127,7 @@ public function edit()
  	}
 
 
- 	public function delete()
+ 	public function xdelete()
  	{
  		$data=$this->referenciasasignatura_model->delete($this->uri->segment(3));
  		echo json_encode($data);
