@@ -31,6 +31,7 @@ if(@getimagesize($x)){ ?>
 			<ol>
 			<li> Verifica si el evento esta en etapa de Inscripción.  </li>
 			<li> Ingresa tus datos personales y de contacto solicitados.  </li>
+			<li> <span style="color:red">Todos los datos deben ser ingresados.</span>  </li>
 			<li> Finalmente guarda los datos y estas listo para ingresar a nuestra plaforma.  </li>
 			</ol>
 			</div>
