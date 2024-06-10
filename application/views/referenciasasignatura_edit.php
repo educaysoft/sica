@@ -51,6 +51,21 @@ foreach ($tiporeferenciasasignaturas as $row){
       <td><?php echo form_textarea($textarea_options); ?></td>
   </tr>
 
+<tr>
+      <td>Normas Apa:</td>
+<?php $textarea_options = array('class' => 'form-control','rows' => '4', 'cols' => '20', 'style'=> 'width:500px;height:100px;'); ?>    
+      <td><?php echo form_textarea('apa',$referenciasasignatura['apa'],$textarea_options);    ?></td>
+  </tr>
+
+<tr>
+      <td>Normas bibtex:</td>
+<?php $textarea_options = array('class' => 'form-control','rows' => '4', 'cols' => '20', 'style'=> 'width:500px;height:100px;'); ?>    
+      <td><?php echo form_textarea('bibtex',$referenciasasignatura['bibtex'],$textarea_options);    ?></td>
+  </tr>
+
+
+
+
 
 
  <tr>

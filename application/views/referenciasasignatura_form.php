@@ -45,6 +45,26 @@ foreach ($tiporeferenciasasignaturas as $row){
 
 
 <tr>
+<td> Formato apa: </td>
+<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"resultados de apendizaje" );    
+?>
+<td><?php echo form_textarea("apa","", $textarea_options)  ?></td>
+</tr>
+
+<tr>
+<td> Formato bibtex: </td>
+<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"resultados de apendizaje" );    
+?>
+<td><?php echo form_textarea("bibtex","", $textarea_options)  ?></td>
+</tr>
+
+
+
+
+
+<tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("referenciasasignatura","Atras") ?> </td>
 </tr>
 

@@ -107,6 +107,34 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 </div>
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Normas Apa</label>
+	<div class="col-md-10">
+		<?php
+
+$textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+
+     echo form_textarea('apa',$referenciasasignatura['apa'],$textarea_options);
+
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Formato Bibtex</label>
+	<div class="col-md-10">
+		<?php
+
+$textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+
+     echo form_textarea('bibtex',$referenciasasignatura['bibtex'],$textarea_options);
+
+		?>
+	</div> 
+</div>
+
+
 
 
 <?php echo form_close(); ?>
