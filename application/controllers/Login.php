@@ -200,11 +200,6 @@ public function new_user_registration() {
 
 
 
-
-//            		$data['message_display'] = 'Registration Successfully !';
-  //           		$this->load->view('template/page_header.php');
-    //          		$this->load->view('login_form', $data);
-      //       		$this->load->view('template/page_footer.php');
 		}else{
 			echo json_encode(array('resultado'=>$result));
 		}

@@ -56,10 +56,12 @@ $(document).ready(function(){
 function enviar_correo(xidevento, xtitulo, xmailto){
     var idevento = xidevento;
     var titulo = xtitulo;
-    var email = "educacioncontinua@utelvt.edu.ec";
+    var email = "stalin.francis@utelvt.edu.ec";
+    var correode = "stalin.francis@utelvt.edu.ec";
     var nome = 'Stalin Francis Q.';
-    var msg = "Ingresa al siguiente link para terminar tu registro y poder recibir tu certificado al culminar el evento <br><br><a href='https://educaysoft.org/sica/index.php/login/registro?idevento=" + idevento + "' style='text-align:center;'><b>Evento :</b>" + titulo + "</a><br><br>";
+    var msg = "Tu registro a sido realizado con exito ingresa al siguiente link revisar las opciones y poder comenar a trabajar <br><br><a href='https://educaysoft.org/sica/index.php/login' style='text-align:center;'><b>Evento :</b>" + titulo + "</a><br><br>";
     var mailto = xmailto;
+    var correopara = mailto;
     var secure = "siteform";
     var head = "";
     var foot0 = "<br><div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres esta ejecutando los siguientes programas de capacitación para el perfeccionamiento de nuestros docentes.<br><br> <a href='https://educaysoft.org/sica/curso/CursosEducacionContinua2023'>Cursos de Educación Continua</a><br><br></div>";
@@ -68,12 +70,21 @@ function enviar_correo(xidevento, xtitulo, xmailto){
 
     $.ajax({
         url: "<?php echo site_url('seguimiento/send') ?>",
-        data: {nome: nome, email: email, msg: msg, mailto: mailto, secure: secure},
+        data: {nome: nome,correode:correode,correopara:correopara, email: email, msg: msg, mailto: mailto, secure: secure},
         method: 'POST',
         success: function(data){
             const div = document.getElementById('panel2');
-            div.innerHTML = '<span style="font-size:20px; ">Un mensaje a sido enviado al correo<br><br>' + mailto + '<br><br> Revisa la bandeja de entrada y da click en el enlace para continuar con el registro</span>';
-            alert(data);
+            div.innerHTML = `
+                <div style="font-size:18px; color:#333; text-align:center;">
+                    <h2>Registro realizado con éxito</h2>
+                    <p>Se ha enviado un mensaje al correo:</p>
+                    <p style="font-weight:bold; color:#0056b3;">${mailto}</p>
+                    <p>Por favor, revisa tu bandeja de entrada para ingresar al sistema.</p>
+                    <p>Si no ves el correo en tu bandeja de entrada, revisa también la carpeta de spam.</p>
+                </div>
+            `;
+ 
+
         },
         error: function (xhr, ajaxOptions, thrownError) {
             alert(xhr.status);
