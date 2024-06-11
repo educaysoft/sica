@@ -1,9 +1,9 @@
 <?php
-$title = "Título del documento";
-$retornar = "URL de retorno";
-$elcorreo = "correo@example.com";
-$elmensaje = "Este es un mensaje";
-$idevento = "ID del evento";
+//$title = "Título del documento";
+//$retornar = "URL de retorno";
+//$elcorreo = "correo@example.com";
+//$elmensaje = "Este es un mensaje";
+//$idevento = "ID del evento";
 ?>
 
 <p><?php echo $title; ?></p>

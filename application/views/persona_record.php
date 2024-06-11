@@ -149,10 +149,12 @@ if(isset($persona))
 	<div class="col-md-10">
 	<?php
  	$options = array();
+    $arractu=array();
   	foreach ($correos as $row){
 		$options[$row->idcorreo]=$row->nombre;
+		$arractu[$row->idcorreo]= base_url().'correo/actual/'.$row->idcorreo;
 	}
- 	echo form_multiselect('correo[]',$options,(array)set_value('idcorreo', ''), array('style'=>'width:600px')); 
+ 	echo form_multiselect('correo[]',$options,(array)set_value('idcorreo', ''), array('style'=>'width:600px','name'=>'idcorreo','id'=>'idcorreo','onChange'=>'editarcorreo()')); 
 	?>
 	</div> 
 </div> 
@@ -450,6 +452,17 @@ var retorno= $(this).data('retornoe');
 window.location.href = retorno+'/'+id;
 });
 
+
+function editarcorreo()
+{
+
+	var options = document.getElementById('idcorreo').selectedOptions;
+	  var idcorreo = Array.from(options).map(({ value }) => value);
+       var refe = JSON.parse('<?= json_encode($arractu); ?>');
+	console.log(refe[idcorreo]);
+	window.location.href = refe[idcorreo];
+
+}
 
 
 
