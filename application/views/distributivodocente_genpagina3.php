@@ -475,9 +475,17 @@ $data=$data.'</div>
 
 			$data=$data.'<p>';
 			if(isset($row->distributivoindividualpdf)){
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$row->distributivoindividualpdf.'"  '.$disable1.'><i class="fas fa-file-pdf" style="font-size:24px" ></i> <span style="color:'.$color1.'" >DistriburtivoIndividual</span></a>] - ';
+			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$row->distributivoindividualpdf.'"  '.$disable1.'><i class="fas fa-file-pdf" style="font-size:24px" ></i> <span style="color:'.$color1.'" >DistributivoIndividual</span></a>] - ';
 			}
 			$data=$data.'</p>';
+
+$data=$data.'<p>';
+			if(isset($row->informeactividaddocente)){
+			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$row->informeactividaddocente.'"  '.$disable1.'><i class="fas fa-file-pdf" style="font-size:24px" ></i> <span style="color:'.$color1.'" >InformeActividadDocente</span></a>] - ';
+			}
+			$data=$data.'</p>';
+
+
 
 $data=$data.'<div class="tabla-container">
   <table class="miTabla">
