@@ -39,7 +39,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <b style="color:white">
-                <i class="fas fa-file-alt"></i> <!-- Icono del documento -->
+                <i class="fas fa-file-alt fa-2x"></i> <!-- Icono del documento -->
                 Documentos del portafolio:
             </b>
         </div>
