@@ -632,6 +632,82 @@ public function get_documentoA() {
 }
 
 
+function scan_documents($output_dir, $pages = 1) {
+    $scanned_files = [];
+
+    for ($i = 1; $i <= $pages; $i++) {
+        $output_file = $output_dir . 'scan_page_' . $i . '.png';
+        $command = "scanimage --format=png > " . escapeshellarg($output_file);
+        exec($command, $output, $return_var);
+
+        if ($return_var !== 0) {
+            throw new Exception("Error al escanear la página $i: " . implode("\n", $output));
+        }
+
+        $scanned_files[] = $output_file;
+    }
+
+    return $scanned_files;
+}
+
+function convert_to_pdf($image_files, $output_pdf) {
+    $command = "convert " . implode(" ", array_map('escapeshellarg', $image_files)) . " " . escapeshellarg($output_pdf);
+    exec($command, $output, $return_var);
+
+    if ($return_var !== 0) {
+        throw new Exception("Error al convertir a PDF: " . implode("\n", $output));
+    }
+
+    return $output_pdf;
+}
+
+   public function scan($pages = 1) {
+        $output_dir = FCPATH . 'uploads/';
+        $output_pdf = $output_dir . 'scanned_document_' . time() . '.pdf';
+
+        try {
+            $scanned_files = scan_documents($output_dir, $pages);
+            $pdf_file = convert_to_pdf($scanned_files, $output_pdf);
+
+            // Eliminar archivos temporales
+            foreach ($scanned_files as $file) {
+                unlink($file);
+            }
+
+            echo "Documento escaneado y guardado en: " . $pdf_file;
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

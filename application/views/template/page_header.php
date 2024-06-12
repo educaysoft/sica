@@ -747,7 +747,7 @@ span a {
            			</button>
                         	<ul class="dropdown-menu pull-right">
                             		<li><a href="<?php echo base_url();?>index.php/upfoto">Subir foto</a></li>
-                            		<li><a href="<?php echo base_url(); ?>index.php/portafolio">Tu portafolio</a></li>
+                          <!--  		<li><a href="<?php echo base_url(); ?>index.php/portafolio">Tu portafolio</a></li>   -->
                             		<li><a href="<?php echo base_url(); ?>index.php/login/logout">Salir</a></li>
                         	</ul>
       			</div>
