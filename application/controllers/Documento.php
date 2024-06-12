@@ -666,8 +666,8 @@ function convert_to_pdf($image_files, $output_pdf) {
         $output_pdf = $output_dir . 'scanned_document_' . time() . '.pdf';
 
         try {
-            $scanned_files = scan_documents($output_dir, $pages);
-            $pdf_file = convert_to_pdf($scanned_files, $output_pdf);
+            $scanned_files = $this->scan_documents($output_dir, $pages);
+            $pdf_file = $this->convert_to_pdf($scanned_files, $output_pdf);
 
             // Eliminar archivos temporales
             foreach ($scanned_files as $file) {
