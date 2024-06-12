@@ -637,7 +637,7 @@ public function get_documentoA() {
    public function scan() {
 
 	$this->load->view('template/page_header');		
-  $this->load->view('scanea_documento');
+  $this->load->view('escanea_documento');
 	$this->load->view('template/page_footer');
 }
 
