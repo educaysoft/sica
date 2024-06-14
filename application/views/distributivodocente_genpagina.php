@@ -393,12 +393,9 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 }else{
 //	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
 	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/'.trim($row->cedula).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
-
-
 }
 
 $data=$data.'</div>
-
 	    <div class="card-body" style="background-color:'.$arrcolor[$row->numeronivelacademico].'"  >
 	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->laasignatura.' </div>	
 
