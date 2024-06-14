@@ -243,8 +243,18 @@ foreach($asignaturadocentes as $row){
 	}
 
 	
-	
-	
+	if(!isset($silabos[$row->idasignaturadocente][0]['reactivo2pdf']))
+	{
+		continue;
+	}else{
+		$i=$i+1;
+	}
+
+
+
+
+
+
 	if($row->idareaconocimiento != $idareaconocimiento and $inicio==0)
 {
 	 	$data=$data.$data1;
@@ -529,16 +539,6 @@ $data=$data.'</div>
 			}
 
 
-	if(isset($silabos[$row->idasignaturadocente][0]['informeactividadpdf'])){
-			if($silabos[$row->idasignaturadocente][0]['informeactividadpdf']==''){
-				$disable8= 'style="pointer-events:none; cursor:default"';
-				$color8='gray';
-			}
-			}else{
-				$disable8= 'style="pointer-events:none; cursor:default"';
-				$color8='gray';
-
-			}
 
 
 
@@ -576,9 +576,6 @@ $data=$data.'</div>
 			}
 
 
-			if(isset($silabos[$row->idasignaturadocente][0]['informeactividadpdf'])){
-				$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$silabos[$row->idasignaturadocente][0]['informeactividadpdf'].'"  '.$disable8.' ><span style="color:'.$color8.'" >Informe</span></a>]';
-			}
 
 
 			$data=$data.'</p>';
