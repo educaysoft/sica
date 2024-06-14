@@ -252,14 +252,24 @@ public function genpagina()
 	$ordenrpt=0;
 	if($this->uri->segment(3))
 	{
+        
+        $inicio = microtime(true);
+        $data['inicio']=$inicio;
 		$iddistributivo=$this->uri->segment(3);
 	 	$data['asignaturadocentes']= $this->asignaturadocente_model->asignaturadocentexdistributivo2($iddistributivo,$ordenrpt)->result();
+        $fin = microtime(true);
+
+// Calcular la diferencia en segundos
+$tiempoEjecucion = $fin - $inicio;
+
+// Mostrar el tiempo de ejecución
+echo "El script tardó " . $tiempoEjecucion . " segundos en ejecutarse asignaturadocente.";
+
 		$arreglo=array();
 		$arreglo2=array();
 		$i=0;
 		foreach($data['asignaturadocentes'] as $row){
 		$idasignaturadocente=$row->idasignaturadocente;
-
 
 		$arreglo2+=array($idasignaturadocente=>$this->silabo_model->silabo2($row->iddocente,$row->idasignatura,$row->idevento)->result_array());
 
@@ -284,9 +294,14 @@ public function genpagina()
 
 		$data['malla']= $this->malla_model->mallaA($data['asignatura']['idmalla'])->result();
 
-		echo "<br> jornadadocnete<br>" ;
-		print_r($data['asignaturadocentes']);
-		die();
+        $fin = microtime(true);
+
+// Calcular la diferencia en segundos
+$tiempoEjecucion = $fin - $inicio;
+
+// Mostrar el tiempo de ejecución
+echo "El script tardó " . $tiempoEjecucion . " segundos en ejecutarse toas las consultas.";
+
 
 
 
