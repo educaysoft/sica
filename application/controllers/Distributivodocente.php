@@ -302,7 +302,7 @@ $tiempoEjecucion = $fin - $inicio;
 // Mostrar el tiempo de ejecución
 echo "El script tardó " . $tiempoEjecucion . " segundos en ejecutarse toas las consultas.";
 
-
+die();
 
 
 		if(!$this->input->get("orden")){
