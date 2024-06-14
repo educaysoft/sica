@@ -280,13 +280,15 @@ public function genpagina()
 	//	array_push($data['jornadadocente'],$arreglo); 
 		$data['jornadadocente']=$arreglo; 
 		$data['silabos']=$arreglo2;
-		echo "<br> jornadadocnete<br>" ;
-		print_r($data['asignaturadocente']);
-		die();
-
 		$data['asignatura']= $this->asignatura_model->asignaturas1($data['asignaturadocentes'][0]->idasignatura)->row_array();
 
 		$data['malla']= $this->malla_model->mallaA($data['asignatura']['idmalla'])->result();
+
+		echo "<br> jornadadocnete<br>" ;
+		print_r($data['asignaturadocentes']);
+		die();
+
+
 
 		if(!$this->input->get("orden")){
 			$data['ordenrpt']=0;	
