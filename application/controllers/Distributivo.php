@@ -112,7 +112,7 @@ class Distributivo extends CI_Controller{
  	}
 
 
- 	public function delete()
+ 	public function xdelete()
  	{
  		$result->$this->distributivo_model->delete($this->uri->segment(3));
 	 	if($result == false)

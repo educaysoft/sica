@@ -10,8 +10,8 @@ if(isset($distributivo))
         <li> <?php echo anchor('distributivo/anterior/'.$distributivo['iddistributivo'], 'anterior'); ?></li>
         <li style="border-right:1px solid green"><?php echo anchor('distributivo/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('distributivo/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('distributivo/edit/'.$distributivo['iddistributivo'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('distributivo/delete/'.$distributivo['iddistributivo'],'Delete'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('distributivo/edit/'.$distributivo['iddistributivo'],'Edit'); ?></li>
+  <!--        <li style="border-right:1px solid green"> <?php echo anchor('distributivo/delete/'.$distributivo['iddistributivo'],'Delete'); ?></li> -->
         <li> <?php echo anchor('distributivo/listar/'.$distributivo['idperiodoacademico'],'Listar'); ?></li>
         <li> <?php echo anchor('distributivo/reportepdf/'.$distributivo['iddistributivo'],'reportepdf'); ?></li>
         <li> <?php echo anchor('distributivo/reportepdf2/'.$distributivo['iddistributivo'],'reportepdf2'); ?></li>
