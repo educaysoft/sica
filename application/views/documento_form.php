@@ -100,7 +100,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <?php
     $options= array('--Select--');
     foreach ($tipodocus as $row){
-      $options[$row->idtipodocu]= $row->descripcion;
+      $options[$row->idtipodocu]=$row->idtipodocu.' - '.$row->descripcion;
     }
      echo form_dropdown("idtipodocu",$options, set_select('--Select--','default_value'),array('id'=>'idtipodocu')); 
 ?>

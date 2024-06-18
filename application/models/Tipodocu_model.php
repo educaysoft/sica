@@ -2,8 +2,9 @@
 class Tipodocu_model extends CI_model {
 
 	function lista_tipodocu(){
-		 $tipodocu= $this->db->get('tipodocu');
-		 return $tipodocu;
+
+		$query=$this->db->order_by("descripcion")->get('tipodocu');
+		 return $query;
 	}
 
 	function lista_tipodocusA(){
