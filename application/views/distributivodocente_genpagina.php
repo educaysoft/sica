@@ -510,10 +510,10 @@ $data=$data.'</div>
 
 
 			if(isset($silabos[$row->idasignaturadocente][0]['reactivo2pdf'])){
-			if($silabos[$row->idasignaturadocente][0]['reactivo2pdf']==''){
+		//	if($silabos[$row->idasignaturadocente][0]['reactivo2pdf']==''){
 				$disable6= 'style="pointer-events:none; cursor:default"';
 				$color6='gray';
-			}
+		//	}
 			}else{
 				$disable6= 'style="pointer-events:none; cursor:default"';
 				$color6='gray';
@@ -521,10 +521,10 @@ $data=$data.'</div>
 
 
 			if(isset($silabos[$row->idasignaturadocente][0]['calificacion2pdf'])){
-			if($silabos[$row->idasignaturadocente][0]['calificacion2pdf']==''){
+	//		if($silabos[$row->idasignaturadocente][0]['calificacion2pdf']==''){
 				$disable7= 'style="pointer-events:none; cursor:default"';
 				$color7='gray';
-			}
+	//		}
 			}else{
 				$disable7= 'style="pointer-events:none; cursor:default"';
 				$color7='gray';
@@ -732,36 +732,30 @@ $dataresu='
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"/></svg>
         <div>
           <h4 class="fw-bold mb-0">Número de asignaturas</h4>
-          <p>Hasta el 03 de septiembre del 2023. <br>
-<a  href="https://docs.google.com/forms/d/e/1FAIpQLSfs_lEPqL6olDpVWh7Dwfbpfhxypkv9_4uRixUaG9pY00JfKA/viewform?usp=sf_link">Inscribete ya </a></p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#home"/></svg>
         <div>
           <h4 class="fw-bold mb-0">Numero de horas</h4>
-          <p><a href="https://www.utelvt.edu.ec/site/" target="_blank">Universidad Técnica Luis Vargas Torres de Esmeraldas-Ecuador.</a></p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#toggles2"/></svg>
         <div>
           <h4 class="fw-bold mb-0">Número de docentes titulares a tiempo completo</h4>
-          <p>Presencial y Virtual (Híbrida).</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"/></svg>
         <div>
           <h4 class="fw-bold mb-0">Número de docentes titulares a medio tiempo</h4>
-          <p>Lunes 4, martes 5 y miercoles 6 de noviembre del 2023<br> <a href="#cursos">Más Información</a></p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#geo-fill"/></svg>
         <div>
           <h4 class="fw-bold mb-0">Número de docentes ocacionales a tiempo completo </h4>
-          <p>Libro de memoria,Certificados(40h), Derechos de Autor, ISBN, ISSN</p>
         </div>
       </div>
       <div class="col d-flex align-items-start">
@@ -770,7 +764,6 @@ $dataresu='
 
         <div>
           <h4 class="fw-bold mb-0">Número de docente ocacionales a medio tiempo</h4>
-          <p>Lunes 4, martes 5, miercoles 6 de septiembre del 2023</p>
         </div>
       </div>
     </div>
