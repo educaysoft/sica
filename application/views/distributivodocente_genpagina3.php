@@ -355,7 +355,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </script>
     <script src="https://congresoutlvte.org/assets/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
         // Datos de ejemplo
@@ -459,6 +459,21 @@ foreach($distributivodocentes as $row){
 		<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css" />';
 	 	$data=$data.$data0;
 
+$data=$data.'<div class="col">
+          <div class="card shadow-sm">
+  <h1>Gráficos de Cumplimiento de Entrega de Documentos</h1>
+    <div>
+        <h2>Cumplimiento de Entrega de Distributivos</h2>
+        <canvas id="distributivoChart"></canvas>
+    </div>
+    <div>
+        <h2>Cumplimiento de Entrega de Informes de Docente</h2>
+        <canvas id="informeFinalChart"></canvas>
+    </div>
+
+      		</div>
+    		</div>';
+
 
 
 	$data=$data.'
@@ -480,21 +495,6 @@ foreach($distributivodocentes as $row){
 	 	$inicio=0;
 		}
 
-
-$data=$data.'<div class="col">
-          <div class="card shadow-sm">
-  <h1>Gráficos de Cumplimiento de Entrega de Documentos</h1>
-    <div>
-        <h2>Cumplimiento de Entrega de Distributivos</h2>
-        <canvas id="distributivoChart"></canvas>
-    </div>
-    <div>
-        <h2>Cumplimiento de Entrega de Informes de Docente</h2>
-        <canvas id="informeFinalChart"></canvas>
-    </div>
-
-      		</div>
-    		</div>';
 
 
 
