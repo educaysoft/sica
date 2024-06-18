@@ -381,11 +381,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script>
         // Datos de ejemplo
-        const distributivosEntregados = 75; // Porcentaje de distributivos entregados
-        const distributivosPendientes = 100 - distributivosEntregados;
+        const distributivosEntregados = <?php echo $distindi; ?>; // Porcentaje de distributivos entregados
+const distributivosPendientes = <? echo $total; ?> - distributivosEntregados;
 
-        const informeFinalEntregado = 80; // Porcentaje de informes finales entregados
-        const informeFinalPendiente = 100 - informeFinalEntregado;
+        const informeFinalEntregado =  <?php echo $infodoce; ?> // Porcentaje de informes finales entregados
+        const informeFinalPendiente =  <?php echo $total; ?>- informeFinalEntregado;
 
         // Configuración del gráfico de Distributivos
         const ctxDistributivo = document.getElementById("distributivoChart").getContext("2d");
@@ -454,6 +454,9 @@ $inicio=1;
 $i=0;
 $j=0;
 $thc=0;
+$distindi=0;
+$infodoce=0;
+$total=0;
 $arrcolor=array(1=>"#F68081",2=>"#F5DA81",3=>"#A9F5A9",4=>"#A9F4F3",5=>"#CFCEF7",6=>"#D1A9F4",7=>"#F5A8F3",8=>"#80DBF5",9=>"#9BFE2F",10=>"#9BFE2F");
 
 foreach($distributivodocentes as $row){
@@ -571,13 +574,15 @@ $data=$data.'</div>
 	    <div class="card-body" style="background-color:'.$arrcolor[1].'"  >
 	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->eldocente.' </div>';	
 
-
+            $total=$total+1;
 			if(isset($row->distributivoindividualpdf)){
 			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$row->distributivoindividualpdf.'"  '.$disable1.'><i class="fas fa-file-pdf" style="font-size:24px" ></i> <span style="color:'.$color1.'" >DistributivoIndividual</span></a>] -<br> ';
+            $distindi=$distindi+1;
 			}
 
 			if(isset($row->informeactividaddocente)){
 			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$row->informeactividaddocente.'"  '.$disable1.'><i class="fas fa-file-pdf" style="font-size:24px" ></i> <span style="color:'.$color1.'" >InformeActividadDocente</span></a>] - ';
+            $infodoce=$infodoce+1;
 			}
 			$data=$data.'<br><br>';
 
