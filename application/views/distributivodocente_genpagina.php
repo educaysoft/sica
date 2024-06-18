@@ -120,14 +120,6 @@ contenedor {
 
 
 
-
-
-
-
-
-
-
-
  </style>
     
   </head>
@@ -235,12 +227,12 @@ foreach($asignaturadocentes as $row){
     $totalinscritos=$totalinscritos+$row->totalinscritos;
     $totalparalelos=$totalparalelos+1;
 
-	if(is_null($row->archivopdf) || $row->archivopdf=="")
-	{
-		continue;
-	}else{
-		$i=$i+1;
-	}
+//	if(is_null($row->archivopdf) || $row->archivopdf=="")
+//	{
+//		continue;
+//	}else{
+//		$i=$i+1;
+//	}
 
 	
 	if(!isset($silabos[$row->idasignaturadocente][0]['reactivo2pdf']))
