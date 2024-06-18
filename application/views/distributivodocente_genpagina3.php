@@ -504,13 +504,13 @@ foreach($distributivodocentes as $row){
       		<div >
         	<h1 class="fw-light">'.$row->eldepartamento.'</h1>  
         	<p class="lead text-muted">Periodo:'.$row->elperiodoacademico.' :: '.$row->iddistributivo.'.</p>
-        	<p class="lead text-muted">Distributivo Invidual del Docente</p>
+        	<p class="lead text-muted">Distributivo Indvidual e informe final del Docente</p>
       		</div>
     		</div>
   		</section>
 <div class="col">
           <div class="card shadow-sm">
-  <h1>Gráficos de Cumplimiento de Entrega de Documentos</h1>
+ <center> <h1 class="fw-light" >Gráficos de Cumplimiento de Entrega de Documentos</h1></center>
  <div class="chart-container">
         <div class="chart-box">
             <canvas id="distributivoChart"></canvas>
