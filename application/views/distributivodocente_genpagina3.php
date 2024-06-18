@@ -232,7 +232,7 @@ font-size: 16px;
             align-items: center;
         }
         .chart-box {
-            width: 45%;
+            width: 25%;
         }
         canvas {
             width: 100% !important;
