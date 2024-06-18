@@ -470,21 +470,6 @@ foreach($distributivodocentes as $row){
 		<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css" />';
 	 	$data=$data.$data0;
 
-$data=$data.'<div class="col">
-          <div class="card shadow-sm">
-  <h1>Gráficos de Cumplimiento de Entrega de Documentos</h1>
- <div class="chart-container">
-        <div class="chart-box">
-            <h2>Cumplimiento de Entrega de Distributivos</h2>
-            <canvas id="distributivoChart"></canvas>
-        </div>
-        <div class="chart-box">
-            <h2>Cumplimiento de Entrega de Informes de Docente</h2>
-            <canvas id="informeFinalChart"></canvas>
-        </div>
-    </div>
-      		</div>
-    		</div>';
 
 
 
@@ -501,6 +486,21 @@ $data=$data.'<div class="col">
       		</div>
     		</div>
   		</section>
+<div class="col">
+          <div class="card shadow-sm">
+  <h1>Gráficos de Cumplimiento de Entrega de Documentos</h1>
+ <div class="chart-container">
+        <div class="chart-box">
+            <h2>Cumplimiento de Entrega de Distributivos</h2>
+            <canvas id="distributivoChart"></canvas>
+        </div>
+        <div class="chart-box">
+            <h2>Cumplimiento de Entrega de Informes de Docente</h2>
+            <canvas id="informeFinalChart"></canvas>
+        </div>
+    </div>
+      		</div>
+    		</div>
   		<div class="album py-5 bg-light">
     		<div class="container">
       		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">';
