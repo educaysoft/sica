@@ -355,7 +355,69 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </script>
     <script src="https://congresoutlvte.org/assets/dist/js/bootstrap.bundle.min.js"></script>
-      
+
+
+<script>
+        // Datos de ejemplo
+        const distributivosEntregados = 75; // Porcentaje de distributivos entregados
+        const distributivosPendientes = 100 - distributivosEntregados;
+
+        const informeFinalEntregado = 80; // Porcentaje de informes finales entregados
+        const informeFinalPendiente = 100 - informeFinalEntregado;
+
+        // Configuración del gráfico de Distributivos
+        const ctxDistributivo = document.getElementById("distributivoChart").getContext("2d");
+        const distributivoChart = new Chart(ctxDistributivo, {
+            type: "pie",
+            data: {
+                labels: ["Entregados", "Pendientes"],
+                datasets: [{
+                    data: [distributivosEntregados, distributivosPendientes],
+                    backgroundColor: ["#36A2EB", "#FF6384"]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: "top",
+                    },
+                    title: {
+                        display: true,
+                        text: "Cumplimiento de Entrega de Distributivos"
+                    }
+                }
+            }
+        });
+
+        // Configuración del gráfico de Informes Finales
+        const ctxInformeFinal = document.getElementById("informeFinalChart").getContext("2d");
+        const informeFinalChart = new Chart(ctxInformeFinal, {
+            type: "pie",
+            data: {
+                labels: ["Entregados", "Pendientes"],
+                datasets: [{
+                    data: [informeFinalEntregado, informeFinalPendiente],
+                    backgroundColor: ["#36A2EB", "#FF6384"]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: "top",
+                    },
+                    title: {
+                        display: true,
+                        text: "Cumplimiento de Entrega de Informes de Docente"
+                    }
+                }
+            }
+        });
+    </script>
+
+
+
   </body>
 </html>
                                    
@@ -417,6 +479,22 @@ foreach($distributivodocentes as $row){
       		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">';
 	 	$inicio=0;
 		}
+
+
+$data=$data.'<div class="col">
+          <div class="card shadow-sm">
+  <h1>Gráficos de Cumplimiento de Entrega de Documentos</h1>
+    <div>
+        <h2>Cumplimiento de Entrega de Distributivos</h2>
+        <canvas id="distributivoChart"></canvas>
+    </div>
+    <div>
+        <h2>Cumplimiento de Entrega de Informes de Docente</h2>
+        <canvas id="informeFinalChart"></canvas>
+    </div>
+
+      		</div>
+    		</div>';
 
 
 
