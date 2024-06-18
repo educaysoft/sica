@@ -226,18 +226,29 @@ font-size: 16px;
 }
 
 
-        .chart-container {
+
+  .chart-container {
             display: flex;
-            justify-content: space-around;
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
         }
         .chart-box {
             width: 25%;
+            margin: 10px;
         }
         canvas {
             width: 100% !important;
             height: auto !important;
         }
+        @media (max-width: 768px) {
+            .chart-box {
+                width: 90%;
+            }
+        }
+
+
+
 
 
  </style>
@@ -491,11 +502,9 @@ foreach($distributivodocentes as $row){
   <h1>Gráficos de Cumplimiento de Entrega de Documentos</h1>
  <div class="chart-container">
         <div class="chart-box">
-            <h2>Cumplimiento de Entrega de Distributivos</h2>
             <canvas id="distributivoChart"></canvas>
         </div>
         <div class="chart-box">
-            <h2>Cumplimiento de Entrega de Informes de Docente</h2>
             <canvas id="informeFinalChart"></canvas>
         </div>
     </div>
