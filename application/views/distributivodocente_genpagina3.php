@@ -299,6 +299,14 @@ $data1='</div>
     </div>
   </div>
 
+<?php
+$distindi = <distindi>; // Ejemplo de porcentaje de distributivos entregados
+$total = <total>; // Ejemplo de total de elementos
+$infodoce = <infodoce>; // Ejemplo de porcentaje de informes finales entregados
+?>
+
+
+
 </main>
 
 <footer class="text-muted py-5">
@@ -632,6 +640,9 @@ foreach($docenteactividadacademica as $rowj){
 
 
 	$data1= str_replace('<xxxx>',$thc,$data1);
+	$data1= str_replace('<distindi>',$distindi,$data1);
+	$data1= str_replace('<total>',$total,$data1);
+	$data1= str_replace('<infodoce>',$infodoce,$data1);
  	$data=$data.$data1;
 
 	$file='application/views/cursos/distributivo-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.php';
