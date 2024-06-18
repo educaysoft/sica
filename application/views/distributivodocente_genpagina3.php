@@ -226,7 +226,18 @@ font-size: 16px;
 }
 
 
-
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .chart-box {
+            width: 45%;
+        }
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+        }
 
 
  </style>
