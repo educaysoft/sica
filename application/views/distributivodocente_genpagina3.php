@@ -390,7 +390,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <script>
         // Datos de ejemplo
         const distributivosEntregados = <?php echo $distindi; ?>; // Porcentaje de distributivos entregados
-const distributivosPendientes = <? echo $total; ?> - distributivosEntregados;
+const distributivosPendientes = <?php echo $total; ?> - distributivosEntregados;
 
         const informeFinalEntregado =  <?php echo $infodoce; ?> // Porcentaje de informes finales entregados
         const informeFinalPendiente =  <?php echo $total; ?>- informeFinalEntregado;
