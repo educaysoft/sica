@@ -407,12 +407,7 @@ $data=$data.'</div>
       <p>'.$row->contenidosminimos.'.</p>
     </div>
   </div>
-<div class="contenedor">
-    <div class="texto-transversal">
-      <h2>Resultado de aprendizaje</h2>
-      <p>'.$row->resultadosaprendizaje.'.</p>
-    </div>
-  </div>
+
 
 	     <p><span style="color:red;" >Instructor : </span><span style="font-size:16px; font-weight:bold;">'.$row->eldocente.'.</span> <br>
 	     <span style="color:red;" >correo : </span><span style="font-size:16px; font-weight:bold;">'.$row->correo.'.</span> </p></p>
