@@ -1,7 +1,5 @@
-
 use educayso_facae;
-drop view asignaturadocente4;
-create view asignaturadocente4 as select asdo.idasignaturadocente ,dist.iddistributivo, asdo.iddistributivodocente,pers.cedula,pers.idpersona,
+create view asignaturadocenteweb as select asdo.idasignaturadocente ,dist.iddistributivo, asdo.iddistributivodocente,pers.cedula,pers.idpersona,
 (select corr.nombre from correo corr where corr.idpersona=pers.idpersona and idcorreo_estado=1 limit 1) as correo, 
 hodo.iddocente,concat(COALESCE(pers.apellidos,''),"  ",COALESCE(pers.nombres,'')) as eldocente, dist.idperiodoacademico,peac.nombrecorto as elperiodoacademico,asig.idasignatura,asig.contenidosminimos,asig.resultadosaprendizaje,arco.idareaconocimiento, arco.nombre as area, concat(COALESCE(asig.nombre,'')) as laasignatura,para.idparalelo, para.nombre as paralelo,niac.numero as numeronivelacademico, niac.nombre as nivel,
 (select round(sum(jodo.duracionminutos)/60,1) from jornadadocente jodo where jodo.idasignaturadocente=asdo.idasignaturadocente) as horas,esad.nombre as estado,esad.idestadoasignaturadocente,even.idevento,even.fechainicia,even.fechafinaliza,even.totalinscritos,(select eves.nombre from evento_estado eves where eves.idevento_estado=even.idevento_estado) as estadoevento, 
