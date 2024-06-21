@@ -621,7 +621,7 @@ foreach($jornadadocente as $rowj){
 
         ';
 
-    if($j>40){
+    if($j>100){
 
         break;
 
