@@ -239,7 +239,7 @@ $calificaciones1 = <calificaciones1>; // Ejemplo de porcentaje de informes final
         const silabosEntregados = <?php echo $silabos; ?>; // Porcentaje de distributivos entregados
         const silabosPendientes = <?php echo $total; ?> - silabosEntregados;
 
-        const planessemestralesEntregado =  <?php echo $infodoce; ?> // Porcentaje de informes finales entregados
+        const planessemestralesEntregado =  <?php echo $planessemestrales; ?> // Porcentaje de informes finales entregados
         const planessemestralesPendiente =  <?php echo $total; ?>- planessemestralesEntregado;
 
         // Configuración del gráfico de Distributivos
