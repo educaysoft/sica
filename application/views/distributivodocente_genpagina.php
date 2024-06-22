@@ -194,7 +194,7 @@ $data1='</div>
     </div>
   </div>
 
-?php
+<?php
 $silabos = <silabos>; // Ejemplo de porcentaje de distributivos entregados
 $total = <total>; // Ejemplo de total de elementos
 $planessemestrales = <planessemestrales>; // Ejemplo de porcentaje de informes finales entregados
