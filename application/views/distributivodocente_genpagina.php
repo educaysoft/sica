@@ -921,7 +921,7 @@ $data1= str_replace('<totalparalelos>',$totalparalelos,$data1);
 
 $data1= str_replace('<total>',$total,$data1);
 $data1= str_replace('<silabos>',$silabos,$data1);
-$data1= str_replace('<planessemestrales>',$planesclases,$data1);
+$data1= str_replace('<planessemestrales>',$planessemestrales,$data1);
 $data1= str_replace('<reactivos1>',$reactivos1,$data1);
 $data1= str_replace('<calificaciones1>',$calificaciones1,$data1);
 
