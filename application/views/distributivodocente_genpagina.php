@@ -243,8 +243,8 @@ $calificaciones1 = <calificaciones1>; // Ejemplo de porcentaje de informes final
         const planessemestralesPendiente =  <?php echo $total; ?>- planessemestralesEntregado;
 
         // Configuración del gráfico de Distributivos
-        const ctxDistributivo = document.getElementById("distributivoChart").getContext("2d");
-        const distributivoChart = new Chart(ctxDistributivo, {
+        const ctxDistributivo = document.getElementById("silabosChart").getContext("2d");
+        const silabosChart = new Chart(ctxDistributivo, {
             type: "pie",
             data: {
                 labels: ["Entregados", "Pendientes"],
@@ -268,8 +268,8 @@ $calificaciones1 = <calificaciones1>; // Ejemplo de porcentaje de informes final
         });
 
         // Configuración del gráfico de Informes Finales
-        const ctxInformeFinal = document.getElementById("informeFinalChart").getContext("2d");
-        const informeFinalChart = new Chart(ctxInformeFinal, {
+        const ctxInformeFinal = document.getElementById("planessemestralesChart").getContext("2d");
+        const planessemestralesChart = new Chart(ctxInformeFinal, {
             type: "pie",
             data: {
                 labels: ["Entregados", "Pendientes"],
