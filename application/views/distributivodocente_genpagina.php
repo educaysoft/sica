@@ -226,19 +226,9 @@ $calificaciones1 = <calificaciones1>; // Ejemplo de porcentaje de informes final
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
 ></script>
 
-<script type="text/javascript">
 
-//$(".submenu").click(function(){
-//  $(this).children("ul").slideToggle();
-//})
 
-$("ul").click(function(ev){
-  ev.stopPropagation();
-})
 
-function cargarVideo(url){
-        document.getElementById("slider").src=url;
-}
 
 </script>
     <script src="https://congresoutlvte.org/assets/dist/js/bootstrap.bundle.min.js"></script>
