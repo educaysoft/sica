@@ -120,6 +120,32 @@ contenedor {
 
 
 
+
+  .chart-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .chart-box {
+            width: 25%;
+            margin: 10px;
+        }
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+        }
+        @media (max-width: 768px) {
+            .chart-box {
+                width: 90%;
+            }
+        }
+
+
+
+
+
+
  </style>
     
   </head>
@@ -168,6 +194,20 @@ $data1='</div>
     </div>
   </div>
 
+?php
+$silabos = <silabos>; // Ejemplo de porcentaje de distributivos entregados
+$total = <total>; // Ejemplo de total de elementos
+$planessemestrales = <planessemestrales>; // Ejemplo de porcentaje de informes finales entregados
+$reactivos1 = <reactivos1>; // Ejemplo de porcentaje de informes finales entregados
+$calificaciones1 = <calificaciones1>; // Ejemplo de porcentaje de informes finales entregados
+?>
+
+
+
+
+
+
+
 </main>
 
 <footer class="text-muted py-5">
@@ -202,7 +242,70 @@ function cargarVideo(url){
 
 </script>
     <script src="https://congresoutlvte.org/assets/dist/js/bootstrap.bundle.min.js"></script>
-      
+
+
+<script>
+        // Datos de ejemplo
+        const silabosEntregados = <?php echo $silabos; ?>; // Porcentaje de distributivos entregados
+        const silabosPendientes = <?php echo $total; ?> - silabosEntregados;
+
+        const planessemestralesEntregado =  <?php echo $infodoce; ?> // Porcentaje de informes finales entregados
+        const planessemestralesPendiente =  <?php echo $total; ?>- planessemestralesEntregado;
+
+        // Configuración del gráfico de Distributivos
+        const ctxDistributivo = document.getElementById("distributivoChart").getContext("2d");
+        const distributivoChart = new Chart(ctxDistributivo, {
+            type: "pie",
+            data: {
+                labels: ["Entregados", "Pendientes"],
+                datasets: [{
+                    data: [silabosEntregados, silabosPendientes],
+                    backgroundColor: ["#36A2EB", "#FF6384"]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: "top",
+                    },
+                    title: {
+                        display: true,
+                        text: "Cumplimiento de Entrega de Distributivos"
+                    }
+                }
+            }
+        });
+
+        // Configuración del gráfico de Informes Finales
+        const ctxInformeFinal = document.getElementById("informeFinalChart").getContext("2d");
+        const informeFinalChart = new Chart(ctxInformeFinal, {
+            type: "pie",
+            data: {
+                labels: ["Entregados", "Pendientes"],
+                datasets: [{
+                    data: [planessemestralesEntregado, planessemestralesPendiente],
+                    backgroundColor: ["#36A2EB", "#FF6384"]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: "top",
+                    },
+                    title: {
+                        display: true,
+                        text: "Cumplimiento de Entrega de Informes de Docente"
+                    }
+                }
+            }
+        });
+    </script>
+
+
+
+
   </body>
 </html>
                                    
@@ -219,6 +322,13 @@ $j=0;
 $k=0;
 $totalinscritos=0;
 $totalparalelos=0;
+$silabos=0;
+$planessemestrales=0;
+$reactivos1=0;
+$calificaciones1=0;
+$total=0;
+
+
 
 $arrcolor=array(1=>"#F68081",2=>"#F5DA81",3=>"#A9F5A9",4=>"#A9F4F3",5=>"#CFCEF7",6=>"#D1A9F4",7=>"#F5A8F3",8=>"#80DBF5",9=>"#9BFE2F",10=>"#9BFE2F");
 foreach($asignaturadocentes as $row){
@@ -328,6 +438,31 @@ $data=$data.'
       </div>
     </div>
   </section>
+
+
+<div class="col">
+          <div class="card shadow-sm">
+ <center> <h1 class="fw-light" >Gráficos de Cumplimiento de Entrega de Documentos</h1></center>
+ <div class="chart-container">
+        <div class="chart-box">
+            <canvas id="silabosChart"></canvas>
+        </div>
+        <div class="chart-box">
+            <canvas id="planessemestralesChart"></canvas>
+        </div>
+    </div>
+      		</div>
+    		</div>
+
+
+
+
+
+
+
+
+
+
 
   <div class="album py-5 bg-light">
     <div class="container">
@@ -451,12 +586,13 @@ $data=$data.'</div>
 				$color9='green';
 
 
-
+            $total=$total+1;
 			if(isset($row->silabopdf)){
 			if($row->silabopdf==''){
 				$disable1='style="pointer-events:none; cursor:default"';
 				$color1='gray';
 			}
+            $silabos=$silabos+1;
 			}else{
 
 				$disable1='style="pointer-events:none; cursor:default"';
@@ -468,7 +604,8 @@ $data=$data.'</div>
 			if($row->planclasepdf==''){
 				$disable2= 'style="pointer-events:none; cursor:default"';
 				$color2='gray';
-			}
+            }
+            $planesclases=$planesclases+1;
 			}else{
 				$disable2= 'style="pointer-events:none; cursor:default"';
 				$color2='gray';
@@ -488,7 +625,8 @@ $data=$data.'</div>
 
 			if(isset($row->reactivo1pdf)){
 				$disable4= 'style="pointer-events:none; cursor:default"';
-				$color4='gray';
+                $color4='gray';
+                $reactivos1=$reactivos1+1;
 			}else{
 				$disable4= 'style="pointer-events:none; cursor:default"';
 				$color4='gray';
@@ -497,7 +635,8 @@ $data=$data.'</div>
 
 			if(isset($row->calificacon1pdf)){
 				$disable5= 'style="pointer-events:none; cursor:default"';
-				$color5='gray';
+                $color5='gray';
+                $calificaciones1=$calificaciones1+1;
 			}else{
 				$disable5= 'style="pointer-events:none; cursor:default"';
 				$color5='gray';
@@ -780,6 +919,11 @@ $data1= str_replace('<zzzz>',$k,$data1);
 $data1= str_replace('<totalinscritos>',$totalinscritos,$data1);
 $data1= str_replace('<totalparalelos>',$totalparalelos,$data1);
 
+$data1= str_replace('<total>',$total,$data1);
+$data1= str_replace('<silabos>',$silabos,$data1);
+$data1= str_replace('<planessemestrales>',$planesclases,$data1);
+$data1= str_replace('<reactivos1>',$reactivos1,$data1);
+$data1= str_replace('<calificaciones1>',$calificaciones1,$data1);
 
 $data=$data.$data1;
 
