@@ -261,7 +261,7 @@ $calificaciones1 = <calificaciones1>; // Ejemplo de porcentaje de informes final
                     },
                     title: {
                         display: true,
-                        text: "Cumplimiento de Entrega de Distributivos"
+                        text: "Cumplimiento de Entrega de Silabos"
                     }
                 }
             }
@@ -286,7 +286,7 @@ $calificaciones1 = <calificaciones1>; // Ejemplo de porcentaje de informes final
                     },
                     title: {
                         display: true,
-                        text: "Cumplimiento de Entrega de Informes de Docente"
+                        text: "Cumplimiento de Entrega de Plan Semestral"
                     }
                 }
             }
