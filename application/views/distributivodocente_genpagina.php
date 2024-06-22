@@ -605,7 +605,7 @@ $data=$data.'</div>
 				$disable2= 'style="pointer-events:none; cursor:default"';
 				$color2='gray';
             }
-            $planesclases=$planesclases+1;
+            $planessemestrales=$planessemestrales+1;
 			}else{
 				$disable2= 'style="pointer-events:none; cursor:default"';
 				$color2='gray';
