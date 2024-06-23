@@ -124,7 +124,7 @@ class Documento extends CI_Controller{
 	public function listar()
 	{
 	
-  		$data['documentos'] = $this->documento_model->lista_documentos()->result();
+  		$data['documentos'] = $this->documento_model->lista_documentos1()->result();
   		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
   		$data['portafolios']= $this->portafolio_model->lista_portafoliosxpersona($data['documentos'][0]->idpersona)->result();
   		$data['destinodocumentos']= $this->destinodocumento_model->lista_destinodocumento()->result();
