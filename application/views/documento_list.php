@@ -485,11 +485,16 @@ $("#btn_update").on("click", function(){
 
     alert(idportafolio+'  -  '+iddocumento);    
 
-    $.ajax({type:"POST",
+    $.ajax({
         url: "<?php echo site_url('documentoportafolio/save') ?>",
-        data: {idddocumento:iddocumento,idportafolio:idportafolio,iddocenteactividadacademica:iddocenteactividadacademica,minutosocupados:minutosocupados},
-        dataType : 'JSON',
+        data: {iddocumento:iddocumento,idportafolio:idportafolio,iddocenteactividadacademica:iddocenteactividadacademica,minutosocupados:minutosocupados},
+        method: 'POST',
+        async : true,
+        dataType : 'json',
         success: function(data){
+        var html = '';
+	    var comentario="";
+        var i;
 
 	$("#Modal_Edit").modal("hide"); 
 
