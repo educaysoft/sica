@@ -126,7 +126,7 @@ class Documento extends CI_Controller{
 	
   		$data['documentos'] = $this->documento_model->lista_documentos()->result();
   		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-  		$data['portafolios']= $this->portafolio_model->lista_portafoliosxpersona($data['documentos'][0]['idpersona'])->result();
+  		$data['portafolios']= $this->portafolio_model->lista_portafoliosxpersona($data['documentos'][0]->idpersona)->result();
   		$data['destinodocumentos']= $this->destinodocumento_model->lista_destinodocumento()->result();
   		$data['filtro']= $this->uri->segment(3);
   		$data['title']="Documento";
