@@ -136,7 +136,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                     }
 
 
-                    echo form_dropdown("idportafolio_edit",$options, set_select('--Select--','default_value'),array('id'=>'idportafolio_edit'); 
+                    echo form_dropdown("idportafolio_edit",$options, set_select('--Select--','default_value'),array('id'=>'idportafolio_edit')); 
 					?>
 					</div>
 					</div>
@@ -151,7 +151,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         $options[$row->iddocumento]=$row->iddocumento.' - '.$row->autor." - ". $row->asunto;
                     }
 
-                     echo form_dropdown("iddocumento_edit",$options, set_select('--Select--','default_value'),array('id'=>'iddocumento_edit');  
+                     echo form_dropdown("iddocumento_edit",$options, set_select('--Select--','default_value'),array('id'=>'iddocumento_edit'));  
 
 
 					?>
