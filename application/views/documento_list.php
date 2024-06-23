@@ -132,7 +132,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
                     $options= array('--Select--');
                     foreach ($portafolios as $row){
-                        $options[$row->idportafolio]=$row=>idpersona." - ". $row->lapersona." - ".$row->elperiodo;
+                        $options[$row->idportafolio]=$row->idpersona." - ". $row->lapersona." - ".$row->elperiodo;
                     }
 
 
