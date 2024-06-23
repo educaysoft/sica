@@ -443,13 +443,13 @@ function get_portafolio(iddocumento,idpersona) {
           $('[name="iddocumento_edit"]').val(iddocumento);
           $('[name="idportafolio_edit"]').val(idpersona);
         }else{
-            if(data[0].idparticipacion){
-                  alert("lo encontro en documentoportafolio");
-                  $('[name="iddocumentoportafolio_edit"]').val(data[0].idparticipacion);
+            if(data[0].iddocumentoportafolio){
+               //   alert("lo encontro en documentoportafolio");
+                  $('[name="iddocumentoportafolio_edit"]').val(data[0].iddocumentoportafolio);
                   $('[name="iddocumento_edit"]').val(data[0].iddocumento);
                     $('[name="idportafolio_edit"]').val(data[0].idportafolio);
             }else{
-                  alert("lo encontro en portafolio");
+               //   alert("lo encontro en portafolio");
                   $('[name="iddocumentoportafolio_edit"]').val(0);
                   $('[name="iddocumento_edit"]').val(iddocumento);
                     $('[name="idportafolio_edit"]').val(data[0].idportafolio);
