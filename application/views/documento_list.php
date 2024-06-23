@@ -484,6 +484,7 @@ $("#btn_update").on("click", function(){
     var minutosocupados=0;
 
     alert(idportafolio+'  -  '+iddocumento);    
+    alert(iddocenteactividadacademica+" - "+minutosocupados):
 
     $.ajax({
         url: "<?php echo site_url('documentoportafolio/save') ?>",
