@@ -25,8 +25,7 @@ class Portafolio_model extends CI_model {
 		  $this->db->where('idperiodoacademico',$idperiodoacademico);
 		}
 
-
-		 $portafolio= $this->db->get('portafolio2');
+		 $portafolio= $this->db->order_by("idpersona","idperiodoacademico")->get('portafolio2');
 		 return $portafolio;
 	}
 
