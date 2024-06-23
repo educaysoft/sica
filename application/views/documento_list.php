@@ -433,7 +433,7 @@ function get_portafolio(iddocumento,idpersona) {
         dataType : 'json',
         success: function(data){
         var html = '';
-	var comentario="";
+	    var comentario="";
         var i;
 	$('#Modal_Edit').modal('show');
         if(data.length!=1){
