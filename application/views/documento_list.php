@@ -487,7 +487,7 @@ $("#btn_update").on("click", function(){
     alert(iddocenteactividadacademica+" - "+minutosocupados);
 
     $.ajax({
-        url: "<?php echo site_url('documentoportafolio/save') ?>",
+        url: "<?php echo site_url('documentoportafolio/save2') ?>",
         data: {iddocumento:iddocumento,idportafolio:idportafolio,iddocenteactividadacademica:iddocenteactividadacademica,minutosocupados:minutosocupados},
         method: 'POST',
         async : true,

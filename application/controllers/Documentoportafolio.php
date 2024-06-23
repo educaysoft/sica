@@ -82,6 +82,28 @@ public function add()
  	}
 
 
+	public function  save2()
+	{
+	 	$array_item=array(
+			'iddocumento' => $this->input->post('iddocumento'),
+			'idportafolio' => $this->input->post('idportafolio'),
+			'iddocenteactividadacademica' => $this->input->post('iddocenteactividadacademica'),
+			'minutosocupados' => $this->input->post('minutosocupados'),
+	 	);
+	 	$result=$this->documentoportafolio_model->save($array_item);
+
+	 	if($result == FALSE)
+		{
+            echo json_encode($result);
+		}else{
+            echo json_encode($result);
+		}
+ 	}
+
+
+
+
+
 
 public function edit()
 {
