@@ -8,6 +8,15 @@ class Documento_model extends CI_model {
 	}
 
 
+	//Retorna todos los registros como un objeto
+	function lista_documentos1(){
+		 $documento= $this->db->get('documento1');
+		 return $documento;
+	}
+
+
+
+
 
 	function lista_documentosxdestino($iddestinodocumento){
 		
