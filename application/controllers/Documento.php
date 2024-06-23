@@ -13,6 +13,7 @@ class Documento extends CI_Controller{
       $this->load->model('directorio_model');
       $this->load->model('persona_model');
       $this->load->model('documento_estado_model');
+      $this->load->model('portafolio_model');
 	}
 
 	public function index(){
@@ -123,8 +124,9 @@ class Documento extends CI_Controller{
 	public function listar()
 	{
 	
-  		$data['documento'] = $this->documento_model->lista_documentos()->result();
+  		$data['documentos'] = $this->documento_model->lista_documentos()->result();
   		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+  		$data['portafolios']= $this->portafolio_model->lista_portafoliosxpersona($data['documentos']['idpersona'])->result();
   		$data['destinodocumentos']= $this->destinodocumento_model->lista_destinodocumento()->result();
   		$data['filtro']= $this->uri->segment(3);
   		$data['title']="Documento";

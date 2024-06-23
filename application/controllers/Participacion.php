@@ -485,8 +485,6 @@ public function get_participacion() {
 		echo json_encode($data);
 	}else{
 
-	//		$this->db->select('idtipoparticipacion,nombre as tipoparticipacion, "" as comentario');
-	//	$query = $this->db->get('tipoparticipacion');
 
 		$data=$query->result();
 		echo json_encode($data);
