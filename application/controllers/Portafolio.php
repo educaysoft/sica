@@ -361,9 +361,16 @@ public function get_portafolio() {
 		echo json_encode($data);
 	}else{
 
-
-		$data=$query->result();
-		echo json_encode($data);
+        $this->db->select('*');
+        $this->db->where('idpersona' ,$this->input->get('idpersona'));
+        $query = $this->db->get('portafolio1');
+	    if ($query->num_rows() > 0) {
+		    $data=$query->result();
+	    	echo json_encode($data);
+	    }else{
+		    $data=$query->result();
+		    echo json_encode($data);
+       }
 	}
 
 
