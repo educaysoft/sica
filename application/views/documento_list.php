@@ -477,8 +477,8 @@ $("#btn_update").on("click", function(){
     
     var d = document.getElementById("iddocumento_edit");
   	var arrtmp=d.options[d.selectedIndex].text;
-	const x=arrtmp.split(" - ");
-	var iddocumento=x[0];
+	const y=arrtmp.split(" - ");
+	var iddocumento=y[0];
 
     var iddocenteactividadacademica=0;
     var minutosocupados=0;
