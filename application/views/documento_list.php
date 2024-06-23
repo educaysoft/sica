@@ -100,6 +100,97 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 
+
+
+
+
+
+<form>
+	<div class="modal fade" id="Modal_Edit" tabindex="-1"  role="dialog" arias-labelledby="exampleModalLabel" aria-hidden="true" >
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Editar notas</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">iddocumentoportafolio</label>
+						<div class="col-md-10">
+							<input type="text" name="iddocumentoportafolio_edit" id="iddocumentoportafolio_edit" class="form-control" placeholder="iddocumentoportafolio">  
+						</div>
+					</div>					
+
+
+					<div class="form-group row">
+					<label class="col-md-2 col-form-label"> Portafolio:</label>
+					<div class="col-md-10">
+					<?php
+
+                    $options= array('--Select--');
+                    foreach ($portafolios as $row){
+                        $options[$row->idportafolio]= $row->lapersona." - ".$row->elperiodo;
+                    }
+
+
+                    echo form_dropdown("idportafolio_edit",$options, set_select('--Select--','default_value')); 
+					?>
+					</div>
+					</div>
+
+                    <div class="form-group row">
+					<label class="col-md-2 col-form-label"> Documento:</label>
+					<div class="col-md-10">
+					<?php
+
+                    $options= array('--Select--');
+                    foreach ($documentos as $row){
+                        $options[$row->iddocumento]=$row->iddocumento.' - '.$row->autor." - ". $row->asunto;
+                    }
+
+                     echo form_dropdown("iddocumento_edit",$options, set_select('--Select--','default_value'));  
+
+
+					?>
+					</div>
+					</div>
+
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="submit" id="btn_update" class="btn btn-primary">Guardar</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/dataTables.bootstrap.min.css" />
  <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dataTables.min.js"></script>
@@ -158,6 +249,10 @@ window.location.href = certi;
 
 
 
+
+
+
+
 $('#show_data').on('click','.item_ver',function(){
 var id= $(this).data('iddocumento');
 var retorno= $(this).data('retorno');
@@ -172,6 +267,15 @@ var retorno= $(this).data('retorno2');
 window.location.href = retorno+'/'+id;
 });
 
+
+$('#show_data').on('click','.item_folio',function(){
+var iddocumento= $(this).data('iddocumento');
+var idpersona= $(this).data('idpersona');
+get_portafolio(iddocumento,idpersona);
+//var retorno= $(this).data('retorno');
+//window.location.href = retorno+'/'+id;
+
+});
 
 
 
@@ -316,6 +420,40 @@ function nex(){
 }
 
 
+
+function get_portafolio(iddocumento,idpersona) {
+//	var idpersona=document.getElementById("idpersona").value;
+	idpersona=parseInt(idpersona);
+	iddocumento=parseInt(iddocumento);
+    $.ajax({
+        url: "<?php echo site_url('portafolio/get_portafolio') ?>",
+        data: {iddocumento:iddocumento,idpersona:idpersona},
+        method: 'GET',
+        async : true,
+        dataType : 'json',
+        success: function(data){
+        var html = '';
+	var comentario="";
+        var i;
+	$('#Modal_Edit').modal('show');
+        if(data.length!=1){
+          $('[name="iddocumentoportafolio_edit"]').val(0);
+          $('[name="iddocumento_edit"]').val(iddocumento);
+          $('[name="idportafolio_edit"]').val(nombre);
+        }else{
+          $('[name="iddocumentoportafolio_edit"]').val(data[0].idparticipacion);
+          $('[name="iddocumento_edit"]').val(data[0].idevento);
+          $('[name="idportafolio_edit"]').val(data[0].fecha);
+        }
+        },
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    })
+
+}
 
 
 

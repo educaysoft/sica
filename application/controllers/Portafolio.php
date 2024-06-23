@@ -346,6 +346,35 @@ public function anterior(){
 	}
 
 
+public function get_portafolio() {
+    $this->load->database();
+    $this->load->helper('form');
+    if($this->input->get('iddocumento')) 
+    {
+        $this->db->select('*');
+        $this->db->where('iddocumento',$this->input->get('iddocumento'));
+        $this->db->where('idpersona' ,$this->input->get('idpersona'));
+        $query = $this->db->get('documentoportafolio1');
+
+	if ($query->num_rows() > 0) {
+		$data=$query->result();
+		echo json_encode($data);
+	}else{
+
+
+		$data=$query->result();
+		echo json_encode($data);
+	}
+
+
+    }
+}
+
+
+
+
+
+
 
 
 }
