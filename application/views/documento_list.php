@@ -110,7 +110,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Editar notas</h5>
+					<h5 class="modal-title" id="exampleModalLabel">Existencia en portafolio</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -465,6 +465,47 @@ function get_portafolio(iddocumento,idpersona) {
     })
 
 }
+
+//function save_documentoportafolio() {
+$("#btn_update").on("click", function(){
+
+
+	var p = document.getElementById("idportafolio_edit");
+  	var arrtmp=p.options[p.selectedIndex].text;
+	const x=arrtmp.split(" - ");
+	var idportafolio=x[0];
+    
+    var d = document.getElementById("iddocumento_edit");
+  	var arrtmp=d.options[d.selectedIndex].text;
+	const x=arrtmp.split(" - ");
+	var iddocumento=x[0];
+
+    var iddocenteactividadacademica=0;
+    var minutosocupados=0;
+
+    alert(idportafolio+'  -  '+iddocumento);    
+
+    $.ajax({type:"POST",
+        url: "<?php echo site_url('documentoportafolio/save') ?>",
+        data: {idddocumento:iddocumento,idportafolio:idportafolio,iddocenteactividadacademica:iddocenteactividadacademica,minutosocupados:minutosocupados},
+        dataType : 'JSON',
+        success: function(data){
+
+	$("#Modal_Edit").modal("hide"); 
+
+    idtipodocu=0;
+var mytabla= $('#mydatac').DataTable({destroy:true,"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
+
+	},
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+
+    });
+    return false;
+
+});
 
 
 
