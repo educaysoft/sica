@@ -496,11 +496,11 @@ $("#btn_update").on("click", function(){
         var html = '';
 	    var comentario="";
         var i;
-
+        alert(data);
 	$("#Modal_Edit").modal("hide"); 
 
-  //  idtipodocu=0;
-//var mytabla= $('#mydatac').DataTable({destroy:true,"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
+    idtipodocu=0;
+var mytabla= $('#mydatac').DataTable({destroy:true,"ajax": {url: '<?php echo site_url('documento/documento_data')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
 
 	},
       error: function (xhr, ajaxOptions, thrownError) {
