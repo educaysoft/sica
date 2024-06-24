@@ -438,7 +438,7 @@ function get_portafolio(iddocumento,idpersona) {
 	$('#Modal_Edit').modal('show');
         if(data.length==0){
 
-                  alert("no encotro ");
+              //    alert("no encotro ");
           $('[name="iddocumentoportafolio_edit"]').val(0);
           $('[name="iddocumento_edit"]').val(iddocumento);
           $('[name="idportafolio_edit"]').val(0);
@@ -449,7 +449,7 @@ function get_portafolio(iddocumento,idpersona) {
                   $('[name="iddocumento_edit"]').val(data[0].iddocumento);
                     $('[name="idportafolio_edit"]').val(data[0].idportafolio);
             }else{
-                  alert("lo encontro en portafolio "+data[0].idportafolio);
+                //  alert("lo encontro en portafolio "+data[0].idportafolio);
                   $('[name="iddocumentoportafolio_edit"]').val(0);
                   $('[name="iddocumento_edit"]').val(iddocumento);
                   $('[name="idportafolio_edit"]').val(data[0].idportafolio);
