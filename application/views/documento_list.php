@@ -436,7 +436,7 @@ function get_portafolio(iddocumento,idpersona) {
 	    var comentario="";
         var i;
 	$('#Modal_Edit').modal('show');
-        if(data.length!=1){
+        if(data.length==0){
 
                   alert("no encotro ");
           $('[name="iddocumentoportafolio_edit"]').val(0);
