@@ -132,7 +132,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
                     $options= array('--Select--');
                     foreach ($portafolios as $row){
-                        $options[$row->idportafolio]=$row->idpersona." - ". $row->lapersona." - ".$row->elperiodo;
+                        $options[$row->idportafolio]=$row->idportafolio." - ". $row->lapersona." - ".$row->elperiodo;
                     }
 
 
@@ -441,7 +441,7 @@ function get_portafolio(iddocumento,idpersona) {
                   alert("no encotro ");
           $('[name="iddocumentoportafolio_edit"]').val(0);
           $('[name="iddocumento_edit"]').val(iddocumento);
-          $('[name="idportafolio_edit"]').val(idpersona);
+          $('[name="idportafolio_edit"]').val(0);
         }else{
             if(data[0].iddocumentoportafolio){
                //   alert("lo encontro en documentoportafolio");
