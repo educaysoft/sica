@@ -483,8 +483,8 @@ $("#btn_update").on("click", function(){
     var iddocenteactividadacademica=0;
     var minutosocupados=0;
 
-    alert(idportafolio+'  -  '+iddocumento);    
-    alert(iddocenteactividadacademica+" - "+minutosocupados);
+   // alert(idportafolio+'  -  '+iddocumento);    
+   // alert(iddocenteactividadacademica+" - "+minutosocupados);
 
     $.ajax({
         url: "<?php echo site_url('documentoportafolio/save2') ?>",
@@ -496,7 +496,7 @@ $("#btn_update").on("click", function(){
         var html = '';
 	    var comentario="";
         var i;
-        alert(data);
+     //   alert(data);
 	$("#Modal_Edit").modal("hide"); 
 
     idtipodocu=0;
