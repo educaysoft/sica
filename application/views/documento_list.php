@@ -449,7 +449,7 @@ function get_portafolio(iddocumento,idpersona) {
                   $('[name="iddocumento_edit"]').val(data[0].iddocumento);
                     $('[name="idportafolio_edit"]').val(data[0].idportafolio);
             }else{
-               //   alert("lo encontro en portafolio");
+                  alert("lo encontro en portafolio");
                   $('[name="iddocumentoportafolio_edit"]').val(0);
                   $('[name="iddocumento_edit"]').val(iddocumento);
                     $('[name="idportafolio_edit"]').val(data[0].idportafolio);
