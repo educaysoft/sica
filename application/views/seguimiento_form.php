@@ -486,7 +486,7 @@ $("#btn_update").on("click", function(){
 		 var asunto=document.getElementById("asunto_edit").value; 
 
 
-		var foot0="<br><div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres de Esmeralda cuenta con los programas de Posgrado los cuales ya estan abiertos para que puedas incribirte.<br><br> <a href='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg'><img src='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg'></a><br><br></div>" ;
+		var foot0="<br><div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres de Esmeralda cuenta con los programas de Posgrado los cuales ya estan abiertos para que puedas incribirte.<br><br> <a href='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2024.jpg'><img src='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2024.jpg'></a><br><br></div>" ;
 
 
 //		var foot0="<br><div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres de Esmeralda cuenta con los programas de Posgrado los cuales ya estan abiertos para que puedas incribirte.<br><br> <a href='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg'>"+laimagen+"</a><br><br></div>" ;
