@@ -170,7 +170,7 @@ function asignaturadocente_data()
 	 	$data0 = $this->asignaturadocente_model->lista_asignaturadocentesA(0);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idasignaturadocente,$r->eldistributivodocente,$r->laasignatura,$r->paralelo,
+			$data[]=array($r->idasignaturadocente,$r->eldistributivodocente,$r->laasignatura,$r->paralelo,$r->estado,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('asignaturadocente/actual').'"  data-idasignaturadocente="'.$r->idasignaturadocente.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,

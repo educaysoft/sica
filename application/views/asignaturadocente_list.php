@@ -45,6 +45,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <th>Periodo-docente</th>
  <th>Asignatura</th>
  <th>Paralelo</th>
+ <th>Estado</th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
