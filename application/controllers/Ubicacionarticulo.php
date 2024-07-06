@@ -241,8 +241,13 @@ public function elultimo()
 public function siguiente(){
  // $data['ubicacionarticulo_list']=$this->ubicacionarticulo_model->lista_ubicacionarticulo()->result();
 	$data['unidades']= $this->unidad_model->lista_unidades()->result();
-  		$data['temas']= $this->tema_model->lista_temas()->result();
-		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+
+	$data['unidades']= $this->unidad_model->lista_unidades()->result();
+  $data['articulos']= $this->articulo_model->lista_articulos()->result();
+
+
+  	//	$data['temas']= $this->tema_model->lista_temas()->result();
+//		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
 	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->siguiente($this->uri->segment(3))->row_array();
   	$data['personas']= $this->persona_model->lista_personas()->result();
   	$data['eventos']= $this->evento_model->lista_eventos()->result();
