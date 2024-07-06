@@ -216,7 +216,8 @@ public function elprimero()
 
 public function elultimo()
 {
- // $data['unidades']= $this->unidad_model->lista_unidades()->result();
+	$data['unidades']= $this->unidad_model->lista_unidades()->result();
+  $data['articulos']= $this->articulo_model->lista_articulos()->result();
  // 		$data['temas']= $this->tema_model->lista_temas()->result();
 	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->elultimo();
 //		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
