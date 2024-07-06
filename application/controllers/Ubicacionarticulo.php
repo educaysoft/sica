@@ -216,13 +216,13 @@ public function elprimero()
 
 public function elultimo()
 {
-  $data['unidades']= $this->unidad_model->lista_unidades()->result();
-  		$data['temas']= $this->tema_model->lista_temas()->result();
+ // $data['unidades']= $this->unidad_model->lista_unidades()->result();
+ // 		$data['temas']= $this->tema_model->lista_temas()->result();
 	$data['ubicacionarticulo'] = $this->ubicacionarticulo_model->elultimo();
-		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
+//		$data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
   if(!empty($data))
   {
-  		$data['eventos']= $this->evento_model->lista_eventos()->result();
+  //		$data['eventos']= $this->evento_model->lista_eventos()->result();
   	$data['personas']= $this->persona_model->lista_personas()->result();
     $data['title']="Ubicacionarticulo del unidad";
   
