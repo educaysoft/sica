@@ -1,34 +1,53 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("sexo/save", array('id'=>'eys-form')); ?>
-<?php echo form_hidden("idsexo");  ?>
+<?php echo form_open("articulo/save") ?>
+<?php echo form_hidden("idarticulo")  ?>
+<table>
+
+<tr>
+<td> Institución: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($instituciones as $row){
+	$options[$row->idinstitucion]= $row->nombre;
+}
+
+ echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id Relaciondependencia:</label>
-	<div class="col-md-10">
-<?php echo form_input("idsexo","", array("placeholder"=>"Id sexo"));  ?>
-	</div> 
-</div>
+<tr>
+<td> Nombre </td>
+<td><?php echo form_input("nombre","", array("placeholder"=>"Nombre de la artículo",'style'=>'width:500px;'))  ?></td>
+</tr>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre:</label>
-	<div class="col-md-10">
-<?php echo form_input("nombre","", array("placeholder"=>"Descripcion de sexo"));  ?>
-	</div> 
-</div> 
-
-<div id="eys-nav-i">
-
-	<ul>
-   	 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
-    		<li> <?php echo anchor('persona', 'Cancelar'); ?></li>
-	</ul>
-</div>
- 
+<tr>
+<td> Detalle: </td>
+<td><?php
+	
+	
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle" );    
+	
+ echo form_textarea("detalle","", $textarea_options);  ?></td>
+</tr>
 
 
+
+
+
+
+
+
+<tr>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("articulo","Atras") ?> </td>
+</tr>
+
+
+
+
+</table>
 <?php echo form_close();?>
 

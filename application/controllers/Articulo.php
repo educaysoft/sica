@@ -15,9 +15,9 @@ public function index(){
 	  	$data['articulo']=$this->articulo_model->elultimo();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
   		$data['title']="Lista de Artiulos";
-			$this->load->view('template/page_header');		
+		$this->load->view('template/page_header');		
   		$this->load->view('articulo_record',$data);
-			$this->load->view('template/page_footer');
+		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
 		$this->load->view('login_form');

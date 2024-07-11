@@ -2,25 +2,25 @@
     <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
     <ul>
 <?php
-if(isset($articulo))
+if(isset($formatoinstitucional))
 {
 ?>
-        <li> <?php echo anchor('articulo/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('articulo/siguiente/'.$articulo['idarticulo'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('articulo/anterior/'.$articulo['idarticulo'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('articulo/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('articulo/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('articulo/edit/'.$articulo['idarticulo'],'Edit'); ?></li>
-      <!--  <li style="border-right:1px solid green"> <?php echo anchor('articulo/delete/'.$articulo['idarticulo'],'Delete'); ?></li> --->
-        <li> <?php echo anchor('articulo/listar/','Listar'); ?></li>
-        <li> <?php echo anchor('articulo/genpagina/1','generar web'); ?></li>
-        <li> <?php echo anchor('articulo/articulo_1','Web'); ?></li>
+        <li> <?php echo anchor('formatoinstitucional/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('formatoinstitucional/siguiente/'.$formatoinstitucional['idformatoinstitucional'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('formatoinstitucional/anterior/'.$formatoinstitucional['idformatoinstitucional'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('formatoinstitucional/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('formatoinstitucional/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('formatoinstitucional/edit/'.$formatoinstitucional['idformatoinstitucional'],'Edit'); ?></li>
+      <!--  <li style="border-right:1px solid green"> <?php echo anchor('formatoinstitucional/delete/'.$formatoinstitucional['idformatoinstitucional'],'Delete'); ?></li> --->
+        <li> <?php echo anchor('formatoinstitucional/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('formatoinstitucional/genpagina/1','generar web'); ?></li>
+        <li> <?php echo anchor('formatoinstitucional/formatoinstitucional_1','Web'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('articulo/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('formatoinstitucional/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -30,7 +30,7 @@ if(isset($articulo))
 <br>
 
 
-<?php echo form_hidden('idarticulo',$articulo['idarticulo']) ?>
+<?php echo form_hidden('idformatoinstitucional',$formatoinstitucional['idformatoinstitucional']) ?>
 
 
  <div class="form-group row">
@@ -38,7 +38,7 @@ if(isset($articulo))
 	<div class="col-md-10">
      <?php
 
-  $eys_arrctl=array("id"=>"idarticulo",  "name"=>'idarticulo','value'=>$articulo['idarticulo'],"disabled"=>"disabled",'placeholder'=>'Idarticulos','style'=>'width:500px;');
+  $eys_arrctl=array("id"=>"idformatoinstitucional",  "name"=>'idformatoinstitucional','value'=>$formatoinstitucional['idformatoinstitucional'],"disabled"=>"disabled",'placeholder'=>'Idformatoinstitucionals','style'=>'width:500px;');
  echo form_input($eys_arrctl);
 		?>
 	</div> 
@@ -50,7 +50,7 @@ if(isset($articulo))
 	<div class="col-md-10">
      <?php
 
-  $eys_arrctl=array("name"=>'nombre','value'=>$articulo['nombre'],"disabled"=>"disabled",'placeholder'=>'Inombre','style'=>'width:500px;');
+  $eys_arrctl=array("name"=>'nombre','value'=>$formatoinstitucional['nombre'],"disabled"=>"disabled",'placeholder'=>'Inombre','style'=>'width:500px;');
  echo form_input($eys_arrctl);
 		?>
 	</div> 
@@ -64,7 +64,7 @@ if(isset($articulo))
      <?php
     
 $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'disabled',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('detalle',$articulo['detalle'],$textarea_options); 
+ echo form_textarea('detalle',$formatoinstitucional['detalle'],$textarea_options); 
 		?>
 	</div> 
 </div>
@@ -74,16 +74,16 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Foto:</label>
 	<div class="col-md-10">
- <img src="https://repositorioutlvte.org/Repositorio/articulos/articulo<?php echo $articulo['idarticulo']; ?>.jpg" alt="articulo" width="400" height="300"> 
+ <img src="https://repositorioutlvte.org/Repositorio/formatoinstitucionals/formatoinstitucional<?php echo $formatoinstitucional['idformatoinstitucional']; ?>.jpg" alt="formatoinstitucional" width="400" height="300"> 
   
 
 	</div> 
 <div class="img-contenedor w3-card-4" style="position:relative; width:100%; height:100%; display:flex; justify-content: center; align-items: center;">
 
 
- <input type="file" id="fileInput<?php echo trim($articulo['idarticulo']); ?>" accept="image/*">
-  <button onclick="uploadImage('articulo<?php echo trim($articulo['idarticulo']); ?>.jpg','<?php echo trim($articulo['idarticulo']); ?>')">Subir Imagen</button>
-  <p id="status<?php echo trim($articulo['idarticulo']); ?>"></p> </div>';
+ <input type="file" id="fileInput<?php echo trim($formatoinstitucional['idformatoinstitucional']); ?>" accept="image/*">
+  <button onclick="uploadImage('formatoinstitucional<?php echo trim($formatoinstitucional['idformatoinstitucional']); ?>.jpg','<?php echo trim($formatoinstitucional['idformatoinstitucional']); ?>')">Subir Imagen</button>
+  <p id="status<?php echo trim($formatoinstitucional['idformatoinstitucional']); ?>"></p> </div>';
 
 
 </div>
@@ -100,7 +100,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-		<?php echo anchor('ubicacionarticulo/add/'.$articulo['idarticulo'], 'Ubicación'); ?>:
+		<?php echo anchor('ubicacionformatoinstitucional/add/'.$formatoinstitucional['idformatoinstitucional'], 'Ubicación'); ?>:
         </div>
         
     </div>
@@ -109,8 +109,8 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 	<table class="table table-striped table-bordered table-hover" id="mydatau">
 	 <thead>
 	 <tr>
-	 <th>idubicacionarticulo</th>
-	 <th>idarticulo</th>
+	 <th>idubicacionformatoinstitucional</th>
+	 <th>idformatoinstitucional</th>
 	 <th>launidad</th>
 	 <th>Responsable</th>
 	 <th>fecha</th>
@@ -140,7 +140,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
- <?php echo anchor('prestamoarticulo/add', 'Prestamo'); ?>:
+ <?php echo anchor('prestamoformatoinstitucional/add', 'Prestamo'); ?>:
         </div>
         
     </div>
@@ -151,7 +151,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 	 <thead>
 	 <tr>
 	 <th>idprestamo</th>
-	 <th>idarticulo</th>
+	 <th>idformatoinstitucional</th>
 	 <th>lapersona</th>
 	 <th>fecha prestamo.</th>
 	 <th>hora prestamo.</th>
@@ -179,16 +179,16 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var idarticulo=document.getElementById("idarticulo").value;
+	var idformatoinstitucional=document.getElementById("idformatoinstitucional").value;
 
-	var mytablaf= $('#mydatau').DataTable({"ajax": {url: '<?php echo site_url('articulo/ubicacion_data')?>', type: 'GET',data:{idarticulo:idarticulo}},});
+	var mytablaf= $('#mydatau').DataTable({"ajax": {url: '<?php echo site_url('formatoinstitucional/ubicacion_data')?>', type: 'GET',data:{idformatoinstitucional:idformatoinstitucional}},});
 
 
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('articulo/prestamo_data')?>', type: 'GET',data:{idarticulo:idarticulo}},});
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('formatoinstitucional/prestamo_data')?>', type: 'GET',data:{idformatoinstitucional:idformatoinstitucional}},});
 });
 
 $('#show_datau').on('click','.item_ver',function(){
-var id= $(this).data('idubicacionarticulo');
+var id= $(this).data('idubicacionformatoinstitucional');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
@@ -198,7 +198,7 @@ window.location.href = retorno+'/'+id;
 
 
 $('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idprestamoarticulo');
+var id= $(this).data('idprestamoformatoinstitucional');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });

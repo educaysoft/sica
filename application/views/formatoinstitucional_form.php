@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("articulo/save") ?>
-<?php echo form_hidden("idarticulo")  ?>
+<?php echo form_open("formatoinstitucional/save") ?>
+<?php echo form_hidden("idformatoinstitucional")  ?>
 <table>
 
 <tr>
@@ -42,7 +42,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("articulo","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("formatoinstitucional","Atras") ?> </td>
 </tr>
 
 
