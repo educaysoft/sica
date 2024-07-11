@@ -74,7 +74,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Foto:</label>
 	<div class="col-md-10">
- <img src="https://repositorioutlvte.org/Repositorio/formatoinstitucionals/formatoinstitucional<?php echo $formatoinstitucional['idformatoinstitucional']; ?>.jpg" alt="formatoinstitucional" width="400" height="300"> 
+ <img src="https://repositorioutlvte.org/Repositorio/formatoinstitucional/formatoinstitucional<?php echo $formatoinstitucional['idformatoinstitucional']; ?>.jpg" alt="formatoinstitucional" width="400" height="300"> 
   
 
 	</div> 
