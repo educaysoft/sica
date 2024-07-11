@@ -72,6 +72,19 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Archivo:</label>
+	<div class="col-md-10">
+     <?php
+    
+$textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'disabled',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('archivo',$formatoinstitucional['archivo'],$textarea_options); 
+		?>
+	</div> 
+</div>
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> Foto:</label>
 	<div class="col-md-10">
  <img src="https://repositorioutlvte.org/Repositorio/formatoinstitucional/formatoinstitucional<?php echo $formatoinstitucional['idformatoinstitucional']; ?>.jpg" alt="formatoinstitucional" width="400" height="300"> 

@@ -35,7 +35,15 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 </tr>
 
 
-
+<tr>
+<td> Archivo: </td>
+<td><?php
+	
+	
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle" );    
+	
+ echo form_textarea("archivo","", $textarea_options);  ?></td>
+</tr>
 
 
 

@@ -40,6 +40,7 @@ public function  save()
 	 	'idformatoinstitucional' => $this->input->post('idformatoinstitucional'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	'detalle' => $this->input->post('detalle'),
+	 	'archivo' => $this->input->post('archivo'),
 	 	'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
 	 	$this->formatoinstitucional_model->save($array_item);
@@ -68,6 +69,7 @@ public function edit()
 		 	'idformatoinstitucional' => $this->input->post('idformatoinstitucional'),
 		 	'nombre' => $this->input->post('nombre'),
 		 	'detalle' => $this->input->post('detalle'),
+	 	'archivo' => $this->input->post('archivo'),
 	 		'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
 	 	$this->formatoinstitucional_model->update($id,$array_item);

@@ -16,6 +16,16 @@
       echo form_textarea('detalle',$formatoinstitucional['detalle'],$textarea_options) ?></td>
   </tr>
 
+    <td>Archivo:</td>
+<td><?php 
+	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle del formatoinstitucional" );    
+      echo form_textarea('archivo',$formatoinstitucional['archivo'],$textarea_options) ?></td>
+  </tr>
+
+
+
+
+
 <tr>
 <td> Institucion:</td>
 <td><?php
