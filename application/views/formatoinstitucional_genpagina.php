@@ -395,13 +395,13 @@ $data=$data.'<div class="col">
 		  <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>';
 
 // Remote file url
-$remoteFile = "https://repositorioutlvte.org/Repositorio/formatoinstitucionals/formatoinstitucional".trim($row->idformatoinstitucional).".jpg";
+$remoteFile = "https://repositorioutlvte.org/Repositorio/formatoinstitucional/formatoinstitucional".trim($row->idformatoinstitucional).".jpg";
 
 $file_headers = @get_headers($remoteFile);
 
 if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 
-    $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/formatoinstitucionals/formatoinstitucional0.jpg" alt="No hay programación" height="100%" width="100%"/> </svg>
+    $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/formatoinstitucional/formatoinstitucional0.jpg" alt="No hay programación" height="100%" width="100%"/> </svg>
     <div class="img-contenedor w3-card-4" style="position:relative; width:100%; height:100%; display:flex; justify-content: center; align-items: center;">';
 
 
