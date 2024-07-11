@@ -178,22 +178,22 @@ public function genpagina()
 	 	$data['formatoinstitucionals']= $this->formatoinstitucional_model->formatoinstitucionalA($iddistributivo)->result();
 		$arreglo=array();
 		$i=0;
-		foreach($data['formatoinstitucionals'] as $row){
-		$idformatoinstitucional=$row->idformatoinstitucional;
+//		foreach($data['formatoinstitucionals'] as $row){
+//		$idformatoinstitucional=$row->idformatoinstitucional;
 
-		$xx=array($this->prestamoformatoinstitucional_model->prestamoformatoinstitucionalsA($idformatoinstitucional)->result_array());
-		if(count($xx[0]) > 0){
-		foreach($xx as $row2){
-			foreach($row2 as $row3)
-			 {
-				$arreglo+=array($i=>array($row->idformatoinstitucional=>$row3));
-				$i=$i+1;
-			}
-			}
-		}
-		}
+//		$xx=array($this->prestamoformatoinstitucional_model->prestamoformatoinstitucionalsA($idformatoinstitucional)->result_array());
+//		if(count($xx[0]) > 0){
+//		foreach($xx as $row2){
+//			foreach($row2 as $row3)
+//			 {
+//				$arreglo+=array($i=>array($row->idformatoinstitucional=>$row3));
+//				$i=$i+1;
+//			}
+///			}
+//		}
+//		}
 		$data['prestamoformatoinstitucional']=array();
-		$data['prestamoformatoinstitucional']=$arreglo; 
+//		$data['prestamoformatoinstitucional']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
 
 		$this->load->view('formatoinstitucional_genpagina',$data);
