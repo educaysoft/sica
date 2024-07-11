@@ -433,18 +433,10 @@ $data=$data.'
         <div class="card-body" style="background-color:'.$arrcolor[1].'"  >
         <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Id::Nombre:</b><br>'.$row->idformatoinstitucional.'::'.$row->elformatoinstitucional.' </div>
         <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b>Detalle:</b><br> '.$row->detalle.' </div>
-        <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b> Custodio:</b> '.$row->elcustodio.' </div>
+        <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b> Custodio:</b> '.$row->archivo.' </div>
         <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b> Prestamos y Devoluciones:</b>  </div>'
         ;	
 
-
-foreach($prestamoformatoinstitucional as $rowj){
-			if(isset($rowj[$row->idformatoinstitucional]['idformatoinstitucional'])){		
-
-			$data=$data.'<b>'.$rowj[$row->idformatoinstitucional]['idprestamoformatoinstitucional'] .': </b><span style="font-size:14px; color:red">'.$rowj[$row->idformatoinstitucional]['lapersona'].'('.$rowj[$row->idformatoinstitucional]['fechaprestamo'].' - '.$rowj[$row->idformatoinstitucional]['fechadevolucion'].'),</span> - link:<a href="https://educaysoft.org/sica/prestamoformatoinstitucional/actual/'.$rowj[$row->idformatoinstitucional]['idprestamoformatoinstitucional'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
-			}	
-	//		echo $rowj; echo '<br>';
-		}
 
               	$data=$data.'<div class="d-flex justify-content-between align-items-center">
 
