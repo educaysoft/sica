@@ -378,7 +378,7 @@ foreach($formatoinstitucionals as $row){
       		<div >
         	<h1 class="fw-light">'.$row->idinstitucion.'</h1>  
         	<p class="lead text-muted">Institución:'.$row->idinstitucion.' :: '.$row->lainstitucion.'.</p>
-        	<p class="lead text-muted">Formatos institucional</p>
+        	<p style="font-size:2em; color:#6c757d;text-shadow: 1px 1px 2px #000, -1px -1px 2px #fff;">Formatos institucional</p>
       		</div>
     		</div>
   		</section>
