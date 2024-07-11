@@ -411,7 +411,7 @@ $data=$data.' <input type="file" id="fileInput'.trim($row->idformatoinstituciona
 
 }else{
 
-$data=$data.'<image  class="thumbnail" href="https://repositorioutlvte.org/Repositorio/formatoinstitucionals/formatoinstitucional'.trim($row->idformatoinstitucional).'.jpg" alt="No hay programación" height="100%" width="100%"  onclick="mostrarImagen(\'https://repositorioutlvte.org/Repositorio/formatoinstitucionals/formatoinstitucional'.trim($row->idformatoinstitucional).'.jpg\')" /> </svg>
+$data=$data.'<image  class="thumbnail" href="https://repositorioutlvte.org/Repositorio/formatoinstitucional/formatoinstitucional'.trim($row->idformatoinstitucional).'.jpg" alt="No hay programación" height="100%" width="100%"  onclick="mostrarImagen(\'https://repositorioutlvte.org/Repositorio/formatoinstitucionals/formatoinstitucional'.trim($row->idformatoinstitucional).'.jpg\')" /> </svg>
 <div class="img-contenedor w3-card-4" style="position:absolute"; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
 
@@ -433,8 +433,7 @@ $data=$data.'
         <div class="card-body" style="background-color:'.$arrcolor[1].'"  >
         <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Id::Nombre:</b><br>'.$row->idformatoinstitucional.'::'.$row->elformatoinstitucional.' </div>
         <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b>Detalle:</b><br> '.$row->detalle.' </div>
-        <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b> Custodio:</b> '.$row->archivo.' </div>
-        <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b> Prestamos y Devoluciones:</b>  </div>'
+        <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b> Archivo:</b>  <a href="'.$row->archivo.'"> '.$row->archivo.'</a> </div>'
         ;	
 
 
