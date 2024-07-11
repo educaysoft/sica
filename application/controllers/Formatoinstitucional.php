@@ -5,9 +5,7 @@ class Formatoinstitucional extends CI_Controller{
   public function __construct(){
       parent::__construct();
       $this->load->model('formatoinstitucional_model');
-      $this->load->model('prestamoformatoinstitucional_model');
   	  $this->load->model('institucion_model');
-  	  $this->load->model('ubicacionformatoinstitucional_model');
 }
 
 public function index(){

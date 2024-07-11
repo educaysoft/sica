@@ -90,84 +90,13 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 
 
 
-<div class="form-group row">
-	<div class="col-md-10">
-	<div class="row justify-content-left">
-      	<!-- Page Heading -->
- 	<div class="row">
-  	<div class="col-12"	style="border:solid;">
-
-<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-		<?php echo anchor('ubicacionformatoinstitucional/add/'.$formatoinstitucional['idformatoinstitucional'], 'Ubicación'); ?>:
-        </div>
-        
-    </div>
-</div>
-
-	<table class="table table-striped table-bordered table-hover" id="mydatau">
-	 <thead>
-	 <tr>
-	 <th>idubicacionformatoinstitucional</th>
-	 <th>idformatoinstitucional</th>
-	 <th>launidad</th>
-	 <th>Responsable</th>
-	 <th>fecha</th>
-	 <th style="text-align: right;">Actions</th>
-	 </tr>
-	 </thead>
-	 <tbody id="show_datau">
-	 </tbody>
-	</table>
-	</div>
-	</div>
-	</div>
-	</div> 
-</div>
 
 
 
 
 
-<div class="form-group row">
-	<div class="col-md-10">
-	<div class="row justify-content-left">
-      	<!-- Page Heading -->
- 	<div class="row">
-  	<div class="col-12"  style="border:solid;" >
-
-<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
- <?php echo anchor('prestamoformatoinstitucional/add', 'Prestamo'); ?>:
-        </div>
-        
-    </div>
-</div>
 
 
-	<table class="table table-striped table-bordered table-hover" id="mydatac">
-	 <thead>
-	 <tr>
-	 <th>idprestamo</th>
-	 <th>idformatoinstitucional</th>
-	 <th>lapersona</th>
-	 <th>fecha prestamo.</th>
-	 <th>hora prestamo.</th>
-	 <th>fecha devolucion.</th>
-	 <th>hora devolucion.</th>
-	 <th style="text-align: right;">Actions</th>
-	 </tr>
-	 </thead>
-	 <tbody id="show_data">
-	 </tbody>
-	</table>
-	</div>
-	</div>
-	</div>
-	</div> 
-</div>
 
 
 
