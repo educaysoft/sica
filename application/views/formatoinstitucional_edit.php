@@ -3,7 +3,18 @@
 <h2> <?php echo $title; ?></h2>
 <hr />
 <table>
- 
+
+<tr>
+<td> Institucion:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($instituciones as $row){
+	$options[$row->idinstitucion]= $row->nombre;
+}
+
+ echo form_dropdown("idinstitucion",$options, $formatoinstitucional['idinstitucion']);  ?></td>
+</tr>
+
  <tr>
       <td>Nombre:</td>
       <td><?php echo form_input('nombre',$formatoinstitucional['nombre'],array('placeholder'=>'Nombre del ', "style"=>"width:500px")) ?></td>
@@ -26,21 +37,24 @@
 
 
 
+
+
+
 <tr>
-<td> Institucion:</td>
+<td> proceso:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
+foreach ($procesos as $row){
+	$options[$row->idproceso]= $row->nombre;
 }
 
- echo form_dropdown("idinstitucion",$options, $formatoinstitucional['idinstitucion']);  ?></td>
+ echo form_dropdown("idproceso",$options, $formatoinstitucional['idproceso']);  ?></td>
 </tr>
 
-
-
-
-
+<tr>
+      <td>Orden:</td>
+      <td><?php echo form_input('orden',$formatoinstitucional['orden'],array('placeholder'=>'Nombre del ', "style"=>"width:500px")) ?></td>
+  </tr>
 
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('formatoinstitucional','Atras') ?></td>

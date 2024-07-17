@@ -6,12 +6,14 @@ class Formatoinstitucional extends CI_Controller{
       parent::__construct();
       $this->load->model('formatoinstitucional_model');
   	  $this->load->model('institucion_model');
+     $this->load->model('proceso_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 	  	$data['formatoinstitucional']=$this->formatoinstitucional_model->elultimo();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   		$data['title']="Lista de Artiulos";
 			$this->load->view('template/page_header');		
   		$this->load->view('formatoinstitucional_record',$data);
@@ -27,6 +29,7 @@ public function index(){
 public function add()
 {
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['procesos']= $this->proceso_model->lista_procesos()->result();
 		$data['title']="Nuevo Artículo";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('formatoinstitucional_form',$data);
@@ -41,6 +44,8 @@ public function  save()
 	 	'nombre' => $this->input->post('nombre'),
 	 	'detalle' => $this->input->post('detalle'),
 	 	'archivo' => $this->input->post('archivo'),
+		'idproceso' => $this->input->post('idproceso'),
+	 	'orden' => $this->input->post('orden'),
 	 	'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
 	 	$this->formatoinstitucional_model->save($array_item);
@@ -53,6 +58,7 @@ public function edit()
 {
 	 	$data['formatoinstitucional'] = $this->formatoinstitucional_model->formatoinstitucional($this->uri->segment(3))->row_array();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['procesos']= $this->proceso_model->lista_procesos()->result();
  	 	$data['title'] = "Actualizar Formatoinstitucional";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('formatoinstitucional_edit',$data);
@@ -70,6 +76,8 @@ public function edit()
 		 	'nombre' => $this->input->post('nombre'),
 		 	'detalle' => $this->input->post('detalle'),
 	 	'archivo' => $this->input->post('archivo'),
+		'idproceso' => $this->input->post('idproceso'),
+	 	'orden' => $this->input->post('orden'),
 	 		'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
 	 	$this->formatoinstitucional_model->update($id,$array_item);
@@ -213,6 +221,7 @@ public function actual()
 {
 	$data['formatoinstitucional'] = $this->formatoinstitucional_model->formatoinstitucional($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   if(!empty($data))
   {
     $data['title']="Formatoinstitucional";
@@ -236,6 +245,7 @@ public function elprimero()
 {
 	$data['formatoinstitucional'] = $this->formatoinstitucional_model->elprimero();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   if(!empty($data))
   {
     $data['title']="Formatoinstitucional";
@@ -253,6 +263,7 @@ public function elultimo()
 {
 	  $data['formatoinstitucional'] = $this->formatoinstitucional_model->elultimo();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   if(!empty($data))
   {
     $data['title']="Formatoinstitucional";
@@ -272,6 +283,7 @@ public function siguiente(){
  // $data['formatoinstitucional_list']=$this->formatoinstitucional_model->lista_formatoinstitucional()->result();
 	$data['formatoinstitucional'] = $this->formatoinstitucional_model->siguiente($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   $data['title']="Formatoinstitucional";
 	$this->load->view('template/page_header');		
   $this->load->view('formatoinstitucional_record',$data);
@@ -282,6 +294,7 @@ public function anterior(){
  // $data['formatoinstitucional_list']=$this->formatoinstitucional_model->lista_formatoinstitucional()->result();
 	$data['formatoinstitucional'] = $this->formatoinstitucional_model->anterior($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
+		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   $data['title']="Formatoinstitucional";
 	$this->load->view('template/page_header');		
   $this->load->view('formatoinstitucional_record',$data);

@@ -186,6 +186,7 @@ class Documento extends CI_Controller{
 // Listar por tipo de documento 
 /////////////////////////////////
 	public function listarxtipodocu()
+
 	{
 	
   		$data['documento'] = $this->documento_model->lista_documentos()->result();

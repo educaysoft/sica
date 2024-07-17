@@ -27,16 +27,9 @@ foreach ($instituciones as $row){
  echo form_dropdown("idinstitucion",$options, $articulo['idinstitucion']);  ?></td>
 </tr>
 
-
-
-
-
-
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('articulo','Atras') ?></td>
  </tr>
-
-
 
 </table>
 <?php echo form_close(); ?>

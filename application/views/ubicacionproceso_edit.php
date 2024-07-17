@@ -15,7 +15,7 @@ echo form_input($eys_arrinput); ?></td>
 
 
 <tr>
-<td> Articulo:</td>
+<td> proceso:</td>
 <td><?php
 $options= array('--Select--');
 foreach ($procesos as $row){
