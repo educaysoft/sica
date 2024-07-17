@@ -8,8 +8,15 @@ class Formatoinstitucional_model extends CI_model {
 
 
 	function lista_formatoinstitucionalsA(){
-		 $formatoinstitucional= $this->db->get('formatoinstitucional1');
-		 return $formatoinstitucional;
+
+$this->db->order_by('idproceso', 'asc');
+$this->db->order_by('orden', 'asc');
+
+$query = $this->db->get('formatoinstitucional1');
+
+
+
+		 return $query;
 	}
 
 

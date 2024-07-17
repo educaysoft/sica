@@ -431,7 +431,9 @@ $data=$data.'
 
 
         <div class="card-body" style="background-color:'.$arrcolor[1].'"  >
-        <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Id::Nombre:</b><br>'.$row->idformatoinstitucional.'::'.$row->elformatoinstitucional.' </div>
+        <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Proceso:</b><br>'.$row->elproceso.' </div>
+        <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Orden:</b><br>'.$row->orden.' </div>
+        <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>(id)::Formato:</b><br>('.$row->idformatoinstitucional.')::'.$row->elformatoinstitucional.' </div>
         <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b>Detalle:</b><br> '.$row->detalle.' </div>
         <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b> Archivo:</b>  <a href="'.$row->archivo.'"> '.$row->archivo.'</a> </div>'
         ;	
