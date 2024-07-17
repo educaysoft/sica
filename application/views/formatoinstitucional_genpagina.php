@@ -378,7 +378,7 @@ foreach($formatoinstitucionals as $row){
       		<div >
         	<h1 class="fw-light">'.$row->idinstitucion.'</h1>  
         	<p class="lead text-muted">Institución:'.$row->idinstitucion.' :: '.$row->lainstitucion.'.</p>
-        	<p style="font-size:2em; color:#6c757d;text-shadow: 1px 1px 2px #000, -1px -1px 2px #fff;">Formatos institucional</p>
+        	<p style="font-size:2em; color:#6c757d;text-shadow: 1px 1px 2px #000, -1px -1px 2px #fff;">Formatos institucionales</p>
       		</div>
     		</div>
   		</section>
@@ -453,7 +453,7 @@ $data=$data.'
 
 	 	$data=$data.$data1;
 
-			$file='application/views/formatoinstitucionals/formatoinstitucional-'.$row->idinstitucion.'.php';
+			$file='application/views/formatoinstitucional/formatoinstitucional-'.$row->idinstitucion.'.php';
 
 
 	if ( !write_file($file, $data)){
