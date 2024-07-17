@@ -453,7 +453,7 @@ $data=$data.'
 
 	 	$data=$data.$data1;
 
-			$file='application/views/formatoinstitucional/formatoinstitucional-'.$row->idinstitucion.'.php';
+			$file='application/views/formatoinstitucionals/formatoinstitucional-'.$row->idinstitucion.'.php';
 
 
 	if ( !write_file($file, $data)){
