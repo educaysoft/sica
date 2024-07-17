@@ -88,7 +88,7 @@ public function edit()
 	 		'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
 	 	$this->formatoinstitucional_model->update($id,$array_item);
-	 	redirect('formatoinstitucional/'.$id);
+	 	redirect('formatoinstitucional/actual/'.$id);
  	}
 
 
