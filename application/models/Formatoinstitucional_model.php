@@ -28,7 +28,7 @@ $query = $this->db->get('formatoinstitucional1');
  	}
 
  	function formatoinstitucionalA( $id){
- 		$formatoinstitucional = $this->db->query('select * from formatoinstitucional1 where idinstitucion="'. $id.'"');
+ 		$formatoinstitucional = $this->db->query('select * from formatoinstitucional1 where idinstitucion="'. $id.'" order by idproceso,orden');
  		return $formatoinstitucional;
  	}
 
