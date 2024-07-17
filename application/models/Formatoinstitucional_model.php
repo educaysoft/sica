@@ -38,6 +38,12 @@ $query = $this->db->get('formatoinstitucional1');
  	function save($array)
  	{
 		$this->db->insert("formatoinstitucional", $array);
+		   if( $this->db->affected_rows()>0){
+			    return true;
+		   }else{
+			    return false;
+		   }
+
  	}
 
  	function update($id,$array_item)

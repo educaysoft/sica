@@ -48,8 +48,15 @@ public function  save()
 	 	'orden' => $this->input->post('orden'),
 	 	'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
-	 	$this->formatoinstitucional_model->save($array_item);
-	 	redirect('formatoinstitucional');
+	 	$result=$this->formatoinstitucional_model->save($array_item);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('formato ya existe ya existe'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+
  	}
 
 
@@ -81,7 +88,7 @@ public function edit()
 	 		'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
 	 	$this->formatoinstitucional_model->update($id,$array_item);
-	 	redirect('formatoinstitucional');
+	 	redirect('formatoinstitucional/'.$id);
  	}
 
 
