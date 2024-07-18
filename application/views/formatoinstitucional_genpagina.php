@@ -404,10 +404,26 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
     $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/formatoinstitucional/formatoinstitucional0.jpg" alt="No hay programación" height="100%" width="100%"/> </svg>
     <div class="img-contenedor w3-card-4" style="position:relative; width:100%; height:100%; display:flex; justify-content: center; align-items: center;">';
 
+// Remote file url
+$remoteFile = "https://repositorioutlvte.org/Repositorio/formatoinstitucional/proceso".trim($row->idproceso).".jpg";
 
-$data=$data.' <input type="file" id="fileInput'.trim($row->idformatoinstitucional).'" accept="image/*">
-  <button onclick="uploadImage(\'formatoinstitucional'.trim($row->idformatoinstitucional).'.jpg\',\''.trim($row->idformatoinstitucional).'\')">Subir Imagen</button>
-  <p id="status'.trim($row->idformatoinstitucional).'"></p> </div>';
+$file_headers = @get_headers($remoteFile);
+
+// Check if file exists
+//if(!file_exists($remoteFile)){
+if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
+  //  echo 'File not found';
+	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/formatoinstitucional/sinproceso.jpg" width="100%" height="100%" style="border-radius:50px;">';
+
+}else{
+//	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
+	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/formatoinstitucional/proceso'.trim($row->idproceso).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
+}
+
+
+$data=$data.'</div>';
+
+
 
 }else{
 
@@ -425,22 +441,6 @@ $data=$data.'</div>
 }
 
 
-
-// Remote file url
-$remoteFile = "https://repositorioutlvte.org/Repositorio/formatoinstitucional/proceso".trim($row->idproceso).".jpg";
-
-$file_headers = @get_headers($remoteFile);
-
-// Check if file exists
-//if(!file_exists($remoteFile)){
-if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
-  //  echo 'File not found';
-	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/formatoinstitucional/sinproceso.jpg" width="100%" height="100%" style="border-radius:50px;">';
-
-}else{
-//	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
-	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/formatoinstitucional/proceso'.trim($row->idproceso).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
-}
 
 
 
