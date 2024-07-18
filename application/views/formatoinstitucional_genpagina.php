@@ -427,7 +427,7 @@ $data=$data.'</div>';
 
 }else{
 
-$data=$data.'<image  class="thumbnail" href="https://repositorioutlvte.org/Repositorio/formatoinstitucional/formatoinstitucional'.trim($row->idformatoinstitucional).'.jpg" alt="No hay programación" height="100%" width="100%"  onclick="mostrarImagen(\'https://repositorioutlvte.org/Repositorio/formatoinstitucional/formatoinstitucional'.trim($row->idformatoinstitucional).'.jpg\')" /> </svg>
+$data=$data.'<image  class="thumbnail" href="https://repositorioutlvte.org/Repositorio/formatoinstitucional/formatoinstitucional'.trim($row->idformatoinstitucional).'.jpg" alt="No hay programación" height="100%" width="100%"  onclick="mostrarImagen(\'https://repositorioutlvte.org/Repositorio/formatoinstitucional/formatoinstitucional'.trim($row->idformatoinstitucional).'.jpg\')"   height="100%" width="100%"/> </svg>
 <div class="img-contenedor w3-card-4" style="position:absolute"; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
 
@@ -455,6 +455,12 @@ $data=$data.'</div>';
 
 
 
+$data=$data.'</div>
+
+<div id="modal">
+  <span class="close" onclick="cerrarModal()">&times;</span>
+  <img id="modal-content" src="" alt="Imagen Grande">
+</div>';
 
 }
 
