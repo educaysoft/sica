@@ -524,7 +524,7 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 
 $data=$data.'</div>
 	    <div class="card-body" style="background-color:'.$arrcolor[$row->numeronivelacademico].'"  >
-	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->laasignatura.' </div>	
+	    <div id="'.str_replace(' ', '', $row->laasignatura.' - '.$row->paralelo).'"      style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->laasignatura.' </div>	
 
 <div class="contenedor">
     <div class="texto-transversal">
@@ -539,7 +539,7 @@ $data=$data.'</div>
     </div>
   </div>
 
-	     <p><span style="color:red;" >Instructor : </span><span style="font-size:16px; font-weight:bold;">'.$row->eldocente.'.</span> <br>
+	     <p><span style="color:red;" >Instructor : </span><span  id="'.str_replace(' ', '',$row->eldocente.' - '.$row->paralelo.)'"  style="font-size:16px; font-weight:bold;">'.$row->eldocente.'.</span> <br>
 	     <span style="color:red;" >correo : </span><span style="font-size:16px; font-weight:bold;">'.$row->correo.'.</span> </p></p>
 	     <p><span style="color:red;" >pregrado : </span><span style="font-size:16px; font-weight:bold;">'.$row->pregrado.'.</span> <br>
 	     <span style="color:red;" >maestria : </span><span style="font-size:16px; font-weight:bold;">'.$row->maestria.'.</span> <br></p>
