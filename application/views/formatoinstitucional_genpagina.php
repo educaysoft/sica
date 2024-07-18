@@ -455,12 +455,6 @@ $data=$data.'</div>';
 
 
 
-$data=$data.'</div>
-
-<div id="modal">
-  <span class="close" onclick="cerrarModal()">&times;</span>
-  <img id="modal-content" src="" alt="Imagen Grande">
-</div>';
 
 }
 
