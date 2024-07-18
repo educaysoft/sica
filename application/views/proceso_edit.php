@@ -40,6 +40,13 @@ foreach ($personas as $row){
 
 
 <tr>
+      <td>Color:</td>
+      <td><?php echo form_input('color',$proceso['color'],array('placeholder'=>'Color ', "style"=>"width:500px")) ?></td>
+  </tr>
+
+
+
+<tr>
 <td> Documento:</td>
 <td><?php
 $options= array('--Select--');

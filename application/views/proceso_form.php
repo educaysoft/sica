@@ -64,7 +64,15 @@ echo form_textarea("detalle","", $textarea_options);
 </div>
 
 
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Color:</label>
+<div class="col-md-10">
+<?php
+ echo form_input("color","", array("placeholder"=>"color",'style'=>'width:500px;')); 
 
+?>
+</div>
+</div>
 
 
 <table>

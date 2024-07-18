@@ -83,6 +83,17 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 	</div> 
 </div>
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Color:</label>
+	<div class="col-md-10">
+     <?php
+
+  $eys_arrctl=array("name"=>'color','value'=>$proceso['color'],"disabled"=>"disabled",'placeholder'=>'color','style'=>'width:500px;');
+ echo form_input($eys_arrctl);
+		?>
+	</div> 
+</div>
+
 
 <div class="form-group row">
 	<label class="col-md-2 col-form-label"> <button onclick='verpdf()'>Documento-:</button></label>

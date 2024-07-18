@@ -48,6 +48,7 @@ public function  save()
 	 	'idproceso' => $this->input->post('idproceso'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	'detalle' => $this->input->post('detalle'),
+	 	'color' => $this->input->post('color'),
 	 	'idinstitucion' => $this->input->post('idinstitucion'),
 	 	'idpersona' => $this->input->post('idpersona'),
 	 	);
@@ -79,6 +80,7 @@ public function edit()
 		 	'idproceso' => $this->input->post('idproceso'),
 		 	'nombre' => $this->input->post('nombre'),
 		 	'detalle' => $this->input->post('detalle'),
+	 	    'color' => $this->input->post('color'),
 	 		'idinstitucion' => $this->input->post('idinstitucion'),
 	 		'idpersona' => $this->input->post('idpersona'),
 			'iddocumento' => $this->input->post('iddocumento'),
