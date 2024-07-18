@@ -431,6 +431,30 @@ $data=$data.'<image  class="thumbnail" href="https://repositorioutlvte.org/Repos
 <div class="img-contenedor w3-card-4" style="position:absolute"; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
 
+// Remote file url
+$remoteFile = "https://repositorioutlvte.org/Repositorio/formatoinstitucional/proceso".trim($row->idproceso).".jpg";
+
+$file_headers = @get_headers($remoteFile);
+
+// Check if file exists
+//if(!file_exists($remoteFile)){
+if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
+  //  echo 'File not found';
+	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/formatoinstitucional/sinproceso.jpg" width="100%" height="100%" style="border-radius:50px;">';
+
+}else{
+//	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/fotos/perfil.jpg" width="100%" height="100%" style="border-radius:50px;">';
+	$data=$data.'<img src="https://repositorioutlvte.org/Repositorio/formatoinstitucional/proceso'.trim($row->idproceso).'.jpg" width="100%" height="100%" style="border-radius:50px;">';
+}
+
+
+$data=$data.'</div>';
+
+
+
+
+
+
 $data=$data.'</div>
 
 <div id="modal">
