@@ -430,7 +430,7 @@ $data=$data.'
 
 
 
-        <div class="card-body" style="background-color:'.$arrcolor[1].'"  >
+        <div class="card-body" style="background-color:'.$row->color.'"  >
         <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Proceso:</b>'.$row->elproceso.' </div>
         <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Orden:</b>'.$row->orden.' </div>
         <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>(id)::Formato:</b>('.$row->idformatoinstitucional.')::'.$row->elformatoinstitucional.' </div>
