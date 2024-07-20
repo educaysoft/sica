@@ -283,7 +283,7 @@ public function genpagina()
 //		print_r(	$data['publicaciondocente']);
 //		die();
 
-		$this->load->view('distributivodocente_genpagina2',$data);
+		$this->load->view('publicacion_genpagina',$data);
 	}
 }
 
