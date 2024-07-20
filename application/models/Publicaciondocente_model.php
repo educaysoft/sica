@@ -18,6 +18,13 @@ class Publicaciondocente_model extends CI_model {
 		 return $publicaciondocente;
 	}
 
+	function publicaciondocente2($id){
+ 		$lector = $this->db->query('select distinct cedula, eldocente,iddocente from pubicaciondocente1 ');
+ 		return $lector;
+ 	}
+
+
+
 
 
  	function publicaciondocente( $id){

@@ -15,6 +15,8 @@ if(isset($publicacion))
         <li> <?php echo anchor('publicacion/listar/','Listar'); ?></li>
         <li> <?php echo anchor('publicacion/reportepdf/','Reportepdf'); ?></li>
 
+		<li> <?php echo anchor('publicacion/genpagina/19','generar web'); ?></li>
+		<li> <?php echo anchor('publicacion/paginaweb',' web'); ?></li>
 <?php 
 }else{
 ?>
