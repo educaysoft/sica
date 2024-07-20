@@ -19,7 +19,7 @@ class Publicaciondocente_model extends CI_model {
 	}
 
 	function publicaciondocente2($id){
- 		$lector = $this->db->query('select distinct cedula, eldocente,iddocente from (select cedula, eldocente, iddocente, fechapublicacion from publicaciondocente1  order by fechapublicacion desc ) as subquery');
+ 		$lector = $this->db->query('select distinct cedula, eldocente,iddocente from (select cedula, eldocente, iddocente, fechapublicacion from publicaciondocente1  ) as subquery  order by fechapublicacion desc ');
  		return $lector;
  	}
 
