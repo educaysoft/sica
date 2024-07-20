@@ -11,6 +11,11 @@ class Lector_model extends CI_model {
 		 return $lector;
 	}
 
+	function lector2($id){
+ 		$lector = $this->db->query('select cedula, ellector as eldocente,iddocente from lector2 ');
+ 		return $lector;
+ 	}
+
 
 
 

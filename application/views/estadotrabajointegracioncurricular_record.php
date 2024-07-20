@@ -45,12 +45,25 @@ if(isset($estadotrabajointegracioncurricular))
     <label class="col-md-2 col-form-label"> Nombre:</label>
 	<div class="col-md-10">
      <?php
-       echo form_input('nombre',$estadotrabajointegracioncurricular['nombre'],array('placeholder'=>'Nombre del estadotrabajointegracioncurricular')); 
+       echo form_input('nombre',$estadotrabajointegracioncurricular['nombre'],array('placeholder'=>'Nombre del estadotrabajointegracioncurricular','style'=>'width:600px;')); 
 
 	?>
 	</div> 
 </div> 
-   
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Color:</label>
+	<div class="col-md-10">
+     <?php
+       echo form_input('color',$estadotrabajointegracioncurricular['color'],array('placeholder'=>'Color del estadotrabajointegracioncurricular')); 
+
+	?>
+	</div> 
+</div>
+
+
+
+
    
 <?php echo form_close(); ?>
 

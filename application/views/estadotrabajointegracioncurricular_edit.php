@@ -19,7 +19,17 @@ echo form_input($eys_arrinput); ?></td>
 $eys_arrinput=array('name'=>'nombre','value'=>$estadotrabajointegracioncurricular['nombre'], "style"=>"width:500px");
  echo form_input($eys_arrinput); ?></td>
   </tr>
+
+<tr>
+      <td>Color:</td>
+      <td><?php
  
+$eys_arrinput=array('name'=>'color','value'=>$estadotrabajointegracioncurricular['color'], "style"=>"width:500px");
+ echo form_input($eys_arrinput); ?></td>
+  </tr>
+
+
+
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('estadotrabajointegracioncurricular','Atras') ?></td>
  </tr>
