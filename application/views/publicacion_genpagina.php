@@ -256,8 +256,8 @@ foreach($publicaciondocentes as $row){
 		</div>
       		<div >
         	<h1 class="fw-light">UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS</h1>  
-        	<p class="lead text-muted">Carrera en Tecnología de la Información </p>
-        	<p class="lead text-muted">Producción Científica</p>
+        	<p class="lead text-muted" style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); " >Carrera en Tecnología de la Información </p>
+        	<p class="lead text-muted"  style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">Producción Científica</p>
       		</div>
     		</div>
   		</section>
