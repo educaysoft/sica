@@ -252,7 +252,7 @@ foreach($lectores as $row){
   		<section class="py-5 text-center container">
     		<div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: center;" >
 		<div style=" flex-basis: 40%"  >
-		<img src="https://repositorioutlvte.org/Repositorio/qr/trabajosintegracioncurricular.png" height="150px">
+		<img src="https://repositorioutlvte.org/Repositorio/qr/trabajointegracioncurricular.png" height="150px">
 		</div>
       		<div >
         	<h1 class="fw-light">'.'UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS'.'</h1>  
@@ -324,7 +324,7 @@ foreach($trabajointegracioncurricular as $rowj){
 
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
            //     if($rowj[$row->iddocente]['idestadotrabajointegracioncurricular']==5){
-			    $data=$data.'<b><span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">'.$rowj[$row->iddocente]['eltipolector'] .'</span>: </b><span style="color: '.$rowj[$row->iddocente]['color'] .'">[' .$rowj[$row->iddocente]['idtrabajointegracioncurricular'] .' - '.$rowj[$row->iddocente]['nombre'].'[Egresado: '.$rowj[$row->iddocente]['elegresado'].']-[Estado:</span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">'.$rowj[$row->iddocente]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
+			    $data=$data.' <div class="card-body" style="background-color:#D3D3D3;padding: 20px;border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) "  > <b><span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">'.$rowj[$row->iddocente]['eltipolector'] .'</span>: </b><span style="color: '.$rowj[$row->iddocente]['color'] .'">[' .$rowj[$row->iddocente]['idtrabajointegracioncurricular'] .' - '.$rowj[$row->iddocente]['nombre'].'[Egresado: '.$rowj[$row->iddocente]['elegresado'].']-[Estado:</span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">'.$rowj[$row->iddocente]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a></div><br>';
             /*    }else{
                     if($rowj[$row->iddocente]['idestadotrabajointegracioncurricular']==4){
 			        $data=$data.'<b>'.$rowj[$row->iddocente]['eltipolector'] .': </b><span style="color:magenta">'.$rowj[$row->iddocente]['nombre'].'[Egresado: '.$rowj[$row->iddocente]['elegresado'].']-[Estado: </span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color:magenta">'.$rowj[$row->iddocente]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
