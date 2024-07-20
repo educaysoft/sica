@@ -19,7 +19,20 @@ class Publicaciondocente_model extends CI_model {
 	}
 
 	function publicaciondocente2($id){
- 		$lector = $this->db->query('select distinct on (cedula, eldocente,iddocente) cedula, eldocente,iddocente, fechapublicacion from  publicaciondocente1  order by cedula, eldocente, iddocente,  fechapublicacion desc ');
+        $lector = $this->db->query('SELECT p1.cedula, p1.eldocente, p1.iddocente, p1.fechapublicacion
+    FROM publicaciondocente1 p1
+    JOIN (
+        SELECT cedula, eldocente, iddocente, MAX(fechapublicacion) AS max_fecha
+        FROM publicaciondocente1
+        GROUP BY cedula, eldocente, iddocente
+    ) p2
+    ON p1.cedula = p2.cedula
+    AND p1.eldocente = p2.eldocente
+    AND p1.iddocente = p2.iddocente
+    AND p1.fechapublicacion = p2.max_fecha
+    ORDER BY p1.cedula, p1.eldocente, p1.iddocente, p1.fechapublicacion DESC
+');
+
 
  		return $lector;
  	}
