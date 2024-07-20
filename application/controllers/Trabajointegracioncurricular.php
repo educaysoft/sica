@@ -101,7 +101,7 @@ public function genpagina()
 	$ordenrpt=0;
 	if($this->uri->segment(3))
 	{
-		$idcarrera=$this->uri->segment(3
+		$idcarrera=$this->uri->segment(3);
 	 	$data['Lectores']= $this>lector_model->lector2(0)->result();
 		$arreglo=array();
 		$i=0;
