@@ -30,7 +30,7 @@ class Publicaciondocente_model extends CI_model {
     AND p1.eldocente = p2.eldocente
     AND p1.iddocente = p2.iddocente
     AND p1.fechapublicacion = p2.max_fecha
-    ORDER BY p1.cedula, p1.eldocente, p1.iddocente, p1.fechapublicacion DESC
+    ORDER BY  p1.fechapublicacion DESC
 ');
 
 
