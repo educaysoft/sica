@@ -9,6 +9,7 @@ class Trabajointegracioncurricular extends CI_Controller{
       $this->load->model('ordenador_model');
       $this->load->model('directorio_model');
       $this->load->model('persona_model');
+      $this->load->model('lector_model');
       $this->load->model('estadotrabajointegracioncurricular_model');
 	}
 
