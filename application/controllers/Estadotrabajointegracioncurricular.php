@@ -36,6 +36,7 @@ public function  save()
 	 	$array_item=array(
 	 	'idestadotrabajointegracioncurricular' => $this->input->post('idestadotrabajointegracioncurricular'),
 	 	'nombre' => $this->input->post('nombre'),
+	 	'color' => $this->input->post('color'),
 	 	);
 	 	$this->estadotrabajointegracioncurricular_model->save($array_item);
 	 	redirect('estadotrabajointegracioncurricular');
@@ -61,6 +62,7 @@ public function edit()
 		 	
 		 	'idestadotrabajointegracioncurricular' => $this->input->post('idestadotrabajointegracioncurricular'),
 		 	'nombre' => $this->input->post('nombre'),
+		 	'color' => $this->input->post('color'),
 	 	);
 	 	$this->estadotrabajointegracioncurricular_model->update($id,$array_item);
 	 	redirect('estadotrabajointegracioncurricular');

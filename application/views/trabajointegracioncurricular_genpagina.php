@@ -323,15 +323,15 @@ $data=$data.'</div>
 foreach($trabajointegracioncurricular as $rowj){
 
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
-                if($rowj[$row->iddocente]['idestadotrabajointegracioncurricular']==5){
-			    $data=$data.'<b>'.$rowj[$row->iddocente]['eltipolector'] .': </b><span style="color:green">'.$rowj[$row->iddocente]['nombre'].'[Egresado: '.$rowj[$row->iddocente]['elegresado'].']-[Estado:</span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color:green">'.$rowj[$row->iddocente]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
-                }else{
+           //     if($rowj[$row->iddocente]['idestadotrabajointegracioncurricular']==5){
+			    $data=$data.'<b>'.$rowj[$row->iddocente]['eltipolector'] .': </b><span style="color: '.$rowj[$row->iddocente]['color'] .'">'.$rowj[$row->iddocente]['nombre'].'[Egresado: '.$rowj[$row->iddocente]['elegresado'].']-[Estado:</span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color:   '.$rowj[$row->iddocente]['color'] .'">'.$rowj[$row->iddocente]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
+            /*    }else{
                     if($rowj[$row->iddocente]['idestadotrabajointegracioncurricular']==4){
 			        $data=$data.'<b>'.$rowj[$row->iddocente]['eltipolector'] .': </b><span style="color:magenta">'.$rowj[$row->iddocente]['nombre'].'[Egresado: '.$rowj[$row->iddocente]['elegresado'].']-[Estado: </span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color:magenta">'.$rowj[$row->iddocente]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
                  }else{
 			    $data=$data.'<b>'.$rowj[$row->iddocente]['eltipolector'] .': </b><span style="color:red">'.$rowj[$row->iddocente]['nombre'].'('.$rowj[$row->iddocente]['elegresado'].')-[Estado: </span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color:red">'.$rowj[$row->iddocente]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
                 }
-                }
+                } */
 			}	
 	//		echo $rowj; echo '<br>';
 		}
