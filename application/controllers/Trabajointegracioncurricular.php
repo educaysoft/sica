@@ -155,7 +155,7 @@ public function genpagina2()
 		foreach($xx as $row2){
 			foreach($row2 as $row3)
 			 {
-				$arreglo+=array($i=>array($row->iddocente=>$row3));
+				$arreglo+=array($i=>array($row->idegresado=>$row3));
 				$i=$i+1;
 			}
 			}
