@@ -11,7 +11,7 @@ class Publicaciondocente_model extends CI_model {
 		if($id>0)
 		{
 			$this->db->where('idpublicacion',$id);
-			$publicaciondocente= $this->db->get('publicaciondocente1');
+			$publicaciondocente= $this->db->order_by('fechapublicacion','desc')->get('publicaciondocente1');
 		}else{
 		 $publicaciondocente= $this->db->get('publicaciondocente1');
 		}
