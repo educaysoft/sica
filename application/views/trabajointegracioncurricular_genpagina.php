@@ -371,11 +371,11 @@ foreach($trabajointegracioncurricular as $rowj){
 
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
            //     if($rowj[$row->iddocente]['idestadotrabajointegracioncurricular']==5){
-			    $data=$data.' <div class="tooltip-container" style="background-color:#D3D3D3;padding: 20px;border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) "  > <div > <button class="tooltip-trigger">Click </button><div >                    <b><span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">'.$rowj[$row->iddocente]['eltipolector'] .'</span>: </b><span style="color: '.$rowj[$row->iddocente]['color'] .'">[' .$rowj[$row->iddocente]['idtrabajointegracioncurricular'] .' - '.$rowj[$row->iddocente]['nombre'].'[Egresado: '.$rowj[$row->iddocente]['elegresado'].']-[Estado:</span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">'.$rowj[$row->iddocente]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a></div> </div>
+			    $data=$data.' <div class="tooltip-container" style="background-color:#D3D3D3;padding: 20px;border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) "  > <div > <button class="tooltip-trigger">Resumen </button><div >                    <b><span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">'.$rowj[$row->iddocente]['eltipolector'] .'</span>: </b><span style="color: '.$rowj[$row->iddocente]['color'] .'">[' .$rowj[$row->iddocente]['idtrabajointegracioncurricular'] .' - '.$rowj[$row->iddocente]['nombre'].'[Egresado: '.$rowj[$row->iddocente]['elegresado'].']-[Estado:</span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">'.$rowj[$row->iddocente]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a></div> </div>
   
                     <div class="tooltip-content">
                 <!-- Aquí se muestra el texto descriptivo adicional específico para cada elemento -->
-                Información adicional sobre '.$rowj[$row->iddocente]['nombre'].'
+                Información adicional sobre '.$rowj[$row->iddocente]['resumen'].'
             </div>
                   
                     </div>              <br>';
