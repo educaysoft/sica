@@ -262,6 +262,8 @@ public function genpagina()
 		$i=0;
 		foreach($data['publicaciondocentes'] as $row){
 		$iddocente=$row->iddocente;
+// Verificar si iddocente ya está en el arreglo
+    if (!array_key_exists($iddocente, $arreglo)) {
 
 	//	$arreglo[$row->iddocente]=$this->publicaciondocente_model->publicaciondocentesA($iddocente)->row_array();
 		$xx=array($this->publicaciondocente_model->publicaciondocentesA($iddocente)->result_array());
@@ -273,7 +275,8 @@ public function genpagina()
 				$i=$i+1;
 			}
 			}
-		}
+        }
+        }
 		}
 		$data['publicaciondocente']=array();
 	//	array_push($data['jornadadocente'],$arreglo); 
