@@ -55,6 +55,8 @@ if(isset($trabajointegracioncurricular))
 		<li> <?php echo anchor('trabajointegracioncurricular/paginaweb',' web'); ?></li>
 
 
+		<li> <?php echo anchor('trabajointegracioncurricular/genpagina2/19','generar egresado'); ?></li>
+		<li> <?php echo anchor('trabajointegracioncurricular/paginaweb2',' web2'); ?></li>
         
 		
 

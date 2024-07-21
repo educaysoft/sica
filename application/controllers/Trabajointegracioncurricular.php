@@ -134,6 +134,47 @@ public function genpagina()
 
 
 
+public function genpagina2()
+{
+	$idcarrera=0;
+
+	$ordenrpt=0;
+	if($this->uri->segment(3))
+	{
+		$idcarrera=$this->uri->segment(3);
+	 	$data['egresados']= $this->egrado_model->listar_egresado1(0)->result();
+		$arreglo=array();
+		$i=0;
+		foreach($data['egresados'] as $row){
+		$idegrasado=$row->idegresado;
+
+	//	$arreglo[$row->iddocente]=$this->trabajointegracioncurricular_model->trabajointegracioncurricularsA($iddocente)->row_array();
+		$xx=array($this->trabajointegracioncurricular_model->trabajointegracioncurricularsB($idegresado)->result_array());
+		if(count($xx[0]) > 0){
+		foreach($xx as $row2){
+			foreach($row2 as $row3)
+			 {
+				$arreglo+=array($i=>array($row->iddocente=>$row3));
+				$i=$i+1;
+			}
+			}
+		}
+		}
+		$data['trabajointegracioncurricular']=array();
+	//	array_push($data['jornadadocente'],$arreglo); 
+		$data['trabajointegracioncurricular']=$arreglo; 
+		echo "<br> jornadadocnete<br>" ;
+
+
+		$this->load->view('trabajointegracioncurricular_genpagina2',$data);
+	}
+}
+
+
+
+
+
+
 
 
 
@@ -631,6 +672,13 @@ public function get_trabajointegracioncurricularA() {
 	{
 	  $this->load->view('web/trabajointegracioncurricular');
 	}
+
+	public function paginaweb2()
+	{
+	  $this->load->view('web/trabajointegracioncurricular2');
+	}
+
+
 
 
 
