@@ -114,7 +114,30 @@ contenedor {
 
 
 
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
 
+.tooltip-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    color: #000;
+    text-align: left;
+    border: 1px solid #ddd;
+    padding: 10px;
+    z-index: 1;
+    width: 300px;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip-container.active .tooltip-content {
+    display: block;
+}
 
 
 
@@ -190,6 +213,18 @@ $data1='</div>
 ></script>
 
 <script type="text/javascript">
+
+document.addEventListener("DOMContentLoaded", function() {
+    var trigger = document.querySelector(".tooltip-trigger");
+    var container = document.querySelector(".tooltip-container");
+
+    trigger.addEventListener("click", function() {
+        container.classList.toggle("active");
+    });
+});
+
+
+
 
 $(".submenu").click(function(){
   $(this).children("ul").slideToggle();
@@ -324,7 +359,8 @@ foreach($trabajointegracioncurricular as $rowj){
 
 			if(isset($rowj[$row->iddocente]['iddocente'])){		
            //     if($rowj[$row->iddocente]['idestadotrabajointegracioncurricular']==5){
-			    $data=$data.' <div class="card-body" style="background-color:#D3D3D3;padding: 20px;border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) "  > <b><span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">'.$rowj[$row->iddocente]['eltipolector'] .'</span>: </b><span style="color: '.$rowj[$row->iddocente]['color'] .'">[' .$rowj[$row->iddocente]['idtrabajointegracioncurricular'] .' - '.$rowj[$row->iddocente]['nombre'].'[Egresado: '.$rowj[$row->iddocente]['elegresado'].']-[Estado:</span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">'.$rowj[$row->iddocente]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a></div><br>';
+			    $data=$data.' <div class="tooltip-container"> <button class="tooltip-trigger">Click aquí para más información</button><div class="tooltip-content">                    <div class="card-body" style="background-color:#D3D3D3;padding: 20px;border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) "  > <b><span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">'.$rowj[$row->iddocente]['eltipolector'] .'</span>: </b><span style="color: '.$rowj[$row->iddocente]['color'] .'">[' .$rowj[$row->iddocente]['idtrabajointegracioncurricular'] .' - '.$rowj[$row->iddocente]['nombre'].'[Egresado: '.$rowj[$row->iddocente]['elegresado'].']-[Estado:</span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">'.$rowj[$row->iddocente]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a></div> </div>
+    </div>              <br>';
             /*    }else{
                     if($rowj[$row->iddocente]['idestadotrabajointegracioncurricular']==4){
 			        $data=$data.'<b>'.$rowj[$row->iddocente]['eltipolector'] .': </b><span style="color:magenta">'.$rowj[$row->iddocente]['nombre'].'[Egresado: '.$rowj[$row->iddocente]['elegresado'].']-[Estado: </span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color:magenta">'.$rowj[$row->iddocente]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/trabajointegracioncurricular/actual/'.$rowj[$row->iddocente]['idtrabajointegracioncurricular'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
