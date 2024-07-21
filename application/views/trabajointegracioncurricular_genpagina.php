@@ -374,7 +374,7 @@ foreach($trabajointegracioncurricular as $rowj){
   
                     <div class="tooltip-content">
                 <!-- Aquí se muestra el texto descriptivo adicional específico para cada elemento -->
-                Información adicional sobre <?= $row['nombre']; ?>.
+                Información adicional sobre '.$rowj[$row->iddocente]['nombre'].'
             </div>
                   
                     </div>              <br>';
