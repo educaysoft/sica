@@ -215,15 +215,26 @@ $data1='</div>
 <script type="text/javascript">
 
 document.addEventListener("DOMContentLoaded", function() {
-    var trigger = document.querySelector(".tooltip-trigger");
-    var container = document.querySelector(".tooltip-container");
+    var triggers = document.querySelectorAll(".tooltip-trigger");
 
-    trigger.addEventListener("click", function() {
-        container.classList.toggle("active");
+    triggers.forEach(function(trigger) {
+        var container = trigger.closest(".tooltip-container");
+
+        trigger.addEventListener("click", function() {
+            container.classList.toggle("active");
+        });
+    });
+
+    // Opcional: Cerrar el tooltip al hacer clic fuera de él
+    document.addEventListener("click", function(event) {
+        triggers.forEach(function(trigger) {
+            var container = trigger.closest(".tooltip-container");
+            if (!container.contains(event.target)) {
+                container.classList.remove("active");
+            }
+        });
     });
 });
-
-
 
 
 $(".submenu").click(function(){
@@ -390,7 +401,9 @@ foreach($trabajointegracioncurricular as $rowj){
 
 
 
-			$file='application/views/web/trabajointegracioncurricular.php';
+ 	$data=$data.$data1;
+
+	$file='application/views/web/trabajointegracioncurricular.php';
 
 
 	if ( !write_file($file, $data)){
