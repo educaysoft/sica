@@ -229,21 +229,21 @@ foreach($publicaciondocentes as $row){
 
 	$data='
 		<!doctype html>
-		<html lang="en">
+		<html lang="es">
   		<head>
     		<meta charset="utf-8">
     		<meta name="viewport" content="width=device-width, initial-scale=1">
     		<meta name="description" content="">
     		<meta name="author" content="Stalin Francis Quinde">
     		<meta name="generator" content="Hugo 0.101.0">
-        	<meta property="og:site_name" content="Carrera en Tecnología de la Información" />
-        	<meta property="og:image" content="https://repositorioutlvte.org/Repositorio/logos/logocti.png" />
-        	<meta property="og:image:width" content="400" />
-        	<meta property="og:image:height" content="400" />
+        	<meta property="og:site_name" content="Carrera en Tecnología de la Información" >
+        	<meta property="og:image" content="https://repositorioutlvte.org/Repositorio/logos/logosigeca.jpg" >
+        	<meta property="og:image:width" content="400">
+        	<meta property="og:image:height" content="400">
     		<title> Carrera: Ingeniería en Tecnologíá de la Información </title>
     		<link rel="educaysoft" href="https://congresoutlvte.org/faci/">
-    		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-		<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css" />';
+    		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+		<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css">';
 	 	$data=$data.$data0;
 
 
