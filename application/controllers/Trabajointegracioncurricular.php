@@ -142,7 +142,7 @@ public function genpagina2()
 	if($this->uri->segment(3))
 	{
 		$idcarrera=$this->uri->segment(3);
-	 	$data['egresados']= $this->egrado_model->listar_egresado1(0)->result();
+	 	$data['egresados']= $this->egresado_model->listar_egresado1(0)->result();
 		$arreglo=array();
 		$i=0;
 		foreach($data['egresados'] as $row){
