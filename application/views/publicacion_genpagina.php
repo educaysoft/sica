@@ -4,117 +4,89 @@ $this->load->helper('file');
 
 
 $data0 ='    <style>
-
-.img-contenedor img {
--webkit-transition:all .9s ease; /* Safari y Chrome */
--moz-transition:all .9s ease; /* Firefox */
--o-transition:all .9s ease; /* IE 9 */
--ms-transition:all .9s ease; /* Opera */
-width:100%;
-}
-
-.img-contenedor:hover img {
--webkit-transform:scale(1.25);
--moz-transform:scale(1.25);
--ms-transform:scale(1.25);
--o-transform:scale(1.25);
-transform:scale(1.25);
-}
-
-.img-contenedor {/*Ancho y altura son modificables al requerimiento de cada uno*/
-/*width:300px;*/
-/*height:180px;*/
-overflow:hidden;
-}
-
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
+ .img-contenedor img {
+            -webkit-transition: all .9s ease; /* Safari y Chrome */
+            -moz-transition: all .9s ease; /* Firefox */
+            -o-transition: all .9s ease; /* IE 9 */
+            -ms-transition: all .9s ease; /* Opera */
+            transition: all .9s ease;
+            width: 100%;
         }
-      }
-
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-
-  .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
-
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-   
-
-
-
-contenedor {
-  position: relative;
-  width: 600px;
-  height: 400px;
-  background-color: #f0f0f0;
-  margin: 50px auto;
-  padding: 20px;
-}
-
-.texto-transversal {
-  top: 50%;
-  left: 50%;
-  transform: translate(0%, 0%) rotate(-0deg);
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  color: white;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-.texto-transversal h2 {
-  margin: 0;
-  padding: 0;
-  font-size: 24px;
-  text-transform: uppercase;
-}
-
-.texto-transversal p {
-  margin: 0;
-  padding: 0;
-  font-size: 18px;
-}
-
-
-
-
-
-
-
-
-
-
-
+        .img-contenedor:hover img {
+            -webkit-transform: scale(1.25);
+            -moz-transform: scale(1.25);
+            -ms-transform: scale(1.25);
+            -o-transform: scale(1.25);
+            transform: scale(1.25);
+        }
+        .img-contenedor {
+            overflow: hidden;
+        }
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+        .contenedor {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            background-color: #f0f0f0;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .texto-transversal {
+            top: 50%;
+            left: 50%;
+            transform: translate(0%, 0%) rotate(-0deg);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            color: white;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        .texto-transversal h2 {
+            margin: 0;
+            padding: 0;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+        .texto-transversal p {
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+        }
 
  </style>
     
@@ -221,22 +193,31 @@ foreach($publicaciondocentes as $row){
 	{
 
 	$data='
-		<!doctype html>
-		<html lang="es">
-  		<head>
-    		<meta charset="utf-8">
-    		<meta name="viewport" content="width=device-width, initial-scale=1">
-    		<meta name="description" content="">
-    		<meta name="author" content="Stalin Francis Quinde">
-    		<meta name="generator" content="Hugo 0.101.0">
-        	<meta property="og:site_name" content="Carrera en Tecnología de la Información" >
-        	<meta property="og:image" content="https://repositorioutlvte.org/Repositorio/logos/logosigeca.jpg" >
-        	<meta property="og:image:width" content="400">
-        	<meta property="og:image:height" content="400">
-    		<title> Carrera: Ingeniería en Tecnologíá de la Información </title>
-    		<link rel="educaysoft" href="https://congresoutlvte.org/faci/">
-    		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-		<link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css">';
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Carrera en Tecnología de la Información">
+    <meta name="author" content="Stalin Francis Quinde">
+    <meta name="generator" content="Hugo 0.101.0">
+    
+    <!-- Meta etiquetas Open Graph -->
+    <meta property="og:title" content="Carrera: Ingeniería en Tecnología de la Información">
+    <meta property="og:description" content="Descripción de la carrera en Tecnología de la Información">
+    <meta property="og:url" content="https://repositorioutlvte.org/Repositorio/pagina.html">
+    <meta property="og:site_name" content="Carrera en Tecnología de la Información">
+    <meta property="og:image" content="https://repositorioutlvte.org/Repositorio/logos/logosigeca.jpg">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="400">
+    <meta property="og:type" content="website">
+    
+    <title>Carrera: Ingeniería en Tecnología de la Información</title>
+    
+    <link rel="educaysoft" href="https://congresoutlvte.org/faci/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://educaysoft.org/sica/assets/dist/css/bootstrap.min.css">';
 	 	$data=$data.$data0;
 
 
