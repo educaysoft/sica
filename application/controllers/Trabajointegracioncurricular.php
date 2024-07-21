@@ -147,7 +147,7 @@ public function genpagina2()
 		$arreglo=array();
 		$i=0;
 		foreach($data['egresados'] as $row){
-		$idegrasado=$row->idegresado;
+		$idegresado=$row->idegresado;
 
 	//	$arreglo[$row->iddocente]=$this->trabajointegracioncurricular_model->trabajointegracioncurricularsA($iddocente)->row_array();
 		$xx=array($this->trabajointegracioncurricular_model->trabajointegracioncurricularsB($idegresado)->result_array());
