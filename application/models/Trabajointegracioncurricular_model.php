@@ -103,7 +103,7 @@ class Trabajointegracioncurricular_model extends CI_model {
 
 	function trabajointegracioncurricularsB($idegresado){
 		
-		if($iddocente==0)
+		if($idegresado==0)
 		{
 		$trabajointegracioncurricular=$this->db->order_by("idtrabajointegracioncurricular")->get('trabajointegracioncurricular2');
 		}else{
