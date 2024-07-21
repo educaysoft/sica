@@ -257,13 +257,41 @@ public function genpagina()
 	if($this->uri->segment(3))
 	{
 		$iddistributivo=$this->uri->segment(3);
-	 	$data['publicaciondocentes']= $this->publicaciondocente_model->publicaciondocente2(0)->result();
+
+$data['publicaciondocente'] = $this->publicaciondocente_model->publicaciondocente2(0)->result();
+$data['publicaciondocentes'] = array();
+
+foreach ($data['publicaciondocente'] as $pp) {
+    $iddocente = $pp->iddocente;
+    if (!array_key_exists($iddocente, $data['publicaciondocentes'])) {
+        // Utiliza iddocente como clave para evitar duplicados
+        $data['publicaciondocentes'][$iddocente] = $pp;
+    }
+}
+
+// Si necesitas que $data['publicaciondocentes'] sea un array indexado, conviértelo
+$data['publicaciondocentes'] = array_values($data['publicaciondocentes']);
+
+
+
+
+//        $data['publicaciondocente']= $this->publicaciondocente_model->publicaciondocente2(0)->result();
+//	 	$data['publicaciondocentes']= array();
+  //      foreach($data['publicaciondocentes'] as $pp)
+    //    {   
+
+	//	$iddocente=$pp->iddocente;
+      //      if (!array_key_exists($iddocente, $data['publicaciondocentes'])) {
+        //        $data['publicaciondocentes']+=$pp;
+          //  }
+            
+       //  }
+
 		$arreglo=array();
 		$i=0;
 		foreach($data['publicaciondocentes'] as $row){
 		$iddocente=$row->iddocente;
 // Verificar si iddocente ya está en el arreglo
-    if (!array_key_exists($iddocente, $arreglo)) {
 
 	//	$arreglo[$row->iddocente]=$this->publicaciondocente_model->publicaciondocentesA($iddocente)->row_array();
 		$xx=array($this->publicaciondocente_model->publicaciondocentesA($iddocente)->result_array());
@@ -275,7 +303,6 @@ public function genpagina()
 				$i=$i+1;
 			}
 			}
-        }
         }
 		}
 		$data['publicaciondocente']=array();
