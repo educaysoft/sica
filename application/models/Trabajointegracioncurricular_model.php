@@ -49,7 +49,7 @@ class Trabajointegracioncurricular_model extends CI_model {
 
 
 	//Retorna todos los registros como un objeto
-	function trabajointegracioncurricularsxtipo($idtipotrabajointegracioncurricular){
+	function trabajointegracioncurricularsxtipo($idestadotrabajointegracioncurricular){
 		
 		if($idestadotrabajointegracioncurricular==0)
 		{
