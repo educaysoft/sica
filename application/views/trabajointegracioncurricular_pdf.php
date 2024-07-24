@@ -32,12 +32,11 @@
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
-	//$pdf->titulo=$documentos[0]->idestadotrabajointegracioncurricular;
+	$pdf->asignatura=$documentos[0]->idestadotrabajointegracioncurricular;
 	
 
 
 	$pdf->AliasNbPages();
-	$pdf->AddPage();
 	$pdf->AddPage('L');
 	
 	$pdf->SetFillColor(232,232,232);
@@ -45,9 +44,9 @@
 
 
 	$pdf->Cell(5,5,'#',1,0,'C',1);
-	$pdf->Cell(45,5,'Autor',1,0,'C',1);
-	$pdf->Cell(80,5,'Asunto/tema',1,0,'C',1);
-	$pdf->Cell(40,5,'codigo',1,1,'C',1);
+	$pdf->Cell(45,5,'Autor/Lector',1,0,'C',1);
+	$pdf->Cell(80,5,'tema/propuesta',1,0,'C',1);
+	$pdf->Cell(40,5,'Resumen de tema',1,1,'C',1);
  
 	 
 
@@ -85,8 +84,7 @@
 		 $pdf->MultiCell(80,5,utf8_decode($row->nombre),1,'L',1);
 		 $pdf->SetXY($current_x+80, $current_y);
 
-		 $pdf->MultiCell(80,5,utf8_decode($row->resumen),1,'L',1);
-		 $pdf->Cell(80,$h,utf8_decode($row->resumen),1,1,'L',0);
+		 $pdf->MultiCell(100,5,utf8_decode($row->resumen),1,'L',1);
 
 
    }
