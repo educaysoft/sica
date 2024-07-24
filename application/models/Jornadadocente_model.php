@@ -113,7 +113,7 @@ class Jornadadocente_model extends CI_model {
  
 
 
- 	public function delete($id)
+  function delete($id)
 	{
  		$this->db->where('idjornadadocente',$id);
 		$this->db->delete('jornadadocente');
