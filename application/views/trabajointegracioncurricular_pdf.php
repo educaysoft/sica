@@ -45,8 +45,8 @@
 
 	$pdf->Cell(5,5,'#',1,0,'C',1);
 	$pdf->Cell(45,5,'Autor/Lector',1,0,'C',1);
-	$pdf->Cell(80,5,'tema/propuesta',1,0,'C',1);
-	$pdf->Cell(40,5,'Resumen de tema',1,1,'C',1);
+	$pdf->Cell(100,5,'tema/propuesta',1,0,'C',1);
+	$pdf->Cell(100,5,'Resumen de tema',1,1,'C',1);
  
 	 
 
