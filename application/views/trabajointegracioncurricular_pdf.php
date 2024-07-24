@@ -1,8 +1,8 @@
 <?php
 
 //	include 'plantilla.php';
-	include 'plantilla2.php';
-//	include 'plantilla2023-2.php';
+//	include 'plantilla2.php';
+	include 'plantilla2023-2.php';
 //	require 'conexion.php';
 	
 //	$query = "SELECT e.estado, m.id_municipio, m.municipio FROM t_municipio AS m INNER JOIN t_estado AS e ON m.id_estado=e.id_estado";
@@ -32,7 +32,7 @@
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
-	$pdf->titulo='TEMAS EN ESTADO DE ".$trabajointegracioncurriculars[0]->elestado;
+	$pdf->titulo=TEMAS EN ESTADO DE ".$trabajointegracioncurriculars[0]->elestado;
 	
 
 
