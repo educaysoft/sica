@@ -30,7 +30,7 @@
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
-	$pdf->titulo=$documentos[0]->eltipodocu;
+	$pdf->titulo=$documentos[0]->idestadotrabajointegracioncurricular;
 	
 
 
@@ -55,8 +55,8 @@
 	$persona="";
 	$h=5;
 	$i=0;
-	foreach ($documentos as $row){  //Recorre todas la participaciones realiadas por los participantes
-		$l=strlen($row->asunto);
+	foreach ($trabajointegracioncurriculars as $row){  //Recorre todas la participaciones realiadas por los participantes
+		$l=strlen($row->resumen);
 	//	echo $l;
 	//	die();
 		   if($l>60){
@@ -65,11 +65,11 @@
 		   	$h=5;
 		   }			   
 
-		    if($autor != $row->autor){
+		    if($autor != $row->ellector){
 		    $i=$i+1;
 		    $pdf->Cell(5,$h,$i,1,0,'R',0); 
-		    $pdf->Cell(45,$h,utf8_decode($row->autor),1,0,'L',0);
-		    $autor=$row->autor;
+		    $pdf->Cell(45,$h,utf8_decode($row->ellector),1,0,'L',0);
+		    $autor=$row->ellector;
 		    }else{
 
 		    $pdf->Cell(5,$h,"",1,0,'R',0); 
@@ -79,10 +79,10 @@
 		 $current_y = $pdf->GetY();
 
 		 //$pdf->Cell(80,5,utf8_decode($row->asunto),1,0,'L',0);
-		 $pdf->MultiCell(80,5,utf8_decode($row->asunto),1,'L',1);
+		 $pdf->MultiCell(80,5,utf8_decode($row->nombre),1,'L',1);
 		 $pdf->SetXY($current_x+80, $current_y);
 
-		 $pdf->Cell(40,$h,utf8_decode($row->archivopdf),1,1,'L',0);
+		 $pdf->Cell(40,$h,utf8_decode($row->resumen),1,1,'L',0);
 
 
    }
