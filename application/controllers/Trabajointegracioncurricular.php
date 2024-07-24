@@ -325,7 +325,7 @@ public function genpagina2()
 		$data['trabajointegracioncurriculars'] = $this->trabajointegracioncurricular_model->trabajointegracioncurricularsxtipo($this->uri->segment(3))->result();
 
 		$data['title']="Evento";
-		$this->load->view('trabajointegracioncurricular_list_pdf',$data);
+		$this->load->view('trabajointegracioncurricular_pdf',$data);
 	
 	}
 
