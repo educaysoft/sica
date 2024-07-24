@@ -81,7 +81,7 @@
 		 $current_y = $pdf->GetY();
 
 		 //$pdf->Cell(80,5,utf8_decode($row->asunto),1,0,'L',0);
-		 $pdf->MultiCell(80,5,utf8_decode($row->nombre),1,'L',1);
+		 $pdf->MultiCell(100,5,utf8_decode($row->nombre),1,'L',1);
 		 $pdf->SetXY($current_x+80, $current_y);
 
 		 $pdf->MultiCell(100,5,utf8_decode($row->resumen),1,'L',1);
