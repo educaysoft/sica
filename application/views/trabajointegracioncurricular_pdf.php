@@ -28,15 +28,17 @@
       
 	$pdf = new PDF();
 	$pdf->SetMargins(23, 10, 11.7);
+	$pdf->SetAutoPageBreak(true,40); //page created doesn't have template attached
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
-	$pdf->titulo=$documentos[0]->idestadotrabajointegracioncurricular;
+	//$pdf->titulo=$documentos[0]->idestadotrabajointegracioncurricular;
 	
 
 
 	$pdf->AliasNbPages();
 	$pdf->AddPage();
+	$pdf->AddPage('L');
 	
 	$pdf->SetFillColor(232,232,232);
 	$pdf->SetFont('Arial','B',8);
