@@ -1,7 +1,8 @@
 <?php
 
 //	include 'plantilla.php';
-	include 'plantilla2023-1.php';
+	include 'plantilla2.php';
+//	include 'plantilla2023-1.php';
 //	require 'conexion.php';
 	
 //	$query = "SELECT e.estado, m.id_municipio, m.municipio FROM t_municipio AS m INNER JOIN t_estado AS e ON m.id_estado=e.id_estado";
@@ -82,7 +83,8 @@
 		 $pdf->MultiCell(80,5,utf8_decode($row->nombre),1,'L',1);
 		 $pdf->SetXY($current_x+80, $current_y);
 
-		 $pdf->Cell(40,$h,utf8_decode($row->resumen),1,1,'L',0);
+		 $pdf->MultiCell(80,5,utf8_decode($row->resumen),1,'L',1);
+		 $pdf->Cell(80,$h,utf8_decode($row->resumen),1,1,'L',0);
 
 
    }
