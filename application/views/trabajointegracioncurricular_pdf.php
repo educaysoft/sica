@@ -32,7 +32,7 @@
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
-	$pdf->asignatura=$documentos[0]->idestadotrabajointegracioncurricular;
+	$pdf->asignatura=$trabajointegracioncurriculars[0]->elestado;
 	
 
 
