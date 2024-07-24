@@ -51,13 +51,13 @@ class Trabajointegracioncurricular_model extends CI_model {
 	//Retorna todos los registros como un objeto
 	function trabajointegracioncurricularsxtipo($idtipotrabajointegracioncurricular){
 		
-		if($idtipotrabajointegracioncurricular==0)
+		if($idestadotrabajointegracioncurricular==0)
 		{
-		$trabajointegracioncurricular=$this->db->order_by("autor")->get('trabajointegracioncurricular1');
+		$trabajointegracioncurricular=$this->db->order_by("ellector")->get('trabajointegracioncurricular1');
 		}else{
 
-		$this->db->where('idtipodocu='.$idtipotrabajointegracioncurricular);
-		$trabajointegracioncurricular=$this->db->order_by("autor")->get('trabajointegracioncurricular1');
+		$this->db->where('idestadotrabajointegracioncurricular='.$idestadotrabajointegracioncurricular);
+		$trabajointegracioncurricular=$this->db->order_by("ellector")->get('trabajointegracioncurricular1');
 		}
 		 return $trabajointegracioncurricular;
 	}
