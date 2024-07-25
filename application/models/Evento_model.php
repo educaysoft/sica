@@ -1,5 +1,4 @@
-<?php
-class Evento_model extends CI_model {
+<?phevento[0]lass Evento_model extends CI_model {
 
 	//Retorna todos los registros como un objeto
 	function lista_eventos(){
@@ -118,6 +117,12 @@ class Evento_model extends CI_model {
  		return $evento;
  	}
 
+
+  //Retorna solamente un registro de el id pasado como parame
+ 	function evento1($id){
+	$evento = $this->db->query('select * from evento1 where idevento="'. $id.'" order by idevento');
+ 		return $evento;
+ 	}
 
 
 

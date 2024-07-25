@@ -576,7 +576,8 @@ public function genpagina()
 	if($this->uri->segment(3))
 	{
 
-		$data['evento'] = $this->evento_model->evento($this->uri->segment(3))->row_array();
+        $data['evento'] = $this->evento_model->evento1($this->uri->segment(3))->row_array();
+        $data['asignaturadocente']=$this->asignaturadocente_model->asignaturadocente1($data['evento']['idasignaturadocente'])-result();
 		$data['evento_estados']= $this->evento_estado_model->lista_evento_estados()->result();
 		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		
