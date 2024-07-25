@@ -271,7 +271,7 @@ $data=$data.'
       <div >
         <h1 class="fw-light"  style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN - UTLVTE</h1>  
         <p class="lead text-muted">'.$row->elevento.'.</p>
-        <p class="lead text-muted">Periodo: '.$row->elperiodo.'</p>
+        <p class="lead text-muted">Periodo: '.$asignaturadocente[0]->elperiodoacademico.'</p>
       </div>
     </div>
   </section>
