@@ -4,7 +4,7 @@ class Evento extends CI_Controller{
       parent::__construct();
       $this->load->model('evento_model');
       $this->load->model('evento_estado_model');
-     	$this->load->model('periodoacademico_model');
+   	$this->load->model('periodoacademico_model');
       $this->load->model('tipoevento_model');
       $this->load->model('participante_model');
       $this->load->model('documentoevento_model');

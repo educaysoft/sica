@@ -1,4 +1,5 @@
-<?phevento[0]lass Evento_model extends CI_model {
+<?php
+Class Evento_model extends CI_model {
 
 	//Retorna todos los registros como un objeto
 	function lista_eventos(){
