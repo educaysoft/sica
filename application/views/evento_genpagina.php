@@ -248,7 +248,7 @@ $data='
     <meta name="description" content="">
     <meta name="author" content="Stalin Francis Quinde">
     <meta name="generator" content="Hugo 0.101.0">
-        <meta property="og:site_name" content="Educación Continua-UTLVTE" />
+        <meta property="og:site_name" content="CTI-UTLVTE" />
         <meta property="og:image" content="https://educaysoft.org/sica/images/LogoEducacionContinua.png" />
         <meta property="og:image:width" content="400" />
         <meta property="og:image:height" content="400" />
@@ -269,9 +269,9 @@ $data=$data.'
 <div style=" flex-basis: 40%"  >
 </div>
       <div >
-        <h1 class="fw-light">Educación Continua - UTLVTE</h1>  
+        <h1 class="fw-light"  style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN - UTLVTE</h1>  
         <p class="lead text-muted">'.$row->elevento.'.</p>
-        <p class="lead text-muted">Periodo: 2023-1S.</p>
+        <p class="lead text-muted">Periodo: '.$row->elperiodo.'</p>
       </div>
     </div>
   </section>
