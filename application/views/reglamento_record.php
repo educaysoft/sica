@@ -224,7 +224,7 @@ function uploadImage(nombre,idx) {
 function getUploadUrl() {
     var selectElement = document.getElementById("idordenador");
     var url = "https://repositorioutlvte.org";
-    return url.endsWith("/") ? url + "cargaimagenformato.php" : url + "/cargaimagenformato.php";
+    return url.endsWith("/") ? url + "cargaimagenreglamento.php" : url + "/cargaimagenreglamento.php";
 }
 
 
