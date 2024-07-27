@@ -373,10 +373,10 @@ foreach($reglamentos as $row){
   		<section class="py-5 text-center container">
     		<div class="row py-lg-5" style="display:flex;  align-items:center; justify-content: center;" >
 		<div style=" flex-basis: 40%"  >
-		<img src="https://repositorioutlvte.org/Repositorio/qr/reglamento-'.$row->idinstitucion.'-'.$row->idinstitucion.'.png" height="150px">
+		<img src="https://repositorioutlvte.org/Repositorio/qr/reglamentos.png" height="150px">
 		</div>
       		<div >
-        	<h1 class="fw-light">'.$row->idinstitucion.'</h1>  
+        	<h1 class="fw-light"  style="font-size:2em; color:#6c757d;text-shadow: 1px 1px 2px #000, -1px -1px 2px #fff;">CARRERA EN TECNOLOGÍAS DE LA INFORMACIÓN</h1>  
         	<p class="lead text-muted">Institución:'.$row->idinstitucion.' :: '.$row->lainstitucion.'.</p>
         	<p style="font-size:2em; color:#6c757d;text-shadow: 1px 1px 2px #000, -1px -1px 2px #fff;">Reglamentos institucionales</p>
       		</div>
