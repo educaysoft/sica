@@ -175,7 +175,29 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
             <b>Documentos del portafolio: </b>
         </div>
         <div class="pull-right">
-          <a class="btn btn-danger" href="<?php echo base_url('documentoportafolio/add/'.$portafolio['idportafolio']) ?>">Nuevo documento</a>  
+<!--          <a class="btn btn-danger" href="<?php echo base_url('documentoportafolio/add/'.$portafolio['idportafolio']) ?>">Nuevo documento</a>  -->
+<div class="col-md-10">
+
+
+	<div style="display: inline-block";>
+		<div style="float: left;">
+			<?php 
+			$upload_data = array('type' => 'file','name' => 'files','id' => 'files');
+			echo form_upload($upload_data );?>
+		</div>
+		<div style="float: left;">
+			<?php 
+    			$options= array('--Select--');
+    			foreach ($ordenadores as $row){
+      				$options[$row->idordenador]= $row->nombre;
+   			}
+			// url de la funcion php que carga el archivo en el 
+			$url1= base_url()."index.php/documento/save";
+			$js='onClick="cargarFile(\''.$url1.'\')"';     
+			echo form_button("carga","cargar a directorio",$js); ?>
+		</div> 
+	</div>
+</div>
         </div>
     </div>
 </div>
