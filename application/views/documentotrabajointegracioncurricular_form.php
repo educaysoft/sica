@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("documentoportafolio/save") ?>
-<?php echo form_hidden("iddocumentoportafolio")  ?>
+<?php echo form_open("documentotrabajointegracioncurricular/save") ?>
+<?php echo form_hidden("iddocumentotrabajointegracioncurricular")  ?>
 <table>
 
 
@@ -51,7 +51,7 @@ foreach ($docenteactividadacademicas as $row){
 
 
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("documentoportafolio","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("documentotrabajointegracioncurricular","Atras") ?> </td>
 </tr>
 
 </table>

@@ -1,13 +1,13 @@
 <?php
 
-class Documentoportafolio extends CI_Controller{
+class Documentotrabajointegracioncurricular extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
   	  $this->load->model('documento_model');
   	  $this->load->model('portafolio_model');
   	  $this->load->model('docente_model');
-  	  $this->load->model('documentoportafolio_model');
+  	  $this->load->model('documentotrabajointegracioncurricular_model');
   	  $this->load->model('docenteactividadacademica_model');
   	  $this->load->model('distributivodocente_model');
 }
@@ -16,10 +16,10 @@ public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['documentoportafolio']=$this->documentoportafolio_model->elultimo();
+  	$data['documentotrabajointegracioncurricular']=$this->documentotrabajointegracioncurricular_model->elultimo();
 	$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
-	$data['docente']= $this->docente_model->docentespersona($data['documentoportafolio']['idpersona'])->row_array();
-  	$data['portafolio']= $this->portafolio_model->lista_portafoliosA($data['documentoportafolio']['idportafolio'])->row_array();
+	$data['docente']= $this->docente_model->docentespersona($data['documentotrabajointegracioncurricular']['idpersona'])->row_array();
+  	$data['portafolio']= $this->portafolio_model->lista_portafoliosA($data['documentotrabajointegracioncurricular']['idportafolio'])->row_array();
   	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
 	if(isset($data['docente']['iddocente']))
 	{
@@ -28,9 +28,9 @@ public function index(){
 	}else{
 	$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA(0)->result();
 	}
-		$data['title']="Lista de documentoportafolios";
+		$data['title']="Lista de documentotrabajointegracioncurriculars";
 		$this->load->view('template/page_header');
-		$this->load->view('documentoportafolio_record',$data);
+		$this->load->view('documentotrabajointegracioncurricular_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -53,9 +53,9 @@ public function add()
 		$data['documentos']= $this->documento_model->lista_documentosxdestino($destinodocumento)->result();
   		$data['portafolios']= $this->portafolio_model->lista_portafoliosA($idportafolio)->result();
 		$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA(0)->result();
-		$data['title']="Nueva Documentoportafolio";
+		$data['title']="Nueva Documentotrabajointegracioncurricular";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('documentoportafolio_form',$data);
+	 	$this->load->view('documentotrabajointegracioncurricular_form',$data);
 	 	$this->load->view('template/page_footer');
 
 
@@ -70,7 +70,7 @@ public function add()
 			'iddocenteactividadacademica' => $this->input->post('iddocenteactividadacademica'),
 			'minutosocupados' => $this->input->post('minutosocupados'),
 	 	);
-	 	$result=$this->documentoportafolio_model->save($array_item);
+	 	$result=$this->documentotrabajointegracioncurricular_model->save($array_item);
 
 	 	if($result == FALSE)
 		{
@@ -90,7 +90,7 @@ public function add()
 			'iddocenteactividadacademica' => $this->input->post('iddocenteactividadacademica'),
 			'minutosocupados' => $this->input->post('minutosocupados'),
 	 	);
-	 	$result=$this->documentoportafolio_model->save($array_item);
+	 	$result=$this->documentotrabajointegracioncurricular_model->save($array_item);
 
 	 	if($result == FALSE)
 		{
@@ -107,7 +107,7 @@ public function add()
 
 public function edit()
 {
-	 	$data['documentoportafolio'] = $this->documentoportafolio_model->documentoportafolio($this->uri->segment(3))->row_array();
+	 	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->documentotrabajointegracioncurricular($this->uri->segment(3))->row_array();
 
 		//$tipodocumento=17;  //portafolio
 		//$data['documentos']= $this->documento_model->lista_documentosxtipo($tipodocumento,0)->result();
@@ -117,9 +117,9 @@ public function edit()
 
 		$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA(0)->result();
   		$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
- 	 	$data['title'] = "Actualizar Documentoportafolio";
+ 	 	$data['title'] = "Actualizar Documentotrabajointegracioncurricular";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('documentoportafolio_edit',$data);
+ 	 	$this->load->view('documentotrabajointegracioncurricular_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -127,16 +127,16 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('iddocumentoportafolio');
+		$id=$this->input->post('iddocumentotrabajointegracioncurricular');
 	 	$array_item=array(
 		 	
-		 	'iddocumentoportafolio' => $this->input->post('iddocumentoportafolio'),
+		 	'iddocumentotrabajointegracioncurricular' => $this->input->post('iddocumentotrabajointegracioncurricular'),
 			'iddocumento' => $this->input->post('iddocumento'),
 			'idportafolio' => $this->input->post('idportafolio'),
 			'iddocenteactividadacademica' => $this->input->post('iddocenteactividadacademica'),
 			'minutosocupados' => $this->input->post('minutosocupados'),
 	 	);
-	$result =	$this->documentoportafolio_model->update($id,$array_item);
+	$result =	$this->documentotrabajointegracioncurricular_model->update($id,$array_item);
 	if($result == FALSE)
 		{
 			echo "<script language='JavaScript'> alert('Documento ya existe en este portafolio'); </script>";
@@ -152,9 +152,9 @@ public function edit()
 
  	public function delete()
  	{
- 		$data=$this->documentoportafolio_model->delete($this->uri->segment(3));
+ 		$data=$this->documentotrabajointegracioncurricular_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('documentoportafolio/elprimero');
+	 	redirect('documentotrabajointegracioncurricular/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -162,26 +162,26 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Documentoportafolios";
+  $data['title']="Documentotrabajointegracioncurriculars";
 	$this->load->view('template/page_header');		
-  $this->load->view('documentoportafolio_list',$data);
+  $this->load->view('documentotrabajointegracioncurricular_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function documentoportafolio_data()
+function documentotrabajointegracioncurricular_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->documentoportafolio_model->lista_documentoportafoliosA(0);
+	 	$data0 = $this->documentotrabajointegracioncurricular_model->lista_documentotrabajointegracioncurricularsA(0);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->iddocumentoportafolio,$r->iddocumento,$r->asunto,$r->elperiodo,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('documentoportafolio/actual').'"  data-iddocumentoportafolio="'.$r->iddocumentoportafolio.'">Ver</a>');
+			$data[]=array($r->iddocumentotrabajointegracioncurricular,$r->iddocumento,$r->asunto,$r->elperiodo,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('documentotrabajointegracioncurricular/actual').'"  data-iddocumentotrabajointegracioncurricular="'.$r->iddocumentotrabajointegracioncurricular.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -203,11 +203,11 @@ function documentoportafolio_data()
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$iddocumentoportafolio=$this->input->get('iddocumentoportafolio');
-			$data0 =$this->asignaturadocumento_model->lista_asignaturadocumentos($iddocumentoportafolio);
+			$iddocumentotrabajointegracioncurricular=$this->input->get('iddocumentotrabajointegracioncurricular');
+			$data0 =$this->asignaturadocumento_model->lista_asignaturadocumentos($iddocumentotrabajointegracioncurricular);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->iddocumentoportafolio,$r->idasignaturadocumento,$r->laasignatura,$r->paralelo,
+				$data[]=array($r->iddocumentotrabajointegracioncurricular,$r->idasignaturadocumento,$r->laasignatura,$r->paralelo,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('asignaturadocumento/actual').'"    data-idasignaturadocumento="'.$r->idasignaturadocumento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
@@ -252,15 +252,15 @@ function documentoportafolio_data()
 
 public function actual()
 {
-	$data['documentoportafolio'] = $this->documentoportafolio_model->documentoportafolio($this->uri->segment(3))->row_array();
+	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->documentotrabajointegracioncurricular($this->uri->segment(3))->row_array();
   	$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
   	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
 	$data['docenteactividadacademicas']=$this->docenteactividadacademica_model->lista_docenteactividadacademicasA(0)->result();
 	  if(!empty($data))
 	  {
-    $data['title']="Documentoportafolio";
+    $data['title']="Documentotrabajointegracioncurricular";
     $this->load->view('template/page_header');		
-    $this->load->view('documentoportafolio_record',$data);
+    $this->load->view('documentotrabajointegracioncurricular_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -282,13 +282,13 @@ public function elprimero()
 {
   	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
   	$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
-	$data['documentoportafolio'] = $this->documentoportafolio_model->elprimero();
+	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->elprimero();
 	  if(!empty($data))
 	  {
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
-    $data['title']="Documentoportafolio";
+    $data['title']="Documentotrabajointegracioncurricular";
     $this->load->view('template/page_header');		
-    $this->load->view('documentoportafolio_record',$data);
+    $this->load->view('documentotrabajointegracioncurricular_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -299,15 +299,15 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['documentoportafolio'] = $this->documentoportafolio_model->elultimo();
+	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->elultimo();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
   if(!empty($data))
   {
-    $data['title']="Documentoportafolio";
+    $data['title']="Documentotrabajointegracioncurricular";
   
     $this->load->view('template/page_header');		
-    $this->load->view('documentoportafolio_record',$data);
+    $this->load->view('documentotrabajointegracioncurricular_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -318,26 +318,26 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['documentoportafolio_list']=$this->documentoportafolio_model->lista_documentoportafolio()->result();
-	$data['documentoportafolio'] = $this->documentoportafolio_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['documentotrabajointegracioncurricular_list']=$this->documentotrabajointegracioncurricular_model->lista_documentotrabajointegracioncurricular()->result();
+	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->siguiente($this->uri->segment(3))->row_array();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
   
 
-$data['title']="Documentoportafolio";
+$data['title']="Documentotrabajointegracioncurricular";
 	$this->load->view('template/page_header');		
-  $this->load->view('documentoportafolio_record',$data);
+  $this->load->view('documentotrabajointegracioncurricular_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['documentoportafolio_list']=$this->documentoportafolio_model->lista_documentoportafolio()->result();
-	$data['documentoportafolio'] = $this->documentoportafolio_model->anterior($this->uri->segment(3))->row_array();
+ // $data['documentotrabajointegracioncurricular_list']=$this->documentotrabajointegracioncurricular_model->lista_documentotrabajointegracioncurricular()->result();
+	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->anterior($this->uri->segment(3))->row_array();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['portafolios']= $this->portafolio_model->lista_portafoliosA(0)->result();
-  $data['title']="Documentoportafolio";
+  $data['title']="Documentotrabajointegracioncurricular";
 	$this->load->view('template/page_header');		
-  $this->load->view('documentoportafolio_record',$data);
+  $this->load->view('documentotrabajointegracioncurricular_record',$data);
 	$this->load->view('template/page_footer');
 }
 
