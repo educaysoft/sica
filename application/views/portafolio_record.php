@@ -194,7 +194,7 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
 			// url de la funcion php que carga el archivo en el 
 			$url1= base_url()."index.php/documento/save";
 			$js='onClick="cargarFile(\''.$url1.'\')"';     
-			echo form_button("carga","cargar a directorio",$js); ?>
+			echo form_button("carga","Cargar",$js); ?>
 		</div> 
 	</div>
 </div>
