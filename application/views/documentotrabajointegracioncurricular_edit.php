@@ -31,11 +31,11 @@ foreach ($documentos as $row){
 <td> Portafolio:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($portafolios as $row){
-	$options[$row->idportafolio]= $row->lapersona." - ".$row->elperiodo;
+foreach ($trabajointegracioncurriculars as $row){
+	$options[$row->idtrabajointegracioncurricular]= $row->idtrabajointegracioncurricular." - ".$row->nombre;
 }
 
- echo form_dropdown("idportafolio",$options, $documentotrabajointegracioncurricular['idportafolio']);  ?></td>
+ echo form_dropdown("idtrabajointegracioncurricular",$options, $documentotrabajointegracioncurricular['idtrabajointegracioncurricular']);  ?></td>
 </tr>
 
 
