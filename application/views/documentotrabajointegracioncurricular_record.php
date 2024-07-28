@@ -92,12 +92,7 @@ echo form_input('idtrabajointegracioncurricular',$options[$documentotrabajointeg
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">Minutos ocupados:  </label>
-	<div class="col-md-10">
-<?php echo form_input("minutosocupados",$documentotrabajointegracioncurricular['minutosocupados'], array("placeholder"=>"Minutos utilizados"))  ?>
-	</div> 
-</div>
+
 
 
 
