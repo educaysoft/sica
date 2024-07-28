@@ -80,16 +80,6 @@ if(isset($trabajointegracioncurricular))
 <?php echo form_hidden('idtrabajointegracioncurricular',$trabajointegracioncurricular['idtrabajointegracioncurricular']) ?>
 
 
- 
-
-
-
-
-
-
-
-
-
 
 
 
@@ -195,7 +185,48 @@ echo form_input($arrdatos) ?>
 
 
 
+<div class="form-group row">
 
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12" style="border:solid;">
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <b>Documentos del trabajointegracioncurricular: </b>
+        </div>
+        <div class="pull-right">
+       <a class="btn btn-danger" href="<?php echo base_url('documentotrabajointegracioncurricular/add/'.$trabajointegracioncurricular['idtrabajointegracioncurricular']) ?>">Nuevo documento</a> 
+<div class="col-md-10">
+
+
+	
+</div>
+        </div>
+    </div>
+</div>
+	<table class="table table-striped table-bordered table-hover" id="mydatac">
+	 <thead>
+	 <tr>
+	 <th>iddopo</th>
+	 <th>iddocu</th>
+	 <th>tipo</th>
+	 <th>titulo</th>
+	 <th>elabor.</th>
+	 <th>archvo.</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
 
 
 
@@ -209,6 +240,61 @@ echo form_input($arrdatos) ?>
 
 
 <script>
+
+
+
+$(document).ready(function(){
+	var idtrabajointegracioncurricular=document.getElementById("idtrabajointegracioncurricular").value;
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('trabajointegracioncurricular/documento_data')?>', type: 'GET',data:{idtrabajointegracioncurricular:idtrabajointegracioncurricular}},});
+});
+
+
+$('#show_data').on('click','.item_ver',function(){
+var id= $(this).data('iddocumentotrabajointegracioncurricular');
+var retorno= $(this).data('retorno1');
+window.location.href = retorno+'/'+id;
+});
+
+$('#show_data').on('click','.item_doc',function(){
+var id= $(this).data('iddocumento');
+var retorno= $(this).data('retorno2');
+window.location.href = retorno+'/'+id;
+});
+
+
+
+$('#show_data').on('click','.docu_ver',function(){
+
+
+var ordenador = "https://"+$(this).data('ordenador');
+var ubicacion = $(this).data('ubicacion');
+if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+        ubicacion = ordenador+"/"+ubicacion;
+}else{
+	ubicacion = ordenador+ubicacion;
+}
+var archivo = $(this).data('archivo');
+var certi= ubicacion.trim()+archivo.trim();
+window.location.href = certi;
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var inputval=document.getElementById("idtrabajointegracioncurricular_estado").value;
 if (inputval == "NO CARGADO"){
 	document.getElementById("idtrabajointegracioncurricular_estado").style.backgroundColor="red";

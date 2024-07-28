@@ -247,6 +247,20 @@ class Trabajointegracioncurricular_model extends CI_model {
  	}
 
 
+	function lista_trabajointegracioncurricular3($idtrabajointegracioncurricular){
+		if($idtrabajointegracioncurricular>0){
+		  $this->db->where('idtrabajointegracioncurricular',$idtrabajointegracioncurricular);
+		}
+
+
+		 $trabajointegracioncurricular= $this->db->order_by("idtrabajointegracioncurricular")->get('trabajointegracioncurricular3');
+		 return $trabajointegracioncurricular;
+	}
+
+
+
+
+
 
 
  	function parametros_trabajointegracioncurricular($idtrabajointegracioncurricular){

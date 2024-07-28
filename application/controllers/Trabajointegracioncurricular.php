@@ -175,6 +175,29 @@ public function genpagina2()
 
 
 
+	function documento_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idtrabajointegracioncurricular=$this->input->get('idtrabajointegracioncurricular');
+			//$data0 =$this->documento_model->lista_documentosD($idpersona,$idtrabajointegracioncurricular);
+			$data0 =$this->trabajointegracioncurricular_model->lista_trabajointegracioncurricular3($idtrabajointegracioncurricular);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->iddocumentotrabajointegracioncurricular,$r->iddocumento,$r->eltipodocumento,$r->asunto,$r->fechaelaboracion,$r->archivopdf,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno1="'.site_url('documentotrabajointegracioncurricular/actual').'"    data-iddocumentotrabajointegracioncurricular="'.$r->iddocumentotrabajointegracioncurricular.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_doc"  data-retorno2="'.site_url('documento/actual').'"    data-iddocumento="'.$r->iddocumento.'">doc</a><a href="javascript:void(0);" class="btn btn-info btn-sm docu_ver"  data-iddocumento="'.$r->iddocumento.'" data-ordenador="'.$r->elordenador.'"  data-ubicacion="'.$r->ruta.'"  data-archivo="'.$r->archivopdf.'">pdf</a> ');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
 
 
 
