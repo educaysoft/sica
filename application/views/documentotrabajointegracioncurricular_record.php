@@ -73,7 +73,7 @@ echo form_input('iddocumento',$options[$documentotrabajointegracioncurricular['i
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"><a href= "<?php echo base_url(); ?>trabajointegracioncurricular/actual/<?php echo $documentotrabajointegracioncurricular['idtrabajointegracioncurricular']; ?> "   >Portafolio: &#x1F448;</a>  </label>
+    <label class="col-md-2 col-form-label"><a href= "<?php echo base_url(); ?>trabajointegracioncurricular/actual/<?php echo $documentotrabajointegracioncurricular['idtrabajointegracioncurricular']; ?> "   >Trabajo integracion: &#x1F448;</a>  </label>
 	<div class="col-md-10">
   
      <?php 
@@ -87,21 +87,7 @@ echo form_input('idtrabajointegracioncurricular',$options[$documentotrabajointeg
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">Actividad académica:  </label>
-	<div class="col-md-10">
-  
 
-<?php 
-
-$options= array('--Select--');
-foreach ($docenteactividadacademicas as $row){
-	$options[$row->iddocenteactividadacademica]=$row->item." - ". $row->eldistributivodocente." - ".$row->nombreactividad." - (".$row->numerohoras.")";
-}
-
- echo form_dropdown("iddocenteactividadacademica",$options,$documentotrabajointegracioncurricular['iddocenteactividadacademica']);  ?>
-	</div> 
-</div>
 
 
 
