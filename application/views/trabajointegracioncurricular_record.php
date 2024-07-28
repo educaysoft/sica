@@ -80,15 +80,7 @@ if(isset($trabajointegracioncurricular))
 <?php echo form_hidden('idtrabajointegracioncurricular',$trabajointegracioncurricular['idtrabajointegracioncurricular']) ?>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">Id trabajo:</label>
-	<div class="col-md-10">
 
-
-     <?php echo form_input('idtrabajointegracioncurricular',$trabajointegracioncurricular['idtrabajointegracioncurricular'],array("id"=>"idtrabajointegracioncurricular","disabled"=>"disabled",'placeholder'=>'Idtrabajointegracioncurricular')); ?>
- 
-	</div> 
-</div>
 
 
 
@@ -252,7 +244,7 @@ echo form_input($arrdatos) ?>
 
 
 $(document).ready(function(){
-	var idtrabajointegracioncurricular=document.getElementById("idtrabajointegracioncurricular").value;
+	var idtrabajointegracioncurricular=document.getElementById("idtrabajointegracioncurricular").innerHTML;
 	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('trabajointegracioncurricular/documento_data')?>', type: 'GET',data:{idtrabajointegracioncurricular:idtrabajointegracioncurricular}},});
 });
 
