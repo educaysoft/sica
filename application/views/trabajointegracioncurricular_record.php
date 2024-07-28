@@ -303,13 +303,6 @@ window.location.href = certi;
 
 
 
-var inputval=document.getElementById("idtrabajointegracioncurricular_estado").value;
-if (inputval == "NO CARGADO"){
-	document.getElementById("idtrabajointegracioncurricular_estado").style.backgroundColor="red";
-}else{
-
-	document.getElementById("idtrabajointegracioncurricular_estado").style.backgroundColor="green";
-}
 
 
 function verpdf(){
