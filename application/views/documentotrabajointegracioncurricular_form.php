@@ -24,30 +24,17 @@ foreach ($documentos as $row){
 <td><?php 
 
 $options= array('--Select--');
-foreach ($portafolios as $row){
-	$options[$row->idportafolio]= $row->lapersona." - ".$row->elperiodo;
+foreach ($trabajointegracioncurriculars as $row){
+	$options[$row->idtrabajointegracioncurricular]= $row->lapersona." - ".$row->elperiodo;
 }
 
- echo form_dropdown("idportafolio",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idtrabajointegracioncurricular",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
-<tr>
-<td> Actividad academica: </td>
-<td><?php 
 
-$options= array('--Select--');
-foreach ($docenteactividadacademicas as $row){
-	$options[$row->iddocenteactividadacademica]=$row->item." - ". $row->eldistributivodocente." - ".$row->nombreactividad;
-}
 
- echo form_dropdown("iddocenteactividadacademica",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
 
-<tr>
-<td> Minutos ocupados: </td>
-<td><?php echo form_input("minutosocupados","", array("placeholder"=>"Minutos utilizados"))  ?></td>
-</tr>
 
 
 <tr>
