@@ -56,7 +56,6 @@ public function add()
 	 	$array_item=array(
 			'iddocumento' => $this->input->post('iddocumento'),
 			'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
-			'minutosocupados' => $this->input->post('minutosocupados'),
 	 	);
 	 	$result=$this->documentotrabajointegracioncurricular_model->save($array_item);
 

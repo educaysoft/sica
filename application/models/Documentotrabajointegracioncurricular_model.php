@@ -2,7 +2,7 @@
 class Documentotrabajointegracioncurricular_model extends CI_model {
 
 	function lista_documentotrabajointegracioncurriculars(){
-		 $documentotrabajointegracioncurricular= $this->db->get('documentotrabajointegracioncurricular');
+		 $documentotrabajointegracioncurricular= $this-db->get('documentotrabajointegracioncurricular');
 		 return $documentotrabajointegracioncurricular;
 	}
 
@@ -51,7 +51,7 @@ class Documentotrabajointegracioncurricular_model extends CI_model {
 			$idusuario=$this->session->userdata['logged_in']['idusuario'];
 	   $this->db->trans_begin();
 		$condition1 = "iddocumento =" . "'" . $array['iddocumento'] . "'";
-		$condition2 = "idportafolio =" . "'" . $array['idportafolio'] . "'";
+		$condition2 = "idtrabajointegracioncurricular =" . "'" . $array['idtrabajointegracioncurricular'] . "'";
 		$this->db->select('*');
 		$this->db->from('documentotrabajointegracioncurricular');
 		$this->db->where($condition1);
