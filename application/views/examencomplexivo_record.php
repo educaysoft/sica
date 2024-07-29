@@ -57,7 +57,7 @@ if(isset($examencomplexivo))
 
 		<li> <?php echo anchor('examencomplexivo/genpagina2/19','generar egresado'); ?></li>
 		<li> <?php echo anchor('examencomplexivo/paginaweb2',' web2'); ?></li>
-		<li> <?php echo anchor('examencomplexivo/reportepdf/'.$examencomplexivo['idestadoexamencomplexivo'],'reportepdf'); ?></li>
+		<li> <?php echo anchor('examencomplexivo/reportepdf/'.$examencomplexivo['idexamencomplexivo'],'reportepdf'); ?></li>
         
 		
 
@@ -145,21 +145,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('estadoexamencomplexivo/add', 'Estado:') ?> </label>
-     <?php 
-    $options= array("NADA");
-    foreach ($estadoexamencomplexivos as $row){
-	      $options[$row->idestadoexamencomplexivo]= $row->nombre;
-    }
-	?>
-	<div class="col-md-10">
-		<?php
-    $arrdatos=array('name'=>'id','value'=>$options[$examencomplexivo['idestadoexamencomplexivo']],"disabled"=>"disabled", "style"=>"width:600px");
-echo form_input($arrdatos) ?>
 
-	</div> 
-</div>
 
 
 

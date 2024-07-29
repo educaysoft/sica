@@ -11,7 +11,6 @@ class Examencomplexivo extends CI_Controller{
       $this->load->model('persona_model');
       $this->load->model('egresado_model');
       $this->load->model('lector_model');
-      $this->load->model('estadoexamencomplexivo_model');
 	}
 
 	public function index(){
@@ -22,7 +21,6 @@ class Examencomplexivo extends CI_Controller{
 			$data['lectores'] = $this->examencomplexivo_model->lectores($data['examencomplexivo']['idexamencomplexivo'])->result();
 			$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
 			$data['directorios'] = $this->directorio_model->lista_directorios()->result();
-	        $data['estadoexamencomplexivos']= $this->estadoexamencomplexivo_model->lista_estadoexamencomplexivos()->result();
 
 			$data['title']="Usted esta visualizando el examencomplexivo No: ";
 			$this->load->view('template/page_header');		
@@ -45,7 +43,6 @@ class Examencomplexivo extends CI_Controller{
 	{
 		$data['title']="Usted esta Creando un nuevo Examencomplexivo";
 		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-	    $data['estadoexamencomplexivos']= $this->estadoexamencomplexivo_model->lista_estadoexamencomplexivos()->result();
 		$data['ordenadores']= $this->ordenador_model->lista_ordenadores()->result();
 		$data['personas']= $this->persona_model->lista_personasA()->result();
 	 	$this->load->view('template/page_header');		
@@ -71,7 +68,6 @@ class Examencomplexivo extends CI_Controller{
 		 	'idexamencomplexivo' => $this->input->post('idexamencomplexivo'),
 		 	'nombre' => $this->input->post('nombre'),
 		 	'resumen' => $this->input->post('resumen'),
-            'idestadoexamencomplexivo'=> $this->input->post('idestadoexamencomplexivo'),
 	        'idusuario'=>$idusuario,
 			'fechacreacion'=>$fecha,
 			'horacreacion'=>$hora
@@ -223,7 +219,6 @@ public function genpagina2()
 	  $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 	  $data['egresados'] =$this->examencomplexivo_model->egresados($this->uri->segment(3))->result();
 	  $data['lectores'] = $this->examencomplexivo_model->lectores($data['examencomplexivo']['idexamencomplexivo'])->result();
-	        $data['estadoexamencomplexivos']= $this->estadoexamencomplexivo_model->lista_estadoexamencomplexivos()->result();
 		$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
 		$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 		$data['title']="Usted esta visualizando el examencomplexivo No: ";
@@ -368,7 +363,6 @@ public function elprimero()
     $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
     $data['egresados'] =$this->examencomplexivo_model->egresados($data['examencomplexivo']['idexamencomplexivo'])->result();
     $data['lectores'] = $this->examencomplexivo_model->lectores($data['examencomplexivo']['idexamencomplexivo'])->result();
-	$data['estadoexamencomplexivos']= $this->estadoexamencomplexivo_model->lista_estadoexamencomplexivos()->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 	$data['title']="Usted esta visualizando el examencomplexivo No: ";
@@ -396,7 +390,6 @@ public function elultimo()
     $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
     $data['egresados'] =$this->examencomplexivo_model->egresados($data['examencomplexivo']['idexamencomplexivo'])->result();
     $data['lectores'] = $this->examencomplexivo_model->lectores($data['examencomplexivo']['idexamencomplexivo'])->result();
-	$data['estadoexamencomplexivos']= $this->estadoexamencomplexivo_model->lista_estadoexamencomplexivos()->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 	$data['title']="Usted esta visualizando el examencomplexivo No: ";
@@ -429,7 +422,6 @@ public function siguiente(){
   $data['egresados'] =$this->examencomplexivo_model->egresados($data['examencomplexivo']['idexamencomplexivo'])->result();
   $data['lectores'] = $this->examencomplexivo_model->lectores($data['examencomplexivo']['idexamencomplexivo'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
-	$data['estadoexamencomplexivos']= $this->estadoexamencomplexivo_model->lista_estadoexamencomplexivos()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 	$data['title']="Usted esta visualizando el examencomplexivo No: ";
 	$this->load->view('template/page_header');		
@@ -444,7 +436,6 @@ public function anterior(){
   $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
   $data['egresados'] =$this->examencomplexivo_model->egresados($data['examencomplexivo']['idexamencomplexivo'])->result();
   $data['lectores'] = $this->examencomplexivo_model->lectores($data['examencomplexivo']['idexamencomplexivo'])->result();
-	$data['estadoexamencomplexivos']= $this->estadoexamencomplexivo_model->lista_estadoexamencomplexivos()->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 	$data['title']="Usted esta visualizando el examencomplexivo No: ";
@@ -462,7 +453,6 @@ public function anterior(){
     		$data['egresados'] =$this->examencomplexivo_model->egresados($this->uri->segment(3))->result();
     		$data['lectores'] = $this->examencomplexivo_model->lectores($this->uri->segment(3))->result();
     		$data['title'] = "Actualizar el  Examencomplexivo No: ";
-	        $data['estadoexamencomplexivos']= $this->estadoexamencomplexivo_model->lista_estadoexamencomplexivos()->result();
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('examencomplexivo_edit',$data);
 	 	$this->load->view('template/page_footer');
@@ -476,7 +466,6 @@ public function anterior(){
 	 	$array_item=array(
 		 	
 		'idexamencomplexivo' => $this->input->post('idexamencomplexivo'),
-        'idestadoexamencomplexivo'=> $this->input->post('idestadoexamencomplexivo')
 	 	);
 
 
