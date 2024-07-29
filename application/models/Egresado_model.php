@@ -12,6 +12,15 @@ class Egresado_model extends CI_model {
 	}
 
 
+	function listar_egresado2(){
+		 $egresado= $this->db->get('egresado2');
+		 return $egresado;
+	}
+
+
+
+
+
 
  	function egresado( $id){
  		$egresado = $this->db->query('select * from egresado where idegresado="'. $id.'"');
