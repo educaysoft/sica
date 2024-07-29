@@ -39,18 +39,7 @@ foreach ($docentes as $row){
 </div>
 </div>
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Tipo de documento:</label>
-<div class="col-md-10">
-<?php
-    $options= array('--Select--');
-    foreach ($tipotutorexamencomplexivos as $row){
-      $options[$row->idtipotutorexamencomplexivo]= $row->nombre;
-    }
-     echo form_dropdown("idtipotutorexamencomplexivo",$options, set_select('--Select--','default_value'),array('id'=>'idtipotutorexamencomplexivo')); 
-?>
-</div>
-</div>
+
 
 
 
