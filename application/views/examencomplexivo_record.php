@@ -129,16 +129,16 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('lector/add/'.$examencomplexivo['idexamencomplexivo'], 'Lectores') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('tutorexamencomplexivo/add/'.$examencomplexivo['idexamencomplexivo'], 'tutorexamencomplexivoes') ?> </label>
      	<?php 
 	$options=array();
-  	foreach ($lectores as $row){
-		$options[$row->idpersona]=$row->ellector;
+  	foreach ($tutorexamencomplexivoes as $row){
+		$options[$row->idpersona]=$row->eltutorexamencomplexivo;
 	}
 	?>
 	<div class="col-md-10">
 		<?php
- 			echo form_multiselect('idlector[]',$options,(array)set_value('idlector',''), array('style'=>'width:500px;')); 
+ 			echo form_multiselect('idtutorexamencomplexivo[]',$options,(array)set_value('idtutorexamencomplexivo',''), array('style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
