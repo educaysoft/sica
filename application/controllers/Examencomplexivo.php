@@ -24,7 +24,7 @@ class Examencomplexivo extends CI_Controller{
            }else{
 
 			$data['egresados'] =$this->examencomplexivo_model->egresados(0)->result();
-			$data['tutorexamencomplexivoes'] = $this->examencomplexivo_model->tutorexamencomplexivoes($data['examencomplexivo']['idexamencomplexivo'])->result();
+			$data['tutorexamencomplexivoes'] = $this->examencomplexivo_model->tutorexamencomplexivoes(0)->result();
 
 
            }
