@@ -26,7 +26,7 @@ class Tutorexamencomplexivo_model extends CI_model {
 
  	function save($array)
  	{
-		$condition1 = "idtrabajointegracioncurricular =" . "'" . $array['idtrabajointegracioncurricular'] . "'";
+		$condition1 = "idexamencomplexivo =" . "'" . $array['idexamencomplexivo'] . "'";
 		$condition2 = "iddocente =" . "'" . $array['iddocente'] . "'";
 		$this->db->select('*');
 		$this->db->from('tutorexamencomplexivo');
