@@ -257,7 +257,7 @@ foreach($egresados as $row){
       		<div >
         	<h1 class="fw-light">'.'UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS'.'</h1>  
         	<p class="lead text-muted">'.'Carrera en Tecnología de la Información'.'.</p>
-        	<p class="lead text-muted"  style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">Trabajos de Integración Curricular</p>
+        	<p class="lead text-muted"  style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">MODALIDAD EXAMEN COMPLEXIVOS</p>
       		</div>
     		</div>
   		</section>
