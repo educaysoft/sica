@@ -51,7 +51,7 @@ class Documentoexamencomplexivo_model extends CI_model {
 			$idusuario=$this->session->userdata['logged_in']['idusuario'];
 	   $this->db->trans_begin();
 		$condition1 = "iddocumento =" . "'" . $array['iddocumento'] . "'";
-		$condition2 = "idtrabajointegracioncurricular =" . "'" . $array['idtrabajointegracioncurricular'] . "'";
+		$condition2 = "idexamencomplexivo =" . "'" . $array['idexamencomplexivo'] . "'";
 		$this->db->select('*');
 		$this->db->from('documentoexamencomplexivo');
 		$this->db->where($condition1);
