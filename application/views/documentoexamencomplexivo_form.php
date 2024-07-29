@@ -20,7 +20,7 @@ foreach ($documentos as $row){
 
 
 <tr>
-<td> Portafolio: </td>
+<td> Examen complexivo: </td>
 <td><?php 
 
 $options= array('--Select--');
