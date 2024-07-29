@@ -370,7 +370,9 @@ class Examencomplexivo_model extends CI_model {
 	// Para moverse presentar  los egresados 
 	function egresados( $iddocu)
 	{
+        if($iddocu>0){
 		$this->db->where('idexamencomplexivo="'.$iddocu.'"');
+        }
 		$egresados=$this->db->get('egresado1');
 		return $egresados;
 	}
@@ -379,7 +381,15 @@ class Examencomplexivo_model extends CI_model {
   // Para presentar los tutorexamencomplexivoes
 	function tutorexamencomplexivoes( $iddocu)
 	{
+
+        if($iddocu>0){
+
 		$tutorexamencomplexivoes=$this->db->query('select idpersona,eltutorexamencomplexivo from tutorexamencomplexivo1 where idexamencomplexivo="'. $iddocu.'"');
+        }else{
+
+		$tutorexamencomplexivoes=$this->db->query('select idpersona,eltutorexamencomplexivo from tutorexamencomplexivo1');
+
+        }
 		return $tutorexamencomplexivoes;
 	}
 
