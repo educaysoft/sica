@@ -11,19 +11,19 @@
 
 <table border="1">
 <tr>
-<th> iddocumento</th>
-<th> asunto</th>
 <th> idegresado</th>
 <th> egresado</th>
+<th> idtrabajo</th>
+<th> idcompeximo</th>
 </tr>
 <tbody>
 <?php  foreach($egresados as $list) { ?>
 <tr>
-<td> <?php echo $list->iddocumento ?></td>
-<td> <?php echo $list->asunto ?></td>
-<td> <?php echo $list->idpersona ?></td>
+<td> <?php echo $list->idegresado ?></td>
 <td> <?php echo $list->elegresado ?></td>
-<td> <?php echo anchor('egresado/edit/'.$list->iddocumento,'Edit') ?> || <?php echo anchor('egresado/delete/'.$list->iddocumento,'Delete') ?></td>
+<td> <?php echo $list->idtrabajointegracioncurricular ?></td>
+<td> <?php echo $list->idexamencoomplexivo ?></td>
+<td> <?php echo anchor('egresado/edit/'.$list->idegresado,'Edit') ?> || <?php echo anchor('egresado/delete/'.$list->idegradado,'Delete') ?></td>
  </tr>
 
 
