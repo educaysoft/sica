@@ -431,9 +431,10 @@ $data=$data.'
 
 
         <div class="card-body" style="background-color:'.$row->color.'"  >
-        <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Proceso:</b>'.$row->elproceso.' </div>
+        <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Proceso:</b><br> <span  style="color:#6c757d;text-shadow: 1px 1px 2px #000, -1px -1px 2px #fff;" >'.$row->elproceso.' </span></div>
+        <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>::Nombre del  Formato:</b><br> <span  style="color:#6c757d;text-shadow: 1px 1px 2px #000, -1px -1px 2px #fff;" >'.$row->elformatoinstitucional.'</span> </div>
+        <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Código:</b> '.$row->idformatoinstitucional.' </div>
         <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Orden:</b>'.$row->orden.' </div>
-        <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>(id)::Formato:</b>('.$row->idformatoinstitucional.')::'.$row->elformatoinstitucional.' </div>
         <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b>Detalle:</b><br> '.$row->detalle.' </div>
         <div style="font-size:14px;  color:#333;  margin-top:10px;" ><b> Archivo:</b>  <a href="'.$row->archivo.'"> '.$row->archivo.'</a> </div>'
         ;	
