@@ -1,25 +1,25 @@
 <?php
 
-class Lector extends CI_Controller{
+class Tutorexamencomplexivo extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('lector_model');
+      $this->load->model('tutorexamencomplexivo_model');
       $this->load->model('docente_model');
-      $this->load->model('tipolector_model');
+      $this->load->model('tipotutorexamencomplexivo_model');
       $this->load->model('trabajointegracioncurricular_model');
 }
 
 public function index(){
   $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
   $data['docentes']= $this->docente_model->lista_docentes()->result();
-  $data['lector']=$this->lector_model->elultimo();
+  $data['tutorexamencomplexivo']=$this->tutorexamencomplexivo_model->elultimo();
 
-	$data['tipolectors']= $this->tipolector_model->lista_tipolector()->result();
- // print_r($data['lector_list']);
-  $data['title']="Lista de Lectors";
+	$data['tipotutorexamencomplexivos']= $this->tipotutorexamencomplexivo_model->lista_tipotutorexamencomplexivo()->result();
+ // print_r($data['tutorexamencomplexivo_list']);
+  $data['title']="Lista de Tutorexamencomplexivos";
 	$this->load->view('template/page_header');		
-  $this->load->view('lector_record',$data);
+  $this->load->view('tutorexamencomplexivo_record',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -31,11 +31,11 @@ public function add()
 	}else{
 		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
 	}
-		$data['tipolectors']= $this->tipolector_model->lista_tipolector()->result();
+		$data['tipotutorexamencomplexivos']= $this->tipotutorexamencomplexivo_model->lista_tipotutorexamencomplexivo()->result();
 		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
-		$data['title']="Nuevo Lector de trabajo de integración curricular";
+		$data['title']="Nuevo Tutorexamencomplexivo de trabajo de integración curricular";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('lector_form',$data);
+	 	$this->load->view('tutorexamencomplexivo_form',$data);
 	 	$this->load->view('template/page_footer');
 
 
@@ -47,13 +47,13 @@ public function add()
 	 	$array_item=array(
 		 	'iddocente' => $this->input->post('iddocente'),
 		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
-		 	'idtipolector' => $this->input->post('idtipolector'),
+		 	'idtipotutorexamencomplexivo' => $this->input->post('idtipotutorexamencomplexivo'),
 	 	);
-	 	$result= $this->lector_model->save($array_item);
+	 	$result= $this->tutorexamencomplexivo_model->save($array_item);
 
 	 	if($result == FALSE)
 		{
-			echo "<script language='JavaScript'> alert('El lector ya esta asignado'); </script>";
+			echo "<script language='JavaScript'> alert('El tutorexamencomplexivo ya esta asignado'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
@@ -64,13 +64,13 @@ public function add()
 
 public function edit()
 {
-		$data['lector']= $this->lector_model->lector($this->uri->segment(3))->row_array();
+		$data['tutorexamencomplexivo']= $this->tutorexamencomplexivo_model->tutorexamencomplexivo($this->uri->segment(3))->row_array();
 		$data['docentes']= $this->docente_model->lista_docentes()->result();
 		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
-    		$data['tipolectors']= $this->tipolector_model->lista_tipolector()->result();
+    		$data['tipotutorexamencomplexivos']= $this->tipotutorexamencomplexivo_model->lista_tipotutorexamencomplexivo()->result();
  	 	$data['title'] = "Actualizar Persona";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('lector_edit',$data);
+ 	 	$this->load->view('tutorexamencomplexivo_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -78,15 +78,15 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idlector');
+		$id=$this->input->post('idtutorexamencomplexivo');
 	 	$array_item=array(
-		 	'idlector' => $this->input->post('idlector'),
+		 	'idtutorexamencomplexivo' => $this->input->post('idtutorexamencomplexivo'),
 		 	'iddocente' => $this->input->post('iddocente'),
 		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
-		 	'idtipolector' => $this->input->post('idtipolector'),
+		 	'idtipotutorexamencomplexivo' => $this->input->post('idtipotutorexamencomplexivo'),
 	 	);
-	 	$this->lector_model->update($id,$array_item);
-	 	redirect('lector/actual/'.$id);
+	 	$this->tutorexamencomplexivo_model->update($id,$array_item);
+	 	redirect('tutorexamencomplexivo/actual/'.$id);
  	}
 
 
@@ -94,9 +94,9 @@ public function edit()
 
  	public function delete()
  	{
- 		$data=$this->lector_model->delete($this->uri->segment(3));
+ 		$data=$this->tutorexamencomplexivo_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('lector/elprimero');
+	 	redirect('tutorexamencomplexivo/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -107,13 +107,13 @@ public function edit()
 public function actual()
 {
   $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
-  $data['lector'] = $this->lector_model->lector($this->uri->segment(3))->row_array();
+  $data['tutorexamencomplexivo'] = $this->tutorexamencomplexivo_model->tutorexamencomplexivo($this->uri->segment(3))->row_array();
   if(!empty($data))
   {
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
     $data['title']="Correo";
     $this->load->view('template/page_header');		
-    $this->load->view('lector_record',$data);
+    $this->load->view('tutorexamencomplexivo_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -132,13 +132,13 @@ public function actual()
 public function elprimero()
 {
   $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
-	$data['lector'] = $this->lector_model->elprimero();
+	$data['tutorexamencomplexivo'] = $this->tutorexamencomplexivo_model->elprimero();
   if(!empty($data))
   {
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
     $data['title']="Correo";
     $this->load->view('template/page_header');		
-    $this->load->view('lector_record',$data);
+    $this->load->view('tutorexamencomplexivo_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -150,14 +150,14 @@ public function elprimero()
 public function elultimo()
 {
   $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
-	$data['lector'] = $this->lector_model->elultimo();
+	$data['tutorexamencomplexivo'] = $this->tutorexamencomplexivo_model->elultimo();
   if(!empty($data))
   {
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
     $data['title']="Correo";
   
     $this->load->view('template/page_header');		
-    $this->load->view('lector_record',$data);
+    $this->load->view('tutorexamencomplexivo_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -168,24 +168,24 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['lector_list']=$this->lector_model->lista_lector()->result();
+ // $data['tutorexamencomplexivo_list']=$this->tutorexamencomplexivo_model->lista_tutorexamencomplexivo()->result();
   $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
-	$data['lector'] = $this->lector_model->siguiente($this->uri->segment(3))->row_array();
+	$data['tutorexamencomplexivo'] = $this->tutorexamencomplexivo_model->siguiente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   $data['title']="Correo";
 	$this->load->view('template/page_header');		
-  $this->load->view('lector_record',$data);
+  $this->load->view('tutorexamencomplexivo_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['lector_list']=$this->lector_model->lista_lector()->result();
+ // $data['tutorexamencomplexivo_list']=$this->tutorexamencomplexivo_model->lista_tutorexamencomplexivo()->result();
   $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
-	$data['lector'] = $this->lector_model->anterior($this->uri->segment(3))->row_array();
+	$data['tutorexamencomplexivo'] = $this->tutorexamencomplexivo_model->anterior($this->uri->segment(3))->row_array();
  	$data['docentes']= $this->docente_model->lista_docentes()->result();
   $data['title']="Correo";
 	$this->load->view('template/page_header');		
-  $this->load->view('lector_record',$data);
+  $this->load->view('tutorexamencomplexivo_record',$data);
 	$this->load->view('template/page_footer');
 }
 

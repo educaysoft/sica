@@ -3,7 +3,7 @@
 <h2> <?php echo $title; ?> </h2>
 </div>
 <hr/>
-<?php echo form_open("lector/save") ?>
+<?php echo form_open("tutorexamencomplexivo/save") ?>
 
 
 
@@ -25,7 +25,7 @@ foreach ($trabajointegracioncurriculars as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Docente lector:</label>
+<label class="col-md-2 col-form-label">Docente tutorexamencomplexivo:</label>
 <div class="col-md-10">
 <?php
 
@@ -44,10 +44,10 @@ foreach ($docentes as $row){
 <div class="col-md-10">
 <?php
     $options= array('--Select--');
-    foreach ($tipolectors as $row){
-      $options[$row->idtipolector]= $row->nombre;
+    foreach ($tipotutorexamencomplexivos as $row){
+      $options[$row->idtipotutorexamencomplexivo]= $row->nombre;
     }
-     echo form_dropdown("idtipolector",$options, set_select('--Select--','default_value'),array('id'=>'idtipolector')); 
+     echo form_dropdown("idtipotutorexamencomplexivo",$options, set_select('--Select--','default_value'),array('id'=>'idtipotutorexamencomplexivo')); 
 ?>
 </div>
 </div>
@@ -61,7 +61,7 @@ foreach ($docentes as $row){
 
 <table>
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("lector","Atrás") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("tutorexamencomplexivo","Atrás") ?> </td>
 </tr>
 
 </table>
