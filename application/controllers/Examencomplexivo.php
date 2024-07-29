@@ -10,7 +10,7 @@ class Examencomplexivo extends CI_Controller{
       $this->load->model('directorio_model');
       $this->load->model('persona_model');
       $this->load->model('egresado_model');
-      $this->load->model('lector_model');
+      $this->load->model('tutorexamencomplexivo_model');
 	}
 
 	public function index(){
@@ -18,7 +18,7 @@ class Examencomplexivo extends CI_Controller{
 			$data['examencomplexivo'] = $this->examencomplexivo_model->elultimo();
 			$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 			$data['egresados'] =$this->examencomplexivo_model->egresados($data['examencomplexivo']['idexamencomplexivo'])->result();
-			$data['lectores'] = $this->examencomplexivo_model->lectores($data['examencomplexivo']['idexamencomplexivo'])->result();
+			$data['tutorexamencomplexivoes'] = $this->examencomplexivo_model->tutorexamencomplexivoes($data['examencomplexivo']['idexamencomplexivo'])->result();
 			$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
 			$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 
@@ -100,10 +100,10 @@ public function genpagina()
 	if($this->uri->segment(3))
 	{
 		$idcarrera=$this->uri->segment(3);
-	 	$data['lectores']= $this->lector_model->lector2(0)->result();
+	 	$data['tutorexamencomplexivoes']= $this->tutorexamencomplexivo_model->tutorexamencomplexivo2(0)->result();
 		$arreglo=array();
 		$i=0;
-		foreach($data['lectores'] as $row){
+		foreach($data['tutorexamencomplexivoes'] as $row){
 		$iddocente=$row->iddocente;
 
 	//	$arreglo[$row->iddocente]=$this->examencomplexivo_model->examencomplexivosA($iddocente)->row_array();
@@ -218,7 +218,7 @@ public function genpagina2()
 	  $data['examencomplexivo'] = $this->examencomplexivo_model->examencomplexivo( $this->uri->segment(3))->row_array();
 	  $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 	  $data['egresados'] =$this->examencomplexivo_model->egresados($this->uri->segment(3))->result();
-	  $data['lectores'] = $this->examencomplexivo_model->lectores($data['examencomplexivo']['idexamencomplexivo'])->result();
+	  $data['tutorexamencomplexivoes'] = $this->examencomplexivo_model->tutorexamencomplexivoes($data['examencomplexivo']['idexamencomplexivo'])->result();
 		$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
 		$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 		$data['title']="Usted esta visualizando el examencomplexivo No: ";
@@ -254,7 +254,7 @@ public function genpagina2()
 	 	$data0 = $this->examencomplexivo_model->lista_examencomplexivosB($id);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idexamencomplexivo,$r->numeroestudiantes,$r->nombre,$r->resumen,$r->numerolectores,
+			$data[]=array($r->idexamencomplexivo,$r->numeroestudiantes,$r->nombre,$r->resumen,$r->numerotutorexamencomplexivoes,
 			$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('examencomplexivo/actual').'"   data-idexamencomplexivo="'.$r->idexamencomplexivo.'">ver</a> ');
 		}	
 		$output=array( "draw"=>$draw,
@@ -303,7 +303,7 @@ public function genpagina2()
   		$data['examencomplexivo'] = $this->examencomplexivo_model->lista_examencomplexivos()->result();
   		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
   		$data['egresados'] =$this->examencomplexivo_model->egresados(1)->result();
-  		$data['lectores'] = $this->examencomplexivo_model->lectores(1)->result();
+  		$data['tutorexamencomplexivoes'] = $this->examencomplexivo_model->tutorexamencomplexivoes(1)->result();
   		$data['title']="Examencomplexivo";
   		$data['filtro']= $this->uri->segment(3);
 		$this->load->view('template/page_header');		
@@ -362,7 +362,7 @@ public function elprimero()
   {
     $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
     $data['egresados'] =$this->examencomplexivo_model->egresados($data['examencomplexivo']['idexamencomplexivo'])->result();
-    $data['lectores'] = $this->examencomplexivo_model->lectores($data['examencomplexivo']['idexamencomplexivo'])->result();
+    $data['tutorexamencomplexivoes'] = $this->examencomplexivo_model->tutorexamencomplexivoes($data['examencomplexivo']['idexamencomplexivo'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 	$data['title']="Usted esta visualizando el examencomplexivo No: ";
@@ -389,7 +389,7 @@ public function elultimo()
   {
     $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
     $data['egresados'] =$this->examencomplexivo_model->egresados($data['examencomplexivo']['idexamencomplexivo'])->result();
-    $data['lectores'] = $this->examencomplexivo_model->lectores($data['examencomplexivo']['idexamencomplexivo'])->result();
+    $data['tutorexamencomplexivoes'] = $this->examencomplexivo_model->tutorexamencomplexivoes($data['examencomplexivo']['idexamencomplexivo'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 	$data['title']="Usted esta visualizando el examencomplexivo No: ";
@@ -420,7 +420,7 @@ public function siguiente(){
 	$data['examencomplexivo'] = $this->examencomplexivo_model->siguiente($this->uri->segment(3))->row_array();
   $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
   $data['egresados'] =$this->examencomplexivo_model->egresados($data['examencomplexivo']['idexamencomplexivo'])->result();
-  $data['lectores'] = $this->examencomplexivo_model->lectores($data['examencomplexivo']['idexamencomplexivo'])->result();
+  $data['tutorexamencomplexivoes'] = $this->examencomplexivo_model->tutorexamencomplexivoes($data['examencomplexivo']['idexamencomplexivo'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 	$data['title']="Usted esta visualizando el examencomplexivo No: ";
@@ -435,7 +435,7 @@ public function anterior(){
 	$data['examencomplexivo'] = $this->examencomplexivo_model->anterior($this->uri->segment(3))->row_array();
   $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
   $data['egresados'] =$this->examencomplexivo_model->egresados($data['examencomplexivo']['idexamencomplexivo'])->result();
-  $data['lectores'] = $this->examencomplexivo_model->lectores($data['examencomplexivo']['idexamencomplexivo'])->result();
+  $data['tutorexamencomplexivoes'] = $this->examencomplexivo_model->tutorexamencomplexivoes($data['examencomplexivo']['idexamencomplexivo'])->result();
 	$data['ordenadores']=  $this->ordenador_model->lista_ordenadores()->result();
 	$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 	$data['title']="Usted esta visualizando el examencomplexivo No: ";
@@ -451,7 +451,7 @@ public function anterior(){
     		$data['examencomplexivo'] = $this->examencomplexivo_model->examencomplexivo($this->uri->segment(3))->row_array();
     		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
     		$data['egresados'] =$this->examencomplexivo_model->egresados($this->uri->segment(3))->result();
-    		$data['lectores'] = $this->examencomplexivo_model->lectores($this->uri->segment(3))->result();
+    		$data['tutorexamencomplexivoes'] = $this->examencomplexivo_model->tutorexamencomplexivoes($this->uri->segment(3))->result();
     		$data['title'] = "Actualizar el  Examencomplexivo No: ";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('examencomplexivo_edit',$data);

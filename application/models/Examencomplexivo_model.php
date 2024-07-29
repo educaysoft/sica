@@ -53,11 +53,11 @@ class Examencomplexivo_model extends CI_model {
 		
 		if($idestadoexamencomplexivo==0)
 		{
-		$examencomplexivo=$this->db->order_by("ellector")->get('examencomplexivo1');
+		$examencomplexivo=$this->db->order_by("eltutorexamencomplexivo")->get('examencomplexivo1');
 		}else{
 
 		$this->db->where('idestadoexamencomplexivo='.$idestadoexamencomplexivo);
-		$examencomplexivo=$this->db->order_by("ellector")->get('examencomplexivo1');
+		$examencomplexivo=$this->db->order_by("eltutorexamencomplexivo")->get('examencomplexivo1');
 		}
 		 return $examencomplexivo;
 	}
@@ -376,11 +376,11 @@ class Examencomplexivo_model extends CI_model {
 	}
 
 
-  // Para presentar los lectores
-	function lectores( $iddocu)
+  // Para presentar los tutorexamencomplexivoes
+	function tutorexamencomplexivoes( $iddocu)
 	{
-		$lectores=$this->db->query('select idpersona,ellector from lector1 where idexamencomplexivo="'. $iddocu.'"');
-		return $lectores;
+		$tutorexamencomplexivoes=$this->db->query('select idpersona,eltutorexamencomplexivo from tutorexamencomplexivo1 where idexamencomplexivo="'. $iddocu.'"');
+		return $tutorexamencomplexivoes;
 	}
 
 
