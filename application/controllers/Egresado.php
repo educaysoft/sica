@@ -66,7 +66,7 @@ class Egresado extends CI_Controller{
 public function listar()
 {
 	
-  $data['list'] = $this->egresado_model->listar_egresado1()->result();
+  $data['egresados'] = $this->egresado_model->listar_egresado1()->result();
   $data['title']="Egresadoes de trabajointegracioncurricular";
 	$this->load->view('template/page_header');		
   $this->load->view('egresado_list',$data);

@@ -17,7 +17,7 @@
 <th> egresado</th>
 </tr>
 <tbody>
-<?php  foreach($egresado_list as $list) { ?>
+<?php  foreach($egresados as $list) { ?>
 <tr>
 <td> <?php echo $list->iddocumento ?></td>
 <td> <?php echo $list->asunto ?></td>
