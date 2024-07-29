@@ -6,7 +6,6 @@ class Tutorexamencomplexivo extends CI_Controller{
       parent::__construct();
       $this->load->model('tutorexamencomplexivo_model');
       $this->load->model('docente_model');
-      $this->load->model('tipotutorexamencomplexivo_model');
       $this->load->model('trabajointegracioncurricular_model');
 }
 
@@ -15,7 +14,6 @@ public function index(){
   $data['docentes']= $this->docente_model->lista_docentes()->result();
   $data['tutorexamencomplexivo']=$this->tutorexamencomplexivo_model->elultimo();
 
-	$data['tipotutorexamencomplexivos']= $this->tipotutorexamencomplexivo_model->lista_tipotutorexamencomplexivo()->result();
  // print_r($data['tutorexamencomplexivo_list']);
   $data['title']="Lista de Tutorexamencomplexivos";
 	$this->load->view('template/page_header');		
@@ -31,7 +29,6 @@ public function add()
 	}else{
 		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
 	}
-		$data['tipotutorexamencomplexivos']= $this->tipotutorexamencomplexivo_model->lista_tipotutorexamencomplexivo()->result();
 		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
 		$data['title']="Nuevo Tutorexamencomplexivo de trabajo de integración curricular";
 	 	$this->load->view('template/page_header');		
@@ -47,7 +44,6 @@ public function add()
 	 	$array_item=array(
 		 	'iddocente' => $this->input->post('iddocente'),
 		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
-		 	'idtipotutorexamencomplexivo' => $this->input->post('idtipotutorexamencomplexivo'),
 	 	);
 	 	$result= $this->tutorexamencomplexivo_model->save($array_item);
 
@@ -67,7 +63,6 @@ public function edit()
 		$data['tutorexamencomplexivo']= $this->tutorexamencomplexivo_model->tutorexamencomplexivo($this->uri->segment(3))->row_array();
 		$data['docentes']= $this->docente_model->lista_docentes()->result();
 		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
-    		$data['tipotutorexamencomplexivos']= $this->tipotutorexamencomplexivo_model->lista_tipotutorexamencomplexivo()->result();
  	 	$data['title'] = "Actualizar Persona";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('tutorexamencomplexivo_edit',$data);
@@ -83,7 +78,6 @@ public function edit()
 		 	'idtutorexamencomplexivo' => $this->input->post('idtutorexamencomplexivo'),
 		 	'iddocente' => $this->input->post('iddocente'),
 		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
-		 	'idtipotutorexamencomplexivo' => $this->input->post('idtipotutorexamencomplexivo'),
 	 	);
 	 	$this->tutorexamencomplexivo_model->update($id,$array_item);
 	 	redirect('tutorexamencomplexivo/actual/'.$id);
