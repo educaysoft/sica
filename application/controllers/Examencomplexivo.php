@@ -15,11 +15,19 @@ class Examencomplexivo extends CI_Controller{
 
 	public function index(){
  		if(isset($this->session->userdata['logged_in'])){
-			$data['examencomplexivo'] = $this->examencomplexivo_model->elultimo();
-            print_r($data['examencomplexivo']); die();
+		   ($data['examencomplexivo'] = $this->examencomplexivo_model->elultimo();
 			$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
+           if($data['examencomplexivo']['idexamencomplexivo'])
+           {
 			$data['egresados'] =$this->examencomplexivo_model->egresados($data['examencomplexivo']['idexamencomplexivo'])->result();
 			$data['tutorexamencomplexivoes'] = $this->examencomplexivo_model->tutorexamencomplexivoes($data['examencomplexivo']['idexamencomplexivo'])->result();
+           }else{
+
+			$data['egresados'] =$this->examencomplexivo_model->egresados(0)->result();
+			$data['tutorexamencomplexivoes'] = $this->examencomplexivo_model->tutorexamencomplexivoes($data['examencomplexivo']['idexamencomplexivo'])->result();
+
+
+           }
 			$data['ordenadores'] = $this->ordenador_model->lista_ordenadores()->result();
 			$data['directorios'] = $this->directorio_model->lista_directorios()->result();
 
