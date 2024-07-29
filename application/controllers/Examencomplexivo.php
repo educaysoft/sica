@@ -156,7 +156,6 @@ public function genpagina2()
         echo $idegresadoD 
 	//	$arreglo[$row->iddocente]=$this->examencomplexivo_model->examencomplexivosA($iddocente)->row_array();
 		$xx=array($this->examencomplexivo_model->examencomplexivosB($idegresado)->result_array());
-        print_r($xx);
 		if(count($xx[0]) > 0){
 		foreach($xx as $row2){
 			foreach($row2 as $row3)
