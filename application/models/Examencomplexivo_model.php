@@ -373,7 +373,7 @@ class Examencomplexivo_model extends CI_model {
         if($iddocu>0){
 		$this->db->where('idexamencomplexivo="'.$iddocu.'"');
         }
-		$egresados=$this->db->get('egresado1');
+		$egresados=$this->db->get('egresado2');
 		return $egresados;
 	}
 
