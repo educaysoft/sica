@@ -1,75 +1,64 @@
+<?php echo form_open('documentotrabajointegracioncurricular/save_edit') ?>
+<?php echo form_hidden('iddocumentotrabajointegracioncurricular',$documentotrabajointegracioncurricular['iddocumentotrabajointegracioncurricular']) ?>
+<h2> <?php echo $title; ?></h2>
+<hr />
+<table>
+ 
+   <tr>
+     <td>Id documentotrabajointegracioncurricular</td>
+     <td><?php 
 
-<div style="margin-top:5cm;">
-<h2> <?php echo $title; ?> </h2>
-</div>
-<hr/>
-<?php echo form_open("lector/save_edit") ?>
 
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">id lector:</label>
-<div class="col-md-10">
-<?php
-
-$eys_arrinput=array('name'=>'idlector','value'=>$lector['idlector'],'readonly'=>'true', "style"=>"width:500px");
-echo form_input($eys_arrinput); 
-?>
-</div>
-</div>
+$eys_arrinput=array('name'=>'iddocumentotrabajointegracioncurricular','value'=>$documentotrabajointegracioncurricular['iddocumentotrabajointegracioncurricular'],'readonly'=>'true', "style"=>"width:500px");
+echo form_input($eys_arrinput); ?></td>
+  </tr> 
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Asunto:</label>
-<div class="col-md-10">
-<?php
-
+ 
+ <tr>
+<td> Documentos:</td>
+<td><?php
 $options= array('--Select--');
 foreach ($documentos as $row){
-	$options[$row->iddocumento]= $row->asunto;
+	$options[$row->iddocumento]=$row->iddocumento.' - '.$row->autor." - ". $row->asunto;
 }
 
- echo form_dropdown("iddocumento",$options, $lector['iddocumento']);  
-
-?>
-</div>
-</div>
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Lector:</label>
-<div class="col-md-10">
-<?php
-
-$options= array('--Select--');
-foreach ($personas as $row){
-	$options[$row->idpersona]= $row->apellidos.' '.$row->nombres;
-}
-
- echo form_dropdown("idpersona",$options,$lector['idpersona']); 
-?>
-</div>
-</div>
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Detalle:</label>
-<div class="col-md-10">
-<?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Detalle",'id'=>'detalle' );    
- echo form_textarea("detalle",$lector['detalle'], $textarea_options); 
-?>
-</div>
-</div>
-
-
-
-<table>
-<tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("lector","Atrás") ?> </td>
+ echo form_dropdown("iddocumento",$options, $documentotrabajointegracioncurricular['iddocumento']);  ?></td>
 </tr>
 
-</table>
-<?php echo form_close();?>
+<tr>
+<td> Portafolio:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($trabajointegracioncurriculars as $row){
+	$options[$row->idtrabajointegracioncurricular]= $row->idtrabajointegracioncurricular." - ".$row->nombre;
+}
 
+ echo form_dropdown("idtrabajointegracioncurricular",$options, $documentotrabajointegracioncurricular['idtrabajointegracioncurricular']);  ?></td>
+</tr>
+
+
+<tr>
+<td> Actividad academica: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($docenteactividadacademicas as $row){
+	$options[$row->iddocenteactividadacademica]=$row->item." - ". $row->eldistributivodocente." - ".$row->nombreactividad." - (".$row->numerohoras.")";
+}
+
+ echo form_dropdown("iddocenteactividadacademica",$options,$documentotrabajointegracioncurricular['iddocenteactividadacademica']);  ?></td>
+</tr>
+
+<tr>
+<td> Minutos ocupados: </td>
+<td><?php echo form_input("minutosocupados",$documentotrabajointegracioncurricular['minutosocupados'], array("placeholder"=>"Minutos utilizados"))  ?></td>
+</tr>
+
+ 
+ <tr>
+ <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('documentotrabajointegracioncurricular','Atras') ?></td>
+ </tr>
+</table>
+<?php echo form_close(); ?>

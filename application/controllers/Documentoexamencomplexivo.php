@@ -6,21 +6,21 @@ class Documentoexamencomplexivo extends CI_Controller{
       parent::__construct();
   	  $this->load->model('documento_model');
   	  $this->load->model('trabajointegracioncurricular_model');
-  	  $this->load->model('documentotrabajointegracioncurricular_model');
+  	  $this->load->model('documentoexamencomplexivo_model');
 }
 
 public function index(){
 
   	if(isset($this->session->userdata['logged_in'])){
 			
-  	$data['documentotrabajointegracioncurricular']=$this->documentotrabajointegracioncurricular_model->elultimo();
+  	$data['documentoexamencomplexivo']=$this->documentoexamencomplexivo_model->elultimo();
 	$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
-  	$data['trabajointegracioncurricular']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA($data['documentotrabajointegracioncurricular']['idtrabajointegracioncurricular'])->row_array();
+  	$data['trabajointegracioncurricular']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA($data['documentoexamencomplexivo']['idtrabajointegracioncurricular'])->row_array();
   	$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
 	
-		$data['title']="Lista de documentotrabajointegracioncurriculars";
+		$data['title']="Lista de documentoexamencomplexivos";
 		$this->load->view('template/page_header');
-		$this->load->view('documentotrabajointegracioncurricular_record',$data);
+		$this->load->view('documentoexamencomplexivo_record',$data);
 		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -44,7 +44,7 @@ public function add()
   		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA($idtrabajointegracioncurricular)->result();
 		$data['title']="Nueva Documentoexamencomplexivo";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('documentotrabajointegracioncurricular_form',$data);
+	 	$this->load->view('documentoexamencomplexivo_form',$data);
 	 	$this->load->view('template/page_footer');
 
 
@@ -57,7 +57,7 @@ public function add()
 			'iddocumento' => $this->input->post('iddocumento'),
 			'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
 	 	);
-	 	$result=$this->documentotrabajointegracioncurricular_model->save($array_item);
+	 	$result=$this->documentoexamencomplexivo_model->save($array_item);
 
 	 	if($result == FALSE)
 		{
@@ -76,7 +76,7 @@ public function add()
 			'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
 			'minutosocupados' => $this->input->post('minutosocupados'),
 	 	);
-	 	$result=$this->documentotrabajointegracioncurricular_model->save($array_item);
+	 	$result=$this->documentoexamencomplexivo_model->save($array_item);
 
 	 	if($result == FALSE)
 		{
@@ -93,7 +93,7 @@ public function add()
 
 public function edit()
 {
-	 	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->documentotrabajointegracioncurricular($this->uri->segment(3))->row_array();
+	 	$data['documentoexamencomplexivo'] = $this->documentoexamencomplexivo_model->documentoexamencomplexivo($this->uri->segment(3))->row_array();
 
 		//$tipodocumento=17;  //trabajointegracioncurricular
 		//$data['documentos']= $this->documento_model->lista_documentosxtipo($tipodocumento,0)->result();
@@ -104,7 +104,7 @@ public function edit()
   		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
  	 	$data['title'] = "Actualizar Documentoexamencomplexivo";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('documentotrabajointegracioncurricular_edit',$data);
+ 	 	$this->load->view('documentoexamencomplexivo_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -112,14 +112,14 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('iddocumentotrabajointegracioncurricular');
+		$id=$this->input->post('iddocumentoexamencomplexivo');
 	 	$array_item=array(
 		 	
-		 	'iddocumentotrabajointegracioncurricular' => $this->input->post('iddocumentotrabajointegracioncurricular'),
+		 	'iddocumentoexamencomplexivo' => $this->input->post('iddocumentoexamencomplexivo'),
 			'iddocumento' => $this->input->post('iddocumento'),
 			'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
 	 	);
-	$result =	$this->documentotrabajointegracioncurricular_model->update($id,$array_item);
+	$result =	$this->documentoexamencomplexivo_model->update($id,$array_item);
 	if($result == FALSE)
 		{
 			echo "<script language='JavaScript'> alert('Documento ya existe en este trabajointegracioncurricular'); </script>";
@@ -135,9 +135,9 @@ public function edit()
 
  	public function delete()
  	{
- 		$data=$this->documentotrabajointegracioncurricular_model->delete($this->uri->segment(3));
+ 		$data=$this->documentoexamencomplexivo_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('documentotrabajointegracioncurricular/elprimero');
+	 	redirect('documentoexamencomplexivo/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -147,24 +147,24 @@ public function listar()
 	
   $data['title']="Documentoexamencomplexivos";
 	$this->load->view('template/page_header');		
-  $this->load->view('documentotrabajointegracioncurricular_list',$data);
+  $this->load->view('documentoexamencomplexivo_list',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
-function documentotrabajointegracioncurricular_data()
+function documentoexamencomplexivo_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->documentotrabajointegracioncurricular_model->lista_documentotrabajointegracioncurricularsA(0);
+	 	$data0 = $this->documentoexamencomplexivo_model->lista_documentoexamencomplexivosA(0);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->iddocumentotrabajointegracioncurricular,$r->iddocumento,$r->asunto,$r->elperiodo,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('documentotrabajointegracioncurricular/actual').'"  data-iddocumentotrabajointegracioncurricular="'.$r->iddocumentotrabajointegracioncurricular.'">Ver</a>');
+			$data[]=array($r->iddocumentoexamencomplexivo,$r->iddocumento,$r->asunto,$r->elperiodo,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('documentoexamencomplexivo/actual').'"  data-iddocumentoexamencomplexivo="'.$r->iddocumentoexamencomplexivo.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -186,11 +186,11 @@ function documentotrabajointegracioncurricular_data()
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$iddocumentotrabajointegracioncurricular=$this->input->get('iddocumentotrabajointegracioncurricular');
-			$data0 =$this->asignaturadocumento_model->lista_asignaturadocumentos($iddocumentotrabajointegracioncurricular);
+			$iddocumentoexamencomplexivo=$this->input->get('iddocumentoexamencomplexivo');
+			$data0 =$this->asignaturadocumento_model->lista_asignaturadocumentos($iddocumentoexamencomplexivo);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->iddocumentotrabajointegracioncurricular,$r->idasignaturadocumento,$r->laasignatura,$r->paralelo,
+				$data[]=array($r->iddocumentoexamencomplexivo,$r->idasignaturadocumento,$r->laasignatura,$r->paralelo,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('asignaturadocumento/actual').'"    data-idasignaturadocumento="'.$r->idasignaturadocumento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
@@ -235,14 +235,14 @@ function documentotrabajointegracioncurricular_data()
 
 public function actual()
 {
-	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->documentotrabajointegracioncurricular($this->uri->segment(3))->row_array();
+	$data['documentoexamencomplexivo'] = $this->documentoexamencomplexivo_model->documentoexamencomplexivo($this->uri->segment(3))->row_array();
   	$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
   	$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
 	  if(!empty($data))
 	  {
     $data['title']="Documentoexamencomplexivo";
     $this->load->view('template/page_header');		
-    $this->load->view('documentotrabajointegracioncurricular_record',$data);
+    $this->load->view('documentoexamencomplexivo_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -264,13 +264,13 @@ public function elprimero()
 {
   	$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
   	$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
-	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->elprimero();
+	$data['documentoexamencomplexivo'] = $this->documentoexamencomplexivo_model->elprimero();
 	  if(!empty($data))
 	  {
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
     $data['title']="Documentoexamencomplexivo";
     $this->load->view('template/page_header');		
-    $this->load->view('documentotrabajointegracioncurricular_record',$data);
+    $this->load->view('documentoexamencomplexivo_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -281,7 +281,7 @@ public function elprimero()
 
 public function elultimo()
 {
-	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->elultimo();
+	$data['documentoexamencomplexivo'] = $this->documentoexamencomplexivo_model->elultimo();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
   if(!empty($data))
@@ -289,7 +289,7 @@ public function elultimo()
     $data['title']="Documentoexamencomplexivo";
   
     $this->load->view('template/page_header');		
-    $this->load->view('documentotrabajointegracioncurricular_record',$data);
+    $this->load->view('documentoexamencomplexivo_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -300,26 +300,26 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['documentotrabajointegracioncurricular_list']=$this->documentotrabajointegracioncurricular_model->lista_documentotrabajointegracioncurricular()->result();
-	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['documentoexamencomplexivo_list']=$this->documentoexamencomplexivo_model->lista_documentoexamencomplexivo()->result();
+	$data['documentoexamencomplexivo'] = $this->documentoexamencomplexivo_model->siguiente($this->uri->segment(3))->row_array();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
   
 
 $data['title']="Documentoexamencomplexivo";
 	$this->load->view('template/page_header');		
-  $this->load->view('documentotrabajointegracioncurricular_record',$data);
+  $this->load->view('documentoexamencomplexivo_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['documentotrabajointegracioncurricular_list']=$this->documentotrabajointegracioncurricular_model->lista_documentotrabajointegracioncurricular()->result();
-	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->anterior($this->uri->segment(3))->row_array();
+ // $data['documentoexamencomplexivo_list']=$this->documentoexamencomplexivo_model->lista_documentoexamencomplexivo()->result();
+	$data['documentoexamencomplexivo'] = $this->documentoexamencomplexivo_model->anterior($this->uri->segment(3))->row_array();
   	$data['documentos']= $this->documento_model->lista_documentos()->result();
   	$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
   $data['title']="Documentoexamencomplexivo";
 	$this->load->view('template/page_header');		
-  $this->load->view('documentotrabajointegracioncurricular_record',$data);
+  $this->load->view('documentoexamencomplexivo_record',$data);
 	$this->load->view('template/page_footer');
 }
 

@@ -32,7 +32,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <div class="row">
   <div class="col-12">
              <div class="col-md-12">
-                 <h3>Lista de documentotrabajointegracioncurriculars 
+                 <h3>Lista de documentoexamencomplexivos 
                  <!-- <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus"></span> Add New</a></div>-->
 			  
         	</h3>
@@ -43,7 +43,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 	<div id="eys-nav-i">
 	<ul>
-    		<li> <?php echo anchor('documentotrabajointegracioncurricular', 'Home'); ?></li>
+    		<li> <?php echo anchor('documentoexamencomplexivo', 'Home'); ?></li>
 	</ul>
        	</div>
 <br>
@@ -84,12 +84,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documentotrabajointegracioncurricular/documentotrabajointegracioncurricular_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('documentoexamencomplexivo/documentoexamencomplexivo_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
-	var id= $(this).data('iddocumentotrabajointegracioncurricular');
+	var id= $(this).data('iddocumentoexamencomplexivo');
 	var retorno= $(this).data('retorno');
 	window.location.href = retorno+'/'+id;
 });

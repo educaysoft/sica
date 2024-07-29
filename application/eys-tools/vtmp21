@@ -1,56 +1,35 @@
-
-<div style="margin-top:5cm;">
 <h2> <?php echo $title; ?> </h2>
-</div>
 <hr/>
-<?php echo form_open("lector/save") ?>
+<?php echo form_open("documentotrabajointegracioncurricular/save") ?>
+<?php echo form_hidden("iddocumentotrabajointegracioncurricular")  ?>
+<table>
+
+
+<tr>
+<td> Documento: </td>
+<td><?php 
+
+$options= array('--Select--');
+foreach ($documentos as $row){
+	$options[$row->iddocumento]=$row->iddocumento.' - '.$row->autor." - ". $row->asunto;
+}
+
+ echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Titulo/tema:</label>
-<div class="col-md-10">
-<?php
+<tr>
+<td> Portafolio: </td>
+<td><?php 
 
 $options= array('--Select--');
 foreach ($trabajointegracioncurriculars as $row){
-	$options[$row->idtrabajointegracioncurricular]= $row->nombre;
+	$options[$row->idtrabajointegracioncurricular]= $row->idtrabajointegracioncurricular." - ".$row->nombre;
 }
 
- echo form_dropdown("idtrabajointegracioncurricular",$options, set_select('--Select--','default_value'));  
-
-?>
-</div>
-</div>
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Docente lector:</label>
-<div class="col-md-10">
-<?php
-
-$options= array('--Select--');
-foreach ($docentes as $row){
-	$options[$row->iddocente]= $row->eldocente;
-}
-
- echo form_dropdown("iddocente",$options, set_select('--Select--','default_value')); 
-?>
-</div>
-</div>
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Tipo de documento:</label>
-<div class="col-md-10">
-<?php
-    $options= array('--Select--');
-    foreach ($tipolectors as $row){
-      $options[$row->idtipolector]= $row->nombre;
-    }
-     echo form_dropdown("idtipolector",$options, set_select('--Select--','default_value'),array('id'=>'idtipolector')); 
-?>
-</div>
-</div>
+ echo form_dropdown("idtrabajointegracioncurricular",$options, set_select('--Select--','default_value'));  ?></td>
+</tr>
 
 
 
@@ -58,10 +37,8 @@ foreach ($docentes as $row){
 
 
 
-
-<table>
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("lector","Atrás") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("documentotrabajointegracioncurricular","Atras") ?> </td>
 </tr>
 
 </table>

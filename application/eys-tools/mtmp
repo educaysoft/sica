@@ -1,60 +1,104 @@
 <?php
-class Lector_model extends CI_model {
+class Documentotrabajointegracioncurricular_model extends CI_model {
 
-	function listar_lector(){
-		 $lector= $this->db->get('lector');
-		 return $lector;
+	function lista_documentotrabajointegracioncurriculars(){
+		 $documentotrabajointegracioncurricular= $this-db->get('documentotrabajointegracioncurricular');
+		 return $documentotrabajointegracioncurricular;
 	}
 
-	function listar_lector1(){
-		 $lector= $this->db->get('lector1');
-		 return $lector;
+
+	function lista_documentotrabajointegracioncurricularsA(){
+		 $documentotrabajointegracioncurricular= $this->db->get('documentotrabajointegracioncurricular1');
+		 return $documentotrabajointegracioncurricular;
 	}
 
-	function lector2($id){
- 		$lector = $this->db->query('select distinct cedula, ellector as eldocente,iddocente from lector1 ');
- 		return $lector;
+
+
+ 	function documentotrabajointegracioncurricular( $id){
+ 		$documentotrabajointegracioncurricular = $this->db->query('select * from documentotrabajointegracioncurricular where iddocumentotrabajointegracioncurricular="'. $id.'"');
+ 		return $documentotrabajointegracioncurricular;
+ 	}
+
+
+ 	function documentotrabajointegracioncurricularspersona( $id){
+ 		$documentotrabajointegracioncurricular = $this->db->query('select * from documentotrabajointegracioncurricular where idpersona="'. $id.'"');
+ 		return $documentotrabajointegracioncurricular;
+ 	}
+
+
+ 	function documentotrabajointegracioncurriculardocente( $iddocente,$idperiodoacademico){
+
+ 		$documentotrabajointegracioncurricular = $this->db->query('select * from documentotrabajointegracioncurricular2 where iddocente="'. $iddocente.'" and idperiodoacademico="'. $idperiodoacademico.' "  order by iddocente   ');
+ 		return $documentotrabajointegracioncurricular;
  	}
 
 
 
 
- 	function lector($id){
- 		$lector = $this->db->query('select * from lector where idlector="'. $id.'"');
- 		return $lector;
+ 	function documentotrabajointegracioncurricularalumno( $idalumno,$idperiodoacademico){
+
+ 		$documentotrabajointegracioncurricular = $this->db->query('select * from documentotrabajointegracioncurricular3 where idalumno="'. $idalumno.'" and idperiodoacademico="'. $idperiodoacademico.' "  order by idalumno  ');
+ 		return $documentotrabajointegracioncurricular;
  	}
+
+
 
  	function save($array)
  	{
-		$condition1 = "idtrabajointegracioncurricular =" . "'" . $array['idtrabajointegracioncurricular'] . "'";
-		$condition2 = "iddocente =" . "'" . $array['iddocente'] . "'";
+			date_default_timezone_set('America/Guayaquil');
+    			$fecha = date("Y-m-d");
+    			$hora= date("H:i:s");
+			$idusuario=$this->session->userdata['logged_in']['idusuario'];
+	   $this->db->trans_begin();
+		$condition1 = "iddocumento =" . "'" . $array['iddocumento'] . "'";
+		$condition2 = "idtrabajointegracioncurricular =" . "'" . $array['idtrabajointegracioncurricular'] . "'";
 		$this->db->select('*');
-		$this->db->from('lector');
+		$this->db->from('documentotrabajointegracioncurricular');
 		$this->db->where($condition1);
 		$this->db->where($condition2);
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() == 0) {
-			$this->db->insert("lector", $array);
+			$this->db->insert("documentotrabajointegracioncurricular", $array);
+		   if( $this->db->affected_rows()>0){
+			$iddocumentotrabajointegracioncurricular=$this->db->insert_id();
+		   	$this->db->insert("vitacora", array("idusuario"=>$idusuario,"hora"=>$hora,"fecha"=>$fecha,"tabla"=>"documentotrabajointegracioncurricular","accion"=>"se sumo un documento con id=".$iddocumentotrabajointegracioncurricular,"url"=>$_SERVER['REQUEST_URI']));
+
+
+
+
+			$this->db->trans_commit();
 			return true;
-		}else{
+		   }else{
+			$this->db->trans_rollback();
 			return false;
-		}
+		   }
+		 }else{
+			$this->db->trans_rollback();
+			return false;
+	   }
+	
 
 
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idlector',$id);
- 		$this->db->update('lector',$array_item);
+ 		$this->db->where('iddocumentotrabajointegracioncurricular',$id);
+ 		$this->db->update('documentotrabajointegracioncurricular',$array_item);
+		   if( $this->db->affected_rows()>0){
+			return true;
+		 }else{
+			return false;
+	   }
 	}
+ 
 
 
-  public function delete($id)
+ 	public function delete($id)
 	{
- 		$this->db->where('idlector',$id);
-		$this->db->delete('lector');
+ 		$this->db->where('iddocumentotrabajointegracioncurricular',$id);
+		$this->db->delete('documentotrabajointegracioncurricular');
     		if($this->db->affected_rows()==1)
 			$result=true;
 		else
@@ -65,7 +109,7 @@ class Lector_model extends CI_model {
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idlector")->get('lector');
+		$query=$this->db->order_by("iddocumentotrabajointegracioncurricular")->get('documentotrabajointegracioncurricular');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -78,7 +122,7 @@ class Lector_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idlector")->get('lector');
+		$query=$this->db->order_by("iddocumentotrabajointegracioncurricular")->get('documentotrabajointegracioncurricular1');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -90,37 +134,37 @@ class Lector_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$lector = $this->db->select("idlector")->order_by("idlector")->get('lector')->result_array();
-		$arr=array("idlector"=>$id);
-		$clave=array_search($arr,$lector);
-	   if(array_key_exists($clave+1,$lector))
+ 		$documentotrabajointegracioncurricular = $this->db->select("iddocumentotrabajointegracioncurricular")->order_by("iddocumentotrabajointegracioncurricular")->get('documentotrabajointegracioncurricular')->result_array();
+		$arr=array("iddocumentotrabajointegracioncurricular"=>$id);
+		$clave=array_search($arr,$documentotrabajointegracioncurricular);
+	   if(array_key_exists($clave+1,$documentotrabajointegracioncurricular))
 		 {
 
- 		$lector = $this->db->query('select * from lector where idlector="'. $lector[$clave+1]["idlector"].'"');
+ 		$documentotrabajointegracioncurricular = $this->db->query('select * from documentotrabajointegracioncurricular where iddocumentotrabajointegracioncurricular="'. $documentotrabajointegracioncurricular[$clave+1]["iddocumentotrabajointegracioncurricular"].'"');
 		 }else{
 
- 		$lector = $this->db->query('select * from lector where idlector="'. $id.'"');
+ 		$documentotrabajointegracioncurricular = $this->db->query('select * from documentotrabajointegracioncurricular where iddocumentotrabajointegracioncurricular="'. $id.'"');
 		 }
 		 	
- 		return $lector;
+ 		return $documentotrabajointegracioncurricular;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$lector = $this->db->select("idlector")->order_by("idlector")->get('lector')->result_array();
-		$arr=array("idlector"=>$id);
-		$clave=array_search($arr,$lector);
-	   if(array_key_exists($clave-1,$lector))
+ 		$documentotrabajointegracioncurricular = $this->db->select("iddocumentotrabajointegracioncurricular")->order_by("iddocumentotrabajointegracioncurricular")->get('documentotrabajointegracioncurricular')->result_array();
+		$arr=array("iddocumentotrabajointegracioncurricular"=>$id);
+		$clave=array_search($arr,$documentotrabajointegracioncurricular);
+	   if(array_key_exists($clave-1,$documentotrabajointegracioncurricular))
 		 {
 
- 		$lector = $this->db->query('select * from lector where idlector="'. $lector[$clave-1]["idlector"].'"');
+ 		$documentotrabajointegracioncurricular = $this->db->query('select * from documentotrabajointegracioncurricular where iddocumentotrabajointegracioncurricular="'. $documentotrabajointegracioncurricular[$clave-1]["iddocumentotrabajointegracioncurricular"].'"');
 		 }else{
 
- 		$lector = $this->db->query('select * from lector where idlector="'. $id.'"');
+ 		$documentotrabajointegracioncurricular = $this->db->query('select * from documentotrabajointegracioncurricular where iddocumentotrabajointegracioncurricular="'. $id.'"');
 		 }
 		 	
- 		return $lector;
+ 		return $documentotrabajointegracioncurricular;
  	}
 
 
