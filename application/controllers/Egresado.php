@@ -105,6 +105,7 @@ public function listar()
 		 	'idexamencomplexivo' => $this->input->post('idexamencomplexivo'),
 	 	);
 	 	$result=$this->egresado_model->save2($array_item);
+        die();
 	 	if($result == FALSE)
 		{
 			echo "<script language='JavaScript'> alert('iegresado ya existe'); </script>";
