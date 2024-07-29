@@ -83,6 +83,7 @@ public function listar()
 	 	$array_item=array(
 		 	'idestudiante' => $this->input->post('idestudiante'),
 		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
+		 	'idexamencomplexivo' => $this->input->post('0'),
 	 	);
 	 	$result=$this->egresado_model->save($array_item);
 	 	if($result == FALSE)
@@ -100,6 +101,7 @@ public function listar()
 	{
 	 	$array_item=array(
 		 	'idestudiante' => $this->input->post('idestudiante'),
+		 	'idtrabajointegracioncurricular' => $this->input->post('0'),
 		 	'idexamencomplexivo' => $this->input->post('idexamencomplexivo'),
 	 	);
 	 	$result=$this->egresado_model->save2($array_item);
