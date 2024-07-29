@@ -22,8 +22,8 @@
 <td> <?php echo $list->idegresado ?></td>
 <td> <?php echo $list->elegresado ?></td>
 <td> <?php echo $list->idtrabajointegracioncurricular ?></td>
-<td> <?php echo $list->idexamencoomplexivo ?></td>
-<td> <?php echo anchor('egresado/edit/'.$list->idegresado,'Edit') ?> || <?php echo anchor('egresado/delete/'.$list->idegradado,'Delete') ?></td>
+<td> <?php echo $list->idexamencomplexivo ?></td>
+<td> <?php echo anchor('egresado/edit/'.$list->idegresado,'Edit') ?> || <?php echo anchor('egresado/delete/'.$list->idegresado,'Delete') ?></td>
  </tr>
 
 
