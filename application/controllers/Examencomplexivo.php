@@ -17,7 +17,7 @@ class Examencomplexivo extends CI_Controller{
  		if(isset($this->session->userdata['logged_in'])){
 		   $data['examencomplexivo'] = $this->examencomplexivo_model->elultimo();
 			$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-           if($data['examencomplexivo']['idexamencomplexivo'])
+           if(isset($data['examencomplexivo']['idexamencomplexivo']))
            {
 			$data['egresados'] =$this->examencomplexivo_model->egresados($data['examencomplexivo']['idexamencomplexivo'])->result();
 			$data['tutorexamencomplexivoes'] = $this->examencomplexivo_model->tutorexamencomplexivoes($data['examencomplexivo']['idexamencomplexivo'])->result();
