@@ -105,7 +105,7 @@ public function listar()
 		 	'idexamencomplexivo' => $this->input->post('idexamencomplexivo'),
 	 	);
 	 	$result=$this->egresado_model->save2($array_item);
-        echo $redult;
+        echo $result;
         die();
 	 	if($result == FALSE)
 		{
