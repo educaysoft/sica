@@ -324,7 +324,7 @@ foreach($examencomplexivo as $rowj){
 
 			if(isset($rowj[$row->idegresado]['idegresado'])){		
            //     if($rowj[$row->idegresado]['idestadoexamencomplexivo']==5){
-			    $data=$data.' <div class="card-body" style="background-color:#D3D3D3;padding: 20px;border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) "  > <b>: </b>'. $rowj[$row->idegresado]['nombre'],'  -</div><br>';
+			    $data=$data.' <div class="card-body" style="background-color:#D3D3D3;padding: 20px;border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) "  > <b>: </b>'. $rowj[$row->idegresado]['nombre'].'  -</div><br>';
             /*    }else{
                     if($rowj[$row->idegresado]['idestadoexamencomplexivo']==4){
 			        $data=$data.'<b>'.$rowj[$row->idegresado]['eltipolector'] .': </b><span style="color:magenta">'.$rowj[$row->idegresado]['nombre'].'[Egresado: '.$rowj[$row->idegresado]['elegresado'].']-[Estado: </span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color:magenta">'.$rowj[$row->idegresado]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/examencomplexivo/actual/'.$rowj[$row->idegresado]['idexamencomplexivo'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
