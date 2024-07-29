@@ -6,11 +6,11 @@ class Tutorexamencomplexivo extends CI_Controller{
       parent::__construct();
       $this->load->model('tutorexamencomplexivo_model');
       $this->load->model('docente_model');
-      $this->load->model('trabajointegracioncurricular_model');
+      $this->load->model('examencomplexivo_model');
 }
 
 public function index(){
-  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
+  $data['examencomplexivos']= $this->examencomplexivo_model->lista_examencomplexivos()->result();
   $data['docentes']= $this->docente_model->lista_docentes()->result();
   $data['tutorexamencomplexivo']=$this->tutorexamencomplexivo_model->elultimo();
 
@@ -25,9 +25,9 @@ public function index(){
 public function add()
 {
 	if($this->uri->segment(3)){
-		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA($this->uri->segment(3))->result();
+		$data['examencomplexivos']= $this->examencomplexivo_model->lista_examencomplexivosA($this->uri->segment(3))->result();
 	}else{
-		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
+		$data['examencomplexivos']= $this->examencomplexivo_model->lista_examencomplexivosA(0)->result();
 	}
 		$data['docentes']= $this->docente_model->lista_docentesA(0)->result();
 		$data['title']="Nuevo Tutorexamencomplexivo de trabajo de integración curricular";
@@ -43,7 +43,7 @@ public function add()
 	{
 	 	$array_item=array(
 		 	'iddocente' => $this->input->post('iddocente'),
-		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
+		 	'idexamencomplexivo' => $this->input->post('idexamencomplexivo'),
 	 	);
 	 	$result= $this->tutorexamencomplexivo_model->save($array_item);
 
@@ -62,7 +62,7 @@ public function edit()
 {
 		$data['tutorexamencomplexivo']= $this->tutorexamencomplexivo_model->tutorexamencomplexivo($this->uri->segment(3))->row_array();
 		$data['docentes']= $this->docente_model->lista_docentes()->result();
-		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
+		$data['examencomplexivos']= $this->examencomplexivo_model->lista_examencomplexivos()->result();
  	 	$data['title'] = "Actualizar Persona";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('tutorexamencomplexivo_edit',$data);
@@ -77,7 +77,7 @@ public function edit()
 	 	$array_item=array(
 		 	'idtutorexamencomplexivo' => $this->input->post('idtutorexamencomplexivo'),
 		 	'iddocente' => $this->input->post('iddocente'),
-		 	'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
+		 	'idexamencomplexivo' => $this->input->post('idexamencomplexivo'),
 	 	);
 	 	$this->tutorexamencomplexivo_model->update($id,$array_item);
 	 	redirect('tutorexamencomplexivo/actual/'.$id);
@@ -100,7 +100,7 @@ public function edit()
 
 public function actual()
 {
-  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
+  $data['examencomplexivos']= $this->examencomplexivo_model->lista_examencomplexivos()->result();
   $data['tutorexamencomplexivo'] = $this->tutorexamencomplexivo_model->tutorexamencomplexivo($this->uri->segment(3))->row_array();
   if(!empty($data))
   {
@@ -125,7 +125,7 @@ public function actual()
 
 public function elprimero()
 {
-  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
+  $data['examencomplexivos']= $this->examencomplexivo_model->lista_examencomplexivos()->result();
 	$data['tutorexamencomplexivo'] = $this->tutorexamencomplexivo_model->elprimero();
   if(!empty($data))
   {
@@ -143,7 +143,7 @@ public function elprimero()
 
 public function elultimo()
 {
-  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
+  $data['examencomplexivos']= $this->examencomplexivo_model->lista_examencomplexivos()->result();
 	$data['tutorexamencomplexivo'] = $this->tutorexamencomplexivo_model->elultimo();
   if(!empty($data))
   {
@@ -163,7 +163,7 @@ public function elultimo()
 
 public function siguiente(){
  // $data['tutorexamencomplexivo_list']=$this->tutorexamencomplexivo_model->lista_tutorexamencomplexivo()->result();
-  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
+  $data['examencomplexivos']= $this->examencomplexivo_model->lista_examencomplexivos()->result();
 	$data['tutorexamencomplexivo'] = $this->tutorexamencomplexivo_model->siguiente($this->uri->segment(3))->row_array();
   	$data['docentes']= $this->docente_model->lista_docentes()->result();
   $data['title']="Correo";
@@ -174,7 +174,7 @@ public function siguiente(){
 
 public function anterior(){
  // $data['tutorexamencomplexivo_list']=$this->tutorexamencomplexivo_model->lista_tutorexamencomplexivo()->result();
-  $data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurriculars()->result();
+  $data['examencomplexivos']= $this->examencomplexivo_model->lista_examencomplexivos()->result();
 	$data['tutorexamencomplexivo'] = $this->tutorexamencomplexivo_model->anterior($this->uri->segment(3))->row_array();
  	$data['docentes']= $this->docente_model->lista_docentes()->result();
   $data['title']="Correo";
