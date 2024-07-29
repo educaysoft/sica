@@ -28,6 +28,21 @@ class Egresado_model extends CI_model {
 		}
  	}
 
+ 	function save2($array)
+ 	{
+		if(!empty($array) & is_array($array)){             
+			$this->db->insert("egresado", $array);
+			return ($this->db->affected_rows()>0)? $this->db->insert_id() : false;
+		}else{
+			return false;
+		}
+ 	}
+
+
+
+
+
+
  	function update($id,$array_item)
  	{
  		$this->db->where('idegresado',$id);

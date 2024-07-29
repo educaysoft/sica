@@ -102,7 +102,7 @@ public function listar()
 		 	'idestudiante' => $this->input->post('idestudiante'),
 		 	'idexamencomplexivo' => $this->input->post('idexamencomplexivo'),
 	 	);
-	 	$result=$this->egresado_model->save($array_item);
+	 	$result=$this->egresado_model->save2($array_item);
 	 	if($result == FALSE)
 		{
 			echo "<script language='JavaScript'> alert('iegresado ya existe'); </script>";
