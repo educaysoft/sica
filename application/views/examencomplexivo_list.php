@@ -29,7 +29,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <div id="eys-nav-i">
 	<ul>
-		<li> <?php echo anchor('trabajointegracioncurricular', 'Home'); ?></li>
+		<li> <?php echo anchor('examencomplexivo', 'Home'); ?></li>
 	</ul>
 </div>
 
@@ -45,7 +45,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 	<div class="form-group row">
-    	<label class="col-md-2 col-form-label"> Tipo trabajointegracioncurricular:</label>
+    	<label class="col-md-2 col-form-label"> Tipo examencomplexivo:</label>
 	<?php
 		$options= array('--Select--');
 		foreach ($tipodocus as $row){
@@ -55,7 +55,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 	<div class="col-md-10">
 		<?php
-     			echo form_dropdown("idtipodocu",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_trabajointegracioncurricular()'));  
+     			echo form_dropdown("idtipodocu",$options, set_select('--Select--','default_value'),array('onchange'=>'filtra_examencomplexivo()'));  
 		?>
 	</div>
 	</div>
@@ -126,17 +126,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 var idtipodocu=0;
-function filtra_trabajointegracioncurricular()
+function filtra_examencomplexivo()
 {
 	idtipodocu = $('select[name=idtipodocu]').val();
-	var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('trabajointegracioncurricular/trabajointegracioncurricular_dataxtipodocu')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
+	var mytabla= $('#mydatac').DataTable({destroy: true,"ajax": {url: '<?php echo site_url('examencomplexivo/examencomplexivo_dataxtipodocu')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
 }
 
 
 $(document).ready(function(){
 
-var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('trabajointegracioncurricular/trabajointegracioncurricular_data')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
-//	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('trabajointegracioncurricular/trabajointegracioncurricular_data')?>', type: 'GET'},});
+var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('examencomplexivo/examencomplexivo_data')?>', type: 'GET',data:{idtipodocu:idtipodocu}},});
+//	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('examencomplexivo/examencomplexivo_data')?>', type: 'GET'},});
 
 
 $('#show_data').on('click','.docu_ver',function(){
@@ -158,7 +158,7 @@ window.location.href = certi;
 
 
 $('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idtrabajointegracioncurricular');
+var id= $(this).data('idexamencomplexivo');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 
@@ -166,7 +166,7 @@ window.location.href = retorno+'/'+id;
 
 
 $('#show_data').on('click','.item_doc',function(){
-var id= $(this).data('idtrabajointegracioncurricular');
+var id= $(this).data('idexamencomplexivo');
 var retorno= $(this).data('retorno2');
 window.location.href = retorno+'/'+id;
 });
@@ -180,7 +180,7 @@ window.location.href = retorno+'/'+id;
 /*
 
 	 $('#show_data').on('click','.item_pdf',function(){
-		 var idtrabajointegracioncurricular = $(this).data('idtrabajointegracioncurricular');
+		 var idexamencomplexivo = $(this).data('idexamencomplexivo');
 		 var archivopdf =  $(this).data('archivopdf');
 		alert(archivopdf);
 		 $('#Modal_pdf').modal('show');

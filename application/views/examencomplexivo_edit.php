@@ -1,10 +1,10 @@
 <div id="eys-nav-i">
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
 
-<?php echo form_open('trabajointegracioncurricular/save_edit',array('id'=>'eys-form')); ?>
+<?php echo form_open('examencomplexivo/save_edit',array('id'=>'eys-form')); ?>
   <ul>
 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
-        <li> <?php echo anchor('trabajointegracioncurricular', 'Cancelar'); ?></li>
+        <li> <?php echo anchor('examencomplexivo', 'Cancelar'); ?></li>
   </ul>
 </div>
 <br>
@@ -25,8 +25,8 @@
 
 
   <tr>
-     <td>idtrabajointegracioncurricular:</td>
-     <td><?php echo form_input(array("name"=>'idtrabajointegracioncurricular','id'=>'idtrabajointegracioncurricular','value'=>$trabajointegracioncurricular['idtrabajointegracioncurricular'],'placeholder'=>'Idtrabajointegracioncurriculars')) ?></td>
+     <td>idexamencomplexivo:</td>
+     <td><?php echo form_input(array("name"=>'idexamencomplexivo','id'=>'idexamencomplexivo','value'=>$examencomplexivo['idexamencomplexivo'],'placeholder'=>'Idexamencomplexivos')) ?></td>
   </tr>
  
  
@@ -43,25 +43,25 @@
   <td>Nombre/titulo:</td>
   <td><?php 
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"nombre","id" =>"nombre");    
-echo form_textarea('nombre',$trabajointegracioncurricular['nombre'],$textarea_options ); ?></td>
+echo form_textarea('nombre',$examencomplexivo['nombre'],$textarea_options ); ?></td>
 </tr>
 
 <tr>
   <td>Resumen:</td>
   <td><?php 
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"resumen","id" =>"resumen");    
-echo form_textarea('resumen',$trabajointegracioncurricular['resumen'],$textarea_options ); ?></td>
+echo form_textarea('resumen',$examencomplexivo['resumen'],$textarea_options ); ?></td>
 </tr>
 
 <tr>
 <td> Estado del evento:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($estadotrabajointegracioncurriculars as $row){
-	$options[$row->idestadotrabajointegracioncurricular]= $row->nombre;
+foreach ($estadoexamencomplexivos as $row){
+	$options[$row->idestadoexamencomplexivo]= $row->nombre;
 }
 
- echo form_dropdown("idestadotrabajointegracioncurricular",$options, $trabajointegracioncurricular['idestadotrabajointegracioncurricular']);  ?></td>
+ echo form_dropdown("idestadoexamencomplexivo",$options, $examencomplexivo['idestadoexamencomplexivo']);  ?></td>
 </tr>
 
    
@@ -100,7 +100,7 @@ function uploadFiles(url1) {
   alert("Este proceso guardará todas los datos ingresados");	
   if(totalfiles > 0 ){
 
-    var idtrabajointegracioncurricular = 0;
+    var idexamencomplexivo = 0;
     alert(1);
     var idtipodocu = document.getElementById('idtipodocu').value;
     alert(2);
@@ -114,7 +114,7 @@ function uploadFiles(url1) {
     alert(6);
     var iddirectorio = document.getElementById('iddirectorio').value;
     alert(7);
-    var iddtrabajointegracioncurricular_estado = 1;
+    var iddexamencomplexivo_estado = 1;
     alert(8);
     var idpersona = document.getElementById('idpersona').value;
     alert(9);
@@ -150,7 +150,7 @@ function uploadFiles(url1) {
       				// The request has been completed successfully
 				var response = xhttp.responseText;
           			alert(response + "archivo cargado");
-				archivo_cargado(idtrabajointegracioncurricular);
+				archivo_cargado(idexamencomplexivo);
 
 				history.back(); //Go to the previous page
        			}else{
@@ -168,11 +168,11 @@ function uploadFiles(url1) {
 
 
 
-function archivo_cargado(idtrabajointegracioncurricular) {
-	var idtrabajointegracioncurricular_estado = 2;
+function archivo_cargado(idexamencomplexivo) {
+	var idexamencomplexivo_estado = 2;
     $.ajax({
-        url: "<?php echo site_url('trabajointegracioncurricular/save_edit') ?>",
-        data: {idtrabajointegracioncurricular:idtrabajointegracioncurricular,idtrabajointegracioncurricular_estado:idtrabajointegracioncurricular_estado},
+        url: "<?php echo site_url('examencomplexivo/save_edit') ?>",
+        data: {idexamencomplexivo:idexamencomplexivo,idexamencomplexivo_estado:idexamencomplexivo_estado},
         method: 'POST',
 	async : true,
         dataType : 'json',
@@ -204,7 +204,7 @@ function archivo_cargado(idtrabajointegracioncurricular) {
 function get_directorio() {
 	var idordenador = $('select[name=idordenador]').val();
     $.ajax({
-        url: "<?php echo site_url('trabajointegracioncurricular/get_directorio') ?>",
+        url: "<?php echo site_url('examencomplexivo/get_directorio') ?>",
         data: {idordenador: idordenador},
         method: 'POST',
 	async : true,
@@ -237,7 +237,7 @@ function get_directorio() {
 
  async function nombredearchivo()
 {
- indice=document.getElementById("idtrabajointegracioncurricular").value;
+ indice=document.getElementById("idexamencomplexivo").value;
  fecha=document.getElementById("fechaelaboracion").value;
  var emisor=document.getElementById("idemisor");
 if(emisor.length>0)
@@ -273,24 +273,24 @@ formData.append("archivopdf",document.getElementById('archivopdf').value);
 
 
 
-function generar_trabajointegracioncurricular()
+function generar_examencomplexivo()
 {
-	var idtrabajointegracioncurricular=document.getElementById("idtrabajointegracioncurricular").value;
+	var idexamencomplexivo=document.getElementById("idexamencomplexivo").value;
 	var descripcion=document.getElementById("descripcion").value;
    $.ajax({
-        url: "<?php echo site_url('trabajointegracioncurricular/get_parametros'); ?>",
-        data: {idtrabajointegracioncurricular:idtrabajointegracioncurricular},
+        url: "<?php echo site_url('examencomplexivo/get_parametros'); ?>",
+        data: {idexamencomplexivo:idexamencomplexivo},
         method: 'GET',
 	async :false ,
         dataType : 'json',
         success: function(data){
-	idtrabajointegracioncurricular=data.idtrabajointegracioncurricular;
-	idtrabajointegracioncurricular2=data.idtrabajointegracioncurricular;
-	if(idtrabajointegracioncurricular>0){
+	idexamencomplexivo=data.idexamencomplexivo;
+	idexamencomplexivo2=data.idexamencomplexivo;
+	if(idexamencomplexivo>0){
 
 var idtipodocu= data.idtipodocu;
 
-//alert(idtrabajointegracioncurricular);
+//alert(idexamencomplexivo);
 //var asunto=data.asunto; // "CERTIFICADO - "+data.titulo;
 
 let fechaelaboracion=data.fechafinaliza;
@@ -298,7 +298,7 @@ let fechaelaboracion=data.fechafinaliza;
 var idevento=data.idevento;
 var idordenador=data.idordenador;
 var iddirectorio=data.iddirectorio;
-var idtrabajointegracioncurricular_estado=3;
+var idexamencomplexivo_estado=3;
 var idpersona=data.idpersona;
 var idparticipante=data.idparticipante;
 
@@ -331,7 +331,7 @@ var ancho_texto1=data.ancho_texto1;
 var alto_texto1=data.alto_texto1;
 var font_size_texto1=data.font_size_texto1;
 
-var idtrabajointegracioncurricular2=data.idtrabajointegracioncurricular2;
+var idexamencomplexivo2=data.idexamencomplexivo2;
 var maquina=data.elordenador;
 var elparticipante=data.elparticipante;
 var ruta=data.ruta

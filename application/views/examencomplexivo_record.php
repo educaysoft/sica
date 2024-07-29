@@ -1,8 +1,8 @@
 <div id="eys-nav-i">
-	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?><idem style="font-size:large" id="idtrabajointegracioncurricular"><?php echo $trabajointegracioncurricular['idtrabajointegracioncurricular']; ?></idem></h3>
+	<h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?><idem style="font-size:large" id="idexamencomplexivo"><?php echo $examencomplexivo['idexamencomplexivo']; ?></idem></h3>
 	    <ul>
 <?php
-if(isset($trabajointegracioncurricular))
+if(isset($examencomplexivo))
 {
 	$permitir=0;
 	$j=0;
@@ -10,7 +10,7 @@ if(isset($trabajointegracioncurricular))
 	if(isset($this->session->userdata['acceso'])){
   		foreach($this->session->userdata['acceso'] as $row)
 	    	{
-			if($row["modulo"]["id"]==16) //modulo trabajointegracioncurricular
+			if($row["modulo"]["id"]==16) //modulo examencomplexivo
 			{
 				$numero=$j; //el inidice del arreglo donde estan los permisos
 				$permitir=1; //indicador de que si se encontro permisos
@@ -25,39 +25,39 @@ if(isset($trabajointegracioncurricular))
 
 ?>
 
-        <li> <?php echo anchor('trabajointegracioncurricular/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('trabajointegracioncurricular/siguiente/'.$trabajointegracioncurricular['idtrabajointegracioncurricular'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('trabajointegracioncurricular/anterior/'.$trabajointegracioncurricular['idtrabajointegracioncurricular'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('trabajointegracioncurricular/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('examencomplexivo/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('examencomplexivo/siguiente/'.$examencomplexivo['idexamencomplexivo'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('examencomplexivo/anterior/'.$examencomplexivo['idexamencomplexivo'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('examencomplexivo/elultimo/', 'Último'); ?></li>
 	<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['create']){ ?>
-        <li> <?php echo anchor('trabajointegracioncurricular/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('examencomplexivo/add', 'Nuevo'); ?></li>
 	<?php } ?>
 
 
 	<?php
 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['update']){ ?>
 
-        <li> <?php echo anchor('trabajointegracioncurricular/edit/'.$trabajointegracioncurricular['idtrabajointegracioncurricular'],'Edit'); ?></li>
+        <li> <?php echo anchor('examencomplexivo/edit/'.$examencomplexivo['idexamencomplexivo'],'Edit'); ?></li>
 	<?php } ?>
 
 	<?php
 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['delete']){ ?>
 
-        <li style="border-right:1px solid green"> <?php echo anchor('trabajointegracioncurricular/delete/'.$trabajointegracioncurricular['idtrabajointegracioncurricular'],'Delete'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('examencomplexivo/delete/'.$examencomplexivo['idexamencomplexivo'],'Delete'); ?></li>
 	<?php } ?>
 	
 	<?php
 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['read']){ ?>
-		<li> <?php echo anchor('trabajointegracioncurricular/listar/','Listar'); ?></li>
+		<li> <?php echo anchor('examencomplexivo/listar/','Listar'); ?></li>
 	<?php } ?>
 
-		<li> <?php echo anchor('trabajointegracioncurricular/genpagina/19','generar web'); ?></li>
-		<li> <?php echo anchor('trabajointegracioncurricular/paginaweb',' web'); ?></li>
+		<li> <?php echo anchor('examencomplexivo/genpagina/19','generar web'); ?></li>
+		<li> <?php echo anchor('examencomplexivo/paginaweb',' web'); ?></li>
 
 
-		<li> <?php echo anchor('trabajointegracioncurricular/genpagina2/19','generar egresado'); ?></li>
-		<li> <?php echo anchor('trabajointegracioncurricular/paginaweb2',' web2'); ?></li>
-		<li> <?php echo anchor('trabajointegracioncurricular/reportepdf/'.$trabajointegracioncurricular['idestadotrabajointegracioncurricular'],'reportepdf'); ?></li>
+		<li> <?php echo anchor('examencomplexivo/genpagina2/19','generar egresado'); ?></li>
+		<li> <?php echo anchor('examencomplexivo/paginaweb2',' web2'); ?></li>
+		<li> <?php echo anchor('examencomplexivo/reportepdf/'.$examencomplexivo['idestadoexamencomplexivo'],'reportepdf'); ?></li>
         
 		
 
@@ -76,8 +76,8 @@ if(isset($trabajointegracioncurricular))
 <br>
 
 
-<?php echo form_open('trabajointegracioncurricular/save_edit') ?>
-<?php echo form_hidden('idtrabajointegracioncurricular',$trabajointegracioncurricular['idtrabajointegracioncurricular']) ?>
+<?php echo form_open('examencomplexivo/save_edit') ?>
+<?php echo form_hidden('idexamencomplexivo',$examencomplexivo['idexamencomplexivo']) ?>
 
 
 
@@ -90,7 +90,7 @@ if(isset($trabajointegracioncurricular))
 	<div class="col-md-10">
 		<?php
 $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('nombre',$trabajointegracioncurricular['nombre'],$textarea_options); 
+ echo form_textarea('nombre',$examencomplexivo['nombre'],$textarea_options); 
 		?>
 	</div> 
 </div>
@@ -101,7 +101,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 	<div class="col-md-10">
 		<?php
 $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"disabled", 'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('resumen',$trabajointegracioncurricular['resumen'],$textarea_options); 
+ echo form_textarea('resumen',$examencomplexivo['resumen'],$textarea_options); 
 		?>
 	</div> 
 </div>
@@ -111,7 +111,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('egresado/add/'.$trabajointegracioncurricular['idtrabajointegracioncurricular'], 'egresado/s:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('egresado/add/'.$examencomplexivo['idexamencomplexivo'], 'egresado/s:') ?> </label>
      	<?php 
 
 	$options = array();
@@ -129,7 +129,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('lector/add/'.$trabajointegracioncurricular['idtrabajointegracioncurricular'], 'Lectores') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('lector/add/'.$examencomplexivo['idexamencomplexivo'], 'Lectores') ?> </label>
      	<?php 
 	$options=array();
   	foreach ($lectores as $row){
@@ -146,16 +146,16 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('estadotrabajointegracioncurricular/add', 'Estado:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('estadoexamencomplexivo/add', 'Estado:') ?> </label>
      <?php 
     $options= array("NADA");
-    foreach ($estadotrabajointegracioncurriculars as $row){
-	      $options[$row->idestadotrabajointegracioncurricular]= $row->nombre;
+    foreach ($estadoexamencomplexivos as $row){
+	      $options[$row->idestadoexamencomplexivo]= $row->nombre;
     }
 	?>
 	<div class="col-md-10">
 		<?php
-    $arrdatos=array('name'=>'id','value'=>$options[$trabajointegracioncurricular['idestadotrabajointegracioncurricular']],"disabled"=>"disabled", "style"=>"width:600px");
+    $arrdatos=array('name'=>'id','value'=>$options[$examencomplexivo['idestadoexamencomplexivo']],"disabled"=>"disabled", "style"=>"width:600px");
 echo form_input($arrdatos) ?>
 
 	</div> 
@@ -168,7 +168,7 @@ echo form_input($arrdatos) ?>
     <label class="col-md-2 col-form-label"> Fecha de creación:</label>
 	<div class="col-md-10">
 		<?php
-      		 echo form_input('fechacreacion',$trabajointegracioncurricular['fechacreacion'],array('type'=>'date','placeholder'=>'fechacreacion','style'=>'width:500px;')) 
+      		 echo form_input('fechacreacion',$examencomplexivo['fechacreacion'],array('type'=>'date','placeholder'=>'fechacreacion','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
@@ -178,7 +178,7 @@ echo form_input($arrdatos) ?>
     <label class="col-md-2 col-form-label"> Hora Creación:</label>
 	<div class="col-md-10">
 		<?php
-      		 echo form_input('horacreacion',$trabajointegracioncurricular['horacreacion'],array('type'=>'date','placeholder'=>'fecha de carga','style'=>'width:500px;')) 
+      		 echo form_input('horacreacion',$examencomplexivo['horacreacion'],array('type'=>'date','placeholder'=>'fecha de carga','style'=>'width:500px;')) 
 		?>
 	</div> 
 </div>
@@ -195,10 +195,10 @@ echo form_input($arrdatos) ?>
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <b>Documentos del trabajointegracioncurricular: </b>
+            <b>Documentos del examencomplexivo: </b>
         </div>
         <div class="pull-right">
-       <a class="btn btn-danger" href="<?php echo base_url('documentotrabajointegracioncurricular/add/'.$trabajointegracioncurricular['idtrabajointegracioncurricular']) ?>">Nuevo documento</a> 
+       <a class="btn btn-danger" href="<?php echo base_url('documentoexamencomplexivo/add/'.$examencomplexivo['idexamencomplexivo']) ?>">Nuevo documento</a> 
 <div class="col-md-10">
 
 
@@ -244,13 +244,13 @@ echo form_input($arrdatos) ?>
 
 
 $(document).ready(function(){
-	var idtrabajointegracioncurricular=document.getElementById("idtrabajointegracioncurricular").innerHTML;
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('trabajointegracioncurricular/documento_data')?>', type: 'GET',data:{idtrabajointegracioncurricular:idtrabajointegracioncurricular}},});
+	var idexamencomplexivo=document.getElementById("idexamencomplexivo").innerHTML;
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('examencomplexivo/documento_data')?>', type: 'GET',data:{idexamencomplexivo:idexamencomplexivo}},});
 });
 
 
 $('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('iddocumentotrabajointegracioncurricular');
+var id= $(this).data('iddocumentoexamencomplexivo');
 var retorno= $(this).data('retorno1');
 window.location.href = retorno+'/'+id;
 });

@@ -1,10 +1,10 @@
 <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
-	<?php echo form_open("trabajointegracioncurricular/save",array('id'=>'eys-form')); ?>
+	<?php echo form_open("examencomplexivo/save",array('id'=>'eys-form')); ?>
 <br>
 
 
 
-<?php echo form_hidden("idtrabajointegracioncurricular");  
+<?php echo form_hidden("idexamencomplexivo");  
 	date_default_timezone_set('America/Guayaquil');
 	$fecha = date("Y-m-d");
 ?>
@@ -56,7 +56,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div id="eys-nav-i">
 	<ul>
 		<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
-    		<li> <?php echo anchor('trabajointegracioncurricular', 'Cancelar'); ?></li>
+    		<li> <?php echo anchor('examencomplexivo', 'Cancelar'); ?></li>
 	</ul>
 </div>
 
@@ -99,18 +99,18 @@ function uploadFiles(url1) {
  
   	var formData = new FormData();
 
-    formData.append("idtrabajointegracioncurricular",0);
+    formData.append("idexamencomplexivo",0);
     formData.append("idtipodocu",getValueById('idtipodocu'));
-    formData.append("iddestinotrabajointegracioncurricular",getValueById('iddestinotrabajointegracioncurricular'));
+    formData.append("iddestinoexamencomplexivo",getValueById('iddestinoexamencomplexivo'));
     formData.append("asunto", getValueById('asunto'));
     formData.append("descripcion", getValueById('descripcion'));
     formData.append("fechaelaboracion",getValueById('fechaelaboracion'));
     formData.append("fechasubida",getValueById('fechasubida'));
     formData.append("idordenador", getValueById('idordenador'));
     formData.append("iddirectorio",getValueById('iddirectorio'));
-    formData.append("iddtrabajointegracioncurricular_estado",1);
+    formData.append("iddexamencomplexivo_estado",1);
     formData.append("idpersona",getValueById('idpersona')); 
-    formData.append("idtrabajointegracioncurricular_estado",getValueById('idtrabajointegracioncurricular_estado'));
+    formData.append("idexamencomplexivo_estado",getValueById('idexamencomplexivo_estado'));
 
 
 
@@ -158,7 +158,7 @@ function getUploadUrl() {
 function get_directorio() {
 	var idordenador = $('select[name=idordenador]').val();
     $.ajax({
-        url: "<?php echo site_url('trabajointegracioncurricular/get_directorio') ?>",
+        url: "<?php echo site_url('examencomplexivo/get_directorio') ?>",
         data: {idordenador: idordenador},
         method: 'POST',
 	async : true,
@@ -191,7 +191,7 @@ function get_directorio() {
 
   async function nombredearchivo()
 {
- indice=document.getElementById("idtrabajointegracioncurricular").value;
+ indice=document.getElementById("idexamencomplexivo").value;
  fecha=document.getElementById("fechaelaboracion").value;
  var emisor=document.getElementById("idemisor");
 if(emisor.length>0)
