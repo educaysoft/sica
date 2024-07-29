@@ -111,7 +111,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',"disabled"=>"d
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('egresado/add/'.$examencomplexivo['idexamencomplexivo'], 'egresado/s:') ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('egresado/add2/'.$examencomplexivo['idexamencomplexivo'], 'egresado/s:') ?> </label>
      	<?php 
 
 	$options = array();

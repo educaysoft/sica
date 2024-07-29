@@ -7,6 +7,7 @@ class Egresado extends CI_Controller{
       $this->load->model('egresado_model');
       $this->load->model('estudiante_model');
       $this->load->model('trabajointegracioncurricular_model');
+      $this->load->model('examencomplexivo_model');
 }
 
 	public function index(){
@@ -40,6 +41,28 @@ class Egresado extends CI_Controller{
 	}
 
 
+	public function add2()
+	{
+
+		if($this->uri->segment(3)){
+			$data['examencomplexivos']= $this->examencomplexivo_model->lista_examencomplexivosA($this->uri->segment(3))->result();
+		}else{
+			$data['examencomplexivos']= $this->examencomplexivo_model->lista_examencomplexivosA(0)->result();
+		}
+
+
+		$data['estudiantes']= $this->estudiante_model->lista_estudiantesA()->result();
+		$data['title']="Nuevo Egresado";
+	 	$this->load->view('template/page_header');		
+	 	$this->load->view('egresado_form2',$data);
+	 	$this->load->view('template/page_footer');
+	}
+
+
+
+
+
+
 public function listar()
 {
 	
@@ -70,8 +93,29 @@ public function listar()
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}
 
+ 	}
+
+
+	public function  save2()
+	{
+	 	$array_item=array(
+		 	'idestudiante' => $this->input->post('idestudiante'),
+		 	'idexamencomplexivo' => $this->input->post('idexamencomplexivo'),
+	 	);
+	 	$result=$this->egresado_model->save($array_item);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('iegresado ya existe'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
 
  	}
+
+
+
+
 
 
 
