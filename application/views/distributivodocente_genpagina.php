@@ -918,9 +918,9 @@ $data1= str_replace('<calificaciones1>',$calificaciones1,$data1);
 $data=$data.$data1;
 
 		if($ordenrpt==0){
-			$file='application/views/web/distributivo/'.$elperiodoacademico.'-'.$idareaconocimiento.'.php';
+			$file='application/views/web/distributivo'.$elperiodoacademico.'-'.$idareaconocimiento.'.php';
 		}else{
-			$file='application/views/web/distributivo/'.$elperiodoacademico.'-'.$idareaconocimiento.'-'.$ordenrpt.'.php';
+			$file='application/views/web/distributivo'.$elperiodoacademico.'-'.$idareaconocimiento.'-'.$ordenrpt.'.php';
 		}
 
 
