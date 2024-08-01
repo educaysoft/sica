@@ -659,8 +659,8 @@ $data=$data.'</div>
 
 			$data=$data.'<p>';
 			if(isset($row->silabopdf)){
-			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$row->silabopdf.'"  '.$disable1.'><i class="fas fa-file-pdf" style="font-size:24px" ></i> <span style="color:'.$color1.'" >Sillabus</span></a>] - ';
-			}
+			    $data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$row->silabopdf.'"  '.$disable1.'><i class="fas fa-file-pdf" style="font-size:24px" ></i> <span style="color:'.$color1.'" >Sillabus</span></a>] - ';
+            }
 
 			if(isset($row->planclasepdf)){
 			$data=$data.'[<a href="https://repositorioutlvte.org/Repositorio/'.$row->planclasepdf.'"  '.$disable2.' ><i class="fas fa-file-pdf" style="font-size:24px" ></i> <span style="color:'.$color2.'" >PlanSemestral</span></a>] - ';
