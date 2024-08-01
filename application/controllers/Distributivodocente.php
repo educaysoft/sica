@@ -659,5 +659,14 @@ public function anterior(){
 
 
 
+public function vistaweb()
+{
+
+	$peridoarea=$this->uri->segment(3);
+    $this->load->view('web/distributivodocente'.$periodoarea);
+
+}
+
+
 
 }
