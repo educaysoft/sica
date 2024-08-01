@@ -834,4 +834,16 @@ private function asignarHora(&$jornadadocente, $aula, $r, $iddiasemana, $horaini
 }
 
 
+public function vistaweb()
+{
+
+	$peridoarea=$this->uri->segment(3);
+    $this->load->view('web/distributivodocente'.$periodoarea);
+
+}
+
+
+
+
+
 }
