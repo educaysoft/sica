@@ -14,7 +14,6 @@ if(isset($distributivodocente))
         <li style="border-right:1px solid green"> <?php echo anchor('distributivodocente/quitar/'.$distributivodocente['iddistributivodocente'],'Quitar'); ?></li>
         <li> <?php echo anchor('distributivodocente/listar/','Listar'); ?></li>
         <li> <?php echo anchor('distributivodocente/reportepdf/'.$distributivodocente['iddistributivodocente'],'reportepdf'); ?></li>
-        <li> <?php echo anchor('vistaweb/'.$distributivodocente['eldistributivo'].'-'.$distributivodocente['idareaconocimiento'],'reportepdf'); ?></li>
 
 <?php 
 }else{
