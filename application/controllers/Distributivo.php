@@ -838,6 +838,8 @@ public function vistaweb()
 {
 
 	$peridoarea=$this->uri->segment(3);
+    echo 'web/distributivo'.$periodoarea;
+    die();
     $this->load->view('web/distributivo'.$periodoarea);
 
 }
