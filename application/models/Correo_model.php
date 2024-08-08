@@ -15,7 +15,7 @@ class Correo_model extends CI_model {
 
 
  	function correo( $id){
- 		$correo = $this->db->query('select * from correo where idcorreo="'. $id.'"');
+ 		$correo = $this->db->query('select * from correo1 where idcorreo="'. $id.'"');
  		return $correo;
  	}
 

@@ -151,7 +151,7 @@ if(isset($persona))
  	$options = array();
     $arractu=array();
   	foreach ($correos as $row){
-		$options[$row->idcorreo]=$row->nombre;
+		$options[$row->idcorreo]=$row->elcorreo.' - '.$row->elestado;
 		$arractu[$row->idcorreo]= base_url().'correo/actual/'.$row->idcorreo;
 	}
  	echo form_multiselect('correo[]',$options,(array)set_value('idcorreo', ''), array('style'=>'width:600px','name'=>'idcorreo','id'=>'idcorreo','onChange'=>'editarcorreo()')); 
