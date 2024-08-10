@@ -129,6 +129,22 @@ if(isset($persona))
 </div>
 
 <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Descripcion:</label>
+	<div class="col-md-10">
+      <?php
+	$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:600px;height:100px;');    
+	echo form_textarea('descripcion',$persona['descripcion'],$textarea_options);
+	?>
+	</div> 
+</div>
+
+
+
+
+
+
+
+<div class="form-group row">
     <label class="col-md-2 col-form-label"> <?php echo anchor('direccion/add/'.$persona['idpersona'], 'Dirección:'); ?>:</label>
 	<div class="col-md-10">
 	<?php
@@ -470,7 +486,7 @@ function editartelefono()
 {
 
 	var options = document.getElementById('idtelefono').selectedOptions;
-	  var idcorreo = Array.from(options).map(({ value }) => value);
+	  var idtelefono = Array.from(options).map(({ value }) => value);
        var refe = JSON.parse('<?= json_encode($arractut); ?>');
 	console.log(refe[idtelefono]);
 	window.location.href = refe[idtelefono];
