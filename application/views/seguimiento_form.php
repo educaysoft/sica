@@ -60,7 +60,7 @@ foreach ($sesioneventos as $row){
 
 $options= array('--Select--');
 foreach ($correosde as $row){
-	$options[$row->idcorreo]= $row->nombre;
+	$options[$row->idcorreo]= $row->elcorreo;
 }
  echo form_dropdown("idcorreo",$options, set_select('--Select--','default_value'),array('id'=>'idcorreo'));  
 
