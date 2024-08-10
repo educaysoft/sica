@@ -91,6 +91,7 @@ public function add()
 		 	'nombres' => $this->input->post('nombres'),
 			'apellidos' => $this->input->post('apellidos'),
 			'fechanacimiento' => $this->input->post('fechanacimiento'),
+			'descripcion' => $this->input->post('descripcion'),
 			'idsexo' => $this->input->post('idsexo'),
 			'idtipopersona' => $this->input->post('idtipopersona'),
 			'foto' => $this->input->post('foto'),
@@ -155,6 +156,7 @@ public function add()
 			'fechanacimiento' => $this->input->post('fechanacimiento'),
 			'idsexo' => $this->input->post('idsexo'),
 			'idtipopersona' => $this->input->post('idtipopersona'),
+			'descripcion' => $this->input->post('descripcion'),
 	 	);
 	 	$this->persona_model->update($id,$array_item);
 	 	redirect('persona/actual/'.$id);
