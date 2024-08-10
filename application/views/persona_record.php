@@ -166,10 +166,12 @@ if(isset($persona))
 	<?php
 
  	$options = array();
+    $arractut=array();
   	foreach ($telefonos as $row){
 		$options[$row->idtelefono]=$row->numero;
+		$arractut[$row->idtelefono]= base_url().'telefono/actual/'.$row->idtelefono;
 	}
- echo form_multiselect('telefono[]',$options,(array)set_value('idtelefono', ''), array('style'=>'width:600px')); 
+ echo form_multiselect('telefono[]',$options,(array)set_value('idtelefono', ''), array('style'=>'width:600px','name'=>'telefono', 'id'=>'idtelefono','onchange'=>'editartelefono()')); 
 	?>
 	</div> 
 </div> 
@@ -463,6 +465,18 @@ function editarcorreo()
 	window.location.href = refe[idcorreo];
 
 }
+
+function editartelefono()
+{
+
+	var options = document.getElementById('idtelefono').selectedOptions;
+	  var idcorreo = Array.from(options).map(({ value }) => value);
+       var refe = JSON.parse('<?= json_encode($arractut); ?>');
+	console.log(refe[idtelefono]);
+	window.location.href = refe[idtelefono];
+
+}
+
 
 
 

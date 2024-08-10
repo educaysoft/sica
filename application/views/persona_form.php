@@ -99,6 +99,20 @@ echo form_input(array("name"=>"fechanacimiento","id"=>"fechanacimiento","type"=>
 </div> 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Descripción:</label>
+	<div class="col-md-10">
+	<?php
+
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;',"maxlength"=>100, "placeholder"=>"Descripción de la persona por que fue ingresada","id"=>"descripcion" );    
+ echo form_textarea("descripcion","", $textarea_options);  
+?><div id="textarea_feedback"></div>
+	</div> 
+</div>
+
+
+
+
 <div id="eys-nav-i">
 
 	<ul>
