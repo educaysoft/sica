@@ -172,10 +172,10 @@ echo form_input('iddocumento',$options[$portafolio['iddocumento']],array("id"=>"
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <b>Documentos del portafolio: </b>
+         <a class="btn btn-danger" href="<?php echo base_url('documentoportafolio/add/'.$portafolio['idportafolio']) ?>">Nuevo documento</a>  <!--            <b>Documentos del portafolio: </b> -->
+
         </div>
         <div class="pull-right">
-<!--          <a class="btn btn-danger" href="<?php echo base_url('documentoportafolio/add/'.$portafolio['idportafolio']) ?>">Nuevo documento</a>  -->
 <div class="col-md-10">
 
 
