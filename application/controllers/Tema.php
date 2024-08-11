@@ -42,9 +42,10 @@ class Tema extends CI_Controller{
 
 	public function add()
 	{
-            $idsilabo=$this->uri->segment(3);
+            $idunidadsilabo=$this->uri->segment(3);
 			$data['title']="Nueva tema";
-			$data['silabos'] = $this->silabo_model->silabo($idsilabo)->result();
+			$data['unidadsilabos'] = $this->unidadsilabo_model->unidadsilabo($idunidadsilabo)->result();
+			$data['silabos'] = $this->silabo_model->silabo($data['unidadsilabos']->idsilabo)->result();
 			$data['unidadsilabos'] = $this->unidadsilabo_model->listar_unidadsilabo()->result();
   		    $data['videotutoriales']= $this->videotutorial_model->lista_videotutorials()->result();
 		    $data['modoevaluacions']= $this->modoevaluacion_model->lista_modoevaluacions()->result();
