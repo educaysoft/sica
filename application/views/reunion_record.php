@@ -83,19 +83,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 </div>
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('proceso/actual/'.$reunion['idproceso'], 'El trámite:'); ?> </label>
-	<div class="col-md-10">
-     <?php 
-$options= array("NADA");
-foreach ($procesos as $row){
-	$options[$row->idproceso]= $row->nombre;
-}
 
-echo form_input('idproceso',$options[$reunion['idproceso']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
-		?>
-	</div> 
-</div>
 
 
 <div class="form-group row">

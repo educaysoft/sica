@@ -73,19 +73,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Proceso: </label>
-<div class="col-md-10">
-<?php
-$options= array('--Select--');
-foreach ($procesos as $row){
-	$options[$row->idproceso]= $row->nombre;
-}
 
- echo form_dropdown("idproceso",$options, set_select('--Select--','default_value'),array('id'=>'idproceso'));  
-?>
-</div>
-</div>
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Orden: </label>

@@ -40,16 +40,7 @@ foreach ($instituciones as $row){
 
 
 
-<tr>
-<td> proceso:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($procesos as $row){
-	$options[$row->idproceso]= $row->nombre;
-}
 
- echo form_dropdown("idproceso",$options, $reunion['idproceso']);  ?></td>
-</tr>
 
 <tr>
       <td>Orden:</td>

@@ -6,14 +6,12 @@ class Reunion extends CI_Controller{
       parent::__construct();
       $this->load->model('reunion_model');
   	  $this->load->model('institucion_model');
-     $this->load->model('proceso_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
 	  	$data['reunion']=$this->reunion_model->elultimo();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   		$data['title']="Lista de Artiulos";
 			$this->load->view('template/page_header');		
   		$this->load->view('reunion_record',$data);
@@ -29,7 +27,6 @@ public function index(){
 public function add()
 {
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['procesos']= $this->proceso_model->lista_procesos()->result();
 		$data['title']="Nuevo Artículo";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('reunion_form',$data);
@@ -44,7 +41,6 @@ public function  save()
 	 	'nombre' => $this->input->post('nombre'),
 	 	'detalle' => $this->input->post('detalle'),
 	 	'archivo' => $this->input->post('archivo'),
-		'idproceso' => $this->input->post('idproceso'),
 	 	'orden' => $this->input->post('orden'),
 	 	'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
@@ -65,7 +61,6 @@ public function edit()
 {
 	 	$data['reunion'] = $this->reunion_model->reunion($this->uri->segment(3))->row_array();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['procesos']= $this->proceso_model->lista_procesos()->result();
  	 	$data['title'] = "Actualizar Reunion";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('reunion_edit',$data);
@@ -83,7 +78,6 @@ public function edit()
 		 	'nombre' => $this->input->post('nombre'),
 		 	'detalle' => $this->input->post('detalle'),
 	 	'archivo' => $this->input->post('archivo'),
-		'idproceso' => $this->input->post('idproceso'),
 	 	'orden' => $this->input->post('orden'),
 	 		'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
@@ -228,7 +222,6 @@ public function actual()
 {
 	$data['reunion'] = $this->reunion_model->reunion($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   if(!empty($data))
   {
     $data['title']="Reunion";
@@ -252,7 +245,6 @@ public function elprimero()
 {
 	$data['reunion'] = $this->reunion_model->elprimero();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   if(!empty($data))
   {
     $data['title']="Reunion";
@@ -270,7 +262,6 @@ public function elultimo()
 {
 	  $data['reunion'] = $this->reunion_model->elultimo();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   if(!empty($data))
   {
     $data['title']="Reunion";
@@ -290,7 +281,6 @@ public function siguiente(){
  // $data['reunion_list']=$this->reunion_model->lista_reunion()->result();
 	$data['reunion'] = $this->reunion_model->siguiente($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   $data['title']="Reunion";
 	$this->load->view('template/page_header');		
   $this->load->view('reunion_record',$data);
@@ -301,7 +291,6 @@ public function anterior(){
  // $data['reunion_list']=$this->reunion_model->lista_reunion()->result();
 	$data['reunion'] = $this->reunion_model->anterior($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
-		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   $data['title']="Reunion";
 	$this->load->view('template/page_header');		
   $this->load->view('reunion_record',$data);
