@@ -302,7 +302,7 @@ public function anterior(){
 
 	public function reunion_1()
 	{
-	  $this->load->view('reunions/reunion-1');
+	  $this->load->view('reuniones/reunion-1');
 	}
 
 
