@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("reglamento/save") ?>
-<?php echo form_hidden("idreglamento")  ?>
+<?php echo form_open("reunion/save") ?>
+<?php echo form_hidden("idreunion")  ?>
 
 
 <div class="form-group row">
@@ -100,7 +100,7 @@ foreach ($procesos as $row){
 
 <table>
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("reglamento","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("reunion","Atras") ?> </td>
 </tr>
 
 

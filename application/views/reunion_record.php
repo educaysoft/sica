@@ -2,25 +2,25 @@
     <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
     <ul>
 <?php
-if(isset($reglamento))
+if(isset($reunion))
 {
 ?>
-        <li> <?php echo anchor('reglamento/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('reglamento/siguiente/'.$reglamento['idreglamento'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('reglamento/anterior/'.$reglamento['idreglamento'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('reglamento/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('reglamento/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('reglamento/edit/'.$reglamento['idreglamento'],'Edit'); ?></li>
-      <!--  <li style="border-right:1px solid green"> <?php echo anchor('reglamento/delete/'.$reglamento['idreglamento'],'Delete'); ?></li> --->
-        <li> <?php echo anchor('reglamento/listar/','Listar'); ?></li>
-        <li> <?php echo anchor('reglamento/genpagina/1','generar web'); ?></li>
-        <li> <?php echo anchor('reglamento/reglamento_1','Web'); ?></li>
+        <li> <?php echo anchor('reunion/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('reunion/siguiente/'.$reunion['idreunion'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('reunion/anterior/'.$reunion['idreunion'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('reunion/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('reunion/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('reunion/edit/'.$reunion['idreunion'],'Edit'); ?></li>
+      <!--  <li style="border-right:1px solid green"> <?php echo anchor('reunion/delete/'.$reunion['idreunion'],'Delete'); ?></li> --->
+        <li> <?php echo anchor('reunion/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('reunion/genpagina/1','generar web'); ?></li>
+        <li> <?php echo anchor('reunion/reunion_1','Web'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('reglamento/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('reunion/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -30,7 +30,7 @@ if(isset($reglamento))
 <br>
 
 
-<?php echo form_hidden('idreglamento',$reglamento['idreglamento']) ?>
+<?php echo form_hidden('idreunion',$reunion['idreunion']) ?>
 
 
  <div class="form-group row">
@@ -38,7 +38,7 @@ if(isset($reglamento))
 	<div class="col-md-10">
      <?php
 
-  $eys_arrctl=array("id"=>"idreglamento",  "name"=>'idreglamento','value'=>$reglamento['idreglamento'],"disabled"=>"disabled",'placeholder'=>'Idreglamentos','style'=>'width:500px;');
+  $eys_arrctl=array("id"=>"idreunion",  "name"=>'idreunion','value'=>$reunion['idreunion'],"disabled"=>"disabled",'placeholder'=>'Idreunions','style'=>'width:500px;');
  echo form_input($eys_arrctl);
 		?>
 	</div> 
@@ -50,7 +50,7 @@ if(isset($reglamento))
 	<div class="col-md-10">
      <?php
 
-  $eys_arrctl=array("name"=>'nombre','value'=>$reglamento['nombre'],"disabled"=>"disabled",'placeholder'=>'Inombre','style'=>'width:500px;');
+  $eys_arrctl=array("name"=>'nombre','value'=>$reunion['nombre'],"disabled"=>"disabled",'placeholder'=>'Inombre','style'=>'width:500px;');
  echo form_input($eys_arrctl);
 		?>
 	</div> 
@@ -64,7 +64,7 @@ if(isset($reglamento))
      <?php
     
 $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'disabled',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('detalle',$reglamento['detalle'],$textarea_options); 
+ echo form_textarea('detalle',$reunion['detalle'],$textarea_options); 
 		?>
 	</div> 
 </div>
@@ -77,14 +77,14 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
      <?php
     
 $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'disabled',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('archivo',$reglamento['archivo'],$textarea_options); 
+ echo form_textarea('archivo',$reunion['archivo'],$textarea_options); 
 		?>
 	</div> 
 </div>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('proceso/actual/'.$reglamento['idproceso'], 'El trámite:'); ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('proceso/actual/'.$reunion['idproceso'], 'El trámite:'); ?> </label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
@@ -92,7 +92,7 @@ foreach ($procesos as $row){
 	$options[$row->idproceso]= $row->nombre;
 }
 
-echo form_input('idproceso',$options[$reglamento['idproceso']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+echo form_input('idproceso',$options[$reunion['idproceso']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
@@ -103,7 +103,7 @@ echo form_input('idproceso',$options[$reglamento['idproceso']],array("disabled"=
 	<div class="col-md-10">
      <?php
 
-  $eys_arrctl=array("name"=>'orden','value'=>$reglamento['orden'],"disabled"=>"disabled",'placeholder'=>'Orden','style'=>'width:500px;');
+  $eys_arrctl=array("name"=>'orden','value'=>$reunion['orden'],"disabled"=>"disabled",'placeholder'=>'Orden','style'=>'width:500px;');
  echo form_input($eys_arrctl);
 		?>
 	</div> 
@@ -115,16 +115,16 @@ echo form_input('idproceso',$options[$reglamento['idproceso']],array("disabled"=
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Foto:</label>
 	<div class="col-md-10">
- <img src="https://repositorioutlvte.org/Repositorio/reglamento/reglamento<?php echo $reglamento['idreglamento']; ?>.jpg" alt="reglamento" width="400" height="300"> 
+ <img src="https://repositorioutlvte.org/Repositorio/reunion/reunion<?php echo $reunion['idreunion']; ?>.jpg" alt="reunion" width="400" height="300"> 
   
 
 	</div> 
 <div class="img-contenedor w3-card-4" style="position:relative; width:100%; height:100%; display:flex; justify-content: center; align-items: center;">
 
 
- <input type="file" id="fileInput<?php echo trim($reglamento['idreglamento']); ?>" accept="image/*">
-  <button onclick="uploadImage('reglamento<?php echo trim($reglamento['idreglamento']); ?>.jpg','<?php echo trim($reglamento['idreglamento']); ?>')">Subir Imagen</button>
-  <p id="status<?php echo trim($reglamento['idreglamento']); ?>"></p> </div>';
+ <input type="file" id="fileInput<?php echo trim($reunion['idreunion']); ?>" accept="image/*">
+  <button onclick="uploadImage('reunion<?php echo trim($reunion['idreunion']); ?>.jpg','<?php echo trim($reunion['idreunion']); ?>')">Subir Imagen</button>
+  <p id="status<?php echo trim($reunion['idreunion']); ?>"></p> </div>';
 
 
 </div>
@@ -149,16 +149,16 @@ echo form_input('idproceso',$options[$reglamento['idproceso']],array("disabled"=
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var idreglamento=document.getElementById("idreglamento").value;
+	var idreunion=document.getElementById("idreunion").value;
 
-	var mytablaf= $('#mydatau').DataTable({"ajax": {url: '<?php echo site_url('reglamento/ubicacion_data')?>', type: 'GET',data:{idreglamento:idreglamento}},});
+	var mytablaf= $('#mydatau').DataTable({"ajax": {url: '<?php echo site_url('reunion/ubicacion_data')?>', type: 'GET',data:{idreunion:idreunion}},});
 
 
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('reglamento/prestamo_data')?>', type: 'GET',data:{idreglamento:idreglamento}},});
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('reunion/prestamo_data')?>', type: 'GET',data:{idreunion:idreunion}},});
 });
 
 $('#show_datau').on('click','.item_ver',function(){
-var id= $(this).data('idubicacionreglamento');
+var id= $(this).data('idubicacionreunion');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
@@ -168,7 +168,7 @@ window.location.href = retorno+'/'+id;
 
 
 $('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idprestamoreglamento');
+var id= $(this).data('idprestamoreunion');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
@@ -224,7 +224,7 @@ function uploadImage(nombre,idx) {
 function getUploadUrl() {
     var selectElement = document.getElementById("idordenador");
     var url = "https://repositorioutlvte.org";
-    return url.endsWith("/") ? url + "cargaimagenreglamento.php" : url + "/cargaimagenreglamento.php";
+    return url.endsWith("/") ? url + "cargaimagenreunion.php" : url + "/cargaimagenreunion.php";
 }
 
 
