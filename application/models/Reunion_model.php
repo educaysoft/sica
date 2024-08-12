@@ -27,7 +27,7 @@ $query = $this->db->get('reunion1');
  	}
 
  	function reunionA( $id){
- 		$reunion = $this->db->query('select * from reunion1 where idinstitucion="'. $id.'" order by idproceso,orden');
+ 		$reunion = $this->db->query('select * from reunion1 where idinstitucion="'. $id.'" order by orden');
  		return $reunion;
  	}
 
