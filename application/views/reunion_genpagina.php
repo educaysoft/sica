@@ -430,9 +430,8 @@ $data=$data.'
 
 
 
-        <div class="card-body" style="background-color:'.$row->color.'"  >
+        <div class="card-body" style="background-color:'.'gray'.'"  >
         <div style="font-size:20px;  color:#333;  margin-top:10px;" > Nombre del reunion:<br> <span  style="color:#6c757d;text-shadow: 1px 1px 2px #000, -1px -1px 2px #fff;" >'.$row->elreunion.'</span> </div>
-        <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Proceso:</b>  <span  style="color:#6c757d;text-shadow: 1px 1px 2px #000, -1px -1px 2px #fff;" >'.$row->elproceso.'</span> </div>
         <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Orden:</b>'.$row->orden.' </div>
         <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Código:</b> '.$row->idreunion.' </div>
         <div style="font-size:20px;  color:#333;  margin-top:10px; text-align: justify;" ><b>Detalle:</b><br> '.$row->detalle.' </div>
