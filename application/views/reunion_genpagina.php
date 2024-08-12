@@ -378,7 +378,7 @@ foreach($reunions as $row){
       		<div >
         	<h1 class="fw-light"  style="font-size:2em; color:#6c757d;text-shadow: 1px 1px 2px #000, -1px -1px 2px #fff;">CARRERA EN TECNOLOGÍAS DE LA INFORMACIÓN</h1>  
         	<p class="lead text-muted">Institución:'.$row->idinstitucion.' :: '.$row->lainstitucion.'.</p>
-        	<p style="font-size:2em; color:#6c757d;text-shadow: 1px 1px 2px #000, -1px -1px 2px #fff;">Reglamentos institucionales</p>
+        	<p style="font-size:2em; color:#6c757d;text-shadow: 1px 1px 2px #000, -1px -1px 2px #fff;">Registro de Reuniones</p>
       		</div>
     		</div>
   		</section>
