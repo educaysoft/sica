@@ -9,7 +9,6 @@ class Reunion_model extends CI_model {
 
 	function lista_reunionsA(){
 
-$this->db->order_by('idproceso', 'asc');
 $this->db->order_by('orden', 'asc');
 
 $query = $this->db->get('reunion1');
