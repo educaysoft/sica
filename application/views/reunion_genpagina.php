@@ -453,7 +453,7 @@ $data=$data.'
 
 	 	$data=$data.$data1;
 
-			$file='application/views/reunions/reunion-'.$row->idinstitucion.'.php';
+			$file='application/views/reuniones/reunion-'.$row->idinstitucion.'.php';
 
 
 	if ( !write_file($file, $data)){
