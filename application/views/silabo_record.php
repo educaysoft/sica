@@ -149,14 +149,16 @@ echo form_input('iddocumento',$options[$silabo['iddocumento']],array("id"=>"iddo
     <label class="col-md-2 col-form-label"> <?php echo anchor('documentosilabo/add/'.$silabo['idsilabo'], 'Documentos:') ?> </label>
      	<?php 
 	$options=array();
+    $arractu=array();
   	foreach ($documentosilabos as $row){
 		$options[$row->iddocumentosilabo]=$row->eldocumento;
+		$arractu[$row->iddocumentosilabo]= base_url().'documentosilabo/actual/'.$row->iddocumentosilabo;
 	}
 	?>
 	<div class="col-md-10">
 		<?php
 
- echo form_multiselect('documentosilabo[]',$options,(array)set_value('iddocumento', ''), array('style'=>'width:500px','name'=>'iddocumentosilabo','id'=>'iddocumentosilabo','onChange'=>'mostrardocu()')); 
+ echo form_multiselect('documentosilabo[]',$options,(array)set_value('iddocumento', ''), array('style'=>'width:500px','name'=>'iddocumentosilabo','id'=>'iddocumentosilabo','onChange'=>'editardocumentosilabo()')); 
 		?>
 	</div> 
 </div>
@@ -287,7 +289,16 @@ function mostrarsilabo()
 }
 
 
+function editardocumentosilabo()
+{
 
+	var options = document.getElementById('iddocumentosilabo').selectedOptions;
+	  var iddocumentosilabo = Array.from(options).map(({ value }) => value);
+       var refe = JSON.parse('<?= json_encode($arractu); ?>');
+	console.log(refe[iddocumentosilabo]);
+	window.location.href = refe[iddocumentosilabo];
+
+}
 
 
 </script>
