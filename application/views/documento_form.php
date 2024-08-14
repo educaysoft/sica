@@ -173,14 +173,14 @@ echo form_dropdown("iddocumento_estado",$options, set_select('--Select--','defau
 </div>
 
 
-
+<!--- 
 <div id="eys-nav-i">
 	<ul>
 		<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
     		<li> <?php echo anchor('documento', 'Cancelar'); ?></li>
 	</ul>
 </div>
-
+--->
 <?php echo form_close();?>
   <script>
 	$(document).ready(function(){
