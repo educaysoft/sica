@@ -719,7 +719,7 @@ $this->load->model('export_model');
     $inicio=1;
     $i=1;
     foreach ($trabajointegracioncurriculars as $trabintecurr) {
-            $data[] = [$i,$trabintecurr->ellector, $trabintecurr->nombre,$trabintcurr->resumen," "," "];
+            $data[] = [$i,$trabintecurr->ellector, $trabintecurr->nombre,$trabintecurr->resumen," "," "];
             $i++;
     }
 
