@@ -708,7 +708,7 @@ public function get_trabajointegracioncurricularA() {
 
 public function exportarxls()
 {
-$this->load->model('export_model');
+//$this->load->model('export_model');
 
 
 	$iddistributivo=$this->uri->segment(3);
@@ -725,7 +725,7 @@ $this->load->model('export_model');
 
 
 $filename = 'trabintecurr.xlsx';
-$this->export_model->exportToExcel($data, $filename);
+$this->trabajointegracioncurricular_model->exportToExcel($data, $filename);
 }
 
 

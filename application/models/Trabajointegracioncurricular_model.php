@@ -395,6 +395,45 @@ class Trabajointegracioncurricular_model extends CI_model {
         // Escribir los datos en la hoja de cálculo
         $sheet->fromArray($data, null, 'A1');
 
+// Aplicar estilo a la primera fila
+$styleArray = [
+    'font' => [
+        'bold' => true,
+        'color' => ['argb' => Color::COLOR_WHITE],
+    ],
+    'alignment' => [
+        'horizontal' => Alignment::HORIZONTAL_CENTER,
+        'vertical' => Alignment::VERTICAL_CENTER,
+    ],
+    'fill' => [
+        'fillType' => Fill::FILL_SOLID,
+        'startColor' => [
+            'argb' => '00000000', // Color de fondo negro
+        ],
+    ],
+];
+
+
+// Aplicar el estilo a la primera fila
+$sheet->getStyle('A1:F1')->applyFromArray($styleArray);
+
+
+// Cambiar el ancho de las celdas
+    $sheet->getColumnDimension('A')->setWidth(5); // Ancho de la columna A
+     $sheet->getStyle('A')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('B')->setWidth(40); // Ancho de la columna B
+     $sheet->getStyle('B')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('C')->setWidth(40); // Ancho de la columna B
+     $sheet->getStyle('C')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('D')->setWidth(60); // Ancho de la columna C
+     $sheet->getStyle('D')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('E')->setWidth(40); // Ancho de la columna C
+     $sheet->getStyle('E')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('F')->setWidth(10); // Ancho de la columna C
+     $sheet->getStyle('F')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+ 
+
+
 // Enviar el archivo al navegador para descarga
 
     header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
