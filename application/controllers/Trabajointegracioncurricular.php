@@ -706,6 +706,36 @@ public function get_trabajointegracioncurricularA() {
 
 
 
+public function exportarxls()
+{
+$this->load->model('export_model');
+
+
+	$iddistributivo=$this->uri->segment(3);
+	$trabajointegracioncurriculars = $this->trabajointegracioncurricular_model->trabajointegracioncurricularsxtipo($this->uri->segment(3))->result();
+// Preparar los datos para exportar a Excel
+    $data = array();
+    $data[] = ['No','Proponente', 'Temas/Propuesta','Resumen/Descripción','Observaciones','Estado' ]; // Encabezados
+    $inicio=1;
+    $i=1;
+    foreach ($trabajointegracioncurriculars as $trabintecurr) {
+            $data[] = [$i,$trabintecurr->ellector, $trabintecurr->nombre,$trabintcurr->resumen," "," "];
+            $i++;
+    }
+
+
+$filename = 'trabintecurr.xlsx';
+$this->export_model->exportToExcel($data, $filename);
+}
+
+
+
+
+
+
+
+
+
 
 
 
