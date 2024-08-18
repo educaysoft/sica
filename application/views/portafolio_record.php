@@ -272,6 +272,107 @@ window.location.href = certi;
 
 
 
+$('#show_data').on('click','.item_enviar',function(){
+        var archivo="";
+	var iddocumento= $(this).data('iddocumento2');
+      $.ajax({
+        url: "<?php echo site_url('documento/get_documento') ?>",
+	  method: 'POST',
+	  data: {iddocumento:iddocumento},
+	  async : false,
+          dataType : 'json',
+	  success: function(data) {
+		   archivo= data[0].archivopdf;  
+	},
+      	error: function (xhr, ajaxOptions, thrownError){ 
+        	alert(xhr.status);
+        	alert(thrownError);
+      	}
+	});
+
+
+        var correopara="";
+	var idpersona= $(this).data('idpersona');
+
+      $.ajax({
+        url: "<?php echo site_url('persona/get_persona') ?>",
+	  method: 'POST',
+	  data: {idpersona:idpersona},
+	  async : false,
+          dataType : 'json',
+	  success: function(data) {
+		   correopara= data[0].correo;  
+	},
+      	error: function (xhr, ajaxOptions, thrownError){ 
+        	alert(xhr.status);
+        	alert(thrownError);
+      	}
+	});
+
+
+	if(archivo != ''){
+ 		var ordenador = "https://"+$(this).data('ordenador');
+		var ubicacion=$(this).data('ruta');
+		if(ordenador.slice(-1) != "/" && ubicacion.slice(0,1) != "/"){
+			ubicacion = ordenador+"/"+ubicacion;
+		}else{
+			ubicacion = ordenador+ubicacion;
+		}
+		var certi= ubicacion.trim()+archivo.trim();
+	
+	
+		 var email="maestria.ti@utelvt.edu.ec";
+		 var nome="Ing. Stalin Francis"; 		
+                 var msg="<div style='text-align:center; border-radius:25px; border:2px solid #73AD21; padding:10px; height:100px;'>"+ $(this).data('elparticipante')+",  Gracias por participar en el evento, su certificado ya esta diponible en el siguiente link.<br> <span sytle='font-size:30px;'><a href='"+certi+"'>certificado</a></spane></div>" ;
+		 var mailto= "stalin.francis@utelvt.edu.ec";
+		 var secure="siteform";
+		 var idpersona=$(this).data('idpersona');
+		 var asunto=$(this).data('correosubject'); //'UTLVTE - VINCULACION MANTENIMIENTO DE LABORATORIO DE COMPUTACIÓN'; //'ARMADA DEL ECUADOR - UTLVTE : CERTIFICACIÓN DIGITAL';
+
+		 var head=$(this).data('correohead');  ""; // "<div> <b>Las Jornadas virtuales de fortalecimiento de la EGB y BGU de Esmeraldas en propuestas educativas vinculadas a los intereses marítimos</b>, ha sido organizado por la Armada del Ecuador con el apoyo técnico de la Universidad Técnica Luis Vargas Torres de Esmeraldas, gracias al convenio marco que tienen estas dos instituciones. <br><br>  Este correo le ha sido entregado después de haber terminado de forma satisfactoria la capacitación sobre temas marítimos, lo que lo hace merecedor/a a una certificación que reposará de forma segura en los servidores de la Universidad y que puede descargar accediendo al siguiente link</div>";
+			
+		var foot0=$(this).data('correofoot'); //"<div style='text-align:center; background-color:lightgrey; padding:10px;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres esta ofertando los siguientes programas de postgrado.<br><br> <img src='http://educaysoft.org/maestria/maestriasutlvte.jpg' width='100%' height='100%'></div>" ;
+		 var foot=" <div style='text-align:center; background-color:lightgrey; font-size:12px; padding-top:30px;'> Este correo ha sido enviado a "+mailto+ ", de acuerdo a la Ley Orgánica de Protección de datos, usted tiene el derecho a solicitar a la Universidad Técnica Luis Vargas Torres, la actualización, inclusión, supresión y/o tratamiento de los datos personales incluidos en sus bases de datos, con este correo electrónico usted acepta recibir información de las actividades académicas que realiza el Alma Mater así como nuestra propuestas académicas <br><br> Este correo fue generado y enviado automáticamente desde el sistema cloud elaborado de la Maestría en Tecnología de la Información</div> ";
+
+		msg=head+msg+foot0+foot;
+
+		var correode="educacioncontinua@utelvt.edu.ec";
+		if(correopara==''){
+			correopara=mailto;
+		}
+
+	    $.ajax({
+		url: "<?php echo site_url('seguimiento/send') ?>",
+		data: {nome:nome, correopara:correopara, msg:msg, correode:correode, secure:secure, asunto:asunto, idpersona:idpersona},
+		method: 'POST',
+		async : false,
+		success: function(data){
+		var html = '';
+		var i;
+		alert(data);
+
+
+		},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+	    
+	});
+
+	}else{
+		alert("No se encontra el archivo");
+	}
+});
+
+
+
+
+
+
+
+
+
 </script>
 
 

@@ -124,12 +124,8 @@ $('#show_data').on('click','.item_ver',function(){
 
 
 $('#show_data').on('click','.item_enviar',function(){
-
         var archivo="";
 	var iddocumento= $(this).data('iddocumento2');
-//	alert(iddocumento);
-	//
-	
       $.ajax({
         url: "<?php echo site_url('documento/get_documento') ?>",
 	  method: 'POST',
@@ -163,8 +159,6 @@ $('#show_data').on('click','.item_enviar',function(){
         	alert(thrownError);
       	}
 	});
-
-
 
 
 	if(archivo != ''){
@@ -220,12 +214,6 @@ $('#show_data').on('click','.item_enviar',function(){
 	}else{
 		alert("No se encontra el archivo");
 	}
-
-
-
-
-
-
 });
 
 

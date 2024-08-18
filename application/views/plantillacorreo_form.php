@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("certificado/save") ?>
-<?php echo form_hidden("idcertificado")  ?>
+<?php echo form_open("plantillacorreo/save") ?>
+<?php echo form_hidden("idplantillacorreo")  ?>
 
 
 
@@ -78,7 +78,7 @@ foreach ($tipodocus as $row){
 <label class="col-md-2 col-form-label">Ancho certi x(296.67):</label>
 <div class="col-md-10">
 <?php
-echo form_input("ancho_x","", array("placeholder"=>"Ancho del certificado x"));  
+echo form_input("ancho_x","", array("placeholder"=>"Ancho del plantillacorreo x"));  
 ?>
 </div>
 </div>
@@ -88,7 +88,7 @@ echo form_input("ancho_x","", array("placeholder"=>"Ancho del certificado x"));
 <label class="col-md-2 col-form-label">Alto certi y(210.56) :</label>
 <div class="col-md-10">
 <?php
-echo form_input("alto_x","", array("placeholder"=>"Alto del certificado y"));
+echo form_input("alto_x","", array("placeholder"=>"Alto del plantillacorreo y"));
 ?>
 </div>
 </div>
@@ -218,7 +218,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 <table>
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("certificado","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("plantillacorreo","Atras") ?> </td>
 </tr>
 </table>
 <?php echo form_close();?>
