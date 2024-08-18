@@ -323,7 +323,7 @@ $('#show_data').on('click','.item_enviar',function(){
 	
 		 var email="maestria.ti@utelvt.edu.ec";
 		 var nome="Ing. Stalin Francis"; 		
-                 var msg="<div style='text-align:center; border-radius:25px; border:2px solid #73AD21; padding:10px; height:100px;'>"+ $(this).data('lapersona')+",  Gracias por participar en el evento, su certificado ya esta diponible en el siguiente link.<br> <span sytle='font-size:30px;'><a href='"+certi+"'>certificado</a></spane></div>" ;
+                 var msg="<div style='text-align:center; border-radius:25px; border:2px solid #73AD21; padding:10px; height:100px;'> Estimado/a "+ $(this).data('lapersona')+",  Tus documentos estan siendo guadados y clasificados en la plataforma Cloud de la Carrera en Tecnología de la Información al cual puedes accedear con el siguiente link "+"https://educaysoft.org/sica/login"+"  Previa solicitud de tus credenciales, se ha actualizado tu portafolio con el documenoto "+$(this).data('asunto')+" el cual lo puede desacargar del siguiente link.<br> <span sytle='font-size:30px;'><a href='"+$(this).data('documentopdf')+"'>documento</a></spane></div>" ;
 		 var mailto= "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 		 var idpersona=$(this).data('idpersona');
