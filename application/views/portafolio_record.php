@@ -323,7 +323,7 @@ $('#show_data').on('click','.item_enviar',function(){
 	
 		 var email="maestria.ti@utelvt.edu.ec";
 		 var nome="Ing. Stalin Francis"; 		
-                 var msg="<div style='text-align:center; border-radius:25px; border:2px solid #73AD21; padding:10px;'> Estimado/a <b>"+ $(this).data('lapersona')+"</b> ,  Tus documentos estan siendo guadados y clasificados en la plataforma Cloud de la Carrera en Tecnología de la Información al cual puedes accedear con el siguiente link <a href='"+"https://educaysoft.org/sica/login"+"'>Login</a>  Previa solicitud de tus credenciales. <br> Se ha actualizado tu portafolio con el documenoto <br> "+$(this).data('asunto')+" </br> el cual lo puede desacargar del siguiente link.<br> <span sytle='font-size:30px;'><a href='"+certi+"'>tu documento</a></spane></div>" ;
+                 var msg="<div style='text-align:center; border-radius:25px; border:2px solid #73AD21; padding:10px;'> Estimado/a <b>"+ $(this).data('lapersona')+"</b> ,  Tus documentos estan siendo guadados y clasificados en la plataforma Cloud de la Carrera en Tecnología de la Información. Puedes  acceder a la plataforma utilizando el siguiente enlace <a href='"+"https://educaysoft.org/sica/login"+"'>Login</a>. Una vez que hayas solicitado y recibido tus credenciales, podrás acceder a tu portafolio. <br> Te informamos que tu portafolio ha sido  actualizado  con el documenoto <br> "+$(this).data('asunto')+". </br> Puedes  desacargar el documento directamente en el siguiente enlace.<br> <span sytle='font-size:30px;'><a href='"+certi+"'>tu documento</a></spane></div>" ;
 		 var mailto= "stalin.francis@utelvt.edu.ec";
 		 var secure="siteform";
 		 var idpersona=$(this).data('idpersona');
