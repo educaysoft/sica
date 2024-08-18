@@ -30,9 +30,6 @@ public function index(){
 
 public function add()
 {
-		$data['eventos']= $this->evento_model->lista_eventos()->result();
-		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-		$data['documentos']= $this->documento_model->lista_documentos()->result();
 		$data['title']="Nuevo plantillacorreo";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('plantillacorreo_form',$data);
@@ -44,45 +41,10 @@ public function  save()
 	{
 	 	$array_item=array(
 	 	'idplantillacorreo' => $this->input->post('idplantillacorreo'),
-	 	'idevento' => $this->input->post('idevento'),
-	 	'idtipodocu' => $this->input->post('idtipodocu'),
-	 	'iddocumento' => $this->input->post('iddocumento'),
-	 	'propietario' => $this->input->post('propietario'),
-	 	'archivo' => $this->input->post('archivo'),
-	 	'posi_nomb_x' => $this->input->post('posi_nomb_x'),
-	 	'posi_nomb_y' => $this->input->post('posi_nomb_y'),
-	 	'size_nombre' => $this->input->post('size_nombre'),
-
-	 	'posi_codigo_x' => $this->input->post('posi_codigo_x'),
-	 	'posi_codigo_y' => $this->input->post('posi_codigo_y'),
-
-	 	'posi_fecha_x' => $this->input->post('posi_fecha_x'),
-	 	'posi_fecha_y' => $this->input->post('posi_fecha_y'),
-
-
-		'firma1_x' => $this->input->post('firma1_x'),
-		'firma1_y' => $this->input->post('firma1_y'),
-
-		'firma2_x' => $this->input->post('firma2_x'),
-		'firma2_y' => $this->input->post('firma2_y'),
-
-		'firma3_x' => $this->input->post('firma3_x'),
-		'firma3_y' => $this->input->post('firma3_y'),
-
-	 	'ancho_x' => $this->input->post('ancho_x'),
-	 	'alto_y' => $this->input->post('alto_y'),
-
-
-		'texto1' => $this->input->post('texto1'),
-	 	'posi_texto1_x' => $this->input->post('posi_texto1_x'),
-	 	'posi_texto1_y' => $this->input->post('posi_texto1_y'),
-	 	'ancho_texto1' => $this->input->post('ancho_texto1'),
-	 	'alto_texto1' => $this->input->post('alto_texto1'),
-	 	'font_size_texto1' => $this->input->post('font_size_texto1'),
-
-		'correohead' => $this->input->post('correohead'),
-		'correosubject' => $this->input->post('correosubject'),
-		'correofoot' => $this->input->post('correofoot'),
+		'body' => $this->input->post('body'),
+		'head' => $this->input->post('head'),
+		'subject' => $this->input->post('subject'),
+		'foot' => $this->input->post('foot'),
 	 	);
 	 	$this->plantillacorreo_model->save($array_item);
 	 	redirect('plantillacorreo');
@@ -93,9 +55,6 @@ public function  save()
 public function edit()
 {
 	 	$data['plantillacorreo'] = $this->plantillacorreo_model->plantillacorreo($this->uri->segment(3))->row_array();
-		$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
-		$data['eventos']= $this->evento_model->lista_eventos()->result();
-		$data['documentos']= $this->documento_model->lista_documentos()->result();
  	 	$data['title'] = "Actualizar Plantillacorreo";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('plantillacorreo_edit',$data);
@@ -110,47 +69,10 @@ public function edit()
 	 	$array_item=array(
 		 	
 		 	'idplantillacorreo' => $this->input->post('idplantillacorreo'),
-		 	'idtipodocu' => $this->input->post('idtipodocu'),
-	 		'idevento' => $this->input->post('idevento'),
-	 		'idtipodocu' => $this->input->post('idtipodocu'),
-	 		'iddocumento' => $this->input->post('iddocumento'),
-		 	'posi_nomb_x' => $this->input->post('posi_nomb_x'),
-		 	'posi_nomb_y' => $this->input->post('posi_nomb_y'),
-	 		'size_nombre' => $this->input->post('size_nombre'),
-
-			'posi_codigo_x' => $this->input->post('posi_codigo_x'),
-			'posi_codigo_y' => $this->input->post('posi_codigo_y'),
-
-			'posi_fecha_x' => $this->input->post('posi_fecha_x'),
-			'posi_fecha_y' => $this->input->post('posi_fecha_y'),
-		 	'ancho_x' => $this->input->post('ancho_x'),
-		 	'alto_y' => $this->input->post('alto_y'),
-
-		 	'firma1_x' => $this->input->post('firma1_x'),
-		 	'firma1_y' => $this->input->post('firma1_y'),
-
-
-		 	'firma2_x' => $this->input->post('firma2_x'),
-		 	'firma2_y' => $this->input->post('firma2_y'),
-
-
-		 	'firma3_x' => $this->input->post('firma3_x'),
-		 	'firma3_y' => $this->input->post('firma3_y'),
-
-		 	'texto1' => $this->input->post('texto1'),
-		 	'posi_texto1_x' => $this->input->post('posi_texto1_x'),
-		 	'posi_texto1_y' => $this->input->post('posi_texto1_y'),
-		 	'ancho_texto1' => $this->input->post('ancho_texto1'),
-		 	'alto_texto1' => $this->input->post('alto_texto1'),
-		 	'font_size_texto1' => $this->input->post('font_size_texto1'),
-
-
-
-
-
-			'correohead' => $this->input->post('correohead'),
-			'correosubject' => $this->input->post('correosubject'),
-			'correofoot' => $this->input->post('correofoot'),
+		 	'body' => $this->input->post('body'),
+			'head' => $this->input->post('head'),
+			'subject' => $this->input->post('subject'),
+			'foot' => $this->input->post('foot'),
 
 	 	);
 	 	$this->plantillacorreo_model->update($id,$array_item);

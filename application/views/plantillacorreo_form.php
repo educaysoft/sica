@@ -6,191 +6,13 @@
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Propietario:</label>
-<div class="col-md-10">
-<?php
-echo form_input("propietario","", array("placeholder"=>"Nombre de la Propietario")); 
-?>
-</div>
-</div>
-
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Archivo:</label>
-<div class="col-md-10">
-<?php
-echo form_input("archivo","", array("placeholder"=>"Direccción y nombre dle archivo"));
-?>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Evento:</label>
-<div class="col-md-10">
-<?php
-$options= array('--Select--');
-foreach ($eventos as $row){
-	$options[$row->idevento]=$row->idevento." - ".$row->titulo;
-}
- echo form_dropdown("idevento",$options, set_select('--Select--','default_value'));  
-?>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Tipo de documento:</label>
-<div class="col-md-10">
-<?php
-
-$options= array('--Select--');
-foreach ($tipodocus as $row){
-	$options[$row->idtipodocu]= $row->descripcion;
-}
- echo form_dropdown("idtipodocu",$options, set_select('--Select--','default_value'),array('id'=>'idtipodocu','onchange'=>'get_tipodocu()'));  
-?>
-</div>
-</div>
-
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Tipo de documento:</label>
-<div class="col-md-10">
-    <div class="form-group">
-         <select class="form-control" id="iddocumento" name="iddocumento" required>
-                 <option>No Selected</option>
-          </select>
-    </div>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Ancho certi x(296.67):</label>
-<div class="col-md-10">
-<?php
-echo form_input("ancho_x","", array("placeholder"=>"Ancho del plantillacorreo x"));  
-?>
-</div>
-</div>
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Alto certi y(210.56) :</label>
-<div class="col-md-10">
-<?php
-echo form_input("alto_x","", array("placeholder"=>"Alto del plantillacorreo y"));
-?>
-</div>
-</div>
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Tamano fuente nombre (20)  :</label>
-<div class="col-md-10">
-<?php
-echo form_input("size_nombre","", array("placeholder"=>"tamaño fuente nombre"));
-?>
-</div>
-</div>
 
 
 
 
 
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Posi nombre  x(0.00)  :</label>
-<div class="col-md-10">
-<?php
-echo form_input("posi_nomb_x","", array("placeholder"=>"Posicion del nombre en x"));
-?>
-</div>
-</div>
 
 
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Posi nombre  y(0.00)  :</label>
-<div class="col-md-10">
-<?php
-echo form_input("posi_nomb_y","", array("placeholder"=>"Posicion del nombre en y")); 
-?>
-</div>
-</div>
-
-
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Posi codigo  x(0.00):</label>
-<div class="col-md-10">
-<?php
-echo form_input("posi_codigo_x","", array("placeholder"=>"Posicion del codigore en x")); 
-?>
-</div>
-</div>
-
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Posi codigo  y(65.00):</label>
-<div class="col-md-10">
-<?php
-echo form_input("posi_codigo_y","", array("placeholder"=>"Posicion del codigore en y")); 
-?>
-</div>
-</div>
-
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Posi fecha  x(0.00): </label>
-<div class="col-md-10">
-<?php
-echo form_input("posi_fecha_x","", array("placeholder"=>"Posicion del fechare en x"));
-?>
-</div>
-</div>
-
-
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label"> Posi fecha  y(165.00):</label>
-<div class="col-md-10">
-<?php
-echo form_input("posi_fecha_y","", array("placeholder"=>"Posicion del fechare en y")); 
-?>
-</div>
-</div>
-
-
-
-
-<div class="form-group row">
-<label class="col-md-2 col-form-label">Head del correo:</label>
-<div class="col-md-10">
-<?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correohead",'id'=>'correohead' );    
- echo form_textarea("correohead","", $textarea_options); 
-?>
-</div>
-</div>
 
 
 
@@ -198,19 +20,55 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <label class="col-md-2 col-form-label">Subject:</label>
 <div class="col-md-10">
 <?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correosubject",'id'=>'correosubject' );    
- echo form_textarea("correosubject","", $textarea_options); 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"subject",'id'=>'subject' );    
+ echo form_textarea("subject","", $textarea_options); 
 ?>
 </div>
 </div>
 
 
+
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Foot del correo:</label>
+<label class="col-md-2 col-form-label">Head:</label>
 <div class="col-md-10">
 <?php
-$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"correofoot",'id'=>'correofoot' );    
- echo form_textarea("correofoot","", $textarea_options); 
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"head",'id'=>'head' );    
+ echo form_textarea("head","", $textarea_options); 
+?>
+</div>
+</div>
+
+
+
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Body:</label>
+<div class="col-md-10">
+<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"body",'id'=>'body' );    
+ echo form_textarea("body","", $textarea_options); 
+?>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Foot :</label>
+<div class="col-md-10">
+<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"foot",'id'=>'foot' );    
+ echo form_textarea("foot","", $textarea_options); 
 ?>
 </div>
 </div>
