@@ -738,13 +738,13 @@ foreach($jornadadocente as $rowj){
 
 
         ';
-
+/*
     if($j>100){
 
         break;
 
     }
-
+ */
 
 
 }
