@@ -524,6 +524,7 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 
 $data=$data.'</div>
 	    <div class="card-body" style="background-color:'.$arrcolor[$row->numeronivelacademico].'"  >
+	    <div    style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >Código:'.$row->codigo.' </div>	
 	    <div id="'.str_replace(' ', '', $row->laasignatura.' - '.$row->paralelo).'"      style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->laasignatura.' </div>	
 
 <div class="contenedor">
