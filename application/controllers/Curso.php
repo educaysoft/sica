@@ -325,9 +325,9 @@ class Curso extends CI_Controller{
 	}
 
 
- public function distributivo_2023_2S_20()
+ public function distributivo_2024_1S_20()
      {
-       $this->load->view('cursos/distributivo-2023-2S-20');
+       $this->load->view('cursos/distributivo-2024-1S-20');
      }
 
 
