@@ -123,11 +123,11 @@ function __construct($orientation='P', $unit='mm', $size='A4')
 		$this->SetY(-20);
 
 		$this->SetFont('Arial','I',8);
-		$this->Cell(0,5,'--------------------------------     --------------------------------      -------------------------',0,0,'L');
-		$this->Cell(0,5,'--------------------------------',0,1,'R');
+		$this->Cell(0,5,'-----------------------------------     ------------------------------------      ------------------------------',0,0,'L');
+		$this->Cell(0,5,'-----------------------------------',0,1,'R');
 		$this->Cell(0,5,utf8_decode('Firma comisión responsable'),0,0,'L');
 
-		$this->Cell(0,5,'Firma Jefe Unidad de Académica',0,1,'R');
+		$this->Cell(0,5,'Firma Director de Carrera',0,1,'R');
 
 
 
