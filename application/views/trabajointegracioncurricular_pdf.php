@@ -83,6 +83,9 @@
 
 		 //$pdf->Cell(80,5,utf8_decode($row->asunto),1,0,'L',0);
 		 $pdf->MultiCell(10,5,utf8_decode($row->idtrabajointegracioncurricular),1,'L',1);
+		 $pdf->SetXY($current_x+10, $current_y);
+		 $current_x = $pdf->GetX();
+		 $current_y = $pdf->GetY();
 		 $pdf->MultiCell(80,5,utf8_decode($row->nombre),1,'L',1);
 		 $pdf->SetXY($current_x+100, $current_y);
 
