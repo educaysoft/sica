@@ -84,7 +84,7 @@ foreach ($trabajointegracioncurriculars as $row) {
     $pdf->SetXY($current_x + 10, $current_y);
 
     // Imprime la celda con el nombre, ajustando su longitud
-    $pdf->MultiCell(80, 5, utf8_decode(str_pad($row->nombre, $maxLength - strlen($row->nombre), ' ', STR_PAD_RIGHT)), 1, 'L', 1);
+    $pdf->MultiCell(80, 5, utf8_decode(str_pad($row->nombre, $maxLength - strlen($row->nombre), ' ', STR_PAD_RIGHT)+'.'), 1, 'L', 1);
     $pdf->SetXY($current_x + 90, $current_y); // Se ajusta en 90 porque sumamos 10+80
 
     // Imprime la celda con el resumen, ajustando su longitud
