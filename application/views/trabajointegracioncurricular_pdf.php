@@ -59,7 +59,11 @@
 	$h=5;
 	$i=0;
 	foreach ($trabajointegracioncurriculars as $row){  //Recorre todas la participaciones realiadas por los participantes
-		$l=strlen($row->resumen);
+		$l1=strlen($row->resumen);
+		$l2=strlen($row->nombre);
+        $l= ($l1>$l2) ? $l1 : $l2;
+
+
 	//	echo $l;
 	//	die();
 		   if($l>84){
@@ -74,8 +78,9 @@
 		    $pdf->Cell(45,$h,utf8_decode($row->ellector),1,0,'L',0);
 		    $autor=$row->ellector;
 		    }else{
+		    $i=$i+1;
 
-		    $pdf->Cell(5,$h,"",1,0,'R',0); 
+		    $pdf->Cell(5,$h,$i,1,0,'R',0); 
 		    $pdf->Cell(45,$h,utf8_decode(""),1,0,'L',0);
 		    }
 		 $current_x = $pdf->GetX();
@@ -86,10 +91,10 @@
 		 $pdf->SetXY($current_x+10, $current_y);
 		 $current_x = $pdf->GetX();
 		 $current_y = $pdf->GetY();
-		 $pdf->MultiCell(80,5,utf8_decode($row->nombre),1,'L',1);
+		 $pdf->MultiCell(80,5,utf8_decode(str_pad($row->nombre,$l-$l1,' ',STR_PAD_RIGHT)),1,'L',1);
 		 $pdf->SetXY($current_x+80, $current_y);
 
-		 $pdf->MultiCell(100,5,utf8_decode($row->resumen),1,'L',1);
+		 $pdf->MultiCell(100,5,utf8_decode(str_pad($row->resumen,$l-$l2,' ',STR_PAD_RIGHT)),1,'L',1);
 
 
    }
