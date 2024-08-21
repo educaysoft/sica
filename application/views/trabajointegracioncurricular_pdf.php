@@ -45,7 +45,7 @@
 
 	$pdf->Cell(5,5,'#',1,0,'C',1);
 	$pdf->Cell(45,5,'Autor/Lector',1,0,'C',1);
-	$pdf->Cell(20,5,'id',1,0,'C',1);
+	$pdf->Cell(10,5,'id',1,0,'C',1);
 	$pdf->Cell(80,5,'tema/propuesta',1,0,'C',1);
 	$pdf->Cell(100,5,'Resumen de tema',1,1,'C',1);
  
@@ -82,7 +82,7 @@
 		 $current_y = $pdf->GetY();
 
 		 //$pdf->Cell(80,5,utf8_decode($row->asunto),1,0,'L',0);
-		 $pdf->MultiCell(20,5,utf8_decode($row->idtrabajointegracioncurricular),1,'L',1);
+		 $pdf->MultiCell(10,5,utf8_decode($row->idtrabajointegracioncurricular),1,'L',1);
 		 $pdf->MultiCell(80,5,utf8_decode($row->nombre),1,'L',1);
 		 $pdf->SetXY($current_x+100, $current_y);
 
