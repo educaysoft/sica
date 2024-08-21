@@ -62,6 +62,12 @@ foreach ($trabajointegracioncurriculars as $row) {
     // Calcula la altura de la celda basándose en la longitud máxima
     $h = ($maxLength > 84) ? ceil($maxLength / 84) * 5 : 5;
 
+
+$lineHeight = 5; // Interlineado
+$desiredHeight = $h; // Altura deseada para la celda
+ $initialY = $pdf->GetY(); // Guarda la posición inicial Y antes de imprimir la celda
+
+
     // Incrementa el índice si hay un nuevo autor
     if ($autor != $row->ellector) {
         $i++;
@@ -75,35 +81,60 @@ foreach ($trabajointegracioncurriculars as $row) {
         $pdf->Cell(45, $h, '', 1, 0, 'L', 0);
     }
 
- // Posición actual en X e Y
+    // Posición actual en X e Y
     $current_x = $pdf->GetX();
     $current_y = $pdf->GetY();
 
-
-
-    // Calcula la altura necesaria para cada MultiCell
-    $nombreAltura =$pdf->calculateCellHeight($pdf, $row->nombre, 80);
-    $resumenAltura =$pdf->calculateCellHeight($pdf, $row->resumen, 100);
-
-
-
-
-
-    // Calcula la altura máxima entre las celdas de "nombre" y "resumen"
-    $maxAltura = max($nombreAltura, $resumenAltura);
-
     // Imprime la celda con el ID
-    $pdf->MultiCell(10, $maxAltura, utf8_decode($row->idtrabajointegracioncurricular), 1, 'L', 1);
-    $pdf->SetXY($current_x + 10, $current_y);
+    $pdf->MultiCell(10, $h, utf8_decode($row->idtrabajointegracioncurricular), 1, 'L', 1);
 
-    // Imprime la celda con el nombre con la altura máxima calculada
-    $pdf->MultiCell(80, $maxAltura, utf8_decode(str_pad($row->nombre, $maxLength - strlen($row->nombre), ' ', STR_PAD_RIGHT)), 1, 'L', 1);
+// Verifica la altura utilizada por el contenido de la primera celda
+    $contentHeight1 = $pdf->GetY() - $initialY;
+  // Restaura la posición inicial Y para imprimir la siguiente celda en la misma fila
+    $pdf->SetXY($pdf->GetX() + 10, $initialY);
+
+
+//    $pdf->SetXY($current_x + 10, $current_y);
+
+    // Imprime la celda con el nombre, ajustando su longitud
+    $pdf->MultiCell(80, 5, utf8_decode(str_pad($row->nombre, $maxLength - strlen($row->nombre), ' ', STR_PAD_RIGHT)+'.'), 1, 'L', 1);
+ 
+ 
+ 
+ 
+ 
+ // Verifica la altura utilizada por el contenido de la segunda celda
+    $contentHeight2 = $pdf->GetY() - $initialY;
+
+    // Calcula la altura máxima entre ambas celdas
+    $maxContentHeight = max($contentHeight1, $contentHeight2);
+
+    // Si la altura utilizada es menor que la deseada, rellena el espacio
+    if ($maxContentHeight < $desiredHeight) {
+        $remainingHeight = $desiredHeight - $maxContentHeight;
+
+        // Mueve el cursor hacia abajo para crear el espacio adicional
+        $pdf->SetXY($pdf->GetX(), $initialY + $remainingHeight);
+    }
+
+    // Restaura la posición Y para la siguiente iteración
+    $pdf->SetY($initialY + $desiredHeight);
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
     $pdf->SetXY($current_x + 90, $current_y); // Se ajusta en 90 porque sumamos 10+80
 
-    // Imprime la celda con el resumen con la altura máxima calculada
-    $pdf->MultiCell(100, $maxAltura, utf8_decode(str_pad($row->resumen, $maxLength - strlen($row->resumen), ' ', STR_PAD_RIGHT)), 1, 'L', 1);
+    // Imprime la celda con el resumen, ajustando su longitud
+    $pdf->MultiCell(100, 5, utf8_decode(str_pad($row->resumen, $maxLength - strlen($row->resumen), ' ', STR_PAD_RIGHT)), 1, 'L', 1);
 }
-
 
 
 //	header('Content-type: application/pdf');
