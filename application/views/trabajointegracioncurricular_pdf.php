@@ -62,6 +62,9 @@ foreach ($trabajointegracioncurriculars as $row) {
     // Calcula la altura de la celda basándose en la longitud máxima
     $h = ($maxLength > 84) ? ceil($maxLength / 84) * 5 : 5;
 
+
+    $py0 = $pdf->GetY();
+
     // Incrementa el índice si hay un nuevo autor
     if ($autor != $row->ellector) {
         $i++;
@@ -78,10 +81,17 @@ foreach ($trabajointegracioncurriculars as $row) {
     // Posición actual en X e Y
     $current_x = $pdf->GetX();
     $current_y = $pdf->GetY();
+    $py1 = $pdf->GetY();
 
+    $h1=$py1-$py0;
     // Imprime la celda con el ID
     $pdf->MultiCell(10, $h, utf8_decode($row->idtrabajointegracioncurricular), 1, 'L', 1);
+   
+        $pdf->SetXY($pdf->GetX(), $py1);
+
+
     $pdf->SetXY($current_x + 10, $current_y);
+
 
     // Imprime la celda con el nombre, ajustando su longitud
     $pdf->MultiCell(80, 5, utf8_decode(str_pad($row->nombre, $maxLength - strlen($row->nombre), ' ', STR_PAD_RIGHT)), 1, 'L', 1);
