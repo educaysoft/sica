@@ -63,7 +63,7 @@
 	//	echo $l;
 	//	die();
 		   if($l>84){
-		   	$h=ceil(l/84)*5;
+		   	$h=ceil($l/84)*5;
      		   }else{
 		   	$h=5;
 		   }			   
