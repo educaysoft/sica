@@ -84,8 +84,8 @@ function __construct($orientation='P', $unit='mm', $size='A4')
 		$this->SetFont('Arial','B',8);
 		$this->Cell(100,5,"",0,1,'C');
 //		$this->Cell(100,5,utf8_decode($this->institucion),0,1,'C');
-		$this->Cell(180,15,utf8_decode($this->unidad),0,1,'C');
-		$this->Cell(180,2,utf8_decode($this->departamento),0,1,'C');
+		$this->Cell(180,10,utf8_decode($this->unidad),0,1,'C');
+		$this->Cell(180,5,utf8_decode($this->departamento),0,1,'C');
 		$this->Cell(180,5,utf8_decode($this->titulo),0,1,'C');
 		$this->Ln(5);
 //		$this->Cell(40,5,utf8_decode('CÁTEDRA:'),0,0,'L');
@@ -124,8 +124,10 @@ function __construct($orientation='P', $unit='mm', $size='A4')
 
 		$this->SetFont('Arial','I',8);
 		$this->Cell(0,5,'--------------------------------',0,0,'L');
+		$this->Cell(0,5,'     --------------------------------  ',0,0,'L');
+		$this->Cell(0,5,'     --------------------------------  ',0,0,'L');
 		$this->Cell(0,5,'--------------------------------',0,1,'R');
-		$this->Cell(0,5,'Firma docente',0,0,'L');
+		$this->Cell(0,5,'Firma comisión responsable ',0,0,'L');
 
 		$this->Cell(0,5,'Firma Jefe Unidad de Académica',0,1,'R');
 
