@@ -397,7 +397,22 @@ function PutLink($URL, $txt)
 }
 
 
-
+function calculateCellHeight($pdf, $text, $width) {
+    // Guarda la posición actual del cursor
+    $current_y = $pdf->GetY();
+    $current_x = $pdf->GetX();
+    
+    // Calcula la altura de la celda
+    $pdf->MultiCell($width, 5, utf8_decode($text), 0, 'L');
+    
+    // Calcula la diferencia en Y después de escribir el texto
+    $height = $pdf->GetY() - $current_y;
+    
+    // Vuelve a la posición original
+    $pdf->SetXY($current_x, $current_y);
+    
+    return $height;
+}
 
 
 

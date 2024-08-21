@@ -79,9 +79,15 @@ foreach ($trabajointegracioncurriculars as $row) {
     $current_x = $pdf->GetX();
     $current_y = $pdf->GetY();
 
-    // Medimos la altura de cada MultiCell
-    $nombreAltura = $pdf->GetStringHeight($row->nombre, 80);
-    $resumenAltura = $pdf->GetStringHeight($row->resumen, 100);
+
+
+    // Calcula la altura necesaria para cada MultiCell
+    $nombreAltura = calculateCellHeight($pdf, $row->nombre, 80);
+    $resumenAltura = calculateCellHeight($pdf, $row->resumen, 100);
+
+
+
+
 
     // Calcula la altura máxima entre las celdas de "nombre" y "resumen"
     $maxAltura = max($nombreAltura, $resumenAltura);
