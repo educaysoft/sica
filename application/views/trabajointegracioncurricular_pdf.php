@@ -87,7 +87,7 @@ foreach ($trabajointegracioncurriculars as $row) {
     // Imprime la celda con el ID
     $pdf->MultiCell(10, $h, utf8_decode($row->idtrabajointegracioncurricular), 1, 'L', 1);
    
-        $pdf->SetXY($pdf->GetX(), $py1);
+       // $pdf->SetXY($pdf->GetX(), $py1);
 
 
     $pdf->SetXY($current_x + 10, $current_y);
