@@ -72,7 +72,6 @@
 		    $i=$i+1;
 		    $pdf->Cell(5,$h,$i,1,0,'R',0); 
 		    $pdf->Cell(45,$h,utf8_decode($row->ellector),1,0,'L',0);
-		    $pdf->Cell(45,$h,utf8_decode(""),1,0,'L',0);
 		    $autor=$row->ellector;
 		    }else{
 
