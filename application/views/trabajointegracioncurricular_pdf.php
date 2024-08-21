@@ -82,8 +82,8 @@ foreach ($trabajointegracioncurriculars as $row) {
 
 
     // Calcula la altura necesaria para cada MultiCell
-    $nombreAltura = calculateCellHeight($pdf, $row->nombre, 80);
-    $resumenAltura = calculateCellHeight($pdf, $row->resumen, 100);
+    $nombreAltura =$pdf->calculateCellHeight($pdf, $row->nombre, 80);
+    $resumenAltura =$pdf->calculateCellHeight($pdf, $row->resumen, 100);
 
 
 
