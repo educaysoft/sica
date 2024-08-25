@@ -320,7 +320,7 @@ $data=$data.'</div>
 
 
 
-foreach($calendario as $rowj){
+foreach($calendarioacademico as $rowj){
 
 			if(isset($rowj[$row->idfechacaliendario]['idcalendarioacademico'])){		
            //     if($rowj[$row->idegresado]['idestadofechacalendario']==5){
