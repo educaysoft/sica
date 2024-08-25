@@ -295,10 +295,10 @@ public function genpagina()
 	$idcarrera=0;
 
 	$ordenrpt=0;
-	if($this->uri->segment(3))
-	{
+//	if($this->uri->segment(3))
+//	{
 		$idcarrera=$this->uri->segment(3);
-	 	$data['fechacalendarios']= $this->fechacalendario_model->lista_fechacalendarias1()->result();
+	 	$data['fechacalendarios']= $this->fechacalendario_model->lista_fechacalendarios1(0)->result();
 		$arreglo=array();
 		$i=0;
 		foreach($data['fechacalendarios'] as $row){
@@ -321,7 +321,7 @@ public function genpagina()
 		$data['fechacalendario']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
 		$this->load->view('fechacalendario_genpagina',$data);
-	}
+//	}
 }
 
 	public function paginaweb()
