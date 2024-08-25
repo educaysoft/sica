@@ -316,9 +316,9 @@ public function genpagina()
 			}
 		}
 		}
-		$data['fechacalendario']=array();
+		$data['calendarioacademico']=array();
 	//	array_push($data['jornadadocente'],$glo); 
-		$data['fechacalendario']=$arreglo; 
+		$data['calendarioacademico']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
 		$this->load->view('calendarioacademico_genpagina',$data);
 //	}
