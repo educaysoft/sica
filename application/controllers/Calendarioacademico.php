@@ -320,7 +320,7 @@ public function genpagina()
 	//	array_push($data['jornadadocente'],$glo); 
 		$data['fechacalendario']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
-		$this->load->view('fechacalendario_genpagina',$data);
+		$this->load->view('calendarioacademico_genpagina',$data);
 //	}
 }
 
