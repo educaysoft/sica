@@ -310,7 +310,7 @@ public function genpagina()
 		foreach($xx as $row2){
 			foreach($row2 as $row3)
 			 {
-				$arreglo+=array($i=>array($row->iddocente=>$row3));
+				$arreglo+=array($i=>array($row->idcalendarioacademico=>$row3));
 				$i=$i+1;
 			}
 			}
