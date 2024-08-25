@@ -302,7 +302,7 @@ public function genpagina()
 		$arreglo=array();
 		$i=0;
 		foreach($data['fechacalendarios'] as $row){
-		$iddocente=$row->idcalendarioacademico;
+		$idcalendarioacademico=$row->idcalendarioacademico;
 
 	//	$arreglo[$row->iddocente]=$this->fechacalendario_model->fechacalendariosA($iddocente)->row_array();
 		$xx=array($this->calendarioacademico_model->calendarioacademico($idcalendarioacademico)->result_array());
