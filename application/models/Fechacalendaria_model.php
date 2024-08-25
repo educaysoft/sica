@@ -7,6 +7,14 @@ class Fechacalendaria_model extends CI_model {
 	}
 
 
+	function lista_fechacalendarias1(){
+		 $fechacalendaria= $this->db->get('fechacalendaria1');
+		 return $fechacalendaria;
+	}
+
+
+
+
 function lista_fechacalendarias1($idperiodoacademico){
 	if($idperiodoacademico>0)
 	{

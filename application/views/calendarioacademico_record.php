@@ -16,6 +16,7 @@ if(isset($calendarioacademico))
         <li> <?php echo anchor('calendarioacademico/reportepdf/'.$calendarioacademico['idperiodoacademico'],'reportepdf'); ?></li>
         <li> <?php echo anchor('calendarioacademicounidad/','Unidades'); ?></li>
         <li> <?php echo anchor('distributivo/','Distributivo'); ?></li>
+		<li> <?php echo anchor('calendarioacademico/paginaweb',' web'); ?></li>
 
 <?php 
 }else{
@@ -122,6 +123,9 @@ if(isset($calendarioacademico))
 		<div class="pull-left">
 		    <b>Fecha planificadas: </b>
 
+        <div class="pull-right">
+<a class="btn btn-danger" href="<?php echo base_url('calendarioacademico/genpagina/') ?>">Generar página</a>
+		</div>
 		</div>
 	    </div>
 	</div>

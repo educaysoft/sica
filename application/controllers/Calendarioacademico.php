@@ -290,7 +290,44 @@ public function get_periodoacademico() {
 
 }
 
+public function genpagina()
+{
+	$idcarrera=0;
 
+	$ordenrpt=0;
+	if($this->uri->segment(3))
+	{
+		$idcarrera=$this->uri->segment(3);
+	 	$data['fechacalendarios']= $this->fechacalendario_model->lista_fechacalendarias1()->result();
+		$arreglo=array();
+		$i=0;
+		foreach($data['fechacalendarios'] as $row){
+		$iddocente=$row->idcalendarioacademico;
+
+	//	$arreglo[$row->iddocente]=$this->fechacalendario_model->fechacalendariosA($iddocente)->row_array();
+		$xx=array($this->calendarioacademico_model->calendarioacademico($idcalendarioacademico)->result_array());
+		if(count($xx[0]) > 0){
+		foreach($xx as $row2){
+			foreach($row2 as $row3)
+			 {
+				$arreglo+=array($i=>array($row->iddocente=>$row3));
+				$i=$i+1;
+			}
+			}
+		}
+		}
+		$data['fechacalendario']=array();
+	//	array_push($data['jornadadocente'],$glo); 
+		$data['fechacalendario']=$arreglo; 
+		echo "<br> jornadadocnete<br>" ;
+		$this->load->view('fechacalendario_genpagina',$data);
+	}
+}
+
+	public function paginaweb()
+	{
+	  $this->load->view('web/fechacalendario');
+	}
 
 
 
