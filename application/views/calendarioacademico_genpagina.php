@@ -314,7 +314,7 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 $data=$data.'</div>
 
 	    <div class="card-body" style="background-color:#D3D3D3"  >
-	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->actividad.' </div>';	
+	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >'.$row->fechacalendario.' - '.$row->actividad.' </div>';	
 
 
 
@@ -332,6 +332,7 @@ foreach($calendarioacademico as $rowj){
 			    $data=$data.'<b>'.$rowj[$row->idegresado]['eltipolector'] .': </b><span style="color:red">'.$rowj[$row->idegresado]['nombre'].'('.$rowj[$row->idegresado]['elegresado'].')-[Estado: </span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color:red">'.$rowj[$row->idegresado]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/fechacalendario/actual/'.$rowj[$row->idegresado]['idfechacalendario'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
                 }
                 } */
+                break;
 			}	
 	//		echo $rowj; echo '<br>';
 		}
