@@ -7,7 +7,7 @@ class Fechacalendario extends CI_Controller{
       $this->load->model('fechacalendario_model');
       $this->load->model('periodoacademico_model');
       $this->load->model('silabo_model');
-   	  $this->load->model('estadoactivida_model');
+   	  $this->load->model('estadoactividad_model');
       $this->load->model('calendarioacademico_model');
 }
 
