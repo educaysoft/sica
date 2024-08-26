@@ -36,6 +36,7 @@ public function  save()
 	 	$array_item=array(
 	 	'idestadoactividad' => $this->input->post('idestadoactividad'),
 	 	'nombre' => $this->input->post('nombre'),
+		 	'color' => $this->input->post('color'),
 	 	);
 	 	$this->estadoactividad_model->save($array_item);
 	 	redirect('estadoactividad');
@@ -61,6 +62,7 @@ public function edit()
 		 	
 		 	'idestadoactividad' => $this->input->post('idestadoactividad'),
 		 	'nombre' => $this->input->post('nombre'),
+		 	'color' => $this->input->post('color'),
 	 	);
 	 	$this->estadoactividad_model->update($id,$array_item);
 	 	redirect('estadoactividad');
