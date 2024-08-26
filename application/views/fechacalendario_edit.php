@@ -40,7 +40,7 @@ $eys_arrinput=array('name'=>'actividad','value'=>$fechacalendario['actividad'], 
 	<div class="col-md-10">
 		<?php
 $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Detalle" );    
-echo form_textarea('detalle',$fechacalendario['detalle'],$textarea_options ); ?></td>
+echo form_textarea('detalle',$fechacalendario['detalle'],$textarea_options ); 
 
 		?>
 	</div> 
@@ -77,7 +77,20 @@ $eys_arrinput=array('name'=>'hito','value'=>$fechacalendario['hito'], "style"=>"
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Estado actividad:</label>
+	<div class="col-md-10">
+		<?php
 
+$options= array('--Select--');
+foreach ($estadoactividades as $row){
+	$options[$row->idestadoactividad]= $row->nombre;
+}
+
+ echo form_dropdown("idestadoactividad",$options, $fechacalendario['idestadoactividad']);  
+		?>
+	</div> 
+</div>
 
 
 

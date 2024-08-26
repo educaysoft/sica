@@ -7,6 +7,7 @@ class Fechacalendario extends CI_Controller{
       $this->load->model('fechacalendario_model');
       $this->load->model('periodoacademico_model');
       $this->load->model('silabo_model');
+   	  $this->load->model('estadoactivida_model');
       $this->load->model('calendarioacademico_model');
 }
 
@@ -18,6 +19,7 @@ class Fechacalendario extends CI_Controller{
 		if(isset($this->session->userdata['logged_in'])){
 			$data['fechacalendario']=$this->fechacalendario_model->elultimo();
   			$data['calendarioacademicos']= $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
+  		$data['estadoactividades']= $this->estadoactividad_model->lista_estadoactividads()->result();
 			$data['title']="Lista de fechacalendarioes";
 			$this->load->view('template/page_header');
 			$this->load->view('fechacalendario_record',$data);
@@ -35,6 +37,7 @@ class Fechacalendario extends CI_Controller{
 			$data['title']="Nueva fechacalendario";
 			$data['silabos'] = $this->silabo_model->lista_silabos()->result();
   			$data['calendarioacademicos']= $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
+		    $data['estadoactividades']= $this->estadoactividad_model->lista_estadoactividads()->result();
 			$data['title']="Lista de fechacalendarioes";
 			$this->load->view('template/page_header');		
 			$this->load->view('fechacalendario_form',$data);
@@ -49,6 +52,7 @@ class Fechacalendario extends CI_Controller{
 	 	'detalle' => $this->input->post('detalle'),
 	 	'fechacalendario' => $this->input->post('fechacalendario'),
 	 	'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
+	 	'idestadoactividad' => $this->input->post('idestadoactividad'),
 	 	'hito' => $this->input->post('hito'),
 	 	);
 	 	$this->fechacalendario_model->save($array_item);
@@ -60,7 +64,8 @@ class Fechacalendario extends CI_Controller{
 	public function edit()
 	{
 			$data['fechacalendario'] = $this->fechacalendario_model->fechacalendario($this->uri->segment(3))->row_array();
-	$data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
+	        $data['calendarioacademicos'] = $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
+		    $data['estadoactividades']= $this->estadoactividad_model->lista_estadoactividads()->result();
 			$data['title'] = "Actualizar fechacalendario";
 			$this->load->view('template/page_header');		
 			$this->load->view('fechacalendario_edit',$data);
@@ -79,6 +84,7 @@ class Fechacalendario extends CI_Controller{
 		 	'detalle' => $this->input->post('detalle'),
 	 		'fechacalendario' => $this->input->post('fechacalendario'),
 	 		'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
+	 	    'idestadoactividad' => $this->input->post('idestadoactividad'),
 	 		'hito' => $this->input->post('hito'),
 	 	);
 	 	$this->fechacalendario_model->update($id,$array_item);
@@ -173,6 +179,7 @@ public function actual()
 {
 	$data['fechacalendario'] = $this->fechacalendario_model->fechacalendario($this->uri->segment(3))->row_array();
   	$data['calendarioacademicos']= $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
+		    $data['estadoactividades']= $this->estadoactividad_model->lista_estadoactividads()->result();
   if(!empty($data))
   {
     $data['title']="Fechacalendario";
@@ -193,6 +200,7 @@ public function elprimero()
 {
 	$data['fechacalendario'] = $this->fechacalendario_model->elprimero();
   	$data['calendarioacademicos']= $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
+		    $data['estadoactividades']= $this->estadoactividad_model->lista_estadoactividads()->result();
   if(!empty($data))
   {
     $data['title']="Fechacalendario";
@@ -210,6 +218,7 @@ public function elultimo()
 {
 		$data['fechacalendario'] = $this->fechacalendario_model->elultimo();
 		$data['calendarioacademicos']= $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
+		    $data['estadoactividades']= $this->estadoactividad_model->lista_estadoactividads()->result();
   if(!empty($data))
   {
     $data['title']="Fechacalendario";
@@ -229,6 +238,7 @@ public function siguiente(){
  // $data['fechacalendario_list']=$this->fechacalendario_model->lista_fechacalendario()->result();
 	$data['fechacalendario'] = $this->fechacalendario_model->siguiente($this->uri->segment(3))->row_array();
 		$data['calendarioacademicos']= $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
+		    $data['estadoactividades']= $this->estadoactividad_model->lista_estadoactividads()->result();
   	$data['title']="Fechacalendario";
 	$this->load->view('template/page_header');		
   	$this->load->view('fechacalendario_record',$data);
@@ -239,6 +249,7 @@ public function anterior(){
  // $data['fechacalendario_list']=$this->fechacalendario_model->lista_fechacalendario()->result();
 	$data['fechacalendario'] = $this->fechacalendario_model->anterior($this->uri->segment(3))->row_array();
 		$data['calendarioacademicos']= $this->calendarioacademico_model->lista_calendarioacademicos1(0)->result();
+		    $data['estadoactividades']= $this->estadoactividad_model->lista_estadoactividads()->result();
   	$data['title']="Fechacalendario";
 	$this->load->view('template/page_header');		
   	$this->load->view('fechacalendario_record',$data);

@@ -325,13 +325,10 @@ foreach($calendarioacademico as $rowj){
 			if(isset($rowj[$row->idcalendarioacademico]['idcalendarioacademico'])){		
            //     if($rowj[$row->idegresado]['idestadofechacalendario']==5){
 			    $data=$data.' <div class="card-body" style="background-color:#D3D3D3;padding: 20px;border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) "  > <b>: </b>'. $rowj[$row->idcalendarioacademico]['nombre'].'  -</div><br>';
-            /*    }else{
-                    if($rowj[$row->idegresado]['idestadofechacalendario']==4){
-			        $data=$data.'<b>'.$rowj[$row->idegresado]['eltipolector'] .': </b><span style="color:magenta">'.$rowj[$row->idegresado]['nombre'].'[Egresado: '.$rowj[$row->idegresado]['elegresado'].']-[Estado: </span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color:magenta">'.$rowj[$row->idegresado]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/fechacalendario/actual/'.$rowj[$row->idegresado]['idfechacalendario'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
-                 }else{
-			    $data=$data.'<b>'.$rowj[$row->idegresado]['eltipolector'] .': </b><span style="color:red">'.$rowj[$row->idegresado]['nombre'].'('.$rowj[$row->idegresado]['elegresado'].')-[Estado: </span> <span style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color:red">'.$rowj[$row->idegresado]['elestado'].'],</span> - link:<a href="https://educaysoft.org/sica/fechacalendario/actual/'.$rowj[$row->idegresado]['idfechacalendario'].'"> <i class="fas fa-book" style="font-size:24px" ></i> </a><br>';
-                }
-                } */
+
+			    $data=$data.' <div class="card-body" style="background-color:#D3D3D3;padding: 20px;border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) "  > <b>: </b>'. $row->detalle.'  -</div><br>';
+
+
                 break;
 			}	
 	//		echo $rowj; echo '<br>';

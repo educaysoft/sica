@@ -116,6 +116,24 @@ echo form_input('',$options[$fechacalendario['idcalendarioacademico']],array("di
 </div>
 
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Estado actividad:</label>
+	<div class="col-md-10">
+     <?php 
+$options= array("NADA");
+foreach ($estadoactividades as $row){
+	$options[$row->idestadoactividad]=$row->nombre;
+}
+
+echo form_input('idestadoactividad',$options[$fechacalendario['idestadoactividad']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
+
+
+
+
 <?php echo form_close(); ?>
 
 
