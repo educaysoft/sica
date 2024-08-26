@@ -50,7 +50,19 @@ if(isset($estadoactividad))
 	?>
 	</div> 
 </div> 
-   
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Color:</label>
+	<div class="col-md-10">
+     <?php
+       echo form_input('color',$estadoactividad['color'],array('placeholder'=>'color del estadoactividad')); 
+
+	?>
+	</div> 
+</div>
+
+
+
    
 <?php echo form_close(); ?>
 

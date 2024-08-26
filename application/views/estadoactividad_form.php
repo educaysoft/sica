@@ -14,6 +14,12 @@
 </tr>
 
 <tr>
+<td> Color: </td>
+<td><?php echo form_input("color","", array("placeholder"=>"Color de estadoactividad"))  ?></td>
+</tr>
+
+
+<tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("estadoactividad","Atras") ?> </td>
 </tr>
 
