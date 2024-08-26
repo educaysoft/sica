@@ -314,7 +314,7 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 $data=$data.'</div>
 
 	    <div class="card-body" style="background-color:#D3D3D3"  >
-	    <div style="font-size:24px; font-weight:bold; color:#333;  margin-top:10px;" >Fecha:'.$row->fechacalendario.'<br>Actividad:'.$row->actividad.' </div>';	
+	    <div style="font-size:24px;  color:#333;  margin-top:10px;"> <b>Fecha:</b>'.$row->fechacalendario.'<br><b>Actividad:</b>'.$row->actividad.' </div>';	
 
 
 
