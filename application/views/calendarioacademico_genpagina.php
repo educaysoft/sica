@@ -257,7 +257,7 @@ foreach($fechacalendarios as $row){
       		<div >
         	<h1 class="fw-light">'.'UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS'.'</h1>  
         	<p class="lead text-muted">'.'Carrera en Tecnología de la Información'.'.</p>
-        	<p class="lead text-muted"  style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">MODALIDAD EXAMEN COMPLEXIVOS</p>
+        	<p class="lead text-muted"  style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">CALENDARIO ACADÉMICO</p>
       		</div>
     		</div>
   		</section>
@@ -282,7 +282,7 @@ $file_headers = @get_headers($remoteFile);
 //if(!file_exists($remoteFile)){
 
 if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
- $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/integracioncurricular.jpg"  height="100%" width="100%"/> </svg></a>
+ $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/calendarioacademico.jpg"  height="100%" width="100%"/> </svg></a>
 
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
