@@ -4,10 +4,13 @@ create view fechacalendario1 as
 select fechacalendario.idfechacalendario,
 fechacalendario.fechacalendario,
 fechacalendario.actividad,
+fechacalendario.detalle,
 fechacalendario.hito ,
 periodoacademico.idperiodoacademico,
+estadoactividad.color,
 periodoacademico.nombrecorto as elperiodoacademico,
 calendarioacademico.idcalendarioacademico 
-from fechacalendario,calendarioacademico,periodoacademico 
+from fechacalendario,calendarioacademico,periodoacademico,estadoactividad 
 where fechacalendario.idcalendarioacademico=calendarioacademico.idcalendarioacademico 
+and fechacalendario.idestadoactividad=estadoactividad.idestadoactividad 
 and calendarioacademico.idperiodoacademico=periodoacademico.idperiodoacademico; 

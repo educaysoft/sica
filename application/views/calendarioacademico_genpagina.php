@@ -326,7 +326,7 @@ foreach($calendarioacademico as $rowj){
            //     if($rowj[$row->idegresado]['idestadofechacalendario']==5){
 			    $data=$data.' <div class="card-body" style="background-color:#D3D3D3;padding: 20px;border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) "  > <b>: </b>'. $rowj[$row->idcalendarioacademico]['nombre'].'  -</div><br>';
 
-			    $data=$data.' <div class="card-body" style="background-color:#D3D3D3;padding: 20px;border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) "  > <b>: </b>'. $row->detalle.'  -</div><br>';
+			    $data=$data.' <div class="card-body" style="background-color:'.$row->color.';padding: 20px;border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) "  > <b>: </b>'. $row->detalle.'  -</div><br>';
 
 
                 break;
