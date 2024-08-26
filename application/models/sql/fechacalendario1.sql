@@ -8,6 +8,7 @@ fechacalendario.detalle,
 fechacalendario.hito ,
 periodoacademico.idperiodoacademico,
 estadoactividad.color,
+estadoactividad.nombre as elestado,
 periodoacademico.nombrecorto as elperiodoacademico,
 calendarioacademico.idcalendarioacademico 
 from fechacalendario,calendarioacademico,periodoacademico,estadoactividad 
