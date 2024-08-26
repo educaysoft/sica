@@ -297,8 +297,8 @@ public function genpagina()
 	$ordenrpt=0;
 //	if($this->uri->segment(3))
 //	{
-		$idcarrera=$this->uri->segment(3);
-	 	$data['fechacalendarios']= $this->fechacalendario_model->lista_fechacalendarios1(0)->result();
+		$idcalendarioacademico=$this->uri->segment(3);
+	 	$data['fechacalendarios']= $this->fechacalendario_model->fechacalendarios1($idcalendarioacademico)->result();
 		$arreglo=array();
 		$i=0;
 		foreach($data['fechacalendarios'] as $row){
