@@ -81,8 +81,9 @@
 		 //$pdf->Cell(80,5,utf8_decode($row->asunto),1,0,'L',0);
 		 $pdf->MultiCell(80,5,utf8_decode($row->asunto),1,'L',1);
 		 $pdf->SetXY($current_x+80, $current_y);
+         $url_base = "https://repositorioutlvte.org/Repositorio/";
 
-		 $pdf->Cell(40,$h,utf8_decode($row->archivopdf),1,1,'L',0);
+		 $pdf->Cell(40,$h,utf8_decode($row->archivopdf),1,1,'L',0,$url_base.$row->archivopdf);
 
 
    }
