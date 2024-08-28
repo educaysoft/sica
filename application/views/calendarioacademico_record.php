@@ -133,11 +133,12 @@ if(isset($calendarioacademico))
 	<table class="table table-striped table-bordered table-hover" id="mydatac">
 	 <thead>
 	 <tr>
-	 <th>idcalendario</th>
+	 <th>idcal</th>
 	 <th>idfecha</th>
 	 <th>fecha</th>
 	 <th>actividad.</th>
 	 <th>estado.</th>
+	 <th>color.</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
@@ -165,11 +166,12 @@ $(document).ready(function(){
     var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('calendarioacademico/fecha_data')?>', type: 'GET',data:{idcalendarioacademico:idcalendarioacademico}},
            "rowCallback": function(row, data, index){
         	$("td:eq(0)", row).css('background-color',data[5])
-        	$("td:eq(1)", row).css('background-color','#99ff9c')
-        	$("td:eq(2)", row).css('background-color','#99ff9c')
-        	$("td:eq(3)", row).css('background-color','#99ff9c')
-        	$("td:eq(4)", row).css('background-color','#99ff9c')
-        	$("td:eq(5)", row).css('background-color','#99ff9c')
+        	$("td:eq(1)", row).css('background-color',data[5])
+        	$("td:eq(2)", row).css('background-color',data[5])
+        	$("td:eq(3)", row).css('background-color',data[5])
+        	$("td:eq(4)", row).css('background-color',data[5])
+        	$("td:eq(5)", row).css('background-color',data[5])
+        	$("td:eq(6)", row).css('background-color',data[5])
        }
  
     
