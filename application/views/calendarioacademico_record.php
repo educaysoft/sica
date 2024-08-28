@@ -162,7 +162,20 @@ if(isset($calendarioacademico))
 
 $(document).ready(function(){
 	var idcalendarioacademico=document.getElementById("idcalendarioacademico").value;
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('calendarioacademico/fecha_data')?>', type: 'GET',data:{idcalendarioacademico:idcalendarioacademico}},});
+    var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('calendarioacademico/fecha_data')?>', type: 'GET',data:{idcalendarioacademico:idcalendarioacademico}},
+           "rowCallback": function(row, data, index){
+        	$("td:eq(0)", row).css('background-color',data[5])
+        	$("td:eq(1)", row).css('background-color','#99ff9c')
+        	$("td:eq(2)", row).css('background-color','#99ff9c')
+        	$("td:eq(3)", row).css('background-color','#99ff9c')
+        	$("td:eq(4)", row).css('background-color','#99ff9c')
+        	$("td:eq(5)", row).css('background-color','#99ff9c')
+       }
+ 
+    
+    
+    
+    });
 });
 
 
