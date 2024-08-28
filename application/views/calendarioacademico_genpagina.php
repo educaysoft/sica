@@ -329,9 +329,7 @@ foreach($calendarioacademico as $rowj){
 			    $data=$data.' <div class="card-body" style="background-color:'.$row->color.';padding: 20px;border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) "  >Estado: <span class="lead text-muted"  style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">'.$row->elestado.'</span><br>'. $row->detalle.'  -</div><br>';
 
             if(!empty($row->resultados)){
-
-
-			    $data=$data.' <div class="card-body" style="background-color:'.$row->color.';padding: 20px;border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) "  >Estado: <span class="lead text-muted"  style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">RESULTADOS:'</span><br>'. $row->resultados.'  -</div><br>';
+			    $data=$data.' <div class="card-body" style="background-color:'.$row->color.';padding: 20px;border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) "  >Estado: <span class="lead text-muted"  style="text-transform:uppercase;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); ">RESULTADOS:</span><br>'. $row->resultados.'  -</div><br>';
 
 
             }
