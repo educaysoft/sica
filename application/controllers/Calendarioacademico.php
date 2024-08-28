@@ -170,10 +170,10 @@ public function iniciar()
 			$draw= intval($this->input->get("length"));
 
 			$idcalendarioacademico=$this->input->get('idcalendarioacademico');
-			$data0 =$this->fechacalendario_model->fechacalendarios($idcalendarioacademico);
+			$data0 =$this->fechacalendario_model->fechacalendarios1($idcalendarioacademico);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idcalendarioacademico,$r->idfechacalendario,$r->fechacalendario,$r->actividad,
+				$data[]=array($r->idcalendarioacademico,$r->idfechacalendario,$r->fechacalendario,$r->actividad,$r->elestado,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('fechacalendario/actual').'"    data-idfechacalendario="'.$r->idfechacalendario.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
