@@ -41,6 +41,20 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 	</div> 
 </div>
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Resultados de la actividad:</label>
+	<div class="col-md-10">
+		<?php
+
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"asunto" );    
+ echo form_textarea("resultados","", $textarea_options); 
+		?>
+	</div> 
+</div>
+
+
+
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Fecha calendaria:</label>
 <div class="col-md-10">

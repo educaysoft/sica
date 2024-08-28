@@ -50,6 +50,7 @@ class Fechacalendario extends CI_Controller{
 	 	$array_item=array(
 	 	'actividad' => $this->input->post('actividad'),
 	 	'detalle' => $this->input->post('detalle'),
+	 	'resultados' => $this->input->post('resultados'),
 	 	'fechacalendario' => $this->input->post('fechacalendario'),
 	 	'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
 	 	'idestadoactividad' => $this->input->post('idestadoactividad'),
@@ -82,6 +83,7 @@ class Fechacalendario extends CI_Controller{
 		 	'idfechacalendario' => $this->input->post('idfechacalendario'),
 		 	'actividad' => $this->input->post('actividad'),
 		 	'detalle' => $this->input->post('detalle'),
+	 	    'resultados' => $this->input->post('resultados'),
 	 		'fechacalendario' => $this->input->post('fechacalendario'),
 	 		'idcalendarioacademico' => $this->input->post('idcalendarioacademico'),
 	 	    'idestadoactividad' => $this->input->post('idestadoactividad'),

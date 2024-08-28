@@ -70,6 +70,22 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Resultados:</label>
+	<div class="col-md-10">
+		<?php
+
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20',"disabled"=>"disabled", 'style'=> 'width:50%;height:100px;', "placeholder"=>"Tema a  tratar" );    
+
+	echo form_textarea('resultados',$fechacalendario['resultados'],$textarea_options);
+
+		?>
+	</div> 
+</div>
+
+
+
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Fecha calendaria:</label>

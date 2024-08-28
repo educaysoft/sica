@@ -47,6 +47,18 @@ echo form_textarea('detalle',$fechacalendario['detalle'],$textarea_options );
 </div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Resultados:</label>
+	<div class="col-md-10">
+		<?php
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"Detalle" );    
+echo form_textarea('resultados',$fechacalendario['resultados'],$textarea_options ); 
+
+		?>
+	</div> 
+</div>
+
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Calendario académico:</label>
