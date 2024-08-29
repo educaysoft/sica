@@ -23,7 +23,7 @@ foreach ($instituciones as $row){
 <tr>
       <td>Detalle:</td>
 <td><?php 
-	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle del reunion" );    
+	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:200px;', "placeholder"=>"detalle del reunion" );    
       echo form_textarea('detalle',$reunion['detalle'],$textarea_options) ?></td>
   </tr>
 
