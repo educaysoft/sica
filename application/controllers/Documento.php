@@ -230,7 +230,7 @@ class Documento extends CI_Controller{
 	{
 
 
-		if($asunto=$this->input->get('idtipodocu')){
+		if($asunto=$this->input->get('asunto')){
 		    $data['documentos'] = $this->documento_model->documentosxtipo($this->uri->segment(3),$asunto)->result();
     }else{
 
