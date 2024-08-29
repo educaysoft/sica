@@ -135,7 +135,7 @@ echo form_input('idrelaciondependencia',$options[$distributivodocente['idrelacio
     <label class="col-md-2 col-form-label"> Portfolio Web: </label>
 	<div class="col-md-10">
      	<?php 
-      echo form_input('portafolioweb',$distributivodocente['portafolioweb'],array("id"=>"portafolioweb","disabled"=>"disabled",'placeholder'=>'Portafolioweb')); 
+      echo form_input('portafoliodrive',$distributivodocente['portafoliodrive'],array("id"=>"portafoliodrive","disabled"=>"disabled",'placeholder'=>'Portafolioweb')); 
 		?>
 	</div> 
 </div>
