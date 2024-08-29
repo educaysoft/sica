@@ -59,7 +59,8 @@
 		$l=strlen($row->asunto);
 	//	echo $l;
 	//	die();
-		   if($l>688888888 	$h=10;
+		   if($l>68){
+		   	$h=10;
      		   }else{
 		   	$h=5;
 		   }			   
