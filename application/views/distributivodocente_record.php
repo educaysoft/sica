@@ -14,6 +14,8 @@ if(isset($distributivodocente))
         <li style="border-right:1px solid green"> <?php echo anchor('distributivodocente/quitar/'.$distributivodocente['iddistributivodocente'],'Quitar'); ?></li>
         <li> <?php echo anchor('distributivodocente/listar/','Listar'); ?></li>
         <li> <?php echo anchor('distributivodocente/reportepdf/'.$distributivodocente['iddistributivodocente'],'reportepdf'); ?></li>
+        <li> <?php echo anchor('distributivodocente/generweb/'.$distributivodocente['iddistributivo'],'generaweb'); ?></li>
+        <li> <?php echo anchor('distributivodocente/paginaweb/'.$distributivodocente['iddistributivo'],'web'); ?></li>
 
 <?php 
 }else{
@@ -124,6 +126,16 @@ foreach ($relaciondependencias as $row){
 
 echo form_input('idrelaciondependencia',$options[$distributivodocente['idrelaciondependencia']],array("id"=>"idrelaciondependencia","disabled"=>"disabled",'style'=>'width:500px;')); 
 
+		?>
+	</div> 
+</div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Portfolio Web: </label>
+	<div class="col-md-10">
+     	<?php 
+      echo form_input('portafolioweb',$distributivodocente['portafolioweb'],array("id"=>"portafolioweb","disabled"=>"disabled",'placeholder'=>'Portafolioweb')); 
 		?>
 	</div> 
 </div>

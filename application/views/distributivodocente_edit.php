@@ -75,6 +75,18 @@ foreach ($relaciondependencias as $row){
 </tr>
 
 
+<tr>
+     <td>Portafolio web</td>
+     <td><?php 
+
+
+$eys_arrinput=array('name'=>'portafolioweb','value'=>$distributivodocente['portafolioweb'],'readonly'=>'true', "style"=>"width:500px");
+echo form_input($eys_arrinput); ?></td>
+  </tr>
+
+
+
+
  
  <tr>
  <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('distributivodocente','Atras') ?></td>
