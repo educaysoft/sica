@@ -594,7 +594,6 @@ $data=$data.'</div>
 			}
 			$data=$data.'<br><br>';
 
-			$data=$data.'[<a href="'.$row->portafoliodrive.'"  '.$disable1.'><i class="fas fa-file-pdf" style="font-size:24px" ></i> <span style="color:'.$color1.'" >Portafolio Drive</span></a>] - ';
 
 
 $data=$data.'<div class="tabla-container">
