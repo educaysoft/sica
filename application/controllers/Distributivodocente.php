@@ -81,7 +81,7 @@ public function add()
 			'idtiempodedicacion' => $this->input->post('idtiempodedicacion'),
 			'idcategoriadocente' => $this->input->post('idcategoriadocente'),
 			'idrelaciondependencia' => $this->input->post('idrelaciondependencia'),
-			'portafolioweb' => $this->input->post('portafolioweb'),
+			'portafoliodrive' => $this->input->post('portafoliodrive'),
 	 	);
 	 	$result=$this->distributivodocente_model->save($array_item);
 	 	if($result == false)
@@ -125,7 +125,7 @@ public function add()
 			'idtiempodedicacion' => $this->input->post('idtiempodedicacion'),
             'idcategoriadocente' => $this->input->post('idcategoriadocente'),
 			'idrelaciondependencia' => $this->input->post('idrelaciondependencia'),
-			'portafolioweb' => $this->input->post('portafolioweb'),
+			'portafoliodrive' => $this->input->post('portafoliodrive'),
 	 	);
 	 	$this->distributivodocente_model->update($id,$array_item);
 	 	redirect('distributivodocente/actual/'.$id);
