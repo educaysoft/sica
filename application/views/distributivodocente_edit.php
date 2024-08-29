@@ -80,7 +80,7 @@ foreach ($relaciondependencias as $row){
      <td><?php 
 
 
-$eys_arrinput=array('name'=>'portafolioweb','value'=>$distributivodocente['portafolioweb'],'readonly'=>'true', "style"=>"width:500px");
+$eys_arrinput=array('name'=>'portafoliodrive','value'=>$distributivodocente['portafoliodrive'],'readonly'=>'true', "style"=>"width:500px");
 echo form_input($eys_arrinput); ?></td>
   </tr>
 
