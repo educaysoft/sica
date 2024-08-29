@@ -58,13 +58,16 @@ class Documento_model extends CI_model {
 
 
 	//Retorna todos los registros como un objeto
-	function documentosxtipo($idtipodocumento){
+	function documentosxtipo($idtipodocumento,$asunto){
 		
 		if($idtipodocumento==0)
 		{
 		$documento=$this->db->order_by("autor")->get('documento1');
 		}else{
-
+            if(!empty($asunto))
+            {
+            $this->db->like('asunto', $asunto);
+            }
 		$this->db->where('idtipodocu='.$idtipodocumento);
 		$documento=$this->db->order_by("autor")->get('documento1');
 		}

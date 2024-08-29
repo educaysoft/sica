@@ -228,8 +228,15 @@ class Documento extends CI_Controller{
 
 	public function reportepdf()
 	{
-		
-		$data['documentos'] = $this->documento_model->documentosxtipo($this->uri->segment(3))->result();
+
+
+		if($asunto=$this->input->get('idtipodocu')){
+		    $data['documentos'] = $this->documento_model->documentosxtipo($this->uri->segment(3),$asunto)->result();
+    }else{
+
+		    $data['documentos'] = $this->documento_model->documentosxtipo($this->uri->segment(3),"")->result();
+
+    }
 
 		$data['title']="Evento";
 		$this->load->view('documento_list_pdf',$data);
