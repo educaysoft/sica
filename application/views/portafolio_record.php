@@ -336,7 +336,7 @@ $('#show_data').on('click','.item_enviar',function(){
 
 		msg=head+msg+foot0+foot;
 
-		var correode="educacioncontinua@utelvt.edu.ec";
+		var correode="tecnologiasdelainformacion@utelvt.edu.ec";
 		if(correopara==''){
 			correopara=mailto;
 		}
