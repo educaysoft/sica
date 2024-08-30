@@ -76,7 +76,7 @@
 		 $pdf->SetXY($current_x+80, $current_y);
          $url_base = "https://repositorioutlvte.org/Repositorio/";
 
-		 $pdf->Cell(40,$h,utf8_decode('Portafolio Drive'),1,1,'L',0,$$row->portafoliodrive);
+		 $pdf->Cell(40,$h,utf8_decode('Portafolio Drive'),1,1,'L',0,$row->portafoliodrive);
 
 
    }
