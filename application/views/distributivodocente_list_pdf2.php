@@ -30,7 +30,7 @@
 	$pdf->institucion='UNIVERSIDAD TÉCNICA LUIS VARGAS TORRES DE ESMERALDAS';
 	$pdf->unidad='FACULTAD DE INGENIERIAS (FACI)';
 	$pdf->departamento='CARRERA EN TECNOLOGÍA DE LA INFORMACIÓN';
-	$pdf->titulo=$documentos[0]->eltipodocu;
+	$pdf->titulo=$distributivodocente[0]->elperiodo;
 	
 
 
