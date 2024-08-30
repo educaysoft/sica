@@ -250,7 +250,7 @@ function distributivodocente_data()
 	public function reportepdf2()
 	{
 		$iddistributivo=$this->uri->segment(3);
-		$data['distributivodocente']=$this->distributivodocente_model->distributivodocentes1($iddistributivo)->row_array();
+		$data['distributivodocente']=$this->distributivodocente_model->distributivodocentes1($iddistributivo)->result();
 		$this->load->view('distributivodocente_list_pdf2',$data);
 	}
 
