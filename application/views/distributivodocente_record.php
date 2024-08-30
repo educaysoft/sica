@@ -16,6 +16,7 @@ if(isset($distributivodocente))
         <li> <?php echo anchor('distributivodocente/reportepdf/'.$distributivodocente['iddistributivodocente'],'reportepdf'); ?></li>
         <li> <?php echo anchor('distributivodocente/generweb/'.$distributivodocente['iddistributivo'],'generaweb'); ?></li>
         <li> <?php echo anchor('distributivodocente/paginaweb/'.$distributivodocente['iddistributivo'],'web'); ?></li>
+        <li> <?php echo anchor('distributivodocente/reportepdf2/'.$distributivodocente['iddistributivo'],'reportepdf2'); ?></li>
 
 <?php 
 }else{
