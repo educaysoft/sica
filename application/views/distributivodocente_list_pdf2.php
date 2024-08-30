@@ -43,9 +43,8 @@
 
 	$pdf->Cell(5,5,'#',1,0,'C',1);
 	$pdf->Cell(45,5,'eldocente',1,0,'C',1);
-	$pdf->Cell(80,5,'distrivoIndividual',1,0,'C',1);
-	$pdf->Cell(80,5,'InformeDocente',1,0,'C',1);
-	$pdf->Cell(80,5,'periodo',1,0,'C',1);
+	$pdf->Cell(40,5,'distrivoIndividual',1,0,'C',1);
+	$pdf->Cell(40,5,'InformeDocente',1,0,'C',1);
 	$pdf->Cell(40,5,'portafolioweb',1,1,'C',1);
  
 	 
@@ -77,8 +76,8 @@
 	//	 $pdf->MultiCell(80,5,utf8_decode($row->elperiodoacademico),1,'L',1);
          $url_base = "https://repositorioutlvte.org/Repositorio/";
 
-		 $pdf->MultiCell(40,5,utf8_decode($row->distributivoindividualpdf),1,'L',1,$url_base.$row->distributivoindividualpdf);
-		 $pdf->MultiCell(40,5,utf8_decode($row->informeactividaddocente),1,'L',1,$url_base.$row->informeactividaddocente);
+		 $pdf->cell(40,5,utf8_decode($row->distributivoindividualpdf),1,0,'L',0,$url_base.$row->distributivoindividualpdf);
+		 $pdf->cell(40,5,utf8_decode($row->informeactividaddocente),1,0,'L',0,$url_base.$row->informeactividaddocente);
 		 $pdf->SetXY($current_x+80, $current_y);
 		 $pdf->Cell(40,$h,utf8_decode('Portafolio Drive'),1,1,'L',0,$row->portafoliodrive);
 
