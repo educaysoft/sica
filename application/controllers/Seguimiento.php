@@ -445,7 +445,7 @@ public function send()
 
         $this->load->library('email');
         $nome = $this->input->post('nome');
-        $msg = str_replace("stalin.francis@utelvt.edu.ec",$mailto, $this->input->post('msg'));
+        $msg = str_replace("tecnologiasdelainformacion@utelvt.edu.ec",$mailto, $this->input->post('msg'));
         $secure = $this->input->post('secure');
 	$email= $this->input->post('correode');
 
@@ -539,7 +539,7 @@ public function sendhotmail()
 
         $this->load->library('email');
         $nome = $this->input->post('nome');
-        $msg = str_replace("stalin.francis@utelvt.edu.ec",$mailto, $this->input->post('msg'));
+        $msg = str_replace("tecnologiasdelainformacion@utelvt.edu.ec",$mailto, $this->input->post('msg'));
         $secure = $this->input->post('secure');
 	$email= $this->input->post('correode');
      //   $config['protocol'] = "smtp";
