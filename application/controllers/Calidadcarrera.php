@@ -53,7 +53,7 @@ public function  save()
 		'idcriteriocalidad' => $this->input->post('idcriteriocalidad'),
 		'idsubcriteriocalidad' => $this->input->post('idsubcriteriocalidad'),
 		'idindicadorcalidad' => $this->input->post('idindicadorcalidad'),
-	 	'orden' => $this->input->post('orden'),
+	 	'codigo' => $this->input->post('codigo'),
 	 	'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
 	 	$result=$this->calidadcarrera_model->save($array_item);

@@ -78,7 +78,7 @@ foreach ($indicadorcalidads as $row){
 
 
 <tr>
-      <td>Orden:</td>
+      <td>Codigo:</td>
       <td><?php echo form_input('codigo',$calidadcarrera['codigo'],array('placeholder'=>'Nombre del ', "style"=>"width:500px")) ?></td>
   </tr>
 
