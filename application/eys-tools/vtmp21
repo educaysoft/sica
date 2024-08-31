@@ -1,34 +1,111 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("sexo/save", array('id'=>'eys-form')); ?>
-<?php echo form_hidden("idsexo");  ?>
-
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id Subcriteriocalidad:</label>
-	<div class="col-md-10">
-<?php echo form_input("idsexo","", array("placeholder"=>"Id sexo"));  ?>
-	</div> 
-</div>
+<?php echo form_open("formatoinstitucional/save") ?>
+<?php echo form_hidden("idformatoinstitucional")  ?>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Nombre:</label>
-	<div class="col-md-10">
-<?php echo form_input("nombre","", array("placeholder"=>"Descripcion de sexo"));  ?>
-	</div> 
-</div> 
-
-<div id="eys-nav-i">
-
-	<ul>
-   	 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
-    		<li> <?php echo anchor('persona', 'Cancelar'); ?></li>
-	</ul>
-</div>
+<label class="col-md-2 col-form-label">Institución: </label>
+<div class="col-md-10">
+<?php
  
 
 
+$options= array('--Select--');
+foreach ($instituciones as $row){
+	$options[$row->idinstitucion]= $row->nombre;
+}
+
+echo form_dropdown("idinstitucion",$options, set_select('--Select--','default_value')); 
+
+?>
+</div>
+</div>
+
+
+
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Nombre: </label>
+<div class="col-md-10">
+<?php
+     
+     echo form_input("nombre","", array("placeholder"=>"Nombre de la artículo",'style'=>'width:500px;'));
+?>
+</div>
+</div>
+
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Detalle: </label>
+<div class="col-md-10">
+<?php
+	
+
+	
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle" );    
+	
+echo form_textarea("detalle","", $textarea_options);
+
+?>
+</div>
+</div>
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Archivo: </label>
+<div class="col-md-10">
+<?php
+	
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle" );    
+ echo form_textarea("archivo","", $textarea_options);  
+
+?>
+</div>
+</div>
+
+
+
+
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Proceso: </label>
+<div class="col-md-10">
+<?php
+$options= array('--Select--');
+foreach ($procesos as $row){
+	$options[$row->idproceso]= $row->nombre;
+}
+
+ echo form_dropdown("idproceso",$options, set_select('--Select--','default_value'),array('id'=>'idproceso'));  
+?>
+</div>
+</div>
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Orden: </label>
+<div class="col-md-10">
+<?php
+     
+     echo form_input("orden","", array("placeholder"=>"orden en el proceso",'style'=>'width:500px;'));
+?>
+</div>
+</div>
+
+
+<table>
+<tr>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("formatoinstitucional","Atras") ?> </td>
+</tr>
+
+
+
+
+</table>
 <?php echo form_close();?>
 

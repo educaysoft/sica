@@ -1,22 +1,22 @@
 <?php
 
-class Formatoinstitucional extends CI_Controller{
+class Calidadcarrera extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('formatoinstitucional_model');
+      $this->load->model('calidadcarrera_model');
   	  $this->load->model('institucion_model');
      $this->load->model('proceso_model');
 }
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-	  	$data['formatoinstitucional']=$this->formatoinstitucional_model->elultimo();
+	  	$data['calidadcarrera']=$this->calidadcarrera_model->elultimo();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   		$data['title']="Lista de Artiulos";
 			$this->load->view('template/page_header');		
-  		$this->load->view('formatoinstitucional_record',$data);
+  		$this->load->view('calidadcarrera_record',$data);
 			$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -32,7 +32,7 @@ public function add()
 		$data['procesos']= $this->proceso_model->lista_procesos()->result();
 		$data['title']="Nuevo Artículo";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('formatoinstitucional_form',$data);
+	 	$this->load->view('calidadcarrera_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -40,7 +40,7 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idformatoinstitucional' => $this->input->post('idformatoinstitucional'),
+	 	'idcalidadcarrera' => $this->input->post('idcalidadcarrera'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	'detalle' => $this->input->post('detalle'),
 	 	'archivo' => $this->input->post('archivo'),
@@ -48,7 +48,7 @@ public function  save()
 	 	'orden' => $this->input->post('orden'),
 	 	'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
-	 	$result=$this->formatoinstitucional_model->save($array_item);
+	 	$result=$this->calidadcarrera_model->save($array_item);
 	 	if($result == FALSE)
 		{
 			echo "<script language='JavaScript'> alert('formato ya existe ya existe'); </script>";
@@ -63,12 +63,12 @@ public function  save()
 
 public function edit()
 {
-	 	$data['formatoinstitucional'] = $this->formatoinstitucional_model->formatoinstitucional($this->uri->segment(3))->row_array();
+	 	$data['calidadcarrera'] = $this->calidadcarrera_model->calidadcarrera($this->uri->segment(3))->row_array();
   		$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['procesos']= $this->proceso_model->lista_procesos()->result();
- 	 	$data['title'] = "Actualizar Formatoinstitucional";
+ 	 	$data['title'] = "Actualizar Calidadcarrera";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('formatoinstitucional_edit',$data);
+ 	 	$this->load->view('calidadcarrera_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -76,10 +76,10 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idformatoinstitucional');
+		$id=$this->input->post('idcalidadcarrera');
 	 	$array_item=array(
 		 	
-		 	'idformatoinstitucional' => $this->input->post('idformatoinstitucional'),
+		 	'idcalidadcarrera' => $this->input->post('idcalidadcarrera'),
 		 	'nombre' => $this->input->post('nombre'),
 		 	'detalle' => $this->input->post('detalle'),
 	 	'archivo' => $this->input->post('archivo'),
@@ -87,8 +87,8 @@ public function edit()
 	 	'orden' => $this->input->post('orden'),
 	 		'idinstitucion' => $this->input->post('idinstitucion'),
 	 	);
-	 	$this->formatoinstitucional_model->update($id,$array_item);
-	 	redirect('formatoinstitucional/actual/'.$id);
+	 	$this->calidadcarrera_model->update($id,$array_item);
+	 	redirect('calidadcarrera/actual/'.$id);
  	}
 
 
@@ -96,24 +96,24 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Formatoinstitucional";
+  $data['title']="Calidadcarrera";
 	$this->load->view('template/page_header');		
-  $this->load->view('formatoinstitucional_list',$data);
+  $this->load->view('calidadcarrera_list',$data);
 	$this->load->view('template/page_footer');
 }
 
-function formatoinstitucional_data()
+function calidadcarrera_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->formatoinstitucional_model->lista_formatoinstitucionals();
+	 	$data0 = $this->calidadcarrera_model->lista_calidadcarreras();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idformatoinstitucional,$r->nombre,$r->detalle,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('formatoinstitucional/actual').'"  data-idformatoinstitucional="'.$r->idformatoinstitucional.'">Ver</a>');
+			$data[]=array($r->idcalidadcarrera,$r->nombre,$r->detalle,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('calidadcarrera/actual').'"  data-idcalidadcarrera="'.$r->idcalidadcarrera.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -133,12 +133,12 @@ function formatoinstitucional_data()
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$idformatoinstitucional=$this->input->get('idformatoinstitucional');
-			$data0 =$this->ubicacionformatoinstitucional_model->ubicacionformatoinstitucionalsA($idformatoinstitucional);
+			$idcalidadcarrera=$this->input->get('idcalidadcarrera');
+			$data0 =$this->ubicacioncalidadcarrera_model->ubicacioncalidadcarrerasA($idcalidadcarrera);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idubicacionformatoinstitucional,$r->idformatoinstitucional,$r->launidad,$r->lapersona,$r->fecha,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('ubicacionformatoinstitucional/actual').'"    data-idubicacionformatoinstitucional="'.$r->idubicacionformatoinstitucional.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('ubicacionformatoinstitucional/edit').'"    data-idubicacionformatoinstitucional="'.$r->idubicacionformatoinstitucional.'">edit</a>');
+				$data[]=array($r->idubicacioncalidadcarrera,$r->idcalidadcarrera,$r->launidad,$r->lapersona,$r->fecha,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('ubicacioncalidadcarrera/actual').'"    data-idubicacioncalidadcarrera="'.$r->idubicacioncalidadcarrera.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('ubicacioncalidadcarrera/edit').'"    data-idubicacioncalidadcarrera="'.$r->idubicacioncalidadcarrera.'">edit</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -162,12 +162,12 @@ function formatoinstitucional_data()
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$idformatoinstitucional=$this->input->get('idformatoinstitucional');
-			$data0 =$this->prestamoformatoinstitucional_model->prestamoformatoinstitucionalsA($idformatoinstitucional);
+			$idcalidadcarrera=$this->input->get('idcalidadcarrera');
+			$data0 =$this->prestamocalidadcarrera_model->prestamocalidadcarrerasA($idcalidadcarrera);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idprestamoformatoinstitucional,$r->idformatoinstitucional,$r->lapersona,$r->fechaprestamo,$r->horaprestamo,$r->fechadevolucion,$r->horadevolucion,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamoformatoinstitucional/actual').'"    data-idprestamoformatoinstitucional="'.$r->idprestamoformatoinstitucional.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamoformatoinstitucional/edit').'"    data-idprestamoformatoinstitucional="'.$r->idprestamoformatoinstitucional.'">edit</a>');
+				$data[]=array($r->idprestamocalidadcarrera,$r->idcalidadcarrera,$r->lapersona,$r->fechaprestamo,$r->horaprestamo,$r->fechadevolucion,$r->horadevolucion,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamocalidadcarrera/actual').'"    data-idprestamocalidadcarrera="'.$r->idprestamocalidadcarrera.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamocalidadcarrera/edit').'"    data-idprestamocalidadcarrera="'.$r->idprestamocalidadcarrera.'">edit</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -190,28 +190,28 @@ public function genpagina()
 	{
 		//$iddistributivo=$this->uri->segment(3);
 		$iddistributivo=1;
-	 	$data['formatoinstitucionals']= $this->formatoinstitucional_model->formatoinstitucionalA($iddistributivo)->result();
+	 	$data['calidadcarreras']= $this->calidadcarrera_model->calidadcarreraA($iddistributivo)->result();
 		$arreglo=array();
 		$i=0;
-//		foreach($data['formatoinstitucionals'] as $row){
-//		$idformatoinstitucional=$row->idformatoinstitucional;
+//		foreach($data['calidadcarreras'] as $row){
+//		$idcalidadcarrera=$row->idcalidadcarrera;
 
-//		$xx=array($this->prestamoformatoinstitucional_model->prestamoformatoinstitucionalsA($idformatoinstitucional)->result_array());
+//		$xx=array($this->prestamocalidadcarrera_model->prestamocalidadcarrerasA($idcalidadcarrera)->result_array());
 //		if(count($xx[0]) > 0){
 //		foreach($xx as $row2){
 //			foreach($row2 as $row3)
 //			 {
-//				$arreglo+=array($i=>array($row->idformatoinstitucional=>$row3));
+//				$arreglo+=array($i=>array($row->idcalidadcarrera=>$row3));
 //				$i=$i+1;
 //			}
 ///			}
 //		}
 //		}
-		$data['prestamoformatoinstitucional']=array();
-//		$data['prestamoformatoinstitucional']=$arreglo; 
+		$data['prestamocalidadcarrera']=array();
+//		$data['prestamocalidadcarrera']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
 
-		$this->load->view('formatoinstitucional_genpagina',$data);
+		$this->load->view('calidadcarrera_genpagina',$data);
 	}
 }
 
@@ -226,14 +226,14 @@ public function genpagina()
 
 public function actual()
 {
-	$data['formatoinstitucional'] = $this->formatoinstitucional_model->formatoinstitucional($this->uri->segment(3))->row_array();
+	$data['calidadcarrera'] = $this->calidadcarrera_model->calidadcarrera($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   if(!empty($data))
   {
-    $data['title']="Formatoinstitucional";
+    $data['title']="Calidadcarrera";
     $this->load->view('template/page_header');		
-    $this->load->view('formatoinstitucional_record',$data);
+    $this->load->view('calidadcarrera_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -250,14 +250,14 @@ public function actual()
 
 public function elprimero()
 {
-	$data['formatoinstitucional'] = $this->formatoinstitucional_model->elprimero();
+	$data['calidadcarrera'] = $this->calidadcarrera_model->elprimero();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   if(!empty($data))
   {
-    $data['title']="Formatoinstitucional";
+    $data['title']="Calidadcarrera";
     $this->load->view('template/page_header');		
-    $this->load->view('formatoinstitucional_record',$data);
+    $this->load->view('calidadcarrera_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -268,15 +268,15 @@ public function elprimero()
 
 public function elultimo()
 {
-	  $data['formatoinstitucional'] = $this->formatoinstitucional_model->elultimo();
+	  $data['calidadcarrera'] = $this->calidadcarrera_model->elultimo();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['procesos']= $this->proceso_model->lista_procesos()->result();
   if(!empty($data))
   {
-    $data['title']="Formatoinstitucional";
+    $data['title']="Calidadcarrera";
   
     $this->load->view('template/page_header');		
-    $this->load->view('formatoinstitucional_record',$data);
+    $this->load->view('calidadcarrera_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -287,33 +287,33 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['formatoinstitucional_list']=$this->formatoinstitucional_model->lista_formatoinstitucional()->result();
-	$data['formatoinstitucional'] = $this->formatoinstitucional_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['calidadcarrera_list']=$this->calidadcarrera_model->lista_calidadcarrera()->result();
+	$data['calidadcarrera'] = $this->calidadcarrera_model->siguiente($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['procesos']= $this->proceso_model->lista_procesos()->result();
-  $data['title']="Formatoinstitucional";
+  $data['title']="Calidadcarrera";
 	$this->load->view('template/page_header');		
-  $this->load->view('formatoinstitucional_record',$data);
+  $this->load->view('calidadcarrera_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['formatoinstitucional_list']=$this->formatoinstitucional_model->lista_formatoinstitucional()->result();
-	$data['formatoinstitucional'] = $this->formatoinstitucional_model->anterior($this->uri->segment(3))->row_array();
+ // $data['calidadcarrera_list']=$this->calidadcarrera_model->lista_calidadcarrera()->result();
+	$data['calidadcarrera'] = $this->calidadcarrera_model->anterior($this->uri->segment(3))->row_array();
  	$data['instituciones']= $this->institucion_model->lista_instituciones()->result();
 		$data['procesos']= $this->proceso_model->lista_procesos()->result();
-  $data['title']="Formatoinstitucional";
+  $data['title']="Calidadcarrera";
 	$this->load->view('template/page_header');		
-  $this->load->view('formatoinstitucional_record',$data);
+  $this->load->view('calidadcarrera_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 
 
 
-	public function formatoinstitucional_1()
+	public function calidadcarrera_1()
 	{
-	  $this->load->view('formatoinstitucionals/formatoinstitucional-1');
+	  $this->load->view('calidadcarreras/calidadcarrera-1');
 	}
 
 

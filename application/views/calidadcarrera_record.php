@@ -2,25 +2,25 @@
     <h3 style="text-align: left; margin-top:-10px;"> <?php echo $title;  ?></h3>
     <ul>
 <?php
-if(isset($formatoinstitucional))
+if(isset($calidadcarrera))
 {
 ?>
-        <li> <?php echo anchor('formatoinstitucional/elprimero/', 'primero'); ?></li>
-        <li> <?php echo anchor('formatoinstitucional/siguiente/'.$formatoinstitucional['idformatoinstitucional'], 'siguiente'); ?></li>
-        <li> <?php echo anchor('formatoinstitucional/anterior/'.$formatoinstitucional['idformatoinstitucional'], 'anterior'); ?></li>
-        <li style="border-right:1px solid green"><?php echo anchor('formatoinstitucional/elultimo/', 'Último'); ?></li>
-        <li> <?php echo anchor('formatoinstitucional/add', 'Nuevo'); ?></li>
-        <li> <?php echo anchor('formatoinstitucional/edit/'.$formatoinstitucional['idformatoinstitucional'],'Edit'); ?></li>
-      <!--  <li style="border-right:1px solid green"> <?php echo anchor('formatoinstitucional/delete/'.$formatoinstitucional['idformatoinstitucional'],'Delete'); ?></li> --->
-        <li> <?php echo anchor('formatoinstitucional/listar/','Listar'); ?></li>
-        <li> <?php echo anchor('formatoinstitucional/genpagina/1','generar web'); ?></li>
-        <li> <?php echo anchor('formatoinstitucional/formatoinstitucional_1','Web'); ?></li>
+        <li> <?php echo anchor('calidadcarrera/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('calidadcarrera/siguiente/'.$calidadcarrera['idcalidadcarrera'], 'siguiente'); ?></li>
+        <li> <?php echo anchor('calidadcarrera/anterior/'.$calidadcarrera['idcalidadcarrera'], 'anterior'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('calidadcarrera/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('calidadcarrera/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('calidadcarrera/edit/'.$calidadcarrera['idcalidadcarrera'],'Edit'); ?></li>
+      <!--  <li style="border-right:1px solid green"> <?php echo anchor('calidadcarrera/delete/'.$calidadcarrera['idcalidadcarrera'],'Delete'); ?></li> --->
+        <li> <?php echo anchor('calidadcarrera/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('calidadcarrera/genpagina/1','generar web'); ?></li>
+        <li> <?php echo anchor('calidadcarrera/calidadcarrera_1','Web'); ?></li>
 
 <?php 
 }else{
 ?>
 
-        <li> <?php echo anchor('formatoinstitucional/add', 'Nuevo'); ?></li>
+        <li> <?php echo anchor('calidadcarrera/add', 'Nuevo'); ?></li>
 <?php
 }
 ?>
@@ -30,7 +30,7 @@ if(isset($formatoinstitucional))
 <br>
 
 
-<?php echo form_hidden('idformatoinstitucional',$formatoinstitucional['idformatoinstitucional']) ?>
+<?php echo form_hidden('idcalidadcarrera',$calidadcarrera['idcalidadcarrera']) ?>
 
 
  <div class="form-group row">
@@ -38,7 +38,7 @@ if(isset($formatoinstitucional))
 	<div class="col-md-10">
      <?php
 
-  $eys_arrctl=array("id"=>"idformatoinstitucional",  "name"=>'idformatoinstitucional','value'=>$formatoinstitucional['idformatoinstitucional'],"disabled"=>"disabled",'placeholder'=>'Idformatoinstitucionals','style'=>'width:500px;');
+  $eys_arrctl=array("id"=>"idcalidadcarrera",  "name"=>'idcalidadcarrera','value'=>$calidadcarrera['idcalidadcarrera'],"disabled"=>"disabled",'placeholder'=>'Idcalidadcarreras','style'=>'width:500px;');
  echo form_input($eys_arrctl);
 		?>
 	</div> 
@@ -50,7 +50,7 @@ if(isset($formatoinstitucional))
 	<div class="col-md-10">
      <?php
 
-  $eys_arrctl=array("name"=>'nombre','value'=>$formatoinstitucional['nombre'],"disabled"=>"disabled",'placeholder'=>'Inombre','style'=>'width:500px;');
+  $eys_arrctl=array("name"=>'nombre','value'=>$calidadcarrera['nombre'],"disabled"=>"disabled",'placeholder'=>'Inombre','style'=>'width:500px;');
  echo form_input($eys_arrctl);
 		?>
 	</div> 
@@ -64,7 +64,7 @@ if(isset($formatoinstitucional))
      <?php
     
 $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'disabled',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('detalle',$formatoinstitucional['detalle'],$textarea_options); 
+ echo form_textarea('detalle',$calidadcarrera['detalle'],$textarea_options); 
 		?>
 	</div> 
 </div>
@@ -77,14 +77,14 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
      <?php
     
 $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'disabled',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('archivo',$formatoinstitucional['archivo'],$textarea_options); 
+ echo form_textarea('archivo',$calidadcarrera['archivo'],$textarea_options); 
 		?>
 	</div> 
 </div>
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('proceso/actual/'.$formatoinstitucional['idproceso'], 'El trámite:'); ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('proceso/actual/'.$calidadcarrera['idproceso'], 'El trámite:'); ?> </label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
@@ -92,7 +92,7 @@ foreach ($procesos as $row){
 	$options[$row->idproceso]= $row->nombre;
 }
 
-echo form_input('idproceso',$options[$formatoinstitucional['idproceso']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+echo form_input('idproceso',$options[$calidadcarrera['idproceso']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
@@ -103,7 +103,7 @@ echo form_input('idproceso',$options[$formatoinstitucional['idproceso']],array("
 	<div class="col-md-10">
      <?php
 
-  $eys_arrctl=array("name"=>'orden','value'=>$formatoinstitucional['orden'],"disabled"=>"disabled",'placeholder'=>'Orden','style'=>'width:500px;');
+  $eys_arrctl=array("name"=>'orden','value'=>$calidadcarrera['orden'],"disabled"=>"disabled",'placeholder'=>'Orden','style'=>'width:500px;');
  echo form_input($eys_arrctl);
 		?>
 	</div> 
@@ -115,16 +115,16 @@ echo form_input('idproceso',$options[$formatoinstitucional['idproceso']],array("
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Foto:</label>
 	<div class="col-md-10">
- <img src="https://repositorioutlvte.org/Repositorio/formatoinstitucional/formatoinstitucional<?php echo $formatoinstitucional['idformatoinstitucional']; ?>.jpg" alt="formatoinstitucional" width="400" height="300"> 
+ <img src="https://repositorioutlvte.org/Repositorio/calidadcarrera/calidadcarrera<?php echo $calidadcarrera['idcalidadcarrera']; ?>.jpg" alt="calidadcarrera" width="400" height="300"> 
   
 
 	</div> 
 <div class="img-contenedor w3-card-4" style="position:relative; width:100%; height:100%; display:flex; justify-content: center; align-items: center;">
 
 
- <input type="file" id="fileInput<?php echo trim($formatoinstitucional['idformatoinstitucional']); ?>" accept="image/*">
-  <button onclick="uploadImage('formatoinstitucional<?php echo trim($formatoinstitucional['idformatoinstitucional']); ?>.jpg','<?php echo trim($formatoinstitucional['idformatoinstitucional']); ?>')">Subir Imagen</button>
-  <p id="status<?php echo trim($formatoinstitucional['idformatoinstitucional']); ?>"></p> </div>';
+ <input type="file" id="fileInput<?php echo trim($calidadcarrera['idcalidadcarrera']); ?>" accept="image/*">
+  <button onclick="uploadImage('calidadcarrera<?php echo trim($calidadcarrera['idcalidadcarrera']); ?>.jpg','<?php echo trim($calidadcarrera['idcalidadcarrera']); ?>')">Subir Imagen</button>
+  <p id="status<?php echo trim($calidadcarrera['idcalidadcarrera']); ?>"></p> </div>';
 
 
 </div>
@@ -149,16 +149,16 @@ echo form_input('idproceso',$options[$formatoinstitucional['idproceso']],array("
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var idformatoinstitucional=document.getElementById("idformatoinstitucional").value;
+	var idcalidadcarrera=document.getElementById("idcalidadcarrera").value;
 
-	var mytablaf= $('#mydatau').DataTable({"ajax": {url: '<?php echo site_url('formatoinstitucional/ubicacion_data')?>', type: 'GET',data:{idformatoinstitucional:idformatoinstitucional}},});
+	var mytablaf= $('#mydatau').DataTable({"ajax": {url: '<?php echo site_url('calidadcarrera/ubicacion_data')?>', type: 'GET',data:{idcalidadcarrera:idcalidadcarrera}},});
 
 
-	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('formatoinstitucional/prestamo_data')?>', type: 'GET',data:{idformatoinstitucional:idformatoinstitucional}},});
+	var mytablaf= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('calidadcarrera/prestamo_data')?>', type: 'GET',data:{idcalidadcarrera:idcalidadcarrera}},});
 });
 
 $('#show_datau').on('click','.item_ver',function(){
-var id= $(this).data('idubicacionformatoinstitucional');
+var id= $(this).data('idubicacioncalidadcarrera');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });
@@ -168,7 +168,7 @@ window.location.href = retorno+'/'+id;
 
 
 $('#show_data').on('click','.item_ver',function(){
-var id= $(this).data('idprestamoformatoinstitucional');
+var id= $(this).data('idprestamocalidadcarrera');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 });

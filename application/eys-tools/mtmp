@@ -1,91 +1,73 @@
 <?php
-class Sexo_model extends CI_model {
+class Formatoinstitucional_model extends CI_model {
 
-	function lista_sexos(){
-		 $sexo= $this->db->get('sexo0');
-		 return $sexo;
-	}
-
-	function lista_sexosA(){
-		 $sexo= $this->db->get('sexo1');
-		 return $sexo;
+	function lista_formatoinstitucionals(){
+		 $formatoinstitucional= $this->db->get('formatoinstitucional');
+		 return $formatoinstitucional;
 	}
 
 
+	function lista_formatoinstitucionalsA(){
+
+$this->db->order_by('idproceso', 'asc');
+$this->db->order_by('orden', 'asc');
+
+$query = $this->db->get('formatoinstitucional1');
 
 
- 	function sexo( $id){
- 		$sexo = $this->db->query('select * from sexo0 where idsexo="'. $id.'"');
- 		return $sexo;
+
+		 return $query;
+	}
+
+
+
+
+ 	function formatoinstitucional( $id){
+ 		$formatoinstitucional = $this->db->query('select * from formatoinstitucional where idformatoinstitucional="'. $id.'"');
+ 		return $formatoinstitucional;
  	}
+
+ 	function formatoinstitucionalA( $id){
+ 		$formatoinstitucional = $this->db->query('select * from formatoinstitucional1 where idinstitucion="'. $id.'" order by idproceso,orden');
+ 		return $formatoinstitucional;
+ 	}
+
+
+
 
  	function save($array)
  	{
-		$condition = "idsexo =" . "'" . $array['idsexo'] . "'";
-		$this->db->select('*');
-		$this->db->from('sexo');
-		$this->db->where($condition);
-		$this->db->limit(1);
-		$query = $this->db->get();
-		if ($query->num_rows() == 0) {
-		   $this->db->insert("sexo", $array);
+		$this->db->insert("formatoinstitucional", $array);
 		   if( $this->db->affected_rows()>0){
 			    return true;
 		   }else{
 			    return false;
 		   }
-	   }else{
-		    return false;
-		   }
+
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idsexo',$id);
- 		$this->db->update('sexo',$array_item);
+ 		$this->db->where('idformatoinstitucional',$id);
+ 		$this->db->update('formatoinstitucional',$array_item);
 	}
- 
 
- 	 function delete($id)
+
+ 	public function delete($id)
 	{
- 		$this->db->where('idsexo',$id);
-		$this->db->delete('sexo');
-    	if($this->db->affected_rows()==1){
+ 		$this->db->where('idformatoinstitucional',$id);
+		$this->db->delete('formatoinstitucional');
+    if($this->db->affected_rows()==1)
 			$result=true;
-        }else{
+		else
 			$result=false;
-    }
 		return $result;
  	}
-
-
-
- 	function quitar($id)
-	{
-
-        $this->db->select('*');
-		$this->db->from('sexo0');
- 		$this->db->where('idsexo',$id);
-		$this->db->limit(1);
-		$query = $this->db->get();
-		if ($query->num_rows() != 0) {
-	 	  	$this->db->where('idsexo',$id);
-			$this->db->update('sexo', array('eliminado'=>1));
-			$result=true;
-        }else{
-            $result=false;
-        }
-		return $result;
- 	}
-
-
-
-
 
 
 	function elprimero()
 	{
-		$query=$this->db->order_by("idsexo")->get('sexo');
+		$query=$this->db->order_by("idformatoinstitucional")->get('formatoinstitucional');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -98,7 +80,7 @@ class Sexo_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idsexo")->get('sexo');
+		$query=$this->db->order_by("idformatoinstitucional")->get('formatoinstitucional');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -110,37 +92,37 @@ class Sexo_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$sexo = $this->db->select("idsexo")->order_by("idsexo")->get('sexo')->result_array();
-		$arr=array("idsexo"=>$id);
-		$clave=array_search($arr,$sexo);
-	   if(array_key_exists($clave+1,$sexo))
+ 		$formatoinstitucional = $this->db->select("idformatoinstitucional")->order_by("idformatoinstitucional")->get('formatoinstitucional')->result_array();
+		$arr=array("idformatoinstitucional"=>$id);
+		$clave=array_search($arr,$formatoinstitucional);
+	   if(array_key_exists($clave+1,$formatoinstitucional))
 		 {
 
- 		$sexo = $this->db->query('select * from sexo where idsexo="'. $sexo[$clave+1]["idsexo"].'"');
+ 		$formatoinstitucional = $this->db->query('select * from formatoinstitucional where idformatoinstitucional="'. $formatoinstitucional[$clave+1]["idformatoinstitucional"].'"');
 		 }else{
 
- 		$sexo = $this->db->query('select * from sexo where idsexo="'. $id.'"');
+ 		$formatoinstitucional = $this->db->query('select * from formatoinstitucional where idformatoinstitucional="'. $id.'"');
 		 }
 		 	
- 		return $sexo;
+ 		return $formatoinstitucional;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$sexo = $this->db->select("idsexo")->order_by("idsexo")->get('sexo')->result_array();
-		$arr=array("idsexo"=>$id);
-		$clave=array_search($arr,$sexo);
-	   if(array_key_exists($clave-1,$sexo))
+ 		$formatoinstitucional = $this->db->select("idformatoinstitucional")->order_by("idformatoinstitucional")->get('formatoinstitucional')->result_array();
+		$arr=array("idformatoinstitucional"=>$id);
+		$clave=array_search($arr,$formatoinstitucional);
+	   if(array_key_exists($clave-1,$formatoinstitucional))
 		 {
 
- 		$sexo = $this->db->query('select * from sexo where idsexo="'. $sexo[$clave-1]["idsexo"].'"');
+ 		$formatoinstitucional = $this->db->query('select * from formatoinstitucional where idformatoinstitucional="'. $formatoinstitucional[$clave-1]["idformatoinstitucional"].'"');
 		 }else{
 
- 		$sexo = $this->db->query('select * from sexo where idsexo="'. $id.'"');
+ 		$formatoinstitucional = $this->db->query('select * from formatoinstitucional where idformatoinstitucional="'. $id.'"');
 		 }
 		 	
- 		return $sexo;
+ 		return $formatoinstitucional;
  	}
 
 
@@ -148,6 +130,6 @@ class Sexo_model extends CI_model {
 
 
 
-
+ 
 
 }
