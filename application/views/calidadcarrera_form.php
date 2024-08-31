@@ -78,7 +78,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
-foreach ($criterios as $row){
+foreach ($criteriocalidads as $row){
 	$options[$row->idcriteriocalidad]= $row->nombre;
 }
  echo form_dropdown("idcriteriocalidad",$options, set_select('--Select--','default_value'),array('id'=>'idcriteriocalidad'));  
@@ -91,7 +91,7 @@ foreach ($criterios as $row){
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
-foreach ($subcriteriocalidad as $row){
+foreach ($subcriteriocalidads as $row){
 	$options[$row->idsubcriteriocalidad]= $row->nombre;
 }
  echo form_dropdown("idsubcriteriocalidad",$options, set_select('--Select--','default_value'),array('id'=>'idsubcriteriocalidad'));  
