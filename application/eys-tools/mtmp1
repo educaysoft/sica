@@ -1,44 +1,91 @@
 <?php
-class Estadoactividad_model extends CI_model {
+class Subcriteriocalidad_model extends CI_model {
 
-	function lista_estadoprocesos(){
-		 $estadoproceso= $this->db->get('estadoproceso');
-		 return $estadoproceso;
+	function lista_sexos(){
+		 $sexo= $this->db->get('sexo0');
+		 return $sexo;
 	}
 
- 	function estadoproceso( $id){
- 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $id.'"');
- 		return $estadoproceso;
+	function lista_sexosA(){
+		 $sexo= $this->db->get('sexo1');
+		 return $sexo;
+	}
+
+
+
+
+ 	function sexo( $id){
+ 		$sexo = $this->db->query('select * from sexo0 where idsexo="'. $id.'"');
+ 		return $sexo;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("estadoproceso", $array);
+		$condition = "idsexo =" . "'" . $array['idsexo'] . "'";
+		$this->db->select('*');
+		$this->db->from('sexo');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+		   $this->db->insert("sexo", $array);
+		   if( $this->db->affected_rows()>0){
+			    return true;
+		   }else{
+			    return false;
+		   }
+	   }else{
+		    return false;
+		   }
  	}
 
  	function update($id,$array_item)
  	{
- 		$this->db->where('idestadoproceso',$id);
- 		$this->db->update('estadoproceso',$array_item);
+ 		$this->db->where('idsexo',$id);
+ 		$this->db->update('sexo',$array_item);
 	}
  
 
-
- 	public function delete($id)
+ 	 function delete($id)
 	{
- 		$this->db->where('idestadoproceso',$id);
-		$this->db->delete('estadoproceso');
-    		if($this->db->affected_rows()==1)
+ 		$this->db->where('idsexo',$id);
+		$this->db->delete('sexo');
+    	if($this->db->affected_rows()==1){
 			$result=true;
-		else
+        }else{
 			$result=false;
+    }
 		return $result;
  	}
 
 
+
+ 	function quitar($id)
+	{
+
+        $this->db->select('*');
+		$this->db->from('sexo0');
+ 		$this->db->where('idsexo',$id);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() != 0) {
+	 	  	$this->db->where('idsexo',$id);
+			$this->db->update('sexo', array('eliminado'=>1));
+			$result=true;
+        }else{
+            $result=false;
+        }
+		return $result;
+ 	}
+
+
+
+
+
+
 	function elprimero()
 	{
-		$query=$this->db->order_by("idestadoproceso")->get('estadoproceso');
+		$query=$this->db->order_by("idsexo")->get('sexo');
 		if($query->num_rows()>0)
 		{
 			return $query->first_row('array');
@@ -51,7 +98,7 @@ class Estadoactividad_model extends CI_model {
 // Para ir al último registro
 	function elultimo()
 	{
-		$query=$this->db->order_by("idestadoproceso")->get('estadoproceso');
+		$query=$this->db->order_by("idsexo")->get('sexo');
 		if($query->num_rows()>0)
 		{
 			return $query->last_row('array');
@@ -63,38 +110,40 @@ class Estadoactividad_model extends CI_model {
 
 	// Para moverse al siguiente registro
  	function siguiente($id){
- 		$estadoproceso = $this->db->select("idestadoproceso")->order_by("idestadoproceso")->get('estadoproceso')->result_array();
-		$arr=array("idestadoproceso"=>$id);
-		$clave=array_search($arr,$estadoproceso);
-	   if(array_key_exists($clave+1,$estadoproceso))
+ 		$sexo = $this->db->select("idsexo")->order_by("idsexo")->get('sexo')->result_array();
+		$arr=array("idsexo"=>$id);
+		$clave=array_search($arr,$sexo);
+	   if(array_key_exists($clave+1,$sexo))
 		 {
 
- 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $estadoproceso[$clave+1]["idestadoproceso"].'"');
+ 		$sexo = $this->db->query('select * from sexo where idsexo="'. $sexo[$clave+1]["idsexo"].'"');
 		 }else{
 
- 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $id.'"');
+ 		$sexo = $this->db->query('select * from sexo where idsexo="'. $id.'"');
 		 }
 		 	
- 		return $estadoproceso;
+ 		return $sexo;
  	}
 
 
 // Para moverse al anterior registro
  	function anterior($id){
- 		$estadoproceso = $this->db->select("idestadoproceso")->order_by("idestadoproceso")->get('estadoproceso')->result_array();
-		$arr=array("idestadoproceso"=>$id);
-		$clave=array_search($arr,$estadoproceso);
-	   if(array_key_exists($clave-1,$estadoproceso))
+ 		$sexo = $this->db->select("idsexo")->order_by("idsexo")->get('sexo')->result_array();
+		$arr=array("idsexo"=>$id);
+		$clave=array_search($arr,$sexo);
+	   if(array_key_exists($clave-1,$sexo))
 		 {
 
- 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $estadoproceso[$clave-1]["idestadoproceso"].'"');
+ 		$sexo = $this->db->query('select * from sexo where idsexo="'. $sexo[$clave-1]["idsexo"].'"');
 		 }else{
 
- 		$estadoproceso = $this->db->query('select * from estadoproceso where idestadoproceso="'. $id.'"');
+ 		$sexo = $this->db->query('select * from sexo where idsexo="'. $id.'"');
 		 }
 		 	
- 		return $estadoproceso;
+ 		return $sexo;
  	}
+
+
 
 
 

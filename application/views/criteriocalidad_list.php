@@ -28,14 +28,14 @@
 
 <div id="eys-nav-i">
     <ul>
-        <li><?php echo anchor('sexo', 'Home'); ?></li>
+        <li><?php echo anchor('criteriocalidad', 'Home'); ?></li>
     </ul>
 </div>
 
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h3>Subcriteriocalidad - Listar</h3>
+            <h3>Criteriocalidad - Listar</h3>
         </div>
     </div>
 
@@ -61,13 +61,13 @@
     $(document).ready(function(){
         var mytabla = $('#mydatac').DataTable({
             "ajax": {
-                url: '<?php echo site_url('sexo/sexo_data')?>',
+                url: '<?php echo site_url('criteriocalidad/criteriocalidad_data')?>',
                 type: 'GET'
             }
         });
 
         $('#show_data').on('click','.item_ver', function(){
-            var id = $(this).data('idsexo');
+            var id = $(this).data('idcriteriocalidad');
             var retorno = $(this).data('retorno');
             window.location.href = retorno + '/' + id;
         });

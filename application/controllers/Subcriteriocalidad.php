@@ -1,19 +1,19 @@
 <?php
 
-class Sexo extends CI_Controller {
+class Subcriteriocalidad extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('sexo_model');
+        $this->load->model('subcriteriocalidad_model');
     }
 
     // Método para mostrar la página principal
     public function index() {
         if (isset($this->session->userdata['logged_in'])) {
-            $data['sexo'] = $this->sexo_model->elultimo();
-            $data['title'] = "Sexo";
+            $data['subcriteriocalidad'] = $this->subcriteriocalidad_model->elultimo();
+            $data['title'] = "Subcriteriocalidad";
             $this->load->view('template/page_header');
-            $this->load->view('sexo_record', $data);
+            $this->load->view('subcriteriocalidad_record', $data);
             $this->load->view('template/page_footer');
         } else {
             $this->load->view('template/page_header.php');
@@ -22,25 +22,25 @@ class Sexo extends CI_Controller {
         }
     }
 
-    // Método para mostrar el formulario de agregar nuevo sexo
+    // Método para mostrar el formulario de agregar nuevo subcriteriocalidad
     public function add() {
-        $data['title'] = "Nuevo sexo";
+        $data['title'] = "Nuevo subcriteriocalidad";
         $this->load->view('template/page_header');
-        $this->load->view('sexo_form', $data);
+        $this->load->view('subcriteriocalidad_form', $data);
         $this->load->view('template/page_footer');
     }
 
-    // Método para guardar un nuevo sexo
+    // Método para guardar un nuevo subcriteriocalidad
     public function save() {
         $array_item = array(
-            'idsexo' => $this->input->post('idsexo'),
+            'idsubcriteriocalidad' => $this->input->post('idsubcriteriocalidad'),
             'nombre' => $this->input->post('nombre'),
         );
-        $result=$this->sexo_model->save($array_item);
+        $result=$this->subcriteriocalidad_model->save($array_item);
 
 	 	if($result == FALSE)
 		{
-			echo "<script language='JavaScript'> alert('Sexo ya existe'); </script>";
+			echo "<script language='JavaScript'> alert('Subcriteriocalidad ya existe'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
@@ -49,41 +49,41 @@ class Sexo extends CI_Controller {
 
     }
 
-    // Método para mostrar el formulario de edición de sexo
+    // Método para mostrar el formulario de edición de subcriteriocalidad
     public function edit() {
-        $data['sexo'] = $this->sexo_model->sexo($this->uri->segment(3))->row_array();
-        $data['title'] = "Actualizar sexo";
+        $data['subcriteriocalidad'] = $this->subcriteriocalidad_model->subcriteriocalidad($this->uri->segment(3))->row_array();
+        $data['title'] = "Actualizar subcriteriocalidad";
         $this->load->view('template/page_header');
-        $this->load->view('sexo_edit', $data);
+        $this->load->view('subcriteriocalidad_edit', $data);
         $this->load->view('template/page_footer');
     }
 
-    // Método para guardar los cambios realizados en la edición de sexo
+    // Método para guardar los cambios realizados en la edición de subcriteriocalidad
     public function save_edit() {
-        $id = $this->input->post('idsexo');
+        $id = $this->input->post('idsubcriteriocalidad');
         $array_item = array(
-            'idsexo' => $this->input->post('idsexo'),
+            'idsubcriteriocalidad' => $this->input->post('idsubcriteriocalidad'),
             'nombre' => $this->input->post('nombre'),
         );
-        $this->sexo_model->update($id, $array_item);
-        redirect('sexo');
+        $this->subcriteriocalidad_model->update($id, $array_item);
+        redirect('subcriteriocalidad');
     }
 
-    // Método para eliminar un sexo
+    // Método para eliminar un subcriteriocalidad
     public function delete() {
-        $data = $this->sexo_model->delete($this->uri->segment(3));
+        $data = $this->subcriteriocalidad_model->delete($this->uri->segment(3));
         echo json_encode($data);
-        redirect('sexo/elprimero');
+        redirect('subcriteriocalidad/elprimero');
         // $db['default']['db_debug'] = FALSE;
     }
 
 
  	public function quitar()
  	{
- 		$result=$this->sexo_model->quitar($this->uri->segment(3));
+ 		$result=$this->subcriteriocalidad_model->quitar($this->uri->segment(3));
 	 	if(!$result)
 		{
-			echo "<script language='JavaScript'> alert('El sexo no pudo eliminarse revise permisos'); </script>";
+			echo "<script language='JavaScript'> alert('El subcriteriocalidad no pudo eliminarse revise permisos'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
@@ -95,26 +95,26 @@ class Sexo extends CI_Controller {
 
 
 
-    // Método para listar todos los sexos
+    // Método para listar todos los subcriteriocalidads
     public function listar() {
-        $data['sexo_list'] = $this->sexo_model->lista_sexosA()->result();
+        $data['subcriteriocalidad_list'] = $this->subcriteriocalidad_model->lista_subcriteriocalidadsA()->result();
         $data['title'] = "Tipo documento";
         $this->load->view('template/page_header');
-        $this->load->view('sexo_list', $data);
+        $this->load->view('subcriteriocalidad_list', $data);
         $this->load->view('template/page_footer');
     }
 
-    // Método para obtener datos de sexo en formato JSON
-    public function sexo_data() {
+    // Método para obtener datos de subcriteriocalidad en formato JSON
+    public function subcriteriocalidad_data() {
         $draw = intval($this->input->get("draw"));
         $draw = intval($this->input->get("start"));
         $draw = intval($this->input->get("length"));
 
-        $data0 = $this->sexo_model->lista_sexosA();
+        $data0 = $this->subcriteriocalidad_model->lista_subcriteriocalidadsA();
         $data = array();
         foreach ($data0->result() as $r) {
-            $data[] = array($r->idsexo, $r->nombre,
-                $r->href = '<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('sexo/actual').'"   data-idsexo="' . $r->idsexo . '">Ver</a>');
+            $data[] = array($r->idsubcriteriocalidad, $r->nombre,
+                $r->href = '<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('subcriteriocalidad/actual').'"   data-idsubcriteriocalidad="' . $r->idsubcriteriocalidad . '">Ver</a>');
         }
         $output = array("draw" => $draw,
             "recordsTotal" => $data0->num_rows(),
@@ -125,14 +125,14 @@ class Sexo extends CI_Controller {
         exit();
     }
 
-    // Método para mostrar el primer registro de sexo
+    // Método para mostrar el primer registro de subcriteriocalidad
     public function elprimero() {
         if (isset($this->session->userdata['logged_in'])) {
-            $data['sexo'] = $this->sexo_model->elprimero();
+            $data['subcriteriocalidad'] = $this->subcriteriocalidad_model->elprimero();
             if (!empty($data)) {
                 $data['title'] = "Tipo documento";
                 $this->load->view('template/page_header');
-                $this->load->view('sexo_record', $data);
+                $this->load->view('subcriteriocalidad_record', $data);
                 $this->load->view('template/page_footer');
             } else {
                 $this->load->view('template/page_header');
@@ -146,14 +146,14 @@ class Sexo extends CI_Controller {
         }
     }
 
-    // Método para mostrar el último registro de sexo
+    // Método para mostrar el último registro de subcriteriocalidad
     public function elultimo() {
         if (isset($this->session->userdata['logged_in'])) {
-            $data['sexo'] = $this->sexo_model->elultimo();
+            $data['subcriteriocalidad'] = $this->subcriteriocalidad_model->elultimo();
             if (!empty($data)) {
                 $data['title'] = "Tipo documento";
                 $this->load->view('template/page_header');
-                $this->load->view('sexo_record', $data);
+                $this->load->view('subcriteriocalidad_record', $data);
                 $this->load->view('template/page_footer');
             } else {
                 $this->load->view('template/page_header');
@@ -167,13 +167,13 @@ class Sexo extends CI_Controller {
         }
     }
 
-    // Método para mostrar el siguiente registro de sexo
+    // Método para mostrar el siguiente registro de subcriteriocalidad
     public function siguiente() {
         if (isset($this->session->userdata['logged_in'])) {
-            $data['sexo'] = $this->sexo_model->siguiente($this->uri->segment(3))->row_array();
+            $data['subcriteriocalidad'] = $this->subcriteriocalidad_model->siguiente($this->uri->segment(3))->row_array();
             $data['title'] = "Tipo documento";
             $this->load->view('template/page_header');
-            $this->load->view('sexo_record', $data);
+            $this->load->view('subcriteriocalidad_record', $data);
             $this->load->view('template/page_footer');
         } else {
             $this->load->view('template/page_header.php');
@@ -182,13 +182,13 @@ class Sexo extends CI_Controller {
         }
     }
 
-    // Método para mostrar el  registro previo del actual en  sexo
+    // Método para mostrar el  registro previo del actual en  subcriteriocalidad
     public function anterior(){
   	    if(isset($this->session->userdata['logged_in'])){
-            $data['sexo'] = $this->sexo_model->anterior($this->uri->segment(3))->row_array();
+            $data['subcriteriocalidad'] = $this->subcriteriocalidad_model->anterior($this->uri->segment(3))->row_array();
             $data['title']="Tipo documento";
             $this->load->view('template/page_header');		
-            $this->load->view('sexo_record',$data);
+            $this->load->view('subcriteriocalidad_record',$data);
             $this->load->view('template/page_footer');
         } else{
 	 	    $this->load->view('template/page_header.php');
@@ -199,12 +199,12 @@ class Sexo extends CI_Controller {
 
 
 
-public function get_sexo() {
+public function get_subcriteriocalidad() {
     $this->load->database();
     $this->load->helper('form');
-    if($this->input->post('idsexo')) {
+    if($this->input->post('idsubcriteriocalidad')) {
         $this->db->select('*');
-        $this->db->where(array('idsexo' => $this->input->post('idsexo')));
+        $this->db->where(array('idsubcriteriocalidad' => $this->input->post('idsubcriteriocalidad')));
         $query = $this->db->get('documento');
 	$data=$query->result();
 	echo json_encode($data);
