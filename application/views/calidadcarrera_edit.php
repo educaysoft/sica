@@ -41,19 +41,45 @@ foreach ($instituciones as $row){
 
 
 <tr>
-<td> proceso:</td>
+<td> criteriocalidad:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($procesos as $row){
-	$options[$row->idproceso]= $row->nombre;
+foreach ($criteriocalidads as $row){
+	$options[$row->idcriteriocalidad]= $row->nombre;
 }
 
- echo form_dropdown("idproceso",$options, $calidadcarrera['idproceso']);  ?></td>
+ echo form_dropdown("idcriteriocalidad",$options, $calidadcarrera['idcriteriocalidad']);  ?></td>
 </tr>
 
 <tr>
+<td> subcriteriocalidad:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($subcriteriocalidads as $row){
+	$options[$row->idsubcriteriocalidad]= $row->nombre;
+}
+
+ echo form_dropdown("idsubcriteriocalidad",$options, $calidadcarrera['idsubcriteriocalidad']);  ?></td>
+</tr>
+
+
+<tr>
+<td> indicadorcalidad:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($indicadorcalidads as $row){
+	$options[$row->idindicadorcalidad]= $row->nombre;
+}
+
+ echo form_dropdown("idindicadorcalidad",$options, $calidadcarrera['idindicadorcalidad']);  ?></td>
+</tr>
+
+
+
+
+<tr>
       <td>Orden:</td>
-      <td><?php echo form_input('orden',$calidadcarrera['orden'],array('placeholder'=>'Nombre del ', "style"=>"width:500px")) ?></td>
+      <td><?php echo form_input('codigo',$calidadcarrera['codigo'],array('placeholder'=>'Nombre del ', "style"=>"width:500px")) ?></td>
   </tr>
 
  <tr>

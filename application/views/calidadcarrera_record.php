@@ -84,18 +84,48 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('proceso/actual/'.$calidadcarrera['idproceso'], 'El trámite:'); ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('criteriocalidad/actual/'.$calidadcarrera['idcriteriocalidad'], 'El trámite:'); ?> </label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
-foreach ($procesos as $row){
-	$options[$row->idproceso]= $row->nombre;
+foreach ($criteriocalidads as $row){
+	$options[$row->idcriteriocalidad]= $row->nombre;
 }
 
-echo form_input('idproceso',$options[$calidadcarrera['idproceso']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+echo form_input('idcriteriocalidad',$options[$calidadcarrera['idcriteriocalidad']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
 		?>
 	</div> 
 </div>
+
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('subcriteriocalidad/actual/'.$calidadcarrera['idsubcriteriocalidad'], 'El trámite:'); ?> </label>
+	<div class="col-md-10">
+     <?php 
+$options= array("NADA");
+foreach ($subcriteriocalidads as $row){
+	$options[$row->idsubcriteriocalidad]= $row->nombre;
+}
+
+echo form_input('idsubcriteriocalidad',$options[$calidadcarrera['idsubcriteriocalidad']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('indicadorcalidad/actual/'.$calidadcarrera['idindicadorcalidad'], 'El trámite:'); ?> </label>
+	<div class="col-md-10">
+     <?php 
+$options= array("NADA");
+foreach ($indicadorcalidads as $row){
+	$options[$row->idindicadorcalidad]= $row->nombre;
+}
+
+echo form_input('idindicadorcalidad',$options[$calidadcarrera['idindicadorcalidad']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
+
 
 
 <div class="form-group row">
@@ -103,7 +133,7 @@ echo form_input('idproceso',$options[$calidadcarrera['idproceso']],array("disabl
 	<div class="col-md-10">
      <?php
 
-  $eys_arrctl=array("name"=>'orden','value'=>$calidadcarrera['orden'],"disabled"=>"disabled",'placeholder'=>'Orden','style'=>'width:500px;');
+  $eys_arrctl=array("name"=>'codigo','value'=>$calidadcarrera['codigo'],"disabled"=>"disabled",'placeholder'=>'Orden','style'=>'width:500px;');
  echo form_input($eys_arrctl);
 		?>
 	</div> 
@@ -222,7 +252,7 @@ function uploadImage(nombre,idx) {
 
 
 function getUploadUrl() {
-    var selectElement = document.getElementById("idordenador");
+    var selectElement = document.getElementById("idcodigoador");
     var url = "https://repositorioutlvte.org";
     return url.endsWith("/") ? url + "cargaimagenformato.php" : url + "/cargaimagenformato.php";
 }

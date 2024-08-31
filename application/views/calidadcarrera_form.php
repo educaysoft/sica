@@ -74,25 +74,57 @@ $textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Proceso: </label>
+<label class="col-md-2 col-form-label">Criterio: </label>
 <div class="col-md-10">
 <?php
 $options= array('--Select--');
-foreach ($procesos as $row){
-	$options[$row->idproceso]= $row->nombre;
+foreach ($criterios as $row){
+	$options[$row->idcriteriocalidad]= $row->nombre;
 }
-
- echo form_dropdown("idproceso",$options, set_select('--Select--','default_value'),array('id'=>'idproceso'));  
+ echo form_dropdown("idcriteriocalidad",$options, set_select('--Select--','default_value'),array('id'=>'idcriteriocalidad'));  
 ?>
 </div>
 </div>
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Subcriterio: </label>
+<div class="col-md-10">
+<?php
+$options= array('--Select--');
+foreach ($subcriteriocalidad as $row){
+	$options[$row->idsubcriteriocalidad]= $row->nombre;
+}
+ echo form_dropdown("idsubcriteriocalidad",$options, set_select('--Select--','default_value'),array('id'=>'idsubcriteriocalidad'));  
+?>
+</div>
+</div>
+
+<div class="form-group row">
+<label class="col-md-2 col-form-label">Criterio: </label>
+<div class="col-md-10">
+<?php
+$options= array('--Select--');
+foreach ($indicadorcalidads as $row){
+	$options[$row->idindicadorcalidad]= $row->nombre;
+}
+ echo form_dropdown("idindicadorcalidad",$options, set_select('--Select--','default_value'),array('id'=>'idindicadorcalidad'));  
+?>
+</div>
+</div>
+
+
+
+
+
+
+
 
 <div class="form-group row">
 <label class="col-md-2 col-form-label">Orden: </label>
 <div class="col-md-10">
 <?php
      
-     echo form_input("orden","", array("placeholder"=>"orden en el proceso",'style'=>'width:500px;'));
+     echo form_input("codigo","", array("placeholder"=>"codigo en el proceso",'style'=>'width:500px;'));
 ?>
 </div>
 </div>
