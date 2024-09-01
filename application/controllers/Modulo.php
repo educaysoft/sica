@@ -214,10 +214,9 @@ public function generapaginaweb()
 	 	$data['modulos']= $this->modulo_model->lista_modulos()->result();
 		$arreglo=array();
 		$i=0;
-		foreach($data['fechacalendarios'] as $row){
+		foreach($data['modulos'] as $row){
 		$idmodulo=$row->idmodulo;
 
-	//	$arreglo[$row->iddocente]=$this->fechacalendario_model->fechacalendariosA($iddocente)->row_array();
 		$xx=array($this->password_model->password($idmodulo)->result_array());
 		if(count($xx[0]) > 0){
 		foreach($xx as $row2){
