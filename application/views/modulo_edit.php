@@ -76,6 +76,24 @@
 	</div> 
 </div> 
 
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Descripción:</label>
+	<div class="col-md-10">
+	<?php
+
+
+	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"descripcion del formatoinstitucional" );    
+ echo form_textarea('descripcion',$formatoinstitucional['descripcion'],$textarea_options) 
+
+?>
+
+	</div> 
+</div>
+
+
+
+
 <tr>
 <td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("modulo","Atras") ?> </td>
 </tr>

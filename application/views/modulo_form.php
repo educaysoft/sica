@@ -37,6 +37,22 @@
 </tr>
 
 
+<tr>
+<td> Descripcion: </td>
+<td><?php
+
+
+
+$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"descripcionn" );    
+	
+echo form_textarea("descripcionn","", $textarea_options);
+
+
+
+
+?></td>
+</tr>
+
 
 
 <tr>
