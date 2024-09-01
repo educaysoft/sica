@@ -43,7 +43,7 @@
 
 	$pdf->Cell(5,5,'#',1,0,'C',1);
 	$pdf->Cell(20,5,'Codigo',1,0,'C',1);
-	$pdf->Cell(100,5,'Fuente de Información',1,0,'C',1);
+	$pdf->Cell(100,5,utf8_decode('Fuente de Información'),1,0,'C',1);
 	$pdf->Cell(20,5,'evidencia',1,1,'C',1);
  
 	 
@@ -75,10 +75,15 @@
 		 //$pdf->Cell(80,5,utf8_decode($row->asunto),1,0,'L',0);
 		 $pdf->MultiCell(100,5,utf8_decode($row->nombre),1,'L',1);
 		 $pdf->SetXY($current_x+100, $current_y);
-         $url_base = "https://repositorioutlvte.org/Repositorio/";
+         $url_base = "https://repositorioutlvte.org/Repositorio/iconos/";
+         if(empty($row->archivo))
+         {
+		    $pdf->Cell(20,$h,"",1,1,'L',0,$row->archivo);
+        }else{
+		    $pdf->Cell(20,$h,"",1,1,'L',0,$row->archivo);
+            $pdf->Image($url_base.'documento.png', $pdf->GetX() - 20, $pdf->GetY(), 5); // Coloca la imagen dentro de la celda
 
-		 $pdf->Cell(20,$h,"evidencia",1,1,'L',0,$row->archivo);
-
+        }
 
    }
 
