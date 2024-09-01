@@ -17,7 +17,10 @@ foreach ($departamentos as $row){
 
  <tr>
       <td>Nombre:</td>
-      <td><?php       echo form_textarea('nombre',$calidadcarrera['nombre'],$textarea_options) ?></td>
+      <td><?php  
+  
+	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle del calidadcarrera" );    
+   echo form_textarea('nombre',$calidadcarrera['nombre'],$textarea_options) ?></td>
   </tr>
 
 <tr>
