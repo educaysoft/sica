@@ -77,13 +77,16 @@
          $url_base = "https://repositorioutlvte.org/Repositorio/iconos/";
          if(empty($row->archivo))
          {
-		    $pdf->Cell(20,$h,"",1,0,'L');
+            $x = $pdf->GetX(); // Obtén la posición X actual
+            $y = $pdf->GetY(); // Obtén la posición Y actual
+
+            $pdf->Image($url_base.'sindocumento.png', $x+2, $y+2, 8,8); // Coloca la imagen dentro de la celda
         }else{
             $x = $pdf->GetX(); // Obtén la posición X actual
             $y = $pdf->GetY(); // Obtén la posición Y actual
 
-            $pdf->Image($url_base.'documento.png', $x+2, $y+2, 10,10); // Coloca la imagen dentro de la celda
-		    $pdf->Cell(20,$h,"link    ",1,0,'L',0,$row->archivo);
+            $pdf->Image($url_base.'documento.png', $x+2, $y+2, 8,8); // Coloca la imagen dentro de la celda
+		    $pdf->Cell(20,$h,"[        ]",1,0,'L',0,$row->archivo);
         }
             $pdf->Ln();
 
