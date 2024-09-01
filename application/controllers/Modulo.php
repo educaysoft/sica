@@ -217,10 +217,12 @@ public function generapaginaweb()
 	 	$data['modulos']= $this->modulo_model->lista_modulos()->result();
 		$arreglo=array();
 		$i=0;
+/*
 		foreach($data['modulos'] as $row){
 		$idmodulo=$row->idmodulo;
 
-		$xx=array($this->password_model->password($idmodulo)->result_array());
+	$xx=array($this->password_model->password($idmodulo)->result_array());
+		$xx=array();
 		if(count($xx[0]) > 0){
 		foreach($xx as $row2){
 			foreach($row2 as $row3)
@@ -231,6 +233,7 @@ public function generapaginaweb()
 			}
 		}
 		}
+*/
 		$data['password']=array();
 	//	array_push($data['jornadadocente'],$glo); 
 		$data['password']=$arreglo; 
