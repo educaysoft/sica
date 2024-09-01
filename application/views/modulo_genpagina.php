@@ -274,7 +274,7 @@ $data=$data.'<div class="col">
 		  <a  href="#"><svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>';
 
 // Remote file url
-$remoteFile = "https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/".trim($inicio).".jpg";
+$remoteFile = "https://repositorioutlvte.org/Repositorio/eventos/modulo.jpg";
 
 $file_headers = @get_headers($remoteFile);
 
@@ -287,7 +287,7 @@ if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
 }else{
-$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/AreaConocimiento/'.trim($inicio).'-no.jpg" alt="No hay programación" height="100%" width="100%"/> </svg></a>
+$data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/modulo.jpg" alt="No hay programación" height="100%" width="100%"/> </svg></a>
 <div class="img-contenedor w3-card-4" style="position:absolute; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
 }
