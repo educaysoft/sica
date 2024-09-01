@@ -84,7 +84,7 @@ $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'d
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('criteriocalidad/actual/'.$calidadcarrera['idcriteriocalidad'], 'El trámite:'); ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('criteriocalidad/actual/'.$calidadcarrera['idcriteriocalidad'], 'Criterio:'); ?> </label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
@@ -99,7 +99,7 @@ echo form_input('idcriteriocalidad',$options[$calidadcarrera['idcriteriocalidad'
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('subcriteriocalidad/actual/'.$calidadcarrera['idsubcriteriocalidad'], 'El trámite:'); ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('subcriteriocalidad/actual/'.$calidadcarrera['idsubcriteriocalidad'], 'Sub criterio:'); ?> </label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
@@ -113,7 +113,7 @@ echo form_input('idsubcriteriocalidad',$options[$calidadcarrera['idsubcriterioca
 </div>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> <?php echo anchor('indicadorcalidad/actual/'.$calidadcarrera['idindicadorcalidad'], 'El trámite:'); ?> </label>
+    <label class="col-md-2 col-form-label"> <?php echo anchor('indicadorcalidad/actual/'.$calidadcarrera['idindicadorcalidad'], 'Indicador:'); ?> </label>
 	<div class="col-md-10">
      <?php 
 $options= array("NADA");
@@ -129,7 +129,7 @@ echo form_input('idindicadorcalidad',$options[$calidadcarrera['idindicadorcalida
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Orden:</label>
+    <label class="col-md-2 col-form-label"> Código:</label>
 	<div class="col-md-10">
      <?php
 

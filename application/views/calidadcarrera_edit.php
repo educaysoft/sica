@@ -8,16 +8,16 @@
 <td> Institucion:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($instituciones as $row){
-	$options[$row->idinstitucion]= $row->nombre;
+foreach ($departamentos as $row){
+	$options[$row->iddepartamento]= $row->nombre;
 }
 
- echo form_dropdown("idinstitucion",$options, $calidadcarrera['idinstitucion']);  ?></td>
+ echo form_dropdown("iddepartamento",$options, $calidadcarrera['iddepartamento']);  ?></td>
 </tr>
 
  <tr>
       <td>Nombre:</td>
-      <td><?php echo form_input('nombre',$calidadcarrera['nombre'],array('placeholder'=>'Nombre del ', "style"=>"width:500px")) ?></td>
+      <td><?php       echo form_textarea('nombre',$calidadcarrera['nombre'],$textarea_options) ?></td>
   </tr>
 
 <tr>
