@@ -68,7 +68,6 @@
 		    $i=$i+1;
 		    $pdf->Cell(5,$h,$i,1,0,'R',0); 
 		    $pdf->Cell(20,$h,utf8_decode($row->codigo),1,0,'L',0);
-		    $autor=$row->autor;
 		 $current_x = $pdf->GetX();
 		 $current_y = $pdf->GetY();
 
