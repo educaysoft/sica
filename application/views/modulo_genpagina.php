@@ -278,8 +278,6 @@ $remoteFile = "https://repositorioutlvte.org/Repositorio/eventos/modulo.jpg";
 
 $file_headers = @get_headers($remoteFile);
 
-// Check if file exists
-//if(!file_exists($remoteFile)){
 
 if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
  $data=$data.'<image href="https://repositorioutlvte.org/Repositorio/eventos/modulo.jpg"  height="100%" width="100%"/> </svg></a>
