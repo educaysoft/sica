@@ -96,7 +96,7 @@ public function edit()
 		'idcriteriocalidad' => $this->input->post('idcriteriocalidad'),
 		'idsubcriteriocalidad' => $this->input->post('idsubcriteriocalidad'),
 		'idindicadorcalidad' => $this->input->post('idindicadorcalidad'),
-	 	'orden' => $this->input->post('orden'),
+	 	'codigo' => $this->input->post('codigo'),
 	 		'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
 	 	$this->calidadcarrera_model->update($id,$array_item);
