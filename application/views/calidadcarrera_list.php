@@ -49,8 +49,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
  <thead>
  <tr>
  <th>ID</th>
- <th>nombre</th>
- <th>detalle</th>
+ <th>Código</th>
+ <th>criterio</th>
+ <th>subcriterio</th>
+ <th>indicador</th>
+ <th>Fuente información </th>
  <th style="text-align: right;">Actions</th>
  </tr>
  </thead>
