@@ -121,10 +121,10 @@ function calidadcarrera_data()
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->calidadcarrera_model->lista_calidadcarreras();
+	 	$data0 = $this->calidadcarrera_model->lista_calidadcarrerasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idcalidadcarrera,$r->nombre,$r->detalle,
+			$data[]=array($r->idcalidadcarrera,$r->codigo,$elcrierio,$r->elsubcriterio,$r->elindicador,$r->nombre,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('calidadcarrera/actual').'"  data-idcalidadcarrera="'.$r->idcalidadcarrera.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,

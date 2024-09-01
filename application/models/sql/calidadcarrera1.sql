@@ -1,0 +1,3 @@
+
+use educayso_facae;
+create view calidadcarrera1 as select caca.idcalidadcarrera, caca.nombre,  caca.detalle, caca.iddepartamento,depa.nombre as eldepartamento,caca.archivo,caca.idcriteriocalidad,crca.nombre as elcriteriocalidad,caca.idsubcriteriocalidad,scca.nombre as elsubcriteriocalidad,caca.idindicadorcalidad,inca.nombre as elindicadorcalidad,caca.codigo  from calidadcarrera caca,departamento depa,criteriocalidad crca,subcriteriocalidad scca, indicadorcalidad inca where caca.iddepartamento=depa.iddepartamento and caca.idcriteriocalidad=crca.idcriteriocalidad and caca.idsubcriteriocalidad=scca.idsubcriteriocalidad and caca.idindicadorcalidad = inca.idindicadorcalidad; 

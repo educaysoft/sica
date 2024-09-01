@@ -9,8 +9,7 @@ class Calidadcarrera_model extends CI_model {
 
 	function lista_calidadcarrerasA(){
 
-$this->db->order_by('idproceso', 'asc');
-$this->db->order_by('orden', 'asc');
+$this->db->order_by('codigo', 'asc');
 
 $query = $this->db->get('calidadcarrera1');
 
