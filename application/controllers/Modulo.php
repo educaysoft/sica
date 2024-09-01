@@ -203,6 +203,51 @@ public function anterior(){
 
 
 
+public function generapaginaweb()
+{
+	$idcarrera=0;
+
+	$ordenrpt=0;
+//	if($this->uri->segment(3))
+//	{
+		$idcalendarioacademico=$this->uri->segment(3);
+	 	$data['fechacalendarios']= $this->fechacalendario_model->fechacalendarios1($idcalendarioacademico)->result();
+		$arreglo=array();
+		$i=0;
+		foreach($data['fechacalendarios'] as $row){
+		$idcalendarioacademico=$row->idcalendarioacademico;
+
+	//	$arreglo[$row->iddocente]=$this->fechacalendario_model->fechacalendariosA($iddocente)->row_array();
+		$xx=array($this->calendarioacademico_model->calendarioacademico($idcalendarioacademico)->result_array());
+		if(count($xx[0]) > 0){
+		foreach($xx as $row2){
+			foreach($row2 as $row3)
+			 {
+				$arreglo+=array($i=>array($row->idcalendarioacademico=>$row3));
+				$i=$i+1;
+			}
+			}
+		}
+		}
+		$data['calendarioacademico']=array();
+	//	array_push($data['jornadadocente'],$glo); 
+		$data['calendarioacademico']=$arreglo; 
+		echo "<br> jornadadocnete<br>" ;
+		$this->load->view('modulo_genpagina',$data);
+//	}
+}
+
+
+
+
+	public function paginaweb()
+	{
+	  $this->load->view('web/modulossica');
+	}
+
+
+
+
 
 
 }
