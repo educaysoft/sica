@@ -80,7 +80,8 @@
             $x = $pdf->GetX(); // Obtén la posición X actual
             $y = $pdf->GetY(); // Obtén la posición Y actual
 
-            $pdf->Image($url_base.'sindocumento.png', $x+2, $y+2, 7,7); // Coloca la imagen dentro de la celda
+            $pdf->Image($url_base.'sindocumento.png', $x+2, $y+2,8,8); // Coloca la imagen dentro de la celda
+		    $pdf->Cell(20,$h,"        ",1,0,'L');
         }else{
             $x = $pdf->GetX(); // Obtén la posición X actual
             $y = $pdf->GetY(); // Obtén la posición Y actual
