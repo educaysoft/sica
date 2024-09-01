@@ -79,9 +79,9 @@
          {
 		    $pdf->Cell(20,$h,"",1,1,'L',0,$row->archivo);
         }else{
-		    $pdf->Cell(20,$h,"",1,1,'L',0,$row->archivo);
+		    $pdf->Cell(20,$h,"",1,0,'L',0,$row->archivo);
             $pdf->Image($url_base.'documento.png', $pdf->GetX() - 20, $pdf->GetY(), 5); // Coloca la imagen dentro de la celda
-
+            $pdf->Ln();
         }
 
    }
