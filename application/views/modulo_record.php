@@ -13,8 +13,8 @@ if(isset($modulo))
         <li> <?php echo anchor('modulo/edit/'.$modulo['idmodulo'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('modulo/delete/'.$modulo['idmodulo'],'Delete'); ?></li>
         <li> <?php echo anchor('modulo/listar/','Listar'); ?></li>
-		<li> <?php echo anchor('modulo/generaweb/'.$modulo['idcalendarioacademico'],'generaweb'); ?></li>
-		<li> <?php echo anchor('modulo/paginaweb/'.$modulo['idcalendarioacademico'],' web'); ?></li>
+		<li> <?php echo anchor('modulo/generaweb/'.$modulo['idmodulo'],'generaweb'); ?></li>
+		<li> <?php echo anchor('modulo/paginaweb/'.$modulo['idmodulo'],' web'); ?></li>
 <?php 
 }else{
 ?>

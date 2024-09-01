@@ -211,27 +211,27 @@ public function generapaginaweb()
 //	if($this->uri->segment(3))
 //	{
 		$idcalendarioacademico=$this->uri->segment(3);
-	 	$data['fechacalendarios']= $this->fechacalendario_model->fechacalendarios1($idcalendarioacademico)->result();
+	 	$data['modulos']= $this->modulo_model->modulo1()->result();
 		$arreglo=array();
 		$i=0;
 		foreach($data['fechacalendarios'] as $row){
-		$idcalendarioacademico=$row->idcalendarioacademico;
+		$idmodulo=$row->idmodulo;
 
 	//	$arreglo[$row->iddocente]=$this->fechacalendario_model->fechacalendariosA($iddocente)->row_array();
-		$xx=array($this->calendarioacademico_model->calendarioacademico($idcalendarioacademico)->result_array());
+		$xx=array($this->password_model->password($idmodulo)->result_array());
 		if(count($xx[0]) > 0){
 		foreach($xx as $row2){
 			foreach($row2 as $row3)
 			 {
-				$arreglo+=array($i=>array($row->idcalendarioacademico=>$row3));
+				$arreglo+=array($i=>array($row->idmodulo=>$row3));
 				$i=$i+1;
 			}
 			}
 		}
 		}
-		$data['calendarioacademico']=array();
+		$data['password']=array();
 	//	array_push($data['jornadadocente'],$glo); 
-		$data['calendarioacademico']=$arreglo; 
+		$data['password']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
 		$this->load->view('modulo_genpagina',$data);
 //	}
