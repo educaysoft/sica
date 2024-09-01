@@ -15,7 +15,7 @@ if(isset($calidadcarrera))
         <li> <?php echo anchor('calidadcarrera/listar/','Listar'); ?></li>
         <li> <?php echo anchor('calidadcarrera/genpagina/1','generar web'); ?></li>
         <li> <?php echo anchor('calidadcarrera/calidadcarrera_1','Web'); ?></li>
-		<li> <?php echo anchor('calidadcarrera/reportepdf/'.$calidadcarrere['iddepartamento'],'reportepdf'); ?></li>
+		<li> <?php echo anchor('calidadcarrera/reportepdf/'.$calidadcarrera['iddepartamento'],'reportepdf'); ?></li>
 
 <?php 
 }else{
