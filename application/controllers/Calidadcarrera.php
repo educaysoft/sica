@@ -332,6 +332,24 @@ public function anterior(){
 
 
 
+	public function reportepdf()
+	{
+
+
+		    $data['calidadcarreras'] = $this->calidadcarrera_model->calidadcarreraA($this->uri->segment(3))->result();
+
+
+
+		$data['title']="Evento";
+		$this->load->view('calidadcarrera_list_pdf',$data);
+	
+	}
+
+
+
+
+
+
 
 	public function calidadcarrera_1()
 	{
