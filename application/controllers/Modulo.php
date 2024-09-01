@@ -211,7 +211,7 @@ public function generapaginaweb()
 //	if($this->uri->segment(3))
 //	{
 		$idcalendarioacademico=$this->uri->segment(3);
-	 	$data['modulos']= $this->modulo_model->modulo1()->result();
+	 	$data['modulos']= $this->modulo_model->lista_modulos()->result();
 		$arreglo=array();
 		$i=0;
 		foreach($data['fechacalendarios'] as $row){
