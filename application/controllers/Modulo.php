@@ -41,6 +41,7 @@ public function  save()
 	 	'icono' => $this->input->post('icono'),
 	 	'funcion' => $this->input->post('funcion'),
 	 	'inicial' => $this->input->post('inicial'),
+	 	'descripcion' => $this->input->post('descripcion'),
 	 	);
 	 	$this->modulo_model->save($array_item);
 	 	redirect('modulo');
@@ -70,6 +71,7 @@ public function edit()
 	 		'icono' => $this->input->post('icono'),
 	 		'funcion' => $this->input->post('funcion'),
 	 		'inicial' => $this->input->post('inicial'),
+	 	'descripcion' => $this->input->post('descripcion'),
 	 	);
 	 	$this->modulo_model->update($id,$array_item);
 	 	redirect('modulo');
