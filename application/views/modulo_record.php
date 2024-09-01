@@ -82,7 +82,7 @@ if(isset($modulo))
 
 
 $textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'disabled',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
- echo form_textarea('descripcion',$formatoinstitucional['descripcion'],$textarea_options); 
+ echo form_textarea('descripcion',$modulo['descripcion'],$textarea_options); 
 		?>
 
 

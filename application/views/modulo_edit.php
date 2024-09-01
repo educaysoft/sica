@@ -84,7 +84,7 @@
 
 
 	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"descripcion del formatoinstitucional" );    
- echo form_textarea('descripcion',$formatoinstitucional['descripcion'],$textarea_options) 
+ echo form_textarea('descripcion',$modulo['descripcion'],$textarea_options) 
 
 ?>
 
