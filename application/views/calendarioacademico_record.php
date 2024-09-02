@@ -10,7 +10,7 @@ if(isset($calendarioacademico))
 	if(isset($this->session->userdata['acceso'])){
   		foreach($this->session->userdata['acceso'] as $row)
 	    	{
-			if("evento"==$row["modulo"]["nombre"]);
+			if("periodoacademico"==$row["modulo"]["nombre"])
 			{
 				$numero=$j;
 				$permitir=1;
@@ -37,6 +37,7 @@ if(isset($calendarioacademico))
         <li> <?php echo anchor('distributivo/','Distributivo'); ?></li>
 		<li> <?php echo anchor('calendarioacademico/paginaweb/'.$calendarioacademico['idcalendarioacademico'],' web'); ?></li>
 
+	<?php } ?>
 <?php 
 }else{
 ?>

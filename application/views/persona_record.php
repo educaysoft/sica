@@ -12,7 +12,7 @@ if(isset($persona))
 	if(isset($this->session->userdata['acceso'])){
   		foreach($this->session->userdata['acceso'] as $row)
 	    	{
-			if("evento"==$row["modulo"]["nombre"]);
+			if("persona"==$row["modulo"]["nombre"])
 			{
 				$numero=$j;
 				$permitir=1;
