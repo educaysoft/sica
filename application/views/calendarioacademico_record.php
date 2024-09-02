@@ -4,7 +4,26 @@
 <?php
 if(isset($calendarioacademico))
 {
+	$permitir=0;
+	$j=0;
+	$numero=$j;
+	if(isset($this->session->userdata['acceso'])){
+  		foreach($this->session->userdata['acceso'] as $row)
+	    	{
+			if("evento"==$row["modulo"]["nombre"]);
+			{
+				$numero=$j;
+				$permitir=1;
+			}		
+			$j=$j+1;
+	    	} 
+	}
+	if($permitir==0){
+		redirect('login/logout');
+	}
 ?>
+<?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['navegar']){ ?>
+<ul>
         <li> <?php echo anchor('calendarioacademico/elprimero/', 'primero'); ?></li>
         <li> <?php echo anchor('calendarioacademico/siguiente/'.$calendarioacademico['idcalendarioacademico'], 'siguiente'); ?></li>
         <li> <?php echo anchor('calendarioacademico/anterior/'.$calendarioacademico['idcalendarioacademico'], 'anterior'); ?></li>

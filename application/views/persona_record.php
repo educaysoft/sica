@@ -25,8 +25,6 @@ if(isset($persona))
 	}
 
 ?>
-
-
 <?php 	if($this->session->userdata['acceso'][$numero]['nivelacceso']['navegar']){ ?>
 <ul>
 
