@@ -10,7 +10,7 @@ if(isset($calendarioacademico))
 	if(isset($this->session->userdata['acceso'])){
   		foreach($this->session->userdata['acceso'] as $row)
 	    	{
-			if("periodoacademico"==$row["modulo"]["nombre"])
+			if("periodoacademico"==$row["modulo"]["modulo"])
 			{
 				$numero=$j;
 				$permitir=1;
