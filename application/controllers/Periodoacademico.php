@@ -86,7 +86,7 @@ public function edit()
  	}
 
 
- 	public function delete()
+ 	public function xdelete()
  	{
  		$this->periodoacademico_model->delete($this->uri->segment(3));
 	 	redirect('periodoacademico/elultimo');
