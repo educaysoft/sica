@@ -46,7 +46,7 @@
 	$pdf->Cell(12,5,'CRIT',1,0,'C',1);
 	$pdf->Cell(12,5,'SUCR',1,0,'C',1);
 	$pdf->Cell(12,5,'INDI',1,0,'C',1);
-	$pdf->Cell(90,5,utf8_decode('Fuente de Información'),1,0,'C',1);
+	$pdf->Cell(100,5,utf8_decode('Fuente de Información'),1,0,'C',1);
 	$pdf->Cell(15,5,'evidencia',1,1,'C',1);
  
 	 
@@ -87,8 +87,8 @@
 		 $current_y = $pdf->GetY();
 
 		 //$pdf->Cell(80,5,utf8_decode($row->asunto),1,0,'L',0);
-		 $pdf->MultiCell(90,5,utf8_decode($row->nombre),1,'L',1);
-		 $pdf->SetXY($current_x+90, $current_y);
+		 $pdf->MultiCell(100,5,utf8_decode($row->nombre),1,'L',1);
+		 $pdf->SetXY($current_x+100, $current_y);
          $url_base = "https://repositorioutlvte.org/Repositorio/iconos/";
          if(empty($row->archivo))
          {
