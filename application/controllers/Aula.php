@@ -231,7 +231,7 @@ public function genpagina()
 	{
 		//$iddistributivo=$this->uri->segment(3);
 		$iddistributivo=1;
-	 	$data['aulas']= $this->aula_model->aula()->result();
+	 	$data['aulas']= $this->aula_model->lista_aulas()->result();
 		$arreglo=array();
 		$i=0;
 		$data['prestamoaula']=array();
