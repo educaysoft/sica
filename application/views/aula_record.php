@@ -14,7 +14,7 @@ if(isset($aula))
         <li style="border-right:1px solid green"> <?php echo anchor('aula/delete/'.$aula['idaula'],'Delete'); ?></li>
         <li> <?php echo anchor('aula/listar/','Listar'); ?></li>
         <li> <?php echo anchor('aula/genpagina/1','generar web'); ?></li>
-        <li> <?php echo anchor('aula/aula_1','Web'); ?></li>
+        <li> <?php echo anchor('aula/vistaweb','Web'); ?></li>
 
 <?php 
 }else{
