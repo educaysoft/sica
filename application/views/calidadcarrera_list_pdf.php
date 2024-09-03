@@ -42,8 +42,11 @@
 
 
 	$pdf->Cell(5,5,'#',1,0,'C',1);
-	$pdf->Cell(15,5,'Codigo',1,0,'C',1);
-	$pdf->Cell(120,5,utf8_decode('Fuente de Información'),1,0,'C',1);
+	$pdf->Cell(12,5,'Codigo',1,0,'C',1);
+	$pdf->Cell(12,5,'CRIT',1,0,'C',1);
+	$pdf->Cell(12,5,'SUCR',1,0,'C',1);
+	$pdf->Cell(12,5,'INDI',1,0,'C',1);
+	$pdf->Cell(90,5,utf8_decode('Fuente de Información'),1,0,'C',1);
 	$pdf->Cell(15,5,'evidencia',1,1,'C',1);
  
 	 
@@ -67,13 +70,25 @@
 
 		    $i=$i+1;
 		    $pdf->Cell(5,$h,$i,1,0,'R',0); 
-		    $pdf->Cell(15,$h,utf8_decode($row->codigo),1,0,'L',0);
+		    $pdf->Cell(12,$h,utf8_decode($row->codigo),1,0,'L',0);
+		 $current_x = $pdf->GetX();
+		 $current_y = $pdf->GetY();
+
+		    $pdf->Cell(12,$h,utf8_decode($row->inicialcriterio),1,0,'L',0);
+		 $current_x = $pdf->GetX();
+		 $current_y = $pdf->GetY();
+
+		    $pdf->Cell(12,$h,utf8_decode($row->inicialsubcriterio),1,0,'L',0);
+		 $current_x = $pdf->GetX();
+		 $current_y = $pdf->GetY();
+
+		    $pdf->Cell(12,$h,utf8_decode($row->inicialindicador),1,0,'L',0);
 		 $current_x = $pdf->GetX();
 		 $current_y = $pdf->GetY();
 
 		 //$pdf->Cell(80,5,utf8_decode($row->asunto),1,0,'L',0);
-		 $pdf->MultiCell(120,5,utf8_decode($row->nombre),1,'L',1);
-		 $pdf->SetXY($current_x+120, $current_y);
+		 $pdf->MultiCell(90,5,utf8_decode($row->nombre),1,'L',1);
+		 $pdf->SetXY($current_x+90, $current_y);
          $url_base = "https://repositorioutlvte.org/Repositorio/iconos/";
          if(empty($row->archivo))
          {
