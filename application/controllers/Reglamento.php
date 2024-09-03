@@ -193,22 +193,7 @@ public function genpagina()
 	 	$data['reglamentos']= $this->reglamento_model->reglamentoA($iddistributivo)->result();
 		$arreglo=array();
 		$i=0;
-//		foreach($data['reglamentos'] as $row){
-//		$idreglamento=$row->idreglamento;
-
-//		$xx=array($this->prestamoreglamento_model->prestamoreglamentosA($idreglamento)->result_array());
-//		if(count($xx[0]) > 0){
-//		foreach($xx as $row2){
-//			foreach($row2 as $row3)
-//			 {
-//				$arreglo+=array($i=>array($row->idreglamento=>$row3));
-//				$i=$i+1;
-//			}
-///			}
-//		}
-//		}
 		$data['prestamoreglamento']=array();
-//		$data['prestamoreglamento']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
 
 		$this->load->view('reglamento_genpagina',$data);

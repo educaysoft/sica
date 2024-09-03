@@ -13,6 +13,8 @@ if(isset($aula))
         <li> <?php echo anchor('aula/edit/'.$aula['idaula'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('aula/delete/'.$aula['idaula'],'Delete'); ?></li>
         <li> <?php echo anchor('aula/listar/','Listar'); ?></li>
+        <li> <?php echo anchor('aula/genpagina/1','generar web'); ?></li>
+        <li> <?php echo anchor('aula/aula_1','Web'); ?></li>
 
 <?php 
 }else{

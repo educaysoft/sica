@@ -222,4 +222,34 @@ public function anterior(){
 
 
 
+public function genpagina()
+{
+	$iddistributivo=0;
+
+	$ordenrpt=0;
+	if($this->uri->segment(3))
+	{
+		//$iddistributivo=$this->uri->segment(3);
+		$iddistributivo=1;
+	 	$data['aulas']= $this->aula_model->aula()->result();
+		$arreglo=array();
+		$i=0;
+		$data['prestamoaula']=array();
+		echo "<br> jornadadocnete<br>" ;
+
+		$this->load->view('aula_genpagina',$data);
+	}
+}
+
+
+
+public function vistaweb()
+{
+
+	$periodoarea=$this->uri->segment(3);
+    $this->load->view('web/aulas'.$periodoarea);
+
+}
+
+
 }
