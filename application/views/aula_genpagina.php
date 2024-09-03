@@ -433,8 +433,8 @@ $data=$data.'
         <div class="card-body" style="background-color:gray"  >
         <div style="font-size:20px;  color:#333;  margin-top:10px;" > Nombre del aula:<br> <span  style="color:#6c757d;text-shadow: 1px 1px 2px #000, -1px -1px 2px #fff;" >'.$row->nombre.'</span> </div>
         <div style="font-size:20px;  color:#333;  margin-top:10px;" > <b>Código:</b> '.$row->idaula.' </div>
-        <div style="font-size:20px;  color:#333;  margin-top:10px; text-align: justify;" ><b>Detalle:</b><br> '.$row->detalle.' </div>
-        ;	
+        <div style="font-size:20px;  color:#333;  margin-top:10px; text-align: justify;" ><b>Detalle:</b><br> '.$row->detalle.' </div>'
+       ;	
 
 
               	$data=$data.'<div class="d-flex justify-content-between align-items-center">
