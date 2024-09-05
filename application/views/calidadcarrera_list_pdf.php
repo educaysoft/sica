@@ -89,7 +89,7 @@
 		 $current_x = $pdf->GetX();
 		 $current_y = $pdf->GetY();
 
-		    $pdf->Cell(10,$h,utf8_decode($row->inicialindicador),1,0,'L',0);
+		    $pdf->Cell(10,$h,utf8_decode($row->inicialindicadorcalidad),1,0,'L',0);
 		 $current_x = $pdf->GetX();
 		 $current_y = $pdf->GetY();
 
