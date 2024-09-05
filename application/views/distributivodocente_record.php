@@ -5,10 +5,10 @@
 if(isset($distributivodocente))
 {
 ?>
-   <li> <?php echo anchor('distributivodocente/elprimero/', 'primero'); ?></li>
-   <li> <?php echo anchor('distributivodocente/anterior/'.$distributivodocente['iddistributivodocente'], 'anterior'); ?></li>
-   <li> <?php echo anchor('distributivodocente/siguiente/'.$distributivodocente['iddistributivodocente'], 'siguiente'); ?></li>
-   <li style="border-right:1px solid green"><?php echo anchor('distributivodocente/elultimo/', 'Último'); ?></li>
+        <li> <?php echo anchor('distributivodocente/elprimero/', 'primero'); ?></li>
+        <li> <?php echo anchor('distributivodocente/anterior/'.$distributivodocente['iddistributivodocente'], 'anterior'); ?></li>
+        <li> <?php echo anchor('distributivodocente/siguiente/'.$distributivodocente['iddistributivodocente'], 'siguiente'); ?></li>
+        <li style="border-right:1px solid green"><?php echo anchor('distributivodocente/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('distributivodocente/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('distributivodocente/edit/'.$distributivodocente['iddistributivodocente'],'Edit'); ?></li>
         <li style="border-right:1px solid green"> <?php echo anchor('distributivodocente/quitar/'.$distributivodocente['iddistributivodocente'],'Quitar'); ?></li>

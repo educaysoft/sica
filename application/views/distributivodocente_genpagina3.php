@@ -646,7 +646,8 @@ foreach($docenteactividadacademica as $rowj){
 	$data1= str_replace('<infodoce>',$infodoce,$data1);
  	$data=$data.$data1;
 
-	$file='application/views/cursos/distributivo-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.php';
+//	$file='application/views/cursos/distributivo-'.$row->elperiodoacademico.'-'.$row->iddistributivo.'.php';
+	$file='application/views/web/distributivodocente-'.$row->iddistributivo.'.php';
 
 
 	if ( !write_file($file, $data)){
