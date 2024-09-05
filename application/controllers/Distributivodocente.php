@@ -680,7 +680,7 @@ public function anterior(){
 
 
 
-public function paginaaweb()
+public function paginaweb()
 {
 
 	$periodoarea=$this->uri->segment(3);
