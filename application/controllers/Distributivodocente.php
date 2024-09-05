@@ -392,7 +392,7 @@ public function genpagina2()
 
 
 
-public function genpagina3()
+public function generaweb()
 {
 	$iddistributivo=0;
 
@@ -671,6 +671,12 @@ public function anterior(){
   $this->load->view('distributivodocente_record',$data);
 	$this->load->view('template/page_footer');
 }
+
+
+
+
+
+
 
 
 
