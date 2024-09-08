@@ -9,8 +9,7 @@ class Informacioncarrera_model extends CI_model {
 
 	function lista_informacioncarrerasA(){
 
-$this->db->order_by('idinformacioncarrera', 'asc');
-$this->db->order_by('codigo', 'asc');
+$this->db->order_by('solicitante', 'asc');
 
 $query = $this->db->get('informacioncarrera1');
 
