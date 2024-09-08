@@ -27,7 +27,7 @@ $query = $this->db->get('informacioncarrera1');
  	}
 
  	function informacioncarreraA( $id){
- 		$informacioncarrera = $this->db->query('select * from informacioncarrera1 where iddepartamento="'. $id.'" order by idinformacioncarrera,codigo');
+ 		$informacioncarrera = $this->db->query('select * from informacioncarrera1 where iddepartamento="'. $id.'" order by codigo');
  		return $informacioncarrera;
  	}
 
