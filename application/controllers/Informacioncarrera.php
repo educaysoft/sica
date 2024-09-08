@@ -1,10 +1,10 @@
 <?php
 
-class Calidadcarrera extends CI_Controller{
+class Informacioncarrera extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('calidadcarrera_model');
+      $this->load->model('informacioncarrera_model');
   	  $this->load->model('departamento_model');
      $this->load->model('criteriocalidad_model');
      $this->load->model('subcriteriocalidad_model');
@@ -13,14 +13,14 @@ class Calidadcarrera extends CI_Controller{
 
 public function index(){
 	if(isset($this->session->userdata['logged_in'])){
-	  	$data['calidadcarrera']=$this->calidadcarrera_model->elultimo();
+	  	$data['informacioncarrera']=$this->informacioncarrera_model->elultimo();
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
 		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
   		$data['title']="Lista de evidencia Calidad";
 			$this->load->view('template/page_header');		
-  		$this->load->view('calidadcarrera_record',$data);
+  		$this->load->view('informacioncarrera_record',$data);
 			$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
@@ -38,7 +38,7 @@ public function add()
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
 		$data['title']="Nuevo Criterio de calidad";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('calidadcarrera_form',$data);
+	 	$this->load->view('informacioncarrera_form',$data);
 	 	$this->load->view('template/page_footer');
 }
 
@@ -46,7 +46,7 @@ public function add()
 public function  save()
 	{
 	 	$array_item=array(
-	 	'idcalidadcarrera' => $this->input->post('idcalidadcarrera'),
+	 	'idinformacioncarrera' => $this->input->post('idinformacioncarrera'),
 	 	'nombre' => $this->input->post('nombre'),
 	 	'detalle' => $this->input->post('detalle'),
 	 	'archivo' => $this->input->post('archivo'),
@@ -56,7 +56,7 @@ public function  save()
 	 	'codigo' => $this->input->post('codigo'),
 	 	'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
-	 	$result=$this->calidadcarrera_model->save($array_item);
+	 	$result=$this->informacioncarrera_model->save($array_item);
 	 	if($result == FALSE)
 		{
 			echo "<script language='JavaScript'> alert('formato ya existe ya existe'); </script>";
@@ -71,14 +71,14 @@ public function  save()
 
 public function edit()
 {
-	 	$data['calidadcarrera'] = $this->calidadcarrera_model->calidadcarrera($this->uri->segment(3))->row_array();
+	 	$data['informacioncarrera'] = $this->informacioncarrera_model->informacioncarrera($this->uri->segment(3))->row_array();
   		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
 		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
- 	 	$data['title'] = "Actualizar Calidadcarrera";
+ 	 	$data['title'] = "Actualizar Informacioncarrera";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('calidadcarrera_edit',$data);
+ 	 	$this->load->view('informacioncarrera_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -86,10 +86,10 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idcalidadcarrera');
+		$id=$this->input->post('idinformacioncarrera');
 	 	$array_item=array(
 		 	
-		 	'idcalidadcarrera' => $this->input->post('idcalidadcarrera'),
+		 	'idinformacioncarrera' => $this->input->post('idinformacioncarrera'),
 		 	'nombre' => $this->input->post('nombre'),
 		 	'detalle' => $this->input->post('detalle'),
 	 	'archivo' => $this->input->post('archivo'),
@@ -99,8 +99,8 @@ public function edit()
 	 	'codigo' => $this->input->post('codigo'),
 	 		'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
-	 	$this->calidadcarrera_model->update($id,$array_item);
-	 	redirect('calidadcarrera/actual/'.$id);
+	 	$this->informacioncarrera_model->update($id,$array_item);
+	 	redirect('informacioncarrera/actual/'.$id);
  	}
 
 
@@ -108,24 +108,24 @@ public function edit()
 public function listar()
 {
 	
-  $data['title']="Calidadcarrera";
+  $data['title']="Informacioncarrera";
 	$this->load->view('template/page_header');		
-  $this->load->view('calidadcarrera_list',$data);
+  $this->load->view('informacioncarrera_list',$data);
 	$this->load->view('template/page_footer');
 }
 
-function calidadcarrera_data()
+function informacioncarrera_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->calidadcarrera_model->lista_calidadcarrerasA();
+	 	$data0 = $this->informacioncarrera_model->lista_informacioncarrerasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idcalidadcarrera,$r->codigo,$r->elcriteriocalidad,$r->elsubcriteriocalidad,$r->elindicadorcalidad,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('calidadcarrera/actual').'"  data-idcalidadcarrera="'.$r->idcalidadcarrera.'">Ver</a>');
+			$data[]=array($r->idinformacioncarrera,$r->codigo,$r->elcriteriocalidad,$r->elsubcriteriocalidad,$r->elindicadorcalidad,$r->nombre,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('informacioncarrera/actual').'"  data-idinformacioncarrera="'.$r->idinformacioncarrera.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -145,12 +145,12 @@ function calidadcarrera_data()
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$idcalidadcarrera=$this->input->get('idcalidadcarrera');
-			$data0 =$this->ubicacioncalidadcarrera_model->ubicacioncalidadcarrerasA($idcalidadcarrera);
+			$idinformacioncarrera=$this->input->get('idinformacioncarrera');
+			$data0 =$this->ubicacioninformacioncarrera_model->ubicacioninformacioncarrerasA($idinformacioncarrera);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idubicacioncalidadcarrera,$r->idcalidadcarrera,$r->launidad,$r->lapersona,$r->fecha,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('ubicacioncalidadcarrera/actual').'"    data-idubicacioncalidadcarrera="'.$r->idubicacioncalidadcarrera.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('ubicacioncalidadcarrera/edit').'"    data-idubicacioncalidadcarrera="'.$r->idubicacioncalidadcarrera.'">edit</a>');
+				$data[]=array($r->idubicacioninformacioncarrera,$r->idinformacioncarrera,$r->launidad,$r->lapersona,$r->fecha,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('ubicacioninformacioncarrera/actual').'"    data-idubicacioninformacioncarrera="'.$r->idubicacioninformacioncarrera.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('ubicacioninformacioncarrera/edit').'"    data-idubicacioninformacioncarrera="'.$r->idubicacioninformacioncarrera.'">edit</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -174,12 +174,12 @@ function calidadcarrera_data()
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$idcalidadcarrera=$this->input->get('idcalidadcarrera');
-			$data0 =$this->prestamocalidadcarrera_model->prestamocalidadcarrerasA($idcalidadcarrera);
+			$idinformacioncarrera=$this->input->get('idinformacioncarrera');
+			$data0 =$this->prestamoinformacioncarrera_model->prestamoinformacioncarrerasA($idinformacioncarrera);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idprestamocalidadcarrera,$r->idcalidadcarrera,$r->lapersona,$r->fechaprestamo,$r->horaprestamo,$r->fechadevolucion,$r->horadevolucion,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamocalidadcarrera/actual').'"    data-idprestamocalidadcarrera="'.$r->idprestamocalidadcarrera.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamocalidadcarrera/edit').'"    data-idprestamocalidadcarrera="'.$r->idprestamocalidadcarrera.'">edit</a>');
+				$data[]=array($r->idprestamoinformacioncarrera,$r->idinformacioncarrera,$r->lapersona,$r->fechaprestamo,$r->horaprestamo,$r->fechadevolucion,$r->horadevolucion,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamoinformacioncarrera/actual').'"    data-idprestamoinformacioncarrera="'.$r->idprestamoinformacioncarrera.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamoinformacioncarrera/edit').'"    data-idprestamoinformacioncarrera="'.$r->idprestamoinformacioncarrera.'">edit</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -202,28 +202,28 @@ public function genpagina()
 	{
 		//$iddistributivo=$this->uri->segment(3);
 		$iddistributivo=1;
-	 	$data['calidadcarreras']= $this->calidadcarrera_model->calidadcarreraA($iddistributivo)->result();
+	 	$data['informacioncarreras']= $this->informacioncarrera_model->informacioncarreraA($iddistributivo)->result();
 		$arreglo=array();
 		$i=0;
-//		foreach($data['calidadcarreras'] as $row){
-//		$idcalidadcarrera=$row->idcalidadcarrera;
+//		foreach($data['informacioncarreras'] as $row){
+//		$idinformacioncarrera=$row->idinformacioncarrera;
 
-//		$xx=array($this->prestamocalidadcarrera_model->prestamocalidadcarrerasA($idcalidadcarrera)->result_array());
+//		$xx=array($this->prestamoinformacioncarrera_model->prestamoinformacioncarrerasA($idinformacioncarrera)->result_array());
 //		if(count($xx[0]) > 0){
 //		foreach($xx as $row2){
 //			foreach($row2 as $row3)
 //			 {
-//				$arreglo+=array($i=>array($row->idcalidadcarrera=>$row3));
+//				$arreglo+=array($i=>array($row->idinformacioncarrera=>$row3));
 //				$i=$i+1;
 //			}
 ///			}
 //		}
 //		}
-		$data['prestamocalidadcarrera']=array();
-//		$data['prestamocalidadcarrera']=$arreglo; 
+		$data['prestamoinformacioncarrera']=array();
+//		$data['prestamoinformacioncarrera']=$arreglo; 
 		echo "<br> jornadadocnete<br>" ;
 
-		$this->load->view('calidadcarrera_genpagina',$data);
+		$this->load->view('informacioncarrera_genpagina',$data);
 	}
 }
 
@@ -238,16 +238,16 @@ public function genpagina()
 
 public function actual()
 {
-	$data['calidadcarrera'] = $this->calidadcarrera_model->calidadcarrera($this->uri->segment(3))->row_array();
+	$data['informacioncarrera'] = $this->informacioncarrera_model->informacioncarrera($this->uri->segment(3))->row_array();
  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
 		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
   if(!empty($data))
   {
-    $data['title']="Calidadcarrera";
+    $data['title']="Informacioncarrera";
     $this->load->view('template/page_header');		
-    $this->load->view('calidadcarrera_record',$data);
+    $this->load->view('informacioncarrera_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -264,16 +264,16 @@ public function actual()
 
 public function elprimero()
 {
-	$data['calidadcarrera'] = $this->calidadcarrera_model->elprimero();
+	$data['informacioncarrera'] = $this->informacioncarrera_model->elprimero();
  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
 		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
   if(!empty($data))
   {
-    $data['title']="Calidadcarrera";
+    $data['title']="Informacioncarrera";
     $this->load->view('template/page_header');		
-    $this->load->view('calidadcarrera_record',$data);
+    $this->load->view('informacioncarrera_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -284,17 +284,17 @@ public function elprimero()
 
 public function elultimo()
 {
-	  $data['calidadcarrera'] = $this->calidadcarrera_model->elultimo();
+	  $data['informacioncarrera'] = $this->informacioncarrera_model->elultimo();
  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
 		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
   if(!empty($data))
   {
-    $data['title']="Calidadcarrera";
+    $data['title']="Informacioncarrera";
   
     $this->load->view('template/page_header');		
-    $this->load->view('calidadcarrera_record',$data);
+    $this->load->view('informacioncarrera_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -305,28 +305,28 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['calidadcarrera_list']=$this->calidadcarrera_model->lista_calidadcarrera()->result();
-	$data['calidadcarrera'] = $this->calidadcarrera_model->siguiente($this->uri->segment(3))->row_array();
+ // $data['informacioncarrera_list']=$this->informacioncarrera_model->lista_informacioncarrera()->result();
+	$data['informacioncarrera'] = $this->informacioncarrera_model->siguiente($this->uri->segment(3))->row_array();
  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
 		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
-  $data['title']="Calidadcarrera";
+  $data['title']="Informacioncarrera";
 	$this->load->view('template/page_header');		
-  $this->load->view('calidadcarrera_record',$data);
+  $this->load->view('informacioncarrera_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['calidadcarrera_list']=$this->calidadcarrera_model->lista_calidadcarrera()->result();
-	$data['calidadcarrera'] = $this->calidadcarrera_model->anterior($this->uri->segment(3))->row_array();
+ // $data['informacioncarrera_list']=$this->informacioncarrera_model->lista_informacioncarrera()->result();
+	$data['informacioncarrera'] = $this->informacioncarrera_model->anterior($this->uri->segment(3))->row_array();
  	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
 		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
 		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
-  $data['title']="Calidadcarrera";
+  $data['title']="Informacioncarrera";
 	$this->load->view('template/page_header');		
-  $this->load->view('calidadcarrera_record',$data);
+  $this->load->view('informacioncarrera_record',$data);
 	$this->load->view('template/page_footer');
 }
 
@@ -336,12 +336,12 @@ public function anterior(){
 	{
 
 
-		    $data['calidadcarreras'] = $this->calidadcarrera_model->calidadcarreraA($this->uri->segment(3))->result();
+		    $data['informacioncarreras'] = $this->informacioncarrera_model->informacioncarreraA($this->uri->segment(3))->result();
 
 
 
 		$data['title']="Evento";
-		$this->load->view('calidadcarrera_list_pdf',$data);
+		$this->load->view('informacioncarrera_list_pdf',$data);
 	
 	}
 
@@ -351,9 +351,9 @@ public function anterior(){
 
 
 
-	public function calidadcarrera_1()
+	public function informacioncarrera_1()
 	{
-	  $this->load->view('calidadcarreras/calidadcarrera-1');
+	  $this->load->view('informacioncarreras/informacioncarrera-1');
 	}
 
 

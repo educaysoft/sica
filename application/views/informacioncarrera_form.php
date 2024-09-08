@@ -1,7 +1,7 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("calidadcarrera/save") ?>
-<?php echo form_hidden("idcalidadcarrera")  ?>
+<?php echo form_open("informacioncarrera/save") ?>
+<?php echo form_hidden("idinformacioncarrera")  ?>
 
 
 <div class="form-group row">
@@ -132,7 +132,7 @@ foreach ($indicadorcalidads as $row){
 
 <table>
 <tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("calidadcarrera","Atras") ?> </td>
+<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("informacioncarrera","Atras") ?> </td>
 </tr>
 
 

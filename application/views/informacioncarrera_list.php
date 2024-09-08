@@ -28,7 +28,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <div id="eys-nav-i">
 	<ul>
-		<li> <?php echo anchor('calidadcarrera', 'Home'); ?></li>
+		<li> <?php echo anchor('informacioncarrera', 'Home'); ?></li>
 	</ul>
 </div>
 
@@ -84,13 +84,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('calidadcarrera/calidadcarrera_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('informacioncarrera/informacioncarrera_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('idcalidadcarrera');
+var id= $(this).data('idinformacioncarrera');
 var retorno= $(this).data('retorno');
 window.location.href = retorno+'/'+id;
 
