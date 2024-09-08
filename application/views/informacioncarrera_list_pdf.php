@@ -43,9 +43,7 @@
 
 	$pdf->Cell(5,5,'#',1,0,'C',1);
 	$pdf->Cell(10,5,'id',1,0,'C',1);
-	$pdf->Cell(10,5,'Codigo',1,0,'C',1);
-	$pdf->Cell(10,5,'CRIT',1,0,'C',1);
-	$pdf->Cell(10,5,'SUCR',1,0,'C',1);
+	$pdf->Cell(30,5,'Codigo',1,0,'C',1);
 	$pdf->Cell(10,5,'INDI',1,0,'C',1);
 	$pdf->Cell(100,5,utf8_decode('Fuente de Información'),1,0,'C',1);
 	$pdf->Cell(15,5,'evidencia',1,1,'C',1);
@@ -77,17 +75,11 @@
 		 $current_y = $pdf->GetY();
 
 
-		    $pdf->Cell(10,$h,utf8_decode($row->codigo),1,0,'L',0);
+		    $pdf->Cell(30,$h,utf8_decode($row->solicitante),1,0,'L',0);
 		 $current_x = $pdf->GetX();
 		 $current_y = $pdf->GetY();
 
-		    $pdf->Cell(10,$h,utf8_decode($row->inicialcriterio),1,0,'L',0);
-		 $current_x = $pdf->GetX();
-		 $current_y = $pdf->GetY();
 
-		    $pdf->Cell(10,$h,utf8_decode($row->inicialsubcriterio),1,0,'L',0);
-		 $current_x = $pdf->GetX();
-		 $current_y = $pdf->GetY();
 
 		    $pdf->Cell(10,$h,utf8_decode($row->inicialindicadorcalidad),1,0,'L',0);
 		 $current_x = $pdf->GetX();
