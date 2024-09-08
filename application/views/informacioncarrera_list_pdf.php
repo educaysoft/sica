@@ -43,7 +43,7 @@
 
 	$pdf->Cell(5,5,'#',1,0,'C',1);
 	$pdf->Cell(10,5,'id',1,0,'C',1);
-	$pdf->Cell(30,5,'Codigo',1,0,'C',1);
+	$pdf->Cell(30,5,'Solicitante',1,0,'C',1);
 	$pdf->Cell(10,5,'INDI',1,0,'C',1);
 	$pdf->Cell(100,5,utf8_decode('Fuente de Información'),1,0,'C',1);
 	$pdf->Cell(15,5,'evidencia',1,1,'C',1);

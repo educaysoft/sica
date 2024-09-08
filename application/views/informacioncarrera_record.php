@@ -50,9 +50,8 @@ if(isset($informacioncarrera))
     <label class="col-md-2 col-form-label"> Nombre:</label>
 	<div class="col-md-10">
      <?php
-
-  $eys_arrctl=array("name"=>'nombre','value'=>$informacioncarrera['nombre'],"disabled"=>"disabled",'placeholder'=>'Inombre','style'=>'width:500px;');
- echo form_input($eys_arrctl);
+$textarea_options = array('class' => 'form-control','rows' => '4','disabled'=>'disabled',   'cols' => '20', 'style'=> 'width:500px;height:100px;');    
+ echo form_textarea('nombre',$informacioncarrera['nombre'],$textarea_options); 
 		?>
 	</div> 
 </div>
