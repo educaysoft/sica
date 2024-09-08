@@ -53,7 +53,7 @@ public function  save()
 		'idcriteriocalidad' => $this->input->post('idcriteriocalidad'),
 		'idsubcriteriocalidad' => $this->input->post('idsubcriteriocalidad'),
 		'idindicadorcalidad' => $this->input->post('idindicadorcalidad'),
-	 	'codigo' => $this->input->post('codigo'),
+	 	'solicitante' => $this->input->post('solicitante'),
 	 	'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
 	 	$result=$this->informacioncarrera_model->save($array_item);
@@ -96,7 +96,7 @@ public function edit()
 		'idcriteriocalidad' => $this->input->post('idcriteriocalidad'),
 		'idsubcriteriocalidad' => $this->input->post('idsubcriteriocalidad'),
 		'idindicadorcalidad' => $this->input->post('idindicadorcalidad'),
-	 	'codigo' => $this->input->post('codigo'),
+	 	'solicitante' => $this->input->post('solicitante'),
 	 		'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
 	 	$this->informacioncarrera_model->update($id,$array_item);
@@ -124,7 +124,7 @@ function informacioncarrera_data()
 	 	$data0 = $this->informacioncarrera_model->lista_informacioncarrerasA();
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idinformacioncarrera,$r->codigo,$r->elcriteriocalidad,$r->elsubcriteriocalidad,$r->elindicadorcalidad,$r->nombre,
+			$data[]=array($r->idinformacioncarrera,$r->solicitante,$r->elcriteriocalidad,$r->elsubcriteriocalidad,$r->elindicadorcalidad,$r->nombre,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('informacioncarrera/actual').'"  data-idinformacioncarrera="'.$r->idinformacioncarrera.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,

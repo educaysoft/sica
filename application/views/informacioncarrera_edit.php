@@ -81,8 +81,8 @@ foreach ($indicadorcalidads as $row){
 
 
 <tr>
-      <td>Codigo:</td>
-      <td><?php echo form_input('codigo',$informacioncarrera['codigo'],array('placeholder'=>'Nombre del ', "style"=>"width:500px")) ?></td>
+      <td>Solicitante:</td>
+      <td><?php echo form_input('solicitante',$informacioncarrera['solicitante'],array('placeholder'=>'Nombre del ', "style"=>"width:500px")) ?></td>
   </tr>
 
  <tr>

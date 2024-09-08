@@ -120,11 +120,11 @@ foreach ($indicadorcalidads as $row){
 
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label">Codigo: </label>
+<label class="col-md-2 col-form-label">Solicitante: </label>
 <div class="col-md-10">
 <?php
      
-     echo form_input("codigo","", array("placeholder"=>"codigo en el proceso",'style'=>'width:500px;'));
+     echo form_input("solicitante","", array("placeholder"=>"solicitante en el proceso",'style'=>'width:500px;'));
 ?>
 </div>
 </div>

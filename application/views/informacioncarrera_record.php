@@ -130,11 +130,11 @@ echo form_input('idindicadorcalidad',$options[$informacioncarrera['idindicadorca
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Código:</label>
+    <label class="col-md-2 col-form-label"> Socilicitante:</label>
 	<div class="col-md-10">
      <?php
 
-  $eys_arrctl=array("name"=>'codigo','value'=>$informacioncarrera['codigo'],"disabled"=>"disabled",'placeholder'=>'Orden','style'=>'width:500px;');
+  $eys_arrctl=array("name"=>'solicitante','value'=>$informacioncarrera['solicitante'],"disabled"=>"disabled",'placeholder'=>'Orden','style'=>'width:500px;');
  echo form_input($eys_arrctl);
 		?>
 	</div> 
@@ -253,7 +253,7 @@ function uploadImage(nombre,idx) {
 
 
 function getUploadUrl() {
-    var selectElement = document.getElementById("idcodigoador");
+    var selectElement = document.getElementById("idsolicitanteador");
     var url = "https://repositorioutlvte.org";
     return url.endsWith("/") ? url + "cargaimagenformato.php" : url + "/cargaimagenformato.php";
 }
