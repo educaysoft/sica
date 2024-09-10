@@ -92,6 +92,22 @@ if(isset($documento))
 </div> 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('tipodocumentodocumento/add/'.$documento['idtipodocumento'], 'Tipodocumento:'); ?>:</label>
+	<div class="col-md-10">
+	<?php
+ 	$options = array();
+ 	$arrurl2 = array();
+  	foreach ($tipodocumentodocumentos as $row){
+		$options[$row->idtipodocumentodocumento]=$row->nombre;
+		$arrurl2[$row->idtipodocumentodocumento]= base_url().'tipodocumentodocumento/actual/'.$row->idtipodocumentodocumento;
+	}
+ echo form_multiselect('tipodocumentodocumento[]',$options,(array)set_value('idtipodocumentodocumento', ''), array('style'=>'width:500px','name'=>'idtipodocumentodocumento','id'=> 'idtipodocumentodocumento','onChange'=>'editartipodocumento()')); 
+
+	?>
+	</div> 
+</div>
+
 
 
 <div class="form-group row">

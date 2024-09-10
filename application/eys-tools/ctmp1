@@ -1,84 +1,110 @@
 <?php
 
-class Informacioncarrera extends CI_Controller{
+class Tipodocumentodocumento extends CI_Controller{
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('calidadcarrera_model');
-  	  $this->load->model('departamento_model');
-     $this->load->model('criteriocalidad_model');
-     $this->load->model('subcriteriocalidad_model');
-     $this->load->model('indicadorcalidad_model');
+  	  $this->load->model('documento_model');
+  	  $this->load->model('trabajointegracioncurricular_model');
+  	  $this->load->model('documentotrabajointegracioncurricular_model');
 }
 
 public function index(){
-	if(isset($this->session->userdata['logged_in'])){
-	  	$data['calidadcarrera']=$this->calidadcarrera_model->elultimo();
-  		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
-		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
-		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
-  		$data['title']="Lista de evidencia Calidad";
-			$this->load->view('template/page_header');		
-  		$this->load->view('calidadcarrera_record',$data);
-			$this->load->view('template/page_footer');
+
+  	if(isset($this->session->userdata['logged_in'])){
+			
+  	$data['documentotrabajointegracioncurricular']=$this->documentotrabajointegracioncurricular_model->elultimo();
+	$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
+  	$data['trabajointegracioncurricular']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA($data['documentotrabajointegracioncurricular']['idtrabajointegracioncurricular'])->row_array();
+  	$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
+	
+		$data['title']="Lista de documentotrabajointegracioncurriculars";
+		$this->load->view('template/page_header');
+		$this->load->view('documentotrabajointegracioncurricular_record',$data);
+		$this->load->view('template/page_footer');
 	}else{
 	 	$this->load->view('template/page_header.php');
 		$this->load->view('login_form');
 	 	$this->load->view('template/page_footer.php');
 	}
-}
+
+ }
 
 
 public function add()
 {
-  		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
-		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
-		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
-		$data['title']="Nuevo Criterio de calidad";
+
+		$idtrabajointegracioncurricular=0;
+	if($this->uri->segment(3)){
+		$idtrabajointegracioncurricular=$this->uri->segment(3);
+	}
+
+		$destinodocumento=1;  //trabajointegracioncurricular
+		$data['documentos']= $this->documento_model->lista_documentosxdestino($destinodocumento)->result();
+  		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA($idtrabajointegracioncurricular)->result();
+		$data['title']="Nueva Tipodocumentodocumento";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('calidadcarrera_form',$data);
+	 	$this->load->view('documentotrabajointegracioncurricular_form',$data);
 	 	$this->load->view('template/page_footer');
+
+
 }
 
 
-public function  save()
+	public function  save()
 	{
 	 	$array_item=array(
-	 	'idcalidadcarrera' => $this->input->post('idcalidadcarrera'),
-	 	'nombre' => $this->input->post('nombre'),
-	 	'detalle' => $this->input->post('detalle'),
-	 	'archivo' => $this->input->post('archivo'),
-		'idcriteriocalidad' => $this->input->post('idcriteriocalidad'),
-		'idsubcriteriocalidad' => $this->input->post('idsubcriteriocalidad'),
-		'idindicadorcalidad' => $this->input->post('idindicadorcalidad'),
-	 	'codigo' => $this->input->post('codigo'),
-	 	'iddepartamento' => $this->input->post('iddepartamento'),
+			'iddocumento' => $this->input->post('iddocumento'),
+			'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
 	 	);
-	 	$result=$this->calidadcarrera_model->save($array_item);
+	 	$result=$this->documentotrabajointegracioncurricular_model->save($array_item);
+
 	 	if($result == FALSE)
 		{
-			echo "<script language='JavaScript'> alert('formato ya existe ya existe'); </script>";
+			echo "<script language='JavaScript'> alert('Documento ya existe en este trabajointegracioncurricular'); </script>";
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}else{
 			echo "<script language='JavaScript'> window.history.go(-2);</script>";
 		}
-
  	}
+
+
+	public function  save2()
+	{
+	 	$array_item=array(
+			'iddocumento' => $this->input->post('iddocumento'),
+			'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
+			'minutosocupados' => $this->input->post('minutosocupados'),
+	 	);
+	 	$result=$this->documentotrabajointegracioncurricular_model->save($array_item);
+
+	 	if($result == FALSE)
+		{
+            echo json_encode($result);
+		}else{
+            echo json_encode($result);
+		}
+ 	}
+
+
+
 
 
 
 public function edit()
 {
-	 	$data['calidadcarrera'] = $this->calidadcarrera_model->calidadcarrera($this->uri->segment(3))->row_array();
-  		$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
-		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
-		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
- 	 	$data['title'] = "Actualizar Informacioncarrera";
+	 	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->documentotrabajointegracioncurricular($this->uri->segment(3))->row_array();
+
+		//$tipodocumento=17;  //trabajointegracioncurricular
+		//$data['documentos']= $this->documento_model->lista_documentosxtipo($tipodocumento,0)->result();
+
+		$destinodocumento=1;  //trabajointegracioncurricular
+		$data['documentos']= $this->documento_model->lista_documentosxdestino($destinodocumento)->result();
+
+  		$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
+ 	 	$data['title'] = "Actualizar Tipodocumentodocumento";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('calidadcarrera_edit',$data);
+ 	 	$this->load->view('documentotrabajointegracioncurricular_edit',$data);
 	 	$this->load->view('template/page_footer');
  
 }
@@ -86,46 +112,59 @@ public function edit()
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idcalidadcarrera');
+		$id=$this->input->post('iddocumentotrabajointegracioncurricular');
 	 	$array_item=array(
 		 	
-		 	'idcalidadcarrera' => $this->input->post('idcalidadcarrera'),
-		 	'nombre' => $this->input->post('nombre'),
-		 	'detalle' => $this->input->post('detalle'),
-	 	'archivo' => $this->input->post('archivo'),
-		'idcriteriocalidad' => $this->input->post('idcriteriocalidad'),
-		'idsubcriteriocalidad' => $this->input->post('idsubcriteriocalidad'),
-		'idindicadorcalidad' => $this->input->post('idindicadorcalidad'),
-	 	'codigo' => $this->input->post('codigo'),
-	 		'iddepartamento' => $this->input->post('iddepartamento'),
+		 	'iddocumentotrabajointegracioncurricular' => $this->input->post('iddocumentotrabajointegracioncurricular'),
+			'iddocumento' => $this->input->post('iddocumento'),
+			'idtrabajointegracioncurricular' => $this->input->post('idtrabajointegracioncurricular'),
 	 	);
-	 	$this->calidadcarrera_model->update($id,$array_item);
-	 	redirect('calidadcarrera/actual/'.$id);
+	$result =	$this->documentotrabajointegracioncurricular_model->update($id,$array_item);
+	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Documento ya existe en este trabajointegracioncurricular'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+
+
+
  	}
 
+
+ 	public function delete()
+ 	{
+ 		$data=$this->documentotrabajointegracioncurricular_model->delete($this->uri->segment(3));
+ 		echo json_encode($data);
+	 	redirect('documentotrabajointegracioncurricular/elprimero');
+	//	$db['default']['db_debug']=FALSE
+ 	}
 
 
 public function listar()
 {
 	
-  $data['title']="Informacioncarrera";
+  $data['title']="Tipodocumentodocumentos";
 	$this->load->view('template/page_header');		
-  $this->load->view('calidadcarrera_list',$data);
+  $this->load->view('documentotrabajointegracioncurricular_list',$data);
 	$this->load->view('template/page_footer');
 }
 
-function calidadcarrera_data()
+
+
+function documentotrabajointegracioncurricular_data()
 {
 		$draw= intval($this->input->get("draw"));
 		$draw= intval($this->input->get("start"));
 		$draw= intval($this->input->get("length"));
 
 
-	 	$data0 = $this->calidadcarrera_model->lista_calidadcarrerasA();
+	 	$data0 = $this->documentotrabajointegracioncurricular_model->lista_documentotrabajointegracioncurricularsA(0);
 		$data=array();
 		foreach($data0->result() as $r){
-			$data[]=array($r->idcalidadcarrera,$r->codigo,$r->elcriteriocalidad,$r->elsubcriteriocalidad,$r->elindicadorcalidad,$r->nombre,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('calidadcarrera/actual').'"  data-idcalidadcarrera="'.$r->idcalidadcarrera.'">Ver</a>');
+			$data[]=array($r->iddocumentotrabajointegracioncurricular,$r->iddocumento,$r->asunto,$r->elperiodo,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver" data-retorno="'.site_url('documentotrabajointegracioncurricular/actual').'"  data-iddocumentotrabajointegracioncurricular="'.$r->iddocumentotrabajointegracioncurricular.'">Ver</a>');
 		}	
 		$output=array( "draw"=>$draw,
 			"recordsTotal"=> $data0->num_rows(),
@@ -134,23 +173,25 @@ function calidadcarrera_data()
 		);
 		echo json_encode($output);
 		exit();
+	
+			
+
 }
 
 
 
-
-	function ubicacion_data()
+	function asignaturadocumento_data()
 	{
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$idcalidadcarrera=$this->input->get('idcalidadcarrera');
-			$data0 =$this->ubicacioncalidadcarrera_model->ubicacioncalidadcarrerasA($idcalidadcarrera);
+			$iddocumentotrabajointegracioncurricular=$this->input->get('iddocumentotrabajointegracioncurricular');
+			$data0 =$this->asignaturadocumento_model->lista_asignaturadocumentos($iddocumentotrabajointegracioncurricular);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idubicacioncalidadcarrera,$r->idcalidadcarrera,$r->launidad,$r->lapersona,$r->fecha,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('ubicacioncalidadcarrera/actual').'"    data-idubicacioncalidadcarrera="'.$r->idubicacioncalidadcarrera.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('ubicacioncalidadcarrera/edit').'"    data-idubicacioncalidadcarrera="'.$r->idubicacioncalidadcarrera.'">edit</a>');
+				$data[]=array($r->iddocumentotrabajointegracioncurricular,$r->idasignaturadocumento,$r->laasignatura,$r->paralelo,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('asignaturadocumento/actual').'"    data-idasignaturadocumento="'.$r->idasignaturadocumento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -165,21 +206,18 @@ function calidadcarrera_data()
 
 
 
-
-
-
-	function prestamo_data()
+	function documento_data()
 	{
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$idcalidadcarrera=$this->input->get('idcalidadcarrera');
-			$data0 =$this->prestamocalidadcarrera_model->prestamocalidadcarrerasA($idcalidadcarrera);
+			$idpersona=$this->input->get('idpersona');
+			$data0 =$this->documento_model->lista_documentosC($idpersona);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idprestamocalidadcarrera,$r->idcalidadcarrera,$r->lapersona,$r->fechaprestamo,$r->horaprestamo,$r->fechadevolucion,$r->horadevolucion,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamocalidadcarrera/actual').'"    data-idprestamocalidadcarrera="'.$r->idprestamocalidadcarrera.'">Ver</a><a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('prestamocalidadcarrera/edit').'"    data-idprestamocalidadcarrera="'.$r->idprestamocalidadcarrera.'">edit</a>');
+				$data[]=array($r->iddocumento,$r->idpersona,$r->asunto,$r->fechaelaboracion,$r->archivopdf,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('documento/actual').'"    data-iddocumento="'.$r->iddocumento.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -189,47 +227,6 @@ function calidadcarrera_data()
 			echo json_encode($output);
 			exit();
 	}
-
-
-
-
-public function genpagina()
-{
-	$iddistributivo=0;
-
-	$ordenrpt=0;
-	if($this->uri->segment(3))
-	{
-		//$iddistributivo=$this->uri->segment(3);
-		$iddistributivo=1;
-	 	$data['calidadcarreras']= $this->calidadcarrera_model->calidadcarreraA($iddistributivo)->result();
-		$arreglo=array();
-		$i=0;
-//		foreach($data['calidadcarreras'] as $row){
-//		$idcalidadcarrera=$row->idcalidadcarrera;
-
-//		$xx=array($this->prestamocalidadcarrera_model->prestamocalidadcarrerasA($idcalidadcarrera)->result_array());
-//		if(count($xx[0]) > 0){
-//		foreach($xx as $row2){
-//			foreach($row2 as $row3)
-//			 {
-//				$arreglo+=array($i=>array($row->idcalidadcarrera=>$row3));
-//				$i=$i+1;
-//			}
-///			}
-//		}
-//		}
-		$data['prestamocalidadcarrera']=array();
-//		$data['prestamocalidadcarrera']=$arreglo; 
-		echo "<br> jornadadocnete<br>" ;
-
-		$this->load->view('calidadcarrera_genpagina',$data);
-	}
-}
-
-
-
-
 
 
 
@@ -238,16 +235,14 @@ public function genpagina()
 
 public function actual()
 {
-	$data['calidadcarrera'] = $this->calidadcarrera_model->calidadcarrera($this->uri->segment(3))->row_array();
- 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
-		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
-		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
-  if(!empty($data))
-  {
-    $data['title']="Informacioncarrera";
+	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->documentotrabajointegracioncurricular($this->uri->segment(3))->row_array();
+  	$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
+  	$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
+	  if(!empty($data))
+	  {
+    $data['title']="Tipodocumentodocumento";
     $this->load->view('template/page_header');		
-    $this->load->view('calidadcarrera_record',$data);
+    $this->load->view('documentotrabajointegracioncurricular_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -262,18 +257,20 @@ public function actual()
 
 
 
+
+
+
 public function elprimero()
 {
-	$data['calidadcarrera'] = $this->calidadcarrera_model->elprimero();
- 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
-		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
-		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
-  if(!empty($data))
-  {
-    $data['title']="Informacioncarrera";
+  	$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
+  	$data['documentos']= $this->documento_model->lista_documentosA(0)->result();
+	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->elprimero();
+	  if(!empty($data))
+	  {
+  	$data['documentos']= $this->documento_model->lista_documentos()->result();
+    $data['title']="Tipodocumentodocumento";
     $this->load->view('template/page_header');		
-    $this->load->view('calidadcarrera_record',$data);
+    $this->load->view('documentotrabajointegracioncurricular_record',$data);
     $this->load->view('template/page_footer');
   }else{
     $this->load->view('template/page_header');		
@@ -284,17 +281,15 @@ public function elprimero()
 
 public function elultimo()
 {
-	  $data['calidadcarrera'] = $this->calidadcarrera_model->elultimo();
- 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
-		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
-		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
+	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->elultimo();
+  	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
   if(!empty($data))
   {
-    $data['title']="Informacioncarrera";
+    $data['title']="Tipodocumentodocumento";
   
     $this->load->view('template/page_header');		
-    $this->load->view('calidadcarrera_record',$data);
+    $this->load->view('documentotrabajointegracioncurricular_record',$data);
     $this->load->view('template/page_footer');
   }else{
 
@@ -305,57 +300,28 @@ public function elultimo()
 }
 
 public function siguiente(){
- // $data['calidadcarrera_list']=$this->calidadcarrera_model->lista_calidadcarrera()->result();
-	$data['calidadcarrera'] = $this->calidadcarrera_model->siguiente($this->uri->segment(3))->row_array();
- 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
-		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
-		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
-  $data['title']="Informacioncarrera";
+ // $data['documentotrabajointegracioncurricular_list']=$this->documentotrabajointegracioncurricular_model->lista_documentotrabajointegracioncurricular()->result();
+	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->siguiente($this->uri->segment(3))->row_array();
+  	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
+  
+
+$data['title']="Tipodocumentodocumento";
 	$this->load->view('template/page_header');		
-  $this->load->view('calidadcarrera_record',$data);
+  $this->load->view('documentotrabajointegracioncurricular_record',$data);
 	$this->load->view('template/page_footer');
 }
 
 public function anterior(){
- // $data['calidadcarrera_list']=$this->calidadcarrera_model->lista_calidadcarrera()->result();
-	$data['calidadcarrera'] = $this->calidadcarrera_model->anterior($this->uri->segment(3))->row_array();
- 	$data['departamentos']= $this->departamento_model->lista_departamentos()->result();
-		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
-		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
-		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
-  $data['title']="Informacioncarrera";
+ // $data['documentotrabajointegracioncurricular_list']=$this->documentotrabajointegracioncurricular_model->lista_documentotrabajointegracioncurricular()->result();
+	$data['documentotrabajointegracioncurricular'] = $this->documentotrabajointegracioncurricular_model->anterior($this->uri->segment(3))->row_array();
+  	$data['documentos']= $this->documento_model->lista_documentos()->result();
+  	$data['trabajointegracioncurriculars']= $this->trabajointegracioncurricular_model->lista_trabajointegracioncurricularsA(0)->result();
+  $data['title']="Tipodocumentodocumento";
 	$this->load->view('template/page_header');		
-  $this->load->view('calidadcarrera_record',$data);
+  $this->load->view('documentotrabajointegracioncurricular_record',$data);
 	$this->load->view('template/page_footer');
 }
-
-
-
-	public function reportepdf()
-	{
-
-
-		    $data['calidadcarreras'] = $this->calidadcarrera_model->calidadcarreraA($this->uri->segment(3))->result();
-
-
-
-		$data['title']="Evento";
-		$this->load->view('calidadcarrera_list_pdf',$data);
-	
-	}
-
-
-
-
-
-
-
-	public function calidadcarrera_1()
-	{
-	  $this->load->view('calidadcarreras/calidadcarrera-1');
-	}
-
 
 
 

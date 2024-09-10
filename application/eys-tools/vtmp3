@@ -1,95 +1,64 @@
-<?php echo form_open('calidadcarrera/save_edit') ?>
-<?php echo form_hidden('idcalidadcarrera',$calidadcarrera['idcalidadcarrera']) ?>
+<?php echo form_open('documentotrabajointegracioncurricular/save_edit') ?>
+<?php echo form_hidden('iddocumentotrabajointegracioncurricular',$documentotrabajointegracioncurricular['iddocumentotrabajointegracioncurricular']) ?>
 <h2> <?php echo $title; ?></h2>
 <hr />
 <table>
+ 
+   <tr>
+     <td>Id documentotrabajointegracioncurricular</td>
+     <td><?php 
 
-<tr>
-<td> Institucion:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($departamentos as $row){
-	$options[$row->iddepartamento]= $row->nombre;
-}
 
- echo form_dropdown("iddepartamento",$options, $calidadcarrera['iddepartamento']);  ?></td>
-</tr>
+$eys_arrinput=array('name'=>'iddocumentotrabajointegracioncurricular','value'=>$documentotrabajointegracioncurricular['iddocumentotrabajointegracioncurricular'],'readonly'=>'true', "style"=>"width:500px");
+echo form_input($eys_arrinput); ?></td>
+  </tr> 
 
+
+
+ 
  <tr>
-      <td>Nombre:</td>
-      <td><?php  
-  
-	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle del calidadcarrera" );    
-   echo form_textarea('nombre',$calidadcarrera['nombre'],$textarea_options) ?></td>
-  </tr>
+<td> Documentos:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($documentos as $row){
+	$options[$row->iddocumento]=$row->iddocumento.' - '.$row->autor." - ". $row->asunto;
+}
+
+ echo form_dropdown("iddocumento",$options, $documentotrabajointegracioncurricular['iddocumento']);  ?></td>
+</tr>
 
 <tr>
-      <td>Detalle:</td>
+<td> Portafolio:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($trabajointegracioncurriculars as $row){
+	$options[$row->idtrabajointegracioncurricular]= $row->idtrabajointegracioncurricular." - ".$row->nombre;
+}
+
+ echo form_dropdown("idtrabajointegracioncurricular",$options, $documentotrabajointegracioncurricular['idtrabajointegracioncurricular']);  ?></td>
+</tr>
+
+
+<tr>
+<td> Actividad academica: </td>
 <td><?php 
-	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle del calidadcarrera" );    
-      echo form_textarea('detalle',$calidadcarrera['detalle'],$textarea_options) ?></td>
-  </tr>
 
-    <td>Archivo:</td>
-<td><?php 
-	$textarea_options = array('class' => 'form-control','rows' => '2',   'cols' => '20', 'style'=> 'width:50%;height:100px;', "placeholder"=>"detalle del calidadcarrera" );    
-      echo form_textarea('archivo',$calidadcarrera['archivo'],$textarea_options) ?></td>
-  </tr>
-
-
-
-
-
-
-
-
-<tr>
-<td> criteriocalidad:</td>
-<td><?php
 $options= array('--Select--');
-foreach ($criteriocalidads as $row){
-	$options[$row->idcriteriocalidad]= $row->nombre;
+foreach ($docenteactividadacademicas as $row){
+	$options[$row->iddocenteactividadacademica]=$row->item." - ". $row->eldistributivodocente." - ".$row->nombreactividad." - (".$row->numerohoras.")";
 }
 
- echo form_dropdown("idcriteriocalidad",$options, $calidadcarrera['idcriteriocalidad']);  ?></td>
+ echo form_dropdown("iddocenteactividadacademica",$options,$documentotrabajointegracioncurricular['iddocenteactividadacademica']);  ?></td>
 </tr>
 
 <tr>
-<td> subcriteriocalidad:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($subcriteriocalidads as $row){
-	$options[$row->idsubcriteriocalidad]= $row->nombre;
-}
-
- echo form_dropdown("idsubcriteriocalidad",$options, $calidadcarrera['idsubcriteriocalidad']);  ?></td>
+<td> Minutos ocupados: </td>
+<td><?php echo form_input("minutosocupados",$documentotrabajointegracioncurricular['minutosocupados'], array("placeholder"=>"Minutos utilizados"))  ?></td>
 </tr>
 
-
-<tr>
-<td> indicadorcalidad:</td>
-<td><?php
-$options= array('--Select--');
-foreach ($indicadorcalidads as $row){
-	$options[$row->idindicadorcalidad]= $row->nombre;
-}
-
- echo form_dropdown("idindicadorcalidad",$options, $calidadcarrera['idindicadorcalidad']);  ?></td>
-</tr>
-
-
-
-
-<tr>
-      <td>Codigo:</td>
-      <td><?php echo form_input('codigo',$calidadcarrera['codigo'],array('placeholder'=>'Nombre del ', "style"=>"width:500px")) ?></td>
-  </tr>
-
+ 
  <tr>
- <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('calidadcarrera','Atras') ?></td>
+ <td colspan="2"> <hr><?php echo form_submit('submit', 'Guardar'); ?> <?php echo anchor('documentotrabajointegracioncurricular','Atras') ?></td>
  </tr>
-
-
-
 </table>
 <?php echo form_close(); ?>
