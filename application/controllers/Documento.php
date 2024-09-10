@@ -13,6 +13,7 @@ class Documento extends CI_Controller{
       $this->load->model('directorio_model');
       $this->load->model('persona_model');
       $this->load->model('documento_estado_model');
+      $this->load->model('tipodocumentodocumento_model');
       $this->load->model('portafolio_model');
 	}
 
