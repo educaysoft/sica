@@ -51,7 +51,7 @@ class Tipodocumentodocumento_model extends CI_model {
 			$idusuario=$this->session->userdata['logged_in']['idusuario'];
 	   $this->db->trans_begin();
 		$condition1 = "iddocumento =" . "'" . $array['iddocumento'] . "'";
-		$condition2 = "idtrabajointegracioncurricular =" . "'" . $array['idtrabajointegracioncurricular'] . "'";
+		$condition2 = "idtipodocumento =" . "'" . $array['idtipodocumento'] . "'";
 		$this->db->select('*');
 		$this->db->from('tipodocumentodocumento');
 		$this->db->where($condition1);
