@@ -107,6 +107,7 @@ class Documento extends CI_Controller{
 
 	 // $data['documento_list']=$this->documento_model->lista_documento()->result();
 	  $data['documento'] = $this->documento_model->documento( $this->uri->segment(3))->row_array();
+      $data['tipodocumentodocumentos'] =$this->tipodocumentodocumento_model->tipodocumentodocumento1($data['documento']['iddocumento'])->result();
 	  $data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 	  $data['destinodocumentos']= $this->destinodocumento_model->lista_destinodocumento()->result();
 	  $data['emisores'] =$this->documento_model->emisores($this->uri->segment(3))->result();
