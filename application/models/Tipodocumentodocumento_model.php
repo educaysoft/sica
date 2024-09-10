@@ -19,6 +19,14 @@ class Tipodocumentodocumento_model extends CI_model {
  		return $tipodocumentodocumento;
  	}
 
+    function tipodocumentodocumento1( $id){
+ 		$tipodocumentodocumento = $this->db->query('select * from tipodocumentodocumento1 where idtipodocumentodocumento="'. $id.'"');
+ 		return $tipodocumentodocumento;
+ 	}
+
+
+
+
 
  	function tipodocumentodocumentospersona( $id){
  		$tipodocumentodocumento = $this->db->query('select * from tipodocumentodocumento where idpersona="'. $id.'"');
