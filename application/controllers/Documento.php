@@ -20,7 +20,7 @@ class Documento extends CI_Controller{
 	public function index(){
  		if(isset($this->session->userdata['logged_in'])){
 			$data['documento'] = $this->documento_model->elultimo();
-		    $data['tipodocumentodocumentos'] =$this->tipodocumentodocumento_model->tipodocumentodocumentos($data['documento']['iddocumento'])->result();
+		    $data['tipodocumentodocumentos'] =$this->tipodocumentodocumento_model->tipodocumentodocumento1($data['documento']['iddocumento'])->result();
 			$data['tipodocus']= $this->tipodocu_model->lista_tipodocu()->result();
 			$data['destinodocumentos']= $this->destinodocumento_model->lista_destinodocumento()->result();
 			$data['emisores'] =$this->documento_model->emisores($data['documento']['iddocumento'])->result();
