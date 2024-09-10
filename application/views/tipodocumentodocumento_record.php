@@ -73,15 +73,15 @@ echo form_input('iddocumento',$options[$tipodocumentodocumento['iddocumento']],a
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"><a href= "<?php echo base_url(); ?>trabajointegracioncurricular/actual/<?php echo $tipodocumentodocumento['idtrabajointegracioncurricular']; ?> "   >Trabajo integracion: &#x1F448;</a>  </label>
+    <label class="col-md-2 col-form-label"><a href= "<?php echo base_url(); ?>tipodocumento/actual/<?php echo $tipodocumentodocumento['idtipodocumento']; ?> "   >Trabajo integracion: &#x1F448;</a>  </label>
 	<div class="col-md-10">
   
      <?php 
 $options= array("NADA");
-foreach ($trabajointegracioncurriculars as $row){
-	$options[$row->idtrabajointegracioncurricular]= $row->idtrabajointegracioncurricular." - ".$row->nombre;
+foreach ($tipodocumentos as $row){
+	$options[$row->idtipodocumento]= $row->idtipodocumento." - ".$row->nombre;
 }
-echo form_input('idtrabajointegracioncurricular',$options[$tipodocumentodocumento['idtrabajointegracioncurricular']],array("id"=>"idportafilio","disabled"=>"disabled", "style"=>"width:500px")); ?>
+echo form_input('idtipodocumento',$options[$tipodocumentodocumento['idtipodocumento']],array("id"=>"idportafilio","disabled"=>"disabled", "style"=>"width:500px")); ?>
 	</div> 
 </div>
 
