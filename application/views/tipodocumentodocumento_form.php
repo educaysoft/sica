@@ -20,15 +20,15 @@ foreach ($documentos as $row){
 
 
 <tr>
-<td> Portafolio: </td>
+<td> tipodocumento: </td>
 <td><?php 
 
 $options= array('--Select--');
-foreach ($trabajointegracioncurriculars as $row){
-	$options[$row->idtrabajointegracioncurricular]= $row->idtrabajointegracioncurricular." - ".$row->nombre;
+foreach ($tipodocumentos as $row){
+	$options[$row->idtipodocumento]= $row->idtipodocumento." - ".$row->nombre;
 }
 
- echo form_dropdown("idtrabajointegracioncurricular",$options, set_select('--Select--','default_value'));  ?></td>
+ echo form_dropdown("idtipodocumento",$options, set_select('--Select--','default_value'));  ?></td>
 </tr>
 
 
