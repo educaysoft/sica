@@ -410,7 +410,7 @@ $data=$data.' <input type="file" id="fileInput'.trim($row->idaula).'" accept="im
 
 }else{
 
-$data=$data.'<image  class="thumbnail" href="https://repositorioutlvte.org/Repositorio/aulas/aula'.trim($row->idaula).'.jpg" alt="No hay programación" height="100%" width="100%"  onclick="mostrarImagen(\'https://repositorioutlvte.org/Repositorio/aula/aula'.trim($row->idaula).'.jpg\')" /> </svg>
+$data=$data.'<image  class="thumbnail" href="https://repositorioutlvte.org/Repositorio/aulas/aula'.trim($row->idaula).'.jpg" alt="No hay programación" height="100%" width="100%"  onclick="mostrarImagen(\'https://repositorioutlvte.org/Repositorio/aulas/aula'.trim($row->idaula).'.jpg\')" /> </svg>
 <div class="img-contenedor w3-card-4" style="position:absolute"; top:0px;right:0px; border: 2px solid green; border-radius: 50%; width: 30%; display:flex; justify-content: center; align-items: center;">';
 
 
