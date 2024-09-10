@@ -73,7 +73,7 @@ echo form_input('iddocumento',$options[$tipodocumentodocumento['iddocumento']],a
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"><a href= "<?php echo base_url(); ?>tipodocumento/actual/<?php echo $tipodocumentodocumento['idtipodocumento']; ?> "   >Trabajo integracion: &#x1F448;</a>  </label>
+    <label class="col-md-2 col-form-label"><a href= "<?php echo base_url(); ?>tipodocumento/actual/<?php echo $tipodocumentodocumento['idtipodocumento']; ?> "   >Tipo documento: &#x1F448;</a>  </label>
 	<div class="col-md-10">
   
      <?php 
