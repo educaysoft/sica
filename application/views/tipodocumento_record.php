@@ -9,7 +9,7 @@
         <li style="border-right:1px solid green"><?php echo anchor('tipodocumento/elultimo/', 'Último'); ?></li>
         <li> <?php echo anchor('tipodocumento/add', 'Nuevo'); ?></li>
         <li> <?php echo anchor('tipodocumento/edit/'.$tipodocumento['idtipodocumento'],'Edit'); ?></li>
-        <li style="border-right:1px solid green"> <?php echo anchor('tipodocumento/delete/'.$tipodocumento['idtipodocumento'],'Delete'); ?></li>
+        <li style="border-right:1px solid green"> <?php echo anchor('tipodocumento/quitar/'.$tipodocumento['idtipodocumento'],'Quitar'); ?></li>
         <li> <?php echo anchor('tipodocumento/listar/','Listar'); ?></li>
 
     </ul>
@@ -18,25 +18,24 @@
 
 
 <?php echo form_hidden('idtipodocumento',$tipodocumento['idtipodocumento']) ?>
-<table>
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id:</label>
+	<div class="col-md-10">
 
+     <?php echo form_input('idtipodocumento',$tipodocumento['idtipodocumento'],array("disabled"=>"disabled",'placeholder'=>'Idtipodocumentos')) ?>
  
+	</div> 
+</div> 
  
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+ 
+     <?php echo form_input('nombre',$tipodocumento['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?>
 
-
-  <tr>
-     <td>Id Tipo Doc:</td>
-     <td><?php echo form_input('idtipodocumento',$tipodocumento['idtipodocumento'],array("disabled"=>"disabled",'placeholder'=>'Idtipodocumentos')) ?></td>
-  </tr>
- 
- 
- 
-  <tr>
-     <td>Descripción:</td>
-     <td><?php echo form_input('nombre',$tipodocumento['nombre'],array("disabled"=>"disabled",'placeholder'=>'nombre')) ?></td>
-  </tr>
-
+	</div> 
+</div> 
 
   
 
@@ -47,7 +46,6 @@
 
 
 
-</table>
 <?php echo form_close(); ?>
 
 

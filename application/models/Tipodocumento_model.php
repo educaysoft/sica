@@ -2,7 +2,7 @@
 class Tipodocumento_model extends CI_model {
 
 	function lista_tipodocumentos(){
-		 $tipodocumento= $this->db->get('tipodocumento');
+		 $tipodocumento= $this->db->get('tipodocumento0');
 		 return $tipodocumento;
 	}
 
@@ -15,13 +15,28 @@ class Tipodocumento_model extends CI_model {
 
 
  	function tipodocumento( $id){
- 		$tipodocumento = $this->db->query('select * from tipodocumento where idtipodocumento="'. $id.'"');
+ 		$tipodocumento = $this->db->query('select * from tipodocumento0 where idtipodocumento="'. $id.'"');
  		return $tipodocumento;
  	}
 
  	function save($array)
  	{
-		$this->db->insert("tipodocumento", $array);
+		$condition = "idtipodocumento =" . "'" . $array['idtipodocumento'] . "'";
+		$this->db->select('*');
+		$this->db->from('tipodocumento');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+		   $this->db->insert("tipodocumento", $array);
+		   if( $this->db->affected_rows()>0){
+			    return true;
+		   }else{
+			    return false;
+		   }
+	   }else{
+		    return false;
+		   }
  	}
 
  	function update($id,$array_item)
@@ -31,17 +46,41 @@ class Tipodocumento_model extends CI_model {
 	}
  
 
-
- 	public function delete($id)
+ 	 function delete($id)
 	{
  		$this->db->where('idtipodocumento',$id);
 		$this->db->delete('tipodocumento');
-    		if($this->db->affected_rows()==1)
+    	if($this->db->affected_rows()==1){
 			$result=true;
-		else
+        }else{
 			$result=false;
+    }
 		return $result;
  	}
+
+
+
+ 	function quitar($id)
+	{
+
+        $this->db->select('*');
+		$this->db->from('tipodocumento0');
+ 		$this->db->where('idtipodocumento',$id);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() != 0) {
+	 	  	$this->db->where('idtipodocumento',$id);
+			$this->db->update('tipodocumento', array('eliminado'=>1));
+			$result=true;
+        }else{
+            $result=false;
+        }
+		return $result;
+ 	}
+
+
+
+
 
 
 	function elprimero()

@@ -1,46 +1,34 @@
 <h2> <?php echo $title; ?> </h2>
 <hr/>
-<?php echo form_open("documentotrabajointegracioncurricular/save") ?>
-<?php echo form_hidden("iddocumentotrabajointegracioncurricular")  ?>
-<table>
-
-
-<tr>
-<td> Documento: </td>
-<td><?php 
-
-$options= array('--Select--');
-foreach ($documentos as $row){
-	$options[$row->iddocumento]=$row->iddocumento.' - '.$row->autor." - ". $row->asunto;
-}
-
- echo form_dropdown("iddocumento",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
+<?php echo form_open("sexo/save", array('id'=>'eys-form')); ?>
+<?php echo form_hidden("idsexo");  ?>
 
 
 
-<tr>
-<td> Portafolio: </td>
-<td><?php 
-
-$options= array('--Select--');
-foreach ($trabajointegracioncurriculars as $row){
-	$options[$row->idtrabajointegracioncurricular]= $row->idtrabajointegracioncurricular." - ".$row->nombre;
-}
-
- echo form_dropdown("idtrabajointegracioncurricular",$options, set_select('--Select--','default_value'));  ?></td>
-</tr>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Id Tipodocumento:</label>
+	<div class="col-md-10">
+<?php echo form_input("idsexo","", array("placeholder"=>"Id sexo"));  ?>
+	</div> 
+</div>
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Nombre:</label>
+	<div class="col-md-10">
+<?php echo form_input("nombre","", array("placeholder"=>"Descripcion de sexo"));  ?>
+	</div> 
+</div> 
+
+<div id="eys-nav-i">
+
+	<ul>
+   	 	<li> <a href="javascript:{}" onclick="document.getElementById('eys-form').submit(); return false;">Guardar</a></li>
+    		<li> <?php echo anchor('persona', 'Cancelar'); ?></li>
+	</ul>
+</div>
+ 
 
 
-
-
-
-<tr>
-<td colspan="2"> <hr><?php echo form_submit("submit", "Guardar"); ?><?php echo anchor("documentotrabajointegracioncurricular","Atras") ?> </td>
-</tr>
-
-</table>
 <?php echo form_close();?>
 
