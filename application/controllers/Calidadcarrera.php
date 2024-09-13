@@ -9,6 +9,7 @@ class Calidadcarrera extends CI_Controller{
      $this->load->model('criteriocalidad_model');
      $this->load->model('subcriteriocalidad_model');
      $this->load->model('indicadorcalidad_model');
+     $this->load->model('tipocalidad_model');
 }
 
 public function index(){
@@ -18,6 +19,7 @@ public function index(){
 		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
 		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
+		$data['tipocalidads']= $this->tipocalidad_model->lista_tipocalidads()->result();
   		$data['title']="Lista de evidencia Calidad";
 			$this->load->view('template/page_header');		
   		$this->load->view('calidadcarrera_record',$data);
@@ -36,6 +38,7 @@ public function add()
 		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
 		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
+		$data['tipocalidads']= $this->tipocalidad_model->lista_tipocalidads()->result();
 		$data['title']="Nuevo Criterio de calidad";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('calidadcarrera_form',$data);
@@ -53,6 +56,7 @@ public function  save()
 		'idcriteriocalidad' => $this->input->post('idcriteriocalidad'),
 		'idsubcriteriocalidad' => $this->input->post('idsubcriteriocalidad'),
 		'idindicadorcalidad' => $this->input->post('idindicadorcalidad'),
+        'idtipocalidad'=> $this->input->post('idtipocalidad');
 	 	'codigo' => $this->input->post('codigo'),
 	 	'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
@@ -76,6 +80,7 @@ public function edit()
 		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
 		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
+		$data['tipocalidads']= $this->tipocalidad_model->lista_tipocalidads()->result();
  	 	$data['title'] = "Actualizar Calidadcarrera";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('calidadcarrera_edit',$data);
@@ -96,6 +101,7 @@ public function edit()
 		'idcriteriocalidad' => $this->input->post('idcriteriocalidad'),
 		'idsubcriteriocalidad' => $this->input->post('idsubcriteriocalidad'),
 		'idindicadorcalidad' => $this->input->post('idindicadorcalidad'),
+        'idtipocalidad'=> $this->input->post('idtipocalidad');
 	 	'codigo' => $this->input->post('codigo'),
 	 		'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
@@ -243,6 +249,7 @@ public function actual()
 		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
 		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
+		$data['tipocalidads']= $this->tipocalidad_model->lista_tipocalidads()->result();
   if(!empty($data))
   {
     $data['title']="Calidadcarrera";
@@ -269,6 +276,7 @@ public function elprimero()
 		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
 		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
+		$data['tipocalidads']= $this->tipocalidad_model->lista_tipocalidads()->result();
   if(!empty($data))
   {
     $data['title']="Calidadcarrera";
@@ -289,6 +297,7 @@ public function elultimo()
 		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
 		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
+		$data['tipocalidads']= $this->tipocalidad_model->lista_tipocalidads()->result();
   if(!empty($data))
   {
     $data['title']="Calidadcarrera";
@@ -311,6 +320,7 @@ public function siguiente(){
 		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
 		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
+		$data['tipocalidads']= $this->tipocalidad_model->lista_tipocalidads()->result();
   $data['title']="Calidadcarrera";
 	$this->load->view('template/page_header');		
   $this->load->view('calidadcarrera_record',$data);
@@ -324,6 +334,7 @@ public function anterior(){
 		$data['criteriocalidads']= $this->criteriocalidad_model->lista_criteriocalidads()->result();
 		$data['subcriteriocalidads']= $this->subcriteriocalidad_model->lista_subcriteriocalidads()->result();
 		$data['indicadorcalidads']= $this->indicadorcalidad_model->lista_indicadorcalidads()->result();
+		$data['tipocalidads']= $this->tipocalidad_model->lista_tipocalidads()->result();
   $data['title']="Calidadcarrera";
 	$this->load->view('template/page_header');		
   $this->load->view('calidadcarrera_record',$data);

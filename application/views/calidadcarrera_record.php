@@ -144,6 +144,22 @@ echo form_input('idindicadorcalidad',$options[$calidadcarrera['idindicadorcalida
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> <?php echo anchor('tipocalidad/actual/'.$calidadcarrera['idtipocalidad'], 'tipocalidad:'); ?> </label>
+	<div class="col-md-10">
+     <?php 
+$options= array("NADA");
+foreach ($tipocalidads as $row){
+	$options[$row->idtipocalidad]= $row->nombre;
+}
+
+echo form_input('idtipocalidad',$options[$calidadcarrera['idtipocalidad']],array("disabled"=>"disabled",'style'=>'width:500px;')); 
+		?>
+	</div> 
+</div>
+
+
+
 
 <div class="form-group row">
     <label class="col-md-2 col-form-label"> Foto:</label>

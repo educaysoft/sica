@@ -78,6 +78,17 @@ foreach ($indicadorcalidads as $row){
 </tr>
 
 
+<tr>
+<td> tipocalidad:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($tipocalidads as $row){
+	$options[$row->idtipocalidad]= $row->nombre;
+}
+
+ echo form_dropdown("idtipocalidad",$options, $calidadcarrera['idtipocalidad']);  ?></td>
+</tr>
+
 
 
 <tr>
