@@ -60,36 +60,52 @@
 	$h=5;
 	$i=0;
 	foreach ($calidadcarreras as $row){  //Recorre todas la participaciones realiadas por los participantes
-		$l=strlen($row->nombre);
-	//	echo $l;
-	//	die();
+
+
+     $hex = str_replace("#", "", $row->color);
+
+    // Si el código es de 3 caracteres (abreviado), lo expandimos
+    if (strlen($hex) == 3) {
+        $hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
+    }
+
+    // Divide el valor hexadecimal en componentes rojo, verde y azul
+    $r = hexdec(substr($hex, 0, 2));
+    $g = hexdec(substr($hex, 2, 2));
+    $b = hexdec(substr($hex, 4, 2))
+
+
+	$pdf->SetFillColor($r,$g,$b);
+
+
+        $l=strlen($row->nombre);
 		   if($l>78){
 		   	$h=10;
-     		   }else{
+     	   }else{
 		   	$h=5;
 		   }			   
 
-		    $i=$i+1;
-		    $pdf->Cell(5,$h,$i,1,0,'R',0); 
+		 $i=$i+1;
+		 $pdf->Cell(5,$h,$i,1,0,'R',0); 
 
-		    $pdf->Cell(10,$h,utf8_decode($row->idcalidadcarrera),1,0,'L',0);
+		 $pdf->Cell(10,$h,utf8_decode($row->idcalidadcarrera),1,0,'L',0);
 		 $current_x = $pdf->GetX();
 		 $current_y = $pdf->GetY();
 
 
-		    $pdf->Cell(10,$h,utf8_decode($row->codigo),1,0,'L',0);
+		 $pdf->Cell(10,$h,utf8_decode($row->codigo),1,0,'L',0);
 		 $current_x = $pdf->GetX();
 		 $current_y = $pdf->GetY();
 
-		    $pdf->Cell(10,$h,utf8_decode($row->inicialcriterio),1,0,'L',0);
+		 $pdf->Cell(10,$h,utf8_decode($row->inicialcriterio),1,0,'L',0);
 		 $current_x = $pdf->GetX();
 		 $current_y = $pdf->GetY();
 
-		    $pdf->Cell(10,$h,utf8_decode($row->inicialsubcriterio),1,0,'L',0);
+		 $pdf->Cell(10,$h,utf8_decode($row->inicialsubcriterio),1,0,'L',0);
 		 $current_x = $pdf->GetX();
 		 $current_y = $pdf->GetY();
 
-		    $pdf->Cell(10,$h,utf8_decode($row->inicialindicadorcalidad),1,0,'L',0);
+		 $pdf->Cell(10,$h,utf8_decode($row->inicialindicadorcalidad),1,0,'L',0);
 		 $current_x = $pdf->GetX();
 		 $current_y = $pdf->GetY();
 
