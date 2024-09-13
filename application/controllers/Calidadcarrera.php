@@ -56,7 +56,7 @@ public function  save()
 		'idcriteriocalidad' => $this->input->post('idcriteriocalidad'),
 		'idsubcriteriocalidad' => $this->input->post('idsubcriteriocalidad'),
 		'idindicadorcalidad' => $this->input->post('idindicadorcalidad'),
-        'idtipocalidad'=> $this->input->post('idtipocalidad');
+        'idtipocalidad'=> $this->input->post('idtipocalidad'),
 	 	'codigo' => $this->input->post('codigo'),
 	 	'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
@@ -101,7 +101,7 @@ public function edit()
 		'idcriteriocalidad' => $this->input->post('idcriteriocalidad'),
 		'idsubcriteriocalidad' => $this->input->post('idsubcriteriocalidad'),
 		'idindicadorcalidad' => $this->input->post('idindicadorcalidad'),
-        'idtipocalidad'=> $this->input->post('idtipocalidad');
+        'idtipocalidad'=> $this->input->post('idtipocalidad'),
 	 	'codigo' => $this->input->post('codigo'),
 	 		'iddepartamento' => $this->input->post('iddepartamento'),
 	 	);
