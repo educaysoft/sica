@@ -72,7 +72,7 @@
     // Divide el valor hexadecimal en componentes rojo, verde y azul
     $r = hexdec(substr($hex, 0, 2));
     $g = hexdec(substr($hex, 2, 2));
-    $b = hexdec(substr($hex, 4, 2))
+    $b = hexdec(substr($hex, 4, 2));
 
 
 	$pdf->SetFillColor($r,$g,$b);
