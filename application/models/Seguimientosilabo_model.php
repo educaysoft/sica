@@ -37,10 +37,8 @@ class Seguimientosilabo_model extends CI_model {
  	}
 
 
-
-
  	function seguimientosilabos( $id){
- 		$seguimientosilabo = $this->db->query('select * from seguimientosilabo1 where idevento="'. $id.'"');
+ 		$seguimientosilabo = $this->db->query('select * from seguimientosilabo1 where idsilabo="'. $id.'"');
  		return $seguimientosilabo;
  	}
 
