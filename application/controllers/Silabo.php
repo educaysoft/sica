@@ -14,6 +14,7 @@ class Silabo extends CI_Controller{
   	$this->load->model('evento_model');
   	$this->load->model('docente_model');
   	$this->load->model('malla_model');
+  	$this->load->model('seguimientosilabo_model');
   	$this->load->model('departamento_model');
   	$this->load->model('calendarioacademico_model');
       $this->load->model('metodoaprendizajetema_model');
