@@ -207,7 +207,7 @@ function silabo_data()
 			$data0 =$this->seguimientosilabo_model->seguimientosilabos($idsilabo);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idseguimientosilabo,$r->idsilabo,$r->elcriterioseguimientosilabo,$r->elvalorseguimientosilabo,
+				$data[]=array($r->idseguimientosilabo,$r->idsilabo,$r->elcriterioseguimientosilabo,$r->elvalorcriterioseguimientosilabo,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('seguimientosilabo/actual').'"    data-idseguimientosilabo="'.$r->idseguimientosilabo.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
