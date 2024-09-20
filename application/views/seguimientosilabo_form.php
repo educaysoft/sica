@@ -22,27 +22,41 @@
 
 
 
+<div class="form-group row">
+    <label class="col-md-2 col-form-label"> Criterio Seguimeinto:</label>
+	<div class="col-md-10">
+		<?php
+	$options= array('--Select--');
+	foreach ($criterioseguimientosilabos as $row){
+		$options[$row->idcriterioseguimientosilabo]= $row->nombre;
+	}
+
+	 echo form_dropdown("idcriterioseguimientosilabo",$options, set_select('--Select--','default_value'));  
+		?>
+	</div> 
+</div>
+
+
+
+ <div class="form-group row">
+    <label class="col-md-2 col-form-label"> Valor criterio:</label>
+	<div class="col-md-10">
+		<?php
+	$options= array('--Select--');
+	foreach ($valorcriterioseguimientosilabos as $row){
+		$options[$row->idvalorcriterioseguimientosilabo]= $row->nombre;
+	}
+
+	 echo form_dropdown("idvalorcriterioseguimientosilabo",$options, set_select('--Select--','default_value'));  
+		?>
+	</div> 
+</div>
+
+
  
 
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">No de la unidad:</label>
-	<div class="col-md-10">
-	<?php
-	 echo form_input(array("name"=>"unidad","id"=>"unidad"));  
-		?>
-	</div> 
-</div> 
-
-
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">Nombre de la unidad:</label>
-	<div class="col-md-10">
-	<?php
-	echo form_input(array("name"=>"nombre","id"=>"nombre"));  
-		?>
-	</div> 
-</div> 
+ 
 
 
 <table>

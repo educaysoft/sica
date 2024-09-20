@@ -4,14 +4,15 @@ class Seguimientosilabo extends CI_Controller{
 	public function __construct(){
       		parent::__construct();
       		$this->load->model('seguimientosilabo_model');
-      		$this->load->model('persona_model');
       		$this->load->model('silabo_model');
-      		$this->load->model('tema_model');
+      		$this->load->model('criterioseguimientosilabo_model');
+      		$this->load->model('valorcriterioseguimientosilabo_model');
 	}
 
 	public function index(){
   		$data['silabos']= $this->silabo_model->lista_silabos()->result();
-  		$data['personas']= $this->persona_model->lista_personas()->result();
+  		$data['criterioseguimientosilabos']= $this->criterioseguimientosilabo_model->lista_criterioseguimientosilabos()->result();
+  		$data['valorcriterioseguimientosilabos']= $this->valorcriterioseguimientosilabo_model->lista_valorcriterioseguimientosilabos()->result();
 		$data['seguimientosilabo'] = $this->seguimientosilabo_model->elultimo();
 
  		// print_r($data['seguimientosilabo_list']);
@@ -24,8 +25,9 @@ class Seguimientosilabo extends CI_Controller{
 
 	public function add()
 	{
-		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['silabos']= $this->silabo_model->silabo($this->uri->segment(3))->result();
+  		$data['criterioseguimientosilabos']= $this->criterioseguimientosilabo_model->lista_criterioseguimientosilabos()->result();
+  		$data['valorcriterioseguimientosilabos']= $this->valorcriterioseguimientosilabo_model->lista_valorcriterioseguimientosilabos()->result();
 		$data['seguimientosilabo'] = $this->seguimientosilabo_model->seguimientosilaboss($this->uri->segment(3));
 		$data['title']="Nueva unidades del silabo";
 	 	$this->load->view('template/page_header');		
@@ -38,8 +40,8 @@ class Seguimientosilabo extends CI_Controller{
 	{
 	 	$array_item=array(
 		 	'idsilabo' => $this->input->post('idsilabo'),
-		 	'nombre' => $this->input->post('nombre'),
-		 	'unidad' => $this->input->post('unidad'),
+		 	'criterioseguiminetosilabo' => $this->input->post('criterioseguimientosilabo'),
+		 	'valorcriterioseguimientosilabo' => $this->input->post('valorcriterioseguimientosilabo'),
 	 	);
 	 	$this->seguimientosilabo_model->save($array_item);
 	 	redirect('seguimientosilabo');
@@ -51,7 +53,8 @@ class Seguimientosilabo extends CI_Controller{
 	{
 	 	$data['seguimientosilabo'] = $this->seguimientosilabo_model->seguimientosilabo($this->uri->segment(3))->row_array();
 		$data['silabos']= $this->silabo_model->lista_silabos()->result();
-		$data['personas']= $this->persona_model->lista_personas()->result();
+  		$data['criterioseguimientosilabos']= $this->criterioseguimientosilabo_model->lista_criterioseguimientosilabos()->result();
+  		$data['valorcriterioseguimientosilabos']= $this->valorcriterioseguimientosilabo_model->lista_valorcriterioseguimientosilabos()->result();
  	 	$data['title'] = "Actualizar Seguimientosilabo";
  	 	$this->load->view('template/page_header');		
  	 	$this->load->view('seguimientosilabo_edit',$data);
@@ -63,8 +66,8 @@ class Seguimientosilabo extends CI_Controller{
 	{
 		$id=$this->input->post('idseguimientosilabo');
 	 	$array_item=array(
-		 	'nombre' => $this->input->post('nombre'),
-		 	'unidad' => $this->input->post('unidad'),
+		 	'criterioseguiminetosilabo' => $this->input->post('criterioseguimientosilabo'),
+		 	'valorcriterioseguimientosilabo' => $this->input->post('valorcriterioseguimientosilabo'),
 		 	'idsilabo' => $this->input->post('idsilabo'),
 	 	);
 	 	$this->seguimientosilabo_model->update($id,$array_item);
