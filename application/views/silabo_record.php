@@ -258,13 +258,13 @@ echo form_input('iddocumento',$options[$silabo['iddocumento']],array("id"=>"iddo
     </div>
 </div>
 
-	<table class="table table-striped table-bordered table-hover" id="mydatae">
+	<table class="table table-striped table-bordered table-hover" id="mydatas">
 	 <thead>
 	 <tr>
 	 <th>idseguimientosilabo</th>
 	 <th>idsilabo</th>
 	 <th>elcriterioseguimientosilabo</th>
-	 <th>elvalorseguimientosilabo</th>
+	 <th>elvalorcriterioseguimientosilabo</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
@@ -296,7 +296,7 @@ $(document).ready(function(){
 
 
 	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('silabo/evento_data')?>', type: 'GET',data:{idsilabo:idsilabo}},});
-	var mytablaf= $('#mydatae').DataTable({"ajax": {url: '<?php echo site_url('silabo/seguimientosilabo_data')?>', type: 'GET',data:{idsilabo:idsilabo}},});
+	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('silabo/seguimientosilabo_data')?>', type: 'GET',data:{idsilabo:idsilabo}},});
 
 });
 
