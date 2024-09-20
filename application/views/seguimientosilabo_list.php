@@ -41,7 +41,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <table class="table table-striped table-bordered table-hover" id="mydatac">
  <thead>
  <tr>
- <th>Idunidadsilabo</th>
+ <th>Idseguimientosilabo</th>
  <th>idsilabo</th>
  <th>unidad</th>
  <th>launidad</th>
@@ -75,14 +75,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 $(document).ready(function(){
 
-	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('unidadsilabo/unidadsilabo_data')?>', type: 'GET'},});
+	var mytabla= $('#mydatac').DataTable({"ajax": {url: '<?php echo site_url('seguimientosilabo/seguimientosilabo_data')?>', type: 'GET'},});
 
 });
 
 $('#show_data').on('click','.item_ver',function(){
 
-var id= $(this).data('idunidadsilabo');
-window.location.href = "http://localhost/facae/index.php/unidadsilabo/actual/"+id;
+var id= $(this).data('idseguimientosilabo');
+window.location.href = "http://localhost/facae/index.php/seguimientosilabo/actual/"+id;
 
 });
 

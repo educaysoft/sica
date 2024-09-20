@@ -1,9 +1,9 @@
 <?php
-class Unidadsilabo extends CI_Controller{
+class Seguimientosilabo extends CI_Controller{
 
 	public function __construct(){
       		parent::__construct();
-      		$this->load->model('unidadsilabo_model');
+      		$this->load->model('seguimientosilabo_model');
       		$this->load->model('persona_model');
       		$this->load->model('silabo_model');
       		$this->load->model('tema_model');
@@ -12,12 +12,12 @@ class Unidadsilabo extends CI_Controller{
 	public function index(){
   		$data['silabos']= $this->silabo_model->lista_silabos()->result();
   		$data['personas']= $this->persona_model->lista_personas()->result();
-		$data['unidadsilabo'] = $this->unidadsilabo_model->elultimo();
+		$data['seguimientosilabo'] = $this->seguimientosilabo_model->elultimo();
 
- 		// print_r($data['unidadsilabo_list']);
-  		$data['title']="Lista de Unidadsilaboes";
+ 		// print_r($data['seguimientosilabo_list']);
+  		$data['title']="Lista de Seguimientosilaboes";
 		$this->load->view('template/page_header');		
-  		$this->load->view('unidadsilabo_record',$data);
+  		$this->load->view('seguimientosilabo_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
@@ -26,10 +26,10 @@ class Unidadsilabo extends CI_Controller{
 	{
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['silabos']= $this->silabo_model->silabo($this->uri->segment(3))->result();
-		$data['unidadsilabo'] = $this->unidadsilabo_model->unidadsilaboss($this->uri->segment(3));
+		$data['seguimientosilabo'] = $this->seguimientosilabo_model->seguimientosilaboss($this->uri->segment(3));
 		$data['title']="Nueva unidades del silabo";
 	 	$this->load->view('template/page_header');		
-	 	$this->load->view('unidadsilabo_form',$data);
+	 	$this->load->view('seguimientosilabo_form',$data);
 	 	$this->load->view('template/page_footer');
 	}
 
@@ -41,53 +41,53 @@ class Unidadsilabo extends CI_Controller{
 		 	'nombre' => $this->input->post('nombre'),
 		 	'unidad' => $this->input->post('unidad'),
 	 	);
-	 	$this->unidadsilabo_model->save($array_item);
-	 	redirect('unidadsilabo');
+	 	$this->seguimientosilabo_model->save($array_item);
+	 	redirect('seguimientosilabo');
  	}
 
 
 
 	public function edit()
 	{
-	 	$data['unidadsilabo'] = $this->unidadsilabo_model->unidadsilabo($this->uri->segment(3))->row_array();
+	 	$data['seguimientosilabo'] = $this->seguimientosilabo_model->seguimientosilabo($this->uri->segment(3))->row_array();
 		$data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
- 	 	$data['title'] = "Actualizar Unidadsilabo";
+ 	 	$data['title'] = "Actualizar Seguimientosilabo";
  	 	$this->load->view('template/page_header');		
- 	 	$this->load->view('unidadsilabo_edit',$data);
+ 	 	$this->load->view('seguimientosilabo_edit',$data);
 	 	$this->load->view('template/page_footer');
 	}
 
 
 	public function  save_edit()
 	{
-		$id=$this->input->post('idunidadsilabo');
+		$id=$this->input->post('idseguimientosilabo');
 	 	$array_item=array(
 		 	'nombre' => $this->input->post('nombre'),
 		 	'unidad' => $this->input->post('unidad'),
 		 	'idsilabo' => $this->input->post('idsilabo'),
 	 	);
-	 	$this->unidadsilabo_model->update($id,$array_item);
-	 	redirect('unidadsilabo/actual/'.$id);
+	 	$this->seguimientosilabo_model->update($id,$array_item);
+	 	redirect('seguimientosilabo/actual/'.$id);
  	}
 
 	public function  save_edit2()
 	{
-		$id=$this->input->post('idunidadsilabo');
+		$id=$this->input->post('idseguimientosilabo');
 	 	$array_item=array(
 		 	'idsilabo' => $this->input->post('idsilabo'),
 		 	'idpersona' => $this->input->post('idpersona'),
 	 	);
-	 	echo $this->unidadsilabo_model->update($id,$array_item);
+	 	echo $this->seguimientosilabo_model->update($id,$array_item);
  	}
 
 
 
  	public function delete()
  	{
- 		$data=$this->unidadsilabo_model->delete($this->uri->segment(3));
+ 		$data=$this->seguimientosilabo_model->delete($this->uri->segment(3));
  		echo json_encode($data);
-	 	redirect('unidadsilabo/elprimero');
+	 	redirect('seguimientosilabo/elprimero');
 	//	$db['default']['db_debug']=FALSE
  	}
 
@@ -97,23 +97,23 @@ class Unidadsilabo extends CI_Controller{
 		
 		$data['title']="Unidades del silabo";
 		$this->load->view('template/page_header');		
-		$this->load->view('unidadsilabo_list',$data);
+		$this->load->view('seguimientosilabo_list',$data);
 		$this->load->view('template/page_footer');
 	}
 
 
 
-	function unidadsilabo_data()
+	function seguimientosilabo_data()
 	{
 			$draw= intval($this->input->get("draw"));
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
 
-			$data0 = $this->unidadsilabo_model->listar_unidadsilabo1();
+			$data0 = $this->seguimientosilabo_model->listar_seguimientosilabo1();
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idunidadsilabo,$r->idsilabo,$r->unidad,$r->launidad,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idsilabo="'.$r->idunidadsilabo.'">Ver</a>');
+				$data[]=array($r->idseguimientosilabo,$r->idsilabo,$r->unidad,$r->launidad,$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-idsilabo="'.$r->idseguimientosilabo.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),
@@ -134,11 +134,11 @@ class Unidadsilabo extends CI_Controller{
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$idunidadsilabo=$this->input->get('idunidadsilabo');
-			$data0 =$this->tema_model->temas2($idunidadsilabo);
+			$idseguimientosilabo=$this->input->get('idseguimientosilabo');
+			$data0 =$this->tema_model->temas2($idseguimientosilabo);
 			$data=array();
 			foreach($data0->result() as $r){
-				$data[]=array($r->idunidadsilabo,$r->idtema,$r->unidad,$r->numerosesion,$r->nombrecorto,$r->duracionminutos,$r->idvideotutorial,
+				$data[]=array($r->idseguimientosilabo,$r->idtema,$r->unidad,$r->numerosesion,$r->nombrecorto,$r->duracionminutos,$r->idvideotutorial,
 				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('tema/actual').'"    data-idtema="'.$r->idtema.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
@@ -159,15 +159,15 @@ class Unidadsilabo extends CI_Controller{
 
 	public function actual()
 	{
-		$data['unidadsilabo'] = $this->unidadsilabo_model->unidadsilabo($this->uri->segment(3))->row_array();
+		$data['seguimientosilabo'] = $this->seguimientosilabo_model->seguimientosilabo($this->uri->segment(3))->row_array();
 	  if(!empty($data))
 	  {
 			$data['silabos']= $this->silabo_model->lista_silabos()->result();
 
 		$data['personas']= $this->persona_model->lista_personas()->result();
-	    $data['title']="Unidadsilabo del videotutorial";
+	    $data['title']="Seguimientosilabo del videotutorial";
 	    $this->load->view('template/page_header');		
-	    $this->load->view('unidadsilabo_record',$data);
+	    $this->load->view('seguimientosilabo_record',$data);
 	    $this->load->view('template/page_footer');
 	  }else{
 	    $this->load->view('template/page_header');		
@@ -184,15 +184,15 @@ class Unidadsilabo extends CI_Controller{
 
 	public function elprimero()
 	{
-		$data['unidadsilabo'] = $this->unidadsilabo_model->elprimero();
+		$data['seguimientosilabo'] = $this->seguimientosilabo_model->elprimero();
 	  if(!empty($data))
 	  {
 			$data['silabos']= $this->silabo_model->lista_silabos()->result();
 
 		$data['personas']= $this->persona_model->lista_personas()->result();
-	    $data['title']="Unidadsilabo del videotutorial";
+	    $data['title']="Seguimientosilabo del videotutorial";
 	    $this->load->view('template/page_header');		
-	    $this->load->view('unidadsilabo_record',$data);
+	    $this->load->view('seguimientosilabo_record',$data);
 	    $this->load->view('template/page_footer');
 	  }else{
 	    $this->load->view('template/page_header');		
@@ -203,15 +203,15 @@ class Unidadsilabo extends CI_Controller{
 
 	public function elultimo()
 	{
-		$data['unidadsilabo'] = $this->unidadsilabo_model->elultimo();
+		$data['seguimientosilabo'] = $this->seguimientosilabo_model->elultimo();
 	  if(!empty($data))
 	  {
 			$data['silabos']= $this->silabo_model->lista_silabos()->result();
 		$data['personas']= $this->persona_model->lista_personas()->result();
-	    $data['title']="Unidadsilabo del videotutorial";
+	    $data['title']="Seguimientosilabo del videotutorial";
 	  
 	    $this->load->view('template/page_header');		
-	    $this->load->view('unidadsilabo_record',$data);
+	    $this->load->view('seguimientosilabo_record',$data);
 	    $this->load->view('template/page_footer');
 	  }else{
 
@@ -222,26 +222,26 @@ class Unidadsilabo extends CI_Controller{
 	}
 
 	public function siguiente(){
-	 // $data['unidadsilabo_list']=$this->unidadsilabo_model->lista_unidadsilabo()->result();
-		$data['unidadsilabo'] = $this->unidadsilabo_model->siguiente($this->uri->segment(3))->row_array();
+	 // $data['seguimientosilabo_list']=$this->seguimientosilabo_model->lista_seguimientosilabo()->result();
+		$data['seguimientosilabo'] = $this->seguimientosilabo_model->siguiente($this->uri->segment(3))->row_array();
 		$data['personas']= $this->persona_model->lista_personas()->result();
 		$data['silabos']= $this->silabo_model->lista_silabos()->result();
-	    $data['title']="Unidadsilabo del videotutorial";
+	    $data['title']="Seguimientosilabo del videotutorial";
 	 // $data['title']="Correo";
 		$this->load->view('template/page_header');		
-	  $this->load->view('unidadsilabo_record',$data);
+	  $this->load->view('seguimientosilabo_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
 	public function anterior(){
-	 // $data['unidadsilabo_list']=$this->unidadsilabo_model->lista_unidadsilabo()->result();
-	$data['unidadsilabo'] = $this->unidadsilabo_model->anterior($this->uri->segment(3))->row_array();
+	 // $data['seguimientosilabo_list']=$this->seguimientosilabo_model->lista_seguimientosilabo()->result();
+	$data['seguimientosilabo'] = $this->seguimientosilabo_model->anterior($this->uri->segment(3))->row_array();
 	$data['personas']= $this->persona_model->lista_personas()->result();
 	$data['silabos']= $this->silabo_model->lista_silabos()->result();
 	 // $data['title']="Correo";
-	    $data['title']="Unidadsilabo del videotutorial";
+	    $data['title']="Seguimientosilabo del videotutorial";
 		$this->load->view('template/page_header');		
-	  $this->load->view('unidadsilabo_record',$data);
+	  $this->load->view('seguimientosilabo_record',$data);
 		$this->load->view('template/page_footer');
 	}
 
