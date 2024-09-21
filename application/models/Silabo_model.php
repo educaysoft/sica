@@ -1,4 +1,17 @@
 <?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
+use PhpOffice\PhpSpreadsheet\Style\Alignment;
+use PhpOffice\PhpSpreadsheet\Style\Color;
+use PhpOffice\PhpSpreadsheet\Style\Fill;
+
+
+
+
 class Silabo_model extends CI_model {
 
 	function lista_silabos(){
