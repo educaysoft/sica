@@ -703,7 +703,7 @@ window.location.href = href;
 
 
 	function save_criterios() {
-		var idevento=document.getElementById("idevento").value;
+	    var idevento=<?php echo $evento['idevento']; ?>; 
  
 	    $.ajax({
 		url: "<?php echo site_url('seguimientosilabo/save_criterios') ?>",
@@ -726,7 +726,7 @@ window.location.href = href;
 
 
 	function get_criterios() {
-		var idevento=document.getElementById("idevento").value;
+	    var idevento=<?php echo $evento['idevento']; ?>; 
 	var mytablaf= $('#mydatas').DataTable({pageLength:15,destroy:true,"ajax": {url: '<?php echo site_url('evento/seguimientosilabo_data')?>', type: 'GET',data:{idevento:idevento}},});
 
 	}
