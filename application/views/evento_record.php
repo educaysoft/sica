@@ -510,7 +510,7 @@ echo form_input($arrdatos) ?>
         </div>
 
 <div class="pull-right">
-<a class="btn btn-danger" href="<?php echo base_url('silabo/exportarxls/'.$evento['idperiodoacademico']) ?>">Informe excel</a>
+<a class="btn btn-danger" href="<?php echo base_url('silabo/exportarxls/'.$evento['idsilabo']) ?>">Informe excel</a>
         </div>
 
     </div>
