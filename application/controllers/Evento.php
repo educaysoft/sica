@@ -363,7 +363,7 @@ public function cumplimiento(){
 			$data=array();
 			foreach($data0->result() as $r){
 				$data[]=array($r->idseguimientosilabo,$r->idevento,$r->elcriterioseguimientosilabo,$r->elvalorcriterioseguimientosilabo,
-				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('seguimientosilabo/actual').'"    data-idseguimientosilabo="'.$r->idseguimientosilabo.'">Ver</a>');
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_verss"  data-retorno="'.site_url('seguimientosilabo/actual').'"    data-idseguimientosilabo="'.$r->idseguimientosilabo.'">Ver</a>');
 			}	
 			$output=array( "draw"=>$draw,
 				"recordsTotal"=> $data0->num_rows(),

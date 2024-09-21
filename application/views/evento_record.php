@@ -631,7 +631,7 @@ get_sesionevento(idsesionevento,idevento);
 });
 
 
-$('#show_data3').on('click','.item_edit',function(){
+$('#show_data3').on('click','.item_verss',function(){
 
     var id= $(this).data('idseguimientosilabo');
     var retorno= $(this).data('retorno');
