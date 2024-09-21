@@ -11,7 +11,7 @@
 	<div class="col-md-10">
 		<?php
 	$options= array('--Select--');
-	foreach ($silabos as $row){
+	foreach ($eventos as $row){
 		$options[$row->idevento]= $row->titulo;
 	}
 
