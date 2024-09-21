@@ -4,13 +4,13 @@ class Seguimientosilabo extends CI_Controller{
 	public function __construct(){
       		parent::__construct();
       		$this->load->model('seguimientosilabo_model');
-      		$this->load->model('silabo_model');
+      		$this->load->model('evento_model');
       		$this->load->model('criterioseguimientosilabo_model');
       		$this->load->model('valorcriterioseguimientosilabo_model');
 	}
 
 	public function index(){
-  		$data['silabos']= $this->silabo_model->lista_silabos()->result();
+  		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['criterioseguimientosilabos']= $this->criterioseguimientosilabo_model->lista_criterioseguimientosilabos()->result();
   		$data['valorcriterioseguimientosilabos']= $this->valorcriterioseguimientosilabo_model->lista_valorcriterioseguimientosilabos()->result();
 		$data['seguimientosilabo'] = $this->seguimientosilabo_model->elultimo();
@@ -25,7 +25,7 @@ class Seguimientosilabo extends CI_Controller{
 
 	public function add()
 	{
-		$data['silabos']= $this->silabo_model->silabo($this->uri->segment(3))->result();
+		$data['eventos']= $this->evento_model->evento($this->uri->segment(3))->result();
   		$data['criterioseguimientosilabos']= $this->criterioseguimientosilabo_model->lista_criterioseguimientosilabos()->result();
   		$data['valorcriterioseguimientosilabos']= $this->valorcriterioseguimientosilabo_model->lista_valorcriterioseguimientosilabos()->result();
 		$data['seguimientosilabo'] = $this->seguimientosilabo_model->seguimientosilaboss($this->uri->segment(3));
@@ -39,7 +39,7 @@ class Seguimientosilabo extends CI_Controller{
 	public function  save()
 	{
 	 	$array_item=array(
-		 	'idsilabo' => $this->input->post('idsilabo'),
+		 	'idevento' => $this->input->post('idevento'),
 		 	'idcriterioseguimientosilabo' => $this->input->post('idcriterioseguimientosilabo'),
 		 	'idvalorcriterioseguimientosilabo' => $this->input->post('idvalorcriterioseguimientosilabo'),
 	 	);
