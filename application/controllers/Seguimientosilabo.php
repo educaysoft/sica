@@ -180,6 +180,8 @@ class Seguimientosilabo extends CI_Controller{
 	  {
 
   		$data['eventos']= $this->evento_model->lista_eventos()->result();
+  		$data['criterioseguimientosilabos']= $this->criterioseguimientosilabo_model->lista_criterioseguimientosilabos()->result();
+  		$data['valorcriterioseguimientosilabos']= $this->valorcriterioseguimientosilabo_model->lista_valorcriterioseguimientosilabos()->result();
 	    $data['title']="Seguimientosilabo ";
 	    $this->load->view('template/page_header');		
 	    $this->load->view('seguimientosilabo_record',$data);
