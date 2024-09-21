@@ -704,7 +704,7 @@ window.location.href = href;
 
 	function save_criterios() {
 	    var idevento=<?php echo $evento['idevento']; ?>; 
- 
+        alert(idevento); 
 	    $.ajax({
 		url: "<?php echo site_url('seguimientosilabo/save_criterios') ?>",
 		data: {idevento:idevento},
