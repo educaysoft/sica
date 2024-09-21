@@ -70,7 +70,7 @@ foreach ($eventos as $row){
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
-foreach ($criterioseguimientosilabo as $row){
+foreach ($criterioseguimientosilabos as $row){
 	$options[$row->idcriterioseguimientosilabo]= $row->nombre;
 }
          echo form_input('idcriterioseguimientosilabo',$options[$seguimientosilabo['idcriterioseguimientosilabo']],array("disabled"=>"disabled",'style'=>'width:500px;'));
@@ -84,7 +84,7 @@ foreach ($criterioseguimientosilabo as $row){
 	<div class="col-md-10">
 	<?php
 $options= array("NADA");
-foreach ($valorcriteriioseguimientosilabo as $row){
+foreach ($valorcriteriioseguimientosilabos as $row){
 	$options[$row->idvalorcriteriioseguimientosilabo]= $row->nombre;
 }
          echo form_input('idvalorcriteriioseguimientosilabo',$options[$seguimientosilabo['idvalorcriteriioseguimientosilabo']],array("disabled"=>"disabled",'style'=>'width:500px;'));
