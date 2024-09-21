@@ -36,7 +36,7 @@ foreach ($eventos as $row){
 <td> Criterio:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($criterioseguimientosilabo as $row){
+foreach ($criterioseguimientosilabos as $row){
 	$options[$row->idcriterioseguimientosilabo]= $row->nombre;
 }
 
