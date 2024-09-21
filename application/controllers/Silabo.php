@@ -465,9 +465,24 @@ public function exportarxls()
             $data[] = [$i,$silabo->laasignatura, $silabo->codigo,$silabo->eldocente];
 
             $criteriox=array();
-        //    foreach ($seguimientosilabos as $seguimiento) {
-         //       $criteriox[$seguimiento->criterioseguimientosilabo] =$seguimiento->elvalorcriterioseguimientosilabo ;
-         //   }
+            foreach ($seguimientosilabos as $seguimiento) {
+                $criteriox[$seguimiento->idcriterioseguimientosilabo] =$seguimiento->elvalorcriterioseguimientosilabo ;
+            }
+        
+            foreach ($criterioseguimientosilabos as $criterio) {
+            if(isset($criteriox[$criterio->idcriterioseguimientosilabo])){
+                $data[$i][]=$criteriox[$criterio->idcriterioseguimientosilabo];
+            }else{
+                $data[$i][]="--";
+
+            }
+
+
+    }
+
+
+
+
             $i++;
     }
 
