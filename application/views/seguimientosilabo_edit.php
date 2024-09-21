@@ -35,14 +35,14 @@ echo form_input($eys_arrinput); ?></td>
 
 
 <tr>
-<td> Silabo:</td>
+<td> Evento:</td>
 <td><?php
 $options= array('--Select--');
 foreach ($silabos as $row){
-	$options[$row->idsilabo]= $row->nombre;
+	$options[$row->idevento]= $row->titulo;
 }
 
- echo form_dropdown("idsilabo",$options, $seguimientosilabo['idsilabo']);  ?></td>
+ echo form_dropdown("idevento",$options, $seguimientosilabo['idevento']);  ?></td>
 </tr>
 
  

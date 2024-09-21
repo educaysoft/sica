@@ -37,15 +37,15 @@ if(isset($seguimientosilabo))
 <br>
 
 
-<?php echo form_hidden('idsilabo',$seguimientosilabo['idsilabo']) ?>
+<?php echo form_hidden('idevento',$seguimientosilabo['idevento']) ?>
 
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id silabo: ( <?php echo anchor('silabo/actual/'.$seguimientosilabo['idsilabo'], 'Ver'); ?>):</label>
+    <label class="col-md-2 col-form-label"> Id silabo: ( <?php echo anchor('silabo/actual/'.$seguimientosilabo['idevento'], 'Ver'); ?>):</label>
 	<div class="col-md-10">
 	<?php
-      echo form_input('idsilabo',$seguimientosilabo['idsilabo'],array("disabled"=>"disabled",'placeholder'=>'Idsilabos','style'=>'width:500px;'));
+      echo form_input('idevento',$seguimientosilabo['idevento'],array("disabled"=>"disabled",'placeholder'=>'Idsilabos','style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 
@@ -57,9 +57,9 @@ if(isset($seguimientosilabo))
 	<?php
 $options= array("NADA");
 foreach ($silabos as $row){
-	$options[$row->idsilabo]= $row->nombre;
+	$options[$row->idevento]= $row->nombre;
 }
-echo form_input('idsilabo',$options[$seguimientosilabo['idsilabo']],array("disabled"=>"disabled",'style'=>'width:500px;'));
+         echo form_input('idevento',$options[$seguimientosilabo['idevento']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
 	</div> 
 </div> 

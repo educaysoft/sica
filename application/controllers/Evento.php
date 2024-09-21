@@ -350,6 +350,34 @@ public function cumplimiento(){
 
 
 
+
+	function seguimientosilabo_data()
+	{
+			$draw= intval($this->input->get("draw"));
+			$draw= intval($this->input->get("start"));
+			$draw= intval($this->input->get("length"));
+
+			$idsilabo=$this->input->get('idevento');
+			$data0 =$this->seguimientosilabo_model->seguimientosilabos($idevento);
+			$data=array();
+			foreach($data0->result() as $r){
+				$data[]=array($r->idseguimientosilabo,$r->idevento,$r->elcriterioseguimientosilabo,$r->elvalorcriterioseguimientosilabo,
+				$r->href='<a href="javascript:void(0);" class="btn btn-info btn-sm item_ver"  data-retorno="'.site_url('seguimientosilabo/actual').'"    data-idseguimientosilabo="'.$r->idseguimientosilabo.'">Ver</a>');
+			}	
+			$output=array( "draw"=>$draw,
+				"recordsTotal"=> $data0->num_rows(),
+				"recordsFiltered"=> $data0->num_rows(),
+				"data"=>$data
+			);
+			echo json_encode($output);
+			exit();
+	}
+
+
+
+
+
+
 	public function listarxp()
 	{
 		$data['evento'] = $this->evento_model->evento(1)->row_array();

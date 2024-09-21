@@ -7,15 +7,15 @@
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Silabo:</label>
+    <label class="col-md-2 col-form-label"> Evento:</label>
 	<div class="col-md-10">
 		<?php
 	$options= array('--Select--');
 	foreach ($silabos as $row){
-		$options[$row->idsilabo]= $row->nombre;
+		$options[$row->idevento]= $row->titulo;
 	}
 
-	 echo form_dropdown("idsilabo",$options, set_select('--Select--','default_value'));  
+	 echo form_dropdown("idevento",$options, set_select('--Select--','default_value'));  
 		?>
 	</div> 
 </div> 

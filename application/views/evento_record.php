@@ -496,7 +496,44 @@ echo form_input($arrdatos) ?>
 
 
 
+<div class="form-group row">
+	<div class="col-md-10">
+	<div class="row justify-content-left">
+      	<!-- Page Heading -->
+ 	<div class="row">
+  	<div class="col-12" style="border:solid;" >
 
+<div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
+    <div class="col-lg-12 margin-tb">
+	<div class="pull-left"> 
+	 <b>Seguimiento silabo: ( <?php echo anchor('seguimientosilabo/add/'.$silabo['idsilabo'], 'New'); ?>):</b>
+        </div>
+
+<div class="pull-right">
+<a class="btn btn-danger" href="<?php echo base_url('silabo/exportarxls/'.$silabo['idperiodoacademico']) ?>">Informe excel</a>
+        </div>
+
+    </div>
+</div>
+
+	<table class="table table-striped table-bordered table-hover" id="mydatas">
+	 <thead>
+	 <tr>
+	 <th>idseguimientosilabo</th>
+	 <th>idsilabo</th>
+	 <th>Criterio de evaluación</th>
+	 <th>Nivel cumplimiento</th>
+	 <th style="text-align: right;">Actions</th>
+	 </tr>
+	 </thead>
+	 <tbody id="show_data2">
+	 </tbody>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div> 
+</div>
 
 
 
@@ -535,6 +572,7 @@ $(document).ready(function(){
 	});
 	var mytablap= $('#mydatap').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_participantes')?>', type: 'GET',data:{idevento:idevento}},});
 	var mytablaq= $('#mydataq').DataTable({"ajax": {url: '<?php echo site_url('evento/evento_noparticipantes')?>', type: 'GET',data:{idevento:idevento}},});
+	var mytablaf= $('#mydatas').DataTable({"ajax": {url: '<?php echo site_url('evento/seguimientosilabo_data')?>', type: 'GET',data:{idevento:idevento}},});
 });
 
 
