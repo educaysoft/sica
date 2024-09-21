@@ -420,6 +420,11 @@ public function exportarxls()
 
 
 	$idperiodoacademico=$this->uri->segment(3);
+
+
+  $eventos= $this->evento_model->eventosp($idperiodoacademico)->result();
+
+
   $silabos= $this->silabo_model->silabosp($idperiodoacademico)->result();
   $criterioseguimientosilabos= $this->criterioseguimientosilabo_model->lista_criterioseguimientosilabos()->result();
 // Preparar los datos para exportar a Excel
@@ -437,10 +442,10 @@ public function exportarxls()
     }
 
     $i=1;
-    foreach ($silabos as $silabo) {
-            $seguimientosilabos= $this->seguimientosilabo_model->seguimientosilabos($silabo->idsilabo)->result();
+    foreach ($eventos as $evento) {
+            $seguimientosilabos= $this->seguimientosilabo_model->seguimientosilabos($evento->idevento)->result();
 
-            $data[] = [$i,$silabo->laasignatura, $silabo->codigo,$silabo->eldocente];
+            $data[] = [$i,$evento->laasignatura, $evento->codigo,$evento->eldocente];
 
             $criteriox=array();
             foreach ($seguimientosilabos as $seguimiento) {

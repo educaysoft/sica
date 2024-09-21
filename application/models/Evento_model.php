@@ -44,6 +44,9 @@ Class Evento_model extends CI_model {
 
 
 
+
+
+
 	function lista_eventosP($idpersona){
 
 		$this->db->where("idevento_estado=2 or idevento_estado=3");  //SOLO ESTADO INSCRIPCION OR EN EJECUCION
@@ -109,6 +112,14 @@ Class Evento_model extends CI_model {
 	$evento = $this->db->query('select * from evento0 where idsilabo="'. $idsilabo.'" order by idevento');
  		return $evento;
  	}
+
+ 	function eventosp($idperiodoacademico){
+	$evento = $this->db->query('select silabo1.* from evento,silabo1 where silabo1.idsilabo=evento.idsilabo and silabo1.idperiodoacademico="'. $idperiodoacademico.'" order by idevento');
+ 		return $evento;
+ 	}
+
+
+
 
 
 
