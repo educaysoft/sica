@@ -506,11 +506,11 @@ echo form_input($arrdatos) ?>
 <div class="row" style="background-color:lightgray; padding-top:0.5cm; padding-bottom:0.5cm; border-bottom:0.5cm solid white;">
     <div class="col-lg-12 margin-tb">
 	<div class="pull-left"> 
-	 <b>Seguimiento silabo: ( <?php echo anchor('seguimientosilabo/add/'.$silabo['idsilabo'], 'New'); ?>):</b>
+	 <b>Seguimiento silabo: ( <?php echo anchor('seguimientosilabo/add/'.$evento['idevento'], 'New'); ?>):</b>
         </div>
 
 <div class="pull-right">
-<a class="btn btn-danger" href="<?php echo base_url('silabo/exportarxls/'.$silabo['idperiodoacademico']) ?>">Informe excel</a>
+<a class="btn btn-danger" href="<?php echo base_url('silabo/exportarxls/'.$evento['idperiodoacademico']) ?>">Informe excel</a>
         </div>
 
     </div>
