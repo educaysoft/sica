@@ -23,6 +23,7 @@ class Evento extends CI_Controller{
       $this->load->model('persona_model');
       $this->load->model('asignatura_model');
       $this->load->model('jornadadocente_model');
+      $this->load->model('seguimientosilabo_model');
 }
 
 public function index(){
