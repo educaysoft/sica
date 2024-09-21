@@ -124,15 +124,19 @@ Class Evento_model extends CI_model {
 
 
 $idsilabo = $query->result()[0]->idsilabo;
+
 $sql = 'SELECT evento.idsilabo, silabo1.* 
         FROM evento 
         JOIN silabo1 ON evento.idsilabo = silabo1.idsilabo 
-        WHERE silabo1.idperiodoacademico = (
+        JOIN silabo ON evento.idsilabo = silabo.idsilabo 
+        WHERE silabo.idperiodoacademico IN (
             SELECT silabo.idperiodoacademico 
             FROM evento 
             JOIN silabo ON evento.idsilabo = silabo.idsilabo 
             WHERE evento.idsilabo = ?
         )';
+
+
 
 $evento = $this->db->query($sql, array($idsilabo));
 
