@@ -14,31 +14,17 @@ echo form_input($eys_arrinput); ?></td>
   </tr> 
 
 
-<tr>
-     <td>No. Unidad:</td>
-     <td><?php 
 
 
-$eys_arrinput=array('name'=>'unidad','value'=>$seguimientosilabo['unidad'], "style"=>"width:500px");
-echo form_input($eys_arrinput); ?></td>
-  </tr>
 
 
-<tr>
-     <td>Nombre:</td>
-     <td><?php 
-
-
-$eys_arrinput=array('name'=>'nombre','value'=>$seguimientosilabo['nombre'], "style"=>"width:500px");
-echo form_input($eys_arrinput); ?></td>
-  </tr>
 
 
 <tr>
 <td> Evento:</td>
 <td><?php
 $options= array('--Select--');
-foreach ($silabos as $row){
+foreach ($eventos as $row){
 	$options[$row->idevento]= $row->titulo;
 }
 
@@ -46,10 +32,28 @@ foreach ($silabos as $row){
 </tr>
 
  
- 
+ <tr>
+<td> Criterio:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($criterioseguimientosilabo as $row){
+	$options[$row->idcriterioseguimientosilabo]= $row->nombre;
+}
+
+ echo form_dropdown("idcriterioseguimientosilabo",$options, $seguimientosilabo['idcriterioseguimientosilabo']);  ?></td>
+</tr>
 
 
+<tr>
+<td> Valor Criterio:</td>
+<td><?php
+$options= array('--Select--');
+foreach ($valorcriterioseguimientosilabos as $row){
+	$options[$row->idvalorcriterioseguimientosilabo]= $row->nombre;
+}
 
+ echo form_dropdown("idvalorcriterioseguimientosilabo",$options, $seguimientosilabo['idvalorcriterioseguimientosilabo']);  ?></td>
+</tr>
 
 
 
