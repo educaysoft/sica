@@ -59,10 +59,6 @@ class Silabo_model extends CI_model {
 
 
 
- 	function silabosp( $idperiodoacademico){
- 		$silabo = $this->db->query('select * from silabo1 where idperiodoacademico="'. $idperiodoacademico.'"');
- 		return $silabo;
- 	}
 
 
 
