@@ -75,7 +75,7 @@ class Seguimientosilabo_model extends CI_model {
 		        if($query->num_rows()==0){
 			        $array_ss['idevento']=$idevento;
 			        $array_ss['idcriterioseguimientosilabo']=$row->idcriterioseguimientosilabo;
-			        $array_ss['ideventocriterioseguimientosilabo']=1;
+			        $array_ss['idvalorcriterioseguimientosilabo']=1;
 			        $this->db->insert("seguimientosilabo", $array_ss);
 			        if( $this->db->affected_rows()>0) {
 				        $idasistencia=$this->db->insert_id();
