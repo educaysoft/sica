@@ -23,7 +23,7 @@
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Criterio Seguimeinto:</label>
+    <label class="col-md-2 col-form-label"> Criterio Seguimiento:</label>
 	<div class="col-md-10">
 		<?php
 	$options= array('--Select--');

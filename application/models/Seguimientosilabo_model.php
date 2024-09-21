@@ -44,7 +44,22 @@ class Seguimientosilabo_model extends CI_model {
 
  	function save($array)
  	{
-		$this->db->insert("seguimientosilabo", $array);
+
+		$condition1 = "idevento =" . "'" . $array['idevento'] . "'";
+		$condition2 = "idcriterioseguimientosilabo =" . "'" . $array['idcriterioseguimientosilabo'] . "'";
+		$this->db->select('*');
+		$this->db->from('seguimientosilabo');
+		$this->db->where($condition1);
+		$this->db->where($condition2);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 0) {
+		    $this->db->insert("seguimientosilabo", $array);
+            return true;
+        }else{
+            return false;
+
+        }
  	}
 
  	function update($id,$array_item)

@@ -29,7 +29,7 @@ class Seguimientosilabo extends CI_Controller{
   		$data['criterioseguimientosilabos']= $this->criterioseguimientosilabo_model->lista_criterioseguimientosilabos()->result();
   		$data['valorcriterioseguimientosilabos']= $this->valorcriterioseguimientosilabo_model->lista_valorcriterioseguimientosilabos()->result();
 		$data['seguimientosilabo'] = $this->seguimientosilabo_model->seguimientosilaboss($this->uri->segment(3));
-		$data['title']="Nueva unidades del silabo";
+		$data['title']="Nuevo seguimiento:";
 	 	$this->load->view('template/page_header');		
 	 	$this->load->view('seguimientosilabo_form',$data);
 	 	$this->load->view('template/page_footer');
@@ -43,7 +43,17 @@ class Seguimientosilabo extends CI_Controller{
 		 	'idcriterioseguimientosilabo' => $this->input->post('idcriterioseguimientosilabo'),
 		 	'idvalorcriterioseguimientosilabo' => $this->input->post('idvalorcriterioseguimientosilabo'),
 	 	);
-	 	$this->seguimientosilabo_model->save($array_item);
+	 	$result=$this->seguimientosilabo_model->save($array_item);
+	 	if($result == FALSE)
+		{
+			echo "<script language='JavaScript'> alert('Seguimiento ya existe'); </script>";
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}else{
+			echo "<script language='JavaScript'> window.history.go(-2);</script>";
+		}
+
+
+
 	 	redirect('seguimientosilabo');
  	}
 
