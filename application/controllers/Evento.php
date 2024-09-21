@@ -358,7 +358,7 @@ public function cumplimiento(){
 			$draw= intval($this->input->get("start"));
 			$draw= intval($this->input->get("length"));
 
-			$idsilabo=$this->input->get('idevento');
+			$idevento=$this->input->get('idevento');
 			$data0 =$this->seguimientosilabo_model->seguimientosilabos($idevento);
 			$data=array();
 			foreach($data0->result() as $r){
