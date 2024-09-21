@@ -18,6 +18,7 @@ class Silabo extends CI_Controller{
   	$this->load->model('departamento_model');
   	$this->load->model('calendarioacademico_model');
       $this->load->model('metodoaprendizajetema_model');
+      $this->load->model('criterioseguimientomodelo_model');
   }
 
 //=========================================================
@@ -442,7 +443,7 @@ public function exportarxls()
 
 	$idperiodoacademico=$this->uri->segment(3);
   $silabos= $this->silabo_model->silabosp($idperiodoacademico)->result();
-  $criterioseguimientosilabos= $this->criterioseguimientosilabo_model->lista_criteriosseguimeintosilabo()->result();
+  $criterioseguimientosilabos= $this->criterioseguimientosilabo_model->lista_criteriosseguimientosilabos()->result();
 // Preparar los datos para exportar a Excel
     $data = array();
     //$data[] = ['No','ASIGNAGURA', 'CÓDIGO','FORMATO INSTITUCIONAL','ENTREGA A AUTORIDAD','PRESENTACION Y ACTUALIZACIÓN A ESTUDIANTE','ENTREGA DE PLANIFICACION', "PLANIFICACION Y ACTUALIZACION DE RESULTADOS DE APRENDIZAJE","No. H/CLASE PLANIFICADAS DE ASIGNATURA",'No. H/CLASE DESARROLLADAS DE ASIGNATURA' , 'CUMPLIMIENTO DE SILABO',"CUMPLIMIENTO DE SISTEMA DE EVALUACION DE ASIGNATURA", "CUMPLIMIENTO CONTRIBUCIÓN DE LOGROS DE APRENDIZAJE",'PRESENTACION DE PORTAFOLIO' ,"RETROALIMENTACION Y PLAN DE MEJORAS" ]; // Encabezados
