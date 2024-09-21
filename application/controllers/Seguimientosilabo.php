@@ -86,7 +86,7 @@ class Seguimientosilabo extends CI_Controller{
 
 	public function  save_criterios()
 	{
-	 	$idevento => $this->input->get('idevento');
+	 	$idevento = $this->input->get('idevento');
 	 	$result= $this->seguimientosilabo_model->saveall($idevento);
 	 	if($result == FALSE)
 		{
