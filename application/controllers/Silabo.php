@@ -460,7 +460,7 @@ public function exportarxls()
 
     $i=1;
     foreach ($silabos as $silabo) {
-            $seguimientosilabos= $this->seguimientosilabo_model->seguimientosilabo($silabo->idsilabo)->result();
+            $seguimientosilabos= $this->seguimientosilabo_model->seguimientosilabos($silabo->idsilabo)->result();
 
             $data[] = [$i,$silabo->laasignatura, $silabo->codigo,$silabo->eldocente];
 
