@@ -42,7 +42,7 @@ if(isset($seguimientosilabo))
 
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label"> Id silabo: ( <?php echo anchor('silabo/actual/'.$seguimientosilabo['idevento'], 'Ver'); ?>):</label>
+    <label class="col-md-2 col-form-label"> Id evento: ( <?php echo anchor('evento/actual/'.$seguimientosilabo['idevento'], 'Ver'); ?>):</label>
 	<div class="col-md-10">
 	<?php
       echo form_input('idevento',$seguimientosilabo['idevento'],array("disabled"=>"disabled",'placeholder'=>'Idsilabos','style'=>'width:500px;'));
