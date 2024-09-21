@@ -351,8 +351,6 @@ $('#show_data1').on('click','.item_asit',function(){
 		var idevento=document.getElementById("idevento").value;
 		var idtipoasistencia=1;  //document.getElementById("idtipoasistencia").value;
 		var comentario=document.getElementById("comentario").value;
-	//	var idpersona= $('select[name=idpersona]').val();
-	//	var p = document.getElementById("idpersona");
 		var idpersona=0 ;  //p.options[p.selectedIndex].value;
  
 	    $.ajax({

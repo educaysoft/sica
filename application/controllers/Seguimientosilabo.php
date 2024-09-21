@@ -78,20 +78,23 @@ class Seguimientosilabo extends CI_Controller{
 	 	$array_item=array(
 		 	'criterioseguiminetosilabo' => $this->input->post('criterioseguimientosilabo'),
 		 	'valorcriterioseguimientosilabo' => $this->input->post('valorcriterioseguimientosilabo'),
-		 	'idsilabo' => $this->input->post('idsilabo'),
+		 	'idevento' => $this->input->post('idevento'),
 	 	);
 	 	$this->seguimientosilabo_model->update($id,$array_item);
 	 	redirect('seguimientosilabo/actual/'.$id);
  	}
 
-	public function  save_edit2()
+	public function  save_criterios()
 	{
-		$id=$this->input->post('idseguimientosilabo');
-	 	$array_item=array(
-		 	'idsilabo' => $this->input->post('idsilabo'),
-		 	'idpersona' => $this->input->post('idpersona'),
-	 	);
-	 	echo $this->seguimientosilabo_model->update($id,$array_item);
+	 	$idevento => $this->input->post('idevento'),
+	 	$result= $this->seguimientosilabo_model->saveall($idevento);
+	 	if($result == FALSE)
+		{
+			$data=array('resultado'=>"FALSE");
+		}else{
+			$data=array('resultado'=>"TRUE");
+		}
+		echo json_encode($data);
  	}
 
 

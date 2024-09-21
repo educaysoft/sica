@@ -510,7 +510,7 @@ echo form_input($arrdatos) ?>
         </div>
 
 <div class="pull-right">
-<a class="btn btn-danger" href="<?php echo base_url('silabo/exportarxls/'.$evento['idevento']) ?>">Informe excel</a>
+ <a class="btn btn-success" onclick="save_criterios()"> sumar criterios</a> <a class="btn btn-danger" href="<?php echo base_url('silabo/exportarxls/'.$evento['idevento']) ?>">Informe excel</a>
         </div>
 
     </div>
@@ -702,9 +702,34 @@ window.location.href = href;
 
 
 
+	function save_criterios() {
+		var idevento=document.getElementById("idevento").value;
+ 
+	    $.ajax({
+		url: "<?php echo site_url('seguimientosilabo/save_criterios') ?>",
+		data: {idevento:idevento},
+		method: 'POST',
+		async : false,
+		dataType : 'json',
+		success: function(data){
+		var html = '';
+		var i;
+		get_criterios();
+		},
+	      error: function (xhr, ajaxOptions, thrownError) {
+		alert(xhr.status);
+		alert(thrownError);
+	      }
+	    })
+	}
 
 
 
+	function get_criterios() {
+		var idevento=document.getElementById("idevento").value;
+	var mytablaf= $('#mydatas').DataTable({pageLength:15,destroy:true,"ajax": {url: '<?php echo site_url('evento/seguimientosilabo_data')?>', type: 'GET',data:{idevento:idevento}},});
+
+	}
 
 
 
