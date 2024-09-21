@@ -85,7 +85,7 @@ foreach ($criterioseguimientosilabos as $row){
 	<?php
 $options= array("NADA");
 foreach ($valorcriteriioseguimientosilabos as $row){
-	$options[$row->idvalorcriteriioseguimientosilabo]= $row->nombre;
+	$options[$row->idvalorcriterioseguimientosilabo]= $row->nombre;
 }
          echo form_input('idvalorcriteriioseguimientosilabo',$options[$seguimientosilabo['idvalorcriteriioseguimientosilabo']],array("disabled"=>"disabled",'style'=>'width:500px;'));
 		?>
