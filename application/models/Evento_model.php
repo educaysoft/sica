@@ -122,8 +122,24 @@ Class Evento_model extends CI_model {
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
 
-						$idsilabo=$query->result()[0]->idsilabo;
-	            $evento = $this->db->query('select evento.idsilabo, silabo1.* from evento,silabo1 where evento.idsilabo=silabo1.idsilabo and  silabo1.idperiodoacademico= (select silabo.idperiodoacademico from evento,silabo where evento.idsilabo=silabo.idsilabo and  evento.idsilabo="'. $idsilabo.'") ');
+
+$idsilabo = $query->result()[0]->idsilabo;
+$sql = 'SELECT evento.idsilabo, silabo1.* 
+        FROM evento 
+        JOIN silabo1 ON evento.idsilabo = silabo1.idsilabo 
+        WHERE silabo1.idperiodoacademico = (
+            SELECT silabo.idperiodoacademico 
+            FROM evento 
+            JOIN silabo ON evento.idsilabo = silabo.idsilabo 
+            WHERE evento.idsilabo = ?
+        )';
+
+$evento = $this->db->query($sql, array($idsilabo));
+
+
+
+//						$idsilabo=$query->result()[0]->idsilabo;
+//	            $evento = $this->db->query('select evento.idsilabo, silabo1.* from evento,silabo1 where evento.idsilabo=silabo1.idsilabo and  silabo1.idperiodoacademico= (select silabo.idperiodoacademico from evento,silabo where evento.idsilabo=silabo.idsilabo and  evento.idsilabo="'. $idsilabo.'") ');
  		return $evento;
         }else{
  		return array();
