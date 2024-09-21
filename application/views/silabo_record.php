@@ -263,8 +263,8 @@ echo form_input('iddocumento',$options[$silabo['iddocumento']],array("id"=>"iddo
 	 <tr>
 	 <th>idseguimientosilabo</th>
 	 <th>idsilabo</th>
-	 <th>elcriterioseguimientosilabo</th>
-	 <th>elvalorcriterioseguimientosilabo</th>
+	 <th>Criterio de evaluación</th>
+	 <th>Nivel cumplimiento</th>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
