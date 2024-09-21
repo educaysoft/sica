@@ -254,7 +254,11 @@ echo form_input('iddocumento',$options[$silabo['iddocumento']],array("id"=>"iddo
 	<div class="pull-left"> 
 	 <b>Seguimiento silabo: ( <?php echo anchor('seguimientosilabo/add/'.$silabo['idsilabo'], 'New'); ?>):</b>
         </div>
-        
+
+<div class="pull-right">
+<a class="btn btn-danger" href="<?php echo base_url('silabo/exportarxls/'.$silabo['idperiodoacademico']) ?>">Informe excel</a>
+        </div>
+
     </div>
 </div>
 

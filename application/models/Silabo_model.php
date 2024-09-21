@@ -43,6 +43,13 @@ class Silabo_model extends CI_model {
  		return $silabo;
  	}
 
+
+ 	function silabosp( $idperiodoacademico){
+ 		$silabo = $this->db->query('select * from silabo1 where idperiodoacademico="'. $idperiodoacademico.'" order by iddocente');
+ 		return $silabo;
+ 	}
+
+
  	function silabosdp( $iddocente,$idperiodoacademico){
  		$silabo = $this->db->query('select * from silabo1 where iddocente="'. $iddocente.'" and  idperiodoacademico="'. $idperiodoacademico.'"');
  		return $silabo;
@@ -314,6 +321,107 @@ public function get_silabo($id){
 		 $silabo= $this->db->get();
 		 return $silabo;
 	}
+
+
+
+
+    public function exportToExcel($data, $filename) {
+        // Crear un nuevo objeto Spreadsheet
+        $spreadsheet = new Spreadsheet();
+
+        // Obtener la hoja activa
+        $sheet = $spreadsheet->getActiveSheet();
+
+        // Escribir los datos en la hoja de cálculo
+        $sheet->fromArray($data, null, 'A1');
+
+// Aplicar estilo a la primera fila
+$styleArray = [
+    'font' => [
+        'bold' => true,
+        'color' => ['argb' => Color::COLOR_WHITE],
+    ],
+    'alignment' => [
+        'horizontal' => Alignment::HORIZONTAL_CENTER,
+        'vertical' => Alignment::VERTICAL_CENTER,
+    ],
+    'fill' => [
+        'fillType' => Fill::FILL_SOLID,
+        'startColor' => [
+            'argb' => '00000000', // Color de fondo negro
+        ],
+    ],
+];
+
+
+// Aplicar el estilo a la primera fila
+$sheet->getStyle('A1:P1')->applyFromArray($styleArray);
+
+
+// Cambiar el ancho de las celdas
+    $sheet->getColumnDimension('A')->setWidth(5); // Ancho de la columna A
+    $sheet->getStyle('A')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('B')->setWidth(40); // Ancho de la columna B
+    $sheet->getStyle('B')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('C')->setWidth(10); // Ancho de la columna B
+    $sheet->getStyle('C')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('D')->setWidth(20); // Ancho de la columna C
+    $sheet->getStyle('D')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('E')->setWidth(20); // Ancho de la columna C
+    $sheet->getStyle('E')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('F')->setWidth(20); // Ancho de la columna C
+    $sheet->getStyle('F')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('G')->setWidth(20); // Ancho de la columna C
+    $sheet->getStyle('G')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('H')->setWidth(20); // Ancho de la columna C
+    $sheet->getStyle('H')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('I')->setWidth(20); // Ancho de la columna C
+    $sheet->getStyle('I')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('J')->setWidth(20); // Ancho de la columna C
+    $sheet->getStyle('J')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('K')->setWidth(20); // Ancho de la columna C
+    $sheet->getStyle('K')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('L')->setWidth(20); // Ancho de la columna C
+    $sheet->getStyle('L')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('M')->setWidth(20); // Ancho de la columna C
+    $sheet->getStyle('M')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('N')->setWidth(20); // Ancho de la columna C
+    $sheet->getStyle('N')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('O')->setWidth(20); // Ancho de la columna C
+    $sheet->getStyle('O')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+    $sheet->getColumnDimension('P')->setWidth(20); // Ancho de la columna C
+    $sheet->getStyle('P')->getAlignment()->setWrapText(true); // Ajuste de texto en la columna A
+ 
+
+
+// Enviar el archivo al navegador para descarga
+
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment;filename="' . $filename . '"');
+    header('Cache-Control: max-age=0');
+    header('Cache-Control: max-age=1');
+    header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Fecha en el pasado
+    header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT'); // Siempre modificado
+    header('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+    header('Pragma: public'); // HTTP/1.0
+
+
+        // Crear un objeto Writer para guardar la hoja de cálculo
+        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+
+        // Enviar el archivo al navegador para su descarga
+       $writer->save('php://output');
+
+        // Salir para asegurarse de que no se envíe nada más
+        exit;
+    }
+
+
+
+
+
+
+
 
 
 

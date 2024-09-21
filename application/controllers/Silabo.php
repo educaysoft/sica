@@ -434,4 +434,60 @@ public function anterior(){
 
 
 
+
+public function exportarxls()
+{
+    $this->load->model('export_model');
+
+
+	$idperiodoacademico=$this->uri->segment(3);
+  $silabos= $this->silabo_model->silabosp($idperiodoacademico)->result();
+  $criterioseguimientosilabos= $this->criterioseguimientosilabo_model->lista_criteriosseguimeintosilabo()->result();
+// Preparar los datos para exportar a Excel
+    $data = array();
+    //$data[] = ['No','ASIGNAGURA', 'CÓDIGO','FORMATO INSTITUCIONAL','ENTREGA A AUTORIDAD','PRESENTACION Y ACTUALIZACIÓN A ESTUDIANTE','ENTREGA DE PLANIFICACION', "PLANIFICACION Y ACTUALIZACION DE RESULTADOS DE APRENDIZAJE","No. H/CLASE PLANIFICADAS DE ASIGNATURA",'No. H/CLASE DESARROLLADAS DE ASIGNATURA' , 'CUMPLIMIENTO DE SILABO',"CUMPLIMIENTO DE SISTEMA DE EVALUACION DE ASIGNATURA", "CUMPLIMIENTO CONTRIBUCIÓN DE LOGROS DE APRENDIZAJE",'PRESENTACION DE PORTAFOLIO' ,"RETROALIMENTACION Y PLAN DE MEJORAS" ]; // Encabezados
+
+
+    $data[] = ['No','ASIGNAGURA', 'CÓDIGO','Docente' ]; // Encabezados
+
+
+    foreach ($criterioseguimientosilabos as $criterio) {
+        $data[0][]=$criterio->nombre;
+
+
+    }
+
+    $i=1;
+    foreach ($silabos as $silabo) {
+            $seguimientosilabos= $this->seguimientosilabo_model->seguimientosilabo($silabo->idsilabo)->result();
+
+            $data[] = [$i,$silabo->laasignatura, $silabo->codigo,$silabo->eldocente];
+
+            $criteriox=array();
+        //    foreach ($seguimientosilabos as $seguimiento) {
+         //       $criteriox[$seguimiento->criterioseguimientosilabo] =$seguimiento->elvalorcriterioseguimientosilabo ;
+         //   }
+            $i++;
+    }
+
+
+
+
+$filename = 'seguimientosilabo.xlsx';
+$this->silabo_model->exportToExcel($data, $filename);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
