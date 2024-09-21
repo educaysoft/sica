@@ -18,7 +18,7 @@ class Silabo extends CI_Controller{
   	$this->load->model('departamento_model');
   	$this->load->model('calendarioacademico_model');
       $this->load->model('metodoaprendizajetema_model');
-      $this->load->model('criterioseguimientomodelo_model');
+      $this->load->model('criterioseguimientosilabo_model');
   }
 
 //=========================================================
