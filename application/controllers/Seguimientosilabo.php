@@ -62,7 +62,7 @@ class Seguimientosilabo extends CI_Controller{
 	public function edit()
 	{
 	 	$data['seguimientosilabo'] = $this->seguimientosilabo_model->seguimientosilabo($this->uri->segment(3))->row_array();
-		$data['silabos']= $this->silabo_model->lista_silabos()->result();
+  		$data['eventos']= $this->evento_model->lista_eventos()->result();
   		$data['criterioseguimientosilabos']= $this->criterioseguimientosilabo_model->lista_criterioseguimientosilabos()->result();
   		$data['valorcriterioseguimientosilabos']= $this->valorcriterioseguimientosilabo_model->lista_valorcriterioseguimientosilabos()->result();
  	 	$data['title'] = "Actualizar Seguimientosilabo";
