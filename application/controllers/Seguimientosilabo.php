@@ -76,8 +76,8 @@ class Seguimientosilabo extends CI_Controller{
 	{
 		$id=$this->input->post('idseguimientosilabo');
 	 	$array_item=array(
-		 	'criterioseguiminetosilabo' => $this->input->post('criterioseguimientosilabo'),
-		 	'valorcriterioseguimientosilabo' => $this->input->post('valorcriterioseguimientosilabo'),
+		 	'idcriterioseguiminetosilabo' => $this->input->post('idcriterioseguimientosilabo'),
+		 	'idvalorcriterioseguimientosilabo' => $this->input->post('idvalorcriterioseguimientosilabo'),
 		 	'idevento' => $this->input->post('idevento'),
 	 	);
 	 	$this->seguimientosilabo_model->update($id,$array_item);
