@@ -113,9 +113,21 @@ Class Evento_model extends CI_model {
  		return $evento;
  	}
 
- 	function eventosp($idperiodoacademico){
-	$evento = $this->db->query('select silabo1.* from evento,silabo1 where silabo1.idsilabo=evento.idsilabo and silabo1.idperiodoacademico="'. $idperiodoacademico.'" order by idevento');
+ 	function eventosp($idevento){
+		$condition = "idevento =" . "'" . $idevento . "'";
+		$this->db->select('*');
+		$this->db->from('evento');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+
+						$idsilabo=$query->result()[0]->idsilabo;
+	            $evento = $this->db->query('select evento.idsilabo, silabo1.* from evento,silabo1 where evento.idsilabo=silabo1.idsilabo and  silabo1.idperiodoacademico= (select silabo.idperiodoacademico from evento,silabo where evento.idsilabo=silabo.idsilabo and  evento.idsilabo="'. $idsilabo.'") ');
  		return $evento;
+        }else{
+ 		return array();
+
  	}
 
 
