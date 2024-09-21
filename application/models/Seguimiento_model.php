@@ -86,28 +86,6 @@ class Seguimiento_model extends CI_model {
 
 
 
- 	function saveall($idevento)
- 	{
-		$criterio=$this->db->get('criterioseguimientosilabo');
-		if($criterio->num_rows()>0){
-		    foreach($criterio->result() as $row){
- 		        $this->db->where('idevento',$idevento);
- 		        $this->db->where('idcriterioseguimientosilabo',$row->idcriterioseguimientosilabo);
-		        $query=$this->db->get('seguimientosilabo');
-		        if($query->num_rows()==0){
-			        $array_ss['idevento']=$idevento;
-			        $array_ss['idcriterioseguimientosilabo']=$row->idcriterioseguimientosilabo;
-			        $array_ss['ideventocriterioseguimientosilabo']=1;
-			        $this->db->insert("seguimientosilabo", $array_ss);
-			        if( $this->db->affected_rows()>0) {
-				        $idasistencia=$this->db->insert_id();
-			        }	
-		        }
-		    }
- 	    }
-
-	}
-
 
 
 

@@ -512,7 +512,6 @@ echo form_input($arrdatos) ?>
 <div class="pull-right">
  <a class="btn btn-success" onclick="save_criterios()"> sumar criterios</a> <a class="btn btn-danger" href="<?php echo base_url('silabo/exportarxls/'.$evento['idevento']) ?>">Informe excel</a>
         </div>
-
     </div>
 </div>
 
@@ -526,7 +525,7 @@ echo form_input($arrdatos) ?>
 	 <th style="text-align: right;">Actions</th>
 	 </tr>
 	 </thead>
-	 <tbody id="show_data2">
+	 <tbody id="show_data3">
 	 </tbody>
 	</table>
 	</div>
@@ -630,6 +629,19 @@ var idevento= $(this).data('idevento');
 get_sesionevento(idsesionevento,idevento);
 
 });
+
+
+$('#show_data3').on('click','.item_edit',function(){
+
+    var id= $(this).data('idseguimientosilabo');
+    var retorno= $(this).data('retorno');
+	window.location.href = retorno+'/'+id;
+
+
+
+});
+
+
 
 
 
