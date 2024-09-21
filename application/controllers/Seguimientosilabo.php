@@ -178,10 +178,9 @@ class Seguimientosilabo extends CI_Controller{
 		$data['seguimientosilabo'] = $this->seguimientosilabo_model->seguimientosilabo($this->uri->segment(3))->row_array();
 	  if(!empty($data))
 	  {
-			$data['silabos']= $this->silabo_model->lista_silabos()->result();
 
-		$data['personas']= $this->persona_model->lista_personas()->result();
-	    $data['title']="Seguimientosilabo del videotutorial";
+  		$data['eventos']= $this->evento_model->lista_eventos()->result();
+	    $data['title']="Seguimientosilabo ";
 	    $this->load->view('template/page_header');		
 	    $this->load->view('seguimientosilabo_record',$data);
 	    $this->load->view('template/page_footer');
