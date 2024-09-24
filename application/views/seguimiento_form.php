@@ -123,7 +123,7 @@ foreach ($correosde as $row){
 
 					<?php
 
-            echo '<a class="btn"  onclick="enviar_correo()">Enviar correo</a>';
+            echo '<a class="btn"  onclick="correomasivo()">Enviar correo</a>';
 
 					?>
 
