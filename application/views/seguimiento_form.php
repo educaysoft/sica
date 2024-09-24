@@ -121,9 +121,11 @@ foreach ($correosde as $row){
 					</div>
 
 
+					<?php
 
-echo '<a class="btn"  onclick="enviar_correo()">Enviar correo</a>';
+            echo '<a class="btn"  onclick="enviar_correo()">Enviar correo</a>';
 
+					?>
 
 
 
