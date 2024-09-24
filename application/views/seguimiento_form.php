@@ -322,7 +322,25 @@ echo '<a class="btn"  onclick="enviar_correo(`<img src=\'data:image/jpg;base64,'
 		 height:300
 
 	});
+
+
+	 tinymce.init({
+		selector:'#comentario',
+		 height:300
+	});
+
+
+
+	 tinymce.init({
+		 selector:'#pies',
+		 height:300
+
+	});
  
+
+
+
+
 
 
 
@@ -533,7 +551,7 @@ $("#btn_update").on("click", function(){
 
 
 //		var foot0="<br><div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres de Esmeralda cuenta con los programas de Posgrado los cuales ya estan abiertos para que puedas incribirte.<br><br> <a href='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2023.jpg'>"+laimagen+"</a><br><br></div>" ;
-		 var foot=" <div style='text-align:center; background-color:lightgrey; font-size:12px;'> Este correo ha sido enviado a "+correopara+ ", de acuerdo a la Ley Orgánica de Protección de datos, usted tiene el derecho a solicitar a la Universidad Técnica Luis Vargas Torres, la actualización, inclusión, supresión y/o tratamiento de los datos personales incluidos en sus bases de datos, con este correo electrónico usted acepta recibir información de las actividades académicas que realiza el Alma Mater así como nuestra propuestas académicas <br><br> Este correo fue generado y enviado automáticamente desde el sistema cloud elaborado desde la Maestría en Tecnología de la Información</div> ";
+		 var foot=" <div style='text-align:center; background-color:lightgrey; font-size:12px;'> Este correo ha sido enviado a "+correopara+ ", de acuerdo a la Ley Orgánica de Protección de datos, usted tiene el derecho a solicitar a la Universidad Técnica Luis Vargas Torres, la actualización, inclusión, supresión y/o tratamiento de los datos personales incluidos en sus bases de datos, con este correo electrónico usted acepta recibir información de las actividades académicas que realiza el Alma Mater así como nuestra propuestas académicas <br><br> Este correo fue generado y enviado automáticamente desde el sistema cloud elaborado por docentes y estudiantes de Ingenieria de Software de la carrera en Tecnología de la Información</div> ";
 		
 		msg=head+msg+foot0+foot;
 		
@@ -700,15 +718,19 @@ function correomasivo() {
 
     alert(elcorreo);
 
-var correode = document.getElementById("correode").value; // De quién es el correo
+
+	var c=  document.getElementById("idcorreo");
+  	var correode=c.options[c.selectedIndex].text;
+
+//var correode = document.getElementById("correode").value; // De quién es el correo
     var nome = 'Stalin Francis Q.'; // Nombre del remitente         
-    var msg = tinyMCE.activeEditor.getContent({format:'text'}); // Mensaje del correo
+    var msg =  tinymce.get('comentario').getContent();    //            tinyMCE.activeEditor.getContent({format:'text'});  Mensaje del correo
     var correopara = elcorreo; // document.getElementById("correopara_edit").value; // Destinatarios separados por comas
     var secure = "siteform";
     var head = "";
     var asunto = document.getElementById("asunto").value; // Asunto del correo
     
-    var foot0 = "<br><div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres de Esmeralda cuenta con los programas de Posgrado los cuales ya están abiertos para que puedas inscribirte.<br><br> <a href='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2024.jpg'><img src='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2024.jpg'></a><br><br></div>";
+    var foot0 = "<br><div style='text-align:center; background-color:lightgrey;'>  <a href='https://repositorioutlvte.org/Repositorio/publicidad/carreratecnologiadelainformacion2024.jpg'><img src='https://repositorioutlvte.org/Repositorio/publicidad/carreratecnologiadelainformacion2024.jpg'></a><br><br></div>";
     var foot = " <div style='text-align:center; background-color:lightgrey; font-size:12px;'> Este correo ha sido enviado a {correo_destinatario}, de acuerdo a la Ley Orgánica de Protección de datos...<br><br> Este correo fue generado y enviado automáticamente desde el sistema cloud elaborado desde la Maestría en Tecnología de la Información</div>";
     
     msg = head + msg + foot0 + foot;
