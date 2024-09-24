@@ -83,6 +83,13 @@ foreach ($correosde as $row){
 
 </div>
 
+<div class="form-group row">
+						<label class="col-md-2 col-form-label">Correo de:</label>
+						<div class="col-md-10">
+							<input type="text" name="correode" id="correode" class="form-control" placeholder="alumno">  
+						</div>
+					</div>
+
 
 
 					<div class="form-group row">
