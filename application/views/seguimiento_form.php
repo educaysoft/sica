@@ -671,18 +671,15 @@ function get_seguimiento_xx() {
 
 function correomasivo()
 {
-
-
- //const selectElement = document.getElementById('idpersona');
-    var idpersona = $('select[name="idpersona[]"]').val(); // Obtener valores seleccionados
-    alert(idpersona); 
-
-
-  //  const selectedOptions = Array.from(selectElement.selectedOptions);
+ var idpersona = $('#idpersona').val();
     
-  //  const correos = selectedOptions.map(option => option.value);
-  //  alert(correos); 
-  //  console.log(correos); // Muestra el arreglo de correos en la
+    // Verificar si hay valores seleccionados
+    if (idpersona && idpersona.length > 0) {
+        alert("Correos seleccionados: " + idpersona.join(", "));
+    } else {
+        alert("No se han seleccionado participantes.");
+    }
+
 
 
 }
