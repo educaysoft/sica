@@ -671,7 +671,23 @@ function get_seguimiento_xx() {
 
 function correomasivo()
 {
-   
+
+ var elcorreo = ""; 
+    var options = document.getElementById('idpersona').selectedOptions;
+    var values = Array.from(options).map(({ text }) => text);
+    
+    if (values.length > 0) {    
+        var partes = values[0].split(" -");
+        if (partes.length > 2) {
+            elcorreo = elcorreo + partes[2].trim();  // Quita el uso de join() que no es necesario
+        }
+    }
+    
+    alert(elcorreo);
+
+
+
+/*
    var elcorreo=""; 
 	var options = document.getElementById('idpersona').selectedOptions;
 	var values = Array.from(options).map(({ text }) => text);
@@ -679,7 +695,7 @@ function correomasivo()
          elcorreo=elcorreo + values[0].split(" -")[2].trim().join(", ");
             }   
         alert(elcorreo);
-
+ */
 
 }
 
