@@ -76,7 +76,7 @@ foreach ($correosde as $row){
 <div class="col-md-10">
 
 
-         <select class="form-control" id="idpersona" name="idpersona" multiple required size="30" style="height: 100%;"   onChange='get_seguimiento_xx()'>
+         <select class="form-control" id="idpersona" name="idpersona[]" multiple required size="30" style="height: 100%;"   onChange='get_seguimiento_xx()'>
                  <option>No Selected</option>
           </select>
     </div>
