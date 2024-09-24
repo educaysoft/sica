@@ -671,15 +671,14 @@ function get_seguimiento_xx() {
 
 function correomasivo()
 {
- var idpersona = $('#idpersona').val();
-    
-    // Verificar si hay valores seleccionados
-    if (idpersona && idpersona.length > 0) {
-        alert("Correos seleccionados: " + idpersona.join(", "));
-    } else {
-        alert("No se han seleccionado participantes.");
-    }
-
+   
+   var elcorreo=""; 
+	var options = document.getElementById('idpersona').selectedOptions;
+	var values = Array.from(options).map(({ text }) => text);
+            if(values.length>0){	
+         elcorreo=elcorreo + values[0].split(" -")[2].trim().join(", ");
+            }   
+        alert(elcorreo);
 
 
 }
