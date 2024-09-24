@@ -669,7 +669,7 @@ function get_seguimiento_xx() {
 
 
 
-function correomasivo()
+function correomasivo2()
 {
 
  var elcorreo = ""; 
@@ -687,21 +687,31 @@ function correomasivo()
 
 
 
-/*
-   var elcorreo=""; 
-	var options = document.getElementById('idpersona').selectedOptions;
-	var values = Array.from(options).map(({ text }) => text);
-            if(values.length>0){	
-         elcorreo=elcorreo + values[0].split(" -")[2].trim().join(", ");
-            }   
-        alert(elcorreo);
- */
 
 }
 
 
 
+function correomasivo() {
+    var elcorreo = ""; 
+    var options = document.getElementById('idpersona').selectedOptions;
+    var values = Array.from(options).map(({ text }) => text);
+    
+    // Iterar sobre todos los valores seleccionados
+    values.forEach(function(value) {
+        var partes = value.split(" -");
+        if (partes.length > 2) {
+            elcorreo += partes[2].trim() + ", ";  // Concatenar el correo con una coma
+        }
+    });
 
+    // Eliminar la coma final y espacio adicional
+    if (elcorreo.endsWith(", ")) {
+        elcorreo = elcorreo.slice(0, -2);
+    }
+
+    alert(elcorreo);
+}
 
 
 
