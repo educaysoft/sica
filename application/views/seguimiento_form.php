@@ -669,26 +669,7 @@ function get_seguimiento_xx() {
 
 
 
-function correomasivo2()
-{
 
- var elcorreo = ""; 
-    var options = document.getElementById('idpersona').selectedOptions;
-    var values = Array.from(options).map(({ text }) => text);
-    
-    if (values.length > 0) {    
-        var partes = values[0].split(" -");
-        if (partes.length > 2) {
-            elcorreo = elcorreo + partes[2].trim();  // Quita el uso de join() que no es necesario
-        }
-    }
-    
-    alert(elcorreo);
-
-
-
-
-}
 
 
 
@@ -711,6 +692,49 @@ function correomasivo() {
     }
 
     alert(elcorreo);
+
+var correode = document.getElementById("correode").value; // De quién es el correo
+    var nome = 'Stalin Francis Q.'; // Nombre del remitente         
+    var msg = tinyMCE.activeEditor.getContent({format:'text'}); // Mensaje del correo
+    var correopara = elcorreo; // document.getElementById("correopara_edit").value; // Destinatarios separados por comas
+    var secure = "siteform";
+    var head = "";
+    var asunto = document.getElementById("asunto").value; // Asunto del correo
+    
+    var foot0 = "<br><div style='text-align:center; background-color:lightgrey;'> Aprovechamos la oportunidad para informarte que la Universidad Técnica Luis Vargas Torres de Esmeralda cuenta con los programas de Posgrado los cuales ya están abiertos para que puedas inscribirte.<br><br> <a href='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2024.jpg'><img src='https://repositorioutlvte.org/Repositorio/publicidad/postgrado2024.jpg'></a><br><br></div>";
+    var foot = " <div style='text-align:center; background-color:lightgrey; font-size:12px;'> Este correo ha sido enviado a {correo_destinatario}, de acuerdo a la Ley Orgánica de Protección de datos...<br><br> Este correo fue generado y enviado automáticamente desde el sistema cloud elaborado desde la Maestría en Tecnología de la Información</div>";
+    
+    msg = head + msg + foot0 + foot;
+    
+    // Convertir correopara en un array de destinatarios
+    var destinatarios = correopara.split(',').map(function(item) {
+        return item.trim(); // Eliminar espacios en blanco
+    });
+    
+    destinatarios.forEach(function(destinatario) {
+        var mensajeConPie = msg.replace('{correo_destinatario}', destinatario); // Reemplazar el correo del destinatario en el pie
+        
+        // Enviar el correo a cada destinatario
+            $.ajax({
+                url: "<?php echo site_url('seguimiento/send') ?>",
+                data: {
+                    nome: nome,
+                    correode: correode,
+                    msg: mensajeConPie,
+                    correopara: destinatario,
+                    secure: secure,
+                    asunto: asunto
+                },
+                method: 'POST',
+                async: false,
+                success: function(data){
+                    alert("Correo enviado a " + destinatario + ": " + data);
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert("Error al enviar correo a " + destinatario + ": " + xhr.status + " - " + thrownError);
+                }
+            });
+    });
 }
 
 
