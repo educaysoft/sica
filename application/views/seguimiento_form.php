@@ -76,7 +76,8 @@ foreach ($correosde as $row){
 <div class="col-md-10">
 
 
-
+         <select class="form-control" id="idpersona" name="idpersona" multiple required size="30" style="height: 100%;"   onChange='get_seguimiento_xx()'>
+                 <option>No Selected</option>
           </select>
     </div>
 
@@ -121,9 +122,7 @@ foreach ($correosde as $row){
 
 
 
-echo '<a class="btn"  onclick="correomasivo()">Enviar correo</a>';
-
-
+echo '<a class="btn"  onclick="enviar_correo()">Enviar correo</a>';
 
 
 
@@ -666,19 +665,21 @@ function get_seguimiento_xx() {
 }
 
 
+
+
 function correomasivo()
 {
 
- const selectElement = document.getElementById('idpersona');
+
+const selectElement = document.getElementById('idpersona');
     const selectedOptions = Array.from(selectElement.selectedOptions);
     
     const correos = selectedOptions.map(option => option.value);
-
+    
+    console.log(correos); // Muestra el arreglo de correos en la
 
 
 }
-
-
 
 
 
