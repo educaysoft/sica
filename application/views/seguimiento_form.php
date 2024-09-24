@@ -76,8 +76,7 @@ foreach ($correosde as $row){
 <div class="col-md-10">
 
 
-         <select class="form-control" id="idpersona" name="idpersona" multiple required size="30" style="height: 100%;"   onChange='get_seguimiento_xx()'>
-                 <option>No Selected</option>
+
           </select>
     </div>
 
@@ -85,8 +84,44 @@ foreach ($correosde as $row){
 
 
 
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Asunto:</label>
+						<div class="col-md-10">
+							<input type="text" name="asunto" id="asunto" class="form-control" placeholder="asunto">  
+						</div>
+					</div>
 
 
+
+
+										
+					<div class="form-group row">
+					<label class="col-md-2 col-form-label"> Comentario:</label>
+					<div class="col-md-10" contenteditable="true" >
+					<?php
+					$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:100%;height:100px;', "placeholder"=>"comentario",'id'=>'comentario' );
+					echo form_textarea("comentario","",$textarea_options);
+
+					?>
+					</div>
+					</div>
+
+
+
+					<div class="form-group row">
+					<label class="col-md-2 col-form-label"> Pie:</label>
+					<div class="col-md-10">
+					<?php
+					$textarea_options = array('class' => 'form-control','rows' => '4',   'cols' => '20', 'style'=> 'width:100%;height:100px;', "placeholder"=>"pies",'id'=>'pies' );
+					echo form_textarea("pies","",$textarea_options);
+
+					?>
+					</div>
+					</div>
+
+
+
+echo '<a class="btn"  onclick="correomasivo()">Enviar correo</a>';
 
 
 
@@ -631,7 +666,17 @@ function get_seguimiento_xx() {
 }
 
 
+function correomasivo()
+{
 
+ const selectElement = document.getElementById('idpersona');
+    const selectedOptions = Array.from(selectElement.selectedOptions);
+    
+    const correos = selectedOptions.map(option => option.value);
+
+
+
+}
 
 
 
