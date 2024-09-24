@@ -731,9 +731,8 @@ function correomasivo() {
     var asunto = document.getElementById("asunto").value; // Asunto del correo
     
     var foot0 = "<br><div style='text-align:center; background-color:lightgrey;'>  <a href='https://repositorioutlvte.org/Repositorio/publicidad/carreratecnologiadelainformacion2024.jpg'><img src='https://repositorioutlvte.org/Repositorio/publicidad/carreratecnologiadelainformacion2024.jpg'></a><br><br></div>";
-    var foot = " <div style='text-align:center; background-color:lightgrey; font-size:12px;'> Este correo ha sido enviado a {correo_destinatario}, de acuerdo a la Ley Orgánica de Protección de datos...<br><br> Este correo fue generado y enviado automáticamente desde el sistema cloud elaborado desde la Maestría en Tecnología de la Información</div>";
+    var foot = " <div style='text-align:center; background-color:lightgrey; font-size:12px;'> Este correo ha sido enviado a {correo_destinatario}, de acuerdo a la Ley Orgánica de Protección de datos...<br><br> Este correo fue generado y enviado automáticamente desde el sistema cloud elaborado por docentes y estudiantes de Ingenieria de Software de la carrera en Tecnología de la Información</div>";
     
-    alert(msg);
     msg = head + msg + foot0 + foot;
     
     // Convertir correopara en un array de destinatarios
