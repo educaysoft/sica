@@ -677,7 +677,7 @@ const selectElement = document.getElementById('idpersona');
     const selectedOptions = Array.from(selectElement.selectedOptions);
     
     const correos = selectedOptions.map(option => option.value);
-    
+    alert(correos); 
     console.log(correos); // Muestra el arreglo de correos en la
 
 
